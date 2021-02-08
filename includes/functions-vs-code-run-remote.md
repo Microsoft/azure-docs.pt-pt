@@ -4,16 +4,16 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 01/28/2021
 ms.author: glenga
-ms.openlocfilehash: 4b15fec0f22db740bbd7c24fcc0acf2ad1a2d1cd
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 121b10cc568cce089c90e66b9c6f292c74f4acbe
+ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99493514"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99809574"
 ---
 ## <a name="run-the-function-in-azure"></a>Executar a função em Azure
 
-1. De volta ao **Azure: Área de funções** na barra lateral, expandir funções **de projeto**  >  **locais**. Clique à direita (Windows) ou <kbd>Ctrl -</kbd> clique (macOS) na `HttpExample` função e escolha **Executar Função Agora...**.
+1. De volta ao **Azure: Funções** na barra lateral, expandir a sua subscrição, a sua nova aplicação de funções e **funções**. Clique à direita (Windows) ou <kbd>Ctrl -</kbd> clique (macOS) na `HttpExample` função e escolha **Executar Função Agora...**.
 
     :::image type="content" source="media/functions-vs-code-run-remote/execute-function-now.png" alt-text="Executar função agora em Azure a partir do Código do Estúdio Visual":::
 

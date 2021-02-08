@@ -1,79 +1,72 @@
 ---
-title: 'Início rápido: Ativar o serviço'
+title: A bordo do Defender para solução baseada em agente IoT
 description: Aprenda a bordo e ative o serviço de segurança IoT no seu Azure IoT Hub.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
-author: mlottner
+author: shhazam-ms
 manager: rkarlin
 editor: ''
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/06/2020
-ms.author: mlottner
-ms.openlocfilehash: e3768ef233c60f1687bc804778c3dabf32666e1d
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.date: 1/20/2021
+ms.author: shhazam
+ms.openlocfilehash: 127e439a7740cb97cbe126071aaaa5245cd85782
+ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97835164"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99809138"
 ---
-# <a name="quickstart-onboard-azure-defender-for-iot-service-in-iot-hub"></a>Quickstart: A bordo Azure Defender para serviço IoT no IoT Hub
+# <a name="onboard-to-defender-for-iot-agent-based-solution"></a>A bordo do Defender para solução baseada em agente IoT
 
-Este artigo fornece uma explicação de como ativar o serviço Defender for IoT no seu IoT Hub existente. Se não tiver atualmente um Hub IoT, consulte [Criar um Hub IoT utilizando o portal Azure](../iot-hub/iot-hub-create-through-portal.md) para começar.
+Este artigo explica como ativar o serviço Defender para IoT no seu IoT Hub existente. Se não tiver atualmente um Hub IoT, consulte [Criar um Hub IoT utilizando o portal Azure](../iot-hub/iot-hub-create-through-portal.md) para começar.
+
+Você pode gerir a sua segurança IoT através do IoT Hub in Defender para IoT. O portal de gestão localizado no IoT Hub permite-lhe fazer o seguinte: 
+
+- Gerir a segurança do IoT Hub.
+
+- Gestão básica da segurança de um dispositivo IoT sem instalar um agente baseado na telemetria IoT Hub. 
+
+- Gestão avançada para a segurança de um dispositivo IoT baseado no micro-agente.
 
 > [!NOTE]
 > Atualmente, o Defender for IoT apenas suporta os hubs IoT de nível padrão.
 
-## <a name="prerequisites-for-enabling-the-service"></a>Pré-requisitos para permitir o serviço
+## <a name="onboard-to-defender-for-iot-in-iot-hub"></a>A bordo do Defender para IoT no IoT Hub
 
-- Área de trabalho do Log Analytics
-  - Dois tipos de informação são armazenados por padrão no seu espaço de trabalho Log Analytics pelo Defender para IoT; **alertas** e **recomendações de** segurança.
-  - Pode optar por adicionar armazenamento de um tipo de informação adicional, **eventos crus.** Note que armazenar **eventos crus** no Log Analytics tem custos adicionais de armazenamento.
-- Hub IoT (nível padrão)
-- Conheça todos os [pré-requisitos do Sistema.](quickstart-system-prerequisites.md)
+Para todos os novos hubs IoT, o Defender for IoT está definido para **On** por padrão. Pode verificar se o Defender for IoT está ligado a **On** durante o processo de criação do IoT Hub.
 
-## <a name="enable-defender-for-iot-on-your-iot-hub"></a>Ativar o Defender para IoT no seu IoT Hub
+Para verificar o toggle está definido para **:**
 
-Para ativar a segurança no seu Hub IoT:
+1. Navegue para o portal do Azure.
 
-1. Abra o seu **Hub IoT** no portal Azure.
-1. No menu **Segurança,** clique em **Secure your IoT solution**.
+1. Selecione **IoT Hub** da lista de serviços Azure.
 
-Parabéns! Completou a habilitação do Defender para IoT no seu IoT Hub.
+1. Selecione **Criar**.
 
-### <a name="geolocation-and-ip-address-handling"></a>Geolocalização e tratamento de endereços IP
+    :::image type="content" source="media/quickstart-onboard-iot-hub/create-iot-hub.png" alt-text="Selecione o botão de criar a partir da barra de ferramentas superior." lightbox="media/quickstart-onboard-iot-hub/create-iot-hub-expanded.png":::
 
-Para garantir a sua solução IoT, os endereços IP das ligações de entrada e saída de e para os seus dispositivos IoT, IoT Edge e IoT Hub(s) são recolhidos e armazenados por padrão. Esta informação é essencial para detetar conectividade anormal a partir de fontes ip suspeitas. Por exemplo, quando se tentam estabelecer ligações a partir de uma fonte de IP de uma botnet conhecida ou de uma fonte de IP fora da sua geolocalização. O serviço Defender for IoT oferece a flexibilidade para permitir e desativar a recolha de dados de endereços IP a qualquer momento.
+1. Selecione o separador **Gestão** e verifique se o defender para o **toggle IoT** está definido para **On**.
 
-Para ativar ou desativar a recolha de dados de endereços IP:
+    :::image type="content" source="media/quickstart-onboard-iot-hub/management-tab.png" alt-text="Certifique-se de que o Defender para o toggle IoT está ligado.":::
 
-1. Abra o seu Hub IoT e, em seguida, **selecione Definições** do menu **Segurança.**
-1. Escolha o ecrã **de Recolha de Dados** e modifique as definições de geolocalização e/ou manuseamento IP conforme desejar.
+## <a name="onboard-defender-for-iot-to-an-existing-iot-hub"></a>Defender a bordo para IoT para um hub IoT existente
 
-### <a name="log-analytics-creation"></a>Criação log analytics
+Pode monitorizar a gestão da identidade do seu dispositivo, dispositivo para nuvem e nuvem para padrões de comunicação do dispositivo, fazer o seguinte para iniciar o serviço: 
 
-Quando o Defender for IoT é ligado, é criado um espaço de trabalho padrão do Azure Log Analytics para armazenar eventos de segurança bruto, alertas e recomendações para os seus dispositivos IoT, IoT Edge e IoT Hub. Todos os meses, os primeiros cinco (5) GB de dados ingeridos por cliente para o serviço Azure Log Analytics são gratuitos. Cada GB de dados ingeridos no seu espaço de trabalho Azure Log Analytics é mantido gratuitamente durante os primeiros 31 dias. Saiba mais sobre os preços [do Log Analytics.](https://azure.microsoft.com/pricing/details/monitor/)
+1. Navegue até ao Hub IoT. 
 
-Para alterar a configuração do espaço de trabalho do Log Analytics:
+1. Selecione o menu **de visão geral de segurança.**   
 
-1. Abra o seu Hub IoT e, em seguida, **selecione Definições** do menu **Segurança.**
-1. Escolha o ecrã **de Recolha de Dados** e modifique a configuração do espaço de trabalho das definições de Log Analytics como desejar.
+1. Clique em Secure your IoT solution and complete the onboarding form. 
 
-### <a name="customize-your-iot-security-solution"></a>Personalize a sua solução de segurança IoT
-
-Por predefinição, ligar a solução Defender para IoT protege automaticamente todos os Hubs IoT sob a sua subscrição Azure.
-
-Para ligar ou desligar o Defender para um serviço IoT específico:
-
-1. Abra o seu Hub IoT e, em seguida, **selecione Definições** do menu **Segurança.**
-1. Escolha o ecrã **de Recolha de Dados** e modifique as definições de segurança de qualquer hub IoT na sua subscrição Azure como desejar.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 Avance para o próximo artigo para configurar a sua solução...
 
 > [!div class="nextstepaction"]
-> [Configurar a sua solução](quickstart-configure-your-solution.md)
+> [Criar um módulo de micro-agente Defender Iot twin (Preview)](quickstart-create-micro-agent-module-twin.md)

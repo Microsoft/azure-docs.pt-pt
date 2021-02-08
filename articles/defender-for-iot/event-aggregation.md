@@ -1,30 +1,30 @@
 ---
-title: Agregação de eventos
+title: Agregação clássica de evento de módulo de segurança
 description: Saiba mais sobre a agregação de eventos defender para ioT.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
-author: mlottner
+author: shhazam-ms
 manager: rkarlin
 editor: ''
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/03/2020
-ms.author: mlottner
-ms.openlocfilehash: c823f0034db7d5fbe1f6b46f6af74e9fa374a6de
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.date: 1/20/2021
+ms.author: shhazam
+ms.openlocfilehash: 0718c2637658e5519760a68f29c7a816b2aa61a1
+ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97832374"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99809223"
 ---
-# <a name="defender-for-iot-event-aggregation"></a>Defender para agregação de eventos IoT
+# <a name="security-module-classic-event-aggregation"></a>Agregação clássica de evento de módulo de segurança
 
-O Defender para os agentes de segurança IoT recolhe dados e eventos do sistema a partir do seu dispositivo local e envia estes dados para a nuvem Azure para processamento e análise. O agente de segurança recolhe muitos tipos de eventos de dispositivos, incluindo novos processos e novos eventos de conexão. Tanto novos eventos de processo como novos eventos de conexão podem ocorrer legitimamente frequentemente num dispositivo dentro de um segundo, e embora importante para uma segurança robusta e abrangente, o número de mensagens que os agentes de segurança são forçados a enviar pode rapidamente alcançar ou exceder a sua quota IoT Hub e limites de custos. No entanto, estes eventos contêm informações de segurança altamente valiosas que são cruciais para proteger o seu dispositivo.
+O Defender para agentes de segurança IoT recolhe dados e eventos do sistema a partir do seu dispositivo local e envia estes dados para a nuvem Azure para processamento e análise. O agente de segurança recolhe muitos tipos de eventos de dispositivos, incluindo novos processos e novos eventos de conexão. Tanto novos eventos de processo como novos eventos de conexão podem ocorrer legitimamente frequentemente num dispositivo dentro de um segundo, e embora importante para uma segurança robusta e abrangente, o número de mensagens que os agentes de segurança são forçados a enviar pode rapidamente alcançar ou exceder a sua quota IoT Hub e limites de custos. No entanto, estes eventos contêm informações de segurança altamente valiosas que são cruciais para proteger o seu dispositivo.
 
-Para reduzir a quota e os custos adicionais, mantendo os seus dispositivos protegidos, o Defender for IoT Agents agrega este tipo de eventos.
+Para reduzir a quota extra e os custos, mantendo os seus dispositivos protegidos, o Defender for IoT Agents agrega este tipo de eventos.
 
 A agregação do evento está **ligada** por predefinição e, embora não recomendada, pode ser desligada manualmente **a** qualquer momento.
 
@@ -45,7 +45,7 @@ Para reduzir a pegada de memória do agente, sempre que o agente recolhe um even
 Os acontecimentos são considerados idênticos apenas quando as seguintes condições são satisfeitas:
 
 * Eventos ProcessCreate - quando **commandLine,** **executável,** **username**, e **userid** são idênticos
-* Eventos De Conexão - quando **o commandLine**, **userId**, **direction,** **local address,** **endereço remoto,****protocolo e **porta de destino** são idênticos
+* Conexões Eventos - quando **o comandoLine**, **userId**, **direction,** **local address,** **endereço remoto,** **protocolo** e porta **de destino** são idênticos.
 * Eventos processterminados - quando **executáveis** e **o estado de saída** são idênticos
 
 ### <a name="working-with-aggregated-events"></a>Trabalhar com eventos agregados
@@ -70,11 +70,11 @@ Faça alterações na configuração da agregação de eventos Defender para IoT
 | Nome de configuração | Valores possíveis | Detalhes | Observações |
 |:-----------|:---------------|:--------|:--------|
 | agregaçãoEnabledProcessCreate | boolean | Ativar /desativar a agregação de eventos para criar eventos |
-| agregaçãoIntervalProcessCreate | Cadeia ISO8601 Timespan | Intervalo de agregação para processo criar eventos |
+| agregaçãoIntervalProcessCreate | Cadeia ISO8601 Timespan | Intervalo de agregação para processo cria eventos |
 | agregaçãoEnabledConnectionCreate | boolean| Ativar /desativar a agregação de eventos para criar eventos de conexão |
-| agregaçãoIntervalConnectionCreate | Cadeia ISO8601 Timespan | Intervalo de agregação para ligação criar eventos |
+| agregaçãoIntervalConnectionCreate | Cadeia ISO8601 Timespan | Intervalo de agregação para ligação cria eventos |
 | agregaçãoEnabledProcessTerminar | boolean | Ativar /desativar a agregação de eventos para eventos de terminação de processos | Apenas no Windows|
-| agregaçãoIntervalProcessTerminar | Cadeia ISO8601 Timespan | Intervalo de agregação para eventos de terminação de processos | Apenas no Windows|
+| agregaçãoIntervalProcessTerminar | Cadeia ISO8601 Timespan | Intervalo de agregação para processo termina eventos | Apenas no Windows|
 |
 
 ## <a name="default-configurations-settings"></a>Configurações predefinidos

@@ -4,30 +4,30 @@ description: Saiba mais sobre o módulo de segurança para suporte e implementa�
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
-author: mlottner
+author: shhazam-ms
 manager: rkarlin
 editor: ''
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/07/2020
-ms.author: mlottner
-ms.openlocfilehash: 9950f3727aac365205e979d9590edacebd32f1fc
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.date: 01/14/2021
+ms.author: shhazam
+ms.openlocfilehash: 47b2b49a21a82be13c987b95c7c775f5014a532e
+ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97832748"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99809087"
 ---
 # <a name="overview-defender-for-iot-security-module-for-azure-rtos-preview"></a>Visão geral: Defender para módulo de segurança IoT para Azure RTOS (pré-visualização)
 
-O módulo de segurança Azure Defender for IoT fornece uma solução de segurança abrangente para dispositivos que utilizam O Azure RTOS. Fornece cobertura para ameaças comuns e potenciais atividades maliciosas em dispositivos do sistema operativo em tempo real (RTOS). A Azure RTOS agora envia com o módulo de segurança Azure IoT incorporado.
+O Azure Defender para micro módulo IoT fornece uma solução de segurança abrangente para dispositivos que utilizam O Azure RTOS. Fornece cobertura para ameaças comuns e potenciais atividades maliciosas em dispositivos do sistema operativo em tempo real (RTOS). A Azure RTOS agora envia com o módulo de segurança Azure IoT incorporado.
 
 :::image type="content" source="./media/architecture/azure-rtos-security-monitoring.png" alt-text="Visualização do Defender para IoT Azure RTOS.":::
 
 
-O módulo de segurança da Azure RTOS oferece as seguintes funcionalidades:
+O micro módulo para Azure RTOS oferece as seguintes funcionalidades:
 
 - Deteção maliciosa de atividades de rede
 - Baseamento de comportamento do dispositivo personalizado baseado em alerta

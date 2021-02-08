@@ -8,14 +8,14 @@ ms.date: 01/04/2021
 ms.author: chhenk
 ms.reviewer: azmetadatadev
 ms.custom: references_regions
-ms.openlocfilehash: 0b04ebd9672990738d77bc5ae09d7f7fae4ffb9d
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 0121ea65b190f254f032085133f12f6eb0f374ca
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99500468"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99808486"
 ---
-# <a name="azure-instance-metadata-service-imds"></a>Serviço de metadados de caso Azure (IMDs)
+# <a name="azure-instance-metadata-service"></a>Azure Instance Metadata Service
 
 O Azure Instance Metadata Service (IMDS) fornece informações sobre casos de máquinas virtuais atualmente em execução. Pode usá-lo para gerir e configurar as suas máquinas virtuais.
 Esta informação inclui o SKU, armazenamento, configurações de rede e eventos de manutenção futuros. Para obter uma lista completa dos dados disponíveis, consulte o Resumo das [Categorias endpoint](#endpoint-categories).
@@ -88,7 +88,7 @@ Em geral, os pedidos ao IMDS limitam-se a 5 pedidos por segundo. Os pedidos que 
 
 Os seguintes verbos HTTP são atualmente suportados:
 
-| Verbo | Descrição |
+| Verbo | Description |
 |------|-------------|
 | `GET` | Recuperar o recurso solicitado
 
@@ -268,7 +268,7 @@ O ponto final da raiz é `http://169.254.169.254/metadata` .
 
 A API IMDS contém várias categorias de pontos finais que representam diferentes fontes de dados, cada uma das quais contém um ou mais pontos finais. Consulte cada categoria para mais detalhes.
 
-| Raiz de categoria | Descrição | Versão introduzida |
+| Raiz de categoria | Description | Versão introduzida |
 |---------------|-------------|--------------------|
 | `/metadata/attested` | Ver [Dados Attestados](#attested-data) | 2018-10-01
 | `/metadata/identity` | Ver [Identidade Gerida via IMDS](#managed-identity) | 2018-02-01
@@ -332,7 +332,7 @@ Desagregação do esquema:
 
 **Computação**
 
-| Dados | Descrição | Versão introduzida |
+| Dados | Description | Versão introduzida |
 |------|-------------|--------------------|
 | `azEnvironment` | Ambiente azul onde o VM está em execução | 2018-10-01
 | `customData` | Esta funcionalidade encontra-se atualmente desativada. Atualizaremos esta documentação quando estiver disponível | 2019-02-01
@@ -373,7 +373,7 @@ O perfil de armazenamento de um VM é dividido em três categorias: referência 
 
 O objeto de referência de imagem contém as seguintes informações sobre a imagem do SO:
 
-| Dados | Descrição |
+| Dados | Description |
 |------|-------------|
 | `id` | ID do Recurso
 | `offer` | Oferta da plataforma ou imagem de mercado
@@ -383,7 +383,7 @@ O objeto de referência de imagem contém as seguintes informações sobre a ima
 
 O objeto do disco OS contém as seguintes informações sobre o disco de oss utilizado pelo VM:
 
-| Dados | Descrição |
+| Dados | Description |
 |------|-------------|
 | `caching` | Requisitos de caching
 | `createOption` | Informação sobre como o VM foi criado
@@ -398,7 +398,7 @@ O objeto do disco OS contém as seguintes informações sobre o disco de oss uti
 
 A matriz de discos de dados contém uma lista de discos de dados anexados ao VM. Cada objeto de disco de dados contém as seguintes informações:
 
-Dados | Descrição |
+Dados | Description |
 -----|-------------|
 | `caching` | Requisitos de caching
 | `createOption` | Informação sobre como o VM foi criado
@@ -414,7 +414,7 @@ Dados | Descrição |
 
 **Rede**
 
-| Dados | Descrição | Versão introduzida |
+| Dados | Description | Versão introduzida |
 |------|-------------|--------------------|
 | `ipv4.privateIpAddress` | Endereço IPv4 local do VM | 2017-04-02
 | `ipv4.publicIpAddress` | Endereço IPv4 público do VM | 2017-04-02
@@ -746,7 +746,7 @@ Para os VMs criados utilizando o modelo de implementação clássico, apenas o `
 
 O documento descodificado contém os seguintes campos:
 
-| Dados | Descrição | Versão introduzida |
+| Dados | Description | Versão introduzida |
 |------|-------------|--------------------|
 | `licenseType` | Tipo de licença para [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit). Isto só está presente para VMs ativados por AHB. | 2020-09-01
 | `nonce` | Uma corda que pode ser opcionalmente fornecida com o pedido. Se não `nonce` for fornecida, utiliza-se a atual estação de tempo universal coordenada. | 2018-10-01

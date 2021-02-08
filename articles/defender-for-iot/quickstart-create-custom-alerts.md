@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Criar alertas personalizados'
+title: Criar alertas personalizados
 description: Compreenda, crie e atribua alertas de dispositivos personalizados para o Azure Defender para o serviço de segurança IoT.
 services: defender-for-iot
 ms.service: defender-for-iot
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/04/2020
 ms.author: mlottner
-ms.openlocfilehash: 48682e465374c1a0e1fb74fc6627016696ff6d2c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e59bcca9561c33610170f4bc3674eef307cf0de9
+ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90948527"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99809051"
 ---
-# <a name="quickstart-create-custom-alerts"></a>Quickstart: Criar alertas personalizados
+# <a name="create-custom-alerts"></a>Criar alertas personalizados
 
 Utilizando grupos de segurança personalizados e alertas, aproveita ao máximo as informações de segurança de ponta a ponta e o conhecimento categórico do dispositivo para garantir uma melhor segurança em toda a sua solução IoT.
 
@@ -65,17 +65,23 @@ Utilize grupos de segurança para agrupar os seus dispositivos em categorias ló
 
 ## <a name="customize-an-alert"></a>Personalize um alerta
 
-1. Abra o seu Hub IoT e selecione **Definições** do menu **Segurança.** 
-1. Clique em **alertas personalizados.**
+1. Abra o seu Hub IoT e selecione **Definições** do menu **Segurança.**
+
+1. Selecione em **alertas personalizados.**
+
 1. Escolha um grupo de segurança a que deseje aplicar a personalização.
-1. Clique **em Adicionar um alerta personalizado.**
+
+1. **Selecione Adicione um alerta personalizado.**
+
 1. Selecione um alerta personalizado da lista de dropdown.
-1. Editar as propriedades necessárias, clique **em OK**.
-1. Certifique-se de clicar em **SAVE**. Sem guardar o novo alerta, o alerta é apagado da próxima vez que fechar o IoT Hub.
+
+1. Editar as propriedades necessárias, selecione **OK**.
+
+1. Certifique-se de selecionar **SAVE**. Sem guardar o novo alerta, o alerta é apagado da próxima vez que fechar o IoT Hub.
 
 ## <a name="alerts-available-for-customization"></a>Alertas disponíveis para personalização
 
-O Defender for IoT oferece um grande número de alertas que podem ser personalizados de acordo com as suas necessidades específicas. Reveja a [tabela de alerta personalizável](concept-customizable-security-alerts.md) para a gravidade do alerta, fonte de dados, descrição e as nossas medidas de reparação sugeridas se e quando cada alerta for recebido.
+O Defender for IoT oferece um grande número de alertas, que podem ser personalizados de acordo com as suas necessidades específicas. Reveja a [tabela de alerta personalizável](concept-customizable-security-alerts.md) para a gravidade do alerta, fonte de dados, descrição e as nossas medidas de reparação sugeridas se e quando cada alerta for recebido.
 
 ## <a name="next-steps"></a>Passos seguintes
 

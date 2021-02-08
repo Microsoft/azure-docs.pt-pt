@@ -3,12 +3,12 @@ title: Criar uma função em Go ou Rust usando Código de Estúdio Visual - Fun�
 description: Aprenda a criar uma função Go como manipulador personalizado Azure Functions e, em seguida, publique o projeto local para hospedagem sem servidor em Funções Azure utilizando a extensão de Funções Azure no Código do Estúdio Visual.
 ms.topic: quickstart
 ms.date: 12/4/2020
-ms.openlocfilehash: 4f2e0b30c4bf5e6c4629fc63f3125e5ddda70ad2
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: a3ef7bdd19badf7a7deaa8376440016e39e0d14b
+ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99493668"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99809584"
 ---
 # <a name="quickstart-create-a-go-or-rust-function-in-azure-using-visual-studio-code"></a>Quickstart: Criar uma função Go ou Rust em Azure usando Código de Estúdio Visual
 
@@ -262,7 +262,7 @@ Nesta secção, publica o seu projeto para a Azure numa aplicação de função 
     ```cmd
     set GOOS=linux
     set GOARCH=amd64
-    go build hello.go
+    go build handler.go
     ```
 
     Mude o `defaultExecutablePath` *inhost.js* de `handler.exe` `handler` . Isto instrui a aplicação de função para executar o binário Linux.

@@ -3,16 +3,16 @@ title: Ligue a sua conta GCP ao Azure Security Center
 description: Monitorização dos seus recursos GCP a partir do Centro de Segurança Azure
 author: memildin
 ms.author: memildin
-ms.date: 01/24/2021
+ms.date: 02/07/2021
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: d5f8278765c3f62fded44e4b89fb5fded6137c94
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 8ee7b37861be299dd36a596ae1cd4899b0ebffab
+ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98757615"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99809410"
 ---
 #  <a name="connect-your-gcp-accounts-to-azure-security-center"></a>Ligue as suas contas GCP ao Azure Security Center
 
@@ -20,7 +20,7 @@ Com cargas de trabalho em nuvem geralmente abrangendo várias plataformas de nuv
 
 O Azure Security Center protege cargas de trabalho em Azure, Amazon Web Services (AWS) e Google Cloud Platform (GCP).
 
-A bordo da sua conta GCP no Centro de Segurança, integra o Comando de Segurança GCP e o Centro de Segurança Azure. O Centro de Segurança proporciona, assim, visibilidade e proteção em ambos os ambientes em nuvem para fornecer:
+A bordo das suas contas GCP no Centro de Segurança, integra o Comando de Segurança GCP e o Centro de Segurança Azure. O Centro de Segurança proporciona, assim, visibilidade e proteção em ambos os ambientes em nuvem para fornecer:
 
 - Deteção de erros de segurança
 - Uma única visão mostrando recomendações do Centro de Segurança e conclusões do Centro de Comando de Segurança GCP
@@ -39,12 +39,15 @@ Na imagem abaixo pode ver projetos GCP apresentados no painel de visão geral do
 |Estado de libertação:|Disponibilidade Geral (GA)|
 |Preços:|Requer [Azure Defender para servidores](defender-for-servers-introduction.md)|
 |Funções e permissões necessárias:|**Proprietário** ou **Colaborador** na assinatura Azure relevante|
-|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Não](./media/icons/no-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
+|Nuvens:|![Yes](./media/icons/yes-icon.png) Nuvens comerciais<br>![No](./media/icons/no-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
 |||
 
 ## <a name="connect-your-gcp-account"></a>Ligar a conta GCP
 
-Siga os passos abaixo para criar o seu conector de nuvem GCP. 
+Siga os passos abaixo para criar o seu conector de nuvem GCP para ligar os seus recursos google Cloud a nível de organização ou projeto. 
+
+> [!TIP]
+> Conheça a hierarquia de recursos do Google Cloud nos seus docs online [aqui.](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy)
 
 ### <a name="step-1-set-up-gcp-security-command-center-with-security-health-analytics"></a>Passo 1. Criar o Centro de Comando de Segurança GCP com Análise de Saúde de Segurança
 
@@ -121,7 +124,16 @@ Para ver todas as recomendações ativas para os seus recursos por tipo de recur
 :::image type="content" source="./media/quickstart-onboard-gcp/gcp-resource-types-in-inventory.png" alt-text="Filtro de tipo de recurso da página de inventário de ativos mostrando as opções de GCP"::: 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="faq-for-connecting-gcp-accounts-to-azure-security-center"></a>FAQ para ligar contas GCP ao Azure Security Center
+
+### <a name="can-i-connect-multiple-gcp-accounts-to-security-center"></a>Posso ligar várias contas GCP ao Centro de Segurança?
+Sim. Como mencionado acima, pode ligar os seus recursos google Cloud a nível de organização ou projeto. Conheça a hierarquia de recursos do Google Cloud nos seus docs online [aqui.](https://cloud.google.com/resource-manager/docs/cloud-platform-resource-hierarchy)
+
+
+### <a name="is-there-an-api-for-connecting-my-gcp-resources-to-security-center"></a>Existe alguma API para ligar os meus recursos GCP ao Centro de Segurança?
+Sim. Para criar, editar ou eliminar conectores de nuvem do Centro de Segurança com uma API REST, consulte os detalhes da API dos [Conectores](/rest/api/securitycenter/connectors).
+
+## <a name="next-steps"></a>Passos seguintes
 
 A ligação da sua conta GCP faz parte da experiência multi-nuvem disponível no Azure Security Center. Para obter informações relacionadas, consulte a seguinte página:
 

@@ -9,12 +9,12 @@ author: rolyon
 ms.author: rolyon
 ms.date: 02/01/2021
 ms.custom: generated
-ms.openlocfilehash: 3b7b65a558470c4e7f04ed84ea186fc1ea98bc40
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: 384d00ee41f2b6bfc2e91815bfcf54819c7d9ab2
+ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99557336"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99809385"
 ---
 # <a name="azure-built-in-roles"></a>Funções incorporadas do Azure
 
@@ -75,6 +75,7 @@ A tabela seguinte fornece uma breve descrição e a identificação única de ca
 > | [Remetente de mensagem de dados de fila de armazenamento](#storage-queue-data-message-sender) | Adicione mensagens a uma fila de armazenamento Azure. Para saber quais as ações necessárias para uma determinada operação de [dados, consulte permissões para chamadas de operações de dados de bolhas e filas](/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). | c6a89b2d-59bc-44d0-9896-0f6e12d7b80a |
 > | [Leitor de dados de fila de armazenamento](#storage-queue-data-reader) | Leia e enuma as filas de armazenamento do Azure e as mensagens de fila. Para saber quais as ações necessárias para uma determinada operação de [dados, consulte permissões para chamadas de operações de dados de bolhas e filas](/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-blob-and-queue-data-operations). | 19e7f393-937e-4f77-808e-94535e297925 |
 > | **Web** |  |  |
+> | [Colaborador de dados do Azure Maps](#azure-maps-data-contributor) | Concede acesso à leitura, escrita e exclusão do acesso a dados relacionados com mapas a partir de uma conta de mapas Azure. | 8f5e0ce6-4f7b-4dcf-bddf-e6f48634a204 |
 > | [Leitor de dados Azure Maps](#azure-maps-data-reader) | Concede acesso a ler dados relacionados com mapas a partir de uma conta de mapas Azure. | 423170ca-a8f6-4b0f-8487-9e4eb8f49bfa |
 > | [Colaborador do Serviço de Pesquisa](#search-service-contributor) | Permite-lhe gerir os serviços de Pesquisa, mas não o acesso aos mesmos. | 7ca78c08-252a-4471-8644-bb5ff32d4ba0 |
 > | [Leitor Signalr AccessKey](#signalr-accesskey-reader) | Leia as teclas de acesso do serviço Signalr | 04165923-9d83-45d5-8227-78b77b0a687e |
@@ -129,7 +130,15 @@ A tabela seguinte fornece uma breve descrição e a identificação única de ca
 > | [Acesso ao nó do membro blockchain (visualização)](#blockchain-member-node-access-preview) | Permite o acesso aos nóns do Membro Blockchain | 31a002a1-acaf-453e-8a5b-297c9ca1ea24 |
 > | **IA + machine learning** |  |  |
 > | [Colaborador dos Serviços Cognitivos](#cognitive-services-contributor) | Permite criar, ler, atualizar, eliminar e gerir chaves dos Serviços Cognitivos. | 25fbc0a9-bd7c-42a3-aa1a-3b75d497ee68 |
+> | [Colaborador de Visão Personalizada de Serviços Cognitivos](#cognitive-services-custom-vision-contributor) | Acesso total ao projeto, incluindo a capacidade de visualizar, criar, editar ou apagar projetos. | c1ff6cc2-c111-46fe-8896-e0ef812ad9f3 |
+> | [Implementação de visão personalizada de serviços cognitivos](#cognitive-services-custom-vision-deployment) | Publique, não publique ou exporte modelos. A implementação pode ver o projeto, mas não pode atualizar. | 5c4089e1-6d96-4d2f-b296-c1bc7137275f |
+> | [Etiquetador de visão personalizada de serviços cognitivos](#cognitive-services-custom-vision-labeler) | Ver, editar imagens de treino e criar, adicionar, remover ou eliminar as etiquetas de imagem. Os labelers podem ver o projeto, mas não podem atualizar nada além de imagens de treino e tags. | 88424f51-ebe7-446f-bc41-7fa16989e96c |
+> | [Leitor de visão personalizada de serviços cognitivos](#cognitive-services-custom-vision-reader) | Apenas ações de leitura no projeto. Os leitores não podem criar ou atualizar o projeto. | 93586559-c37d-4a6b-ba08-b9f0940c2d73 |
+> | [Treinador de visão personalizada de serviços cognitivos](#cognitive-services-custom-vision-trainer) | Ver, editar projetos e formar os modelos, incluindo a capacidade de publicar, não publicar, exportar os modelos. Os treinadores não podem criar ou apagar o projeto. | 0a5ae4ab-0d65-4eeb-be61-29fc9b54394b |
 > | [Leitor de dados de serviços cognitivos (pré-visualização)](#cognitive-services-data-reader-preview) | Permite-lhe ler os dados dos Serviços Cognitivos. | b59867f0-fa02-499b-be73-45a86b3e1c |
+> | [Administrador consultivo de métricas de serviços cognitivos](#cognitive-services-metrics-advisor-administrator) | Acesso total ao projeto, incluindo a configuração do nível do sistema. | cb43c632-a144-4ec5-977c-e80c4affc34a |
+> | [Editor de Serviços Cognitivos QnA Maker](#cognitive-services-qna-maker-editor) | Vamos criar, editar, importar e exportar um KB. Não é possível publicar ou apagar um KB. | f4cc2bf9-21be-47a1-bdf1-5c5804381025 |
+> | [Leitor de fabricante de serviços cognitivos QnA](#cognitive-services-qna-maker-reader) | Vamos ler e testar um KB apenas. | 466ccd10-b268-4a11-b098-b4849f024126 |
 > | [Utilizador de Serviços Cognitivos](#cognitive-services-user) | Permite-lhe ler e listar as chaves dos Serviços Cognitivos. | a97b65f3-24c7-4388-baec-2e87135dc908 |
 > | **Realidade mista** |  |  |
 > | [Administrador de renderização remota](#remote-rendering-administrator) | Fornece ao utilizador capacidades de conversão, gestão de sessão, renderização e diagnóstico para renderização remota do Azure | 3df8b902-2a6f-47c7-8cc5-360e9b272a7e |
@@ -162,6 +171,8 @@ A tabela seguinte fornece uma breve descrição e a identificação única de ca
 > | [Colaborador de Identidade Gerido](#managed-identity-contributor) | Criar, Ler, Atualizar e Eliminar Identidade Atribuída ao Utilizador | e40ec5ca-96e0-45a2-b4ff-59039f2c2b59 |
 > | [Operador de identidade gerido](#managed-identity-operator) | Ler e atribuir identidade atribuída ao utilizador | f1a07417-d97a-45cb-824c-7a7467783830 |
 > | **Segurança** |  |  |
+> | [Colaborador attestation](#attestation-contributor) | Pode ler escrever ou apagar a instância do provedor de atestado | bbf86eb8-f7b4-4cce-96e4-18cddf81d86e |
+> | [Attestation Reader](#attestation-reader) | Pode ler as propriedades do fornecedor de atestado | fd1bd22b-8476-40bc-a0bc-69b95687b9f3 |
 > | [Contribuidor do Azure Sentinel](#azure-sentinel-contributor) | Contribuidor do Azure Sentinel | ab8e14d6-4a74-4a29-9ba8-549422addade |
 > | [Leitor do Azure Sentinel](#azure-sentinel-reader) | Leitor do Azure Sentinel | 8d289c81-5878-46d4-8554-54e1e3d8b5cb |
 > | [Dispositivo de Resposta do Azure Sentinel](#azure-sentinel-responder) | Dispositivo de Resposta do Azure Sentinel | 3e150937-b8fe-4cfb-8069-0eaf05ecd056 |
@@ -174,6 +185,7 @@ A tabela seguinte fornece uma breve descrição e a identificação única de ca
 > | [Key Vault Reader (pré-visualização)](#key-vault-reader-preview) | Leia metadados de cofres-chave e certificados, chaves e segredos. Não é possível ler valores sensíveis, tais como conteúdo secreto ou material chave. Só funciona para cofres-chave que utilizam o modelo de permissão de acesso baseado em funções "Azure". | 21090545-7ca7-4776-b22c-e363652d74d2 |
 > | [Key Vault Secrets Officer (pré-visualização)](#key-vault-secrets-officer-preview) | Execute qualquer ação sobre os segredos de um cofre, exceto gerir permissões. Só funciona para cofres-chave que utilizam o modelo de permissão de acesso baseado em funções "Azure". | b86a8fe4-44ce-4948-aee5-eccb2c155cd7 |
 > | [Utilizador de segredos de cofre chave (pré-visualização)](#key-vault-secrets-user-preview) | Leia conteúdo secreto. Só funciona para cofres-chave que utilizam o modelo de permissão de acesso baseado em funções "Azure". | 4633458b-17de-408a-b874-0445c86b69e6 |
+> | [Contribuinte gerido do HSM](#managed-hsm-contributor) | Permite-lhe gerir piscinas HSM geridas, mas não ter acesso a elas. | 18500a29-7fe2-46b2-a342-b16a415e101d |
 > | [Administrador de Segurança](#security-admin) | Ver e atualizar permissões para o Centro de Segurança. As mesmas permissões que a função de Leitor de Segurança também podem atualizar a política de segurança e rejeitar alertas e recomendações. | fb1c8493-542b-48eb-b624-b4c8fea62acd |
 > | [Contribuinte de Avaliação de Segurança](#security-assessment-contributor) | Permite-lhe fazer avaliações para o Centro de Segurança | 612c2aa1-cb24-443b-ac28-3ab7272de6f5 |
 > | [Gestor de Segurança (Legado)](#security-manager-legacy) | Este é um papel antigo. Por favor, use o Administrador de Segurança. | e3d13bf0-dd5a-482e-ba6b-9b8433878d10 |
@@ -210,6 +222,7 @@ A tabela seguinte fornece uma breve descrição e a identificação única de ca
 > | [Leitor de Grupo de Gestão](#management-group-reader) | Função de leitor de grupo de gestão | ac63b705-f282-497d-ac71-919bf39d939d |
 > | [Novo contribuinte da conta APM da relíquia](#new-relic-apm-account-contributor) | Permite-lhe gerir as contas e aplicações de Gestão de Desempenho de Aplicações Novas Relíquias, mas não o acesso às contas. | 5d28c62d-5b37-4476-8438-e5877788df237 |
 > | [Escritor de dados de insights de política (pré-visualização)](#policy-insights-data-writer-preview) | Permite ler o acesso às políticas de recursos e escrever acesso a eventos de política de componentes de recursos. | 66bb4e9e-b016-4a94-8249-4c0511c2be84 |
+> | [Comprador de Reservas](#reservation-purchaser) | Permite-lhe comprar reservas | f7b75c60-3036-4b75-91c3-6b41c27c1689 |
 > | [Contribuidor de Política de Recursos](#resource-policy-contributor) | Utilizadores com direitos de criar/modificar a política de recursos, criar bilhete de apoio e ler recursos/hierarquia. | 36243c78-bf99-498c-9df9-86d9f8d28608 |
 > | [Contribuidor do Site Recovery](#site-recovery-contributor) | Permite-lhe gerir o serviço de Recuperação de Sítios, exceto a criação de abóbada e atribuição de funções | 6670b86e-a3f7-4917-ac9b-5d6ab1be4567 |
 > | [Operador do Site Recovery](#site-recovery-operator) | Permite-lhe falhar e falhar, mas não realizar outras operações de gestão de Recuperação de Sítios | 494ae006-db33-4328-bf46-533a6560a3ca |
@@ -220,8 +233,22 @@ A tabela seguinte fornece uma breve descrição e a identificação única de ca
 > | [Proprietário de dados Azure Digital Twins](#azure-digital-twins-data-owner) | Papel de acesso completo para digital Twins data-plane | bcd981a7-7f74-457b-83e1-cceb9e632ffe |
 > | [Leitor de dados de gémeos digitais Azure](#azure-digital-twins-data-reader) | Papel apenas para propriedades de data-plane de Gémeos Digitais | d57506d4-4c8d-48b1-8587-93c323f6a5a3 |
 > | [Colaborador bizTalk](#biztalk-contributor) | Permite-lhe gerir os serviços BizTalk, mas não ter acesso aos mesmos. | 5e3c6656-6cfa-4708-81fe-0de47ac73342 |
+> | [Colaborador do Grupo de Aplicação de Virtualização desktop](#desktop-virtualization-application-group-contributor) | Colaborador do Grupo de Aplicação de Virtualização desktop. | 86240b0e-9422-4c43-887b-b61143f32ba8 |
+> | [Leitor de grupo de aplicação de virtualização de desktop](#desktop-virtualization-application-group-reader) | Leitor do Grupo de Aplicação de Virtualização desktop. | aebf23d0-b568-4e86-b8f9-fe83a2c6ab55 |
+> | [Colaborador de Virtualização do Ambiente de Trabalho](#desktop-virtualization-contributor) | Colaborador da Virtualização do Ambiente de Trabalho. | 082f0a83-3be5-4ba1-904c-961cca79b387 |
+> | [Colaborador do anfitrião do pool de virtualização do ambiente de trabalho](#desktop-virtualization-host-pool-contributor) | Colaborador do Desktop Virtualization Host Pool. | e307426c-f9b6-4e81-87de-d99efb3c32bc |
+> | [Leitor de piscina de anfitrião de virtualização do ambiente de trabalho](#desktop-virtualization-host-pool-reader) | Leitor do Desktop Virtualization Host Pool. | ceadfde2-b300-400a-ab7b-6143895a822 |
+> | [Leitor de Virtualização de Desktop](#desktop-virtualization-reader) | Leitor de Virtualização desktop. | 49a72310-ab8d-41df-bbb0-79b649203868 |
+> | [Operador de anfitrião da sessão de virtualização do ambiente de trabalho](#desktop-virtualization-session-host-operator) | Operador do Anfitrião da Sessão de Virtualização do Ambiente de Trabalho. | 2ad6aaab-ead9-4eaa-8ac5-da422f562408 |
 > | [Utilizador de Virtualização de Desktop](#desktop-virtualization-user) | Permite ao utilizador utilizar as aplicações num grupo de aplicações. | 1d18fff3-a72a-46b5-b4a9-0b38a3cd7e63 |
+> | [Operador de sessão de utilizador de virtualização do ambiente de trabalho](#desktop-virtualization-user-session-operator) | Operador da Sessão uesr de virtualização do ambiente de trabalho. | ea4bfff8-7fb4-485a-aadd-d4129a0ffaa6 |
+> | [Colaborador do espaço de trabalho de virtualização do ambiente de trabalho do desktop Virtualization](#desktop-virtualization-workspace-contributor) | Colaborador do espaço de trabalho de virtualização desktop. | 21efdde3-836f-432b-bf3d-3e8e734d4b2b |
+> | [Leitor de espaço de trabalho de virtualização do ambiente de trabalho do desktop Virtualization](#desktop-virtualization-workspace-reader) | Leitor do espaço de trabalho de virtualização desktop. | 0fa44ee9-7a7d-466b-9bb2-2bf446b1204d |
+> | [Leitor de backup de discos](#disk-backup-reader) | Fornece permissão para o cofre de reserva para realizar cópia de segurança do disco. | 3e5e47e6-65f7-47ef-90b5-e5dd4d455f24 |
+> | [Operador de restauro de disco](#disk-restore-operator) | Fornece permissão para o cofre de reserva para executar a restauração do disco. | b50d9833-a0cb-478e-945f-707fcc997c13 |
+> | [Colaborador snapshot de disco](#disk-snapshot-contributor) | Fornece permissão para o cofre de reserva para gerir as fotos do disco. | 7efff54f-a5b4-42b5-a1c5-5411624893ce |
 > | [Colaborador de Coleções de Trabalho do Programador](#scheduler-job-collections-contributor) | Permite-lhe gerir as coleções de emprego do Scheduler, mas não ter acesso a elas. | 188a0f2f-5c9e-469b-ae67-2aaa5ce574b94 |
+> | [Operador de Hub de Serviços](#services-hub-operator) | O Operador de Hub de Serviços permite-lhe executar todas as operações de leitura, escrita e eliminação relacionadas com os Conectores de Hub de Serviços. | 82200a5b-e217-47a5-b665-6d8765ee745b |
 
 
 ## <a name="general"></a>Geral
@@ -2612,9 +2639,52 @@ Leia e enuma as filas de armazenamento do Azure e as mensagens de fila. Para sab
 ## <a name="web"></a>Web
 
 
+### <a name="azure-maps-data-contributor"></a>Colaborador de dados do Azure Maps
+
+Concede acesso à leitura, escrita e exclusão do acesso a dados relacionados com mapas a partir de uma conta de mapas Azure. [Saiba mais](../azure-maps/azure-maps-authentication.md)
+
+> [!div class="mx-tableFixed"]
+> | Ações | Descrição |
+> | --- | --- |
+> | *nenhum* |  |
+> | **NotActions** |  |
+> | *nenhum* |  |
+> | **DataActions** |  |
+> | [Microsoft.Maps](resource-provider-operations.md#microsoftmaps)/accounts/*/read |  |
+> | [Microsoft.Maps](resource-provider-operations.md#microsoftmaps)/contas/*/write |  |
+> | [Microsoft.Maps](resource-provider-operations.md#microsoftmaps)/contas/*/delete |  |
+> | **NotDataActions** |  |
+> | *nenhum* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Grants access to read, write, and delete access to map related data from an Azure maps account.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/8f5e0ce6-4f7b-4dcf-bddf-e6f48634a204",
+  "name": "8f5e0ce6-4f7b-4dcf-bddf-e6f48634a204",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.Maps/accounts/*/read",
+        "Microsoft.Maps/accounts/*/write",
+        "Microsoft.Maps/accounts/*/delete"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Maps Data Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ### <a name="azure-maps-data-reader"></a>Leitor de dados Azure Maps
 
-Concede acesso a ler dados relacionados com mapas a partir de uma conta de mapas Azure.
+Concede acesso a ler dados relacionados com mapas a partir de uma conta de mapas Azure. [Saiba mais](../azure-maps/azure-maps-authentication.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -5278,6 +5348,249 @@ Permite criar, ler, atualizar, eliminar e gerir chaves dos Serviços Cognitivos.
 }
 ```
 
+### <a name="cognitive-services-custom-vision-contributor"></a>Colaborador de Visão Personalizada de Serviços Cognitivos
+
+Acesso total ao projeto, incluindo a capacidade de visualizar, criar, editar ou apagar projetos. [Saiba mais](../cognitive-services/custom-vision-service/role-based-access-control.md)
+
+> [!div class="mx-tableFixed"]
+> | Ações | Descrição |
+> | --- | --- |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/*/read |  |
+> | **NotActions** |  |
+> | *nenhum* |  |
+> | **DataActions** |  |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/CustomVision/* |  |
+> | **NotDataActions** |  |
+> | *nenhum* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Full access to the project, including the ability to view, create, edit, or delete projects.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/c1ff6cc2-c111-46fe-8896-e0ef812ad9f3",
+  "name": "c1ff6cc2-c111-46fe-8896-e0ef812ad9f3",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.CognitiveServices/*/read"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.CognitiveServices/accounts/CustomVision/*"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Cognitive Services Custom Vision Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="cognitive-services-custom-vision-deployment"></a>Implementação de visão personalizada de serviços cognitivos
+
+Publique, não publique ou exporte modelos. A implementação pode ver o projeto, mas não pode atualizar. [Saiba mais](../cognitive-services/custom-vision-service/role-based-access-control.md)
+
+> [!div class="mx-tableFixed"]
+> | Ações | Descrição |
+> | --- | --- |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/*/read |  |
+> | **NotActions** |  |
+> | *nenhum* |  |
+> | **DataActions** |  |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/CustomVision/*/read |  |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/CustomVision/projects/forecasts/* |  |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/CustomVision/projects/iterations/publish/* |  |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/CustomVision/projects/iterations/export/* |  |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/CustomVision/projects/quicktest/* |  |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/CustomVision/classify/* |  |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/CustomVision/detect/* |  |
+> | **NotDataActions** |  |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/CustomVision/projects/export/read | Exporta um projeto. |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Publish, unpublish or export models. Deployment can view the project but can't update.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/5c4089e1-6d96-4d2f-b296-c1bc7137275f",
+  "name": "5c4089e1-6d96-4d2f-b296-c1bc7137275f",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.CognitiveServices/*/read"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.CognitiveServices/accounts/CustomVision/*/read",
+        "Microsoft.CognitiveServices/accounts/CustomVision/projects/predictions/*",
+        "Microsoft.CognitiveServices/accounts/CustomVision/projects/iterations/publish/*",
+        "Microsoft.CognitiveServices/accounts/CustomVision/projects/iterations/export/*",
+        "Microsoft.CognitiveServices/accounts/CustomVision/projects/quicktest/*",
+        "Microsoft.CognitiveServices/accounts/CustomVision/classify/*",
+        "Microsoft.CognitiveServices/accounts/CustomVision/detect/*"
+      ],
+      "notDataActions": [
+        "Microsoft.CognitiveServices/accounts/CustomVision/projects/export/read"
+      ]
+    }
+  ],
+  "roleName": "Cognitive Services Custom Vision Deployment",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="cognitive-services-custom-vision-labeler"></a>Etiquetador de visão personalizada de serviços cognitivos
+
+Ver, editar imagens de treino e criar, adicionar, remover ou eliminar as etiquetas de imagem. Os labelers podem ver o projeto, mas não podem atualizar nada além de imagens de treino e tags. [Saiba mais](../cognitive-services/custom-vision-service/role-based-access-control.md)
+
+> [!div class="mx-tableFixed"]
+> | Ações | Descrição |
+> | --- | --- |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/*/read |  |
+> | **NotActions** |  |
+> | *nenhum* |  |
+> | **DataActions** |  |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/CustomVision/*/read |  |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/CustomVision/projects/forecasts/consulta/ação | Obtenha imagens que foram enviadas para o seu ponto final de previsão. |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/CustomVision/projects/images/* |  |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/CustomVision/projects/tags/* |  |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/CustomVision/projects/images/suggested/* |  |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/CustomVision/projects/tagsandregions/suggestions/action | Esta API receberá etiquetas e regiões sugeridas para uma matriz/lote de imagens não anotadas, juntamente com confidências para as etiquetas. Devolve uma matriz vazia se não forem encontradas etiquetas. |
+> | **NotDataActions** |  |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/CustomVision/projects/export/read | Exporta um projeto. |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "View, edit training images and create, add, remove, or delete the image tags. Labelers can view the project but can't update anything other than training images and tags.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/88424f51-ebe7-446f-bc41-7fa16989e96c",
+  "name": "88424f51-ebe7-446f-bc41-7fa16989e96c",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.CognitiveServices/*/read"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.CognitiveServices/accounts/CustomVision/*/read",
+        "Microsoft.CognitiveServices/accounts/CustomVision/projects/predictions/query/action",
+        "Microsoft.CognitiveServices/accounts/CustomVision/projects/images/*",
+        "Microsoft.CognitiveServices/accounts/CustomVision/projects/tags/*",
+        "Microsoft.CognitiveServices/accounts/CustomVision/projects/images/suggested/*",
+        "Microsoft.CognitiveServices/accounts/CustomVision/projects/tagsandregions/suggestions/action"
+      ],
+      "notDataActions": [
+        "Microsoft.CognitiveServices/accounts/CustomVision/projects/export/read"
+      ]
+    }
+  ],
+  "roleName": "Cognitive Services Custom Vision Labeler",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="cognitive-services-custom-vision-reader"></a>Leitor de visão personalizada de serviços cognitivos
+
+Apenas ações de leitura no projeto. Os leitores não podem criar ou atualizar o projeto. [Saiba mais](../cognitive-services/custom-vision-service/role-based-access-control.md)
+
+> [!div class="mx-tableFixed"]
+> | Ações | Descrição |
+> | --- | --- |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/*/read |  |
+> | **NotActions** |  |
+> | *nenhum* |  |
+> | **DataActions** |  |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/CustomVision/*/read |  |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/CustomVision/projects/forecasts/consulta/ação | Obtenha imagens que foram enviadas para o seu ponto final de previsão. |
+> | **NotDataActions** |  |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/CustomVision/projects/export/read | Exporta um projeto. |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Read-only actions in the project. Readers can't create or update the project.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/93586559-c37d-4a6b-ba08-b9f0940c2d73",
+  "name": "93586559-c37d-4a6b-ba08-b9f0940c2d73",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.CognitiveServices/*/read"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.CognitiveServices/accounts/CustomVision/*/read",
+        "Microsoft.CognitiveServices/accounts/CustomVision/projects/predictions/query/action"
+      ],
+      "notDataActions": [
+        "Microsoft.CognitiveServices/accounts/CustomVision/projects/export/read"
+      ]
+    }
+  ],
+  "roleName": "Cognitive Services Custom Vision Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="cognitive-services-custom-vision-trainer"></a>Treinador de visão personalizada de serviços cognitivos
+
+Ver, editar projetos e formar os modelos, incluindo a capacidade de publicar, não publicar, exportar os modelos. Os treinadores não podem criar ou apagar o projeto. [Saiba mais](../cognitive-services/custom-vision-service/role-based-access-control.md)
+
+> [!div class="mx-tableFixed"]
+> | Ações | Descrição |
+> | --- | --- |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/*/read |  |
+> | **NotActions** |  |
+> | *nenhum* |  |
+> | **DataActions** |  |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/CustomVision/* |  |
+> | **NotDataActions** |  |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/CustomVision/projects/action | Criar um projeto. |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/CustomVision/projects/delete | Excluir um projeto específico. |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/CustomVision/projects/import/action | Importa um projeto. |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/CustomVision/projects/export/read | Exporta um projeto. |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "View, edit projects and train the models, including the ability to publish, unpublish, export the models. Trainers can't create or delete the project.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/0a5ae4ab-0d65-4eeb-be61-29fc9b54394b",
+  "name": "0a5ae4ab-0d65-4eeb-be61-29fc9b54394b",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.CognitiveServices/*/read"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.CognitiveServices/accounts/CustomVision/*"
+      ],
+      "notDataActions": [
+        "Microsoft.CognitiveServices/accounts/CustomVision/projects/action",
+        "Microsoft.CognitiveServices/accounts/CustomVision/projects/delete",
+        "Microsoft.CognitiveServices/accounts/CustomVision/projects/import/action",
+        "Microsoft.CognitiveServices/accounts/CustomVision/projects/export/read"
+      ]
+    }
+  ],
+  "roleName": "Cognitive Services Custom Vision Trainer",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ### <a name="cognitive-services-data-reader-preview"></a>Leitor de dados de serviços cognitivos (pré-visualização)
 
 Permite-lhe ler os dados dos Serviços Cognitivos.
@@ -5312,6 +5625,209 @@ Permite-lhe ler os dados dos Serviços Cognitivos.
     }
   ],
   "roleName": "Cognitive Services Data Reader (Preview)",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="cognitive-services-metrics-advisor-administrator"></a>Administrador consultivo de métricas de serviços cognitivos
+
+Acesso total ao projeto, incluindo a configuração do nível do sistema. [Saiba mais](../cognitive-services/metrics-advisor/how-tos/alerts.md)
+
+> [!div class="mx-tableFixed"]
+> | Ações | Descrição |
+> | --- | --- |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/*/read |  |
+> | **NotActions** |  |
+> | *nenhum* |  |
+> | **DataActions** |  |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/MetricsAdvisor/* |  |
+> | **NotDataActions** |  |
+> | *nenhum* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Full access to the project, including the system level configuration.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/cb43c632-a144-4ec5-977c-e80c4affc34a",
+  "name": "cb43c632-a144-4ec5-977c-e80c4affc34a",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.CognitiveServices/*/read"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.CognitiveServices/accounts/MetricsAdvisor/*"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Cognitive Services Metrics Advisor Administrator",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="cognitive-services-qna-maker-editor"></a>Editor de Serviços Cognitivos QnA Maker
+
+Vamos criar, editar, importar e exportar um KB. Não é possível publicar ou apagar um KB. [Saiba mais](../cognitive-services/qnamaker/reference-role-based-access-control.md)
+
+> [!div class="mx-tableFixed"]
+> | Ações | Descrição |
+> | --- | --- |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/*/read |  |
+> | [Microsoft.Autorização](resource-provider-operations.md#microsoftauthorization)/funAssignments/read | Obtenha informações sobre uma atribuição de papéis. |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/roleDefinitions/read | Obtenha informações sobre uma definição de papel. |
+> | **NotActions** |  |
+> | *nenhum* |  |
+> | **DataActions** |  |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/QnAMaker/knowledgebases/read | Obtém a Lista de Bases de Conhecimentos ou detalhes de um base de conhecimentos específico. |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/QnAMaker/knowledgebases/download/read | Descarregue a base de conhecimentos. |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/QnAMaker/knowledgebases/create/write | Operação assíncronea para criar uma nova base de conhecimentos. |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/QnAMaker/knowledgebases/write | Operação assíncronea para modificar uma base de conhecimento ou substituir o conteúdo da base de conhecimentos. |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/QnAMaker/knowledgebases/generateanswer/action | GenerateAnswer call para consultar a base de conhecimentos. |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/QnAMaker/knowledgebases/train/action | Chamada de comboio para adicionar sugestões à base de conhecimentos. |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/QnAMaker/alterações/read | Faça o download de alterações a partir do tempo de execução. |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/QnAMaker/alterações/write | Substitua os dados de alterações. |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/QnAMaker/endpointkeys/read | Obtém chaves de ponto final para um ponto final |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/QnAMaker/endpointkeys/refreshkeys/action | Re-gera uma chave de ponto final. |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/QnAMaker/endpointsettings/read | Obtém definições de ponto final para um ponto final |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/QnAMaker/endpointsettings/write | Atualização do ponto final para um ponto final. |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/QnAMaker/operations/read | Obtém detalhes de uma operação específica de longa duração. |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/QnAMaker.v2/knowledgebases/read | Obtém a Lista de Bases de Conhecimentos ou detalhes de um base de conhecimentos específico. |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/QnAMaker.v2/knowledgebases/download/read | Descarregue a base de conhecimentos. |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/QnAMaker.v2/knowledgebases/create/write | Operação assíncronea para criar uma nova base de conhecimentos. |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/QnAMaker.v2/knowledgebases/write | Operação assíncronea para modificar uma base de conhecimento ou substituir o conteúdo da base de conhecimentos. |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/QnAMaker.v2/knowledgebases/generateanswer/action | GenerateAnswer call para consultar a base de conhecimentos. |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/QnAMaker.v2/knowledgebases/train/action | Chamada de comboio para adicionar sugestões à base de conhecimentos. |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/QnAMaker.v2/alterações/read | Faça o download de alterações a partir do tempo de execução. |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/QnAMaker.v2/alterações/write | Substitua os dados de alterações. |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/QnAMaker.v2/endpointkeys/read | Obtém chaves de ponto final para um ponto final |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/QnAMaker.v2/endpointkeys/refreshkeys/action | Re-gera uma chave de ponto final. |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/QnAMaker.v2/endpointsettings/read | Obtém definições de ponto final para um ponto final |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/QnAMaker.v2/endpointsettings/write | Atualização do ponto final para um ponto final. |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/QnAMaker.v2/operations/read | Obtém detalhes de uma operação específica de longa duração. |
+> | **NotDataActions** |  |
+> | *nenhum* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Let's you create, edit, import and export a KB. You cannot publish or delete a KB.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/f4cc2bf9-21be-47a1-bdf1-5c5804381025",
+  "name": "f4cc2bf9-21be-47a1-bdf1-5c5804381025",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.CognitiveServices/*/read",
+        "Microsoft.Authorization/roleAssignments/read",
+        "Microsoft.Authorization/roleDefinitions/read"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.CognitiveServices/accounts/QnAMaker/knowledgebases/read",
+        "Microsoft.CognitiveServices/accounts/QnAMaker/knowledgebases/download/read",
+        "Microsoft.CognitiveServices/accounts/QnAMaker/knowledgebases/create/write",
+        "Microsoft.CognitiveServices/accounts/QnAMaker/knowledgebases/write",
+        "Microsoft.CognitiveServices/accounts/QnAMaker/knowledgebases/generateanswer/action",
+        "Microsoft.CognitiveServices/accounts/QnAMaker/knowledgebases/train/action",
+        "Microsoft.CognitiveServices/accounts/QnAMaker/alterations/read",
+        "Microsoft.CognitiveServices/accounts/QnAMaker/alterations/write",
+        "Microsoft.CognitiveServices/accounts/QnAMaker/endpointkeys/read",
+        "Microsoft.CognitiveServices/accounts/QnAMaker/endpointkeys/refreshkeys/action",
+        "Microsoft.CognitiveServices/accounts/QnAMaker/endpointsettings/read",
+        "Microsoft.CognitiveServices/accounts/QnAMaker/endpointsettings/write",
+        "Microsoft.CognitiveServices/accounts/QnAMaker/operations/read",
+        "Microsoft.CognitiveServices/accounts/QnAMaker.v2/knowledgebases/read",
+        "Microsoft.CognitiveServices/accounts/QnAMaker.v2/knowledgebases/download/read",
+        "Microsoft.CognitiveServices/accounts/QnAMaker.v2/knowledgebases/create/write",
+        "Microsoft.CognitiveServices/accounts/QnAMaker.v2/knowledgebases/write",
+        "Microsoft.CognitiveServices/accounts/QnAMaker.v2/knowledgebases/generateanswer/action",
+        "Microsoft.CognitiveServices/accounts/QnAMaker.v2/knowledgebases/train/action",
+        "Microsoft.CognitiveServices/accounts/QnAMaker.v2/alterations/read",
+        "Microsoft.CognitiveServices/accounts/QnAMaker.v2/alterations/write",
+        "Microsoft.CognitiveServices/accounts/QnAMaker.v2/endpointkeys/read",
+        "Microsoft.CognitiveServices/accounts/QnAMaker.v2/endpointkeys/refreshkeys/action",
+        "Microsoft.CognitiveServices/accounts/QnAMaker.v2/endpointsettings/read",
+        "Microsoft.CognitiveServices/accounts/QnAMaker.v2/endpointsettings/write",
+        "Microsoft.CognitiveServices/accounts/QnAMaker.v2/operations/read"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Cognitive Services QnA Maker Editor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="cognitive-services-qna-maker-reader"></a>Leitor de fabricante de serviços cognitivos QnA
+
+Vamos ler e testar um KB apenas. [Saiba mais](../cognitive-services/qnamaker/reference-role-based-access-control.md)
+
+> [!div class="mx-tableFixed"]
+> | Ações | Descrição |
+> | --- | --- |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/*/read |  |
+> | [Microsoft.Autorização](resource-provider-operations.md#microsoftauthorization)/funAssignments/read | Obtenha informações sobre uma atribuição de papéis. |
+> | [Microsoft.Authorization](resource-provider-operations.md#microsoftauthorization)/roleDefinitions/read | Obtenha informações sobre uma definição de papel. |
+> | **NotActions** |  |
+> | *nenhum* |  |
+> | **DataActions** |  |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/QnAMaker/knowledgebases/read | Obtém a Lista de Bases de Conhecimentos ou detalhes de um base de conhecimentos específico. |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/QnAMaker/knowledgebases/download/read | Descarregue a base de conhecimentos. |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/QnAMaker/knowledgebases/generateanswer/action | GenerateAnswer call para consultar a base de conhecimentos. |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/QnAMaker/alterações/read | Faça o download de alterações a partir do tempo de execução. |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/QnAMaker/endpointkeys/read | Obtém chaves de ponto final para um ponto final |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/QnAMaker/endpointsettings/read | Obtém definições de ponto final para um ponto final |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/QnAMaker.v2/knowledgebases/read | Obtém a Lista de Bases de Conhecimentos ou detalhes de um base de conhecimentos específico. |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/QnAMaker.v2/knowledgebases/download/read | Descarregue a base de conhecimentos. |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/QnAMaker.v2/knowledgebases/generateanswer/action | GenerateAnswer call para consultar a base de conhecimentos. |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/QnAMaker.v2/alterações/read | Faça o download de alterações a partir do tempo de execução. |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/QnAMaker.v2/endpointkeys/read | Obtém chaves de ponto final para um ponto final |
+> | [Microsoft.CognitiveServices](resource-provider-operations.md#microsoftcognitiveservices)/accounts/QnAMaker.v2/endpointsettings/read | Obtém definições de ponto final para um ponto final |
+> | **NotDataActions** |  |
+> | *nenhum* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Let's you read and test a KB only.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/466ccd10-b268-4a11-b098-b4849f024126",
+  "name": "466ccd10-b268-4a11-b098-b4849f024126",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.CognitiveServices/*/read",
+        "Microsoft.Authorization/roleAssignments/read",
+        "Microsoft.Authorization/roleDefinitions/read"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.CognitiveServices/accounts/QnAMaker/knowledgebases/read",
+        "Microsoft.CognitiveServices/accounts/QnAMaker/knowledgebases/download/read",
+        "Microsoft.CognitiveServices/accounts/QnAMaker/knowledgebases/generateanswer/action",
+        "Microsoft.CognitiveServices/accounts/QnAMaker/alterations/read",
+        "Microsoft.CognitiveServices/accounts/QnAMaker/endpointkeys/read",
+        "Microsoft.CognitiveServices/accounts/QnAMaker/endpointsettings/read",
+        "Microsoft.CognitiveServices/accounts/QnAMaker.v2/knowledgebases/read",
+        "Microsoft.CognitiveServices/accounts/QnAMaker.v2/knowledgebases/download/read",
+        "Microsoft.CognitiveServices/accounts/QnAMaker.v2/knowledgebases/generateanswer/action",
+        "Microsoft.CognitiveServices/accounts/QnAMaker.v2/alterations/read",
+        "Microsoft.CognitiveServices/accounts/QnAMaker.v2/endpointkeys/read",
+        "Microsoft.CognitiveServices/accounts/QnAMaker.v2/endpointsettings/read"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Cognitive Services QnA Maker Reader",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
@@ -6729,6 +7245,88 @@ Ler e atribuir identidade atribuída ao utilizador [Saiba mais](../active-direct
 ## <a name="security"></a>Segurança
 
 
+### <a name="attestation-contributor"></a>Colaborador attestation
+
+Pode ler escrever ou apagar a instância do provedor de atestado [Saiba mais](../attestation/quickstart-powershell.md)
+
+> [!div class="mx-tableFixed"]
+> | Ações | Descrição |
+> | --- | --- |
+> | Microsoft.Attestation/attestationProviders/attestation/read |  |
+> | Microsoft.Attestation/attestationProviders/attestation/write |  |
+> | Microsoft.Attestation/attestationProviders/attestation/delete |  |
+> | **NotActions** |  |
+> | *nenhum* |  |
+> | **DataActions** |  |
+> | *nenhum* |  |
+> | **NotDataActions** |  |
+> | *nenhum* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Can read write or delete the attestation provider instance",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/bbf86eb8-f7b4-4cce-96e4-18cddf81d86e",
+  "name": "bbf86eb8-f7b4-4cce-96e4-18cddf81d86e",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Attestation/attestationProviders/attestation/read",
+        "Microsoft.Attestation/attestationProviders/attestation/write",
+        "Microsoft.Attestation/attestationProviders/attestation/delete"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Attestation Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="attestation-reader"></a>Attestation Reader
+
+Pode ler as propriedades do provedor de atestado [Saiba mais](../attestation/troubleshoot-guide.md)
+
+> [!div class="mx-tableFixed"]
+> | Ações | Descrição |
+> | --- | --- |
+> | Microsoft.Attestation/attestationProviders/attestation/read |  |
+> | **NotActions** |  |
+> | *nenhum* |  |
+> | **DataActions** |  |
+> | *nenhum* |  |
+> | **NotDataActions** |  |
+> | *nenhum* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Can read the attestation provider properties",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/fd1bd22b-8476-40bc-a0bc-69b95687b9f3",
+  "name": "fd1bd22b-8476-40bc-a0bc-69b95687b9f3",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Attestation/attestationProviders/attestation/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Attestation Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ### <a name="azure-sentinel-contributor"></a>Contribuidor do Azure Sentinel
 
 Azure Sentinel Colaborador [Saiba mais](../sentinel/roles.md)
@@ -7458,6 +8056,45 @@ Leia conteúdo secreto. Só funciona para cofres-chave que utilizam o modelo de 
     }
   ],
   "roleName": "Key Vault Secrets User (preview)",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="managed-hsm-contributor"></a>Contribuinte gerido do HSM
+
+Permite-lhe gerir piscinas HSM geridas, mas não ter acesso a elas. [Saiba mais](../key-vault/managed-hsm/secure-your-managed-hsm.md)
+
+> [!div class="mx-tableFixed"]
+> | Ações | Descrição |
+> | --- | --- |
+> | [Microsoft.KeyVault](resource-provider-operations.md#microsoftkeyvault)/managedHSMs/* |  |
+> | **NotActions** |  |
+> | *nenhum* |  |
+> | **DataActions** |  |
+> | *nenhum* |  |
+> | **NotDataActions** |  |
+> | *nenhum* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Lets you manage managed HSM pools, but not access to them.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/18500a29-7fe2-46b2-a342-b16a415e101d",
+  "name": "18500a29-7fe2-46b2-a342-b16a415e101d",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.KeyVault/managedHSMs/*"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Managed HSM contributor",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
@@ -9229,6 +9866,63 @@ Permite ler o acesso às políticas de recursos e escrever acesso a eventos de p
 }
 ```
 
+### <a name="reservation-purchaser"></a>Comprador de Reservas
+
+Permite-lhe comprar reservas [Saiba mais](../cost-management-billing/reservations/prepare-buy-reservation.md)
+
+> [!div class="mx-tableFixed"]
+> | Ações | Descrição |
+> | --- | --- |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscrições/ler | Obtém a lista de assinaturas. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscrições/resourceGroups/read | Obtém ou lista grupos de recursos. |
+> | [Microsoft.Capacity](resource-provider-operations.md#microsoftcapacity)/register/action | Regista o fornecedor de recursos de capacidade e permite a criação de recursos de capacidade. |
+> | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/register/action | Registra subscrição com o fornecedor de recursos Microsoft.Compute |
+> | [Microsoft.SQL](resource-provider-operations.md#microsoftsql)/register/action | Regista a subscrição do fornecedor de recursos microsoft SQL Database e permite a criação de Bases de Dados DO Microsoft SQL. |
+> | [Microsoft.Consumption](resource-provider-operations.md#microsoftconsumption)/register/action | Registrar-se no Consumo RP |
+> | [Microsoft.Capacity](resource-provider-operations.md#microsoftcapacity)/catálogos/ler | Ler catálogo de Reserva |
+> | [Microsoft.Autorização](resource-provider-operations.md#microsoftauthorization)/funAssignments/read | Obtenha informações sobre uma atribuição de papéis. |
+> | [Microsoft.Consumo](resource-provider-operations.md#microsoftconsumption)/reservasRecommendations/read | Listar recomendações únicas ou partilhadas para instâncias reservadas para uma subscrição. |
+> | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/supporttickets/write | Permite criar e atualizar um bilhete de apoio |
+> | **NotActions** |  |
+> | *nenhum* |  |
+> | **DataActions** |  |
+> | *nenhum* |  |
+> | **NotDataActions** |  |
+> | *nenhum* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Lets you purchase reservations",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/f7b75c60-3036-4b75-91c3-6b41c27c1689",
+  "name": "f7b75c60-3036-4b75-91c3-6b41c27c1689",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Resources/subscriptions/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Capacity/register/action",
+        "Microsoft.Compute/register/action",
+        "Microsoft.SQL/register/action",
+        "Microsoft.Consumption/register/action",
+        "Microsoft.Capacity/catalogs/read",
+        "Microsoft.Authorization/roleAssignments/read",
+        "Microsoft.Consumption/reservationRecommendations/read",
+        "Microsoft.Support/supporttickets/write"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Reservation Purchaser",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ### <a name="resource-policy-contributor"></a>Contribuidor de Política de Recursos
 
 Utilizadores com direitos de criar/modificar a política de recursos, criar bilhete de apoio e ler recursos/hierarquia. [Saiba mais](../governance/policy/overview.md)
@@ -9871,6 +10565,363 @@ Permite-lhe gerir os serviços BizTalk, mas não ter acesso aos mesmos.
 }
 ```
 
+### <a name="desktop-virtualization-application-group-contributor"></a>Colaborador do Grupo de Aplicação de Virtualização desktop
+
+Colaborador do Grupo de Aplicação de Virtualização desktop. [Saiba mais](../virtual-desktop/rbac.md)
+
+> [!div class="mx-tableFixed"]
+> | Ações | Descrição |
+> | --- | --- |
+> | [Microsoft.DesktopVirtualization](resource-provider-operations.md#microsoftdesktopvirtualization)/applicationgroups/* |  |
+> | [Microsoft.DesktopVirtualization](resource-provider-operations.md#microsoftdesktopvirtualization)/hostpools/read | Ler piscinas de anfitriões |
+> | [Microsoft.DesktopVirtualization](resource-provider-operations.md#microsoftdesktopvirtualization)/hostpools/sessionhosts/read | Leia as piscinas/anfitriões |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscrições/resourceGroups/read | Obtém ou lista grupos de recursos. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/* | Criar e gerir uma implantação |
+> | [Microsoft.Autorização](resource-provider-operations.md#microsoftauthorization)/*/ler | Ler papéis e atribuições de funções |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Criar e gerir um alerta métrico clássico |
+> | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um bilhete de apoio |
+> | **NotActions** |  |
+> | *nenhum* |  |
+> | **DataActions** |  |
+> | *nenhum* |  |
+> | **NotDataActions** |  |
+> | *nenhum* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Contributor of the Desktop Virtualization Application Group.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/86240b0e-9422-4c43-887b-b61143f32ba8",
+  "name": "86240b0e-9422-4c43-887b-b61143f32ba8",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.DesktopVirtualization/applicationgroups/*",
+        "Microsoft.DesktopVirtualization/hostpools/read",
+        "Microsoft.DesktopVirtualization/hostpools/sessionhosts/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Support/*"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Desktop Virtualization Application Group Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="desktop-virtualization-application-group-reader"></a>Leitor de grupo de aplicação de virtualização de desktop
+
+Leitor do Grupo de Aplicação de Virtualização desktop. [Saiba mais](../virtual-desktop/rbac.md)
+
+> [!div class="mx-tableFixed"]
+> | Ações | Descrição |
+> | --- | --- |
+> | [Microsoft.DesktopVirtualization](resource-provider-operations.md#microsoftdesktopvirtualization)/applicationgroups/*/read |  |
+> | [Microsoft.DesktopVirtualization](resource-provider-operations.md#microsoftdesktopvirtualization)/applicationgroups/read | Ler grupos de candidaturas |
+> | [Microsoft.DesktopVirtualization](resource-provider-operations.md#microsoftdesktopvirtualization)/hostpools/read | Ler piscinas de anfitriões |
+> | [Microsoft.DesktopVirtualization](resource-provider-operations.md#microsoftdesktopvirtualization)/hostpools/sessionhosts/read | Leia as piscinas/anfitriões |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscrições/resourceGroups/read | Obtém ou lista grupos de recursos. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/read | Recebe ou lista destacamentos. |
+> | [Microsoft.Autorização](resource-provider-operations.md#microsoftauthorization)/*/ler | Ler papéis e atribuições de funções |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/read | Leia um alerta métrico clássico |
+> | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um bilhete de apoio |
+> | **NotActions** |  |
+> | *nenhum* |  |
+> | **DataActions** |  |
+> | *nenhum* |  |
+> | **NotDataActions** |  |
+> | *nenhum* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Reader of the Desktop Virtualization Application Group.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/aebf23d0-b568-4e86-b8f9-fe83a2c6ab55",
+  "name": "aebf23d0-b568-4e86-b8f9-fe83a2c6ab55",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.DesktopVirtualization/applicationgroups/*/read",
+        "Microsoft.DesktopVirtualization/applicationgroups/read",
+        "Microsoft.DesktopVirtualization/hostpools/read",
+        "Microsoft.DesktopVirtualization/hostpools/sessionhosts/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Resources/deployments/read",
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/read",
+        "Microsoft.Support/*"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Desktop Virtualization Application Group Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="desktop-virtualization-contributor"></a>Colaborador de Virtualização do Ambiente de Trabalho
+
+Colaborador da Virtualização do Ambiente de Trabalho. [Saiba mais](../virtual-desktop/rbac.md)
+
+> [!div class="mx-tableFixed"]
+> | Ações | Descrição |
+> | --- | --- |
+> | [Microsoft.DesktopVirtualization](resource-provider-operations.md#microsoftdesktopvirtualization)/* |  |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscrições/resourceGroups/read | Obtém ou lista grupos de recursos. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/* | Criar e gerir uma implantação |
+> | [Microsoft.Autorização](resource-provider-operations.md#microsoftauthorization)/*/ler | Ler papéis e atribuições de funções |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Criar e gerir um alerta métrico clássico |
+> | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um bilhete de apoio |
+> | **NotActions** |  |
+> | *nenhum* |  |
+> | **DataActions** |  |
+> | *nenhum* |  |
+> | **NotDataActions** |  |
+> | *nenhum* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Contributor of Desktop Virtualization.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/082f0a83-3be5-4ba1-904c-961cca79b387",
+  "name": "082f0a83-3be5-4ba1-904c-961cca79b387",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.DesktopVirtualization/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Support/*"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Desktop Virtualization Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="desktop-virtualization-host-pool-contributor"></a>Colaborador do anfitrião do pool de virtualização do ambiente de trabalho
+
+Colaborador do Desktop Virtualization Host Pool. [Saiba mais](../virtual-desktop/rbac.md)
+
+> [!div class="mx-tableFixed"]
+> | Ações | Descrição |
+> | --- | --- |
+> | [Microsoft.DesktopVirtualization](resource-provider-operations.md#microsoftdesktopvirtualization)/hostpools/* |  |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscrições/resourceGroups/read | Obtém ou lista grupos de recursos. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/* | Criar e gerir uma implantação |
+> | [Microsoft.Autorização](resource-provider-operations.md#microsoftauthorization)/*/ler | Ler papéis e atribuições de funções |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Criar e gerir um alerta métrico clássico |
+> | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um bilhete de apoio |
+> | **NotActions** |  |
+> | *nenhum* |  |
+> | **DataActions** |  |
+> | *nenhum* |  |
+> | **NotDataActions** |  |
+> | *nenhum* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Contributor of the Desktop Virtualization Host Pool.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/e307426c-f9b6-4e81-87de-d99efb3c32bc",
+  "name": "e307426c-f9b6-4e81-87de-d99efb3c32bc",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.DesktopVirtualization/hostpools/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Support/*"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Desktop Virtualization Host Pool Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="desktop-virtualization-host-pool-reader"></a>Leitor de piscina de anfitrião de virtualização do ambiente de trabalho
+
+Leitor do Desktop Virtualization Host Pool. [Saiba mais](../virtual-desktop/rbac.md)
+
+> [!div class="mx-tableFixed"]
+> | Ações | Descrição |
+> | --- | --- |
+> | [Microsoft.DesktopVirtualization](resource-provider-operations.md#microsoftdesktopvirtualization)/hostpools/*/read |  |
+> | [Microsoft.DesktopVirtualization](resource-provider-operations.md#microsoftdesktopvirtualization)/hostpools/read | Ler piscinas de anfitriões |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscrições/resourceGroups/read | Obtém ou lista grupos de recursos. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/read | Recebe ou lista destacamentos. |
+> | [Microsoft.Autorização](resource-provider-operations.md#microsoftauthorization)/*/ler | Ler papéis e atribuições de funções |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/read | Leia um alerta métrico clássico |
+> | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um bilhete de apoio |
+> | **NotActions** |  |
+> | *nenhum* |  |
+> | **DataActions** |  |
+> | *nenhum* |  |
+> | **NotDataActions** |  |
+> | *nenhum* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Reader of the Desktop Virtualization Host Pool.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/ceadfde2-b300-400a-ab7b-6143895aa822",
+  "name": "ceadfde2-b300-400a-ab7b-6143895aa822",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.DesktopVirtualization/hostpools/*/read",
+        "Microsoft.DesktopVirtualization/hostpools/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Resources/deployments/read",
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/read",
+        "Microsoft.Support/*"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Desktop Virtualization Host Pool Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="desktop-virtualization-reader"></a>Leitor de Virtualização de Desktop
+
+Leitor de Virtualização desktop. [Saiba mais](../virtual-desktop/rbac.md)
+
+> [!div class="mx-tableFixed"]
+> | Ações | Descrição |
+> | --- | --- |
+> | [Microsoft.DesktopVirtualization](resource-provider-operations.md#microsoftdesktopvirtualization)/*/read |  |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscrições/resourceGroups/read | Obtém ou lista grupos de recursos. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/read | Recebe ou lista destacamentos. |
+> | [Microsoft.Autorização](resource-provider-operations.md#microsoftauthorization)/*/ler | Ler papéis e atribuições de funções |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/read | Leia um alerta métrico clássico |
+> | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um bilhete de apoio |
+> | **NotActions** |  |
+> | *nenhum* |  |
+> | **DataActions** |  |
+> | *nenhum* |  |
+> | **NotDataActions** |  |
+> | *nenhum* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Reader of Desktop Virtualization.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/49a72310-ab8d-41df-bbb0-79b649203868",
+  "name": "49a72310-ab8d-41df-bbb0-79b649203868",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.DesktopVirtualization/*/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Resources/deployments/read",
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/read",
+        "Microsoft.Support/*"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Desktop Virtualization Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="desktop-virtualization-session-host-operator"></a>Operador de anfitrião da sessão de virtualização do ambiente de trabalho
+
+Operador do Anfitrião da Sessão de Virtualização do Ambiente de Trabalho. [Saiba mais](../virtual-desktop/rbac.md)
+
+> [!div class="mx-tableFixed"]
+> | Ações | Descrição |
+> | --- | --- |
+> | [Microsoft.DesktopVirtualization](resource-provider-operations.md#microsoftdesktopvirtualization)/hostpools/read | Ler piscinas de anfitriões |
+> | [Microsoft.DesktopVirtualization](resource-provider-operations.md#microsoftdesktopvirtualization)/hostpools/sessionhosts/* |  |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscrições/resourceGroups/read | Obtém ou lista grupos de recursos. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/* | Criar e gerir uma implantação |
+> | [Microsoft.Autorização](resource-provider-operations.md#microsoftauthorization)/*/ler | Ler papéis e atribuições de funções |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Criar e gerir um alerta métrico clássico |
+> | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um bilhete de apoio |
+> | **NotActions** |  |
+> | *nenhum* |  |
+> | **DataActions** |  |
+> | *nenhum* |  |
+> | **NotDataActions** |  |
+> | *nenhum* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Operator of the Desktop Virtualization Session Host.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/2ad6aaab-ead9-4eaa-8ac5-da422f562408",
+  "name": "2ad6aaab-ead9-4eaa-8ac5-da422f562408",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.DesktopVirtualization/hostpools/read",
+        "Microsoft.DesktopVirtualization/hostpools/sessionhosts/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Support/*"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Desktop Virtualization Session Host Operator",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ### <a name="desktop-virtualization-user"></a>Utilizador de Virtualização de Desktop
 
 Permite ao utilizador utilizar as aplicações num grupo de aplicações. [Saiba mais](../virtual-desktop/delegated-access-virtual-desktop.md)
@@ -9882,7 +10933,7 @@ Permite ao utilizador utilizar as aplicações num grupo de aplicações. [Saiba
 > | **NotActions** |  |
 > | *nenhum* |  |
 > | **DataActions** |  |
-> | Microsoft.DesktopVirtualization/applicationGroups/useApplications/action | Utilizar o Grupo de Aplicações |
+> | [Microsoft.DesktopVirtualization](resource-provider-operations.md#microsoftdesktopvirtualization)/applicationGroups/useApplications/action | Utilizar o Grupo de Aplicações |
 > | **NotDataActions** |  |
 > | *nenhum* |  |
 
@@ -9905,6 +10956,310 @@ Permite ao utilizador utilizar as aplicações num grupo de aplicações. [Saiba
     }
   ],
   "roleName": "Desktop Virtualization User",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="desktop-virtualization-user-session-operator"></a>Operador de sessão de utilizador de virtualização do ambiente de trabalho
+
+Operador da Sessão uesr de virtualização do ambiente de trabalho. [Saiba mais](../virtual-desktop/rbac.md)
+
+> [!div class="mx-tableFixed"]
+> | Ações | Descrição |
+> | --- | --- |
+> | [Microsoft.DesktopVirtualization](resource-provider-operations.md#microsoftdesktopvirtualization)/hostpools/read | Ler piscinas de anfitriões |
+> | [Microsoft.DesktopVirtualization](resource-provider-operations.md#microsoftdesktopvirtualization)/hostpools/sessionhosts/read | Leia as piscinas/anfitriões |
+> | [Microsoft.DesktopVirtualization](resource-provider-operations.md#microsoftdesktopvirtualization)/hostpools/sessionhosts/usersessions/* |  |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscrições/resourceGroups/read | Obtém ou lista grupos de recursos. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/* | Criar e gerir uma implantação |
+> | [Microsoft.Autorização](resource-provider-operations.md#microsoftauthorization)/*/ler | Ler papéis e atribuições de funções |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Criar e gerir um alerta métrico clássico |
+> | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um bilhete de apoio |
+> | **NotActions** |  |
+> | *nenhum* |  |
+> | **DataActions** |  |
+> | *nenhum* |  |
+> | **NotDataActions** |  |
+> | *nenhum* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Operator of the Desktop Virtualization Uesr Session.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/ea4bfff8-7fb4-485a-aadd-d4129a0ffaa6",
+  "name": "ea4bfff8-7fb4-485a-aadd-d4129a0ffaa6",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.DesktopVirtualization/hostpools/read",
+        "Microsoft.DesktopVirtualization/hostpools/sessionhosts/read",
+        "Microsoft.DesktopVirtualization/hostpools/sessionhosts/usersessions/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Support/*"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Desktop Virtualization User Session Operator",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="desktop-virtualization-workspace-contributor"></a>Colaborador do espaço de trabalho de virtualização do ambiente de trabalho do desktop Virtualization
+
+Colaborador do espaço de trabalho de virtualização desktop. [Saiba mais](../virtual-desktop/rbac.md)
+
+> [!div class="mx-tableFixed"]
+> | Ações | Descrição |
+> | --- | --- |
+> | [Microsoft.DesktopVirtualization](resource-provider-operations.md#microsoftdesktopvirtualization)/workspaces/* |  |
+> | [Microsoft.DesktopVirtualization](resource-provider-operations.md#microsoftdesktopvirtualization)/applicationgroups/read | Ler grupos de candidaturas |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscrições/resourceGroups/read | Obtém ou lista grupos de recursos. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/* | Criar e gerir uma implantação |
+> | [Microsoft.Autorização](resource-provider-operations.md#microsoftauthorization)/*/ler | Ler papéis e atribuições de funções |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/* | Criar e gerir um alerta métrico clássico |
+> | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um bilhete de apoio |
+> | **NotActions** |  |
+> | *nenhum* |  |
+> | **DataActions** |  |
+> | *nenhum* |  |
+> | **NotDataActions** |  |
+> | *nenhum* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Contributor of the Desktop Virtualization Workspace.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/21efdde3-836f-432b-bf3d-3e8e734d4b2b",
+  "name": "21efdde3-836f-432b-bf3d-3e8e734d4b2b",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.DesktopVirtualization/workspaces/*",
+        "Microsoft.DesktopVirtualization/applicationgroups/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Support/*"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Desktop Virtualization Workspace Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="desktop-virtualization-workspace-reader"></a>Leitor de espaço de trabalho de virtualização do ambiente de trabalho do desktop Virtualization
+
+Leitor do espaço de trabalho de virtualização desktop. [Saiba mais](../virtual-desktop/rbac.md)
+
+> [!div class="mx-tableFixed"]
+> | Ações | Descrição |
+> | --- | --- |
+> | [Microsoft.DesktopVirtualization](resource-provider-operations.md#microsoftdesktopvirtualization)/workspaces/read | Ler espaços de trabalho |
+> | [Microsoft.DesktopVirtualization](resource-provider-operations.md#microsoftdesktopvirtualization)/applicationgroups/read | Ler grupos de candidaturas |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscrições/resourceGroups/read | Obtém ou lista grupos de recursos. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/read | Recebe ou lista destacamentos. |
+> | [Microsoft.Autorização](resource-provider-operations.md#microsoftauthorization)/*/ler | Ler papéis e atribuições de funções |
+> | [Microsoft.Insights](resource-provider-operations.md#microsoftinsights)/alertRules/read | Leia um alerta métrico clássico |
+> | [Microsoft.Support](resource-provider-operations.md#microsoftsupport)/* | Criar e atualizar um bilhete de apoio |
+> | **NotActions** |  |
+> | *nenhum* |  |
+> | **DataActions** |  |
+> | *nenhum* |  |
+> | **NotDataActions** |  |
+> | *nenhum* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Reader of the Desktop Virtualization Workspace.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/0fa44ee9-7a7d-466b-9bb2-2bf446b1204d",
+  "name": "0fa44ee9-7a7d-466b-9bb2-2bf446b1204d",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.DesktopVirtualization/workspaces/read",
+        "Microsoft.DesktopVirtualization/applicationgroups/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Resources/deployments/read",
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/read",
+        "Microsoft.Support/*"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Desktop Virtualization Workspace Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="disk-backup-reader"></a>Leitor de backup de discos
+
+Fornece permissão para o cofre de reserva para realizar cópia de segurança do disco. [Saiba mais](../backup/disk-backup-faq.md)
+
+> [!div class="mx-tableFixed"]
+> | Ações | Descrição |
+> | --- | --- |
+> | [Microsoft.Autorização](resource-provider-operations.md#microsoftauthorization)/*/ler | Ler papéis e atribuições de funções |
+> | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/discos/read | Obtenha as propriedades de um disco |
+> | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/disks/startGetAccess/action | Obtenha o SAS URI do Disco para acesso a bolhas |
+> | **NotActions** |  |
+> | *nenhum* |  |
+> | **DataActions** |  |
+> | *nenhum* |  |
+> | **NotDataActions** |  |
+> | *nenhum* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Provides permission to backup vault to perform disk backup.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/3e5e47e6-65f7-47ef-90b5-e5dd4d455f24",
+  "name": "3e5e47e6-65f7-47ef-90b5-e5dd4d455f24",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Compute/disks/read",
+        "Microsoft.Compute/disks/beginGetAccess/action"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Disk Backup Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="disk-restore-operator"></a>Operador de restauro de disco
+
+Fornece permissão para o cofre de reserva para executar a restauração do disco. [Saiba mais](../backup/restore-managed-disks.md)
+
+> [!div class="mx-tableFixed"]
+> | Ações | Descrição |
+> | --- | --- |
+> | [Microsoft.Autorização](resource-provider-operations.md#microsoftauthorization)/*/ler | Ler papéis e atribuições de funções |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscrições/resourceGroups/read | Obtém ou lista grupos de recursos. |
+> | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/discos/write | Cria um novo Disco ou atualiza um existente |
+> | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/discos/read | Obtenha as propriedades de um disco |
+> | **NotActions** |  |
+> | *nenhum* |  |
+> | **DataActions** |  |
+> | *nenhum* |  |
+> | **NotDataActions** |  |
+> | *nenhum* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Provides permission to backup vault to perform disk restore.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/b50d9833-a0cb-478e-945f-707fcc997c13",
+  "name": "b50d9833-a0cb-478e-945f-707fcc997c13",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Compute/disks/write",
+        "Microsoft.Compute/disks/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Disk Restore Operator",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="disk-snapshot-contributor"></a>Colaborador snapshot de disco
+
+Fornece permissão para o cofre de reserva para gerir as fotos do disco. [Saiba mais](../backup/backup-managed-disks.md)
+
+> [!div class="mx-tableFixed"]
+> | Ações | Descrição |
+> | --- | --- |
+> | [Microsoft.Autorização](resource-provider-operations.md#microsoftauthorization)/*/ler | Ler papéis e atribuições de funções |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscrições/resourceGroups/read | Obtém ou lista grupos de recursos. |
+> | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/snapshots/delete | Excluir um Instantâneo |
+> | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/snapshots/write | Criar um novo Snapshot ou atualizar um existente |
+> | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/snapshots/read | Obtenha as propriedades de um Snapshot |
+> | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/snapshots/startGetAccess/action | Obtenha o SAS URI do Snapshot para acesso a bolhas |
+> | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/snapshots/endGetAccess/action | Revogar o SAS URI do Snapshot |
+> | [Microsoft.Compute](resource-provider-operations.md#microsoftcompute)/disks/startGetAccess/action | Obtenha o SAS URI do Disco para acesso a bolhas |
+> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAcontas/listkeys/ação | Devolve as chaves de acesso à conta de armazenamento especificada. |
+> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAcontas/escrita | Cria uma conta de armazenamento com os parâmetros especificados ou atualiza as propriedades ou tags ou adiciona domínio personalizado para a conta de armazenamento especificada. |
+> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAcontas/ler | Devolve a lista de contas de armazenamento ou obtém as propriedades da conta de armazenamento especificada. |
+> | [Microsoft.Storage](resource-provider-operations.md#microsoftstorage)/storageAcontas/delete | Elimina uma conta de armazenamento existente. |
+> | **NotActions** |  |
+> | *nenhum* |  |
+> | **DataActions** |  |
+> | *nenhum* |  |
+> | **NotDataActions** |  |
+> | *nenhum* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Provides permission to backup vault to manage disk snapshots.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/7efff54f-a5b4-42b5-a1c5-5411624893ce",
+  "name": "7efff54f-a5b4-42b5-a1c5-5411624893ce",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Compute/snapshots/delete",
+        "Microsoft.Compute/snapshots/write",
+        "Microsoft.Compute/snapshots/read",
+        "Microsoft.Compute/snapshots/beginGetAccess/action",
+        "Microsoft.Compute/snapshots/endGetAccess/action",
+        "Microsoft.Compute/disks/beginGetAccess/action",
+        "Microsoft.Storage/storageAccounts/listkeys/action",
+        "Microsoft.Storage/storageAccounts/write",
+        "Microsoft.Storage/storageAccounts/read",
+        "Microsoft.Storage/storageAccounts/delete"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Disk Snapshot Contributor",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
@@ -9956,6 +11311,61 @@ Permite-lhe gerir as coleções de emprego do Scheduler, mas não ter acesso a e
     }
   ],
   "roleName": "Scheduler Job Collections Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+### <a name="services-hub-operator"></a>Operador de Hub de Serviços
+
+O Operador de Hub de Serviços permite-lhe executar todas as operações de leitura, escrita e eliminação relacionadas com os Conectores de Hub de Serviços. [Saiba mais](/services-hub/health/sh-connector-roles)
+
+> [!div class="mx-tableFixed"]
+> | Ações | Descrição |
+> | --- | --- |
+> | [Microsoft.Autorização](resource-provider-operations.md#microsoftauthorization)/*/ler | Ler papéis e atribuições de funções |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/subscrições/resourceGroups/read | Obtém ou lista grupos de recursos. |
+> | [Microsoft.Resources](resource-provider-operations.md#microsoftresources)/deployments/* | Criar e gerir uma implantação |
+> | [Microsoft.ServicesHub](resource-provider-operations.md#microsoftserviceshub)/conectores/escrever | Criar ou atualizar um Conector de Hub de Serviços |
+> | [Microsoft.ServicesHub](resource-provider-operations.md#microsoftserviceshub)/conectores/ler | Ver ou Listar Serviços Hub Conectores |
+> | [Microsoft.ServicesHub](resource-provider-operations.md#microsoftserviceshub)/conectores/delete | Eliminar conectores de hub de serviços |
+> | [Microsoft.ServicesHub](resource-provider-operations.md#microsoftserviceshub)/conectores/checkAssessmentEntitlement/action | Lista os Direitos de Avaliação de um determinado Espaço de Trabalho do Hub de Serviços |
+> | [Microsoft.ServicesHub](resource-provider-operations.md#microsoftserviceshub)/supportOfferingEntitlement/read | Ver os Direitos de Oferta de Apoio para um determinado espaço de trabalho do Hub de Serviços |
+> | [Microsoft.ServicesHub](resource-provider-operations.md#microsoftserviceshub)/workspaces/read | Listar os espaços de trabalho do Hub de Serviços para um determinado Utilizador |
+> | **NotActions** |  |
+> | *nenhum* |  |
+> | **DataActions** |  |
+> | *nenhum* |  |
+> | **NotDataActions** |  |
+> | *nenhum* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Services Hub Operator allows you to perform all read, write, and deletion operations related to Services Hub Connectors.",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/82200a5b-e217-47a5-b665-6d8765ee745b",
+  "name": "82200a5b-e217-47a5-b665-6d8765ee745b",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.ServicesHub/connectors/write",
+        "Microsoft.ServicesHub/connectors/read",
+        "Microsoft.ServicesHub/connectors/delete",
+        "Microsoft.ServicesHub/connectors/checkAssessmentEntitlement/action",
+        "Microsoft.ServicesHub/supportOfferingEntitlement/read",
+        "Microsoft.ServicesHub/workspaces/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Services Hub Operator",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
