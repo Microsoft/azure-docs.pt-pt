@@ -1,10 +1,11 @@
-- name: Documentação do Azure IoT Central para os Cuidados de saúde
+- name: Documentação do Azure IoT Central para os Cuidados de Saúde
   href: index.yml
 - name: Descrição geral
   items:
     - name: Criar soluções para os cuidados de saúde com o Azure IoT Central
       href: overview-iot-central-healthcare.md
 - name: Tutoriais
+  expanded: true
   items:
     - name: Criar uma aplicação de monitorização contínua do paciente
       href: tutorial-continuous-patient-monitoring.md

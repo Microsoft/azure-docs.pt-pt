@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/17/2019
 ms.author: kumud
-ms.openlocfilehash: fd154ec40ed4d1650e44a67fd5d362a2bc0c519d
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: f4ce830c889feaeda05745eeb02b72f55ad9314a
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97813943"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99819848"
 ---
 # <a name="quickstart-create-and-configure-azure-ddos-protection-standard"></a>Quickstart: Criar e configurar norma de proteção Azure DDoS
 
@@ -46,8 +46,8 @@ Neste arranque rápido, irá criar um plano de proteção DDoS e ligá-lo a uma 
     |---------      |---------                                          |
     |Nome           | Insira _o MyDdosProtectionPlan_.                     |
     |Subscrição   | Selecione a sua subscrição.                         |
-    |O grupo de recursos | Selecione **Criar novo** e insira _o MyResourceGroup_.|
-    |A localização       | Entre _no Leste dos EUA._                                  |
+    |Grupo de recursos | Selecione **Criar novo** e insira _o MyResourceGroup_.|
+    |Localização       | Entre _no Leste dos EUA._                                  |
 
 ## <a name="enable-ddos-protection-for-a-virtual-network"></a>Ativar a proteção DDoS para uma rede virtual
 
@@ -61,8 +61,8 @@ Neste arranque rápido, irá criar um plano de proteção DDoS e ligá-lo a uma 
     | ---------       | ---------                                       |
     | Nome            | Insira _MyVnet_.                                 |
     | Subscrição    | Selecione a sua subscrição.                                    |
-    | O grupo de recursos  | Selecione **Utilizar a utilização existente** e, em seguida, selecione **MyResourceGroup** |
-    | A localização        | Entre no _Leste dos EUA_                                                    |
+    | Grupo de recursos  | Selecione **Utilizar a utilização existente** e, em seguida, selecione **MyResourceGroup** |
+    | Localização        | Entre no _Leste dos EUA_                                                    |
     | DDoS Protection Standard | Selecione **Ativar**. O plano que seleciona pode ser na mesma, ou subscrição diferente da rede virtual, mas ambas as subscrições devem estar associadas ao mesmo inquilino do Azure Ative Directory.|
 
 Não é possível mover uma rede virtual para outro grupo de recursos ou subscrição quando o DDoS Standard estiver ativado para a rede virtual. Se precisar de mover uma rede virtual com o DDoS Standard ativado, desative primeiro a DDoS Standard, mova a rede virtual e, em seguida, ative a norma DDoS. Após a mudança, os limiares de política afinados automaticamente para todos os endereços IP públicos protegidos na rede virtual são reiniciados.
@@ -77,7 +77,7 @@ Não é possível mover uma rede virtual para outro grupo de recursos ou subscri
 
 ### <a name="enable-ddos-protection-for-all-virtual-networks"></a>Ativar a proteção DDoS para todas as redes virtuais
 
-Esta [política](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20DDoS%20Protection/Policy%20-%20Virtual%20Networks%20should%20be%20associated%20with%20an%20Azure%20DDoS%20Protection%20Standard%20plan) detetará quaisquer redes virtuais num âmbito definido que não tenham a Norma de Proteção DDoS ativada, e depois criará opcionalmente uma tarefa de reparação que criará a associação para proteger o VNet. Para obter instruções detalhadas passo a passo sobre como implementar esta política, consulte https://aka.ms/ddosvnetpolicy-techcommunity .
+Esta [política](https://aka.ms/ddosvnetpolicy) detetará quaisquer redes virtuais num âmbito definido que não tenham a Norma de Proteção DDoS ativada, e depois criará opcionalmente uma tarefa de reparação que criará a associação para proteger o VNet. Para obter instruções detalhadas passo a passo sobre como implementar esta política, consulte https://aka.ms/ddosvnetpolicy-techcommunity .
 
 ## <a name="validate-and-test"></a>Validar e testar
 

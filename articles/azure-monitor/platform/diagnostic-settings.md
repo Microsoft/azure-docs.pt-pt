@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.subservice: logs
-ms.openlocfilehash: c25c53159fd0504956eed2cf7f968c573e9fc289
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: a6f8e681f68fb53d7cf88582b4bf4416efc11c86
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98927727"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820556"
 ---
 # <a name="create-diagnostic-settings-to-send-platform-logs-and-metrics-to-different-destinations"></a>Criar definições de diagnóstico para enviar registos e métricas da plataforma para destinos diferentes
 [Os registos da plataforma](platform-logs-overview.md) em Azure, incluindo os registos de atividades Azure e registos de recursos, fornecem informações detalhadas de diagnóstico e auditoria para os recursos do Azure e para a plataforma Azure em que dependem. [As métricas da plataforma](data-platform-metrics.md) são recolhidas por padrão e normalmente armazenadas na base de dados de métricas do Azure Monitor. Este artigo fornece detalhes sobre a criação e configuração de configurações de diagnóstico para enviar métricas de plataforma e registos de plataforma para diferentes destinos.
@@ -43,7 +43,7 @@ O vídeo que se segue acompanha-o através de registos de plataformas de encamin
 ## <a name="destinations"></a>Destinos
 Os registos e métricas da plataforma podem ser enviados para os destinos na tabela seguinte. 
 
-| Destino | Descrição |
+| Destino | Description |
 |:---|:---|
 | [Log Analytics espaço de trabalho](design-logs-deployment.md) | O envio de registos e métricas para um espaço de trabalho do Log Analytics permite analisá-los com outros dados de monitorização recolhidos pelo Azure Monitor utilizando consultas de registos poderosas e também para alavancar outras funcionalidades do Azure Monitor, tais como alertas e visualizações. |
 | [Hubs de eventos](../../event-hubs/index.yml) | O envio de registos e métricas para Os Centros de Eventos permite-lhe transmitir dados para sistemas externos, tais como SIEMs de terceiros e outras soluções de análise de registo.  |
@@ -54,7 +54,7 @@ Os registos e métricas da plataforma podem ser enviados para os destinos na tab
 
 Quaisquer destinos para a definição de diagnóstico devem ser criados antes de criar as definições de diagnóstico. O destino não tem de estar na mesma subscrição que os registos de envio de recursos, desde que o utilizador que configura a definição tenha acesso RBAC adequado a ambas as subscrições. O quadro seguinte fornece requisitos únicos para cada destino, incluindo quaisquer restrições regionais.
 
-| Destino | Requirements |
+| Destino | Requisitos |
 |:---|:---|
 | Área de trabalho do Log Analytics | O espaço de trabalho não precisa de estar na mesma região que o recurso que está a ser monitorizado.|
 | Hubs de Eventos | A política de acesso partilhado para o espaço de nome define as permissões que o mecanismo de streaming tem. O streaming para Os Centros de Eventos requer permissões de Gestão, Envio e Escuta. Para atualizar a definição de diagnóstico para incluir o streaming, tem de ter a permissão ListKey nessa regra de autorização do Event Hubs.<br><br>O espaço de nome do centro de eventos tem de estar na mesma região que o recurso que está a ser monitorizado se o recurso for regional. |
@@ -176,7 +176,25 @@ Consulte [Definições de diagnóstico](/rest/api/monitor/diagnosticsettings) pa
 ## <a name="create-using-azure-policy"></a>Criar usando a política de Azure
 Uma vez que é necessário criar uma definição de diagnóstico para cada recurso Azure, a Política Azure pode ser usada para criar automaticamente uma definição de diagnóstico à medida que cada recurso é criado. Consulte [o Monitor Azure em escala utilizando a Política Azure](../deploy-scale.md) para obter detalhes.
 
+## <a name="metric-category-is-not-supported-error"></a>A categoria métrica não é um erro suportado
+Ao implementar uma definição de diagnóstico, recebe a seguinte mensagem de erro:
 
-## <a name="next-steps"></a>Próximos passos
+   "Categoria métrica '*xxxx*' não é suportado"
+
+Por exemplo: 
+
+   "A categoria métrica 'ActionsFailed' não é suportada"
+
+onde anteriormente a sua implantação foi bem sucedida. 
+
+O problema ocorre quando se utiliza um modelo de Gestor de Recursos, as definições de diagnóstico REST API, Azure CLI ou Azure PowerShell. As definições de diagnóstico criadas através do portal Azure não são afetadas, uma vez que apenas são apresentados os nomes da categoria suportada.
+
+O problema é causado por uma mudança recente na API subjacente. As categorias métricas que não as 'AllMetrics' não são suportadas e nunca foram, exceto em cenários de lista de IP muito específicos. No passado, outros nomes de categorias foram ignorados ao implementar uma definição de diagnóstico. O backend do Monitor Azure simplesmente redirecionou estas categorias para 'AllMetrics'.  A partir de fevereiro de 2021, o backend foi atualizado para confirmar especificamente que a categoria métrica fornecida é precisa. Esta mudança fez com que algumas implementações falhassem.
+
+Se receber este erro, atualize as suas implementações para substituir quaisquer nomes de categoria métrica por 'AllMetrics' para corrigir o problema. Se a implantação previamente adicionasse várias categorias, apenas uma com a referência 'AllMetrics' deve ser mantida. Se continuar a ter o problema, contacte o suporte do Azure através do portal Azure. 
+
+
+
+## <a name="next-steps"></a>Passos seguintes
 
 - [Ler mais sobre Logs da plataforma Azure](platform-logs-overview.md)

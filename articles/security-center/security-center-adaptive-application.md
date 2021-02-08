@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/06/2020
+ms.date: 02/07/2021
 ms.author: memildin
-ms.openlocfilehash: 103f2c87cf9d14f81462fed145ff8df3d69bfca0
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: cc35f9ee25511faec5723b49763cbdae8963e88b
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98916138"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820760"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>Utilize controlos de aplicação adaptativos para reduzir as superfícies de ataque das suas máquinas
 
@@ -44,7 +44,7 @@ Ao definir listas de aplicações conhecidas e gerar alertas quando qualquer out
 - Evite software específico que seja proibido pela sua organização
 - Aumentar a supervisão das apps que acedem a dados sensíveis
 
-
+Não existem opções de execução e nenhuma está planeada. Os controlos de aplicação adaptativa destinam-se a fornecer alertas de segurança se qualquer aplicação correr além das que definiu como seguras.
 
 ## <a name="availability"></a>Disponibilidade
 
@@ -235,9 +235,14 @@ Algumas das funções que estão disponíveis na API REST:
    > Remova as seguintes propriedades antes de utilizar o JSON no pedido Demissão: recomendaçãoStatus, configuraçãoStatus, problemas, localização e sourceSystem.
 
 
+## <a name="faq---adaptive-application-controls"></a>FAQ - Controlos de aplicações adaptativos
 
+### <a name="are-there-any-options-to-enforce-the-application-controls"></a>Existem opções para impor os controlos de aplicação?
+Não existem opções de execução e nenhuma está planeada. Os controlos de aplicação adaptativa destinam-se a fornecer **alertas** de segurança se qualquer aplicação correr além das que definiu como seguras. Têm uma gama de benefícios[(Quais são os benefícios dos controlos de aplicação adaptativa?](#what-are-the-benefits-of-adaptive-application-controls)) e são extremamente personalizáveis como mostrado nesta página.
 
-## <a name="next-steps"></a>Próximos passos
+ 
+
+## <a name="next-steps"></a>Passos seguintes
 Neste documento, aprendeu a utilizar o controlo de aplicações adaptativas no Azure Security Center para definir as listas de aplicações em execução nas suas máquinas Azure e não-Azure. Para saber mais sobre algumas das outras funcionalidades de proteção da carga de trabalho em nuvem do Security Center, consulte:
 
 * [Compreensão do acesso just-in-time (JIT) à VM](just-in-time-explained.md)

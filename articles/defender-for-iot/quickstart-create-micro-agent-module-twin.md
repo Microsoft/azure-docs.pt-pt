@@ -1,5 +1,5 @@
 ---
-title: Criar um módulo de micro-agente Defender Iot twin (Preview)
+title: Criar um módulo de micro agente Defender IoT twin (Pré-visualização)
 titleSuffix: Azure Defender for IoT
 description: Saiba como criar gémeos individuais do módulo DefenderIotMicroAgent para novos dispositivos.
 author: shhazam-ms
@@ -8,14 +8,14 @@ ms.author: shhazam
 ms.date: 1/20/2021
 ms.topic: quickstart
 ms.service: azure
-ms.openlocfilehash: 7935db0a78db59abaf2e9983c5ebb56bb4365a7e
-ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
+ms.openlocfilehash: f14f253960b628f2bf8052e92dbec3c897a205db
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/08/2021
-ms.locfileid: "99810185"
+ms.locfileid: "99820845"
 ---
-# <a name="create-a-defender-iot-micro-agent-module-twin-preview"></a>Criar um módulo de micro-agente Defender Iot twin (Preview)
+# <a name="create-a-defender-iot-micro-agent-module-twin-preview"></a>Criar um módulo de micro agente Defender IoT twin (Pré-visualização)
 
 Pode criar gémeos módulos **DefenderIotMicroAgent** para novos dispositivos. Também pode criar módulos gémeos para todos os dispositivos num Hub IoT. 
 

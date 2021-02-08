@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2021
 ms.author: shhazam
-ms.openlocfilehash: 929b8de8a6b70519bb44e41ba5cfede9ec12f110
-ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
+ms.openlocfilehash: ff837fe88f878c522366b2b6bc19a1ef3954b667
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/08/2021
-ms.locfileid: "99808866"
+ms.locfileid: "99820658"
 ---
 # <a name="security-agent-reference-architecture"></a>Arquitetura de referência de agente de segurança
 
@@ -34,7 +34,7 @@ Os agentes de segurança suportam as seguintes funcionalidades:
 
 - Eventos de segurança bruto agregados em mensagens enviadas através do IoT Hub.
 
-- Configure remotamente através da utilização do módulo **de azureiotsecurity** twin. Para saber mais, consulte [Configure um Defender para agente IoT](how-to-agent-configuration.md).
+- Configure remotamente através da utilização do módulo **de azureiotsecurity** twin. Para saber mais, consulte [Configurar um Defender para agente IoT](how-to-agent-configuration.md).
 
 O Defender for IoT Security agents é desenvolvido como projetos de código aberto, e estão disponíveis no GitHub:
 

@@ -5,6 +5,7 @@
     - name: Criar soluções para o comércio com o Azure IoT Central
       href: overview-iot-central-retail.md
 - name: Tutoriais
+  expanded: true
   items:
     - name: Finalização da compra de análises na loja
       items:

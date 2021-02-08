@@ -1,6 +1,7 @@
 - name: Documentação da Base de Dados do Azure para MySQL
   href: index.yml
 - name: Descrição geral
+  expanded: true
   items:
     - name: O que é a Base de Dados do Azure para MySQL?
       href: overview.md
@@ -12,7 +13,6 @@
       href: concepts-version-policy.md
       displayName: version policy
 - name: Servidor Único
-  expanded: true
   items:
     - name: Documentação sobre o Servidor Único
       href: single-server/index.yml

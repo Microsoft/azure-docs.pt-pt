@@ -1,20 +1,20 @@
 ---
-title: Use insights da Série De Tempo Azure para armazenar e analisar a telemetria do seu dispositivo Azure IoT Plug and Play
-description: Configurar um ambiente de Insights de Séries Tempotamos e ligar o seu hub IoT para visualizar e analisar a telemetria a partir dos seus dispositivos IoT Plug e Play.
+title: Tutorial - Use insights da Série de Tempo Azure para armazenar e analisar a telemetria do seu dispositivo Azure IoT Plug and Play
+description: Tutorial - Crie um ambiente de Insights de Séries Tempotamos e ligue o seu hub IoT para visualizar e analisar a telemetria a partir dos seus dispositivos IoT Plug e Play.
 author: lyrana
 ms.author: lyhughes
 ms.date: 10/14/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 5491df61a1198e8eee4ba4701ccfc56154ec75eb
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 299730bcdab3ae7e558f39cc7f7d5076ffc58ea9
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905103"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820184"
 ---
-# <a name="preview-tutorial-create-and-configure-a-time-series-insights-gen2-environment"></a>Tutorial de pré-visualização: Criar e configurar um ambiente de Insights Gen2 da Série Temporal
+# <a name="tutorial-create-and-configure-a-time-series-insights-gen2-environment"></a>Tutorial: Criar e configurar um ambiente de Insights Gen2 da Série Temporal
 
 Neste tutorial, aprende-se a criar e configurar um ambiente [Azure Time Series Insights Gen2](../time-series-insights/overview-what-is-tsi.md) para integrar-se com a sua solução IoT Plug and Play. Use Time Series Insights para recolher, processar, armazenar, consultar e visualizar dados de séries de tempo na escala da Internet das Coisas (IoT).
 
@@ -218,7 +218,7 @@ Repita os passos anteriores para atribuir as etiquetas do termóstato corretas a
 
 ## <a name="view-your-data"></a>Ver os dados
 
-Volte ao painel de gráficos e expanda a **Frota de Dispositivos** > o seu dispositivo. Selecione **o termóstato1,** selecione a variável **Temperatura** e, em seguida, selecione **Adicionar** para traçar o valor. Faça o mesmo para **o termóstato2** e o valor padrão **de trabalhocomponente.** **defaultComponent**
+Volte ao painel de gráficos e expanda a **Frota de Dispositivos** > o seu dispositivo. Selecione **o termóstato1,** selecione a variável **Temperatura** e, em seguida, selecione **Adicionar** para traçar o valor. Faça o mesmo para **o termóstato2** e o valor padrão **de trabalhocomponente.** 
 
 ![Screenshot mostrando como alterar o tipo de instância para o termostato2.](./media/tutorial-configure-tsi/charting-values.png)
 

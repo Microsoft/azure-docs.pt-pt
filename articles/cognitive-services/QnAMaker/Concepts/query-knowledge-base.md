@@ -3,12 +3,12 @@ title: Consulta da base de conhecimento - QnA Maker
 description: Uma base de conhecimento deve ser publicada. Uma vez publicada, a base de conhecimento é consultada no ponto final de previsão de tempo de execução usando a API generateAnswer.
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: d8f986299edee46bf5cace7a9f4c805c29b3ce0c
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: deefc53fdc94851da0e9e255962fbf85692d1393
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96346210"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820386"
 ---
 # <a name="query-the-knowledge-base-for-answers"></a>Consultar a base de conhecimento para respostas
 
@@ -31,7 +31,7 @@ O processo é explicado na tabela seguinte.
 |1|A aplicação do cliente envia a consulta do utilizador para a [API GenerateAnswer](../how-to/metadata-generateanswer-usage.md).|
 |2|O QnA Maker pré-processa a consulta do utilizador com deteção de idiomas, soletradores e disjuntores de palavras.|
 |3|Este pré-processamento é tomado para alterar a consulta do utilizador para obter os melhores resultados de pesquisa.|
-|4|Esta consulta alterada é enviada para um Índice de Pesquisa Cognitiva Azure, que recebe o `top` número de resultados. Se a resposta correta não estiver nestes resultados, aumente ligeiramente o `top` valor. Geralmente, um valor de 10 para `top` obras em 90% das consultas.|
+|4|Esta consulta alterada é enviada para um Índice de Pesquisa Cognitiva Azure, que recebe o `top` número de resultados. Se a resposta correta não estiver nestes resultados, aumente ligeiramente o `top` valor. Geralmente, um valor de 10 para `top` obras em 90% das consultas. Os filtros de pesquisa Azure [param as palavras](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/STOPWORDS.md) neste passo.|
 |5|O QnA Maker utiliza uma caracterização baseada em sintática e semântica para determinar a semelhança entre a consulta do utilizador e os resultados do QnA.|
 |6|O modelo de classificação aprendido pela máquina utiliza as diferentes funcionalidades, desde o passo 5, para determinar as pontuações de confiança e a nova ordem de classificação.|
 |7|Os novos resultados são devolvidos ao pedido do cliente em ordem classificada.|
@@ -54,7 +54,7 @@ O processo é explicado na tabela seguinte.
 |1|A aplicação do cliente envia a consulta do utilizador para a [API GenerateAnswer](../how-to/metadata-generateanswer-usage.md).|
 |2|O QnA Maker pré-processa a consulta do utilizador com deteção de idiomas, soletradores e disjuntores de palavras.|
 |3|Este pré-processamento é tomado para alterar a consulta do utilizador para obter os melhores resultados de pesquisa.|
-|4|Esta consulta alterada é enviada para um Índice de Pesquisa Cognitiva Azure, que recebe o `top` número de resultados. Se a resposta correta não estiver nestes resultados, aumente ligeiramente o `top` valor. Geralmente, um valor de 10 para `top` obras em 90% das consultas.|
+|4|Esta consulta alterada é enviada para um Índice de Pesquisa Cognitiva Azure, que recebe o `top` número de resultados. Se a resposta correta não estiver nestes resultados, aumente ligeiramente o `top` valor. Geralmente, um valor de 10 para `top` obras em 90% das consultas. Os filtros de pesquisa Azure [param as palavras](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/STOPWORDS.md) neste passo.|
 |5|O QnA Maker usa um modelo baseado em transformadores de última geração para determinar a semelhança entre a consulta do utilizador e os resultados do QnA candidatos recolhidos da Azure Cognitive Search. O modelo baseado em transformadores é um modelo multilingue de aprendizagem profunda, que funciona horizontalmente para todas as línguas para determinar as pontuações de confiança e a nova ordem de classificação.|
 |6|Os novos resultados são devolvidos ao pedido do cliente em ordem classificada.|
 |||

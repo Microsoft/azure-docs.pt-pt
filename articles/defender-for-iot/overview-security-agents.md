@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/24/2021
 ms.author: shhazam
-ms.openlocfilehash: fcc2c7c3e724fccd005c8b6c8d1b01982f407c65
-ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
+ms.openlocfilehash: 61c7f1bddd40151aff2b1ca556045d34c4a1cc0d
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/08/2021
-ms.locfileid: "99809035"
+ms.locfileid: "99820828"
 ---
 # <a name="get-started-with-azure-defender-for-iot-device-micro-agents"></a>Começa com o Azure Defender para micro agentes de dispositivo IoT
 

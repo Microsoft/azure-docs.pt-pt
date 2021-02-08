@@ -1,5 +1,5 @@
 ---
-title: Tutorial da IoT Gestão de inventário inteligente / Microsoft Docs
+title: Tutorial da IoT Smart gestão de inventário | Microsoft Docs
 description: Um tutorial do modelo de aplicação de gestão de inventário inteligente para ioT Central
 author: KishorIoT
 ms.author: nandab
@@ -7,22 +7,21 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.date: 10/20/2019
-ms.openlocfilehash: b1b7069cb723bffd758c3603cc957329dd6d2a9b
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 2b26b4390cb19b832349b49d4e95a5355caed594
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96463275"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820301"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-smart-inventory-management-application-template"></a>Tutorial: Implementar e caminhar através de um modelo de aplicação de gestão de inventário inteligente
 
-
-
 Este tutorial mostra-lhe como começar com a implementação de um modelo de aplicação **de gestão de inventário inteligente** IoT Central. Você vai aprender a implementar o modelo, o que está incluído fora da caixa, e o que você pode querer fazer a seguir.
 
-Neste tutorial, aprende-se a, 
-* criar aplicação inteligente de gestão de inventário 
-* andar através da aplicação 
+Neste tutorial, aprende-se a,
+
+> [!div class="checklist"]
+> criar aplicação de gestão de inventário inteligente caminhar através da aplicação 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -104,7 +103,7 @@ Selecione o separador de empregos para ver cinco empregos diferentes que existem
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Se não continuar a utilizar esta aplicação, elimine o **Administration** modelo de aplicação visitando  >  **as definições de Aplicação da** Administração e clique em **Eliminar**.
+Se não continuar a utilizar esta aplicação, elimine o modelo de aplicação visitando  >  **as definições de Aplicação da** Administração e clique em **Eliminar**.
 
 > [!div class="mx-imgBorder"]
 > ![Screenshot mostrando como apagar a aplicação quando terminar com ela](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_cleanup.png)

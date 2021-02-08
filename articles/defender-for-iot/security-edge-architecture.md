@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mlottner
-ms.openlocfilehash: 132c21588df2f2180ddd973d208eb95ea6657e7d
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: 3e653983b39e8eb4ac13ad840ca53e4ab6d1cfc7
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97832459"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820624"
 ---
 # <a name="azure-defender-for-iot-edge-security-module"></a>Azure Defender para módulo de segurança IoT Edge
 
@@ -43,7 +43,7 @@ O módulo de segurança Defender for IoT para IoT Edge oferece as seguintes func
 
 - Remova a configuração através da utilização do módulo de segurança twin.
 
-  Consulte [configurar um Defensor para agente IoT](how-to-agent-configuration.md) para saber mais.
+  Consulte [configurar um Defender para o agente IoT](how-to-agent-configuration.md) para saber mais.
 
 O módulo de segurança Defender for IoT Edge funciona num modo privilegiado sob ioT Edge.
 O modo privilegiado é necessário para permitir que o módulo monitorize o Sistema Operativo e outros módulos IoT Edge.

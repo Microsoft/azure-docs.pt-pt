@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: evansma
 ms.service: resource-move
 ms.topic: tutorial
-ms.date: 09/09/2020
+ms.date: 02/04/2021
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 9fe43125c83436f89bf93cbe975317efec2beb46
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 4678a6128be13ac61dc4ac67bbd1a17e99c6d24d
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95542818"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820233"
 ---
 # <a name="tutorial-move-azure-sql-database-resources-to-another-region"></a>Tutorial: Mover recursos da Base de Dados Azure SQL para outra região
 
@@ -22,7 +22,7 @@ Neste tutorial, aprenda a mover bases de dados Azure SQL e piscinas elásticas p
 > [!NOTE]
 > A Azure Resource Mover está atualmente em pré-visualização.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Verifique os pré-requisitos e requisitos.
@@ -272,8 +272,11 @@ Terminando bases de dados móveis e piscinas elásticas da seguinte forma:
 
 Após a mudança, pode opcionalmente apagar recursos na região de origem. 
 
-1. Em **Regiões Diferentes,** clique no nome de cada recurso de origem que pretende eliminar.
-2. Na página de propriedades para cada recurso, selecione **Delete**.
+> [!NOTE]
+> Os servidores do SQL Server não podem ser eliminados do portal e devem ser eliminados da página de propriedade de recursos.
+
+1. Em **Regiões Diferentes,** clique no nome do recurso de origem que pretende eliminar.
+2. **Selecione Eliminar a fonte**.
 
 ## <a name="next-steps"></a>Passos seguintes
 

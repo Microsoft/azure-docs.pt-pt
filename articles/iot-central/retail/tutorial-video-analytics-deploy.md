@@ -1,21 +1,21 @@
 ---
-title: Como implementar a análise de vídeo - objeto e deteção de movimento Azure IoT Modelo de aplicação central
-description: Este guia resume os passos para implementar uma aplicação Azure IoT Central utilizando o modelo de aplicação de deteção de objetos e movimentos.
+title: 'Tutorial: Como implementar a análise de vídeo - modelo de aplicação Azure IoT Central de deteção de objetos e movimentos'
+description: Tutorial - Este guia resume os passos para implementar uma aplicação Azure IoT Central utilizando o modelo de aplicação de vídeo - objeto e deteção de movimento.
 services: iot-central
 ms.service: iot-central
 ms.subservice: iot-central-retail
-ms.topic: how-to
+ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: decfa7020be7778e8ca64a9fb0cb4aac1657da27
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: abeae674cef8f13a092b53bde6040ad853bd0cca
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91873341"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820369"
 ---
-# <a name="how-to-deploy-an-iot-central-application-using-the-video-analytics---object-and-motion-detection-application-template"></a>Como implementar uma aplicação IoT Central usando o modelo de aplicação de deteção de objetos e movimentos
+# <a name="tutorial-how-to-deploy-an-iot-central-application-using-the-video-analytics---object-and-motion-detection-application-template"></a>Tutorial: Como implementar uma aplicação IoT Central usando o modelo de aplicação de deteção de objetos e movimentos
 
 Para uma visão geral da análise de vídeo chave - componentes de aplicação *de deteção de objetos e movimentos,* consulte [a arquitetura de aplicações de análise de vídeo de deteção de objetos e movimentos](architecture-video-analytics.md).
 
@@ -45,4 +45,10 @@ Preencha os seguintes passos para implementar uma aplicação IoT Central utiliz
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora tem uma visão geral dos passos para implementar e utilizar o modelo de aplicação de análise de vídeo, ver [Criar uma aplicação de análise de vídeo no Azure IoT Central (YOLO v3)](tutorial-video-analytics-create-app-yolo-v3.md) ou [criar uma análise de vídeo em Azure IoT Central (OpenVINO) &trade; ](tutorial-video-analytics-create-app-openvino.md) para começar.
+Agora você tem uma visão geral dos passos para implementar e usar o modelo de aplicação de análise de vídeo, ver
+
+> [!div class="nextstepaction"]
+> [Criar uma aplicação de análise de vídeo em Azure IoT Central (YOLO v3)](tutorial-video-analytics-create-app-yolo-v3.md) ou
+
+> [!div class="nextstepaction"]
+> [Crie uma análise de vídeo no Azure IoT Central (OpenVINO) &trade; ](tutorial-video-analytics-create-app-openvino.md) para começar.

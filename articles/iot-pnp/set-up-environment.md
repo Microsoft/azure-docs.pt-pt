@@ -1,20 +1,20 @@
 ---
-title: Configurar os recursos IoT que precisa para ioT Plug e Play Microsoft Docs
-description: Crie uma instância de Serviço de Provisionamento de Hub ioT e dispositivo para usar com o IoT Plug e reproduzir quickstarts e tutoriais.
+title: Quickstart - Configurar os recursos IoT de que precisa para ioT Plug e Play | Microsoft Docs
+description: Quickstart - Crie uma instância de Serviço de Provisionamento de Hub ioT e dispositivo para usar com os quickstarts e tutoriais IoT Plug e Play.
 author: dominicbetts
 ms.author: dobett
 ms.date: 08/11/2020
-ms.topic: how-to
+ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 6e6c090c02798103a30cc68f2ca28e8c4f7f2f17
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 10ec761313ce39beb4b24b838d156478704f943e
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "96004267"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820035"
 ---
-# <a name="set-up-your-environment-for-the-iot-plug-and-play-quickstarts-and-tutorials"></a>Configurar o seu ambiente para o IoT Plug e reproduzir quickstarts e tutoriais
+# <a name="quickstart---set-up-your-environment-for-the-iot-plug-and-play-quickstarts-and-tutorials"></a>Quickstart - Crie o seu ambiente para o IoT Plug e jogue quickstarts e tutoriais
 
 Antes de completar qualquer um dos quickstarts e tutoriais IoT Plug and Play, tem de configurar um hub IoT e o Serviço de Provisionamento de Dispositivos (DPS) na sua subscrição Azure. Também necessitará de cópias locais dos ficheiros-modelo utilizados pelas aplicações da amostra e pela ferramenta exploradora Azure IoT.
 

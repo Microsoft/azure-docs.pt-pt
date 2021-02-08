@@ -12,19 +12,19 @@ ms.workload: identity
 ms.date: 10/22/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, devx-track-python, scenarios:getting-started, languages:Python
-ms.openlocfilehash: b6087140380fab00e2f24ea7f3b94334c4b79a71
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 734fad7d3f4fb7a2a816d9ad10fb6b15e2faf9e2
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99583167"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820414"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-python-console-app-using-apps-identity"></a>Quickstart: Adquira um token e ligue para a Microsoft Graph API a partir de uma aplicação de consola Python usando a identidade da app
 
 Neste quickstart, você descarrega e execute uma amostra de código que demonstra como uma aplicação Python pode obter um token de acesso usando a identidade da aplicação para ligar para a Microsoft Graph API e mostrar uma [lista de utilizadores](/graph/api/user-list) no diretório. A amostra de código demonstra como um trabalho sem supervisão ou serviço windows pode funcionar com uma identidade de aplicação, em vez da identidade de um utilizador. 
 
 > [!div renderon="docs"]
-> ![Mostra como funciona a app de amostras gerada por este quickstart](media/quickstart-v2-netcore-daemon/netcore-daemon-intro.svg)
+> ![Mostra como funciona a app de amostras gerada por este quickstart](media/quickstart-v2-python-daemon/python-console-daemon.svg)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -42,7 +42,7 @@ Para fazer esta amostra, precisa:
 >
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Opção 1: registar e configurar automaticamente a sua aplicação e, em seguida, transferir o exemplo de código
 >
-> 1. Vá ao <a href="https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/PythonDaemonQuickstartPage/sourceType/docs" target="_blank">portal Azure - <span class="docon docon-navigate-external x-hidden-focus"></span> Aplicação registra</a> experiência de arranque rápido.
+> 1. Vá ao <a href="https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/PythonDaemonQuickstartPage/sourceType/docs" target="_blank">portal Azure - Aplicação registra</a> experiência de arranque rápido.
 > 1. Introduza um nome para a sua aplicação e xelecione **Registar**.
 > 1. Siga as instruções para transferir e configurar automaticamente a sua nova aplicação com um só clique.
 >
@@ -52,7 +52,7 @@ Para fazer esta amostra, precisa:
 > #### <a name="step-1-register-your-application"></a>Passo 1: Registar a aplicação
 > Para registar a sua aplicação e adicionar as informações de registo da aplicação à sua solução manualmente, siga os passos a seguir:
 >
-> 1. Inscreva-se no <a href="https://portal.azure.com/" target="_blank">portal <span class="docon docon-navigate-external x-hidden-focus"></span> Azure</a>.
+> 1. Inicie sessão no <a href="https://portal.azure.com/" target="_blank">portal do Azure</a>.
 > 1. Se tiver acesso a vários inquilinos, utilize o filtro **de subscrição Diretório +** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o inquilino no qual pretende registar uma candidatura.
 > 1. Procure e selecione **Azure Active Directory**.
 > 1. Em **Gestão**, selecione **registos de aplicações**  >  **Novo registo**.
@@ -65,7 +65,7 @@ Para fazer esta amostra, precisa:
 > 1. No nó **do utilizador,** selecione **User.Read.All** e, em seguida, selecione **Adicionar permissões**.
 
 > [!div class="sxs-lookup" renderon="portal"]
-> ### <a name="download-and-configure-your-quickstart-app"></a>Faça o download e configuure a sua app quickstart
+> ### <a name="download-and-configure-the-quickstart-app"></a>Descarregue e configuure a app quickstart
 >
 > #### <a name="step-1-configure-your-application-in-azure-portal"></a>Passo 1: Configurar a aplicação no portal do Azure
 > Para que a amostra de código neste arranque rápido funcione, crie um segredo de cliente e adicione a permissão de aplicação da Graph **API.Read.All.**
@@ -75,7 +75,7 @@ Para fazer esta amostra, precisa:
 > > [!div id="appconfigured" class="alert alert-info"]
 > > ![Já configurada](media/quickstart-v2-netcore-daemon/green-check.png) A sua aplicação está configurada com estes atributos.
 
-#### <a name="step-2-download-your-python-project"></a>Passo 2: Descarregue o seu projeto Python
+#### <a name="step-2-download-the-python-project"></a>Passo 2: Descarregue o projeto Python
 
 > [!div renderon="docs"]
 > [Descarregue o projeto Python Daemon](https://github.com/Azure-Samples/ms-identity-python-daemon/archive/master.zip)
@@ -89,10 +89,10 @@ Para fazer esta amostra, precisa:
 
 
 > [!div renderon="docs"]
-> #### <a name="step-3-configure-your-python-project"></a>Passo 3: Configurar o seu projeto Python
+> #### <a name="step-3-configure-the-python-project"></a>Passo 3: Configurar o projeto Python
 >
 > 1. Extraia o ficheiro zip para uma pasta local próxima da raiz do disco, por exemplo, **C:\Azure-Samples**.
-> 1. Navegue para a sub-pasta **1-Call-MsGraph-WithSecret".**
+> 1. Navegue para a sub-pasta **1-Call-MsGraph-WithSecret**.
 > 1. Editar **parameters.js** e substituir os valores dos `authority` `client_id` campos, e `secret` com o seguinte corte:
 >
 >    ```json
@@ -119,10 +119,10 @@ Se tentar executar a aplicação neste momento, receberá *HTTP 403 - Erro proib
 ##### <a name="global-tenant-administrator"></a>Administrador de inquilino global
 
 > [!div renderon="docs"]
-> Se for administrador de inquilino global, vá à página **de Permissões da API** no Registo de Pedidos do Portal Azure (Pré-visualização) e selecione **o consentimento de administração de subvenção para {Nome do Inquilino}** (Onde {Nome do Inquilino} é o nome do seu diretório).
+> Se for administrador de inquilinos globais, vá à página **de Permissões da API** nos **registos da App** no portal Azure e selecione o consentimento de **administração de Grant para {Nome do Inquilino}** (Onde {Nome do Inquilino} é o nome do seu diretório).
 
 > [!div renderon="portal" class="sxs-lookup"]
-> Se for um administrador global, vá à página **de permissões da API** selecionar **o consentimento de administração do Grant para Enter_the_Tenant_Name_Here**
+> Se for administrador global, aceda à página **de permissões da API,** selecione **Grant admin consent para Enter_the_Tenant_Name_Here**.
 > > [!div id="apipermissionspage"]
 > > [Aceda à página de Permissões da API]()
 
@@ -160,7 +160,7 @@ python confidential_client_secret_sample.py parameters.json
 Você deve ver na saída da consola algum fragmento Json que representa uma lista de utilizadores no seu diretório AD Azure.
 
 > [!IMPORTANT]
-> Esta aplicação quickstart usa um segredo de cliente para se identificar como cliente confidencial. Como o segredo do cliente é adicionado como um texto simples aos seus ficheiros do projeto, por razões de segurança, recomenda-se que utilize um certificado em vez de um segredo de cliente antes de considerar a aplicação como aplicação de produção. Para obter mais informações sobre como usar um certificado, consulte [estas instruções](https://github.com/Azure-Samples/ms-identity-python-daemon/blob/master/2-Call-MsGraph-WithCertificate/README.md) no mesmo repositório GitHub para esta amostra, mas na segunda pasta **2-Call-MsGraph-WithCertificate**
+> Esta aplicação quickstart usa um segredo de cliente para se identificar como cliente confidencial. Como o segredo do cliente é adicionado como um texto simples aos seus ficheiros do projeto, por razões de segurança, recomenda-se que utilize um certificado em vez de um segredo de cliente antes de considerar a aplicação como aplicação de produção. Para obter mais informações sobre como utilizar um certificado, consulte [estas instruções](https://github.com/Azure-Samples/ms-identity-python-daemon/blob/master/2-Call-MsGraph-WithCertificate/README.md) no mesmo repositório GitHub para esta amostra, mas na segunda pasta **2-Call-MsGraph-WithCertificate**.
 
 ## <a name="more-information"></a>Mais informações
 
@@ -196,7 +196,7 @@ app = msal.ConfidentialClientApplication(
 > | `config["client_id"]` | É o **ID de Aplicação (cliente)** da aplicação registada no portal do Azure. Pode encontrar este valor na página **Descrição geral** da aplicação no portal do Azure. |
 > | `config["authority"]`    | O ponto final STS para o utilizador autenticar. Normalmente `https://login.microsoftonline.com/{tenant}` para nuvem pública, onde {inquilino} é o nome do seu inquilino ou do seu id do seu inquilino.|
 
-Para mais informações, consulte a [documentação de referência para `ConfidentialClientApplication` ](https://msal-python.readthedocs.io/en/latest/#confidentialclientapplication)
+Para mais informações, consulte a [documentação de referência para. `ConfidentialClientApplication` ](https://msal-python.readthedocs.io/en/latest/#confidentialclientapplication)
 
 ### <a name="requesting-tokens"></a>Pedir tokens
 
@@ -213,15 +213,15 @@ if not result:
 
 > |Em que:| Description |
 > |---------|---------|
-> | `config["scope"]` | Contém os âmbitos solicitados. Para clientes confidenciais, este deve utilizar o formato semelhante `{Application ID URI}/.default` para indicar que os âmbitos que estão a ser solicitados são os que estão definidos estáticamente no objeto da aplicação definido no Portal Azure (para o Microsoft Graph, aponta `{Application ID URI}` `https://graph.microsoft.com` para). Para APIs web personalizado, `{Application ID URI}` é definido em Expor uma secção **API** no Registo de Aplicação do Portal Azure (Pré-visualização). |
+> | `config["scope"]` | Contém os âmbitos solicitados. Para clientes confidenciais, este deve utilizar o formato semelhante `{Application ID URI}/.default` para indicar que os âmbitos que estão a ser solicitados são os que estão definidos estáticamente no objeto da aplicação definido no portal Azure (para o Microsoft Graph, aponta `{Application ID URI}` `https://graph.microsoft.com` para). Para APIs web personalizado, `{Application ID URI}` é definido sob a secção Expor uma **API** em **registos de Aplicações** no Portal Azure.|
 
-Para mais informações, consulte a [documentação de referência para `AcquireTokenForClient` ](https://msal-python.readthedocs.io/en/latest/#msal.ConfidentialClientApplication.acquire_token_for_client)
+Para mais informações, consulte a [documentação de referência para. `AcquireTokenForClient` ](https://msal-python.readthedocs.io/en/latest/#msal.ConfidentialClientApplication.acquire_token_for_client)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais sobre aplicações daemon, consulte a página de aterragem do cenário
+Para saber mais sobre aplicações daemon, consulte a página de aterragem do cenário.
 
 > [!div class="nextstepaction"]
 > [Aplicação Daemon que chama APIs web](scenario-daemon-overview.md)

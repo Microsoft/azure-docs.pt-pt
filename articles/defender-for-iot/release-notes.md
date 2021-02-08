@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/07/2021
+ms.date: 02/08/2021
 ms.author: shhazam
-ms.openlocfilehash: a8f4b96b27eb09443c2644fd63a8783faaa610e4
-ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
+ms.openlocfilehash: f15c4ed6bb7da5cd33eca96c171bfada68092b35
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/08/2021
-ms.locfileid: "99809512"
+ms.locfileid: "99820675"
 ---
 # <a name="whats-new-in-azure-defender-for-iot"></a>O que há de novo no Azure Defender para ioT?
 
@@ -27,13 +27,13 @@ Este artigo lista novas funcionalidades e melhorias de funcionalidades para Defe
 As funcionalidades notadas estão em PREVIEW. Os [Termos Complementares de Pré-visualização do Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) incluem termos legais adicionais aplicáveis às funcionalidades do Azure que estão em versão beta, pré-visualização ou ainda não lançadas em disponibilidade geral.
 ## <a name="february-2021"></a>fevereiro de 2021
 
-### <a name="enhanced-custom-alert-rules"></a>Regras de alerta personalizadas melhoradas
+### <a name="sensor---enhanced-custom-alert-rules"></a>Sensor - regras de alerta personalizadas melhoradas
 
 Agora pode criar regras de alerta personalizadas com base no dia, foi detetada a atividade da rede de dias e de período de tempo.  Trabalhar com as condições de regra do dia e do tempo é útil, por exemplo, nos casos em que a gravidade do alerta é derivada no momento em que o evento de alerta ocorre. Por exemplo, crie uma regra personalizada que desencadeie um alerta de alta gravidade quando a atividade da rede é detetada num fim de semana ou à noite.
 
 Esta funcionalidade encontra-se disponível no sensor com o lançamento da versão 10.1.
 
-### <a name="export-alerts-from-on-premises-management-console"></a>Alertas de exportação da consola de gestão de instalações
+### <a name="on-premises-management-console---export-alerts"></a>Consola de gestão no local - alertas de exportação
 
 As informações de alerta podem agora ser exportadas para um ficheiro .csv a partir da consola de gestão no local. Pode exportar informações de todos os alertas detetados ou exportar informações com base na vista filtrada.
 
@@ -48,7 +48,7 @@ Um novo módulo de construtor de dispositivos está disponível. O módulo, refe
 - **Gestão da postura de** segurança – monitorize proativamente a postura de segurança dos seus dispositivos IoT.
 - **Deteção contínua, em tempo real de ameaças de IoT/OT** - detetar ameaças como botnets, tentativas de força bruta, mineradores de cripto e atividades suspeitas de rede
 
-A documentação do módulo de segurança precotado será transferida para a pasta Classic.
+A documentação do módulo de segurança precotado será transferida para a *solução baseada no Agente para os construtores de dispositivos>* pasta Classic.
 
 Este conjunto de funcionalidades está disponível com o lançamento em nuvem de pré-visualização do público atual.
 

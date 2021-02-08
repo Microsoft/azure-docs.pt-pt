@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 01/03/2021
-ms.openlocfilehash: 9c79a1ab46513da54d61f1da5c1ba3a6dd480a95
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 23bc476c0d4fd90e19428d52b1468d090ffe2a1b
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98785368"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820794"
 ---
 # <a name="tutorial-migrate-sql-server-to-azure-sql-database-offline-using-dms"></a>Tutorial: Migrar o SQL Server para a Base de Dados SQL do Azure offline com o DMS
 
@@ -237,6 +237,9 @@ Após a criação do serviço, localize-o no portal do Azure, abra-o e crie um p
 1. No ecrã **alvo Select,** especifique os detalhes de ligação para a Base de Dados Azure SQL alvo, que é a Base de Dados Azure SQL pré-a provisionada para a qual o esquema **Adventureworks2016** foi implementado utilizando o Assistente de Migração de Dados.
 
     ![Selecionar o Destino](media/tutorial-sql-server-to-azure-sql/dms-select-target2.png)
+    
+    > [!NOTE]
+    > As ligações privadas de ponto final à base de dados Azure SQL são suportadas pelo Serviço de Migração de Bases de Dados Azure, exceto quando se utiliza um nome DNS personalizado. 
 
 2. Selecione **Seguinte: Mapear para o ecrã das bases de dados alvo,** mapear a fonte e a base de dados-alvo para a migração.
 

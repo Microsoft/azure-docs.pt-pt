@@ -12,26 +12,26 @@ ms.workload: identity
 ms.date: 01/22/2021
 ms.author: nacanuma
 ms.custom: aaddev, scenarios:getting-started, languages:Java, devx-track-java
-ms.openlocfilehash: 9c6571793d2317097574d0afdc7137b3a3d5ad6d
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: 196b80a704b8a270a4cbb7d3505d5f9be1e23479
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99064529"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820329"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-java-console-app-using-apps-identity"></a>Quickstart: Adquira um token e ligue para a Microsoft Graph API a partir de uma aplicação de consola Java usando a identidade da app
 
 Neste quickstart, você descarrega e execute uma amostra de código que demonstra como uma aplicação Java pode obter um token de acesso usando a identidade da aplicação para ligar para a Microsoft Graph API e mostrar uma [lista de utilizadores](/graph/api/user-list) no diretório. A amostra de código demonstra como um trabalho sem supervisão ou serviço windows pode funcionar com uma identidade de aplicação, em vez da identidade de um utilizador. 
 
 > [!div renderon="docs"]
-> ![Mostra como funciona a app de amostras gerada por este quickstart](media/quickstart-v2-netcore-daemon/netcore-daemon-intro.svg)
+> ![Mostra como funciona a app de amostras gerada por este quickstart](media/quickstart-v2-java-daemon/java-console-daemon.svg)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para executar esta amostra, você precisará:
+Para fazer esta amostra, precisa:
 
 - [Kit de Desenvolvimento de Java (JDK)](https://openjdk.java.net/) 8 ou superior
-- [Maven.](https://maven.apache.org/)
+- [Maven](https://maven.apache.org/)
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>Registar e transferir a aplicação do início rápido
@@ -42,7 +42,7 @@ Para executar esta amostra, você precisará:
 >
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Opção 1: registar e configurar automaticamente a sua aplicação e, em seguida, transferir o exemplo de código
 >
-> 1. Aceda ao novo [portal Azure - Painel de inscrições](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/JavaDaemonQuickstartPage/sourceType/docs) da App.
+> 1. Vá ao <a href="https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/JavaDaemonQuickstartPage/sourceType/docs" target="_blank">portal Azure - Aplicação registra</a> experiência de arranque rápido.
 > 1. Introduza um nome para a sua aplicação e xelecione **Registar**.
 > 1. Siga as instruções para transferir e configurar automaticamente a sua nova aplicação com um só clique.
 >
@@ -52,22 +52,22 @@ Para executar esta amostra, você precisará:
 > #### <a name="step-1-register-your-application"></a>Passo 1: Registar a aplicação
 > Para registar a sua aplicação e adicionar as informações de registo da aplicação à sua solução manualmente, siga os passos a seguir:
 >
-> 1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
-> 1. Se a sua conta permitir aceder a mais de um inquilino, selecione-a no canto superior direito e defina a sua sessão no portal para o inquilino pretendido do Azure AD.
-> 1. Navegue para a plataforma de identidade da Microsoft para programadores [Página de registos de aplicações.](https://go.microsoft.com/fwlink/?linkid=2083908)
-> 1. Selecione **Novo registo**.
-> 1. Quando aparecer uma página de **inscrição,** insira as informações de registo do seu pedido.
-> 1. Na secção **Nome,** introduza um nome de aplicação significativo que será apresentado aos utilizadores da aplicação, por `Daemon-console` exemplo, selecione **Registar-se** para criar a aplicação.
-> 1. Uma vez registado, selecione o menu **Certificados & segredos.**
-> 1. Sob **os segredos do Cliente,** selecione **+ Novo segredo de cliente.** Dê-lhe um nome e **selecione Adicionar**. Copie o segredo num local seguro. Vai precisar dele para usar no seu código.
-> 1. Agora, selecione o menu **API Permissões,** selecione + Adicione um botão **de permissão,** selecione **Microsoft Graph**.
+> 1. Inicie sessão no <a href="https://portal.azure.com/" target="_blank">portal do Azure</a>.
+> 1. Se tiver acesso a vários inquilinos, utilize o filtro **de subscrição Diretório +** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o inquilino no qual pretende registar uma candidatura.
+> 1. Procure e selecione **Azure Active Directory**.
+> 1. Em **Gestão**, selecione **registos de aplicações**  >  **Novo registo**.
+> 1. Introduza um **Nome** para a sua aplicação, por `Daemon-console` exemplo. Os utilizadores da sua aplicação podem ver este nome, e pode alterá-lo mais tarde.
+> 1. Selecione **Registar**.
+> 1. Em **Manage**, selecione  **Certificados & segredos**.
+> 1. Sob **os segredos do Cliente,** selecione **Novo segredo de cliente,** insira um nome e, em seguida, selecione **Add**. Grave o valor secreto num local seguro para ser utilizado num passo posterior.
+> 1. Em **Gestão**, selecione **Permissões API**  >  **Adicione uma permissão**. Selecione **Microsoft Graph**.
 > 1. Selecione **permissões de aplicação**.
-> 1. No nó **do utilizador,** selecione **User.Read.All** e, em seguida, selecione **Adicionar permissões**
+> 1. No nó **do utilizador,** selecione **User.Read.All** e, em seguida, selecione **Adicionar permissões**.
 
 > [!div class="sxs-lookup" renderon="portal"]
-> ### <a name="download-and-configure-your-quickstart-app"></a>Faça o download e configuure a sua app quickstart
+> ### <a name="download-and-configure-the-quickstart-app"></a>Descarregue e configuure a app quickstart
 >
-> #### <a name="step-1-configure-your-application-in-azure-portal"></a>Passo 1: Configurar a aplicação no portal do Azure
+> #### <a name="step-1-configure-the-application-in-azure-portal"></a>Passo 1: Configurar a aplicação no portal Azure
 > Para que a amostra de código para este arranque rápido funcione, é necessário criar um segredo de cliente e adicionar a permissão de aplicação do **Graph API.Read.All.**
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Faça estas alterações para mim]()
@@ -75,7 +75,7 @@ Para executar esta amostra, você precisará:
 > > [!div id="appconfigured" class="alert alert-info"]
 > > ![Já configurada](media/quickstart-v2-netcore-daemon/green-check.png) A sua aplicação está configurada com estes atributos.
 
-#### <a name="step-2-download-your-java-project"></a>Passo 2: Descarregue o seu projeto Java
+#### <a name="step-2-download-the-java-project"></a>Passo 2: Descarregue o projeto Java
 
 > [!div renderon="docs"]
 > [Descarregue o projeto Java Daemon](https://github.com/Azure-Samples/ms-identity-java-daemon/archive/master.zip)
@@ -89,11 +89,11 @@ Para executar esta amostra, você precisará:
 
 
 > [!div renderon="docs"]
-> #### <a name="step-3-configure-your-java-project"></a>Passo 3: Configurar o seu projeto Java
+> #### <a name="step-3-configure-the-java-project"></a>Passo 3: Configurar o projeto Java
 >
-> 1. Extraia o ficheiro zip para uma pasta local próxima da raiz do disco, por exemplo, **C:\Azure-Samples**.
+> 1. Extraia o ficheiro zip para uma pasta local próxima da raiz do disco, por exemplo, *C:\Azure-Samples*.
 > 1. Navegue para a sub-pasta **msal-cliente-credencial-segredo**.
-> 1. Editar **src\main\resources\application.properties** e substituir os valores dos `AUTHORITY` `CLIENT_ID` campos, e `SECRET` pelo seguinte corte:
+> 1. Editar *src\main\resources\application.properties* e substituir os valores dos `AUTHORITY` `CLIENT_ID` campos, e `SECRET` pelo seguinte corte:
 >
 >    ```
 >    AUTHORITY=https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/
@@ -102,7 +102,7 @@ Para executar esta amostra, você precisará:
 >    ```
 >    Em que:
 >    - `Enter_the_Application_Id_Here` - é o **ID da Aplicação (cliente)** que registou.
->    - `Enter_the_Tenant_Id_Here`- substituir este valor pelo **nome** **de Inquilino Ou** Inquilino (por exemplo, contoso.microsoft.com)
+>    - `Enter_the_Tenant_Id_Here`- substituir este valor pelo **nome** **de Inquilino** Ou Inquilino (por exemplo, contoso.microsoft.com).
 >    - `Enter_the_Client_Secret_Here` - substituir este valor pelo segredo do cliente criado no passo 1.
 >
 > > [!TIP]
@@ -119,10 +119,10 @@ Se tentar executar a aplicação neste momento, receberá *HTTP 403 - Erro proib
 ##### <a name="global-tenant-administrator"></a>Administrador de inquilino global
 
 > [!div renderon="docs"]
-> Se for administrador de inquilino global, vá à página **de Permissões da API** no Registo de Pedidos do Portal Azure (Pré-visualização) e selecione **o consentimento de administração de subvenção para {Nome do Inquilino}** (Onde {Nome do Inquilino} é o nome do seu diretório).
+> Se for administrador de inquilinos globais, vá à página **de Permissões da API** nos **registos da App** no portal Azure e selecione o consentimento de **administração de Grant para {Nome do Inquilino}** (Onde {Nome do Inquilino} é o nome do seu diretório).
 
 > [!div renderon="portal" class="sxs-lookup"]
-> Se for um administrador global, vá à página **de permissões da API** selecionar **o consentimento de administração do Grant para Enter_the_Tenant_Name_Here**
+> Se for administrador global, aceda à página **de permissões da API,** selecione **Grant admin consent para Enter_the_Tenant_Name_Here**.
 > > [!div id="apipermissionspage"]
 > > [Aceda à página de Permissões da API]()
 
@@ -163,7 +163,7 @@ Após a execução, a aplicação deve apresentar a lista de utilizadores no inq
 
 
 > [!IMPORTANT]
-> Esta aplicação quickstart usa um segredo de cliente para se identificar como cliente confidencial. Como o segredo do cliente é adicionado como um texto simples aos seus ficheiros do projeto, por razões de segurança, recomenda-se que utilize um certificado em vez de um segredo de cliente antes de considerar a aplicação como aplicação de produção. Para obter mais informações sobre como usar um certificado, consulte [estas instruções](https://github.com/Azure-Samples/ms-identity-java-daemon/tree/master/msal-client-credential-certificate) no mesmo repositório GitHub para esta amostra, mas na segunda pasta **msal-cliente-certificado credencial**
+> Esta aplicação quickstart usa um segredo de cliente para se identificar como cliente confidencial. Como o segredo do cliente é adicionado como um texto simples aos seus ficheiros do projeto, por razões de segurança, recomenda-se que utilize um certificado em vez de um segredo de cliente antes de considerar a aplicação como aplicação de produção. Para obter mais informações sobre como utilizar um certificado, consulte [estas instruções](https://github.com/Azure-Samples/ms-identity-java-daemon/tree/master/msal-client-credential-certificate) no mesmo repositório GitHub para esta amostra, mas na segunda pasta **msal-cliente-certificado credencial**.
 
 ## <a name="more-information"></a>Mais informações
 
@@ -251,13 +251,13 @@ IAuthenticationResult result;
 
 > |Em que:| Description |
 > |---------|---------|
-> | `SCOPE` | Contém os âmbitos solicitados. Para clientes confidenciais, este deve utilizar o formato semelhante `{Application ID URI}/.default` para indicar que os âmbitos que estão a ser solicitados são os que estão definidos estáticamente no objeto da aplicação definido no Portal Azure (para o Microsoft Graph, aponta `{Application ID URI}` `https://graph.microsoft.com` para). Para APIs web personalizado, `{Application ID URI}` é definido em Expor uma secção **API** no Registo de Aplicação do Portal Azure (Pré-visualização). |
+> | `SCOPE` | Contém os âmbitos solicitados. Para clientes confidenciais, este deve utilizar o formato semelhante `{Application ID URI}/.default` para indicar que os âmbitos que estão a ser solicitados são os que estão definidos estáticamente no objeto da aplicação definido no portal Azure (para o Microsoft Graph, aponta `{Application ID URI}` `https://graph.microsoft.com` para). Para APIs web personalizado, `{Application ID URI}` é definido sob a secção Expor uma **API** em **registos de Aplicações** no Portal Azure.|
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para saber mais sobre aplicações daemon, consulte a página de aterragem do cenário
+Para saber mais sobre aplicações daemon, consulte a página de aterragem do cenário.
 
 > [!div class="nextstepaction"]
 > [Aplicação Daemon que chama APIs web](scenario-daemon-overview.md)

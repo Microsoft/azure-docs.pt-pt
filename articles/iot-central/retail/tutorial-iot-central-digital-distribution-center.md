@@ -1,5 +1,5 @@
 ---
-title: Tutorial do IoT Digital Distribution Center / Microsoft Docs
+title: Tutorial do IoT Digital Distribution Center | Microsoft Docs
 description: Um tutorial do modelo de aplicação do centro de distribuição digital para ioT Central
 author: KishorIoT
 ms.author: nandab
@@ -7,22 +7,21 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.date: 10/20/2019
-ms.openlocfilehash: 59b688803260220866fc331506429a5990c8760a
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 2b8ed417de966f8731542e8f5ca12a6a05e2dc8a
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97346202"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820284"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-digital-distribution-center-application-template"></a>Tutorial: Implementar e caminhar através de um modelo de aplicação de centro de distribuição digital
-
-
 
 Este tutorial mostra-lhe como começar com a implementação de um modelo de aplicação **do centro de distribuição digital** IoT Central. Você vai aprender a implementar o modelo, o que está incluído fora da caixa, e o que você pode querer fazer a seguir.
 
 Neste tutorial, aprende-se a, 
-* Criar aplicação de centro de distribuição digital 
-* Caminhe pela aplicação 
+
+> [!div class="checklist"]
+> Criar aplicação de centro de distribuição digital Caminhe pela aplicação 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * Não são necessários pré-requisitos específicos para implementar esta aplicação

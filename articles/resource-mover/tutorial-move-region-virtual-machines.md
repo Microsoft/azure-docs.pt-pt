@@ -5,15 +5,15 @@ manager: evansma
 author: rayne-wiselman
 ms.service: resource-move
 ms.topic: tutorial
-ms.date: 09/09/2020
+ms.date: 02/04/2021
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 6f21db00ecc9ff2668698f53a4d20f5bae525721
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: d208a4a86896c81982aa2b10ca7ce5e7a6773c05
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95520446"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820217"
 ---
 # <a name="tutorial-move-azure-vms-across-regions"></a>Tutorial: Mover VMs Azure em regiões
 
@@ -23,7 +23,7 @@ Neste artigo, aprenda a mover VMs Azure, e recursos relacionados de rede/armazen
 > A Azure Resource Mover está atualmente em pré-visualização pública.
 
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Verifique os pré-requisitos e requisitos.
@@ -238,12 +238,16 @@ Se quiser concluir o processo de mudança, cometa o movimento.
 - O serviço de Mobilidade não é desinstalado automaticamente a partir de VMs. Desinstale-o manualmente ou deixe-o se planeia mover o servidor novamente.
 - Modifique as regras de controlo de acesso baseado em funções (Azure RBAC) após a mudança.
 
+
 ## <a name="delete-source-resources-after-commit"></a>Eliminar recursos de origem após cometer
 
 Após a mudança, pode opcionalmente apagar recursos na região de origem. 
 
-1. Em **Regiões Diferentes,** clique no nome de cada recurso de origem que pretende eliminar.
-2. Na página de propriedades para cada recurso, selecione **Delete**.
+> [!NOTE]
+> Alguns recursos, por exemplo, cofres-chave e servidores SQL Server, não podem ser eliminados do portal e devem ser eliminados da página de propriedade de recursos.
+
+1. Em **Regiões Diferentes,** clique no nome do recurso de origem que pretende eliminar.
+2. **Selecione Eliminar a fonte**.
 
 ## <a name="delete-additional-resources-created-for-move"></a>Eliminar recursos adicionais criados para a mudança
 

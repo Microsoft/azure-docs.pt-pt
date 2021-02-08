@@ -1,18 +1,18 @@
 ---
 title: 'Tutorial: Criar uma app de gestão de resíduos conectada com a Azure IoT Central'
-description: Aprenda a construir uma aplicação de gestão de resíduos conectada utilizando modelos de aplicação Azure IoT Central.
+description: 'Tutorial: Aprenda a construir uma aplicação de gestão de resíduos conectada utilizando modelos de aplicação Azure IoT Central'
 author: miriambrus
 ms.author: miriamb
 ms.date: 12/11/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 8085409c3dc38d17b6fe0d3cb15857b2396e23b6
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 65245b3c4b7e18670682f7e9e890453e32337644
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97881349"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820084"
 ---
 # <a name="tutorial-create-a-connected-waste-management-app"></a>Tutorial: Criar uma app de gestão de resíduos conectada
 
@@ -20,13 +20,13 @@ Este tutorial mostra-lhe como usar a Azure IoT Central para criar uma aplicaçã
 
 Especificamente, aprende-se a: 
 
-* Utilize o modelo de *gestão de resíduos Azure* IoT Central Connected para criar a sua aplicação.
-* Explore e personalize o painel de instrumentos do operador. 
-* Explore o modelo do dispositivo do lixo conectado.
-* Explore dispositivos simulados.
-* Explore e configuure regras.
-* Criar trabalhos.
-* Personalize a sua marca de aplicações.
+> [!div class="checklist"]
+> Utilize o modelo de *gestão de resíduos Azure* IoT Central Connected para criar a sua aplicação.
+> Explore e personalize o painel de instrumentos do operador. Explore o modelo do dispositivo do lixo conectado.
+> Explore dispositivos simulados.
+> Explore e configuure regras.
+> Criar trabalhos.
+> Personalize a sua marca de aplicações.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
