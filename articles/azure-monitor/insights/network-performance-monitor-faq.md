@@ -6,16 +6,19 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 10/12/2018
-ms.openlocfilehash: 8047e340f3262ba84484f5a8b57c17bf34a4af73
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 1faeb047783b9db24348425e5a6453754e550d4d
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98625170"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99833019"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Solução de monitorização de desempenho de rede FAQ
 
 ![Símbolo do Monitor de Desempenho da Rede](media/network-performance-monitor-faq/npm-symbol.png)
+
+> [!IMPORTANT]
+> A partir de 1 de julho de 2021, não poderá adicionar novos testes num espaço de trabalho existente ou permitir um novo espaço de trabalho no Network Performance Monitor. Pode continuar a utilizar os testes criados antes de 1 de julho de 2021. Para minimizar a perturbação do serviço nas suas cargas de trabalho atuais, [migrar os seus testes do Monitor de Desempenho da Rede para o novo Monitor de Ligação](https://docs.microsoft.com/azure/network-watcher/migrate-to-connection-monitor-from-network-performance-monitor) no Azure Network Watcher antes de 29 de fevereiro de 2024.
 
 Este artigo captura as perguntas frequentes (FAQs) sobre Network Performance Monitor (NPM) em Azure
 
@@ -34,7 +37,7 @@ Listados abaixo estão os requisitos da plataforma para as várias capacidades d
 - A capacidade do Monitor ExpressRoute da NPM suporta apenas o sistema operativo Windows server (2008 SP1 ou posterior).
 
 ### <a name="can-i-use-linux-machines-as-monitoring-nodes-in-npm"></a>Posso usar as máquinas Linux como nós de monitorização em NPM?
-A capacidade de monitorizar redes utilizando nós baseados em Linux está agora geralmente disponível. A acccess o agente [aqui.](../../virtual-machines/extensions/oms-linux.md) 
+A capacidade de monitorizar redes utilizando nós baseados em Linux está agora geralmente disponível. Aceda ao agente [aqui.](../../virtual-machines/extensions/oms-linux.md) 
 
 ### <a name="what-are-the-size-requirements-of-the-nodes-to-be-used-for-monitoring-by-npm"></a>Quais são os requisitos de tamanho dos nós a utilizar para monitorização por NPM?
 Para executar a solução NPM em VMs de nó para monitorizar as redes, os nós devem ter pelo menos 500-MB de memória e um núcleo. Não é preciso usar nós separados para executar NPM. A solução pode funcionar em nós que têm outras cargas de trabalho em execução. A solução tem a capacidade de parar o processo de monitorização se utilizar mais de 5% de CPU.
@@ -54,7 +57,7 @@ Pode obter mais detalhes sobre as vantagens relativas de cada protocolo [aqui.](
 ### <a name="how-can-i-configure-a-node-to-support-monitoring-using-tcp-protocol"></a>Como posso configurar um nó para apoiar a monitorização utilizando o protocolo TCP?
 Para que o nó suporte a monitorização utilizando o protocolo TCP: 
 * Certifique-se de que a plataforma de nó é o Windows Server (2008 SP1 ou mais tarde).
-* Executar [EnableRules.ps1](https://aka.ms/npmpowershellscript) script Powershell no nó. Consulte [as instruções](./network-performance-monitor.md#configure-log-analytics-agents-for-monitoring) para mais detalhes.
+* Executar [EnableRules.ps1](https://aka.ms/npmpowershellscript) script PowerShell no nó. Consulte [as instruções](./network-performance-monitor.md#configure-log-analytics-agents-for-monitoring) para mais detalhes.
 
 
 ### <a name="how-can-i-change-the-tcp-port-being-used-by-npm-for-monitoring"></a>Como posso alterar a porta TCP que está a ser utilizada pela NPM para monitorização?
@@ -149,7 +152,7 @@ NetworkMonitoring
 O NPM apenas identifica o nome IP e anfitrião do lúpulo de rede subjacente (comutadores, routers, servidores, etc.) entre os IPs de origem e destino. Também identifica a latência entre estes lúpulos identificados. Não monitoriza individualmente estes lúpulos subjacentes.
 
 ### <a name="can-npm-be-used-to-monitor-network-connectivity-between-azure-and-aws"></a>O NPM pode ser utilizado para monitorizar a conectividade da rede entre o Azure e o AWS?
-Yes. Consulte as [redes monitor Azure, AWS e no local utilizando NPM](/archive/blogs/msoms/monitor-on-premises-cloud-iaas-and-hybrid-networks-using-oms-network-performance-monitor) para obter mais detalhes.
+Sim. Consulte as [redes monitor Azure, AWS e no local utilizando NPM](/archive/blogs/msoms/monitor-on-premises-cloud-iaas-and-hybrid-networks-using-oms-network-performance-monitor) para obter mais detalhes.
 
 ### <a name="is-the-expressroute-bandwidth-usage-incoming-or-outgoing"></a>O uso da largura de banda ExpressRoute está a chegar ou a sair?
 O uso da largura de banda é o total de largura de banda de entrada e saída. É expressa em Bits/seg.
@@ -255,10 +258,10 @@ Este problema pode ocorrer se:
 * Os nós no local e os nós Azure escolhidos para monitorizar o circuito ExpressRoute na configuração de monitorização, não têm conectividade uns com os outros durante o circuito ExpressRoute pretendido. Certifique-se de que escolheu os nós corretos que têm conectividade uns com os outros durante o circuito ExpressRoute que pretende monitorizar.
 
 ### <a name="why-does-expressroute-monitor-report-my-circuitpeering-as-unhealthy-when-it-is-available-and-passing-data"></a>Porque é que o ExpressRoute Monitor reporta o meu circuito/espreitar como pouco saudável quando está disponível e a passar dados.
-O ExpressRoute Monitor compara os valores de desempenho da rede (perda, latência e utilização da largura de banda) reportados pelos agentes/serviço com os limiares definidos durante a Configuração. Para um circuito, se a utilização da largura de banda reportada for maior do que o limiar definido na Configuração, o circuito está marcado como pouco saudável. Para os seus pares, se a perda, latência ou utilização da largura de banda reportada for maior do que o limiar estabelecido na Configuração, o espreitamento é marcado como pouco saudável. A NPM não utiliza métricas ou qualquer outra forma de dados para o estado de saúde da desíproca.
+O ExpressRoute Monitor compara os valores de desempenho da rede (perda, latência e utilização da largura de banda) reportados pelos agentes/serviço com os limiares definidos durante a Configuração. Para um circuito, se a utilização da largura de banda reportada for maior do que o limiar definido na Configuração, o circuito está marcado como pouco saudável. Para os seus pares, se a perda, latência ou utilização da largura de banda reportada for maior do que o limiar estabelecido na Configuração, o espreitamento é marcado como insalubre. A NPM não utiliza métricas ou qualquer outra forma de dados para decidir o estado de saúde.
 
-### <a name="why-does-expressroute-monitorbandwidth-utilisation-report-a-value-differrent-from-metrics-bits-inout"></a>Porque é que a utilização da largura de banda do ExpressRoute Monitor reporta um valor diferente das métricas de bits dentro/fora
-Para o ExpressRoute Monitor, a utiliação de largura de banda é a média de largura de banda de entrada e saída nos últimos 20 minutos É expressa em Bits/seg. Para as métricas da Rota Expressa, os pontos de informação de entrada/saída são por minuto. Internamente, o conjunto de dados utilizado para ambos é o mesmo, mas a agregação é valorizada entre as métricas de NPM e ER. Para monitorização granular, minuto a minuto e alertas rápidos, recomendamos a definição de alertas diretamente nas métricas er
+### <a name="why-does-expressroute-monitorbandwidth-utilization-report-a-value-different-from-metrics-bits-inout"></a>Porque é que a utilização da largura de banda do ExpressRoute Monitor reporta um valor diferente das métricas de bits dentro/fora
+Para o ExpressRoute Monitor, a utilização da largura de banda é a média de largura de banda de entrada e saída nos últimos 20 minutos é expressa em Bits/seg. Para as métricas da Rota Expressa, os pontos de informação de entrada/saída são por minuto. Internamente, o conjunto de dados utilizado para ambos é o mesmo, mas a agregação varia entre as métricas de NPM e ER. Para monitorização granular, minuto a minuto e alertas rápidos, recomendamos a definição de alertas diretamente nas métricas er
 
 ### <a name="while-configuring-monitoring-of-my-expressroute-circuit-the-azure-nodes-are-not-being-detected"></a>Enquanto configura a monitorização do meu circuito ExpressRoute, os nós Azure não estão a ser detetados.
 Isto pode acontecer se os nós Azure estiverem ligados através do Gestor de Operações. A capacidade do Monitor ExpressRoute suporta apenas os nós Azure que estão ligados como Agentes Diretos.
@@ -289,7 +292,7 @@ Isto pode acontecer se o serviço alvo não for uma aplicação web, mas o teste
 O processo de NPM está configurado para parar se utilizar mais de 5% dos recursos de CPU hospedeiros. Isto é para garantir que pode continuar a usar os nós para as suas cargas de trabalho habituais sem afetar o desempenho.
 
 ### <a name="does-npm-edit-firewall-rules-for-monitoring"></a>A NPM edita regras de firewall para monitorização?
-O NPM apenas cria uma regra local do Windows Firewall sobre os nós em que é executado o script EnableRules.ps1 Powershell para permitir que os agentes criem ligações TCP entre si na porta especificada. A solução não modifica nenhuma firewall de rede ou regras do Grupo de Segurança de Rede (NSG).
+O NPM apenas cria uma regra local do Windows Firewall sobre os nós em que é executado o script powerShell EnableRules.ps1 para permitir que os agentes criem ligações TCP entre si na porta especificada. A solução não modifica nenhuma firewall de rede ou regras do Grupo de Segurança de Rede (NSG).
 
 ### <a name="how-can-i-check-the-health-of-the-nodes-being-used-for-monitoring"></a>Como posso verificar a saúde dos nós que estão a ser utilizados para a monitorização?
 Pode visualizar o estado de saúde dos nós utilizados para a monitorização a partir da seguinte vista: Monitor de desempenho de rede -> Configuração -> Nós. Se um nó não for saudável, pode ver os detalhes do erro e tomar as medidas sugeridas.
@@ -300,4 +303,3 @@ O NPM completa os números de latência na UI e em milissegundos. Os mesmos dado
 ## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre o Monitor de Desempenho da Rede referindo-se à [solução Monitor de Desempenho da Rede em Azure](./network-performance-monitor.md).
-

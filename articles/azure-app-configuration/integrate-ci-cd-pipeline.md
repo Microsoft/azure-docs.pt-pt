@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.custom: devx-track-csharp
 ms.date: 04/19/2020
 ms.author: alkemper
-ms.openlocfilehash: d076bdf09626ec9ed08fcf43b95fc63d2f4a7dd7
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 3a4d171f0e3225db195c5c2b71ca99a3386e3a36
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96928454"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979849"
 ---
 # <a name="integrate-with-a-cicd-pipeline"></a>Integrar num pipeline CI/CD
 
@@ -35,9 +35,9 @@ Você pode usar qualquer editor de código para fazer os passos neste tutorial. 
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-Se você construir localmente, faça o download e instale o [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) se ainda não o fez.
+Se você construir localmente, faça o download e instale o [Azure CLI](/cli/azure/install-azure-cli) se ainda não o fez.
 
-Para fazer uma construção em nuvem, com Azure DevOps, por exemplo, certifique-se de que o [CLI Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) está instalado no seu sistema de construção.
+Para fazer uma construção em nuvem, com Azure DevOps, por exemplo, certifique-se de que o [CLI Azure](/cli/azure/install-azure-cli) está instalado no seu sistema de construção.
 
 ### <a name="export-an-app-configuration-store"></a>Exportar uma loja de configuração de aplicativos
 
@@ -107,4 +107,4 @@ Para fazer uma construção em nuvem, com Azure DevOps, por exemplo, certifique-
 Neste tutorial, exportaste dados de Configuração de Aplicações Azure para serem utilizados num oleoduto de implantação. Para saber mais sobre como usar a Configuração de Aplicações, continue para as amostras do Azure CLI.
 
 > [!div class="nextstepaction"]
-> [CLI do Azure](/cli/azure/appconfig?view=azure-cli-latest)
+> [CLI do Azure](/cli/azure/appconfig)

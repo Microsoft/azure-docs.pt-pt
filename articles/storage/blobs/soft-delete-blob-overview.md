@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/15/2020
+ms.date: 02/01/2021
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: a2c26c3e41f64a1593a2d3386c76427c0b9682e9
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: d380b9d6a20cbe28a8fc4b64179437cd31fd2937
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98127486"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979308"
 ---
 # <a name="soft-delete-for-blobs"></a>Eliminação recuperável para blobs
 
@@ -27,6 +27,10 @@ Se houver a possibilidade de os seus dados poderem ser acidentalmente modificado
 ## <a name="about-soft-delete-for-blobs"></a>Sobre excluir suave para bolhas
 
 Quando a eliminação suave para bolhas estiver ativada numa conta de armazenamento, pode recuperar objetos depois de eliminados, dentro do período de retenção de dados especificado. Esta proteção estende-se a quaisquer bolhas (bolhas de bloco, bolhas de apêndio ou bolhas de página) que são apagadas como resultado de um excesso de substituição.
+
+O seguinte diagrama mostra como uma bolha apagada pode ser restaurada quando a mancha de exclusão suave está ativada:
+
+:::image type="content" source="media/soft-delete-blob-overview/blob-soft-delete-diagram.png" alt-text="Diagrama mostrando como uma bolha desagravada pode ser restaurada":::
 
 Se os dados de uma bolha ou instantâneo existentes forem eliminados enquanto a eliminação macia de blob estiver ativada, mas a versão blob não estiver ativada, então é gerada uma imagem suave eliminada para salvar o estado dos dados substituídos. Após o período de retenção especificado ter expirado, o objeto é permanentemente eliminado.
 
@@ -83,13 +87,13 @@ A eliminação suave não guarda os seus dados em casos de eliminação de conte
 
 Os seguintes detalhes da tabela são comportamentos esperados quando a eliminação suave é ligada:
 
-| Operação REST API | Tipo de recurso | Descrição | Mudança de comportamento |
+| Operação REST API | Tipo de recurso | Description | Mudança de comportamento |
 |--------------------|---------------|-------------|--------------------|
 | [Eliminar](/rest/api/storagerp/StorageAccounts/Delete) | Conta | Elimina a conta de armazenamento, incluindo todos os recipientes e bolhas que contém.                           | Nenhuma alteração. Os recipientes e bolhas na conta eliminada não são recuperáveis. |
 | [Eliminar Contentor](/rest/api/storageservices/delete-container) | Contentor | Elimina o recipiente, incluindo todas as bolhas que contém. | Nenhuma alteração. As bolhas no recipiente apagado não são recuperáveis. |
-| [Coloque Blob](/rest/api/storageservices/put-blob) | Bloco, apêndice e bolhas de página | Cria uma nova bolha ou substitui uma bolha existente dentro de um recipiente | Se for utilizado para substituir uma bolha existente, uma imagem do estado da bolha antes da chamada é gerada automaticamente. Isto também se aplica a uma bolha previamente macia apagada se e somente se for substituída por uma bolha do mesmo tipo (Bloco, apêndice ou Página). Se for substituído por uma bolha de um tipo diferente, todos os dados eliminados suaves existentes serão expirados permanentemente. |
+| [Colocar o Blob](/rest/api/storageservices/put-blob) | Bloco, apêndice e bolhas de página | Cria uma nova bolha ou substitui uma bolha existente dentro de um recipiente | Se for utilizado para substituir uma bolha existente, uma imagem do estado da bolha antes da chamada é gerada automaticamente. Isto também se aplica a uma bolha previamente macia apagada se e somente se for substituída por uma bolha do mesmo tipo (Bloco, apêndice ou Página). Se for substituído por uma bolha de um tipo diferente, todos os dados eliminados suaves existentes serão expirados permanentemente. |
 | [Eliminar Blob](/rest/api/storageservices/delete-blob) | Bloco, apêndice e bolhas de página | Marca uma bolha ou uma foto de bolha para a eliminação. A bolha ou instantâneo é mais tarde apagada durante a recolha do lixo | Se for utilizado para apagar uma imagem de bolha, esta imagem é marcada como suave apagada. Se for utilizado para apagar uma bolha, esta bolha é marcada como suave apagada. |
-| [Bolha de cópia](/rest/api/storageservices/copy-blob) | Bloco, apêndice e bolhas de página | Copia uma bolha de origem para uma bolha de destino na mesma conta de armazenamento ou em outra conta de armazenamento. | Se for utilizado para substituir uma bolha existente, uma imagem do estado da bolha antes da chamada é gerada automaticamente. Isto também se aplica a uma bolha previamente macia apagada se e somente se for substituída por uma bolha do mesmo tipo (Bloco, apêndice ou Página). Se for substituído por uma bolha de um tipo diferente, todos os dados eliminados suaves existentes serão expirados permanentemente. |
+| [Copiar Blob](/rest/api/storageservices/copy-blob) | Bloco, apêndice e bolhas de página | Copia uma bolha de origem para uma bolha de destino na mesma conta de armazenamento ou em outra conta de armazenamento. | Se for utilizado para substituir uma bolha existente, uma imagem do estado da bolha antes da chamada é gerada automaticamente. Isto também se aplica a uma bolha previamente macia apagada se e somente se for substituída por uma bolha do mesmo tipo (Bloco, apêndice ou Página). Se for substituído por uma bolha de um tipo diferente, todos os dados eliminados suaves existentes serão expirados permanentemente. |
 | [Colocar Bloco](/rest/api/storageservices/put-block) | Blobs de blocos | Cria um novo bloco para ser cometido como parte de uma bolha de bloco. | Se usado para comprometer um bloqueio a uma bolha que está ativa, não há nenhuma mudança. Se usado para comprometer um bloco a uma bolha que é suavemente eliminada, uma nova bolha é criada e um instantâneo é gerado automaticamente para capturar o estado da bolha suave apagada. |
 | [Colocar lista de blocos](/rest/api/storageservices/put-block-list) | Blobs de blocos | Compromete uma bolha especificando o conjunto de IDs de bloco que compõem a bolha de bloco. | Se for utilizado para substituir uma bolha existente, uma imagem do estado da bolha antes da chamada é gerada automaticamente. Isto também se aplica a uma bolha previamente macia apagada se e somente se for uma bolha de bloco. Se for substituído por uma bolha de um tipo diferente, todos os dados eliminados suaves existentes serão expirados permanentemente. |
 | [Colocar página](/rest/api/storageservices/put-page) | Blobs de páginas | Escreve uma gama de páginas para uma bolha de página. | Nenhuma alteração. Os dados do blob da página que são substituídos ou limpos utilizando esta operação não são guardados e não são recuperáveis. |
@@ -163,7 +167,7 @@ Permitir a eliminação suave de dados frequentemente substituídos pode resulta
 
 ### <a name="can-i-use-the-set-blob-tier-api-to-tier-blobs-with-soft-deleted-snapshots"></a>Posso utilizar o set Blob Tier API para colocar bolhas de nível com instantâneos suaves apagados?
 
-Yes. As imagens suaves apagadas permanecerão no nível original, mas a bolha de base irá mover-se para o novo nível.
+Sim. As imagens suaves apagadas permanecerão no nível original, mas a bolha de base irá mover-se para o novo nível.
 
 ### <a name="premium-storage-accounts-have-a-per-blob-snapshot-limit-of-100-do-soft-deleted-snapshots-count-toward-this-limit"></a>As contas de armazenamento premium têm um limite de instantâneo por bolha de 100. Os instantâneos apagados suaves contam para este limite?
 

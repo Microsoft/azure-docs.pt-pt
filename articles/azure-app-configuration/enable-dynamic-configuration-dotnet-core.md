@@ -15,16 +15,16 @@ ms.custom: devx-track-csharp
 ms.topic: tutorial
 ms.date: 07/01/2019
 ms.author: abarora
-ms.openlocfilehash: aebe7772c673162d60f35d6a81725ba1452d16a8
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 95c48bded224a40879328dba5861b3564f0ebcf8
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96012361"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979866"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-a-net-core-app"></a>Tutorial: Use configuração dinâmica numa aplicação .NET Core
 
-A biblioteca de clientes de Configuração de Aplicação .NET Core suporta a atualização de um conjunto de configurações a pedido sem causar o reinício de uma aplicação. Isto pode ser implementado primeiro obtendo uma instância `IConfigurationRefresher` das opções para o fornecedor de configuração e, em seguida, invocando `TryRefreshAsync` esse caso em qualquer lugar do seu código.
+A biblioteca de clientes de Configuração de Aplicação .NET Core suporta a atualização da configuração a pedido sem causar o reinício de uma aplicação. Isto pode ser implementado primeiro obtendo uma instância `IConfigurationRefresher` das opções para o fornecedor de configuração e, em seguida, invocando `TryRefreshAsync` esse caso em qualquer lugar do seu código.
 
 Para manter as definições atualizadas e evitar demasiadas chamadas para a loja de configuração, é utilizado um cache para cada definição. Até que o valor em cache de uma definição tenha expirado, a operação de atualização não atualiza o valor, mesmo quando o valor foi alterado na loja de configuração. O tempo de validade padrão para cada pedido é de 30 segundos, mas pode ser ultrapassado se necessário.
 
@@ -32,7 +32,7 @@ Este tutorial mostra como pode implementar atualizações dinâmicas de configur
 
 Você pode usar qualquer editor de código para fazer os passos neste tutorial. [Visual Studio Code](https://code.visualstudio.com/) é uma excelente opção disponível nas plataformas Windows, macOS e Linux.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Crie a sua aplicação .NET Core para atualizar a sua configuração em resposta a alterações numa loja de Configuração de Aplicações.

@@ -5,15 +5,15 @@ ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 ms.date: 09/17/2019
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 3b7f8f5a0f48bf0cdca7f72e5fb364ea0a5d1315
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 8f3fb0be08bb806d74c689a7656c1c55019eb105
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576604"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980614"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Permitir o início de sessão de diagnóstico de apps no Azure App Service
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 A Azure fornece diagnósticos incorporados para ajudar na depuração de uma [aplicação do Serviço de Aplicações.](overview.md) Neste artigo, aprende-se a ativar a gravação de diagnóstico e a adicionar instrumentação à sua aplicação, bem como a aceder às informações registadas pelo Azure.
 
 Este artigo utiliza o [portal Azure](https://portal.azure.com) e o Azure CLI para trabalhar com registos de diagnóstico. Para obter informações sobre o trabalho com registos de diagnóstico utilizando o Visual Studio, consulte [Troubleshooting Azure in Visual Studio](troubleshoot-dotnet-visual-studio.md).
@@ -187,14 +187,15 @@ A tabela a seguir mostra os tipos e descrições de registos suportados:
 
 | Tipo de registo | Windows | Recipiente windows | Linux | Recipiente Linux | Description |
 |-|-|-|-|-|-|
-| AppServiceConsoleLogs | Java SE & Tomcat | Yes | Yes | Yes | Saída padrão e erro padrão |
-| AppServiceHTTPLogs | Yes | Yes | Yes | Yes | Registos de servidores web |
-| AppServiceEnvironmentPlatformLogs | Yes | N/D | Sim | Yes | Ambiente de Serviço de Aplicações: escala, alterações de configuração e registos de estado|
-| AppServiceAuditLogs | Yes | Yes | Yes | Yes | Atividade de login via FTP e Kudu |
-| AppServiceFileAuditLogs | Yes | Yes | TBA | TBA | Alterações de ficheiros es feitas no conteúdo do site; apenas disponível para nível Premium e acima |
+| AppServiceConsoleLogs | Java SE & Tomcat | Sim | Sim | Sim | Saída padrão e erro padrão |
+| AppServiceHTTPLogs | Sim | Sim | Sim | Sim | Registos de servidores web |
+| AppServiceEnvironmentPlatformLogs | Sim | N/D | Sim | Sim | Ambiente de Serviço de Aplicações: escala, alterações de configuração e registos de estado|
+| AppServiceAuditLogs | Sim | Sim | Sim | Sim | Atividade de login via FTP e Kudu |
+| AppServiceFileAuditLogs | Sim | Sim | TBA | TBA | Alterações de ficheiros es feitas no conteúdo do site; **apenas disponível para nível Premium e acima** |
 | AppServiceAppLogs | ASP .NET | ASP .NET | Java SE & Tomcat Imagens Abençoadas <sup>1</sup> | Java SE & Tomcat Imagens Abençoadas <sup>1</sup> | Registos de aplicações |
-| AppServiceIPSecAuditLogs  | Yes | Yes | Yes | Yes | Pedidos de Regras de IP |
-| AppServicePlatformLogs  | TBA | Yes | Yes | Yes | Troncos de operação de contentores |
+| AppServiceIPSecAuditLogs  | Sim | Sim | Sim | Sim | Pedidos de Regras de IP |
+| AppServicePlatformLogs  | TBA | Sim | Sim | Sim | Troncos de operação de contentores |
+| AppServiceAntivirusScanAuditLogs | Sim | Sim | Sim | Sim | [Registos de verificação antivírus](https://azure.github.io/AppService/2020/12/09/AzMon-AppServiceAntivirusScanAuditLogs.html) utilizando o Microsoft Defender; **apenas disponível para nível Premium** | 
 
 <sup>1</sup> Para aplicações Java SE, adicione "$WEBSITE_AZMON_PREVIEW_ENABLED" às definições da aplicação e defina-a para 1 ou para verdadeiro.
 

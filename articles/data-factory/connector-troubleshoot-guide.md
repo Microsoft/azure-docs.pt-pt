@@ -5,23 +5,23 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 01/07/2021
+ms.date: 02/08/2021
 ms.author: jingwang
 ms.reviewer: craigg
 ms.custom: has-adal-ref
-ms.openlocfilehash: fdc4bbd463c45fecfc9e3961e42f81ed93d820ae
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 2395e8e0027755357e65aab247185c02f7b1723d
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99054641"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980716"
 ---
 # <a name="troubleshoot-azure-data-factory-connectors"></a>Conectores da Fábrica de Dados Azure de resolução de problemas
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Este artigo explora formas comuns de resolver problemas com conectores Azure Data Factory.
-  
+
 ## <a name="azure-blob-storage"></a>Armazenamento de Blobs do Azure
 
 ### <a name="error-code-azurebloboperationfailed"></a>Código de erro: AzureBlobOperationFailed
@@ -109,7 +109,7 @@ Este artigo explora formas comuns de resolver problemas com conectores Azure Dat
             
 ## <a name="azure-cosmos-db-sql-api"></a>Azure Cosmos DB (SQL API)
 
-### <a name="error-code--cosmosdbsqlapioperationfailed"></a>Código de erro: CosmosDbSqlApiOperaçãoFailada
+### <a name="error-code-cosmosdbsqlapioperationfailed"></a>Código de erro: CosmosDbSqlApiOperaçãoFailada
 
 - **Mensagem:**`CosmosDbSqlApi operation Failed. ErrorMessage: %msg;.`
 
@@ -161,17 +161,13 @@ Este artigo explora formas comuns de resolver problemas com conectores Azure Dat
 
 - **Mensagem:**`ADLS Gen2 operation failed for: %adlsGen2Message;.%exceptionData;.`
 
-- **Causa:** Se a Azure Data Lake Storage Gen2 lançar este erro, a operação falhou.
+- **Causas e recomendações**: Causas diferentes podem levar a este erro. Consulte a lista abaixo para ver se possível análise de causa e recomendação relacionada.
 
-- **Recomendação**: Verifique a mensagem de erro detalhada lançada pela Azure Data Lake Storage Gen2. Se o erro for uma falha transitória, recandiduça a operação. Para mais ajuda, contacte o suporte do Azure Storage e forneça o ID do pedido em mensagem de erro.
-
-- **Causa**: Se a mensagem de erro contiver a cadeia "Forbidden", o titular do serviço ou a identidade gerida que utiliza pode não ter autorização suficiente para aceder ao Azure Data Lake Storage Gen2.
-
-- **Recomendação**: Para resolver este erro, consulte [copiar e transformar dados em Azure Data Lake Storage Gen2 utilizando a Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#service-principal-authentication).
-
-- **Causa**: Se a mensagem de erro contiver a cadeia "InternalServerError", o erro é devolvido pela Azure Data Lake Storage Gen2.
-
-- **Recomendação**: O erro pode ser causado por uma falha transitória. Se for o caso, repita a operação. Se o problema persistir, contacte o suporte do Azure Storage e forneça o ID do pedido a partir da mensagem de erro.
+  | Análise de causa                                               | Recomendação                                               |
+  | :----------------------------------------------------------- | :----------------------------------------------------------- |
+  | Se o Azure Data Lake Storage Gen2 cometer um erro que indique que alguma operação falhou.| Verifique a mensagem de erro detalhada lançada pela Azure Data Lake Storage Gen2. Se o erro for uma falha transitória, recandiduça a operação. Para mais ajuda, contacte o suporte do Azure Storage e forneça o ID do pedido em mensagem de erro. |
+  | Se a mensagem de erro contiver a cadeia "Forbidden", o titular do serviço ou a identidade gerida que utiliza pode não ter permissão suficiente para aceder ao Azure Data Lake Storage Gen2. | Para resolver este erro, consulte [copiar e transformar dados no Azure Data Lake Storage Gen2 utilizando a Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#service-principal-authentication). |
+  | Se a mensagem de erro contiver a cadeia "InternalServerError", o erro é devolvido pela Azure Data Lake Storage Gen2. | O erro pode ser causado por uma falha transitória. Se for o caso, repita a operação. Se o problema persistir, contacte o suporte do Azure Storage e forneça o ID do pedido a partir da mensagem de erro. |
 
 ### <a name="request-to-azure-data-lake-storage-gen2-account-caused-a-timeout-error"></a>Pedido à conta Azure Data Lake Storage Gen2 causou um erro de timeout
 
@@ -204,7 +200,7 @@ Este artigo explora formas comuns de resolver problemas com conectores Azure Dat
                   
 ## <a name="azure-files-storage"></a>Armazenamento de Ficheiros Azure
 
-### <a name="error-code--azurefileoperationfailed"></a>Código de erro: AzureFileOperationFailed
+### <a name="error-code-azurefileoperationfailed"></a>Código de erro: AzureFileOperationFailed
 
 - **Mensagem:**`Azure File operation Failed. Path: %path;. ErrorMessage: %msg;.`
 
@@ -215,55 +211,34 @@ Este artigo explora formas comuns de resolver problemas com conectores Azure Dat
 
 ## <a name="azure-synapse-analytics-azure-sql-database-and-sql-server"></a>Azure Synapse Analytics, Azure SQL Database e SQL Server
 
-### <a name="error-code--sqlfailedtoconnect"></a>Código de erro: SqlFailedToConnect
+### <a name="error-code-sqlfailedtoconnect"></a>Código de erro: SqlFailedToConnect
 
 - **Mensagem:**`Cannot connect to SQL Database: '%server;', Database: '%database;', User: '%user;'. Check the linked service configuration is correct, and make sure the SQL Database firewall allows the integration runtime to access.`
+- **Causas e recomendações**: Causas diferentes podem levar a este erro. Consulte a lista abaixo para ver se possível análise de causa e recomendação relacionada.
 
-- **Causa**: Para O Azure SQL, se a mensagem de erro contiver a cadeia "SqlErrorNumber=47073", significa que o acesso à rede pública é negado na definição de conectividade.
-
-- **Recomendação**: Na firewall Azure SQL, desacorde a opção de acesso à **rede pública Deny** para o *Nº*. Para obter mais informações, consulte [as definições de conectividade Azure SQL](https://docs.microsoft.com/azure/azure-sql/database/connectivity-settings#deny-public-network-access).
-
-- **Causa**: Para O Azure SQL, se a mensagem de erro contiver um código de erro SQL como "SqlErrorNumber=[errorcode]", consulte o guia de resolução de problemas do Azure SQL.
-
-- **Recomendação**: Para obter uma recomendação, consulte [problemas de conectividade de resolução de problemas e outros erros com a Base de Dados Azure SQL e Azure SQL Managed Instance](https://docs.microsoft.com/azure/azure-sql/database/troubleshoot-common-errors-issues).
-
-- **Causa**: Verifique se a porta 1433 está na lista de autorizações de firewall.
-
-- **Recomendação**: Para mais informações, consulte [as portas utilizadas pelo SQL Server](https://docs.microsoft.com/sql/sql-server/install/configure-the-windows-firewall-to-allow-sql-server-access#ports-used-by-).
-
-- **Causa**: Se a mensagem de erro contiver a cadeia "SqlException", base de dados SQL o erro indica que alguma operação específica falhou.
-
-- **Recomendação**: Para obter mais informações, procure por código de erro SQL em [erros do motor da base de dados](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors). Para mais ajuda, contacte o suporte da Azure SQL.
-
-- **Causa**: Se se trata de um problema transitório (por exemplo, uma ligação de rede instáctica), adicione novamente na política de atividade para atenuar.
-
-- **Recomendação**: Para mais informações, consulte [Pipelines e atividades na Azure Data Factory](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities#activity-policy).
-
-- **Causa**: Se a mensagem de erro contiver a cadeia "Cliente com endereço IP '...' não é permitido aceder ao servidor", e está a tentar ligar-se à Base de Dados Azure SQL, o erro é normalmente causado por um problema de firewall da Base de Dados Azure SQL.
-
-- **Recomendação**: Na configuração de firewall do Azure SQL Server, permita que os **serviços e recursos do Azure permitam aceder a esta** opção de servidor. Para mais informações, consulte [a Base de Dados Azure SQL e as regras de firewall IP da Azure Synapse](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure).
-
-
-### <a name="error-code--sqloperationfailed"></a>Código de erro: SqlOperationFailed
+    | Análise de causa                                               | Recomendação                                               |
+    | :----------------------------------------------------------- | :----------------------------------------------------------- |
+    | Para o Azure SQL, se a mensagem de erro contiver a cadeia "SqlErrorNumber=47073", significa que o acesso à rede pública é negado na definição de conectividade. | Na firewall Azure SQL, desacorde a opção de acesso à **rede pública Deny** para o *Nº*. Para obter mais informações, consulte [as definições de conectividade Azure SQL](https://docs.microsoft.com/azure/azure-sql/database/connectivity-settings#deny-public-network-access). |
+    | Para o Azure SQL, se a mensagem de erro contiver um código de erro SQL como "SqlErrorNumber=[errorcode]", consulte o guia de resolução de problemas do Azure SQL. | Para obter uma recomendação, consulte [problemas de conectividade de resolução de problemas e outros erros com a Base de Dados Azure SQL e Azure SQL Managed Instance](https://docs.microsoft.com/azure/azure-sql/database/troubleshoot-common-errors-issues). |
+    | Verifique se a porta 1433 está na lista de autorizações de firewall. | Para obter mais informações, consulte [as portas utilizadas pelo SQL Server](https://docs.microsoft.com/sql/sql-server/install/configure-the-windows-firewall-to-allow-sql-server-access#ports-used-by-). |
+    | Se a mensagem de erro contiver a cadeia "SqlException", a Base de Dados SQL indica que alguma operação específica falhou. | Para obter mais informações, procure por código de erro SQL em [erros do motor database](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors). Para mais ajuda, contacte o suporte da Azure SQL. |
+    | Se se trata de um problema transitório (por exemplo, uma ligação de rede instable), adicione novamente na política de atividade para mitigar. | Para mais informações, consulte [Pipelines e atividades na Azure Data Factory.](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities#activity-policy) |
+    | Se a mensagem de erro contiver a cadeia "Cliente com endereço IP '...' não é permitido aceder ao servidor", e está a tentar ligar-se à Base de Dados Azure SQL, o erro é normalmente causado por um problema de firewall da Base de Dados Azure SQL. | Na configuração de firewall do Azure SQL Server, ative os **serviços e recursos do Enable Azure para aceder a esta** opção de servidor. Para mais informações, consulte [a Base de Dados Azure SQL e as regras de firewall IP da Azure Synapse](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure). |
+    
+### <a name="error-code-sqloperationfailed"></a>Código de erro: SqlOperationFailed
 
 - **Mensagem:**`A database operation failed. Please search error to get more details.`
 
-- **Causa**: Se a mensagem de erro contiver a cadeia "SqlException", a Base de Dados SQL lança um erro indicando que alguma operação específica falhou.
+- **Causas e recomendações**: Causas diferentes podem levar a este erro. Consulte a lista abaixo para ver se possível análise de causa e recomendação relacionada.
 
-- **Recomendação**: Se o erro SQL não for claro, tente alterar a base de dados para o nível de compatibilidade mais recente '150'. Pode lançar os erros SQL da versão mais recente. Para obter mais informações, consulte a [documentação](/sql/t-sql/statements/alter-database-transact-sql-compatibility-level#backwardCompat).
-
-    Para obter mais informações sobre problemas de resolução de problemas do SQL, procure por código de erro SQL em [erros do motor database](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors). Para mais ajuda, contacte o suporte da Azure SQL.
-
-- **Causa**: Se a mensagem de erro contiver a cadeia "PdwManagedToNativeInteropException", é geralmente causada por uma incompatibilidade entre os tamanhos das colunas de origem e pia.
-
-- **Recomendação**: Verifique o tamanho das colunas de origem e de lavatório. Para mais ajuda, contacte o suporte da Azure SQL.
-
-- **Causa**: Se a mensagem de erro contiver a cadeia "InvalidOperationException", é geralmente causada por dados de entrada inválidos.
-
-- **Recomendação**: Para identificar qual a linha que encontrou o problema, permita a função de tolerância à falha na atividade da cópia, que pode redirecionar linhas problemáticas para o armazenamento para uma investigação mais aprofundada. Para obter mais informações, consulte [a tolerância à falha da atividade de cópia na Azure Data Factory](https://docs.microsoft.com/azure/data-factory/copy-activity-fault-tolerance).
+    | Análise de causa                                               | Recomendação                                               |
+    | :----------------------------------------------------------- | :----------------------------------------------------------- |
+    | Se a mensagem de erro contiver a cadeia "SqlException", a Base de Dados SQL lança um erro indicando que alguma operação específica falhou. | Se o erro SQL não for claro, tente alterar a base de dados para o nível de compatibilidade mais recente '150'. Pode lançar os erros SQL da versão mais recente. Para obter mais informações, consulte a [documentação](/sql/t-sql/statements/alter-database-transact-sql-compatibility-level#backwardCompat). <br/> Para obter mais informações sobre problemas de resolução de problemas do SQL, procure por código de erro SQL em [erros do motor database](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors). Para mais ajuda, contacte o suporte da Azure SQL. |
+    | Se a mensagem de erro contiver a cadeia "PdwManagedToNativeInteropException", é geralmente causada por uma incompatibilidade entre os tamanhos das colunas de origem e pia. | Verifique o tamanho das colunas de origem e pia. Para mais ajuda, contacte o suporte da Azure SQL. |
+    | Se a mensagem de erro contiver a cadeia "InvalidOperationException", é geralmente causada por dados de entrada inválidos. | Para identificar qual a linha que encontrou o problema, permita a função de tolerância à falha na atividade da cópia, que pode redirecionar linhas problemáticas para o armazenamento para uma investigação mais aprofundada. Para obter mais informações, consulte [a tolerância à falha da atividade de cópia na Azure Data Factory](https://docs.microsoft.com/azure/data-factory/copy-activity-fault-tolerance). |
 
 
-### <a name="error-code--sqlunauthorizedaccess"></a>Código de erro: SqlUnauthorizedAccess
+### <a name="error-code-sqlunauthorizedaccess"></a>Código de erro: SqlUnauthorizedAccess
 
 - **Mensagem:**`Cannot connect to '%connectorName;'. Detail Message: '%message;'`
 
@@ -272,7 +247,7 @@ Este artigo explora formas comuns de resolver problemas com conectores Azure Dat
 - **Recomendação**: Verifique se a conta de login tem permissões suficientes para aceder à base de dados SQL.
 
 
-### <a name="error-code--sqlopenconnectiontimeout"></a>Código de erro: SqlOpenConnectionTimeout
+### <a name="error-code-sqlopenconnectiontimeout"></a>Código de erro: SqlOpenConnectionTimeout
 
 - **Mensagem:**`Open connection to database timeout after '%timeoutValue;' seconds.`
 
@@ -281,7 +256,7 @@ Este artigo explora formas comuns de resolver problemas com conectores Azure Dat
 - **Recomendação**: Revendo a operação para atualizar a cadeia de ligação de serviço ligada com um maior valor de tempo de ligação.
 
 
-### <a name="error-code--sqlautocreatetabletypemapfailed"></a>Código de erro: SqlAutoCreateTableTypeMapFailed
+### <a name="error-code-sqlautocreatetabletypemapfailed"></a>Código de erro: SqlAutoCreateTableTypeMapFailed
 
 - **Mensagem:**`Type '%dataType;' in source side cannot be mapped to a type that supported by sink side(column name:'%columnName;') in autocreate table.`
 
@@ -290,7 +265,7 @@ Este artigo explora formas comuns de resolver problemas com conectores Azure Dat
 - **Recomendação**: Atualize o tipo de coluna em *mapeamentos* ou crie manualmente a tabela da pia no servidor alvo.
 
 
-### <a name="error-code--sqldatatypenotsupported"></a>Código de erro: SqlDataTypeNotSupported
+### <a name="error-code-sqldatatypenotsupported"></a>Código de erro: SqlDataTypeNotSupported
 
 - **Mensagem:**`A database operation failed. Check the SQL errors.`
 
@@ -303,7 +278,7 @@ Este artigo explora formas comuns de resolver problemas com conectores Azure Dat
 - **Recomendação**: Atualizar o tipo de coluna correspondente ao tipo *de data 2* na tabela do lavatório.
 
 
-### <a name="error-code--sqlinvaliddbstoredprocedure"></a>Código de erro: SqlInvalidDbStoredProcedure
+### <a name="error-code-sqlinvaliddbstoredprocedure"></a>Código de erro: SqlInvalidDbStoredProcedure
 
 - **Mensagem:**`The specified Stored Procedure is not valid. It could be caused by that the stored procedure doesn't return any data. Invalid Stored Procedure script: '%scriptName;'.`
 
@@ -312,7 +287,7 @@ Este artigo explora formas comuns de resolver problemas com conectores Azure Dat
 - **Recomendação**: Valide o procedimento armazenado utilizando ferramentas SQL. Certifique-se de que o procedimento armazenado pode devolver os dados.
 
 
-### <a name="error-code--sqlinvaliddbquerystring"></a>Código de erro: SqlInvalidDbQueryString
+### <a name="error-code-sqlinvaliddbquerystring"></a>Código de erro: SqlInvalidDbQueryString
 
 - **Mensagem:**`The specified SQL Query is not valid. It could be caused by that the query doesn't return any data. Invalid query: '%query;'`
 
@@ -321,7 +296,7 @@ Este artigo explora formas comuns de resolver problemas com conectores Azure Dat
 - **Recomendação**: Valide a consulta SQL utilizando ferramentas SQL. Certifique-se de que a consulta pode devolver dados.
 
 
-### <a name="error-code--sqlinvalidcolumnname"></a>Código de erro: SqlInvalidColumnName
+### <a name="error-code-sqlinvalidcolumnname"></a>Código de erro: SqlInvalidColumnName
 
 - **Mensagem:**`Column '%column;' does not exist in the table '%tableName;', ServerName: '%serverName;', DatabaseName: '%dbName;'.`
 
@@ -330,7 +305,7 @@ Este artigo explora formas comuns de resolver problemas com conectores Azure Dat
 - **Recomendação**: Verifique a coluna na consulta, *estrutura* no conjunto de dados e *mapeamentos* na atividade.
 
 
-### <a name="error-code--sqlbatchwritetimeout"></a>Código de erro: SqlBatchWriteTimeout
+### <a name="error-code-sqlbatchwritetimeout"></a>Código de erro: SqlBatchWriteTimeout
 
 - **Mensagem:**`Timeouts in SQL write operation.`
 
@@ -339,7 +314,7 @@ Este artigo explora formas comuns de resolver problemas com conectores Azure Dat
 - **Recomendação:** Recandidou a operação. Se o problema persistir, contacte o suporte da Azure SQL.
 
 
-### <a name="error-code--sqlbatchwritetransactionfailed"></a>Código de erro: SqlBatchWriteTransactionFailed
+### <a name="error-code-sqlbatchwritetransactionfailed"></a>Código de erro: SqlBatchWriteTransactionFailed
 
 - **Mensagem:**`SQL transaction commits failed.`
 
@@ -352,7 +327,7 @@ Este artigo explora formas comuns de resolver problemas com conectores Azure Dat
 - **Recomendação**: Recave a atividade e reveja as métricas laterais da base de dados SQL.
 
 
-### <a name="error-code--sqlbulkcopyinvalidcolumnlength"></a>Código de erro: SqlBulkCopyInvalidColumnLength
+### <a name="error-code-sqlbulkcopyinvalidcolumnlength"></a>Código de erro: SqlBulkCopyInvalidColumnLength
 
 - **Mensagem:**`SQL Bulk Copy failed due to receive an invalid column length from the bcp client.`
 
@@ -361,7 +336,7 @@ Este artigo explora formas comuns de resolver problemas com conectores Azure Dat
 - **Recomendação**: Para identificar qual a linha que encontrou o problema, permita a função de tolerância à falha na atividade da cópia. Isto pode redirecionar linhas problemáticas para o armazenamento para uma investigação mais aprofundada. Para obter mais informações, consulte [a tolerância à falha da atividade de cópia na Azure Data Factory](https://docs.microsoft.com/azure/data-factory/copy-activity-fault-tolerance).
 
 
-### <a name="error-code--sqlconnectionisclosed"></a>Código de erro: SqlConnectionIsClosed
+### <a name="error-code-sqlconnectionisclosed"></a>Código de erro: SqlConnectionIsClosed
 
 - **Mensagem:**`The connection is closed by SQL Database.`
 
@@ -480,7 +455,7 @@ Este artigo explora formas comuns de resolver problemas com conectores Azure Dat
 
 ## <a name="azure-table-storage"></a>Armazenamento de Tabelas do Azure
 
-### <a name="error-code--azuretableduplicatecolumnsfromsource"></a>Código de erro: AzureTableDuplicateColumnsFromSource
+### <a name="error-code-azuretableduplicatecolumnsfromsource"></a>Código de erro: AzureTableDuplicateColumnsFromSource
 
 - **Mensagem:**`Duplicate columns with same name '%name;' are detected from source. This is NOT supported by Azure Table Storage sink.`
 
@@ -493,7 +468,7 @@ Este artigo explora formas comuns de resolver problemas com conectores Azure Dat
 
 ## <a name="db2"></a>DB2
 
-### <a name="error-code--db2driverrunfailed"></a>Código de erro: DB2DriverRunFailed
+### <a name="error-code-db2driverrunfailed"></a>Código de erro: DB2DriverRunFailed
 
 - **Mensagem:**`Error thrown from driver. Sql code: '%code;'`
 
@@ -504,7 +479,7 @@ Este artigo explora formas comuns de resolver problemas com conectores Azure Dat
 
 ## <a name="delimited-text-format"></a>Formato de texto delimitado
 
-### <a name="error-code--delimitedtextcolumnnamenotallownull"></a>Código de erro: DelimitedTextColumnNameNotAllowNull
+### <a name="error-code-delimitedtextcolumnnamenotallownull"></a>Código de erro: DelimitedTextColumnNameNotAllowNull
 
 - **Mensagem:**`The name of column index %index; is empty. Make sure column name is properly specified in the header row.`
 
@@ -513,26 +488,22 @@ Este artigo explora formas comuns de resolver problemas com conectores Azure Dat
 - **Recomendação**: Verifique a primeira linha e fixe o valor se estiver vazio.
 
 
-### <a name="error-code--delimitedtextmorecolumnsthandefined"></a>Código de erro: DelimitedTextMoreColumnsThanDefined
+### <a name="error-code-delimitedtextmorecolumnsthandefined"></a>Código de erro: DelimitedTextMoreColumnsThanDefined
 
 - **Mensagem:**`Error found when processing '%function;' source '%name;' with row number %rowCount;: found more columns than expected column count: %expectedColumnCount;.`
 
-- **Causa:** A contagem de colunas problemáticas é maior do que a contagem de colunas da primeira linha. Pode ser causado por um problema de dados ou por um delimiter de coluna incorreto ou configurações de carvão de citação.
+- **Causas e recomendações**: Causas diferentes podem levar a este erro. Consulte a lista abaixo para ver se possível análise de causa e recomendação relacionada.
 
-- **Recomendação**: Obtenha a contagem de linha da mensagem de erro, verifique a coluna da linha e corrija os dados.
-
-- **Causa**: Se a contagem de colunas esperada for "1" numa mensagem de erro, pode ter especificado configurações erradas de compressão ou formato, o que fez com que a Data Factory analisasse incorretamente os seus ficheiros.
-
-- **Recomendação**: Verifique as definições do formato para se certificar de que correspondem aos seus ficheiros de origem.
-
-- **Causa**: Se a sua fonte for uma pasta, os ficheiros sob a pasta especificada podem ter um esquema diferente.
-
-- **Recomendação**: Certifique-se de que os ficheiros da pasta especificada têm um esquema idêntico.
+  | Análise de causa                                               | Recomendação                                               |
+  | :----------------------------------------------------------- | :----------------------------------------------------------- |
+  | A contagem de colunas problemáticas é maior do que a contagem de colunas da primeira linha. Pode ser causado por um problema de dados ou por um delimiter de coluna incorreto ou configurações de carvão de citação. | Obtenha a contagem de linha da mensagem de erro, verifique a coluna da linha e corrija os dados. |
+  | Se a contagem de colunas esperada for "1" numa mensagem de erro, pode ter especificado configurações erradas de compressão ou formato, o que fez com que a Data Factory analisasse incorretamente os seus ficheiros. | Verifique as definições do formato para se certificar de que correspondem aos seus ficheiros de origem. |
+  | Se a sua fonte for uma pasta, os ficheiros sob a pasta especificada podem ter um esquema diferente. | Certifique-se de que os ficheiros da pasta especificada têm um esquema idêntico. |
 
 
 ## <a name="dynamics-365-common-data-service-and-dynamics-crm"></a>Dinâmica 365, Serviço Comum de Dados e CrM Dinâmico
 
-### <a name="error-code--dynamicscreateserviceclienterror"></a>Código de erro: DynamicsCreateServiceClientError
+### <a name="error-code-dynamicscreateserviceclienterror"></a>Código de erro: DynamicsCreateServiceClientError
 
 - **Mensagem:**`This is a transient issue on Dynamics server side. Try to rerun the pipeline.`
 
@@ -550,7 +521,7 @@ Este artigo explora formas comuns de resolver problemas com conectores Azure Dat
 - **Recomendação**: Adicione manualmente as colunas no separador de mapeamento.
 
 
-### <a name="error-code--dynamicsmissingtargetformultitargetlookupfield"></a>Código de erro: DynamicsMissingTargetForMultiTargetLookupField
+### <a name="error-code-dynamicsmissingtargetformultitargetlookupfield"></a>Código de erro: DynamicsMissingTargetForMultiTargetLookupField
 
 - **Mensagem:**`Cannot find the target column for multi-target lookup field: '%fieldName;'.`
 
@@ -561,7 +532,7 @@ Este artigo explora formas comuns de resolver problemas com conectores Azure Dat
   2. Adicione a coluna-alvo no mapeamento da coluna. Certifique-se de que a coluna da pia está no formato *{fieldName} @EntityReference*.
 
 
-### <a name="error-code--dynamicsinvalidtargetformultitargetlookupfield"></a>Código de erro: DynamicsInvalidTargetForMultiTargetLookupField
+### <a name="error-code-dynamicsinvalidtargetformultitargetlookupfield"></a>Código de erro: DynamicsInvalidTargetForMultiTargetLookupField
 
 - **Mensagem:**`The provided target: '%targetName;' is not a valid target of field: '%fieldName;'. Valid targets are: '%validTargetNames;'`
 
@@ -570,7 +541,7 @@ Este artigo explora formas comuns de resolver problemas com conectores Azure Dat
 - **Recomendação**: Forneça um nome de entidade válido para o campo de procuração multi-alvo.
 
 
-### <a name="error-code--dynamicsinvalidtypeformultitargetlookupfield"></a>Código de erro: DynamicsInvalidTypeForMultiTargetLookupField
+### <a name="error-code-dynamicsinvalidtypeformultitargetlookupfield"></a>Código de erro: DynamicsInvalidTypeForMultiTargetLookupField
 
 - **Mensagem:**`The provided target type is not a valid string. Field: '%fieldName;'.`
 
@@ -579,18 +550,18 @@ Este artigo explora formas comuns de resolver problemas com conectores Azure Dat
 - **Recomendação**: Forneça uma cadeia válida na coluna alvo de procuração multi-alvo.
 
 
-### <a name="error-code--dynamicsfailedtorequetserver"></a>Código de erro: DynamicsFailedToRequetServer
+### <a name="error-code-dynamicsfailedtorequetserver"></a>Código de erro: DynamicsFailedToRequetServer
 
 - **Mensagem:**`The Dynamics server or the network is experiencing issues. Check network connectivity or check Dynamics server log for more details.`
 
 - **Causa**: O servidor Dynamics é instável ou inacessível, ou a rede está a ter problemas.
 
 - **Recomendação**: Para mais detalhes, verifique a conectividade da rede ou verifique o registo do servidor Dynamics. Para mais ajuda, contacte o suporte da Dynamics.
-    
+  
 
 ## <a name="ftp"></a>FTP
 
-### <a name="error-code--ftpfailedtoconnecttoftpserver"></a>Código de erro: FtpFailedToConnectToFtpServer
+### <a name="error-code-ftpfailedtoconnecttoftpserver"></a>Código de erro: FtpFailedToConnectToFtpServer
 
 - **Mensagem:**`Failed to connect to FTP server. Please make sure the provided server information is correct, and try again.`
 
@@ -601,7 +572,7 @@ Este artigo explora formas comuns de resolver problemas com conectores Azure Dat
 
 ## <a name="http"></a>HTTP
 
-### <a name="error-code--httpfilefailedtoread"></a>Código de erro: HttpFileFailedToRead
+### <a name="error-code-httpfilefailedtoread"></a>Código de erro: HttpFileFailedToRead
 
 - **Mensagem:**`Failed to read data from http server. Check the error from http server：%message;`
 
@@ -627,31 +598,20 @@ Este artigo explora formas comuns de resolver problemas com conectores Azure Dat
 
 ## <a name="orc-format"></a>Formato ORC
 
-### <a name="error-code--orcjavainvocationexception"></a>Código de erro: OrcJavaInvocationExcepção
+### <a name="error-code-orcjavainvocationexception"></a>Código de erro: OrcJavaInvocationExcepção
 
 - **Mensagem:**`An error occurred when invoking Java, message: %javaException;.`
+- **Causas e recomendações**: Causas diferentes podem levar a este erro. Consulte a lista abaixo para ver se possível análise de causa e recomendação relacionada.
 
-- **Causa**: Quando a mensagem de erro contém as cordas "java.lang.OutOfMemory", "Java heap space" e "doubleCapacity", é geralmente um problema de gestão da memória numa versão antiga do tempo de execução da integração.
+    | Análise de causa                                               | Recomendação                                               |
+    | :----------------------------------------------------------- | :----------------------------------------------------------- |
+    | Quando a mensagem de erro contém as cordas "java.lang.OutOfMemory", "Java heap space" e "doubleCapacity", é geralmente um problema de gestão da memória numa versão antiga do tempo de execução da integração. | Se estiver a utilizar o Tempo de Execução de Integração Auto-hospedado, recomendamos que atualize para a versão mais recente. |
+    | Quando a mensagem de erro contém a cadeia "java.lang.OutOfMemory", o tempo de integração não tem recursos suficientes para processar os ficheiros. | Limitar as execuções simultâneas no tempo de integração. Para o IR auto-hospedado, dimensione até uma máquina poderosa com memória igual ou superior a 8 GB. |
+    |Quando a mensagem de erro contém a cadeia "NullPointerReference", a causa pode ser um erro transitório. | Repita a operação. Se o problema persistir, contacte o suporte. |
+    | Quando a mensagem de erro contém a cadeia "BufferOverflowException", a causa pode ser um erro transitório. | Repita a operação. Se o problema persistir, contacte o suporte. |
+    | Quando a mensagem de erro contém a cadeia "java.lang.ClassCastException:org.apache.hadoop.hive.serde2.io.HiveCharWritable não pode ser lançado para org.apache.hadoop.io.Text", a causa pode ser um problema de conversão do tipo dentro do Java Runtime. Normalmente, significa que os dados de origem não podem ser bem tratados em Java Runtime. | Isto é uma questão de dados. Tente utilizar uma corda em vez de carvão ou varchar em dados de formato ORC. |
 
-- **Recomendação**: Se estiver a utilizar o tempo de execução de integração auto-hospedado, recomendamos que faça upgrade para a versão mais recente.
-
-- **Causa**: Quando a mensagem de erro contém a cadeia "java.lang.OutOfMemory", o tempo de integração não tem recursos suficientes para processar os ficheiros.
-
-- **Recomendação**: Limitar os percursos simultâneos no tempo de integração. Para o IR auto-hospedado, dimensione até uma máquina poderosa com memória igual ou superior a 8 GB.
-
-- **Causa**: Quando a mensagem de erro contém a cadeia "NullPointerReference", a causa pode ser um erro transitório.
-
-- **Recomendação:** Recandidou a operação. Se o problema persistir, contacte o suporte.
-
-- **Causa**: Quando a mensagem de erro contém a cadeia "BufferOverflowException", a causa pode ser um erro transitório.
-
-- **Recomendação:** Recandidou a operação. Se o problema persistir, contacte o suporte.
-
-- **Causa**: Quando a mensagem de erro contém a cadeia "java.lang.ClassCastException:org.apache.hadoop.hive.serde2.io.HiveCharWritable não pode ser lançado para org.apache.hadoop.io.Text", a causa pode ser um problema de conversão tipo dentro do Java Runtime. Normalmente, significa que os dados de origem não podem ser bem tratados em Java Runtime.
-
-- **Recomendação**: Trata-se de uma questão de dados. Tente utilizar uma corda em vez de carvão ou varchar em dados de formato ORC.
-
-### <a name="error-code--orcdatetimeexceedlimit"></a>Código de erro: OrcDateTimeExceedLimit
+### <a name="error-code-orcdatetimeexceedlimit"></a>Código de erro: OrcDateTimeExceedLimit
 
 - **Mensagem:**`The Ticks value '%ticks;' for the datetime column must be between valid datetime ticks range -621355968000000000 and 2534022144000000000.`
 
@@ -662,24 +622,19 @@ Este artigo explora formas comuns de resolver problemas com conectores Azure Dat
 
 ## <a name="parquet-format"></a>Formato Parquet
 
-### <a name="error-code--parquetjavainvocationexception"></a>Código de erro: ParquetJavaInvocationExcepção
+### <a name="error-code-parquetjavainvocationexception"></a>Código de erro: ParquetJavaInvocationExcepção
 
 - **Mensagem:**`An error occurred when invoking java, message: %javaException;.`
 
-- **Causa**: Quando a mensagem de erro contém as cordas "java.lang.OutOfMemory", "Java heap space" e "doubleCapacity", é geralmente um problema de gestão da memória numa versão antiga do Tempo de Execução de Integração.
+- **Causas e recomendações**: Causas diferentes podem levar a este erro. Consulte a lista abaixo para ver se possível análise de causa e recomendação relacionada.
 
-- **Recomendação**: Se estiver a utilizar o IR auto-hospedado e a versão for anterior a 3.20.7159.1, recomendamos que faça o upgrade para a versão mais recente.
+    | Análise de causa                                               | Recomendação                                               |
+    | :----------------------------------------------------------- | :----------------------------------------------------------- |
+    | Quando a mensagem de erro contém as cordas "java.lang.OutOfMemory", "Java heap space" e "doubleCapacity", é geralmente um problema de gestão da memória numa versão antiga do Tempo de Execução de Integração. | Se estiver a utilizar o IR auto-hospedado e a versão for superior a 3.20.7159.1, recomendamos que atualize para a versão mais recente. |
+    | Quando a mensagem de erro contém a cadeia "java.lang.OutOfMemory", o tempo de integração não tem recursos suficientes para processar os ficheiros. | Limitar as execuções simultâneas no tempo de integração. Para o IR auto-hospedado, dimensione até uma máquina poderosa com memória igual ou superior a 8 GB. |
+    | Quando a mensagem de erro contiver a cadeia "NullPointerReference", pode ser um erro transitório. | Repita a operação. Se o problema persistir, contacte o suporte. |
 
-- **Causa**: Quando a mensagem de erro contém a cadeia "java.lang.OutOfMemory", o tempo de integração não tem recursos suficientes para processar os ficheiros.
-
-- **Recomendação**: Limitar os percursos simultâneos no tempo de integração. Para o IR auto-hospedado, dimensione até uma máquina poderosa com memória igual ou superior a 8 GB.
-
-- **Causa**: Quando a mensagem de erro contém a cadeia "NullPointerReference", pode ser um erro transitório.
-
-- **Recomendação:** Recandidou a operação. Se o problema persistir, contacte o suporte.
-
-
-### <a name="error-code--parquetinvalidfile"></a>Código de erro: ParquetInvalidFile
+### <a name="error-code-parquetinvalidfile"></a>Código de erro: ParquetInvalidFile
 
 - **Mensagem:**`File is not a valid Parquet file.`
 
@@ -688,7 +643,7 @@ Este artigo explora formas comuns de resolver problemas com conectores Azure Dat
 - **Recomendação**: Verifique se a entrada é um ficheiro Parquet válido.
 
 
-### <a name="error-code--parquetnotsupportedtype"></a>Código de erro: ParquetNotSupportedType
+### <a name="error-code-parquetnotsupportedtype"></a>Código de erro: ParquetNotSupportedType
 
 - **Mensagem:**`Unsupported Parquet type. PrimitiveType: %primitiveType; OriginalType: %originalType;.`
 
@@ -697,7 +652,7 @@ Este artigo explora formas comuns de resolver problemas com conectores Azure Dat
 - **Recomendação**: Verifique novamente os dados de origem indo para [formatos de ficheiros suportados e codecs de compressão através da atividade de cópia na Azure Data Factory](https://docs.microsoft.com/azure/data-factory/supported-file-formats-and-compression-codecs).
 
 
-### <a name="error-code--parquetmisseddecimalprecisionscale"></a>Código de erro: ParquetMissedDecimalPrecisionScale
+### <a name="error-code-parquetmisseddecimalprecisionscale"></a>Código de erro: ParquetMissedDecimalPrecisionScale
 
 - **Mensagem:**`Decimal Precision or Scale information is not found in schema for column: %column;.`
 
@@ -706,7 +661,7 @@ Este artigo explora formas comuns de resolver problemas com conectores Azure Dat
 - **Recomendação**: A fonte não devolve a precisão correta e a informação de escala. Verifique a coluna de emissão para obter a informação.
 
 
-### <a name="error-code--parquetinvaliddecimalprecisionscale"></a>Código de erro: ParquetInvalidDecimalPrecisionScale
+### <a name="error-code-parquetinvaliddecimalprecisionscale"></a>Código de erro: ParquetInvalidDecimalPrecisionScale
 
 - **Mensagem:**`Invalid Decimal Precision or Scale. Precision: %precision; Scale: %scale;.`
 
@@ -715,7 +670,7 @@ Este artigo explora formas comuns de resolver problemas com conectores Azure Dat
 - **Recomendação**: Verifique se a coluna de emissão tem precisão e escala.
 
 
-### <a name="error-code--parquetcolumnnotfound"></a>Código de erro: ParquetColumnNotFound
+### <a name="error-code-parquetcolumnnotfound"></a>Código de erro: ParquetColumnNotFound
 
 - **Mensagem:**`Column %column; does not exist in Parquet file.`
 
@@ -724,7 +679,7 @@ Este artigo explora formas comuns de resolver problemas com conectores Azure Dat
 - **Recomendação**: Verifique os mapeamentos da atividade. Certifique-se de que a coluna de origem pode ser mapeada para a coluna correta da pia.
 
 
-### <a name="error-code--parquetinvaliddataformat"></a>Código de erro: ParquetInvalidDataFormat
+### <a name="error-code-parquetinvaliddataformat"></a>Código de erro: ParquetInvalidDataFormat
 
 - **Mensagem:**`Incorrect format of %srcValue; for converting to %dstType;.`
 
@@ -733,7 +688,7 @@ Este artigo explora formas comuns de resolver problemas com conectores Azure Dat
 - **Recomendação**: Verifique novamente os dados de origem ou especifique o tipo de dados correto para esta coluna no mapeamento da coluna de atividade de cópia. Para obter mais informações, consulte [os formatos de ficheiros suportados e os codecs de compressão por cópia na Azure Data Factory](https://docs.microsoft.com/azure/data-factory/supported-file-formats-and-compression-codecs).
 
 
-### <a name="error-code--parquetdatacountnotmatchcolumncount"></a>Código de erro: ParquetDataCountNotMatchColumnCount
+### <a name="error-code-parquetdatacountnotmatchcolumncount"></a>Código de erro: ParquetDataCountNotMatchColumnCount
 
 - **Mensagem:**`The data count in a row '%sourceColumnCount;' does not match the column count '%sinkColumnCount;' in given schema.`
 
@@ -742,7 +697,7 @@ Este artigo explora formas comuns de resolver problemas com conectores Azure Dat
 - **Recomendação**: Verifique novamente se a contagem da coluna de origem é igual à contagem da coluna da pia em 'mapeamento'.
 
 
-### <a name="error-code--parquetdatatypenotmatchcolumntype"></a>Código de erro: ParquetDataTypeNotMatchColumnType
+### <a name="error-code-parquetdatatypenotmatchcolumntype"></a>Código de erro: ParquetDataTypeNotMatchColumnType
 
 - **Mensagem:**`The data type %srcType; is not match given column type %dstType; at column '%columnIndex;'.`
 
@@ -751,7 +706,7 @@ Este artigo explora formas comuns de resolver problemas com conectores Azure Dat
 - **Recomendação**: Especifique um tipo correto em mapeamento.pia.
 
 
-### <a name="error-code--parquetbridgeinvaliddata"></a>Código de erro: ParquetBridgeInvalidData
+### <a name="error-code-parquetbridgeinvaliddata"></a>Código de erro: ParquetBridgeInvalidData
 
 - **Mensagem:**`%message;`
 
@@ -760,7 +715,7 @@ Este artigo explora formas comuns de resolver problemas com conectores Azure Dat
 - **Recomendação:** Recandidou a operação. Se o problema persistir, contacte-nos.
 
 
-### <a name="error-code--parquetunsupportedinterpretation"></a>Código de erro: ParquetUnsupportedInterpretation
+### <a name="error-code-parquetunsupportedinterpretation"></a>Código de erro: ParquetUnsupportedInterpretation
 
 - **Mensagem:**`The given interpretation '%interpretation;' of Parquet format is not supported.`
 
@@ -769,7 +724,7 @@ Este artigo explora formas comuns de resolver problemas com conectores Azure Dat
 - **Recomendação**: "ParquetInterpretFor" não deve ser 'sparkSql'.
 
 
-### <a name="error-code--parquetunsupportfilelevelcompressionoption"></a>Código de erro: ParquetUnsupportFileLevelCompressionOp
+### <a name="error-code-parquetunsupportfilelevelcompressionoption"></a>Código de erro: ParquetUnsupportFileLevelCompressionOp
 
 - **Mensagem:**`File level compression is not supported for Parquet.`
 
@@ -778,7 +733,7 @@ Este artigo explora formas comuns de resolver problemas com conectores Azure Dat
 - **Recomendação**: Remova 'CompressãoType' na carga útil.
 
 
-### <a name="error-code--usererrorjniexception"></a>Código de erro: UserErrorJniException
+### <a name="error-code-usererrorjniexception"></a>Código de erro: UserErrorJniException
 
 - **Mensagem:**`Cannot create JVM: JNI return code [-6][JNI call failed: Invalid arguments.]`
 
@@ -818,7 +773,7 @@ Este artigo explora formas comuns de resolver problemas com conectores Azure Dat
 
 ## <a name="rest"></a>REST
 
-### <a name="error-code--restsinkcallfailed"></a>Código de erro: RestSinkCallFailed
+### <a name="error-code-restsinkcallfailed"></a>Código de erro: RestSinkCallFailed
 
 - **Mensagem:**`Rest Endpoint responded with Failure from server. Check the error from server:%message;`
 
@@ -850,7 +805,7 @@ Este artigo explora formas comuns de resolver problemas com conectores Azure Dat
 
 ## <a name="sftp"></a>SFTP
 
-#### <a name="error-code--sftpoperationfail"></a>Código de erro: SftpOperaçãoFail
+#### <a name="error-code-sftpoperationfail"></a>Código de erro: SftpOperaçãoFail
 
 - **Mensagem:**`Failed to '%operation;'. Check detailed error from SFTP.`
 
@@ -859,7 +814,7 @@ Este artigo explora formas comuns de resolver problemas com conectores Azure Dat
 - **Recomendação**: Verifique os detalhes de erro da SFTP.
 
 
-### <a name="error-code--sftprenameoperationfail"></a>Código de erro: SftpRenameOperationFail
+### <a name="error-code-sftprenameoperationfail"></a>Código de erro: SftpRenameOperationFail
 
 - **Mensagem:**`Failed to rename the temp file. Your SFTP server doesn't support renaming temp file, set "useTempFileRename" as false in copy sink to disable uploading to temp file.`
 
@@ -868,7 +823,7 @@ Este artigo explora formas comuns de resolver problemas com conectores Azure Dat
 - **Recomendação**: Desconte "useTempFileRename" como falso na pia da cópia para desativar o upload para o ficheiro temporário.
 
 
-### <a name="error-code--sftpinvalidsftpcredential"></a>Código de erro: SftpInvalidSftpCredential
+### <a name="error-code-sftpinvalidsftpcredential"></a>Código de erro: SftpInvalidSftpCredential
 
 - **Mensagem:**`Invalid SFTP credential provided for '%type;' authentication type.`
 
@@ -932,11 +887,11 @@ Este artigo explora formas comuns de resolver problemas com conectores Azure Dat
 - **Resolução**: Para determinar se existe a coluna "AccMngr", verifique novamente a configuração do conjunto de dados mapeando a coluna dataset do destino.
 
 
-### <a name="error-code--sftpfailedtoconnecttosftpserver"></a>Código de erro: SftpFailedToConnectToSftpServer
+### <a name="error-code-sftpfailedtoconnecttosftpserver"></a>Código de erro: SftpFailedToConnectToSftpServer
 
 - **Mensagem:**`Failed to connect to SFTP server '%server;'.`
 
-- **Causa**: Se a mensagem de erro contiver a cadeia "A operação de leitura da tomada foi cronometrada após 30000 milissegundos", uma causa possível é que é utilizado um tipo de serviço ligado incorreto para o servidor SFTP. Por exemplo, pode estar a utilizar o serviço ligado FTP para ligar ao servidor SFTP.
+- **Causa**: Se a mensagem de erro contiver a cadeia "A operação de leitura da tomada foi cronometrada após 30.000 milissegundos", uma causa possível é que um tipo de serviço ligado incorreto é utilizado para o servidor SFTP. Por exemplo, pode estar a utilizar o serviço ligado FTP para ligar ao servidor SFTP.
 
 - **Recomendação:** Verifique a porta do servidor alvo. Por predefinição, a SFTP utiliza a porta 22.
 
@@ -953,7 +908,7 @@ Este artigo explora formas comuns de resolver problemas com conectores Azure Dat
 
 ## <a name="sharepoint-online-list"></a>Lista do SharePoint Online
 
-### <a name="error-code--sharepointonlineauthfailed"></a>Código de erro: SharePointOnlineAuthFailed
+### <a name="error-code-sharepointonlineauthfailed"></a>Código de erro: SharePointOnlineAuthFailed
 
 - **Mensagem:**`The access token generated failed, status code: %code;, error message: %message;.`
 
@@ -964,7 +919,7 @@ Este artigo explora formas comuns de resolver problemas com conectores Azure Dat
 
 ## <a name="xml-format"></a>Formato XML
 
-### <a name="error-code--xmlsinknotsupported"></a>Código de erro: XmlSinkNotSupportado
+### <a name="error-code-xmlsinknotsupported"></a>Código de erro: XmlSinkNotSupportado
 
 - **Mensagem:**`Write data in XML format is not supported yet, choose a different format!`
 
@@ -973,7 +928,7 @@ Este artigo explora formas comuns de resolver problemas com conectores Azure Dat
 - **Recomendação**: Utilize um conjunto de dados num formato diferente do conjunto de dados da pia.
 
 
-### <a name="error-code--xmlattributecolumnnameconflict"></a>Código de erro: XmlAttributeColumnNameConflict
+### <a name="error-code-xmlattributecolumnnameconflict"></a>Código de erro: XmlAttributeColumnNameConflict
 
 - **Mensagem:**`Column names %attrNames;' for attributes of element '%element;' conflict with that for corresponding child elements, and the attribute prefix used is '%prefix;'.`
 
@@ -982,7 +937,7 @@ Este artigo explora formas comuns de resolver problemas com conectores Azure Dat
 - **Recomendação**: Desacorra um valor diferente para a propriedade "atributoPrefix".
 
 
-### <a name="error-code--xmlvaluecolumnnameconflict"></a>Código de erro: XmlValueColumnNameConflict
+### <a name="error-code-xmlvaluecolumnnameconflict"></a>Código de erro: XmlValueColumnNameConflict
 
 - **Mensagem:**`Column name for the value of element '%element;' is '%columnName;' and it conflicts with the child element having the same name.`
 
@@ -991,7 +946,7 @@ Este artigo explora formas comuns de resolver problemas com conectores Azure Dat
 - **Recomendação**: Desacorda um valor diferente para a propriedade "valueColumn".
 
 
-### <a name="error-code--xmlinvalid"></a>Código de erro: XmlInvalid
+### <a name="error-code-xmlinvalid"></a>Código de erro: XmlInvalid
 
 - **Mensagem:**`Input XML file '%file;' is invalid with parsing error '%error;'.`
 
@@ -1002,7 +957,7 @@ Este artigo explora formas comuns de resolver problemas com conectores Azure Dat
 
 ## <a name="general-copy-activity-error"></a>Erro de atividade de cópia geral
 
-### <a name="error-code--jrenotfound"></a>Código de erro: JreNotFound
+### <a name="error-code-jrenotfound"></a>Código de erro: JreNotFound
 
 - **Mensagem:**`Java Runtime Environment cannot be found on the Self-hosted Integration Runtime machine. It is required for parsing or writing to Parquet/ORC files. Make sure Java Runtime Environment has been installed on the Self-hosted Integration Runtime machine.`
 
@@ -1011,7 +966,7 @@ Este artigo explora formas comuns de resolver problemas com conectores Azure Dat
 - **Recomendação**: Verifique o seu ambiente de execução de integração, consulte [use Self-hosted Integration Runtime](https://docs.microsoft.com/azure/data-factory/format-parquet#using-self-hosted-integration-runtime).
 
 
-### <a name="error-code--wildcardpathsinknotsupported"></a>Código de erro: WildcardPathSinkNotSupy
+### <a name="error-code-wildcardpathsinknotsupported"></a>Código de erro: WildcardPathSinkNotSupy
 
 - **Mensagem:**`Wildcard in path is not supported in sink dataset. Fix the path: '%setting;'.`
 

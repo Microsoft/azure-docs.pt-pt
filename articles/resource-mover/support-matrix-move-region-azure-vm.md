@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: evansma
 ms.service: resource-move
 ms.topic: how-to
-ms.date: 10/11/2020
+ms.date: 02/08/2021
 ms.author: raynew
-ms.openlocfilehash: fa0017b0633d856906609818dd56b5971b1879a7
-ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
+ms.openlocfilehash: 3022b2d4954ffaef71e17ed28dd9b6f141d4da70
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99222803"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980495"
 ---
 # <a name="support-for-moving-azure-vms-between-azure-regions"></a>Apoio à deslocação de VMs Azure entre regiões de Azure
 
@@ -116,7 +116,7 @@ Extensões | Não suportado | As extensões não são copiadas para o VM na regi
 Esta tabela resumiu o suporte para o disco Azure VM OS, disco de dados e disco temporário. É importante observar os limites e alvos do disco VM para [discos geridos](../virtual-machines/disks-scalability-targets.md) para evitar quaisquer problemas de desempenho.
 
 > [!NOTE]
-> O tamanho do VM alvo deve ser igual ou maior do que o VM de origem. Os parâmetros utilizados para validação são: Contagem de Discos de Dados, contagem de NICs, CPUs disponíveis, Memória em GB. Se não for um erro, é emitido um erro.
+> O tamanho do VM alvo deve ser igual ou maior do que o VM de origem. Os parâmetros utilizados para validação são: Contagem de Discos de Dados, contagem de NICs, CPUs disponíveis, Memória em GB. Se não for emitido um erro.
 
 
 **Componente** | **Suporte** | **Detalhes**
@@ -134,6 +134,8 @@ Disco gerido (Premium) | Suportado |
 SSD Standard | Suportado |
 Geração 2 (bota UEFI) | Suportado
 Conta de armazenamento de diagnóstico de arranque | Não suportado | Reenvendá-lo depois de mover o VM para a região alvo.
+VMs com encriptação de disco Azure ativada | Suportado | [Saiba mais](tutorial-move-region-encrypted-virtual-machines.md)
+VMs usando encriptação do lado do servidor com chave gerida pelo cliente | Suportado | [Saiba mais](tutorial-move-region-encrypted-virtual-machines.md)
 
 ### <a name="limits-and-data-change-rates"></a>Limites e taxas de alteração de dados
 

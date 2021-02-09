@@ -1,5 +1,5 @@
 ---
-title: Monitor de ligação em Azure / Microsoft Docs
+title: Monitor de ligação em Azure | Microsoft Docs
 description: Saiba como utilizar o Connection Monitor para monitorizar a comunicação da rede num ambiente distribuído.
 services: network-watcher
 documentationcenter: na
@@ -15,14 +15,17 @@ ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: vinigam
 ms.custom: mvc
-ms.openlocfilehash: 57228c6b7da04b139c7075c83e313b207907e214
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: 0fa5e09dbe7c0a8cd45557d535353ea4a0a00b16
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97898016"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99833104"
 ---
 # <a name="network-connectivity-monitoring-with-connection-monitor"></a>Monitorização da conectividade da rede com monitor de ligação
+
+> [!IMPORTANT]
+> A partir de 1 de julho de 2021, não poderá adicionar novos testes num espaço de trabalho existente ou permitir um novo espaço de trabalho no Network Performance Monitor. Também não poderá adicionar novos monitores de ligação no Connection Monitor (clássico). Pode continuar a utilizar os testes e monitores de ligação criados antes de 1 de julho de 2021. Para minimizar a perturbação do serviço nas suas cargas de trabalho atuais, [migrar os seus testes do Monitor de Desempenho da Rede ](migrate-to-connection-monitor-from-network-performance-monitor.md) ou  [migrar do Connection Monitor (clássico)](migrate-to-connection-monitor-from-connection-monitor-classic.md) para o novo Monitor de Ligação no Observador de Rede Azure antes de 29 de fevereiro de 2024.
 
 O Connection Monitor fornece uma monitorização unificada de ligação de ponta a ponta no Observador de Rede Azure. A funcionalidade Connection Monitor suporta implementações híbridas e azure em nuvem. O Network Watcher fornece ferramentas para monitorizar, diagnosticar e visualizar métricas relacionadas com a conectividade para as suas implementações Azure.
 
@@ -111,7 +114,7 @@ O Monitor de Ligação inclui as seguintes entidades:
 
  ![Diagrama mostrando um monitor de ligação, definindo a relação entre grupos de teste e testes](./media/connection-monitor-2-preview/cm-tg-2.png)
 
-Pode criar um monitor de ligação utilizando [o portal Azure](./connection-monitor-create-using-portal.md) ou [ARMClient](./connection-monitor-create-using-template.md)
+Pode criar um monitor de ligação utilizando [o portal Azure,](./connection-monitor-create-using-portal.md) [ARMClient](./connection-monitor-create-using-template.md) ou [PowerShell](connection-monitor-create-using-powershell.md)
 
 Todas as fontes, destinos e configurações de teste que adiciona a um grupo de teste são discriminadas a testes individuais. Aqui está um exemplo de como as fontes e destinos são divididos:
 
@@ -271,12 +274,13 @@ Nos monitores de ligação que foram criados antes da experiência do Monitor de
 
 Quando utilizar métricas, desenhe o tipo de recurso como Microsoft.Network/networkWatchers/connectionMonitors
 
-| Metric | Nome a apresentar | Unidade | Tipo de agregação | Descrição | Dimensões |
+| Metric | Nome a apresentar | Unidade | Tipo de agregação | Description | Dimensões |
 | --- | --- | --- | --- | --- | --- |
-| ProbesFailedPercent | % Sondas Falhadas | Percentagem | Média | A percentagem de sondas de monitorização de conectividade falhou. | Sem dimensões |
-| Médias Desvelundos | Avg. Tempo de ida e volta (ms) | Milissegundos | Média | Rede média RTT para sondas de monitorização de conectividade enviadas entre a fonte e o destino. |             Sem dimensões |
-| ChecksFailedPercent (Pré-visualização) | % Verificações falhadas (pré-visualização) | Percentagem | Média | Percentagem de cheques falhados para um teste. | ConnectionMonitorResourceId <br>FonteAddress <br>Nome fonte <br>SourceResourceId <br>SourceType <br>Protocolo <br>DestinoAddress <br>Nome de destino <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Region |
-| RoundTripTimeMs (Pré-visualização) | Tempo de ida e volta (ms) (Pré-visualização) | Milissegundos | Média | RTT para verificações enviadas entre a fonte e o destino. Este valor não é mediado. | ConnectionMonitorResourceId <br>FonteAddress <br>Nome fonte <br>SourceResourceId <br>SourceType <br>Protocolo <br>DestinoAddress <br>Nome de destino <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Region |
+| ProbesFailedPercent (clássico) | % Sondas Falhadas (clássica) | Percentagem | Média | A percentagem de sondas de monitorização de conectividade falhou. | Sem dimensões |
+| MédiasRoundtripMs (clássico) | Avg. Tempo de ida e volta (ms) (clássico) | Milissegundos | Média | Rede média RTT para sondas de monitorização de conectividade enviadas entre a fonte e o destino. |             Sem dimensões |
+| ChequesFailedPercent | % Verificações falhadas | Percentagem | Média | Percentagem de cheques falhados para um teste. | ConnectionMonitorResourceId <br>FonteAddress <br>Nome fonte <br>SourceResourceId <br>SourceType <br>Protocolo <br>DestinoAddress <br>Nome de destino <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Region |
+| RoundTripTimeMs | Tempo de ida e volta (ms) | Milissegundos | Média | RTT para verificações enviadas entre a fonte e o destino. Este valor não é mediado. | ConnectionMonitorResourceId <br>FonteAddress <br>Nome fonte <br>SourceResourceId <br>SourceType <br>Protocolo <br>DestinoAddress <br>Nome de destino <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Region |
+| TesteResult | Resultado do teste | de palavras | Média | Resultado do teste do monitor de ligação | FonteAddress <br>Nome fonte <br>SourceResourceId <br>SourceType <br>Protocolo <br>DestinoAddress <br>Nome de destino <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>SourceIP <br>DestinationIP <br>FonteSubnet <br>DestinationSubnet |
 
 #### <a name="metric-based-alerts-for-connection-monitor"></a>Alertas métricos para o Monitor de Ligação
 

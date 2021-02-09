@@ -1,14 +1,14 @@
 ---
 title: Experiências de gestão entre inquilinos
 description: A gestão de recursos delegados Azure permite uma experiência de gestão de inquilinos cruzados.
-ms.date: 02/02/2021
+ms.date: 02/08/2021
 ms.topic: conceptual
-ms.openlocfilehash: 41047a35328d4eac370d98a6d660f20e5006a2bb
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: b76723c9ea94581561f5bdb04ea1fd8335da77b7
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99805179"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99981090"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiências de gestão entre inquilinos
 
@@ -165,6 +165,7 @@ A maioria das tarefas e serviços podem ser realizados em recursos delegados ent
 Pedidos de apoio:
 
 - [Aberto pedidos de apoio da **Ajuda + suporte**](../../azure-portal/supportability/how-to-create-azure-support-request.md#getting-started) no portal Azure para recursos delegados (selecionando o plano de apoio disponível para o âmbito delegado)
+- Utilize a [API de quota azure](/rest/api/reserved-vm-instances/quotaapi) para visualizar e gerir quotas de serviço da Azure para recursos de clientes delegados
 
 ## <a name="current-limitations"></a>Limitações atuais
 

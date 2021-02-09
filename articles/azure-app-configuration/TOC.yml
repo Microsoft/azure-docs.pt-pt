@@ -40,7 +40,7 @@
           href: quickstart-feature-flag-spring-boot.md
 - name: Tutoriais
   items:
-    - name: Ativar a configuração dinâmica
+    - name: Ativar a configuração dinâmica usando o modelo de pesquisa
       items:
         - name: Núcleo de ASP.NET
           href: enable-dynamic-configuration-aspnet-core.md
@@ -52,6 +52,10 @@
           href: enable-dynamic-configuration-azure-functions-csharp.md
         - name: Spring Boot
           href: enable-dynamic-configuration-java-spring-app.md
+    - name: Ativar a configuração dinâmica utilizando o modelo push
+      items:
+        - name: .NET Core
+          href: enable-dynamic-configuration-dotnet-core-push-refresh.md
     - name: Utilizar sinalizadores de funcionalidades
       items:
         - name: Núcleo de ASP.NET

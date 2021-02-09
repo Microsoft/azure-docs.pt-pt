@@ -5,15 +5,15 @@ services: automation
 author: mgoedtel
 ms.service: automation
 ms.topic: include
-ms.date: 10/21/2020
+ms.date: 02/08/2021
 ms.author: magoedte
 ms.custom: include file
-ms.openlocfilehash: 4a6b21d3782931e3bee4a13ff95e7f313dcc1af2
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 3ee44509997a16fc7f06fd5a24e473d7011bde40
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92379760"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99974655"
 ---
 #### <a name="process-automation"></a>Automatização de processos
 
@@ -22,9 +22,10 @@ ms.locfileid: "92379760"
 | Número máximo de novos postos de trabalho que podem ser submetidos a cada 30 segundos por conta da Azure Automation (empregos não programados) |100 |Quando este limite é atingido, os pedidos subsequentes para criar um emprego falham. O cliente recebe uma resposta de erro.|
 | Número máximo de postos de trabalho em funcionamento simultâneos no mesmo caso de tempo por conta de Automação (empregos não programados) |200 |Quando este limite é atingido, os pedidos subsequentes para criar um emprego falham. O cliente recebe uma resposta de erro.|
 | Tamanho máximo de armazenamento de metadados de trabalho para um período de 30 dias de rolamento | 10 GB (aproximadamente 4 milhões de empregos)|Quando este limite é atingido, os pedidos subsequentes para criar um emprego falham. |
-| Limite máximo de fluxo de trabalho|1 MiB|Um único fluxo não pode ser maior que 1 MB.|
+| Limite máximo de fluxo de trabalho|1 MiB|Um único fluxo não pode ser maior que 1 MiB.|
 | Número máximo de módulos que podem ser importados a cada 30 segundos por conta de Automação |5 ||
 | Tamanho máximo de um módulo |100 MB ||
+| Tamanho máximo de um ficheiro de configuração de nó | 1 MB | Aplica-se à configuração do estado |
 | Tempo de execução de trabalho, nível gratuito |500 minutos por subscrição por mês ||
 | Quantidade máxima de espaço em disco permitido por caixa de areia<sup>1</sup> |1 GB |Aplica-se apenas a caixas de areia Azure.|
 | Quantidade máxima de memória dada a uma caixa de areia<sup>1</sup> |400 MB |Aplica-se apenas a caixas de areia Azure.|

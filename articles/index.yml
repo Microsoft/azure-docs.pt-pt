@@ -13,12 +13,12 @@ metadata:
   ms.date: 01/29/2021
   featureFlags:
   - clicktale
-  ms.openlocfilehash: 2bb8d9cabdd781f427f36dfda344d7505ce584b0
-  ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+  ms.openlocfilehash: 2f792ffb95323444d8666c4c676025995f5db438
+  ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 02/08/2021
-  ms.locfileid: "99834281"
+  ms.lasthandoff: 02/09/2021
+  ms.locfileid: "99979475"
 highlightedContent:
   items:
   - title: Guia de introdução para programadores do Azure
@@ -1135,13 +1135,13 @@ productDirectory:
     azureCategories:
     - security
     url: security-center/azure-defender.md
-  - title: Azure Defender para IoT (Pré-visualização)
+  - title: Azure Defender para IoT
     summary: Gestão de recursos e deteção de ameaças contínuas para dispositivos IoT/OT geridos e não geridos
     imageSrc: ./media/index/defender-iot.svg
     azureCategories:
     - security
     - iot
-    url: ./security-center/azure-defender.md
+    url: ./defender-for-iot/index.yml
   - title: Proteção contra DDoS do Azure
     summary: Proteja as suas aplicações contra ataques Denial of Service Distribuídos (DDoS)
     imageSrc: https://static.docs.com/ui/media/product/azure/ddos-protection.svg

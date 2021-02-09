@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/11/2020
 ms.author: nikuklic
-ms.openlocfilehash: 8a4de33a7c4230a94d8bded38de7289073153fee
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 5b0f90c98b42527e7e0bb778af85d9990b4d6533
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99541097"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99974497"
 ---
 [!INCLUDE [Emergency Calling Notice](../../../includes/emergency-calling-notice-include.md)]
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -124,7 +124,7 @@ Use o `webpack-dev-server` para construir e executar a sua aplicação. Executar
 
 
 ```console
-npx webpack-dev-server --entry ./client.js --output bundle.js
+npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool inline-source-map
 ```
 
 Abra o seu navegador e navegue para `http://localhost:8080/` . Deverá ver o seguinte:

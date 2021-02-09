@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/04/2020
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 3289db9b0f27aa528e027ab2e355852947187e76
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 9a4bda216a91efc8139c1f87c5c350c50ae8741d
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98187232"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980948"
 ---
 1. A partir do menu do portal do Azure ou a partir da **Home page**, selecione **Criar um recurso**.
 
@@ -27,7 +27,7 @@ ms.locfileid: "98187232"
     | **[Grupo de Recursos](../articles/azure-resource-manager/management/overview.md)** |  *myResourceGroup* | Nome do grupo de recursos novo no qual a aplicação Function App vai ser criada. |
     | **Nome da Aplicação de Funções** | Nome globalmente exclusivo | Nome que identifica a sua aplicação Function App nova. Os carateres válidos são `a-z` (não sensível a maiúsculas e minúsculas), `0-9` e `-`.  |
     |**Publicar**| Código | Opção para publicar ficheiros de código ou um contentor de Docker. |
-    | **Pilha de runtime** | Linguagem preferencial | Escolha um tempo de execução que suporte a sua linguagem de programação de funções favorita. A edição no portal não é suportada atualmente para [o desenvolvimento de Python.](../articles/azure-functions/functions-reference-python.md) |
+    | **Pilha de runtime** | Linguagem preferencial | Escolha um tempo de execução que suporte a sua linguagem de programação de funções favorita. A edição no portal só está disponível para o script JavaScript, PowerShell, TypeScript e C#. As funções de classe C#, Java e Python devem ser [desenvolvidas localmente.](../articles/azure-functions/functions-develop-local.md#local-development-environments)  |
     |**Versão**| Número da versão | Escolha a versão do seu tempo de execução instalado. |
     |**Região**| Região preferida | Escolha uma [região](https://azure.microsoft.com/regions/) perto de si ou perto de outros serviços a que as suas funções acedam. |
 

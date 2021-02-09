@@ -8,12 +8,12 @@ ms.date: 4/24/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: devx-track-js
-ms.openlocfilehash: 3bc24e88368af056e4d4506a5cf688e1172d4930
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: e0c0d18dbb3596733d02430554fd40ec16180c64
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98051569"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980665"
 ---
 # <a name="create-custom-sdks-for-azure-digital-twins-using-autorest"></a>Crie SDKs personalizados para gémeos digitais Azure usando o AutoRest
 
@@ -112,6 +112,9 @@ No padrão de paging não-consulta, aqui está um método de amostra que mostra 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="FindOutgoingRelationshipsMethod":::
 
 O segundo padrão é gerado apenas para a API de consulta. Usa `continuationToken` explicitamente.
+
+>[!TIP]
+> A principal razão para obter páginas é calcular os [custos](concepts-query-units.md) da Unidade de Consulta para uma chamada de API de consulta.
 
 Aqui está um exemplo com este padrão:
 

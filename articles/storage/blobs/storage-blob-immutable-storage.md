@@ -5,18 +5,18 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/13/2020
+ms.date: 02/01/2021
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: acb2ebb0d7ce70c6b5963a8a6c3e392091e4bb1e
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 9654ff6eab53acfe3e656afdcacd758c548232ba
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96010066"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979146"
 ---
-# <a name="store-business-critical-blob-data-with-immutable-storage"></a>Armazenar dados de blob críticos de negócio com armazenamento imutável
+# <a name="store-business-critical-blob-data-with-immutable-storage"></a>Armazenar dados de blobs críticos para a empresa com o armazenamento imutável
 
 O armazenamento imutável para o armazenamento Azure Blob permite que os utilizadores armazenem objetos de dados críticos do negócio num estado WORM (Write Once, Read Many). Este estado torna os dados não apagáveis e não modificáveis para um intervalo especificado pelo utilizador. Durante o intervalo de retenção, as bolhas podem ser criadas e lidas, mas não podem ser modificadas ou eliminadas. O armazenamento imutável está disponível para as contas v1, v2, blobstorage e BlockBlobStorage em todas as regiões de Azure.
 
@@ -42,7 +42,7 @@ O armazenamento imutável suporta as seguintes características:
 
 - **[Suporte jurídico da política](#legal-holds)**: Se o intervalo de retenção não for conhecido, os utilizadores podem definir suportes legais para armazenar dados imutáveis até que o porão legal seja apurado.  Quando uma política legal de detenção é definida, as bolhas podem ser criadas e lidas, mas não modificadas ou eliminadas. Cada porão legal está associado a uma etiqueta alfanumérica definida pelo utilizador (como um ID de caso, nome do evento, etc.) que é usada como uma cadeia de identificador. 
 
-- **Suporte para todos os níveis blob**: As políticas WORM são independentes do nível de armazenamento Azure Blob e aplicam-se a todos os níveis: quente, fresco e arquivo. Os utilizadores podem migrar os dados para a camada com o custo mais otimizado para as cargas de trabalho e manter em simultâneo a imutabilidade dos dados.
+- **Suporte para todos os escalões de blobs**: as políticas WORM são independentes da camada de armazenamento de Blobs do Azure e aplicam-se a todas as camadas: frequentes, esporádicas e de arquivo. Os utilizadores podem migrar os dados para a camada com o custo mais otimizado para as cargas de trabalho e manter em simultâneo a imutabilidade dos dados.
 
 - **Configuração ao nível do contentor**: Os utilizadores podem configurar políticas de retenção baseadas no tempo e etiquetas legais de detenção ao nível do contentor. Com definições de nível de contentor simples, os utilizadores podem criar e bloquear as políticas de retenção baseadas no tempo, expandir intervalos de retenção, definir e desmarcar retenções legais e mais. Estas políticas aplicam-se a todos os blobs no contentor, tanto novos como existentes.
 
@@ -53,6 +53,10 @@ O armazenamento imutável suporta as seguintes características:
 O armazenamento imutável do Armazenamento de blobs do Azure suporta dois tipos de políticas WORM ou imutáveis: retenção baseada no tempo e retenções legais. Quando uma política de retenção baseada no tempo ou um porão legal é aplicado num recipiente, todas as bolhas existentes movem-se para um estado WORM imutável em menos de 30 segundos. Todas as novas bolhas que são enviadas para esse contentor protegido pela política também irão para um estado imutável. Uma vez que todas as bolhas estejam em estado imutável, a política imutável é confirmada e não são permitidas quaisquer operações de substituição ou eliminação no recipiente imutável.
 
 A supressão da conta de contentores e armazenamento também não é permitida se houver bolhas num recipiente que estejam protegidas por um porão legal ou por uma política baseada no tempo bloqueado. Uma política legal de detenção protegerá contra a eliminação de blob, contentor e armazenamento de contas. Tanto as políticas desbloqueadas como bloqueadas no tempo protegerão contra a eliminação de bolhas durante o tempo especificado. As políticas desbloqueadas e bloqueadas baseadas no tempo só protegerão contra a eliminação do contentor se existir pelo menos uma bolha dentro do recipiente. Apenas um contentor com uma política baseada no tempo *bloqueado* protegerá contra supressões de conta de armazenamento; os contentores com políticas de tempo desbloqueadas não oferecem proteção nem conformidade com a conta de armazenamento.
+
+O diagrama que se segue mostra como as políticas de retenção baseadas no tempo e os detenções legais impedem a escrita e a eliminação das operações enquanto estão em vigor.
+
+:::image type="content" source="media/storage-blob-immutable-storage/worm-diagram.png" alt-text="Diagrama que mostra como as políticas de retenção e os detém legais impedem a escrita e a eliminação de operações":::
 
 Para obter mais informações sobre como definir e bloquear políticas de retenção baseadas no tempo, consulte Definir e gerir políticas de [imutabilidade para armazenamento de Blob](storage-blob-immutability-policies-manage.md).
 
@@ -105,7 +109,7 @@ Aplicam-se os seguintes limites aos detém legais:
 
 A tabela seguinte mostra os tipos de operações de armazenamento Blob que são desativadas para os diferentes cenários imutáveis. Para mais informações, consulte a documentação da [Azure Blob Service REST API.](/rest/api/storageservices/blob-service-rest-api)
 
-| Cenário | Estado blob | Operações de blob negadas | Proteção de contentores e conta |
+| Scenario | Estado blob | Operações de blob negadas | Proteção de contentores e conta |
 |--|--|--|--|
 | O intervalo de retenção efetivo do blob ainda não expirou e/ou a retenção legal está definida | Imutável: protegido contra eliminação e escrita | Colocar Blob<sup>1</sup>, Colocar Bloco<sup>1</sup>, Colocar Bloco Lista<sup>1</sup>, Eliminar Recipiente, Eliminar Blob, Definir Metadados Blob, Put Page, Definir Propriedades blob, Bolha instantânea, Bolha de cópia incremental, Bloco de Apêndice<sup>2</sup> | Supressão de contentores negada; Supressão da conta de armazenamento negada |
 | O intervalo de retenção eficaz na bolha expirou e não está definido qualquer porão legal | Protegido apenas contra escrita (as operações de eliminação são permitidas) | Colocar Blob<sup>1</sup>, Colocar Bloco<sup>1</sup>, Colocar Lista de Bloco<sup>1</sup>, Definir Metadados Blob, Put Page, Definir Propriedades blob, Bolha snapshot, Blob de Cópia Incremental, Bloco de Apêndice<sup>2</sup> | Supressão do contentor negada se existir pelo menos 1 bolha dentro de recipiente protegido; Supressão da conta de armazenamento negada apenas para políticas baseadas no tempo *bloqueado* |

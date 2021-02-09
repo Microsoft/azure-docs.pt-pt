@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 02/02/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 92652c33e261f08e0cb1c8eb57c66d363801f34e
-ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
+ms.openlocfilehash: 190d88e62069a34b61017a0079f75696d67f6c82
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99475071"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979917"
 ---
 # <a name="azure-active-directory-b2c-service-limits-and-restrictions"></a>Limites e restrições de serviço Azure Ative Directory B2C
 
@@ -39,7 +39,6 @@ O quadro que se segue lista os limites de configuração administrativa no servi
 
 |Categoria  |Limite  |
 |---------|---------|
-|Número de pedidos por inquilino Azure AD B2C   |250           |
 |Número de âmbitos por aplicação        |1000          |
 |Número de [atributos personalizados](user-profile-attributes.md#extension-attributes)   por utilizador <sup>1</sup>       |100         |
 |Número de URLs de redirecionamento por aplicação       |100         |

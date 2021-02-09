@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/28/2020
+ms.date: 02/01/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 518df665db0ba3770bee757f45d02b6ccd303a00
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: 1df2f12d6947734314609dc50787a59a2fa88731
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97803872"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980523"
 ---
 # <a name="point-in-time-restore-for-block-blobs"></a>Restauro pontual para bolhas de bloco
 
@@ -32,6 +32,10 @@ Para permitir a restauração pontual, cria uma política de gestão para a cont
 Para iniciar uma restauração pontual, ligue para a operação [Restore Blob Ranges](/rest/api/storagerp/storageaccounts/restoreblobranges) e especifique um ponto de restauro no tempo UTC. Pode especificar gamas lexicográficas de contentores e nomes de bolhas para restaurar, ou omitir o alcance para restaurar todos os recipientes na conta de armazenamento. Até 10 gamas lexicográficas são suportadas por operação de restauro.
 
 O Azure Storage analisa todas as alterações que foram feitas às bolhas especificadas entre o ponto de restauro solicitado, especificado no tempo UTC, e o momento presente. A operação de restauro é atómica, por isso ou consegue restaurar todas as alterações, ou falha. Se houver bolhas que não possam ser restauradas, a operação falha e lê e escreve as operações para os recipientes afetados.
+
+O diagrama que se segue mostra como a restauração pontual funciona. Um ou mais contentores ou gamas de bolhas é restaurado para o seu estado *há* dias, onde *n* é inferior ou igual ao período de retenção definido para restauro pontual. O efeito é reverter a escrita e apagar operações que ocorreram durante o período de retenção.
+
+:::image type="content" source="media/point-in-time-restore-overview/point-in-time-restore-diagram.png" alt-text="Diagrama mostrando como ponto-a-tempo restaura os contentores para um estado anterior":::
 
 Apenas uma operação de restauro pode ser executada numa conta de armazenamento de cada vez. Uma operação de restauro não pode ser cancelada uma vez que está em curso, mas uma segunda operação de restauro pode ser realizada para desfazer a primeira operação.
 
@@ -50,7 +54,7 @@ A operação **Restore Blob Ranges** devolve um ID de restauro que identifica ex
 A restauração pontual requer que as seguintes funcionalidades de Armazenamento Azure sejam ativadas antes de poder permitir a restauração pontual:
 
 - [Eliminação recuperável](./soft-delete-blob-overview.md)
-- [Feed de alterações](storage-blob-change-feed.md)
+- [Alterar alimentação](storage-blob-change-feed.md)
 - [Versão blob](versioning-overview.md)
 
 ### <a name="retention-period-for-point-in-time-restore"></a>Período de retenção para restauro pontual

@@ -1,5 +1,5 @@
 ---
-title: Tutorial para usar referências do Cofre da Chave de Configuração de Aplicações Azure numa aplicação ASP.NET Core [ Microsoft Docs
+title: Tutorial para usar referências do Cofre da Chave de Configuração de Aplicações Azure numa aplicação core ASP.NET | Microsoft Docs
 description: Neste tutorial, você aprende a usar as referências key Vault da Azure App Configuration a partir de uma aplicação core ASP.NET
 services: azure-app-configuration
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 04/08/2020
 ms.author: alkemper
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 94bab9506d2bf7c29f997bcbfd400a412d5ac041
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 37bc7fbcd366455668d5316e45ffbf79127a49f3
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96932256"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99981243"
 ---
 # <a name="tutorial-use-key-vault-references-in-an-aspnet-core-app"></a>Tutorial: Use referências do Cofre de Chaves numa aplicação core ASP.NET
 
@@ -51,7 +51,7 @@ Antes de iniciar este tutorial, instale o [.NET Core SDK](https://dotnet.microso
 1. Selecione a opção **de recurso Criar** no canto superior esquerdo do portal Azure:
 
     ![A screenshot mostra a opção de recurso Criar no portal Azure.](./media/quickstarts/search-services.png)
-1. Na caixa de pesquisa, introduza **o Cofre de Chaves.**
+1. Na caixa de pesquisa, introduza **Key Vault**.
 1. Na lista de resultados, selecione **cofres chave** à esquerda.
 1. Em **cofres chave**, selecione **Add**.
 1. À direita no **cofre de chaves Create,** forneça as seguintes informações:
@@ -93,7 +93,7 @@ Para adicionar um segredo ao cofre, precisa dar apenas alguns passos adicionais.
 
 ## <a name="connect-to-key-vault"></a>Ligue-se ao cofre de chaves
 
-1. Neste tutorial, você usa um principal de serviço para autenticação para Key Vault. Para criar este principal serviço, utilize o comando Azure CLI [ad sp create-for-rbac:](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac)
+1. Neste tutorial, você usa um principal de serviço para autenticação para Key Vault. Para criar este principal serviço, utilize o comando Azure CLI [ad sp create-for-rbac:](/cli/azure/ad/sp#az-ad-sp-create-for-rbac)
 
     ```azurecli
     az ad sp create-for-rbac -n "http://mySP" --sdk-auth

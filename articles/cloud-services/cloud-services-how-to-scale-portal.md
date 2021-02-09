@@ -1,6 +1,6 @@
 ---
 title: Escalar automaticamente um serviço em nuvem (clássico) no portal | Microsoft Docs
-description: Aprenda a usar o portal para configurar regras de escala automática para um papel web de serviço na nuvem ou papel de trabalhador em Azure.
+description: Aprenda a usar o portal para configurar regras de escala automática para um serviço de nuvem (clássico) em Azure.
 ms.topic: article
 ms.service: cloud-services
 ms.date: 10/14/2020
@@ -8,12 +8,12 @@ ms.author: tagore
 author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: a3e7f72dbe16c51280b922da2b5fc6550dee1d34
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: ba7b2279969acab93ac96c42e0033e76e9d0542d
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98743360"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980835"
 ---
 # <a name="how-to-configure-auto-scaling-for-a-cloud-service-classic-in-the-portal"></a>Como configurar a escala automática para um Serviço de Nuvem (clássico) no portal
 
@@ -23,7 +23,7 @@ ms.locfileid: "98743360"
 Podem ser definidas condições para um papel de trabalhador de serviço de nuvem que desencadeie uma escala dentro ou fora do funcionamento. As condições para o papel podem basear-se no CPU, disco ou carga de rede da função. Também pode definir uma condição com base numa fila de mensagens ou na métrica de algum outro recurso Azure associado à sua subscrição.
 
 > [!NOTE]
-> Este artigo centra-se nas funções web e trabalhadora do Cloud Service. Quando cria uma máquina virtual (clássica) diretamente, é hospedada num serviço de nuvem. Pode escalar uma máquina virtual padrão associando-a a um [conjunto de disponibilidade](/previous-versions/azure/virtual-machines/windows/classic/configure-availability-classic) e ligando-as ou desligando manualmente.
+> Este artigo centra-se no Cloud Service (clássico). Quando cria uma máquina virtual (clássica) diretamente, é hospedada num serviço de nuvem. Pode escalar uma máquina virtual padrão associando-a a um [conjunto de disponibilidade](/previous-versions/azure/virtual-machines/windows/classic/configure-availability-classic) e ligando-as ou desligando manualmente.
 
 ## <a name="considerations"></a>Considerações
 Deve considerar as seguintes informações antes de configurar o escalonamento para a sua aplicação:

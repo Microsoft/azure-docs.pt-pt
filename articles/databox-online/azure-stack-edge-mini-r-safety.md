@@ -1,19 +1,19 @@
 ---
-title: Guia de segurança Azure Stack Edge Mini R / Microsoft Docs
+title: Guia de segurança Azure Stack Edge Mini R | Microsoft Docs
 description: Descreve convenções de segurança, diretrizes, considerações e explica como instalar e operar com segurança o seu dispositivo Azure Stack Edge Mini R.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 10/13/2020
+ms.date: 02/08/2021
 ms.author: alkohli
-ms.openlocfilehash: 507ceef0f13951eafdcb02d586f35c1d61764c4e
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: aa363b1eeddff6c3b10d8e36371becb8b690697c
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96467475"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99981030"
 ---
 # <a name="azure-stack-edge-mini-r-safety-instructions"></a>Instruções de segurança Azure Stack Edge Mini R
 
@@ -27,16 +27,17 @@ Leia todas as informações de segurança deste artigo antes de utilizar o seu d
 
 As seguintes palavras de sinal para sinais de alerta de perigo são:
 
-| Ícone | Descrição |
+| Ícone | Description |
 |:--- |:--- |
 | ![Símbolo de perigo](./media/azure-stack-edge-mini-r-safety/icon-safety-warning.png)| **PERIGO:** Indica uma situação perigosa que, se não for evitada, resultará em morte ou ferimentos graves. <br> **ADVERTÊNCIA:** Indica uma situação perigosa que, se não for evitada, pode resultar em morte ou ferimentos graves. <br> **ATENÇÃO:** Indica uma situação perigosa que, se não for evitada, pode resultar em ferimentos ligeiros ou moderados.|
 |
 
 Os seguintes ícones de perigo devem ser observados ao configurar e executar o seu dispositivo Azure Stack Edge Mini R:
 
-| Ícone | Descrição |
+| Ícone | Description |
 |:--- |:--- |
 | ![Leia todas as instruções primeiro](./media/azure-stack-edge-mini-r-safety/icon-safety-read-all-instructions.png) | Leia todas as instruções primeiro |
+| ![Aviso de ícone ](./media/azure-stack-edge-mini-r-safety/icon-safety-notice.png) **de aviso:** | Indica informações consideradas importantes, mas não relacionadas com riscos. |
 | ![Símbolo de perigo](./media/azure-stack-edge-mini-r-safety/icon-safety-warning.png) | Símbolo de perigo |
 | ![Ícone de choque elétrico](./media/azure-stack-edge-mini-r-safety/icon-safety-electric-shock.png) | Risco de choque elétrico |
 | ![Uso interior apenas](./media/azure-stack-edge-mini-r-safety/icon-safety-indoor-use-only.png) | Uso interior apenas |
@@ -68,7 +69,7 @@ Recomenda-se o funcionamento do sistema:
 ![Ícone de aviso 4 ](./media/azure-stack-edge-mini-r-safety/icon-safety-warning.png)
  ![ Sem ícone de peças de serviço do utilizador ](./media/azure-stack-edge-mini-r-safety/icon-safety-do-not-access.png) **CUIDADO:**
 
-* Este equipamento contém uma bateria de lítio. Não tente fazer a manutenção da bateria. As pilhas deste equipamento não são ressutilizáveis pelo utilizador. Risco de explosão se a bateria for substituída por um tipo incorreto.
+* Este equipamento contém uma bateria de lítio. Não tente fazer o serviço da bateria. As pilhas deste equipamento não são ressutilizáveis pelo utilizador. Risco de explosão se a bateria for substituída por um tipo incorreto.
 
 ![Ícone de aviso 5 ](./media/azure-stack-edge-mini-r-safety/icon-safety-warning.png) **ATENÇÃO:**
 
@@ -89,7 +90,7 @@ Carregue apenas a bateria quando faz parte do dispositivo Azure Stack Edge Mini 
 
 ![Ícone de aviso 9 ](./media/azure-stack-edge-mini-r-safety/icon-safety-warning.png) **ATENÇÃO:**
 
-Este dispositivo tem duas portas SFP+ que podem ser utilizadas com transceptores óticos. Para evitar radiações laser perigosas, utilize apenas com os transmissores da classe 1.
+Este dispositivo tem duas portas SFP+, que podem ser utilizadas com transceptores óticos. Para evitar radiações laser perigosas, utilize apenas com os transmissores da classe 1.
 
 ## <a name="electrical-precautions"></a>Precauções elétricas
 
@@ -124,7 +125,7 @@ Quando utilizado com o adaptador de alimentação:
  ![ Ícone de choque elétrico uso ](./media/azure-stack-edge-mini-r-safety/icon-safety-electric-shock.png)
  ![ interior apenas ](./media/azure-stack-edge-mini-r-safety/icon-safety-indoor-use-only.png) **AVISO:**
 
-* A alimentação com este símbolo está classificada apenas para uso interno.
+* A alimentação com este símbolo é classificada apenas para uso interno.
 
 ## <a name="regulatory-information"></a>Informação regulamentar
 
@@ -142,20 +143,71 @@ O equipamento foi concebido para funcionar nos seguintes ambientes:
 | Especificações relativas de humidade (RH) | <ul><li>Armazenamento: 5% a 95% de humidade relativa</li><li>Funcionamento: 10% a 90% de humidade relativa</li></ul>|
 | Especificações máximas de altitude | <ul><li>Funcionamento: 15.000 pés (4.572 metros)</li><li>Não funcionamento: 40.000 pés (12.192 metros)</li></ul>|
 
-> ![Aviso de ícone ](./media/azure-stack-edge-mini-r-safety/icon-safety-notice.png) **aviso:** &nbsp; Alterações ou modificações efetuadas no equipamento não expressamente aprovadas pela Microsoft podem anular a autoridade do utilizador para operar o equipamento.
+> ![Aviso Ícone - 2 ](./media/azure-stack-edge-mini-r-safety/icon-safety-notice.png) **AVISO:** &nbsp; Alterações ou modificações efetuadas no equipamento não expressamente aprovadas pela Microsoft podem anular a autoridade do utilizador para operar o equipamento.
 
-CANADÁ e EUA:
+#### <a name="canada-and-usa"></a>CANADÁ e EUA:
 
-AVISO: Este equipamento foi testado e encontra-se em conformidade com os limites para um dispositivo digital de classe A, nos termos da parte 15 das Regras da FCC. Estes limites destinam-se a proporcionar uma proteção razoável contra interferências nocivas quando o equipamento é operado num ambiente comercial. Este equipamento gera, utiliza e pode irradiar energia de radiofrequência e, se não for instalado e utilizado de acordo com o manual de instruções, pode causar interferências prejudiciais às comunicações de rádio. O funcionamento deste equipamento numa área residencial pode causar interferências prejudiciais, caso em que o utilizador será obrigado a corrigir a interferência às suas próprias custas.
+> ![Aviso Ícone - 3 ](./media/azure-stack-edge-mini-r-safety/icon-safety-notice.png) **AVISO:** &nbsp; Este equipamento foi testado e encontra-se em conformidade com os limites para um dispositivo digital de classe A, nos termos da parte 15 das Regras da FCC. Estes limites destinam-se a proporcionar uma proteção razoável contra interferências nocivas quando o equipamento é operado num ambiente comercial. Este equipamento gera, utiliza e pode irradiar energia de radiofrequência e, se não for instalado e utilizado de acordo com o manual de instruções, pode causar interferências prejudiciais às comunicações de rádio. O funcionamento deste equipamento numa área residencial pode causar interferências prejudiciais, caso em que o utilizador será obrigado a corrigir a interferência às suas próprias custas.
+
+O Adaptador WiFi USB Netgear A6150 fornecido com este equipamento destina-se a ser operado perto do corpo humano para a conformidade com a Taxa de Absorção Específica (SAR) usada pelo corpo. O limite sartos fixado pela FCC é de 1,6 W/kg quando em média mais de 1 g de tecido. Ao transportar o produto ou usá-lo durante o uso do seu corpo, mantenha uma distância de 10 mm do corpo para garantir o cumprimento dos requisitos de exposição ao RF.
+
+O Adaptador WiFi WIFi Netgear A6150 está em conformidade com o ANSI/IEEE C95.1-1999 e foi testado de acordo com os métodos e procedimentos de medição especificados no Suplemento C do Boletim OET 65.
+
+Taxa de absorção específica (SAR) de 1,18 W/kg média superior a 1 g de tecido
+
+O Adaptador WiFi USB Netgear A6150 deve ser utilizado apenas com antenas aprovadas. Este dispositivo e as suas antenas não devem ser co-localizados ou a funcionar em conjunto com qualquer outra antena ou transmissor, exceto de acordo com os procedimentos do produto multitransmissor da FCC. Para os produtos disponíveis no mercado dos EUA, apenas o canal 1~11 pode ser operado. A seleção de outros canais não é possível.
+
+A operação na banda 5150-5250 MHz destina-se apenas ao uso interno para reduzir o potencial de interferência prejudicial aos sistemas de satélites móveis de co-canal.
+
+![Aviso de informação regulamentar - uso interior](./media/azure-stack-edge-mini-r-safety/regulatory-information-indoor-use-only.png)
+
+
+Os utilizadores são avisados de que os radares de alta potência são atribuídos como utilizadores primários (utilizadores prioritários) das bandas 5250-5350 MHz e 5650-5850 MHz, e estes radares podem causar interferências e/ou danos nos dispositivos LE-LAN.
+
+Este equipamento gera, utiliza e pode irradiar energia de radiofrequência e, se não for instalado e utilizado de acordo com as instruções, pode causar interferência prejudicial às comunicações de rádio. No entanto, não há garantias de que não ocorram interferências numa determinada instalação.
+
+Se este equipamento causar interferência prejudicial à receção de rádio ou televisão, o que pode ser determinado desligando e desligando o equipamento, o utilizador é encorajado a tentar corrigir a interferência através de uma ou mais das seguintes medidas:
+
+- Reoriente ou reloque a antena recetora.
+- Aumente a separação entre o equipamento e o recetor.
+- Ligue o equipamento a uma tomada num circuito diferente daquele ao qual o recetor está ligado.
+- Consulte o revendedor ou um técnico experiente de rádio/TV para obter ajuda.
+
+Para obter mais informações sobre questões de interferência, aceda ao site da FCC [em fcc.gov/cgb/consumerfacts/interference.html](https://www.fcc.gov/consumers/guides/interference-radio-tv-and-telephone-signals). Também pode ligar para a FCC em 1-888-CALL FCC para solicitar fichas de interferência e interferência telefónica.
+
+Informações adicionais sobre a segurança da radiofrequência podem ser encontradas no site da FCC [https://www.fcc.gov/general/radio-frequency-safety-0](https://www.fcc.gov/general/radio-frequency-safety-0) e no site da Industry Canada em [http://www.ic.gc.ca/eic/site/smt-gst.nsf/eng/sf01904.html](http://www.ic.gc.ca/eic/site/smt-gst.nsf/eng/sf01904.html) .
+
+Este produto demonstrou a conformidade da EMC em condições que incluem a utilização de dispositivos periféricos compatíveis e cabos blindados entre componentes do sistema. É importante que utilize dispositivos periféricos compatívels e cabos blindados entre componentes do sistema para reduzir a possibilidade de causar interferências em rádios, televisores e outros dispositivos eletrónicos.
 
 Este dispositivo está em conformidade com a parte 15 das normas RSS isentas de licenças da FCC e da indústria do Canadá. O funcionamento está sujeito às duas condições seguintes: (1) este dispositivo não pode causar interferência prejudicial, e (2) este dispositivo deve aceitar qualquer interferência recebida, incluindo interferências que possam causar o funcionamento nãodesejável do dispositivo.
 
 ![Aviso de informação regulamentar 1](./media/azure-stack-edge-mini-r-safety/regulatory-information-1.png)
 
-CAN ICES-3(A)/NMB-3(A) Microsoft Corporation, One Microsoft Way, Redmond, WA 98052, EUA.
-Estados Unidos: (800) 426-9400 Canadá: (800) 933-4750
+CAN ICES-3(A)/NMB-3(A)
 
-UNIÃO EUROPEIA: Solicitar uma cópia da Declaração de Conformidade da UE.
+Microsoft Corporation, One Microsoft Way, Redmond, WA 98052, EUA
+
+Estados Unidos: (800) 426-9400
+
+Canadá: (800) 933-4750
+
+Netgear A6150 WiFi ADAPTADOR USB FCC ID: PY318300429
+ 
+Netgear A6150 WiFi ADAPTADOR USB IC ID: 4054A-18300429
+
+O Adaptador WiFi USB Netgear A6150 fornecido com este equipamento está em conformidade com a SAR para limites gerais de exposição populacional/não controlada no IC RSS-102 e foi testado de acordo com os métodos e procedimentos de medição especificados no IEEE 1528. Mantenha uma distância mínima de 10 mm para o estado de desgaste corporal.
+
+O Adaptador WiFi WIFi Netgear A6150 está em conformidade com o limite de exposição portátil de RF do Canadá estabelecido para um ambiente descontrolado e é seguro para o funcionamento pretendido, conforme descrito no seu manual. Uma redução adicional da exposição ao RF pode ser conseguida mantendo o produto o mais longe possível do seu corpo ou definindo o dispositivo para uma potência de saída mais baixa se tal função estiver disponível.
+
+Uma tabela com a Taxa de Absorção Específica (SAR) média superior a 1 g para cada produto pode ser vista na secção dos EUA acima.
+
+![Aviso de informação regulamentar 2](./media/azure-stack-edge-mini-r-safety/regulatory-information-2.png)
+
+#### <a name="european-union"></a>UNIÃO EUROPEIA:
+
+Solicite uma cópia da Declaração de Conformidade da UE para este equipamento.
+
+O Adaptador WiFi USB Netgear A6150 fornecido com este equipamento está em conformidade com a Diretiva 2014/53/UE e também pode ser fornecido a pedido.
 
 > ![Ícone de aviso 13 ](./media/azure-stack-edge-mini-r-safety/icon-safety-warning.png) Este é um produto de classe A. Num ambiente doméstico, este produto pode causar interferência sonora, caso em que o utilizador pode ser obrigado a tomar as medidas adequadas.
 
@@ -166,7 +218,37 @@ Eliminação de resíduos de pilhas e equipamentos elétricos e eletrónicos:
 Este símbolo no produto ou nas pilhas ou na sua embalagem significa que este produto e quaisquer pilhas que contenha não devem ser eliminados com o lixo doméstico. Em vez disso, é da sua responsabilidade entregá-lo a um ponto de recolha aplicável para a reciclagem de baterias e equipamentos elétricos e eletrónicos. Esta recolha e reciclagem separadas ajudarão a conservar os recursos naturais e a prevenir potenciais consequências negativas para a saúde humana e para o ambiente, devido à possível presença de substâncias perigosas nas baterias e nos equipamentos elétricos e eletrónicos, que poderiam ser causadas por uma eliminação inadequada. Para mais informações sobre onde deixar as suas baterias e resíduos elétricos e eletrónicos, contacte o seu escritório local de cidade/município, o seu serviço de eliminação de resíduos domésticos ou a loja onde adquiriu este produto. Contato erecycle@microsoft.com para informações adicionais sobre o WEEE.
 
 Este produto contém pilhas de moedas(ies).
-Microsoft Ireland Sandyford Ind Est Dublin D18 KX32 IRL Número de telefone: +353 1 295 3826 Número de fax: +353 1 706 4110
+
+O Adaptador WiFi USB Netgear A6150 fornecido com este equipamento destina-se a ser operado perto do corpo humano e é testado para a conformidade da Taxa de Absorção Específica (SAR) usada pelo corpo (ver valores abaixo). Ao transportar o produto ou usá-lo durante o uso do seu corpo, mantenha uma distância de 10 mm do corpo para garantir o cumprimento dos requisitos de exposição ao RF.
+
+**Taxa de absorção específica (SAR) de** 0,54 W/kg média superior a 10g de tecido
+
+ 
+Este dispositivo pode funcionar em todos os Estados-Membros da UE. Respeite os regulamentos nacionais e locais em que o dispositivo é utilizado. Este dispositivo limita-se apenas à utilização no interior quando funciona na gama de frequências 5150-5350 MHz nos seguintes países:  
+
+![Países da UE que exigem apenas uso interno](./media/azure-stack-edge-mini-r-safety/mini-r-safety-eu-indoor-use-only.png)
+
+Em conformidade com os n.os 8 do artigo 10.8 e 10.8 da RED, o quadro seguinte fornece informações sobre as bandas de frequência utilizadas e a potência máxima de transmissão de RF dos produtos sem fios Netgear para venda na UE:
+
+**Wi-Fi**
+
+| Gama de frequências (MHz) | Canais utilizados | Potência de transmissão max (dBm/mW) |
+| --------------------- | ------------- | --------------------------- |
+| 2400-2483.5 | 1-13    | ODFM: 19,9 dBm (97,7 mW) <br> CCK: 17,9 dBm (61,7 mW) |
+| 5150-5320   | 36-48   | 22,9 dBm (195 mW) |
+| 5250-5350   | 52-64   | 22,9 dBm (195 mW) com TPC <br> 19,9 dBm (97,7 mW) não-TPC |
+| 5470-5725   | 100-140 | 29,9 dBm (977 mW) com TPC <br> 29,6 dBm (490 mW) não-TPC |
+
+Microsoft Ireland Sandyford Ind Est Dublin D18 KX32 IRL
+
+Número de telefone: +353 1 295 3826
+
+Número de fax: +353 1 706 4110
+
+#### <a name="singapore"></a>Singapura:
+
+O Adaptador Usb Netgear A6150 fornecido com este equipamento está em conformidade com as normas IMDA.
+
 
 ## <a name="next-steps"></a>Passos seguintes
 

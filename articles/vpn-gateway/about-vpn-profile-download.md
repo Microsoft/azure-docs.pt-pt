@@ -4,19 +4,44 @@ description: Use este artigo para encontrar a informação necessária para um p
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
-ms.topic: article
-ms.date: 09/03/2020
+ms.topic: how-to
+ms.date: 02/08/2021
 ms.author: cherylmc
-ms.openlocfilehash: 6a09767a7992a5f902adea6f99e937f3fc6fa7fa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9bb66363d525648df08f32451842402ad1d0d93b
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90985934"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979087"
 ---
-# <a name="about-p2s-vpn-client-profiles"></a>Sobre os perfis de clientes P2S VPN
+# <a name="working-with-p2s-vpn-client-profile-files"></a>Trabalhar com ficheiros de perfil de cliente P2S VPN
 
-O ficheiro de perfil descarregado contém informações necessárias para configurar uma ligação VPN. Este artigo irá ajudá-lo a obter e a compreender as informações necessárias para um perfil de cliente VPN.
+Os ficheiros de perfil contêm informações necessárias para configurar uma ligação VPN. Este artigo irá ajudá-lo a obter e a compreender as informações necessárias para um perfil de cliente VPN.
+
+## <a name="generate-and-download-profile"></a>Gerar e transferir perfil
+
+Pode gerar ficheiros de configuração do cliente utilizando o PowerShell ou utilizando o portal Azure. Qualquer um dos métodos devolve o mesmo ficheiro zip.
+
+### <a name="portal"></a>Portal
+
+1. No portal Azure, navegue para o portal de rede virtual para a rede virtual a que pretende ligar.
+1. Na página de gateway de rede virtual, selecione **configuração ponto-a-local**.
+1. No topo da página de configuração ponto-a-local, selecione **Download VPN client**. Leva alguns minutos para o pacote de configuração do cliente gerar.
+1. O seu navegador indica que está disponível um ficheiro zip de configuração do cliente. Tem o mesmo nome que o seu portal. Desaperte o ficheiro para visualizar as pastas.
+
+### <a name="powershell"></a>PowerShell
+
+Para gerar a utilização do PowerShell, pode utilizar o seguinte exemplo:
+
+1. Ao gerar ficheiros de configuração de clientes VPN, o valor para '-AutenticaçãoMethod' é 'EapTls'. Gerei os ficheiros de configuração do cliente VPN utilizando o seguinte comando:
+
+   ```azurepowershell-interactive
+   $profile=New-AzVpnClientConfiguration -ResourceGroupName "TestRG" -Name "VNet1GW" -AuthenticationMethod "EapTls"
+
+   $profile.VPNProfileSASUrl
+   ```
+
+1. Copie o URL para o seu navegador para descarregar o ficheiro zip e, em seguida, desaperte o ficheiro para visualizar as pastas.
 
 [!INCLUDE [client profiles](../../includes/vpn-gateway-vwan-vpn-profile-download.md)]
 

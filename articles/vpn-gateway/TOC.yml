@@ -161,7 +161,7 @@
               href: openvpn-azure-ad-mfa.md
             - name: Configurar um cliente VPN
               href: openvpn-azure-ad-client.md
-            - name: Acerca do ficheiro de transferência do perfil VPN do cliente
+            - name: Trabalhar com ficheiros de perfil de cliente VPN
               href: about-vpn-profile-download.md
             - name: Intune – Implementar perfil de cliente da VPN
               href: vpn-profile-intune.md

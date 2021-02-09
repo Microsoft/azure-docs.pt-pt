@@ -1,5 +1,5 @@
 ---
-title: Construa soluções de cuidados de saúde com a Azure IoT Central | Microsoft Docs
+title: Quais são as soluções de saúde Azure IoT Central | Microsoft Docs
 description: Aprenda a construir solução de cuidados de saúde usando modelos de aplicação Azure IoT Central.
 author: philmea
 ms.author: philmea
@@ -8,14 +8,14 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: c46ce28801c74d0dcc37d23f9d384a69f022ecc4
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.openlocfilehash: e8a72195f0fcacce2c994e8770157b05b65d70ee
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/08/2021
-ms.locfileid: "99820352"
+ms.locfileid: "99833155"
 ---
-# <a name="building-healthcare-solutions-with-azure-iot-central"></a>Criar soluções para os cuidados de saúde com o Azure IoT Central
+# <a name="what-are-the-iot-central-healthcare-solutions"></a>Quais são as soluções de cuidados de saúde da IoT Central?
 
 Aprenda a construir soluções de cuidados de saúde com a Azure IoT Central utilizando modelos de aplicação.
 

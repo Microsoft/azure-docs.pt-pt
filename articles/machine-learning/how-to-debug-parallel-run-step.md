@@ -11,12 +11,12 @@ ms.reviewer: larryfr, vaidyas, laobri, tracych
 ms.author: trmccorm
 author: tmccrmck
 ms.date: 09/23/2020
-ms.openlocfilehash: 6ea796fb2ec038a03595d37d903fe8ee3ce904db
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: a0f813253520d76731a9b49a89b0bcace7c2ef34
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98070274"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979169"
 ---
 # <a name="troubleshooting-the-parallelrunstep"></a>Resolver problemas de ParallelRunStep
 
@@ -171,7 +171,16 @@ Quando precisar de uma compreensão completa de como cada nó executou o script 
     - O número total de itens, contagem de itens processados com sucesso e contagem de artigos falhados.
     - A hora de início, duração, tempo de processo e tempo de funcionamento do método.
 
-Também pode encontrar informações sobre o uso de recursos dos processos para cada trabalhador. Esta informação está em formato CSV e está localizada em `~/logs/sys/perf/<ip_address>/node_resource_usage.csv` . Informações sobre cada processo estão disponíveis em `~logs/sys/perf/<ip_address>/processes_resource_usage.csv` .
+Também pode ver os resultados das verificações periódicas da utilização do recurso para cada nó. Os ficheiros de registo e os ficheiros de configuração estão nesta pasta:
+
+- `~/logs/perf`: `--resource_monitor_interval` Desa mute o intervalo de verificação em segundos. O intervalo predefinido é `600` , que é de aproximadamente 10 minutos. Para parar a monitorização, desa um valor para `0` . Cada `<ip_address>` pasta inclui:
+
+    - `os/`: Informação sobre todos os processos de execução no nó. Uma verificação executa um comando do sistema operativo e guarda o resultado para um ficheiro. Em Linux, o comando `ps` é. No Windows, utilize `tasklist` .
+        - `%Y%m%d%H`: O nome da sub-pasta é de hora em hora.
+            - `processes_%M`: O ficheiro termina com o minuto da hora de verificação.
+    - `node_disk_usage.csv`: Utilização detalhada do disco do nó.
+    - `node_resource_usage.csv`: Visão geral da utilização do uso de recursos do nó.
+    - `processes_resource_usage.csv`: Visão geral da utilização de recursos de cada processo.
 
 ### <a name="how-do-i-log-from-my-user-script-from-a-remote-context"></a>Como faço o registo do meu script de utilizador a partir de um contexto remoto?
 
@@ -233,25 +242,25 @@ O utilizador pode passar conjuntos de dados de entrada com a autenticação prin
 
 ```python
 service_principal = ServicePrincipalAuthentication(
-    tenant_id="**_",
-    service_principal_id="_*_",
-    service_principal_password="_*_")
+    tenant_id="***",
+    service_principal_id="***",
+    service_principal_password="***")
  
 ws = Workspace(
-    subscription_id="_*_",
-    resource_group="_*_",
-    workspace_name="_*_",
+    subscription_id="***",
+    resource_group="***",
+    workspace_name="***",
     auth=service_principal
     )
  
-default_blob_store = ws.get_default_datastore() # or Datastore(ws, '_*_datastore-name_*_') 
-ds = Dataset.File.from_files(default_blob_store, '_*path**_')
-registered_ds = ds.register(ws, '_*_dataset-name_*_', create_new_version=True)
+default_blob_store = ws.get_default_datastore() # or Datastore(ws, '***datastore-name***') 
+ds = Dataset.File.from_files(default_blob_store, '**path***')
+registered_ds = ds.register(ws, '***dataset-name***', create_new_version=True)
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
 
-_ Veja estes [cadernos jupyter demonstrando oleodutos Azure Machine Learning](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/machine-learning-pipelines)
+* Veja estes [cadernos jupyter demonstrando oleodutos Azure Machine Learning](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/machine-learning-pipelines)
 
 * Consulte a referência SDK para obter ajuda com o pacote [de passos de gasoduto azureml.](/python/api/azureml-pipeline-steps/azureml.pipeline.steps?preserve-view=true&view=azure-ml-py) Ver [documentação de](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunstep?preserve-view=true&view=azure-ml-py) referência para a classe ParallelRunStep.
 

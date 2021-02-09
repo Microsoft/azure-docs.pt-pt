@@ -4,18 +4,21 @@ description: Saiba como criar a sua primeira Função do Azure para execução s
 ms.topic: how-to
 ms.date: 03/26/2020
 ms.custom: devx-track-csharp, mvc, devcenter, cc996988-fb4f-47
-ms.openlocfilehash: bebef4e8964576b968af8f8aebd06030ca0d0227
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 63e9c87d1d94d6b803c27862bc9f2755e02f3111
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222722"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980957"
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Criar a sua primeira função no portal do Azure
 
 As Funções Azure permitem executar o seu código num ambiente sem servidor sem ter de criar primeiro uma máquina virtual (VM) ou publicar uma aplicação web. Neste artigo, aprende a usar as Funções Azure para criar uma função de gatilho HTTP "hello world" no portal Azure.
 
-Recomendamos que [desenvolva as suas funções localmente](functions-develop-local.md) e publique numa aplicação de função em Azure.  
+>[!NOTE]
+>A edição no portal é suportada apenas para funções de JavaScript, PowerShell, TypeScript e C# Script.<br><br>Para as funções de classe C#, Java e Python, pode criar a aplicação de função no portal, mas também deve criar as funções localmente e depois publicá-las no Azure. 
+
+Em vez disso, recomendamos que [desenvolva as suas funções localmente](functions-develop-local.md) e publique numa aplicação de função em Azure.  
 Use um dos seguintes links para começar com o seu ambiente de desenvolvimento local escolhido e linguagem:
 
 | Visual Studio Code | Solicitação de terminal/comando | Visual Studio |
@@ -72,7 +75,7 @@ Em seguida, crie uma função na nova aplicação de função.
 
    ![Visualizador de registo de funções no portal do Azure.](./media/functions-create-first-azure-function/function-view-logs.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [Clean-up resources](../../includes/functions-quickstart-cleanup.md)]
 

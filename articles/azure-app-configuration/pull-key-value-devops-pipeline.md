@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: how-to
 ms.date: 11/17/2020
 ms.author: drewbat
-ms.openlocfilehash: 4d80c034ab03fed6b9ae2ed0c4c0420afe6f7e32
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 7bd163781203a277f4c9d6866a156c11e4d5d520
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98728096"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979577"
 ---
 # <a name="pull-settings-to-app-configuration-with-azure-pipelines"></a>Puxe as definições para configuração de aplicativos com gasodutos Azure
 
@@ -60,7 +60,7 @@ Atribua a função adequada de Configuração de Aplicação à ligação de ser
 
 Esta secção abrangerá como utilizar a tarefa de Configuração de Aplicação Azure num pipeline de construção de Azure DevOps.
 
-1. Navegue para a página do gasoduto de construção clicando em  >  **Pipelines Pipelines**. Para obter documentação sobre o gasoduto, consulte [Criar o seu primeiro oleoduto.](/azure/devops/pipelines/create-first-pipeline?view=azure-devops&tabs=net%2Ctfs-2018-2%2Cbrowser)
+1. Navegue para a página do gasoduto de construção clicando em  >  **Pipelines Pipelines**. Para obter documentação sobre o gasoduto, consulte [Criar o seu primeiro oleoduto.](/azure/devops/pipelines/create-first-pipeline?tabs=net%2Ctfs-2018-2%2Cbrowser)
       - Se estiver a criar um novo oleoduto de construção, clique em **Novo oleoduto,** selecione o repositório para o seu oleoduto. Selecione **o assistente** do Show no lado direito do pipeline e procure a tarefa de Configuração da **Aplicação Azure.**
       - Se estiver a utilizar um pipeline de construção existente, **selecione Editar** para editar o pipeline. No separador **Tarefas,** procure a Tarefa de Configuração da **Aplicação Azure.**
 1. Configure os parâmetros necessários para a tarefa de retirar os valores-chave da loja de Configuração de Aplicações. As descrições dos parâmetros estão disponíveis na secção **parâmetros** abaixo e nas pontas das ferramentas junto a cada parâmetro.
@@ -73,10 +73,10 @@ Esta secção abrangerá como utilizar a tarefa de Configuração de Aplicação
 
 Esta secção abrangerá como utilizar a tarefa de Configuração de Aplicação Azure num oleoduto de lançamento do Azure DevOps.
 
-1. Navegue para lançar a página do gasoduto selecionando **lançamentos** de  >  **pipelines**. Para obter a documentação do gasoduto de libertação, consulte [os gasodutos release](/azure/devops/pipelines/release?view=azure-devops).
+1. Navegue para lançar a página do gasoduto selecionando **lançamentos** de  >  **pipelines**. Para obter a documentação do gasoduto de libertação, consulte [os gasodutos release](/azure/devops/pipelines/release).
 1. Escolha um gasoduto de desbloqueio existente. Se não tiver um, clique em **Novo oleoduto** para criar um novo.
 1. Selecione o botão **Editar** no canto superior direito para editar o pipeline de desbloqueio.
-1. Escolha o **Palco** para adicionar a tarefa. Para obter mais informações sobre etapas, consulte [Etapas de adicionar, dependências, condições &](/azure/devops/pipelines/release/environments?view=azure-devops).
+1. Escolha o **Palco** para adicionar a tarefa. Para obter mais informações sobre etapas, consulte [Etapas de adicionar, dependências, condições &](/azure/devops/pipelines/release/environments).
 1. Clique **+** em "Executar o agente", em seguida, adicione a tarefa de Configuração da **Aplicação Azure** no separador **'Adicionar tarefas'.**
 1. Configure os parâmetros necessários na tarefa de retirar os valores-chave da sua loja de Configuração de Aplicações. As descrições dos parâmetros estão disponíveis na secção **parâmetros** abaixo e nas pontas das ferramentas junto a cada parâmetro.
       - Desa esta medida de **subscrição Azure** ao nome da ligação de serviço que criou num passo anterior.

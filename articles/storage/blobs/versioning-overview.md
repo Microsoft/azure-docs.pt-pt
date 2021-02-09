@@ -10,12 +10,12 @@ ms.date: 02/02/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e5f8264221ada261ccae1b347c47cdf27967d5d8
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 267fd57b2fd359a73d5c1e01568aba14594e9290
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99537168"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980281"
 ---
 # <a name="blob-versioning"></a>Versão blob
 
@@ -37,6 +37,10 @@ Para aprender a permitir a versão blob, consulte [Ativar e gerir a versão blob
 Uma versão captura o estado de uma bolha num dado momento. Quando a versão blob é ativada para uma conta de armazenamento, o Azure Storage cria automaticamente uma nova versão de uma bolha cada vez que a bolha é modificada ou eliminada.
 
 Quando se cria uma bolha com a versão ativada, a nova bolha é a versão atual do blob (ou a bolha base). Se modificar posteriormente essa bolha, o Azure Storage cria uma versão que captura o estado da bolha antes de ser modificada. A bolha modificada torna-se a nova versão atual. Uma nova versão é criada cada vez que modifica a bolha.
+
+O diagrama a seguir mostra como as versões são criadas em operações de escrita e eliminação, e como uma versão anterior pode ser promovida para ser a versão atual:
+
+:::image type="content" source="media/versioning-overview/blob-versioning-diagram.png" alt-text="Diagrama mostrando como funciona a versão blob":::
 
 Ter um grande número de versões por blob pode aumentar a latência para operações de listagem de bolhas. A Microsoft recomenda manter menos de 1000 versões por blob. Pode utilizar a gestão do ciclo de vida para eliminar automaticamente versões antigas. Para obter mais informações sobre a gestão do ciclo de vida, consulte [os custos da Otimização automatizando os níveis de acesso ao armazenamento Azure Blob](storage-lifecycle-management-concepts.md).
 

@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: evansma
 ms.service: resource-move
 ms.topic: overview
-ms.date: 09/09/2020
+ms.date: 02/01/2021
 ms.author: raynew
-ms.openlocfilehash: 5261904dd1ee7f280209015d8f756a055dfab57e
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: facbb30201aa6bde2044ca647383cc32ecd9ba26
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95522955"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980563"
 ---
 # <a name="about-the-move-process"></a>Sobre o processo de mudança
 
@@ -46,7 +46,7 @@ Cada recurso de movimento passa pelos passos resumidos.
 **Passo 4: Iniciar movimento** | Inicie o processo de mudança. O método de movimento depende do tipo de recurso:<br/><br/> - **Apátrida**: Normalmente, para os recursos apátridas, o processo de movimento implementa um modelo importado na região alvo. O modelo baseia-se nas definições de recursos de origem e em quaisquer edições manuais que faça para definir o alvo.<br/><br/> - **Imponente**: Para recursos estatais, o processo de movimento pode implicar a criação do recurso, ou permitir uma cópia, na região alvo.<br/><br/>  Apenas para recursos estatais, iniciar uma mudança pode resultar em tempo de inatividade dos recursos de origem. Por exemplo, VMs e SQL. | O início do movimento desloca o Estado para *iniciar a mudança em curso.*<br/><br/> Um movimento iniciado com sucesso move o estado de recursos para *cometer movimento pendente,* sem problemas. <br/><br/> Um processo de movimento mal sucedido move o estado para *iniciar movimento falhou*.
 **Passo 5 Opção 1: Movimento de devoluções** | Depois do movimento inicial, pode decidir se quer avançar com um movimento completo. Se não o fizer, pode descartar o movimento e o Resource Mover elimina os recursos criados no alvo. O processo de replicação de recursos estatais continua após o processo de devoluções. Esta opção é útil para testes. | Descartar recursos move estado para *descartar em curso*.<br/><br/> Devoluções bem sucedidas move estado para *Iniciar movimento pendente*, sem problemas.<br/><br/> Uma devoluções falhadas move estado para *descartar movimento falhou*. 
 **Passo 5 Opção 2: Cometer movimento** | Depois do movimento inicial, se quiser avançar com um movimento completo, verifique os recursos na região alvo, e quando estiver pronto, cometa a mudança.<br/><br/> Apenas para recursos estatais, o compromisso pode resultar em recursos de origem como VMs ou SQL tornando-se inacessíveis. | Se cometer o movimento, o estado de recurso move-se para *Cometer movimento em progresso**.<br/><br/> Após um compromisso bem sucedido, o estado de recursos mostra *o movimento Commit concluído,* sem problemas.<br/><br/> Um compromisso falhado move estado para *cometer movimento falhou*.
-**Passo 6: Eliminar fonte** | Depois de cometer o movimento e verificar os recursos na região alvo, pode eliminar o recurso de origem. | Depois de cometer o movimento, o estado de recurso move-se para *eliminar a fonte pendente*.
+**Passo 6: Eliminar fonte** | Depois de cometer o movimento e verificar os recursos na região alvo, pode eliminar o recurso de origem. | Após a sua commissão, um estado de recursos desloca-se para *eliminar a fonte pendente*. Em seguida, pode selecionar o recurso de origem e eliminá-lo.<br/><br/> - Apenas os recursos na *fonte de exclusão do* estado pendente podem ser eliminados. | A eliminação de um grupo de recursos ou do SQL Server no portal Resource Mover não é suportada. Estes recursos só podem ser eliminados da página de propriedades de recursos.
 
 
 ## <a name="move-region-states"></a>Move estados da região

@@ -1,19 +1,19 @@
 ---
-title: Mude o feed no Azure Blob Storage / Microsoft Docs
+title: Mude o feed em Azure Blob Storage | Microsoft Docs
 description: Saiba mais sobre alterar os registos de alimentação no Azure Blob Storage e como usá-los.
 author: normesta
 ms.author: normesta
-ms.date: 09/08/2020
+ms.date: 02/08/2021
 ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: 7174f7dd53387de9a569a5ddcadc08c32692c749
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 9a439541880cc8e20457edc8d24c5600ba2747c8
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95997108"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979231"
 ---
 # <a name="change-feed-support-in-azure-blob-storage"></a>Alterar suporte de alimentação no armazenamento de blob Azure
 
@@ -21,9 +21,15 @@ O objetivo do feed de alteração é fornecer registos de transações de todas 
 
 [!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
+## <a name="how-the-change-feed-works"></a>Como funciona o feed de mudança
+
 O feed de alteração é armazenado como [bolhas](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) num recipiente especial na sua conta de armazenamento a [um](https://azure.microsoft.com/pricing/details/storage/blobs/) preço normal. Pode controlar o período de retenção destes ficheiros com base nas suas necessidades (Ver as [condições](#conditions) da libertação atual). Os eventos de alteração são anexados ao feed de mudança como registos na especificação do formato [Apache Avro:](https://avro.apache.org/docs/1.8.2/spec.html) um formato compacto, rápido e binário que fornece estruturas de dados ricas com esquema inline. Este formato é amplamente utilizado no ecossistema Hadoop, Stream Analytics e Azure Data Factory.
 
 Pode processar estes registos assíncronos, incrementalmente ou em pleno. Qualquer número de aplicações de clientes podem ler independentemente o feed de mudança, em paralelo, e ao seu próprio ritmo. Aplicações analíticas como [Apache Drill](https://drill.apache.org/docs/querying-avro-files/) ou [Apache Spark](https://spark.apache.org/docs/latest/sql-data-sources-avro.html) podem consumir registos diretamente como ficheiros Avro, que permitem processá-los a baixo custo, com largura de banda alta, e sem ter que escrever uma aplicação personalizada.
+
+O diagrama que se segue mostra como os registos são adicionados ao feed de alteração:
+
+:::image type="content" source="media/storage-blob-change-feed/change-feed-diagram.png" alt-text="Diagrama mostrando como o feed de mudança funciona para fornecer um registo ordenado de alterações às bolhas":::
 
 O suporte de feed de alteração é adequado para cenários que processam dados com base em objetos que mudaram. Por exemplo, as aplicações podem:
 

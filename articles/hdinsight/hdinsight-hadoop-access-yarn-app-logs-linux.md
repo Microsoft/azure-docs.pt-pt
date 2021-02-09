@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/23/2020
-ms.openlocfilehash: 0eb7dec2fd4ee327905acdea7a07456221bcbd46
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 882384b5e57db27cff981f80e790dfd41b624c93
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98946012"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980699"
 ---
 # <a name="access-apache-hadoop-yarn-application-logs-on-linux-based-hdinsight"></a>Aceder a registos de aplicações apache Hadoop YARN em HDInsight baseado em Linux
 
@@ -37,7 +37,7 @@ O YARN Timeline Server inclui o seguinte tipo de dados:
 
 ## <a name="yarn-applications-and-logs"></a>Aplicações e registos de YARN
 
-Os registos de aplicações (e os registos de contentores associados) são fundamentais para depurar aplicações problemáticas de Hadoop. O YARN fornece uma boa estrutura para recolher, agregar e armazenar registos de aplicações com [agregação de registos.](https://hortonworks.com/blog/simplifying-user-logs-management-and-access-in-yarn/)
+Os registos de aplicações (e os registos de contentores associados) são fundamentais para depurar aplicações problemáticas de Hadoop. O YARN fornece uma boa estrutura para recolher, agregar e armazenar registos de aplicações com agregação de registos.
 
 A funcionalidade de agregação de registos torna o acesso aos registos de aplicações mais determinístico. Agrega troncos em todos os contentores de um nó de trabalhador e armazena-os como um ficheiro de registo agregado por nó de trabalhador. O registo é armazenado no sistema de ficheiros predefinidos após o fim de uma aplicação. A sua aplicação pode utilizar centenas ou milhares de contentores, mas os registos para todos os contentores que funcionam num único nó de trabalhador são sempre agregados a um único ficheiro. Portanto, há apenas 1 registo por nó de trabalhador usado pela sua aplicação. A agregação de registos é ativada por padrão na versão 3.0 ou acima dos clusters HDInsight. Os troncos agregados estão localizados em armazenamento predefinido para o cluster. O seguinte caminho é o caminho HDFS para os registos:
 
@@ -160,7 +160,7 @@ A UI YARN `ResourceManager` funciona no headnode do cluster. É acedido através
 
     É-lhe apresentada uma lista de links para registos DE FIOS.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Arquitetura do Apache Hadoop no HDInsight](hdinsight-hadoop-architecture.md)
 * [Resolver Problemas do YARN do Apache Hadoop com o Azure HDInsight](hdinsight-troubleshoot-yarn.md)

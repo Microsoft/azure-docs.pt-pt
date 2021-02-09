@@ -1,19 +1,22 @@
 ---
-title: Solução monitor de desempenho de rede em Azure Log Analytics Microsoft Docs
+title: Solução monitor de desempenho de rede em Azure Log Analytics | Microsoft Docs
 description: Utilize a capacidade do Monitor ExpressRoute no Monitor de Desempenho da Rede para monitorizar a conectividade e o desempenho de ponta a ponta entre as suas sucursais e a Azure, sobre o Azure ExpressRoute.
 ms.subservice: logs
 ms.topic: conceptual
 author: abshamsft
 ms.author: absha
 ms.date: 11/27/2018
-ms.openlocfilehash: a9f268e5080a5c04c5cdb4767f2db5fd2d77cd3c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 91bb303fca4517f84ad8b430f26543e9f116fddc
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87326159"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99833087"
 ---
 # <a name="expressroute-monitor"></a>ExpressRoute Monitor
+
+> [!IMPORTANT]
+> A partir de 1 de julho de 2021, não poderá adicionar novos testes num espaço de trabalho existente ou permitir um novo espaço de trabalho no Network Performance Monitor. Pode continuar a utilizar os testes criados antes de 1 de julho de 2021. Para minimizar a perturbação do serviço nas suas cargas de trabalho atuais, [migrar os seus testes do Monitor de Desempenho da Rede para o novo Monitor de Ligação](https://docs.microsoft.com/azure/network-watcher/migrate-to-connection-monitor-from-network-performance-monitor) no Azure Network Watcher antes de 29 de fevereiro de 2024.
 
 Pode utilizar a capacidade do Monitor Azure ExpressRoute no [Network Performance Monitor](network-performance-monitor.md) para monitorizar a conectividade e o desempenho de ponta a ponta entre as suas sucursais e a Azure, sobre o Azure ExpressRoute. As principais vantagens são: 
 
@@ -81,7 +84,7 @@ Para ver uma lista de todos os circuitos ExpressRoute monitorizados, selecione o
 
 ### <a name="trends-of-loss-latency-and-throughput"></a>Tendências de perda, latência e produção 
 
-A utilização da largura de banda, a latência e os gráficos de perdas são interativos. Pode aproximar-se de qualquer secção destes gráficos utilizando controlos de rato. Também pode ver a largura de banda, latência e dados de perda para outros intervalos. No canto superior esquerdo sob o botão **Ações,** selecione **Data/Hora**. 
+A utilização da largura de banda, a latência e os gráficos de perdas são interativos. Pode aproximar-se de qualquer secção destes gráficos utilizando controlos de rato. Também pode ver a largura de banda, latência e dados de perda para outros intervalos. No canto superior esquerdo sob o botão **Ações,** selecione  **Data/Hora**. 
 
 ![ExpressRoute latência](media/network-performance-monitor-expressroute/expressroute-latency.png) 
 
@@ -109,7 +112,7 @@ O Monitor de Desempenho da Rede ajuda-o a diagnosticar vários problemas de cone
 
 Pode ver os códigos de notificação e definir alertas sobre os mesmos através **do LogAnalytics**. Na página **de Diagnóstico SNPM,** pode ver descrições de cada mensagem de diagnóstico desencadeada.
 
-| Código de Notificação (Registos) | Descrição |
+| Código de Notificação (Registos) | Description |
 | --- | --- |
 | 5501 | Incapaz de atravessar através da ligação secundária do circuito ExpressRoute |
 | 5502 | Incapaz de atravessar através da ligação primária do circuito ExpressRoute |
@@ -141,4 +144,3 @@ Pode ver os códigos de notificação e definir alertas sobre os mesmos através
 
 ## <a name="next-steps"></a>Passos seguintes
 [Faça uma pesquisa de registos](../log-query/log-query-overview.md) para visualizar registos de dados de desempenho detalhados da rede.
-

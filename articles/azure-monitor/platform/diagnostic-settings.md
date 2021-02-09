@@ -5,14 +5,14 @@ author: bwren
 ms.author: bwren
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 04/27/2020
+ms.date: 02/08/2021
 ms.subservice: logs
-ms.openlocfilehash: a6f8e681f68fb53d7cf88582b4bf4416efc11c86
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.openlocfilehash: 5e1a1c62cafd982d44be3e06b98fc8c30461021c
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99820556"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979985"
 ---
 # <a name="create-diagnostic-settings-to-send-platform-logs-and-metrics-to-different-destinations"></a>Criar definições de diagnóstico para enviar registos e métricas da plataforma para destinos diferentes
 [Os registos da plataforma](platform-logs-overview.md) em Azure, incluindo os registos de atividades Azure e registos de recursos, fornecem informações detalhadas de diagnóstico e auditoria para os recursos do Azure e para a plataforma Azure em que dependem. [As métricas da plataforma](data-platform-metrics.md) são recolhidas por padrão e normalmente armazenadas na base de dados de métricas do Azure Monitor. Este artigo fornece detalhes sobre a criação e configuração de configurações de diagnóstico para enviar métricas de plataforma e registos de plataforma para diferentes destinos.
@@ -189,7 +189,7 @@ onde anteriormente a sua implantação foi bem sucedida.
 
 O problema ocorre quando se utiliza um modelo de Gestor de Recursos, as definições de diagnóstico REST API, Azure CLI ou Azure PowerShell. As definições de diagnóstico criadas através do portal Azure não são afetadas, uma vez que apenas são apresentados os nomes da categoria suportada.
 
-O problema é causado por uma mudança recente na API subjacente. As categorias métricas que não as 'AllMetrics' não são suportadas e nunca foram, exceto em cenários de lista de IP muito específicos. No passado, outros nomes de categorias foram ignorados ao implementar uma definição de diagnóstico. O backend do Monitor Azure simplesmente redirecionou estas categorias para 'AllMetrics'.  A partir de fevereiro de 2021, o backend foi atualizado para confirmar especificamente que a categoria métrica fornecida é precisa. Esta mudança fez com que algumas implementações falhassem.
+O problema é causado por uma mudança recente na API subjacente. As categorias métricas que não as 'AllMetrics' não são suportadas e nunca foram, exceto alguns serviços Azure muito específicos. No passado, outros nomes de categorias foram ignorados ao implementar uma definição de diagnóstico. O backend do Monitor Azure simplesmente redirecionou estas categorias para 'AllMetrics'.  A partir de fevereiro de 2021, o backend foi atualizado para confirmar especificamente que a categoria métrica fornecida é precisa. Esta mudança fez com que algumas implementações falhassem.
 
 Se receber este erro, atualize as suas implementações para substituir quaisquer nomes de categoria métrica por 'AllMetrics' para corrigir o problema. Se a implantação previamente adicionasse várias categorias, apenas uma com a referência 'AllMetrics' deve ser mantida. Se continuar a ter o problema, contacte o suporte do Azure através do portal Azure. 
 

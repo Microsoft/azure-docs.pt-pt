@@ -6,33 +6,39 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/06/2021
+ms.date: 02/08/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: 85d880966c4c3864206c7e92256eb8e705812f20
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: 0c15be86c282451440f9b81d57f17e835559b5ae
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97962181"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979112"
 ---
 # <a name="soft-delete-for-containers-preview"></a>Excluir suave para recipientes (pré-visualização)
 
-A eliminação suave para recipientes (pré-visualização) protege os seus dados de serem modificados ou eliminados acidentalmente ou erroneamente. Quando a eliminação suave do contentor está ativada para uma conta de armazenamento, qualquer recipiente apagado e o seu conteúdo são retidos no Azure Storage durante o período que especificar. Durante o período de retenção, pode restaurar os recipientes previamente eliminados e quaisquer bolhas dentro deles.
+A eliminação suave para recipientes (pré-visualização) protege os seus dados de serem acidental ou maliciosamente eliminados. Quando a eliminação suave do contentor está ativada para uma conta de armazenamento, qualquer recipiente apagado e o seu conteúdo são retidos no Azure Storage durante o período que especificar. Durante o período de retenção, pode restaurar os recipientes previamente eliminados. Restaurar um recipiente restaura quaisquer bolhas dentro do recipiente quando foi eliminado.
 
 Para uma proteção final para os seus dados blob, a Microsoft recomenda que se coloquem as seguintes funcionalidades de proteção de dados:
 
-- Eliminar suavemente o recipiente, para proteger contra a eliminação acidental ou a substituição de um recipiente. Para aprender a permitir a eliminação suave do recipiente, consulte [Ativar e gerir a eliminação suave para recipientes](soft-delete-container-enable.md).
-- Blob soft delete, para proteger contra eliminação acidental ou substituição de uma bolha individual. Para aprender a permitir a eliminação suave da bolha, consulte [Soft Delete para bolhas](soft-delete-blob-overview.md).
+- Recipiente apagar suavemente, para restaurar um recipiente que foi eliminado. Para aprender a permitir a eliminação suave do recipiente, consulte [Ativar e gerir a eliminação suave para recipientes](soft-delete-container-enable.md).
 - Versão blob, para manter automaticamente as versões anteriores de uma bolha. Quando a versão blob estiver ativada, pode restaurar uma versão anterior de uma bolha para recuperar os seus dados se for erroneamente modificada ou eliminada. Para aprender a permitir a versão blob, consulte [Ativar e gerir a versão blob](versioning-enable.md).
+- Blob soft delete, para restaurar uma bolha ou versão que foi eliminada. Para aprender a permitir a eliminação suave do blob, consulte [Ativar e gerir a eliminação suave para bolhas](soft-delete-blob-enable.md).
 
 > [!WARNING]
-> A eliminação de uma conta de armazenamento não pode ser desfeita. A eliminação suave não protege contra a supressão de uma conta de armazenamento. Para evitar a supressão acidental de uma conta de armazenamento, configuure um bloqueio **Não-TDelete** no recurso da conta de armazenamento. Para obter mais informações sobre o bloqueio dos recursos do Azure, consulte [os recursos do Lock para evitar alterações inesperadas](../../azure-resource-manager/management/lock-resources.md).
+> A eliminação de uma conta de armazenamento não pode ser desfeita. A eliminação suave não protege contra a eliminação de uma conta de armazenamento, mas apenas contra a eliminação de objetos de dados nessa conta. Para proteger uma conta de armazenamento da supressão, configuure um bloqueio **não-desprotegênsio** no recurso da conta de armazenamento. Para obter mais informações sobre o bloqueio dos recursos do Azure Resource Manager, consulte [os recursos do Lock para evitar alterações inesperadas.](../../azure-resource-manager/management/lock-resources.md)
 
 ## <a name="how-container-soft-delete-works"></a>Como o recipiente suave apagar funciona
 
 Quando ativar a eliminação suave do recipiente, pode especificar um período de retenção para recipientes eliminados que se encontra entre 1 e 365 dias. O período de retenção por defeito é de 7 dias. Durante o período de retenção, pode recuperar um recipiente apagado ligando para a operação **do Recipiente Undelete.**
+
+Quando restaurar um recipiente, as bolhas do recipiente e quaisquer versões blob também são restauradas. No entanto, só pode utilizar a eliminação macia do recipiente para restaurar as bolhas se o próprio recipiente for eliminado. Para restaurar uma bolha apagada quando o seu recipiente-mãe não tiver sido apagado, deve utilizar a versão de exclusão macia ou bolha.
+
+O seguinte diagrama mostra como um recipiente eliminado pode ser restaurado quando o contentor é eliminado suavemente:
+
+:::image type="content" source="media/soft-delete-container-overview/container-soft-delete-diagram.png" alt-text="Diagrama que mostra como um recipiente apagado pode ser restaurado":::
 
 Quando restaurar um recipiente, pode restaurá-lo ao seu nome original se esse nome não tiver sido reutilizado. Se o nome original do recipiente tiver sido utilizado, poderá restaurar o recipiente com um novo nome.
 
@@ -42,7 +48,7 @@ A desativação do recipiente de eliminação suave não resulta na supressão p
 
 ## <a name="about-the-preview"></a>Sobre a pré-visualização
 
-O contentor soft delete está disponível em pré-visualização em todas as regiões públicas de Azure.
+O contentor soft delete está disponível em pré-visualização em todas as regiões do Azure.
 
 > [!IMPORTANT]
 > A pré-visualização de eliminação suave do recipiente destina-se apenas à não utilização da produção. Os contratos de serviços de produção (SLAs) não estão atualmente disponíveis.
