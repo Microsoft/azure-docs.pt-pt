@@ -4,16 +4,24 @@ ms.author: dobett
 ms.service: iot-pnp
 ms.topic: include
 ms.date: 11/20/2020
-ms.openlocfilehash: 49b18b83c778a990398c4443d508743566ecfb20
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: bece0f95f3cd87bcf803637835ef1854606b088b
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95510547"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99834191"
 ---
 Este tutorial mostra-lhe como construir uma aplicação de dispositivo IoT Plug e Play de múltiplas amostras de componentes, conectá-la ao seu hub IoT e utilizar o CLI Azure para visualizar a telemetria que envia. A aplicação da amostra está escrita em Java e está incluída no dispositivo Azure IoT SDK para Java. Um construtor de soluções pode usar o CLI Azure para entender as capacidades de um dispositivo IoT Plug e Play sem a necessidade de visualizar qualquer código do dispositivo.
 
 Este tutorial mostra-lhe como construir uma aplicação de dispositivo IoT Plug e Play com componentes, conectá-la ao seu hub IoT e utilizar a ferramenta exploradora Azure IoT para visualizar a informação que envia para o centro. A aplicação da amostra está escrita em Java e está incluída no dispositivo Azure IoT SDK para Java. Um construtor de soluções pode utilizar a ferramenta exploradorA Azure IoT para compreender as capacidades de um dispositivo IoT Plug e Play sem a necessidade de visualizar qualquer código do dispositivo.
+
+Neste tutorial:
+
+> [!div class="checklist"]
+> * Descarregue o código de amostra.
+> * Construa o código de amostra.
+> * Executar a aplicação do dispositivo de amostra e validar que se conecta ao seu hub IoT.
+> * Reveja o código fonte.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -135,5 +143,3 @@ Utilize a ferramenta exploradora Azure IoT para visualizar a telemetria e as pro
 :::image type="content" source="media/iot-pnp-multiple-components-java/multiple-component.png" alt-text="Dispositivo de vários componentes no explorador Azure IoT":::
 
 Também pode utilizar a ferramenta exploradorA Azure IoT para chamar comandos em qualquer um dos dois componentes do termóstato ou no componente predefinido.
-
-[!INCLUDE [iot-pnp-clean-resources.md](iot-pnp-clean-resources.md)]

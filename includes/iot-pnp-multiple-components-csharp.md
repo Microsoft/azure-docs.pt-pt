@@ -4,14 +4,22 @@ ms.author: dobett
 ms.service: iot-pnp
 ms.topic: include
 ms.date: 11/20/2020
-ms.openlocfilehash: ff1041c941a994784c68d779bd96dec9070ce89a
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 6d507d31680b25932980bdede2c1252348d84803
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95510558"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99834202"
 ---
 Este tutorial mostra-lhe como construir uma aplicação de dispositivo IoT Plug e Play com componentes, conectá-la ao seu hub IoT e utilizar a ferramenta exploradora Azure IoT para visualizar a informação que envia para o centro. A aplicação da amostra está escrita em C# e está incluída no dispositivo Azure IoT SDK para C#. Um construtor de soluções pode utilizar a ferramenta exploradorA Azure IoT para compreender as capacidades de um dispositivo IoT Plug e Play sem a necessidade de visualizar qualquer código do dispositivo.
+
+Neste tutorial:
+
+> [!div class="checklist"]
+> * Descarregue o código de amostra.
+> * Construa o código de amostra.
+> * Executar a aplicação do dispositivo de amostra e validar que se conecta ao seu hub IoT.
+> * Reveja o código fonte.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

@@ -3,19 +3,19 @@ title: Documentação do Gateway de Aplicação do Azure
 summary: Saiba como criar gateways de aplicação. Esta documentação ajuda-o a planear, implementar e gerir o tráfego Web dos seus recursos do Azure.
 metadata:
   title: Documentação do Gateway de Aplicação do Azure
-  description: Saiba como implementar o Azure Firewall, um serviço de segurança de rede com base na cloud.
+  description: Saiba mais sobre o Azure Application Gateway, um equilibrador de carga de tráfego web que lhe permite gerir o tráfego para as suas aplicações web.
   services: application-gateway
   ms.service: application-gateway
   ms.topic: landing-page
   author: vhorne
   ms.author: victorh
-  ms.date: 03/24/2020
-  ms.openlocfilehash: df125820d56aa5c2edda29306c69cef00e012a12
-  ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
-  ms.translationtype: HT
+  ms.date: 02/08/2021
+  ms.openlocfilehash: 7493683355ea3be24bf086dab1a968f9f03b1e05
+  ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+  ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 01/10/2021
-  ms.locfileid: "98059539"
+  ms.lasthandoff: 02/08/2021
+  ms.locfileid: "99833257"
 landingContent:
 - title: Saiba mais sobre o Gateway de Aplicação
   linkLists:

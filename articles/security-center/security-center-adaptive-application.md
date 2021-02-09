@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/07/2021
 ms.author: memildin
-ms.openlocfilehash: cc35f9ee25511faec5723b49763cbdae8963e88b
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.openlocfilehash: a7ad5f661d4eca07deb0942c7684b89ac59931a2
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/08/2021
-ms.locfileid: "99820760"
+ms.locfileid: "99834396"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>Utilize controlos de aplicação adaptativos para reduzir as superfícies de ataque das suas máquinas
 
@@ -44,7 +44,7 @@ Ao definir listas de aplicações conhecidas e gerar alertas quando qualquer out
 - Evite software específico que seja proibido pela sua organização
 - Aumentar a supervisão das apps que acedem a dados sensíveis
 
-Não existem opções de execução e nenhuma está planeada. Os controlos de aplicação adaptativa destinam-se a fornecer alertas de segurança se qualquer aplicação correr além das que definiu como seguras.
+Atualmente, não existem opções de aplicação da lei. Os controlos de aplicação adaptativa destinam-se a fornecer alertas de segurança se qualquer aplicação correr além das que definiu como seguras.
 
 ## <a name="availability"></a>Disponibilidade
 
@@ -54,7 +54,7 @@ Não existem opções de execução e nenhuma está planeada. Os controlos de ap
 |Preços:|Requer [Azure Defender para servidores](defender-for-servers-introduction.md)|
 |Máquinas suportadas:|![Sim ](./media/icons/yes-icon.png) Azure e máquinas não-Azure que executam Windows e Linux<br>![Sim ](./media/icons/yes-icon.png) [Azure Arc](../azure-arc/index.yml) máquinas|
 |Funções e permissões necessárias:|**As** funções de Leitor de Segurança e **Leitor** podem ver grupos e listas de aplicações conhecidas e seguras<br>**As** funções de Administrador de Colaborador e **Segurança** podem editar grupos e listas de aplicações conhecidas e seguras|
-|Nuvens:|![Yes](./media/icons/yes-icon.png) Nuvens comerciais<br>![Yes](./media/icons/yes-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
+|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
 |||
 
 
@@ -238,7 +238,7 @@ Algumas das funções que estão disponíveis na API REST:
 ## <a name="faq---adaptive-application-controls"></a>FAQ - Controlos de aplicações adaptativos
 
 ### <a name="are-there-any-options-to-enforce-the-application-controls"></a>Existem opções para impor os controlos de aplicação?
-Não existem opções de execução e nenhuma está planeada. Os controlos de aplicação adaptativa destinam-se a fornecer **alertas** de segurança se qualquer aplicação correr além das que definiu como seguras. Têm uma gama de benefícios[(Quais são os benefícios dos controlos de aplicação adaptativa?](#what-are-the-benefits-of-adaptive-application-controls)) e são extremamente personalizáveis como mostrado nesta página.
+Atualmente, não existem opções de aplicação da lei. Os controlos de aplicação adaptativa destinam-se a fornecer **alertas** de segurança se qualquer aplicação correr além das que definiu como seguras. Têm uma gama de benefícios[(Quais são os benefícios dos controlos de aplicação adaptativa?](#what-are-the-benefits-of-adaptive-application-controls)) e são extremamente personalizáveis como mostrado nesta página.
 
  
 
