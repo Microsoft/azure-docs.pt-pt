@@ -7,12 +7,12 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 09/07/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: d8944c9e49bde8c452a10a1886cae316a0f7a33f
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 168833ea0a451913f4ed019cba832a16207e0d9c
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98945070"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988165"
 ---
 # <a name="create-luis-resources"></a>Criar recursos LUIS
 
@@ -236,6 +236,10 @@ Para processos automatizados como os oleodutos CI/CD, é melhor automatizar a at
 
 1. Obtenha um token Azure Resource Manager [deste site.](https://resources.azure.com/api/token?plaintext=true) Este símbolo expira, então use-o imediatamente. O pedido devolve um token do Gestor de Recursos Azure.
 
+    ```azurecli
+    az account get-access-token --resource=https://management.core.windows.net/ --query accessToken --output tsv
+    ```
+    
     ![Screenshot que mostra o site para solicitar um token Azure Resource Manager.](./media/luis-manage-keys/get-arm-token.png)
 
 1. Use o token para solicitar os recursos de execução LUIS através de subscrições. Utilize a [conta Get LUIS Azure API,](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5be313cec181ae720aa2b26c)à qual a sua conta de utilizador tem acesso.
@@ -316,7 +320,7 @@ Se quiser saber quando atingir um determinado limiar de transação, por exemplo
 
 Adicione um alerta métrico para a métrica total das **chamadas** durante um determinado período de tempo. Adicione endereços de e-mail de todas as pessoas que devem receber o alerta. Adicione webhooks para todos os sistemas que devem receber o alerta. Também pode executar uma aplicação lógica quando o alerta é desencadeado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Aprenda [a usar versões](luis-how-to-manage-versions.md) para controlar o ciclo de vida da sua aplicação.
 * Migrar para o novo [recurso de autoria.](luis-migration-authoring.md)

@@ -6,17 +6,23 @@ ms.author: anmuk
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: reference
-ms.date: 11/20/2020
-ms.openlocfilehash: 7458b027add8be86d9491c674c2f1a0bc9fbc68c
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.date: 2/5/2021
+ms.openlocfilehash: d98f2f80bf22627eb34855234e22e314c241c852
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96554237"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988308"
 ---
 # <a name="supported-classifications-in-azure-purview"></a>Classificações apoiadas em Azure Purview
 
 Este artigo lista as classificações suportadas e definidas do sistema em Azure Purview (Preview).
+
+
+- **Limiar de correspondência distinto**: O número total de valores de dados distintos que precisam de ser encontrados numa coluna antes que o scanner executa o padrão de dados nele. As nossas regras de classificação do sistema exigem que existam pelo menos 8 valores distintos em cada coluna para os submeter à classificação. O sistema requer este valor para se certificar de que a coluna contém dados suficientes para que o scanner o classifique com precisão. Por exemplo, uma coluna que contenha várias linhas que contenham o valor 1 não será classificada. Colunas que contêm uma linha com um valor e o resto das linhas têm valores nulos também não serão classificados. Se especificar vários padrões, este valor aplica-se a cada um deles.
+
+- **Limiar mínimo de correspondência**: É a percentagem mínima de correspondências de valor de dados numa coluna que deve ser encontrada pelo scanner para a classificação a aplicar. O valor de classificação do sistema é fixado em 60%.
+
 
 ## <a name="defined-system-classifications"></a>Classificações definidas do sistema
 
@@ -274,7 +280,7 @@ Driver's License#
 Driver's Licenses#
 ```
 
-## <a name="australia-medical-account-number"></a>Número da conta médica da Austrália
+## <a name="australian-medicare-number"></a>Número de medicare australiano
 
 ### <a name="format"></a>Formato
 
@@ -291,7 +297,7 @@ Driver's Licenses#
 
 ### <a name="keywords"></a>Palavras-chave
 
-#### <a name="keyword_australia_medical_account_number"></a>Keyword_Australia_Medical_Account_Number
+#### <a name="keyword_australia_medicare_number"></a>Keyword_Australia_Medicare_Number
 
 ```
 bank account details
@@ -1062,7 +1068,7 @@ National Identification Card
 
 ### <a name="format"></a>Formato
 
-14 a 16 dígitos, que podem ser formatados ou nãoformados (dddddddddddddddddddddd) e que devem passar no teste de Luhn.
+14 a 16 dígitos, que podem ser formatados ou nãoformados (dddd) e que devem passar no teste de Luhn.
 
 ### <a name="pattern"></a>Padrão
 
@@ -4457,7 +4463,7 @@ Depende do estado
 depende do estado- por exemplo, Nova Iorque:
 
 - nove dígitos formatados como ddd vai coincidir.
-- nove dígitos como dddddddd não vai corresponder.
+- nove dígitos como dddddd não vai corresponder.
 
 ### <a name="keywords"></a>Palavras-chave
 
@@ -4626,7 +4632,7 @@ nove dígitos, que podem estar em um padrão formatado ou não equipado
 quatro funções procuram SSNs em quatro padrões diferentes:
 
 - Func \_ ssn encontra SSNs com formatação forte pré-2011 que são formatadas com traços ou espaços (ddd-ddd-dddd OR ddd ddd dddd)
-- Func \_ ssn não formado \_ encontra SSNs com formatação forte pré-2011 que não são formatadas como nove dígitos consecutivos (ddddddddd)
+- Func \_ ssn não formado \_ encontra SSNs com formatação forte pré-2011 que não são formatadas como nove dígitos consecutivos (ddddddd)
 - Func \_ \_ formatado \_ ssn encontra SSNs pós-2011 que são formatados com traços ou espaços (ddd-dd-dddd OR ddd ddd dddd)
 - Func \_ randomized \_ unformatted \_ ssn encontra SSNs pós-2011 que não são formatadas como nove dígitos consecutivos (dddddddd)
 

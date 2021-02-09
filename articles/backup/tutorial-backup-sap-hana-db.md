@@ -3,12 +3,12 @@ title: Tutorial - Apoiar bases de dados SAP HANA em VMs Azure
 description: Neste tutorial, aprenda a apoiar as bases de dados SAP HANA em execução na Azure VM até um cofre dos Serviços de Recuperação de Backup Azure.
 ms.topic: tutorial
 ms.date: 02/24/2020
-ms.openlocfilehash: 31a0a773096ec0f69e87bfd4a05f8ba98185e6cf
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: ede8ebab205e814de3988a2b5c432a21f965eb55
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94695219"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99987783"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>Tutorial: Apoiar as bases de dados SAP HANA num Azure VM
 
@@ -79,7 +79,7 @@ Pode igualmente criar [regras de segurança de saída NSG](../virtual-network/ne
 
 ### <a name="azure-firewall-tags"></a>Tags Azure Firewall
 
-Se estiver a utilizar o Azure Firewall, crie uma regra de aplicação utilizando a [etiqueta FQDN Azure Firewall AzureBackup .](../firewall/fqdn-tags.md) *AzureBackup* Isto permite que todo o acesso de saída ao Azure Backup.
+Se estiver a utilizar o Azure Firewall, crie uma regra de aplicação utilizando a [etiqueta FQDN Azure Firewall AzureBackup .](../firewall/fqdn-tags.md)  Isto permite que todo o acesso de saída ao Azure Backup.
 
 ### <a name="allow-access-to-service-ip-ranges"></a>Permitir o acesso às gamas IP de serviço
 
@@ -98,6 +98,46 @@ Também pode utilizar os seguintes FQDNs para permitir o acesso aos serviços ne
 ### <a name="use-an-http-proxy-server-to-route-traffic"></a>Use um servidor de procuração HTTP para encaminhar o tráfego
 
 Quando faz backup de uma base de dados SAP HANA em execução num Azure VM, a extensão de backup no VM utiliza as APIs HTTPS para enviar comandos de gestão para Azure Backup e dados para Azure Storage. A extensão de backup também utiliza Azure AD para autenticação. Encaminhe o tráfego da extensão da cópia de segurança destes três serviços através do proxy HTTP. Utilize a lista de IPs e FQDNs acima mencionadas para permitir o acesso aos serviços necessários. Os servidores de procuração autenticados não são suportados.
+
+## <a name="understanding-backup-and-restore-throughput-performance"></a>Compreender o backup e restaurar o desempenho da produção
+
+As cópias de segurança (log e non-log) nos VMs SAP HANA Azure fornecidos via Backint são streams para cofres de serviços de recuperação de Azure, pelo que é importante compreender esta metodologia de streaming.
+
+O componente backint da HANA fornece os 'tubos' (um tubo para ler e um tubo para escrever), ligados a discos subjacentes onde residem os ficheiros de base de dados, que são depois lidos pelo serviço de backup Azure e transportados para o cofre dos Serviços de Recuperação de Azure. O serviço Azure Backup também executa uma função de verificação para validar os streams, além dos controlos de validação nativos de backint. Estas validações assegurarão que os dados presentes no cofre dos Serviços de Recuperação do Azure sejam de facto fiáveis e recuperáveis.
+
+Uma vez que os streams lidam principalmente com discos, é necessário compreender o desempenho do disco para medir a cópia de segurança e restaurar o desempenho. Consulte [este artigo](https://docs.microsoft.com/azure/virtual-machines/disks-performance) para obter uma compreensão aprofundada da produção e desempenho do disco em VMs Azure. Estes também são aplicáveis ao desempenho de backup e restauro.
+
+**O serviço Azure Backup tenta alcançar até ~420 MBps para cópias de segurança não log (tais como completas, diferenciais e incrementais) e até 100 MBps para backups de registo para HANA**. Como mencionado acima, estas velocidades não são garantidas e dependem dos seguintes fatores:
+
+* Produção de disco max uncached do VM
+* Tipo de disco subjacente e sua produção
+* O número de processos que estão a tentar ler e escrever no mesmo disco ao mesmo tempo.
+
+> [!IMPORTANT]
+> Em VMs mais pequenos, onde a produção de disco não encadeado é muito próxima ou inferior a 400 MBps, pode estar preocupado que todo o disco IOPS seja consumido pelo serviço de backup que pode afetar as operações da SAP HANA relacionadas com a leitura/escrita dos discos. Nesse caso, se pretender acelerar ou limitar o consumo de serviço de cópia de segurança ao limite máximo, pode consultar a secção seguinte.
+
+### <a name="limiting-backup-throughput-performance"></a>Limitação do desempenho do rendimento de backup
+
+Se pretender acelerar o consumo de IOPS do serviço de backup até ao valor máximo, então execute os seguintes passos.
+
+1. Aceda à pasta "opt/msawb/bin"
+2. Criar um novo ficheiro JSON chamado "ExtensionSettingOverrides.JSON"
+3. Adicione um par de valores-chave ao ficheiro JSON da seguinte forma:
+
+    ```json
+    {
+    "MaxUsableVMThroughputInMBPS": 200
+    }
+    ```
+
+4. Alterar as permissões e a propriedade do ficheiro da seguinte forma:
+    
+    ```bash
+    chmod 750 ExtensionSettingsOverrides.json
+    chown root:msawb ExtensionSettingsOverrides.json
+    ```
+
+5. Não é necessário reiniciar qualquer serviço. O serviço Azure Backup tentará limitar o desempenho de produção, tal como mencionado neste ficheiro.
 
 ## <a name="what-the-pre-registration-script-does"></a>O que o script pré-registo faz
 
@@ -158,7 +198,7 @@ Para criar um cofre dos Serviços de Recuperação:
    Para ver a lista de grupos de recursos disponíveis na sua subscrição, selecione **Use existente** e, em seguida, selecione um recurso da caixa de listas drop-down. Para criar um novo grupo de recursos, selecione **Criar novo** e introduza o nome. Para obter informações completas sobre grupos de recursos, consulte [a visão geral do Azure Resource Manager](../azure-resource-manager/management/overview.md).
    * **Localização**: Selecione a região geográfica do cofre. O cofre deve estar na mesma região que a Máquina Virtual que funciona SAP HANA. Usamos o **East US 2.**
 
-5. Selecione **Review + Criar**.
+5. Selecione **Rever + Criar**.
 
    ![Selecione & criar](./media/tutorial-backup-sap-hana-db/review-create.png)
 
@@ -166,7 +206,7 @@ O cofre dos Serviços de Recuperação está agora criado.
 
 ## <a name="discover-the-databases"></a>Descubra as bases de dados
 
-1. No cofre, em **"Getting Started",** selecione **Backup**. Em Onde está a correr **SAP HANA in Azure VM** a sua carga **de trabalho?**
+1. No cofre, em **"Getting Started",** selecione **Backup**. Em Onde está a correr a sua carga **de trabalho?**
 2. Selecione **Iniciar a Descoberta**. Isto inicia a descoberta de VMs Linux desprotegidos na região do cofre. Verá o VM Azure que quer proteger.
 3. Em **Select Virtual Machines**, selecione o link para descarregar o script que fornece permissões para o serviço de Backup Azure para aceder aos VMs SAP HANA para a descoberta da base de dados.
 4. Execute o script no VM que hospeda a base de dados SAP HANA que pretende fazer.

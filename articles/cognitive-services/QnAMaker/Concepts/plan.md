@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: e523b35afca33213a40060819a1293e94d413b00
-ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
+ms.openlocfilehash: bf5582016f74e67926c38111a3d8d2f468f3ac79
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99222870"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99987996"
 ---
 # <a name="plan-your-qna-maker-app"></a>Planeie a sua app QnA Maker
 
@@ -124,17 +124,17 @@ Deve desenhar o seu fluxo de conversação com um loop em mente para que um util
 
 Os colaboradores podem ser outros desenvolvedores que partilham a pilha completa de desenvolvimento da aplicação base de conhecimento ou podem limitar-se a apenas autorizar a base de conhecimento.
 
-A autoria da base de conhecimento suporta várias [permissões de acesso baseadas](../reference-role-based-access-control.md) em funções que aplica no portal Azure para limitar o âmbito das capacidades de um colaborador.
+A autoria da base de conhecimento suporta várias permissões de acesso baseadas em funções que aplica no portal Azure para limitar o âmbito das capacidades de um colaborador.
 
 ## <a name="integration-with-client-applications"></a>Integração com aplicações de clientes
 
-A integração com [as aplicações dos clientes](../index.yml) é conseguida enviando uma consulta para o ponto final de tempo de previsão. Uma consulta é enviada para a sua base de conhecimentos específica com um pedido baseado em SDK ou REST para o ponto final da aplicação web do seu QnA Maker.
+A integração com as aplicações dos clientes é conseguida enviando uma consulta para o ponto final de tempo de previsão. Uma consulta é enviada para a sua base de conhecimentos específica com um pedido baseado em SDK ou REST para o ponto final da aplicação web do seu QnA Maker.
 
 Para autenticar corretamente um pedido de cliente, a aplicação do cliente deve enviar as credenciais corretas e o ID da base de conhecimento. Se estiver a utilizar um Serviço Azure Bot, configufique estas definições como parte da configuração do bot no portal Azure.
 
 ### <a name="conversation-flow-in-a-client-application"></a>Fluxo de conversação em uma aplicação de cliente
 
-O fluxo de conversação numa [aplicação do cliente](../index.yml), como um bot Azure, pode exigir funcionalidade antes e depois de interagir com a base de conhecimento.
+O fluxo de conversação numa aplicação do cliente, como um bot Azure, pode exigir funcionalidade antes e depois de interagir com a base de conhecimento.
 
 O fluxo de conversação da sua aplicação do cliente, quer fornecendo meios alternativos para lidar com as solicitações de seguimento, quer incluindo chit-chit? Em caso afirmativo, desenhe-os precocemente e certifique-se de que a consulta de aplicação do cliente é tratada corretamente por outro serviço ou quando enviada para a sua base de conhecimentos.
 
@@ -148,7 +148,7 @@ Num cenário de [arquitetura partilhada,](../choose-natural-language-processing-
 
 ### <a name="active-learning-from-a-client-application"></a>Aprendizagem ativa a partir de uma aplicação de cliente
 
-O QnA Maker utiliza _a aprendizagem ativa_ para melhorar a sua base de conhecimento, sugerindo perguntas alternativas a uma resposta. A aplicação do cliente é responsável por uma parte desta [aprendizagem ativa.](active-learning-suggestions.md) Através de solicitações de conversação, a aplicação do cliente pode determinar que a base de conhecimento devolveu uma resposta que não é útil para o utilizador, e pode determinar uma melhor resposta. A aplicação do cliente precisa [enviar essa informação de volta para a base de conhecimento](active-learning-suggestions.md#how-you-give-explicit-feedback-with-the-train-api) para melhorar a qualidade da previsão.
+O QnA Maker utiliza _a aprendizagem ativa_ para melhorar a sua base de conhecimento, sugerindo perguntas alternativas a uma resposta. A aplicação do cliente é responsável por uma parte desta [aprendizagem ativa.](../How-To/use-active-learning.md) Através de solicitações de conversação, a aplicação do cliente pode determinar que a base de conhecimento devolveu uma resposta que não é útil para o utilizador, e pode determinar uma melhor resposta. A aplicação do cliente precisa enviar essa informação de volta para a base de conhecimento para melhorar a qualidade da previsão.
 
 ### <a name="providing-a-default-answer"></a>Fornecendo uma resposta padrão
 
@@ -208,16 +208,16 @@ O ciclo de vida de [desenvolvimento](development-lifecycle-knowledge-base.md) de
 
 ### <a name="knowledge-base-development-of-qna-maker-pairs"></a>Desenvolvimento de base de conhecimento dos pares QnA Maker
 
-Os seus [pares QnA](question-answer-set.md) devem ser projetados e desenvolvidos com base no uso da aplicação do seu cliente.
+Os seus pares QnA devem ser projetados e desenvolvidos com base no uso da aplicação do seu cliente.
 
 Cada par pode conter:
 * Metadados - filtrados ao consultar para permitir marcar os seus pares QnA com informações adicionais sobre a origem, conteúdo, formato e finalidade dos seus dados.
 * Pedidos de acompanhamento - ajuda a determinar um caminho através da sua base de conhecimento para que o utilizador chegue à resposta correta.
-* Perguntas alternativas - importante para permitir que a pesquisa corresponda à sua resposta de diferentes formas de pergunta. [Sugestões de aprendizagem ativa](active-learning-suggestions.md) transformam-se em questões alternativas.
+* Perguntas alternativas - importante para permitir que a pesquisa corresponda à sua resposta de diferentes formas de pergunta. [Sugestões de aprendizagem ativa](../How-To/use-active-learning.md) transformam-se em questões alternativas.
 
 ### <a name="devops-development"></a>Desenvolvimento de DevOps
 
-O desenvolvimento de uma base de conhecimento para inserir num gasoduto DevOps requer que a base de conhecimento seja isolada durante os [testes de lote](../index.yml).
+O desenvolvimento de uma base de conhecimento para inserir num gasoduto DevOps requer que a base de conhecimento seja isolada durante os testes de lote.
 
 Uma base de conhecimento partilha o índice de Pesquisa Cognitiva com todas as outras bases de conhecimento no recurso QnA Maker. Enquanto a base de conhecimento é isolada por partição, a partilha do índice pode causar uma diferença na pontuação quando comparada com a base de conhecimento publicada.
 

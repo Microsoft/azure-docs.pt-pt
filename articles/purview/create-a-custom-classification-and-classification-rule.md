@@ -6,13 +6,13 @@ ms.author: anmuk
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 11/1/2020
-ms.openlocfilehash: 53c71eec4c913c606669b7d36ca9a71ac8f3e2f1
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.date: 2/5/2021
+ms.openlocfilehash: 3cc29e0bd806ab76c4980128df5a89761e465fe7
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97693461"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988385"
 ---
 # <a name="custom-classifications-in-azure-purview"></a>Classificações personalizadas em Azure Purview 
 
@@ -39,7 +39,7 @@ Para criar uma classificação personalizada, faça o seguinte:
     :::image type="content" source="media/create-a-custom-classification-and-classification-rule/new-classification.png" alt-text="Nova classificação" border="true":::
 
 O **painel de classificação Add abre,** onde pode dar à sua classificação um nome e uma descrição. É uma boa prática usar uma convenção de espaçamento de nomes, `your company name.classification name` como.
-As classificações do sistema Microsoft são agrupadas no espaço reservado para o `MS.` nome. Um exemplo é **a Esclerose Múltipla. GOVERNO. PARA NÓS. \_ \_ NÚMERO DE SEGURANÇA SOCIAL.**
+As classificações do sistema Microsoft são agrupadas no espaço reservado para o `MICROSOFT.` nome. Um exemplo é **a MICROSOFT. GOVERNO. PARA NÓS. \_ \_ NÚMERO DE SEGURANÇA SOCIAL.**
 
 O nome da sua classificação deve começar com uma letra seguida de uma sequência de letras, números e período (.) ou sublinhar caracteres.
 Não são permitidos espaços. À medida que escreve, o UX gera automaticamente um nome amigável. Este nome amigável é o que os utilizadores vêem quando o aplicam a um ativo no catálogo.

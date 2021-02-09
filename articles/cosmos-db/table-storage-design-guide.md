@@ -8,12 +8,12 @@ ms.date: 06/19/2020
 author: sakash279
 ms.author: akshanka
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 812d4976a0c6afe646c329ee483be20c33416381
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 603c891e53e5712d489fcef8415e3db55328c9ad
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98943883"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988444"
 ---
 # <a name="azure-table-storage-table-design-guide-scalable-and-performant-tables"></a>Guia de conceção de tabela do armazenamento de Tabelas do Azure: Tabelas dimensionáveis e com bom desempenho
 [!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
@@ -632,7 +632,7 @@ Para esta opção, utilize entidades indexárias que armazenem os seguintes dado
 
 :::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE15.png" alt-text="Screenshot que mostra a entidade do índice do Empregado que contém uma lista de IDs de empregados para funcionários com o último nome armazenado no RowKey e PartitionKey.":::
 
-A `EmployeeIDs` propriedade contém uma lista de IDs de empregados para funcionários com o último nome armazenado no e `RowKey` `PartitionKey` .  
+A `EmployeeDetails` propriedade contém uma lista de iDs de funcionários e pares de nomes de departamento para empregados com o último nome armazenado no `RowKey` .
 
 Não pode usar EGTs para manter a consistência, porque as entidades indexam-se numa divisão separada das entidades dos colaboradores. Certifique-se de que as entidades indexam eventualmente são consistentes com as entidades dos colaboradores.  
 

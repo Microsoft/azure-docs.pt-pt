@@ -794,6 +794,8 @@
         - name: Live Metrics Stream
           displayname: 'live, quickpulse, quick pulse, live metrics'
           href: app/live-stream.md
+        - name: Relatório SLA
+          href: app/sla-report.md
         - name: Métricas
           items:
             - name: Métricas baseadas no registo previamente agregadas
@@ -1022,7 +1024,7 @@
               href: insights/vminsights-health-troubleshoot.md
         - name: Analisar dados com consultas de registo
           href: insights/vminsights-log-search.md
-        - name: Monitorizar desempenho
+        - name: Alertas
           href: insights/vminsights-alerts.md
         - name: Monitorizar alterações
           href: insights/vminsights-change-analysis.md

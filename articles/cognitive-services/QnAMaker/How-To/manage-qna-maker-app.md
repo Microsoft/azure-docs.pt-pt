@@ -5,21 +5,17 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: e4f0e229488093067b231a5c92334238ca216234
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 652489e8de68d61707fd419843f0dbb2ffd83754
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99550560"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99987931"
 ---
 # <a name="manage-qna-maker-app"></a>Gerir a aplicação QnA Maker
 
 A QnA Maker permite-lhe colaborar com diferentes autores e editores de conteúdos, oferecendo uma capacidade de restringir o acesso dos colaboradores com base no papel do colaborador.
 Saiba mais sobre [os conceitos de autenticação de colaboradores da QnA Maker.](../Concepts/role-based-access-control.md)
-
-Também pode melhorar a qualidade da sua base de conhecimentos sugerindo questões alternativas através da [aprendizagem ativa.](../Concepts/active-learning-suggestions.md) As submissões de utilizador são tomadas em consideração e aparecem como sugestões na lista de perguntas alternativas. Tem a flexibilidade para adicionar essas sugestões como perguntas alternativas ou rejeitá-las.
-
-A sua base de conhecimento não muda automaticamente. Para que qualquer alteração produza efeitos, tem de aceitar as sugestões. Estas sugestões adicionam perguntas mas não alteram ou removem as questões existentes.
 
 ## <a name="add-azure-role-based-access-control-azure-rbac"></a>Adicionar controlo de acesso baseado em funções Azure (Azure RBAC)
 

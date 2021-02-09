@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 11/09/2020
-ms.openlocfilehash: 1fe1ad14dc1cc8f5ff5171ef517d23363969be4d
-ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
+ms.openlocfilehash: c59529db0981a1071b76714c48aacaf675e4b17a
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97387790"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99987910"
 ---
 # <a name="quickstart-create-train-and-publish-your-qna-maker-knowledge-base"></a>Quickstart: Crie, treine e publique a sua base de conhecimentos QnA Maker
 
@@ -204,7 +204,7 @@ Tudo isto foi feito em poucos minutos sem ter que escrever nenhum código ou lim
 
 Se não continuar para o próximo quickstart, elimine os recursos-quadro do QnA Maker e bot no portal Azure.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Adicionar perguntas com metadados](add-question-metadata-portal.md)
@@ -212,4 +212,4 @@ Se não continuar para o próximo quickstart, elimine os recursos-quadro do QnA 
 Para obter mais informações:
 
 * [Formato de marcação em respostas](../reference-markdown-format.md)
-* [Fontes de dados](../index.yml)do QnA Maker.
+* [Fontes de dados](../Concepts/data-sources-and-content.md)do QnA Maker.

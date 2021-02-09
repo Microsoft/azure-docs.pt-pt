@@ -3,12 +3,12 @@ title: Importar imagens de contentor
 description: Importar imagens de contentores para um registo de contentores Azure utilizando APIs Azure, sem necessidade de executar comandos Docker.
 ms.topic: article
 ms.date: 01/15/2021
-ms.openlocfilehash: 364c90b857d0d7d479152e2aa56db4d80041f037
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: e6976f854b449f68faedd51878c2f3a7fe75cb0f
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99524503"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988248"
 ---
 # <a name="import-container-images-to-a-container-registry"></a>Importar imagens de contentores para um registo de contentores
 
@@ -68,13 +68,15 @@ az acr repository show-manifests \
   --repository hello-world
 ```
 
-O exemplo a seguir importa uma imagem pública do `tensorflow` repositório em Docker Hub:
+Se tiver uma [conta Docker Hub,](https://www.docker.com/pricing)recomendamos que utilize as credenciais ao importar uma imagem do Docker Hub. Passe o nome de utilizador do Docker Hub e a palavra-passe ou um [token de acesso pessoal](https://docs.docker.com/docker-hub/access-tokens/) como parâmetros para `az acr import` . O exemplo a seguir importa uma imagem pública do `tensorflow` repositório em Docker Hub, utilizando credenciais do Docker Hub:
 
 ```azurecli
 az acr import \
   --name myregistry \
   --source docker.io/tensorflow/tensorflow:latest-gpu \
   --image tensorflow:latest-gpu
+  --username <Docker Hub user name>
+  --password <Docker Hub token>
 ```
 
 ### <a name="import-from-microsoft-container-registry"></a>Importação do Registo de Contentores da Microsoft
