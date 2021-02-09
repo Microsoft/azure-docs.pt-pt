@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 08/24/2020
 ms.author: robinsh
 ms.custom: mvc, subject-armqs
-ms.openlocfilehash: 1b9c576ce03d808fe6a4d0cac5196dfcd1b73eab
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: fc8ddba2ec9b7bc9f1c2db8673ab805810afe17e
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545485"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99981294"
 ---
 # <a name="quickstart-deploy-an-azure-iot-hub-and-a-storage-account-using-an-arm-template"></a>Quickstart: Implementar um Hub Azure IoT e uma conta de armazenamento usando um modelo ARM
 
@@ -21,9 +21,9 @@ Neste arranque rápido, você usa um modelo de Gestor de Recursos Azure (modelo 
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Se o seu ambiente cumpre os pré-requisitos e se está familiarizado com a utilização de modelos ARM, selecione o botão **Implementar no Azure** . O modelo será aberto no portal do Azure.
+Se o seu ambiente cumpre os pré-requisitos e se está familiarizado com a utilização de modelos ARM, selecione o botão **Implementar no Azure**. O modelo será aberto no portal do Azure.
 
-[![Implementar para Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-iothub-auto-route-messages%2Fazuredeploy.json)
+[![Implementar no Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-iothub-auto-route-messages%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -49,7 +49,7 @@ Esta secção fornece os passos para implantar o modelo, criar um dispositivo vi
     > [!TIP]
     > Selecione o botão abaixo para iniciar a implementação do modelo. Enquanto está a funcionar, prepara a aplicação de leitura de braço para executar.
 
-    [![Implementar para Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-iothub-auto-route-messages%2Fazuredeploy.json)
+    [![Implementar no Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-iothub-auto-route-messages%2Fazuredeploy.json)
 
 1. Faça o download e desaperte as [amostras IoT C#](/samples/azure-samples/azure-iot-samples-csharp/azure-iot-samples-for-csharp-net/).
 
@@ -83,7 +83,7 @@ Esta secção fornece os passos para implantar o modelo, criar um dispositivo vi
 
 1. No lado direito do ecrã, selecione **+ NOVO** para adicionar um novo dispositivo.
 
-   Preencha o nome do novo dispositivo. Este quickstart usa um nome a começar pelo **Contoso-Test-Device** . Guarde o dispositivo e, em seguida, abra novamente o ecrã para recuperar a chave do dispositivo. (A chave é gerada para si quando fecha o painel.) Selecione a tecla primária ou secundária e copie-a para a área de transferência do Windows. Na janela de comando, desapedaça o comando para executar e, em seguida, prima **Enter** . O comando deve parecer-se com este, mas com a chave do dispositivo colada em:
+   Preencha o nome do novo dispositivo. Este quickstart usa um nome a começar pelo **Contoso-Test-Device**. Guarde o dispositivo e, em seguida, abra novamente o ecrã para recuperar a chave do dispositivo. (A chave é gerada para si quando fecha o painel.) Selecione a tecla primária ou secundária e copie-a para a área de transferência do Windows. Na janela de comando, desapedaça o comando para executar e, em seguida, prima **Enter**. O comando deve parecer-se com este, mas com a chave do dispositivo colada em:
 
    ```cmd
    SET IOT_DEVICE_KEY=<device-key-goes-here>
@@ -91,7 +91,7 @@ Esta secção fornece os passos para implantar o modelo, criar um dispositivo vi
 
 1. A última variável ambiente é o **ID do dispositivo.** Na janela de comando, instale o comando e execute-o.
 
-   ```cms
+   ```cmd
    SET IOT_DEVICE_ID=<device-id-goes-here>
    ```
 
@@ -101,13 +101,13 @@ Esta secção fornece os passos para implantar o modelo, criar um dispositivo vi
    SET IOT_DEVICE_ID=Contoso-Test-Device
    ```
 
-1. Para ver as variáveis ambientais que definiu, escreva SET na linha de comando e prima **Enter,** em seguida, procure as que começam com **IoT** .
+1. Para ver as variáveis ambientais que definiu, escreva SET na linha de comando e prima **Enter,** em seguida, procure as que começam com **IoT**.
 
    ![Ver variáveis ambientais](./media/horizontal-arm-route-messages/06-environment-variables.png)
 
     Agora as variáveis ambientais estão definidas, executar a aplicação a partir da mesma janela de comando. Como está a usar a mesma janela, as variáveis estarão acessíveis na memória quando executar a aplicação.
 
-1. Para executar a aplicação, digite o seguinte comando na janela de comando e prima **Enter** .
+1. Para executar a aplicação, digite o seguinte comando na janela de comando e prima **Enter**.
 
     `dotnet run arm-read-write`
 
@@ -121,7 +121,7 @@ Esta secção fornece os passos para implantar o modelo, criar um dispositivo vi
 
    ![Veja os ficheiros da conta de armazenamento](./media/horizontal-arm-route-messages/07-see-storage.png)
 
-1. Selecione um dos ficheiros e selecione **Baixar** e transferir o ficheiro para um local que pode encontrar mais tarde. Terá um nome numérico, como 47. Adicione _.txt_ até ao fim e, em seguida, clique duas vezes no ficheiro para abri-lo.
+1. Selecione um dos ficheiros e selecione **Baixar** e transferir o ficheiro para um local que pode encontrar mais tarde. Terá um nome numérico, como 47. Adicione _.txt_ ao fim e, em seguida, clique duas vezes no ficheiro para abri-lo.
 
 1. Quando abre o ficheiro, cada linha é para uma mensagem diferente; o corpo de cada mensagem também é encriptado. Deve ser para que faça perguntas contra o corpo da mensagem.
 
@@ -134,7 +134,7 @@ Implementou um modelo ARM para criar um Hub IoT e uma conta de armazenamento, e 
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Para remover os recursos adicionados durante este arranque rápido, inicie sessão no [portal Azure](https://portal.azure.com). Selecione **Grupos de Recursos** e, em seguida, encontre o grupo de recursos utilizado para este arranque rápido. Selecione o grupo de recursos e, em seguida, *selecione Delete* . Eliminará todos os recursos do grupo.
+Para remover os recursos adicionados durante este arranque rápido, inicie sessão no [portal Azure](https://portal.azure.com). Selecione **Grupos de Recursos** e, em seguida, encontre o grupo de recursos utilizado para este arranque rápido. Selecione o grupo de recursos e, em seguida, *selecione Delete*. Eliminará todos os recursos do grupo.
 
 ## <a name="next-steps"></a>Passos seguintes
 

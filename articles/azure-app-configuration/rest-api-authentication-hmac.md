@@ -6,12 +6,12 @@ ms.author: alkemper
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
-ms.openlocfilehash: f761d86bd7dbe54b687e8db75ecb3df2dbba3384
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 4b5a073459fad734a11d3a75718240d0ebbb486a
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96932715"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99981396"
 ---
 # <a name="hmac-authentication---rest-api-reference"></a>Autenticação HMAC - Referência REST API
 
@@ -22,7 +22,7 @@ Pode autenticar pedidos HTTP utilizando o sistema de autenticação HMAC-SHA256.
 - **Credencial** - \<Access Key ID\>
 - **Secret** - base64 descodificado Valor chave de acesso. ``base64_decode(<Access Key Value>)``
 
-Os valores para credencial (também `id` chamado) e secreto (também chamado `value` ) devem ser obtidos a partir do caso de Configuração de Aplicação Azure. Pode fazê-lo utilizando o [portal Azure](https://portal.azure.com) ou o [Azure CLI](/cli/azure/?preserve-view=true&view=azure-cli-latest).
+Os valores para credencial (também `id` chamado) e secreto (também chamado `value` ) devem ser obtidos a partir do caso de Configuração de Aplicação Azure. Pode fazê-lo utilizando o [portal Azure](https://portal.azure.com) ou o [Azure CLI](/cli/azure/).
 
 Forneça a cada pedido todos os cabeçalhos HTTP necessários para a autenticação. O mínimo exigido é:
 
@@ -45,11 +45,11 @@ Authorization: HMAC-SHA256 Credential={Access Key ID}&SignedHeaders=x-ms-date;ho
 
 ## <a name="authorization-header"></a>Cabeçalho de autorização
 
-### <a name="syntax"></a>Sintaxe
+### <a name="syntax"></a>Syntax
 
 ``Authorization``: **HMAC-SHA256**```Credential```=\<value\>&```SignedHeaders```=\<value\>&```Signature```=\<value\>
 
-|  Argumento | Descrição  |
+|  Argumento | Description  |
 | ------ | ------ |
 | **HMAC-SHA256** | Esquema de autorização. _(obrigatório)_ |
 | **Credencial** | A identificação da chave de acesso usada para calcular a assinatura. _(obrigatório)_ |
@@ -87,7 +87,7 @@ _String-to-Sign=_
 
 **HTTP_METHOD** + '\n' + **path_and_query** + '\n' + **signed_headers_values**
 
-|  Argumento | Descrição  |
+|  Argumento | Description  |
 | ------ | ------ |
 | **HTTP_METHOD** | Nome do método HTTP maiúscula utilizado com o pedido. Para mais informações, consulte [a secção 9.](https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html) |
 |**path_and_query** | Concatenação de pedido absoluta caminho URI e cadeia de consulta. Para mais informações, consulte [a secção 3.3](https://tools.ietf.org/html/rfc3986#section-3.3).
@@ -549,8 +549,8 @@ Invoke-RestMethod -Uri $uri -Method $method -Headers $headers -Body $body
 | ------------ | ------- | --------------- |
 | [Bash](https://www.gnu.org/software/bash/) | bash | 3.5.27, 4.4.23 |
 | [coreutils](https://www.gnu.org/software/coreutils/) | tr | 8.28 |
-| [caracóis](https://curl.haxx.se/) | curl | 7.55.1, 7.58.0 |
-| [OpenSSL](https://www.openssl.org/) | openssl | 1.1.0g, 1.1.1a |
+| [curl](https://curl.haxx.se/) | curl | 7.55.1, 7.58.0 |
+| [Abre-se](https://www.openssl.org/) | openssl | 1.1.0g, 1.1.1a |
 | [util-linux](https://github.com/karelzak/util-linux/) | hexdump | 2.14.1, 2.31.1 |
 
 ```bash

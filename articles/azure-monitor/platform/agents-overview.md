@@ -1,5 +1,5 @@
 ---
-title: Visão geral dos agentes de monitorização do Azure Microsoft Docs
+title: Visão geral dos agentes de monitorização do Azure| Microsoft Docs
 description: Este artigo fornece uma visão detalhada dos agentes Azure disponíveis que suportam a monitorização de máquinas virtuais hospedadas em ambiente Azure ou híbrido.
 services: azure-monitor
 ms.subservice: ''
@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/12/2021
-ms.openlocfilehash: d1350248e3819863a30ecf21ff68bb7b9488b6ef
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 33758391b3715dae3928812a38ac2ee4e1baffb6
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98232935"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99981430"
 ---
 # <a name="overview-of-azure-monitor-agents"></a>Visão geral dos agentes do Monitor Azure
 
@@ -145,6 +145,7 @@ As tabelas a seguir enumeram os sistemas operativos que são suportados pelos ag
 | Núcleo do Windows Server 2016                                 |   |   |   | X |
 | Windows Server 2012 R2                                   | X | X | X | X |
 | Windows Server 2012                                      | X | X | X | X |
+| Windows Server 2008 R2 SP1                               | X | X | X | X |
 | Windows Server 2008 R2                                   |   | X | X | X |
 | Windows 10 Enterprise<br>(incluindo várias sessões) e Pro<br>(Apenas cenários de servidor)  | X | X | X | X |
 | Windows 8 Enterprise e Pro<br>(Apenas cenários de servidor)  |   | X | X |   |
@@ -154,31 +155,36 @@ As tabelas a seguir enumeram os sistemas operativos que são suportados pelos ag
 
 | Sistema operativo | Agente do Azure Monitor | Agente do Log Analytics | Agente de Dependência | Extensão de diagnóstico | 
 |:---|:---:|:---:|:---:|:---:
-| Amazon Linux 2017.09                                     |   | X |   |   |
-| CentOS Linux 8                                           |   | X | X |   |
-| CentOS Linux 7                                           | X | X | X | X |
-| CentOS Linux 6                                           |   | X |   |   |
-| CentOS Linux 6.5+                                        |   | X | X | X |
-| Debian 9                                                 | X | X | x | X |
-| Debian 8                                                 |   | X | X |   |
-| Debian 7                                                 |   |   |   | X |
-| OpenSUSE 13.1+                                           |   |   |   | X |
-| Oráculo Linux 8                                           |   | X |   |   |
-| Oráculo Linux 7                                           | X | X |   | X |
-| Oracle Linux 6                                           |   | X |   |   |
-| Oracle Linux 6.4+                                        |   | X |   | X |
-| Red Hat Enterprise Linux Server 8                        |   | X | X |   |
-| Red Hat Enterprise Linux Server 7                        | X | X | X | X |
-| Red Hat Enterprise Linux Server 6                        |   | X | X |   |
-| Red Hat Enterprise Linux Server 6.7+                     |   | X | X | X |
-| SUSE Linux Enterprise Server 15.1                        |   | X |   |   |
-| SUSE Linux Enterprise Server 15                          | X | X | X |   |
-| SUSE Linux Enterprise Server 12                          | X | X | X | X |
-| Ubuntu 20.04 LTS                                         |   | X | X |   |
-| Ubuntu 18.04 LTS                                         | X | X | X | X |
-| Ubuntu 16.04 LTS                                         | X | X | X | X |
-| Ubuntu 14.04 LTS                                         |   | X |   | X |
+| Amazon Linux 2017.09                                        |   | X |   |   |
+| CentOS Linux 8 <sup>1</sup> <sup>2</sup>                    | X | X | X |   |
+| CentOS Linux 7                                              | X | X | X | X |
+| CentOS Linux 6                                              |   | X |   |   |
+| CentOS Linux 6.5+                                           |   | X | X | X |
+| Debian 10 <sup>1</sup>                                      | X |   |   |   |
+| Debian 9                                                    | X | X | x | X |
+| Debian 8                                                    |   | X | X |   |
+| Debian 7                                                    |   |   |   | X |
+| OpenSUSE 13.1+                                              |   |   |   | X |
+| Oracle Linux 8 <sup>1</sup> <sup>2</sup>                    | X | X |   |   |
+| Oráculo Linux 7                                              | X | X |   | X |
+| Oracle Linux 6                                              |   | X |   |   |
+| Oracle Linux 6.4+                                           |   | X |   | X |
+| Red Hat Enterprise Linux Server 8 <sup>1</sup> <sup>2</sup> | X | X | X |   |
+| Red Hat Enterprise Linux Server 7                           | X | X | X | X |
+| Red Hat Enterprise Linux Server 6                           |   | X | X |   |
+| Red Hat Enterprise Linux Server 6.7+                        |   | X | X | X |
+| SUSE Linux Enterprise Server 15.2 <sup>1</sup> <sup>2</sup> | X |   |   |   |
+| SUSE Linux Enterprise Server 15.1 <sup>1</sup> <sup>2</sup> | X | X |   |   |
+| SUSE Linux Enterprise Server 15                             | X | X | X |   |
+| SUSE Linux Enterprise Server 12                             | X | X | X | X |
+| Ubuntu 20.04 LTS <sup>1</sup>                               | X | X | X |   |
+| Ubuntu 18.04 LTS                                            | X | X | X | X |
+| Ubuntu 16.04 LTS                                            | X | X | X | X |
+| Ubuntu 14.04 LTS                                            |   | X |   | X |
 
+<sup>1</sup> Requer que o Python 3 seja instalado na máquina.
+
+<sup>2</sup> Edição conhecida a recolher eventos Syslog. Apenas os dados de desempenho são suportados atualmente.
 #### <a name="dependency-agent-linux-kernel-support"></a>Suporte de kernel do agente de dependência Linux
 
 Uma vez que o agente de dependência trabalha ao nível do núcleo, o suporte também depende da versão kernel. A tabela que se segue lista a versão principal e menor do Linux OS e as versões de kernel suportadas para o agente Dependency.

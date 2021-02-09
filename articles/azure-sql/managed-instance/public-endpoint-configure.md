@@ -9,20 +9,20 @@ ms.topic: how-to
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: vanto, sstein
-ms.date: 05/07/2019
-ms.openlocfilehash: 73fa4d4988c7a036dc1d2eb7dc81c3c1c5d77026
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.date: 02/08/2021
+ms.openlocfilehash: 7d5f40be895aea26a234d9ae622aa5bf22528231
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92788286"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99981447"
 ---
 # <a name="configure-public-endpoint-in-azure-sql-managed-instance"></a>Configure o ponto final público em Azure SQL Gestd Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 O ponto final público para uma [instância gerida](./sql-managed-instance-paas-overview.md) permite o acesso de dados à sua instância gerida de fora da [rede virtual.](../../virtual-network/virtual-networks-overview.md) Você pode aceder a sua instância gerida a partir de serviços Azure multi-inquilinos como Power BI, Azure App Service, ou uma rede no local. Ao utilizar o ponto final público numa instância gerida, não precisa de usar uma VPN, o que pode ajudar a evitar problemas de produção VPN.
 
-Neste artigo, aprenderá a:
+Neste artigo, vai aprender a:
 
 > [!div class="checklist"]
 >
@@ -112,7 +112,7 @@ Set-AzSqlInstance -PublicDataEndpointEnabled $false -force
 ## <a name="obtaining-the-managed-instance-public-endpoint-connection-string"></a>Obtenção da cadeia de ligação de ponto final de instância gerida
 
 1. Navegue para a página de configuração de exemplo gerida que foi ativada para o ponto final público. Selecione o separador **'Ligação' de séries** na configuração **'Definições'.**
-1. Note que o nome de anfitrião do ponto final público vem no formato <mi_name>. **público** .<dns_zone>.database.windows.net e que a porta utilizada para a ligação é 3342.
+1. Note que o nome de anfitrião do ponto final público vem no formato <mi_name>. **público**.<dns_zone>.database.windows.net e que a porta utilizada para a ligação é 3342. Aqui está um exemplo de um valor de servidor da cadeia de ligação que denota a porta de ponto final público que pode ser usada nas ligações SQL Server Management Studio ou Azure Data Studio: `<mi_name>.public.<dns_zone>.database.windows.net,3342`
 
     ![A screenshot mostra as cordas de ligação para os seus pontos finais públicos e privados.](./media/public-endpoint-configure/mi-public-endpoint-conn-string.png)
 

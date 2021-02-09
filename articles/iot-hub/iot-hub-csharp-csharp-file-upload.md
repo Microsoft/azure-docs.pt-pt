@@ -1,5 +1,5 @@
 ---
-title: Faça upload de ficheiros de dispositivos para Azure IoT Hub com .NET / Microsoft Docs
+title: Faça upload de ficheiros de dispositivos para Azure IoT Hub com .NET | Microsoft Docs
 description: Como carregar ficheiros de um dispositivo para a nuvem usando o dispositivo Azure IoT SDK para .NET. Os ficheiros carregados são armazenados num recipiente de bolhas de armazenamento Azure.
 author: robinsh
 manager: philmea
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/04/2017
 ms.author: robinsh
 ms.custom: mqtt, devx-track-csharp
-ms.openlocfilehash: 8d45ad630d09a4909cf00b830df139057cc0fcaf
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 43cafb8c5efe0581fe7c4136aa41980b3d817be2
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92142296"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99981413"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-net"></a>Faça upload de ficheiros do seu dispositivo para a nuvem com IoT Hub (.NET)
 
@@ -79,16 +79,15 @@ Nesta secção, modifica a aplicação do dispositivo que criou no [Enviar mensa
 1. Adicione o seguinte método à classe **Programa:**
 
     ```csharp
-    private static async void SendToBlobAsync()
+    private static async Task SendToBlobAsync(string fileName)
     {
-        string fileName = "image.jpg";
         Console.WriteLine("Uploading file: {0}", fileName);
         var watch = System.Diagnostics.Stopwatch.StartNew();
 
-        using (var sourceData = new FileStream(@"image.jpg", FileMode.Open))
-        {
-            await deviceClient.UploadToBlobAsync(fileName, sourceData);
-        }
+        await deviceClient.GetFileUploadSasUriAsync(new FileUploadSasUriRequest { BlobName = fileName });
+        var blob = new CloudBlockBlob(sas.GetBlobUri());
+        await blob.UploadFromFileAsync(fileName);
+        await deviceClient.CompleteFileUploadAsync(new FileUploadCompletionNotification { CorrelationId = sas.CorrelationId, IsSuccess = true });
 
         watch.Stop();
         Console.WriteLine("Time to upload file: {0}ms\n", watch.ElapsedMilliseconds);
@@ -100,7 +99,7 @@ Nesta secção, modifica a aplicação do dispositivo que criou no [Enviar mensa
 1. Adicione a seguinte linha no método **principal,** imediatamente `Console.ReadLine()` antes:
 
     ```csharp
-    SendToBlobAsync();
+    await SendToBlobAsync("image.jpg");
     ```
 
 > [!NOTE]
@@ -124,7 +123,7 @@ Nesta secção, escreve uma aplicação de consola .NET que recebe mensagens de 
 
 1. No Solution Explorer, clique com o botão direito no projeto **ReadFileUploadNotification** e selecione **Gerir pacotes NuGet**.
 
-1. In **NuGet Package Manager**, selecione **Procurar**. Procure e selecione **Microsoft.Azure.Devices**e, em seguida, **selecione Instalar**.
+1. In **NuGet Package Manager**, selecione **Procurar**. Procure e selecione **Microsoft.Azure.Devices** e, em seguida, **selecione Instalar**.
 
     Este passo descarrega, instala e adiciona uma referência ao [pacote SDK NuGet do serviço Azure IoT](https://www.nuget.org/packages/Microsoft.Azure.Devices/) no projeto **ReadFileUploadNotification.**
 
@@ -182,7 +181,7 @@ Agora pode executar as aplicações.
 
 1. No Solutions Explorer, clique com o botão direito na sua solução e selecione **set StartUp Projects**.
 
-1. No **Common Properties**Startup  >  **Project**, selecione **Vários projetos de startups,** em seguida, selecione a ação **iniciar** para **ReadFileUploadNotification** e **SimulatedDevice**. Selecione **OK** para guardar as alterações.
+1. No **Common Properties** Startup  >  **Project**, selecione **Vários projetos de startups,** em seguida, selecione a ação **iniciar** para **ReadFileUploadNotification** e **SimulatedDevice**. Selecione **OK** para guardar as alterações.
 
 1. Prima **F5**. Ambas as aplicações devem começar. Deverá ver o upload concluído numa aplicação de consola e a mensagem de notificação de upload recebida pela outra aplicação de consola. Pode utilizar o [portal Azure](https://portal.azure.com/) ou o Visual Studio Server Explorer para verificar a presença do ficheiro carregado na sua conta de Armazenamento Azure.
 

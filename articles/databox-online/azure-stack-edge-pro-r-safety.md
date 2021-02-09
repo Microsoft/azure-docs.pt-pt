@@ -1,19 +1,19 @@
 ---
-title: Guia de segurança Azure Stack Edge Pro R / Microsoft Docs
+title: Guia de segurança Azure Stack Edge Pro R | Microsoft Docs
 description: Descreve convenções de segurança, diretrizes, considerações e explica como instalar e operar com segurança o seu dispositivo Azure Stack Edge Pro R.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 12/18/2020
+ms.date: 02/04/2021
 ms.author: alkohli
-ms.openlocfilehash: 627196c0a76f1de23f7e5421c47a33356a73967f
-ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
+ms.openlocfilehash: cc24839396116a5b581758b29b087c237a6f902b
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/21/2020
-ms.locfileid: "97709449"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99981345"
 ---
 # <a name="azure-stack-edge-pro-r-safety-instructions"></a>Instruções de segurança Azure Stack Edge Pro R
 
@@ -37,7 +37,7 @@ Os seguintes ícones de perigo devem ser observados ao configurar e executar o s
 | Ícone | Description |
 |:--- |:--- |
 | ![Leia todas as instruções primeiro](./media/azure-stack-edge-pro-r-safety/icon-safety-read-all-instructions.png) | Leia todas as instruções primeiro |
-| ![Símbolo de perigo](./media/azure-stack-edge-pro-r-safety/icon-safety-warning.png) | Símbolo de perigo |
+| ![Aviso de ícone ](./media/azure-stack-edge-mini-r-safety/icon-safety-notice.png) **de aviso:** | Indica informações consideradas importantes, mas não relacionadas com riscos. || ![Símbolo de perigo](./media/azure-stack-edge-pro-r-safety/icon-safety-warning.png) | Símbolo de perigo |
 | ![Ícone de perigo de ponta](./media/azure-stack-edge-pro-r-safety/icon-safety-tip-hazard.png)  | Risco de ponta|
 | ![Ícone de peso pesado](./media/azure-stack-edge-pro-r-safety/icon-safety-heavy-weight.png)  | Risco de peso pesado|
 | ![Ícone de choque elétrico](./media/azure-stack-edge-pro-r-safety/icon-safety-electric-shock.png) | Risco de choque elétrico |
@@ -88,6 +88,7 @@ Os seguintes ícones de perigo devem ser observados ao configurar e executar o s
   * Dotamento de espaço adequado para aceder aos cabos de alimentação, porque servem como a principal desconexão de energia do produto.
 * Os cabos Ethernet não estão equipados com o produto. Para reduzir a interferência eletromagnética, recomenda-se a utilização de cabos de pares torcidos blindados cat 6 (STP).
 * Instale o equipamento numa área de trabalho que permite uma circulação de ar adequada em torno do equipamento; Certifique-se de que as tampas dianteiras e traseiras estão completamente removidas enquanto o aparelho está em funcionamento.
+* Os cabos Ethernet não estão equipados com o produto. Para reduzir a interferência eletromagnética, recomenda-se a utilização de cabos de cabos cat 6 blindados (STP).
 * Instale o equipamento em zona controlada a temperatura, sem contaminantes condutores e permita uma circulação adequada do ar em torno do equipamento.
 * Mantenha o equipamento afastado de fontes de ambientes líquidos e excessivamente húmidos.
 * Não permita que nenhum objeto líquido ou estranho entre no sistema. Não coloque bebidas ou outros recipientes líquidos sobre ou perto do sistema.
@@ -207,7 +208,7 @@ A device that has a UPS installed is designed to operate in the following enviro
 > Maximum corrosive contaminant levels measured at &lt;/= 50% relative humidity. --> 
 
 
-> ![Aviso de ícone ](./media/azure-stack-edge-pro-r-safety/icon-safety-notice.png) **aviso:** &nbsp; Alterações ou modificações efetuadas no equipamento não expressamente aprovadas pela Microsoft podem anular a autoridade do utilizador para operar o equipamento.
+> ![Aviso Ícone - 2 ](./media/azure-stack-edge-pro-r-safety/icon-safety-notice.png) **AVISO:** &nbsp; Alterações ou modificações efetuadas no equipamento não expressamente aprovadas pela Microsoft podem anular a autoridade do utilizador para operar o equipamento.
 
 CANADÁ e EUA:
 

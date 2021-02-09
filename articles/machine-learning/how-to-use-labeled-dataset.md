@@ -9,12 +9,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to, data4ml
 ms.date: 05/14/2020
-ms.openlocfilehash: b7eaf374e72997013f09b1c94ce16c67d115a818
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: a4f15a1a0911e5a33da8b5f9445709cb42e7e10e
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94987376"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99981515"
 ---
 # <a name="create-and-explore-azure-machine-learning-dataset-with-labels"></a>Criar e explorar conjunto de dados de aprendizagem automática Azure com rótulos
 
@@ -39,6 +39,9 @@ Quando concluir um projeto de rotulagem de dados, pode exportar os dados do rót
 ### <a name="coco"></a>COCO 
 
  O ficheiro COCO é criado na loja blob padrão do espaço de trabalho Azure Machine Learning numa pasta dentro *da exportação/coco*. 
+ 
+>[!NOTE]
+>Nos projetos de deteção de objetos, os valores exportados de "bbox": [x,y,largura,altura]" valores em ficheiro COCO são normalizados. São dimensionado para 1. Exemplo: uma caixa de delimitação em (10, 10) localização, com 30 pixels de largura, 60 pixels de altura, numa imagem de 640x480 pixels será anotada como (0.015625. 0.02083, 0.046875, 0.125). Uma vez que as coordintes estão normalizadas, mostrará como "0.0" como "largura" e "altura" para todas as imagens. A largura e altura reais podem ser obtidas utilizando a biblioteca Python como OpenCV ou Pillow (PIL).
 
 ### <a name="azure-machine-learning-dataset"></a>Conjunto de dados de aprendizagem automática Azure
 
@@ -114,6 +117,6 @@ gray_image = F.to_grayscale(pil_image, num_output_channels=3)
 imgplot = plt.imshow(gray_image)
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Consulte o [conjunto de dados com o caderno de etiquetas](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/labeled-datasets/labeled-datasets.ipynb) para obter uma amostra completa de treino.

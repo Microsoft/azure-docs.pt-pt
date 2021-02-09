@@ -10,27 +10,27 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 01/13/2021
 ms.author: pafarley
-ms.openlocfilehash: ec340e3371b0fe337354006b1284a21420a11f3a
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 1128504ee5f8c086d6a3c30a9fdd021550394f3f
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99573641"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99981770"
 ---
 # <a name="whats-new-in-computer-vision"></a>Novidades na Visão Computacional
 
 Saiba o que há de novo no serviço. Estes itens podem ser notas de lançamento, vídeos, posts de blog e outros tipos de informação. Marque esta página para ficar a par do serviço.
 
-## <a name="february-2021"></a>fevereiro de 2021
+## <a name="february-2021"></a>Fevereiro de 2021
 
 ### <a name="read-api-v32-public-preview-with-ocr-support-for-73-languages"></a>Leia API v3.2 Visualização pública com suporte OCR para 73 línguas
 A pré-visualização pública da API v3.2 da Computer Vision inclui estas capacidades:
-* OCR para um total de [73 línguas,](./language-support.md#optical-character-recognition-ocr) incluindo chinês simplificado e tradicional, japonês, coreano e grandes línguas latinas.
-* Escolha se des output as linhas de texto na ordem esquerda-direita e superior inferior (predefinição) ou uma ordem de leitura mais natural.
-* Para cada saída de linha de texto, indique se o seu estilo de caligrafia ou não, juntamente com uma pontuação de confiança (apenas línguas latinas).
+* [OCR para 73 línguas,](./language-support.md#optical-character-recognition-ocr) incluindo línguas chinesas simplificadas e tradicionais, japonesas, coreanas e latinas.
+* Des output as linhas de texto na ordem de leitura natural.
+* Classifique as linhas de texto como estilo de caligrafia ou não juntamente com uma pontuação de confiança (apenas línguas latinas).
 * Para um texto de extrato de documento de várias páginas apenas para páginas selecionadas ou intervalo de página.
 
-Consulte a [visão geral](concept-recognizing-text.md) da API para saber mais.
+Consulte [as funcionalidades de pré-visualização de Leitura](concept-recognizing-text.md#natural-reading-order-output) para obter mais informações.
 
 > [!div class="nextstepaction"]
 > [Utilize a API de Leitura v3.2 Visualização pública](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005)

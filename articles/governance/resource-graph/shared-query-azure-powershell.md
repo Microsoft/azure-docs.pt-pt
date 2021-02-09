@@ -4,12 +4,12 @@ description: Neste arranque rápido, você segue os passos para criar uma consul
 ms.date: 01/11/2021
 ms.topic: quickstart
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: d7efc02cad3aaa67c639a319f1a7bb455d6e04b0
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: 2b771253b1dea4bd1d2913bf7c48062112019a19
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98128097"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99981549"
 ---
 # <a name="quickstart-create-a-resource-graph-shared-query-using-azure-powershell"></a>Quickstart: Criar uma consulta partilhada de gráficos de recurso usando Azure PowerShell
 
@@ -36,7 +36,7 @@ Este artigo descreve como pode criar uma consulta partilhada Azure Resource Grap
 
 ## <a name="create-a-resource-graph-shared-query"></a>Criar uma consulta partilhada de gráficos de recurso
 
-Com o `Az.ResourceGraph` módulo PowerShell adicionado ao seu ambiente de eleição, é hora de criar uma consulta partilhada de Gráfico de Recurso. A consulta partilhada é um objeto Azure Resource Manager que pode conceder permissão ou executar no Azure Resource Graph Explorer. A consulta resume a contagem de todos os recursos agrupados por _localização._
+Com o módulo **Az.ResourceGraph** PowerShell adicionado ao seu ambiente de eleição, é hora de criar uma consulta partilhada de Gráfico de Recurso. A consulta partilhada é um objeto Azure Resource Manager que pode conceder permissão ou executar no Azure Resource Graph Explorer. A consulta resume a contagem de todos os recursos agrupados por _localização._
 
 1. Crie um grupo de recursos com [o New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) para armazenar a consulta partilhada do Azure Resource Graph. Este grupo de recursos foi nomeado `resource-graph-queries` e a localização é `westus2` .
 
@@ -47,7 +47,7 @@ Com o `Az.ResourceGraph` módulo PowerShell adicionado ao seu ambiente de eleiç
    New-AzResourceGroup -Name resource-graph-queries -Location westus2
    ```
 
-1. Crie a consulta partilhada Azure Resource Graph utilizando o `Az.ResourceGraph` módulo PowerShell e o cmdlet [New-AzResourceGraphQuery:](/powershell/module/az.resourcegraph/new-azresourcegraphquery)
+1. Crie a consulta partilhada Azure Resource Graph utilizando o módulo **Az.ResourceGraph** PowerShell e o cmdlet [New-AzResourceGraphQuery:](/powershell/module/az.resourcegraph/new-azresourcegraphquery)
 
    ```azurepowershell-interactive
    # Create the Azure Resource Graph shared query
@@ -75,12 +75,12 @@ Com o `Az.ResourceGraph` módulo PowerShell adicionado ao seu ambiente de eleiç
    Get-AzResourceGraphQuery -ResourceGroupName resource-graph-queries -Name 'Summarize resources by location'
    ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se desejar remover a consulta partilhada do Gráfico de Recurso e o grupo de recursos do seu ambiente Azure, pode fazê-lo utilizando os seguintes comandos:
 
 - [Remove-AzResourceGraphQuery](/powershell/module/az.resourcegraph/remove-azresourcegraphquery)
-- [Remove-AzResourceGroup](/cli/azure/group#az_group_delete)
+- [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup)
 
 ```azurepowershell-interactive
 # Delete the Azure Resource Graph shared query
