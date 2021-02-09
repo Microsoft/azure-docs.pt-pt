@@ -7,12 +7,12 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.date: 10/20/2019
-ms.openlocfilehash: 2b8ed417de966f8731542e8f5ca12a6a05e2dc8a
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.openlocfilehash: 9d7c4d2afa8eaf197ec05bcb0aed654153fb8f0d
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/08/2021
-ms.locfileid: "99820284"
+ms.locfileid: "99831302"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-digital-distribution-center-application-template"></a>Tutorial: Implementar e caminhar através de um modelo de aplicação de centro de distribuição digital
 
@@ -109,8 +109,8 @@ Se não continuar a utilizar esta aplicação, elimine o modelo de aplicação v
 > ![Screenshot mostrando como apagar a aplicação quando terminar com ela](./media/tutorial-iot-central-ddc/ddc-cleanup.png)
 
 ## <a name="next-steps"></a>Passos seguintes
-* Saiba mais sobre arquitetura de solução de centro de distribuição digital 
+
+Saiba mais sobre a arquitetura de soluções de centro de distribuição digital:
+
 > [!div class="nextstepaction"]
 > [conceito de centro de distribuição digital](./architecture-digital-distribution-center.md)
-* Saiba mais sobre outros [modelos de varejo IoT Central](./overview-iot-central-retail.md)
-* Saiba mais sobre ioT Central consulte [a visão geral do IoT Central](../core/overview-iot-central.md)

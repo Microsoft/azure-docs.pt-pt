@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Criar uma app de monitorização contínua do paciente com a Azure IoT Central Microsoft Docs
+title: Tutorial - Crie uma app de monitorização contínua do paciente com a Azure IoT Central | Microsoft Docs
 description: Neste tutorial, você aprende a construir uma aplicação de monitorização contínua do paciente usando modelos de aplicação Azure IoT Central.
 author: philmea
 ms.author: philmea
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: 1967a2fb5adebe01ef4bff8d58f7832bffe95762
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f98482a43516683499e83bebafe4eeadc5b7a8b7
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90531275"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832509"
 ---
 # <a name="tutorial-deploy-and-walkthrough-a-continuous-patient-monitoring-app-template"></a>Tutorial: Implementar e caminhar através de um modelo de aplicação de monitorização contínua do paciente
 
@@ -24,6 +24,10 @@ Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
 > * Criar um modelo de aplicação
 > * Caminhe através do modelo de aplicação
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+Recomenda-se uma subscrição do Azure. Em alternativa, pode usar um teste gratuito de 7 dias. Se não tiver uma subscrição do Azure, pode criar uma na página de inscrição do [Azure](https://aka.ms/createazuresubscription).
 
 ## <a name="create-an-application-template"></a>Criar um modelo de aplicação
 
@@ -61,11 +65,11 @@ Depois de implementar o modelo de aplicação, você pousará primeiro no **pain
 
 * Altere o estado do **paciente** do seu dispositivo para indicar se o dispositivo está a ser utilizado para um cenário in-patient ou remoto.
 
-:::image type="content" source="media/lamna-in-patient.png" alt-text="Modelo de aplicativo Healthcre":::
+:::image type="content" source="media/lamna-in-patient.png" alt-text="Estado do doente":::
 
 Também pode selecionar **Ir ao painel de instrumentos do paciente remoto** para ver o painel do operador do Hospital de Burkville. Este painel contém um conjunto semelhante de ações, telemetria e informação. Também pode ver vários dispositivos em uso e optar por **atualizar o firmware** em cada um.
 
-:::image type="content" source="media/lamna-remote.png" alt-text="Modelo de aplicativo Healthcre":::
+:::image type="content" source="media/lamna-remote.png" alt-text="Painel de instrumentos do operador remoto":::
 
 ### <a name="device-templates"></a>Modelos de dispositivo
 
@@ -73,9 +77,9 @@ Se selecionar **modelos de dispositivo,** consulte os dois tipos de dispositivo 
 
 * **Smart Vitals Patch**: Este dispositivo representa um patch que mede vários sinais vitais. É usado para monitorizar pacientes dentro e fora do hospital. Se selecionar o modelo, verá que o patch envia dados do dispositivo, tais como o nível da bateria e a temperatura do dispositivo, e dados de saúde do paciente, tais como a taxa respiratória e a pressão arterial.
 
-* **Cinta de joelho**inteligente : Este dispositivo representa uma joelheira que os pacientes usam quando recuperam de uma cirurgia de substituição do joelho. Se selecionar este modelo, vê capacidades como dados do dispositivo, alcance de movimento e aceleração.
+* **Cinta de joelho** inteligente : Este dispositivo representa uma joelheira que os pacientes usam quando recuperam de uma cirurgia de substituição do joelho. Se selecionar este modelo, vê capacidades como dados do dispositivo, alcance de movimento e aceleração.
 
-:::image type="content" source="media/smart-vitals-device-template.png" alt-text="Modelo de aplicativo Healthcre":::
+:::image type="content" source="media/smart-vitals-device-template.png" alt-text="Modelo de patch inteligente":::
 
 ### <a name="device-groups"></a>Device groups
 
@@ -93,7 +97,7 @@ Se selecionar **Regras,** vê as três regras no modelo:
 
 * **Bateria de remendação fraca**: Esta regra é acionada quando o nível da bateria do dispositivo fica abaixo de 10%. Utilize esta regra para acionar uma notificação ao paciente para carregar o seu dispositivo.
 
-:::image type="content" source="media/brace-temp-rule.png" alt-text="Modelo de aplicativo Healthcre":::
+:::image type="content" source="media/brace-temp-rule.png" alt-text="Regras":::
 
 ### <a name="jobs"></a>Tarefas
 
@@ -113,7 +117,7 @@ O separador **Propriedades** permite-lhe editar propriedades na nuvem e ler/escr
 
 O **separador Comandos** permite-lhe executar comandos no dispositivo.
 
-:::image type="content" source="media/knee-brace-dashboard.png" alt-text="Modelo de aplicativo Healthcre":::
+:::image type="content" source="media/knee-brace-dashboard.png" alt-text="Painel de joelheira":::
 
 ### <a name="data-export"></a>Exportação de dados
 
@@ -123,7 +127,7 @@ A exportação de dados permite exportar continuamente os dados do seu dispositi
 
 Se não continuar a utilizar esta aplicação, elimine a aplicação visitando **as definições de Aplicação > administração** e clique em **Eliminar**.
 
-:::image type="content" source="media/admin-delete.png" alt-text="Modelo de aplicativo Healthcre":::
+:::image type="content" source="media/admin-delete.png" alt-text="Recursos arrumados":::
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/13/2021
+ms.date: 02/08/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e7fa6b1ee7c92f82c3e15335991f5a240c7acc52
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 391c33e72f45e7c0c0b56128b32a8e73399e417a
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98762874"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99834328"
 ---
 # <a name="object-replication-for-block-blobs"></a>Replicação de objeto para bolhas de bloco
 
@@ -42,6 +42,8 @@ A replicação de objetos requer que as seguintes funcionalidades de Armazenamen
 - [Versão blob](versioning-overview.md): Deve ser ativado tanto nas contas de origem como de destino. Para aprender a ativar a versão, consulte [Ativar e gerir a versão blob](versioning-enable.md).
 
 Permitir a alteração do feed e da versão blob pode incorrer em custos adicionais. Para mais detalhes, consulte a [página de preços do Azure Storage](https://azure.microsoft.com/pricing/details/storage/).
+
+A replicação de objetos é suportada apenas para contas de armazenamento v2 para fins gerais. Tanto as contas de origem como de destino devem ser de finalidade geral v2. 
 
 ## <a name="how-object-replication-works"></a>Como funciona a replicação de objetos
 
@@ -106,7 +108,7 @@ Se o estado de replicação de uma bolha na conta de origem indicar falha, entã
 
 A replicação de objetos incorre em custos adicionais na leitura e na escrita de transações contra as contas de origem e destino, bem como encargos de erupção para a replicação de dados da conta de origem para a conta de destino e taxas de leitura para processar a alteração de feed.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Configurar a replicação de objetos](object-replication-configure.md)
 - [Alterar suporte de alimentação no armazenamento de blob Azure](storage-blob-change-feed.md)

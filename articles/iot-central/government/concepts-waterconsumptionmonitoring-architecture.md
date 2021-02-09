@@ -1,18 +1,18 @@
 ---
-title: Arquitetura de referência para a solução de monitorização do consumo de água construída com Azure IoT Central Microsoft Docs
+title: Arquitetura de referência para a solução de monitorização do consumo de água construída com Azure IoT Central| Microsoft Docs
 description: Aprenda conceitos para uma solução de monitorização do consumo de água construída com a Azure IoT Central.
 author: miriambrus
 ms.author: miriamb
 ms.date: 12/11/2020
-ms.topic: tutorial
+ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: a291a32c8fd635c9124a7e1f997b6c676c8c0bd4
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: da1eafee719919d7f3086a059d8d2c70ef8d8cb1
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97586793"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99831659"
 ---
 # <a name="water-consumption-monitoring-reference-architecture"></a>Arquitetura de referência da monitorização do consumo de água 
 
@@ -23,7 +23,7 @@ As soluções de monitorização do consumo de água podem ser construídas com 
 Conceitos:
 
 1. Dispositivos e conectividade  
-1. Centro de IoT 
+1. IoT Central 
 1. Extensibilidade e integrações
 1. Aplicações empresariais
 
@@ -34,7 +34,7 @@ Esta secção refere-se a dispositivos utilizados para soluções inteligentes d
 
 Os dispositivos utilizados em soluções de água inteligentes serão geralmente ligados através de redes de área de baixa potência (LPWAN), através de um operador de rede de terceiros. Para este tipo de dispositivos, pode utilizar a [Ponte Central de Dispositivos Azure IoT](../core/howto-build-iotc-device-bridge.md) para enviar os dados do seu dispositivo para a sua aplicação IoT no Azure IoT Central. Em alternativa, pode ter gateways de dispositivos capazes de IP e pode ligar-se diretamente à IoT Central.
 
-## <a name="iot-central"></a>Centro de IoT 
+## <a name="iot-central"></a>IoT Central 
 O Azure IoT Central é uma plataforma IoT App, que o faz começar a funcionar rapidamente na sua solução IoT. Pode marcar, personalizar e integrar a sua solução com serviços de terceiros.
 Depois de ligar os seus dispositivos de água inteligentes à IoT Central, obtém comando e controlo do dispositivo, monitorização e alerta, interface do utilizador com RBAC incorporado, dashboards de insights configuráveis e opções de extensibilidade. 
 

@@ -15,19 +15,22 @@ ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: 24b1549b2e460bc0e72fb76f5437b15838604949
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: a4f3e0bbd282fb1253e206e71c2eb1667773248e
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97896367"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99834090"
 ---
 # <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>Tutorial: Monitorizar a comunicação de rede entre duas máquinas virtuais com o portal do Azure
 
 > [!NOTE]
 > Esta capa tutorial Connection Monitor (clássico). Experimente o novo e melhorado [Monitor de Conexão](connection-monitor-overview.md) para experimentar uma monitorização melhorada da conectividade
 
-A comunicação com êxito entre uma máquina virtual (VM) e um ponto final, como outra VM, pode ser fundamental para a sua organização. Por vezes, são introduzidas alterações de configuração que podem interromper a comunicação. Neste tutorial, vai aprender a:
+> [!IMPORTANT]
+> A partir de 1 de julho de 2021, não poderá adicionar novos monitores de ligação no Connection Monitor (clássico), mas pode continuar a utilizar os monitores de ligação existentes criados antes de 1 de julho de 2021. Para minimizar a perturbação do serviço nas cargas de trabalho atuais, [migra do Connection Monitor (clássico) para o novo Monitor de Ligação](migrate-to-connection-monitor-from-connection-monitor-classic.md) no Azure Network Watcher antes de 29 de fevereiro de 2024.
+
+A comunicação com êxito entre uma máquina virtual (VM) e um ponto final, como outra VM, pode ser fundamental para a sua organização. Por vezes, são introduzidas alterações de configuração que podem interromper a comunicação. Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Criar duas VMs
@@ -78,7 +81,7 @@ Execute novamente os passos em [Criar a primeira VM](#create-the-first-vm), com 
 |Passo|Definição|Valor|
 |---|---|---|
 | 1 | Selecione uma versão do **Ubuntu Server** |                                                                         |
-| 3 | Nome                                  | myVm2                                                                   |
+| 3 | Name                                  | myVm2                                                                   |
 | 3 | Tipo de autenticação                   | Cole a chave pública SSH ou selecione **Palavra-passe** e introduza uma palavra-passe. |
 | 3 | Grupo de recursos                        | Selecione **Utilizar existente** e selecione **myResourceGroup**.                 |
 | 6 | Extensões                            | **Agente observador de rede para Linux**                                             |

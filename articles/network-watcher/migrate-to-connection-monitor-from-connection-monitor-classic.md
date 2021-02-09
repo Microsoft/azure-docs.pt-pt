@@ -12,14 +12,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: vinigam
-ms.openlocfilehash: 3c094bf5397d15e24c3b1a58369a74438c99017e
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: ff4882f2146a8b978047df2fcf6c52734534979f
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98018416"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99833988"
 ---
 # <a name="migrate-to-connection-monitor-from-connection-monitor-classic"></a>Migrar para o Monitor de Ligação a partir do Monitor de Ligação (Clássico)
+
+> [!IMPORTANT]
+> A partir de 1 de julho de 2021, não poderá adicionar novos monitores de ligação no Connection Monitor (clássico), mas pode continuar a utilizar os monitores de ligação existentes criados antes de 1 de julho de 2021. Para minimizar a perturbação do serviço nas cargas de trabalho atuais, [migra do Connection Monitor (clássico) para o novo Monitor de Ligação](migrate-to-connection-monitor-from-connection-monitor-classic.md)  no Azure Network Watcher antes de 29 de fevereiro de 2024.
 
 Pode migrar os monitores de ligação existentes para um novo Monitor de Ligação melhorado com apenas alguns cliques e com zero tempo de inatividade. Para saber mais sobre os benefícios, consulte [o Connection Monitor.](./connection-monitor-overview.md)
 
@@ -61,7 +64,7 @@ Após o início da migração, ocorrem as seguintes alterações:
 * Os monitores de ligação migrados deixaram de ser apresentados como a solução de monitor de ligação mais antiga. Estão agora disponíveis para utilização apenas no Monitor de Ligação.
 * Quaisquer integrações externas, como dashboards no Power BI e Grafana, e integrações com sistemas de Informação de Segurança e Gestão de Eventos (SIEM), devem ser migradas manualmente. Este é o único passo manual que precisa de ser acionado para migrar a sua configuração.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre o Connection Monitor, consulte:
 * [Migrar do Monitor de Desempenho da Rede para o Monitor de Ligação](./migrate-to-connection-monitor-from-network-performance-monitor.md)

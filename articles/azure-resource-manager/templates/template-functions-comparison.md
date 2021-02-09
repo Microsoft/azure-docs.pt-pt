@@ -3,12 +3,12 @@ title: Funções do modelo - comparação
 description: Descreve as funções a utilizar num modelo de Gestor de Recursos Azure (modelo ARM) para comparar valores.
 ms.topic: conceptual
 ms.date: 11/18/2020
-ms.openlocfilehash: 1b7192db361f510e0246a737de47930534a1cb9d
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 95655a4c92a1de9bb7a7faebcdaa83fb0fa75696
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920524"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99834005"
 ---
 # <a name="comparison-functions-for-arm-templates"></a>Funções de comparação para modelos ARM
 
@@ -31,7 +31,7 @@ Devolve o primeiro valor não nulo dos parâmetros. Cordas vazias, matrizes vazi
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |int, string, matriz ou objeto |O primeiro valor a testar para nulo. |
 | args adicionais |Não |int, string, matriz ou objeto |Valores adicionais para testar para nulo. |
@@ -106,11 +106,11 @@ param objectToTest object = {
   ]
 }
 
-output stringOutput string = coalesce(objectToTest.null1, objectToTest.null2, objectToTest.string)
-output intOutput int = coalesce(objectToTest.null1, objectToTest.null2, objectToTest.int)
-output objectOutput object = coalesce(objectToTest.null1, objectToTest.null2, objectToTest.object)
-output arrayOutput array = coalesce(objectToTest.null1, objectToTest.null2, objectToTest.array)
-output emptyOutput bool =empty(coalesce(objectToTest.null1, objectToTest.null2))
+output stringOutput string = objectToTest.null1 ?? objectToTest.null2 ?? objectToTest.string
+output intOutput int = objectToTest.null1 ?? objectToTest.null2 ?? objectToTest.int
+output objectOutput object = objectToTest.null1 ?? objectToTest.null2 ?? objectToTest.object
+output arrayOutput array = objectToTest.null1 ?? objectToTest.null2 ?? objectToTest.array
+output emptyOutput bool =empty(objectToTest.null1 ?? objectToTest.null2)
 ```
 
 ---
@@ -133,7 +133,7 @@ Verifica se dois valores são iguais uns aos outros. A `equals` função não é
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |int, string, matriz ou objeto |O primeiro valor a verificar a igualdade. |
 | arg2 |Sim |int, string, matriz ou objeto |O segundo valor para verificar a igualdade. |
@@ -317,7 +317,7 @@ Verifica se o primeiro valor é maior do que o segundo valor. A `greater` funç�
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |int ou string |O primeiro valor para uma maior comparação. |
 | arg2 |Sim |int ou string |O segundo valor para uma maior comparação. |
@@ -398,7 +398,7 @@ Verifica se o primeiro valor é superior ou igual ao segundo valor. A `greaterOr
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |int ou string |O primeiro valor para a comparação maior ou igual. |
 | arg2 |Sim |int ou string |O segundo valor para a comparação maior ou igual. |
@@ -479,7 +479,7 @@ Verifica se o primeiro valor é inferior ao segundo valor. A `less` função nã
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |int ou string |O primeiro valor para menos comparação. |
 | arg2 |Sim |int ou string |O segundo valor para menos comparação. |
@@ -560,7 +560,7 @@ Verifica se o primeiro valor é inferior ou igual ao segundo valor. A `lessOrEqu
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
 | arg1 |Sim |int ou string |O primeiro valor para a comparação menos ou igual. |
 | arg2 |Sim |int ou string |O segundo valor para a comparação menos ou igual. |

@@ -4,12 +4,12 @@ description: Disponibilidade de recursos de computação e memória para o servi
 ms.topic: article
 ms.date: 04/27/2020
 ms.custom: references_regions
-ms.openlocfilehash: 63ec7c9027f957714108263dcbb4300a3cc68388
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: a415a739cd9c1e2ca39ebeaef1d8903ab72cf0c4
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98661379"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99831285"
 ---
 # <a name="resource-availability-for-azure-container-instances-in-azure-regions"></a>Disponibilidade de recursos para instâncias de contentores Azure nas regiões de Azure
 
@@ -29,12 +29,12 @@ As seguintes regiões e recursos máximos estão disponíveis para grupos de con
 > [!IMPORTANT]
 > Os recursos máximos numa região são diferentes dependendo da sua implantação. Por exemplo, uma região pode ter um tamanho máximo de CPU e memória diferente numa implementação de rede virtual Azure do que para uma implantação geral. Essa mesma região pode também ter um conjunto diferente de valores máximos para uma implantação com recursos de GPU. Verifique o seu tipo de implantação antes de verificar as tabelas abaixo para obter os valores máximos na sua região.
 
-| Região | CPU Máxima | Memória Máxima (GB) | VNET Max CPU | Memória Máxima VNET (GB) | Armazenamento (GB) | GPU SKUs (pré-visualização) |
+| Region | CPU Máxima | Memória Máxima (GB) | VNET Max CPU | Memória Máxima VNET (GB) | Armazenamento (GB) | GPU SKUs (pré-visualização) |
 | -------- | :---: | :---: | :----: | :-----: | :-------: | :----: |
 | Leste da Austrália | 4 | 16 | 4 | 16 | 50 | N/D |
 | Sul do Brasil | 4 | 16 | 2 | 8 | 50 | N/D |
 | Canadá Central | 4 | 16 | 4 | 16 | 50 | N/D |
-| Índia Central | 4 | 16 | N/D | N/D | 50 | V100 |
+| Índia Central | 4 | 16 | 4 | 4 | 50 | V100 |
 | E.U.A. Central | 4 | 16 | 4 | 16 | 50 | N/D |
 | Ásia Leste | 4 | 16 | 4 | 16 | 50 | N/D |
 | E.U.A. Leste | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 |
@@ -81,7 +81,7 @@ As seguintes regiões e recursos máximos estão disponíveis para grupos de con
 > [!NOTE]
 > Consulte [a compatibilidade da versão host e do recipiente](/virtualization/windowscontainers/deploy-containers/update-containers#host-and-container-version-compatibility) para obter mais informações sobre os anfitriões 1B, 2B e 3B.
 
-| Região | 1B/2B Max CPU | 1B/2B Memória Máxima (GB) |3B Max CPU | 3B Memória Máxima (GB) | Armazenamento (GB) |
+| Region | 1B/2B Max CPU | 1B/2B Memória Máxima (GB) |3B Max CPU | 3B Memória Máxima (GB) | Armazenamento (GB) |
 | -------- | :---: | :---: | :----: | :-----: | :-------: |
 | Leste da Austrália | 2 | 8 | 2 | 8 | 20 |
 | Sul do Brasil | 4 | 16 | 4 | 16 | 20 |
@@ -110,7 +110,7 @@ As seguintes regiões e recursos máximos estão disponíveis para grupos de con
 > [!NOTE]
 > Consulte [a compatibilidade da versão host e do recipiente](/virtualization/windowscontainers/deploy-containers/update-containers#host-and-container-version-compatibility) para obter mais informações sobre os anfitriões 1B, 2B e 3B.
 
-| Região | 1B/2B Max CPU | 1B/2B Memória Máxima (GB) |3B Max CPU | 3B Memória Máxima (GB) | Armazenamento (GB) |
+| Region | 1B/2B Max CPU | 1B/2B Memória Máxima (GB) |3B Max CPU | 3B Memória Máxima (GB) | Armazenamento (GB) |
 | -------- | :---: | :---: | :----: | :-----: | :-------: |
 | Leste da Austrália | 4 | 16 | 4 | 16 | 20 |
 | Sul do Brasil | 4 | 16 | 4 | 16 | 20 |

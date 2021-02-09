@@ -1,19 +1,22 @@
 ---
-title: Preços FAQ para Azure Network Performance Monitor / Microsoft Docs
+title: Preços FAQ para monitor de desempenho da rede Azure | Microsoft Docs
 description: Perguntas frequentes - Azure Network Performance Monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: agummadi
 ms.author: agummadi
 ms.date: 04/02/2018
-ms.openlocfilehash: f44afd84c58c94c6a8d3e6145e8a4f66e0e2e782
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4b9e8a81095a63c667925f8b51d9f9f2aa081f8d
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86539657"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832883"
 ---
 # <a name="pricing-changes-for-azure-network-performance-monitor"></a>Alterações de preços para O Monitor de Desempenho da Rede Azure
+
+> [!IMPORTANT]
+> A partir de 1 de julho de 2021, não poderá adicionar novos testes num espaço de trabalho existente ou permitir um novo espaço de trabalho no Network Performance Monitor. Pode continuar a utilizar os testes criados antes de 1 de julho de 2021. Para minimizar a perturbação do serviço nas suas cargas de trabalho atuais, [migrar os seus testes do Monitor de Desempenho da Rede para o novo Monitor de Ligação](https://docs.microsoft.com/azure/network-watcher/migrate-to-connection-monitor-from-network-performance-monitor) no Azure Network Watcher antes de 29 de fevereiro de 2024.
 
 Ouvimos o seu feedback e introduzimos recentemente uma [nova experiência de preços](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/) para vários serviços de monitorização em todo o Azure. Este artigo captura as alterações de preços relacionadas com o Azure [Network Performance Monitor](../../networking/network-monitoring-overview.md) (NPM) num formato de perguntas e respostas de fácil leitura.
 
@@ -75,11 +78,11 @@ O volume de dados gerados por mês, quando o ExpressRoute monitoriza uma ligaç�
 |Percentil      |Dados/mês (MB)|
 | :---:          |           ---:|
 |50<sup>th</sup> |            192|
-|60<sup>th</sup> |            256|
-|70<sup>th</sup> |            360|
-|80<sup>th</sup> |            498|
-|90<sup>th</sup> |            870|
-|95<sup>th</sup> |           1560|
+|60<sup></sup> |            256|
+|70<sup></sup> |            360|
+|80<sup></sup> |            498|
+|90<sup></sup> |            870|
+|95<sup></sup> |           1560|
 
 
 De acordo com esta tabela, os clientes do percentil 50 pagam 192 MB de dados. A USD $2,30/GB para o primeiro mês, o custo incorrido para a monitorização de um circuito é DE USD $0,43 (= 192 * 2,30 / 1024).

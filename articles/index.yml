@@ -13,12 +13,12 @@ metadata:
   ms.date: 01/29/2021
   featureFlags:
   - clicktale
-  ms.openlocfilehash: 57d3607b2076b7a5990361278c8c1372fff1b711
-  ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+  ms.openlocfilehash: 2bb8d9cabdd781f427f36dfda344d7505ce584b0
+  ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 02/01/2021
-  ms.locfileid: "99225597"
+  ms.lasthandoff: 02/08/2021
+  ms.locfileid: "99834281"
 highlightedContent:
   items:
   - title: Guia de introdução para programadores do Azure
@@ -71,6 +71,12 @@ productDirectory:
     - ai-machine-learning
     - analytics
     url: /azure/databricks/
+  - title: Bot de Saúde
+    summary: Um serviço gerido construído de propósito para o desenvolvimento de assistentes de saúde virtuais.
+    imageSrc: media/index/health-bot-logo.svg
+    azureCategories:
+    - ai-machine-learning
+    url: /azure/health-bot/
   - title: Azure Machine Learning
     summary: Leve a IA a todos com uma plataforma ponto a ponto, dimensionável e fiável com experimentação e gestão de modelos
     imageSrc: https://static.docs.com/ui/media/product/azure/machine-learning.svg

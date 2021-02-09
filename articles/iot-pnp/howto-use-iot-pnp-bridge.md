@@ -1,5 +1,5 @@
 ---
-title: Como ligar uma amostra de ponte IoT Plug e Play que corre no Linux ou no Windows a um hub IoT Microsoft Docs
+title: Como ligar uma amostra de ponte IoT Plug e Play que funciona no Linux ou windows a um hub IoT | Microsoft Docs
 description: Construa e corra a IoT Plug e jogue a ponte em Linux ou Windows que se conecta a um hub IoT. Utilize a ferramenta exploradora Azure IoT para visualizar as informações enviadas pelo dispositivo para o hub.
 author: usivagna
 ms.author: ugans
@@ -7,12 +7,12 @@ ms.date: 12/11/2020
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: bf730dbc28d15c3d036e9ebeedbe035db087c5d8
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 9bcf256b6144702254bbff4a57e5ff402abaa962
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97673036"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99834107"
 ---
 # <a name="how-to-connect-an--iot-plug-and-play-bridge-sample-running-on-linux-or-windows-to-iot-hub"></a>Como ligar uma amostra de ponte IoT Plug e Play que funciona no Linux ou windows ao IoT Hub
 
@@ -279,6 +279,8 @@ Para baixar os modelos para explorador Azure IoT:
 Depois de a ponte começar, utilize a ferramenta exploradora Azure IoT para verificar se está a funcionar. Pode ver a telemetria, propriedades e comandos definidos no `dtmi:com:example:PnpBridgeEnvironmentalSensor;1` modelo.
 
 [!INCLUDE [iot-pnp-iot-explorer.md](../../includes/iot-pnp-iot-explorer.md)]
+
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 [!INCLUDE [iot-pnp-clean-resources.md](../../includes/iot-pnp-clean-resources.md)]
 

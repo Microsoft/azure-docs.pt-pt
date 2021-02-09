@@ -7,13 +7,13 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
-ms.date: 02/02/2021
-ms.openlocfilehash: 0eb3b8feda09d931654d1781ea37737d68a1b377
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.date: 02/04/2021
+ms.openlocfilehash: 37a9294b156bd41b72e777696f10a1c4ac2bb354
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99526641"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832764"
 ---
 # <a name="whats-new-in-azure-sentinel"></a>Novidades em Azure Sentinel
 
@@ -32,6 +32,7 @@ As funcionalidades notadas estão atualmente em PREVIEW. Os [Termos Complementar
 
 ## <a name="january-2021"></a>Janeiro de 2021
 
+- [Assistente de regras de análise: Experiência de edição de consulta melhorada (pré-visualização pública)](#analytics-rule-wizard-improved-query-editing-experience-public-preview)
 - [Módulo Az.SecurityInsights PowerShell (pré-visualização pública)](#azsecurityinsights-powershell-module-public-preview)
 - [Conector de base de dados SQL](#sql-database-connector)
 - [Melhores comentários de incidentes](#improved-incident-comments)
@@ -40,6 +41,16 @@ As funcionalidades notadas estão atualmente em PREVIEW. Os [Termos Complementar
 - [Melhor afinação de regras com os gráficos de pré-visualização da regra de análise](#improved-rule-tuning-with-the-analytics-rule-preview-graphs-public-preview)
 
 
+## <a name="analytics-rule-wizard-improved-query-editing-experience-public-preview"></a>Assistente de regras de análise: Experiência de edição de consulta melhorada (pré-visualização pública)
+
+O assistente de regras de análise Azure Sentinel Agendado agora fornece as seguintes melhorias para consultas de escrita e edição:
+
+-   Uma janela de edição expansível, proporcionando-lhe mais espaço de ecrã para visualizar a sua consulta.
+-   Palavra-chave realçando no seu código de consulta.
+-   Suporte auto-completo expandido.
+-   Validações de consultas em tempo real. Os erros na sua consulta mostram agora como um bloco vermelho na barra de deslocação e como um ponto vermelho no nome do separador **de lógica de regra definida.** Além disso, uma consulta com erros não pode ser guardada.
+
+Para obter mais informações, consulte [Tutorial: Detete ameaças fora da caixa](tutorial-detect-threats-built-in.md).
 ### <a name="azsecurityinsights-powershell-module-public-preview"></a>Módulo Az.SecurityInsights PowerShell (pré-visualização pública)
 
 O Azure Sentinel suporta agora o novo módulo [Az.SecurityInsights](https://www.powershellgallery.com/packages/Az.SecurityInsights/) PowerShell.
@@ -113,7 +124,7 @@ Esta atualização para o Azure Sentinel inclui novas consultas de caça que for
 - **Coleção**
 - **Comando e Controlo**
 - **Acesso Credencial**
-- **Descoberta**
+- **Deteção**
 - **Execução**
 - **Exfiltração**
 - **Impacto**

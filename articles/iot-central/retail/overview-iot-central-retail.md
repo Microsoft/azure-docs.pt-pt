@@ -1,5 +1,5 @@
 ---
-title: Construir soluções de retalho com a Azure IoT Central Microsoft Docs
+title: Quais são as soluções de retalho Azure IoT Central | Microsoft Docs
 description: Saiba como utilizar modelos de aplicação Azure IoT Central para construir logística conectada, centro de distribuição digital, análise na loja, monitorização de condições, check-out, gestão de inventário inteligente e soluções de retalho.
 author: avneet723
 ms.author: avneets
@@ -8,14 +8,14 @@ ms.topic: overview
 ms.service: iot-central
 ms.subservice: iot-central-retail
 services: iot-central
-ms.openlocfilehash: 43bf91c83f66b05c448e52286b34c51a9fd30a2b
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 56198cf661001bcfcec45d483d0f691234851894
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92124967"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832288"
 ---
-# <a name="building-retail-solutions-with-azure-iot-central"></a>Criar soluções para o comércio com o Azure IoT Central
+# <a name="what-are-the-iot-central-retail-solutions"></a>Quais são as soluções de retalho IoT Central?
 
 A Azure IoT Central é uma plataforma de aplicações IoT que reduz os encargos e custos associados ao desenvolvimento, gestão e manutenção de soluções IoT de nível empresarial. Optar por construir com a Azure IoT Central dá-lhe a oportunidade de concentrar o seu tempo, dinheiro e energia na transformação do seu negócio com dados IoT, em vez de apenas manter e atualizar uma infraestrutura IoT complexa e em constante evolução.
 
@@ -41,9 +41,9 @@ Os benefícios de uma solução logística conectada incluem:
 
 As imagens seguintes mostram o painel de instrumentos fora da caixa no modelo de aplicação. O painel de instrumentos é totalmente personalizável para satisfazer os seus requisitos específicos de solução:
 
-:::image type="content" source="media/overview-iot-central-retail/connected-logistics-dashboard1.png" alt-text="Visão geral do retalho Azure IoT":::
+:::image type="content" source="media/overview-iot-central-retail/connected-logistics-dashboard1.png" alt-text="Screenshot que mostra a metade superior do painel de operações logísticas conectado.":::
 
-:::image type="content" source="media/overview-iot-central-retail/connected-logistics-dashboard2.png" alt-text="Visão geral do retalho Azure IoT":::
+:::image type="content" source="media/overview-iot-central-retail/connected-logistics-dashboard2.png" alt-text="Screenshot que mostra a metade inferior do painel de operações logísticas conectado.":::
 
 Para saber mais, consulte o Deploy e caminhe através de um tutorial [de modelo de aplicação logística conectado.](./tutorial-iot-central-connected-logistics.md)
 
@@ -64,7 +64,7 @@ Os benefícios de um centro de distribuição digital incluem:
 
 A imagem que se segue mostra o painel de instrumentos fora da caixa no modelo de aplicação. O painel de instrumentos é totalmente personalizável para satisfazer os seus requisitos específicos de solução: 
 
-:::image type="content" source="media/overview-iot-central-retail/digital-distribution-center-dashboard.png" alt-text="Visão geral do retalho Azure IoT":::
+:::image type="content" source="media/overview-iot-central-retail/digital-distribution-center-dashboard.png" alt-text="Painel de instrumentos do Centro de Distribuição Digital":::
 
 Para saber mais, consulte o Implementar e caminhe através de um tutorial [de modelo de aplicação de centro de distribuição digital.](./tutorial-iot-central-digital-distribution-center.md)
 
@@ -86,7 +86,7 @@ O modelo de aplicação vem com um conjunto de modelos de dispositivo e usa um c
 
 A imagem que se segue mostra o painel de instrumentos fora da caixa no modelo de aplicação. O painel de instrumentos é totalmente personalizável para satisfazer os seus requisitos específicos de solução: 
 
-:::image type="content" source="media/overview-iot-central-retail/in-store-analytics-condition-dashboard.png" alt-text="Visão geral do retalho Azure IoT":::
+:::image type="content" source="media/overview-iot-central-retail/in-store-analytics-condition-dashboard.png" alt-text="Monitorização da condição de analítica na loja":::
 
 Para saber mais, consulte a aplicação de análise Create [in-store no tutorial Azure IoT Central.](./tutorial-in-store-analytics-create-app.md)
 
@@ -108,7 +108,7 @@ O modelo de aplicação vem com um conjunto de modelos de dispositivos e usa um 
 
 A imagem que se segue mostra o painel de instrumentos fora da caixa no modelo de aplicação. O painel de instrumentos é totalmente personalizável para satisfazer os seus requisitos específicos de solução: 
 
-:::image type="content" source="media/overview-iot-central-retail/In-Store-Analytics-Checkout-Dashboard.png" alt-text="Visão geral do retalho Azure IoT":::
+:::image type="content" source="media/overview-iot-central-retail/In-Store-Analytics-Checkout-Dashboard.png" alt-text="Check-out de Análise na Loja":::
 
 Para saber mais, consulte a aplicação de análise Create [in-store no tutorial Azure IoT Central.](./tutorial-in-store-analytics-create-app.md)
 
@@ -128,7 +128,7 @@ Este modelo de aplicação centra-se na conectividade do dispositivo e na config
 
 A imagem que se segue mostra o painel de instrumentos fora da caixa no modelo de aplicação. O painel de instrumentos é totalmente personalizável para satisfazer os seus requisitos específicos de solução:
 
-:::image type="content" source="media/overview-iot-central-retail/smart-inventory-management-dashboard.png" alt-text="Visão geral do retalho Azure IoT":::
+:::image type="content" source="media/overview-iot-central-retail/smart-inventory-management-dashboard.png" alt-text="Painel de gestão de inventário inteligente":::
 
 Para saber mais, consulte o Deploy e caminhe através de um tutorial [de modelo de aplicação de gestão de inventário inteligente.](./tutorial-iot-central-smart-inventory-management.md)
 
@@ -148,7 +148,7 @@ O modelo de aplicação permite-lhe:
 
 A imagem que se segue mostra o painel de instrumentos fora da caixa no modelo de aplicação. O painel de instrumentos é totalmente personalizável para satisfazer os seus requisitos específicos de solução:
 
-:::image type="content" source="media/overview-iot-central-retail/MFC-Dashboard.png" alt-text="Visão geral do retalho Azure IoT":::
+:::image type="content" source="media/overview-iot-central-retail/MFC-Dashboard.png" alt-text="Centro de Micro-Realização":::
 
 Para saber mais, consulte o Implementar e caminhe pelo tutorial [do modelo de aplicação do centro de micro-realização.](./tutorial-micro-fulfillment-center.md)
 
@@ -165,7 +165,7 @@ O modelo de aplicação inclui quatro dashboards de aplicação:
 * **(Amostra) A Real Camera Management** utiliza câmaras simuladas para mostrar como consegue gerir as suas câmaras a partir da aplicação.
 * **(Amostra) O Monitor de Câmara Real** utiliza câmaras simuladas para mostrar como pode monitorizar as suas câmaras a partir da aplicação.
 
-:::image type="content" source="media/overview-iot-central-retail/live-video-analytics.png" alt-text="Visão geral do retalho Azure IoT":::
+:::image type="content" source="media/overview-iot-central-retail/live-video-analytics.png" alt-text="Análise de vídeo - deteção de objetos e movimentos":::
 
 Para saber mais sobre a arquitetura da solução, consulte a arquitetura da [aplicação video analytics.](architecture-video-analytics.md)
 
@@ -180,9 +180,5 @@ Para aprender a implementar a solução, consulte a aplicação de análise de v
 Para começar a construir uma solução de retalho:
 
 * Começa com a [aplicação de análise da Create in-store no tutorial Azure IoT Central](./tutorial-in-store-analytics-create-app.md) que te acompanha como construir uma solução com um dos modelos de aplicação de análise na loja.
-* [Implemente e caminhe através de um modelo de aplicação logística conectada.](./tutorial-iot-central-connected-logistics.md)
-* [Implementar e caminhar através de um modelo de aplicação de centro de distribuição digital.](./tutorial-iot-central-digital-distribution-center.md)
-* [Implemente e caminhe através de um modelo inteligente de aplicação de gestão de inventário](./tutorial-iot-central-smart-inventory-management.md).
-* [Implemente e caminhe através do modelo de aplicação do centro de micro-realização](./tutorial-micro-fulfillment-center.md).
 * [Implemente e caminhe através do modelo de aplicação de análise de vídeo](./tutorial-video-analytics-deploy.md).
-* Saiba mais sobre o IoT Central na visão geral do [IoT Central](../core/overview-iot-central.md).
+* [Implemente e caminhe através de um modelo de aplicação logística conectada.](./tutorial-iot-central-connected-logistics.md)

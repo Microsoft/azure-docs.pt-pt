@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Ligue um módulo genérico de Ficha e Reprodução Azure IoT Microsoft Docs
+title: Tutorial - Ligue um módulo genérico de ficha e reprodução Azure IoT | Microsoft Docs
 description: Tutorial - Utilize a amostra C# IoT Plug e o código do dispositivo De reprodução num módulo genérico.
 author: ericmitt
 ms.author: ericmitt
@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 9ac616ddf1c3475f2ca3b3e8097bb74da72faa77
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 33eaa1ea928cc0650c91948c70d46daf499f3b4b
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95500276"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99831222"
 ---
 # <a name="tutorial-connect-an-iot-plug-and-play-module-c"></a>Tutorial: Ligue um módulo IoT Plug and Play (C#)
 
@@ -20,7 +20,12 @@ Este tutorial mostra-lhe como ligar um [módulo](../iot-hub/iot-hub-devguide-mod
 
 Um dispositivo é um dispositivo IoT Plug and Play se publicar o seu ID modelo quando se conecta a um hub IoT e implementa as propriedades e métodos descritos no modelo Digital Twins Definition Language (DTDL) identificado pelo ID do modelo. Para saber mais sobre como os dispositivos utilizam um DTDL e um ID de modelo, consulte [o guia de desenvolvimento IoT Plug and Play](./concepts-developer-guide-device.md). Os módulos utilizam iDs de modelo e modelos DTDL da mesma forma.
 
-Para demonstrar como implementar um módulo IoT Plug and Play, este tutorial mostra-lhe como converter a amostra do dispositivo termóstato C# num módulo genérico.
+Para demonstrar como implementar um módulo IoT Plug and Play, este tutorial mostra-lhe como:
+
+> [!div class="checklist"]
+> * Adicione um dispositivo com um módulo ao seu hub IoT.
+> * Converta a amostra do dispositivo termóstato C# num módulo genérico.
+> * Utilize o serviço SDK para interagir com o módulo.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -232,6 +237,10 @@ Pode utilizar a ferramenta Azure IoT Explorer para ver:
 * Telemetria do dispositivo IoT Edge.
 * IoT Edge módulo twin propriedades atualizações de propriedade desencadeando notificações IoT Plug e Play.
 * O módulo IoT Edge reage aos comandos IoT Plug and Play.
+
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+[!INCLUDE [iot-pnp-clean-resources](../../includes/iot-pnp-clean-resources.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
 

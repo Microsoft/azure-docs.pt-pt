@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: f798e65b1517430bc67af793ebb517c586d5d58f
-ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
+ms.openlocfilehash: 10ddbf3dde62380eb79af685ad41b22e4552cea1
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96763881"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832628"
 ---
 # <a name="tutorial-create-an-iot-edge-instance-for-video-analytics-linux-vm"></a>Tutorial: Criar uma instância IoT Edge para análise de vídeo (Linux VM)
 
@@ -49,8 +49,8 @@ Utilize as informações na tabela seguinte para completar o **formulário de im
 | Campo | Valor |
 | ----- | ----- |
 | Subscrição | Selecione a sua subscrição do Azure. |
-| Grupo de recursos | *Lva-rg* - o grupo de recursos que criou no tutorial anterior. |
-| Região       | *E.U.A. Leste* |
+| O grupo de recursos | *Lva-rg* - o grupo de recursos que criou no tutorial anterior. |
+| Region       | *E.U.A. Leste* |
 | Prefixo da etiqueta do rótulo de DNS | Escolha um prefixo DNS único para o VM. Devem ser todos os caracteres alfabéticos, sem dígitos ou caracteres especiais. |
 | Nome de utilizador Admin | *AzureUser* |
 | Palavra-passe de Administrador | Introduza uma senha. Tome nota da palavra-passe no ficheiro *scratchpad.txt,* use-a mais tarde. |
@@ -118,6 +118,14 @@ sudo docker ps
 ```
 
 A lista inclui um contentor chamado **live555**.
+
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+Se terminou a aplicação, pode remover todos os recursos que criou da seguinte forma:
+
+1. Na aplicação IoT Central, navegue para a **página de aplicação** da sua candidatura na secção **Administração.** Em seguida, selecione **Eliminar**.
+1. No portal Azure, elimine o grupo de recursos **Lva-rg.**
+1. Na sua máquina local, pare o recipiente **do espectador** estivador.
 
 ## <a name="next-steps"></a>Passos seguintes
 

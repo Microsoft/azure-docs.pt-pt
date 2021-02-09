@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Defina um novo tipo de dispositivo de gateway no Azure IoT Central Microsoft Docs
+title: Tutorial - Defina um novo tipo de dispositivo de gateway em Azure IoT Central | Microsoft Docs
 description: Este tutorial mostra-lhe, como construtor, como definir um novo tipo de dispositivo de gateway IoT na sua aplicação Azure IoT Central.
 author: rangv
 ms.author: rangv
@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: f95df6fb74071dc16814f11fb48521f984c89778
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: e42e1791693342592e391a14422b1441c9cbbd31
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95995527"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832390"
 ---
 # <a name="tutorial---define-a-new-iot-gateway-device-type-in-your-azure-iot-central-application"></a>Tutorial - Defina um novo tipo de dispositivo de gateway IoT na sua aplicação Azure IoT Central
 
@@ -51,11 +51,11 @@ Para criar um modelo de dispositivo para um dispositivo **S1 Sensor:**
 
 1. Na página **'Rever',** **selecione Criar** para adicionar o modelo do dispositivo à sua aplicação. 
 
-Para criar um modelo de dispositivo para um dispositivo *_* RS40 Sensor de Ocupação:_*
+Para criar um modelo de dispositivo para um dispositivo *** RS40 Sensor de Ocupação:**
 
 1. No painel esquerdo, selecione **Modelos de Dispositivo .** Em seguida, selecione **+** para começar a adicionar o modelo.
 
-1. Desloque-se para baixo até ver o azulejo do dispositivo **_RS40 Occupancy Sensor._* Selecione o azulejo e, em seguida, **selecione Seguinte: Personalize**.
+1. Desloque-se para baixo até ver o azulejo do dispositivo ***RS40 Occupancy Sensor.** Selecione o azulejo e, em seguida, **selecione Seguinte: Personalize**.
 
 1. Na página **'Rever',** **selecione Criar** para adicionar o modelo do dispositivo à sua aplicação. 
 
@@ -198,6 +198,10 @@ Ambos os seus dispositivos simulados a jusante estão agora ligados ao seu dispo
 
 Selecione um modelo de dispositivo de gateway e a instância do dispositivo gateway e **selecione 'Junte-se'.**
 
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+[!INCLUDE [iot-central-clean-up-resources](../../../includes/iot-central-clean-up-resources.md)]
+
 ## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a saber como:
@@ -208,9 +212,6 @@ Neste tutorial, ficou a saber como:
 * Defina uma visualização para a telemetria do dispositivo.
 * Adicione relacionamentos.
 * Publique o modelo do seu dispositivo.
-
-> [!NOTE]
-> A geração de código baseada em VS Code não é atualmente suportada para dispositivos gateway modelados na IoT Central.
 
 Em seguida, como desenvolvedor de dispositivos, você pode aprender a:
 

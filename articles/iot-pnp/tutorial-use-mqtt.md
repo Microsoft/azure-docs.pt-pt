@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Use mQTT para criar um cliente de dispositivo de plug e reprodução Azure IoT Microsoft Docs
+title: Tutorial - Use o MQTT para criar um cliente de dispositivo Azure IoT Plug and Play | Microsoft Docs
 description: Tutorial - Utilize o protocolo MQTT diretamente para criar um cliente de dispositivo IoT Plug and Play sem utilizar os SDKs de dispositivo IoT Azure
 author: ericmitt
 ms.author: ericmitt
@@ -7,12 +7,12 @@ ms.date: 05/13/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 6852b0532b23e46c7b986926b21cd0b7e9f9736d
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 429400bb6cb41ede89597dc739a612d1bf9893f2
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93421384"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99831268"
 ---
 # <a name="tutorial---use-mqtt-to-develop-an-iot-plug-and-play-device-client"></a>Tutorial - Use mQTT para desenvolver um cliente de dispositivo ioT plug e play
 
@@ -27,7 +27,7 @@ A amostra deste tutorial utiliza a biblioteca [Eclipse Mosquitto](http://mosquit
 Para completar este tutorial no Windows, instale o seguinte software no seu ambiente local do Windows:
 
 * [Visual Studio (Comunidade, Profissional ou Enterprise)](https://visualstudio.microsoft.com/downloads/) - certifique-se de que inclui o Desenvolvimento do Ambiente de Trabalho com carga de trabalho **C++** quando [instalar](/cpp/build/vscpp-step-0-installation?preserve-view=true&view=vs-2019) o Visual Studio
-* [Rio Git](https://git-scm.com/download/)
+* [Git](https://git-scm.com/download/)
 * [CMake](https://cmake.org/download/)
 
 Utilize a ferramenta *exploradora Azure IoT* para adicionar um novo dispositivo ao seu IoT Hub. Configuraste o teu hub IoT e a ferramenta exploradora Azure IoT quando completaste [Configurar o teu ambiente para os quickstarts e tutoriais do IoT Plug e Play:](set-up-environment.md)
@@ -78,11 +78,11 @@ Utilize o seguinte comando para descarregar e construir a biblioteca Eclipse Mos
 
 Atualize o código com detalhes do seu hub e dispositivo IoT antes de o construir e executar.
 
-Para visualizar o código de amostra no Visual Studio, abra o ficheiro de solução *MQTTWin32.sln* na pasta *IoTMQTTSample\src\Windows.*
+Para visualizar o código de amostra no Visual Studio, abra o ficheiro de solução *.sln MQTTWin32* na pasta *IoTMQTTSample\src\Windows.*
 
 No **Solution Explorer,** clique à direita no projeto **TelemetryMQTTWin32** e selecione **set as Startup Project**.
 
-No projeto **TelemetryMQTTWin32,** abra o ficheiro de origem **MQTT_Mosquitto.cpp.** Atualize as definições de informação de ligação com os detalhes do dispositivo que fez anteriormente. Substitua os espaços reservados para:
+No projeto **TelemetryMQTTWin32,** abra o ficheiro **de origem MQTT_Mosquitto.cpp.** Atualize as definições de informação de ligação com os detalhes do dispositivo que fez anteriormente. Substitua os espaços reservados para:
 
 * `IOTHUBNAME` identificador com o nome do seu hub IoT.
 * `DEVICEID` identificador com `my-mqtt-device` .
@@ -137,15 +137,14 @@ As seguintes definições são para os tópicos MQTT que o dispositivo utiliza p
 * Define `DEVICE_TELEMETRY_MESSAGE` o tópico que o dispositivo utiliza para enviar telemetria para o seu hub IoT.
 
 Para mais informações sobre o MQTT, visite as Amostras MQTT para o repositório [Azure IoT](https://github.com/Azure-Samples/IoTMQTTSample/) GitHub.
-  
+
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+[!INCLUDE [iot-pnp-clean-resources](../../includes/iot-pnp-clean-resources.md)]
+
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, aprendeu a modificar um cliente de dispositivo MQTT para seguir as convenções IoT Plug and Play. Para saber mais sobre ioT Plug and Play, consulte:
-
-> [!div class="nextstepaction"]
-> [Arquitetura](concepts-architecture.md)
-
-Para saber mais sobre o suporte do IoT Hub para o protocolo MQTT, consulte:
+Neste tutorial, aprendeu a modificar um cliente de dispositivo MQTT para seguir as convenções IoT Plug and Play. Para saber mais sobre o suporte do IoT Hub para o protocolo MQTT, consulte:
 
 > [!div class="nextstepaction"]
 > [Comunique com o seu hub IoT usando o protocolo MQTT](../iot-hub/iot-hub-mqtt-support.md)

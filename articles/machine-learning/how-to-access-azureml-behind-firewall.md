@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 11/18/2020
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: dc8044ee72689634a1d4ce3e0e8b1a499404c5ce
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: 0fcea6a44f5379ff3da5b348ae45486be6c2516a
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99560305"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99831319"
 ---
 # <a name="use-workspace-behind-a-firewall-for-azure-machine-learning"></a>Use espaço de trabalho atrás de uma firewall para aprendizagem de máquinas Azure
 
@@ -123,6 +123,7 @@ Os anfitriões desta secção são propriedade da Microsoft e fornecem serviços
 | ----- | ----- | ----- | ----- |
 | Azure Active Directory | login.microsoftonline.com | login.microsoftonline.us | login.chinacloudapi.cn |
 | Portal do Azure | management.azure.com | management.azure.us | management.azure.cn |
+| Azure Resource Manager | management.azure.com | management.usgovcloudapi.net | management.chinacloudapi.cn |
 
 **Anfitriões de Aprendizagem automática Azure**
 
@@ -146,7 +147,7 @@ Os anfitriões desta secção são propriedade da Microsoft e fornecem serviços
 | **Necessário para** | **Azure público** | **Azure Government** | **Azure China 21Vianet** |
 | ----- | ----- | ----- | ----- |
 | Cluster computacional/instância | \*.batchai.core.windows.net | \*.batchai.core.usgovcloudapi.net |\*.batchai.ml.azure.cn |
-| Cluster computacional/instância | graph.windows.net |  |  |
+| Cluster computacional/instância | graph.windows.net | graph.windows.net | graph.chinacloudapi.cn |
 | Instância de computação | \*.instances.azureml.net | \*.instances.azureml.us | \*.instances.azureml.cn |
 | Instância de computação | \*.instances.azureml.ms |  |  |
 

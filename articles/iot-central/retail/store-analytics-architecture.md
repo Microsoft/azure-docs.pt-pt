@@ -4,17 +4,17 @@ description: Aprenda a construir uma aplicação de análise na loja usando o mo
 author: avneets
 ms.author: avneets
 ms.date: 10/13/2019
-ms.topic: overview
+ms.topic: conceptual
 ms.service: iot-central
 ms.subservice: iot-central-retail
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: 3486b636325393f9c8e96669ba3d21e7d489efee
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 972ab8eaaf7c0b9fe8beb446d74bc8d2e89bbc55
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97347987"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832203"
 ---
 # <a name="in-store-analytics-architecture"></a>Arquitetura de análise na loja
 

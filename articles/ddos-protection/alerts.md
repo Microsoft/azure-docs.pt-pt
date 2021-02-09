@@ -3,7 +3,7 @@ title: Ver e configurar alertas de proteção DDoS para norma de proteção DDoS
 description: Saiba como visualizar e configurar alertas de proteção DDoS para norma de proteção DDoS Azure.
 services: ddos-protection
 documentationcenter: na
-author: yitoh
+author: aletheatoh
 ms.service: ddos-protection
 ms.devlang: na
 ms.topic: article
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/28/2020
 ms.author: yitoh
-ms.openlocfilehash: ea62b5df7159440a7538c7db0711b7d8f63ec220
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 2d72027082ed2b57b28a15a736c35801ba88188c
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99806295"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832526"
 ---
 # <a name="view-and-configure-ddos-protection-alerts"></a>Ver e configurar os alertas da proteção contra DDoS
 
@@ -41,7 +41,8 @@ Neste tutorial, irá aprender a:
 Com estes modelos, poderá configurar alertas para todos os endereços IP públicos em que ativou o início de sessão de diagnóstico. Assim, para utilizar estes modelos de alerta, primeiro necessitará de um espaço de trabalho log analytics com definições de diagnóstico ativadas. Ver [visualização e configurar a registo de diagnóstico do DDoS](diagnostic-logging.md).
 
 ### <a name="azure-monitor-alert-rule"></a>Regra de alerta do Monitor Azure
-Esta [regra de alerta do Azure Monitor](https://aka.ms/ddosmitigationstatus) executará uma consulta simples para detetar quando está a ocorrer uma mitigação ativa do DDoS. Isto indica um potencial ataque. Grupos de ação podem ser usados para invocar ações como resultado do alerta.
+
+Esta [regra de alerta do Azure Monitor](https://aka.ms/DDOSmitigationstatus) executará uma consulta simples para detetar quando está a ocorrer uma mitigação ativa do DDoS. Isto indica um potencial ataque. Grupos de ação podem ser usados para invocar ações como resultado do alerta.
 
 [![Implementar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Network-Security%2Fmaster%2FAzure%2520DDoS%2520Protection%2FAzure%2520Monitor%2520Alert%2520-%2520DDoS%2520Mitigation%2520Started%2FDDoSMitigationStarted.json)
 

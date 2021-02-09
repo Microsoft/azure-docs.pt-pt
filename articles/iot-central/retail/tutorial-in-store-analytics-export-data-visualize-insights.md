@@ -11,12 +11,12 @@ ms.custom:
 ms.author: dobett
 author: dominicbetts
 ms.date: 11/12/2019
-ms.openlocfilehash: fca9a72fa237a11a02b6d4fbe30ebba5857384cf
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 2695b34745ff02d55f18cebbe87a468f807ca77a
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97346372"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99831693"
 ---
 # <a name="tutorial-export-data-from-azure-iot-central-and-visualize-insights-in-power-bi"></a>Tutorial: Dados de exportação da Azure IoT Central e visualizar insights no Power BI
 
@@ -46,7 +46,7 @@ Antes de criar o seu centro de eventos e aplicação lógica, precisa de criar u
 1. Para **subscrição**, selecione o nome da subscrição Azure que usou para criar a sua aplicação IoT Central.
 1. Para o nome do **grupo Recursos,** insira _a análise da loja de retalho_*.
 1. Para a **Região**, selecione a mesma região que escolheu para a aplicação IoT Central.
-1. Selecione **Review + Criar**.
+1. Selecione **Rever + Criar**.
 1. Na página **'Rever + Criar',** selecione **Criar**.
 
 Tem agora um grupo de recursos chamado **retail-store-analysis** na sua subscrição.
@@ -109,7 +109,7 @@ O seu painel Power BI apresentará dados da sua aplicação de monitorização d
 
     | Nome do valor  | Tipo de valor |
     | ----------- | ---------- |
-    | Timestamp   | DateTime   |
+    | CarimboDeDataEHora   | DateTime   |
     | Humidade    | Número     |
     | Temperatura | Número     |
 
@@ -132,7 +132,7 @@ Também precisa de um conjunto de dados de streaming para a telemetria de ocupa�
 
     | Nome do valor     | Tipo de valor |
     | -------------- | ---------- |
-    | Timestamp      | DateTime   |
+    | CarimboDeDataEHora      | DateTime   |
     | Comprimento da fila 1 | Número     |
     | Comprimento da fila 2 | Número     |
     | Tempo de Morador 1   | Número     |
@@ -441,7 +441,7 @@ Adicione quatro telhas de gráfico de linha para mostrar a temperatura e a humid
 | ------- | -------- | -------- | -------- | -------- |
 | Conjunto de dados | Sensor zona 1 | Sensor zona 1 | Sensor zona 2 | Sensor zona 2 |
 | Tipo de visualização | Gráfico de linhas | Gráfico de linhas | Gráfico de linhas | Gráfico de linhas |
-| Eixo | Timestamp | Timestamp | Timestamp | Timestamp |
+| Eixo | CarimboDeDataEHora | CarimboDeDataEHora | CarimboDeDataEHora | CarimboDeDataEHora |
 | Valores | Temperatura | Humidade | Temperatura | Humidade |
 | Janela do tempo | 60 minutos | 60 minutos | 60 minutos | 60 minutos |
 | Título | Temperatura (1 hora) | Humidade (1 hora) | Temperatura (1 hora) | Humidade (1 hora) |
@@ -475,7 +475,7 @@ Adicione quatro telhas de cartão para mostrar o comprimento da fila e tempo de 
 | ------- | ------- | ------- | ------- | ------- |
 | Conjunto de dados | Sensor de ocupação | Sensor de ocupação | Sensor de ocupação | Sensor de ocupação |
 | Tipo de visualização | Gráfico de colunas agrupadas | Gráfico de colunas agrupadas | Medidor | Medidor |
-| Eixo    | Timestamp | Timestamp | N/D | N/D |
+| Eixo    | CarimboDeDataEHora | CarimboDeDataEHora | N/D | N/D |
 | Valor | Tempo de Morador 1 | Tempo de Morador 2 | Comprimento da fila 1 | Comprimento da fila 2 |
 | Janela do tempo | 60 minutos | 60 minutos |  N/D | N/D |
 | Título | Tempo de Mora | Tempo de Mora | Comprimento da Fila | Comprimento da Fila |
@@ -504,6 +504,4 @@ Pode eliminar os conjuntos de dados power BI e o dashboard eliminando o espaço 
 Estes três tutoriais mostraram-lhe uma solução de ponta a ponta que utiliza o modelo de aplicação IoT Central **check-out** . Ligou os dispositivos à aplicação, utilizou o IoT Central para monitorizar os dispositivos e utilizou o Power BI para construir um dashboard para visualizar insights da telemetria do dispositivo. Um próximo passo recomendado é explorar um dos outros modelos de aplicação da IoT Central:
 
 > [!div class="nextstepaction"]
-> * [Criar soluções para o setor energético com o IoT Central](../energy/overview-iot-central-energy.md)
-> * [Criar soluções para a administração pública com o IoT Central](../government/overview-iot-central-government.md)
-> * [Criar soluções de cuidados de saúde com o IoT Central](../healthcare/overview-iot-central-healthcare.md)
+> [Criar soluções para o setor energético com o IoT Central](../energy/overview-iot-central-energy.md)

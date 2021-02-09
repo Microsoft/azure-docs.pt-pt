@@ -7,12 +7,12 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.date: 10/20/2019
-ms.openlocfilehash: 2b26b4390cb19b832349b49d4e95a5355caed594
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.openlocfilehash: 4bade4cfe5bf82aefcc967d86362e27605a005f3
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/08/2021
-ms.locfileid: "99820301"
+ms.locfileid: "99832186"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-smart-inventory-management-application-template"></a>Tutorial: Implementar e caminhar através de um modelo de aplicação de gestão de inventário inteligente
 
@@ -109,8 +109,8 @@ Se não continuar a utilizar esta aplicação, elimine o modelo de aplicação v
 > ![Screenshot mostrando como apagar a aplicação quando terminar com ela](./media/tutorial-iot-central-smart-inventory-management/smart_inventory_management_cleanup.png)
 
 ## <a name="next-steps"></a>Passos seguintes
-* Saiba mais sobre gestão inteligente de inventário 
+
+Saiba mais sobre a gestão inteligente do inventário:
+
 > [!div class="nextstepaction"]
 > [Conceito inteligente de gestão de inventário](./architecture-smart-inventory-management.md)
-* Saiba mais sobre outros [modelos de varejo IoT Central](./overview-iot-central-retail.md)
-* Saiba mais sobre ioT Central consulte [a visão geral do IoT Central](../core/overview-iot-central.md)

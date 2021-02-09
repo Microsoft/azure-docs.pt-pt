@@ -6,12 +6,12 @@ ms.author: panshar
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 04/15/2020
-ms.openlocfilehash: b36a4089a15118499b0ce57500f221b74af82242
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 6396ca4483f5e9782890123a7c39a0cbcdbd30a3
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96753756"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832577"
 ---
 # <a name="azure-migrate-common-questions"></a>Azure Migrate: Questões comuns
 
@@ -33,10 +33,10 @@ Use a Azure Migrate para descobrir, avaliar e migrar para o local infraestrutura
 [Azure Migrate](migrate-services-overview.md) fornece um centro centralizado para avaliação e migração para Azure. 
 
 - A utilização do Azure Migrate proporciona interoperabilidade e extensibilidade futura com ferramentas Azure Migrate, outros serviços Azure e ferramentas de terceiros.
-- A ferramenta Azure Migrate:Server Migration é construída de propósito para a migração do servidor para Azure. Está otimizado para a migração. Não é preciso aprender sobre conceitos e cenários que não são diretamente relevantes para a migração. 
-- Não existem taxas de utilização da ferramenta para a migração durante 180 dias, a partir do momento em que a replicação é iniciada para um VM. Isto dá-lhe tempo para completar a migração. Você só paga pelos recursos de armazenamento e rede usados na replicação, e pelos encargos computacional consumidos durante as migrações de teste.
+- A ferramenta Azure Migrate: Server Migration é construída de propósito para a migração de servidores para Azure. Está otimizado para a migração. Não é preciso aprender sobre conceitos e cenários que não são diretamente relevantes para a migração. 
+- Não existem taxas de utilização da ferramenta para a migração durante 180 dias, a partir do momento em que a replicação é iniciada para um VM. Dá-lhe tempo para completar a migração. Você só paga pelos recursos de armazenamento e rede usados na replicação, e pelos encargos computacional consumidos durante as migrações de teste.
 - A Azure Migrate apoia todos os cenários de migração apoiados pela Recuperação do Site. Além disso, para VMware VMs, Azure Migrate fornece uma opção de migração sem agente.
-- Estamos a dar prioridade a novas funcionalidades de migração apenas para a ferramenta migração do Azure Migrate:Server Migration. Estas funcionalidades não são direcionadas para a Recuperação do Local.
+- Estamos a dar prioridade a novas funcionalidades de migração para o Azure Migrate: Ferramenta de migração de servidores apenas. Estas funcionalidades não são direcionadas para a Recuperação do Local.
 
 [A recuperação do local de Azure](../site-recovery/site-recovery-overview.md) deve ser utilizada apenas para recuperação de desastres.
 
@@ -44,7 +44,7 @@ A ferramenta Azure Migrate: Server Migration usa alguma funcionalidade de recupe
 
 ## <a name="i-have-a-project-with-the-previous-classic-experience-of-azure-migrate-how-do-i-start-using-the-new-version"></a>Tenho um projeto com a experiência clássica anterior de Azure Migrate. Como começo a usar a nova versão?
 
-Não é possível atualizar projetos ou componentes na versão anterior para a nova versão. Você precisa [criar um novo projeto Azure Migrate](create-manage-projects.md), e [adicionar-lhe ferramentas de avaliação e migração.](./create-manage-projects.md) Use os tutoriais para entender como usar as ferramentas de avaliação e migração disponíveis. Se tiver um espaço de trabalho log Analytics ligado a um projeto Clássico, pode anexá-lo a um projeto de versão atual depois de eliminar o projeto Classic.
+O clássico Azure Migrate vai reformar-se em fevereiro de 2024. Depois de fevereiro de 2024, a versão clássica do Azure Migrate deixará de ser suportada e os metadados de inventário no projeto clássico serão eliminados. Não é possível atualizar projetos ou componentes na versão anterior para a nova versão. Você precisa [criar um novo projeto Azure Migrate](create-manage-projects.md), e [adicionar-lhe ferramentas de avaliação e migração.](./create-manage-projects.md) Use os tutoriais para entender como usar as ferramentas de avaliação e migração disponíveis. Se tiver um espaço de trabalho log Analytics ligado a um projeto Clássico, pode anexá-lo a um projeto de versão atual depois de eliminar o projeto Classic.
 
 ## <a name="whats-the-difference-between-azure-migrate-server-assessment-and-the-map-toolkit"></a>Qual é a diferença entre Azure Migrate: Avaliação do servidor e o kit de ferramentas MAP?
 

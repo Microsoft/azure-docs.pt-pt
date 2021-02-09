@@ -1,4 +1,4 @@
-- name: Documentação do Azure IoT Central para os Cuidados de Saúde
+- name: Azure IoT Central para documentação de cuidados de saúde
   href: index.yml
 - name: Descrição geral
   items:
@@ -9,6 +9,8 @@
   items:
     - name: Criar uma aplicação de monitorização contínua do paciente
       href: tutorial-continuous-patient-monitoring.md
+    - name: Criar um dashboard de triagem de dados de saúde
+      href: howto-health-data-triage.md
 - name: Conceitos
   items:
     - name: Arquitetura da monitorização contínua do paciente
@@ -19,8 +21,6 @@
       href: ../core/concepts-app-templates.md?toc=/azure/iot-central/healthcare/toc.json&bc=/azure/iot-central/healthcare/breadcrumb/toc.json
 - name: Guias de procedimentos
   items:
-    - name: Criar um dashboard de triagem de dados de saúde
-      href: howto-health-data-triage.md
     - name: Ligar e desenvolver dispositivos
       items:
         - name: "Preparar e ligar um Rigado Cascade\_500"

@@ -1,25 +1,25 @@
 ---
-title: Requisitos do sistema Microsoft Azure Stack Edge Pro/ Microsoft Docs
+title: Os requisitos do sistema Microsoft Azure Stack Edge Pro| Microsoft Docs
 description: Conheça os requisitos de software e networking para o seu Azure Stack Edge Pro
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 07/15/2020
+ms.date: 02/05/2021
 ms.author: alkohli
-ms.openlocfilehash: 4deeec1b6c9db80c15b001efb7b40bdb4bb9d515
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: c87c8cfd40903f6296f0a36f5c83c0b5c5cb7818
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452640"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99831595"
 ---
 # <a name="azure-stack-edge-pro-system-requirements"></a>Requisitos do sistema Azure Stack Edge Pro
 
 Este artigo descreve os requisitos importantes do sistema para a sua solução Microsoft Azure Stack Edge Pro e para os clientes que se ligam ao Azure Stack Edge Pro. Recomendamos que reveja as informações cuidadosamente antes de implementar o Azure Stack Edge Pro. Pode remeter para estas informações conforme necessário durante a implantação e posterior funcionamento.
 
-Os requisitos do sistema para o Azure Stack Edge Pro incluem:
+Os requisitos do sistema para o Azure Stack Edge Pro incluem: 
 
 - **Requisitos de software para anfitriões** - descreve as plataformas suportadas, navegadores para a configuração local UI, clientes SMB e quaisquer requisitos adicionais para os clientes que acedem ao dispositivo.
 - **Requisitos de rede para o dispositivo** - fornece informações sobre quaisquer requisitos de rede para o funcionamento do dispositivo físico.

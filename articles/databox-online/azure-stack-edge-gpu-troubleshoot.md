@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 01/21/2021
+ms.date: 02/04/2021
 ms.author: alkohli
-ms.openlocfilehash: 0976dd9f3c4d0228ec0f170a755ec13800da435b
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: c56fcecbd850dd0add26e5d50093eea595e3d825
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98761543"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99833427"
 ---
 # <a name="troubleshoot-issues-on-your-azure-stack-edge-pro-gpu-device"></a>Problemas de resolução de problemas no seu dispositivo GPU Azure Stack Edge Pro 
 
@@ -148,7 +148,7 @@ Aqui estão os erros que podem aparecer durante a configuração do Azure Resour
 |Operação devolveu um código de estado inválido 'ServiceUnavailable' <br> O código de estado de resposta não indica sucesso: 503 (Serviço Indisponível). | Este erro pode ser o resultado de qualquer uma destas condições.<li>ArmStsPool está em estado de paragem.</li><li>Qualquer um dos websites de serviços Azure Resource Manager/Security token estão em baixo.</li><li>O recurso de cluster Azure Resource Manager está em baixo.</li><br><strong>Nota:</strong> Reiniciar o aparelho pode corrigir o problema, mas deve recolher o pacote de suporte para que possa desordiá-lo ainda mais.|
 |AADSTS50126: Nome de utilizador ou senha inválido.<br>ID de traço: 29317da9-52fc-4ba0-9778-446ae5625e5a<br>ID de correlação: 1b9752c4-8cbf-4304-a714-8a16527410f4<br>Horário: 2019-11-15 09:21:57Z: O servidor remoto devolveu um erro: (400) Mau Pedido.<br>Na linha:1 char:1 |Este erro pode ser o resultado de qualquer uma destas condições.<li>Para um nome de utilizador e senha inválidos, valide que o cliente alterou a palavra-passe do portal Azure seguindo os passos [aqui](./azure-stack-edge-j-series-set-azure-resource-manager-password.md) e, em seguida, utilizando a senha correta.<li>Para um ID inquilino inválido, o ID do inquilino é um GUID fixo e deve ser definido para `c0257de7-538f-415c-993a-1b87a031879d`</li>|
 |connect-AzureRmAccount: AADSTS90056: O recurso está desativado ou não existe. Verifique o código da sua aplicação para garantir que especificou o URL de recurso exato para o recurso a que está a tentar aceder.<br>ID de traço: e19bdbc9-5dc8-4a74-85c3-ac6abdfda115<br>ID de correlação: 75c8ef5a-830e-48b5-b039-595a96488ff9 Timestamp: 2019-11-18 07:00:51Z: O servidor remoto devolveu um erro: (400) Bad |Os pontos finais de recursos utilizados no `Add-AzureRmEnvironment` comando estão incorretos.|
-|Incapaz de obter pontos finais da nuvem.<br>Certifique-se de que tem ligação à rede. Detalhe de erro: HTTPSConnectionPool (host='management.dbg-of4k6suvm.microsoftdatabox.com', porta=30005): Retries max ultrapassados com url: /metadados/pontos finais?api-versão=2015-01-01 (Causado por SSLError("mau aperto de mão: Erro([rotinas SSL', 'tls_process_server_certificate', 'certificação verificar falhou') |Este erro aparece principalmente num ambiente Mac/Linux, e deve-se às seguintes questões:<li>Um certificado de formato PEM não foi adicionado à loja de certificados python.</li> |
+|Incapaz de obter pontos finais da nuvem.<br>Certifique-se de que tem ligação à rede. Detalhe de erro: HTTPSConnectionPool (host='management.dbg-of4k6suvm.microsoftdatabox.com', porta=30005): Retries max ultrapassados com url: /metadados/pontos finais?api-versão=2015-01-01 (Causado por SSLError("mau aperto de mão: Erro([rotinas SSL', 'tls_process_server_certificate', 'certificação verificar falhou')) |Este erro aparece principalmente num ambiente Mac/Linux, e deve-se às seguintes questões:<li>Um certificado de formato PEM não foi adicionado à loja de certificados python.</li> |
 
 ### <a name="verify-the-device-is-configured-properly"></a>Verifique se o dispositivo está configurado corretamente
 
@@ -204,6 +204,6 @@ Aqui estão os erros relacionados com o armazenamento de bolhas no dispositivo A
 [!INCLUDE [Troubleshoot IoT Edge runtime](../../includes/azure-stack-edge-iot-troubleshoot-compute.md)]
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre como [resolver problemas de ativação do dispositivo](azure-stack-edge-gpu-troubleshoot-activation.md).

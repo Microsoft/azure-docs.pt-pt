@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: 1c1ddeb8cafd8aa7584da48a715139c5d12eeb10
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: fbfef094cd062e437f2a28369162de96631ef41b
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91874803"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832611"
 ---
 # <a name="tutorial-monitor-and-manage-a-video-analytics---object-and-motion-detection-application"></a>Tutorial: Monitorar e gerir uma aplicação de vídeo - aplicação de deteção de objetos e movimentos
 
@@ -55,13 +55,13 @@ Selecione **Executar** para adicionar o dispositivo da câmara:
 
 ## <a name="add-a-motion-detection-camera-optional"></a>Adicione uma câmara de deteção de movimento (opcional)
 
-Se tiver duas câmaras ligadas ao seu dispositivo de gateway IoT Edge, repita os passos anteriores para adicionar uma câmara de deteção de movimento à aplicação. Utilize diferentes valores para os parâmetros **de ID da câmara,** **nome da câmara**e url **RTSP.**
+Se tiver duas câmaras ligadas ao seu dispositivo de gateway IoT Edge, repita os passos anteriores para adicionar uma câmara de deteção de movimento à aplicação. Utilize diferentes valores para os parâmetros **de ID da câmara,** **nome da câmara** e url **RTSP.**
 
 ## <a name="view-the-downstream-devices"></a>Ver os dispositivos a jusante
 
 Selecione o separador **Dispositivos a jusante** para o dispositivo **LVA Gateway 001** para ver os dispositivos da câmara que acabou de adicionar:
 
-:::image type="content" source="media/tutorial-video-analytics-manage/inspect-downstream.png" alt-text="Adicionar câmera":::
+:::image type="content" source="media/tutorial-video-analytics-manage/inspect-downstream.png" alt-text="Inspecione":::
 
 Os dispositivos da câmara também aparecem na lista na página **dispositivos** da aplicação.
 
@@ -81,7 +81,7 @@ Utilize os valores predefinidos ou modifique se precisar de personalizar as prop
 
 | Propriedade | Descrição | Valor sugerido |
 |-|-|-|
-| Início automático | Inicie a deteção do objeto quando o Gateway LVA recomeçar | Marcado |
+| Início Automático | Inicie a deteção do objeto quando o Gateway LVA recomeçar | Marcado |
 | Debug Telemetria | Vestígios de eventos | Opcional |
 |Inferência Tempo limite (seg)| A quantidade de tempo usado para determinar que as inferências pararam | 20 |
 
@@ -98,7 +98,7 @@ Selecione **Guardar**.
 
 Após alguns segundos, vê a mensagem de confirmação **aceite** para cada definição:
 
-:::image type="content" source="media/tutorial-video-analytics-manage/object-detection.png" alt-text="Adicionar câmera":::
+:::image type="content" source="media/tutorial-video-analytics-manage/object-detection.png" alt-text="Deteção de Objetos":::
 
 ## <a name="start-lva-processing"></a>Iniciar o processamento de LVA
 
@@ -108,13 +108,13 @@ Executar o comando iniciar o **processamento LVA.**
 
 Quando o comando terminar, consulte o histórico de comando para se certificar de que não há erros:
 
-:::image type="content" source="media/tutorial-video-analytics-manage/start-processing.png" alt-text="Adicionar câmera":::
+:::image type="content" source="media/tutorial-video-analytics-manage/start-processing.png" alt-text="Iniciar o comando de processamento LVA":::
 
 ## <a name="monitor-the-cameras"></a>Monitorize as câmaras
 
 Navegue para o dispositivo **camera-003** e selecione o **separador Dashboard:**
 
-:::image type="content" source="media/tutorial-video-analytics-manage/camera-dashboard.png" alt-text="Adicionar câmera":::
+:::image type="content" source="media/tutorial-video-analytics-manage/camera-dashboard.png" alt-text="Painel de câmera":::
 
 O azulejo **do Conde de Deteção** mostra a contagem média de deteção de cada um dos objetos de deteção selecionados durante um intervalo de deteção de um segundo.
 
@@ -157,7 +157,7 @@ docker run -it --rm -e amsAadClientId="<FROM_AZURE_PORTAL>" -e amsAadSecret="<FR
 
 Navegue para o dispositivo **camera-003** e selecione o **separador Dashboard.** Em seguida, clique numa das hiperligações de deteção de objetos capturados no azulejo **inference Event Video.** O vídeo aparece numa página exibida pelo leitor de vídeo local:
 
-:::image type="content" source="media/tutorial-video-analytics-manage/video-snippet.png" alt-text="Adicionar câmera":::
+:::image type="content" source="media/tutorial-video-analytics-manage/video-snippet.png" alt-text="Corte de vídeo":::
 
 ## <a name="change-the-simulated-devices-in-application-dashboards"></a>Alterar os dispositivos simulados nos painéis de aplicação
 
@@ -182,7 +182,7 @@ Os painéis de aplicação são originalmente povoados com telemetria e propried
 
 O **painel de instrumentos do Monitor de Câmara Real** mostra agora valores do seu verdadeiro dispositivo de câmara:
 
-:::image type="content" source="media/tutorial-video-analytics-manage/update-real-cameras.png" alt-text="Adicionar câmera":::
+:::image type="content" source="media/tutorial-video-analytics-manage/update-real-cameras.png" alt-text="Painel de aplicação de câmaras reais":::
 
 ## <a name="pause-processing"></a>Tratamento de pausa
 
@@ -195,7 +195,7 @@ Pode parar o processamento de análise de vídeo ao vivo na aplicação:
     * Clique no recurso **Streaming Endpoint.**
     * Na página de detalhes do **ponto final do streaming,** selecione **Stop**.
 
-## <a name="tidy-up"></a>Arrumar tudo
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se terminou a aplicação, pode remover todos os recursos que criou da seguinte forma:
 

@@ -1,5 +1,5 @@
 ---
-title: Tutorial de modelo de aplicação do centro de micro-realização Microsoft Docs
+title: Tutorial de modelo de aplicativo de micro-realização do centro | Microsoft Docs
 description: Um tutorial sobre o modelo de aplicação do centro de micro-realização para Azure IoT Central
 author: avneet723
 ms.author: avneets
@@ -7,12 +7,12 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.date: 01/09/2020
-ms.openlocfilehash: 4bb50b513a9b09db4a8d59d32816b702bff250f2
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 938d5e96667db6de4a45134cbec2396d45bac9d6
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92125974"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832135"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-micro-fulfillment-center-application-template"></a>Tutorial: Implementar e caminhar através de um modelo de aplicação do centro de micro-realização
 
@@ -40,7 +40,7 @@ Para criar uma nova aplicação do centro de micro-realização que utiliza func
 
     ![Screenshot de Azure IoT Central Construa a sua página de aplicação IoT](./media/tutorial-micro-fulfillment-center-app/iotc-retail-homepage-mfc.png)
     
-1. Opcionalmente, escolha um nome de **aplicação**amigável. O modelo de aplicação baseia-se na empresa fictícia Northwind Traders. 
+1. Opcionalmente, escolha um nome de **aplicação** amigável. O modelo de aplicação baseia-se na empresa fictícia Northwind Traders. 
 
     >[!NOTE]
     >Se utilizar um nome de aplicação amigável, ainda deve utilizar um valor único para o URL da aplicação.
@@ -84,16 +84,15 @@ Utilize a regra da amostra como inspiração para definir regras mais adequadas 
 
 ![Screenshot do separador Regras](./media/tutorial-micro-fulfillment-center-app/rules.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
-Se não continuar a utilizar esta aplicação, elimine o modelo de aplicação. Aceda **Administration**às  >  **definições de Aplicação da**Administração e selecione **Delete**.
+Se não continuar a utilizar esta aplicação, elimine o modelo de aplicação. Aceda às  >  **definições de Aplicação da** Administração e selecione **Delete**.
 
 ![Screenshot da página de definições de aplicação do centro de micro-realização](./media/tutorial-micro-fulfillment-center-app/delete.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Mais informações sobre
+Saiba mais sobre:
+
 > [!div class="nextstepaction"]
 > [micro-realização centro solução arquitetura](./architecture-micro-fulfillment-center.md)
-* Saiba mais sobre os [modelos de retalho Azure IoT Central](./overview-iot-central-retail.md)
-* Saiba mais sobre [a Azure IoT Central](../core/overview-iot-central.md)

@@ -6,14 +6,17 @@ ms.topic: conceptual
 author: abshamsft
 ms.author: absha
 ms.date: 02/20/2018
-ms.openlocfilehash: 2c20f668c57e8c2e74c320ca535aea18e633daf8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6502d4259aa383c1466967d01282cecfbb8d1ded
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87326125"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832968"
 ---
 # <a name="network-performance-monitor-solution-performance-monitoring"></a>Solução monitor de desempenho da rede: Monitorização de desempenho
+
+> [!IMPORTANT]
+> A partir de 1 de julho de 2021, não poderá adicionar novos testes num espaço de trabalho existente ou permitir um novo espaço de trabalho no Network Performance Monitor. Pode continuar a utilizar os testes criados antes de 1 de julho de 2021. Para minimizar a perturbação do serviço nas suas cargas de trabalho atuais, [migrar os seus testes do Monitor de Desempenho da Rede para o novo Monitor de Ligação](https://docs.microsoft.com/azure/network-watcher/migrate-to-connection-monitor-from-network-performance-monitor) no Azure Network Watcher antes de 29 de fevereiro de 2024.
 
 A capacidade do Monitor de Desempenho no [Monitor de Desempenho da Rede](network-performance-monitor.md) ajuda-o a monitorizar a conectividade da rede em vários pontos da sua rede. Você pode monitorizar implementações em nuvem e locais no local, vários centros de dados e escritórios de sucursais, e aplicações multi-tiers ou microserviços críticos da missão. Com o Monitor de Desempenho, pode detetar problemas de rede antes que os seus utilizadores se queixem. As principais vantagens são que pode: 
 
@@ -41,7 +44,7 @@ Para criar uma nova rede:
 
 
 1. Selecione o separador **Redes.**
-1.  **Selecione Adicionar a rede**e, em seguida, insira o nome e descrição da rede. 
+1.  **Selecione Adicionar a rede** e, em seguida, insira o nome e descrição da rede. 
 2. Selecione uma ou mais sub-redes e, em seguida, **selecione Adicionar**. 
 3. **Selecione Guardar** para guardar a configuração. 
 
@@ -65,7 +68,7 @@ Para criar regras de monitorização personalizadas:
 6. Escolha as condições de monitorização. Para definir limiares personalizados para a geração de eventos de saúde, insira valores limiares. Sempre que o valor da condição exceder o limiar selecionado para o par de rede ou sub-rede selecionado, é gerado um evento de saúde. 
 7. **Selecione Guardar** para guardar a configuração. 
 
-Depois de guardar uma regra de monitorização, pode integrar essa regra com a Gestão de Alerta selecionando **Criar Alerta**. Uma regra de alerta é criada automaticamente com a consulta de pesquisa. Outros parâmetros necessários são preenchidos automaticamente. Utilizando uma regra de alerta, pode receber alertas baseados em e-mail, além dos alertas existentes no Network Performance Monitor. Os alertas também podem desencadear ações corretivas com runbooks, ou podem integrar-se com as soluções de gestão de serviços existentes utilizando webhooks. **Selecione 'Gestão' alerta** para editar as definições de alerta. 
+Depois de guardar uma regra de monitorização, pode integrar essa regra com a Gestão de Alerta selecionando **Criar Alerta**. Uma regra de alerta é criada automaticamente com a consulta de pesquisa. Outros parâmetros necessários são preenchidos automaticamente. Utilizando uma regra de alerta, pode receber alertas baseados em e-mail, além dos alertas existentes no Network Performance Monitor. Os alertas também podem desencadear ações corretivas com runbooks, ou podem integrar-se com as soluções de Gestão de Serviços existentes utilizando webhooks. **Selecione 'Gestão' alerta** para editar as definições de alerta. 
 
 Pode agora criar mais regras do Monitor de Desempenho ou mover-se para o painel de instrumentos de solução para utilizar a capacidade.
 
@@ -94,7 +97,7 @@ Considere as seguintes informações antes de escolher um protocolo:
 
 Se optar por utilizar o ICMP durante a implementação, pode mudar para TCP a qualquer momento editando a regra de monitorização predefinido.
 
-1. Vá ao Monitor de Configuração do Monitor **de Desempenho da**   >  **Monitor**   >  **Configure**   >  **Monitor**Rede. Em seguida, selecione **a regra padrão**. 
+1. Vá ao Monitor de Configuração do Monitor **de Desempenho da**   >  ****   >  ****   >  **** Rede. Em seguida, selecione **a regra padrão**. 
 2. Percorra a secção **Protocolo** e selecione o protocolo que pretende utilizar. 
 3. **Selecione Guardar** para aplicar a definição. 
 
@@ -129,4 +132,3 @@ Na imagem a seguir, a causa principal das áreas problemáticas para a secção 
 
 ## <a name="next-steps"></a>Passos seguintes
 [Faça uma pesquisa de registos](../log-query/log-query-overview.md) para visualizar registos de dados de desempenho detalhados da rede.
-

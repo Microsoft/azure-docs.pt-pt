@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Use grupos de dispositivos na sua aplicação Azure IoT Central / Microsoft Docs
+title: Tutorial - Utilize grupos de dispositivos na sua aplicação Azure IoT Central | Microsoft Docs
 description: Tutorial - Como operador, aprenda a usar grupos de dispositivos para analisar a telemetria a partir de dispositivos na sua aplicação Azure IoT Central.
 author: dominicbetts
 ms.author: dobett
@@ -7,12 +7,12 @@ ms.date: 11/16/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 8c26afc9cf9630f6d26ddc76759393a6ea1a8696
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: a7d26eebb24662a448d8ccb44d037e7706fe776b
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94990303"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832849"
 ---
 # <a name="tutorial-use-device-groups-to-analyze-device-telemetry"></a>Tutorial: Utilize grupos de dispositivos para analisar a telemetria do dispositivo
 
@@ -20,7 +20,7 @@ Este artigo descreve como, como operador, utilizar grupos de dispositivos para a
 
 Um grupo de dispositivos é uma lista de dispositivos que são agrupados porque correspondem a alguns critérios especificados. Os grupos de dispositivos ajudam-no a gerir, visualizar e analisar dispositivos em escala, agrupar dispositivos em grupos mais pequenos e lógicos. Por exemplo, pode criar um grupo de dispositivos para listar todos os dispositivos de ar condicionado em Seattle para permitir que um técnico encontre os dispositivos pelos quais são responsáveis.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Criar um grupo de dispositivos
@@ -83,7 +83,11 @@ Para analisar a telemetria de um grupo de dispositivos:
 
     Pode personalizar a vista, alterar o período de tempo mostrado e exportar os dados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+[!INCLUDE [iot-central-clean-up-resources](../../../includes/iot-central-clean-up-resources.md)]
+
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que aprendeu a usar grupos de dispositivos na sua aplicação Azure IoT Central, aqui está o próximo passo sugerido:
 

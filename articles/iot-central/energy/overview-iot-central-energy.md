@@ -1,5 +1,5 @@
 ---
-title: Construir soluções energéticas com | central IoT Microsoft Docs
+title: Quais são as soluções energéticas Azure IoT Central | Microsoft Docs
 description: Aprenda a construir solução de energia utilizando modelos de aplicação Azure IoT Central.
 author: op-ravi
 ms.author: omravi
@@ -8,14 +8,14 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 25b15a30ed6d537a8c9ac7a0306dbd46484233ec
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.openlocfilehash: 9adf9822bb63be6372de140c775370010614b6e4
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/08/2021
-ms.locfileid: "99820743"
+ms.locfileid: "99832475"
 ---
-# <a name="build-energy-solutions-with-iot-central"></a>Criar soluções para o setor energético com o IoT Central
+# <a name="what-are-the-iot-central-energy-solutions"></a>Quais são as soluções energéticas IoT Central?
 
 Os contadores inteligentes e os painéis solares estão a desempenhar um papel importante na transformação da indústria energética. Os contadores inteligentes dão mais controlos e insights em tempo real sobre os consumos de energia e o crescimento dos painéis solares está a impulsionar a produção de energias renováveis. As aplicações de monitorização do contador inteligente e do painel solar são modelos de amostra para mostrar as várias capacidades. Os parceiros podem aproveitar estes modelos para construir soluções energéticas com a IoT Central para as suas necessidades específicas. Não são necessárias novas codificações e não são necessários custos adicionais para a implantação e utilização destas aplicações. Saiba mais sobre os modelos de aplicação de energia e as suas capacidades.
 
@@ -61,8 +61,9 @@ Depois de implementar a aplicação, verá os dados do painel solar simulado den
 > ![Painel de aplicação do painel solar](media/overview-iot-central-energy/solar-panel-app-dashboard.png)
 
 ## <a name="next-steps"></a>Passos seguintes
+
 Para começar a construir uma solução energética:
+
 * Crie modelos de aplicação gratuitamente: [app smart meter,](https://apps.azureiotcentral.com/build/new/smart-meter-monitoring) [aplicação de painel solar](https://apps.azureiotcentral.com/build/new/solar-panel-monitoring)
 * Conheça os [conceitos de aplicativos de monitorização de contadores inteligentes](./concept-iot-central-smart-meter-app.md)
 * Conheça os [conceitos de aplicativos de monitorização de painéis solares](./concept-iot-central-solar-panel-app.md)
-* Conheça a [plataforma IoT Central](../index.yml)

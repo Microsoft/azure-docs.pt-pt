@@ -6,14 +6,17 @@ ms.topic: conceptual
 author: abshamsft
 ms.author: absha
 ms.date: 02/20/2018
-ms.openlocfilehash: 18c07266cec68aaf6e95fe4085b9d21244fecff4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d7c7068c4a8669cdff782267030d38ac0f73584
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761044"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832934"
 ---
 # <a name="service-connectivity-monitor"></a>Monitor de Conectividade do Serviço
+
+> [!IMPORTANT]
+> A partir de 1 de julho de 2021, não poderá adicionar novos testes num espaço de trabalho existente ou permitir um novo espaço de trabalho no Network Performance Monitor. Pode continuar a utilizar os testes criados antes de 1 de julho de 2021. Para minimizar a perturbação do serviço nas suas cargas de trabalho atuais, [migrar os seus testes do Monitor de Desempenho da Rede para o novo Monitor de Ligação](https://docs.microsoft.com/azure/network-watcher/migrate-to-connection-monitor-from-network-performance-monitor) no Azure Network Watcher antes de 29 de fevereiro de 2024.
 
 Pode utilizar a capacidade do Monitor de Conectividade de Serviço no [Monitor de Desempenho da Rede](network-performance-monitor.md) para monitorizar a conectividade da rede a qualquer ponto final que tenha uma porta TCP aberta. Esses pontos finais incluem websites, aplicações SaaS, aplicações PaaS e bases de dados SQL. 
 
@@ -57,7 +60,7 @@ Comece a criar os seus testes para monitorizar a conectividade da rede com os po
 
     * Selecione **Web** para monitorizar a conectividade a um serviço que responda a pedidos HTTP/S, como outlook.office365.com ou bing.com.<br>
     * Selecione **Rede** para monitorizar a conectividade a um serviço que responda aos pedidos de TCP mas não responda a pedidos HTTP/S, tais como um servidor SQL, servidor FTP ou porta SSH. 
-    * Por exemplo: Para criar um teste web para uma conta de armazenamento de bolhas, selecione **Web** e introduza o alvo como *sua conta*de blob.core.windows.net. Da mesma forma, pode criar testes para outros armazenamento de mesa, armazenamento de filas e Ficheiros Azure utilizando [este link.](../../storage/common/storage-account-overview.md#storage-account-endpoints)
+    * Por exemplo: Para criar um teste web para uma conta de armazenamento de bolhas, selecione **Web** e introduza o alvo como *sua conta* de blob.core.windows.net. Da mesma forma, pode criar testes para outros armazenamento de mesa, armazenamento de filas e Ficheiros Azure utilizando [este link.](../../storage/common/storage-account-overview.md#storage-account-endpoints)
 4. Se não quiser efetuar medições de rede, tais como latência de rede, perda de pacotes e descoberta de topologia, limpe a caixa **de verificação de medições de rede Perform.** Mantenha-o selecionado para obter o máximo benefício da capacidade. 
 5. No **Target,** insira o endereço URL/FQDN/IP ao qual pretende monitorizar a conectividade da rede.
 6. No **número do Porto,** insira o número de porta do serviço alvo. 
@@ -134,4 +137,3 @@ Para a região do governo dos EUA, apenas URLs DOD são NPM embutidos. Os client
 
 ## <a name="next-steps"></a>Passos seguintes
 [Faça uma pesquisa de registos](../log-query/log-query-overview.md) para visualizar registos de dados de desempenho detalhados da rede.
-

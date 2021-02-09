@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 1/25/2021
 ms.author: allensu
-ms.openlocfilehash: d5d2f83ddb4f37e1379bb7d60a76ddc70d61f99a
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 6f83df22465a2dc5fb871ae4e2c6dedd75e00075
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98785842"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99834226"
 ---
 # <a name="what-is-azure-load-balancer"></a>O que é o Balanceador de Carga do Azure?
 
@@ -56,7 +56,7 @@ Os cenários-chave que pode realizar usando o Balancer de Carga Padrão incluem:
 
 - Ativar o suporte para **[o equilíbrio](../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md)** de carga do **[IPv6](../virtual-network/ipv6-overview.md)**.
 
-- O Balanceador de Carga Padrão fornece métricas multidimensionais através do [Azure Monitor.](../azure-monitor/overview.md)  Estas métricas podem ser filtradas, agrupadas e partidas para uma determinada dimensão.  Fornecem insights atuais e históricos sobre o desempenho e saúde do seu serviço. [Insights for Azure Load Balancer] (oferece https://docs.microsoft.com/azure/load-balancer/load-balancer-insights) um dashboard pré-configurado com visualizações úteis para estas métricas.  A Saúde dos Recursos também é apoiada. Reveja **[o Diagnóstico Padrão do Balanceador de Carga](load-balancer-standard-diagnostics.md)** para mais detalhes.
+- O Balanceador de Carga Padrão fornece métricas multidimensionais através do [Azure Monitor.](../azure-monitor/overview.md)  Estas métricas podem ser filtradas, agrupadas e partidas para uma determinada dimensão.  Fornecem insights atuais e históricos sobre o desempenho e saúde do seu serviço. [Insights for Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-insights) oferece um dashboard pré-configurado com visualizações úteis para estas métricas.  A Saúde dos Recursos também é apoiada. Reveja **[o Diagnóstico Padrão do Balanceador de Carga](load-balancer-standard-diagnostics.md)** para mais detalhes.
 
 - Carregue os serviços de balanço em **[várias portas, vários endereços IP, ou ambos](./load-balancer-multivip-overview.md)**.
 
@@ -79,7 +79,7 @@ Ver [SLA para balanceador de carga](https://aka.ms/lbsla). O Balanceador de Carg
 
 Subscreva o feed RSS e veja as atualizações mais recentes da funcionalidade Azure Load Balancer na página [Azure Updates.](https://azure.microsoft.com/updates/?category=networking&query=load%20balancer)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Consulte [Criar um equilibrador de carga padrão público](quickstart-load-balancer-standard-public-portal.md) para começar com um equilibrador de carga.
 

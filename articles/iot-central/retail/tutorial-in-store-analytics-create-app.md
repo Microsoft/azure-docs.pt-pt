@@ -11,16 +11,14 @@ ms.custom:
 ms.author: timlt
 author: timlt
 ms.date: 11/12/2019
-ms.openlocfilehash: fc8928c9f64e323aafb29c9b1e717cc5c2ab6691
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 112039b9227d5ff34e68b6dc6643597f335fbdb5
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97346712"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832237"
 ---
 # <a name="tutorial-create-an-in-store-analytics-application-in-azure-iot-central"></a>Tutorial: Criar uma aplicação de análise na loja no Azure IoT Central
-
-
 
 O tutorial mostra aos construtores de soluções como criar uma aplicação de análise Azure IoT Central na loja. O pedido de amostra é para uma loja de retalho. É uma solução para a necessidade de monitorizar e adaptar-se às condições de ocupação e ambiente.
 
@@ -276,7 +274,12 @@ Para adicionar uma ação à regra:
 
     Dentro de poucos minutos, a conta de e-mail especificada deve começar a receber e-mails. A aplicação envia e-mail sempre que um sensor indica que o nível de humidade excedeu o valor da sua condição.
 
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+[!INCLUDE [iot-central-clean-up-resources](../../../includes/iot-central-clean-up-resources.md)]
+
 ## <a name="next-steps"></a>Passos seguintes
+
 Neste tutorial, ficou a saber como:
 
 * Use o Azure IoT Central **In-store analytics - modelo de check-out** para criar uma aplicação de loja de retalho

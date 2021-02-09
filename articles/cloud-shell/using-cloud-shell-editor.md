@@ -1,5 +1,5 @@
 ---
-title: Usando o editor da Azure Cloud Shell Microsoft Docs
+title: Usando o editor da Azure Cloud Shell | Microsoft Docs
 description: Visão geral de como usar o editor da Azure Cloud Shell.
 services: azure
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
-ms.openlocfilehash: 7f597bb5cba1a12bdb93325fe2b877ffc644e3e4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1e3ea9222b0f231250bde43fb86c07847ca4835e
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "60199235"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99832340"
 ---
 # <a name="using-the-azure-cloud-shell-editor"></a>Usando o editor da Azure Cloud Shell
 
@@ -52,5 +52,6 @@ Para lançar a paleta de comando, utilize a `F1` chave quando o foco estiver def
 O suporte de destaque linguístico no editor cloud Shell é suportado através da funcionalidade a montante na utilização do [Mónaco Editor](https://github.com/Microsoft/monaco-editor)das definições de sintaxe Monarch. Para aprender a fazer contribuições, leia o guia de colaboradores do [Mónaco.](https://github.com/Microsoft/monaco-editor/blob/master/CONTRIBUTING.md)
 
 ## <a name="next-steps"></a>Passos seguintes
-[Experimente o quickstart para Bash em Cloud Shell](quickstart.md) 
- [Veja a lista completa de ferramentas cloud shell integradas](features.md)
+
+- [Experimente o quickstart para Bash em Cloud Shell](quickstart.md)
+- [Veja a lista completa de ferramentas cloud shell integradas](features.md)

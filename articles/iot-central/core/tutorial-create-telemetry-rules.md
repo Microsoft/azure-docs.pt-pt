@@ -7,12 +7,12 @@ ms.date: 01/08/2021
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 6be49ec3777b4bcaa033a60546e95711090662a4
-ms.sourcegitcommit: 2488894b8ece49d493399d2ed7c98d29b53a5599
+ms.openlocfilehash: b0b5aafd85fe6d992afa9d879f73ef0ec43e00d3
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98065291"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99834379"
 ---
 # <a name="tutorial-create-a-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Tutorial: Criar uma regra e configurar notificações na sua aplicação do Azure IoT Central
 
@@ -24,7 +24,7 @@ Os dispositivos utilizam a telemetria para enviar dados numéricos do dispositiv
 
 Neste tutorial, cria-se uma regra para enviar um e-mail quando a temperatura num dispositivo de sensor simulado excede 70 &deg; F.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 >
@@ -107,6 +107,10 @@ Escolha a regra que pretende ativar ou desativar. Alternar o botão **Ativado/De
 ## <a name="enable-or-disable-a-rule-for-specific-devices"></a>Ativar ou desativar uma regra para dispositivos específicos
 
 Escolha a regra que pretende personalizar. Utilize um ou mais filtros na secção **dispositivos Target** para limitar o âmbito da regra aos dispositivos que pretende monitorizar.
+
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+[!INCLUDE [iot-central-clean-up-resources](../../../includes/iot-central-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -3,18 +3,18 @@ title: Diagnosticar e resolver problemas ao utilizar o SDK de .NET do Azure Cosm
 description: Utilize funcionalidades como registo do lado do cliente e outras ferramentas de terceiros para identificar, diagnosticar e resolver problemas problemas problemas com a Azure Cosmos DB quando utilizar .NET SDK.
 author: anfeldma-ms
 ms.service: cosmos-db
-ms.date: 09/12/2020
+ms.date: 02/05/2021
 ms.author: anfeldma
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 6a78b38bd71a2822d94e58834ab17824c9ef6ec6
-ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
+ms.openlocfilehash: 04813b9d70557314e619fded5294644f5f6fadf5
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97683102"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99831251"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-net-sdk"></a>Diagnosticar e resolver problemas ao utilizar o SDK de .NET do Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -55,7 +55,7 @@ Verifique a [secção de problemas](https://github.com/Azure/azure-cosmos-dotnet
 A verificação das [métricas](./monitor-cosmos-db.md) do portal ajudará a determinar se é um problema do lado do cliente ou se há algum problema com o serviço. Por exemplo, se as métricas contiverem uma alta taxa de pedidos limitados de taxa (código de estado HTTP 429), o que significa que o pedido está a ser acelerado, então verifique a [taxa de pedido demasiado grande.](troubleshoot-request-rate-too-large.md) 
 
 ## <a name="retry-logic"></a>Lógica de Retíria <a id="retry-logics"></a>
-Cosmos DB SDK em qualquer falha de IO tentará voltar a tentar a operação falhada se for viável novamente no SDK. Ter uma nova agem para qualquer falha é uma boa prática, mas especificamente lidar/tentar falhar a escrita é uma obrigação. Recomenda-se usar o mais recente SDK, uma vez que a lógica de retíria está continuamente a ser melhorada.
+Em qualquer falha de E/S, o SDK do Cosmos DB tentará repetir a operação falhada se for viável realizar a repetição no SDK. Ter uma nova agem para qualquer falha é uma boa prática, mas especificamente lidar/tentar falhar a escrita é uma obrigação. Recomenda-se usar o mais recente SDK, uma vez que a lógica de retíria está continuamente a ser melhorada.
 
 1. As falhas de IO de leitura e consulta serão novamente julgadas pelo SDK sem as deixar em cima do utilizador final.
 2. As escritas (Criar, Aumentar, Substituir, Excluir) são "não" idempotentes e, portanto, a SDK nem sempre pode voltar a tentar cegamente as operações de escrita falhadas. É necessário que a lógica de aplicação do utilizador lide com a falha e relemque.
@@ -67,6 +67,7 @@ Cosmos DB SDK em qualquer falha de IO tentará voltar a tentar a operação falh
 |----------|-------------|
 | 400 | Mau pedido (Depende da mensagem de erro)| 
 | 401 | [Não autorizado](troubleshoot-unauthorized.md) | 
+| 403 | [Proibido](troubleshoot-forbidden.md) |
 | 404 | [O recurso não é encontrado](troubleshoot-not-found.md) |
 | 408 | [Pedido cronometrado](troubleshoot-dot-net-sdk-request-timeout.md) |
 | 409 | A falha de conflito é quando o ID fornecido para um recurso numa operação de escrita foi tomado por um recurso existente. Utilize outro ID para o recurso para resolver este problema, pois o ID deve ser único dentro de todos os documentos com o mesmo valor chave de partição. |
@@ -120,7 +121,7 @@ As [métricas de consulta](sql-api-query-metrics.md) ajudarão a determinar onde
 
 Se encontrar o seguinte erro: `Unable to load DLL 'Microsoft.Azure.Cosmos.ServiceInterop.dll' or one of its dependencies:` e estiver a utilizar o Windows, deverá atualizar para a versão mais recente do Windows.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre as diretrizes de desempenho para [.NET V3](performance-tips-dotnet-sdk-v3-sql.md) e [.NET V2](performance-tips.md)
 * Conheça os [SDKs Java baseados no reator](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/main/reactor-pattern-guide.md)
