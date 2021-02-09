@@ -8,19 +8,19 @@ ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 06/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 91516c9815cfd71ffb59c399ea6580c6e28d8fce
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 4d76bdcb385ed2fe4b8a697f24187b8e3d5addbc
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576469"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988756"
 ---
 # <a name="using-a-partitioned-graph-in-azure-cosmos-db"></a>Usar um grafo de particionado no Azure Cosmos DB
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 Uma das principais características da API gremlin em Azure Cosmos DB é a capacidade de lidar com gráficos de grande escala através da escala horizontal. Os recipientes podem escalar de forma independente em termos de armazenamento e produção. Pode criar recipientes em Azure Cosmos DB que podem ser automaticamente dimensionado para armazenar dados de gráficos. Os dados são automaticamente equilibrados com base na chave de **partição** especificada .
 
-A partilha é feita internamente se se prevê que o recipiente armazene mais de 20 GB de tamanho ou se pretender alocar mais de 10.000 unidades de pedido por segundo (RUs). Os dados são automaticamente divididos com base na chave de partição que especifica. A tecla de partição é necessária se criar recipientes de gráfico a partir do portal Azure ou das versões 3.x ou superiores dos controladores Gremlin. A tecla de partição não é necessária se utilizar versões 2.x ou inferiores dos condutores da Gremlin. 
+A partilha é feita internamente se se prevê que o recipiente armazene mais de 20 GB de tamanho ou se pretender alocar mais de 10.000 unidades de pedido por segundo (RUs). Os dados são automaticamente divididos com base na chave de partição que especifica. A tecla de partição é necessária se criar recipientes de gráfico a partir do portal Azure ou das versões 3.x ou superiores dos controladores Gremlin. A tecla de partição não é necessária se utilizar versões 2.x ou inferiores dos condutores da Gremlin.
 
 Os mesmos princípios gerais do mecanismo de [partição DB Azure Cosmos](partitioning-overview.md) aplicam-se com algumas otimizações específicas do gráfico descritas abaixo.
 

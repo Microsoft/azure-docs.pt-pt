@@ -12,12 +12,12 @@ ms.date: 12/14/2020
 ms.author: kenwith
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 3ce00c5182246513aaf3178118058826528619d2
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: f2a04a341239b62290eecac8c0e1ce70b7c927c1
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99584269"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988900"
 ---
 # <a name="publish-your-app-to-the-azure-ad-app-gallery"></a>Publique a sua app na galeria de aplicações AZure AD
 
@@ -186,7 +186,7 @@ Você precisará de um inquilino AZure AD para testar a sua app. Para configurar
 
 Em alternativa, um inquilino AZure AD vem com cada subscrição da Microsoft 365. Para configurar um ambiente de desenvolvimento gratuito do Microsoft 365, consulte [o Programa de Desenvolvimento microsoft 365](/office/developer-program/microsoft-365-developer-program).
 
-Uma vez que tenha um inquilino, teste um único sinal e [provisione.](../app-provisioning/use-scim-to-provision-users-and-groups.md#step-4-integrate-your-scim-endpoint-with-the-azure-ad-scim-client) 
+Uma vez que tenha um inquilino, teste um único sinal e [provisione.](../app-provisioning/use-scim-to-provision-users-and-groups.md#integrate-your-scim-endpoint-with-the-aad-scim-client) 
 
 **Para aplicações OIDC ou Juramento,** [Registe a sua candidatura](quickstart-register-app.md) como uma aplicação multi-arrendatário. Selecione as Contas em qualquer diretório organizacional e opção de contas pessoais da Microsoft em tipos de Conta Suportada.
 

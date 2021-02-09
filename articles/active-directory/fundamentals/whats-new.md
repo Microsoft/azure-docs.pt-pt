@@ -16,12 +16,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6da71db47e396ee1d699cbc72dd51b5c7f9b1a12
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 2c835ddcee332499ef7853d0d2fa4fcdbcf8a1cf
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99091467"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988880"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Quais as novidades no Diretório Ativo do Azure?
 
@@ -48,7 +48,7 @@ Esta página é atualizada mensalmente, por isso revisite-a regularmente. Se pro
 
 No passado, o campo simbólico secreto poderia ser mantido vazio ao configurar o provisionamento na aplicação personalizada/BYOA. Esta função destinava-se a ser utilizada exclusivamente para testes. Vamos atualizar a UI para tornar o campo necessário. 
 
-Os clientes podem trabalhar em torno deste requisito para fins de teste usando uma bandeira de recurso no URL do navegador. [Saiba mais](../app-provisioning/use-scim-to-provision-users-and-groups.md#authorization-for-provisioning-connectors-in-the-application-gallery).
+Os clientes podem trabalhar em torno deste requisito para fins de teste usando uma bandeira de recurso no URL do navegador. [Saiba mais](../app-provisioning/use-scim-to-provision-users-and-groups.md#authorization-to-provisioning-connectors-in-the-application-gallery).
  
 ---
 

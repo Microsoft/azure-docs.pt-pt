@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: apimpm
-ms.openlocfilehash: 4e5522c162e08f0257bd6f20b058bf8bb858cff3
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 553b4527796db3e5d0f430afd6c5e614626187e5
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93099351"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988889"
 ---
 # <a name="how-to-secure-apis-using-client-certificate-authentication-in-api-management"></a>Como proteger APIs com a autenticação de certificado de cliente na Gestão de API
 
@@ -94,6 +94,18 @@ O exemplo a seguir mostra como verificar a impressão digital de um certificado 
 > [!TIP]
 > A emissão de impasse do certificado do cliente descrita neste [artigo](https://techcommunity.microsoft.com/t5/Networking-Blog/HTTPS-Client-Certificate-Request-freezes-when-the-Server-is/ba-p/339672) pode manifestar-se de várias formas, por exemplo, os pedidos de congelamento, os pedidos resultam em `403 Forbidden` código de estado após o tempo de saída, é `context.Request.Certificate` `null` . Este problema geralmente afeta `POST` e solicita com comprimento de conteúdo de `PUT` aproximadamente 60KB ou maior.
 > Para evitar que este problema ocorra, ligue a definição de "Negociar o certificado do cliente" para os nomes de anfitriões pretendidos na lâmina "Domínios personalizados", como mostra a primeira imagem deste documento. Esta funcionalidade não está disponível no nível de Consumo.
+
+## <a name="certificate-validation-in-self-hosted-gateway"></a>Validação de certificados em gateway auto-hospedado
+
+A imagem [de gateway auto-hospedada](self-hosted-gateway-overview.md) da API Management não suporta a validação de certificados de servidor e cliente usando [certificados de raiz ca enviados](api-management-howto-ca-certificates.md) para uma instância de Gestão da API. Os clientes que apresentem um certificado personalizado para o gateway auto-hospedado podem experimentar respostas lentas, porque a validação da lista de revogação de certificados (CRL) pode demorar muito tempo a sair no gateway. 
+
+Como solução alternativa ao executar o gateway, pode configurar o endereço IP PKI para indicar o endereço local (127.0.0.1) em vez da instância de Gestão da API. Isto faz com que a validação crl falhe rapidamente quando o gateway tenta validar o certificado do cliente. Para configurar o gateway, adicione uma entrada DNS para a instância de Gestão da API para resolver o local no `/etc/hosts` ficheiro no recipiente. Pode adicionar esta entrada durante a implementação do gateway:
+ 
+* Para a colocação do Docker - adicione o `--add-host <hostname>:127.0.0.1` parâmetro ao `docker run` comando. Para obter mais informações, consulte [Adicionar entradas ao ficheiro de anfitriões de contentores](https://docs.docker.com/engine/reference/commandline/run/#add-entries-to-container-hosts-file---add-host)
+ 
+* Para a implementação de Kubernetes - Adicione uma `hostAliases` especificação ao `myGateway.yaml` ficheiro de configuração. Para obter mais informações, consulte [adicionar entradas ao Pod /etc/hosts com Aliases hospedeiros.](https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/)
+
+
 
 
 ## <a name="next-steps"></a>Passos seguintes

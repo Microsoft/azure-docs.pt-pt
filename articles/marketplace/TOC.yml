@@ -299,6 +299,8 @@
       href: partner-center-portal/downloads-dashboard.md
     - name: Dashboard de classificações e críticas
       href: partner-center-portal/ratings-reviews.md
+    - name: Deteção de anomalias para faturação medido
+      href: anomaly-detection.md
     - name: Perguntas comuns sobre análise
       href: analytics-faq.md
 - name: Políticas e termos

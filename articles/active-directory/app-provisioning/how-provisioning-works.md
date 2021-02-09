@@ -12,12 +12,12 @@ ms.date: 11/04/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 1f4466dea35fe3d52f86386f0bf0cc0c3b6a658f
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 048adee21d5c2e49ef02f518002a1dc6025c1ecd
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99256344"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988979"
 ---
 # <a name="how-provisioning-works"></a>Como funciona o aprovisionamento
 
@@ -43,7 +43,7 @@ Para solicitar um conector automático de provisionamento Azure AD para uma apli
 
 ## <a name="authorization"></a>Autorização
 
-São necessárias credenciais para que a Azure AD se conecte à API de gestão de utilizadores da aplicação. Enquanto configurar o fornecimento automático do utilizador para uma aplicação, terá de introduzir credenciais válidas. Para aplicações de galeria, pode encontrar tipos e requisitos credenciais para a aplicação, referindo-se ao tutorial da aplicação. Para aplicações não-galeria, pode consultar a documentação do [SCIM](./use-scim-to-provision-users-and-groups.md#authorization-for-provisioning-connectors-in-the-application-gallery) para compreender os tipos e requisitos credenciais. No portal Azure, poderá testar as credenciais, tendo a Azure AD tentado ligar-se à app de provisionamento da app utilizando as credenciais fornecidas.
+São necessárias credenciais para que a Azure AD se conecte à API de gestão de utilizadores da aplicação. Enquanto configurar o fornecimento automático do utilizador para uma aplicação, terá de introduzir credenciais válidas. Para aplicações de galeria, pode encontrar tipos e requisitos credenciais para a aplicação, referindo-se ao tutorial da aplicação. Para aplicações não-galeria, pode consultar a documentação do [SCIM](./use-scim-to-provision-users-and-groups.md#authorization-to-provisioning-connectors-in-the-application-gallery) para compreender os tipos e requisitos credenciais. No portal Azure, poderá testar as credenciais, tendo a Azure AD tentado ligar-se à app de provisionamento da app utilizando as credenciais fornecidas.
 
 ## <a name="mapping-attributes"></a>Atributos de mapeamento
 

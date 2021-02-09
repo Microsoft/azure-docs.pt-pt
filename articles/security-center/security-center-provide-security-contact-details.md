@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/01/2020
+ms.date: 02/09/2021
 ms.author: memildin
-ms.openlocfilehash: 72ded01b141aafb7fd3e4d761882a10eaf0c4b33
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 4dc9855afe7ed53db120f4dbc6c09ac4db0f58d9
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98920414"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988571"
 ---
 # <a name="configure-email-notifications-for-security-alerts"></a>Configure notificações de email para alertas de segurança 
 
@@ -26,8 +26,8 @@ Os alertas de segurança precisam de chegar às pessoas certas na sua organizaç
 
 Para definir as suas preferências por e-mails de notificação, a página de **notificações** de email do Azure Security Center permite-lhe escolher:
 
-- **_que_ deve ser notificado** - Os e-mails podem ser enviados para selecionar indivíduos ou para qualquer pessoa com uma função Azure especificada para uma subscrição. 
-- **_sobre o que_ devem ser notificados** - Modifique os níveis de gravidade para os quais o Centro de Segurança deve enviar notificações.
+- ***que* deve ser notificado** - Os e-mails podem ser enviados para selecionar indivíduos ou para qualquer pessoa com uma função Azure especificada para uma subscrição. 
+- ***sobre o que* devem ser notificados** - Modifique os níveis de gravidade para os quais o Centro de Segurança deve enviar notificações.
 
 Para evitar cansaço de alerta, o Centro de Segurança limita o volume de mensagens de saída. Para cada subscrição, o Centro de Segurança envia:
 
@@ -44,12 +44,11 @@ Para evitar cansaço de alerta, o Centro de Segurança limita o volume de mensag
 |Estado de libertação:|Disponibilidade Geral (GA)|
 |Preços:|Gratuito|
 |Funções e permissões necessárias:|**Administrador de Segurança**<br>**Proprietário de Assinatura** |
-|Nuvens:|![Yes](./media/icons/yes-icon.png) Nuvens comerciais<br>![Yes](./media/icons/yes-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
+|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
 |||
 
 
-## <a name="customize-the-security-alerts-email-notifications"></a>Personalize as notificações de email alertas de segurança<a name="email"></a>
-
+## <a name="customize-the-security-alerts-email-notifications-via-the-portal"></a>Personalize as notificações de email alerta de segurança através do portal<a name="email"></a>
 Pode enviar notificações por e-mail a indivíduos ou a todos os utilizadores com funções específicas do Azure.
 
 1. A partir da área de **definições** de preços & do Centro de Segurança, selecione a subscrição relevante e selecione **notificações de e-mail**.
@@ -61,8 +60,30 @@ Pode enviar notificações por e-mail a indivíduos ou a todos os utilizadores c
 
 1. Para aplicar as informações de contacto de segurança à sua subscrição, **selecione Guardar**.
 
+## <a name="customize-the-alerts-email-notifications-through-the-api"></a>Personalize as notificações de email de alerta através da API
+Também pode gerir as suas notificações de e-mail através da API REST fornecida. Para mais detalhes consulte a [documentação da API SecurityContacts](https://docs.microsoft.com/rest/api/securitycenter/securitycontacts).
 
-## <a name="see-also"></a>Veja também
+Este é um órgão de pedido de exemplo para o pedido PUT ao criar uma configuração de contacto de segurança:
+
+```json
+{
+    "properties": {
+        "emails": admin@contoso.com;admin2@contoso.com,
+        "notificationsByRole": {
+            "state": "On",
+            "roles": ["AccountAdmin", "Owner"]
+        },
+        "alertNotifications": {
+            "state": "On",
+            "minimalSeverity": "High"
+        },
+        "phone": ""
+    }
+}
+```
+
+
+## <a name="see-also"></a>Ver também
 Para saber mais sobre alertas de segurança, consulte as seguintes páginas:
 
 - [Alertas de segurança - um guia](alerts-reference.md)de referência --Saiba mais sobre os alertas de segurança que pode ver no módulo de Proteção de Ameaças do Centro de Segurança Azure

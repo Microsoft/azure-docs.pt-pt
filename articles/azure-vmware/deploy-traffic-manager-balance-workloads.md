@@ -2,13 +2,13 @@
 title: Implementar Gestor de Tráfego para equilibrar cargas de trabalho da Solução VMware Azure
 description: Saiba como integrar o Traffic Manager com a Azure VMware Solution para equilibrar as cargas de trabalho das aplicações em vários pontos finais em diferentes regiões.
 ms.topic: how-to
-ms.date: 12/29/2020
-ms.openlocfilehash: 6dbd58f17e29b045bd654bee90b6390f608803ab
-ms.sourcegitcommit: 31d242b611a2887e0af1fc501a7d808c933a6bf6
+ms.date: 02/08/2021
+ms.openlocfilehash: 46570c5a61fc0a641d83126fd0f8ef35b3dc42cc
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97809739"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988600"
 ---
 # <a name="deploy-traffic-manager-to-balance-azure-vmware-solution-workloads"></a>Implementar Gestor de Tráfego para equilibrar cargas de trabalho da Solução VMware Azure
 
@@ -106,7 +106,7 @@ Os seguintes passos verificam a configuração do segmento NSX-T no ambiente Azu
 
 1. Para cada um dos pontos finais externos nas diferentes regiões, insira os detalhes necessários e, em seguida, **selecione Adicionar:** 
    - Tipo
-   - Nome
+   - Name
    - Nome de domínio totalmente qualificado (FQDN) ou IP
    - Peso (atribuir um peso de 1 a cada ponto final). 
 
@@ -130,9 +130,9 @@ Os seguintes passos verificam a configuração do segmento NSX-T no ambiente Azu
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre:
+Agora que cobriu a integração do Azure Traffic Manager com a Azure VMware Solution, talvez queira saber:
 
-- [Utilização do Gateway de Aplicações Azure na Solução VMware Azure](protect-azure-vmware-solution-with-application-gateway.md)
-- [Métodos de encaminhamento do Gestor de Tráfego](../traffic-manager/traffic-manager-routing-methods.md)
-- [Combinação de serviços de equilíbrio de carga em Azure](../traffic-manager/traffic-manager-load-balancing-azure.md)
-- [Medição do desempenho do Gestor de Tráfego](../traffic-manager/traffic-manager-performance-considerations.md)
+- [Utilização do Gateway de Aplicações Azure na Solução Azure VMware](protect-azure-vmware-solution-with-application-gateway.md).
+- [Métodos de encaminhamento do Gestor de Tráfego](../traffic-manager/traffic-manager-routing-methods.md).
+- [Combinando serviços de equilíbrio de carga em Azure.](../traffic-manager/traffic-manager-load-balancing-azure.md)
+- [Medição do desempenho do Gestor de Tráfego.](../traffic-manager/traffic-manager-performance-considerations.md)

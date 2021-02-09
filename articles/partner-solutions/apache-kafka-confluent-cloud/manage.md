@@ -3,15 +3,15 @@ title: Gerir uma Nuvem Confluente - Soluções parceiras Azure
 description: Este artigo descreve a gestão de uma Nuvem Confluente no portal Azure. Como configurar um único senting, eliminar uma organização Confluent e obter apoio.
 ms.service: partner-services
 ms.topic: conceptual
-ms.date: 01/15/2021
+ms.date: 02/08/2021
 author: tfitzmac
 ms.author: tomfitz
-ms.openlocfilehash: 2d13c183f0b3891fa92b5e2a6534acbf8102e032
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: f8a54096ecda4729f7070120a02be3055f933cea
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98253500"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99989115"
 ---
 # <a name="manage-the-confluent-cloud-resource"></a>Gerir o recurso Cloud Confluent
 
@@ -66,13 +66,23 @@ Para submeter um pedido de apoio à Confluent, contacte o [suporte da Confluent]
 > [!NOTE]
 > Pela primeira vez, os utilizadores reiniciem a sua palavra-passe antes de iniciar sence no portal de suporte Confluent. Se não tiver uma conta com a Confluent Cloud, envie um e-mail `cloud-support@confluent.io` para mais assistência.
 
+No portal, pode submeter um pedido através da Ajuda e Suporte Azure, ou diretamente da sua instância de Apache Kafka para Nuvem Confluente em Azure.
+
+Para submeter um pedido através da Ajuda e Apoio Azure:
+
+1. Selecione **Ajuda + suporte**.
+1. **Selecione Criar um pedido de suporte**.
+1. No formulário, selecione **Técnico** para **o tipo de Emissão**. Selecione a sua subscrição. Na lista de serviços, selecione **Confluent on Azure**.
+
+    :::image type="content" source="media/support-request-help.png" alt-text="Crie um pedido de apoio de ajuda.":::
+
 Para submeter um pedido a partir do seu recurso, siga estes passos:
 
 1. No portal Azure, selecione a sua organização Confluente.
 1. A partir do menu do lado esquerdo do ecrã, selecione **Novo pedido de suporte**.
 1. Para criar um pedido de suporte, selecione o link para o **portal Confluent**.
 
-    :::image type="content" source="media/support-request.png" alt-text="Crie um pedido de apoio.":::
+    :::image type="content" source="media/support-request.png" alt-text="Crie um pedido de apoio a partir de exemplo.":::
 
 ## <a name="next-steps"></a>Passos seguintes
 

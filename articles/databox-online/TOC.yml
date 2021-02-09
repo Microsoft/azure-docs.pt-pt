@@ -206,6 +206,8 @@
                   href: azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md
                 - name: Implementar uma aplicação sem estado através do GitOps
                   href: azure-stack-edge-gpu-deploy-stateless-application-git-ops-guestbook.md
+                - name: Implementar controlador de dados do Arco azul
+                  href: azure-stack-edge-gpu-deploy-arc-data-controller.md
         - name: Configurar o Azure Resource Manager (Pré-visualização)
           items:
             - name: Ligar através do Azure PowerShell

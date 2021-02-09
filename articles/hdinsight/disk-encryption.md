@@ -5,12 +5,12 @@ description: Este artigo descreve as duas camadas de encriptação disponíveis 
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/10/2020
-ms.openlocfilehash: c9e50885a7283d3f7fcd231bf222415389212a93
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 58b3d892ea24430a9d951a5a0230282f6c4fd584
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98927334"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988618"
 ---
 # <a name="azure-hdinsight-double-encryption-for-data-at-rest"></a>Encriptação dupla Azure HDInsight para dados em repouso
 
@@ -116,7 +116,7 @@ HDInsight suporta apenas o Cofre da Chave Azure. Se tiveres o teu próprio cofre
 
 Está agora pronto para criar um novo cluster HDInsight. As chaves geridas pelo cliente só podem ser aplicadas a novos clusters durante a criação do cluster. A encriptação não pode ser removida dos clusters-chave geridos pelo cliente, e as chaves geridas pelo cliente não podem ser adicionadas aos clusters existentes.
 
-A partir do [lançamento de novembro de 2020,](hdinsight-release-notes.md#release-date-11182020)o HDInsight suporta a criação de clusters utilizando URIs versados e sem versão. Se criar o cluster com um URI de chave sem versão, então o cluster HDInsight tentará executar a rotação automática da chave quando a chave for atualizada no seu Cofre de Chave Azure. Se criar o cluster com uma chave uri de teclas, terá de efetuar uma rotação manual da chave, tal como discutido na [rotação da tecla de encriptação](#rotating-the-encryption-key).
+A partir do lançamento de novembro de 2020, o HDInsight suporta a criação de clusters utilizando URIs chave versão e sem versão. Se criar o cluster com um URI de chave sem versão, então o cluster HDInsight tentará executar a rotação automática da chave quando a chave for atualizada no seu Cofre de Chave Azure. Se criar o cluster com uma chave uri de teclas, terá de efetuar uma rotação manual da chave, tal como discutido na [rotação da tecla de encriptação](#rotating-the-encryption-key).
 
 Para os clusters criados antes do lançamento de novembro de 2020, terá de realizar a rotação manual da chave utilizando a chave URI.
 
@@ -409,7 +409,7 @@ Uma vez que apenas as teclas ativadas "Soft Delete" são suportadas, se as tecla
 
 **Se um cluster for dimensionado, os novos nós suportam as chaves geridas pelo cliente sem problemas?**
 
-Yes. O cluster precisa de acesso à chave no cofre durante a escala. A mesma chave é usada para encriptar tanto discos geridos como discos de recursos no cluster.
+Sim. O cluster precisa de acesso à chave no cofre durante a escala. A mesma chave é usada para encriptar tanto discos geridos como discos de recursos no cluster.
 
 **As chaves geridas pelo cliente estão disponíveis na minha localização?**
 
@@ -473,7 +473,7 @@ az hdinsight create -t spark -g MyResourceGroup -n MyCluster \\
 --storage-account MyStorageAccount --encryption-at-host true
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter mais informações sobre o Cofre da Chave Azure, consulte [o cofre da chave Azure](../key-vault/general/overview.md).
 * [Visão geral da segurança da empresa em Azure HDInsight](./domain-joined/hdinsight-security-overview.md).

@@ -2,13 +2,13 @@
 title: Utilize o Gateway de Aplicações Azure para proteger as suas aplicações web na Solução VMware Azure
 description: Configure Azure Application Gateway para expor de forma segura as suas aplicações web em execução na Solução VMware Azure.
 ms.topic: how-to
-ms.date: 11/13/2020
-ms.openlocfilehash: 02e439989c985354dbe06fa3e231d5daf7099d70
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.date: 02/08/2021
+ms.openlocfilehash: fdef37bd76b08a8778db8401a1e8a0406c2ed652
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629052"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988630"
 ---
 # <a name="use-azure-application-gateway-to-protect-your-web-apps-on-azure-vmware-solution"></a>Utilize o Gateway de Aplicações Azure para proteger as suas aplicações web na Solução VMware Azure
 
@@ -101,7 +101,7 @@ Este procedimento mostra-lhe como definir piscinas de endereços de backend usan
     Add-Content -Path C:\inetpub\wwwroot\Default.htm -Value $($env:computername)
     ```
 
-2. Numa instância de gateway de aplicação existente, selecione **piscinas backend** do menu esquerdo, selecione  **Add** , e insira os detalhes das novas piscinas. **Selecione Adicione** o painel direito.
+2. Numa instância de gateway de aplicação existente, selecione **piscinas backend** do menu esquerdo, selecione  **Add**, e insira os detalhes das novas piscinas. **Selecione Adicione** o painel direito.
 
     :::image type="content" source="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-multi-backend-pool-02.png" alt-text="Screenshot da página de piscinas backend para adicionar piscinas de backend." lightbox="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-multi-backend-pool-02.png":::
 
@@ -188,4 +188,8 @@ Este procedimento mostra-lhe como definir piscinas de endereços de backend usan
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-Reveja a documentação do [Gateway de Aplicação Azure](../application-gateway/index.yml) para obter mais exemplos de configuração.
+Agora que cobriu o uso do Application Gateway para proteger uma aplicação web em execução na Solução VMware Azure, talvez queira saber mais sobre:
+
+- [Configurar gateway de aplicação Azure para diferentes cenários](../application-gateway/configuration-overview.md).
+- [Implantação do Gestor de Tráfego para equilibrar as cargas de trabalho da Solução VMware Azure](deploy-traffic-manager-balance-workloads.md).
+- [Integração de ficheiros Azure NetApp com cargas de trabalho baseadas em soluções VMware Azure](netapp-files-with-azure-vmware-solution.md).

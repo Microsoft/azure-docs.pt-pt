@@ -3,15 +3,15 @@ title: Utilizar as referências do Key Vault
 description: Saiba como configurar o Azure App Service e as Funções Azure para utilizar referências Azure Key Vault. Disponibilize os segredos do Cofre chave para o seu código de aplicação.
 author: mattchenderson
 ms.topic: article
-ms.date: 10/09/2019
+ms.date: 02/05/2021
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: bb220da0b906c9d7a5f45dcc841129e14c7c6c51
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: b55aeb68d5fa740d34c8823f555f804be54895a7
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92205851"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988778"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions"></a>Utilize referências de Cofre de Chaves para Serviço de Aplicações e Funções Azure
 
@@ -38,26 +38,26 @@ Para ler segredos do Key Vault, precisa de ter um cofre criado e dar permissão 
 Uma referência do Cofre-Chave é do `@Microsoft.KeyVault({referenceString})` formulário, onde `{referenceString}` é substituída por uma das seguintes opções:
 
 > [!div class="mx-tdBreakAll"]
-> | Cadeia de referência                                                            | Descrição                                                                                                                                                                                 |
+> | Cadeia de referência                                                            | Description                                                                                                                                                                                 |
 > |-----------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-> | SecretUri=_secretUri_                                                       | O **SecretUri** deve ser o plano de dados completo URI de um segredo em Key Vault, incluindo uma versão, por exemplo, https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931  |
-> | Nome do cofre=_nome do cofre;_ Nome secreto=_nome secreto;_ SecretVersion=_secretversion_ | O **Nome do Cofre** deve ser o nome do seu recurso Key Vault. O **Nome Secreto** deve ser o nome do segredo do alvo. A **Versão Secreta** deve ser a versão do segredo a usar. |
+> | SecretUri=_secretUri_                                                       | O **SecretUri** deve ser o plano de dados completo URI de um segredo em Key Vault, opcionalmente incluindo uma versão, por exemplo, `https://myvault.vault.azure.net/secrets/mysecret/` ou `https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931`  |
+> | Nome do cofre=_nome do cofre;_ Nome secreto=_nome secreto;_ SecretVersion=_secretversion_ | O **Nome do Cofre** é necessário e se o nome do seu recurso Key Vault. O **Nome Secreto** é necessário e deve ser o nome do segredo-alvo. A **Versão Secreta** é opcional, mas se a presente indicar a versão do segredo a utilizar. |
 
-> [!NOTE] 
-> As versões são atualmente necessárias. Ao rodar segredos, terá de atualizar a versão na configuração da sua aplicação.
 Por exemplo, uma referência completa seria semelhante:
 
-
 ```
-@Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931)
+@Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret)
 ```
 
 Em alternativa:
 
 ```
-@Microsoft.KeyVault(VaultName=myvault;SecretName=mysecret;SecretVersion=ec96f02080254f109c51a1f14cdb1931)
+@Microsoft.KeyVault(VaultName=myvault;SecretName=mysecret)
 ```
 
+## <a name="rotation"></a>Rotação
+
+Se uma versão não for especificada na referência, então a aplicação utilizará a versão mais recente que existe no Key Vault. Quando as versões mais recentes estiverem disponíveis, como é o caso de um evento de rotação, a aplicação irá atualizar-se automaticamente e começar a utilizar a versão mais recente dentro de um dia. Quaisquer alterações de configuração feitas na aplicação causarão uma atualização imediata às versões mais recentes de todos os segredos referenciados.
 
 ## <a name="source-application-settings-from-key-vault"></a>Definições de aplicação de origem a partir do cofre de chaves
 

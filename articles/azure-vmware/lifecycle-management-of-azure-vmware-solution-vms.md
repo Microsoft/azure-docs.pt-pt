@@ -2,13 +2,13 @@
 title: Gestão do ciclo de vida da Azure VMware Solution VMs
 description: Aprenda a gerir todos os aspetos do ciclo de vida dos VMS da sua Solução VMware Azure com ferramentas nativas do Microsoft Azure.
 ms.topic: conceptual
-ms.date: 09/11/2020
-ms.openlocfilehash: 5bba9cbbc8783cc285ff09f790ee1b35b20ba358
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.date: 02/08/2021
+ms.openlocfilehash: d8224a37e46b336ebf889fe1c075930f34f10ca4
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99062901"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988534"
 ---
 # <a name="lifecycle-management-of-azure-vmware-solution-vms"></a>Gestão do ciclo de vida da Azure VMware Solution VMs
 
@@ -110,3 +110,11 @@ O Azure Monitor é uma solução abrangente para recolher, analisar e agir em te
     - [Criar, visualizar e gerir alertas de registo utilizando o Azure Monitor](../azure-monitor/platform/alerts-log.md).
     - [Regras de](../azure-monitor/platform/alerts-action-rules.md) ação para definir ações e notificações automatizadas.
     - [Ligue o Azure às ferramentas ITSM utilizando o Conector de Gestão de Serviços de TI](../azure-monitor/platform/itsmc-overview.md).
+    
+ ## <a name="next-steps"></a>Passos seguintes
+
+Agora que cobriu usando as ferramentas nativas da Azure para gerir os seus VMs de Solução VMware Azure durante todo o seu ciclo de vida, talvez queira saber:
+
+- [Proteger os VMs da solução Azure VMware com o Centro de Segurança Azure](azure-security-integration.md).
+- [Configuração do Servidor de Backup Azure para solução VMware Azure](set-up-backup-server-for-azure-vmware-solution.md).
+- [Integrando a Azure VMware Solution num hub e arquitetura de fala.](concepts-hub-and-spoke.md)

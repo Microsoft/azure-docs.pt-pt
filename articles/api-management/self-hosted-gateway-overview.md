@@ -1,5 +1,5 @@
 ---
-title: Visão geral de gateway auto-hospedada / Microsoft Docs
+title: Visão geral de gateway auto-hospedada | Microsoft Docs
 description: Saiba como a funcionalidade de gateway auto-hospedada da Azure API Management ajuda as organizações a gerir as APIs em ambientes híbridos e multicloud.
 services: api-management
 documentationcenter: ''
@@ -8,14 +8,14 @@ manager: gwallace
 editor: ''
 ms.service: api-management
 ms.topic: article
-ms.date: 04/26/2020
+ms.date: 01/25/2021
 ms.author: apimpm
-ms.openlocfilehash: b560b02544eeb96167e68ed305d4d9942d2b1e0f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 48abce693ca22163c0a1742ba71faf36fc6156a1
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82232977"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99989099"
 ---
 # <a name="self-hosted-gateway-overview"></a>Descrição geral do gateway autoalojado
 
@@ -49,7 +49,7 @@ A seguinte funcionalidade encontrada nos gateways geridos não está **disponív
 
 - Registos do Azure Monitor
 - Versão upstream (backend side) versão TLS e gestão de cifra
-- Validação de certificados de servidor e cliente usando [certificados de raiz ca enviados](api-management-howto-ca-certificates.md) para o serviço de Gestão API. Para adicionar suporte para ca personalizado, adicione uma camada à imagem do recipiente de gateway auto-hospedado que instala o certificado de raiz da AC.
+- Validação de certificados de servidor e cliente usando [certificados de raiz ca enviados](api-management-howto-ca-certificates.md) para o serviço de Gestão API. Para obter mais informações, consulte [a validação do Certificado no gateway auto-hospedado.](api-management-howto-mutual-certificates-for-clients.md#certificate-validation-in-self-hosted-gateway)
 - Integração com o [Tecido de Serviço](../service-fabric/service-fabric-api-management-overview.md)
 - Recomeço de sessão TLS
 - Renegociação do certificado de cliente. Isto significa que, para a [autenticação](api-management-howto-mutual-certificates-for-clients.md) do certificado de cliente para trabalhar, os consumidores de API devem apresentar os seus certificados como parte do aperto de mão TLS inicial. Para garantir isso, ative a definição do certificado de cliente de negociação ao configurar um nome de anfitrião personalizado de gateway auto-hospedado.

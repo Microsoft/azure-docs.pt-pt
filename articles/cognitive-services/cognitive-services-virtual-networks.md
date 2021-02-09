@@ -7,14 +7,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 01/27/2021
+ms.date: 02/09/2021
 ms.author: aahi
-ms.openlocfilehash: 8fa10164ae2d697f68156777f224b92f0562475f
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: eaffa535b51b786a53f1e6cc35233c55dd837233
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98940054"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99989074"
 ---
 # <a name="configure-azure-cognitive-services-virtual-networks"></a>Configurar redes virtuais dos Serviços Cognitivos do Azure
 
@@ -59,7 +59,7 @@ As redes virtuais (VNETs) são suportadas em [regiões onde os Serviços Cogniti
 
 
 > [!NOTE]
-> Se estiver a utilizar o LUIS, a etiqueta **CognitiveServicesManagement** apenas permite a utilização do serviço utilizando a API SDK ou REST. Para aceder e utilizar o portal LUIS a partir de uma rede virtual, terá de utilizar as seguintes tags:  
+> Se estiver a utilizar o LUIS ou os Serviços de Fala, a etiqueta **CognitiveServicesManagement** apenas permite a utilização do serviço utilizando a API SDK ou REST. Para aceder e utilizar o portal LUIS e/ou Estúdio de Fala a partir de uma rede virtual, terá de utilizar as seguintes tags:  
 > * **AzureActiveDirectory**
 > * **AzureFrontDoor.Frontend**
 > * **AzureResourceManager** 
@@ -157,7 +157,7 @@ Pode gerir as regras de acesso à rede padrão para recursos de Serviços Cognit
         --default-action Allow
     ```
 
-**_
+***
 
 ## <a name="grant-access-from-a-virtual-network"></a>Conceder acesso a partir de uma rede virtual
 
@@ -169,7 +169,7 @@ Cada recurso de Serviços Cognitivos suporta até 100 regras de rede virtuais, q
 
 ### <a name="required-permissions"></a>Permissões obrigatórias
 
-Para aplicar uma regra de rede virtual a um recurso de Serviços Cognitivos, o utilizador deve ter as permissões adequadas para a adição das sub-redes. A permissão necessária é o papel de _Contributor* ou o papel *de Contribuinte de Serviços Cognitivos.* As permissões necessárias também podem ser adicionadas às definições de funções personalizadas.
+Para aplicar uma regra de rede virtual a um recurso de Serviços Cognitivos, o utilizador deve ter as permissões adequadas para a adição das sub-redes. A permissão necessária é a função *de Contribuinte predefinido,* ou a *função de Contribuinte de Serviços Cognitivos.* As permissões necessárias também podem ser adicionadas às definições de funções personalizadas.
 
 O recurso de Serviços Cognitivos e as redes virtuais de acesso podem estar em diferentes subscrições, incluindo subscrições que fazem parte de um inquilino AD Azure diferente.
 
@@ -325,10 +325,10 @@ Pode gerir as regras de rede virtual para recursos de Serviços Cognitivos atrav
         --subnet $subnetid
     ```
 
-**_
+***
 
 > [!IMPORTANT]
-> Certifique-se de [definir a regra padrão](#change-the-default-network-access-rule) para _*deny**, ou as regras de rede não têm efeito.
+> Certifique-se de [que define a regra padrão](#change-the-default-network-access-rule) para **negar**, ou as regras de rede não têm efeito.
 
 ## <a name="grant-access-from-an-internet-ip-range"></a>Conceder acesso a partir de um intervalo de IP da Internet
 
@@ -472,10 +472,10 @@ Pode gerir as regras de rede IP para recursos de Serviços Cognitivos através d
         --ip-address "16.17.18.0/24"
     ```
 
-**_
+***
 
 > [!IMPORTANT]
-> Certifique-se de [definir a regra padrão](#change-the-default-network-access-rule) para _*deny**, ou as regras de rede não têm efeito.
+> Certifique-se de [que define a regra padrão](#change-the-default-network-access-rule) para **negar**, ou as regras de rede não têm efeito.
 
 ## <a name="use-private-endpoints"></a>Utilizar pontos finais privados
 
@@ -539,7 +539,7 @@ Para obter mais informações sobre a configuração do seu próprio servidor DN
 
 Para obter detalhes sobre os preços, consulte [os preços do Azure Private Link](https://azure.microsoft.com/pricing/details/private-link).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Explore os vários [Serviços Cognitivos Azure](./what-are-cognitive-services.md)
 * Saiba mais sobre [os pontos finais do Serviço de Rede Virtual Azure](../virtual-network/virtual-network-service-endpoints-overview.md)
