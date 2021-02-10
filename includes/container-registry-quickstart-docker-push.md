@@ -8,19 +8,19 @@ ms.topic: include
 ms.date: 08/04/2020
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 6a16106495e584c9acbc02d380242df665f35ce5
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 404fd10c3e3610671d2b6e5dbc6aba8bcaa70046
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96020019"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100019092"
 ---
 ## <a name="push-image-to-registry"></a>Enviar imagem para o registo
 
-Para enviar uma imagem para um registo do Azure Container, primeiro tem de ter uma imagem. Se ainda não tiver imagens de contentores locais, faça o seguinte [estivador puxar][docker-pull] o comando para retirar uma imagem existente do Docker Hub. Para este exemplo, puxe a `hello-world` imagem.
+Para enviar uma imagem para um registo do Azure Container, primeiro tem de ter uma imagem. Se ainda não tiver imagens de contentores locais, faça o seguinte [estivador puxar][docker-pull] o comando para puxar uma imagem pública existente. Para este exemplo, retire a `hello-world` imagem do Registo de Contentores da Microsoft.
 
 ```
-docker pull hello-world
+docker pull mcr.microsoft.com/hello-world
 ```
 
 Antes de poder empurrar uma imagem para o seu registo, tem de a marcar com o nome totalmente qualificado do seu servidor de login de registo. O nome do servidor de login está no formato *\<registry-name\> .azurecr.io* (deve ser todos minúsculos), por exemplo, *mycontainerregistry.azurecr.io*.
@@ -28,13 +28,13 @@ Antes de poder empurrar uma imagem para o seu registo, tem de a marcar com o nom
 Crie uma etiqueta para a imagem com o comando [etiqueta do docker][docker-tag]. Substitua `<login-server>` pelo nome do servidor de início de sessão da sua instância do ACR.
 
 ```
-docker tag hello-world <login-server>/hello-world:v1
+docker tag mcr.microsoft.com/hello-world <login-server>/hello-world:v1
 ```
 
 Exemplo:
 
 ```
-docker tag hello-world mycontainerregistry.azurecr.io/hello-world:v1
+docker tag mcr.microsoft.com/hello-world mycontainerregistry.azurecr.io/hello-world:v1
 ```
 
 
