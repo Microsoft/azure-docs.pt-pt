@@ -7,12 +7,12 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 12/16/2020
 ms.custom: references_regions
-ms.openlocfilehash: ed13837eabadc38cee50efac3b9340c973c8ea70
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: d22bb05ad6db3630e9b0242e098fd81f65e34b05
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99492438"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100007317"
 ---
 # <a name="it-service-management-connector-overview"></a>Visão geral do conector de gestão de serviços de TI
 
@@ -32,7 +32,8 @@ A ITSMC suporta ligações com as seguintes ferramentas ITSM:
 -   Cherwell
 
    >[!NOTE]
-> Propomos aos nossos clientes Cherwell e Provance que utilizem a [ação Webhook](./action-groups.md#webhook) para cherwell e provance como outra solução para a integração.
+> A partir de 1 de outubro de 2020 as integrações da Cherwell e da Provance ITSM com o Azure Alert deixarão de ser ativadas para novos clientes. As novas Ligações ITSM não serão suportadas.
+> As ligações ITSM existentes serão suportadas.
 
 Com o ITSMC, pode:
 

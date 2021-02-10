@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 08/13/2020
-ms.openlocfilehash: 07db57ee36d39454e8a247be11dac4a9c51af3af
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: d1f4c57986f356f267448ff43de23973534b8126
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98946106"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100006671"
 ---
 # <a name="apache-components-and-versions-available-for-azure-hdinsight"></a>Componentes e versões Apache disponíveis para Azure HDInsight
 
@@ -74,8 +74,8 @@ Esta tabela lista as versões de HDInsight que estão disponíveis no portal Azu
 
 | Versão HDInsight | SO da VM | Data da versão | Prazo de validade do suporte | Data da reforma | Elevada disponibilidade |  Disponibilidade no portal Azure |
 | --- | --- | --- | --- | --- | --- | --- |
-| HDInsight 4.0 |Ubuntu 16.0.4 LTS |Setembro de 24, 2018 | | |Yes |Yes |
-| HDInsight 3.6 |Ubuntu 16.0.4 LTS |4 de abril de 2017      | *30 de junho de 2021 |30 de junho de 2021 |Yes |Yes |
+| HDInsight 4.0 |Ubuntu 16.0.4 LTS |Setembro de 24, 2018 | | |Sim |Sim |
+| HDInsight 3.6 |Ubuntu 16.0.4 LTS |4 de abril de 2017      | *30 de junho de 2021 |30 de junho de 2021 |Sim |Sim |
 
 *Estamos a alargar o prazo de suporte para certos tipos de cluster HDInsight 3.6
 
@@ -101,15 +101,15 @@ Esta tabela lista as versões de HDInsight que não estão disponíveis no porta
 
 | Versão HDInsight | Versão HDP | SO da VM | Data da versão | Prazo de validade do suporte | Data da reforma | Elevada disponibilidade |  Disponibilidade no portal Azure |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| HDInsight 3.5 |HDP 2.5 |Ubuntu 16.0.4 LTS |30 de setembro de 2016 |5 de setembro de 2017 |28 de junho de 2018 |Yes |No |
-| HDInsight 3.4 |HDP 2.4 |Ubuntu 14.0.4 LTS |29 de março de 2016 |29 de dezembro de 2016 |9 de janeiro de 2018 |Yes |No |
-| HDInsight 3.3 |HDP 2.3 |Windows Server 2012 R2 |2 de dezembro de 2015 |27 de junho de 2016 |31 de julho de 2018 |Yes |No |
-| HDInsight 3.3 |HDP 2.3 |Ubuntu 14.0.4 LTS |2 de dezembro de 2015 |27 de junho de 2016 |31 de julho de 2017 |Yes |No |
-| HDInsight 3.2 |HDP 2.2 |Ubuntu 12.04 LTS ou Windows Server 2012 R2 |18 de fevereiro de 2015 |1 de março de 2016 |1 de abril de 2017 |Yes |No |
-| HDInsight 3.1 |HDP 2.1 |Windows Server 2012 R2 |24 de junho de 2014 |18 de maio de 2015 |30 de junho de 2016 |Yes |No |
-| HDInsight 3.0 |HDP 2.0 |Windows Server 2012 R2 |11 de fevereiro de 2014 |17 de setembro de 2014 |30 de junho de 2015 |Yes |No |
-| HDInsight 2.1 |HDP 1.3 |Windows Server 2012 R2 |28 de outubro de 2013 |12 de maio de 2014 |31 de maio de 2015 |Yes |No |
-| HDInsight 1.6 |HDP 1.1 | |28 de outubro de 2013 |26 de abril de 2014 |31 de maio de 2015 |No |No |
+| HDInsight 3.5 |HDP 2.5 |Ubuntu 16.0.4 LTS |30 de setembro de 2016 |5 de setembro de 2017 |28 de junho de 2018 |Sim |Não |
+| HDInsight 3.4 |HDP 2.4 |Ubuntu 14.0.4 LTS |29 de março de 2016 |29 de dezembro de 2016 |9 de janeiro de 2018 |Sim |Não |
+| HDInsight 3.3 |HDP 2.3 |Windows Server 2012 R2 |2 de dezembro de 2015 |27 de junho de 2016 |31 de julho de 2018 |Sim |Não |
+| HDInsight 3.3 |HDP 2.3 |Ubuntu 14.0.4 LTS |2 de dezembro de 2015 |27 de junho de 2016 |31 de julho de 2017 |Sim |Não |
+| HDInsight 3.2 |HDP 2.2 |Ubuntu 12.04 LTS ou Windows Server 2012 R2 |18 de fevereiro de 2015 |1 de março de 2016 |1 de abril de 2017 |Sim |Não |
+| HDInsight 3.1 |HDP 2.1 |Windows Server 2012 R2 |24 de junho de 2014 |18 de maio de 2015 |30 de junho de 2016 |Sim |Não |
+| HDInsight 3.0 |HDP 2.0 |Windows Server 2012 R2 |11 de fevereiro de 2014 |17 de setembro de 2014 |30 de junho de 2015 |Sim |Não |
+| HDInsight 2.1 |HDP 1.3 |Windows Server 2012 R2 |28 de outubro de 2013 |12 de maio de 2014 |31 de maio de 2015 |Sim |Não |
+| HDInsight 1.6 |HDP 1.1 | |28 de outubro de 2013 |26 de abril de 2014 |31 de maio de 2015 |Não |Não |
 
 > [!NOTE]
 > Os clusters altamente disponíveis com dois nós de cabeça são implantados por padrão para a versão 2.1 hdInsight e posterior. Não estão disponíveis para clusters HDInsight versão 1.6.
@@ -127,9 +127,11 @@ A _data de aposentadoria_ é a data após a qual a versão cluster não pode ser
 
 Para obter mais informações sobre quais as máquinas virtuais SKUs a selecionar para o seu cluster, consulte [os detalhes da configuração do cluster Azure HDInsight](hdinsight-supported-node-configuration.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Configuração de cluster para Apache Hadoop, Spark, e muito mais em HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
 - [Pacote de Segurança Enterprise](./enterprise-security-package.md)
 - [Notas de lançamento da Hortonworks associadas às versões Azure HDInsight](./hortonworks-release-notes.md)
 - [Trabalhar em Apache Hadoop em HDInsight a partir de um PC windows](hdinsight-hadoop-windows-tools.md)
+
+

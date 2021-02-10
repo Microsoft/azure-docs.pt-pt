@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 01/13/2021
 ms.author: pafarley
-ms.openlocfilehash: 1128504ee5f8c086d6a3c30a9fdd021550394f3f
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 31ca65099d645b7fdfee70275515f0a864cd905f
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/09/2021
-ms.locfileid: "99981770"
+ms.locfileid: "100007402"
 ---
 # <a name="whats-new-in-computer-vision"></a>Novidades na Visão Computacional
 
@@ -24,13 +24,14 @@ Saiba o que há de novo no serviço. Estes itens podem ser notas de lançamento,
 ## <a name="february-2021"></a>Fevereiro de 2021
 
 ### <a name="read-api-v32-public-preview-with-ocr-support-for-73-languages"></a>Leia API v3.2 Visualização pública com suporte OCR para 73 línguas
-A pré-visualização pública da API v3.2 da Computer Vision inclui estas capacidades:
+A pré-visualização pública da API v3.2 da Computer Vision, disponível como serviço de nuvem e contentor Docker, inclui estas atualizações:
 * [OCR para 73 línguas,](./language-support.md#optical-character-recognition-ocr) incluindo línguas chinesas simplificadas e tradicionais, japonesas, coreanas e latinas.
-* Des output as linhas de texto na ordem de leitura natural.
-* Classifique as linhas de texto como estilo de caligrafia ou não juntamente com uma pontuação de confiança (apenas línguas latinas).
-* Para um texto de extrato de documento de várias páginas apenas para páginas selecionadas ou intervalo de página.
+* Ordem de leitura natural para a saída da linha de texto.
+* Classificação do estilo de caligrafia para linhas de texto juntamente com uma pontuação de confiança (apenas línguas latinas).
+* Extrair texto apenas para páginas selecionadas para um documento de várias páginas.
+* Disponível como [recipiente distrosiável](./computer-vision-how-to-install-containers.md?tabs=version-3-2) para implantação no local.
 
-Consulte [as funcionalidades de pré-visualização de Leitura](concept-recognizing-text.md#natural-reading-order-output) para obter mais informações.
+[Saiba mais](concept-recognizing-text.md) sobre a API de Leitura.
 
 > [!div class="nextstepaction"]
 > [Utilize a API de Leitura v3.2 Visualização pública](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005)

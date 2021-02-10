@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2020
-ms.openlocfilehash: 2ca8a814fbaf2d8c257d094f81d17a5c871793b0
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: a8d3ded1d11a350ff53ffda71348b2cc707760b8
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878940"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100008422"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Azure Monitor perguntas frequentes
 
@@ -37,7 +37,7 @@ O Azure Monitor está ativado no momento em que cria uma nova subscrição do Az
 Aceda a todas as funcionalidades e dados do Azure Monitor **no** menu Azure. A secção de **Monitorização** do menu de diferentes serviços Azure fornece acesso às mesmas ferramentas com dados filtrados a um determinado recurso. Os dados do Azure Monitor também estão acessíveis para uma variedade de cenários usando CLI, PowerShell e uma API REST.
 
 ### <a name="is-there-an-on-premises-version-of-azure-monitor"></a>Existe uma versão no local do Azure Monitor?
-Não. O Azure Monitor é um serviço de nuvem escalável que processa e armazena grandes quantidades de dados, embora o Azure Monitor possa monitorizar recursos que estão no local e em outras nuvens.
+N.º O Azure Monitor é um serviço de nuvem escalável que processa e armazena grandes quantidades de dados, embora o Azure Monitor possa monitorizar recursos que estão no local e em outras nuvens.
 
 ### <a name="can-azure-monitor-monitor-on-premises-resources"></a>O Azure Monitor pode monitorizar os recursos no local?
 Sim, além de recolher dados de monitorização a partir de recursos Azure, o Azure Monitor pode recolher dados de máquinas virtuais e aplicações em outras nuvens e no local. Consulte [as fontes de monitorização dos dados do Azure Monitor](platform/data-sources.md).
@@ -81,10 +81,12 @@ O Azure Data Explorer é um serviço de exploração de dados rápido e altament
 
 ### <a name="how-do-i-retrieve-log-data"></a>Como recupero dados de registo?
 Todos os dados são obtidos a partir de um espaço de trabalho Log Analytics utilizando uma consulta de log escrita usando a Linguagem de Consulta de Kusto (KQL). Pode escrever as suas próprias consultas ou utilizar soluções e insights que incluam consultas de registo para uma determinada aplicação ou serviço. Consulte [a visão geral das consultas de registo no Azure Monitor](log-query/log-query-overview.md).
-p
+
 ### <a name="can-i-delete-data-from-a-log-analytics-workspace"></a>Posso eliminar dados de um espaço de trabalho do Log Analytics?
 Os dados são removidos de um espaço de trabalho de acordo com o seu [período de retenção.](platform/manage-cost-storage.md#change-the-data-retention-period) Pode eliminar dados específicos por razões de privacidade ou conformidade. Ver [Como exportar e apagar dados privados](platform/personal-data-mgmt.md#how-to-export-and-delete-private-data) para obter mais informações.
 
+### <a name="is-log-analytics-storage-immutable"></a>O armazenamento do Log Analytics é imutável?
+Os dados relativos ao armazenamento da base de dados não podem ser alterados uma vez ingeridos, mas podem ser eliminados através da [ *via expurgação* da API para a eliminação de dados privados](platform/personal-data-mgmt.md#delete). Embora os dados não possam ser alterados, algumas certificações exigem que os dados sejam mantidos imutáveis e não possam ser alterados ou eliminados no armazenamento. A imutabilidade de dados pode ser alcançada usando a exportação de [dados](platform/logs-data-export.md) para uma conta de armazenamento configurada como [armazenamento imutável](../storage/blobs/storage-blob-immutability-policies-manage.md).
 
 ### <a name="what-is-a-log-analytics-workspace"></a>O que é uma área de trabalho do Log Analytics?
 Todos os dados de registo recolhidos pelo Azure Monitor são armazenados num espaço de trabalho log analytics. Um espaço de trabalho é essencialmente um recipiente onde os dados de registo são recolhidos de uma variedade de fontes. Pode ter um único espaço de trabalho log Analytics para todos os seus dados de monitorização ou pode ter requisitos para vários espaços de trabalho. Consulte [a implementação dos registos do monitor Azure](platform/design-logs-deployment.md).
@@ -821,7 +823,7 @@ Se tiver configurado o Azure Monitor com um espaço de trabalho Log Analytics ut
 Nesta condição, será solicitado com a opção **Try Now** quando abrir o VM e selecionar **Insights** a partir do painel esquerdo, mesmo depois de já ter sido instalado no VM.  No entanto, não é solicitado com opções como normalmente ocorreria se este VM não fosse a bordo do Azure Monitor para VMs. 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Se a sua pergunta não for respondida aqui, pode consultar os seguintes fóruns para perguntas e respostas adicionais.
 
 - [Log Analytics](/answers/topics/azure-monitor.html)

@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: 5bedb7da2f088c065d95d60effeda1e4db15d44a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 64955cdc1e4eb0088b53ad73d9c464c9533aa0fa
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88589491"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100007725"
 ---
 # <a name="supported-language-and-runtime-versions-for-apache-spark-and-dependent-components"></a>Versões de linguagem e tempo de execução suportadas para Apache Spark e componentes dependentes  
 
@@ -30,7 +30,7 @@ Apache Spark in Azure Synapse corre na versão Ubuntu 16.04.
 
 ## <a name="java-version"></a>Versão java
 
-Apache Spark in Azure Synapse inclui a versão Java 1.8.0_222
+Apache Spark in Azure Synapse inclui a versão Java 1.8.0_272
 
 ## <a name="scala-version"></a>Versão Scala
 
@@ -38,15 +38,15 @@ Apache Spark in Azure Synapse inclui Scala 2.11.12
 
 ## <a name="net-core-version"></a>Versão .NET Core
 
-Apache Spark in Azure Synapse inclui .NET Core 3.0
+Apache Spark in Azure Synapse inclui .NET Core 3.1
 
 ## <a name="net-support-for-apache-spark"></a>.NET Support for Apache Spark
 
-Azure Synapse inclui suporte .NET para Apache Spark 0.11.0
+Azure Synapse inclui suporte .NET para Apache Spark 1.0.0
 
 ## <a name="delta-lake"></a>Delta Lake
 
-Synapse Analytics inclui apoio para Delta Lake 0.6.0
+Synapse Analytics inclui apoio para Delta Lake 0.6.1
 
 ## <a name="python-version"></a>Versão de Python
 
@@ -86,7 +86,7 @@ aplicaçõesinsights-core-2.3.1.jar
 
 aplicações-início de log4j1_2-2.3.1.jar
 
-applicationinsights-web-2.3.1.jar
+aplicaçõesinsights-web-2.3.1.jar
 
 arpack_combined_all-0.1.jar
 
@@ -96,7 +96,7 @@ seta-memória-0.10.0.jar
 
 seta-vetor-0.10.0.jar
 
-anotações de público-0.5.0.jar
+anotações de audiência-0.5.0.jar
 
 avro-1.8.2.jar
 
@@ -110,7 +110,7 @@ azuredw-0.3.0.2.6.99.201-SNAPSHOT.jar
 
 azure-keyvault-core-0.8.0.jar
 
-azure-storage-5.4.0.jar
+azure-armazenamento-5.4.0.jar
 
 bonecp-0.8.0.RELEASE.jar
 
@@ -128,7 +128,7 @@ chill_2.11-0.9.3.jar
 
 chill-java-0.9.3.jar
 
-commons-beanutils-1.9.3.jar
+comuns-beanutils-1.9.3.jar
 
 comuns-cli-1.2.jar
 
@@ -136,13 +136,13 @@ commons-codec-1.10.jar
 
 comuns-coleções-3.2.2.jar
 
-comuns-compilador-3.0.9.jar
+compilador dos comuns-3.0.9.jar
 
 comuns-compress-1.8.1.jar
 
 configuração comum-1.6.jar
 
-commons-crypto-1.0.0.jar
+comuns-cripto-1.0.0.jar
 
 commons-dbcp-1.4.jar
 
@@ -166,7 +166,7 @@ commons-pool-1.5.4.jar
 
 compress-lzf-1.0.3.jar
 
-core-1.1.2.jar
+núcleo-1.1.2.jar
 
 curador-cliente-2.7.1.jar
 
@@ -194,7 +194,7 @@ jerónimo-jcache_1.0_spec-1.0-alfa-1.jar
 
 gson-2.2.4.jar
 
-guava-14.0.1.jar
+guaiabava-14.0.1.jar
 
 guice-3.0.jar
 
@@ -220,7 +220,7 @@ hadoop-mapreduce-cliente-common-2.9.1.2.6.99.201-1240.jar
 
 hadoop-mapreduce-cliente-core-2.9.1.2.6.99.201-1240.jar
 
-hadoop-mapreduce-cliente-jobclient-2.9.1.2.6.99.201-1240.jar
+hadoop-mapreduce-cliente-cliente-2.9.1.2.6.99.201-1240.jar
 
 hadoop-mapreduce-cliente-shuffle-2.9.1.2.6.99.201-1240.jar
 
@@ -232,7 +232,7 @@ hadoop-yarn-cliente-2.9.1.2.6.99.201-1240.jar
 
 hadoop-yarn-common-2.9.1.2.6.99.201-1240.jar
 
-hadoop-yarn-registry-2.9.1.2.6.99.201-1240.jar
+registo de hadoop-yarn-2.9.1.2.6.99.201-1240.jar
 
 hadoop-yarn-servidor-common-2.9.1.2.6.99.201-1240.jar
 
@@ -244,7 +244,7 @@ colmeia-beeline-1.2.1.spark2.jar
 
 colmeia-cli-1.2.1.spark2.jar
 
-colmeia-exec-1.2.1.spark2.jar
+hive-exec-1.2.1.spark2.jar
 
 colmeia-jdbc-1.2.1.spark2.jar
 
@@ -292,7 +292,7 @@ jackson-módulo-jaxb-anotações-2.6.7.jar
 
 jackson-módulo-paranamer-2.7.9.jar
 
-jackson-module-scala_2.11-2.6.7.1.jar
+jackson-módulo-scala_2.11-2.6.7.1.jar
 
 jackson-xc-1.9.13.jar
 
@@ -304,7 +304,7 @@ javassista-3.18.1-GA.jar
 
 javax.anotação-api-1.2.jar
 
-javax.inject-1.jar
+javax.injecta-1.jar
 
 javax.injectar-2.4.0-b34.jar
 
@@ -314,7 +314,7 @@ javax.ws.rs-api-2.0.1.jar
 
 javolution-5.5.1.jar
 
-jaxb-api-2.2.2.jar
+jaxb-api-2.2.jar
 
 jcip-anotações-1.0-1.jar
 
@@ -328,7 +328,7 @@ jersey-comum-2.22.2.jar
 
 jersey-contentor-servlet-2.22.2.jar
 
-jersey-contentor-servlet-core-2.22.2.jar
+jersey-container-servlet-core-2.22.2.jar
 
 jersey-guava-2.22.2.jar
 
@@ -340,9 +340,9 @@ jersey-servidor-2.22.2.jar
 
 cais-6.1.26.jar
 
-jetty-sslengine-6.1.26.jar
+molhe-sslengine-6.1.26.jar
 
-jetty-util-6.1.26.jar
+molhe-util-6.1.26.jar
 
 jline-2.14.6.jar
 
@@ -354,11 +354,11 @@ jpam-1.1.jar
 
 json4s-ast_2.11-3.5.3.jar
 
-json4s-core_2.11-3.5.3.jar
+json4s-core_2.11-3.5.jar
 
 json4s-jackson_2.11-3.5.3.jar
 
-json4s-scalap_2.11-3.5.3.jar
+json4s-scalap_2.11-3.5.jar
 
 json-smart-2.3.jar
 
@@ -374,7 +374,7 @@ jul-to-slf4j-1.7.16.jar
 
 kryo-sombreado-4.0.2.jar
 
-leveldbjni-all-1.8.jar
+nidbjni-all-1.8.jar
 
 libfb303-0.9.3.jar
 
@@ -432,7 +432,7 @@ paranamer-2.8.jar
 
 parquet-coluna-1.10.1.jar
 
-parquet-comum-1.10.1.jar
+parquet-common-1.10.1.jar
 
 parquet-codificação-1.10.1.jar
 
@@ -480,19 +480,19 @@ snappy-0.2.jar
 
 snappy-java-1.1.7.3.jar
 
-spark-catalyst_2.11-2.4.0.2.6.99.201-1240.jar
+catalyst_2.11-2.4.0.2.6.99.201-1240.jar
 
-spark-core_2.11-2.4.0.2.6.99.201-1240.jar
+core_2.11-2.4.0.2.6.99.201-1240.jar
 
-spark-graphx_2.11-2.4.0.2.6.99.201-1240.jar
+graphx_2.11-2.4.0.2.6.99.201-1240.jar
 
-spark-hive_2.11-2.4.0.2.6.99.201-1240.jar
+hive_2.11-2.4.0.2.6.99.201-1240.jar
 
 spark-hive-thriftserver_2.11-2.4.0.2.6.99.201-1240.jar
 
-spark-kvstore_2.11-2.4.0.2.6.99.201-1240.jar
+kvstore_2.11-2.4.0.2.6.99.201-1240.jar
 
-spark-launcher_2.11-2.4.0.2.6.99.201-1240.jar
+launcher_2.11-2.4.0.2.6.99.201-1240.jar
 
 spark-mllib_2.11-2.4.0.2.6.99.201-1240.jar
 
@@ -504,15 +504,15 @@ spark-network-common_2.11-2.4.0.2.6.99.201-1240.jar
 
 spark-network-shuffle_2.11-2.4.0.2.6.99.201-1240.jar
 
-spark-repl_2.11-2.4.0.2.6.99.201-1240.jar
+repl_2.11-2.4.0.2.6.99.201-1240.jar
 
-spark-sketch_2.11-2.4.0.2.6.99.201-1240.jar
+sketch_2.11-2.4.0.2.6.99.201-1240.jar
 
 spark-sql_2.11-2.4.0.2.6.99.201-1240.jar
 
-spark-streaming_2.11-2.4.0.2.6.99.201-1240.jar
+streaming_2.11-2.4.0.2.6.99.201-1240.jar
 
-spark-tags_2.11-2.4.0.2.6.99.201-1240.jar
+tags_2.11-2.4.0.2.6.99.201-1240.jar
 
 spark-unsafe_2.11-2.4.0.2.6.99.201-1240.jar
 
@@ -556,11 +556,11 @@ wildfly-openssl-1.0.4.Final.jar
 
 woodstox-core-5.0.3.jar
 
-xbean-asm6-sombreado-4.8.jar
+xbean-asm6-sombreado-4,8.jar
 
-xmlenc-0.52.jar
+xmlenc-0,52.jar
 
-xz-1.5.jar
+xz-1,5.jar
 
 zookeeper-3.4.11.2.6.99.201-1240.jar
 

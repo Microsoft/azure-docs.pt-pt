@@ -107,7 +107,7 @@
         - name: Criar um pedido de suporte para falhas de implementação
           href: fix-deployment-provisioning-failures.md
     - name: FAQ
-      href: faq.md
+      href: faq.yml
 - name: Referência
   items:
     - name: CLI do Azure

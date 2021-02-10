@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 11/11/2020
+ms.date: 02/04/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 35ffae55e749c7493b9cd8af13dfd5216abf5822
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: d003008ea5b0d2591574f6f488b0145ee6f08a5e
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94515511"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100008133"
 ---
 # <a name="microsoft-365-external-sharing-and-azure-active-directory-azure-ad-b2b-collaboration"></a>Partilha externa microsoft 365 e colaboração B2B do Azure Ative (Azure AD)
 
@@ -32,8 +32,7 @@ A OneDrive/SharePoint Online tem um gestor de convites separado. O suporte à pa
 
 - A colaboração Azure AD B2B os utilizadores convidados podem ser escolhidos a partir de caixas de diálogo de partilha OneDrive/SharePoint Online. Os utilizadores convidados oneDrive/SharePoint online também aparecem no Azure AD depois de resgatarem os seus convites.
 
-- Os requisitos de licenciamento diferem. Para saber mais sobre o licenciamento, consulte [o licenciamento Azure AD B2B](./external-identities-pricing.md) e ["O que é um utilizador externo?" na visão geral de partilha externa do SharePoint Online](/sharepoint/external-sharing-overview#what-happens-when-users-share).
-
+- Os requisitos de licenciamento diferem. Para saber mais sobre o licenciamento, consulte [o licenciamento de identidades externas Azure AD](./external-identities-pricing.md) e [a visão geral de partilha externa do SharePoint Online](/sharepoint/external-sharing-overview).
 Para gerir a partilha externa no OneDrive/SharePoint Online com a colaboração Azure AD B2B, defina a definição de partilha externa OneDrive/SharePoint Online para **permitir a partilha apenas com os utilizadores externos que já existem no diretório da sua organização.** Os utilizadores podem ir a sites partilhados externamente e escolher entre colaboradores externos que o administrador acrescentou. O administrador pode adicionar os colaboradores externos através do convite de colaboração B2B APIs.
 
 

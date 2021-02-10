@@ -8,12 +8,10 @@
       href: whats-new.md
 - name: Guias de Início Rápido
   items:
-    - name: Com o portal Criador de FAQ
-      items:
-        - name: Criar uma base de dados de conhecimento
-          href: Quickstarts/create-publish-knowledge-base.md
-        - name: Consultar uma base de dados de conhecimento
-          href: Quickstarts/get-answer-from-knowledge-base-using-url-tool.md
+    - name: Criar base de conhecimento no portal QnA Maker
+      href: Quickstarts/create-publish-knowledge-base.md
+    - name: Consultar uma base de conhecimento com APIs REST
+      href: Quickstarts/get-answer-from-knowledge-base-using-url-tool.md
     - name: Utilização de bibliotecas de clientes ou REST API
       href: Quickstarts/quickstart-sdk.md
 - name: Tutoriais
@@ -38,6 +36,8 @@
     - name: Ciclo de vida de desenvolvimento
       href: Concepts/development-lifecycle-knowledge-base.md
       displayName: 'version control, test, index, publish, monitor usage, create'
+    - name: Respostas precisas
+      href: reference-precise-answering.md
     - name: Melhores práticas
       href: Concepts/best-practices.md
       displayName: 'tag, rank, score, threshold, question, alternate, filter, synonym, answer, active learning, collaborate, alteration, metadata, bot, personality, extraction, chit-chat'
@@ -50,6 +50,13 @@
       displayName: 'azure, resource, key, upgrade, pricing, tier,'
     - name: Gerir o acesso a recursos do QnA Maker
       href: How-To/manage-qna-maker-app.md
+    - name: Criar Aprendizagem Ativa para melhorar a base de conhecimento
+      items:
+        - name: Ativar a aprendizagem ativa
+          href: How-To/use-active-learning.md
+        - name: Obter perguntas alternativas sugeridas
+          href: How-to/improve-knowledge-base.md
+          displayName: 'active learning, suggestion, dialog prompt, train api, feedback loop, autolearn, auto-learn, user setting, service setting, services setting, accept, reject, filter by suggestion, filter active learning, clusterHead, totalAutoSuggestedCount, totalUserSuggestedCount, autoSuggestedCount, userSuggestedCount'
     - name: Ativar a aprendizagem ativa
       href: How-To/use-active-learning.md
     - name: Gerir base de dados de conhecimento
@@ -86,16 +93,10 @@
       href: Overview/language-support.md
     - name: Limites
       href: limits.md
-    - name: Controlo de acesso baseado em funções do Azure (RBAC do Azure)
-      href: Concepts/role-based-access-control.md
-    - name: Aprendizagem ativa
-      href: Concepts/active-learning-suggestions.md
     - name: Pontuação de confiança
       href: Concepts/confidence-score.md
     - name: Resolução de problemas
       href: troubleshooting.md
-    - name: Respostas precisas
-      href: reference-precise-answering.md
     - name: Adicionar ficheiros do SharePoint protegidos
       href: How-To/add-sharepoint-datasources.md
       displayName: 'Sharepoint, secure, AAD, azure directory, admin, permission, authorization, file, authentication'

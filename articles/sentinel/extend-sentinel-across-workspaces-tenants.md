@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/11/2020
 ms.author: yelevin
-ms.openlocfilehash: dfd8f94dc7ab4e428647b8f44a86a2cd06634e2a
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 9cbafa2a87db9aa59769ac759da9b56a6463874a
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807246"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100006688"
 ---
 # <a name="extend-azure-sentinel-across-workspaces-and-tenants"></a>Alargar o Azure Sentinel através de áreas de trabalho e inquilinos
 
@@ -98,7 +98,7 @@ Em seguida, pode escrever uma consulta em ambos os espaços de trabalho, começa
 <!-- Bookmark added for backward compatibility with old heading -->
 As consultas de espaço cross-work podem agora ser incluídas nas regras de análise programadas, sob reserva das seguintes limitações:
 
-- Até 15 espaços de trabalho podem ser incluídos numa única consulta.
+- Até 20 espaços de trabalho podem ser incluídos numa única consulta.
 - O Azure Sentinel deve ser implantado em todos os espaços de trabalho referenciados na consulta.
 
 > [!NOTE] 

@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.custom: devx-track-csharp
 ms.reviewer: sdash
-ms.openlocfilehash: d301ad1a9f5f55a41f87cd1316c9e5e4b38afd51
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: db8c84334bfce52d34b9fadf73bb2b070fa93a70
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/09/2021
-ms.locfileid: "99980087"
+ms.locfileid: "100007113"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Mapa de aplicações: Aplicações distribuídas por triagem
 
@@ -232,10 +232,10 @@ Para os [processadores de telemetria OpenCensus Python](api-filtering-sampling.m
 def callback_function(envelope):
    envelope.tags['ai.cloud.role'] = 'new_role_name'
    
-// AzureLogHandler
+# AzureLogHandler
 handler.add_telemetry_processor(callback_function)
 
-// AzureExporter
+# AzureExporter
 exporter.add_telemetry_processor(callback_function)
 ```
 ---

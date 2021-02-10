@@ -2,19 +2,19 @@
 author: memildin
 ms.service: security-center
 ms.topic: include
-ms.date: 01-26-2021
+ms.date: 02/09/2021
 ms.author: memildin
 ms.custom: generated
-ms.openlocfilehash: dc70457cbe507ccf1727ea8736e7235edfdb76ca
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: 4a303e5af2ce05102de6889d0bc5fce8af232a32
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98797150"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100007608"
 ---
 Há **15** recomendações nesta categoria.
 
-|Recomendação |Descrição |Gravidade |
+|Recomendação |Description |Gravidade |
 |---|---|---|
 |O acesso a contas de armazenamento com firewall e configurações de rede virtuais deve ser restringido |Reveja as definições de acesso à rede nas definições de firewall da sua conta de armazenamento. Recomenda-se configurar as regras de rede para que apenas as aplicações de redes permitidas possam aceder à conta de armazenamento. Para permitir ligações de clientes específicos da Internet ou no local, o acesso pode ser concedido ao tráfego a partir de redes virtuais específicas do Azure ou de intervalos de endereços IP na Internet pública.<br />(Política relacionada: [As contas de armazenamento devem restringir o acesso à rede)](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f34c877ad-507e-4c82-993e-3452a6e0ad3c) |Baixo |
 |Recomendações de endurecimento de rede adaptativa devem ser aplicadas em máquinas virtuais internas viradas para a face |O Azure Security Center analisou os padrões de comunicação de tráfego de Internet das máquinas virtuais listadas abaixo, e determinou que as regras existentes nos NSGs que lhes estão associadas são excessivamente permissivas, resultando num aumento da superfície de ataque potencial. Isto pode ser devido à falta de tráfego nos tuples porto/protocolo ou iPs específicos que foram sinalizados como maliciosos pelas fontes de inteligência de ameaça do Centro de Segurança.<br />(Sem política relacionada) |Médio |

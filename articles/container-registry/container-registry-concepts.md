@@ -3,12 +3,12 @@ title: Sobre repositórios & imagens
 description: Introdução a conceitos-chave de registos de contentores Azure, repositórios e imagens de contentores.
 ms.topic: article
 ms.date: 06/16/2020
-ms.openlocfilehash: cd2f93c119817c722401f7290064894f3d39dac9
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 0cc7df22236c60bd473385d92c8db563be68f688
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94335899"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100008524"
 ---
 # <a name="about-registries-repositories-and-images"></a>Sobre registos, repositórios e imagens
 
@@ -81,7 +81,30 @@ Para proporcionar isolamento e proteção seguro contra a manipulação potencia
 
 ### <a name="manifest"></a>Manifesto
 
-Cada imagem ou artefacto de contentor empurrado para um registo de contentores está associado a um *manifesto*. O manifesto, gerado pelo registo quando a imagem é empurrada, identifica exclusivamente a imagem e especifica as suas camadas. Pode listar os manifestos para um repositório com o comando Azure CLI [repositório de manifestos:][az-acr-repository-show-manifests]
+Cada imagem ou artefacto de contentor empurrado para um registo de contentores está associado a um *manifesto*. O manifesto, gerado pelo registo quando a imagem é empurrada, identifica exclusivamente a imagem e especifica as suas camadas. 
+
+Um manifesto básico para uma imagem Linux `hello-world` é semelhante ao seguinte:
+
+  ```json
+  {
+    "schemaVersion": 2,
+    "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+    "config": {
+        "mediaType": "application/vnd.docker.container.image.v1+json",
+        "size": 1510,
+        "digest": "sha256:fbf289e99eb9bca977dae136fbe2a82b6b7d4c372474c9235adc1741675f587e"
+      },
+    "layers": [
+        {
+          "mediaType": "application/vnd.docker.image.rootfs.diff.tar.gzip",
+          "size": 977,
+          "digest": "sha256:2c930d010525941c1d56ec53b97bd057a67ae1865eebf042686d2a2d18271ced"
+        }
+      ]
+  }
+  ```
+
+Pode listar os manifestos para um repositório com o comando Azure CLI [repositório de manifestos:][az-acr-repository-show-manifests]
 
 ```azurecli
 az acr repository show-manifests --name <acrName> --repository <repositoryName>

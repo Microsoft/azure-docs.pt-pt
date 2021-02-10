@@ -1,5 +1,5 @@
 ---
-title: Segurança de contentores no Centro de Segurança Azure Microsoft Docs
+title: Segurança de contentores no Centro de Segurança Azure | Microsoft Docs
 description: Saiba mais sobre as funcionalidades de segurança do Azure Security Center.
 services: security-center
 documentationcenter: na
@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/22/2020
+ms.date: 02/07/2021
 ms.author: memildin
-ms.openlocfilehash: ea66bb5bcdd6132809804632919a120f5c93353f
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: eb70a31d0fa5f231bd0db8ca27517ce43fe1db28
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98132722"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100007831"
 ---
 # <a name="container-security-in-security-center"></a>Segurança do contentor no Centro de Segurança
 
@@ -70,11 +70,25 @@ Para monitorizar os recipientes não geridos alojados nos VMs IaaS Linux, ative 
 ### <a name="continuous-monitoring-of-your-kubernetes-clusters"></a>Monitorização contínua dos seus clusters Kubernetes
 O Security Center trabalha em conjunto com o Azure Kubernetes Service (AKS), o serviço de orquestração de contentores gerido pela Microsoft para desenvolver, implantar e gerir aplicações contentorizadas.
 
-A AKS fornece controlos de segurança e visibilidade na postura de segurança dos seus clusters. O Centro de Segurança utiliza estas funcionalidades para:
-* Monitorize constantemente a configuração dos seus clusters AKS
-* Gerar recomendações de segurança alinhadas com os padrões da indústria
+A AKS fornece controlos de segurança e visibilidade na postura de segurança dos seus clusters. O Security Center utiliza estas funcionalidades para monitorizar constantemente a configuração dos seus clusters AKS e gerar recomendações de segurança alinhadas com os padrões da indústria.
+
+Este é um diagrama de alto nível da interação entre o Azure Security Center, o Azure Kubernetes Service e a Azure Policy:
+
+:::image type="content" source="./media/defender-for-kubernetes-intro/kubernetes-service-security-center-integration-detailed.png" alt-text="Arquitetura de alto nível da interação entre o Azure Security Center, o Azure Kubernetes Service e a Azure Policy" lightbox="./media/defender-for-kubernetes-intro/kubernetes-service-security-center-integration-detailed.png":::
+
+Pode ver que os itens recebidos e analisados pelo Security Center incluem:
+
+- registos de auditoria do servidor API
+- eventos de segurança bruto do agente Log Analytics
+
+    > [!NOTE]
+    > Atualmente, não suportamos a instalação do agente Log Analytics nos clusters de serviço Azure Kubernetes que estão a funcionar em conjuntos de escala de máquina virtual.
+
+- informação de configuração do cluster AKS
+- configuração de carga de trabalho da Azure Policy (através do **addon Azure Policy para Kubernetes)**
 
 Para obter mais detalhes sobre as recomendações relevantes do Centro de Segurança que possam aparecer para esta funcionalidade, consulte a secção de [cálculo](recommendations-reference.md#recs-compute) da tabela de referência de recomendações.
+
 
 ###  <a name="workload-protection-best-practices-using-kubernetes-admission-control"></a>Melhores práticas de proteção da carga de trabalho utilizando o controlo de admissão de Kubernetes
 

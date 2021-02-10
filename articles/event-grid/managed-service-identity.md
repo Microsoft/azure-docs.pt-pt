@@ -3,12 +3,12 @@ title: Entrega de eventos, identidade de serviço gerida e ligação privada
 description: Este artigo descreve como permitir a identidade de serviço gerida para um tópico de grelha de eventos Azure. Use-o para encaminhar eventos para destinos apoiados.
 ms.topic: how-to
 ms.date: 01/28/2021
-ms.openlocfilehash: ca154c252976911627184a63386cba1544ed21e0
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 3e643465db7cc918499ca962c4697cb61cb4b594
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99054422"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100007776"
 ---
 # <a name="event-delivery-with-a-managed-identity"></a>Entrega de eventos com identidade gerida
 Este artigo descreve como ativar uma [identidade de serviço gerida](../active-directory/managed-identities-azure-resources/overview.md) para tópicos ou domínios personalizados da grelha de eventos Azure. Use-o para encaminhar eventos para destinos apoiados, como filas e tópicos de Service Bus, centros de eventos e contas de armazenamento.
@@ -237,7 +237,7 @@ az eventgrid event-subscription create
 ```
 
 ### <a name="use-the-azure-cli---azure-storage-queue"></a>Utilize a fila Azure CLI - Azure Storage 
-Nesta secção, aprende-se a utilizar o CLI Azure para permitir a utilização de uma identidade atribuída ao sistema para entregar eventos a uma fila de Armazenamento Azure. A identidade deve ser um membro da função **de contribuinte de dados do Armazenamento Blob** na conta de armazenamento.
+Nesta secção, aprende-se a utilizar o CLI Azure para permitir a utilização de uma identidade atribuída ao sistema para entregar eventos a uma fila de Armazenamento Azure. A identidade deve ser um membro da **função de remetente de mensagens de dados de fila de armazenamento** na conta de armazenamento. Também deve ser um membro da função de contribuinte de **dados da Blob de Armazenamento** na conta de armazenamento que é usada para a inscrição.
 
 #### <a name="define-variables"></a>Definir variáveis  
 

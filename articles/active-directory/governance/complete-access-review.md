@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 12/07/2020
+ms.date: 02/08/2021
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6491de18e65c5071ac0972e7ff49d1253cbd402
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 4f1abbabb9197011b826e58d518ddff4364edab7
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96779555"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100008245"
 ---
 # <a name="complete-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Complete uma revisão de acesso de grupos e aplicações em avaliações de acesso Azure AD
 
@@ -48,15 +48,22 @@ Pode acompanhar o progresso à medida que os revisores completarem as suas avali
 
     Para ver futuras instâncias de uma análise de acesso, navegue para a revisão de acesso e selecione avaliações agendadas.
 
-    Na página **geral,** pode ver o progresso. Nenhum direito de acesso é alterado no diretório até que a revisão esteja concluída.
+    Na página **'Visão Geral',** pode ver o progresso da instância atual. Nenhum direito de acesso é alterado no diretório até que a revisão esteja concluída.
 
-    ![Acesso avalia progresso](./media/complete-access-review/overview-progress.png)
-    
-    Se estiver a ver uma análise de acesso que revê o acesso dos hóspedes em todos os grupos microsoft 365 (Preview), a lâmina de visão geral lista cada grupo na revisão.  
+     ![Revisão de todos os grupos da empresa](./media/complete-access-review/all-company-group.png)
 
-   ![rever acesso de hóspedes em todos os grupos Microsoft 365](./media/complete-access-review/review-guest-access-across-365-groups.png)
+    Todas as lâminas em Corrente só são visualizais durante a duração de cada instância de revisão. 
 
-    Clique em um grupo para ver o progresso da revisão nesse grupo.
+    A página Resultados fornece mais informações sobre cada utilizador em análise no caso, incluindo a capacidade de parar, redefinir e descarregar resultados.
+
+    ![Reveja o acesso dos hóspedes em todos os grupos Microsoft 365](./media/complete-access-review/all-company-group-results.png)
+
+
+    Se estiver a ver uma análise de acesso que revê o acesso dos hóspedes em todos os grupos microsoft 365 (Preview), a lâmina de visão geral lista cada grupo na revisão. 
+   
+    ![rever acesso de hóspedes em todos os grupos Microsoft 365](./media/complete-access-review/review-guest-access-across-365-groups.png)
+
+    Clique num grupo para ver o progresso da revisão nesse grupo, bem como para Parar, Redefinir, Aplicar e Eliminar.
 
    ![rever o acesso dos hóspedes em todos os grupos microsoft 365 em detalhe](./media/complete-access-review/progress-group-review.png)
 
@@ -68,15 +75,20 @@ Pode acompanhar o progresso à medida que os revisores completarem as suas avali
 
 ## <a name="apply-the-changes"></a>Aplicar as alterações
 
-Se **o Auto aplicar resultados ao recurso** foi ativado e com base nas suas seleções nas **definições de conclusão,** a aplicação automática será executada após a data de fim da revisão ou quando parar manualmente a revisão.
+Se **o Auto aplicar resultados ao recurso** foi ativado com base nas suas seleções nas **definições de conclusão,** a aplicação automática será executada após a data de fim da revisão ou quando parar manualmente a revisão.
 
-Se **o Auto aplicar resultados ao recurso** não foi ativado para a revisão, clique em **Aplicar** manualmente as alterações. Se o acesso de um utilizador foi negado na revisão, quando clica em **Aplicar,** o Azure AD remove a sua adesão ou atribuição de candidaturas.
+Se **o Auto aplicar resultados a recursos** não foi habilitado para a revisão, navegue para Rever **Histórico** em **Série** após o fim da duração da revisão ou a revisão foi interrompida mais cedo, e clique na instância da revisão que gostaria de aplicar.
 
 ![Aplicar alterações na revisão de acesso](./media/complete-access-review/apply-changes.png)
 
+Clique **em Aplicar** para aplicar manualmente as alterações. Se o acesso de um utilizador foi negado na revisão, quando clica em **Aplicar,** o Azure AD remove a sua adesão ou atribuição de candidaturas.
+
+![Aplicar botão de alteração de revisão de acesso](./media/complete-access-review/apply-changes-button.png)
+
+
 O estado da revisão passará de **Concluído** através de estados intermédios como **a Aplicação** e, finalmente, o Resultado do Estado **aplicado.** Deverá esperar ver utilizadores negados, caso existam, a serem removidos da subscrição do grupo ou da atribuição de candidaturas em poucos minutos.
 
-Uma revisão de aplicação automática configurada, ou seleção **De aplicar** não tem um efeito sobre um grupo que se origine em um diretório no local ou um grupo dinâmico. Se quiser alterar um grupo que tenha origem no local, faça o download dos resultados e aplique essas alterações à representação do grupo nesse diretório.
+A aplicação manual ou automática dos resultados não tem efeito num grupo originário de um diretório no local ou de um grupo dinâmico. Se quiser alterar um grupo que tenha origem no local, faça o download dos resultados e aplique essas alterações à representação do grupo nesse diretório.
 
 ## <a name="retrieve-the-results"></a>Obter os resultados
 

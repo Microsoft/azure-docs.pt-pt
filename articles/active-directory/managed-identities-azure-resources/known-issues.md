@@ -13,16 +13,16 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 12/01/2020
+ms.date: 02/04/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 2be66904898ecdf2006952f5e80c17dc78b81c06
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.openlocfilehash: 3f1be2e64435cb0bcdb369a398a9a65fc3714fb2
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97825807"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100008541"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>PERGUNTAS Frequentes e questões conhecidas com identidades geridas para recursos da Azure
 
@@ -48,6 +48,10 @@ N.º Identidades geridas e Registos de Aplicações AD Azure não são a mesma c
 As inscrições da aplicação têm dois componentes: Um Objeto de Aplicação + Um Objeto Principal de Serviço. As identidades geridas para os recursos Azure têm apenas um desses componentes: Um Objeto Principal de Serviço. 
 
 As identidades geridas não têm um objeto de aplicação no diretório, que é o que é normalmente usado para conceder permissões de aplicações para gráfico de MS. Em vez disso, as permissões de gráficos de MS para identidades geridas devem ser concedidas diretamente ao Diretor de Serviço.  
+
+### <a name="can-the-same-managed-identity-be-used-across-multiple-regions"></a>A mesma identidade gerida pode ser usada em várias regiões?
+
+Em suma, sim, pode utilizar identidades geridas atribuídas pelo utilizador em mais de uma região de Azure. A resposta mais longa é que, embora as identidades geridas atribuídas pelo utilizador sejam criadas como recursos regionais, o [principal de serviço](../develop/app-objects-and-service-principals.md#service-principal-object) associado (SPN) criado em Azure AD está disponível globalmente. O principal do serviço pode ser utilizado a partir de qualquer região de Azure e a sua disponibilidade depende da disponibilidade do Azure AD. Por exemplo, se criou um utilizador que atribuiu identidade gerida na região South-Central e essa região se torna indisponível esta questão só afeta as atividades [do avião](../../azure-resource-manager/management/control-plane-and-data-plane.md) de controlo na própria identidade gerida.  As atividades realizadas por quaisquer recursos já configurados para utilizar as identidades geridas não seriam afetadas.
 
 ### <a name="does-managed-identities-for-azure-resources-work-with-azure-cloud-services"></a>As identidades geridas para os recursos Azure funcionam com a Azure Cloud Services?
 

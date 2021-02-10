@@ -58,6 +58,8 @@
 - name: Conceitos
   expanded: false
   items:
+    - name: Interoperabilidade com o Teams
+      href: concepts/teams-interop.md
     - name: Chat
       items:
         - name: Descrição geral da biblioteca de cliente de chat
@@ -78,8 +80,6 @@
           href: concepts/voice-video-calling/calling-sdk-features.md
         - name: Conceitos de voz e vídeo
           href: concepts/voice-video-calling/about-call-types.md
-        - name: Interoperabilidade com o Teams
-          href: concepts/voice-video-calling/teams-interop.md
     - name: Quadro de UI
       items:
         - name: Visão geral do Quadro da UI

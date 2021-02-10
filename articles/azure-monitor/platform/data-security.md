@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/11/2020
-ms.openlocfilehash: a618a5d94513f7d648d118ae3bebdb34e4f5b1c4
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: b1e0dbd23fa14c1bd79275d3f9ff6a164293ac19
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98728864"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100007351"
 ---
 # <a name="log-analytics-data-security"></a>Log Analytics segurança de dados
 Este documento destina-se a fornecer informações específicas ao Log Analytics, que é uma característica do Azure Monitor, para complementar a informação no [Azure Trust Center](https://www.microsoft.com/en-us/trust-center?rtc=1).  
@@ -174,6 +174,8 @@ O serviço Log Analytics garante que os dados recebidos são de uma fonte fidedi
 
 O período de retenção dos dados recolhidos armazenados na base de dados depende do plano de preços selecionado. Para o nível *Livre,* os dados recolhidos estão disponíveis durante sete dias. Para o nível *Pago,* os dados recolhidos estão disponíveis por 31 dias por defeito, mas podem ser alargados para 730 dias. Os dados são armazenados encriptados em repouso no armazenamento do Azure, para garantir a confidencialidade dos dados, e os dados são replicados na região local usando armazenamento localmente redundante (LRS). As duas últimas semanas de dados também são armazenadas em cache baseado em SSD e esta cache é encriptada.
 
+Os dados no armazenamento da base de dados não podem ser alterados uma vez ingeridos, mas podem ser eliminados através do caminho [ *da expurgação* da API](personal-data-mgmt.md#delete). Embora os dados não possam ser alterados, algumas certificações exigem que os dados sejam mantidos imutáveis e não possam ser alterados ou eliminados no armazenamento. A imutabilidade de dados pode ser alcançada usando a exportação de [dados](logs-data-export.md) para uma conta de armazenamento configurada como [armazenamento imutável](../../storage/blobs/storage-blob-immutability-policies-manage.md).
+
 ## <a name="4-use-log-analytics-to-access-the-data"></a>4. Utilize o Log Analytics para aceder aos dados
 Para aceder ao seu espaço de trabalho Log Analytics, inscreva-se no portal Azure utilizando a conta organizacional ou a conta microsoft que criou anteriormente. Todo o tráfego entre o portal e o serviço Log Analytics é enviado através de um canal HTTPS seguro. Ao utilizar o portal, é gerado um ID de sessão no cliente utilizador (navegador web) e os dados são armazenados numa cache local até que a sessão seja terminada. Quando terminada, a cache é apagada. Os cookies do lado do cliente, que não contêm informações pessoalmente identificáveis, não são removidos automaticamente. Os cookies de sessão estão marcados HTTPOnly e estão seguros. Após um período de inatividade pré-determinado, a sessão do portal Azure é encerrada.
 
@@ -186,7 +188,7 @@ Pode utilizar estas funcionalidades de segurança adicionais para proteger ainda
 - [Lockbox do cliente Azure](../../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-preview) - O Bloqueio do Cliente para o Microsoft Azure fornece uma interface para os clientes reverem e aprovarem ou rejeitarem os pedidos de acesso aos dados dos clientes. É utilizado nos casos em que um engenheiro da Microsoft precisa de aceder aos dados do cliente durante um pedido de suporte.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * Saiba como recolher dados com o Log Analytics para os seus VMs Azure seguindo o [quickstart Azure VM](../learn/quick-collect-azurevm.md).  
 
 *  Se procura recolher dados de computadores Físicos ou virtuais do Windows ou Linux no seu ambiente, consulte o [Quickstart para computadores Linux](../learn/quick-collect-linux-computer.md) ou [Quickstart para computadores Windows](../learn/quick-collect-windows-computer.md)

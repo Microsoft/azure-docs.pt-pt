@@ -10,12 +10,12 @@ ms.custom: how-to, automl, responsible-ml
 ms.author: mithigpe
 author: minthigpen
 ms.date: 07/09/2020
-ms.openlocfilehash: fe0b2abb7fa2ca986a896a75e5f6d4c238d70109
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 709c85bed4a028c6c168c79cd9fffd6b7b40cb68
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807263"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100008048"
 ---
 # <a name="interpretability-model-explanations-in-automated-machine-learning-preview"></a>Capacidade de interpretação: explicações de modelos no machine learning automatizado (pré-visualização)
 
@@ -51,7 +51,7 @@ Recupere a explicação do `best_run` , que inclui explicações para caracterí
 > * Média sazonal 
 > * Ingénua Sazonal
 
-### <a name="download-engineered-feature-importance-from-artifact-store"></a>Descarregue a importância do recurso projetado da loja de artefactos
+### <a name="download-the-engineered-feature-importances-from-the-best-run"></a>Descarregue as importâncias da funcionalidade projetada da melhor execução
 
 Pode utilizar `ExplanationClient` para descarregar as explicações de recursos projetados da loja de artefactos do `best_run` . 
 
@@ -61,6 +61,18 @@ from azureml.interpret import ExplanationClient
 client = ExplanationClient.from_run(best_run)
 engineered_explanations = client.download_model_explanation(raw=False)
 print(engineered_explanations.get_feature_importance_dict())
+```
+
+### <a name="download-the-raw-feature-importances-from-the-best-run"></a>Descarregue as importâncias da funcionalidade bruta da melhor execução
+
+Pode utilizar `ExplanationClient` para descarregar as explicações de funcionalidades brutas da loja de artefactos do `best_run` .
+
+```python
+from azureml.interpret import ExplanationClient
+
+client = ExplanationClient.from_run(best_run)
+raw_explanations = client.download_model_explanation(raw=True)
+print(raw_explanations.get_feature_importance_dict())
 ```
 
 ## <a name="interpretability-during-training-for-any-model"></a>Interpretação durante o treino para qualquer modelo 
@@ -75,7 +87,7 @@ automl_run, fitted_model = local_run.get_output(metric='accuracy')
 
 ### <a name="set-up-the-model-explanations"></a>Configurar as explicações do modelo
 
-Use `automl_setup_model_explanations` para obter as explicações projetadas. Pode `fitted_model` gerar os seguintes itens:
+Use `automl_setup_model_explanations` para obter as explicações modificadas e cruas. Pode `fitted_model` gerar os seguintes itens:
 
 - Dados em destaque a partir de amostras treinadas ou de teste
 - Listas de nomes de recursos projetados
@@ -114,13 +126,25 @@ explainer = MimicWrapper(ws, automl_explainer_setup_obj.automl_estimator,
                          explainer_kwargs=automl_explainer_setup_obj.surrogate_model_params)
 ```
 
-### <a name="use-mimicexplainer-for-computing-and-visualizing-engineered-feature-importance"></a>Use MimicExplainer para computação e visualização da importância do recurso projetado
+### <a name="use-mimic-explainer-for-computing-and-visualizing-engineered-feature-importance"></a>Use o Explicador Mimic para computação e visualização da importância do recurso projetado
 
-Pode ligar para o `explain()` método em MimicWrapper com as amostras de teste transformadas para obter a importância da funcionalidade para as características geradas. Também pode utilizar `ExplanationDashboard` para visualizar a visualização do painel de instrumentos dos valores de importância da característica das funcionalidades geradas pelos admis de marcação AutoML.
+Pode ligar para o `explain()` método em MimicWrapper com as amostras de teste transformadas para obter a importância da funcionalidade para as características geradas. Também pode iniciar seduca no [Azure Machine Learning Studio](https://ml.azure.com/) para ver a visualização do painel de instrumentos dos valores de importância da funcionalidade gerada pelos admis de marcação AutoML.
 
 ```python
 engineered_explanations = explainer.explain(['local', 'global'], eval_dataset=automl_explainer_setup_obj.X_test_transform)
 print(engineered_explanations.get_feature_importance_dict())
+```
+
+### <a name="use-mimic-explainer-for-computing-and-visualizing-raw-feature-importance"></a>Use o Explicador Mimic para computação e visualização da importância da funcionalidade bruta
+
+Pode chamar o `explain()` método em MimicWrapper com as amostras de teste transformadas para obter a importância do recurso para as características brutas. No [Machine Learning Studio,](https://ml.azure.com/)pode visualizar a visualização do painel de instrumentos dos valores de importância da característica bruta.
+
+```python
+raw_explanations = explainer.explain(['local', 'global'], get_raw=True,
+                                     raw_feature_names=automl_explainer_setup_obj.raw_feature_names,
+                                     eval_dataset=automl_explainer_setup_obj.X_test_transform,
+                                     raw_eval_dataset=automl_explainer_setup_obj.X_test_raw)
+print(raw_explanations.get_feature_importance_dict())
 ```
 
 ## <a name="interpretability-during-inference"></a>Interpretação durante a inferência
@@ -174,6 +198,48 @@ with open("myenv.yml","r") as f:
 
 ```
 
+### <a name="create-the-scoring-script"></a>Crie o roteiro de pontuação
+
+Escreva um script que carrega o seu modelo e produz previsões e explicações com base num novo lote de dados.
+
+```python
+%%writefile score.py
+import joblib
+import pandas as pd
+from azureml.core.model import Model
+from azureml.train.automl.runtime.automl_explain_utilities import automl_setup_model_explanations
+
+
+def init():
+    global automl_model
+    global scoring_explainer
+
+    # Retrieve the path to the model file using the model name
+    # Assume original model is named automl_model
+    automl_model_path = Model.get_model_path('automl_model')
+    scoring_explainer_path = Model.get_model_path('scoring_explainer')
+
+    automl_model = joblib.load(automl_model_path)
+    scoring_explainer = joblib.load(scoring_explainer_path)
+
+
+def run(raw_data):
+    data = pd.read_json(raw_data, orient='records')
+    # Make prediction
+    predictions = automl_model.predict(data)
+    # Setup for inferencing explanations
+    automl_explainer_setup_obj = automl_setup_model_explanations(automl_model,
+                                                                 X_test=data, task='classification')
+    # Retrieve model explanations for engineered explanations
+    engineered_local_importance_values = scoring_explainer.explain(automl_explainer_setup_obj.X_test_transform)
+    # Retrieve model explanations for raw explanations
+    raw_local_importance_values = scoring_explainer.explain(automl_explainer_setup_obj.X_test_transform, get_raw=True)
+    # You can return any data type as long as it is JSON-serializable
+    return {'predictions': predictions.tolist(),
+            'engineered_local_importance_values': engineered_local_importance_values,
+            'raw_local_importance_values': raw_local_importance_values}
+```
+
 ### <a name="deploy-the-service"></a>Implementar o serviço
 
 Desloque o serviço utilizando o ficheiro conda e o ficheiro de pontuação dos passos anteriores.
@@ -216,11 +282,13 @@ if service.state == 'Healthy':
     print(output['predictions'])
     # Print the engineered feature importances for the predicted value
     print(output['engineered_local_importance_values'])
+    # Print the raw feature importances for the predicted value
+    print('raw_local_importance_values:\n{}\n'.format(output['raw_local_importance_values']))
 ```
 
 ### <a name="visualize-to-discover-patterns-in-data-and-explanations-at-training-time"></a>Visualizar para descobrir padrões em dados e explicações no momento do treino
 
-Pode visualizar o gráfico de importância de recurso no seu espaço de trabalho no [estúdio Azure Machine Learning.](https://ml.azure.com) Depois de concluída a sua execução AutoML, **selecione Ver detalhes do modelo** para visualizar uma execução específica. Selecione o **separador Explicações** para ver o painel de visualização da explicação.
+Pode visualizar o gráfico de importância de recurso no seu espaço de trabalho no [Machine Learning Studio.](https://ml.azure.com) Depois de concluída a sua execução AutoML, **selecione Ver detalhes do modelo** para visualizar uma execução específica. Selecione o **separador Explicações** para ver o painel de visualização da explicação.
 
 [![Arquitetura de Interpretação de Aprendizagem Automática](./media/how-to-machine-learning-interpretability-automl/automl-explanation.png)](./media/how-to-machine-learning-interpretability-automl/automl-explanation.png#lightbox)
 

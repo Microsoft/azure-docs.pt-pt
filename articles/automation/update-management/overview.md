@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 01/22/2021
 ms.topic: conceptual
-ms.openlocfilehash: 718e812a8193797ad350fa61444bb05fe5a4b724
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 6e312d354a25113a764bca5e9492909d22af9873
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896906"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100007742"
 ---
 # <a name="update-management-overview"></a>Descrição geral da Gestão de Atualizações
 
@@ -74,7 +74,7 @@ A tabela que se segue lista os sistemas operativos suportados para avaliações 
 
 |Sistema operativo  |Notas  |
 |---------|---------|
-|Windows Server 2019 (Datacenter/Datacenter Core/Standard)<br>Windows Server 2016 (Datacenter/Datacenter Core/Standard)<br>Windows Server 2012 R2 (Datacenter/Standard)<br>Windows Server 2012 |
+|Windows Server 2019 (Datacenter/Standard, incluindo o Núcleo do Servidor)<br><br>Windows Server 2016 (Datacenter/Standard excluindo o Núcleo do Servidor)<br><br>Windows Server 2012 R2 (Datacenter/Standard)<br><br>Windows Server 2012 | |
 |Windows Server 2008 R2 (RTM e SP1 Standard)| A Atualização Gestão suporta avaliações e remendos para este sistema operativo. O [Trabalhador de Runbook Híbrido](../automation-windows-hrw-install.md) é suportado para o Windows Server 2008 R2. |
 |CentOS 6 e 7 (x64)      | Os agentes linux requerem acesso a um repositório de atualização. O patching baseado na classificação requer `yum` a devolução de dados de segurança que o CentOS não tem nas suas versões RTM. Para obter mais informações sobre patching baseado na classificação no CentOS, consulte [as classificações de Atualização no Linux](view-update-assessments.md#linux).          |
 |Red Hat Enterprise 6 e 7 (x64)     | Os agentes linux requerem acesso a um repositório de atualização.        |
@@ -167,11 +167,11 @@ Para obter mais informações sobre atualizações de pacotes de gestão, consul
 
 A tabela a seguir descreve as fontes ligadas que a Atualização de Gestão suporta:
 
-| Origem ligada | Suportado | Descrição |
+| Origem ligada | Suportado | Description |
 | --- | --- | --- |
-| Agentes do Windows |Yes |A Atualização Management recolhe informações sobre atualizações do sistema a partir de agentes do Windows e inicia a instalação das atualizações necessárias. |
-| Agentes do Linux |Yes |Update Management recolhe informações sobre atualizações do sistema de agentes linux e, em seguida, inicia a instalação de atualizações necessárias em distribuições suportadas. |
-| Grupo de gestão do Operations Manager |Yes |A Update Management recolhe informações sobre atualizações do sistema de agentes de um grupo de gestão conectado.<br/><br/>Não é necessária uma ligação direta do agente do Gestor de Operações aos registos do Monitor Azure. Os dados são reencaminhados do grupo de gestão para o espaço de trabalho Log Analytics. |
+| Agentes do Windows |Sim |A Atualização Management recolhe informações sobre atualizações do sistema a partir de agentes do Windows e inicia a instalação das atualizações necessárias. |
+| Agentes do Linux |Sim |Update Management recolhe informações sobre atualizações do sistema de agentes linux e, em seguida, inicia a instalação de atualizações necessárias em distribuições suportadas. |
+| Grupo de gestão do Operations Manager |Sim |A Update Management recolhe informações sobre atualizações do sistema de agentes de um grupo de gestão conectado.<br/><br/>Não é necessária uma ligação direta do agente do Gestor de Operações aos registos do Monitor Azure. Os dados são reencaminhados do grupo de gestão para o espaço de trabalho Log Analytics. |
 
 ### <a name="collection-frequency"></a>Frequência da recolha
 
@@ -266,7 +266,7 @@ Aqui estão as formas de permitir a gestão de atualização e selecionar máqui
 > [!NOTE]
 > A Gestão de Atualização requer a ligação de um espaço de trabalho log Analytics à sua conta de Automação. Para obter uma lista definitiva de regiões apoiadas, consulte [os mapeamentos do Espaço de Trabalho Azure.](../how-to/region-mappings.md) Os mapeamentos da região não afetam a capacidade de gerir VMs numa região separada da sua conta de Automação.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter detalhes sobre o trabalho com a Gestão de Atualização, consulte [Gerir as atualizações para os seus VMs](manage-updates-for-vm.md).
 

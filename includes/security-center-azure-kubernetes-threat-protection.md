@@ -4,12 +4,12 @@ ms.author: memildin
 manager: rkarlin
 ms.date: 06/30/2020
 ms.topic: include
-ms.openlocfilehash: 051cd8646718c17c288b06a535d35e1eed5e9259
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 4c09057f606423dc92b3364e502e632a385bf83f
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95558631"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100007822"
 ---
 O Security Center fornece proteção contra ameaças em tempo real para os seus ambientes contentorizados e gera alertas para atividades suspeitas. Pode utilizar estas informações para remediar rapidamente problemas de segurança e aumentar a segurança dos contentores.
 
@@ -17,8 +17,10 @@ O Centro de Segurança fornece proteção contra ameaças a diferentes níveis:
 
 * **Nível de anfitrião (fornecido pelo Azure Defender para servidores)** - Utilizando o mesmo agente Log Analytics que o Security Center utiliza em outros VMs, o Azure Defender monitoriza os seus nós Linux AKS para atividades suspeitas, tais como deteção de conchas web e ligação com endereços IP suspeitos conhecidos. O agente também monitoriza análises específicas de contentores, tais como criação privilegiada de contentores, acesso suspeito a servidores API e servidores Secure Shell (SSH) que estão dentro de um contentor Docker.
 
+    Se optar por não instalar os agentes nos seus anfitriões, receberá apenas um subconjunto dos benefícios de proteção contra ameaças e alertas de segurança. Ainda receberá alertas relacionados com análises de rede e comunicações com servidores maliciosos.
+
     >[!IMPORTANT]
-    > Se optar por não instalar os agentes nos seus anfitriões, receberá apenas um subconjunto dos benefícios de proteção contra ameaças e alertas de segurança. Ainda receberá alertas relacionados com análises de rede e comunicações com servidores maliciosos.
+    > Atualmente, não suportamos a instalação do agente Log Analytics nos clusters de serviço Azure Kubernetes que estão a funcionar em conjuntos de escala de máquina virtual.
 
     Para obter uma lista dos alertas de nível de anfitrião AKS, consulte a [tabela de alertas de referência](../articles/security-center/alerts-reference.md#alerts-containerhost).
 

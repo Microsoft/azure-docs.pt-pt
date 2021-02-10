@@ -1,20 +1,20 @@
 ---
 title: Azure Automation Start/Stop VMs durante a visão geral fora de horas
-description: Este artigo descreve os VMs iniciar/parar durante o período de folga, que inicia ou para os VMs num horário e os monitoriza proactivamente a partir de registos do Monitor Azure.
+description: Este artigo descreve os VMs iniciar/parar durante o período de folga, que inicia ou para os VMs num horário e os monitoriza proactivamente a partir de Registos monitores do Azure Monitor.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/22/2020
+ms.date: 02/04/2020
 ms.topic: conceptual
-ms.openlocfilehash: 89566bdfb56ca662813b586b2203eec7e7e5566b
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 991ef6e7ffc26294f75ba5bd2f24c62ea6e0b421
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99055386"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100007011"
 ---
 # <a name="startstop-vms-during-off-hours-overview"></a>VMs de início/paragem durante a visão geral fora de horas
 
-Os VMs de início/paragem durante o início ou paragens ativadas ativadas Azure VMs. Inicia ou para as máquinas em horários definidos pelo utilizador, fornece insights através de registos do Azure Monitor e envia e-mails opcionais utilizando [grupos de ação](../azure-monitor/platform/action-groups.md). A funcionalidade pode ser ativada tanto no Azure Resource Manager como em VMs clássicos para a maioria dos cenários. 
+Os VMs de início/paragem durante o início ou paragens ativadas ativadas Azure VMs. Inicia ou para as máquinas em horários definidos pelo utilizador, fornece insights através de registos do Azure Monitor e envia e-mails opcionais utilizando [grupos de ação](../azure-monitor/platform/action-groups.md). A funcionalidade pode ser ativada tanto no Azure Resource Manager como em VMs clássicos para a maioria dos cenários.
 
 Esta função utiliza [o cmdlet Start-AzVm](/powershell/module/az.compute/start-azvm) para iniciar VMs. Utiliza [o Stop-AzVM](/powershell/module/az.compute/stop-azvm) para parar os VMs.
 
@@ -39,9 +39,9 @@ Seguem-se limitações com a característica atual:
 
 - Os livros para os VMs de início/paragem durante o horário de folga funcionam com uma [conta Azure Run As](./automation-security-overview.md#run-as-accounts). A conta Run As é o método de autenticação preferencial porque utiliza a autenticação do certificado em vez de uma palavra-passe que pode expirar ou alterar com frequência.
 
-- A conta de Automação ligada e o espaço de trabalho Log Analytics precisam de estar no mesmo grupo de recursos.
+- Um [espaço de trabalho do Azure Monitor Log Analytics](../azure-monitor/platform/design-logs-deployment.md) que armazena os registos de trabalho do runbook e o fluxo de trabalho resulta num espaço de trabalho para consultar e analisar. A conta Automation pode ser ligada a um novo ou existente espaço de trabalho Log Analytics, e ambos os recursos precisam estar no mesmo grupo de recursos.
 
-- Recomendamos que utilize uma conta de Automatização separada para trabalhar com VMs ativados para os VMs de início/paragem durante o período de folga. As versões do módulo Azure são frequentemente atualizadas e os seus parâmetros podem mudar. A funcionalidade não é atualizada na mesma cadência e pode não funcionar com versões mais recentes dos cmdlets que utiliza. Recomenda-se testar as atualizações dos módulos numa conta de automatização de teste antes de as importar para a sua conta de automação de produção.
+Recomendamos que utilize uma conta de Automatização separada para trabalhar com VMs ativados para os VMs de início/paragem durante o período de folga. As versões do módulo Azure são frequentemente atualizadas e os seus parâmetros podem mudar. A funcionalidade não é atualizada na mesma cadência e pode não funcionar com versões mais recentes dos cmdlets que utiliza. Antes de importar os módulos atualizados para a sua conta de automação de produção, recomendamos que os importe numa conta de automatização de teste para verificar se não existem problemas de compatibilidade.
 
 ## <a name="permissions"></a>Permissões
 
@@ -148,7 +148,7 @@ A tabela seguinte lista as variáveis criadas na sua conta Automation. Apenas mo
 |Internal_ResourceGroupName | O nome do grupo de recursos de conta Automation.|
 
 >[!NOTE]
->Para a `External_WaitTimeForVMRetryInSeconds` variável, o valor predefinido foi atualizado de 600 a 2100. 
+>Para a `External_WaitTimeForVMRetryInSeconds` variável, o valor predefinido foi atualizado de 600 a 2100.
 
 Em todos os cenários, as variáveis `External_Start_ResourceGroupNames` `External_Stop_ResourceGroupNames` , e são `External_ExcludeVMNames` necessárias para direcionar os VMs, com exceção das listas de VM separadas por **vm** para o AutoStop_CreateAlert_Parent , **SequencedStartStop_Parent**, e **ScheduledStartStop_Parent.** Ou seja, os seus VMs devem pertencer a grupos de recursos-alvo para iniciar e parar as ações a ocorrer. A lógica funciona semelhante à Azure Policy, na medida em que pode direcionar o grupo de subscrição ou recursos e ter ações herdadas por VMs recém-criados. Esta abordagem evita ter de manter um horário separado para cada VM e gerir arranques e paragens em escala.
 
@@ -174,18 +174,14 @@ Para utilizar a funcionalidade com VMs clássicos, precisa de uma conta Classic 
 
 Se tiver mais de 20 VMs por serviço na nuvem, aqui ficam algumas recomendações:
 
-* Crie vários horários com o ScheduledStartStop_Parent do livro de **bordo** dos pais e especificando 20 VMs por programação. 
-* Nas propriedades do agendamento, utilize o `VMList` parâmetro para especificar os nomes VM como uma lista separada por vírgula (sem espaços em branco). 
+* Crie vários horários com o ScheduledStartStop_Parent do livro de **bordo** dos pais e especificando 20 VMs por programação.
+* Nas propriedades do agendamento, utilize o `VMList` parâmetro para especificar os nomes VM como uma lista separada por vírgula (sem espaços em branco).
 
 Caso contrário, se o trabalho de Automação para esta funcionalidade for superior a três horas, é temporariamente descarregado ou parado de acordo com o limite [de quota justa.](automation-runbook-execution.md#fair-share)
 
 As subscrições Azure CSP suportam apenas o modelo Azure Resource Manager. Os serviços não-Azure Resource Manager não estão disponíveis no programa. Quando os VMs iniciar/parar durante o período de funcionamento, poderá receber erros, uma vez que tem cmdlets para gerir recursos clássicos. Para saber mais sobre a CSP, consulte [os serviços disponíveis em assinaturas CSP.](/azure/cloud-solution-provider/overview/azure-csp-available-services) Se utilizar uma subscrição CSP, deverá definir a [variável External_EnableClassicVMs](#variables) para Falso após a implementação.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
-
-## <a name="enable-the-feature"></a>Ativar a funcionalidade
-
-Para começar a utilizar a função, siga os passos em [Ativar VMs iniciar/parar durante as horas de folga](automation-solution-vm-management-enable.md).
 
 ## <a name="view-the-feature"></a>Ver a funcionalidade
 
@@ -195,7 +191,7 @@ Utilize um dos seguintes mecanismos para aceder à função ativada:
 
 * Navegue para o espaço de trabalho Log Analytics ligado à sua conta Automation. Depois de selecionar o espaço de trabalho, escolha **Soluções** do painel esquerdo. Na página Soluções, selecione **Start-Stop-VM [espaço de trabalho]** da lista.  
 
-A seleção da função apresenta a página Start-Stop-VM[espaço de trabalho]. Aqui pode rever detalhes importantes, como as informações no azulejo **StartStopVM.** Tal como no seu espaço de trabalho Log Analytics, este azulejo apresenta uma contagem e uma representação gráfica dos trabalhos de runbook para a funcionalidade que começaram e terminaram com sucesso.
+A seleção da função apresenta a página **Start-Stop-VM[espaço de trabalho].** Aqui pode rever detalhes importantes, como as informações no azulejo **StartStopVM.** Tal como no seu espaço de trabalho Log Analytics, este azulejo apresenta uma contagem e uma representação gráfica dos trabalhos de runbook para a funcionalidade que começaram e terminaram com sucesso.
 
 ![Página de Gestão de Atualização de Automação](media/automation-solution-vm-management/azure-portal-vmupdate-solution-01.png)
 
@@ -203,37 +199,7 @@ Pode efetuar uma análise mais aprofundada dos registos de trabalho clicando no 
 
 ## <a name="update-the-feature"></a>Atualizar a funcionalidade
 
-Se tiver implementado uma versão anterior de VMs iniciar/parar durante o horário de folga, elimine-a da sua conta antes de implementar uma versão atualizada. Siga os passos para [remover a função](#remove-the-feature) e, em seguida, siga os passos para [o ativar](automation-solution-vm-management-enable.md).
-
-## <a name="remove-the-feature"></a>Remova a funcionalidade
-
-Se já não precisar de utilizar a funcionalidade, pode eliminá-la da conta Automação. A eliminação da funcionalidade apenas remove os runbooks associados. Não elimina os horários ou variáveis que foram criados quando a funcionalidade foi adicionada. 
-
-Para eliminar VMs de início/paragem durante as horas de folga:
-
-1. Na sua conta Automation, selecione **Linked workspace** em **recursos relacionados.**
-
-2. Selecione **Vá para o espaço de trabalho**.
-
-3. Clique em **Soluções** em **Geral**. 
-
-4. Na página Soluções, selecione **Start-Stop-VM[Workspace]**. 
-
-5. Na página VMManagementSolution[Workspace], **selecione Delete** do menu.<br><br> ![Excluir recurso de gestão VM](media/automation-solution-vm-management/vm-management-solution-delete.png)
-
-6. Na janela Solução Eliminar, confirme que pretende eliminar a função.
-
-7. Enquanto a informação é verificada e a funcionalidade é eliminada, pode acompanhar o progresso em Notificações , **escolhidas** a partir do menu. É devolvido à página Soluções após o processo de remoção.
-
-8. A conta de automação e o espaço de trabalho Log Analytics não são eliminados como parte deste processo. Se não quiser manter o espaço de trabalho do Log Analytics, deve eliminá-lo manualmente do portal Azure:
-
-    1. Procure e selecione **log analytics espaços de trabalho**.
-
-    2. Na página do espaço de trabalho Log Analytics, selecione o espaço de trabalho.
-
-    3. **Selecione Excluir** do menu.
-
-    4. Se não pretender manter os [componentes](#components)da conta Azure Automation, pode eliminar manualmente cada um deles.
+Se tiver implementado uma versão anterior de VMs iniciar/parar durante o horário de folga, elimine-a da sua conta antes de implementar uma versão atualizada. Siga os passos para [remover a função](automation-solution-vm-management-remove.md#delete-the-feature) e, em seguida, siga os passos para [o ativar](automation-solution-vm-management-enable.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 

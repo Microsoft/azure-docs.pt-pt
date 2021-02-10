@@ -338,7 +338,7 @@
         - name: Criar uma aplicação com MySQL
           href: ../mysql/flexible-server/tutorial-deploy-wordpress-on-aks.md
           maintainContext: true
-        - name: Implementar uma aplicação Open Liberty ou WebSphere Liberty
+        - name: Construa aplicativo com Open Liberty ou WebSphere Liberty
           href: howto-deploy-java-liberty-app.md
         - name: Utilizar a Gestão de API do Azure
           href: ../api-management/api-management-kubernetes.md

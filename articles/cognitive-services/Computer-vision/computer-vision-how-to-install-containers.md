@@ -12,12 +12,12 @@ ms.date: 11/23/2020
 ms.author: aahi
 ms.custom: seodec18, cog-serv-seo-aug-2020
 keywords: no local, OCR, Docker, contentor
-ms.openlocfilehash: 2298c7b931a5bb51d5067a9f789135ecf86ef3e5
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: fc5d281a6c0c9dd9620109de9d8deea27462ad0e
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576825"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100008592"
 ---
 # <a name="install-read-ocr-docker-containers-preview"></a>Instalar Ler recipientes OCR Docker (Pré-visualização) 
 
@@ -92,7 +92,7 @@ As imagens do recipiente para Ler estão disponíveis.
 | Contentor | Registo de contentores / Repositório / Nome da imagem |
 |-----------|------------|
 | Ler 2.0 pré-visualização | `mcr.microsoft.com/azure-cognitive-services/vision/read:2.0-preview` |
-| Ler 3.2 pré-visualização | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-preview.1` |
+| Ler 3.2 pré-visualização | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-preview.2` |
 
 Utilize o [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) comando para descarregar uma imagem de contentor.
 
@@ -101,7 +101,7 @@ Utilize o [`docker pull`](https://docs.docker.com/engine/reference/commandline/p
 # <a name="version-32-preview"></a>[Versão 3.2-pré-visualização](#tab/version-3-2)
 
 ```bash
-docker pull mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-preview.1
+docker pull mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-preview.2
 ```
 
 # <a name="version-20-preview"></a>[Versão 2.0-pré-visualização](#tab/version-2)
@@ -131,7 +131,7 @@ Use o comando de execução do [estivador](https://docs.docker.com/engine/refere
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
-mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-preview.1 \
+mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-preview.2 \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}

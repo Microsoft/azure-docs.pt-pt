@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: conceptual
 ms.date: 02/04/2021
 ms.author: raynew
-ms.openlocfilehash: c586832386f3bf6419d8af94ad23662c6801b1ae
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.openlocfilehash: a75cd3c5dbf205f49aa606bfe96623a61bce39db
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99820879"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100007061"
 ---
 # <a name="common-questions"></a>Perguntas comuns
 
@@ -42,6 +42,10 @@ Utilizando o Resource Mover, pode atualmente mover os seguintes recursos atravé
 
 Não se pode selecionar discos como recursos para as regiões movidas. No entanto, os discos são movidos como parte de um movimento VM.
 
+### <a name="what-does-it-mean-to-move-a-resource-group"></a>O que significa mover um Grupo de Recursos?
+
+Quando um recurso é selecionado para movimento, o grupo de recursos correspondente é automaticamente adicionado para movimento. Isto é necessário, uma vez que o recurso de destino terá de ser colocado sob um Grupo de Recursos como estava no alvo. Pode optar por personalizar e fornecer um Grupo de Recursos exsitante, uma vez que este seja adicionado para movimento. Note que a deslocação de um Grupo de Recursos **não** significa que todos os recursos do Grupo de Recursos de origem sejam transferidos.
+
 ### <a name="can-i-move-resources-across-subscriptions-when-i-move-them-across-regions"></a>Posso mover recursos através de assinaturas quando os deslocar através de regiões?
 
 Pode alterar a subscrição depois de transferir recursos para a região de destino. [Saiba mais](../azure-resource-manager/management/move-resource-group-and-subscription.md) sobre a mudança de recursos para uma subscrição diferente. 
@@ -69,7 +73,7 @@ Sim, tanto em trânsito como em repouso.
 - Se mover recursos através de regiões do portal, este processo acontece automaticamente.
 - Se mover recursos usando o PowerShell, executar cmdlets para atribuir uma identidade atribuída ao sistema à coleção e, em seguida, atribuir uma função com as permissões de subscrição corretas ao principal identidade. 
 
-### <a name="what-managed-identity-permissions-does-resource-mover-need"></a>Que permissões de identidade geridas precisa o Resource Mover?
+### <a name="what-managed-identity-permissions-does-resource-mover-need"></a>Que permissões de identidade geridas precisa o Resource Mover? 
 
 A identidade gerida do Azure Resource Mover precisa de, pelo menos, estas permissões: 
 

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: ''
 ms.date: 06/30/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 6668fe3c30bd5187016ac2e0c766e7e78d5b3e8c
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 41388e46f5204acaa53f376bc05cebf975361dad
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896516"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100008167"
 ---
 # <a name="troubleshoot-feature-deployment-issues"></a>Resolver problemas de implementação de funcionalidades
 
@@ -148,7 +148,7 @@ Remova os recursos para as seguintes funcionalidades do seu espaço de trabalho 
 Depois de remover os recursos de funcionalidade, pode desvincular o seu espaço de trabalho. É importante limpar quaisquer artefactos existentes a partir destas funcionalidades do seu espaço de trabalho e da sua conta de Automação:
 
 * Para a Gestão de Atualizações, **remova as Implementações de Atualização (Agendas)** da sua conta de Automação.
-* Para iniciar/parar VMs durante o período de folga, remova quaisquer bloqueios nos componentes de funcionalidades da sua conta de Automação em  >  **Configurações Fechaduras**. Para obter mais informações, consulte [Remover a função](../automation-solution-vm-management.md#remove-the-feature).
+* Para iniciar/parar VMs durante o período de folga, remova quaisquer bloqueios nos componentes de funcionalidades da sua conta de Automação em  >  **Configurações Fechaduras**. Para obter mais informações, consulte [Remover a função](../automation-solution-vm-management-remove.md).
 
 ## <a name="log-analytics-for-windows-extension-failures"></a><a name="mma-extension-failures"></a>Registar Análises para falhas de extensão do Windows
 
@@ -237,7 +237,7 @@ Este tipo de erro ocorre porque o VM está sob uma carga pesada durante a instal
 
 Tente instalar o agente Log Analytics para a extensão do Windows quando o VM estiver sob uma carga mais baixa.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se não vir o seu problema aqui ou não conseguir resolver o seu problema, experimente um dos seguintes canais para obter apoio adicional:
 

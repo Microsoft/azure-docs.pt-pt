@@ -252,6 +252,8 @@
           href: automation-solution-vm-management-config.md
         - name: Consultar registos a partir da solução Iniciar/Parar VMs fora do horário de expediente
           href: automation-solution-vm-management-logs.md
+        - name: Remover VMs de início/paragem durante as horas fora
+          href: automation-solution-vm-management-remove.md
         - name: Resolver problemas da solução Iniciar/Parar VMs fora do horário de expediente
           href: troubleshoot/start-stop-vm.md
     - name: Gestão de Atualizações
