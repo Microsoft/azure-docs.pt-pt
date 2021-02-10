@@ -7,12 +7,12 @@ ms.date: 10/09/2017
 ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.workload: infrastructure
-ms.openlocfilehash: 03df7db13ebd3ebec407bb046cc735c835e01068
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e85ac58c80e1fd695938bf09b6435dba1f4ee083
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87074244"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100091351"
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Como permitir a virtualização aninhada num VM Azure
 
@@ -24,7 +24,7 @@ Este artigo passa por permitir o Hiper-V num VM Azure e configurar a conectivida
 
 Criar um novo Windows Server 2016 Azure VM. Para obter uma lista completa dos tamanhos de máquinas virtuais que suportam a nidificação, confira o [artigo da Unidade Azure Compute](../acu.md).
 
-Lembre-se de escolher um tamanho VM grande o suficiente para suportar as exigências de uma máquina virtual convidada. Neste exemplo, estamos a usar um D3_v3 tamanho Azure VM. 
+Lembre-se de escolher um tamanho VM grande o suficiente para suportar as exigências de uma máquina virtual convidada. Neste exemplo, estamos a usar um Azure VM D4_v3 tamanho. 
 
 Pode ver a disponibilidade regional de máquinas virtuais da série Dv3 ou Ev3 [aqui.](https://azure.microsoft.com/regions/services/)
 
@@ -94,7 +94,7 @@ Crie um novo adaptador de rede virtual para a máquina virtual do hóspede e con
 4. Crie um endereço IP para o GATEWAY NAT.
     
 Para configurar o portal, precisa de algumas informações sobre a sua rede:    
-  * IPAddress - O IP DO GATEWAY NAT especifica o endereço IPv4 ou IPv6 para utilizar como endereço de gateway predefinido para a sub-rede de rede virtual. O formulário genérico é a.b.c.1 (por exemplo, "192.168.0.1"). Embora a posição final não tenha de ser .1, geralmente é (com base no comprimento do prefixo). Normalmente deve usar um espaço de endereço de rede privada RFC 1918. 
+  * IPAddress - O IP DO GATEWAY NAT especifica o endereço IPv4 ou IPv6 para utilizar como endereço de gateway predefinido para a sub-rede de rede virtual. A forma genérica é a.b.c.1 (por exemplo, "192.168.0.1"). Embora a posição final não tenha de ser .1, geralmente é (com base no comprimento do prefixo). Normalmente deve usar um espaço de endereço de rede privada RFC 1918. 
   * PrefixLength - O comprimento do prefixo da sub-rede define o tamanho da sub-rede local (máscara de sub-rede). O comprimento do prefixo do sub-rede será um valor inteiro entre 0 e 32. 0 iria mapear toda a internet, 32 só permitiria um IP mapeado. Os valores comuns variam de 24 a 12 dependendo do número de IPs necessários para ser ligado ao NAT. Um prefixLength comum é 24- esta é uma máscara de sub-rede de 255.255.255.0.
   * InterfaceIndex - **seIndex** é o índice de interface do interruptor virtual criado no passo anterior. 
 
@@ -143,7 +143,7 @@ Siga os passos abaixo para configurar o DHCP na máquina virtual do anfitrião p
   
 2. No assistente, clique em **Seguinte** até à página 'Funções do Servidor'.
   
-3. Clique para selecionar a caixa de verificação **do Servidor DHCP,** clique em **Adicionar Funcionalidades**e, em seguida, clique em **Seguinte** até completar o assistente.
+3. Clique para selecionar a caixa de verificação **do Servidor DHCP,** clique em **Adicionar Funcionalidades** e, em seguida, clique em **Seguinte** até completar o assistente.
   
 4. Clique em **Install** (Instalar).
 
@@ -151,7 +151,7 @@ Siga os passos abaixo para configurar o DHCP na máquina virtual do anfitrião p
 
 1. Gestor aberto da DHCP.
   
-2. No painel de navegação, expanda o nome do servidor, clique com o botão direito **IPv4**e clique em **New Scope**. O Novo Assistente de Âmbito aparece, clique em **Seguinte**.
+2. No painel de navegação, expanda o nome do servidor, clique com o botão direito **IPv4** e clique em **New Scope**. O Novo Assistente de Âmbito aparece, clique em **Seguinte**.
   
 3. Introduza um Nome e Descrição para o âmbito e clique em **Seguinte**.
   

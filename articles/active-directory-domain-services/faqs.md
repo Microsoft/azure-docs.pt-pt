@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/30/2020
+ms.date: 02/09/2021
 ms.author: justinha
-ms.openlocfilehash: 89671d0e69d4e526e30c80619b57d698d5a5acc5
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 3d0f2b44f37cb318be2117b5dc5d8b42b418ff19
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99491170"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100090994"
 ---
 # <a name="frequently-asked-questions-faqs-about-azure-active-directory-ad-domain-services"></a>Perguntas frequentes (FAQs) sobre Azure Ative Directory (AD) Domain Services
 
@@ -152,7 +152,7 @@ Os Serviços de Domínio Azure AD estão incluídos no teste gratuito para a Azu
 N.º Depois de ter ativado um domínio gerido pelos Serviços de Domínio AD Azure, o serviço está disponível na rede virtual selecionada até eliminar o domínio gerido. Não há como parar o serviço. A faturação continua de hora a hora até eliminar o domínio gerido.
 
 ### <a name="can-i-fail-over-azure-ad-domain-services-to-another-region-for-a-dr-event"></a>Posso falhar os Serviços de Domínio AZure AD para outra região para um evento DR?
-N.º A Azure AD Domain Services não fornece atualmente um modelo de implementação geo-redundante. Está limitado a uma única rede virtual numa região de Azure. Se pretender utilizar várias regiões do Azure, tem de executar os seus Controladores de Domínio de Diretório Ativo em VMs Azure IaaS. Para obter orientação de arquitetura, consulte [Estenda o seu domínio ative directy para Azure.](/azure/architecture/reference-architectures/identity/adds-extend-domain)
+Sim, para fornecer resiliência geográfica para um domínio gerido, você pode criar uma réplica adicional [definida](tutorial-create-replica-set.md) para uma rede virtual esprevada em qualquer região de Azure que suporta Azure AD DS. Os conjuntos de réplicas partilham o mesmo espaço de nome e configuração com o domínio gerido.
 
 ### <a name="can-i-get-azure-ad-domain-services-as-part-of-enterprise-mobility-suite-ems-do-i-need-azure-ad-premium-to-use-azure-ad-domain-services"></a>Posso obter serviços de domínio Azure AD como parte da Enterprise Mobility Suite (EMS)? Preciso que o Azure AD Premium utilize os Serviços de Domínio AD da Azure?
 N.º Azure AD Domain Services é um serviço Azure pay-as-you-go e não faz parte da EMS. Os Serviços de Domínio AZure AD podem ser utilizados com todas as edições do Azure AD (Grátis e Premium). É cobrado de hora a hora, dependendo do uso.

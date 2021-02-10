@@ -10,12 +10,12 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10fe3b895ea5084247822f1c35275e68d80b73fa
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: c9e0a645bc580ab3a0794ca6ded1e60159df7d92
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98762981"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100090603"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>Migrar para a autenticação em nuvem usando o lançamento encenado (pré-visualização)
 
@@ -83,10 +83,6 @@ Os seguintes cenários não são suportados para o lançamento encenado:
     - Os grupos dinâmicos não são *apoiados* para o lançamento encenado.
     - Os objetos de contacto no interior do grupo impedirão a adição do grupo.
 
-- Ainda precisa de fazer o corte final de federado para autenticação em nuvem utilizando O AD Connect ou PowerShell. O lançamento encenado não muda os domínios de federados para geridos.  Para obter mais informações sobre o corte de domínio, consulte [Migrar da federação para a sincronização de hash de palavra-passe](plan-migrate-adfs-password-hash-sync.md) e [migrar da federação para a autenticação pass-through](plan-migrate-adfs-pass-through-authentication.md)
-
-
-
 - Quando adicionas um grupo de segurança para lançamento encenado, estás limitado a 200 utilizadores para evitar uma saída sem acordo com o UX. Depois de ter adicionado o grupo, pode adicionar mais utilizadores diretamente ao mesmo, conforme necessário.
 
 - Enquanto os utilizadores estão em Lançamento Encenado, quando o EnforceCloudPasswordPolicyForPasswordSyncedUsers está ativado, a política de validade da palavra-passe está definida para 90 dias sem opção de personalizar. 
@@ -95,7 +91,9 @@ Os seguintes cenários não são suportados para o lançamento encenado:
 
 - Windows 10 Hybrid Join ou Azure AD Junte-se à aquisição de token de atualização primária para todas as versões, quando a UPN do utilizador não é encaminhável. Este cenário irá voltar ao ponto final WS-Trust enquanto estiver em modo de lançamento encenado, mas deixará de funcionar quando a migração faseada estiver completa e o início de saúde do utilizador já não depender do servidor da federação.
 
-
+  >[!NOTE]
+  >Ainda precisa de fazer o corte final de federado para autenticação em nuvem utilizando O AD Connect ou PowerShell. O lançamento encenado não muda os domínios de federados para geridos.  Para obter mais informações sobre o corte de domínio, consulte [Migrar da federação para a sincronização de hash de palavra-passe](plan-migrate-adfs-password-hash-sync.md#step-3-change-the-sign-in-method-to-password-hash-synchronization-and-enable-seamless-sso) e [migrar da federação para a autenticação pass-through](plan-migrate-adfs-password-hash-sync.md#step-3-change-the-sign-in-method-to-password-hash-synchronization-and-enable-seamless-sso)
+  
 ## <a name="get-started-with-staged-rollout"></a>Começar com lançamento encenado
 
 Para testar o *sômin de sincronização de hash da palavra-passe* utilizando o lançamento encenado, siga as instruções de pré-trabalho na secção seguinte.
@@ -255,5 +253,7 @@ R: Não, esta função foi concebida para testar a autenticação em nuvem. Depo
 
 R: Sim. Para aprender a usar o PowerShell para executar o lançamento encenado, consulte [a pré-visualização AD Azure](/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - [Pré-visualização Azure AD 2.0](/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout )
+- [Altere o método de entrada para sincronização de haxixe de palavra-passe](plan-migrate-adfs-password-hash-sync.md#step-3-change-the-sign-in-method-to-password-hash-synchronization-and-enable-seamless-sso)
+- [Alterar o método de inscrição para a autenticação de passagem](plan-migrate-adfs-password-hash-sync.md#step-3-change-the-sign-in-method-to-password-hash-synchronization-and-enable-seamless-sso)

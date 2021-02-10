@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/17/2021
 ms.author: yelevin
-ms.openlocfilehash: b183abf8d42e6f4b1c43db2d87b2650721e0c2a9
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.openlocfilehash: eec88bf85f1b7a2ec8db2bf23c43629d84cc5106
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98567955"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100090450"
 ---
 # <a name="connect-your-squid-proxy-to-azure-sentinel"></a>Ligue o seu Proxy de Lula a Azure Sentinel
 
 > [!IMPORTANT]
 > O conector Squid Proxy está atualmente em **PREVIEW**. Consulte os [Termos Complementares de Utilização para o Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) para termos legais adicionais aplicáveis às funcionalidades do Azure que estejam em versão beta, pré-visualização ou ainda não lançadas em disponibilidade geral.
 
-Este artigo explica como ligar o seu aparelho Squid Proxy ao Azure Sentinel. O conector de dados Squid Proxy permite-lhe conectar facilmente os seus registos de Lula com o Azure Sentinel, para que possa ver os dados nos livros, usá-lo para criar alertas personalizados e incorporá-lo para melhorar a investigação. A integração entre Squid Proxy e Azure Sentinel faz uso do Syslog.
+Este artigo explica como ligar o seu aparelho Squid Proxy ao Azure Sentinel. O conector de dados Squid Proxy permite-lhe conectar facilmente os seus registos de Lula com o Azure Sentinel, para que possa ver os dados nos livros, usá-lo para criar alertas personalizados e incorporá-lo para melhorar a investigação. A integração entre Squid Proxy e Azure Sentinel faz uso do processamento de ficheiros locais pelo agente Log Analytics.
 
 > [!NOTE]
 > Os dados serão armazenados na localização geográfica do espaço de trabalho em que está a executar o Azure Sentinel.
@@ -35,9 +35,9 @@ Este artigo explica como ligar o seu aparelho Squid Proxy ao Azure Sentinel. O c
 
 - Deve ter lido e escrito permissão no espaço de trabalho do Azure Sentinel.
 
-## <a name="forward-squid-proxy-logs-to-the-syslog-agent"></a>Registos de Proxy de Lula para a frente para o agente Syslog  
+## <a name="forward-squid-proxy-logs-to-the-log-analytics-agent"></a>Registos de procuração de lulas avançadas para o agente Log Analytics  
 
-Configure o Proxy de Lula para encaminhar mensagens Syslog para o seu espaço de trabalho Azure através do agente Syslog.
+Configure o Proxy de Lula para enviar ficheiros de registo para o seu espaço de trabalho Azure através do agente Log Analytics.
 
 1. No menu de navegação Azure Sentinel, selecione **Conectores de dados**.
 

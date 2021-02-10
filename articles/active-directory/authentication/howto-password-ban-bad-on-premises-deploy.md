@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0a082149d85736000b5bb6a91e2fc7132205a88
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 6f17f6eb913d1ea54e8db6acd369d165553e16ec
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98220291"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100091045"
 ---
 # <a name="plan-and-deploy-on-premises-azure-active-directory-password-protection"></a>Planear e implementar no local Azure Ative Directory Password Protection
 
@@ -85,7 +85,8 @@ Aplicam-se os seguintes requisitos fundamentais:
 * Todas as máquinas, incluindo controladores de domínio, que tenham componentes de proteção de senha AD AD Azure instalados devem ter o Tempo de Execução Universal C instalado.
     * Pode obter o tempo de funcionação certificando-se de que tem todas as atualizações a partir do Windows Update. Ou pode obtê-lo num pacote de atualização específico do OS. Para obter mais informações, consulte [Update for Universal C Runtime in Windows](https://support.microsoft.com/help/2999226/update-for-uniersal-c-runtime-in-windows).
 * Precisa de uma conta que tenha privilégios de administrador de domínio do Ative Directory no domínio das raízes da floresta para registar a floresta de Diretório Ativo do Windows Server com Azure AD.
-* O Serviço de Distribuição de Chaves deve ser ativado em todos os controladores de domínio do domínio que executam o Windows Server 2012. Por predefinição, este serviço é ativado através do arranque manual do gatilho.
+* O Serviço de Distribuição de Chaves deve ser ativado em todos os controladores de domínio do domínio que executam as versões Windows Server 2012 e posteriores. Por predefinição, este serviço é ativado através do arranque manual do gatilho.
+
 * A conectividade da rede deve existir entre pelo menos um controlador de domínio em cada domínio e pelo menos um servidor que hospeda o serviço de procuração para a Proteção de Passwords AD Azure. Esta conectividade deve permitir ao controlador de domínio aceder à porta do mapa 135 do ponto final do RPC e à porta do servidor RPC no serviço de procuração.
     * Por predefinição, a porta do servidor RPC é uma porta RPC dinâmica, mas pode ser configurada para [utilizar uma porta estática](#static).
 * Todas as máquinas onde será instalado o serviço Azure AD Password Protection Proxy devem ter acesso à rede aos seguintes pontos finais:

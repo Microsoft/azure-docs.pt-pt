@@ -1,5 +1,5 @@
 ---
-title: Como executar cadernos Jupyter no seu espaço de trabalho
+title: Executar cadernos Jupyter no seu espaço de trabalho
 titleSuffix: Azure Machine Learning
 description: Saiba como executar um caderno Jupyter sem deixar o seu espaço de trabalho no estúdio Azure Machine Learning.
 services: machine-learning
@@ -11,89 +11,27 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 01/19/2021
-ms.openlocfilehash: 46e0687056d697afc2d4355bdf900af138273eaf
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: 06ae46eb96db39f44cd052e6e9b0d1a19f898007
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99061839"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100091573"
 ---
-# <a name="how-to-run-jupyter-notebooks-in-your-workspace"></a>Como executar os Jupyter Notebooks na área de trabalho
+# <a name="run-jupyter-notebooks-in-your-workspace"></a>Executar cadernos Jupyter no seu espaço de trabalho
 
 Aprenda a executar os seus cadernos Jupyter diretamente no seu espaço de trabalho no estúdio Azure Machine Learning. Enquanto pode lançar [Jupyter](https://jupyter.org/) ou [JupyterLab,](https://jupyterlab.readthedocs.io)também pode editar e executar os seus cadernos sem sair do espaço de trabalho.
+
+Para obter informações sobre como criar e gerir ficheiros, incluindo cadernos, consulte [Criar e gerir ficheiros no seu espaço de trabalho.](how-to-manage-files.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma subscrição do Azure. Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://aka.ms/AMLFree) antes de começar.
 * Um espaço de trabalho de aprendizagem automática. Ver [Criar um espaço de trabalho de aprendizagem de máquinas Azure](how-to-manage-workspace.md).
 
-## <a name="create-notebooks"></a><a name="create"></a> Criar cadernos
-
-No seu espaço de trabalho Azure Machine Learning, crie um novo caderno Jupyter e comece a trabalhar. O caderno recém-criado é armazenado no armazenamento padrão do espaço de trabalho. Este caderno pode ser partilhado com qualquer pessoa com acesso ao espaço de trabalho. 
-
-Para criar um novo caderno: 
-
-1. Abra o seu espaço de trabalho no [estúdio Azure Machine Learning.](https://ml.azure.com)
-1. Do lado esquerdo, selecione **Cadernos**. 
-1. Selecione o novo ícone **de ficheiro** acima da lista **Ficheiros do utilizador** na secção **'Os meus ficheiros'.**
-
-    :::image type="content" source="media/how-to-run-jupyter-notebooks/create-new-file.png" alt-text="Criar novo ficheiro":::
-
-1. Diga o nome do ficheiro. 
-1. Para ficheiros de cadernos Jupyter, selecione **Notebook** como o tipo de ficheiro.
-1. Selecione um diretório de ficheiros.
-1. Selecione **Criar**.
-
-Também pode criar ficheiros de texto.  Selecione **Texto** como o tipo de ficheiro e adicione a extensão ao nome (por exemplo, myfile.py ou myfile.txt)  
-
-Também pode carregar pastas e ficheiros, incluindo cadernos, com as ferramentas no topo da página De Cadernos.  Os blocos de notas e a maioria dos tipos de ficheiros de texto são apresentados na secção de pré-visualização.  Não está disponível nenhuma pré-visualização para a maioria dos outros tipos de ficheiros.
-
-> [!IMPORTANT]
-> Os conteúdos em cadernos e scripts podem potencialmente ler dados das suas sessões e aceder a dados sem a sua organização em Azure.  Apenas carregue ficheiros de fontes fidedignas. Para obter mais informações, consulte [as melhores práticas do código Secure](concept-secure-code-best-practice.md#azure-ml-studio-notebooks).
-
-### <a name="clone-samples"></a>Amostras de clones
-
-O seu espaço de trabalho contém uma pasta **Samples** com cadernos concebidos para o ajudar a explorar o SDK e servir como exemplos para os seus próprios projetos de aprendizagem automática.  Pode clonar estes cadernos na sua própria pasta no seu recipiente de armazenamento de espaço de trabalho.  
-
-Por exemplo, consulte [Tutorial: Crie a sua primeira experiência ML](tutorial-1st-experiment-sdk-setup.md#azure).
-
-### <a name="use-files-from-git-and-version-my-files"></a><a name="terminal"></a> Use ficheiros do Git e veri os meus ficheiros
-
-Pode aceder a todas as operações do Git utilizando uma janela terminal. Todos os ficheiros e pastas Git serão armazenados no seu sistema de ficheiros do espaço de trabalho.
-
-> [!NOTE]
-> Adicione os seus ficheiros e pastas em qualquer lugar sob a pasta **~/cloudfiles/código/Utilizadores** para que fiquem visíveis em todos os seus ambientes Jupyter.
-
-Para aceder ao terminal:
-
-1. Abra o seu espaço de trabalho no [estúdio Azure Machine Learning.](https://ml.azure.com)
-1. Do lado esquerdo, selecione **Cadernos**.
-1. Selecione qualquer caderno localizado na secção **de ficheiros do Utilizador** no lado esquerdo.  Se não tem nenhum caderno lá, primeiro [crie um caderno](#create)
-1. Selecione um alvo **compute** ou crie um novo e espere até estar em funcionamento.
-1. Selecione o ícone **do terminal Aberto.**
-
-    :::image type="content" source="media/how-to-run-jupyter-notebooks/open-terminal.png" alt-text="Terminal aberto":::
-
-1. Se não vir o ícone, selecione o **...** à direita do alvo do cálculo e, em seguida, selecione **Open terminal**.
-
-    :::image type="content" source="media/how-to-run-jupyter-notebooks/alt-open-terminal.png" alt-text="Terminal aberto de ...":::
-
-
-Saiba mais sobre [a clonagem de repositórios de Git no seu sistema de ficheiros de espaço de trabalho.](concept-train-model-git-integration.md#clone-git-repositories-into-your-workspace-file-system)
-
-### <a name="copy-and-paste-in-terminal"></a>Copiar e colar no terminal
-
-> * Janelas: `Ctrl-Insert` copiar e utilizar ou `Ctrl-Shift-v` `Shift-Insert` colar.
-> * Mac OS: `Cmd-c` copiar e `Cmd-v` colar.
-> * O FireFox/IE pode não suportar adequadamente as permissões de prancheta.
-
-### <a name="share-notebooks-and-other-files"></a>Partilhar cadernos e outros ficheiros
-
-Copie e cole o URL para partilhar um caderno ou ficheiro.  Apenas outros utilizadores do espaço de trabalho podem aceder a este URL.  Saiba mais sobre [a concessão de acesso ao seu espaço de trabalho.](how-to-assign-roles.md)
-
 ## <a name="edit-a-notebook"></a>Editar um caderno
 
-Para editar um bloco de notas, abra qualquer caderno localizado na secção de **ficheiros** do Utilizador do seu espaço de trabalho. Clique na célula que deseja editar. 
+Para editar um bloco de notas, abra qualquer caderno localizado na secção de **ficheiros** do Utilizador do seu espaço de trabalho. Clique na célula que deseja editar.  Se não tiver cadernos nesta secção, consulte [Criar e gerir ficheiros no seu espaço de trabalho.](how-to-manage-files.md)
 
 Pode editar o caderno sem se ligar a uma instância de computação.  Quando pretender executar as células no caderno, selecione ou crie uma instância de computação.  Se selecionar uma instância de computação parada, começará automaticamente quando executar a primeira célula.
 
@@ -101,7 +39,7 @@ Quando uma instância computacional está em execução, também pode utilizar a
 
 Também pode lançar Jupyter ou JupyterLab a partir da barra de ferramentas do portátil.  O Azure Machine Learning não fornece atualizações e corre bugs do Jupyter ou do JupyterLab, uma vez que são produtos Open Source fora do limite do Microsoft Support.
 
-### <a name="focus-mode"></a>Modo de detalhe
+## <a name="focus-mode"></a>Modo de detalhe
 
 Utilize o modo de focagem para expandir a sua visão atual para que possa concentrar-se nos separadores ativos. O modo focus esconde o explorador de ficheiros Notebooks.
 
@@ -110,14 +48,13 @@ Utilize o modo de focagem para expandir a sua visão atual para que possa concen
 
     :::image type="content" source="media/how-to-run-jupyter-notebooks/focusmode.gif" alt-text="Modo de foco de alternação / visão padrão":::
 
-
-### <a name="use-intellisense"></a>Utilizar o IntelliSense
+## <a name="use-intellisense"></a>Utilizar o IntelliSense
 
 [O IntelliSense](https://code.visualstudio.com/docs/editor/intellisense) é um auxílio de conclusão de código que inclui uma série de funcionalidades: Membros da Lista, Informações de Parâmetros, Informações Rápidas e Palavra Completa. Estas funcionalidades ajudam-no a aprender mais sobre o código que está a usar, a acompanhar os parâmetros que está a digitar e a adicionar chamadas a propriedades e métodos com apenas algumas teclas.  
 
 Ao escrever código, utilize ctrl+Space para ativar o IntelliSense.
 
-### <a name="clean-your-notebook-preview"></a>Limpe o seu caderno (pré-visualização)
+## <a name="clean-your-notebook-preview"></a>Limpe o seu caderno (pré-visualização)
 
 > [!IMPORTANT]
 > A funcionalidade de recolha está atualmente em pré-visualização pública.
@@ -133,7 +70,7 @@ Ao longo da criação de um caderno, normalmente acaba-se com células que utili
 
 O novo caderno contém apenas células de código, com todas as células necessárias para produzir os mesmos resultados que a célula selecionada para recolha.
 
-### <a name="save-and-checkpoint-a-notebook"></a>Guardar e checkpoint um caderno
+## <a name="save-and-checkpoint-a-notebook"></a>Guardar e checkpoint um caderno
 
 A Azure Machine Learning cria um ficheiro de checkpoint quando cria um ficheiro *ipynb.*
 
@@ -145,24 +82,34 @@ Todos os cadernos são automaticamente a cada 30 segundos. Faça automaticamente
  
 Selecione **Checkpoints** no menu do portátil para criar um ponto de verificação nomeado e reverter o caderno para um ponto de verificação guardado.
 
-## <a name="delete-a-notebook"></a>Eliminar um bloco de notas
+## <a name="export-a-notebook"></a>Exportar um caderno
 
-*Não pode* apagar os cadernos **samples.**  Estes cadernos fazem parte do estúdio e são atualizados cada vez que um novo SDK é publicado.  
+Na barra de ferramentas do portátil, selecione o menu e, em seguida, **Exporte Como** para exportar o caderno como qualquer um dos tipos suportados:
 
-*Pode* eliminar **os ficheiros do Utilizador** de qualquer forma:
+* Bloco de Notas
+* Python
+* HTML
+* LaTeX
 
-* No estúdio, selecione o **...** no final de uma pasta ou arquivo.  Certifique-se de que utiliza um browser suportado (Microsoft Edge, Chrome ou Firefox).
-* A partir de qualquer barra de ferramentas de portátil, selecione [**Open terminal**](#terminal)  para aceder à janela do terminal para a instância computacional.
-* No Jupyter ou no JupyterLab com as suas ferramentas.
+:::image type="content" source="media/how-to-run-jupyter-notebooks/export-notebook.png" alt-text="Exporte um caderno para o seu computador":::
+
+O ficheiro exportado é guardado no seu computador.
 
 ## <a name="run-a-notebook-or-python-script"></a>Executar um caderno ou script Python
 
-Para executar um caderno ou um script Python, você primeiro se conecta a uma [instância de cálculo de execução](concept-compute-instance.md). Se não tiver uma instância computacional, use estes passos para criar um: 
+Para executar um caderno ou um script Python, você primeiro se conecta a uma [instância de cálculo de execução](concept-compute-instance.md).
 
-1. Selecione **+** no bloco de ferramentas do caderno ou do script. 
-2. Nomeie o Compute e escolha um **tamanho de máquina virtual.** 
-3. Selecione **Criar**.
-4. A instância de cálculo está ligada automaticamente ao ficheiro.  Agora pode executar as células de caderno ou o script Python usando a ferramenta à esquerda da instância computacional
+* Se não tiver uma instância computacional, use estes passos para criar um:
+
+    1. No portátil ou na barra de ferramentas do script, à direita do dropdown compute, selecione **+ New Compute**. Dependendo do tamanho do seu ecrã, este pode estar localizado sob um **...** menu.
+        :::image type="content" source="media/how-to-run-jupyter-notebooks/new-compute.png" alt-text="Criar um novo cálculo":::
+    1. Nomeie o Compute e escolha um **tamanho de máquina virtual.** 
+    1. Selecione **Criar**.
+    1. A instância de cálculo está ligada automaticamente ao ficheiro.  Agora pode executar as células de caderno ou o script Python usando a ferramenta à esquerda da instância computacional.
+
+* Se tiver uma instância de computação parada,  **selecione Start compute** à direita da queda do Compute. Dependendo do tamanho do seu ecrã, este pode estar localizado sob um **...** menu.
+
+    :::image type="content" source="media/how-to-run-jupyter-notebooks/start-compute.png" alt-text="Iniciar instância de computação":::
 
 Só você pode ver e usar as instâncias de cálculo que cria.  Os **ficheiros do** utilizador são armazenados separadamente do VM e são partilhados entre todas as instâncias computacional no espaço de trabalho.
 
@@ -209,33 +156,12 @@ Estas ações irão redefinir o estado do caderno e redefinirão todas as variá
 | Parar o cálculo     |    Nenhuma célula vai correr  |
 | Notebook aberto em Jupyter ou JupyterLab     |    O caderno abriu com uma nova conta.  |
 
-### <a name="add-new-kernels"></a>Adicione novos núcleos
+## <a name="add-new-kernels"></a>Adicione novos núcleos
 
-O portátil irá automaticamente encontrar todos os núcleos jupyter instalados na instância de computação conectada.  Para adicionar um núcleo à instância de cálculo:
+[Utilize o terminal ](how-to-access-terminal.md#add-new-kernels) para criar e adicionar novos núcleos à sua instância de computação. O portátil irá automaticamente encontrar todos os núcleos jupyter instalados na instância de computação conectada.
 
-1. Selecione [**o terminal aberto**](#terminal) na barra de ferramentas do portátil.
-1. Utilize a janela do terminal para criar um novo ambiente.  Por exemplo, o código abaixo `newenv` cria:
-    ```shell
-    conda create -y --name newenv
-    ```
-1. Ative o ambiente.  Por exemplo, depois de `newenv` criar:
+Utilize o recuo do núcleo no direito de alterar para qualquer um dos núcleos instalados.  
 
-    ```shell
-    conda activate newenv
-    ```
-1. Instale o pacote pip e ipykernel para o novo ambiente e crie um núcleo para esse conda env
-
-    ```shell
-    conda install -y pip
-    conda install -y ipykernel
-    python -m ipykernel install --user --name newenv --display-name "Python (newenv)"
-    ```
-1. Depois de ter instalado o núcleo, por favor, refresque a página e abra um caderno. Agora verão o novo núcleo na lista de núcleos.
-
-> [!NOTE]
-> Para a gestão de pacotes dentro de um caderno, utilize funções mágicas **%pip** ou **%conda** para instalar automaticamente pacotes no **núcleo atualmente em funcionamento**, em vez de **!pip** ou **!conda,** que se refere a todas as embalagens (incluindo pacotes fora do núcleo atualmente em funcionamento)
-
-Qualquer um dos [Jupyter Kernels disponíveis](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels) pode ser instalado.
 
 ### <a name="status-indicators"></a>Indicadores de estado
 

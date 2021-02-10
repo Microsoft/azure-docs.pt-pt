@@ -10,18 +10,18 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/08/2021
 ms.author: kenwith
-ms.openlocfilehash: 03eacf4405217ee883689a088499d86d6f2262b5
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: 100f66d6217533ff6eba7881f938e877b98c735e
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99830707"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100091113"
 ---
 # <a name="tutorial---customize-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Tutorial - Personalize o fornecimento de produtos de fornecimento de utilizadores para aplicações SaaS no Azure Ative Directory
 
 O Microsoft Azure AD fornece suporte para o fornecimento de utilizadores a aplicações SaaS de terceiros, tais como Salesforce, G Suite e outros. Se ativar o fornecimento de um pedido saaS de terceiros, o portal Azure controla os seus valores de atributos através de mapeamentos de atributos.
 
-Antes de começar, certifique-se de que está familiarizado com a gestão de aplicações e conceitos **de Sign-On (SSO),** confira os seguintes links:
+Antes de começar, certifique-se de que está familiarizado com a gestão de aplicações e conceitos **de Sign-On (SSO).** Confira os seguintes links:
 - [Quickstart Series on App Management in Azure AD](../manage-apps/view-applications-portal.md)
 - [O que é Single Sign-On (SSO)?](../manage-apps/what-is-single-sign-on.md)
 

@@ -143,6 +143,8 @@
                   href: resilience-client-app.md
                 - name: Aplicações de daemon
                   href: resilience-daemon-app.md
+            - name: Monitorizar a saúde da aplicação para a resiliência
+              href: monitor-sign-in-health-for-resilience.md
         - name: Autoridades de certificação utilizadas no Azure
           href: certificate-authorities.md
     - name: Guia de implementação
