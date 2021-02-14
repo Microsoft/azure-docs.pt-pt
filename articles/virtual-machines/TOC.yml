@@ -101,25 +101,17 @@
       href: ./workloads/oracle/oracle-database-quick-create.md
     - name: Elasticsearch
       href: ./linux/tutorial-elasticsearch.md
-    - name: Filtro de Pacotes do FreeBSD
-      href: ./linux/freebsd-pf-nat.md
     - name: Realojamento de mainframe
       href: ./workloads/mainframe-rehosting/overview.md
-    - name: Bases de Dados
-      items:
-        - name: MongoDB
-        - name: MS SQL no Linux
-          href: /sql/linux/sql-server-linux-azure-virtual-machine
+    - name: SQL em Máquinas Virtuais
+      href: 'https://docs.microsoft.com/azure/azure-sql/virtual-machines/'
     - name: Computação de Alto Desempenho (HPC)
       href: /azure/architecture/topics/high-performance-computing/
-    - name: Contentores
-    - name: Visual Studio
-      href: ./windows/using-visual-studio-vm.md
 - name: de Instâncias
   items:
     - name: Tamanhos
       items:
-        - name: Descrição geral
+        - name: Descrição Geral
           href: sizes.md
         - name: Alterar o tamanho VM
           items:
@@ -218,6 +210,12 @@
                   href: ./windows/n-series-driver-setup.md
             - name: Configurar controladores GPU AMD
               href: ./windows/n-series-amd-driver-setup.md
+        - name: FPGA - cálculo acelerado
+          items:
+            - name: Descrição Geral
+              href: sizes-field-programmable-gate-arrays.md?context=/azure/virtual-machines/context/context
+            - name: Série NP
+              href: np-series.md
         - name: Computação de elevado desempenho
           displayName: H-series
           items:
@@ -329,7 +327,8 @@
           href: ./linux/tutorial-build-deploy-azure-pipelines.md
         - name: Criar pilha de lâmpadas
           href: ./linux/tutorial-lamp-stack.md
-        - name: Proteger o servidor Web com SSL
+        - name: Servidor web seguro com TLS\SSL
+          displayname: SSL TLS
           items:
             - name: Linux
               href: ./linux/tutorial-secure-web-server.md
@@ -375,7 +374,7 @@
           href: ./windows/winrm.md
     - name: Extensões
       items:
-        - name: Descrição geral
+        - name: Descrição Geral
           href: ./extensions/overview.md
         - name: Linux
           items:
@@ -576,7 +575,7 @@
           href: ./windows/client-images.md
     - name: Imagens personalizadas de Linux
       items:
-        - name: Descrição geral
+        - name: Descrição Geral
           href: ./linux/imaging.md
         - name: Provisão de Linux
           href: ./linux/provisioning.md
@@ -592,6 +591,8 @@
               href: ./linux/flatcar-create-upload-vhd.md
             - name: FreeBSD
               href: ./linux/freebsd-intro-on-azure.md
+            - name: Filtro de Pacotes do FreeBSD
+              href: ./linux/freebsd-pf-nat.md
             - name: Oracle Linux
               href: ./linux/oracle-create-upload-vhd.md
             - name: OpenBSD
@@ -636,6 +637,8 @@
           href: ./windows/capture-image-resource.md
         - name: Create a VM from a managed image (Criar uma VM a partir de uma imagem personalizada)
           href: ./windows/create-vm-generalized-managed.md
+        - name: Visual Studio
+          href: ./windows/using-visual-studio-vm.md
     - name: Galerias de Imagens Partilhadas
       items:
         - name: Descrição geral
@@ -917,7 +920,7 @@
                   href: ./windows/disk-encryption-faq.md
             - name: Encriptação do Disco Azure - versão anterior
               items:
-                - name: Descrição geral
+                - name: Descrição Geral
                   items:
                     - name: Linux
                       href: ./linux/disk-encryption-overview-aad.md
@@ -969,7 +972,7 @@
           href: disks-incremental-snapshots.md
         - name: Cópia de Segurança de Discos do Azure
           items:
-            - name: Descrição geral
+            - name: Descrição Geral
               href: ../backup/disk-backup-overview.md?context=/azure/virtual-machines/context/context
             - name: Configurar backup de disco Azure
               href: ../backup/backup-managed-disks.md?context=/azure/virtual-machines/context/context
@@ -1108,7 +1111,7 @@
               href: 'https://github.com/microsoft/azure-docs/blob/master/articles/virtual-machines/scripts/virtual-machines-linux-powershell-sample-create-snapshot-from-vhd.md'
 - name: Rede
   items:
-    - name: Descrição geral
+    - name: Descrição Geral
       href: network-overview.md
     - name: Criar a rede virtual
       href: ../virtual-network/quick-create-cli.md?context=/azure/virtual-machines/context/context
@@ -1154,7 +1157,7 @@
       href: ../security-center/security-center-just-in-time.md
     - name: Política
       items:
-        - name: Descrição geral
+        - name: Descrição Geral
           href: security-policy.md
         - name: Controlos por política
           displayName: 'regulatory, compliance, standards, domains'
@@ -1169,7 +1172,7 @@
               href: ./windows/policy.md
     - name: Bastion
       items:
-        - name: Descrição geral
+        - name: Descrição Geral
           href: ../bastion/bastion-overview.md
         - name: Criar um anfitrião do Bastion
           items:
@@ -1221,10 +1224,12 @@
       href: ./linux/login-using-aad.md
 - name: Manutenção e atualizações
   items:
-    - name: Descrição geral
+    - name: Descrição Geral
       href: maintenance-and-updates.md
     - name: Aplicação de patches automática de convidado da VM (pré-visualização)
       href: ./windows/automatic-vm-guest-patching.md
+    - name: Atualização automática de extensão (pré-visualização)
+      href: ./automatic-extension-upgrade.md
     - name: Controlo da manutenção
       items:
         - name: Notificações de manutenção
@@ -1392,7 +1397,7 @@
       href: boot-diagnostics.md
 - name: Cópia de segurança e recuperação
   items:
-    - name: Descrição geral
+    - name: Descrição Geral
       href: backup-recovery.md
     - name: Interrupções de serviço
       href: virtual-machines-disaster-recovery-guidance.md
@@ -1422,7 +1427,7 @@
           href: ../backup/backup-azure-vm-backup-faq.yml
     - name: Recuperação após desastre
       items:
-        - name: Descrição geral
+        - name: Descrição Geral
           href: ../site-recovery/site-recovery-overview.md
         - name: Permitir a recuperação de desastres
           items:
@@ -1465,7 +1470,7 @@
               href: ../site-recovery/migrate-overview.md?context=/azure/virtual-machines/context/context
 - name: Automatização de infraestruturas
   items:
-    - name: Descrição geral
+    - name: Descrição Geral
       href: infrastructure-automation.md
     - name: Dados personalizados
       href: custom-data.md

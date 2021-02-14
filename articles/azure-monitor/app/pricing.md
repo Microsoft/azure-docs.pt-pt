@@ -5,14 +5,14 @@ ms.topic: conceptual
 ms.custom: devx-track-dotnet
 author: DaleKoetke
 ms.author: dalek
-ms.date: 5/7/2020
+ms.date: 2/7/2021
 ms.reviewer: mbullwin
-ms.openlocfilehash: 477a96f1bf66255b11b2fee36c38e55b18cddb69
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: 3ae3224ae17d0dee2ed1080669c6057ca62959d9
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99556121"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100384508"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Gerir a utilização e os custos do Application Insights
 
@@ -286,15 +286,18 @@ Para desativar os e-mails diários da tampa do volume, na secção **Configure**
 
 Para os primeiros adotantes da Azure Application Insights, existem ainda dois níveis possíveis de preços: Básico e Empresa. O nível de preços básicos é o mesmo que descrito acima e é o nível padrão. Inclui todas as funcionalidades de nível da Enterprise, sem custos adicionais. As notas básicas de nível principalmente sobre o volume de dados que são ingeridos.
 
-> [!NOTE]
-> Estes níveis de preços antigos foram renomeados. O nível de preços da Enterprise chama-se **agora Per Node** e o nível básico de preços é agora chamado **Per GB**. Estes novos nomes são usados abaixo e no portal Azure.  
+Estes níveis de preços antigos foram renomeados. O nível de preços da Enterprise chama-se **agora Per Node** e o nível básico de preços é agora chamado **Per GB**. Estes novos nomes são usados abaixo e no portal Azure.  
 
-O nível Per Node (ex-Enterprise) tem uma taxa por nó, e cada nó recebe um subsídio de dados diário. No nível de preços per nó, é cobrado por dados ingeridos acima do subsídio incluído. Se estiver a utilizar o Suite de Gestão de Operações, deve escolher o nível Per Node.
+O nível Per Node (ex-Enterprise) tem uma taxa por nó, e cada nó recebe um subsídio de dados diário. No nível de preços per nó, é cobrado por dados ingeridos acima do subsídio incluído. Se estiver a utilizar o Suite de Gestão de Operações, deve escolher o nível Per Node. Em abril de 2018, [introduzimos](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/) um novo modelo de preços para a monitorização do Azure. Este modelo adota um modelo simples "pay-as-you-go" em todo o portfólio de serviços de monitorização. Saiba mais sobre o [novo modelo de preços.](../platform/usage-estimated-costs.md)
 
 Para os preços correntes na sua moeda e região, consulte [os preços de Insights de Aplicação.](https://azure.microsoft.com/pricing/details/application-insights/)
 
-> [!NOTE]
-> Em abril de 2018, [introduzimos](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/) um novo modelo de preços para a monitorização do Azure. Este modelo adota um modelo simples "pay-as-you-go" em todo o portfólio de serviços de monitorização. Saiba mais sobre o [novo modelo de preços,](../platform/usage-estimated-costs.md)como [avaliar o impacto da mudança para este modelo](../platform/usage-estimated-costs.md#understanding-your-azure-monitor-costs) com base nos seus padrões de utilização e [como optar pelo novo modelo](../platform/usage-estimated-costs.md#azure-monitor-pricing-model)
+### <a name="understanding-billed-usage-on-the-legacy-enterprise-per-node-tier"></a>Compreensão do uso faturado no nível da Enterprise (Per Node) 
+
+Como descrito abaixo em mais detalhes, o nível legacy Enterprise (Per Node) combina o uso de todos os recursos de Insights de Aplicação numa subscrição para calcular o número de nós e a sobrecarave de dados. Devido a este processo de combinação, **a utilização de todos os recursos de Insights de Aplicação numa subscrição é reportada contra apenas um dos recursos**.  Isto torna muito complicado conciliar o seu [uso faturado](https://docs.microsoft.com/azure/azure-monitor/app/pricing#viewing-application-insights-usage-on-your-azure-bill) com o uso observado para cada recursos de Insights de Aplicação. 
+
+> [!WARNING]
+> Devido à complexidade do rastreio e compreensão do uso dos recursos de Application Insights no nível legado Enterprise (Per Node), recomendamos vivamente a utilização do atual nível de preços Pay-As-You-Go. 
 
 ### <a name="per-node-tier-and-operations-management-suite-subscription-entitlements"></a>Por nível de nó e direitos de subscrição do Suite de Gestão de Operações
 
@@ -347,4 +350,3 @@ Pode escrever um script para definir o nível de preços utilizando a Azure Reso
 [start]: ./app-insights-overview.md
 [pricing]: https://azure.microsoft.com/pricing/details/application-insights/
 [pricing]: https://azure.microsoft.com/pricing/details/application-insights/
-

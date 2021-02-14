@@ -323,8 +323,6 @@
       items:
         - name: Canal do YouTube sobre Governação
           href: 'https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ'
-        - name: Vídeo - Ignite 2019
-          href: 'https://myignite.techcommunity.microsoft.com/sessions/81584?source=sessions'
         - name: Vídeos da Configuração de Convidado
           items:
             - name: Introdução

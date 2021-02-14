@@ -1,21 +1,17 @@
 ---
 title: Configure desempenho para o tempo de execução da integração Azure-SSIS
 description: Saiba como configurar as propriedades do Tempo de Execução de Integração Azure-SSIS para um alto desempenho
-services: data-factory
 ms.date: 01/10/2018
 ms.topic: conceptual
 ms.service: data-factory
-ms.workload: data-services
 author: swinarko
 ms.author: sawinark
-ms.reviewer: ''
-manager: anandsub
-ms.openlocfilehash: f0fcd61230d68d7b26017237e2b7e0465fcb1f07
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 5d275100124660b901504b7e7f71cf93518fd077
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92635325"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100364397"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-for-high-performance"></a>Configure o tempo de execução da integração Azure-SSIS para um alto desempenho
 
@@ -118,11 +114,11 @@ O eixo y é o número de pacotes que completaram a execução em uma hora. Por f
 
 ## <a name="azuressisnodenumber"></a>AzuressISNodeNumber
 
-**O AzureSSISNodeNumber** ajusta a escalabilidade do tempo de integração. O funcionamento da integração é proporcional ao **AzuresSISNodeNumber** . Desafie o **AzureSSSISNodeNumber** a um pequeno valor no início, monitorize a produção do tempo de execução da integração e, em seguida, ajuste o valor para o seu cenário. Para reconfigurar a contagem de nóiros, consulte [Gerir um tempo de integração Azure-SSIS](manage-azure-ssis-integration-runtime.md).
+**O AzureSSISNodeNumber** ajusta a escalabilidade do tempo de integração. O funcionamento da integração é proporcional ao **AzuresSISNodeNumber**. Desafie o **AzureSSSISNodeNumber** a um pequeno valor no início, monitorize a produção do tempo de execução da integração e, em seguida, ajuste o valor para o seu cenário. Para reconfigurar a contagem de nóiros, consulte [Gerir um tempo de integração Azure-SSIS](manage-azure-ssis-integration-runtime.md).
 
 ## <a name="azuressismaxparallelexecutionspernode"></a>AzureSSISMaxParallelExecutionsPerNode
 
-Quando já está a usar um poderoso nó de trabalhador para executar pacotes, o aumento **do AzureSSISMaxParallelExecutionsPerNode** pode aumentar o rendimento geral do tempo de execução da integração. Se pretender aumentar o valor máximo, precisa de utilizar o Azure PowerShell para atualizar **o AzureSSISMaxParallelExecutionsPerNode** . Pode estimar o valor adequado com base no custo do seu pacote e nas seguintes configurações para os nós do trabalhador. Para obter mais informações, consulte [os tamanhos da máquina virtual para fins gerais.](../virtual-machines/sizes-general.md)
+Quando já está a usar um poderoso nó de trabalhador para executar pacotes, o aumento **do AzureSSISMaxParallelExecutionsPerNode** pode aumentar o rendimento geral do tempo de execução da integração. Se pretender aumentar o valor máximo, precisa de utilizar o Azure PowerShell para atualizar **o AzureSSISMaxParallelExecutionsPerNode**. Pode estimar o valor adequado com base no custo do seu pacote e nas seguintes configurações para os nós do trabalhador. Para obter mais informações, consulte [os tamanhos da máquina virtual para fins gerais.](../virtual-machines/sizes-general.md)
 
 | Tamanho             | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Débito do armazenamento temporário máximo: IOPS/MBps de Leitura/MBps de Escrita | Máximo do disco de dados/débito: IOPS | NICs. Máx. / Desempenho de rede esperado (Mbps) |
 |------------------|------|-------------|------------------------|------------------------------------------------------------|-----------------------------------|------------------------------------------------|

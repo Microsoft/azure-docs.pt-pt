@@ -10,13 +10,13 @@ ms.custom: how-to, devx-track-azurecli
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 09/30/2020
-ms.openlocfilehash: 5ba1b9d53255406a73b1b74dbc59fe39e3f9a0d7
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.date: 02/09/2021
+ms.openlocfilehash: 75ea473c8669e9d50d2e9971a20a5fc1c3070779
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99979186"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100368018"
 ---
 # <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace"></a>Configure Azure Private Link para um espaço de trabalho de aprendizagem de máquinas Azure
 
@@ -31,8 +31,9 @@ O Azure Private Link permite-lhe ligar-se ao seu espaço de trabalho utilizando 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Se planeia utilizar um link privado habilitado espaço de trabalho com uma chave gerida pelo cliente, deve solicitar esta funcionalidade usando um bilhete de apoio. Para obter mais informações, consulte [Gerir e aumentar as quotas.](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases)
+* Se planeia utilizar um link privado habilitado espaço de trabalho com uma chave gerida pelo cliente, deve solicitar esta funcionalidade usando um bilhete de apoio. Para obter mais informações, consulte [Gerir e aumentar as quotas.](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases)
 
+* Deve ter uma rede virtual existente para criar o ponto final privado. Também deve [desativar as políticas de rede para pontos finais privados](../private-link/disable-private-endpoint-network-policy.md) antes de adicionar o ponto final privado.
 ## <a name="limitations"></a>Limitações
 
 * A utilização de um espaço de trabalho de aprendizagem automática Azure com ligação privada não está disponível nas regiões do Governo Azure ou nas regiões Azure China 21Vianet.
@@ -73,6 +74,19 @@ A [extensão Azure CLI para machine learning](reference-azure-machine-learning-c
 * `--pe-vnet-name`: A rede virtual existente para criar o ponto final privado em.
 * `--pe-subnet-name`: O nome da sub-rede para criar o ponto final privado em. O valor predefinido é `default`.
 
+Estes parâmetros são além de outros parâmetros necessários para o comando de criar. Por exemplo, o seguinte comando cria um novo espaço de trabalho na região oeste dos EUA, utilizando um grupo de recursos existente e VNet:
+
+```azurecli
+az ml workspace create -r myresourcegroup \
+    -l westus \
+    -n myworkspace \
+    --pe-name myprivateendpoint \
+    --pe-auto-approval \
+    --pe-resource-group myresourcegroup \
+    --pe-vnet-name myvnet \
+    --pe-subnet-name mysubnet
+```
+
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
 O __separador Networking__ no estúdio Azure Machine Learning permite-lhe configurar um ponto final privado. No entanto, requer uma rede virtual existente. Para obter mais informações, consulte [Criar espaços de trabalho no portal.](how-to-manage-workspace.md)
@@ -82,10 +96,6 @@ O __separador Networking__ no estúdio Azure Machine Learning permite-lhe config
 ## <a name="add-a-private-endpoint-to-a-workspace"></a>Adicione um ponto final privado a um espaço de trabalho
 
 Utilize um dos seguintes métodos para adicionar um ponto final privado a um espaço de trabalho existente:
-
-> [!IMPORTANT]
->
-> Deve ter uma rede virtual existente para criar o ponto final privado. Também deve [desativar as políticas de rede para pontos finais privados](../private-link/disable-private-endpoint-network-policy.md) antes de adicionar o ponto final privado.
 
 > [!WARNING]
 >

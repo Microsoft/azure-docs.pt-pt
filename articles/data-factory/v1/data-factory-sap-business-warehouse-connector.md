@@ -1,23 +1,18 @@
 ---
 title: Mover dados do SAP Business Warehouse usando a Azure Data Factory
 description: Saiba como mover dados do SAP Business Warehouse usando a Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-editor: ''
+ms.author: jingwang
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: fb91a09ed31658c2d547a7b46cf2f986bfbd0e50
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 513d6b28908b99594eaa525e86690fa75bffb103
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97508293"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100386973"
 ---
 # <a name="move-data-from-sap-business-warehouse-using-azure-data-factory"></a>Mover dados do SAP Business Warehouse usando a Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -63,12 +58,12 @@ A tabela seguinte fornece descrição para elementos JSON específicos do servi�
 
 Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-servidor | Nome do servidor em que reside a instância SAP BW. | string | Sim
-sistemaNumbre | Número do sistema do sistema SAP BW. | Número decimal de dois dígitos representado como uma corda. | Sim
-clientId | Identificação do cliente do cliente no sistema SAP W. | Número decimal de três dígitos representado como uma corda. | Sim
-nome de utilizador | Nome do utilizador que tem acesso ao servidor SAP | string | Sim
-palavra-passe | A palavra-passe do utilizador. | string | Sim
-gatewayName | Nome do gateway que o serviço data factory deve usar para ligar ao caso SAP BW no local. | string | Sim
+servidor | Nome do servidor em que reside a instância SAP BW. | string | Yes
+sistemaNumbre | Número do sistema do sistema SAP BW. | Número decimal de dois dígitos representado como uma corda. | Yes
+clientId | Identificação do cliente do cliente no sistema SAP W. | Número decimal de três dígitos representado como uma corda. | Yes
+nome de utilizador | Nome do utilizador que tem acesso ao servidor SAP | string | Yes
+palavra-passe | A palavra-passe do utilizador. | string | Yes
+gatewayName | Nome do gateway que o serviço data factory deve usar para ligar ao caso SAP BW no local. | string | Yes
 criptografadoCredential | A cadeia de credencial encriptada. | cadeia (de carateres) | No
 
 ## <a name="dataset-properties"></a>Dataset properties (Propriedades do conjunto de dados)
@@ -86,7 +81,7 @@ Quando a origem na atividade de cópia é do tipo **RelationalSource** (que incl
 
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
-| consulta | Especifica a consulta MDX para ler dados a partir da instância SAP BW. | Consulta MDX. | Sim |
+| consulta | Especifica a consulta MDX para ler dados a partir da instância SAP BW. | Consulta MDX. | Yes |
 
 
 ## <a name="json-example-copy-data-from-sap-business-warehouse-to-azure-blob"></a>Exemplo JSON: Copiar dados do SAP Business Warehouse para a Azure Blob
@@ -288,7 +283,7 @@ Ao mover dados do SAP BW, os seguintes mapeamentos são utilizados de tipos SAP 
 
 Tipo de dados no Dicionário ABAP | .NET Data Type
 -------------------------------- | --------------
-ACCP |  int
+ACCP |    int
 CHAR | String
 CLNT | String
 CURR | Decimal

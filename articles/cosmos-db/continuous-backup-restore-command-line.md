@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 02/01/2021
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 2e09542cbe56df7c8d6984a98fe77142f543ec03
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 9ea71dae746ac423e7b17b6235b4d5cd3e143cd7
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99539201"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100377334"
 ---
 # <a name="configure-and-manage-continuous-backup-and-point-in-time-restore-preview---using-azure-cli"></a>Configure e gerencie a cópia de segurança contínua e o ponto no tempo de restauração (Preview) - usando O Azure CLI
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -46,7 +46,7 @@ Este artigo descreve como fornecer uma conta com cópia de segurança contínua 
 
 ## <a name="provision-a-sql-api-account-with-continuous-backup"></a><a id="provision-sql-api"></a>Fornecimento de uma conta API SQL com backup contínuo
 
-Para fornecer uma conta API SQL com backup contínuo, deve ser passado um argumento extra `--backup-policy-type Continuous` juntamente com o comando de provisionamento regular. O seguinte comando é um exemplo de uma única conta de escrita de região nomeada `pitracct2` com uma política de backup contínua criada na região "West US" sob o grupo de recursos "myrg":
+Para fornecer uma conta API SQL com backup contínuo, deve ser passado um argumento extra `--backup-policy-type Continuous` juntamente com o comando de provisionamento regular. O seguinte comando é um exemplo de uma única conta de escrita de região nomeada `pitracct2` com uma política de backup contínua criada na região oeste dos *EUA* sob o grupo de recursos *myrg:*
 
 ```azurecli-interactive
 
@@ -61,7 +61,7 @@ az cosmosdb create \
 
 ## <a name="provision-an-azure-cosmos-db-api-for-mongodb-account-with-continuous-backup"></a><a id="provision-mongo-api"></a>Fornecimento de um AZure Cosmos DB API para conta MongoDB com backup contínuo
 
-O seguinte comando mostra um exemplo de uma única conta de escrita de região nomeada `pitracct3` com uma política de backup contínua criada a região "West US" sob o grupo de recursos "myrg":
+O seguinte comando mostra um exemplo de uma única conta de escrita de região nomeada `pitracct3` com uma política de backup contínua criada na região oeste dos *EUA* sob o grupo de recursos *myrg:*
 
 ```azurecli-interactive
 
@@ -145,13 +145,13 @@ A resposta inclui todas as contas de base de dados (ao vivo e eliminadas) que po
   }
 ```
 
-Tal como o "Tempo de Criação" ou "Hora da Eliminação" para a conta, existe também um "Tempo de Criação" ou "Hora da Eliminação" para a região. Estes tempos permitem-lhe escolher a região certa e um intervalo de tempo válido para restaurar naquela região.
+Tal como a `CreationTime` conta ou para a `DeletionTime` conta, há um ou para `CreationTime` a `DeletionTime` região também. Estes tempos permitem-lhe escolher a região certa e um intervalo de tempo válido para restaurar naquela região.
 
 **Listar todas as versões de bases de dados numa conta de base de dados ao vivo**
 
 A listagem de todas as versões de bases de dados permite-lhe escolher a base de dados certa num cenário em que o tempo real de existência da base de dados é desconhecido.
 
-Execute o seguinte comando CLI para listar todas as versões de bases de dados. Este comando só funciona com contas ao vivo. Os parâmetros "instanceId" e "localização" são obtidos a partir das propriedades "nome" e "localização" na resposta ao `az cosmosdb restorable-database-account list` comando. O atributo casoId é também uma propriedade da conta de base de dados de origem que está sendo restaurada:
+Execute o seguinte comando CLI para listar todas as versões de bases de dados. Este comando só funciona com contas ao vivo. Os `instanceId` parâmetros e `location` os parâmetros são obtidos a partir da `name` e propriedades na resposta ao `location` `az cosmosdb restorable-database-account list` comando. O atributo casoId é também uma propriedade da conta de base de dados de origem que está sendo restaurada:
 
 ```azurecli-interactive
 az cosmosdb sql restorable-database list \
@@ -198,7 +198,7 @@ Esta saída de comando mostra agora quando uma base de dados foi criada e elimin
 
 **Listar todas as versões de contentores SQL de uma base de dados numa conta de base de dados ao vivo**
 
-Utilize o seguinte comando para listar todas as versões dos recipientes SQL. Este comando só funciona com contas ao vivo. O parâmetro "databaseRid" é o "ResourceId" da base de dados que pretende restaurar. É o valor do atributo "proprietárioResourceid" encontrado na resposta do `az cosmosdb sql restorable-database list` comando.
+Utilize o seguinte comando para listar todas as versões dos recipientes SQL. Este comando só funciona com contas ao vivo. O `databaseRid` parâmetro é a base de `ResourceId` dados que pretende restaurar. É o valor do `ownerResourceid` atributo encontrado na resposta do `az cosmosdb sql restorable-database list` comando.
 
 ```azurecli-interactive
 az cosmosdb sql restorable-container list \
@@ -265,7 +265,7 @@ az cosmosdb sql restorable-resource list \
 
 ## <a name="enumerate-restorable-resources-for-mongodb-api-account"></a><a id="enumerate-mongodb-api"></a>Enumerar recursos ressurreíveis para conta mongodb API
 
-Os comandos de enumeração descritos abaixo ajudam-no a descobrir os recursos disponíveis para restauro em vários picos de tempo. Além disso, fornecem também um feed de eventos-chave na conta, base de dados e recursos de contentores restauradores. Tal como com a SQL API, pode utilizar o `az cosmosdb` comando mas com "mongodb" como parâmetro em vez de "sql". Estes comandos só funcionam para contas ao vivo.
+Os comandos de enumeração descritos abaixo ajudam-no a descobrir os recursos disponíveis para restauro em vários picos de tempo. Além disso, fornecem também um feed de eventos-chave na conta, base de dados e recursos de contentores restauradores. Tal como com a SQL API, pode utilizar o `az cosmosdb` comando mas com como parâmetro em vez de `mongodb` `sql` . Estes comandos só funcionam para contas ao vivo.
 
 **Listar todas as versões das bases de dados de Mongodb numa conta de base de dados ao vivo**
 

@@ -1,23 +1,18 @@
 ---
 title: Utilize pontos finais privados para criar um oleoduto Azure Data Factory
 description: Este tutorial disponibiliza instruções passo-a-passo para utilizar o portal do Azure para criar uma fábrica de dados com um pipeline. O pipeline utiliza a atividade de cópia para copiar dados do armazenamento Azure Blob para uma base de dados Azure SQL.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 01/15/2021
 ms.author: jingwang
-ms.openlocfilehash: dfd2ed47c3fd963d7e119d235719771b25bdaf34
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 002ceba60853908e381f084e95ec1ee58e8580cb
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98249521"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100375821"
 ---
 # <a name="copy-data-securely-from-azure-blob-storage-to-a-sql-database-by-using-private-endpoints"></a>Copie os dados de forma segura do armazenamento do Azure Blob para uma base de dados SQL utilizando pontos finais privados
 
@@ -157,7 +152,7 @@ Neste tutorial, começa-se por criar um oleoduto. Em seguida, vai criar serviço
 
     ![Screenshot que mostra a autoria interativa.](./media/tutorial-copy-data-portal-private/interactive-authoring.png)
 
-1. Selecione **a ligação de teste**. Deverá falhar quando a conta de armazenamento permite o acesso apenas a partir de **redes Selecionadas** e exige que a Data Factory crie um ponto final privado que deve ser aprovado antes da sua utilização. Na mensagem de erro, deverá ver um link para criar um ponto final privado que pode seguir para criar um ponto final privado gerido. Uma alternativa é ir diretamente ao **separador Gerir** e seguir as instruções na [secção seguinte](#create-a-managed-private-endpoint) para criar um ponto final privado gerido.
+1. Selecione **Testar ligação**. Deverá falhar quando a conta de armazenamento permite o acesso apenas a partir de **redes Selecionadas** e exige que a Data Factory crie um ponto final privado que deve ser aprovado antes da sua utilização. Na mensagem de erro, deverá ver um link para criar um ponto final privado que pode seguir para criar um ponto final privado gerido. Uma alternativa é ir diretamente ao **separador Gerir** e seguir as instruções na [secção seguinte](#create-a-managed-private-endpoint) para criar um ponto final privado gerido.
 
    > [!NOTE]
    > O **separador Manage** pode não estar disponível para todas as instâncias da fábrica de dados. Se não o vir, pode aceder a pontos finais privados selecionando **o Ponto**  >  De Terminante Privado de **Ligações**  >  **de** Autor .
@@ -235,7 +230,7 @@ Se não selecionou a hiperligação quando testou a ligação, siga o caminho. A
     1. Em **Nome da base de dados**, selecione a sua base de dados SQL.
     1. Em **Nome de utilizador**, introduza o nome do utilizador.
     1. Em **Palavra-passe**, introduza a palavra-passe do utilizador.
-    1. Selecione **a ligação de teste**. Deve falhar porque o servidor SQL permite o acesso apenas a partir de **redes Selecionadas** e exige que a Data Factory crie um ponto final privado para o mesmo, que deve ser aprovado antes da sua utilização. Na mensagem de erro, deverá ver um link para criar um ponto final privado que pode seguir para criar um ponto final privado gerido. Uma alternativa é ir diretamente ao **separador Gerir** e seguir as instruções na secção seguinte para criar um ponto final privado gerido.
+    1. Selecione **Testar ligação**. Deve falhar porque o servidor SQL permite o acesso apenas a partir de **redes Selecionadas** e exige que a Data Factory crie um ponto final privado para o mesmo, que deve ser aprovado antes da sua utilização. Na mensagem de erro, deverá ver um link para criar um ponto final privado que pode seguir para criar um ponto final privado gerido. Uma alternativa é ir diretamente ao **separador Gerir** e seguir as instruções na secção seguinte para criar um ponto final privado gerido.
     1. Mantenha a caixa de diálogo aberta e, em seguida, vá para o servidor SQL selecionado.
     1. Siga as instruções [nesta secção](#approval-of-a-private-link-in-sql-server) para aprovar o link privado.
     1. Volta para a caixa de diálogo. Selecione a **ligação de teste** novamente e selecione **Criar** para implementar o serviço ligado.

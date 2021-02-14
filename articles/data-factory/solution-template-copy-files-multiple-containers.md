@@ -1,22 +1,18 @@
 ---
 title: Copiar ficheiros de vários contentores
 description: Aprenda a usar um modelo de solução para copiar ficheiros de vários contentores utilizando a Azure Data Factory.
-services: data-factory
 author: dearandyxu
 ms.author: yexu
-ms.reviewer: douglasl
-manager: anandsub
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/1/2018
-ms.openlocfilehash: f78d0b02c9790234a63ef64200dcab72bc64c033
-ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
+ms.openlocfilehash: ec7af1e81e0b295491420597636c8443f4d36512
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92629430"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100376093"
 ---
 # <a name="copy-multiple-folders-with-azure-data-factory"></a>Copiar várias pastas com Azure Data Factory
 
@@ -62,7 +58,7 @@ Se pretender copiar vários recipientes sob pastas de raiz entre armazéns, pode
 
     ![Mostrar o oleoduto](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image4.png)
 
-5. Selecione **Debug,** introduza os **parâmetros** e, em seguida, selecione **Terminar** .
+5. Selecione **Debug,** introduza os **parâmetros** e, em seguida, selecione **Terminar**.
 
     ![Executar o pipeline](media/solution-template-copy-files-multiple-containers/copy-files-multiple-containers-image5.png)
 

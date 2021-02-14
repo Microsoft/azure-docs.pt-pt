@@ -8,12 +8,12 @@ ms.service: cognitive-search
 ms.topic: overview
 ms.date: 02/09/2021
 ms.custom: references_regions
-ms.openlocfilehash: 08491dcaf66789f13aa9f2e058303a28e7ab8388
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 13cb22c178be29af71b57d0f50fdbd0e95718069
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/10/2021
-ms.locfileid: "100099528"
+ms.locfileid: "100104608"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Novidades na Pesquisa Cognitiva Azure
 
@@ -24,7 +24,7 @@ Saiba o que há de novo no serviço. Marque esta página para manter-se atualiza
 |Recurso&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Description | Disponibilidade  |
 |------------------------------|---------------|---------------|
 | [Documentos de reset (pré-visualização)](search-howto-run-reset-indexers.md) |  Reprocessa documentos de pesquisa selecionados individualmente em cargas de trabalho indexantes. | [Pesquisa REST API 2020-06-30-Preview](/rest/api/searchservice/index-preview) |
-| Suporte à Zona de Disponibilidade | Os serviços de pesquisa com duas ou mais réplicas em determinadas regiões, conforme listados em [Escala para desempenho,](search-performance-optimization.md)ganham resiliência por terem réplicas em dois ou locais físicos mais distintos.  | A região e a data de criação do serviço de pesquisa determinam a disponibilidade. Consulte o documento de afinação de desempenho para mais detalhes. |
+| [Zonas de Disponibilidade](search-performance-optimization.md#availability-zones)| Os serviços de pesquisa com duas ou mais réplicas em determinadas regiões, conforme listado [neste artigo,](search-performance-optimization.md#availability-zones)ganham resiliência por terem réplicas em dois ou locais físicos distintos.  | A região e a data de criação do serviço de pesquisa determinam a disponibilidade. Consulte o documento de afinação de desempenho para mais detalhes. |
 
 ## <a name="january-2021"></a>Janeiro de 2021
 
@@ -36,7 +36,8 @@ Saiba o que há de novo no serviço. Marque esta página para manter-se atualiza
 
 | Mensal | Funcionalidade | Descrição |
 |-------|---------|-------------|
-| Novembro | [Encriptação de chaves gerida pelo cliente (estendida)](search-security-manage-encryption-keys.md) | estende a encriptação gerida pelo cliente sobre toda a gama de ativos criados e geridos por um serviço de pesquisa. Geralmente disponível.|
+| Novembro | [Encriptação de chaves gerida pelo cliente (estendida)](search-security-manage-encryption-keys.md) | Alarga a encriptação gerida pelo cliente sobre toda a gama de ativos criados e geridos por um serviço de pesquisa. Geralmente disponível.|
+| Setembro | [Extensão do Código do Estúdio Visual para Pesquisa Cognitiva Azure](search-get-started-vs-code.md) | Adiciona um espaço de trabalho, navegação, intellisense e modelos para a criação de índices, indexadores, fontes de dados e skillsets. | Pré-visualização pública |
 | Setembro | [Identidade de serviço gerida (indexantes)](search-howto-managed-identities-data-sources.md) | Geralmente disponível.  |
 | Setembro | [Pedidos de saída usando um link privado](search-indexer-howto-access-private.md) | Geralmente disponível.  |
 | Setembro | [Gestão REST API (2020-08-01)](/rest/api/searchmanagement/management-api-versions) | Geralmente disponível. |

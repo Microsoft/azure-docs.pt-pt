@@ -1,22 +1,18 @@
 ---
 title: Copiar dados para índice de pesquisa
 description: Saiba como empurrar ou copiar dados para um índice de pesquisa Azure utilizando a Atividade de Cópia num pipeline Azure Data Factory.
-services: data-factory
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/13/2019
-ms.openlocfilehash: 0484d846501ef20e5d474668c45324452d0c8fc8
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 8c0fe30961e8ca0f31374bfdb5c5f17d58cb7673
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92638232"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100385800"
 ---
 # <a name="copy-data-to-an-azure-cognitive-search-index-using-azure-data-factory"></a>Copiar dados para um índice de pesquisa cognitiva Azure usando Azure Data Factory
 
@@ -44,10 +40,10 @@ As seguintes propriedades são suportadas para o serviço ligado à Pesquisa Cog
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo deve ser definida para: **AzureSearch** | Sim |
-| url | URL para o serviço de pesquisa. | Sim |
-| key | Chave de administração para o serviço de pesquisa. Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Sim |
-| connectVia | O [tempo de execução de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Pode utilizar o Tempo de Execução da Integração Azure ou o Tempo de Execução de Integração Auto-hospedado (se a sua loja de dados estiver localizada em rede privada). Se não for especificado, utiliza o tempo de execução de integração Azure predefinido. |Não |
+| tipo | A propriedade tipo deve ser definida para: **AzureSearch** | Yes |
+| url | URL para o serviço de pesquisa. | Yes |
+| key | Chave de administração para o serviço de pesquisa. Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Yes |
+| connectVia | O [tempo de execução de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Pode utilizar o Tempo de Execução da Integração Azure ou o Tempo de Execução de Integração Auto-hospedado (se a sua loja de dados estiver localizada em rede privada). Se não for especificado, utiliza o tempo de execução de integração Azure predefinido. |No |
 
 > [!IMPORTANT]
 > Ao copiar dados de uma loja de dados em nuvem para índice de pesquisa, no serviço Azure Cognitive Search ligado, você precisa encaminhar um Tempo de Execução de Integração Azure com região explícita em ConnactVia. Desacorda a região como a que reside o seu serviço de pesquisa. Saiba mais sobre o tempo de execução da [integração Azure.](concepts-integration-runtime.md#azure-integration-runtime)
@@ -82,8 +78,8 @@ Para copiar dados na Azure Cognitive Search, as seguintes propriedades são supo
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo do conjunto de dados deve ser definida para: **AzureSearchIndex** | Sim |
-| nome do índice | Nome do índice de pesquisa. A Data Factory não cria o índice. O índice deve existir na Pesquisa Cognitiva Azure. | Sim |
+| tipo | A propriedade tipo do conjunto de dados deve ser definida para: **AzureSearchIndex** | Yes |
+| nome do índice | Nome do índice de pesquisa. A Data Factory não cria o índice. O índice deve existir na Pesquisa Cognitiva Azure. | Yes |
 
 **Exemplo:**
 
@@ -110,13 +106,13 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 ### <a name="azure-cognitive-search-as-sink"></a>Pesquisa Cognitiva Azure como pia
 
-Para copiar dados para a Azure Cognitive Search, defina o tipo de origem na atividade de cópia para **AzureSearchIndexSink** . As seguintes propriedades são suportadas na secção de **lavatório** de atividade de cópia:
+Para copiar dados para a Azure Cognitive Search, defina o tipo de origem na atividade de cópia para **AzureSearchIndexSink**. As seguintes propriedades são suportadas na secção de **lavatório** de atividade de cópia:
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **AzureSearchIndexSink** | Sim |
-| escrever Comportamento | Especifica se deve fundir ou substituir quando um documento já existe no índice. Consulte a [propriedade WriteBehavior](#writebehavior-property).<br/><br/>Os valores permitidos são: **Fusão** (padrão) e **Upload** . | Não |
-| escreverBatchSize | Envia dados para o índice de pesquisa quando o tamanho do tampão atinge o writeBatchSize. Consulte a [propriedade WriteBatchSize](#writebatchsize-property) para mais detalhes.<br/><br/>Os valores permitidos são: inteiro 1 a 1.000; padrão é 1000. | Não |
+| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **AzureSearchIndexSink** | Yes |
+| escrever Comportamento | Especifica se deve fundir ou substituir quando um documento já existe no índice. Consulte a [propriedade WriteBehavior](#writebehavior-property).<br/><br/>Os valores permitidos são: **Fusão** (padrão) e **Upload**. | No |
+| escreverBatchSize | Envia dados para o índice de pesquisa quando o tamanho do tampão atinge o writeBatchSize. Consulte a [propriedade WriteBatchSize](#writebatchsize-property) para mais detalhes.<br/><br/>Os valores permitidos são: inteiro 1 a 1.000; padrão é 1000. | No |
 
 ### <a name="writebehavior-property"></a>Propriedade WriteBehavior
 
@@ -125,7 +121,7 @@ AzureSearchSinksersers ao escrever dados. Por outras palavras, ao escrever um do
 O AzureSearchSink fornece os seguintes dois comportamentos mais abrangentes (utilizando a AzureSearch SDK):
 
 - **Fusão:** combine todas as colunas do novo documento com a existente. Para colunas com valor nulo no novo documento, o valor do existente é preservado.
-- **Upload** : O novo documento substitui o existente. Para as colunas não especificadas no novo documento, o valor é definido para nula se existe ou não um valor não nulo no documento existente.
+- **Upload**: O novo documento substitui o existente. Para as colunas não especificadas no novo documento, o valor é definido para nula se existe ou não um valor não nulo no documento existente.
 
 O comportamento padrão é **a Fusão.**
 

@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 05/19/2020
 author: deborahc
 ms.author: dech
-ms.openlocfilehash: 8dca9e3e29796618b905c4d266eb674f82565969
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 4f57d2793a28f4bbb201764c67af82f31d0b9333
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097622"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100369803"
 ---
 # <a name="built-in-jupyter-notebooks-support-in-azure-cosmos-db-preview"></a>Suporte de cadernos Jupyter embutidos em Azure Cosmos DB (pré-visualização)
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -24,7 +24,7 @@ Os Cadernos Jupyter embutidos em Azure Cosmos estão diretamente integrados no p
 
 Azure Cosmos DB suporta os cadernos C# e Python para todas as APIs, incluindo Core (SQL), Cassandra, Gremlin, Table e API para o MongoDB. Dentro do caderno, pode aproveitar comandos e funcionalidades incorporadas que facilitam a criação de recursos DB do Azure Cosmos, upload de dados e consulta e visualização dos seus dados em Azure Cosmos DB. 
 
-:::image type="content" source="./media/cosmosdb-jupyter-notebooks/jupyter-notebooks-portal.png" alt-text="Jupyter Notebooks visualizações em Azure Cosmos DB":::
+:::image type="content" source="./media/cosmosdb-jupyter-notebooks/jupyter-notebooks-portal.png" alt-text="Jupyter Notebooks suportam em Azure Cosmos DB":::
 
 ## <a name="benefits-of-jupyter-notebooks"></a>Benefícios dos Cadernos Jupyter
 
@@ -61,5 +61,7 @@ Os Cadernos Jupyter podem incluir vários tipos de componentes, cada um organiza
 Para começar com cadernos Jupyter embutidos em Azure Cosmos DB, consulte os seguintes artigos:
 
 * [Ativar cadernos numa conta da Azure Cosmos](enable-notebooks.md)
+* [Explore a galeria de amostras de cadernos](https://cosmos.azure.com/gallery.html)
 * [Use funcionalidades e comandos de caderno Python](use-python-notebook-features-and-commands.md)
 * [Use funcionalidades e comandos de caderno C#](use-csharp-notebook-features-and-commands.md)
+* [Importar cadernos de um repo GitHub](import-github-notebooks.md)

@@ -7,14 +7,14 @@ ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 02/11/2021
 ms.topic: how-to
-ms.openlocfilehash: 45bb045e7bad2d5f8a56b71787b3abb5921cb7d5
-ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
+ms.openlocfilehash: 4ff45eea8e07a282d8529c745344c11706bc27bb
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98985891"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100387993"
 ---
 # <a name="create-an-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Criar um grupo de servidores do PostgreSQL Hyperscale preparado para o Azure Arc
 
@@ -81,13 +81,13 @@ azdata arc postgres server create -n <name> --workers <# worker nodes with #>=2>
 > [!IMPORTANT]
 > - A classe de armazenamento utilizada para cópias de segurança _(--storage-class-backups -scb_) não é fornecida na classe de armazenamento de dados do controlador de dados se não for fornecida.
 > - Para restaurar um grupo de servidores a um grupo de servidor separado (como o ponto no tempo restaurar) tem de configurar o seu grupo de servidor para utilizar PVCs com o modo de acesso ReadWriteMany. É necessário fazê-lo na criação do grupo de servidores. Não pode ser mudado depois de criá-lo. Para mais detalhes leia:
->    - [Esta secção sobre backup e restauro](https://docs.microsoft.com/azure/azure-arc/data/backup-restore-postgresql-hyperscale#create-a-server-group-that-is-ready-for-backups-and-restores)
->    - [Esta secção sobre as limitações do Arco Azure permitiu a Hiperescala PósgreSQL](https://docs.microsoft.com/azure/azure-arc/data/limitations-postgresql-hyperscale)
+>    - [Criar um grupo de servidores pronto para cópias de segurança e restauros](backup-restore-postgresql-hyperscale.md#create-a-server-group-that-is-ready-for-backups-and-restores)
+>    - [Limitações do Arco Azure ativadas em Hiperescala Pós-SQL](limitations-postgresql-hyperscale.md)
 
 
 > [!NOTE]
 > - **Existem outros parâmetros de linha de comando disponíveis.  Consulte a lista completa de opções em execução `azdata arc postgres server create --help` .**
-
+>
 > - A unidade aceite pelos parâmetros --volume-tamanho-* é uma quantidade de recurso Kubernetes (um inteiro seguido por um destes si suficientes (T, G, M, K, m) ou o seu poder de dois equivalentes (Ti, Gi, Mi, Ki)).
 > - Os nomes devem ter 12 caracteres ou menos de comprimento e estar em conformidade com as convenções de nomeação do DNS.
 > - Será solicitado que introduza a palavra-passe para o utilizador administrativo padrão _de postgres._  Pode saltar a solicitação interativa definindo a variável ambiente de `AZDATA_PASSWORD` sessão antes de executar o comando criar.

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 11/30/2020
+ms.date: 02/12/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a249102de6a5bff7354e339e604b7d2efebd4fb
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 68ed67afc949b3a67936f20a098bca8b6906a598
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96546222"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100365553"
 ---
 # <a name="enable-b2b-external-collaboration-and-manage-who-can-invite-guests"></a>Ativar a colaboração externa B2B e gerir quem pode convidar convidados
 
@@ -45,8 +45,6 @@ Por padrão, todos os utilizadores, incluindo os hóspedes, podem convidar os ut
 
 4. Sob **as restrições de acesso ao utilizador do Hóspede (Pré-visualização)**, escolha o nível de acesso que pretende que os utilizadores dos hóspedes tenham:
   
-    ![Configurações de restrições de acesso ao utilizador do hóspede](./media/delegate-invitations/guest-user-access.png)
-
    - **Os utilizadores convidados têm o mesmo acesso que os membros (mais inclusivos)**: Esta opção dá aos hóspedes o mesmo acesso aos recursos AD da Azure e dados de diretórios que os utilizadores membros.
 
    - **Os utilizadores convidados têm acesso limitado a propriedades e membros de objetos de diretório**: (Padrão) Esta definição bloqueia os hóspedes de determinadas tarefas de diretório, como enumerar utilizadores, grupos ou outros recursos de diretório. Os hóspedes podem ver a adesão de todos os grupos não escondidos.
@@ -69,13 +67,11 @@ Por padrão, todos os utilizadores, incluindo os hóspedes, podem convidar os ut
 
 6. Por **e-mail código de acesso único para os hóspedes,** escolha as definições apropriadas (para mais informações, consulte [a autenticação de código de acesso de email uma vez):](one-time-passcode.md)
 
-   ![Envie por e-mail definições de código de acesso único](./media/delegate-invitations/email-otp-settings.png)
-
-   - **Ativar automaticamente a senha de e-mail para os hóspedes em março de 2021**. (Predefinição) Se a funcionalidade de código de acesso de e-mail não estiver já ativada para o seu inquilino, será automaticamente ativada em março de 2021. Não é necessária mais nenhuma ação se pretender que a funcionalidade seja ativada nesse momento. Se já tiver ativado ou desativado a funcionalidade, esta opção não estará disponível.
+   - **Ativar automaticamente a senha de e-mail para os hóspedes em outubro de 2021**. (Predefinição) Se a funcionalidade de código de acesso de e-mail não estiver já ativada para o seu inquilino, será automaticamente ativada em outubro de 2021. Não é necessária mais nenhuma ação se pretender que a funcionalidade seja ativada nesse momento. Se já tiver ativado ou desativado a funcionalidade, esta opção não estará disponível.
 
    - **Ativar a senha de e-mail para os hóspedes com efeito agora**. Liga o recurso de senha de e-mail para o seu inquilino.
 
-   - **Desativar a senha de e-mail uma vez para os hóspedes.** Desliga a funcionalidade de código de acesso de uma vez por e-mail para o seu inquilino e impede que a funcionalidade se apia em março de 2021.
+   - **Desativar a senha de e-mail uma vez para os hóspedes.** Desliga a funcionalidade de código de acesso de uma vez por e-mail para o seu inquilino e impede que a funcionalidade se apia em outubro de 2021.
 
    > [!NOTE]
    > Em vez das opções acima, verá o seguinte alternar se ativou ou desativou esta funcionalidade ou se já optou pela pré-visualização:

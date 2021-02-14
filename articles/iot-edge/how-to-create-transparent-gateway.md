@@ -1,5 +1,5 @@
 ---
-title: Criar dispositivo de gateway transparente - Azure IoT Edge / Microsoft Docs
+title: Criar dispositivo de gateway transparente - Azure IoT Edge | Microsoft Docs
 description: Use um dispositivo Azure IoT Edge como um gateway transparente que pode processar informações a partir de dispositivos a jusante
 author: kgremban
 manager: philmea
@@ -11,18 +11,18 @@ services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 9f81d059c1a71bf6349d0ef9b4aae8f7a47c161f
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 9ecb1c50fe99cc93417a37e892049e03585945a5
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96938788"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100370432"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>Configurar um dispositivo IoT Edge para atuar como um gateway transparente
 
 Este artigo fornece instruções detalhadas para configurar um dispositivo IoT Edge para funcionar como um gateway transparente para outros dispositivos comunicarem com o IoT Hub. Este artigo usa o termo *gateway IoT Edge* para se referir a um dispositivo IoT Edge configurado como um gateway transparente. Para obter mais informações, consulte [como um dispositivo IoT Edge pode ser usado como porta de entrada](./iot-edge-as-gateway.md).
 
-<!-- 1.0.10 -->
+<!-- 1.1 -->
 ::: moniker range="iotedge-2018-06"
 
 >[!NOTE]
@@ -97,7 +97,7 @@ Para cenários de produção, deve gerar estes ficheiros com a sua própria auto
 2. Se criou os certificados numa máquina diferente, copie-os para o seu dispositivo IoT Edge.
 
 3. No seu dispositivo IoT Edge, abra o ficheiro de segurança daemon config.
-   * Janelas: `C:\ProgramData\iotedge\config.yaml`
+   * Windows: `C:\ProgramData\iotedge\config.yaml`
    * Linux: `/etc/iotedge/config.yaml`
 
 4. Encontre a secção de **definições** de Certificado do ficheiro. Descomprometar as quatro linhas a começar pelos **certificados:** e fornecer os URIs de ficheiros aos seus três ficheiros como valores para as seguintes propriedades:
@@ -110,7 +110,7 @@ Para cenários de produção, deve gerar estes ficheiros com a sua própria auto
 5. Guarde e feche o ficheiro.
 
 6. Reiniciar ioT Edge.
-   * Janelas: `Restart-Service iotedge`
+   * Windows: `Restart-Service iotedge`
    * Linux: `sudo systemctl restart iotedge`
 
 ## <a name="deploy-edgehub-and-route-messages"></a>Implementar edgeHub e mensagens de rota

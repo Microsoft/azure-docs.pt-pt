@@ -3,12 +3,12 @@ title: Assegurar funções de Azure
 description: Saiba como tornar o seu código de função em funcionamento em Azure mais seguro de ataques comuns.
 ms.date: 4/13/2020
 ms.topic: conceptual
-ms.openlocfilehash: ee54ff8c1efaee00999888891e6de255060aa416
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: 351bdca7ff94b6c058b5ab62fd9c16d707e7dc78
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491329"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100368494"
 ---
 # <a name="securing-azure-functions"></a>Assegurar funções de Azure
 
@@ -107,6 +107,8 @@ As cadeias de ligação e outras credenciais armazenadas nas definições de apl
 
 [!INCLUDE [app-service-managed-identities](../../includes/app-service-managed-identities.md)]
 
+Identidades geridas podem ser usadas em vez de segredos para ligações de alguns gatilhos e encadernações. Consulte [as ligações baseadas na identidade.](#identity-based-connections)
+
 Para obter mais informações, consulte [Como utilizar identidades geridas para o Serviço de Aplicações e Funções Azure.](../app-service/overview-managed-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json)
 
 #### <a name="restrict-cors-access"></a>Restringir o acesso ao CORS
@@ -136,6 +138,14 @@ Também pode encriptar as definições por padrão no local.settings.jsno fichei
 Embora as definições de aplicação sejam suficientes para a maioria das funções, pode querer partilhar os mesmos segredos em vários serviços. Neste caso, o armazenamento redundante de segredos resulta em mais vulnerabilidades potenciais. Uma abordagem mais segura é um serviço central de armazenamento secreto e usar referências a este serviço em vez dos próprios segredos.      
 
 [Azure Key Vault](../key-vault/general/overview.md) é um serviço que fornece gestão de segredos centralizados, com controlo total sobre políticas de acesso e histórico de auditoria. Pode utilizar uma referência key Vault no lugar de uma cadeia de ligação ou chave nas definições da sua aplicação. Para saber mais, consulte [referências do Key Vault para o Serviço de Aplicações e Funções Azure](../app-service/app-service-key-vault-references.md?toc=%2fazure%2fazure-functions%2ftoc.json).
+
+### <a name="identity-based-connections"></a>Conexões baseadas em identidade
+
+Identidades podem ser usadas em vez de segredos para se conectar a alguns recursos. Isto tem a vantagem de não exigir a gestão de um segredo, e proporciona um controlo e auditoria de acesso mais finos. 
+
+Quando estiver a escrever um código que crie a ligação aos [serviços Azure que suportam a autenticação AZure AD,](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)pode optar por utilizar uma identidade em vez de uma cadeia de ligação secreta ou de ligação. Os detalhes de ambos os métodos de ligação estão cobertos na documentação de cada serviço.
+
+Algumas funções Azure desencadeiam e as extensões de ligação podem ser configuradas utilizando uma ligação baseada na identidade. Hoje, isto inclui as extensões [Azure Blob](./functions-bindings-storage-blob.md) e [Azure Queue.](./functions-bindings-storage-queue.md) Para obter informações sobre como configurar estas extensões para utilizar uma identidade, consulte [como utilizar ligações baseadas na identidade em Funções Azure](./functions-reference.md#configure-an-identity-based-connection).
 
 ### <a name="set-usage-quotas"></a>Definir quotas de utilização
 

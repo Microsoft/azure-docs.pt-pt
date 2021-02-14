@@ -7,12 +7,12 @@ ms.date: 01/25/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 99da711038e1fcea3e14584fde09ccd1f79feffa
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 2a3253d1ed8b0814fc20b3256a0f98d3aa0949f6
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98916718"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100393314"
 ---
 # <a name="introduction-to-azure-defender-for-app-service"></a>Introdução ao Azure Defender para o Serviço de Aplicações
 
@@ -23,13 +23,13 @@ O Azure App Service é uma plataforma totalmente gerida para construir e hospeda
 
 ## <a name="availability"></a>Disponibilidade
 
-|Aspeto|Detalhes|
-|----|:----|
-|Estado de libertação:|Disponibilidade Geral (GA)|
-|Preços:|[O Azure Defender for App Service](azure-defender.md) é faturado como mostrado na página de [preços](security-center-pricing.md)<br>A página de preços e definições lista o número de casos para a sua **Quantidade de Recursos**. Este número é o número total de instâncias computacional, em todos os planos do Serviço de Aplicações nesta subscrição, em execução no momento em que abriu a página de nível de preços.<br>Para validar a contagem, abra os planos do **Serviço de Aplicações** no portal Azure e verifique o número de casos de computação utilizados por cada plano.|
-|Planos de Serviço de Aplicações suportados:|![Sim ](./media/icons/yes-icon.png) Básico, Standard, Premium, Isolado ou Linux<br>![Sem ](./media/icons/no-icon.png) Consumo Gratuito, Partilhado ou Partilhado<br>[Saiba mais sobre Planos de Serviço de Aplicações](https://azure.microsoft.com/pricing/details/app-service/plans/)|
-|Nuvens:|![Yes](./media/icons/yes-icon.png) Nuvens comerciais<br>![No](./media/icons/no-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
-|||
+| Aspeto                       | Detalhes                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
+|------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Estado de libertação:               | Disponibilidade Geral (GA)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| Preços:                     | [O Azure Defender for App Service](azure-defender.md) é faturado como mostrado na página de [preços](security-center-pricing.md)<br>A faturação é de acordo com o total de instâncias computacional em todos os planos|
+| Planos de Serviço de Aplicações suportados: | Todos os planos do Serviço de Aplicações são suportados (com uma exceção, ver abaixo). [Saiba mais sobre os planos do Serviço de Aplicações.](https://azure.microsoft.com/pricing/details/app-service/plans/)<br>As funções do Azure no plano de consumo não são apoiadas. [Saiba mais sobre as opções de hospedagem do Azure Functions](../azure-functions/functions-scale.md).                                                                                                                                                                                                                                                                   |
+| Nuvens:                      | ![Yes](./media/icons/yes-icon.png) Nuvens comerciais<br>![No](./media/icons/no-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)                                                                                                                                                                                                                                                                                                                                                                                 |
+|                              |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 
 ## <a name="what-are-the-benefits-of-azure-defender-for-app-service"></a>Quais são os benefícios do Azure Defender para o Serviço de Aplicações?
 
@@ -90,7 +90,7 @@ Para proteger o seu plano de Serviço de Aplicações Azure com o Azure Defender
     O Security Center está nativamente integrado com o Serviço de Aplicações, eliminando a necessidade de implantação e embarque - a integração é transparente.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, você aprendeu sobre Azure Defender para o Serviço de Aplicações. 
 

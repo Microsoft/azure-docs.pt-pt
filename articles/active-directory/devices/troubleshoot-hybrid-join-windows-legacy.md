@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 057ff064264485a9aea6fc2b31fe57ce37c805ce
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: 18104f06e779046786a2c7794736d01c35139490
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97895619"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100365808"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-down-level-devices"></a>O Azure Ative Directory híbrido de resolução de problemas juntou-se a dispositivos de nível inferior 
 
@@ -39,6 +39,7 @@ Este artigo fornece-lhe orientações de resolução de problemas sobre como res
 **O que deve saber:** 
 
 - A AD híbrida Azure junta-se a dispositivos Windows de nível inferior ao que funciona no Windows 10. Muitos clientes não percebem que precisam de FS AD (para domínios federados) ou SSO sem costura configurados (para domínios geridos).
+- O Seamless SSO não funciona em modo de navegação privada nos navegadores Firefox e Microsoft Edge. Também não funciona no Internet Explorer se o navegador estiver a funcionar em modo Protegido Melhorado.
 - Para clientes com domínios federados, se o Ponto de Ligação de Serviço (SCP) foi configurado de modo a apontar para o nome de domínio gerido (por exemplo, contoso.onmicrosoft.com, em vez de contoso.com), então o AD AD Híbrido Azure Join para dispositivos Windows de nível baixo não funcionará.
 - O mesmo dispositivo físico aparece várias vezes no Azure AD quando vários utilizadores de domínios inscrevem os dispositivos híbridos Azure AD de nível baixo.  Por exemplo, se *jdoe* e *jharnett* iniciarem sing-in a um dispositivo, é criado um registo separado (DeviceID) para cada um deles no separador informações do **UTILIZADOR.** 
 - Também pode obter várias entradas para um dispositivo no separador informações do utilizador devido a uma reinstalação do sistema operativo ou a um re-registo manual.

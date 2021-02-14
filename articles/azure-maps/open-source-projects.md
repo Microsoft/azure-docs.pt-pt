@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: df82e76fa2e5a9ea70c447411beafb8a2df9b036
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 16e7f04c62f25e787c3cab44b85a075e1c7d7277
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98601589"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100386752"
 ---
 # <a name="azure-maps-community---open-source-projects"></a>Comunidade Azure Maps - Projetos de código aberto
 
@@ -24,7 +24,7 @@ O seguinte lista alguns dos mais populares projetos e amostras de código aberto
 
 **Bots**
 
-| Nome do Projeto | Descrição |
+| Nome do Projeto | Description |
 |-|-|
 | [Estrutura bot - Habilidade de ponto de interesse](https://github.com/microsoft/botframework-solutions/tree/488093ac2fddf16096171f6a926315aa45e199e7/skills/csharp/pointofinterestskill) | A Habilidade Ponto de Interesse fornece capacidades relacionadas com poi a um Assistente Virtual usando Azure Maps com Azure Bot Service e Bot Framework. |
 | [Localização BotBuilder](https://github.com/Microsoft/BotBuilder-Location) | Um controlo de escolha de localização de código aberto para o Microsoft Bot Framework alimentado pelos serviços Bing Maps REST. |
@@ -35,7 +35,7 @@ O seguinte lista alguns dos mais populares projetos e amostras de código aberto
 
 Segue-se uma lista de projetos de código aberto que alargam as capacidades do Azure Maps Web SDK.
 
-| Nome do Projeto | Descrição |
+| Nome do Projeto | Description |
 |-|-|
 | [Módulo de animação Azure Maps](https://github.com/Azure-Samples/azure-maps-animations) | Uma rica biblioteca de animações para uso com o Azure Maps Web SDK. |
 | [Azure Maps traz dados para ver o módulo de controlo](https://github.com/Azure-Samples/azure-maps-bring-data-into-view-control) | Um módulo SDK Web Azure Maps que fornece um controlo que facilita a visualização de quaisquer dados carregados no mapa. |
@@ -50,12 +50,12 @@ Segue-se uma lista de projetos de código aberto que alargam as capacidades do A
 | [Módulo UI dos Serviços Azure Maps](https://github.com/Azure-Samples/azure-maps-services-ui) | Um conjunto de controlos web UI que envolvem os serviços Azure Maps REST. |
 | [Módulo Azure Maps Spider Clusters](https://github.com/Azure-Samples/azure-maps-spider-clusters) | Um módulo para o Azure Maps Web SDK que adiciona uma visualização ao mapa que expande os aglomerados em um layout de aranha espiral. |
 | [Módulo de controlo de spyglass Azure Maps](https://github.com/Azure-Samples/azure-maps-spyglass-control) | Um módulo SDK web Azure Maps que fornece uma janela que exibe um conjunto de dados dentro de um spyglass no mapa.  |
-| [Módulo de mapa de swipe de mapas Azure Maps](https://github.com/Azure-Samples/azure-maps-swipe-map) | Um módulo para o Azure Maps Web SDK que permite deslizar entre dois mapas sobrepostos, ideal para comparar dois conjuntos de dados sobrepostos. |
+| [Módulo de mapa de swipe de mapa de mapa de mapa de mapas Azure Maps](https://github.com/Azure-Samples/azure-maps-swipe-map) | Um módulo para o Azure Maps Web SDK que permite deslizar entre dois mapas sobrepostos, ideal para comparar dois conjuntos de dados sobrepostos. |
 | [Módulo de mapa sincronizado Azure Maps](https://github.com/Azure-Samples/azure-maps-sync-maps) | Um módulo SDK web Azure Maps que sincroniza as câmaras de dois ou mais mapas. |
 
 **Amostras**
 
-| Nome do Projeto | Descrição |
+| Nome do Projeto | Description |
 |-|-|
 | [Amostras de código de mapas Azure](https://github.com/Azure-Samples/AzureMapsCodeSamples) | Uma recolha de amostras de código para usar o Azure Maps em aplicações baseadas na Web. |
 | [Amostras de código de nuvem de Azure Maps Gov](https://github.com/Azure-Samples/AzureMapsCodeSamples) | Uma coleção de amostras de código para usar Azure Maps através da Nuvem do Governo de Azure. |
@@ -66,14 +66,17 @@ Segue-se uma lista de projetos de código aberto que alargam as capacidades do A
 | [Implementar a análise espacial IoT com o Azure Maps](https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing) | Rastrear e capturar eventos relevantes que ocorrem no espaço e no tempo é um cenário comum de IoT. |
 
 **Plugins de controlo de mapas de terceiros**
+<a name="third-part-map-control-plugins"></a>
 
-| Nome do Projeto | Descrição |
+| Nome do Projeto | Description |
 |-|-|
+| [Azure Maps Cesium plugin](https://github.com/azure-samples/azure-maps-cesium) | Um plugin [Cesium JS](https://cesium.com/cesiumjs/) que facilita a integração dos serviços Azure Maps, tais como [camadas de azulejos](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview) e [serviços de geocodagem.](https://docs.microsoft.com/rest/api/maps/search) |
 | [Plugin de folheto Azure Maps](https://github.com/azure-samples/azure-maps-leaflet) | Um [plugin](https://leafletjs.com/) JavaScript folheto que facilita a sobreposição de camadas de azulejos dos [serviços de azulejos Azure Maps](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview). |
- 
+ | [Plugin Azure Maps OpenLayers](https://github.com/azure-samples/azure-maps-openlayers) | Um plugin JavaScript [OpenLayers](https://www.openlayers.org/) que facilita a sobreposição de camadas de azulejos dos [serviços de azulejos Azure Maps](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview). |
+
 **Ferramentas e recursos**
 
-| Nome do Projeto | Descrição |
+| Nome do Projeto | Description |
 |-|-|
 | [Azure Maps Docs](https://github.com/MicrosoftDocs/azure-docs/tree/master/articles/azure-maps) | Fonte para toda a documentação dos Serviços Baseados em Localização Azure. |
 | [Ferramentas do Criador de Mapas Azure (Pré-visualização)](https://github.com/Azure-Samples/AzureMapsCreator) | Ferramentas Python para Ferramentas do Criador de Mapas Azure (Pré-visualização). |

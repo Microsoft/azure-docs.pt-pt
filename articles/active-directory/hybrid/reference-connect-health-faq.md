@@ -1,5 +1,5 @@
 ---
-title: Azure Ative Directory Connect Health FAQ - Azure / Microsoft Docs
+title: Azure Ative Directory Connect Health FAQ - Azure | Microsoft Docs
 description: Esta FAQ responde a perguntas sobre Azure AD Connect Health. Estas perguntas mais frequentes incluem perguntas sobre como utilizar o serviço, incluindo o modelo de faturação, capacidades, limitações e suporte.
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.topic: reference
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6140f5fd431a0b089b45892130e075bde02a2eb2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6185c5408f74b914ce5ad47634999786ba1d7ab6
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91299770"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100368001"
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Azure AD Connect Health frequentemente fez perguntas
 Este artigo inclui respostas a perguntas frequentes (FAQs) sobre O Diretório Ativo Azure (Azure AD) Connect Health. Estas FAQs cobrem questões sobre como usar o serviço, que inclui o modelo de faturação, capacidades, limitações e suporte.
@@ -29,7 +29,7 @@ Este artigo inclui respostas a perguntas frequentes (FAQs) sobre O Diretório At
 ## <a name="general-questions"></a>Perguntas gerais
 **P: Dirijo vários diretórios de Ad Azure. Como posso mudar para aquele que tem Azure Ative Directory Premium?**
 
-Para alternar entre diferentes inquilinos AD Azure, selecione o nome de **utilizador** atualmente assinado no canto superior direito e, em seguida, escolha a conta apropriada. Se a conta não estiver listada aqui, **selecione Iniciar sê-lo**e, em seguida, utilizar as credenciais de administração global do diretório que tem Azure Ative Directory Premium habilitado a iniciar sedura.
+Para alternar entre diferentes inquilinos AD Azure, selecione o nome de **utilizador** atualmente assinado no canto superior direito e, em seguida, escolha a conta apropriada. Se a conta não estiver listada aqui, **selecione Iniciar sê-lo** e, em seguida, utilizar as credenciais de administração global do diretório que tem Azure Ative Directory Premium (P1 ou P2) habilitado a iniciar sação.
 
 **P: Que versão dos papéis de identidade são suportados pela Azure AD Connect Health?**
 
@@ -47,8 +47,8 @@ Note que as funcionalidades fornecidas pelo serviço podem diferir com base na f
 
 **P: Quantas licenças preciso para monitorizar a minha infraestrutura?**
 
-* O primeiro Agente de Saúde Connect requer pelo menos uma licença Azure AD Premium.
-* Cada agente registado adicional requer 25 licenças adicionais do Azure AD Premium.
+* O primeiro Agente de Saúde Connect requer pelo menos uma licença Azure AD Premium (P1 ou P2).
+* Cada agente registado adicional requer 25 licenças adicionais de Azure AD Premium (P1 ou P2).
 * A contagem de agentes é equivalente ao número total de agentes registados em todas as funções monitorizadas (AD FS, Azure AD Connect e/ou DS AD).
 * O licenciamento AAD Connect Health não requer que atribua a licença a utilizadores específicos. Só precisa de ter o número necessário de licenças válidas.
 
@@ -70,10 +70,10 @@ O Azure AD Connect Health não é suportado na Cloud da Alemanha, exceto na [fun
 
 | Funções | Funcionalidades | Apoiado na Nuvem Alemã |
 | ------ | --------------- | --- |
-| Conecte saúde para sincronização | Monitorização / Insight / Alertas / Análise | Não |
-|  | Relatório de erro sincronizado | Sim |
-| Ligar saúde para ADFS | Monitorização / Insight / Alertas / Análise | Não |
-| Conecte saúde para ADDS | Monitorização / Insight / Alertas / Análise | Não |
+| Conecte saúde para sincronização | Monitorização / Insight / Alertas / Análise | No |
+|  | Relatório de erro sincronizado | Yes |
+| Ligar saúde para ADFS | Monitorização / Insight / Alertas / Análise | No |
+| Conecte saúde para ADDS | Monitorização / Insight / Alertas / Análise | No |
 
 Para garantir a conectividade do agente da Connect Health para sincronização, por favor, configure o [requisito de instalação](how-to-connect-health-agent-install.md#outbound-connectivity-to-the-azure-service-endpoints) em conformidade.
 
@@ -109,7 +109,7 @@ Leia mais sobre [a configuração http Proxy para agentes de saúde](how-to-conn
 
 Se precisar de configurar um representante durante o registo do agente, poderá ter de modificar previamente as definições do seu Proxy do Internet Explorer.
 
-1. Abrir > de **configurações**do Internet  >  **Explorer Opções**de Internet  >  **Connections**  >  **Configurações LAN**.
+1. Abrir > de **configurações** do Internet  >  **Explorer Opções** de Internet  >    >  **Configurações LAN**.
 2. Selecione **Utilize um servidor proxy para o seu LAN**.
 3. Selecione **Advanced** se tiver diferentes portas de procuração para HTTP e HTTPS/Secure.
 

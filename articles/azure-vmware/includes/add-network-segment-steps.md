@@ -3,22 +3,22 @@ title: Adicione um segmento de rede NSX-T
 description: Passos para adicionar um segmento de rede NSX-T para Azure VMware Solution.
 ms.topic: include
 ms.date: 11/09/2020
-ms.openlocfilehash: 5b97f0b280fa12eff39c9601bb73e439dba8e9fd
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 7db45650588d37c39e7d156fa189b3ff7da2239f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94335058"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100515038"
 ---
 <!-- Used in manage-dhcp.md and tutorial-nsx-t-network-segment.md -->
 
-1. No NSX-T Manager, selecione Segmentos **de Rede**  >  **Segments** e, em seguida, selecione **Add Segment**. 
+1. No NSX-T Manager, selecione Segmentos **de Rede**  >  e, em seguida, selecione **Add Segment**. 
 
    :::image type="content" source="../media/nsxt/nsxt-segments-overview.png" alt-text="Screenshot mostrando como adicionar um novo segmento":::
 
 1. Selecione **Adicionar Segmento** e insira um nome para o segmento.
 
-1. Selecione o Gateway Tier1 (TNTxx-T1) como gateway **conectado** e deixe o **Tipo** como Flexível.
+1. Selecione o Gateway Tier-1 (TNTxx-T1) como gateway **conectado** e deixe o **Tipo** como Flexível.
 
 1. Selecione a zona de **transporte** pré-configurada (TNTxx-OVERLAY-TZ) e, em seguida, selecione **set Subnets**. 
 
@@ -39,7 +39,7 @@ ms.locfileid: "94335058"
 
 1. Confirme a presença do novo segmento de rede. Neste exemplo, **o LS01** é o novo segmento de rede.
 
-   1. No NSX-T Manager, selecione **Networking**  >  **Segmentos** de Rede . 
+   1. No NSX-T Manager, selecione   >  **Segmentos** de Rede . 
 
       :::image type="content" source="../media/nsxt/nsxt-new-segment-overview-2.png" alt-text="Confirme que o novo segmento de rede está presente no NSX-T.":::
 

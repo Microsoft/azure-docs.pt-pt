@@ -4,12 +4,12 @@ description: Saiba como criar uma conta do Azure Batch no portal do Azure a exec
 ms.topic: how-to
 ms.date: 01/26/2021
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 943fd145dbd4964e0d43d91f726ea5a79fda59de
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: bd9dd9b6d6d3a8d6938427b83528746ae5d09318
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896019"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100368511"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Criar uma conta do Batch com portal do Azure
 
@@ -68,6 +68,9 @@ Para visualizar as [quotas de recursos](batch-quota-limit.md) aplicáveis à con
 
 Se optar por criar uma conta do Batch no modo de subscrição de utilizador, execute os seguintes passos adicionais antes de criar a conta.
 
+> [!IMPORTANT]
+> O utilizador que cria a conta Batch no modo de subscrição do utilizador precisa de ter a atribuição de funções do Contribuinte ou do Proprietário para a subscrição na qual a conta Batch será criada.
+
 ### <a name="allow-azure-batch-to-access-the-subscription-one-time-operation"></a>Permitir que o Azure Batch aceda à subscrição (operação única)
 
 Quando criar a sua primeira conta do Batch no modo de subscrição de utilizador, tem de registar a sua subscrição no Batch. (Se já o fez, salte para a secção seguinte.)
@@ -121,7 +124,7 @@ Além do portal do Azure, também pode criar e gerir contas do Batch com ferrame
 - [CLI do Azure](batch-cli-get-started.md)
 - [Gestão de Batch .NET](batch-management-dotnet.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Conheça o fluxo de trabalho do [serviço Batch e os recursos primários,](batch-service-workflow-features.md) tais como piscinas, nós, empregos e tarefas.
 - Aprenda os conceitos básicos de programação de uma aplicação compatível com o Batch ao utilizar a [biblioteca de cliente .NET do Batch](quick-run-dotnet.md) ou [Python](quick-run-python.md). Estes quickstarts guiam-no através de uma aplicação de amostra que utiliza o serviço Batch para executar uma carga de trabalho em múltiplos nós de computação, utilizando o Azure Storage para a paragem e recuperação de ficheiros de carga de trabalho.

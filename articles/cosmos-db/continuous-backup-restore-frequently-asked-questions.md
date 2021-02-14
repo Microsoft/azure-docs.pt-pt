@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/01/2021
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: c0af1db12f3ade2945524f48e4539d2d2e9aa6b9
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 1cf94964f420f7a7d4fc0f6ba0b77813b3e75787
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99539190"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100393229"
 ---
 # <a name="frequently-asked-questions-on-the-azure-cosmos-db-point-in-time-restore-feature-preview"></a>Perguntas frequentes sobre a funcionalidade de restauro ponto-a-tempo do Azure Cosmos (Preview)
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -31,7 +31,7 @@ A duração do restauro depende do tamanho dos seus dados.
 A restauração pode não acontecer dependendo se os recursos-chave, como bases de dados ou contentores, existiam nessa altura. Pode verificar inserindo a hora e olhando para a base de dados ou recipiente selecionados por um determinado tempo. Se não virem recursos para restaurar, então o processo de restauro não funciona.
 
 ### <a name="how-can-i-track-if-an-account-is-being-restored"></a>Como posso rastrear se uma conta está sendo restaurada?
-Depois de submeter o comando de restauro e aguardar na mesma página, depois de concluída a operação, a barra de estado mostra a mensagem de conta restaurada com sucesso. Também pode pesquisar a conta restaurada e [acompanhar o estado da conta que está a ser restaurada.](continuous-backup-restore-portal.md#track-restore-status) Enquanto a restauração estiver em curso, o estado da conta será "Criar", após a operação de restauro concluída, o estado da conta mudará para "Online".
+Depois de submeter o comando de restauro e aguardar na mesma página, depois de concluída a operação, a barra de estado mostra a mensagem de conta restaurada com sucesso. Também pode pesquisar a conta restaurada e [acompanhar o estado da conta que está a ser restaurada.](continuous-backup-restore-portal.md#track-restore-status) Enquanto a restauração estiver em curso, o estado da conta será *criar,* após a operação de restauro concluída, o estado da conta mudará para *Online*.
 
 Da mesma forma para PowerShell e CLI, você pode acompanhar o progresso da operação de restauro executando `az cosmosdb show` o comando da seguinte forma:
 
@@ -39,7 +39,7 @@ Da mesma forma para PowerShell e CLI, você pode acompanhar o progresso da opera
 az cosmosdb show --name "accountName" --resource-group "resourceGroup"
 ```
 
-O ProvisioningState mostra "Bem sucedido" quando a conta está online.
+O ProvisioningState mostra *sucesso* quando a conta está online.
 
 ```json
 {
@@ -60,7 +60,7 @@ O ProvisioningState mostra "Bem sucedido" quando a conta está online.
 ### <a name="how-can-i-find-out-whether-an-account-was-restored-from-another-account"></a>Como posso descobrir se uma conta foi restaurada de outra conta?
 Executar o `az cosmosdb show` comando, na saída, você pode ver que o valor da `createMode` propriedade. Se o valor estiver definido para **Restaurar**. indica que a conta foi restaurada a partir de outra conta. O `restoreParameters` imóvel tem mais detalhes, `restoreSource` como, que tem o ID da conta de origem. O último GUID no `restoreSource` parâmetro é o casoId da conta de origem.
 
-Por exemplo, na seguinte saída, o ID da conta de origem é "7b4bb-f6a0-430e-ade1-638d781830cc"
+Por exemplo, na seguinte saída, o ID de exemplo da conta de origem é *7b4bb-f6a0-430e-ade1-638d781830cc*
 
 ```json
 "restoreParameters": {
@@ -75,9 +75,9 @@ Por exemplo, na seguinte saída, o ID da conta de origem é "7b4bb-f6a0-430e-ade
 Toda a base de dados de produção partilhada foi restaurada. Não é possível escolher um subconjunto de contentores numa base de dados de produção partilhada para ser restaurado.
 
 ### <a name="what-is-the-use-of-instanceid-in-the-account-definition"></a>Qual é a utilização do InstanceID na definição de conta?
-Em qualquer momento, a propriedade "accountName" da conta da Azure Cosmos é globalmente única enquanto está viva. No entanto, depois de a conta ser eliminada, é possível criar outra conta com o mesmo nome e, portanto, o "nome da conta" já não é suficiente para identificar um caso de conta. 
+Em qualquer momento, a propriedade da conta DB da Azure Cosmos `accountName` é globalmente única enquanto está viva. No entanto, depois de a conta ser eliminada, é possível criar outra conta com o mesmo nome e, portanto, o "nome da conta" já não é suficiente para identificar um caso de conta. 
 
-ID ou "instanceId" é uma propriedade de um caso de uma conta e é usado para desambiguar em várias contas (ao vivo e apagado) se tiverem o mesmo nome para restauro. Pode obter a identificação da instância executando os `Get-AzCosmosDBRestorableDatabaseAccount` comandos ou  `az cosmosdb restorable-database-account` comandos. O valor do atributo nome denota o "InstanceID".
+ID ou `instanceId` é uma propriedade de um caso de uma conta e é usado para desambiguar em várias contas (ao vivo e apagado) se tiverem o mesmo nome para restauro. Pode obter a identificação da instância executando os `Get-AzCosmosDBRestorableDatabaseAccount` comandos ou  `az cosmosdb restorable-database-account` comandos. O valor do atributo nome denota o "InstanceID".
 
 ## <a name="next-steps"></a>Passos seguintes
 

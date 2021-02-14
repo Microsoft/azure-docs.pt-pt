@@ -5,14 +5,14 @@ author: harelbr
 ms.author: harelbr
 services: monitoring
 ms.topic: conceptual
-ms.date: 12/15/2020
+ms.date: 02/10/2021
 ms.subservice: alerts
-ms.openlocfilehash: 8f59f3488f6c8f5b35ec68d93db656447f882a92
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: ee281e60a0eb6f6192e63a9733146714e4aaf2eb
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97510687"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104387"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Recursos apoiados para alertas métricos no Azure Monitor
 
@@ -35,7 +35,7 @@ Aqui está a lista completa de fontes métricas do Azure Monitor apoiadas pelos 
 |Microsoft.AppConfiguration/configurationStores |Sim | Não | [App Configuration](./metrics-supported.md#microsoftappconfigurationconfigurationstores) |
 |Microsoft.AppPlatform/primavera | Sim | Não | [Azure Spring Cloud](./metrics-supported.md#microsoftappplatformspring) |
 |Microsoft.Automation/automation | Sim| Não | [Contas de Automatização](./metrics-supported.md#microsoftautomationautomationaccounts) |
-|Microsoft.AVS/privateClouds | Não | Não | |
+|Microsoft.AVS/privateClouds | Não | Não | [Solução VMware no Azure](./metrics-supported.md#microsoftavsprivateclouds) |
 |Microsoft.Batcontas ch/batch | Sim | Não | [Contas do Batch](./metrics-supported.md#microsoftbatchbatchaccounts) |
 |Microsoft.Cache/Redis | Sim | Sim | [Cache do Azure para Redis](./metrics-supported.md#microsoftcacheredis) |
 |Microsoft.ClassicCompute/domainNames/slots/roles | Não | Não | [Serviços clássicos da nuvem](./metrics-supported.md#microsoftclassiccomputedomainnamesslotsroles) |
@@ -54,7 +54,7 @@ Aqui está a lista completa de fontes métricas do Azure Monitor apoiadas pelos 
 |Microsoft.DataBoxEdge/dataBoxEdgeDevices | Sim | Sim | [Data Box](./metrics-supported.md#microsoftdataboxedgedataboxedgedevices) |
 |Microsoft.DataFactory/datafactories| Sim| Não | [Fábricas de Dados V1](./metrics-supported.md#microsoftdatafactorydatafactories) |
 |Microsoft.DataFactory/fábricas |Sim | Não | [Fábricas de Dados V2](./metrics-supported.md#microsoftdatafactoryfactories) |
-|Microsoft.DataShare/contas | Sim | Não | |
+|Microsoft.DataShare/contas | Sim | Não | [Ações de Dados](./metrics-supported.md#microsoftdatashareaccounts) |
 |Microsoft.DBforMariaDB/servidores | Não | Não | [DB para MariaDB](./metrics-supported.md#microsoftdbformariadbservers) |
 |Microsoft.DBforMySQL/servidores | Não | Não |[DB para MySQL](./metrics-supported.md#microsoftdbformysqlservers)|
 |Microsoft.DBforPostgreSQL/servidores | Não | Não | [DB para PostgreSQL](./metrics-supported.md#microsoftdbforpostgresqlservers)|
@@ -62,7 +62,7 @@ Aqui está a lista completa de fontes métricas do Azure Monitor apoiadas pelos 
 |Microsoft.DBforPostgreSQL/flexibleServers | Sim | Não | [DB para PostgreSQL (servidores flexíveis)](./metrics-supported.md#microsoftdbforpostgresqlflexibleservers)|
 |Microsoft.Devices/IotHubs | Sim | Não |[Hub IoT](./metrics-supported.md#microsoftdevicesiothubs) |
 |Microsoft.Devices/provisioningServices| Sim | Não | [Serviços de prestação de dispositivos](./metrics-supported.md#microsoftdevicesprovisioningservices) |
-|Microsoft.DigitalTwins/digitalTwinsInstances | Sim | Não | |
+|Microsoft.DigitalTwins/digitalTwinsInstances | Sim | Não | [Digital Twins](./metrics-supported.md#microsoftdigitaltwinsdigitaltwinsinstances) |
 |Microsoft.DocumentDB/base de dadosAcontas | Sim | Não | [BD do Cosmos](./metrics-supported.md#microsoftdocumentdbdatabaseaccounts) |
 |Microsoft.EventGrid/domínios | Sim | Não | [Domínios do Event Grid](./metrics-supported.md#microsofteventgriddomains) |
 |Microsoft.EventGrid/systemTopics | Sim | Não | [Tópicos do sistema de grelha de eventos](./metrics-supported.md#microsofteventgridsystemtopics) |
@@ -87,10 +87,10 @@ Aqui está a lista completa de fontes métricas do Azure Monitor apoiadas pelos 
 |Microsoft.Network/expressRouteCircuits | Sim | Não |[Circuitos ExpressRoute](./metrics-supported.md#microsoftnetworkexpressroutecircuits) |
 |Microsoft.Network/expressRoutePorts | Sim | Não |[ExpressRoute Direct](./metrics-supported.md#microsoftnetworkexpressrouteports) |
 |Microsoft.Network/loadBalancers (apenas para SKUs padrão)| Sim| Não | [Balançadores de Carga](./metrics-supported.md#microsoftnetworkloadbalancers) |
-|Microsoft.Network/natGateways| Não | Não | |
-|Microsoft.Network/privateEndpoints| Não | Não | |
-|Microsoft.Network/privateLinkServices| Não | Não |
-|Microsoft.Network/publicipaddresss | Não | Não |[Endereços IP públicos](./metrics-supported.md#microsoftnetworkpublicipaddresses)|
+|Microsoft.Network/natGateways| Não | Não | [NAT Gateways](./metrics-supported.md#microsoftnetworknatgateways) |
+|Microsoft.Network/privateEndpoints| Não | Não | [Pontos Finais Privados](./metrics-supported.md#microsoftnetworkprivateendpoints) |
+|Microsoft.Network/privateLinkServices| Não | Não | [Serviços de Ligação Privada](./metrics-supported.md#microsoftnetworkprivatelinkservices) |
+|Microsoft.Network/publicipaddresss | Não | Não | [Endereços IP públicos](./metrics-supported.md#microsoftnetworkpublicipaddresses)|
 |Microsoft.Network/trafficManagerProfiles | Sim | Não | [Perfis do Gestor de Tráfego](./metrics-supported.md#microsoftnetworktrafficmanagerprofiles) |
 |Microsoft.OperationalInsights/workspaces| Sim | Não | [Áreas de trabalho do Log Analytics](./metrics-supported.md#microsoftoperationalinsightsworkspaces)|
 |Microsoft.Peering/peerings | Sim | Não | [Peerings](./metrics-supported.md#microsoftpeeringpeerings) |
@@ -102,12 +102,12 @@ Aqui está a lista completa de fontes métricas do Azure Monitor apoiadas pelos 
 |Microsoft.Sql/managedInstances | Não | Sim | [Instâncias Geridas SQL](./metrics-supported.md#microsoftsqlmanagedinstances) |
 |Microsoft.Sql/servidores/bases de dados | Não | Sim | [Bases de Dados SQL](./metrics-supported.md#microsoftsqlserversdatabases) |
 |Microsoft.Sql/servidores/elásticos | Não | Sim | [Piscinas Elásticas SQL](./metrics-supported.md#microsoftsqlserverselasticpools) |
-|Microsoft.Storage/storageAcontas |Sim | Não | [Contas de armazenamento](./metrics-supported.md#microsoftstoragestorageaccounts)|
+|Microsoft.Storage/storageAcontas |Sim | Não | [Contas de Armazenamento](./metrics-supported.md#microsoftstoragestorageaccounts)|
 |Microsoft.Storage/storageAcontas/blobServices | Sim| Não | [Contas de Armazenamento - Blobs](./metrics-supported.md#microsoftstoragestorageaccountsblobservices) |
 |Microsoft.Storage/storageAcontas/fileServices | Sim| Não | [Contas de Armazenamento - Ficheiros](./metrics-supported.md#microsoftstoragestorageaccountsfileservices) |
 |Microsoft.Storage/storageAcontas/filas Serviços | Sim| Não | [Contas de Armazenamento - Filas](./metrics-supported.md#microsoftstoragestorageaccountsqueueservices) |
 |Microsoft.Storage/storageAcontas/tableServices | Sim| Não | [Contas de Armazenamento - Tabelas](./metrics-supported.md#microsoftstoragestorageaccountstableservices) |
-|Microsoft.StorageCache/caches | Sim | Não | |
+|Microsoft.StorageCache/caches | Sim | Não | [HPC Caches](./metrics-supported.md#microsoftstoragecachecaches) |
 |Microsoft.StorageSync/storageSyncServices | Sim | Não | [Serviços de Sincronização de Armazenamento](./metrics-supported.md#microsoftstoragesyncstoragesyncservices) |
 |Microsoft.StreamAnalytics/streamingjobs | Sim | Não | [Stream Analytics](./metrics-supported.md#microsoftstreamanalyticsstreamingjobs) |
 |Microsoft.Synapse/workspaces | Sim | Não | [Synapse Analytics](./metrics-supported.md#microsoftsynapseworkspaces) |

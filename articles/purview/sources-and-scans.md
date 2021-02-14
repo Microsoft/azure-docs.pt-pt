@@ -1,5 +1,5 @@
 ---
-title: Fontes de dados suportadas e tipos de ficheiros
+title: Origens de dados e tipos de ficheiro suportados
 description: Este artigo fornece detalhes conceptuais sobre fontes de dados suportadas e tipos de ficheiros em Purview.
 author: viseshag
 ms.author: viseshag
@@ -7,12 +7,13 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/24/2020
-ms.openlocfilehash: 6432cc9affd34c0fa9b832aea91932a2b9e7540f
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.custom: references_regions
+ms.openlocfilehash: 9a73f9b734d5404d07e05dd37d5ad8571c1aab2e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96576677"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100383896"
 ---
 # <a name="supported-data-sources-and-file-types-in-azure-purview"></a>Fontes de dados suportadas e tipos de ficheiros em Azure Purview
 
@@ -70,6 +71,28 @@ Amostragem de ficheiros para conjuntos de recursos por tipos de ficheiros:
 - **Outros tipos de ficheiros estruturados (JSON, XML, TXT)** - 1 em cada 100 ficheiros são amostrados (varredura L3) dentro de uma pasta ou grupo de ficheiros de partição que são considerados um 'conjunto de recursos'
 - **Objetos SQL e entidades CosmosDB** - Cada ficheiro é digitalizado L3.
 - **Tipos de ficheiros de** documentos - Cada ficheiro é digitalizado L3. Os padrões de definição de recursos não se aplicam a estes tipos de ficheiros.
+
+## <a name="scan-regions"></a>Regiões de digitalização
+Segue-se uma lista de todas as regiões de fonte de dados Azure (data center) onde funciona o scanner de Purview. Se a sua fonte de dados Azure estiver numa região fora desta lista, o scanner será executado na região da sua instância Desres visão.
+ 
+### <a name="purview-scanner-regions"></a>Regiões de scanner de competência
+
+- EastUs
+- EastUs2 
+- Sul-Centro
+- WestUs
+- WestUs2
+- Sudeste da Ásia
+- Europa Ocidental
+- NorthEurope
+- UkSouth
+- AustráliaEast
+- Centro do Canadá
+- BrazilSouth
+- CentralIndia
+- JapãoEast
+- Sul-AfricaNorth
+- FranceCentral
 
 ## <a name="classification"></a>Classificação
 

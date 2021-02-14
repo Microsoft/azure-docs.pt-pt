@@ -1,22 +1,18 @@
 ---
 title: Se a atividade da condição na Fábrica de Dados Azure
 description: A atividade se a Condição permite controlar o fluxo de processamento com base numa condição.
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
-manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 150efe87565b1949dc1ed29b03af69c26f84a896
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: c0dbda298cf808dd3caa7a767e0ec5e847c92108
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499480"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100385528"
 ---
 # <a name="if-condition-activity-in-azure-data-factory"></a>Se a atividade da condição na Fábrica de Dados Azure
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -67,11 +63,11 @@ A atividade Se Condição disponibiliza a mesma funcionalidade que as instruçõ
 
 Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-name | Nome da atividade em condição. | String | Sim
-tipo | Deve ser definido para **SeCondição** | String | Sim
-expression | Expressão que deve avaliar a verdade ou falsa | Expressão com tipo de resultado boolean | Sim
-ifTrueActividades | Conjunto de atividades que são executadas quando a expressão avalia a `true` . | Matriz | Sim
-seFalseActividades | Conjunto de atividades que são executadas quando a expressão avalia a `false` . | Matriz | Sim
+name | Nome da atividade em condição. | String | Yes
+tipo | Deve ser definido para **SeCondição** | String | Yes
+expression | Expressão que deve avaliar a verdade ou falsa | Expressão com tipo de resultado boolean | Yes
+ifTrueActividades | Conjunto de atividades que são executadas quando a expressão avalia a `true` . | Matriz | Yes
+seFalseActividades | Conjunto de atividades que são executadas quando a expressão avalia a `false` . | Matriz | Yes
 
 ## <a name="example"></a>Exemplo
 O pipeline neste exemplo copia dados de uma pasta de entrada para uma pasta de saída. A pasta de saída é determinada pelo valor do parâmetro do gasoduto: routeSelection. Se o valor das rotasSelecção for verdadeiro, os dados são copiados para outputPath1. E, se o valor das rotasSelecção for falso, os dados são copiados para outputPath2. 

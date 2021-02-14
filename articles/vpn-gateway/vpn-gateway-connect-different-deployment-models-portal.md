@@ -1,18 +1,18 @@
 ---
-title: 'Ligue redes virtuais clássicas a VNets Azure Resource Manager: Portal Microsoft Docs'
+title: 'Ligue redes virtuais clássicas a VNets Azure Resource Manager: Portal | Microsoft Docs'
 description: Passos para ligar VNets clássicos a VNets gestor de recursos usando o Gateway VPN e o portal
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/24/2019
+ms.date: 02/10/2021
 ms.author: cherylmc
-ms.openlocfilehash: f307ff9e7d609628bc22374fc5874dcbf993e4c2
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 9d31bcaad01b9b762e57bd619d45c1f53ffb201e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94661193"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100376807"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>Conecte redes virtuais de diferentes modelos de implementação usando o portal
 
@@ -28,7 +28,7 @@ Ligar um VNet clássico a um VNet do Gestor de Recursos é semelhante à ligaç�
 
 Se ainda não tiver um gateway de rede virtual e não quiser criar um, talvez queira considerar ligar os seus VNets utilizando o VNet Peering. O VNet peering não utiliza um gateway de VPN. Para obter mais informações, veja [VNet peering](../virtual-network/virtual-network-peering-overview.md).
 
-### <a name="before-you-begin"></a><a name="before"></a>Before you begin
+### <a name="before-you-begin"></a><a name="before"></a>Antes de começar
 
 
 
@@ -75,7 +75,7 @@ Para esta configuração, cria uma ligação de gateway VPN sobre um túnel VPN 
 
 A tabela a seguir mostra um exemplo de como os VNets e locais locais são definidos:
 
-| Rede Virtual | Espaço de Endereços | Região | Liga-se ao site de rede local |
+| Rede Virtual | Espaço de Endereços | Region | Liga-se ao site de rede local |
 |:--- |:--- |:--- |:--- |
 | ClassicVNet |(10.0.0.0/24) |E.U.A. Oeste | RMVNetLocal (192.168.0.0/16) |
 | RMVNet | (192.168.0.0/16) |E.U.A. Leste |ClassicVNetLocal (10.0.0.0/24) |
@@ -170,7 +170,7 @@ Neste passo, vai criar o gateway de rede virtual da VNet. Criar um gateway, muit
 
 **Valores de exemplo:** Gateway de rede local = ClassicVNetLocal
 
-| Rede Virtual | Espaço de Endereços | Região | Liga-se ao site de rede local |Endereço IP público gateway|
+| Rede Virtual | Espaço de Endereços | Region | Liga-se ao site de rede local |Endereço IP público gateway|
 |:--- |:--- |:--- |:--- |:--- |
 | ClassicVNet |(10.0.0.0/24) |E.U.A. Oeste | RMVNetLocal (192.168.0.0/16) |O endereço IP público que é atribuído ao gateway ClassicVNet|
 | RMVNet | (192.168.0.0/16) |E.U.A. Leste |ClassicVNetLocal (10.0.0.0/24) |O endereço IP público que é atribuído ao gateway RMVNet.|

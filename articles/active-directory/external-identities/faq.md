@@ -1,23 +1,23 @@
 ---
-title: Colaboração B2B FAQs - Azure Ative Directory / Microsoft Docs
+title: Colaboração B2B FAQs - Azure Ative Directory | Microsoft Docs
 description: Obtenha respostas para perguntas frequentes sobre a colaboração do Azure Ative Directory B2B.
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: reference
-ms.date: 09/23/2020
+ms.date: 02/12/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 90cc15dc3944efd82d025df1bb5072c57346055e
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 7879b233bf94442de2cad83de8adfe54b6b81e0e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97355635"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100365519"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Azure Ative Directory B2B colaboração FAQs
 
@@ -25,7 +25,7 @@ Estas perguntas frequentes (FAQs) sobre a colaboração business-to-business (Az
 
 > [!IMPORTANT]
 > - **A partir de 4 de janeiro de 2021, a** Google está [a depreciar o suporte de sing-in webView](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). Se estiver a utilizar a federação do Google ou a inscrição de self-service com o Gmail, deverá [testar as suas aplicações nativas de linha de negócios para compatibilidade](google-federation.md#deprecation-of-webview-sign-in-support).
-> - **A partir de 31 de março de 2021, a** Microsoft deixará de apoiar o resgate de convites através da criação de contas Ead AZure não geridas e inquilinos para cenários de colaboração B2B. Em preparação, encorajamos os clientes a optar em autenticação de senha única por [e-mail.](one-time-passcode.md) Congratulamo-nos com o seu feedback sobre esta funcionalidade de pré-visualização pública e estamos entusiasmados por criar ainda mais formas de colaborar.
+> - **A partir de outubro de 2021, a** Microsoft deixará de apoiar o resgate de convites através da criação de contas AZure AD não geridas e inquilinos para cenários de colaboração B2B. Em preparação, encorajamos os clientes a optar em autenticação de senha única por [e-mail.](one-time-passcode.md) Congratulamo-nos com o seu feedback sobre esta funcionalidade de pré-visualização pública e estamos entusiasmados por criar ainda mais formas de colaborar.
 
 ### <a name="can-we-customize-our-sign-in-page-so-its-more-intuitive-for-our-b2b-collaboration-guest-users"></a>Podemos personalizar a nossa página de inscrição para que seja mais intuitiva para os nossos utilizadores convidados de colaboração B2B?
 Sem dúvida! Consulte a nossa [publicação de blog sobre esta funcionalidade.](https://blogs.technet.microsoft.com/enterprisemobility/2017/04/07/improving-the-branding-logic-of-azure-ad-login-pages/) Para obter mais informações sobre como personalizar a página de insusição da sua organização, consulte [a marca Add company para iniciar sing e as páginas do Painel de Acesso.](../fundamentals/customize-branding.md)
@@ -119,7 +119,7 @@ Se o parceiro tiver um inquilino AD Azure que é federado para a infraestrutura 
 Estamos a eliminar as diferenças entre a colaboração B2B e o negócio-consumidor (B2C) em termos de apoio de identidades. A identidade utilizada não é uma boa razão para escolher entre usar b2B ou usar B2C. Para obter informações sobre a escolha da sua opção de colaboração, consulte [Compare B2B e B2C no Azure Ative Directory](compare-with-b2c.md).
 
 ### <a name="can-an-azure-ad-b2c-local-account-be-invited-to-an-azure-ad-tenant-for-b2b-collaboration"></a>Uma conta local Azure AD B2C pode ser convidada para um inquilino da AD Azure para colaboração B2B?
-Não. Uma conta local Azure AD B2C só pode ser usada para assinar no inquilino Azure AD B2C. A conta não pode ser usada para assinar um inquilino da AD Azure. Convidar uma conta local Azure AD B2C para um inquilino da AD AZure para colaboração B2B não é apoiado.
+N.º Uma conta local Azure AD B2C só pode ser usada para assinar no inquilino Azure AD B2C. A conta não pode ser usada para assinar um inquilino da AD Azure. Convidar uma conta local Azure AD B2C para um inquilino da AD AZure para colaboração B2B não é apoiado.
 
 ### <a name="what-applications-and-services-support-azure-b2b-guest-users"></a>Quais aplicações e serviços suportam utilizadores convidados Azure B2B?
 Todas as aplicações integradas a Azure podem suportar utilizadores convidados Azure B2B, mas devem usar um ponto final configurado como inquilino para autenticar os utilizadores convidados. Poderá também ser necessário [personalizar as reclamações](claims-mapping.md) no token SAML que é emitido quando um utilizador convidado autentica para a aplicação. 

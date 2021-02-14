@@ -1,5 +1,5 @@
 ---
-title: Configurar IBM Db2 HADR em máquinas virtuais Azure (VMs) na RHEL Microsoft Docs
+title: Configurar o IBM Db2 HADR em máquinas virtuais Azure (VMs) em | RHEL Microsoft Docs
 description: Estabelecer uma elevada disponibilidade de IBM Db2 LUW em máquinas virtuais Azure (VMs) RHEL.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/16/2020
 ms.author: juergent
-ms.openlocfilehash: 85f268990ac9e0c04cba1b9c409a232a24ce0d61
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.openlocfilehash: 8202b9bd496b4f539df99e35a3118ed109dbd31c
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96608639"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100365111"
 ---
 # <a name="high-availability-of-ibm-db2-luw-on-azure-vms-on-red-hat-enterprise-linux-server"></a>Elevada disponibilidade do IBM DB2 LUW nas VMs do Azure no Red Hat Enterprise Linux Server
 
@@ -117,7 +117,7 @@ Complete o processo de planeamento antes de executar a implementação. O planea
 | Máquinas virtuais que hospedam IBM Db2 LUW | Tamanho VM, armazenamento, rede, endereço IP. |
 | Nome de anfitrião virtual e IP virtual para base de dados IBM Db2| O ip virtual ou o nome do anfitrião que é usado para a ligação de servidores de aplicações SAP. **db-virt-hostname,** **db-virt-ip**. |
 | Esgrima azul | O método para evitar situações cerebrais divididas é evitado. |
-| Azure Load Balancer | Utilização de Porta-sonda Básica ou Padrão (recomendada), porta-sonda para base de dados Db2 (nossa recomendação 62500) **porta-sonda**. |
+| Balanceador de Carga do Azure | Utilização de Porta-sonda Básica ou Padrão (recomendada), porta-sonda para base de dados Db2 (nossa recomendação 62500) **porta-sonda**. |
 | Resolução de nomes| Como funciona a resolução de nomes no ambiente. O serviço DNS é altamente recomendado. O ficheiro de anfitriões locais pode ser usado. |
     
 Para obter mais informações sobre o Linux Pacemaker em Azure, consulte [configurar o Pacemaker no Red Hat Enterprise Linux em Azure][rhel-pcs-azr].
@@ -145,10 +145,6 @@ Certifique-se de que o sistema operativo selecionado é suportado pela IBM/SAP p
     + Use Red Hat Enterprise Linux para imagem SAP no Mercado Azure.
     + Selecione a disponibilidade de Azure definida em criado no passo 3, ou selecione Availability Zone (não a mesma zona que no passo 3).
 1. Adicione discos de dados aos VMs e, em seguida, verifique a recomendação de uma configuração do sistema de ficheiros no artigo [IBM Db2 Azure Virtual Machines DBMS implantação para carga de trabalho SAP][dbms-db2].
-
-## <a name="create-the-pacemaker-cluster"></a>Criar o cluster Pacemaker
-    
-Para criar um cluster pacemaker básico para este servidor IBM Db2, consulte [configurar o Pacemaker no Red Hat Enterprise Linux em Azure][rhel-pcs-azr]. 
 
 ## <a name="install-the-ibm-db2-luw-and-sap-environment"></a>Instale o ambiente IBM Db2 LUW e SAP
 
@@ -209,7 +205,7 @@ Recomendamos os parâmetros anteriores baseados em testes iniciais de failover/t
 
 Para configurar o servidor de base de dados Standby utilizando o procedimento de cópia homogénea do sistema SAP, execute estas etapas:
 
-1. Selecione a opção **de cópia do Sistema** > instância de base de **dados** distribuída por sistemas  >  **Distributed**  >  **Database instance** alvo.
+1. Selecione a opção **de cópia do Sistema** > instância de base de **dados** distribuída por sistemas  >    >  alvo.
 1. Como método de cópia, selecione **Homogeneous System** para que possa utilizar a cópia de segurança para restaurar uma cópia de segurança na instância do servidor de espera.
 1. Quando chegar ao passo de saída para restaurar a base de dados para cópia homogénea do sistema, saia do instalador. Restaurar a base de dados a partir de uma cópia de segurança do hospedeiro principal. Todas as fases de instalação subsequentes já foram executadas no servidor de base de dados primário.
 
@@ -277,7 +273,6 @@ SOCK_RECV_BUF_REQUESTED,ACTUAL(bytes) = 0, 369280
              READS_ON_STANDBY_ENABLED = N
 
 
-
 #Secondary output:
 Database Member 0 -- Database ID2 -- Standby -- Up 1 days 15:45:18 -- Date 2019-06-25-10.56.19.820474
 
@@ -324,84 +319,10 @@ SOCK_RECV_BUF_REQUESTED,ACTUAL(bytes) = 0, 367360
                  PEER_WINDOW(seconds) = 1000
                       PEER_WINDOW_END = 06/25/2019 11:12:59.000000 (1561461179)
              READS_ON_STANDBY_ENABLED = N
-
 </code></pre>
-
-
-
-## <a name="db2-pacemaker-configuration"></a>Configuração do Pacemaker Db2
-
-Quando utilizar o Pacemaker para falha automática em caso de falha no nó, tem de configurar as suas instâncias Db2 e o Pacemaker em conformidade. Esta secção descreve este tipo de configuração.
-
-Os seguintes itens são pré-fixados com:
-
-- **[A]**: Aplicável a todos os nós
-- **[1]**: Aplicável apenas ao nó 1 
-- **[2]**: Aplicável apenas ao nó 2
-
-**[A]** Pré-requisito para a configuração do Pacemaker:
-1. Desligue ambos os servidores de base de dados com db2 do utilizador \<sid> com db2stop.
-1. Altere o ambiente de concha para o utilizador db2 \<sid> para */bin/ksh*:
-<pre><code># Install korn shell:
-sudo yum install ksh
-# Change users shell:
-sudo usermod -s /bin/ksh db2&lt;sid&gt;</code></pre>
-   
-
-### <a name="pacemaker-configuration"></a>Configuração do pacemaker
-
-**[1]** Configuração do Pacemaker específica da IBM Db2 HADR:
-<pre><code># Put Pacemaker into maintenance mode
-sudo pcs property set maintenance-mode=true 
-</code></pre>
-
-**[1]** Criar recursos IBM Db2:
-<pre><code># Replace <b>bold strings</b> with your instance name db2sid, database SID, and virtual IP address/Azure Load Balancer.
-sudo pcs resource create Db2_HADR_<b>ID2</b> db2 instance='<b>db2id2</b>' dblist='<b>ID2</b>' master meta notify=true resource-stickiness=5000
-
-#Configure resource stickiness and correct cluster notifications for master resoruce
-sudo pcs resource update Db2_HADR_<b>ID2</b>-master meta notify=true resource-stickiness=5000
-
-# Configure virtual IP - same as Azure Load Balancer IP
-sudo pcs resource create vip_<b>db2id2</b>_<b>ID2</b> IPaddr2 ip='<b>10.100.0.40</b>'
-
-# Configure probe port for Azure load Balancer
-sudo pcs resource create nc_<b>db2id2</b>_<b>ID2</b> azure-lb port=<b>62500</b>
-
-#Create a group for ip and Azure loadbalancer probe port
-sudo pcs resource group add g_ipnc_<b>db2id2</b>_<b>ID2</b> vip_<b>db2id2</b>_<b>ID2</b> nc_<b>db2id2</b>_<b>ID2</b>
-
-#Create colocation constrain - keep Db2 HADR Master and Group on same node
-sudo pcs constraint colocation add g_ipnc_<b>db2id2</b>_<b>ID2</b> with master Db2_HADR_<b>ID2</b>-master
-
-#Create start order constrain
-sudo pcs constraint order promote Db2_HADR_<b>ID2</b>-master then g_ipnc_<b>db2id2</b>_<b>ID2</b>
-</code></pre>
-
-**[1]** Iniciar os recursos da IBM Db2:
-* Coloque o Pacemaker fora do modo de manutenção.
-<pre><code># Put Pacemaker out of maintenance-mode - that start IBM Db2
-sudo pcs property set maintenance-mode=false</pre></code>
-
-**[1]** Certifique-se de que o estado do cluster está bem e que todos os recursos são iniciados. Não é importante qual nó os recursos estão a funcionar.
-<pre><code>sudo pcs status</code>
-2 nodes configured
-5 resources configured
-
-Online: [ az-idb01 az-idb02 ]
-
-Lista completa de recursos:
-
- rsc_st_azure (stonith:fence_azure_arm): Iniciado az-idb01 Master/Slave set: Db2_HADR_ID2-master [Db2_HADR_ID2] Masters: [ az-idb01 ] Slaves: [ az-idb02 ] Grupo de Recursos: g_ipnc_db2id2_ID2 vip_db2id2_ID2 (ocf::heartbeat:IPaddr2): Iniciado az-idb01 nc_db2id2_ID2 (ocf::heartbeat:azure-lb): Iniciado az-idb01
-
-Estado de Daemon: corosync: pacemaker ativo/desativado: pcsd ativo/desativado: ativo/habilitado
-</pre>
-
-> [!IMPORTANT]
-> Tem de gerir a instância Db2 agrupada do Pacemaker utilizando ferramentas Pacemaker. Se utilizar comandos db2 como db2stop, o Pacemaker deteta a ação como uma falha de recursos. Se estiver a fazer manutenção, pode colocar os nós ou recursos no modo de manutenção. O Pacemaker suspende os recursos de monitorização, e pode usar comandos normais da administração db2.
-
 
 ### <a name="configure-azure-load-balancer"></a>Configurar o Balanceador de Carga do Azure
+
 Para configurar o Balançador de Carga Azure, recomendamos que utilize o [Azure Standard Load Balancer SKU](../../../load-balancer/load-balancer-overview.md) e, em seguida, faça o seguinte;
 
 > [!NOTE]
@@ -410,14 +331,13 @@ Para configurar o Balançador de Carga Azure, recomendamos que utilize o [Azure 
 > [!IMPORTANT]
 > O IP flutuante não é suportado numa configuração IP secundária do NIC em cenários de equilíbrio de carga. Para mais detalhes consulte [as limitações do balançador de carga Azure](../../../load-balancer/load-balancer-multivip-overview.md#limitations). Se precisar de um endereço IP adicional para o VM, implante um segundo NIC.  
 
-
 1. Criar um pool IP frontal:
 
    a. No portal Azure, abra o Balançador de Carga Azure, selecione **o pool IP frontend** e, em seguida, selecione **Add**.
 
    b. Introduza o nome do novo pool IP frontal (por exemplo, **ligação Db2**).
 
-   c. Desaponda a **Estática** e introduza o endereço IP **Virtual-IP** definido no início. **Static**
+   c. Desaponda a **Estática** e introduza o endereço IP **Virtual-IP** definido no início. 
 
    d. Selecione **OK**.
 
@@ -464,8 +384,119 @@ Para configurar o Balançador de Carga Azure, recomendamos que utilize o [Azure 
    exemplo, Selecione **OK**.
 
 **[A]** Adicionar regra de firewall para a porta da sonda:
+
 <pre><code>sudo firewall-cmd --add-port=<b><probe-port></b>/tcp --permanent
 sudo firewall-cmd --reload</code></pre>
+
+## <a name="create-the-pacemaker-cluster"></a>Criar o cluster Pacemaker
+    
+Para criar um cluster pacemaker básico para este servidor IBM Db2, consulte [configurar o Pacemaker no Red Hat Enterprise Linux em Azure][rhel-pcs-azr]. 
+
+## <a name="db2-pacemaker-configuration"></a>Configuração do Pacemaker Db2
+
+Quando utilizar o Pacemaker para falha automática em caso de falha no nó, tem de configurar as suas instâncias Db2 e o Pacemaker em conformidade. Esta secção descreve este tipo de configuração.
+
+Os seguintes itens são pré-fixados com:
+
+- **[A]**: Aplicável a todos os nós
+- **[1]**: Aplicável apenas ao nó 1 
+- **[2]**: Aplicável apenas ao nó 2
+
+**[A]** Pré-requisito para a configuração do Pacemaker:
+1. Desligue ambos os servidores de base de dados com db2 do utilizador \<sid> com db2stop.
+1. Altere o ambiente de concha para o utilizador db2 \<sid> para */bin/ksh*:
+<pre><code># Install korn shell:
+sudo yum install ksh
+# Change users shell:
+sudo usermod -s /bin/ksh db2&lt;sid&gt;</code></pre>  
+
+### <a name="pacemaker-configuration"></a>Configuração do pacemaker
+
+**[1]** Configuração do Pacemaker específica da IBM Db2 HADR:
+<pre><code># Put Pacemaker into maintenance mode
+sudo pcs property set maintenance-mode=true 
+</code></pre>
+
+**[1]** Criar recursos IBM Db2:
+
+Se construir um cluster em **RHEL 7.x,** utilize os seguintes comandos:
+
+<pre><code># Replace <b>bold strings</b> with your instance name db2sid, database SID, and virtual IP address/Azure Load Balancer.
+sudo pcs resource create Db2_HADR_<b>ID2</b> db2 instance='<b>db2id2</b>' dblist='<b>ID2</b>' master meta notify=true resource-stickiness=5000
+
+#Configure resource stickiness and correct cluster notifications for master resoruce
+sudo pcs resource update Db2_HADR_<b>ID2</b>-master meta notify=true resource-stickiness=5000
+
+# Configure virtual IP - same as Azure Load Balancer IP
+sudo pcs resource create vip_<b>db2id2</b>_<b>ID2</b> IPaddr2 ip='<b>10.100.0.40</b>'
+
+# Configure probe port for Azure load Balancer
+sudo pcs resource create nc_<b>db2id2</b>_<b>ID2</b> azure-lb port=<b>62500</b>
+
+#Create a group for ip and Azure loadbalancer probe port
+sudo pcs resource group add g_ipnc_<b>db2id2</b>_<b>ID2</b> vip_<b>db2id2</b>_<b>ID2</b> nc_<b>db2id2</b>_<b>ID2</b>
+
+#Create colocation constrain - keep Db2 HADR Master and Group on same node
+sudo pcs constraint colocation add g_ipnc_<b>db2id2</b>_<b>ID2</b> with master Db2_HADR_<b>ID2</b>-master
+
+#Create start order constrain
+sudo pcs constraint order promote Db2_HADR_<b>ID2</b>-master then g_ipnc_<b>db2id2</b>_<b>ID2</b>
+</code></pre>
+
+Se construir um cluster em **RHEL 8.x,** utilize os seguintes comandos:
+
+<pre><code># Replace <b>bold strings</b> with your instance name db2sid, database SID, and virtual IP address/Azure Load Balancer.
+sudo pcs resource create Db2_HADR_<b>ID2</b> db2 instance='<b>db2id2</b>' dblist='<b>ID2</b>' promotable meta notify=true resource-stickiness=5000
+
+#Configure resource stickiness and correct cluster notifications for master resoruce
+sudo pcs resource update Db2_HADR_<b>ID2</b>-clone meta notify=true resource-stickiness=5000
+
+# Configure virtual IP - same as Azure Load Balancer IP
+sudo pcs resource create vip_<b>db2id2</b>_<b>ID2</b> IPaddr2 ip='<b>10.100.0.40</b>'
+
+# Configure probe port for Azure load Balancer
+sudo pcs resource create nc_<b>db2id2</b>_<b>ID2</b> azure-lb port=<b>62500</b>
+
+#Create a group for ip and Azure loadbalancer probe port
+sudo pcs resource group add g_ipnc_<b>db2id2</b>_<b>ID2</b> vip_<b>db2id2</b>_<b>ID2</b> nc_<b>db2id2</b>_<b>ID2</b>
+
+#Create colocation constrain - keep Db2 HADR Master and Group on same node
+sudo pcs constraint colocation add g_ipnc_<b>db2id2</b>_<b>ID2</b> with master Db2_HADR_<b>ID2</b>-clone
+
+#Create start order constrain
+sudo pcs constraint order promote Db2_HADR_<b>ID2</b>-clone then g_ipnc_<b>db2id2</b>_<b>ID2</b>
+</code></pre>
+
+**[1]** Iniciar os recursos da IBM Db2:
+* Coloque o Pacemaker fora do modo de manutenção.
+<pre><code># Put Pacemaker out of maintenance-mode - that start IBM Db2
+sudo pcs property set maintenance-mode=false</pre></code>
+
+**[1]** Certifique-se de que o estado do cluster está bem e que todos os recursos são iniciados. Não é importante qual nó os recursos estão a funcionar.
+<pre><code>sudo pcs status
+2 nodes configured
+5 resources configured
+
+Online: [ az-idb01 az-idb02 ]
+
+Full list of resources:
+
+ rsc_st_azure   (stonith:fence_azure_arm):      Started az-idb01
+ Master/Slave Set: Db2_HADR_ID2-master [Db2_HADR_ID2]
+     Masters: [ az-idb01 ]
+     Slaves: [ az-idb02 ]
+ Resource Group: g_ipnc_db2id2_ID2
+     vip_db2id2_ID2     (ocf::heartbeat:IPaddr2):       Started az-idb01
+     nc_db2id2_ID2      (ocf::heartbeat:azure-lb):      Started az-idb01
+
+Daemon Status:
+  corosync: active/disabled
+  pacemaker: active/disabled
+  pcsd: active/enabled
+</code></pre>
+
+> [!IMPORTANT]
+> Tem de gerir a instância Db2 agrupada do Pacemaker utilizando ferramentas Pacemaker. Se utilizar comandos db2 como db2stop, o Pacemaker deteta a ação como uma falha de recursos. Se estiver a fazer manutenção, pode colocar os nós ou recursos no modo de manutenção. O Pacemaker suspende os recursos de monitorização, e pode usar comandos normais da administração db2.
 
 ### <a name="make-changes-to-sap-profiles-to-use-virtual-ip-for-connection"></a>Fazer alterações nos perfis SAP para utilizar IP virtual para ligação
 Para se ligar à primeira instância da configuração HADR, a camada de aplicação SAP precisa de utilizar o endereço IP virtual que definiu e configura para o Balançador de Carga Azure. São necessárias as seguintes alterações:
@@ -479,11 +510,9 @@ j2ee/dbhost = db-virt-hostname
 <pre><code>Hostname=db-virt-hostname
 </code></pre>
 
-
-
 ## <a name="install-primary-and-dialog-application-servers"></a>Instale servidores de aplicações primárias e de diálogo
 
-Quando instalar servidores de aplicações primários e de diálogo contra uma configuração Db2 HADR, utilize o nome de anfitrião virtual que escolheu para a configuração. 
+Quando instalar servidores de aplicações primários e de diálogo contra uma configuração Db2 HADR, utilize o nome de anfitrião virtual que escolheu para a configuração.
 
 Se efetuou a instalação antes de criar a configuração Db2 HADR, faça as alterações descritas na secção anterior e da seguinte forma para as pilhas SAP Java.
 
@@ -507,13 +536,14 @@ Utilize a ferramenta J2EE Config para verificar ou atualizar o URL JDBC. Como a 
 1. Reinicie a instância de Java.
 
 ## <a name="configure-log-archiving-for-hadr-setup"></a>Configure o arquivo de log para a configuração hadr
+
 Para configurar o arquivo de registo db2 para a configuração do HADR, recomendamos que configuure tanto a base de dados primária como a base de dados de espera para ter capacidade automática de recuperação de registos a partir de todos os locais de arquivo de registo. Tanto a base de dados primária como a base de dados de espera devem ser capazes de recuperar ficheiros de arquivo de registo de todos os locais de arquivo de registos aos quais qualquer uma das instâncias da base de dados pode arquivar ficheiros de registo. 
 
 O arquivo de registos é realizado apenas pela base de dados primária. Se alterar as funções HADR dos servidores de base de dados ou se ocorrer uma falha, a nova base de dados primária é responsável pelo arquivamento de registos. Se tiver configurado vários locais de registo, os seus registos podem ser arquivados duas vezes. No caso de uma captura local ou remota, também poderá ter de copiar manualmente os registos arquivados do antigo servidor primário para a localização de registo ativo do novo servidor primário.
 
 Recomendamos configurar uma partilha comum de NFS ou GlusterFS, onde os registos são escritos a partir de ambos os nós. A participação da NFS ou a GlusterFS tem de estar altamente disponível. 
 
-Você pode usar ações NFS altamente disponíveis ou GlusterFS para transportes ou um diretório de perfil. Para obter mais informações, veja:
+Você pode usar ações NFS altamente disponíveis ou GlusterFS para transportes ou um diretório de perfil. Para obter mais informações, consulte:
 
 - [GlusterFS nas VMs do Azure no Red Hat Enterprise Linux para o SAP NetWeaver][glusterfs] 
 - [Alta disponibilidade para SAP NetWeaver em VMs Azure em Red Hat Enterprise Linux com Ficheiros Azure NetApp para aplicações SAP][anf-rhel]
@@ -553,9 +583,6 @@ O estado original de um sistema SAP é documentado na Transação DBACOCKPIT > C
 
 ![DBACockpit - Pré-Migração](./media/high-availability-guide-rhel-ibm-db2-luw/hadr-sap-mgr-org-rhel.png)
 
-
-
-
 ### <a name="test-takeover-of-ibm-db2"></a>Aquisição de teste da IBM Db2
 
 
@@ -565,9 +592,12 @@ O estado original de um sistema SAP é documentado na Transação DBACOCKPIT > C
 > * Não existem restrições de localização (restos de teste de migração)
 > * A sincronização DA IBM Db2 HADR está a funcionar. Verifique com o utilizador db2\<sid> <pre><code>db2pd -hadr -db \<DBSID></code></pre>
 
-
 Migrar o nó que está a executar a base de dados Db2 primária executando o seguinte comando:
-<pre><code>sudo pcs resource move Db2_HADR_<b>ID2</b>-master</code></pre>
+<pre><code># On RHEL 7.x
+sudo pcs resource move Db2_HADR_<b>ID2</b>-master
+# On RHEL 8.x
+sudo pcs resource move Db2_HADR_<b>ID2</b>-clone --master
+</code></pre>
 
 Após a migração ser feita, a produção do estado de CRM parece:
 <pre><code>2 nodes configured
@@ -594,8 +624,13 @@ O estado original de um sistema SAP é documentado na Transação DBACOCKPIT > C
 A migração de recursos com "movimento de recursos pcs" cria restrições de localização. As restrições de localização neste caso estão a impedir a execução da instância IBM Db2 em az-idb01. Se as restrições de localização não forem eliminadas, o recurso não pode falhar.
 
 Remova a restrição de localização e o nó de espera será iniciado em az-idb01.
-<pre><code>sudo pcs resource clear Db2_HADR_<b>ID2</b>-master</code></pre>
+<pre><code># On RHEL 7.x
+sudo pcs resource clear Db2_HADR_<b>ID2</b>-master
+# On RHEL 8.x
+sudo pcs resource clear Db2_HADR_<b>ID2</b>-clone</code></pre>
+
 E alterações no estado do cluster para:
+
 <pre><code>2 nodes configured
 5 resources configured
 
@@ -613,13 +648,16 @@ Full list of resources:
 
 ![DBACockpit - Restrição de localização removida](./media/high-availability-guide-rhel-ibm-db2-luw/hadr-sap-mgr-clear-rhel.png)
 
-
 Migrar o recurso de volta para *az-idb01* e limpar as restrições de localização
-<pre><code>sudo pcs resource move Db2_HADR_<b>ID2</b>-master az-idb01
+<pre><code># On RHEL 7.x
+sudo pcs resource move Db2_HADR_<b>ID2</b>-master az-idb01
 sudo pcs resource clear Db2_HADR_<b>ID2</b>-master
-</code></pre>
+# On RHEL 8.x
+sudo pcs resource move Db2_HADR_<b>ID2</b>-clone --master
+sudo pcs resource clear Db2_HADR_<b>ID2</b>-clone</code></pre>
 
-- **movimento de recursos pcs \<res_name> <host> :** Cria restrições de localização e pode causar problemas com a aquisição
+- **No MOVIMENTO DE RECURSO RHEL 7.x - pcs \<res_name> <host> :** Cria restrições de localização e pode causar problemas com a aquisição
+- **No RHEL 8.x - movimento de recursos do pcs \<res_name> --master:** Cria restrições de localização e pode causar problemas com a aquisição
 - **recursos pcs \<res_name> claros**: Limpa as restrições de localização
 - **limpeza \<res_name> de recursos pcs**: Limpa todos os erros do recurso
 
@@ -763,7 +801,7 @@ Failed Actions:
 
 ### <a name="crash-the-vm-that-runs-the-hadr-primary-database-instance-with-halt"></a>Despenhe o VM que executa a primeira área de dados HADR com "stop"
 
-<pre><code>#Linux kernel panic. 
+<pre><code>#Linux kernel panic.
 sudo echo b > /proc/sysrq-trigger</code></pre>
 
 Nesse caso, o Pacemaker vai detetar que o nó que está a executar a primeira área de dados não está a responder.

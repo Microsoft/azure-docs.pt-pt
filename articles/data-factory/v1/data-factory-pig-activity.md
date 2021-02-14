@@ -1,23 +1,18 @@
 ---
 title: Transformar dados usando a atividade do porco na fábrica de dados Azure
 description: Saiba como pode usar a Atividade do Porco na Azure Data Factory v1 para executar scripts de porco num cluster on-demand/seu próprio HDInsight.
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
-manager: jroth
 ms.reviewer: maghan
-ms.assetid: 5af07a1a-2087-455e-a67b-a79841b4ada5
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 0ad84a0e848abda1b786958947b4081b11b139a7
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 2f59734b5452b5a06b49583954f8851e84e8f84d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96495350"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100387177"
 ---
 # <a name="transform-data-using-pig-activity-in-azure-data-factory"></a>Transformar dados usando a atividade do porco na fábrica de dados Azure
 > [!div class="op_single_selector" title1="Atividades de Transformação"]
@@ -82,17 +77,17 @@ A atividade do Porco HDInsight num [oleoduto](data-factory-create-pipelines.md) 
 
 ## <a name="syntax-details"></a>Detalhes da sintaxe
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessário |
 | --- | --- | --- |
-| name |Nome da atividade |Sim |
-| descrição |Texto que descreve para que a atividade é usada |Não |
-| tipo |HDinsightPig |Sim |
-| entradas |Uma ou mais entradas consumidas pela atividade do Porco |Não |
-| saídas |Uma ou mais saídas produzidas pela atividade do Porco |Sim |
-| linkedServiceName |Referência ao cluster HDInsight registado como um serviço ligado na Data Factory |Sim |
-| script |Especificar o script do porco inline |Não |
-| scriptPath |Guarde o script Pig num armazenamento de bolhas Azure e forneça o caminho para o arquivo. Use a propriedade 'script' ou 'scriptPath'. Ambos não podem ser usados juntos. O nome do ficheiro é sensível a casos. |Não |
-| define |Especifique os parâmetros como pares chave/valor para referências dentro do script do Porco |Não |
+| name |Nome da atividade |Yes |
+| descrição |Texto que descreve para que a atividade é usada |No |
+| tipo |HDinsightPig |Yes |
+| entradas |Uma ou mais entradas consumidas pela atividade do Porco |No |
+| saídas |Uma ou mais saídas produzidas pela atividade do Porco |Yes |
+| linkedServiceName |Referência ao cluster HDInsight registado como um serviço ligado na Data Factory |Yes |
+| script |Especificar o script do porco inline |No |
+| scriptPath |Guarde o script Pig num armazenamento de bolhas Azure e forneça o caminho para o arquivo. Use a propriedade 'script' ou 'scriptPath'. Ambos não podem ser usados juntos. O nome do ficheiro é sensível a casos. |No |
+| define |Especifique os parâmetros como pares chave/valor para referências dentro do script do Porco |No |
 
 ## <a name="example"></a>Exemplo
 Vamos considerar um exemplo de análise de registos de jogos onde pretendes identificar o tempo gasto pelos jogadores que jogam jogos lançados pela tua empresa.

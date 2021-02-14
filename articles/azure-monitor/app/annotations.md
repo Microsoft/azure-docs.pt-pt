@@ -1,14 +1,14 @@
 ---
-title: Lançar anotações para Insights de Aplicações / Microsoft Docs
+title: Lançar anotações para insights de aplicações | Microsoft Docs
 description: Adicione marcadores de implementação ou construção aos gráficos de exploradores de métricas em Application Insights.
 ms.topic: conceptual
 ms.date: 08/14/2020
-ms.openlocfilehash: 58f6603687838713fafbf4cd5cc3f100e22b7401
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: c23c973bc02482e7000cfd1d066a322fff93542a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95993725"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100386038"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Anotações em gráficos métricos em Insights de Aplicação
 
@@ -81,7 +81,7 @@ Crie uma chave API separada para cada um dos seus modelos de libertação de Azu
 
 Agora, sempre que utilizar o modelo de libertação para implementar uma nova versão, é enviada uma anotação para o Application Insights. As anotações podem ser vistas nos seguintes locais:
 
-O painel de utilização onde também tem a capacidade de criar anotações de libertação manual:
+O **painel de utilização** onde também tem a capacidade de criar anotações de libertação manual:
 
 ![Screenshot do gráfico de barras com número de visitas de utilizador exibidas durante um período de horas. Anotações de libertação aparecem como marcas de verificação verdes acima do gráfico indicando o momento em que ocorreu uma libertação](./media/annotations/usage-pane.png)
 

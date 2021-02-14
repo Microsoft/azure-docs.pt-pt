@@ -1,7 +1,7 @@
 ---
 title: Introdução aos utilitários Microsoft Spark
 description: 'Tutorial: MSSparkutils em cadernos Azure Synapse Analytics'
-author: ruxu
+author: ruixinxu
 services: synapse-analytics
 ms.service: synapse-analytics
 ms.topic: reference
@@ -10,12 +10,12 @@ ms.date: 09/10/2020
 ms.author: ruxu
 ms.reviewer: ''
 zone_pivot_groups: programming-languages-spark-all-minus-sql
-ms.openlocfilehash: d36086052f4e5719fd17989e3326a4b5728ee3ca
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 58672bd68d9a2ea85f58b3761f3b89098b9f5afc
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98954298"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100368664"
 ---
 # <a name="introduction-to-microsoft-spark-utilities"></a>Introdução aos Utilitários Microsoft Spark
 
@@ -25,9 +25,9 @@ Microsoft Spark Utilities (MSSparkUtils) é um pacote incorporado para ajudá-lo
 
 ### <a name="configure-access-to-azure-data-lake-storage-gen2"></a>Configure acesso ao Azure Data Lake Storage Gen2 
 
-Os cadernos synapse usam o diretório ativo Azure (Azure AD) para aceder às contas da ADLS Gen2. É necessário ser um **Contribuinte blob para** aceder à conta ADLS Gen2 (ou pasta). 
+Os cadernos synapse usam o diretório ativo Azure (Azure AD) para aceder às contas da ADLS Gen2. É necessário ser um Contribuinte de **Dados de Armazenamento blob** para aceder à conta ADLS Gen2 (ou pasta). 
 
-Os gasodutos synapse utilizam a identidade do espaço de trabalho (MSI) para aceder às contas de armazenamento. Para utilizar o MSSparkUtils nas suas atividades de pipeline, a sua identidade de espaço de trabalho precisa de ser **o Contribuinte blob storage** para aceder à conta ADLS Gen2 (ou pasta).
+Os gasodutos synapse utilizam a identidade do espaço de trabalho (MSI) para aceder às contas de armazenamento. Para utilizar o MSSparkUtils nas suas atividades de pipeline, a sua identidade de espaço de trabalho precisa de ser **o Contribuinte de Dados de Armazenamento blob** para aceder à conta ADLS Gen2 (ou pasta).
 
 Siga estes passos para garantir que o seu AD Azure e o espaço de trabalho MSI tenham acesso à conta ADLS Gen2:
 1. Abra o [portal Azure](https://portal.azure.com/) e a conta de armazenamento a que pretende aceder. Pode navegar para o recipiente específico a que pretende aceder.

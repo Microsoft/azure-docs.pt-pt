@@ -1,143 +1,141 @@
-### YamlMime:Hub
-title: Documentação de soluções do IoT Central
-summary: Explorar a documentação das soluções e dos serviços do Azure IoT Central.
-brand: azure
+### YamlMime:Landing
+title: Documentação do Azure IoT Central
+summary: O Azure IoT Central é uma plataforma de aplicações IoT que simplifica a criação de soluções de IoT. O Azure IoT Central simplifica a configuração inicial da sua solução de IoT e reduz a carga de gestão, custos operacionais e a sobrecarga de um projeto habitual de IoT. Saiba como criar, personalizar, gerir e utilizar uma aplicação do Azure IoT Central com os nossos inícios rápidos e tutoriais.
 metadata:
-  title: Hub de documentação do Azure IoT Central
-  description: Explorar a documentação das soluções e dos serviços do Azure IoT Central.
+  title: Documentação do Azure IoT Central
+  description: A aplicação do Azure IoT Central simplifica a criação de soluções de IoT. Saiba como criar, personalizar, gerir e utilizar uma aplicação do Azure IoT Central.
+  services: iot-central
   ms.service: iot-central
-  ms.topic: hub-page
-  author: philmea
-  ms.author: philmea
-  ms.date: 06/30/2020
-  ms.openlocfilehash: 59d95b8ce13161999c06993cbbf9194a66e38ed3
-  ms.sourcegitcommit: b8a175b6391cddd5a2c92575c311cc3e8c820018
-  ms.translationtype: HT
+  ms.topic: landing-page
+  author: dominicbetts
+  ms.author: dobett
+  ms.date: 09/02/2021
+  ms.openlocfilehash: f36d2bd704a00a450385d9766fdee3ea7c1f52a6
+  ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+  ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 11/25/2020
-  ms.locfileid: "96122492"
-highlightedContent:
-  items:
-  - title: O que é o IoT Central?
-    itemType: overview
-    url: ./core/overview-iot-central.md
-  - title: O que são modelos de aplicação?
-    itemType: concept
-    url: ./core/concepts-app-templates.md
-  - title: Descrição geral do desenvolvimento de dispositivos do IoT Central
-    itemType: overview
-    url: ./core/overview-iot-central-developer.md
-  - title: Criar uma nova aplicação
-    itemType: quickstart
-    url: ./core/quick-deploy-iot-central.md
-  - title: Definir um tipo de dispositivo e adicionar um dispositivo
-    itemType: tutorial
-    url: ./core/howto-set-up-template.md
-  - title: Monitorizar os dispositivos
-    itemType: tutorial
-    url: ./core/tutorial-create-telemetry-rules.md
-conceptualContent:
-  items:
-  - title: Ligar e desenvolver dispositivos
+  ms.lasthandoff: 02/14/2021
+  ms.locfileid: "100365145"
+landingContent:
+- title: Acerca do Azure IoT Central
+  linkLists:
+  - linkListType: overview
     links:
-    - url: ./core/tutorial-connect-device.md
-      itemType: tutorial
-      text: Ligar dispositivo
-    - url: ./core/concepts-get-connected.md
-      itemType: concept
-      text: Conectividade dos dispositivos
-    - url: ./core/concepts-device-templates.md
-      itemType: concept
-      text: Modelos de dispositivo
-    - url: ./core/troubleshoot-connection.md
-      itemType: how-to-guide
-      text: Resolver problemas de conectividade de dispositivo
-    footerLink:
-      url: ./core/index.yml
-      text: Ver mais
-  - title: Manter-se ligado
+    - text: O que é o Azure IoT Central?
+      url: core/overview-iot-central.md
+    - text: Apresentação da IU
+      url: core/overview-iot-central-tour.md
+  - linkListType: quickstart
     links:
-    - url: ./core/tutorial-use-device-groups.md
-      itemType: how-to-guide
-      text: Utilizar grupos de dispositivos
-    - url: ./core/howto-manage-devices.md
-      itemType: how-to-guide
-      text: Faça a gestão dos seus dispositivos
-    - url: ./core/howto-run-a-job.md
-      itemType: concept
-      text: Como executar uma tarefa
-    - url: ./core/howto-create-analytics.md
-      itemType: how-to-guide
-      text: Analisar os dados do seu dispositivo
-    footerLink:
-      url: ./core/index.yml
-      text: Ver mais
-  - title: Transformação
+    - text: Criar uma nova aplicação
+      url: core/quick-deploy-iot-central.md
+  - linkListType: architecture
     links:
-    - url: ./core/tutorial-create-telemetry-rules.md
-      itemType: how-to-guide
-      text: Criar uma regra de telemetria
-    - url: ./core/howto-export-data.md
-      itemType: how-to-guide
-      text: Exportar dados para destinos na cloud
-    footerLink:
-      url: ./core/index.yml
-      text: Ver mais
-productDirectory:
-  title: Introdução à criação com modelos de aplicação do setor
-  summary: Pronto para criar? Consulte os nossos modelos de aplicação relevantes do setor criados para construtores de soluções.
-  items:
-  - title: Criar para o comércio
-    imageSrc: ./retail/media/index/iot-central-retail.svg
+    - text: Arquitetura do Azure IoT Central
+      url: core/concepts-architecture.md
+    - text: Modelos de aplicação
+      url: core/concepts-app-templates.md
+  - linkListType: whats-new
     links:
-    - text: Criar soluções para o comércio com o Azure IoT Central
-      url: ./retail/overview-iot-central-retail.md
-    - text: Criar uma aplicação de análise na loja
-      url: ./retail/tutorial-in-store-analytics-create-app.md
-    - text: Criar uma aplicação de gestão de inventário inteligente
-      url: ./retail/tutorial-iot-central-smart-inventory-management.md
-    - text: Criar uma aplicação de logística associada
-      url: ./retail/tutorial-iot-central-connected-logistics.md
-    - text: Criar uma aplicação de centro de distribuição digital
-      url: ./retail/tutorial-iot-central-digital-distribution-center.md
-    - text: Criar uma aplicação de análise de vídeo
-      url: ./retail/tutorial-video-analytics-create-app-yolo-v3.md
-  - title: Criar para os cuidados de saúde
-    imageSrc: ./healthcare/media/index/iot-central-healthcare.svg
-    links:
-    - url: ./healthcare/overview-iot-central-healthcare.md
-      text: Criar soluções de cuidados de saúde com o IoT Central
-    - url: ./healthcare/tutorial-continuous-patient-monitoring.md
-      text: Criar uma aplicação de monitorização contínua do paciente
-  - title: Criar para o setor energético
-    imageSrc: ./energy/media/index/iot-central-energy.svg
-    links:
-    - url: ./energy/overview-iot-central-energy.md
-      text: Criar soluções para o setor energético com o IoT Central
-    - url: ./energy/tutorial-smart-meter-app.md
-      text: Criar uma aplicação de monitorização de medidores inteligentes
-    - url: ./energy/tutorial-solar-panel-app.md
-      text: Criar uma aplicação de monitorização de painéis solares
-  - title: Criar para a administração pública
-    imageSrc: ./government/media/index/iot-central-government.svg
-    links:
-    - url: ./government/overview-iot-central-government.md
-      text: Criar soluções para a administração pública com o IoT Central
-    - url: ./government/tutorial-water-quality-monitoring.md
-      text: Criar uma aplicação de monitorização da qualidade da água
-    - url: ./government/tutorial-water-consumption-monitoring.md
-      text: Criar uma aplicação de monitorização do consumo de água
-    - url: ./government/tutorial-connected-waste-management.md
-      text: Criar uma aplicação de gestão de resíduos associada
-additionalContent:
-  sections:
-  - items:
-    - title: APIs do IoT Central
-      summary: Explore as APIs do IoT Central.
-      url: /rest/api/iotcentral/
-    - title: IoT Central no Microsoft Learn
-      summary: Explore o IoT Central num ambiente de sandbox gratuito.
-      url: /learn/browse/?products=azure-iot-central
-    - title: Atualizações recentes
-      summary: Veja as novidades no IoT Central.
+    - text: Atualizações recentes
       url: https://azure.microsoft.com/updates/?status=nowavailable&updateType=features&category=iot&query=azure%20iot%20central
+- title: Desenvolver e ligar dispositivos
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Descrição geral para programadores de dispositivos
+      url: core/overview-iot-central-developer.md
+  - linkListType: tutorial
+    links:
+    - text: Criar e ligar um dispositivo
+      url: core/tutorial-connect-device.md
+  - linkListType: concept
+    links:
+    - text: Conectividade dos dispositivos
+      url: core/concepts-get-connected.md
+    - text: Payloads de mensagem
+      url: core/concepts-telemetry-properties-commands.md
+  - linkListType: how-to-guide
+    links:
+    - text: Ligar um dispositivo do Azure Sphere
+      url: core/howto-connect-sphere.md
+    - text: Resolver problemas de conectividade de dispositivo
+      url: core/troubleshoot-connection.md
+- title: Construir soluções integradas
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Visão geral para construtores de soluções
+      url: core/overview-iot-central-solution-builder.md
+  - linkListType: tutorial
+    links:
+    - text: Utilizar regras
+      url: core/tutorial-create-telemetry-rules.md
+  - linkListType: how-to-guide
+    links:
+    - text: Criar um dashboard
+      url: core/howto-create-personal-dashboards.md
+    - text: Analisar os dados do seu dispositivo
+      url: core/howto-create-analytics.md
+    - text: Exportar dados para destinos na cloud
+      url: core/howto-export-data.md
+  - linkListType: reference
+    links:
+    - text: API REST
+      url: /rest/api/iotcentral/
+- title: Faça a gestão dos seus dispositivos
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Utilizar grupos de dispositivos
+      url: core/tutorial-use-device-groups.md
+  - linkListType: how-to-guide
+    links:
+    - text: Adicionar, importar e exportar dispositivos
+      url: core/howto-manage-devices.md
+    - text: Executar uma tarefa
+      url: core/howto-run-a-job.md
+- title: Administração
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Gerir a aplicação
+      url: core/howto-administer.md
+    - text: Gerir utilizadores e funções
+      url: core/howto-manage-users-roles.md
+    - text: Ver a sua fatura
+      url: core/howto-view-bill.md
+    - text: Personalizar IU da aplicação
+      url: core/howto-customize-ui.md
+  - linkListType: sample
+    links:
+    - text: Amostras ARM SDK
+      url: /samples/azure-samples/azure-iot-central-arm-sdk-samples/azure-iot-central-arm-sdk-samples/
+- title: Aprendizagem baseada em cenários com o Microsoft Learn
+  linkLists:
+  - linkListType: learn
+    links:
+    - text: 'Caminho de aprendizagem: Desenvolver soluções IoT com Azure IoT Central'
+      url: /learn/paths/develop-iot-solutions-with-azure-iot-central/
+  - linkListType: learn
+    links:
+    - text: 'Módulo de aprendizagem: Crie a sua primeira aplicação Azure IoT Central'
+      url: /learn/modules/create-your-first-iot-central-app/
+    - text: 'Módulo de aprendizagem: Crie regras e tome medidas sobre dados de telemetria na Azure IoT Central'
+      url: /learn/modules/set-up-rules-take-actions-telemetry-data-azure-iot-central/
+    - text: 'Módulo de aprendizagem: Gerir aplicações IoT Central com a API REST'
+      url: /learn/modules/manage-iot-central-apps-with-rest-api/
+    - text: 'Módulo Learn: Configurar a exportação contínua de dados da Azure IoT Central para uma aplicação Power BI'
+      url: /learn/modules/continuously-export-data-from-iot-central-power-bi/
+- title: Modelos de aplicação do setor
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Retalho
+      url: retail/overview-iot-central-retail.md
+    - text: Cuidados de saúde
+      url: healthcare/overview-iot-central-healthcare.md
+    - text: Administração Pública
+      url: government/overview-iot-central-government.md
+    - text: Energia
+      url: energy/overview-iot-central-energy.md

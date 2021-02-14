@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein
 ms.date: 12/8/2020
-ms.openlocfilehash: b0d599b7d52d8a0e93f16761d1983ad25fa45c61
-ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
+ms.openlocfilehash: 1b8be7fc6295c6332d26718b5752d2fd8f2a6f73
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97687404"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100393246"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL Database sem servidor
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -25,16 +25,16 @@ Serverless é um nível de cálculo para bases de dados individuais na Base de D
 
 ## <a name="serverless-compute-tier"></a>Escalão de serviço de computação sem servidor
 
-O nível de computação sem servidor para bases de dados individuais na Base de Dados Azure SQL é parametrizado por uma gama de autoscaling computacional e por um atraso de utilização automática. A configuração destes parâmetros molda a experiência de desempenho da base de dados e o custo do cálculo.
+O nível de computação sem servidor para bases de dados individuais na Base de Dados Azure SQL é parametrizado por uma gama de autoscaling computacional e por um atraso de pausa automática. A configuração destes parâmetros molda a experiência de desempenho da base de dados e o custo do cálculo.
 
 ![faturação sem servidor](./media/serverless-tier-overview/serverless-billing.png)
 
 ### <a name="performance-configuration"></a>Configuração de desempenho
 
 - Os **vCores mínimos** e **os vCores máximos** são parâmetros configuráveis que definem a gama de capacidade de computação disponível para a base de dados. Os limites de memória e IO são proporcionais à gama vCore especificada.  
-- O **atraso da automatização** é um parâmetro configurável que define o período de tempo em que a base de dados deve estar inativa antes de ser automaticamente interrompida. A base de dados é retomada automaticamente quando ocorre o próximo login ou outra atividade.  Em alternativa, a autopausing pode ser desativada.
+- O **atraso de pausa automática** é um parâmetro configurável que define o período de tempo em que a base de dados deve estar inativa antes de ser automaticamente interrompida. A base de dados é retomada automaticamente quando ocorre o próximo login ou outra atividade.  Alternativamente, a pausa automática pode ser desativada.
 
-### <a name="cost"></a>Cost
+### <a name="cost"></a>Custo
 
 - O custo de uma base de dados sem servidor é a soma do custo de cálculo e do custo de armazenamento.
 - Quando a utilização do cálculo está entre os limites min e máximo configurados, o custo do cálculo baseia-se no vCore e na memória utilizada.
@@ -48,7 +48,7 @@ Para mais detalhes sobre custos, consulte [Billing.](serverless-tier-overview.md
 
 O escalão Sem servidor está otimizado para uma relação preço/desempenho das bases de dados individuais com padrões de utilização imprevisíveis ou intermitentes que se podem permitir ter algum atraso no aquecimento da computação após períodos de inatividade. Em contrapartida, o escalão de computação aprovisionada está otimizado para uma relação preço/desempenho das bases de dados individuais ou das bases de dados múltiplas em conjuntos elásticos com uma utilização acima da média que não se podem permitir ter nenhum tipo de atraso no aquecimento da computação.
 
-### <a name="scenarios-well-suited-for-serverless-compute"></a>Cenários bem adequados para computação sem servidor
+### <a name="scenarios-well-suited-for-serverless-compute"></a>Cenários bem adequados para o cálculo sem servidor
 
 - Bases de dados únicas com padrões de utilização intermitentes e imprevisíveis intercalados com períodos de inatividade e menor utilização média do cálculo ao longo do tempo.
 - Bases de dados únicas no nível de computação a provisionado que são frequentemente redimensionados e clientes que preferem delegar o cálculo rescaling ao serviço.
@@ -57,7 +57,7 @@ O escalão Sem servidor está otimizado para uma relação preço/desempenho das
 ### <a name="scenarios-well-suited-for-provisioned-compute"></a>Cenários adequados para o cálculo a provisionado
 
 - Bases de dados individuais com padrões de utilização mais regulares e previsíveis e uma utilização média mais alta ao longo do tempo.
-- Bases de dados que não podem tolerar compensações de desempenho resultantes de aparações de memória mais frequentes ou atrasos na autoresuming de um estado pausado.
+- Bases de dados que não podem tolerar compensações de desempenho resultantes de aparações de memória mais frequentes ou atrasos no recomeço de um estado de pausa.
 - Múltiplas bases de dados com padrões de utilização intermitentes e imprevisíveis que podem ser consolidados em piscinas elásticas para uma melhor otimização do desempenho do preço.
 
 ## <a name="comparison-with-provisioned-compute-tier"></a>Comparação com o nível de computação previsto
@@ -93,42 +93,42 @@ Ao contrário das bases de dados de computação a provisionadas, a memória da 
 - A utilização ativa da cache é considerada baixa quando o tamanho total das entradas de cache mais recentemente utilizadas fica abaixo de um limiar por um período de tempo.
 - Quando a recuperação da cache é desencadeada, o tamanho da cache alvo é reduzido gradualmente para uma fração do seu tamanho anterior e a recuperação só continua se o uso permanecer baixo.
 - Quando ocorre a recuperação de cache, a política de seleção de entradas de cache para despejar é a mesma política de seleção que para bases de dados de computação a provisionadas quando a pressão da memória é elevada.
-- O tamanho da cache nunca é reduzido abaixo do limite de memória min como definido por min vCores que podem ser configurados.
+- O tamanho da cache nunca é reduzido abaixo do limite de memória min como definido por min vCores, que pode ser configurado.
 
 Tanto nas bases de dados de computação sem servidor como nas bases de dados de computação a provisionadas, as entradas em cache podem ser despejadas se for utilizada toda a memória disponível.
 
-Note que quando a utilização do CPU é baixa, a utilização ativa da cache pode permanecer alta dependendo do padrão de utilização e impedir a recuperação da memória.  Além disso, pode haver um atraso adicional após a paragem da atividade do utilizador antes que a recuperação da memória ocorra devido a processos periódicos de fundo que respondem à atividade prévia do utilizador.  Por exemplo, eliminar operações e tarefas de limpeza QDS geram registos fantasma que são marcados para eliminação, mas não são fisicamente eliminados até que o processo de limpeza de fantasmas seja executado que pode envolver a leitura de páginas de dados em cache.
+Note que quando a utilização do CPU é baixa, a utilização ativa da cache pode permanecer alta dependendo do padrão de utilização e impedir a recuperação da memória.  Além disso, pode haver atrasos adicionais após a paragem da atividade do utilizador antes que a recuperação da memória ocorra devido a processos periódicos de fundo que respondem à atividade prévia do utilizador.  Por exemplo, eliminar operações e tarefas de limpeza QDS geram registos fantasma que estão marcados para eliminação, mas não são fisicamente eliminados até que o processo de limpeza de fantasmas seja executado que possa envolver a leitura de páginas de dados em cache.
 
 #### <a name="cache-hydration"></a>Hidratação em cache
 
 A cache SQL cresce à medida que os dados são recolhidos do disco da mesma forma e com a mesma velocidade que para as bases de dados a provisionadas. Quando a base de dados está ocupada, a cache é permitida a crescer sem restrições até ao limite máximo de memória.
 
-## <a name="autopausing-and-autoresuming"></a>Autopausing e autoresuming
+## <a name="auto-pause-and-auto-resume"></a>Pausa automática e auto-currículo
 
-### <a name="autopausing"></a>Autopausing
+### <a name="auto-pause"></a>Pausa automática
 
-A automatização automática é desencadeada se todas as seguintes condições forem verdadeiras durante o atraso da autopausa:
+A pausa automática é ativada se todas as seguintes condições forem verdadeiras durante a duração do atraso de pausa automática:
 
 - Sessões de número = 0
 - CPU = 0 para a carga de trabalho do utilizador em execução na piscina de utilizadores
 
-É fornecida uma opção para desativar a autopausing se desejar.
+É fornecida uma opção para desativar a pausa automática, se desejar.
 
-As seguintes funcionalidades não suportam a autopausing, mas suportam a auto-escala.  Se alguma das seguintes funcionalidades forem utilizadas, então a utilização automática deve ser desativada e a base de dados permanecerá on-line independentemente da duração da inatividade da base de dados:
+As seguintes funcionalidades não suportam a pausa automática, mas suportam a auto-escala.  Se alguma das seguintes funcionalidades forem utilizadas, então a pausa automática deve ser desativada e a base de dados permanecerá on-line independentemente da duração da inatividade da base de dados:
 
 - Geo-replicação (geo-replicação ativa e grupos de falha automática).
 - Retenção de backup a longo prazo (LTR).
-- A base de dados de sincronização utilizada na sincronização de dados SQL.  Ao contrário das bases de dados de sincronização, as bases de dados do hub e dos membros suportam a automatização.
+- A base de dados de sincronização utilizada na sincronização de dados SQL.  Ao contrário das bases de dados de sincronização, as bases de dados do hub e dos membros suportam a pausa automática.
 - Pseudónimo do DNS
 - A base de dados de trabalho utilizada em Elastic Jobs (pré-visualização).
 
-A utilização automática é temporariamente impedida durante a implementação de algumas atualizações de serviço que exigem que a base de dados esteja online.  Nesses casos, a autopausing torna-se permitida novamente assim que a atualização do serviço estiver concluída.
+A pausa automática é temporariamente impedida durante a implementação de algumas atualizações de serviço que exigem que a base de dados esteja online.  Nesses casos, a pausa automática torna-se novamente permitida uma vez concluída a atualização do serviço.
 
-### <a name="autoresuming"></a>Autoresuming
+### <a name="auto-resuming"></a>Retoma automática
 
-A autoresuming é desencadeada se alguma das seguintes condições for verdadeira a qualquer momento:
+O reinício automático é desencadeado se alguma das seguintes condições for verdadeira a qualquer momento:
 
-|Funcionalidade|Gatilho autoresume|
+|Funcionalidade|Gatilho de currículo automático|
 |---|---|
 |Autenticação e autorização|Iniciar sessão|
 |Deteção de ameaças|Ativar/desativar definições de deteção de ameaças no nível da base de dados ou do servidor.<br>Modificar as definições de deteção de ameaças na base de dados ou no nível do servidor.|
@@ -139,7 +139,7 @@ A autoresuming é desencadeada se alguma das seguintes condições for verdadeir
 |Avaliação de vulnerabilidades|Exames ad hoc e exames periódicos se ativados|
 |Loja de dados de consulta (desempenho)|Modificar ou visualizar definições de lojas de consultas|
 |Recomendações de desempenho|Visualização ou aplicação de recomendações de desempenho|
-|Autofinar|Aplicação e verificação de recomendações de autotuning, tais como auto-indexação|
+|Afinação automática|Aplicação e verificação de recomendações de afinação automática, tais como auto-indexação|
 |Cópia da base de dados|Criar base de dados como cópia.<br>Exportar para um ficheiro BACPAC.|
 |Sincronização de dados SQL|Sincronização entre bases de dados do hub e dos membros que funcionam num horário configurável ou são realizadas manualmente|
 |Modificação de certos metadados de base de dados|Adicionando novas etiquetas de base de dados.<br>Alterar max vCores, min vCores ou atraso de automatização.|
@@ -147,7 +147,7 @@ A autoresuming é desencadeada se alguma das seguintes condições for verdadeir
 
 A monitorização, gestão ou outras soluções que efetuem qualquer uma das operações acima enumeradas desencadeará o reinício automático.
 
-A autoresuming também é desencadeada durante a implementação de algumas atualizações de serviço que exigem que a base de dados esteja online.
+O reinício automático também é desencadeado durante a implementação de algumas atualizações de serviço que exigem que a base de dados esteja online.
 
 ### <a name="connectivity"></a>Conectividade
 
@@ -155,7 +155,7 @@ Se uma base de dados sem servidor for interrompida, o primeiro login retomará a
 
 ### <a name="latency"></a>Latência
 
-A latência para o autoresume e para a automatização de uma base de dados sem servidor é geralmente ordem de 1 minuto para o autoresume e 1-10 minutos para a automatização.
+A latência para retomar automaticamente e fazer uma pausa automática numa base de dados sem servidor é geralmente ordem de 1 minuto para retomar automaticamente e 1-10 minutos para fazer uma pausa automática.
 
 ### <a name="customer-managed-transparent-data-encryption-byok"></a>Encriptação de dados transparente gerida pelo cliente (BYOK)
 
@@ -209,7 +209,7 @@ CREATE DATABASE testdb
 ( EDITION = 'GeneralPurpose', SERVICE_OBJECTIVE = 'GP_S_Gen5_1' ) ;
 ```
 
-Para mais informações, consulte [a BASE DE DADOS CREATE](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current).  
+Para mais informações, consulte [a BASE DE DADOS CREATE](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current&preserve-view=true).  
 
 ### <a name="move-a-database-from-the-provisioned-compute-tier-into-the-serverless-compute-tier"></a>Mover uma base de dados do nível de computação provisionado para o nível de computação sem servidor
 
@@ -234,14 +234,14 @@ az sql db update -g $resourceGroupName -s $serverName -n $databaseName `
 
 #### <a name="use-transact-sql-t-sql"></a>Utilizar Transact-SQL (T-SQL)
 
-Ao utilizar o T-SQL, são aplicados valores predefinidos para os min vcores e para o atraso da utilização automática.
+Ao utilizar o T-SQL, são aplicados valores predefinidos para os vcores min e para a pausa automática.
 
 ```sql
 ALTER DATABASE testdb 
 MODIFY ( SERVICE_OBJECTIVE = 'GP_S_Gen5_1') ;
 ```
 
-Para mais informações, consulte [a ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current).
+Para mais informações, consulte [a ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current&preserve-view=true).
 
 ### <a name="move-a-database-from-the-serverless-compute-tier-into-the-provisioned-compute-tier"></a>Mover uma base de dados do nível de computação sem servidor para o nível de computação provisionado
 
@@ -366,7 +366,7 @@ O Azure Hybrid Benefit (AHB) e os descontos de capacidade reservados não se apl
 
 O nível de computação sem servidores está disponível em todo o mundo, exceto as seguintes regiões: China East, China North, Germany Central, Germany Northeast, e US Gov Central (Iowa).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para começar, consulte [Quickstart: Crie uma única base de dados na Base de Dados Azure SQL utilizando o portal Azure](single-database-create-quickstart.md).
 - Para obter limites de recursos, consulte [os limites de recursos de nível de cálculo serverless](resource-limits-vcore-single-databases.md#general-purpose---serverless-compute---gen5).

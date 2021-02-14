@@ -9,12 +9,12 @@ ms.date: 1/8/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 7f6e90edc0503326dc9dbb06abfcf59fa2d51e1e
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 9ae7009468b548cb9386fd405abfbe110d62f9a3
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92043821"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100377521"
 ---
 # <a name="deploy-iot-edge-modules-at-scale-using-visual-studio-code"></a>Implementar módulos IoT Edge em escala usando Código de Estúdio Visual
 
@@ -82,7 +82,7 @@ Aqui está um manifesto básico de implantação com um módulo como exemplo:
             "edgeAgent": {
               "type": "docker",
               "settings": {
-                "image": "mcr.microsoft.com/azureiotedge-agent:1.0",
+                "image": "mcr.microsoft.com/azureiotedge-agent:1.1",
                 "createOptions": "{}"
               }
             },
@@ -91,7 +91,7 @@ Aqui está um manifesto básico de implantação com um módulo como exemplo:
               "status": "running",
               "restartPolicy": "always",
               "settings": {
-                "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
+                "image": "mcr.microsoft.com/azureiotedge-hub:1.1",
                 "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}]}}}"
               }
             }
@@ -229,7 +229,7 @@ Depois de configurar o manifesto de implantação e configurar as etiquetas no d
   | Parâmetro | Descrição |
   | --- | --- |
   | ID de implantação | O nome da implantação que será criada no hub IoT. Dê à sua implantação um nome único que seja até 128 letras minúsculas. Evite espaços e os seguintes caracteres inválidos: `& ^ [ ] { } \ | " < > /` . |
-  | Condição do alvo | Introduza uma condição de destino para determinar quais os dispositivos que serão alvo com esta implementação.A condição baseia-se em etiquetas gémeas do dispositivo ou no dispositivo que as propriedades reportadas por gémeos e devem corresponder ao formato de expressão.Por exemplo, `tags.environment='test' and properties.reported.devicemodel='4000x'` . |
+  | Condição do alvo | Introduza uma condição de destino para determinar quais os dispositivos que serão alvo com esta implementação. A condição baseia-se em etiquetas gémeas do dispositivo ou no dispositivo que as propriedades reportadas por gémeos e devem corresponder ao formato de expressão. Por exemplo, `tags.environment='test' and properties.reported.devicemodel='4000x'`. |
   | Prioridade |  Um inteiro positivo. Se duas ou mais implementações forem direcionadas para o mesmo dispositivo, aplicar-se-á a implantação com o valor numérico mais elevado de Prioridade. |
 
   Depois de especificar a prioridade, o terminal deve apresentar uma saída semelhante à seguinte representação:

@@ -1,5 +1,5 @@
 ---
-title: Geo-filtração num domínio para Azure Front Door / Microsoft Docs
+title: Geo-filtração em um domínio para Azure Front Door | Microsoft Docs
 description: Neste artigo, você aprende sobre a política de geo-filtragem para Azure Front Door
 services: frontdoor
 documentationcenter: ''
@@ -13,18 +13,19 @@ ms.topic: article
 ms.date: 09/28/2020
 ms.author: duau
 ms.reviewer: tyao
-ms.openlocfilehash: 42697a57d39f4a34eee4866b67e2cde947db1ff5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1cd3d4837c39fdeb0e7addced10ab2e7fd330b9a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91449253"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100369429"
 ---
 # <a name="geo-filtering-on-a-domain-for-azure-front-door"></a>Geo-filtração em um domínio para Azure Front Door
 
 Por predefinição, a Porta Frontal Azure responderá a todos os pedidos do utilizador, independentemente do local de onde o pedido está a vir. Em alguns cenários, poderá querer restringir o acesso à sua aplicação web por países/regiões. O serviço de firewall de aplicação Web (WAF) na Porta Frontal permite-lhe definir uma política usando regras de acesso personalizado para uma trajetória específica no seu ponto final para permitir ou bloquear o acesso de países/regiões especificados. 
 
-Uma política da WAF contém um conjunto de regras personalizadas. A regra consiste em condições de jogo, uma ação e uma prioridade. Em condições de jogo, você define uma variável de correspondência, operador e valor de correspondência. Para uma regra de filtragem geo, uma variável de correspondência é REMOTE_ADDR, o operador é GeoMatch, e o valor é um código de interesse país/região de duas letras. Pode combinar uma condição GeoMatch e uma condição de correspondência de cordas REQUEST_URI para criar uma regra de geo-filtragem baseada no caminho.
+Uma política da WAF contém um conjunto de regras personalizadas. A regra consiste em condições de jogo, uma ação e uma prioridade. Em condições de jogo, você define uma variável de correspondência, operador e valor de correspondência. Para uma regra de filtragem geo, uma variável de correspondência é REMOTE_ADDR, o operador é GeoMatch, e o valor é um código de interesse país/região de duas letras. O código de país "ZZ" ou o país "Desconhecido" captura endereços IP que ainda não estão mapeados para um país no nosso conjunto de dados. Pode adicionar ZZ à sua condição de jogo para evitar falsos positivos. Pode combinar uma condição GeoMatch e uma condição de correspondência de cordas REQUEST_URI para criar uma regra de geo-filtragem baseada no caminho. 
+
 
 Pode configurar uma política de geo-filtragem para a sua porta frontal utilizando [o Azure PowerShell](front-door-tutorial-geo-filtering.md) ou utilizando um [modelo de arranque rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/101-front-door-geo-filtering).
 
@@ -53,7 +54,7 @@ Pode configurar uma política de geo-filtragem para a sua porta frontal utilizan
 | BH | Barém|
 | BI | Burundi|
 | BJ | Benim|
-| BL | São Barthélemy|
+| BL | São Bartolomeu|
 | BN | Brunei Darussalam|
 | BO | Bolívia|
 | BR | Brasil|

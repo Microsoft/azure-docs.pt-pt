@@ -1,19 +1,18 @@
 ---
 title: Fluxos de dados de mapeamento de resolução de problemas
 description: Saiba como resolver problemas de fluxo de dados na Azure Data Factory.
-services: data-factory
 ms.author: makromer
 author: kromerm
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 09/11/2020
-ms.openlocfilehash: cc87694686bd5143b03d690286bd3171cf8b0e18
-ms.sourcegitcommit: 983eb1131d59664c594dcb2829eb6d49c4af1560
+ms.openlocfilehash: 8370940b1d7131142810d53e93c35f65e14b7575
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99222154"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100367933"
 ---
 # <a name="troubleshoot-mapping-data-flows-in-azure-data-factory"></a>Fluxos de dados de mapeamento de resolução de problemas na Azure Data Factory
 

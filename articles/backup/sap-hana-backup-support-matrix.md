@@ -4,12 +4,12 @@ description: Neste artigo, conheça os cenários e limitações suportados quand
 ms.topic: conceptual
 ms.date: 11/7/2019
 ms.custom: references_regions
-ms.openlocfilehash: 5065f4cf3d9ab75c6e3b682b6a24387ce7449b0f
-ms.sourcegitcommit: 61d2b2211f3cc18f1be203c1bc12068fc678b584
+ms.openlocfilehash: 810b91a343a5f61778f8ca77a4c9d7ea752411a6
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98562663"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100384083"
 ---
 # <a name="support-matrix-for-backup-of-sap-hana-databases-on-azure-vms"></a>Matriz de suporte da cópia de segurança de bases de dados SAP HANA nas VMs do Azure
 
@@ -25,14 +25,14 @@ A Azure Backup suporta a cópia de segurança das bases de dados SAP HANA para a
 | **Topologia**               | SAP HANA a funcionar apenas em VMs Azure Linux                    | HANA Grandes Instâncias (HLI)                                   |
 | **Regiões**                   | **GA:**<br> **Américas** – Central EUA, Leste dos EUA 2, Leste dos EUA, Norte Central EUA, Centro Sul dos EUA, West Central US, West Central US, West Us, Canadá Central, Canadá Leste, Brasil Sul <br> **Ásia Pacífico** – Austrália Central, Austrália Central 2, Austrália Leste, Austrália Sudeste, Japão Leste, Japão Oeste, Coreia Central, Coreia do Sul, Ásia Oriental, Sudeste Asiático, Índia Central, Índia Central, Índia Ocidental, China Leste, China Norte, China Leste2, China Norte 2 <br> **Europa** – Europa Ocidental, Norte da Europa, França Central, Reino Unido Sul, Reino Unido Oeste, Alemanha Norte, Alemanha Central Ocidental, Suíça Norte, Suíça Oeste, Suíça Norte, Noruega Leste, Noruega Oeste <br> **África / ME** - África do Sul Norte, África do Sul Oeste, Emirados Árabes Unidos Norte, Uae Central  <BR>  **Regiões do Azure Government** | França Sul, Alemanha Central, Alemanha Nordeste, EUA Gov IOWA |
 | **Versões de SO**            | SLES 12 com SP2, SP3, SP4 e SP5; SLES 15 com SP0, SP1, SP2 <br><br>  A partir de 1 de agosto de 2020, o backup SAP HANA para a RHEL (7.4, 7.6, 7,7 & 8.1) está geralmente disponível.                |                                             |
-| **Versões HANA**          | SDC em HANA 1.x, MDC em HANA 2.x <= SPS04 Rev 53, SPS05 (ainda a ser validado para cenários habilitados para encriptação)      |                                                            |
+| **Versões HANA**          | SDC em HANA 1.x, MDC em HANA 2.x SPS04, SPS05 Rev <= 53 (validado para cenários ativados por encriptação também)      |                                                            |
 | **Implantações hana**       | SAP HANA em um único Azure VM - Escalar apenas. <br><br> Para implementações de alta disponibilidade, ambos os nós nas duas máquinas diferentes são tratados como nós individuais com cadeias de dados separadas.               | Aumentar <br><br> Em implementações de alta disponibilidade, a cópia de segurança não falha automaticamente no nó secundário. A cópia de segurança configurante deve ser feita separadamente para cada nó.                                           |
 | **Instâncias HANA**         | Um único caso SAP HANA em um único Azure VM - escala apenas | Múltiplas ocorrências de SAP HANA num único VM. Só pode proteger uma destas múltiplas instâncias de cada vez.                  |
 | **Tipos de base de dados HANA**    | Único Recipiente de Base de Dados (SDC) ON 1.x, Recipiente Multi-Base de Dados (MDC) em 2.x | MDC em HANA 1.x                                              |
-| **Tamanho da base de dados HANA**     | Bases de dados HANA de tamanho <= 2 TB (este não é o tamanho da memória do sistema HANA)               |                                                              |
+| **Tamanho da base de dados HANA**     | Bases de dados HANA de tamanho <= 8 TB (este não é o tamanho da memória do sistema HANA)               |                                                              |
 | **Tipos de cópia de segurança**           | Cópias de segurança completas, diferenciais, incrementais (pré-visualização) e backups de registo                          |  Instantâneos                                       |
 | **Tipos de restauro**          | Consulte a Nota [HANA HANA 1642148](https://launchpad.support.sap.com/#/notes/1642148) para saber mais sobre os tipos de restauro suportados |                                                              |
-| **Limites de backup**          | Até 2 TB de tamanho de backup completo por instância SAP HANA (limite suave)         |                                                              |
+| **Limites de backup**          | Até 8 TB de tamanho de backup completo por instância SAP HANA (limite suave)         |                                                              |
 | **Configurações especiais** |                                                              | SAP HANA + Tiering Dinâmico <br>  Clonagem através de LaMa        |
 
 ------

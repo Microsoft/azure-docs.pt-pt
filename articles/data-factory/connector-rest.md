@@ -1,22 +1,17 @@
 ---
 title: Copiar dados de e para um ponto final REST utilizando a Azure Data Factory
 description: Saiba como copiar dados de uma fonte de nuvem ou no local REST para lojas de dados de sumidouros suportados, ou de uma loja de dados de origem suportada para um lavatório REST utilizando uma atividade de cópia num oleoduto Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/08/2020
 ms.author: jingwang
-ms.openlocfilehash: 3fc567b7d4b2efab03e5d93adda62839d47f7522
-ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
+ms.openlocfilehash: 972a7b32e6308c3aa8a3b42705038838dae9b2be
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99223105"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100369888"
 ---
 # <a name="copy-data-from-and-to-a-rest-endpoint-by-using-azure-data-factory"></a>Copiar dados de e para um ponto final REST utilizando a Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -385,7 +380,7 @@ Este conector GENÉRICO REST suporta os seguintes padrões de paginação:
 
 **Exemplo:**
 
-A API do Facebook Graph devolve a resposta na seguinte estrutura, caso em que o URL da próxima página está representado em **_paging.next_* _:
+A API do Facebook Graph devolve a resposta na seguinte estrutura, caso em que o URL da próxima página está representado em ***paging.next***:
 
 ```json
 {
@@ -440,7 +435,7 @@ Esta secção descreve como usar um modelo de solução para copiar dados do con
 ### <a name="about-the-solution-template"></a>Sobre o modelo de solução
 
 O modelo contém duas atividades:
-- _ A atividade *Web** recupera o token do portador e, em seguida, passa-o para a atividade de Cópia subsequente como autorização.
+- **A** atividade web recupera o token do portador e, em seguida, passa-o para a atividade de Cópia subsequente como autorização.
 - **Copiar** a atividade copia dados do REST para o Azure Data Lake Storage.
 
 O modelo define dois parâmetros:

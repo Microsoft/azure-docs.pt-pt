@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0dcb6d24eacbe594a907f084874e76fea963c561
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 0ac3141823eb72b17754a771cd63264fe851949d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98725133"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100365366"
 ---
 # <a name="control-access-with-sensitivity-labels"></a>Controlar o acesso com etiquetas de sensibilidade 
 
@@ -66,7 +66,7 @@ Ao pensar em governar o acesso externo ao seu conteúdo, determine o seguinte:
 
 * Quais os predefinições para dados, sites ou Grupos Microsoft 365?
 
-* Onde utilizará rótulos de sensibilidade para [rotular e monitorizar,](/microsoft-365/compliance/label-analytics?view=o365-worldwide)versus para [impor encriptação](/microsoft-365/compliance/encryption-sensitivity-labels?view=o365-worldwide) ou para [impor restrições](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites?view=o365-worldwide)de acesso ao contentor?
+* Onde utilizará rótulos de sensibilidade para [rotular e monitorizar,](/microsoft-365/compliance/sensitivity-labels?view=o365-worldwide)versus para [impor encriptação](/microsoft-365/compliance/encryption-sensitivity-labels?view=o365-worldwide) ou para [impor restrições](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites?view=o365-worldwide)de acesso ao contentor?
 
 **Para e-mail e conteúdo**
 
@@ -136,7 +136,7 @@ Depois de ter determinado como pretende utilizar etiquetas de sensibilidade e em
 
 6. [Permitir etiquetas de sensibilidade para ficheiros office em SharePoint e OneDrive](/microsoft-365/compliance/sensitivity-labels-sharepoint-onedrive-files?view=o365-worldwide)
 
-### <a name="next-steps"></a>Próximos passos
+### <a name="next-steps"></a>Passos seguintes
 
 Consulte os seguintes artigos sobre a garantia do acesso externo aos recursos. Recomendamos que tome as ações na ordem listada.
 

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 3bb0aadf81ba501070ce0c734847bb16c0378896
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 04bbb0465f26e82d247c53e7393c4476b9d36fde
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98624043"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100386854"
 ---
 # <a name="tutorial-migrate-web-service-from-google-maps"></a>Tutorial: Migrar o serviço web do Google Maps
 
@@ -54,7 +54,7 @@ A tabela mostra as APIs do serviço Azure Maps, que têm uma funcionalidade seme
 
 As apis de serviço a seguir não estão atualmente disponíveis no Azure Maps:
 
-- Geolocalização
+- Geolocalização - A Azure Maps tem um serviço chamado Geolocalização, mas fornece endereço IP para informações de localização, mas atualmente não suporta torre de telemóvel ou triangulação WiFi.
 - Locais detalhes e fotos - Os números de telefone e URL do site estão disponíveis na API de pesquisa de Mapas Azure.
 - URLs de mapa
 - Estradas mais próximas - Isto é possível usando o Web SDK como mostrado [aqui](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Basic%20snap%20to%20road%20logic), mas não disponível como um serviço atualmente.
@@ -116,7 +116,7 @@ Esta tabela cruza referências aos parâmetros API do Google Maps com os parâme
 | `key`                       | `subscription-key`– Consulte também a [documentação autenticação com Azure Maps.](azure-maps-authentication.md) |
 | `language`                  | `language`– Consulte a documentação [de línguas suportadas.](supported-languages.md)  |
 | `latlng`                    | `query`  |
-| `location_type`             | *N/D*     |
+| `location_type`             | *N/A*     |
 | `result_type`               | `entityType`    |
 
 Reveja as [melhores práticas de pesquisa.](how-to-use-best-practices-for-search.md)
@@ -160,9 +160,9 @@ A tabela cruza referências aos parâmetros API do Google Maps com os parâmetro
 
 | Parâmetro API do Google Maps | Parâmetro API de Mapas Azuis comparáveis |
 |---------------------------|-------------------------------------|
-| `fields`                  | *N/D*                               |
+| `fields`                  | *N/A*                               |
 | `input`                   | `query`                             |
-| `inputtype`               | *N/D*                               |
+| `inputtype`               | *N/A*                               |
 | `key`                     | `subscription-key`– Consulte também a [documentação autenticação com Azure Maps.](azure-maps-authentication.md) |
 | `language`                | `language`– Consulte a documentação [de línguas suportadas.](supported-languages.md)  |
 | `locationbias`            | `lat`, `lon` e `radius`<br/>`topLeft` e `btmRight`<br/>`countrySet`  |
@@ -179,13 +179,13 @@ A tabela mostra os parâmetros API do Google Maps com os parâmetros API compar�
 | `keyword`                   | `categorySet` e `brandSet`        |
 | `language`                  | `language`– Consulte a documentação [de línguas suportadas.](supported-languages.md)  |
 | `location`                  | `lat` e `lon`                     |
-| `maxprice`                  | *N/D*                               |
-| `minprice`                  | *N/D*                               |
+| `maxprice`                  | *N/A*                               |
+| `minprice`                  | *N/A*                               |
 | `name`                      | `categorySet` e `brandSet`        |
-| `opennow`                   | *N/D*                               |
+| `opennow`                   | *N/A*                               |
 | `pagetoken`                 | `ofs` e `limit`                   |
 | `radius`                    | `radius`                            |
-| `rankby`                    | *N/D*                               |
+| `rankby`                    | *N/A*                               |
 | `type`                      | `categorySet –`Consulte a documentação [das categorias de pesquisa suportadas.](supported-search-categories.md)   |
 
 ## <a name="calculate-routes-and-directions"></a>Calcular rotas e direções
@@ -265,10 +265,10 @@ A tabela cruza referências aos parâmetros API do Google Maps com os parâmetro
 | `markers`                   | `pins`                             |
 | `path`                      | `path`                             |
 | `region`                    | *N/A* – Esta é uma característica relacionada com a geocodagem. Utilize o `countrySet` parâmetro quando utilizar a API de geocodagem Azure Maps.  |
-| `scale`                     | *N/D*                              |
+| `scale`                     | *N/A*                              |
 | `size`                      | `width` e `height` – pode ser até 8192x8192 em tamanho. |
-| `style`                     | *N/D*                              |
-| `visible`                   | *N/D*                              |
+| `style`                     | *N/A*                              |
+| `visible`                   | *N/A*                              |
 | `zoom`                      | `zoom`                             |
 
 > [!NOTE]
@@ -300,13 +300,13 @@ Especifique as localizações do marcador com o formato "latitude, longitude".
 
 Adicione estilos de marcador com o `optionName:value` formato, com vários estilos separados por tubo ( \| ) caracteres como este "optionName1:value1 \| optionName2:value2". Note que os nomes e valores das opções são separados com um cólon (:). Utilize os seguintes nomes de opção de estilo para marcadores de estilo no Google Maps:
 
-* `color` – A cor do ícone do marcador padrão. Pode ser uma cor hexapóxi de 24 `0xrrggbb` bits ou um dos seguintes valores; `black` , `brown` `green` `purple` `yellow` `blue` `gray` `orange` `red` . `white`
+* `color` – A cor do ícone do marcador padrão. Pode ser uma cor hexapóxi de 24 `0xrrggbb` bits ou um dos seguintes valores; `black` , , , , , `brown` , `green` `purple` `yellow` `blue` `gray` `orange` `red` . `white`
 * `label` – Um único personagem alfanumérico maiúscula para exibir em cima do ícone.
 * `size` - O tamanho do marcador. Pode `tiny` `mid` ser, ou `small` . .
 
 Utilize os seguintes nomes de opções de estilo para ícones personalizados no Google Maps:
 
-* `anchor` – Especifica como alinhar a imagem do ícone com a coordenada. Pode ser um valor pixel (x,y) ou um dos seguintes valores; `top`, `bottom` `left` `right` ou `center` `topleft` `topright` `bottomleft` `bottomright` .
+* `anchor` – Especifica como alinhar a imagem do ícone com a coordenada. Pode ser um valor pixel (x,y) ou um dos seguintes valores; `top`, `bottom` `left` , , , `right` , , , , , ou `center` `topleft` `topright` `bottomleft` `bottomright` .
 * `icon` – Um URL que aponta para a imagem do ícone.
 
 Por exemplo, vamos adicionar um marcador vermelho, de tamanho médio, ao mapa em longitude: -110, latitude: 45:

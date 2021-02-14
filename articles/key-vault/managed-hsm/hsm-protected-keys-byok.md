@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 02/04/2021
 ms.author: ambapat
-ms.openlocfilehash: 1a15ed6b92ade96dd2ed9ef6ffbbe17e2b1452ef
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 71cc36541b8809d93c84225edf771400d2878b4f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99581402"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100376059"
 ---
 # <a name="import-hsm-protected-keys-to-managed-hsm-byok"></a>Importa chaves protegidas pelo HSM para o HSM gerido (BYOK)
 
@@ -70,6 +70,7 @@ Para obter mais informações sobre as opções de login através do CLI, dê um
 |Securosys SA|Fabricante, HSM como serviço|Família Primus HSM, Securosys Clouds HSM|[Ferramenta e documentação Primus BYOK](https://www.securosys.com/primus-azure-byok)|
 |StorMagic|ISV (Sistema de Gestão de Chaves empresariais)|Múltiplas marcas e modelos HSM, incluindo<ul><li>Rio Utimaco</li><li>Thales</li><li>nCipher</li></ul>Consulte [o site StorMagic para mais detalhes](https://stormagic.com/doc/svkms/Content/Integrations/Azure_KeyVault_BYOK.htm)|[SvKMS e Azure Key Vault BYOK](https://stormagic.com/doc/svkms/Content/Integrations/Azure_KeyVault_BYOK.htm)|
 |IBM|Fabricante|IBM 476x, CryptoExpress|[Fundação de Gestão chave da EMPRESA IBM](https://www.ibm.com/security/key-management/ekmf-bring-your-own-key-azure)|
+|Rio Utimaco|Fabricante,<br/>HSM como serviço|u.trust Anchor, CryptoServer|[Guia de ferramentas e integração utimaco BYOK](https://support.hsm.utimaco.com/support/downloads/byok)|
 ||||
 
 

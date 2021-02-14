@@ -4,18 +4,14 @@ description: Descreve as funções e permissões necessárias para criar Fábric
 ms.date: 11/5/2018
 ms.topic: conceptual
 ms.service: data-factory
-services: data-factory
-documentationcenter: ''
-ms.workload: data-services
 author: dcstwh
 ms.author: weetok
-manager: anandsub
-ms.openlocfilehash: 30e07b645701cf560534b152ae42559213daf838
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: cec5df9a5046e912ab8542c91bde4344affa0925
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99053776"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100364482"
 ---
 # <a name="roles-and-permissions-for-azure-data-factory"></a>Funções e permissões do Azure Data Factory
 
@@ -54,14 +50,13 @@ A função **de Contribuinte de Fábrica de Dados,** ao nível do grupo de recur
 
 As permissões em Azure Repos e GitHub são independentes das permissões da Data Factory. Como resultado, um utilizador com permissões de repouso que seja apenas um membro da função Reader pode editar recursos infantis data Factory e cometer alterações no repo, mas não pode publicar estas alterações.
 
+
 > [!IMPORTANT]
 > A implementação do modelo do Gestor de Recursos com a função **de Contribuinte de Fábrica de Dados** não eleva as suas permissões. Por exemplo, se implementar um modelo que cria uma máquina virtual Azure e não tiver permissão para criar máquinas virtuais, a implementação falha com um erro de autorização.
 
-> [!IMPORTANT]
-> A permissão **Microsoft.DataFactory/fábricas/write** é necessária em ambos os modos dentro do contexto de publicação.
-
-- Esta permissão só é necessária no modo Live quando o cliente modifica parâmetros globais.
-- Esta permissão é sempre necessária no modo Git uma vez que todas as vezes após a publicação do cliente, porque o objeto de fábrica com o último id de compromisso é atualizado.
+   No contexto de publicação, a permissão **Microsoft.DataFactory/fábricas/write** aplica-se aos seguintes modos.
+- Essa permissão só é necessária no modo Live quando o cliente modifica os parâmetros globais.
+- Essa permissão é sempre necessária no modo Git uma vez que sempre após a publicação do cliente, o objeto de fábrica com o último ID de compromisso precisa de ser atualizado.
 
 ### <a name="custom-scenarios-and-custom-roles"></a>Cenários personalizados e funções personalizadas
 
@@ -95,6 +90,7 @@ Aqui estão alguns exemplos que demonstram o que pode conseguir com funções pe
 - Deixe um utilizador atualizar uma fábrica de dados da PowerShell ou da SDK, mas não no portal Azure.
 
   Atribua o papel **de contribuinte** incorporado no recurso de fábrica de dados para o utilizador. Esta função permite ao utilizador ver os recursos no portal Azure, mas o utilizador não consegue aceder aos botões **Publicar** e **Publicar Todos.**
+
 
 ## <a name="next-steps"></a>Passos seguintes
 
