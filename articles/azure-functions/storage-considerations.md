@@ -3,12 +3,12 @@ title: Considerações de armazenamento para funções Azure
 description: Saiba mais sobre os requisitos de armazenamento das Funções Azure e sobre a encriptação de dados armazenados.
 ms.topic: conceptual
 ms.date: 07/27/2020
-ms.openlocfilehash: 66bfded384be47224e86ee8e0a2999fe3d4ed5d9
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: c4ffb622482585e35337caf8e43b69e0f3b0385c
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936163"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100517268"
 ---
 # <a name="storage-considerations-for-azure-functions"></a>Considerações de armazenamento para funções Azure
 
@@ -19,7 +19,7 @@ As Funções Azure requerem uma conta de Armazenamento Azure quando cria uma ins
 |---------|---------|
 | [Armazenamento de Blobs do Azure](../storage/blobs/storage-blobs-introduction.md)     | Mantenha as chaves de estado e de função de encadernação.  <br/>Também utilizado por [centros de tarefas em Funções Duradouras](durable/durable-functions-task-hubs.md). |
 | [Ficheiros do Azure](../storage/files/storage-files-introduction.md)  | Partilha de ficheiros usada para armazenar e executar o código de aplicação da sua função num [Plano de Consumo](consumption-plan.md) e Plano [Premium.](functions-premium-plan.md) |
-| [Armazenamento da fila Azure](../storage/queues/storage-queues-introduction.md)     | Utilizado por [centros de tarefas em Funções Duradouras](durable/durable-functions-task-hubs.md).   |
+| [Armazenamento de Filas do Azure](../storage/queues/storage-queues-introduction.md)     | Utilizado por [centros de tarefas em Funções Duradouras](durable/durable-functions-task-hubs.md).   |
 | [Armazenamento de tabelas do Azure](../storage/tables/table-storage-overview.md)  |  Utilizado por [centros de tarefas em Funções Duradouras](durable/durable-functions-task-hubs.md).       |
 
 > [!IMPORTANT]
@@ -27,7 +27,7 @@ As Funções Azure requerem uma conta de Armazenamento Azure quando cria uma ins
 
 ## <a name="storage-account-requirements"></a>Requisitos da conta de armazenamento
 
-Ao criar uma aplicação de função, deve criar ou ligar para uma conta de Armazenamento Azure de uso geral que suporte o armazenamento de Blob, Queue e Table. Isto porque as funções dependem do Azure Storage para operações como a gestão de gatilhos e execuções de funções de registo. Algumas contas de armazenamento não suportam filas e mesas. Estas contas incluem contas de armazenamento apenas blob, armazenamento Azure Premium e contas de armazenamento de uso geral com replicação ZRS.
+Ao criar uma aplicação de função, deve criar ou ligar para uma conta de Armazenamento Azure de uso geral que suporte o armazenamento de Blob, Queue e Table. Isto porque as funções dependem do Azure Storage para operações como a gestão de gatilhos e execuções de funções de registo. Algumas contas de armazenamento não suportam filas e mesas. Estas contas incluem contas de armazenamento apenas blob e armazenamento Azure Premium.
 
 Para saber mais sobre os tipos de conta de armazenamento, veja [Introdução dos Serviços de Armazenamento do Azure](../storage/common/storage-introduction.md#core-storage-services). 
 

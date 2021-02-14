@@ -3,12 +3,12 @@ title: Conceitos - Interconectividade da rede
 description: Conheça os principais aspetos e utilize casos de networking e interconectividade na Azure VMware Solution.
 ms.topic: conceptual
 ms.date: 02/02/2021
-ms.openlocfilehash: bc8a2f8c07a2a4fe37c4899dc33d5173a99dc423
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: ddf8f5b6aa06154a6edde7b4a78902d8f13eab78
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99538980"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100364907"
 ---
 # <a name="azure-vmware-solution-networking-and-interconnectivity-concepts"></a>Conceitos de networking e interconectividade Azure VMware Solution
 
@@ -39,7 +39,7 @@ Os casos de utilização de nuvens privadas Azure VMware Solution incluem:
 Na rede virtual para implementação de nuvem privada, pode gerir a sua nuvem privada Azure VMware Solution, consumir cargas de trabalho na sua nuvem privada e aceder aos serviços Azure sobre a ligação ExpressRoute. 
 
 O diagrama abaixo mostra a interconectividade básica da rede estabelecida no momento de uma implantação de nuvem privada. Mostra a rede lógica baseada no ExpressRoute entre uma rede virtual em Azure e uma nuvem privada. A interconectividade preenche três dos casos de utilização primária:
-* Acesso de entrada ao servidor vCenter e ao gestor NSX-T que esteja acessível a partir de VMs na sua subscrição Azure e não a partir dos seus sistemas no local. 
+* Acesso de entrada ao servidor vCenter e ao NSX-T Manager que esteja acessível a partir de VMs na sua subscrição Azure e não a partir dos seus sistemas no local. 
 * Acesso de saída dos serviços VMs para Azure. 
 * Acesso de entrada e consumo de cargas de trabalho com uma nuvem privada.
 
@@ -69,4 +69,5 @@ Agora que cobriu a rede Azure VMware Solution e os conceitos de interconectivida
 [enable Global Reach]: ../expressroute/expressroute-howto-set-global-reach.md
 
 <!-- LINKS - internal -->
-
+[concepts-upgrades]: ./concepts-upgrades.md
+[concepts-storage]: ./concepts-storage.md

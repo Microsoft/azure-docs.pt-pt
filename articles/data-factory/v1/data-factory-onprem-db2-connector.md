@@ -1,23 +1,18 @@
 ---
 title: Mover dados da DB2 utilizando a Azure Data Factory
 description: Saiba como mover dados a partir de uma base de dados DB2 no local, utilizando a atividade de cópia da fábrica de dados Azure
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.assetid: c1644e17-4560-46bb-bf3c-b923126671f1
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: e5d2c6b0460c3a7566adb17601aceb57e57f4d0b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: bcd1e6f9f9be1765e76399707ae36776a9f1987d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96001070"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100387364"
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Mover dados do DB2 utilizando a atividade de cópia da fábrica de dados Azure
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -80,14 +75,14 @@ A tabela a seguir lista as propriedades JSON específicas de um serviço ligado 
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| **tipo** |Esta propriedade deve ser definida para **OnPremisesDb2**. |Sim |
-| **servidor** |O nome do servidor DB2. |Sim |
-| **base de dados** |O nome da base de dados DB2. |Sim |
-| **esquema** |O nome do esquema na base de dados DB2. Esta propriedade é sensível a casos. |Não |
-| **authenticationType** |O tipo de autenticação que é utilizado para ligar à base de dados DB2. Os valores possíveis são: Anónimo, Básico e Windows. |Sim |
-| **nome de utilizador** |O nome da conta de utilizador se utilizar a autenticação Basic ou Windows. |Não |
-| **palavra-passe** |A palavra-passe para a conta de utilizador. |Não |
-| **gatewayName** |O nome do gateway que o serviço data factory deve usar para ligar à base de dados DB2 no local. |Sim |
+| **tipo** |Esta propriedade deve ser definida para **OnPremisesDb2**. |Yes |
+| **servidor** |O nome do servidor DB2. |Yes |
+| **base de dados** |O nome da base de dados DB2. |Yes |
+| **esquema** |O nome do esquema na base de dados DB2. Esta propriedade é sensível a casos. |No |
+| **authenticationType** |O tipo de autenticação que é utilizado para ligar à base de dados DB2. Os valores possíveis são: Anónimo, Básico e Windows. |Yes |
+| **nome de utilizador** |O nome da conta de utilizador se utilizar a autenticação Basic ou Windows. |No |
+| **palavra-passe** |A palavra-passe para a conta de utilizador. |No |
+| **gatewayName** |O nome do gateway que o serviço data factory deve usar para ligar à base de dados DB2 no local. |Yes |
 
 ## <a name="dataset-properties"></a>Dataset properties (Propriedades do conjunto de dados)
 Para obter uma lista das secções e propriedades disponíveis para definir conjuntos de dados, consulte o artigo [Criar conjuntos de dados.](data-factory-create-datasets.md) Secções, como **estrutura,** **disponibilidade,** e **a política** para um conjunto de dados JSON, são semelhantes para todos os tipos de conjunto de dados (Azure SQL, armazenamento Azure Blob, armazenamento de mesa Azure, e assim por diante).
@@ -315,10 +310,10 @@ Os seguintes mapeamentos são utilizados quando a Copy Activity converte os dado
 | Float |Double (Duplo) |
 | Decimal |Decimal |
 | DecimalFloat |Decimal |
-| Numérico |Decimal |
+| Operador numérico |Decimal |
 | Data |Data e Hora |
 | Hora |TimeSpan |
-| Timestamp |DateTime |
+| CarimboDeDataEHora |DateTime |
 | Xml |Byte[] |
 | Char |String |
 | Rio VarChar |String |
@@ -341,10 +336,10 @@ Os seguintes mapeamentos são utilizados quando a Copy Activity converte os dado
 | Float |Double (Duplo) |
 | Decimal |Decimal |
 | DecimalFloat |Decimal |
-| Numérico |Decimal |
+| Operador numérico |Decimal |
 | Data |Data e Hora |
 | Hora |TimeSpan |
-| Timestamp |DateTime |
+| CarimboDeDataEHora |DateTime |
 | Xml |Byte[] |
 | Char |String |
 

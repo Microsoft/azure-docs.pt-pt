@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/07/2020
-ms.openlocfilehash: cf3c07f32f15ff176974219bd8143a1ea315c945
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: f8d8547c2d4900e6258f7360c50d8dfc17157832
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93423050"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100517249"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql---single-server"></a>Visão geral da continuidade do negócio com base de dados Azure para PostgreSQL - Servidor Único
 
@@ -21,7 +21,7 @@ Esta visão geral descreve as capacidades que a Base de Dados Azure para Postgre
 
 À medida que desenvolve o seu plano de continuidade de negócio, precisa de compreender o tempo máximo aceitável antes que a aplicação recupere totalmente após o evento disruptivo - este é o seu Objetivo de Tempo de Recuperação (RTO). Também precisa de compreender a quantidade máxima de atualizações de dados recentes (intervalo de tempo) que a aplicação pode tolerar perder ao recuperar após o evento disruptivo - este é o seu Objetivo de Ponto de Recuperação (RPO).
 
-A Azure Database for PostgreSQL fornece funcionalidades de continuidade de negócios que incluem backups geo-redundantes com a capacidade de iniciar o geo-restauro, e implantar réplicas de leitura em uma região diferente. Cada um tem características diferentes para o tempo de recuperação e a perda de dados potenciais. Com a funcionalidade [Geo-restauro,](concepts-backup.md) um novo servidor é criado usando os dados de backup que são replicados a partir de outra região. O tempo total que leva para restaurar e recuperar depende do tamanho da base de dados e da quantidade de registos para recuperar. O tempo geral para estabelecer o servidor varia de poucos minutos a poucas horas. Com [réplicas lidas,](concepts-read-replicas.md)os registos de transações das primárias são assíncronos transmitidos para a réplica. Em caso de interrupção da base de dados primária devido a uma falha ao nível da zona ou a uma falha a nível da região, a falha na réplica fornece um RTO mais curto e uma redução da perda de dados.
+A Base de Dados do Azure para PostgreSQL proporciona funcionalidades de continuidade empresarial que incluem cópias de segurança georredundantes, com a capacidade de iniciar o georrestauro, e a implementação de réplicas de leitura numa região diferente. Cada um tem características diferentes para o tempo de recuperação e a perda de dados potenciais. Com a funcionalidade [Geo-restauro,](concepts-backup.md) um novo servidor é criado usando os dados de backup que são replicados a partir de outra região. O tempo total que leva para restaurar e recuperar depende do tamanho da base de dados e da quantidade de registos para recuperar. O tempo geral para estabelecer o servidor varia de poucos minutos a poucas horas. Com [réplicas lidas,](concepts-read-replicas.md)os registos de transações das primárias são assíncronos transmitidos para a réplica. Em caso de interrupção da base de dados primária devido a uma falha ao nível da zona ou a uma falha a nível da região, a falha na réplica fornece um RTO mais curto e uma redução da perda de dados.
 
 > [!NOTE]
 > O desfasamento entre o primário e a réplica depende da latência entre os sites, da quantidade de dados a transmitir e, mais importante, da carga de trabalho de escrita do servidor primário. Cargas de trabalho de escrita pesadas podem gerar um atraso significativo. 
@@ -32,7 +32,7 @@ A tabela a seguir compara RTO e RPO num cenário **típico de carga de trabalho:
 
 | **Capacidade** | **Básica** | **Fins Gerais** | **Com otimização de memória** |
 | :------------: | :-------: | :-----------------: | :------------------: |
-| Restauro para um Ponto Anterior no Tempo a partir de cópia de segurança | Qualquer ponto de restauração dentro do período de retenção | Qualquer ponto de restauração dentro do período de retenção | Qualquer ponto de restauração dentro do período de retenção |
+| Restauro para um Ponto Anterior no Tempo a partir de cópia de segurança | Qualquer ponto de restauração dentro do período de retenção <br/> RTO - Varia <br/>RPO < 15 min| Qualquer ponto de restauração dentro do período de retenção <br/> RTO - Varia <br/>RPO < 15 min | Qualquer ponto de restauração dentro do período de retenção <br/> RTO - Varia <br/>RPO < 15 min |
 | Geo-restauro a partir de backups geo-replicados | Não suportado | RTO - Varia <br/>RPO < 1 h | RTO - Varia <br/>RPO < 1 h |
 | Réplicas de leitura | RTO - Minutos* <br/>RPO < 5 min* | RTO - Minutos* <br/>RPO < 5 min*| RTO - Minutos* <br/>RPO < 5 min*|
 

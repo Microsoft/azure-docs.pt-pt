@@ -3,14 +3,14 @@ title: Azure Monitor Application Insights esquema de recursos baseado no espaço
 description: Conheça a nova estrutura de mesa e esquema para recursos baseados no espaço de trabalho do Azure Monitor Application Insights.
 ms.topic: conceptual
 ms.date: 05/09/2020
-ms.openlocfilehash: 8f0bee64d74cfd5b6abef5c918c023974fda3fcf
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: e63d4a680ad76ccd6895aed53f3276a5775b1226
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91931058"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100385970"
 ---
-# <a name="workspace-based-resource-changes-preview"></a>Alterações de recursos baseadas no espaço de trabalho (pré-visualização)
+# <a name="workspace-based-resource-changes"></a>Alterações de recursos baseadas no espaço de trabalho
 
 Antes da introdução dos recursos de [Insights de Aplicação baseados no espaço de trabalho,](create-workspace-resource.md)os dados do Application Insights foram armazenados separadamente de outros dados de registo no Azure Monitor. Ambos são baseados no Azure Data Explorer e usam a mesma língua de consulta kusto (KQL). Isto é descrito em [Logs in Azure Monitor](../platform/data-platform-logs.md).
 
@@ -18,7 +18,7 @@ Com os dados de recursos de aplicações baseados no espaço de trabalho, os dad
 
 ## <a name="table-structure"></a>Estrutura da tabela
 
-| Nome da mesa do legado | Novo nome de mesa | Descrição |
+| Nome da mesa do legado | Nome novo da tabela | Description |
 |:---|:---|:---|
 | disponibilidadeResults | AppDilabilityResults |  Dados sumários dos testes de disponibilidade.|
 | browsersa | AppBrowserTimings | Dados sobre o desempenho do cliente, como o tempo necessário para processar os dados recebidos.|
@@ -63,10 +63,10 @@ Tabela legado: disponibilidade
 |iKey|string|IKey|string|
 |itemOconse|int|ItemCount|int|
 |itemId|string|\_ItemId|string|
-|itemType|string|Tipo|Cadeia|
+|itemType|string|Tipo|String|
 |localização|string|Localização|string|
 |message|string|Mensagem|string|
-|name|string|Nome|string|
+|name|string|Name|string|
 |operation_Id|string|OperationId|string|
 |operation_Name|string|OperationName|string|
 |operation_ParentId|string|OperaçãoParentId|string|
@@ -75,7 +75,7 @@ Tabela legado: disponibilidade
 |sdkVersion|string|SdkVersion|string|
 |session_Id|string|SessionId|string|
 |size|real|Tamanho|real|
-|exito|string|Success|Booleano|
+|exito|string|Com êxito|Booleano|
 |carimbo de data/hora|datetime|TimeGenerated|datetime|
 |user_AccountId|string|UserAccountId|string|
 |user_AuthenticatedId|string|UserAuthenticatedId|string|
@@ -106,7 +106,7 @@ Tabela legado: browserTimings
 |itemOconse|int|ItemCount|int|
 |itemId|string|\_ItemId|string|
 |itemType|string|Tipo|string|
-|name|string|Nome|datetime|
+|name|string|Name|datetime|
 |redeDuração|real|NetworkDurationMs|real|
 |operation_Id|string|OperationId|string|
 |operation_Name|string|OperationName|string|
@@ -152,8 +152,8 @@ Tabela legado: dependências
 |iKey|string|IKey|string|
 |itemOconse|int|ItemCount|int|
 |itemId|string|\_ItemId|string|
-|itemType|string|Tipo|Cadeia|
-|name|string|Nome|string|
+|itemType|string|Tipo|String|
+|name|string|Name|string|
 |operation_Id|string|OperationId|string|
 |operation_Name|string|OperationName|string|
 |operation_ParentId|string|OperaçãoParentId|string|
@@ -162,7 +162,7 @@ Tabela legado: dependências
 |resultadosDesco|string|Resultados Código|string|
 |sdkVersion|string|SdkVersion|string|
 |session_Id|string|SessionId|string|
-|exito|string|Success|Booleano|
+|exito|string|Com êxito|Booleano|
 |alvo|string|Destino|string|
 |carimbo de data/hora|datetime|TimeGenerated|datetime|
 |tipo|string|Tipo de Dependência|string|
@@ -195,7 +195,7 @@ Tabela legado: costumesEvents
 |itemOconse|int|ItemCount|int|
 |itemId|string|\_ItemId|string|
 |itemType|string|Tipo|string|
-|name|string|Nome|string|
+|name|string|Name|string|
 |operation_Id|string|OperationId|string|
 |operation_Name|string|OperationName|string|
 |operation_ParentId|string|OperaçãoParentId|string|
@@ -230,7 +230,7 @@ Tabela legado: costumesMetrics
 |iKey|string|IKey|string|
 |itemId|string|\_ItemId|string|
 |itemType|string|Tipo|string|
-|name|string|Nome|string|
+|name|string|Name|string|
 |operation_Id|string|OperationId|string|
 |operation_Name|string|OperationName|string|
 |operation_ParentId|string|OperaçãoParentId|string|
@@ -274,8 +274,8 @@ Tabela legado: pageViews
 |iKey|string|IKey|string|
 |itemOconse|int|ItemCount|int|
 |itemId|string|\_ItemId|string|
-|itemType|string|Tipo|Cadeia|
-|name|string|Nome|string|
+|itemType|string|Tipo|String|
+|name|string|Name|string|
 |operation_Id|string|OperationId|string|
 |operation_Name|string|OperationName|string|
 |operation_ParentId|string|OperaçãoParentId|string|
@@ -315,7 +315,7 @@ Tabela legado: performanceCounters
 |exemplo|string|Instância|string|
 |itemId|string|\_ItemId|string|
 |itemType|string|Tipo|string|
-|name|string|Nome|string|
+|name|string|Name|string|
 |operation_Id|string|OperationId|string|
 |operation_Name|string|OperationName|string|
 |operation_ParentId|string|OperaçãoParentId|string|
@@ -350,24 +350,24 @@ Tabela legado: pedidos
 |customDimensionais|dynamic|Propriedades|Dinâmica|
 |medidas de medidas personalizadas|dynamic|Medições|Dinâmica|
 |duration|real|DurationMs|Real|
-|`id`|string|`Id`|Cadeia|
+|`id`|string|`Id`|String|
 |iKey|string|IKey|string|
 |itemOconse|int|ItemCount|int|
 |itemId|string|\_ItemId|string|
-|itemType|string|Tipo|Cadeia|
-|name|string|Nome|Cadeia|
+|itemType|string|Tipo|String|
+|name|string|Name|String|
 |operation_Id|string|OperationId|string|
 |operation_Name|string|OperationName|string|
 |operation_ParentId|string|OperaçãoParentId|string|
 |operation_SyntheticSource|string|OperaçãoSssyntheticSource|string|
-|performanceBucket|string|PerformanceBucket|Cadeia|
-|resultadosDesco|string|Resultados Código|Cadeia|
+|performanceBucket|string|PerformanceBucket|String|
+|resultadosDesco|string|Resultados Código|String|
 |sdkVersion|string|SdkVersion|string|
 |session_Id|string|SessionId|string|
-|source|string|Origem|Cadeia|
-|exito|string|Success|Booleano|
+|source|string|Origem|String|
+|exito|string|Com êxito|Booleano|
 |carimbo de data/hora|datetime|TimeGenerated|datetime|
-|url|string|Url|Cadeia|
+|url|string|Url|String|
 |user_AccountId|string|UserAccountId|string|
 |user_AuthenticatedId|string|UserAuthenticatedId|string|
 |user_Id|string|IDUtilizador|string|

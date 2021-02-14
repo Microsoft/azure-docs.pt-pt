@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 30852b6b3f9a4b490c4b58fe07f34ee49c60fa9f
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: 250c1ef837793c2149ff653f395f40272cf43335
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97955251"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100384950"
 ---
 # <a name="create-a-postgresql-hyperscale-server-group-using-kubernetes-tools"></a>Criar um grupo de servidores de hiperescala PostgreSQL usando ferramentas Kubernetes
 
@@ -44,14 +44,14 @@ data:
   password: <your base64 encoded password>
 kind: Secret
 metadata:
-  name: example-login-secret
+  name: pg1-login-secret
 type: Opaque
 ---
 apiVersion: arcdata.microsoft.com/v1alpha1
 kind: postgresql-12
 metadata:
   generation: 1
-  name: example
+  name: pg1
 spec:
   engine:
     extensions:
@@ -107,7 +107,7 @@ echo '<your string to encode here>' | base64
 
 ### <a name="customizing-the-name"></a>Personalizar o nome
 
-O modelo tem um valor de 'exemplo' para o atributo de nome.  Podes mudar isto, mas devem ser os caracteres que seguem os padrões de nomeação dns.  Também deve mudar o nome do segredo para combinar.  Por exemplo, se alterar o nome do grupo de servidores De Hiperescala PostgreSQL para 'postgres1', tem de alterar o nome do segredo de 'exemplo-login-secret' para 'postgres1-login-secret'
+O modelo tem um valor de 'pg1' para o atributo de nome.  Podes mudar isto, mas devem ser os caracteres que seguem os padrões de nomeação dns.  Também deve mudar o nome do segredo para combinar.  Por exemplo, se alterar o nome do grupo de servidores PostgreSQL Hyperscale para 'pg2', tem de alterar o nome do segredo de 'pg1-login-secret' para 'pg2-login-secret'
 
 ### <a name="customizing-the-engine-version"></a>Personalizar a versão do motor
 
@@ -152,10 +152,10 @@ kubectl create -n <your target namespace> -f <path to your yaml file>
 A criação do grupo de servidores de hiperescala PostgreSQL levará alguns minutos a ser concluída. Pode monitorizar o progresso noutra janela do terminal com os seguintes comandos:
 
 > [!NOTE]
->  O exemplo comanda abaixo assumir que criou um grupo de servidores de hiperescala PostgreSQL chamado 'postgres1' e Kubernetes com o nome 'arc'.  Se utilizar um nome diferente de nomespace/nome do grupo de servidores de hiperescala PostgreSQL, pode substituir 'arco' e 'postgres1' com os seus nomes.
+>  O exemplo comanda abaixo assumir que criou um grupo de servidores de hiperescala PostgreSQL chamado 'pg1' e kubernetes com o nome 'arc'.  Se utilizar um nome diferente de nomespace/nome do grupo de servidores de hiperescala PostgreSQL, pode substituir 'arc' e 'pg1' com os seus nomes.
 
 ```console
-kubectl get postgresql-12/postgres1 --namespace arc
+kubectl get postgresql-12/pg1 --namespace arc
 ```
 
 ```console
@@ -168,7 +168,7 @@ Também pode verificar o estado de criação de qualquer cápsula em particular 
 kubectl describe po/<pod name> --namespace arc
 
 #Example:
-#kubectl describe po/postgres1-0 --namespace arc
+#kubectl describe po/pg1-0 --namespace arc
 ```
 
 ## <a name="troubleshooting-creation-problems"></a>Problemas de criação de resolução de problemas

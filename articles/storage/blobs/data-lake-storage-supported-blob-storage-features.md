@@ -5,15 +5,14 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/12/2020
+ms.date: 02/11/2021
 ms.author: normesta
-ms.reviewer: stewu
-ms.openlocfilehash: 2b195d865a07af9f3166c5225e8de3d0a9b0e749
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 769163dd09ec29c2c206d0273e71de27732fb9db
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879314"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100516283"
 ---
 # <a name="blob-storage-features-available-in-azure-data-lake-storage-gen2"></a>Recursos de armazenamento blob disponíveis no Azure Data Lake Storage Gen2
 
@@ -45,20 +44,21 @@ A tabela seguinte mostra como cada recurso de armazenamento Blob é suportado co
 |Armazenamento imutável|Pré-visualizar<div role="complementary" aria-labelledby="preview-form"><sup>1</sup></div>|Pré-visualizar<div role="complementary" aria-labelledby="preview-form"><sup>1</sup></div>|[Armazenar dados de blobs críticos para a empresa com o armazenamento imutável](storage-blob-immutable-storage.md)|
 |Eliminação macia do recipiente|Pré-visualizar|Pré-visualizar|[Excluir suave para recipientes (pré-visualização)](soft-delete-container-overview.md)|
 |Inventário de armazenamento Azure|Pré-visualizar|Pré-visualizar|[Utilize o inventário de armazenamento Azure para gerir dados blob (pré-visualização)](blob-inventory.md)|
+|Domínios personalizados|Pré-visualizar<div role="complementary" aria-labelledby="preview-form-2"><sup>2</sup></div>|Pré-visualizar<div role="complementary" aria-labelledby="preview-form-2"><sup>2</sup></div>|[Mapear um domínio personalizado para um ponto final de armazenamento Azure Blob](storage-custom-domain-name.md)|
 |Blob soft delete|Ainda não suportado|Ainda não suportado|[Eliminação recuperável para blobs](./soft-delete-blob-overview.md)|
 |Rio Blobfuse|Disponível em Geral|Disponível em Geral|[Como montar o armazenamento Blob como um sistema de ficheiros com blobfuse](storage-how-to-mount-container-linux.md)|
 |Acesso público anónimo |Disponível em Geral|Disponível em Geral| Consulte [o público anónimo Configure acesso a contentores e bolhas](anonymous-read-access-configure.md).|
 |Falha na conta gerida pelo cliente|Ainda não suportado|Ainda não suportado|[Recuperação de desastres e falha na conta](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |Chaves fornecidas pelo cliente|Ainda não suportado|Ainda não suportado|[Fornecer uma chave de encriptação sobre um pedido para o armazenamento Blob](encryption-customer-provided-keys.md)|
-|Domínios personalizados|Ainda não suportado|Ainda não suportado|[Mapear um domínio personalizado para um ponto final de armazenamento Azure Blob](storage-custom-domain-name.md)|
 |Âmbitos de encriptação|Ainda não suportado|Ainda não suportado|[Criar e gerir os âmbitos de encriptação (pré-visualização)](encryption-scope-manage.md)|
 |Feed de alterações|Ainda não suportado|Ainda não suportado|[Alterar suporte de alimentação no armazenamento Azure Blob](storage-blob-change-feed.md)|
 |Replicação de objetos|Ainda não suportado|Ainda não suportado|[Configurar a replicação do objeto para bolhas de bloco](object-replication-configure.md)|
 |Versão blob|Ainda não suportado|Ainda não suportado|[Ativar e gerir a versão blob](versioning-enable.md)|
 
 <div id="preview-form"><sup>1</sup> Para utilizar instantâneos, armazenamento imutável ou websites estáticos com Data Lake Storage Gen2, você precisa inscrever-se na pré-visualização completando este <a href=https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VUOUc3NTNQSUdOTjgzVUlVT1pDTzU4WlRKRy4u>formulário</a>.  </div>
+<div id="preview-form-2"><sup>2</sup> Um nome de domínio personalizado só pode mapear para o serviço blob ou ponto final estático do site. O ponto final de armazenamento do Data Lake não é </a> suportado.  </div>
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 - [Problemas conhecidos com Azure Data Lake Storage Gen2](data-lake-storage-known-issues.md)
 - [Serviços Azure que suportam Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md)

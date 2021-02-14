@@ -1,22 +1,17 @@
 ---
 title: Copiar dados da Web Table utilizando a Azure Data Factory
 description: Saiba mais sobre o Conector de Tabela Web da Azure Data Factory que permite copiar dados de uma tabela web para lojas de dados suportadas pela Data Factory como pias.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: jingwang
-ms.openlocfilehash: 0eb4d37342685c13027a69bb6cb85f618fa63f20
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1ab45868afd8d1b7ba1f61f5eaacca283817e6d6
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81410205"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100367015"
 ---
 # <a name="copy-data-from-web-table-by-using-azure-data-factory"></a>Copie os dados da tabela Web utilizando a Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -59,10 +54,10 @@ As seguintes propriedades são suportadas para o serviço ligado à tabela Web:
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo deve ser definida para: **Web** |Sim |
-| url | URL para a fonte web |Sim |
-| authenticationType | Valor permitido é: **Anónimo**. |Sim |
-| connectVia | O [tempo de execução de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. É necessário um tempo de integração auto-organizado, tal como mencionado nos [Pré-Requisitos](#prerequisites). |Sim |
+| tipo | A propriedade tipo deve ser definida para: **Web** |Yes |
+| url | URL para a fonte web |Yes |
+| authenticationType | Valor permitido é: **Anónimo**. |Yes |
+| connectVia | O [tempo de execução de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. É necessário um tempo de integração auto-organizado, tal como mencionado nos [Pré-Requisitos](#prerequisites). |Yes |
 
 **Exemplo:**
 
@@ -91,9 +86,9 @@ Para copiar dados da tabela Web, defina a propriedade tipo do conjunto de dados 
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo do conjunto de dados deve ser definida para: **WebTable** | Sim |
+| tipo | A propriedade tipo do conjunto de dados deve ser definida para: **WebTable** | Yes |
 | caminho |Um URL relativo ao recurso que contém a tabela. |N.º Quando o caminho não é especificado, apenas é utilizado o URL especificado na definição de serviço ligada. |
-| índice |O índice da tabela no recurso. Consulte [o índice de uma tabela numa](#get-index-of-a-table-in-an-html-page) secção de página HTML para obter o índice de uma tabela numa página HTML. |Sim |
+| índice |O índice da tabela no recurso. Consulte [o índice de uma tabela numa](#get-index-of-a-table-in-an-html-page) secção de página HTML para obter o índice de uma tabela numa página HTML. |Yes |
 
 **Exemplo:**
 
@@ -167,7 +162,7 @@ Para obter o índice de uma tabela que precisa de configurar em [propriedades de
     ![Do diálogo web](./media/copy-data-from-web-table/FromWeb-DialogBox.png)
 
     URL utilizado neste exemplo: https://en.wikipedia.org/wiki/AFI%27s_100_Years...100_Movies
-4. Se vir a caixa de diálogo **de conteúdo do Access Web,** selecione o **URL**certo, **a autenticação**e clique em **Connect**.
+4. Se vir a caixa de diálogo **de conteúdo do Access Web,** selecione o **URL** certo, **a autenticação** e clique em **Connect**.
 
    ![Aceder caixa de diálogo de conteúdo web](./media/copy-data-from-web-table/AccessWebContentDialog.png)
 5. Clique num item de **tabela** na vista da árvore para ver o conteúdo da tabela e, em seguida, clique em **Editar** o botão Na parte inferior.  

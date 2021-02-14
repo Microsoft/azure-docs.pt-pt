@@ -3,12 +3,12 @@ title: host.jsem referência para Funções Azure 2.x
 description: A documentação de referência para as Funções Azure host.jsem arquivo com o tempo de execução v2.
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 735c92720f4a3f871499ad3a0565446a02b438eb
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 7ab60fb364eb3268a03c04bb4950251ae030f015
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97654817"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100374053"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Referência host.json das Funções do Azure 2.x e posterior 
 
@@ -39,6 +39,7 @@ A amostra que se *seguehost.jsno* ficheiro para a versão 2.x+ tem todas as opç
         "flushTimeout": "00:00:30"
     },
     "extensions": {
+        "blobs": {},
         "cosmosDb": {},
         "durableTask": {},
         "eventHubs": {},
@@ -151,7 +152,7 @@ Para obter a estrutura JSON completa, consulte o exemplo anterior [host.jsem arq
 > [!NOTE]
 > A amostragem de registo pode fazer com que algumas execuções não apareçam na lâmina do monitor Application Insights. Para evitar a amostragem de registo, adicione `excludedTypes: "Request"` ao `samplingSettings` valor.
 
-| Propriedade | Predefinição | Descrição |
+| Propriedade | Predefinição | Description |
 | --------- | --------- | --------- | 
 | amostragemS | n/a | Ver [aplicaçõesInsights.samplingSettings](#applicationinsightssamplingsettings). |
 | enableLiveMetrics | true | Permite a recolha de métricas ao vivo. |
@@ -165,7 +166,7 @@ Para obter a estrutura JSON completa, consulte o exemplo anterior [host.jsem arq
 
 Para obter mais informações sobre estas definições, consulte [a Amostragem em Insights de Aplicação](../azure-monitor/app/sampling.md). 
 
-|Propriedade | Predefinição | Descrição |
+|Propriedade | Predefinição | Description |
 | --------- | --------- | --------- | 
 | isEnabled | true | Permite ou desativa a amostragem. | 
 | maxTelemetryItemsPerSecond | 20 | O número-alvo de itens de telemetria registados por segundo em cada anfitrião do servidor. Se a sua aplicação for executado em muitos anfitriões, reduza este valor para permanecer dentro da sua taxa de tráfego geral. | 
@@ -175,13 +176,13 @@ Para obter mais informações sobre estas definições, consulte [a Amostragem e
 | amostragemPercentageDecreaseTimeout | 00:00:01 | Quando o valor percentual de amostragem muda, esta propriedade determina quão cedo os Insights de Aplicação são autorizados a baixar novamente a percentagem de amostragem para capturar menos dados. |
 | minSamplingPercentage | 0.1 | Como a percentagem de amostragem varia, esta propriedade determina a percentagem mínima de amostragem permitida. |
 | maxSamplingPercentage | 100.0 | Como a percentagem de amostragem varia, esta propriedade determina a percentagem máxima de amostragem permitida. |
-| movingAverageRatio | 1,0 | No cálculo da média móvel, o peso atribuído ao valor mais recente. Utilize um valor igual ou inferior a 1. Valores menores tornam o algoritmo menos reativo a mudanças repentinas. |
-| Tipos excluídos | nulo | Uma lista de tipos delimitados semi-cólon que não quer ser amostrado. Os tipos reconhecidos são: `Dependency` `Event` , e `Exception` `PageView` `Request` `Trace` . Todas as instâncias dos tipos especificados são transmitidas; os tipos que não são especificados são amostrados. |
-| incluídosTipos | nulo | Uma lista de tipos delimitados de pontos semi-cólon que pretende ser amostrado; uma lista vazia implica todos os tipos. Digite listado em `excludedTypes` tipos de substituição listados aqui. Os tipos reconhecidos são: `Dependency` `Event` , e `Exception` `PageView` `Request` `Trace` . São amostradas as instâncias dos tipos especificados; os tipos que não são especificados ou implícitos são transmitidos sem amostragem. |
+| movingAverageRatio | 1.0 | No cálculo da média móvel, o peso atribuído ao valor mais recente. Utilize um valor igual ou inferior a 1. Valores menores tornam o algoritmo menos reativo a mudanças repentinas. |
+| Tipos excluídos | nulo | Uma lista de tipos delimitados semi-cólon que não quer ser amostrado. Os tipos reconhecidos são: `Dependency` , , , , e `Event` `Exception` `PageView` `Request` `Trace` . Todas as instâncias dos tipos especificados são transmitidas; os tipos que não são especificados são amostrados. |
+| incluídosTipos | nulo | Uma lista de tipos delimitados de pontos semi-cólon que pretende ser amostrado; uma lista vazia implica todos os tipos. Digite listado em `excludedTypes` tipos de substituição listados aqui. Os tipos reconhecidos são: `Dependency` , , , , e `Event` `Exception` `PageView` `Request` `Trace` . São amostradas as instâncias dos tipos especificados; os tipos que não são especificados ou implícitos são transmitidos sem amostragem. |
 
 ### <a name="applicationinsightshttpautocollectionoptions"></a>applicationInsights.httpAutoCollectionOptions
 
-|Propriedade | Predefinição | Descrição |
+|Propriedade | Predefinição | Description |
 | --------- | --------- | --------- | 
 | enableHttpTriggerExtendedInfoCollection | true | Ativa ou desativa informações de pedidos de HTTP para gatilhos HTTP: cabeçalhos de correlação de pedidos de entrada, suporte de chaves de múltiplos instrumentações, método, caminho e resposta HTTP. |
 | enableW3CDistributedTracing | true | Permite ou desativa o suporte do protocolo de rastreio distribuído W3C (e liga o esquema de correlação do legado). Ativado por padrão se `enableHttpTriggerExtendedInfoCollection` for verdade. Se `enableHttpTriggerExtendedInfoCollection` for falsa, esta bandeira aplica-se apenas aos pedidos de saída, não aos pedidos de entrada. |
@@ -191,7 +192,7 @@ Para obter mais informações sobre estas definições, consulte [a Amostragem e
 
 Para obter mais informações sobre instantâneos, consulte [instantâneos de Debug sobre exceções em aplicações .NET](../azure-monitor/app/snapshot-debugger.md) e [problemas de resolução de problemas que permitem insights de aplicação Snapshot Debugger ou visualização de instantâneos](../azure-monitor/app/snapshot-debugger-troubleshoot.md).
 
-|Propriedade | Predefinição | Descrição |
+|Propriedade | Predefinição | Description |
 | --------- | --------- | --------- | 
 | agenteEndpoint | nulo | O ponto final utilizado para ligar ao serviço Debugger Debugger Do Application Insights Snapshot. Se for nulo, é utilizado um ponto final predefinido. |
 | capturaSnapshotMemoryWeight | 0,5 | O peso dado ao tamanho atual da memória do processo ao verificar se há memória suficiente para tirar uma foto. O valor esperado é superior a 0 frações adequadas (0 < CaptureSnapshotMemoryWeight < 1). |
@@ -216,6 +217,10 @@ Para obter mais informações sobre instantâneos, consulte [instantâneos de De
 | limiarForSnapshotting | 1 | Quantas vezes a Application Insights precisa de ver uma exceção antes de pedir instantâneos. |
 | uploaderProxy | nulo | Substitui o servidor proxy utilizado no processo Snapshot Uploader. Poderá ter de utilizar esta definição se a sua aplicação se ligar à internet através de um servidor proxy. O Snapshot Collector funciona dentro do processo da sua aplicação e utilizará as mesmas definições de procuração. No entanto, o Uploader Snapshot funciona como um processo separado e poderá ser necessário configurar manualmente o servidor proxy. Se este valor for nulo, então o Snapshot Collector tentará automatizar o endereço do proxy examinando System.Net.WebRequest.DefaultWebProxy e transmitindo o valor ao Uploader Instantâneo. Se este valor não for nulo, então a autodetecção não é utilizada e o servidor proxy especificado aqui será utilizado no Uploader Snapshot. |
 
+## <a name="blobs"></a>bolhas
+
+As definições de configuração podem ser encontradas nos [gatilhos e encadernações](functions-bindings-storage-blob.md#hostjson-settings)de bolhas de armazenamento .  
+
 ## <a name="cosmosdb"></a>cosmosDb
 
 A configuração pode ser encontrada nos [gatilhos e encadernações do Cosmos DB](functions-bindings-cosmosdb-v2-output.md#host-json).
@@ -235,7 +240,7 @@ Configurações de configuração para um manipulador personalizado. Para obter 
 }
 ```
 
-|Propriedade | Predefinição | Descrição |
+|Propriedade | Predefinição | Description |
 | --------- | --------- | --------- |
 | defaultExecutablePath | n/a | O executável para começar como o processo de manipulador personalizado. É uma definição necessária quando se utilizam manipuladores personalizados e o seu valor é relativo à raiz da aplicação de função. |
 | workingDirectory | *raiz de aplicativo de função* | O diretório de trabalho no qual iniciará o processo de manipulador personalizado. É uma definição opcional e o seu valor é relativo à raiz da aplicação de função. |
@@ -305,7 +310,7 @@ Definições de configuração para [monitor de saúde host](https://github.com/
 }
 ```
 
-|Propriedade  |Predefinição | Descrição |
+|Propriedade  |Predefinição | Description |
 |---------|---------|---------| 
 |ativado|true|Especifica se a funcionalidade está ativada. | 
 |healthCheckInterval|10 segundos|O intervalo de tempo entre as verificações de saúde de fundo periódicos. | 
@@ -337,7 +342,7 @@ Controla os comportamentos de registo da aplicação de função, incluindo o Ap
 }
 ```
 
-|Propriedade  |Predefinição | Descrição |
+|Propriedade  |Predefinição | Description |
 |---------|---------|---------|
 |fileLoggingMode|depuraronamente|Define o nível de registo de ficheiros ativado.  As opções `never` `always` são, `debugOnly` . . |
 |logLevel|n/a|Objeto que define a filtragem da categoria de registo para funções na aplicação. Versões 2.x e mais tarde siga o layout ASP.NET Core para filtragem da categoria de registo. Esta definição permite filtrar o início de sessão para funções específicas. Para obter mais informações, consulte [a filtragem do Registo](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1&preserve-view=true#log-filtering) na documentação do Núcleo ASP.NET. |
@@ -360,7 +365,7 @@ Esta definição é uma criança de [registo.](#logging) Controla o registo da c
 }
 ```
 
-|Propriedade  |Predefinição | Descrição |
+|Propriedade  |Predefinição | Description |
 |---------|---------|---------| 
 |isEnabled|false|Ativa ou desativa a sessão de registo de consolas.| 
 
@@ -378,7 +383,7 @@ A dependência gerida é uma funcionalidade que atualmente só é suportada com 
 
 ## <a name="queues"></a>filas
 
-As definições de configuração podem ser encontradas nos [gatilhos e encadernações da fila de armazenamento](functions-bindings-storage-queue-output.md#host-json).  
+As definições de configuração podem ser encontradas nos [gatilhos e encadernações da fila de armazenamento](functions-bindings-storage-queue.md#host-json).  
 
 ## <a name="retry"></a>retry
 
@@ -394,7 +399,7 @@ Controla as opções [de política de re-tentar](./functions-bindings-error-page
 }
 ```
 
-|Propriedade  |Predefinição | Descrição |
+|Propriedade  |Predefinição | Description |
 |---------|---------|---------| 
 |estratégia|nulo|Obrigatório. A estratégia de repetição a utilizar. Valores válidos são `fixedDelay` ou `exponentialBackoff` .|
 |maxRetryCount|nulo|Obrigatório. O número máximo de retrós assim que é permitido por execução de função. `-1` significa voltar a tentar indefinidamente.|
@@ -426,7 +431,7 @@ Definições de configuração para o comportamento de bloqueio de Singleton. Pa
 }
 ```
 
-|Propriedade  |Predefinição | Descrição |
+|Propriedade  |Predefinição | Description |
 |---------|---------|---------| 
 |lockPeriod|00:00:15|O período para o que os bloqueios de nível de função são tomados. As fechaduras renovam-se automaticamente.| 
 |ouvinteLockPeriod|00:01:00|O período para o que os ouvintes bloqueiam.| 

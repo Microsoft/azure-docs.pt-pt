@@ -1,22 +1,17 @@
 ---
 title: Monitorizar a atividade de cópia
 description: Saiba como monitorizar a execução da atividade de cópia na Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: jingwang
-ms.openlocfilehash: 92119709aa260f3180c503a77064f6e80dece6e6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 58860e404dff3030e51ff2977eaee081a15247f7
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89440614"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388299"
 ---
 # <a name="monitor-copy-activity"></a>Monitorizar a atividade de cópia
 
@@ -48,9 +43,9 @@ Os **detalhes e durações** da execução inferior descrevem os passos-chave qu
 
 ## <a name="monitor-programmatically"></a>Monitorar programáticamente
 
-Os detalhes da execução da atividade de cópia e as características de desempenho também são devolvidos na secção **de resultado de execução**da Copy  >  **Output** Activity, que é usada para tornar a visão de monitorização da UI. Segue-se uma lista completa de propriedades que podem ser devolvidas. Verá apenas as propriedades que são aplicáveis ao seu cenário de cópia. Para obter informações sobre como monitorizar a atividade funciona programáticamente em geral, consulte [programáticamente monitorizar uma fábrica de dados Azure](monitor-programmatically.md).
+Os detalhes da execução da atividade de cópia e as características de desempenho também são devolvidos na secção **de resultado de execução** da Copy  >   Activity, que é usada para tornar a visão de monitorização da UI. Segue-se uma lista completa de propriedades que podem ser devolvidas. Verá apenas as propriedades que são aplicáveis ao seu cenário de cópia. Para obter informações sobre como monitorizar a atividade funciona programáticamente em geral, consulte [programáticamente monitorizar uma fábrica de dados Azure](monitor-programmatically.md).
 
-| Nome da propriedade  | Descrição | Unidade de saída |
+| Nome da propriedade  | Description | Unidade de saída |
 |:--- |:--- |:--- |
 | dadosRead | A quantidade real de dados lidos a partir da fonte. | Valor int64, em bytes |
 | dadosCritos | O monte real de dados escritos/comprometidos com a pia. O tamanho pode ser diferente do `dataRead` tamanho, uma vez que relaciona a forma como cada data armazena os dados. | Valor int64, em bytes |
@@ -67,7 +62,7 @@ Os detalhes da execução da atividade de cópia e as características de desemp
 | de transferência de dados | Taxa de transferência de dados. | Número do ponto flutuante, em KBps |
 | sourcePeakConnections | Número máximo de ligações simultâneas estabelecidas na loja de dados de origem durante a atividade Copy. | Valor int32 (sem unidade) |
 | sinkPeakConnections| Número máximo de ligações simultâneas estabelecidas na loja de dados do lavatório durante a execução da atividade Copy.| Valor int32 (sem unidade) |
-| sqlDwPolyBase | Se a PolyBase é utilizada quando os dados são copiados para a Azure Synapse Analytics (anteriormente SQL Data Warehouse). | Booleano |
+| sqlDwPolyBase | Se a PolyBase é utilizada quando os dados são copiados para a Azure Synapse Analytics. | Booleano |
 | redshiftUnload | Se o UNLOAD é utilizado quando os dados são copiados do Redshift. | Booleano |
 | hdfsDistcp | Se o DistCp é utilizado quando os dados são copiados do HDFS. | Booleano |
 | efetivamenteIntegrationRuntime | O tempo de integração (IR) ou os tempos de funcionação utilizados para alimentar a atividade funcionam, no formato `<IR name> (<region if it's Azure IR>)` . | Texto (cadeia) |
@@ -163,6 +158,6 @@ Os detalhes da execução da atividade de cópia e as características de desemp
 ## <a name="next-steps"></a>Passos seguintes
 Consulte os outros artigos de Atividade de Cópia:
 
-\- [Descrição geral da atividade de cópia](copy-activity-overview.md)
+\-[Visão geral da atividade da cópia](copy-activity-overview.md)
 
 \- [Desempenho da atividade de cópia](copy-activity-performance.md)

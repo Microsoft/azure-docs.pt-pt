@@ -1,23 +1,18 @@
 ---
 title: Personalize a configuração para um tempo de execução de integração Azure-SSIS
 description: Este artigo descreve como usar a interface de configuração personalizada para um tempo de execução de integração Azure-SSIS para instalar componentes adicionais ou alterar definições
-services: data-factory
-documentationcenter: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 author: swinarko
 ms.author: sawinark
-manager: mflasko
-ms.reviewer: douglasl
 ms.custom: seo-lt-2019
 ms.date: 11/06/2020
-ms.openlocfilehash: b9dc88c5773d1329ad4fb4d1c45a0cbc88737423
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: b1b3a34ac495936ed92e29353a41efb8c462768f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98556584"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100387738"
 ---
 # <a name="customize-the-setup-for-an-azure-ssis-integration-runtime"></a>Personalize a configuração para um tempo de execução de integração Azure-SSIS
 

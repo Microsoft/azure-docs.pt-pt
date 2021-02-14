@@ -11,12 +11,12 @@ ms.date: 01/29/2021
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: processamento de documentos
-ms.openlocfilehash: 0405ea116a1867ec75beff21637f18fb37565627
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 9642f9ce51cd3eb90344f96bc099da7adea93022
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99584724"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100364809"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Treine um modelo de reconhecimento de formulários com etiquetas usando a ferramenta de rotulagem da amostra
 
@@ -228,7 +228,7 @@ Siga os passos acima para rotular pelo menos cinco dos seus formulários.
 Opcionalmente, pode definir o tipo de dados esperado para cada tag. Abra o menu de contexto à direita de uma etiqueta e selecione um tipo no menu. Esta funcionalidade permite ao algoritmo de deteção fazer certos pressupostos que melhorarão a precisão da deteção de texto. Também garante que os valores detetados serão devolvidos num formato padronizado na saída final do JSON. As informações do tipo de valor são guardadas no *fields.jsficheiro* no mesmo caminho que os ficheiros da sua etiqueta.
 
 > [!div class="mx-imgBorder"]
-> ![Seleção do tipo de valor com ferramenta de rotulagem de amostra](../media/whats-new/formre-value-type.png)
+> ![Seleção do tipo de valor com ferramenta de rotulagem de amostra](../media/whats-new/value-type.png)
 
 Os seguintes tipos de valor e variações são atualmente suportados:
 * `string`

@@ -1,5 +1,5 @@
 ---
-title: Purgue um ponto final do Azure CDN ! Microsoft Docs
+title: Purgue um ponto final Azure CDN | Microsoft Docs
 description: Saiba como limpar todos os conteúdos em cache a partir de um ponto final da Rede de Entrega de Conteúdos Azure. Os nós de bordas cache ativos até que o seu tempo de vida expire.
 services: cdn
 documentationcenter: ''
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 05/17/2019
 ms.author: allensu
-ms.openlocfilehash: e90086be18e344e3061b9e683780f4427b3c15a1
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 4fe4b99f9635ff254f1a75e03f13d7e6ffcb3c49
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96018635"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100366522"
 ---
 # <a name="purge-an-azure-cdn-endpoint"></a>Purgue um ponto final Azure CDN
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 Os nós de borda Azure CDN irão cache ativos até que o tempo de vida do ativo (TTL) expire.  Após o TTL do ativo expirar, quando um cliente solicita o ativo a partir do nó de borda, o nó de borda irá recuperar uma nova cópia atualizada do ativo para servir o pedido do cliente e armazenar a atualização da cache.
 
 A melhor prática para garantir que os seus utilizadores obtenham sempre a cópia mais recente dos seus ativos é ver versão dos seus ativos para cada atualização e publicá-los como novos URLs.  A CDN irá imediatamente recuperar os novos ativos para os próximos pedidos de clientes.  Por vezes, pode querer expurgar o conteúdo em cache de todos os nós de borda e forçá-los a todos a recuperar novos ativos atualizados.  Isto pode ser devido a atualizações para a sua aplicação web, ou para atualizar rapidamente ativos que contenham informações incorretas.
@@ -75,5 +75,5 @@ Este tutorial leva-o a purgar ativos de todos os nós de um ponto final.
 
 ## <a name="see-also"></a>Ver também
 * [Pré-carregar recursos num ponto final da CDN do Azure](cdn-preload-endpoint.md)
-* [Referência Azure CDN REST API - Purgar ou Pré-Carregar um ponto final](/rest/api/cdn/endpoints)
+* [Referência Azure CDN REST API - Purgar ou Pré-Carregar um ponto final](/rest/api/cdn/cdn/endpoints)
 

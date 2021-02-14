@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/05/2021
 ms.author: banders
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 87f29395e716ad3f06a99d6243b080acf86e4310
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 2fb1a8c3e583a4bdc88f2b61844e9bcb16dc7cdf
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99979438"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100367202"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>Transferir a propriedade de faturação de uma subscrição do Azure para outra conta
 
@@ -91,9 +91,12 @@ Se estiver com dificuldades em transferir subscrições, utilize as seguintes in
 
 ### <a name="original-azure-subscription-billing-owner-leaves-your-organization"></a>Original Azure proprietário de faturação deixa a sua organização
 
-É possível que o proprietário de faturação original que criou uma conta Azure e uma assinatura Azure deixe a sua organização. Se essa situação acontecer, então a sua identidade de utilizador já não está no Diretório Ativo Azure da organização. Então a assinatura do Azure não tem um dono de faturação. Esta situação impede qualquer pessoa de realizar operações de faturação na conta, incluindo visualização e pagamento de contas. A subscrição pode entrar num estado de vencimento passado. Eventualmente, a subscrição pode ficar desativada por falta de pagamento. Em última análise, a subscrição poderia ser eliminada e afetaria todos os serviços que executa na subscrição.
+> [!Note]
+> Esta secção aplica-se especificamente a uma conta de faturação para um Acordo de Cliente da Microsoft. Verifique se tem acesso a um Acordo de [Cliente da Microsoft.](mca-request-billing-ownership.md#check-for-access)
 
-Quando uma subscrição deixa de ter um proprietário de faturação válido, a Azure envia um e-mail a outros proprietários de Faturação, Administradores de Serviços, Coadministradores e Proprietários de Subscrição informando-os da situação e fornece-lhes um link para aceitar a propriedade de faturação da subscrição. Qualquer um dos utilizadores pode selecionar o link para aceitar a propriedade da faturação. Para obter mais informações sobre papéis de faturação, consulte [Papéis de Billing](understand-mca-roles.md) e [Papéis Clássicos e Funções Azure RBAC](../../role-based-access-control/rbac-and-directory-admin-roles.md).
+É possível que o proprietário original da conta de faturação que criou uma conta Azure e uma assinatura Azure deixe a sua organização. Se essa situação acontecer, então a sua identidade de utilizador já não está no Diretório Ativo Azure da organização. Então a assinatura do Azure não tem um dono de faturação. Esta situação impede qualquer pessoa de realizar operações de faturação na conta, incluindo visualização e pagamento de contas. A subscrição pode entrar num estado de vencimento passado. Eventualmente, a subscrição pode ficar desativada por falta de pagamento. Em última análise, a subscrição poderia ser eliminada e afetaria todos os serviços que executa na subscrição.
+
+Quando uma subscrição deixa de ter um titular de conta de faturação válido, a Azure envia um e-mail a outros proprietários de conta de Faturação, Administradores de Serviços (se houver), Co-Administrators (se houver) e Proprietários de Subscrição informando-os da situação e fornece-lhes um link para aceitar a propriedade de faturação da subscrição. Qualquer um dos utilizadores pode selecionar o link para aceitar a propriedade da faturação. Para obter mais informações sobre papéis de faturação, consulte [Papéis de Billing](understand-mca-roles.md) e [Papéis Clássicos e Funções Azure RBAC](../../role-based-access-control/rbac-and-directory-admin-roles.md).
 
 Aqui está um exemplo de como é o e-mail.
 

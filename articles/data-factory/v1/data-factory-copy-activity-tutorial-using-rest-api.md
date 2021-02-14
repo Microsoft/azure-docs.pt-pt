@@ -1,24 +1,18 @@
 ---
 title: 'Tutorial: Use REST API para criar um oleoduto Azure Data Factory '
 description: Neste tutorial, utiliza a API REST para criar um oleoduto Azure Data Factory com uma Atividade de Cópia para copiar dados de um armazenamento de blob Azure para Azure SQL Database.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: ''
-editor: ''
-ms.assetid: 1704cdf8-30ad-49bc-a71c-4057e26e7350
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 91a92f9dd0eaf55b8ba35f38102ee30b8cda4bfa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7488834252dcd4e231c2d91a1435838befe7b1d1
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87053808"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100377028"
 ---
 # <a name="tutorial-use-rest-api-to-create-an-azure-data-factory-pipeline-to-copy-data"></a>Tutorial: Utilizar a API REST para criar um pipeline do Azure Data Factory e copiar dados 
 > [!div class="op_single_selector"]
@@ -70,7 +64,7 @@ Um pipeline pode ter mais de uma atividade. Além disso, pode encadear duas ativ
      ```PowerShell     
      Get-AzSubscription
      ``` 
-  3. Execute o comando seguinte para selecionar a subscrição com a qual pretende trabalhar. Substitua ** &lt; a subscrição NameOfAzureSubscription** &gt; pelo nome da sua subscrição Azure. 
+  3. Execute o comando seguinte para selecionar a subscrição com a qual pretende trabalhar. Substitua **&lt; a subscrição NameOfAzureSubscription** &gt; pelo nome da sua subscrição Azure. 
      
      ```PowerShell
      Get-AzSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzContext
@@ -121,7 +115,7 @@ Para obter detalhes sobre as propriedades JSON, veja [Azure Storage linked servi
 
 ### <a name="azuresqllinkedservicejson"></a>azuresqllinkedservice.jsem
 > [!IMPORTANT]
-> Substitua **o nome de servidor,** **nome de base de dados,** nome de **utilizador**e **palavra-passe** pelo nome do seu servidor, nome da base de dados SQL, conta de utilizador e senha para a conta.  
+> Substitua **o nome de servidor,** **nome de base de dados,** nome de **utilizador** e **palavra-passe** pelo nome do seu servidor, nome da base de dados SQL, conta de utilizador e senha para a conta.  
 > 
 >
 
@@ -351,7 +345,7 @@ Neste passo, irá criar uma fábrica de dados do Azure com o nome **ADFCopyTutor
 
 Tenha em atenção os seguintes pontos:
 
-* O nome do Azure Data Factory deve ser globalmente exclusivo. Se vir o erro nos resultados: **Nome da fábrica de dados “ADFCopyTutorialDF” não disponível**, realize os seguintes passos:  
+* O nome do Azure Data Factory deve ser globalmente exclusivo. Se vir o erro nos resultados: **O nome da fábrica de dados "ADFCopyTutorialDF" não está disponível,** faça os seguintes passos:  
   
   1. Altere o nome (por exemplo, oseunomeADFCopyTutorialDF) no ficheiro **datafactory.json**.
   2. No primeiro comando em que está atribuído um valor à variável **$cmd**, substitua ADFCopyTutorialDF pelo novo nome e execute o comando. 

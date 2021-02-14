@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: pafarley
-ms.openlocfilehash: a8eecabe71cb439949f7e0638c7339eb31b08500
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: c7b6586f02d14d4e49ce9a5024b19ea15c8d2267
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99581266"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100364697"
 ---
 # <a name="whats-new-in-form-recognizer"></a>Novidades no Reconhecedor de Formato?
 
@@ -148,7 +148,7 @@ O serviço Form Recogniser é atualizado de forma contínua. Utilize este artigo
   A imagem a seguir é um exemplo de como as tabelas são reconhecidas e extraídas:
 
   > [!div class="mx-imgBorder"]
-  > ![Visualização da tabela utilizando a ferramenta de rotulagem da amostra](./media/whats-new/formre-table-viz.png)
+  > ![Visualização da tabela utilizando a ferramenta de rotulagem da amostra](./media/whats-new/table-viz.png)
 
     As tabelas extraídas estão disponíveis na saída JSON em `"pageResults"` .
 

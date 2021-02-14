@@ -1,22 +1,18 @@
 ---
 title: Problemas de resolução de dados Questões gateway de gestão de dados
 description: Fornece dicas para resolver problemas relacionados com o Data Management Gateway.
-services: data-factory
 author: nabhishek
-manager: anandsub
-ms.assetid: c6756c37-4e5a-4d1e-ab52-365f149b4128
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/01/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 7b12ff431b2d164baf4f70fa5341f538b16bca51
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 284486c5db248ced8ada6e7194c7bc5a9be5689f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896570"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388350"
 ---
 # <a name="troubleshoot-issues-with-using-data-management-gateway"></a>Utilizar o Data Management Gateway para resolver problemas
 Este artigo fornece informações sobre problemas de resolução de problemas com a utilização do Data Management Gateway.
@@ -99,7 +95,7 @@ Se a configuração for atual/ mais recente e o gateway ainda existir no Portal,
 ### <a name="6-problem"></a>6. Problema
 Pode ver a seguinte mensagem de erro quando estiver a registar um portal.
 
-`Error: Gateway has been online for a while, then shows “Gateway is not registered” with the status “Gateway key is invalid”`
+`Error: Gateway has been online for a while, then shows "Gateway is not registered" with the status "Gateway key is invalid"`
 
 ![A chave gateway é inválida ou vazia](media/data-factory-troubleshoot-gateway-issues/gateway-not-registered-key-invalid.png)
 
@@ -167,7 +163,7 @@ Gateway não pode ligar-se ao serviço de nuvem através do Service Bus.
 #### <a name="resolution"></a>Resolução
 Siga estes passos para voltar a estar online:
 
-1. Permitir regras de saída de endereço IP na máquina de gateway e na firewall corporativa. Pode encontrar endereços IP a partir do Registo de Eventos do Windows (ID == 401): Foi feita uma tentativa de aceder a uma tomada de uma forma proibida pelas suas permissões de acesso XX. XX. XX. XX:9350.
+1. Permitir regras de saída de endereço IP na máquina de gateway e na firewall corporativa. Pode encontrar endereços IP a partir do Registo de Eventos do Windows (ID == 401): Foi feita uma tentativa de aceder a uma tomada de uma forma proibida pelas suas permissões de acesso XX.XX.XX.XX:9350.
 1. Configurar configurações de procuração no gateway. Consulte a secção de considerações do servidor Proxy para obter mais detalhes.
 1. Ative as portas de saída 5671 e 9350-9354 tanto no Windows Firewall na máquina de gateway como na firewall corporativa. Consulte a secção de portas e firewall para mais detalhes. Este passo é opcional, mas recomendamos para consideração de desempenho.
 
@@ -204,7 +200,7 @@ O certificado TLS/SSL pode ter sido perdido na máquina de gateway. O computador
 Siga estes passos para resolver o problema:
 
 1. Iniciar gestor de configuração gateway de gestão de dados.
-2. Mudar para o separador **Definições** .  
+2. Mudar para o separador **Definições**.  
 3. Clique no botão **Alterar** para alterar o certificado TLS/SSL.
 
    ![Alterar botão de certificado](media/data-factory-troubleshoot-gateway-issues/change-button-ssl-certificate.png)
@@ -233,7 +229,7 @@ Se vir a ligação à loja de dados ou erros relacionados com o condutor, comple
 
 1. Iniciar gestor de configuração gateway de gestão de dados na máquina de gateway.
 2. Mude para o **separador Diagnósticos.**
-3. Em **Test Connection** , adicione os valores do grupo gateway.
+3. Em **Test Connection**, adicione os valores do grupo gateway.
 4. Clique em **Testar** para ver se consegue ligar à fonte de dados no local a partir da máquina de gateway utilizando as informações e credenciais de ligação. Depois de instalar um controlador, se a ligação de teste continuar a falhar, reinicie o gateway para que este possa escolher a mais recente.
 
 ![Ligação de teste no separador diagnósticos](media/data-factory-troubleshoot-gateway-issues/test-connection-in-diagnostics-tab.png)
@@ -278,8 +274,8 @@ Clique no link de **registos de gateway Archive** para arquivar e guardar regist
 ### <a name="locate-gateway-logs"></a>Localizar registos de gateway
 Pode encontrar informações detalhadas sobre registos de gateway nos registos de eventos do Windows.
 
-1. Iniciar **o visualizador de eventos do Windows** .
-2. Localizar registos na pasta Gateway de Gestão de Dados de **Registos de Aplicações e Serviços.**  >  **Data Management Gateway**
+1. Iniciar **o visualizador de eventos do Windows**.
+2. Localizar registos na pasta Gateway de Gestão de Dados de **Registos de Aplicações e Serviços.**  >  
 
    Quando estiver a resolver problemas relacionados com gateways, procure eventos de nível de erro no espectador do evento.
 

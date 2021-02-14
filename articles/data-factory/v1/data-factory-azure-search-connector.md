@@ -1,23 +1,18 @@
 ---
 title: Empurre os dados para o índice de pesquisa utilizando a Data Factory
 description: Saiba como empurrar os dados para o Azure Cognitive Search Index utilizando a Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.assetid: f8d46e1e-5c37-4408-80fb-c54be532a4ab
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: f6521efe024ba0ea29ae427aeaf06ca0e5fa8dd7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0226ab75d53733b94a9ae5734b42b7340998759c
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84194923"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100379272"
 ---
 # <a name="push-data-to-an-azure-cognitive-search-index-by-using-azure-data-factory"></a>Empurre os dados para um índice de pesquisa cognitiva Azure utilizando a Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -39,7 +34,7 @@ Pode criar um pipeline com uma atividade de cópia que empurra os dados de uma l
 
 A forma mais fácil de criar um oleoduto é utilizar o **Copy Wizard**. Ver [Tutorial: Criar um pipeline utilizando o Copy Wizard](data-factory-copy-data-wizard-tutorial.md) para uma rápida passagem na criação de um oleoduto utilizando o assistente de dados Copy.
 
-Também pode utilizar as seguintes ferramentas para criar um pipeline: **Visual Studio**, **Azure PowerShell,** **Azure Resource Manager,** **.NET API**e **REST API**. Consulte o tutorial de [atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo para criar um oleoduto com uma atividade de cópia.
+Também pode utilizar as seguintes ferramentas para criar um pipeline: **Visual Studio**, **Azure PowerShell,** **Azure Resource Manager,** **.NET API** e **REST API**. Consulte o tutorial de [atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo para criar um oleoduto com uma atividade de cópia.
 
 Quer utilize as ferramentas ou APIs, executa os seguintes passos para criar um pipeline que transfere dados de uma loja de dados de origem para uma loja de dados de lavatórios:
 
@@ -57,9 +52,9 @@ A tabela seguinte fornece descrições para elementos JSON específicos do servi
 
 | Propriedade | Descrição | Obrigatório |
 | -------- | ----------- | -------- |
-| tipo | A propriedade tipo deve ser definida para: **AzureSearch**. | Sim |
-| url | URL para o serviço de pesquisa. | Sim |
-| key | Chave de administração para o serviço de pesquisa. | Sim |
+| tipo | A propriedade tipo deve ser definida para: **AzureSearch**. | Yes |
+| url | URL para o serviço de pesquisa. | Yes |
+| key | Chave de administração para o serviço de pesquisa. | Yes |
 
 ## <a name="dataset-properties"></a>Dataset properties (Propriedades do conjunto de dados)
 
@@ -67,8 +62,8 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 | Propriedade | Descrição | Obrigatório |
 | -------- | ----------- | -------- |
-| tipo | A propriedade tipo deve ser definida para **AzureSearchIndex**.| Sim |
-| nome do índice | Nome do índice de pesquisa. A Data Factory não cria o índice. O índice deve existir na Pesquisa Cognitiva Azure. | Sim |
+| tipo | A propriedade tipo deve ser definida para **AzureSearchIndex**.| Yes |
+| nome do índice | Nome do índice de pesquisa. A Data Factory não cria o índice. O índice deve existir na Pesquisa Cognitiva Azure. | Yes |
 
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
@@ -78,8 +73,8 @@ Para a Atividade de Cópia, quando a pia é do tipo **AzureSearchIndexSink,** as
 
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | -------- | ----------- | -------------- | -------- |
-| Escrever Comportamento | Especifica se deve fundir ou substituir quando um documento já existe no índice. Consulte a [propriedade WriteBehavior](#writebehavior-property).| Fusão (padrão)<br/>Carregar| Não |
-| WriteBatchsize | Envia dados para o índice de pesquisa quando o tamanho do tampão atinge o writeBatchSize. Consulte a [propriedade WriteBatchSize](#writebatchsize-property) para mais detalhes. | De 1 a 1.000. O valor predefinido é de 1000. | Não |
+| Escrever Comportamento | Especifica se deve fundir ou substituir quando um documento já existe no índice. Consulte a [propriedade WriteBehavior](#writebehavior-property).| Fusão (padrão)<br/>Carregar| No |
+| WriteBatchsize | Envia dados para o índice de pesquisa quando o tamanho do tampão atinge o writeBatchSize. Consulte a [propriedade WriteBatchSize](#writebatchsize-property) para mais detalhes. | De 1 a 1.000. O valor predefinido é de 1000. | No |
 
 ### <a name="writebehavior-property"></a>Propriedade WriteBehavior
 AzureSearchSinksersers ao escrever dados. Por outras palavras, ao escrever um documento, se a chave de documento já existe no índice de pesquisa, a Azure Cognitive Search atualiza o documento existente em vez de lançar uma exceção de conflito.
@@ -99,12 +94,12 @@ A tabela seguinte especifica se um tipo de dados de pesquisa cognitiva Azure é 
 
 | Tipo de dados de pesquisa cognitiva Azure | Suportado em Azure Cognitive Search Sink |
 | ---------------------- | ------------------------------ |
-| Cadeia | S |
-| Int32 | S |
-| Int64 | S |
-| Double (Duplo) | S |
-| Booleano | S |
-| DataTimeOffset | S |
+| String | Y |
+| Int32 | Y |
+| Int64 | Y |
+| Double (Duplo) | Y |
+| Booleano | Y |
+| DataTimeOffset | Y |
 | Matriz de Cordas | N |
 | GeografiaPoint | N |
 

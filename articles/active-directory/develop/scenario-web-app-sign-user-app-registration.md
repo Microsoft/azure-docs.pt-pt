@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/14/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 7f7be27e67bfa266c368927227f1b8d1083a5124
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 96fbe676d4b929d2c1ee2efce0d10f3b5dc7c6ab
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98937873"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100103197"
 ---
 # <a name="web-app-that-signs-in-users-app-registration"></a>Aplicação web que assina nos utilizadores: Registo de aplicações
 
@@ -42,7 +42,7 @@ Pode utilizar estes links para a criação da sua aplicação web:
 > O portal a utilizar é diferente dependendo se a sua aplicação funciona na nuvem pública do Microsoft Azure ou numa nuvem nacional ou soberana. Para mais informações, consulte [as nuvens nacionais.](./authentication-national-cloud.md#app-registration-endpoints)
 
 
-1. Inscreva-se no <a href="https://portal.azure.com/" target="_blank">portal <span class="docon docon-navigate-external x-hidden-focus"></span> Azure</a>. 
+1. Inicie sessão no <a href="https://portal.azure.com/" target="_blank">portal do Azure</a>. 
 1. Se tiver acesso a vários inquilinos, utilize o filtro **de subscrição Diretório +** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o inquilino no qual pretende registar uma candidatura.
 1. Procure e selecione **Azure Active Directory**.
 1. Em **Gestão**, selecione **registos de aplicações**  >  **Novo registo**.
@@ -121,6 +121,6 @@ Por predefinição, a amostra utiliza:
 >
 > Pode criar uma aplicação que assina nos utilizadores com as suas contas pessoais da Microsoft (por exemplo, Skype, Xbox ou Outlook.com). Primeiro, criar uma aplicação multitenant. Os tipos de conta suportado são contas em qualquer diretório organizacional. Em seguida, altere o [`accessTokenAcceptedVersion`](./reference-app-manifest.md#accesstokenacceptedversion-attribute) imóvel para **2** e o [`signInAudience`](./reference-app-manifest.md#signinaudience-attribute) imóvel para `AzureADandPersonalMicrosoftAccount` no manifesto de [aplicação](./reference-app-manifest.md) a partir do portal Azure. Para mais informações, consulte o [passo 1.3](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-3-AnyOrgOrPersonal#step-1-register-the-sample-with-your-azure-ad-tenant) no tutorial do Núcleo ASP.NET. Pode generalizar este passo para aplicações web em qualquer idioma.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Passe para o próximo artigo neste cenário, [a configuração de código da App](scenario-web-app-sign-user-app-configuration.md).

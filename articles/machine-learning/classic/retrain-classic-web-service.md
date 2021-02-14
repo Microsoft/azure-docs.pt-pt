@@ -3,18 +3,18 @@ title: 'ML Studio (clássico): retrainte o serviço web clássico - Azure'
 description: Aprenda a treinar um modelo e a atualizar um serviço web clássico para utilizar o modelo recém-treinado no Azure Machine Learning Studio (clássico).
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 author: peterclu
 ms.author: peterlu
 ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT, devx-track-csharp
 ms.date: 02/14/2019
-ms.openlocfilehash: 158541d34568b7ea02ea82dbfe90f5801824716f
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 90c968ee953e80238775639964cb09a25741b33d
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325780"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100517574"
 ---
 # <a name="retrain-and-deploy-a-classic-studio-classic-web-service"></a>Retreine e implemente um serviço web clássico do Studio (clássico)
 
@@ -76,7 +76,7 @@ A página de ajuda PATCH contém o URL PATCH que deve utilizar e fornece o códi
 
 Agora pode utilizar o modelo treinado para atualizar o ponto final de pontuação que criou anteriormente.
 
-O seguinte código de amostra mostra-lhe como utilizar o *BaseLocation* , *RelativeLocation* , *SasBlobToken* e PATCH URL para atualizar o ponto final.
+O seguinte código de amostra mostra-lhe como utilizar o *BaseLocation*, *RelativeLocation*, *SasBlobToken* e PATCH URL para atualizar o ponto final.
 
 ```csharp
 private async Task OverwriteModel()

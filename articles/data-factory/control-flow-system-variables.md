@@ -1,22 +1,18 @@
 ---
 title: Variáveis do sistema na Azure Data Factory
 description: Este artigo descreve variáveis do sistema suportadas pela Azure Data Factory. Pode utilizar estas variáveis em expressões ao definir entidades da Data Factory.
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
-manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/12/2018
-ms.openlocfilehash: fc6b2e4c944394d811abc19f70aeb34a0ae3c9a4
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: cb19b7e8c5271e1106e69c98d5bd17a1bcb822bf
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98127673"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100385290"
 ---
 # <a name="system-variables-supported-by-azure-data-factory"></a>Variáveis do sistema suportadas pela Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -26,7 +22,7 @@ Este artigo descreve variáveis do sistema suportadas pela Azure Data Factory. P
 ## <a name="pipeline-scope"></a>Extensão do gasoduto
 Estas variáveis do sistema podem ser referenciadas em qualquer lugar do gasoduto JSON.
 
-| Nome da Variável | Descrição |
+| Nome da Variável | Description |
 | --- | --- |
 | @pipeline(). DataFactory |Nome da fábrica de dados o gasoduto está em execução |
 | @pipeline(). Gasoduto |Nome do oleoduto |
@@ -42,7 +38,7 @@ Estas variáveis do sistema podem ser referenciadas em qualquer lugar do gasodut
 ## <a name="schedule-trigger-scope"></a>Programação de acionamento
 Estas variáveis do sistema podem ser referenciadas em qualquer lugar do gatilho JSON para gatilhos do tipo [ScheduleTrigger](concepts-pipeline-execution-triggers.md#schedule-trigger).
 
-| Nome da Variável | Descrição |
+| Nome da Variável | Description |
 | --- | --- |
 | @trigger().Horário programado |Hora em que o gatilho estava programado para invocar o gasoduto. |
 | @trigger().startTime |Hora em que o gatilho **disparou** para invocar o gasoduto. Isto pode diferir ligeiramente da hora programada do gatilho. |
@@ -50,7 +46,7 @@ Estas variáveis do sistema podem ser referenciadas em qualquer lugar do gatilho
 ## <a name="tumbling-window-trigger-scope"></a>Telescópio de gatilho da janela caindo
 Estas variáveis do sistema podem ser referenciadas em qualquer lugar do gatilho JSON para gatilhos do tipo [TumblingWindowTrigger](concepts-pipeline-execution-triggers.md#tumbling-window-trigger).
 
-| Nome da Variável | Descrição |
+| Nome da Variável | Description |
 | --- | --- |
 | @trigger().outputs.windowStartTime |Início da janela associada ao acionador. |
 | @trigger().outputs.windowEndTime |Extremidade da janela associada ao acionador. |
@@ -60,7 +56,7 @@ Estas variáveis do sistema podem ser referenciadas em qualquer lugar do gatilho
 ## <a name="event-based-trigger-scope"></a>Âmbito de disparo baseado em eventos
 Estas variáveis do sistema podem ser referenciadas em qualquer lugar do gatilho JSON para gatilhos do tipo [BlobEventsTrigger](concepts-pipeline-execution-triggers.md#event-based-trigger).
 
-| Nome da Variável | Descrição |
+| Nome da Variável | Description |
 | --- | --- |
 | @triggerBody().fileName  |Nome do ficheiro cuja criação ou supressão causou o disparo.   |
 | @triggerBody().Nome de pasta  |Caminho para a pasta que contém o ficheiro especificado por `@triggerBody().fileName` . O primeiro segmento do caminho da pasta é o nome do recipiente de armazenamento Azure Blob.  |

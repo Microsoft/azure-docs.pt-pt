@@ -16,12 +16,12 @@ ms.date: 12/23/2020
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a5812d4dbbd1a63b16d5bee77bb018ea18dd1d6
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: c8e6c13600cb5940351d31b54af403584cc68a5f
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98937684"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100515653"
 ---
 # <a name="delegation-and-roles-in-azure-ad-entitlement-management"></a>Delegação e funções na gestão dos direitos da AD Azure
 
@@ -76,7 +76,7 @@ Após a delegação, o departamento de marketing poderá ter funções semelhant
 
 A gestão de direitos tem as seguintes funções específicas para a gestão de direitos.
 
-| Papel de gestão de direitos | Descrição |
+| Papel de gestão de direitos | Description |
 | --- | --- |
 | Criador de catálogos | Criar e gerir catálogos. Tipicamente um administrador de TI que não é um administrador global, ou um proprietário de recursos para uma recolha de recursos. A pessoa que cria um catálogo torna-se automaticamente o primeiro proprietário do catálogo, e pode adicionar proprietários adicionais de catálogos. Um criador de catálogos não consegue gerir ou ver catálogos que não possuem e não pode adicionar recursos que não possuem a um catálogo. Se o criador do catálogo precisar de gerir outro catálogo ou adicionar recursos que não possuam, podem solicitar para ser coproprietário desse catálogo ou recurso. |
 | Proprietário do catálogo | Editar e gerir os catálogos existentes. Normalmente, um administrador de TI ou proprietários de recursos, ou um utilizador que o proprietário do catálogo designou. |
@@ -85,7 +85,7 @@ A gestão de direitos tem as seguintes funções específicas para a gestão de 
 
 Além disso, um aprovador designado e um solicitador de um pacote de acesso também têm direitos, embora não sejam funções.
 
-| Direita | Descrição |
+| Direita | Description |
 | --- | --- |
 | Aprovador | Autorizados por uma política para aprovar ou negar pedidos de acesso a pacotes, embora não possam alterar as definições do pacote de acesso. |
 | Requerente | Autorizado por uma política de um pacote de acesso para solicitar esse pacote de acesso. |
@@ -134,12 +134,9 @@ Para um utilizador que não seja um administrador global ou um administrador do 
 | [Administrador de aplicação em nuvem](../roles/permissions-reference.md) | Proprietário do catálogo |  |  | :heavy_check_mark: |  |
 | User | Proprietário do catálogo | Só se o dono do grupo | Só se o dono do grupo | Só se o proprietário da aplicação |  |
 
-> [!NOTE]
-> Se um utilizador adicionar um grupo de segurança ou um grupo Microsoft 365, então o grupo não pode ser atribuível a funções. Se o utilizador adicionar um grupo que seja atribuível a funções quando criar o pacote de acesso, então eles também devem ser o proprietário desse grupo atribuível a função. Para mais informações, consulte [criar um grupo atribuível a funções no Diretório Ativo Azure](../roles/groups-create-eligible.md).
-
 Para determinar o papel menos privilegiado para uma tarefa, também pode referenciar [as funções de Administrador através da tarefa de administração no Diretório Ativo Azure](../roles/delegate-by-task.md#entitlement-management).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Delegar governação de acesso aos criadores de catálogos](entitlement-management-delegate-catalog.md)
 - [Criar e gerir um catálogo de recursos](entitlement-management-catalog-create.md)

@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: cc17a66aceb6ab3eba9a18f8f07902822f4c81bb
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 0221022c342735744d59f956d6047b4abf23b5cf
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96937666"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100516520"
 ---
 # <a name="limits-in-azure-database-for-postgresql---flexible-server"></a>Limites na Base de Dados Azure para PostgreSQL - Servidor Flexível
 
@@ -66,6 +66,13 @@ Uma ligação PostgreSQL, mesmo inativa, pode ocupar cerca de 10 MB de memória.
 
 - Atualmente, a migração automatizada entre as principais versões do motor da base de dados não é suportada. Se quiser fazer o upgrade para a próxima versão principal, faça uma [lixeira e restaure-a](../howto-migrate-using-dump-and-restore.md) num servidor que foi criado com a nova versão do motor.
 
+### <a name="storage"></a>Armazenamento
+
+- Uma vez configurado, o tamanho do armazenamento não pode ser reduzido.
+- Atualmente, a funcionalidade de crescimento automático de armazenamento não está disponível. Por favor, monitorize a utilização e aumente o armazenamento para um tamanho mais elevado. 
+- Quando a utilização do armazenamento atinge 95% ou se a capacidade disponível for inferior a 5 GiB, o servidor é automaticamente mudado para **o modo apenas de leitura** para evitar erros associados a situações de disco completo. 
+- Recomendamos definir regras de alerta para `storage used` ou `storage percent` quando excederem determinados limiares para que possa tomar medidas proactivas, tais como aumentar o tamanho do armazenamento. Por exemplo, pode definir um alerta se a percentagem de armazenamento exceder 80% de utilização.
+  
 ### <a name="networking"></a>Rede
 
 - Atualmente, a deslocação para dentro e para fora do VNET não é suportada.

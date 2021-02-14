@@ -1,24 +1,19 @@
 ---
 title: Problemas na resolução de problemas da Fábrica de Dados do Azure
 description: Saiba como resolver problemas com a utilização da Azure Data Factory.
-services: data-factory
-documentationcenter: ''
-ms.assetid: 38fd14c1-5bb7-4eef-a9f5-b289ff9a6942
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 author: dcstwh
 ms.author: weetok
 ms.reviewer: maghan
-manager: anandsub
 robots: noindex
-ms.openlocfilehash: bd18a26a1c199e1ecc32cfc371d2931b1dee0c3f
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: ed831e5f07eb29110b858dfb16b73f276926424f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96494975"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388248"
 ---
 # <a name="troubleshoot-data-factory-issues"></a>Resolver Problemas do Data Factory
 > [!NOTE]
@@ -35,14 +30,15 @@ Se aparecer este erro, o fornecedor de recursos do Azure Data Factory não foi r
 1. Inicie o Azure PowerShell.
 2. Faça login na sua conta Azure utilizando o seguinte comando.
 
-    ```powershell
-    Connect-AzAccount
-    ```
+   ```powershell
+   Connect-AzAccount
+   ```
+
 3. Executar o seguinte comando para registar o fornecedor Azure Data Factory.
 
-    ```powershell        
-    Register-AzResourceProvider -ProviderNamespace Microsoft.DataFactory
-    ```
+   ```powershell
+   Register-AzResourceProvider -ProviderNamespace Microsoft.DataFactory
+   ```
 
 ### <a name="problem-unauthorized-error-when-running-a-data-factory-cmdlet"></a>Problema: Erro não autorizado ao executar um cmdlet da Data Factory
 Provavelmente não está a utilizar a conta ou a subscrição do Azure adequada com o Azure PowerShell. Utilize os seguintes cmdlets para selecionar a conta e a subscrição do Azure adequadas que devem ser utilizadas com o Azure PowerShell.
@@ -67,7 +63,7 @@ Lance o **Gestor de Configuração gateway de gestão de dados** na máquina de 
 ### <a name="problem-input-slices-are-in-waiting-state-forever"></a>Problema: As fatias de entrada estão em estado de espera para sempre
 As fatias podem estar em estado **de espera** por várias razões. Uma das razões comuns é que a propriedade **externa** não é definida como **verdadeira.** Qualquer conjunto de dados produzido fora do âmbito da Azure Data Factory deve ser marcado com propriedade **externa.** Esta propriedade indica que os dados são externos e não são apoiados por quaisquer oleodutos dentro da fábrica de dados. Os setores de dados são marcados como **Pronto** assim que os dados estiverem disponíveis no respetivo arquivo.
 
-Veja o seguinte exemplo para saber como utilizar a propriedade **external**. Pode especificar opcionalmente **externalData** _ quando configurar externo para verdadeiro.
+Veja o seguinte exemplo para saber como utilizar a propriedade **external**. Pode especificar opcionalmente **externalData*** quando configurar externo para verdadeiro.
 
 Veja o artigo [Conjuntos de dados](data-factory-create-datasets.md) para obter mais detalhes sobre esta propriedade.
 
@@ -97,7 +93,7 @@ Veja o artigo [Conjuntos de dados](data-factory-create-datasets.md) para obter m
 }
 ```
 
-Para resolver o erro, adicione a propriedade _ *externa** e a secção **opcional externalData** à definição JSON da tabela de entrada e recrie a tabela.
+Para resolver o erro, adicione a propriedade **external** e a secção opcional **externalData** à definição JSON da tabela de entrada e recrie a tabela.
 
 ### <a name="problem-hybrid-copy-operation-fails"></a>Problema: Falha na operação de cópia híbrida
 Consulte [problemas de gateway](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) de resolução de problemas para as medidas para resolver problemas com a cópia de/para uma loja de dados no local utilizando o Gateway de Gestão de Dados.

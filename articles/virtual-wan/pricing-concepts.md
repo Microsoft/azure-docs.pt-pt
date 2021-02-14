@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 12/08/2020
 ms.author: reyandap
 ms.custom: references_pricing
-ms.openlocfilehash: 8ced9bb33be341d35904967092414676a6ffe3ac
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 13451291544f704000ab61d41ed5014fa69298e4
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905541"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100517693"
 ---
 # <a name="about-virtual-wan-pricing"></a>Sobre os preços de WAN virtual
 
@@ -23,8 +23,7 @@ A Azure Virtual WAN reúne vários serviços de rede e segurança num quadro uni
 Cada serviço em VIRTUAL WAN tem o preço. Portanto, sugerir um único preço não é aplicável a VIRTUAL WAN. A [Calculadora de Preços Azure](https://azure.microsoft.com/pricing/calculator/) fornece um mecanismo para obter o custo, que se baseia nos serviços prestados num WAN virtual. Este artigo discute perguntas comumente sobre preços de WAN virtuais.
 
 >[!NOTE]
->Para obter informações sobre preços correntes, consulte [os preços de ODDS Virtuais.](https://azure.microsoft.com/pricing/details/virtual-wan/)
->
+>Para obter informações sobre preços correntes, consulte [os preços de ODDS Virtuais.](https://azure.microsoft.com/pricing/details/virtual-wan/) As tarifas inter-hub (hub to hub) não aparecem na página de preços do WAN Virtual, uma vez que está sujeita a Inter-Region encargos (Intra/Inter-continental) taxas de transferência de [dados Azure](https://azure.microsoft.com/pricing/details/bandwidth/).
 
 ## <a name="common-pricing-questions"></a><a name="questions"></a>Questões de preços comuns
 
@@ -40,7 +39,7 @@ Uma unidade de **escala** fornece a unidade para a capacidade agregada de Site-t
 
 Uma unidade de **ligação** aplica-se a qualquer ponto final no local/ponto final não-Microsoft que se ligue aos gateways Azure. Para a VPN site-to-site, este valor implica ramos. Para a VPN do utilizador (ponto a local), este valor implica utilizadores remotos. Para o ExpressRoute, este valor implica ligações de circuito ExpressRoute.<br>Por exemplo:
 
-* Uma ligação de ramo que ligue à Azure VPN num hub virtual custa $0,05/hora. Portanto, 100 ligações de filial conectando-se a um hub virtual Azure custariam $0,05*100/h.
+* Uma ligação de ramo que ligue à Azure VPN num hub virtual custa $0,05/hora. Portanto, 100 ligações de filial conectando-se a um hub virtual Azure custaria$ $0,05*100/h.
 
 * Duas ligações do circuito ExpressRoute que se ligam a um hub virtual custariam $0,05*2/hora.
 

@@ -3,22 +3,22 @@ title: 'ML Studio (clássico): Ver & refazer experiências - Azure'
 description: Gerir a experiência corre no Azure Machine Learning Studio (clássico). Pode rever as execuções anteriores das suas experiências a qualquer momento para desafiar, revisitar e, em última análise, confirmar ou aperfeiçoar pressupostos anteriores.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 03/20/2017
-ms.openlocfilehash: c958de5e49fbb7519ae71b13e9deba9af0c698de
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 419a696da1244afab7aa03cd8c4521ea819a5298
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93312867"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100515959"
 ---
 # <a name="manage-experiment-runs-in-azure-machine-learning-studio-classic"></a>Gerir a experiência corre no Azure Machine Learning Studio (clássico)
 
-**APLICA-SE A:** ![ Aplica-se a. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) ![ Não se aplica a. ](../../../includes/media/aml-applies-to-skus/no.png)[ Aprendizagem de Máquinas Azure](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
+**APLICA-SE A:** ![ Aplica-se a. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) ![ Não se aplica a.](../../../includes/media/aml-applies-to-skus/no.png)[ Aprendizagem de Máquinas Azure](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 
 Desenvolver um modelo de análise preditiva é um processo iterativo - à medida que modifica as várias funções e parâmetros da sua experiência, os seus resultados convergem até que esteja convencido de que tem um modelo treinado e eficaz. A chave para este processo é rastrear as várias iterações dos seus parâmetros e configurações de experiência.
@@ -43,8 +43,8 @@ Por exemplo, suponha que cria uma experiência com o módulo [de Regressão Line
 | Valor da Taxa de Aprendizagem | Tempo de início de execução |
 | --- | --- |
 | 0.1 |9/11/2014 16:18:58 |
-| 0.2 |11/09/2014 16:24:33 |
-| 0.4 |11/09/2014 16:28:36 |
+| 0,2 |11/09/2014 16:24:33 |
+| 0,4 |11/09/2014 16:28:36 |
 | 0,5 |11/09/2014 16:33:31 |
 
 Se clicar em **VER EXECUTAR HISTÓRICO,** veja uma lista de todas estas execuções:

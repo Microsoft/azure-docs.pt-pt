@@ -1,23 +1,18 @@
 ---
 title: Mover dados do MySQL usando a Azure Data Factory
 description: Saiba como mover dados da base de dados MySQL usando a Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.assetid: 452f4fce-9eb5-40a0-92f8-1e98691bea4c
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/06/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 90fccba016a3db9ff85f8ec7c8fd426ef3c896a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 83c39435d2249981a45798ffe0717054fa7b0717
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91872107"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100387330"
 ---
 # <a name="move-data-from-mysql-using-azure-data-factory"></a>Mover dados do MySQL usando a Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -50,7 +45,7 @@ Para que o Gateway de Gestão de Dados se conecte à Base de Dados MySQL, é nec
 Pode criar um pipeline com uma atividade de cópia que move dados de uma loja de dados cassandra no local, utilizando diferentes ferramentas/APIs. 
 
 - A forma mais fácil de criar um oleoduto é utilizar o **Copy Wizard**. Ver [Tutorial: Criar um pipeline utilizando o Copy Wizard](data-factory-copy-data-wizard-tutorial.md) para uma rápida passagem na criação de um oleoduto utilizando o assistente de dados Copy. 
-- Também pode utilizar as seguintes ferramentas para criar um pipeline: **Visual Studio**, **Azure PowerShell,** **Azure Resource Manager,** **.NET API**e **REST API**. Consulte o tutorial de [atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo para criar um oleoduto com uma atividade de cópia. 
+- Também pode utilizar as seguintes ferramentas para criar um pipeline: **Visual Studio**, **Azure PowerShell,** **Azure Resource Manager,** **.NET API** e **REST API**. Consulte o tutorial de [atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo para criar um oleoduto com uma atividade de cópia. 
 
 Quer utilize as ferramentas ou APIs, executa os seguintes passos para criar um pipeline que transfere dados de uma loja de dados de origem para uma loja de dados de lavatórios:
 
@@ -67,14 +62,14 @@ A tabela seguinte fornece descrição para elementos JSON específicos do servi�
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| tipo |A propriedade tipo deve ser definida para: **OnPremisesMySql** |Sim |
-| servidor |Nome do servidor MySQL. |Sim |
-| base de dados |Nome da base de dados MySQL. |Sim |
-| esquema |O nome do esquema na base de dados. |Não |
-| authenticationType |Tipo de autenticação usada para ligar à base de dados MySQL. Os valores possíveis são: `Basic` . |Sim |
-| userName |Especifique o nome do utilizador para ligar à base de dados MySQL. |Sim |
-| palavra-passe |Especifique a palavra-passe para a conta de utilizador que especificou. |Sim |
-| gatewayName |Nome do gateway que o serviço Data Factory deve utilizar para ligar à base de dados MySQL no local. |Sim |
+| tipo |A propriedade tipo deve ser definida para: **OnPremisesMySql** |Yes |
+| servidor |Nome do servidor MySQL. |Yes |
+| base de dados |Nome da base de dados MySQL. |Yes |
+| esquema |O nome do esquema na base de dados. |No |
+| authenticationType |Tipo de autenticação usada para ligar à base de dados MySQL. Os valores possíveis são: `Basic` . |Yes |
+| userName |Especifique o nome do utilizador para ligar à base de dados MySQL. |Yes |
+| palavra-passe |Especifique a palavra-passe para a conta de utilizador que especificou. |Yes |
+| gatewayName |Nome do gateway que o serviço Data Factory deve utilizar para ligar à base de dados MySQL no local. |Yes |
 
 ## <a name="dataset-properties"></a>Dataset properties (Propriedades do conjunto de dados)
 Para obter uma lista completa de secções & propriedades disponíveis para definir conjuntos de dados, consulte o artigo [Criar conjuntos de dados.](data-factory-create-datasets.md) Secções como estrutura, disponibilidade e política de um conjunto de dados JSON são semelhantes para todos os tipos de conjunto de dados (Azure SQL, Azure blob, Azure table, etc.).
@@ -306,7 +301,7 @@ Ao mover dados para o MySQL, os seguintes mapeamentos são usados dos tipos MySQ
 | blob |Byte[] |
 | bool |Booleano |
 | char |String |
-| date |Datetime |
+| data |Datetime |
 | datetime |Datetime |
 | decimal |Decimal |
 | dupla precisão |Double (Duplo) |

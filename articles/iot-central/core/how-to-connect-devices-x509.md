@@ -8,18 +8,25 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.custom: device-developer
-ms.openlocfilehash: bffff099e8df2b944cbef50a074ef625267ed238
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: cf0db71600c9350b4d70e6375f509a6e88709f70
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98944637"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100378337"
 ---
 # <a name="how-to-connect-devices-with-x509-certificates-using-nodejs-device-sdk-for-iot-central-application"></a>Como ligar dispositivos com certificados X.509 utilizando Node.js dispositivo SDK para aplicação central IoT
 
 A IoT Central suporta tanto as assinaturas de acesso partilhado (SAS) como os certificados X.509 para garantir a comunicação entre um dispositivo e a sua aplicação. O [Create e ligue uma aplicação de cliente ao seu tutorial de aplicação Azure IoT Central](./tutorial-connect-device.md) utiliza SAS. Neste artigo, aprende-se a modificar a amostra de código para utilizar x.509.  Os certificados X.509 são recomendados em ambientes de produção. Para mais informações, consulte [Get connected to Azure IoT Central](./concepts-get-connected.md).
 
 Este artigo mostra duas formas de usar X.509 - matrículas de grupo tipicamente [usadas](how-to-connect-devices-x509.md#use-a-group-enrollment) em um ambiente de produção, e [inscrições individuais úteis para testes.](how-to-connect-devices-x509.md#use-an-individual-enrollment)
+
+Os códigos neste artigo utilizam o JavaScript. Para amostras de código noutras línguas, consulte:
+
+- [C](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iothub_ll_client_x509_sample)
+- [C#](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/iot-hub/Samples/device/X509DeviceCertWithChainSample)
+- [Java](https://github.com/Azure/azure-iot-sdk-java/tree/master/device/iot-device-samples/send-event-x509)
+- [Python](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples/sync-samples)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -219,6 +226,6 @@ O dispositivo está agora a provisionado com certificado X.509.
 
 Pode repetir os passos acima para _o certificado de certificação_ do meu desempenho também.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que aprendeu a ligar dispositivos usando certificados X.509, o próximo passo sugerido é aprender a monitorizar a conectividade do [dispositivo usando o Azure CLI](howto-monitor-devices-azure-cli.md)

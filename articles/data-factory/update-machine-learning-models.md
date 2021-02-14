@@ -1,22 +1,18 @@
 ---
 title: Atualizar modelos Azure Machine Learning Studio (clássicos) usando Azure Data Factory
 description: Descreve como criar oleodutos preditivos usando a Azure Data Factory e o Azure Machine Learning Studio (clássico)
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
-manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/16/2020
-ms.openlocfilehash: bec300414483181617a7aa009157a4c4a332c745
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: ef89ecef34a7c5afb94547181f449b0fc393e67c
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96496760"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100377572"
 ---
 # <a name="update-azure-machine-learning-studio-classic-models-by-using-update-resource-activity"></a>Atualizar modelos Azure Machine Learning Studio (clássico) utilizando a atividade de Update Resource
 
@@ -24,7 +20,7 @@ ms.locfileid: "96496760"
 
 Este artigo complementa o principal artigo de integração do Azure Machine Learning Factory - Azure Machine Learning Studio (clássico): [Criar oleodutos preditivos utilizando o Azure Machine Learning Studio (clássico) e a Azure Data Factory.](transform-data-using-machine-learning.md) Se ainda não o fez, reveja o artigo principal antes de ler este artigo.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 Como parte do processo de operacionalização dos modelos Azure Machine Learning Studio (clássicos), o seu modelo é treinado e guardado. Em seguida, usa-o para criar um serviço Web preditivo. O serviço Web pode então ser consumido em sites, dashboards e aplicações móveis.
 
 Os modelos que cria usando o Azure Machine Learning Studio (clássico) normalmente não são estáticos. À medida que novos dados se tornam disponíveis ou quando o consumidor da API tem os seus próprios dados, o modelo precisa de ser retreinado. 
@@ -59,15 +55,15 @@ O seguinte snippet JSON define uma atividade de execução de lote Azure Machine
 }
 ```
 
-| Propriedade                      | Descrição                              | Obrigatório |
+| Propriedade                      | Descrição                              | Necessário |
 | :---------------------------- | :--------------------------------------- | :------- |
-| name                          | Nome da atividade no oleoduto     | Sim      |
-| descrição                   | Texto descrevendo o que a atividade faz.  | Não       |
-| tipo                          | Para a atividade do Azure Machine Learning Studio (clássico) Update Resource, o tipo de atividade é  **AzureMLUpdateResource**. | Sim      |
-| linkedServiceName             | Serviço ligado Azure Machine Learning Studio (clássico) que contém atualização Propriedade ResourceEndpoint. | Sim      |
-| me de Modelo treinado              | Nome do módulo Modelo Treinado na experiência do Serviço Web a ser atualizado | Sim      |
-| treinadoModelLinkedServiceName | Nome do serviço ligado ao Azure Storage que mantém o ficheiro ilearner que é carregado pela operação de atualização | Sim      |
-| treinadoModelFilePath          | O caminho relativo do ficheiro no TreinadoModelLinkedService para representar o ficheiro ilearner que é carregado pela operação de atualização | Sim      |
+| name                          | Nome da atividade no oleoduto     | Yes      |
+| descrição                   | Texto descrevendo o que a atividade faz.  | No       |
+| tipo                          | Para a atividade do Azure Machine Learning Studio (clássico) Update Resource, o tipo de atividade é  **AzureMLUpdateResource**. | Yes      |
+| linkedServiceName             | Serviço ligado Azure Machine Learning Studio (clássico) que contém atualização Propriedade ResourceEndpoint. | Yes      |
+| me de Modelo treinado              | Nome do módulo Modelo Treinado na experiência do Serviço Web a ser atualizado | Yes      |
+| treinadoModelLinkedServiceName | Nome do serviço ligado ao Azure Storage que mantém o ficheiro ilearner que é carregado pela operação de atualização | Yes      |
+| treinadoModelFilePath          | O caminho relativo do ficheiro no TreinadoModelLinkedService para representar o ficheiro ilearner que é carregado pela operação de atualização | Yes      |
 
 ## <a name="end-to-end-workflow"></a>Fluxo de trabalho ponto a ponto
 
@@ -97,7 +93,7 @@ Pode obter valores para os detentores de lugares no URL ao consultar o serviço 
 
 O novo tipo de ponto final de recurso de atualização requer a autenticação principal do serviço. Para utilizar a autenticação principal do serviço, registe uma entidade de aplicação no Azure Ative Directory (Azure AD) e conceda-lhe a função **de Contribuinte** ou **Proprietário** da subscrição ou do grupo de recursos a que pertence o serviço web. A Ver [como criar o principal de serviço e atribuir permissões para gerir o recurso Azure.](../active-directory/develop/howto-create-service-principal-portal.md) Tome nota dos seguintes valores, que utiliza para definir o serviço ligado:
 
-- ID da aplicação
+- ID da Aplicação
 - Chave de aplicação
 - ID do inquilino
 

@@ -6,15 +6,15 @@ author: likebupt
 ms.author: keli19
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: 3afcf87c360651ac314450910fbf5ab72afd289a
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 68a5f6773543b922d024336556e4de24dd96fd33
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95503903"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100517387"
 ---
 # <a name="tutorial-3-deploy-credit-risk-model---azure-machine-learning-studio-classic"></a>Tutorial 3: Implementar modelo de risco de crédito - Azure Machine Learning Studio (clássico)
 
@@ -48,12 +48,12 @@ Complete [a segunda parte do tutorial.](tutorial-part2-credit-risk-train.md)
 ## <a name="prepare-for-deployment"></a>Preparar para a implementação
 Para dar aos outros a oportunidade de usar o modelo preditivo que desenvolveu neste tutorial, pode implantá-lo como um serviço web no Azure.
 
-Até agora tens andado a experimentar treinar o nosso modelo. Mas o serviço implantado já não vai fazer treino - vai gerar novas previsões ao marcar a entrada do utilizador com base no nosso modelo. Então vamos fazer alguma preparação para converter esta experiência de um **treino** para uma experiência _*_preditiva._*_ 
+Até agora tens andado a experimentar treinar o nosso modelo. Mas o serviço implantado já não vai fazer treino - vai gerar novas previsões ao marcar a entrada do utilizador com base no nosso modelo. Então vamos fazer alguma preparação para converter esta experiência de um treino de **um** experimento para uma experiência *_preditiva._* 
 
 A preparação para a implantação é um processo em três etapas:  
 
 1. Remova um dos modelos
-1. Converta a experiência _training* que criou numa *experiência preditiva*
+1. Converta a experiência de *treino* que criou numa *experiência preditiva*
 1. Implementar a experiência preditiva como um serviço web
 
 ### <a name="remove-one-of-the-models"></a>Remova um dos modelos

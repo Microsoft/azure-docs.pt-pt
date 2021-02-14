@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 12/01/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 91cf6729911cdb674c5451f172e76a2e9d5943e4
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 1818dc558ba45e318b71e1443556cc48feaede8b
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96467674"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100367678"
 ---
 # <a name="troubleshoot-azure-monitor-for-windows-virtual-desktop-preview"></a>Troubleshoot Azure Monitor para Windows Virtual Desktop (pré-visualização)
 
@@ -20,9 +20,9 @@ ms.locfileid: "96467674"
 
 Este artigo apresenta problemas e soluções conhecidos para problemas comuns no Azure Monitor para o Windows Virtual Desktop (pré-visualização).
 
-## <a name="the-configuration-workbook-isnt-working-properly"></a>O livro de configuração não está a funcionar corretamente.
+## <a name="issues-with-configuration-and-setup"></a>Problemas com configuração e configuração
 
-Se o livro de configuração do Monitor Azure não estiver a funcionar, pode utilizar estes recursos para configurar as suas peças manualmente:
+Se o livro de configuração não estiver a funcionar corretamente para automatizar a instalação, pode utilizar estes recursos para configurar o seu ambiente manualmente:
 
 - Para ativar manualmente diagnósticos ou aceder ao espaço de trabalho Do Log Analytics, consulte [enviar diagnósticos de ambiente de trabalho virtual do Windows para registar análises.](diagnostics-log-analytics.md)
 - Para instalar manualmente a extensão Log Analytics num anfitrião, consulte a [extensão da máquina virtual Log Analytics para windows](../virtual-machines/extensions/oms-windows.md).
@@ -30,27 +30,29 @@ Se o livro de configuração do Monitor Azure não estiver a funcionar, pode uti
 - Para adicionar ou remover contadores de desempenho, consulte [balcões de desempenho configurados](../azure-monitor/platform/data-sources-performance-counters.md).
 - Para configurar eventos para um espaço de trabalho do Log Analytics, consulte [recolher fontes de dados de registo de eventos do Windows com o agente Log Analytics](../azure-monitor/platform/data-sources-windows-events.md).
 
-Em alternativa, o problema pode ser causado pela falta de recursos ou por não ter as permissões necessárias.
-
-Se a subscrição não tiver quaisquer recursos de Desktop Virtual do Windows, não aparecerá no parâmetro *de Subscrição.*
-
-Se não tiver lido o acesso às subscrições corretas, elas não aparecerão no parâmetro *de Subscrição* e não verá os seus dados no painel de instrumentos. Para resolver este problema, contacte o proprietário da subscrição e peça acesso à leitura.
-
 ## <a name="my-data-isnt-displaying-properly"></a>Os meus dados não estão a exibir-se corretamente.
 
-Se os seus dados não estiverem a ser apresentados corretamente, pode ter acontecido alguma coisa durante o processo de configuração do Monitor Azure. Em primeiro lugar, certifique-se de que preencheu todos os campos do livro de configuração descrito no [Use Azure Monitor para windows Virtual Desktop para monitorizar a sua implementação](azure-monitor.md). Pode alterar as definições para ambientes novos e existentes a qualquer momento. Se faltar algum contador ou evento, os dados associados a eles não aparecerão no portal Azure.
+Se os seus dados não estiverem a ser apresentados corretamente, verifique a sua configuração, permissões e verifique se os endereços IP necessários estão desbloqueados. 
 
-Se não estiver a perder nenhuma informação, mas os seus dados ainda não estiverem a ser apresentados corretamente, pode haver um problema na consulta ou nas fontes de dados. 
+- Em primeiro lugar, certifique-se de que preencheu todos os campos do livro de configuração descrito no [Use Azure Monitor para windows Virtual Desktop para monitorizar a sua implementação](azure-monitor.md). Se faltar algum contador ou evento, os dados associados a eles não aparecerão no portal Azure.
 
-Se não vir erros de configuração e ainda não vir os dados que espera, pode esperar 15 minutos e refrescar o feed. O Azure Monitor tem um período de latência de 15 minutos para a povoação de dados de registo. Para saber mais, consulte [o tempo de ingestão de dados do Registo no Azure Monitor](../azure-monitor/platform/data-ingestion-time.md).
+- Consulte as suas permissões de acesso & contacte os proprietários de recursos para solicitar permissões em falta; qualquer pessoa que monitorize o Windows Virtual Desktop requer as seguintes permissões:
 
-Finalmente, se não estiver a perder nenhuma informação, mas os seus dados ainda não aparecerem, pode haver um problema na consulta ou nas fontes de dados. Pode ter de contactar o Apoio para resolver o problema, se for esse o caso.
+    - Read-access às subscrições do Azure que detêm os seus recursos de Desktop Virtual do Windows
+    - Read-access aos grupos de recursos da subscrição que detêm os anfitriões da sessão virtual do Windows 
+    - Read-access para o log analytics workspace
+
+- Poderá ser necessário abrir portas de saída na firewall do seu servidor para permitir que o Azure Monitor envie dados para o portal, consulte [as portas outgoing](https://docs.microsoft.com/azure/azure-monitor/app/ip-addresses). 
+
+- Não ver dados de atividades recentes? É melhor esperar 15 minutos e refrescar o alimento. O Azure Monitor tem um período de latência de 15 minutos para a povoação de dados de registo. Para saber mais, consulte [o tempo de ingestão de dados do Registo no Azure Monitor](../azure-monitor/platform/data-ingestion-time.md).
+
+Se não estiver a perder nenhuma informação, mas os seus dados ainda não estiverem a ser apresentados corretamente, pode haver um problema na consulta ou nas fontes de dados. Reveja as nossas questões e limitações conhecidas. 
 
 ## <a name="i-want-to-customize-azure-monitor-for-windows-virtual-desktop"></a>Quero personalizar o Monitor Azure para o Windows Virtual Desktop
 
 O Monitor Azure para o Ambiente de Trabalho Virtual do Windows utiliza livros de trabalho do Monitor Azure. Os livros de trabalho permitem guardar uma cópia do modelo de livro virtual do Windows desktop e fazer as suas próprias personalizações.
 
-Os modelos personalizados não serão atualizados quando o grupo de produtos atualizar o modelo original. Isto é por design na ferramenta de livros de trabalho, você precisará guardar uma cópia do modelo atualizado e reconstruir as suas personalizações para adotar atualizações. Para obter mais informações, consulte [insights baseados em livros de resolução de problemas](../azure-monitor/insights/troubleshoot-workbooks.md) e a visão geral dos [livros de trabalho.](../azure-monitor/platform/workbooks-overview.md)
+Por design, os modelos de livro personalizados não adotarão automaticamente atualizações do grupo de produtos. Para obter mais informações, consulte [insights baseados em livros de resolução de problemas](../azure-monitor/insights/troubleshoot-workbooks.md) e a visão geral dos [livros de trabalho.](../azure-monitor/platform/workbooks-overview.md)
 
 ## <a name="i-cant-interpret-the-data"></a>Não posso interpretar os dados.
 
@@ -58,24 +60,36 @@ Saiba mais sobre os termos de dados no [Azure Monitor para o glossário virtual 
 
 ## <a name="the-data-i-need-isnt-available"></a>Os dados que preciso não estão disponíveis
 
+Se pretender monitorizar mais Contadores de Desempenho ou Eventos, pode habilitado-os a enviar para o seu espaço de trabalho Log Analytics e monitorizá-los em Diagnósticos anfitrião: Navegador anfitrião. 
+
+- Para adicionar contadores de desempenho, consulte [balcões de desempenho configurados](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-performance-counters#configuring-performance-counters)
+- Para adicionar Eventos do Windows, consulte [registos de eventos do Windows configurados](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-windows-events#configuring-windows-event-logs)
+
 Não consegue encontrar um ponto de dados para ajudar a diagnosticar um problema? Envie-nos feedback!
 
 - Para aprender a deixar feedback, consulte [a visão geral de resolução de problemas, feedback e suporte para o Windows Virtual Desktop](troubleshoot-set-up-overview.md).
 - Também pode deixar feedback para o Windows Virtual Desktop no [centro de feedback virtual do Windows Desktop](https://support.microsoft.com/help/4021566/windows-10-send-feedback-to-microsoft-with-feedback-hub-app) ou no nosso fórum [UserVoice](https://windowsvirtualdesktop.uservoice.com/forums/921118-general).
 
-## <a name="known-issues"></a>Problemas conhecidos
+## <a name="known-issues-and-limitations"></a>Limitações e problemas conhecidos
 
-Estas são as questões que estamos atualmente cientes e trabalhando para corrigir:
+Estas são questões e limitações que estamos atualmente cientes e trabalhando para corrigir:
 
-- Atualmente só pode selecionar uma subscrição, grupo de recursos e piscina de anfitrião para monitorizar de cada vez. Por isso, ao utilizar a página 'Relatórios do Utilizador' para compreender a experiência de um utilizador, é necessário verificar se tem o conjunto de anfitriões correto que o utilizador tem vindo a utilizar ou que os seus dados não irão preencher os visuais.
+- Só se pode monitorizar uma piscina de cada vez. 
 
-- Atualmente, não é possível guardar as definições favoritas no Azure Monitor, a menos que guarde um modelo personalizado do livro. Isto significa que os administradores de TI terão de introduzir o seu nome de subscrição, nomes de grupos de recursos e preferências de piscina de anfitrião sempre que abrirem o Monitor Azure para o Windows Virtual Desktop.
-
-- Atualmente não existe uma forma de exportar dados do Azure Monitor para o Windows Virtual Desktop para o Excel.
-
-- Todos os alertas de severidade 1 Azure Monitor para todos os produtos dentro da subscrição selecionada aparecerão na página 'Vista Geral'. Isto é por design, uma vez que os alertas de outros produtos na subscrição podem ter impacto no Windows Virtual Desktop. Neste momento, a consulta está limitada à severidade 1 alertas, excluindo alertas de severidade de alta prioridade 0 da página do Visão Geral.
+- Para guardar as definições favoritas, tem de guardar um modelo personalizado do livro. Os modelos personalizados não adotam automaticamente atualizações do grupo de produtos.
 
 - Algumas mensagens de erro não são formuladas de forma amigável e nem todas as mensagens de erro são descritas na documentação.
+
+- O contador de desempenho total de sessões pode contar de mais por um pequeno número e as suas sessões totais podem parecer superiores ao limite das Suas Sessões Max.
+
+- A contagem de sessões disponíveis não reflete as políticas de escala na piscina anfitriã. 
+    
+- Embora raro, o evento de conclusão de uma ligação pode desaparecer e isso pode afetar alguns visuais como ligações ao longo do tempo e o estado de ligação do utilizador.  
+    
+- O livro de configuração suporta apenas a configuração dos anfitriões dentro da mesma região que o seu grupo de recursos. 
+
+- O tempo de ligação inclui o tempo que os utilizadores demoram a introduzir as suas credenciais; isto relaciona-se com a experiência, mas em alguns casos pode mostrar picos falsos. 
+    
 
 ## <a name="next-steps"></a>Passos seguintes
 

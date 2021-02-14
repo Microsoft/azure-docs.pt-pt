@@ -1,22 +1,18 @@
 ---
 title: Notas de lançamento do Gateway de Gestão de Dados
 description: Data Management Gateway notas de lançamento tory
-services: data-factory
 author: nabhishek
-manager: anandsub
-ms.assetid: 14762e82-76d9-41c4-ba9f-14a54da29c36
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 0538777cadf7935a6684932a17fadc10849518d8
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b5bf0c6d6996a67e8b0fec3ec51e31fef8eedf26
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96001631"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100363921"
 ---
 # <a name="release-notes-for-data-management-gateway"></a>Notas de lançamento do Gateway de Gestão de Dados
 > [!NOTE]
@@ -46,12 +42,12 @@ Não mantemos mais as notas de lançamento aqui. Receba as últimas notas de lan
 
 ## <a name="2963132"></a>2.9.6313.2
 ### <a name="enhancements-"></a>Melhoramentos...
--   Pode adicionar entradas DNS para permitir o Service Bus em vez de permitir todos os endereços IP Azure a partir da sua firewall (se necessário). Mais detalhes aqui.
--   Agora pode copiar dados de/para uma única bolha de bloco até 4.75 TB, que é o tamanho máximo suportado da bolha de bloco. (o limite anterior era de 195 GB).
--   Fixo: Fora do problema de memória enquanto abre vários pequenos ficheiros durante a atividade da cópia.
--   Fixo: Índice fora do alcance problema enquanto copia do Documento DB para SQL Server com recurso de idempoteência.
--   Fixo: O script de limpeza SQL não funciona com o SQL Server do Copy Wizard.
--   Fixo: O nome da coluna com espaço no final não funciona na atividade de cópia.
+-    Pode adicionar entradas DNS para permitir o Service Bus em vez de permitir todos os endereços IP Azure a partir da sua firewall (se necessário). Mais detalhes aqui.
+-    Agora pode copiar dados de/para uma única bolha de bloco até 4.75 TB, que é o tamanho máximo suportado da bolha de bloco. (o limite anterior era de 195 GB).
+-    Fixo: Fora do problema de memória enquanto abre vários pequenos ficheiros durante a atividade da cópia.
+-    Fixo: Índice fora do alcance problema enquanto copia do Documento DB para SQL Server com recurso de idempoteência.
+-    Fixo: O script de limpeza SQL não funciona com o SQL Server do Copy Wizard.
+-    Fixo: O nome da coluna com espaço no final não funciona na atividade de cópia.
 
 ## <a name="28662833"></a>2.8.66283.3
 ### <a name="enhancements-"></a>Melhoramentos...

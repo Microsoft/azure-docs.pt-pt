@@ -1,22 +1,18 @@
 ---
 title: Transformar dados utilizando a atividade do Procedimento Armazenado
 description: Explica como utilizar a Atividade de Procedimento Armazenada do SQL Server para invocar um procedimento armazenado numa Base de Dados/Armazém de Dados Azure SQL a partir de um oleoduto da Data Factory.
-services: data-factory
-documentationcenter: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
-manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 11/27/2018
-ms.openlocfilehash: f20af5ea9628dd6c8aa732ac1d09625156eed0c4
-ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
+ms.openlocfilehash: b9ba2f9de82522d4348fa341ad0b41d43c3eebcc
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97387546"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100375651"
 ---
 # <a name="transform-data-by-using-the-sql-server-stored-procedure-activity-in-azure-data-factory"></a>Transforme os dados utilizando a atividade do Procedimento Armazenado do SqL Server na Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -68,14 +64,14 @@ Aqui está o formato JSON para definir uma Atividade de Procedimento Armazenado:
 
 A tabela a seguir descreve estas propriedades JSON:
 
-| Propriedade                  | Descrição                              | Obrigatório |
+| Propriedade                  | Descrição                              | Necessário |
 | ------------------------- | ---------------------------------------- | -------- |
-| name                      | Nome da atividade                     | Sim      |
-| descrição               | Texto que descreve para que a atividade é usada | Não       |
-| tipo                      | Para atividade de procedimento armazenado, o tipo de atividade é **SqlServerStoredProcedure** | Sim      |
-| linkedServiceName         | Referência à **Base de Dados Azure SQL** ou **Azure Synapse Analytics** ou **SQL Server** registado como um serviço ligado na Data Factory. Para saber mais sobre este serviço ligado, consulte o artigo [de serviços ligados a Compute.](compute-linked-services.md) | Sim      |
-| nome de procedure armazenado       | Especifique o nome do procedimento armazenado para invocar. | Sim      |
-| parametrómetros de reserva armazenados | Especificar os valores dos parâmetros de procedimento armazenados. Utilize `"param1": { "value": "param1Value","type":"param1Type" }` para passar valores de parâmetros e o seu tipo suportado pela fonte de dados. Se precisar de passar nulo para um parâmetro, utilize `"param1": { "value": null }` (todos os casos inferiores). | Não       |
+| name                      | Nome da atividade                     | Yes      |
+| descrição               | Texto que descreve para que a atividade é usada | No       |
+| tipo                      | Para atividade de procedimento armazenado, o tipo de atividade é **SqlServerStoredProcedure** | Yes      |
+| linkedServiceName         | Referência à **Base de Dados Azure SQL** ou **Azure Synapse Analytics** ou **SQL Server** registado como um serviço ligado na Data Factory. Para saber mais sobre este serviço ligado, consulte o artigo [de serviços ligados a Compute.](compute-linked-services.md) | Yes      |
+| nome de procedure armazenado       | Especifique o nome do procedimento armazenado para invocar. | Yes      |
+| parametrómetros de reserva armazenados | Especificar os valores dos parâmetros de procedimento armazenados. Utilize `"param1": { "value": "param1Value","type":"param1Type" }` para passar valores de parâmetros e o seu tipo suportado pela fonte de dados. Se precisar de passar nulo para um parâmetro, utilize `"param1": { "value": null }` (todos os casos inferiores). | No       |
 
 ## <a name="parameter-data-type-mapping"></a>Mapeamento do tipo de dados de parâmetro
 O tipo de dados que especifica para o parâmetro é o tipo Azure Data Factory que mapeia para o tipo de dados na fonte de dados que está a usar. Pode encontrar os mapeamentos do tipo de dados para a sua fonte de dados na área dos conectores. Alguns exemplos são
@@ -90,7 +86,7 @@ O tipo de dados que especifica para o parâmetro é o tipo Azure Data Factory qu
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Veja os seguintes artigos que explicam como transformar dados de outras formas: 
 
 * [Atividade u-SQL](transform-data-using-data-lake-analytics.md)

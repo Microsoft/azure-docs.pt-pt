@@ -4,18 +4,17 @@ titleSuffix: Azure Data Science Virtual Machine
 description: Conheça as ferramentas de produtividade nas Máquinas Virtuais da Ciência de Dados.
 keywords: aprendizagem profunda, IA, ferramentas de ciência de dados, máquina virtual de ciência de dados, análise geoespacial, processo de ciência de dados de equipa
 services: machine-learning
-ms.service: machine-learning
-ms.subservice: data-science-vm
+ms.service: data-science-vm
 author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/20/2019
-ms.openlocfilehash: 97381a58cdb759dec30e75860505b3a260223d76
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f8f0a54d99b7f2e84f7ac392de2fe9cb1c7c31a3
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761197"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100516452"
 ---
 # <a name="productivity-tools-on-the-data-science-virtual-machine"></a>Ferramentas de produtividade na Máquina Virtual da Ciência dos Dados
 

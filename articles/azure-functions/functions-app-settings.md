@@ -3,12 +3,12 @@ title: Referência das definições de aplicação para as Funções do Azure
 description: Documentação de referência para as definições da aplicação Azure Functions ou variáveis ambientais.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: a28530fd4e4731065c4ddcc2f39e9a4660529921
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 8cb3e12c48adf1273c58f4914e34590e21b9d3cc
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881928"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100378303"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referência das definições de aplicação para as Funções do Azure
 
@@ -19,7 +19,7 @@ As configurações da aplicação numa aplicação de função contêm opções 
 Existem outras opções de configuração global no [host.jsno](functions-host-json.md) ficheiro e no [local.settings.jsno](functions-run-local.md#local-settings-file) ficheiro.
 
 > [!NOTE]  
-> Pode utilizar as definições de aplicação para substituir host.jsna definição de valores sem ter de alterar a host.jsno próprio ficheiro. Isto é útil para cenários em que você precisa configurar ou modificar host.jsespecíficos em configurações para um ambiente específico. Isto também permite alterar host.jsnas definições sem ter de reeditar o seu projeto. Para saber mais, consulte a [host.jsno artigo de referência.](functions-host-json.md#override-hostjson-values)  
+> Pode utilizar as definições de aplicação para substituir host.jsna definição de valores sem ter de alterar a host.jsno próprio ficheiro. Isto é útil para cenários em que você precisa configurar ou modificar host.jsespecíficos em configurações para um ambiente específico. Isto também permite alterar host.jsnas definições sem ter de reeditar o seu projeto. Para saber mais, consulte a [host.jsno artigo de referência.](functions-host-json.md#override-hostjson-values) As alterações às definições de aplicações de função requerem que a sua aplicação de função seja reiniciada.
 
 ## <a name="appinsights_instrumentationkey"></a>APPINSIGHTS_INSTRUMENTATIONKEY
 
@@ -213,7 +213,7 @@ O valor desta definição indica um URL de índice de pacote personalizado para 
 
 Para saber mais, consulte [dependências personalizadas](functions-reference-python.md#remote-build-with-extra-index-url) na referência do desenvolvedor Python.
 
-## <a name="scale_controller_logging_enable"></a>PERMITIR \_ O REGISTO DO CONTROLADOR DE \_ \_ ESCALA
+## <a name="scale_controller_logging_enabled"></a>\_REGISTO DO CONTROLADOR DE ESCALA \_ \_ ATIVADO
 
 _Esta definição está atualmente em pré-visualização._  
 
@@ -221,7 +221,7 @@ Esta definição controla o registo do controlador de escala Azure Functions. Pa
 
 |Chave|Valor da amostra|
 |-|-|
-|SCALE_CONTROLLER_LOGGING_ENABLE|AppInsights:Verbose|
+|SCALE_CONTROLLER_LOGGING_ENABLED|AppInsights:Verbose|
 
 O valor desta chave é fornecido no `<DESTINATION>:<VERBOSITY>` formato, que é definido da seguinte forma:
 
@@ -235,7 +235,7 @@ Cadeia de ligação para conta de armazenamento onde o código e configuração 
 |---|------------|
 |WEBSITE_CONTENTAZUREFILECONNECTIONSTRING|PredefiniçãoendpointsProtocol=https; ContaName=[nome]; AccountKey=[chave]|
 
-Apenas utilizados na implementação de planos De Consumo ou Premium em execução no Windows. Não apoiado pelo Linux. Alterar ou remover esta definição pode fazer com que a sua aplicação de função não arranque. Para saber mais, consulte [este artigo de resolução de problemas.](functions-recover-storage-account.md#storage-account-application-settings-were-deleted) 
+Apenas utilizado na implementação de um plano Premium ou num plano de consumo em execução no Windows. Não apoiado para os planos de consumos que gerem o Linux. Alterar ou remover esta definição pode fazer com que a sua aplicação de função não arranque. Para saber mais, consulte [este artigo de resolução de problemas.](functions-recover-storage-account.md#storage-account-application-settings-were-deleted) 
 
 ## <a name="website_contentovervnet"></a>\_CONTENTOVERVNET DO SITE
 
@@ -253,7 +253,7 @@ O caminho do ficheiro para o código e configuração da aplicação de função
 |---|------------|
 |WEBSITE_CONTENTSHARE|functionapp091999e2|
 
-Utilizado apenas por aplicações de função em planos De Consumo ou Premium em execução no Windows. Não apoiado pelo Linux. Alterar ou remover esta definição pode fazer com que a sua aplicação de função não arranque. Para saber mais, consulte [este artigo de resolução de problemas.](functions-recover-storage-account.md#storage-account-application-settings-were-deleted)
+Apenas utilizado na implementação de um plano Premium ou num plano de consumo em execução no Windows. Não apoiado para os planos de consumos que gerem o Linux. Alterar ou remover esta definição pode fazer com que a sua aplicação de função não arranque. Para saber mais, consulte [este artigo de resolução de problemas.](functions-recover-storage-account.md#storage-account-application-settings-were-deleted)
 
 Quando utilizar um Gestor de Recursos Azure para criar uma aplicação de função durante a implementação, não inclua WEBSITE_CONTENTSHARE no modelo. Esta definição de aplicação é gerada durante a implementação. Para saber mais, consulte [a implementação de recursos de Automatização para a sua aplicação de função.](functions-infrastructure-as-code.md#windows)   
 
@@ -298,7 +298,7 @@ Permite-lhe definir o timezone para a sua aplicação de função.
 
 [!INCLUDE [functions-timezone](../../includes/functions-timezone.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Saiba como atualizar as definições de aplicações](functions-how-to-use-azure-function-app-settings.md#settings)
 

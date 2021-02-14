@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/04/2021
+ms.date: 02/10/2021
 ms.author: memildin
-ms.openlocfilehash: fe031fa6de86b8059ba175fc4e1df6385ca7e796
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: d40d6107d3eee4b45f2184a61b1cdfc99559e9c7
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99551031"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100379038"
 ---
 # <a name="whats-new-in-azure-security-center"></a>O que há de novo no Centro de Segurança Azure?
 
@@ -31,7 +31,7 @@ Para saber mais sobre as mudanças *planeadas* que estão a chegar em breve ao C
 > Se procura itens com mais de seis meses, vai encontrá-los no Arquivo para o [que há de novo no Azure Security Center.](release-notes-archive.md)
 
 
-## <a name="february-2021"></a>fevereiro de 2021
+## <a name="february-2021"></a>Fevereiro de 2021
 
 As atualizações em fevereiro incluem:
 
@@ -39,6 +39,7 @@ As atualizações em fevereiro incluem:
 - [Ligação direta à política a partir da página de detalhes da recomendação](#direct-link-to-policy-from-recommendation-details-page)
 - [A recomendação de classificação de dados SQL já não afeta a sua pontuação segura](#sql-data-classification-recommendation-no-longer-affects-your-secure-score)
 - [As automatizações de fluxos de trabalho podem ser desencadeadas por alterações às avaliações de conformidade regulamentar (pré-visualização)](#workflow-automations-can-be-triggered-by-changes-to-regulatory-compliance-assessments-preview)
+- [Melhorias da página de inventário de ativos](#asset-inventory-page-enhancements)
 
 ### <a name="kubernetes-workload-protection-recommendations-released-for-general-availability-ga"></a>Recomendações de proteção da carga de trabalho da Kubernetes lançadas para disponibilidade geral (GA)
 
@@ -70,16 +71,32 @@ Se estiver a rever a lista de recomendações no nosso guia de referência de re
 
 
 ### <a name="sql-data-classification-recommendation-no-longer-affects-your-secure-score"></a>A recomendação de classificação de dados SQL já não afeta a sua pontuação segura
-
 A recomendação **Os dados sensíveis nas suas bases de dados SQL devem ser classificados** já não afetam a sua pontuação segura. Esta é a única recomendação no controlo de segurança de classificação de **dados da Apply,** de modo que o controlo tem agora um valor de pontuação seguro de 0.
 
 
 ### <a name="workflow-automations-can-be-triggered-by-changes-to-regulatory-compliance-assessments-preview"></a>As automatizações de fluxos de trabalho podem ser desencadeadas por alterações às avaliações de conformidade regulamentar (pré-visualização)
-
 Adicionámos um terceiro tipo de dados às opções de gatilho para as suas automatizações de fluxo de trabalho: alterações às avaliações de conformidade regulamentar.
 
 :::image type="content" source="media/release-notes/regulatory-compliance-triggers-workflow-automation.png" alt-text="Utilização de alterações nas avaliações de conformidade regulamentar para desencadear uma automatização do fluxo de trabalho" lightbox="media/release-notes/regulatory-compliance-triggers-workflow-automation.png":::
 
+
+### <a name="asset-inventory-page-enhancements"></a>Melhorias da página de inventário de ativos
+A página de inventário de ativos do Security Center foi melhorada das seguintes formas:
+
+- Os resumos no topo da página agora incluem **subscrições não registadas,** mostrando o número de subscrições sem o Centro de Segurança ativado.
+
+    :::image type="content" source="media/release-notes/unregistered-subscriptions.png" alt-text="Contagem de subscrições não registadas nos resumos no topo da página de inventário de ativos":::
+
+- Os filtros foram expandidos e melhorados para incluir:
+    - **Conta** - Cada filtro apresenta o número de recursos que satisfazem os critérios de cada categoria
+
+        :::image type="content" source="media/release-notes/counts-in-inventory-filters.png" alt-text="Conta nos filtros na página de inventário de ativos do Azure Security Center":::
+
+    - **Contém filtro de isenções** (Opcional) - reduza os resultados a recursos que têm/não têm isenções. Este filtro não é mostrado por predefinição, mas está acessível a partir do botão **de filtro Adicionar.**
+
+        :::image type="content" source="media/release-notes/adding-contains-exemption-filter.gif" alt-text="Adicionar o filtro 'contém isenção' na página de inventário de ativos do Azure Security Center":::
+
+Saiba mais sobre como [explorar e gerir os seus recursos com o inventário de ativos.](asset-inventory.md)
 
 ## <a name="january-2021"></a>Janeiro de 2021
 
@@ -630,7 +647,7 @@ O painel de conformidade regulamentar do Security Center fornece informações s
 
 O painel inclui um conjunto padrão de normas regulamentares. Se algum dos padrões fornecidos não for relevante para a sua organização, é agora um processo simples para removê-los da UI para uma subscrição. As normas só podem ser removidas ao nível da *subscrição;* não o âmbito do grupo de gestão.
 
-Saiba mais [na remoção de um padrão do seu painel de instrumentos.](update-regulatory-compliance-packages.md#removing-a-standard-from-your-dashboard)
+Saiba mais em [Remover um padrão do seu painel de instrumentos](update-regulatory-compliance-packages.md#remove-a-standard-from-your-dashboard).
 
 
 ### <a name="microsoftsecuritysecuritystatuses-table-removed-from-azure-resource-graph-arg"></a>Microsoft.Security/securityStatuses removido do Azure Resource Graph (ARG)
