@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 10/21/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 7c5544ec5f89cfbf2451c19430a99b64825f90bc
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: daeb0d666c0dfb8306663da1d8d59dfba6adc359
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98872609"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100516928"
 ---
 # <a name="set-up-a-development-environment-with-azure-databricks-and-automl-in-azure-machine-learning"></a>Crie um ambiente de desenvolvimento com Azure Databricks e AutoML em Azure Machine Learning 
 
@@ -104,7 +104,7 @@ Se o cluster foi criado com Databricks Runtime 7.1 ou superior *(não* ML), exec
 ```
 Para databricks Executar tempo 7.0 ou inferior, instale o Azure Machine Learning SDK utilizando o [script init](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/azure-databricks/automl/README.md).
 
-### <a name="automl-config-settings"></a>Definições de configuração de configurações
+### <a name="automl-config-settings"></a>Definições de configuração de configurações de
 
 Em configurar AutoML, ao utilizar a Azure Databricks adicione os seguintes parâmetros:
 
@@ -131,7 +131,7 @@ Experimente:
     psutil cryptography==1.5 pyopenssl==16.0.0 ipython==2.2.0
     ```
 
-    Em alternativa, pode utilizar scripts init se continuar a enfrentar problemas de instalação com bibliotecas Python. Esta abordagem não é oficialmente apoiada. Para obter mais informações, consulte [scripts init com âmbito de cluster.](https://docs.azuredatabricks.net/user-guide/clusters/init-scripts.html#cluster-scoped-init-scripts)
+    Em alternativa, pode utilizar scripts init se continuar a enfrentar problemas de instalação com bibliotecas Python. Esta abordagem não é oficialmente apoiada. Para obter mais informações, consulte [scripts init com âmbito de cluster.](/azure/databricks/clusters/init-scripts#cluster-scoped-init-scripts)
 
 * **Erro de importação: não pode importar nome `Timedelta` a partir de: `pandas._libs.tslibs`** Se vir este erro quando utilizar machine learning automatizado, execute as duas seguintes linhas no seu caderno:
     ```
@@ -159,7 +159,7 @@ Experimente:
     * Adicione `pyarrow` a versão 0.11 ou superior.
   
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Treine um modelo](tutorial-train-models-with-aml.md) em Azure Machine Learning com o conjunto de dados MNIST.
 - Consulte o [Azure Machine Learning SDK para referência Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py).

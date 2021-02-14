@@ -1,22 +1,17 @@
 ---
 title: Copiar dados da Hive usando a Azure Data Factory
 description: Saiba como copiar dados da Hive para lojas de dados de sumidouros suportados utilizando uma atividade de cópia num oleoduto Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: jingwang
-ms.openlocfilehash: 4207c4ddfcbab325b1ae119dcd200af30fc59f58
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 8f6e85d82c01663e404f7046f84706feb209ba5a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94844953"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100367032"
 ---
 # <a name="copy-and-transform-data-from-hive-using-azure-data-factory"></a>Copiar e transformar dados da Colmeia utilizando a Azure Data Factory 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -101,7 +96,7 @@ Para copiar dados da Hive, defina a propriedade tipo do conjunto de dados para a
 |:--- |:--- |:--- |
 | tipo | A propriedade do tipo do conjunto de dados deve ser definida para: **HiveObject** | Yes |
 | esquema | O nome do esquema. |Não (se for especificada "consulta" na fonte de atividade)  |
-| mesa | O nome da mesa. |Não (se for especificada "consulta" na fonte de atividade)  |
+| table | O nome da mesa. |Não (se for especificada "consulta" na fonte de atividade)  |
 | tableName | Nome da mesa, incluindo a parte do esquema. Esta propriedade é suportada para retrocompatibilidade. Para nova carga de trabalho, use `schema` e `table` . | Não (se for especificada "consulta" na fonte de atividade) |
 
 **Exemplo**
@@ -176,13 +171,13 @@ A tabela abaixo lista as propriedades suportadas por uma fonte de colmeia. Pode 
 
 | Nome | Descrição | Obrigatório | Valores permitidos | Propriedade de script de fluxo de dados |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| Armazenamento | Loja deve ser `hive` | yes |  `hive` | Loja | 
-| Formato | Quer esteja a ler de uma mesa ou de uma consulta | yes | `table` ou `query` | formato |
+| Armazenamento | Loja deve ser `hive` | sim |  `hive` | Loja | 
+| Formato | Quer esteja a ler de uma mesa ou de uma consulta | sim | `table` ou `query` | formato |
 | Nome do esquema | Se ler de uma mesa, o esquema da tabela de origem |  Sim, se o formato é `table` | String | schemaName |
 | Nome da tabela | Se ler de uma mesa, o nome da mesa |   Sim, se o formato é `table` | String | tableName |
 | Consulta | Se o formato for `query` , a consulta de origem no serviço ligado à Colmeia | Sim, se o formato é `query` | String | consulta |
-| Encenado | A mesa da colmeia será sempre encenada. | yes | `true` | encenado |
-| Recipiente de armazenamento | Recipiente de armazenamento usado para encenar dados antes de ler da Colmeia ou escrever para a Colmeia. O aglomerado de colmeias deve ter acesso a este recipiente. | yes | String | storageContainer |
+| Encenado | A mesa da colmeia será sempre encenada. | sim | `true` | encenado |
+| Recipiente de armazenamento | Recipiente de armazenamento usado para encenar dados antes de ler da Colmeia ou escrever para a Colmeia. O aglomerado de colmeias deve ter acesso a este recipiente. | sim | String | storageContainer |
 | Base de dados de encenação | O esquema/base de dados onde a conta de utilizador especificada no serviço ligado tem acesso. É usado para criar tabelas externas durante a encenação e caiu depois | não | `true` ou `false` | stagingDatabaseName |
 | Scripts Pré SQL | Código SQL para executar na tabela Hive antes de ler os dados | não | String | pré-QLs |
 

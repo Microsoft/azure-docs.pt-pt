@@ -1,22 +1,18 @@
 ---
 title: Mover dados de uma fonte HTTP - Azure
 description: Saiba como mover dados de uma fonte HTTP no local ou na nuvem utilizando a Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
+ms.author: jingwang
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/22/2018
-ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 653a53d6bb5c69cd95fd5e9a2483b51de8293b40
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: ce29b5a112d70575a721b0b527947fd95868da80
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97608583"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100382927"
 ---
 # <a name="move-data-from-an-http-source-by-using-azure-data-factory"></a>Mover dados de uma fonte HTTP utilizando a Azure Data Factory
 
@@ -51,12 +47,12 @@ A tabela a seguir descreve elementos JSON específicos do serviço ligado HTTP:
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| tipo | A propriedade **tipo** deve ser definida para **Http**. | Sim |
-| url | O URL base para o servidor web. | Sim |
-| authenticationType | Especifica o tipo de autenticação. Os valores permitidos são **Anónimos,** **Básicos,** **Digest,** **Windows** e **ClientCertificate**. <br><br> Consulte secções posteriores neste artigo para obter mais propriedades e amostras JSON para estes tipos de autenticação. | Sim |
-| enableServerCertificateValidation | Especifica se deve ativar a validação do certificado TLS/SSL do servidor se a fonte for um servidor web HTTPS. Quando o seu servidor HTTPS utilizar um certificado auto-assinado, descreva-o **em falso**. | Não<br /> (o padrão é **verdadeiro)** |
+| tipo | A propriedade **tipo** deve ser definida para **Http**. | Yes |
+| url | O URL base para o servidor web. | Yes |
+| authenticationType | Especifica o tipo de autenticação. Os valores permitidos são **Anónimos,** **Básicos,** **Digest,** **Windows** e **ClientCertificate**. <br><br> Consulte secções posteriores neste artigo para obter mais propriedades e amostras JSON para estes tipos de autenticação. | Yes |
+| enableServerCertificateValidation | Especifica se deve ativar a validação do certificado TLS/SSL do servidor se a fonte for um servidor web HTTPS. Quando o seu servidor HTTPS utilizar um certificado auto-assinado, descreva-o **em falso**. | No<br /> (o padrão é **verdadeiro)** |
 | gatewayName | O nome da instância Data Management Gateway para usar para ligar a uma fonte HTTP no local. | Sim, se estiver a copiar dados a partir de uma fonte HTTP no local |
-| criptografadoCredential | A credencial encriptada para aceder ao ponto final HTTP. O valor é autogerido quando configura as informações de autenticação no assistente copy ou utilizando a caixa de diálogo **ClickOnce.** | Não<br /> (aplicar apenas quando copiar dados de um servidor HTTP no local) |
+| criptografadoCredential | A credencial encriptada para aceder ao ponto final HTTP. O valor é autogerido quando configura as informações de autenticação no assistente copy ou utilizando a caixa de diálogo **ClickOnce.** | No<br /> (aplicar apenas quando copiar dados de um servidor HTTP no local) |
 
 Para obter mais informações sobre a definição de credenciais para uma fonte de dados do conector HTTP no local, consulte [os dados de movimento entre as fontes no local e a nuvem utilizando o Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md).
 
@@ -66,8 +62,8 @@ Definir **autenticaçãoType** para **Basic**, **Digest** ou **Windows**. Para a
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| userName | O nome de utilizador a utilizar para aceder ao ponto final HTTP. | Sim |
-| palavra-passe | A palavra-passe para o utilizador **(nome de utilizador).** | Sim |
+| userName | O nome de utilizador a utilizar para aceder ao ponto final HTTP. | Yes |
+| palavra-passe | A palavra-passe para o utilizador **(nome de utilizador).** | Yes |
 
 **Exemplo: Utilização da autenticação Básica, Digest ou Windows**
 
@@ -96,7 +92,7 @@ Para utilizar a autenticação básica, **defie a autenticaçãoType** ao **Clie
 | --- | --- | --- |
 | EmbeddedCertData | O conteúdo codificado da Base64 dos dados binários do ficheiro PFX. | Especifique ou **incorporasseCertData** ou **certThumbprint** |
 | certThumbprint | A impressão digital do certificado que foi instalado na loja de certificados da sua máquina de gateway. Aplicar apenas quando copiar dados de uma fonte HTTP no local. | Especifique ou **incorporasseCertData** ou **certThumbprint** |
-| palavra-passe | A senha que está associada ao certificado. | Não |
+| palavra-passe | A senha que está associada ao certificado. | No |
 
 Se utilizar **o certThumbprint** para autenticação e o certificado estiver instalado na loja pessoal do computador local, conceda permissões de leitura ao serviço gateway:
 
@@ -157,13 +153,13 @@ A secção **typeProperties** é diferente para cada tipo de conjunto de dados. 
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | O **tipo** de conjunto de dados deve ser definido em **Http**. | Sim |
-| relativoUrl | Um URL relativo ao recurso que contém os dados. Quando o caminho não é especificado, apenas é utilizado o URL especificado na definição de serviço ligada. <br><br> Para construir um URL dinâmico, pode utilizar [funções de Data Factory e variáveis do sistema.](data-factory-functions-variables.md) Exemplo: **relativoUrl**: **$$Text.Formato('/my/report?month={0:yy}-{0:MM}&fmt=csv', SliceStart)**. | Não |
-| requestMethod | O método HTTP. Os valores permitidos são **GET** e **POST.** | Não <br />(predefinição é **GET)** |
-| cabeçalhos adicionais | Cabeçalhos de pedido HTTP adicionais. | Não |
-| requestCorp | O corpo para o pedido HTTP. | Não |
-| formato | Se pretender *recuperar os dados de um ponto final HTTP como-é* sem analisá-los, salte a definição de **formato.** <br><br> Se pretender analisar o conteúdo de resposta HTTP durante a cópia, suportam-se os seguintes tipos de formato: **TextFormat,** **JsonFormat,** **AvroFormat,** **OrcFormat** e **ParquetFormat**. Para mais informações, consulte [o formato Text,](data-factory-supported-file-and-compression-formats.md#text-format) [formato JSON,](data-factory-supported-file-and-compression-formats.md#json-format) [formato Avro,](data-factory-supported-file-and-compression-formats.md#avro-format) [formato Orc,](data-factory-supported-file-and-compression-formats.md#orc-format)e [formato Parquet.](data-factory-supported-file-and-compression-formats.md#parquet-format) |Não |
-| compressão | Especifique o tipo e o nível de compressão para os dados. Tipos suportados: **GZip,** **Deflate,** **BZip2** e **ZipDeflate**. Níveis suportados: **Ideal** e **Mais Rápido**. Para obter mais informações, consulte [os formatos de arquivo e compressão na Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Não |
+| tipo | O **tipo** de conjunto de dados deve ser definido em **Http**. | Yes |
+| relativoUrl | Um URL relativo ao recurso que contém os dados. Quando o caminho não é especificado, apenas é utilizado o URL especificado na definição de serviço ligada. <br><br> Para construir um URL dinâmico, pode utilizar [funções de Data Factory e variáveis do sistema.](data-factory-functions-variables.md) Exemplo: **relativoUrl**: **$$Text.Formato('/my/report?month={0:yyyy}-{0:MM}&fmt=csv', SliceStart)**. | No |
+| requestMethod | O método HTTP. Os valores permitidos são **GET** e **POST.** | No <br />(predefinição é **GET)** |
+| cabeçalhos adicionais | Cabeçalhos de pedido HTTP adicionais. | No |
+| requestCorp | O corpo para o pedido HTTP. | No |
+| formato | Se pretender *recuperar os dados de um ponto final HTTP como-é* sem analisá-los, salte a definição de **formato.** <br><br> Se pretender analisar o conteúdo de resposta HTTP durante a cópia, suportam-se os seguintes tipos de formato: **TextFormat,** **JsonFormat,** **AvroFormat,** **OrcFormat** e **ParquetFormat**. Para mais informações, consulte [o formato Text,](data-factory-supported-file-and-compression-formats.md#text-format) [formato JSON,](data-factory-supported-file-and-compression-formats.md#json-format) [formato Avro,](data-factory-supported-file-and-compression-formats.md#avro-format) [formato Orc,](data-factory-supported-file-and-compression-formats.md#orc-format)e [formato Parquet.](data-factory-supported-file-and-compression-formats.md#parquet-format) |No |
+| compressão | Especifique o tipo e o nível de compressão para os dados. Tipos suportados: **GZip,** **Deflate,** **BZip2** e **ZipDeflate**. Níveis suportados: **Ideal** e **Mais Rápido**. Para obter mais informações, consulte [os formatos de arquivo e compressão na Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |No |
 
 **Exemplo: Utilização do método GET (predefinido)**
 
@@ -220,7 +216,7 @@ Atualmente, quando a fonte em Atividade de Cópia é do tipo **HttpSource,** as 
 
 | Propriedade | Descrição | Obrigatório |
 | -------- | ----------- | -------- |
-| httpRequestTimeout | O tempo limite (o valor **TimeSpan)** para o pedido HTTP obter uma resposta. É o tempo limite para obter uma resposta, não o tempo limite para ler os dados de resposta. | Não<br />(valor predefinido: **00:01:40)** |
+| httpRequestTimeout | O tempo limite (o valor **TimeSpan)** para o pedido HTTP obter uma resposta. É o tempo limite para obter uma resposta, não o tempo limite para ler os dados de resposta. | No<br />(valor predefinido: **00:01:40)** |
 
 ## <a name="supported-file-and-compression-formats"></a>Formatos de ficheiro e de compressão suportados
 

@@ -7,12 +7,12 @@ ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
 ms.date: 09/21/2020
-ms.openlocfilehash: 098d6e3712a928392547fcd2cba68b68dcca5ef3
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 18d944cd2b3bfde1a0ee5fc53e83e4016b11b01f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92476149"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100379221"
 ---
 # <a name="azure-database-for-postgresql-single-server"></a>Base de dados Azure para servidor único pós-SQL
 
@@ -24,7 +24,7 @@ ms.locfileid: "92476149"
 
 Neste artigo, forneceremos uma visão geral e introdução aos conceitos fundamentais do modelo de implementação de servidor único. Para saber mais sobre o modo de implementação flexível do servidor, consulte a [visão geral flexível do servidor](./flexible-server/overview.md) e a visão geral do Hiperescalo (Citus), respectivamente.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Single Server é um serviço de base de dados totalmente gerido com requisitos mínimos para personalizações da base de dados. A plataforma de servidor único foi concebida para lidar com a maioria das funções de gestão da base de dados, tais como patching, backups, alta disponibilidade, segurança com a configuração e controlo mínimos do utilizador. A arquitetura está otimizada para proporcionar 99,99% de disponibilidade em zona de disponibilidade única. Suporta a versão comunitária de PostgreSQL 9.5, 9.6, 10 e 11. O serviço está geralmente disponível hoje em dia em grande variedade de regiões de [Azure.](https://azure.microsoft.com/global-infrastructure/services/)
 
@@ -69,7 +69,7 @@ Além da autenticação nativa, o serviço de servidor único suporta a autentic
 
 [O registo de auditoria]() (na pré-visualização) está disponível para rastrear toda a atividade do nível da base de dados.
 
-O serviço de servidor único é reclamação com todas as certificações líderes do setor como FedRAMP, HIPAA, PCI DSS. Visite o [Centro de Fidedignidade do Azure]() para obter informações sobre a segurança da plataforma do Azure.
+O serviço de servidor único está em conformidade com todas as certificações líderes do setor, como FedRAMP, HIPAA, PCI DSS. Visite o [Centro de Fidedignidade do Azure]() para obter informações sobre a segurança da plataforma do Azure.
 
 Para obter mais informações sobre a Base de Dados Azure para funcionalidades de segurança postgreSQL, consulte a [visão geral]()de segurança .
 

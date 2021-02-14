@@ -1,23 +1,18 @@
 ---
 title: Mover dados das lojas de dados ODBC
 description: Saiba como mover dados das lojas de dados ODBC usando a Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.assetid: ad70a598-c031-4339-a883-c6125403cb76
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/19/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 3c68b1f4d76a1899ce473c57f3a6d5de1eab71c6
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: e847592127d19eba3370255385f5b969b87e886e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636872"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100380105"
 ---
 # <a name="move-data-from-odbc-data-stores-using-azure-data-factory"></a>Mover dados das lojas de dados da ODBC usando a Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -47,9 +42,9 @@ Além do Gateway de Gestão de Dados, também é necessário instalar o controla
 ## <a name="getting-started"></a>Introdução
 Pode criar um pipeline com uma atividade de cópia que move dados de uma loja de dados ODBC utilizando diferentes ferramentas/APIs.
 
-A forma mais fácil de criar um oleoduto é utilizar o **Copy Wizard** . Ver [Tutorial: Criar um pipeline utilizando o Copy Wizard](data-factory-copy-data-wizard-tutorial.md) para uma rápida passagem na criação de um oleoduto utilizando o assistente de dados Copy.
+A forma mais fácil de criar um oleoduto é utilizar o **Copy Wizard**. Ver [Tutorial: Criar um pipeline utilizando o Copy Wizard](data-factory-copy-data-wizard-tutorial.md) para uma rápida passagem na criação de um oleoduto utilizando o assistente de dados Copy.
 
-Também pode utilizar as seguintes ferramentas para criar um pipeline: **Visual Studio** , **Azure PowerShell,** **Azure Resource Manager,** **.NET API** e **REST API** . Consulte o tutorial de [atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo para criar um oleoduto com uma atividade de cópia.
+Também pode utilizar as seguintes ferramentas para criar um pipeline: **Visual Studio**, **Azure PowerShell,** **Azure Resource Manager,** **.NET API** e **REST API**. Consulte o tutorial de [atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo para criar um oleoduto com uma atividade de cópia.
 
 Quer utilize as ferramentas ou APIs, executa os seguintes passos para criar um pipeline que transfere dados de uma loja de dados de origem para uma loja de dados de lavatórios:
 
@@ -66,13 +61,13 @@ A tabela seguinte fornece descrição para elementos JSON específicos do servi�
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| tipo |A propriedade tipo deve ser definida para: **OnPremisesOdbc** |Sim |
-| conexãoStragem |A parte credencial de não acesso da cadeia de ligação e uma credencial encriptada opcional. Consulte os exemplos nas seguintes secções. <br/><br/>Pode especificar a cadeia de ligação com padrão como `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"` , ou utilizar o sistema DSN (Data Source Name) que configura na máquina de gateway com `"DSN=<name of the DSN>;"` (ainda precisa especificar a parte credencial no serviço ligado em conformidade). |Sim |
-| credencial |A parte credencial de acesso da cadeia de ligação especificada no formato de valor da propriedade específica do condutor. Exemplo: `"Uid=<user ID>;Pwd=<password>;RefreshToken=<secret refresh token>;"`. |Não |
-| authenticationType |Tipo de autenticação utilizada para ligar à loja de dados ODBC. Os valores possíveis são: Anónimo e Básico. |Sim |
-| userName |Especifique o nome de utilizador se estiver a utilizar a autenticação Básica. |Não |
-| palavra-passe |Especifique a palavra-passe para a conta de utilizador que especificou para o nome de utilizador. |Não |
-| gatewayName |Nome do gateway que o serviço Data Factory deve utilizar para ligar à loja de dados ODBC. |Sim |
+| tipo |A propriedade tipo deve ser definida para: **OnPremisesOdbc** |Yes |
+| conexãoStragem |A parte credencial de não acesso da cadeia de ligação e uma credencial encriptada opcional. Consulte os exemplos nas seguintes secções. <br/><br/>Pode especificar a cadeia de ligação com padrão como `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"` , ou utilizar o sistema DSN (Data Source Name) que configura na máquina de gateway com `"DSN=<name of the DSN>;"` (ainda precisa especificar a parte credencial no serviço ligado em conformidade). |Yes |
+| credencial |A parte credencial de acesso da cadeia de ligação especificada no formato de valor da propriedade específica do condutor. Exemplo: `"Uid=<user ID>;Pwd=<password>;RefreshToken=<secret refresh token>;"`. |No |
+| authenticationType |Tipo de autenticação utilizada para ligar à loja de dados ODBC. Os valores possíveis são: Anónimo e Básico. |Yes |
+| userName |Especifique o nome de utilizador se estiver a utilizar a autenticação Básica. |No |
+| palavra-passe |Especifique a palavra-passe para a conta de utilizador que especificou para o nome de utilizador. |No |
+| gatewayName |Nome do gateway que o serviço Data Factory deve utilizar para ligar à loja de dados ODBC. |Yes |
 
 ### <a name="using-basic-authentication"></a>Utilização da autenticação básica
 
@@ -138,7 +133,7 @@ A secção **typeProperties** é diferente para cada tipo de conjunto de dados e
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| tableName |Nome da tabela na loja de dados ODBC. |Sim |
+| tableName |Nome da tabela na loja de dados ODBC. |Yes |
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 Para obter uma lista completa das secções & propriedades disponíveis para definir atividades, consulte o artigo [Criar Pipelines.](data-factory-create-pipelines.md) Propriedades como nome, descrição, tabelas de entrada e saída, e políticas estão disponíveis para todos os tipos de atividades.
@@ -147,9 +142,9 @@ As propriedades disponíveis na secção **de tipoProperties** da atividade, por
 
 Na atividade de cópia, quando a fonte é do tipo **RelationalSource** (que inclui o ODBC), as seguintes propriedades estão disponíveis na secção typeProperties:
 
-| Propriedade | Descrição | Valores permitidos | Obrigatório |
+| Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
-| consulta |Utilize a consulta personalizada para ler dados. |Cadeia de consulta SQL. Por exemplo: selecione * do MyTable. |Sim |
+| consulta |Utilize a consulta personalizada para ler dados. |Cadeia de consulta SQL. Por exemplo: selecione * do MyTable. |Yes |
 
 
 ## <a name="json-example-copy-data-from-odbc-data-store-to-azure-blob"></a>Exemplo JSON: Copiar dados da loja de dados da ODBC para a Azure Blob
@@ -293,7 +288,7 @@ Os dados são escritos para uma nova bolha a cada hora (frequência: hora, inter
 
 **Copiar a atividade num oleoduto com fonte ODBC (RelationalSource) e pia Blob (BlobSink)**
 
-O pipeline contém uma Atividade de Cópia que está configurada para utilizar estes conjuntos de dados de entrada e saída e está programado para ser executado a cada hora. Na definição JSON do gasoduto, o tipo **de fonte** é definido para **RelationalSource** e o tipo **de pia** é definido para **BlobSink** . A consulta SQL especificada para a propriedade **de consulta** seleciona os dados na hora passada para copiar.
+O pipeline contém uma Atividade de Cópia que está configurada para utilizar estes conjuntos de dados de entrada e saída e está programado para ser executado a cada hora. Na definição JSON do gasoduto, o tipo **de fonte** é definido para **RelationalSource** e o tipo **de pia** é definido para **BlobSink**. A consulta SQL especificada para a propriedade **de consulta** seleciona os dados na hora passada para copiar.
 
 ```json
 {
@@ -357,7 +352,7 @@ Ao copiar dados de lojas de dados relacionais, tenha em mente a repetibilidade p
 ## <a name="troubleshoot-connectivity-issues"></a>Resolver problemas de conectividade
 Para resolver problemas de conexão, utilize o separador diagnóstico do Gestor de Configuração gateway de **gestão** de **dados** .
 
-1. Gestor **de configuração gateway de gestão de dados de lançamento** . Pode executar "C:\Program Files\Microsoft Data Management Gateway\1.0\Shared\ConfigManager.exe" diretamente (ou) procurar **gateway** para encontrar um link para a aplicação **Do Gateway de Gestão de Dados** do Microsoft, como mostrado na imagem seguinte.
+1. Gestor **de configuração gateway de gestão de dados de lançamento**. Pode executar "C:\Program Files\Microsoft Data Management Gateway\1.0\Shared\ConfigManager.exe" diretamente (ou) procurar **gateway** para encontrar um link para a aplicação **Do Gateway de Gestão de Dados** do Microsoft, como mostrado na imagem seguinte.
 
     ![Gateway de pesquisa](./media/data-factory-odbc-connector/search-gateway.png)
 2. Mude para o **separador Diagnósticos.**

@@ -1,5 +1,5 @@
 ---
-title: Resolução de problemas Azure NetApp Ficheiros Recursos Provedores de Recursos / Microsoft Docs
+title: Resolução de problemas Azure NetApp Ficheiros Recursos Provedor de Recursos | Microsoft Docs
 description: Descreve causas, soluções e soluções alternativas para erros comuns do Fornecedor de Recursos de Ficheiros Azure NetApp.
 services: azure-netapp-files
 documentationcenter: ''
@@ -13,20 +13,30 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 10/18/2019
+ms.date: 02/10/2021
 ms.author: b-juche
-ms.openlocfilehash: 870caffe2bd286c2eec3390915bc5e64e0103a07
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ac83e5a9366a12c5adce0e08f04f2bb28a7d788d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85483470"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100374886"
 ---
 # <a name="troubleshoot-azure-netapp-files-resource-provider-errors"></a>Resolver problemas de erros do Fornecedor de Recursos do Azure NetApp Files 
 
 Este artigo descreve erros comuns do Fornecedor de Recursos de Ficheiros Azure NetApp, as suas causas, soluções e soluções alternativas (se disponível).
 
 ## <a name="common-azure-netapp-files-resource-provider-errors"></a>Erros comuns do Fornecedor de Recursos de Ficheiros Azure NetApp
+
+***A criação `netAppAccounts` foi restringida nesta região.***
+
+Esta situação ocorre quando a subscrição está na lista de espera para ficheiros Azure NetApp e o utilizador tenta criar uma conta NetApp.
+
+* Causa:   
+O Fornecedor de Recursos Azure para ficheiros Azure NetApp não está registado com sucesso. 
+ 
+* Solução:   
+Complete todos os passos descritos no [registo do fornecedor de recursos Azure NetApp](azure-netapp-files-register.md#resource-provider) após a sua subscrição estar na lista de espera.
 
 ***O BareMetalTenantId não pode ser alterado.***  
 
@@ -110,7 +120,7 @@ Contacte o Centro de Apoio Azure para informar a razão detalhada nos registos.
 * Solução:   
 Nenhum.
 
-***O nome do caminho do ficheiro pode conter apenas letras, números e hífens (""""""") apenas.***
+***O nome do caminho do ficheiro pode conter apenas letras, números e hífens ("") apenas.***
 
 Este erro ocorre quando o caminho do ficheiro contém caracteres não suportados, por exemplo, um período ("."), vírgula (""), sublinhar ("_"), ou sinal de dólar ("$").
 

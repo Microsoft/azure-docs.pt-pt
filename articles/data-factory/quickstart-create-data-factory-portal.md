@@ -1,21 +1,17 @@
 ---
 title: Criar uma fábrica de dados Azure utilizando a UI da Azure Data Factory
 description: Crie uma fábrica de dados com um pipeline que copia dados de uma localização no armazenamento de Blobs do Azure para outra localização.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: quickstart
 ms.date: 12/14/2020
 ms.author: jingwang
-ms.openlocfilehash: 0f22d4695a6324b0f0cde466e252b1a3a504f433
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: e7d4770af38081353fc58eec9957f50e2b6a7348
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98632754"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100372795"
 ---
 # <a name="quickstart-create-a-data-factory-by-using-the-azure-data-factory-ui"></a>Início Rápido: criar uma fábrica de dados através da interface de utilizador do Azure Data Factory 
 
@@ -39,7 +35,7 @@ Ver este vídeo ajuda-o a compreender a IU do Data Factory:
 ## <a name="create-a-data-factory"></a>Criar uma fábrica de dados
 
 1. Abra o browser **Microsoft Edge** ou **Google Chrome**. Atualmente, a IU do Data Factory é suportada apenas nos browsers Microsoft Edge e Google Chrome.
-1. Aceda ao [portal do Azure](https://portal.azure.com). 
+1. Aceda ao [Portal do Azure](https://portal.azure.com). 
 1. No menu do portal do Azure, selecione **Criar um recurso**.
 1. Selecione **Integração** e, em seguida, selecione **Data Factory**. 
    

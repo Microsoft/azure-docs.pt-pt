@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/19/2020
-ms.openlocfilehash: 78187b2cbb6603a0ae0df55465b9a5ce5e7dca7f
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: a4883bfce2469af0ee8bcc34933f94b0b5329959
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807551"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100518084"
 ---
 # <a name="register-and-scan-a-power-bi-tenant-preview"></a>Registar e digitalizar um inquilino power BI (pré-visualização)
 
@@ -23,7 +23,7 @@ Este artigo mostra como usar o portal Azure Purview para registar e digitalizar 
 
 ## <a name="create-a-security-group-for-permissions"></a>Criar um grupo de segurança para permissões
 
-Para configurar a autenticação, crie um grupo de segurança e adicione-lhe a identidade gerida do catálogo.
+Para configurar a autenticação, crie um grupo de segurança e adicione-lhe a identidade gerida pelo Purview.
 
 1. No [portal Azure,](https://portal.azure.com)procure **o Azure Ative Directory**.
 1. Crie um novo grupo de segurança no seu Azure Ative Directory, seguindo [criar um grupo básico e adicionar membros usando o Azure Ative Directory](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
@@ -35,11 +35,11 @@ Para configurar a autenticação, crie um grupo de segurança e adicione-lhe a i
 
     :::image type="content" source="./media/setup-power-bi-scan-PowerShell/security-group.png" alt-text="Tipo de grupo de segurança":::
 
-1. Adicione a identidade gerida do seu catálogo a este grupo de segurança. Selecione **Membros,** em seguida, **selecione + Adicione os membros**.
+1. Adicione a sua identidade gerida por Purview a este grupo de segurança. Selecione **Membros,** em seguida, **selecione + Adicione os membros**.
 
     :::image type="content" source="./media/setup-power-bi-scan-PowerShell/add-group-member.png" alt-text="Adicione a instância gerida do catálogo ao grupo.":::
 
-1. Procure o seu catálogo e selecione-o.
+1. Procure a sua identidade gerida por Purview e selecione-a.
 
     :::image type="content" source="./media/setup-power-bi-scan-PowerShell/add-catalog-to-group-by-search.png" alt-text="Adicione catálogo procurando-o":::
 
@@ -61,14 +61,14 @@ Para configurar a autenticação, crie um grupo de segurança e adicione-lhe a i
     :::image type="content" source="./media/setup-power-bi-scan-PowerShell/allow-service-principals-power-bi-admin.png" alt-text="Imagem mostrando como permitir que os diretores de serviço obtenham permissões de API de administração de power bi apenas de leitura":::
 
     > [!Caution]
-    > Quando permite que o grupo de segurança que criou (que tem o seu catálogo de dados gerido identidade como membro) utilize apis de administração de power bi apenas de leitura, também lhe permite aceder aos metadados (por exemplo, dashboard e reportar nomes, proprietários, descrições, etc.) para todos os seus artefactos Power BI neste inquilino. Uma vez que os metadados foram puxados para o Azure Purview, as permissões do Purview, não permissões power BI, determinam quem pode ver esses metadados.
+    > Quando permite que o grupo de segurança que criou (que tem a sua identidade gerida como membro) utilize apis de administração de power bi apenas de leitura, também lhe permite aceder aos metadados (por exemplo, dashboard e reportar nomes, proprietários, descrições, etc.) para todos os seus artefactos Power BI neste inquilino. Uma vez que os metadados foram puxados para o Azure Purview, as permissões do Purview, não permissões power BI, determinam quem pode ver esses metadados.
 
     > [!Note]
     > Pode remover o grupo de segurança das definições do seu programador, mas os metadados anteriormente extraídos não serão removidos da conta ' '' '' Pode eliminá-lo separadamente, se desejar.
 
 ## <a name="register-your-power-bi-and-set-up-a-scan"></a>Registe o seu Power BI e crie uma varredura
 
-Agora que deu permissões ao catálogo para se ligar à ADMIN API do seu inquilino Power BI, pode configurar a sua digitalização a partir do portal do catálogo.
+Agora que deu ao Purview Permissões de Identidade Gerida para ligar à API ADMIN do seu inquilino Power BI, pode configurar a sua digitalização a partir do Azure Purview Studio.
 
 Primeiro, adicione uma bandeira de recurso especial ao seu URL de Purview 
 

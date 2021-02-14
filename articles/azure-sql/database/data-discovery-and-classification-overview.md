@@ -11,14 +11,14 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 12/01/2020
+ms.date: 02/11/2021
 tags: azure-synapse
-ms.openlocfilehash: 41ad711de81f075727e4c177c318054677cb0ece
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 254d69c723a97d9007a1f6c0f0eb7b34bcfe3c4e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98185364"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100392770"
 ---
 # <a name="data-discovery--classification"></a>Deteção e Classificação de Dados
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -75,11 +75,11 @@ Depois de definida a política em toda a organização, pode continuar a classif
 > [!NOTE]
 > O exemplo abaixo utiliza a Base de Dados Azure SQL, mas deve selecionar o produto apropriado que pretende configurar a Data Discovery & Classificação.
 
-1. Aceda ao [portal do Azure](https://portal.azure.com).
+1. Aceda ao [Portal do Azure](https://portal.azure.com).
 
 1. Aceda à **classificação & Data Discovery** sob o título **de Segurança** no seu painel de base de dados Azure SQL. O separador Visão Geral inclui um resumo do estado de classificação atual da base de dados. O resumo inclui uma lista detalhada de todas as colunas classificadas, que também pode filtrar para mostrar apenas peças de esquemas específicos, tipos de informação e etiquetas. Se ainda não classificou nenhuma coluna, [salte para o passo 4](#step-4).
 
-    ![Descrição geral](./media/data-discovery-and-classification-overview/data-discovery-and-classification.png)
+    ![Descrição Geral](./media/data-discovery-and-classification-overview/data-discovery-and-classification.png)
 
 1. Para descarregar um relatório no formato Excel, selecione **Export** no menu superior do painel.
 
@@ -183,6 +183,13 @@ Pode utilizar a API REST para gerir programáticamente classificações e recome
 - [Obter:](/rest/api/sql/sensitivitylabels/get)Obtém a etiqueta de sensibilidade da coluna especificada.
 - [Lista Corrente por Base de Dados](/rest/api/sql/sensitivitylabels/listcurrentbydatabase): Obtém as etiquetas de sensibilidade atuais da base de dados especificada.
 - [Lista Recomendada por Base de Dados](/rest/api/sql/sensitivitylabels/listrecommendedbydatabase): Obtém as etiquetas de sensibilidade recomendadas da base de dados especificada.
+
+
+## <a name="faq---advanced-classification-capabilities"></a>FAQ - Capacidades de classificação avançadas
+
+**Pergunta**: [A Azure Purview](https://docs.microsoft.com/azure/purview/overview) substituirá a Classificação de & de descoberta de dados sql ou será que a SqL Data Discovery & Classification será retirada em breve?
+**Resposta**: Continuamos a apoiar a Classificação & classificação de descoberta de dados SQL e encorajamo-lo a adotar [a Azure Purview](https://docs.microsoft.com/azure/purview/overview) que tem capacidades mais ricas para impulsionar capacidades avançadas de classificação e governação de dados. Se decidirmos retirar qualquer serviço, recurso, API ou SKU, receberá aviso prévio, incluindo uma rota de migração ou transição. Saiba mais sobre as políticas do Microsoft Lifecycle aqui.
+
 
 ## <a name="next-steps"></a><a id="next-steps"></a>Passos seguintes
 

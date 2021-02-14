@@ -1,22 +1,17 @@
 ---
 title: Copiar dados do Azure Blob Storage para a Base de Dados Azure SQL
 description: Este tutorial fornece instruções passo a passo para copiar dados do Armazenamento de Blobs do Azure para a Base de Dados SQL do Azure.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: tutorial
 ms.date: 11/08/2019
 ms.author: jingwang
-ms.openlocfilehash: b2293c0dd74903921abb58037afd8eb5db3659d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b2ec4a65f1001d6d1c93a23964d59972419f651e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85513267"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100380887"
 ---
 # <a name="copy-data-from-azure-blob-to-azure-sql-database-using-azure-data-factory"></a>Copiar dados do Blob do Azure para a Base de Dados SQL do Azure utilizando o Azure Data Factory
 
@@ -44,7 +39,7 @@ Se não tiver uma subscrição do Azure, crie uma [conta do Azure gratuita](http
 * *Base de Dados Azure SQL*. Pode utilizar a base de dados como arquivo de dados *sink*. Se não tiver uma base de dados na Base de Dados Azure SQL, consulte a [base de dados Criar uma base de dados na Base de Dados Azure SQL](../azure-sql/database/single-database-create-quickstart.md).
 * *Estúdio Visual*. A passagem por este artigo utiliza o Visual Studio 2019.
 * *[Azure SDK para .NET](/dotnet/azure/dotnet-tools)*.
-* *Aplicação Azure Ative Directory*. Se não tiver uma aplicação de Diretório Ativo Azure, consulte a secção [de aplicação de Diretório Ativo Azure](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal) de [Como: Utilizar o portal para criar uma aplicação AD Azure](../active-directory/develop/howto-create-service-principal-portal.md). Copie os seguintes valores para utilização em etapas posteriores: **ID de aplicação (cliente),** **chave de autenticação**e **ID do Diretório (inquilino).** Atribua o pedido à **função Contribuinte** seguindo as instruções do mesmo artigo.
+* *Aplicação Azure Ative Directory*. Se não tiver uma aplicação de Diretório Ativo Azure, consulte a secção [de aplicação de Diretório Ativo Azure](../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-azure-ad-and-create-a-service-principal) de [Como: Utilizar o portal para criar uma aplicação AD Azure](../active-directory/develop/howto-create-service-principal-portal.md). Copie os seguintes valores para utilização em etapas posteriores: **ID de aplicação (cliente),** **chave de autenticação** e **ID do Diretório (inquilino).** Atribua o pedido à **função Contribuinte** seguindo as instruções do mesmo artigo.
 
 ### <a name="create-a-blob-and-a-sql-table"></a>Criar um blob e uma tabela SQL
 
@@ -97,14 +92,14 @@ Utilizando o Visual Studio, crie uma aplicação de consola C# .NET.
 
 1. Abra o Visual Studio.
 2. Na janela **Iniciar,** **selecione Criar um novo projeto.**
-3. Na nova janela do **projeto,** escolha a versão C# da **App consola (.NET Framework)** da lista de tipos de projetos. e selecione **Seguinte**.
+3. Na nova janela do **projeto,** escolha a versão C# da **App consola (.NET Framework)** da lista de tipos de projetos. Em seguida, selecione **Seguinte**.
 4. Na **configuração** da sua nova janela de projeto, insira um nome de **Projeto** de *ADFv2Tutorial.* Para **localização,** navegue para e/ou crie o diretório para guardar o projeto em. Em seguida, selecione **Criar**. O novo projeto aparece no IDE do Estúdio Visual.
 
 ## <a name="install-nuget-packages"></a>Instalar pacotes NuGet
 
 Em seguida, instale os pacotes de biblioteca necessários utilizando o gestor de pacotes NuGet.
 
-1. Na barra de menus, escolha o gestor de **pacotes Tools**  >  **NuGet Package**Manager  >  **.**
+1. Na barra de menus, escolha o gestor de **pacotes Tools**  >  **NuGet Package** Manager  >  **.**
 2. No painel **de consolas Do Gestor de Pacotes,** executar os seguintes comandos para instalar pacotes. Para obter informações sobre o pacote NuGet da Azure Data Factory, consulte [Microsoft.Azure.Management.DataFactory](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactory/).
 
     ```package manager console
@@ -432,7 +427,7 @@ Agora insira o código para verificar os estados de execução do gasoduto e par
 
 ## <a name="run-the-code"></a>Executar o código
 
-Construa a aplicação escolhendo a **Build**  >  **Build Build Solution.** Em seguida, inicie a aplicação escolhendo **Debug**  >  **Start Debugging**, e verifique a execução do gasoduto.
+Construa a aplicação escolhendo a   >  **Build Build Solution.** Em seguida, inicie a aplicação escolhendo **Debug**  >  **Start Debugging**, e verifique a execução do gasoduto.
 
 A consola imprime o progresso da criação de uma fábrica de dados, do serviço ligado, dos conjuntos de dados, do pipeline e da execução de pipeline. Em seguida, verifica o estado de execução do pipeline. Aguarde até ver a atividade da cópia executar detalhes com o tamanho de leitura/escrita de dados. Em seguida, utilizando ferramentas como SQL Server Management Studio (SSMS) ou Visual Studio, pode ligar-se ao seu destino Azure SQL Database e verificar se a tabela de destino especificada contém os dados copiados.
 

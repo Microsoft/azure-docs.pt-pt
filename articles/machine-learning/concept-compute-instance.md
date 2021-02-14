@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: 54da62ce961156b64c917b448557c17e7516e222
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: ef753043218f259c69082dbb8682517be79cf95c
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97862137"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100099800"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>O que é uma instância de computação do Azure Machine Learning?
 
@@ -32,7 +32,7 @@ Para que a funcionalidade do Jupyter funcione, certifique-se de que a comunicaç
 
 Um caso compute é uma estação de trabalho totalmente gerida baseada em nuvem otimizada para o seu ambiente de desenvolvimento de aprendizagem automática. Proporciona os seguintes benefícios:
 
-|Principais vantagens|Descrição|
+|Principais vantagens|Description|
 |----|----|
 |Produtividade|Pode construir e implementar modelos utilizando cadernos integrados e as seguintes ferramentas no estúdio Azure Machine Learning:<br/>- Jupyter<br/>- JupyterLab<br/>- RStudio (pré-visualização)<br/>A instância compute está totalmente integrada com o espaço de trabalho e estúdio Azure Machine Learning. Pode partilhar cadernos e dados com outros cientistas de dados no espaço de trabalho.<br/> Também pode utilizar [o Código VS](https://techcommunity.microsoft.com/t5/azure-ai/power-your-vs-code-notebooks-with-azml-compute-instances/ba-p/1629630) com instâncias computacional.
 |Gerido & seguro|Reduza a sua pegada de segurança e adicione o cumprimento dos requisitos de segurança da empresa. As instâncias computacional fornecem políticas de gestão robustas e configurações seguras de rede, tais como:<br/><br/>- Autoprovisionamento a partir de modelos de gestor de recursos ou SDK de aprendizagem automática Azure<br/>- [Controlo de acesso baseado em funções Azure (Azure RBAC)](../role-based-access-control/overview.md)<br/>- [Suporte de rede virtual](./how-to-secure-training-vnet.md#compute-instance)<br/>- Política SSH para permitir/desativar o acesso ao SSH<br/>TLS 1.2 habilitado |
@@ -51,7 +51,7 @@ O exemplo de computação Azure Machine Learning permite-lhe autorizar, treinar 
 
 Pode executar os cadernos Do Jupyter no [Código VS](https://techcommunity.microsoft.com/t5/azure-ai/power-your-vs-code-notebooks-with-azml-compute-instances/ba-p/1629630) utilizando a instância de computação como o servidor remoto sem necessidade de SSH. Também pode ativar a integração do Código VS através da [extensão remota do SSH](https://devblogs.microsoft.com/python/enhance-your-azure-machine-learning-experience-with-the-vs-code-extension/).
 
-Pode [instalar pacotes](how-to-create-manage-compute-instance.md#install-packages) e [adicionar núcleos](how-to-create-manage-compute-instance.md#add-new-kernels) à sua instância de cálculo.  
+Pode [instalar pacotes](how-to-access-terminal.md#install-packages) e [adicionar núcleos](how-to-access-terminal.md#add-new-kernels) à sua instância de cálculo.  
 
 As seguintes ferramentas e ambientes já estão instalados na instância computacional: 
 
@@ -77,7 +77,7 @@ As seguintes ferramentas e ambientes já estão instalados na instância computa
 |Anaconda Python||
 |Jupyter e extensões||
 |Jupyterlab e extensões||
-[SDK do Azure Machine Learning para Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)</br>de PyPI|Inclui a maioria dos pacotes extras azureml.  Para ver a lista completa, [abra uma janela de terminal na sua instância de computação](how-to-run-jupyter-notebooks.md#terminal) e corra <br/> `conda list -n azureml_py36 azureml*` |
+[SDK do Azure Machine Learning para Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)</br>de PyPI|Inclui a maioria dos pacotes extras azureml.  Para ver a lista completa, [abra uma janela de terminal na sua instância de computação](how-to-access-terminal.md) e corra <br/> `conda list -n azureml_py36 azureml*` |
 |Outros pacotes PyPI|`jupytext`</br>`tensorboard`</br>`nbconvert`</br>`notebook`</br>`Pillow`|
 |Pacotes Conda|`cython`</br>`numpy`</br>`ipykernel`</br>`scikit-learn`</br>`matplotlib`</br>`tqdm`</br>`joblib`</br>`nodejs`</br>`nb_conda_kernels`|
 |Pacotes de aprendizagem profunda|`PyTorch`</br>`TensorFlow`</br>`Keras`</br>`Horovod`</br>`MLFlow`</br>`pandas-ml`</br>`scrapbook`|
@@ -135,7 +135,7 @@ Para criar uma instância de computação é necessário ter permissões para as
 * *Microsoft.MachineLearningServices/workspaces/checkComputeNameAvailability/action*
 
 
-### <a name="create-a-compute-instance"></a><a name="create"></a>Criar uma instância computacional
+### <a name="create-a-compute-instance"></a><a name="create"></a>Criar uma instância de computação
 
 No seu espaço de trabalho no estúdio Azure Machine Learning, [crie uma nova instância de computação](how-to-create-attach-compute-studio.md#compute-instance) a partir da secção **Compute** ou na secção **Notebooks** quando estiver pronto para executar um dos seus cadernos. 
 

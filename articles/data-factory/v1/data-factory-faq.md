@@ -1,22 +1,18 @@
 ---
 title: Azure Data Factory - Perguntas frequentes
 description: Perguntas frequentes sobre a Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
-manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 57f2beef3dc14a47480950bf9e3bdf35a1fd6ce8
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 4ddadec327f1a4f6aa22d51ac073b9aebb0dee82
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96495825"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100383199"
 ---
 # <a name="azure-data-factory---frequently-asked-questions"></a>Azure Data Factory - Perguntas frequentes
 > [!NOTE]
@@ -56,7 +52,7 @@ Pode autorizar/criar fábricas de dados utilizando uma das seguintes ferramentas
 * **Modelo de gestor de recursos Azure** Consulte [Tutorial: Construa a sua primeira fábrica de dados Azure utilizando detalhes do modelo fo do Azure Resource Manager.](data-factory-build-your-first-pipeline-using-arm.md)
 
 ### <a name="can-i-rename-a-data-factory"></a>Posso mudar o nome de uma fábrica de dados?
-Não. Tal como outros recursos da Azure, o nome de uma fábrica de dados Azure não pode ser alterado.
+N.º Tal como outros recursos da Azure, o nome de uma fábrica de dados Azure não pode ser alterado.
 
 ### <a name="can-i-move-a-data-factory-from-one-azure-subscription-to-another"></a>Posso mover uma fábrica de dados de uma assinatura Azure para outra?
 Sim. Utilize o botão **Move** na lâmina da sua fábrica de dados, tal como mostrado no seguinte diagrama:

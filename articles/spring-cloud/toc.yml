@@ -10,7 +10,7 @@
   items:
     - name: Iniciar a sua primeira aplicação
       href: spring-cloud-quickstart.md
-    - name: Criar e executar Microsserviços
+    - name: Construir e executar microserviços
       expanded: true
       items:
         - name: Introdução à aplicação de exemplo
@@ -45,8 +45,12 @@
       href: spring-cloud-concept-metrics.md
     - name: Azure Spring Boot Actuator
       href: spring-cloud-concept-manage-monitor-app-spring-boot-actuator.md
-    - name: Controlos de segurança
-      href: spring-cloud-concept-security-controls.md
+    - name: Segurança
+      items:
+        - name: Controlos de segurança
+          href: spring-cloud-concept-security-controls.md
+        - name: Controlos de segurança do Azure Policy
+          href: ./security-controls-policy.md
     - name: Compreender o estado da aplicação
       href: spring-cloud-concept-app-status.md
     - name: Planear a recuperação após desastre
@@ -59,7 +63,7 @@
           href: spring-cloud-tutorial-prepare-app-deployment.md
         - name: Configurar um Servidor de Configuração
           href: spring-cloud-tutorial-config-server.md
-        - name: Ativar o Registo do Serviço
+        - name: Ativar o registo de serviços
           href: spring-cloud-service-registration.md
     - name: Implementar
       items:
@@ -143,7 +147,7 @@
       items:
         - name: Diagnosticar e resolver problemas automaticamente
           href: spring-cloud-howto-self-diagnose-solve.md
-        - name: Guia de Resolução de Problemas
+        - name: Guia de resolução de problemas
           href: spring-cloud-troubleshoot.md
     - name: Migrate
       items:
@@ -153,6 +157,10 @@
           href: /azure/developer/java/migration/migrate-spring-boot-to-azure-spring-cloud
         - name: Tomcat
           href: /azure/developer/java/migration/migrate-tomcat-to-azure-spring-cloud
+- name: Arquitetura
+  items:
+    - name: Arquitetura de referência
+      href: spring-cloud-reference-architecture.md
 - name: Implementação DevOps
   items:
     - name: CI/CD com o Azure DevOps
@@ -163,17 +171,17 @@
       href: spring-cloud-github-actions-key-vault.md
 - name: Resolução de problemas
   items:
-    - name: Guia de Resolução de Problemas
+    - name: Guia de resolução de problemas
       href: spring-cloud-troubleshoot.md
 - name: Referência
   items:
-    - name: Plug-in da CLI do Azure
+    - name: Plugin Azure CLI
       href: /cli/azure/ext/spring-cloud/spring-cloud
     - name: Azure PowerShell
       href: /powershell/module/az.springcloud
     - name: Recursos
       href: spring-cloud-resources.md
-    - name: Perguntas Mais Frequentes
+    - name: Perguntas mais frequentes
       href: spring-cloud-faq.md
     - name: Referência da API REST
       href: /rest/api/azurespringcloud/

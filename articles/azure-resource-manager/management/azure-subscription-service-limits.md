@@ -3,12 +3,12 @@ title: Limites e quotas de subscrição do Azure
 description: Fornece uma lista de limites comuns de subscrição e serviço da Azure, quotas e constrangimentos. Este artigo inclui informações sobre como aumentar limites, juntamente com valores máximos.
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 0a20d38d0f8d5be4a19dcdb8b6b846699bac6cc1
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: ac35f09e1a7274019a8ca504fc697ca81de000f7
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98920477"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100370118"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Subscrição do Azure e limites, quotas e restrições do serviço
 
@@ -364,6 +364,9 @@ Para os limites da base de dados [SQL, consulte os limites de recursos da Base d
 
 Para os limites Azure Synapse Analytics, consulte [os limites de recursos da Azure Synapse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md).
 
+## <a name="azure-files-and-azure-file-sync"></a>Ficheiros Azure e Sincronização de Ficheiros Azure
+Para saber mais sobre os limites para ficheiros Azure e Sincronização de [Ficheiros, consulte os objetivos de escala e desempenho dos Ficheiros Azure.](../../storage/files/storage-files-scale-targets.md)
+
 ## <a name="storage-limits"></a>Limites de armazenamento
 
 <!--like # storage accts -->
@@ -378,16 +381,6 @@ Para obter mais informações sobre os limites das contas de armazenamento padr�
 ### <a name="azure-blob-storage-limits"></a>Limites de armazenamento Azure Blob
 
 [!INCLUDE [storage-blob-scale-targets](../../../includes/storage-blob-scale-targets.md)]
-
-### <a name="azure-files-limits"></a>Limites de ficheiros Azure
-
-Para obter mais informações sobre os limites dos Ficheiros Azure, consulte os [objetivos de escalabilidade e desempenho dos Ficheiros Azure.](../../storage/files/storage-files-scale-targets.md)
-
-[!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
-
-### <a name="azure-file-sync-limits"></a>Limites de Sincronização de Ficheiros Azure
-
-[!INCLUDE [storage-sync-files-scale-targets](../../../includes/storage-sync-files-scale-targets.md)]
 
 ### <a name="azure-queue-storage-limits"></a>Limites de armazenamento da fila Azure
 
@@ -450,7 +443,7 @@ Existem limites, por subscrição, para a implantação de recursos utilizando g
 
 [!INCLUDE [virtual-machine-scale-sets-limits](../../../includes/azure-virtual-machine-scale-sets-limits.md)]
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 * [Compreender os limites e aumentos do Azure](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 * [Tamanhos de serviço de máquina virtual e nuvem para Azure](../../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

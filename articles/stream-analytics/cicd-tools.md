@@ -7,12 +7,12 @@ ms.author: sujie
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 09/10/2020
-ms.openlocfilehash: 9e79e0a2c030e2ebfcd5ddfd49e7c05afdb0dc3c
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 3ed3ff44b927fa230dedf16387c1daca889d7c66
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98019555"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388707"
 ---
 # <a name="automate-builds-tests-and-deployments-of-an-azure-stream-analytics-job-using-cicd-tools"></a>Automatizar construções, testes e implementações de um trabalho Azure Stream Analytics utilizando ferramentas CI/CD
 
@@ -158,7 +158,7 @@ Se pretender que a validação do teste ignore uma determinada saída, desa um c
       "ExpectedOutputs": [
         {
           "OutputAlias": [Output alias string],
-          "FilePath": "Required",
+          "FilePath": [Required],
           "Required": true
         }
       ]
@@ -240,7 +240,7 @@ Quando todos os testes estiverem terminados, um resumo dos resultados do teste n
 
 Pode utilizar o modelo do Gestor de Recursos Azure e os ficheiros de parâmetros gerados a partir de Build para [implementar o seu trabalho para a Azure](../azure-resource-manager/templates/template-tutorial-use-parameter-file.md?tabs=azure-powershell#deploy-template).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Integração contínua e implantação contínua para Azure Stream Analytics](cicd-overview.md)
 * [Configurar o pipeline CI/CD para o trabalho de Stream Analytics utilizando gasodutos Azure](set-up-cicd-pipeline.md)

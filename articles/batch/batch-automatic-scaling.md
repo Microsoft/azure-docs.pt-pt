@@ -4,12 +4,12 @@ description: Permita que o escalonamento automático numa piscina de nuvens ajus
 ms.topic: how-to
 ms.date: 11/23/2020
 ms.custom: H1Hack27Feb2017, fasttrack-edit, devx-track-csharp
-ms.openlocfilehash: 033272f22b98b27c67e9a551bce952368d35a043
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 06f717e7c3ab8285b494f89c39838af6b0d96c8f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95737297"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100381431"
 ---
 # <a name="create-an-automatic-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Crie uma fórmula automática para escalar os nóns computacional numa piscina de Lote
 
@@ -128,6 +128,7 @@ Pode obter o valor destas variáveis definidas pelo serviço para fazer ajustes 
 | $PendingTasks |A soma de $ActiveTasks e $RunningTasks. |
 | $SucceededTasks |O número de tarefas que terminaram com sucesso. |
 | $FailedTasks |O número de tarefas que falharam. |
+| $TaskSlotsPerNode |O número de slots de tarefas que podem ser usados para executar tarefas simultâneas num único nó de computação na piscina. |
 | $CurrentDedicatedNodes |O número atual de nós computacional dedicados. |
 | $CurrentLowPriorityNodes |O número atual de nós computacional de baixa prioridade, incluindo quaisquer nós que tenham sido antecipados. |
 | $PreemptedNodeCount | O número de nós na piscina que estão em estado preemptido. |

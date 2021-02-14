@@ -1,31 +1,31 @@
 ---
-title: Criar um principal de serviço de embarque ativado pelo Arco Azure (Pré-visualização)
+title: Criar um Arco Azure habilitado a bordo principal (Pré-visualização)
 services: azure-arc
 ms.service: azure-arc
-ms.date: 05/19/2020
+ms.date: 02/09/2021
 ms.topic: article
 author: mlearned
 ms.author: mlearned
-description: 'Criar um diretor de serviço de bordo ativado pelo Arco Azure '
+description: 'Criar um Arco Azure habilitado a bordo principal '
 keywords: Kubernetes, Arc, Azure, contentores
-ms.openlocfilehash: 8eb38dbc04d964c0ab4869e801099ee9420d6ac2
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 8772cf7634d9a833af120784e3e7868b41d202c4
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98184701"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100390492"
 ---
-# <a name="create-an-azure-arc-enabled-onboarding-service-principal-preview"></a>Criar um principal de serviço de embarque ativado pelo Arco Azure (Pré-visualização)
+# <a name="create-an-azure-arc-enabled-onboarding-service-principal-preview"></a>Criar um Arco Azure habilitado a bordo principal (Pré-visualização)
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
-É possível usar os principais de serviço tendo uma atribuição de papel com privilégios limitados para embarcar clusters Kubernetes para Azure Arc. Isto é útil em gasodutos de integração contínua e implementação contínua (CI/CD) como Azure Pipelines e GitHub Actions.
+Você pode a bordo de clusters Kubernetes para Azure Arc usando diretores de serviço com atribuições de funções de privilégio limitado. Esta capacidade é útil em gasodutos de integração contínua e implementação contínua (CI/CD), como Azure Pipelines e GitHub Actions.
 
-Os passos seguintes proporcionam uma passagem pela utilização de princípios de serviço para a bordo de aglomerados de Kubernetes para Azure Arc.
+Caminhe pelos seguintes passos para aprender a usar os principais de serviço para embarcar clusters Kubernetes para Azure Arc.
 
 ## <a name="create-a-new-service-principal"></a>Criar um novo diretor de serviços
 
-Criar um novo Diretor de Serviços com um nome informativo. Note que este nome deve ser exclusivo para o seu inquilino Azure Ative Directory:
+Crie um novo diretor de serviços com um nome informativo único para o seu inquilino Azure Ative Directory.
 
 ```console
 az ad sp create-for-RBAC --skip-assignment --name "https://azure-arc-for-k8s-onboarding"
@@ -45,16 +45,16 @@ az ad sp create-for-RBAC --skip-assignment --name "https://azure-arc-for-k8s-onb
 
 ## <a name="assign-permissions"></a>Atribuir permissões
 
-Depois de criar o novo Diretor de Serviços, atribua o papel de "Kubernetes Cluster - Azure Arc Onboarding" ao recém-criado principal. Este é um papel de Azure incorporado com permissões limitadas, que apenas permite ao diretor registar clusters para Azure. O principal não pode atualizar, eliminar ou modificar quaisquer outros clusters ou recursos dentro da subscrição.
+Atribua o papel "Kubernetes Cluster - Azure Arc Onboarding" ao recém-criado diretor de serviços. Esta função incorporada do Azure com permissões limitadas só permite ao diretor registar clusters para a Azure. O principal com esta função atribuída não pode atualizar, eliminar ou modificar quaisquer outros clusters ou recursos dentro da subscrição.
 
 Dadas as capacidades limitadas, os clientes podem facilmente reutilizar este principal para embarcar em vários clusters.
 
-As permissões podem ser ainda mais limitadas ao passar o argumento adequado `--scope` ao atribuir o papel. Isto permite que os clientes restringam o registo de cluster. Os seguintes cenários são suportados por `--scope` vários parâmetros:
+Pode limitar ainda mais as permissões, passando o argumento apropriado `--scope` ao atribuir o papel. Isto permite que os clientes restringam o registo de cluster. Os seguintes cenários são suportados por `--scope` vários parâmetros:
 
 | Recurso  | Argumento `scope`| Efeito |
 | ------------- | ------------- | ------------- |
-| Subscrição | `--scope /subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333` | O diretor de serviço pode registar qualquer cluster num Grupo de Recursos existente na subscrição dada |
-| Grupo de Recursos | `--scope /subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`  | O diretor de serviço __só__ pode registar clusters no Grupo de Recursos `myGroup` |
+| Subscrição | `--scope /subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333` | O diretor de serviço pode registar qualquer cluster num Grupo de Recursos existente na subscrição dada. |
+| Grupo de Recursos | `--scope /subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`  | O diretor de serviço __só__ pode registar clusters no Grupo de `myGroup` Recursos. |
 
 ```console
 az role assignment create \
@@ -78,9 +78,9 @@ az role assignment create \
 }
 ```
 
-## <a name="use-service-principal-with-the-azure-cli"></a>Utilizar o diretor de serviço com o Azure CLI
+## <a name="use-service-principal-with-the-azure-cli"></a>Use o principal de serviço com o Azure CLI
 
-Referência ao recém-criado Diretor de Serviços:
+Consulte o novo chefe de serviço com os seguintes comandos:
 
 ```azurecli
 az login --service-principal -u mySpnClientId -p mySpnClientSecret --tenant myTenantID

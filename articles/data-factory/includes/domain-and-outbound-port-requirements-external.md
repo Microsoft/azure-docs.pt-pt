@@ -1,20 +1,19 @@
 ---
 title: incluir ficheiro
 description: incluir ficheiro
-services: data-factory
 author: lrtoyou1223
 ms.service: data-factory
 ms.topic: include
 ms.date: 10/09/2019
 ms.author: lle
-ms.openlocfilehash: 4ef7bc7ed1ab255bffdfec10c07bc040019d9f1e
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: d24e8957dc63024a46495e8a66bad7dbb3790f38
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98121680"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100389513"
 ---
-| Nomes de domínio                  | Portas de saída | Descrição                              |
+| Nomes de domínio                  | Portas de saída | Description                              |
 | ----------------------------- | -------------- | ---------------------------------------- |
 | `*.core.windows.net`          | 443            | Utilizado pelo tempo de integração auto-hospedado para ligar à conta de armazenamento Azure quando utilizar a função de cópia encenada. |
 | `*.database.windows.net`      | 1433           | Requerido apenas quando copiar de ou para Azure SQL Database ou Azure Synapse Analytics e opcional de outra forma. Utilize a função de cópia encenada para copiar dados para a Base de Dados SQL ou Azure Synapse Analytics sem abrir a porta 1433. |

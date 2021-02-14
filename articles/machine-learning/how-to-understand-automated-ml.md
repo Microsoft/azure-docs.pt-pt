@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 12/09/2020
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy21q2, automl
-ms.openlocfilehash: 747cc88cdea59017483245b59e4b2c56c4b06a40
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: d5556ffb18a7a67e9415310f221e470761bf8cb8
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97032937"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100098644"
 ---
 # <a name="evaluate-automated-machine-learning-experiment-results"></a>Avaliar resultados automatizados de experiências de aprendizagem automática
 
@@ -72,7 +72,7 @@ Embora cada método de média tenha os seus benefícios, uma consideração comu
 
 A tabela seguinte resume as métricas de desempenho do modelo que o ML automatizado calcula para cada modelo de classificação gerado para a sua experiência. Para obter mais detalhes, consulte a documentação scikit-learn ligada no campo de **cálculo** de cada métrica. 
 
-|Métrica|Descrição|Cálculo|
+|Metric|Descrição|Cálculo|
 |--|--|---|
 |AUC | A AUC é a área sob a [curva característica de funcionamento](#roc-curve)do recetor.<br><br> **Objetivo:** Mais perto de 1, melhor <br> **Alcance:** [0, 1]<br> <br>Os nomes métricos suportados incluem, <li>`AUC_macro`, a média aritmética da AUC para cada classe.<li> `AUC_micro`, calculado combinando os verdadeiros positivos e falsos positivos de cada classe. <li> `AUC_weighted`, média aritmética da pontuação para cada classe, ponderada pelo número de casos verdadeiros em cada classe.   |[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html) | 
 |accuracy| Precisão é a relação de previsões que correspondem exatamente às verdadeiras etiquetas de classe. <br> <br>**Objetivo:** Mais perto de 1, melhor <br> **Alcance:** [0, 1]|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html)|
@@ -88,7 +88,7 @@ weighted_accuracy|A precisão ponderada é a precisão em que cada amostra é po
 
 ### <a name="binary-vs-multiclass-classification-metrics"></a>Métricas de classificação binárias vs. multiclasse
 
-ML automatizado não diferencia entre métricas binárias e multiclasses. As mesmas métricas de validação são reportadas se um conjunto de dados tem duas classes ou mais de duas classes. No entanto, algumas métricas destinam-se à classificação multiclasse. Quando aplicadas a um conjunto binário de dados, estas métricas não tratarão nenhuma classe como a `true` classe, como seria de esperar. As métricas claramente destinadas a multiclasse são sufixadas com `micro` `macro` , ou `weighted` . Exemplos `average_precision_score` `f1_score` incluem, e `precision_score` `recall_score` `AUC` .
+ML automatizado não diferencia entre métricas binárias e multiclasses. As mesmas métricas de validação são reportadas se um conjunto de dados tem duas classes ou mais de duas classes. No entanto, algumas métricas destinam-se à classificação multiclasse. Quando aplicadas a um conjunto binário de dados, estas métricas não tratarão nenhuma classe como a `true` classe, como seria de esperar. As métricas claramente destinadas a multiclasse são sufixadas com `micro` `macro` , ou `weighted` . Exemplos `average_precision_score` `f1_score` incluem, , , `precision_score` e `recall_score` `AUC` .
 
 Por exemplo, em vez de calcular a recordação como `tp / (tp + fn)` , as médias médias multiclasse `micro` `macro` (, ou ) `weighted` médias em ambas as classes de um conjunto de dados de classificação binária. Isto equivale a calcular a recordação para a `true` classe e a classe `false` separadamente, e, em seguida, tomar a média dos dois.
 
@@ -186,13 +186,13 @@ O ML automatizado calcula as mesmas métricas de desempenho de cada modelo gerad
 
 A tabela seguinte resume as métricas de desempenho do modelo geradas para experiências de regressão e previsão. Tal como as métricas de classificação, estas métricas também são baseadas nas implementações do scikit learn. A documentação adequada para aprender scikit está ligada em conformidade, no campo **de Cálculo.**
 
-|Métrica|Descrição|Cálculo|
+|Metric|Descrição|Cálculo|
 --|--|--|
 explained_variance|A variação explicada mede até que ponto um modelo explica a variação da variável-alvo. É a diminuição percentual da variação dos dados originais para a variação dos erros. Quando a média dos erros é 0, é igual ao coeficiente de determinação (ver r2_score abaixo). <br> <br> **Objetivo:** Mais perto de 1, melhor <br> **Alcance:** (inf, 1]|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.explained_variance_score.html)|
 mean_absolute_error|Erro absoluto médio é o valor esperado do valor absoluto da diferença entre o alvo e a previsão.<br><br> **Objetivo:** Mais perto de 0, melhor <br> **Alcance:** [0, inf) <br><br> Tipos: <br>`mean_absolute_error` <br>  `normalized_mean_absolute_error`, o mean_absolute_error dividido pelo alcance dos dados. | [Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_absolute_error.html)|
 mean_absolute_percentage_error|Erro percentual absoluto médio (MAPE) é uma medida da diferença média entre um valor previsto e o valor real.<br><br> **Objetivo:** Mais perto de 0, melhor <br> **Alcance:** [0, inf) ||
 median_absolute_error|O erro absoluto mediano é a mediana de todas as diferenças absolutas entre o alvo e a previsão. Esta perda é robusta para os forasteiros.<br><br> **Objetivo:** Mais perto de 0, melhor <br> **Alcance:** [0, inf)<br><br>Tipos: <br> `median_absolute_error`<br> `normalized_median_absolute_error`: o median_absolute_error dividido pelo intervalo dos dados. |[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.median_absolute_error.html)|
-r2_score|R^2 é o coeficiente de determinação ou a redução por cento em erros quadrados em comparação com um modelo de base que produz a média. <br> <br> **Objetivo:** Mais perto de 1, melhor <br> **Alcance:** (inf, 1]|[Cálculo](https://scikit-learn.org/0.16/modules/generated/sklearn.metrics.r2_score.html)|
+r2_score|R^2 é o coeficiente de determinação ou a redução por cento em erros quadrados em comparação com um modelo de base que produz a média. <br> <br> **Objetivo:** Mais perto de 1, melhor <br> **Alcance:** [-1, 1] <br><br> Nota: R^2 tem frequentemente a gama (-inf, 1], mas os clips ML automatizados são valores negativos para modelos muito maus para -1.|[Cálculo](https://scikit-learn.org/0.16/modules/generated/sklearn.metrics.r2_score.html)|
 root_mean_squared_error |Erro quadrado de raiz (RMSE) é a raiz quadrada da diferença quadrada esperada entre o alvo e a previsão. Para um estimador imparcial, o RMSE é igual ao desvio padrão.<br> <br> **Objetivo:** Mais perto de 0, melhor <br> **Alcance:** [0, inf)<br><br>Tipos:<br> `root_mean_squared_error` <br> `normalized_root_mean_squared_error`: o root_mean_squared_error dividido pelo intervalo dos dados. |[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html)|
 root_mean_squared_log_error|Erro de log quadrado de raiz é a raiz quadrada do erro logarítmico quadrado esperado.<br><br>**Objetivo:** Mais perto de 0, melhor <br> **Alcance:** [0, inf) <br> <br>Tipos: <br>`root_mean_squared_log_error` <br> `normalized_root_mean_squared_log_error`: o root_mean_squared_log_error dividido pelo intervalo dos dados.  |[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|
 spearman_correlation| A correlação de Spearman é uma medida nãoparamétrica da monótona relação entre dois conjuntos de dados. Ao contrário da correlação pearson, a correlação de Spearman não assume que ambos os conjuntos de dados são normalmente distribuídos. Como outros coeficientes de correlação, Spearman varia entre -1 e 1 com 0 implicando nenhuma correlação. Correlações de -1 ou 1 implicam uma relação monótona exata. <br><br> Spearman é uma métrica de correlação de ordem de classificação, o que significa que as alterações aos valores previstos ou reais não mudarão o resultado de Spearman se não alterarem a ordem de classificação dos valores previstos ou reais.<br> <br> **Objetivo:** Mais perto de 1, melhor <br> **Alcance:** [-1, 1]|[Cálculo](https://docs.scipy.org/doc/scipy-0.16.1/reference/generated/scipy.stats.spearmanr.html)|

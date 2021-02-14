@@ -1,22 +1,18 @@
 ---
 title: Copiar dados da Base de Dados Azure para MariaDB
 description: Saiba como copiar dados da Azure Database para mariaDB para lojas de dados de sumidouros suportadas utilizando uma atividade de cópia num pipeline da Azure Data Factory.
-services: data-factory
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/04/2019
-ms.openlocfilehash: c433fc5d919a57476097257cac1b7176a9da598d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c25d217a5e2aea8acc91fcc8f6fe5ffd026ab976
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81410694"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100370874"
 ---
 # <a name="copy-data-from-azure-database-for-mariadb-using-azure-data-factory"></a>Copiar dados da Base de Dados Azure para MariaDB utilizando a Azure Data Factory 
 
@@ -47,9 +43,9 @@ As seguintes propriedades são suportadas para a Base de Dados Azure para o serv
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo deve ser definida para: **AzureMariaDB** | Sim |
-| conexãoStragem | Um fio de ligação para ligar à Base de Dados Azure para MariaDB. Pode encontrá-lo a partir do portal Azure -> sua Base de Dados Azure para cordas de conexão MariaDB -> - > ADO.NET. <br/> Também pode colocar a palavra-passe no Cofre da Chave Azure e retirar a `pwd` configuração da cadeia de ligação. Consulte as seguintes amostras e [guarde as credenciais no artigo do Azure Key Vault](store-credentials-in-key-vault.md) com mais detalhes. | Sim |
-| connectVia | O [tempo de execução de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Se não for especificado, utiliza o tempo de execução de integração Azure predefinido. |Não |
+| tipo | A propriedade tipo deve ser definida para: **AzureMariaDB** | Yes |
+| conexãoStragem | Um fio de ligação para ligar à Base de Dados Azure para MariaDB. Pode encontrá-lo a partir do portal Azure -> sua Base de Dados Azure para cordas de conexão MariaDB -> - > ADO.NET. <br/> Também pode colocar a palavra-passe no Cofre da Chave Azure e retirar a `pwd` configuração da cadeia de ligação. Consulte as seguintes amostras e [guarde as credenciais no artigo do Azure Key Vault](store-credentials-in-key-vault.md) com mais detalhes. | Yes |
+| connectVia | O [tempo de execução de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Se não for especificado, utiliza o tempo de execução de integração Azure predefinido. |No |
 
 **Exemplo:**
 
@@ -78,13 +74,13 @@ As seguintes propriedades são suportadas para a Base de Dados Azure para o serv
         "type": "AzureMariaDB",
         "typeProperties": {
             "connectionString": "Server={your_server}.mariadb.database.azure.com; Port=3306; Database={your_database}; Uid={your_user}@{your_server}; SslMode=Preferred;",
-            "pwd": { 
-                "type": "AzureKeyVaultSecret", 
-                "store": { 
-                    "referenceName": "<Azure Key Vault linked service name>", 
-                    "type": "LinkedServiceReference" 
-                }, 
-                "secretName": "<secretName>" 
+            "pwd": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
             }
         },
         "connectVia": {
@@ -103,7 +99,7 @@ Para copiar dados da Base de Dados Azure para MariaDB, as seguintes propriedades
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo do conjunto de dados deve ser definida para: **AzureMariaDBTable** | Sim |
+| tipo | A propriedade tipo do conjunto de dados deve ser definida para: **AzureMariaDBTable** | Yes |
 | tableName | O nome da mesa. | Não (se for especificada "consulta" na fonte de atividade) |
 
 **Exemplo**
@@ -133,7 +129,7 @@ Para copiar dados da Base de Dados Azure para MariaDB, as seguintes propriedades
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **AzureMariaDBSource** | Sim |
+| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **AzureMariaDBSource** | Yes |
 | consulta | Utilize a consulta SQL personalizada para ler dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se for especificado "tableName" no conjunto de dados) |
 
 **Exemplo:**

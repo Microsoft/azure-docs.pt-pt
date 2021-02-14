@@ -1,25 +1,21 @@
 ---
 title: Criar gatilhos de horário na Azure Data Factory
 description: Saiba como criar um gatilho na Azure Data Factory que executa um oleoduto num horário.
-services: data-factory
-documentationcenter: ''
 author: chez-charlie
 ms.author: chez
-manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/30/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: a6f53d6ce41085b2348857ccb5b45c06132d6a99
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 3673dd9eba717d2bdb569b4248936bbb59a8eae7
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96001988"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100387585"
 ---
-# <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>Criar um gatilho que executa um oleoduto num horário
+# <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>Criar um acionador que execute um pipeline com base num agendamento
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Este artigo fornece informações sobre o gatilho do horário e os passos para criar, iniciar e monitorizar um gatilho de agenda. Para outros tipos de gatilhos, consulte [a execução do Pipeline e os gatilhos](concepts-pipeline-execution-triggers.md).
@@ -78,7 +74,7 @@ Pode criar um **gatilho de horário** para agendar um gasoduto para funcionar pe
 
     ![Monitorizar execuções acionadas](./media/how-to-create-schedule-trigger/monitor-triggered-runs.png)
 
-1. Mude para a vista do **programador de execuções do**  \  **Schedule** gatilho. 
+1. Mude para a vista do **programador de execuções do**  \   gatilho. 
 
     ![Monitorizar execuções acionadas](./media/how-to-create-schedule-trigger/monitor-trigger-runs.png)
 
@@ -349,7 +345,7 @@ A seguinte definição de JSON mostra-lhe como criar um gatilho de agendamento c
 ### <a name="schema-overview"></a>Schema overview (Descrição geral do esquema)
 A tabela que se segue fornece uma descrição geral de alto nível dos principais elementos do esquema relacionados com a periodicidade e o agendamento de um acionador:
 
-| Propriedade JSON | Descrição |
+| Propriedade JSON | Description |
 |:--- |:--- |
 | **horário de início** | Um valor de data/hora. Para agendamentos simples, o valor da propriedade **startTime** aplica-se à primeira ocorrência. Para agendamentos complexos, o acionador é iniciado imediatamente a seguir ao valor especificado em **startTime**. <br> Para o fuso horário UTC, o formato `'yyyy-MM-ddTHH:mm:ssZ'` é, para outro fuso horário, o formato é `'yyyy-MM-ddTHH:mm:ss'` . |
 | **endTime** | A data e hora de fim do acionador. O acionador não é executado após a data e hora de fim especificadas. O valor da propriedade não pode situar-se no passado. Esta propriedade é opcional.  <br> Para o fuso horário UTC, o formato `'yyyy-MM-ddTHH:mm:ssZ'` é, para outro fuso horário, o formato é `'yyyy-MM-ddTHH:mm:ss'` . |
@@ -368,12 +364,12 @@ A tabela que se segue fornece uma descrição geral de alto nível dos principai
 
 | Propriedade JSON | Tipo | Necessário | Valor predefinido | Valores válidos | Exemplo |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| **horário de início** | String | Sim | Nenhum | Datas-Horas ISO 8601 | para o fuso horário UTC `"startTime" : "2013-01-09T09:30:00-08:00Z"` <br> para outros fusos horários `"2013-01-09T09:30:00-08:00"` |
-| **timeZone** | String | Sim | Nenhum | [Valores do Fuso Horário](#time-zone-option)  | `"UTC"` |
-| **recorrência** | Objeto | Sim | Nenhum | Objeto de periodicidade | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
-| **intervalo** | Número | Não | 1 | 1 a 1000 | `"interval":10` |
-| **endTime** | String | Sim | Nenhum | Um valor de data/hora que representa uma hora no futuro. | para o fuso horário UTC `"endTime" : "2013-02-09T09:30:00-08:00Z"` <br> para outros fusos horários `"endTime" : "2013-02-09T09:30:00-08:00"`|
-| **agendar** | Objeto | Não | Nenhum | Objeto da agenda | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
+| **horário de início** | String | Yes | Nenhum | Datas-Horas ISO 8601 | para o fuso horário UTC `"startTime" : "2013-01-09T09:30:00-08:00Z"` <br> para outros fusos horários `"2013-01-09T09:30:00-08:00"` |
+| **timeZone** | String | Yes | Nenhum | [Valores do Fuso Horário](#time-zone-option)  | `"UTC"` |
+| **recorrência** | Objeto | Yes | Nenhum | Objeto de periodicidade | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
+| **intervalo** | Número | No | 1 | 1 a 1000 | `"interval":10` |
+| **endTime** | String | Yes | Nenhum | Um valor de data/hora que representa uma hora no futuro. | para o fuso horário UTC `"endTime" : "2013-02-09T09:30:00-08:00Z"` <br> para outros fusos horários `"endTime" : "2013-02-09T09:30:00-08:00"`|
+| **agendar** | Objeto | No | Nenhum | Objeto da agenda | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
 
 ### <a name="time-zone-option"></a>Opção fuso horário
 
@@ -381,14 +377,14 @@ Aqui estão alguns dos fusos horários suportados para os gatilhos da Agenda:
 
 | Fuso Horário | Compensação UTC (Poupança não diurna) | valor timeZone | Observe a poupança da luz do dia | Formato de carimbo de tempo |
 | :--- | :--- | :--- | :--- | :--- |
-| Tempo Universal Coordenado | 0 | `UTC` | Não | `'yyyy-MM-ddTHH:mm:ssZ'`|
-| Horário do Pacífico (PT) | -8 | `Pacific Standard Time` | Sim | `'yyyy-MM-ddTHH:mm:ss'` |
-| Tempo Central (CT) | -6 | `Central Standard Time` | Sim | `'yyyy-MM-ddTHH:mm:ss'` |
-| Horário oriental (ET) | -5 | `Eastern Standard Time` | Sim | `'yyyy-MM-ddTHH:mm:ss'` |
-| Tempo médio de Greenwich (GMT) | 0 | `GMT Standard Time` | Sim | `'yyyy-MM-ddTHH:mm:ss'` |
-| Horário padrão da Europa Central | +1 | `W. Europe Standard Time` | Sim | `'yyyy-MM-ddTHH:mm:ss'` |
-| Tempo Padrão da Índia (IST) | +5:30 | `India Standard Time` | Não | `'yyyy-MM-ddTHH:mm:ss'` |
-| Tempo Padrão da China | +8 | `China Standard Time` | Não | `'yyyy-MM-ddTHH:mm:ss'` |
+| Tempo Universal Coordenado | 0 | `UTC` | No | `'yyyy-MM-ddTHH:mm:ssZ'`|
+| Horário do Pacífico (PT) | -8 | `Pacific Standard Time` | Yes | `'yyyy-MM-ddTHH:mm:ss'` |
+| Tempo Central (CT) | -6 | `Central Standard Time` | Yes | `'yyyy-MM-ddTHH:mm:ss'` |
+| Horário oriental (ET) | -5 | `Eastern Standard Time` | Yes | `'yyyy-MM-ddTHH:mm:ss'` |
+| Tempo médio de Greenwich (GMT) | 0 | `GMT Standard Time` | Yes | `'yyyy-MM-ddTHH:mm:ss'` |
+| Horário padrão da Europa Central | +1 | `W. Europe Standard Time` | Yes | `'yyyy-MM-ddTHH:mm:ss'` |
+| Tempo Padrão da Índia (IST) | +5:30 | `India Standard Time` | No | `'yyyy-MM-ddTHH:mm:ss'` |
+| Tempo Padrão da China | +8 | `China Standard Time` | No | `'yyyy-MM-ddTHH:mm:ss'` |
 
 Esta lista está incompleta. Para obter uma lista completa de opções de fuso horário, explore na [página de criação do](#data-factory-ui) portal Data Factory Trigger
 
@@ -398,7 +394,7 @@ A tabela que se segue mostra o modo como a propriedade **startTime** controla a 
 | valor de startTime | Periodicidade sem agenda | Periodicidade com agenda |
 |:--- |:--- |:--- |
 | Hora de início no passado | Calcula a primeira hora de execução no futuro após a hora de início e é executada nessa hora.<br/><br/>Executa as execuções subsequentes com base no cálculo da última hora de execução.<br/><br/>Veja o exemplo a seguir à tabela. | O acionador é iniciado _imediatamente a seguir_ à hora de início especificada. A primeira ocorrência tem por base a agenda calculada a partir da hora de início.<br/><br/>Executa as execuções subsequentes com base na agenda de periodicidade. |
-| Hora de início no futuro ou no presente | É executada uma vez na hora de início especificada.<br/><br/>Executa as execuções subsequentes com base no cálculo da última hora de execução. | O gatilho começa _o mais cedo_ que a hora de início especificada. A primeira ocorrência tem por base a agenda calculada a partir da hora de início.<br/><br/>Executa as execuções subsequentes com base na agenda de periodicidade. |
+| Hora de início no futuro ou no presente | É executada uma vez na hora de início especificada.<br/><br/>Executa as execuções subsequentes com base no cálculo da última hora de execução. | O acionador é iniciado _imediatamente a seguir_ à hora de início especificada. A primeira ocorrência tem por base a agenda calculada a partir da hora de início.<br/><br/>Executa as execuções subsequentes com base na agenda de periodicidade. |
 
 Vejamos um exemplo do que acontece quando a hora de início (startTime) se situa no passado, com periodicidade, mas sem agenda. Parta do princípio de que a hora atual é `2017-04-08 13:00`, a hora de início é `2017-04-07 14:00` e a periodicidade é de dois em dois dias. (O valor **de recorrência** é definido definindo a propriedade **de frequência** para "dia" e a propriedade de **intervalo** para 2.) Note que o valor **startTime** está no passado e ocorre antes da hora atual.
 
@@ -418,7 +414,7 @@ Se forem especificados vários elementos **schedule**, a ordem de avaliação é
 A tabela seguinte descreve os elementos de **schedule** de forma detalhada:
 
 
-| Elemento JSON | Descrição | Valores válidos |
+| Elemento JSON | Description | Valores válidos |
 |:--- |:--- |:--- |
 | **minutos** | Minutos da hora em que o acionador é executado. | <ul><li>Número inteiro</li><li>Matriz de números inteiros</li></ul>
 | **horas** | Horas do dia em que o acionador é executado. | <ul><li>Número inteiro</li><li>Matriz de números inteiros</li></ul> |

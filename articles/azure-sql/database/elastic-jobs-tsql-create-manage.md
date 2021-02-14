@@ -6,44 +6,46 @@ ms.service: sql-database
 ms.subservice: scale-out
 ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang: ''
+dev_langs:
+- TSQL
 ms.topic: how-to
 ms.author: jaredmoo
 author: jaredmoo
 ms.reviewer: sstein
-ms.date: 02/07/2020
-ms.openlocfilehash: 76f9fb4ed5c3b88b3a1f69e352f50079586ec336
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.date: 02/01/2021
+ms.openlocfilehash: 11b94ba5bcedf56f0115b8730dc58f808aff5c58
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98663337"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100371605"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs-preview"></a>Utilize o Transact-SQL (T-SQL) para criar e gerir trabalhos de base de dados elásticos (pré-visualização)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Este artigo fornece muitos cenários de exemplo para começar a trabalhar com a Elastic Jobs usando T-SQL.
 
-Os exemplos utilizam os procedimentos e [pontos de vista](#job-views) [armazenados](#job-stored-procedures) disponíveis na [*base de dados*](job-automation-overview.md#job-database)de emprego.
+Os exemplos utilizam os procedimentos e [pontos de vista](#job-views) [armazenados](#job-stored-procedures) disponíveis na [*base de dados*](job-automation-overview.md#elastic-job-database)de emprego.
 
 A Transact-SQL (T-SQL) é usada para criar, configurar, executar e gerir postos de trabalho. A criação do agente Desmesuelheiro não é suportada em T-SQL, pelo que primeiro deve criar um *agente de Trabalho Elástico* utilizando o portal, ou [PowerShell](elastic-jobs-powershell-create.md#create-the-elastic-job-agent).
 
 ## <a name="create-a-credential-for-job-execution"></a>Criar uma credencial para a execução de emprego
 
-A credencial é usada para ligar às bases de dados-alvo para a execução do script. A credencial necessita de permissões apropriadas, nas bases de dados especificadas pelo grupo-alvo, para executar com sucesso o script. Ao utilizar um [servidor lógico SQL](logical-servers.md) e/ou membro do grupo alvo de piscina, é altamente sugerido criar uma credencial principal para a utilização para refrescar a credencial antes da expansão do servidor e/ou piscina no momento da execução do trabalho. A credencial de procura de bases de dados é criada na base de dados do agente de trabalho. A mesma credencial deve ser utilizada para *criar um Login* e criar um Utilizador a partir de Login para conceder as *Permissões de Base de Dados de Login* nas bases de dados-alvo.
+A credencial é usada para ligar às bases de dados-alvo para a execução do script. A credencial necessita de permissões apropriadas, nas bases de dados especificadas pelo grupo-alvo, para executar com sucesso o script. Ao utilizar um [servidor lógico SQL](logical-servers.md) e/ou membro do grupo alvo de piscina, é altamente sugerido criar uma credencial para a utilização para refrescar a credencial antes da expansão do servidor e/ou piscina no momento da execução do trabalho. A credencial de procura de bases de dados é criada na base de dados do agente de trabalho. A mesma credencial deve ser utilizada para *criar um Login* e criar um Utilizador a partir de Login para conceder as *Permissões de Base de Dados de Login* nas bases de dados-alvo.
 
 ```sql
---Connect to the job database specified when creating the job agent
+--Connect to the new job database specified when creating the Elastic Job agent
 
--- Create a db master key if one does not already exist, using your own password.  
+-- Create a database master key if one does not already exist, using your own password.  
 CREATE MASTER KEY ENCRYPTION BY PASSWORD='<EnterStrongPasswordHere>';  
   
--- Create a database scoped credential.  
-CREATE DATABASE SCOPED CREDENTIAL myjobcred WITH IDENTITY = 'jobcred',
+-- Create two database scoped credentials.  
+-- The credential to connect to the Azure SQL logical server, to execute jobs
+CREATE DATABASE SCOPED CREDENTIAL job_credential WITH IDENTITY = 'job_credential',
     SECRET = '<EnterStrongPasswordHere>';
 GO
-
--- Create a database scoped credential for the master database of server1.
-CREATE DATABASE SCOPED CREDENTIAL mymastercred WITH IDENTITY = 'mastercred',
+-- The credential to connect to the Azure SQL logical server, to refresh the database metadata in server
+CREATE DATABASE SCOPED CREDENTIAL refresh_credential WITH IDENTITY = 'refresh_credential',
     SECRET = '<EnterStrongPasswordHere>';
 GO
 ```
@@ -51,20 +53,20 @@ GO
 ## <a name="create-a-target-group-servers"></a>Criar um grupo alvo (servidores)
 
 O exemplo a seguir mostra como executar um trabalho contra todas as bases de dados de um servidor.  
-Ligue-se à [*base de dados de trabalho*](job-automation-overview.md#job-database) e execute o seguinte comando:
+Ligue-se à [*base de dados de trabalho*](job-automation-overview.md#elastic-job-database) e execute o seguinte comando:
 
 ```sql
 -- Connect to the job database specified when creating the job agent
 
 -- Add a target group containing server(s)
-EXEC jobs.sp_add_target_group 'ServerGroup1'
+EXEC jobs.sp_add_target_group 'ServerGroup1';
 
 -- Add a server target member
 EXEC jobs.sp_add_target_group_member
-'ServerGroup1',
+@target_group_name = 'ServerGroup1',
 @target_type = 'SqlServer',
-@refresh_credential_name = 'mymastercred', --credential required to refresh the databases in a server
-@server_name = 'server1.database.windows.net'
+@refresh_credential_name = 'refresh_credential', --credential required to refresh the databases in a server
+@server_name = 'server1.database.windows.net';
 
 --View the recently created target group and target group members
 SELECT * FROM jobs.target_groups WHERE target_group_name='ServerGroup1';
@@ -74,29 +76,29 @@ SELECT * FROM jobs.target_group_members WHERE target_group_name='ServerGroup1';
 ## <a name="exclude-an-individual-database"></a>Excluir uma base de dados individual
 
 O exemplo a seguir mostra como executar um trabalho contra todas as bases de dados de um servidor, com exceção da base de dados chamada *MappingDB*.  
-Ligue-se à [*base de dados de trabalho*](job-automation-overview.md#job-database) e execute o seguinte comando:
+Ligue-se à [*base de dados de trabalho*](job-automation-overview.md#elastic-job-database) e execute o seguinte comando:
 
 ```sql
 --Connect to the job database specified when creating the job agent
 
 -- Add a target group containing server(s)
-EXEC [jobs].sp_add_target_group N'ServerGroup'
+EXEC [jobs].sp_add_target_group N'ServerGroup';
 GO
 
 -- Add a server target member
 EXEC [jobs].sp_add_target_group_member
 @target_group_name = N'ServerGroup',
 @target_type = N'SqlServer',
-@refresh_credential_name = N'mymastercred', --credential required to refresh the databases in a server
-@server_name = N'London.database.windows.net'
+@refresh_credential_name = N'refresh_credential', --credential required to refresh the databases in a server
+@server_name = N'London.database.windows.net';
 GO
 
 -- Add a server target member
 EXEC [jobs].sp_add_target_group_member
 @target_group_name = N'ServerGroup',
 @target_type = N'SqlServer',
-@refresh_credential_name = N'mymastercred', --credential required to refresh the databases in a server
-@server_name = 'server2.database.windows.net'
+@refresh_credential_name = N'refresh_credential', --credential required to refresh the databases in a server
+@server_name = 'server2.database.windows.net';
 GO
 
 --Exclude a database target member from the server target group
@@ -105,7 +107,7 @@ EXEC [jobs].sp_add_target_group_member
 @membership_type = N'Exclude',
 @target_type = N'SqlDatabase',
 @server_name = N'server1.database.windows.net',
-@database_name = N'MappingDB'
+@database_name = N'MappingDB';
 GO
 
 --View the recently created target group and target group members
@@ -116,21 +118,21 @@ SELECT * FROM [jobs].target_group_members WHERE target_group_name = N'ServerGrou
 ## <a name="create-a-target-group-pools"></a>Criar um grupo alvo (piscinas)
 
 O exemplo a seguir mostra como direcionar todas as bases de dados em uma ou mais piscinas elásticas.  
-Ligue-se à [*base de dados de trabalho*](job-automation-overview.md#job-database) e execute o seguinte comando:
+Ligue-se à [*base de dados de trabalho*](job-automation-overview.md#elastic-job-database) e execute o seguinte comando:
 
 ```sql
 --Connect to the job database specified when creating the job agent
 
 -- Add a target group containing pool(s)
-EXEC jobs.sp_add_target_group 'PoolGroup'
+EXEC jobs.sp_add_target_group 'PoolGroup';
 
 -- Add an elastic pool(s) target member
 EXEC jobs.sp_add_target_group_member
-'PoolGroup',
+@target_group_name = 'PoolGroup',
 @target_type = 'SqlElasticPool',
-@refresh_credential_name = 'mymastercred', --credential required to refresh the databases in a server
+@refresh_credential_name = 'refresh_credential', --credential required to refresh the databases in a server
 @server_name = 'server1.database.windows.net',
-@elastic_pool_name = 'ElasticPool-1'
+@elastic_pool_name = 'ElasticPool-1';
 
 -- View the recently created target group and target group members
 SELECT * FROM jobs.target_groups WHERE target_group_name = N'PoolGroup';
@@ -140,20 +142,20 @@ SELECT * FROM jobs.target_group_members WHERE target_group_name = N'PoolGroup';
 ## <a name="deploy-new-schema-to-many-databases"></a>Implementar novo esquema em muitas bases de dados
 
 O exemplo a seguir mostra como implantar novos esquemas em todas as bases de dados.  
-Ligue-se à [*base de dados de trabalho*](job-automation-overview.md#job-database) e execute o seguinte comando:
+Ligue-se à [*base de dados de trabalho*](job-automation-overview.md#elastic-job-database) e execute o seguinte comando:
 
 ```sql
 --Connect to the job database specified when creating the job agent
 
 --Add job for create table
-EXEC jobs.sp_add_job @job_name = 'CreateTableTest', @description = 'Create Table Test'
+EXEC jobs.sp_add_job @job_name = 'CreateTableTest', @description = 'Create Table Test';
 
 -- Add job step for create table
 EXEC jobs.sp_add_jobstep @job_name = 'CreateTableTest',
 @command = N'IF NOT EXISTS (SELECT * FROM sys.tables WHERE object_id = object_id(''Test''))
 CREATE TABLE [dbo].[Test]([TestId] [int] NOT NULL);',
-@credential_name = 'myjobcred',
-@target_group_name = 'PoolGroup'
+@credential_name = 'job_credential',
+@target_group_name = 'PoolGroup';
 ```
 
 ## <a name="data-collection-using-built-in-parameters"></a>Recolha de dados utilizando parâmetros incorporados
@@ -179,7 +181,7 @@ Por exemplo, para agrupar todos os resultados da mesma execução de trabalho em
 
 O exemplo a seguir cria um novo trabalho para recolher dados de desempenho de várias bases de dados.
 
-Por padrão, o agente de trabalho criará a tabela de saída para armazenar os resultados devolvidos. Por conseguinte, o principal da base de dados associado à credencial de saída deve, no mínimo, ter as seguintes permissões: `CREATE TABLE` na base de dados, `ALTER` na tabela de saída ou no seu `SELECT` `INSERT` `DELETE` esquema, e `SELECT` na vista do catálogo [sys.indexes.](/sql/relational-databases/system-catalog-views/sys-indexes-transact-sql)
+Por padrão, o agente de trabalho criará a tabela de saída para armazenar os resultados devolvidos. Por conseguinte, o principal da base de dados associado à credencial de saída deve, no mínimo, ter as seguintes permissões: `CREATE TABLE` na base de dados, `ALTER` , , na tabela de saída ou no seu `SELECT` `INSERT` `DELETE` esquema, e `SELECT` na vista do catálogo [sys.indexes.](/sql/relational-databases/system-catalog-views/sys-indexes-transact-sql)
 
 Se quiser criar manualmente a tabela antes do tempo, então tem de ter as seguintes propriedades:
 
@@ -188,7 +190,7 @@ Se quiser criar manualmente a tabela antes do tempo, então tem de ter as seguin
 3. Um índice não-aglomerado nomeado `IX_<TableName>_Internal_Execution_ID` na coluna internal_execution_id.
 4. Todas as permissões listadas acima, exceto para `CREATE TABLE` permissão na base de dados.
 
-Ligue-se à [*base de dados de trabalho*](job-automation-overview.md#job-database) e execute os seguintes comandos:
+Ligue-se à [*base de dados de trabalho*](job-automation-overview.md#elastic-job-database) e execute os seguintes comandos:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -200,32 +202,34 @@ EXEC jobs.sp_add_job @job_name ='ResultsJob', @description='Collection Performan
 EXEC jobs.sp_add_jobstep
 @job_name = 'ResultsJob',
 @command = N' SELECT DB_NAME() DatabaseName, $(job_execution_id) AS job_execution_id, * FROM sys.dm_db_resource_stats WHERE end_time > DATEADD(mi, -20, GETDATE());',
-@credential_name = 'myjobcred',
+@credential_name = 'job_credential',
 @target_group_name = 'PoolGroup',
 @output_type = 'SqlDatabase',
-@output_credential_name = 'myjobcred',
+@output_credential_name = 'job_credential',
 @output_server_name = 'server1.database.windows.net',
 @output_database_name = '<resultsdb>',
-@output_table_name = '<resutlstable>'
-Create a job to monitor pool performance
+@output_table_name = '<resutlstable>';
+
+--Create a job to monitor pool performance
+
 --Connect to the job database specified when creating the job agent
 
--- Add a target group containing master database
-EXEC jobs.sp_add_target_group 'MasterGroup'
+-- Add a target group containing Elastic Job database
+EXEC jobs.sp_add_target_group 'ElasticJobGroup';
 
 -- Add a server target member
 EXEC jobs.sp_add_target_group_member
-@target_group_name = 'MasterGroup',
+@target_group_name = 'ElasticJobGroup',
 @target_type = 'SqlDatabase',
 @server_name = 'server1.database.windows.net',
-@database_name = 'master'
+@database_name = 'master';
 
 -- Add a job to collect perf results
 EXEC jobs.sp_add_job
 @job_name = 'ResultsPoolsJob',
 @description = 'Demo: Collection Performance data from all pools',
 @schedule_interval_type = 'Minutes',
-@schedule_interval_count = 15
+@schedule_interval_count = 15;
 
 -- Add a job step w/ schedule to collect results
 EXEC jobs.sp_add_jobstep
@@ -246,61 +250,61 @@ SELECT elastic_pool_name , end_time, elastic_pool_dtu_limit, avg_cpu_percent, av
         avg_storage_percent, elastic_pool_storage_limit_mb FROM sys.elastic_pool_resource_stats
         WHERE end_time > @poolStartTime and end_time <= @poolEndTime;
 '),
-@credential_name = 'myjobcred',
-@target_group_name = 'MasterGroup',
+@credential_name = 'job_credential',
+@target_group_name = 'ElasticJobGroup',
 @output_type = 'SqlDatabase',
-@output_credential_name = 'myjobcred',
+@output_credential_name = 'job_credential',
 @output_server_name = 'server1.database.windows.net',
 @output_database_name = 'resultsdb',
-@output_table_name = 'resutlstable'
+@output_table_name = 'resutlstable';
 ```
 
 ## <a name="view-job-definitions"></a>Ver definições de emprego
 
 O exemplo a seguir mostra como visualizar as definições de emprego atuais.  
-Ligue-se à [*base de dados de trabalho*](job-automation-overview.md#job-database) e execute o seguinte comando:
+Ligue-se à [*base de dados de trabalho*](job-automation-overview.md#elastic-job-database) e execute o seguinte comando:
 
 ```sql
 --Connect to the job database specified when creating the job agent
 
 -- View all jobs
-SELECT * FROM jobs.jobs
+SELECT * FROM jobs.jobs;
 
 -- View the steps of the current version of all jobs
 SELECT js.* FROM jobs.jobsteps js
 JOIN jobs.jobs j
-  ON j.job_id = js.job_id AND j.job_version = js.job_version
+  ON j.job_id = js.job_id AND j.job_version = js.job_version;
 
 -- View the steps of all versions of all jobs
-select * from jobs.jobsteps
+SELECT * FROM jobs.jobsteps;
 ```
 
 ## <a name="begin-unplanned-execution-of-a-job"></a>Começar a execução não planeada de um trabalho
 
 O exemplo a seguir mostra como iniciar um trabalho imediatamente.  
-Ligue-se à [*base de dados de trabalho*](job-automation-overview.md#job-database) e execute o seguinte comando:
+Ligue-se à [*base de dados de trabalho*](job-automation-overview.md#elastic-job-database) e execute o seguinte comando:
 
 ```sql
 --Connect to the job database specified when creating the job agent
 
 -- Execute the latest version of a job
-EXEC jobs.sp_start_job 'CreateTableTest'
+EXEC jobs.sp_start_job 'CreateTableTest';
 
 -- Execute the latest version of a job and receive the execution id
-declare @je uniqueidentifier
-exec jobs.sp_start_job 'CreateTableTest', @job_execution_id = @je output
-select @je
+declare @je uniqueidentifier;
+exec jobs.sp_start_job 'CreateTableTest', @job_execution_id = @je output;
+select @je;
 
-select * from jobs.job_executions where job_execution_id = @je
+select * from jobs.job_executions where job_execution_id = @je;
 
 -- Execute a specific version of a job (e.g. version 1)
-exec jobs.sp_start_job 'CreateTableTest', 1
+exec jobs.sp_start_job 'CreateTableTest', 1;
 ```
 
 ## <a name="schedule-execution-of-a-job"></a>Agendar execução de um trabalho
 
 O exemplo a seguir mostra como agendar um trabalho para a execução futura.  
-Ligue-se à [*base de dados de trabalho*](job-automation-overview.md#job-database) e execute o seguinte comando:
+Ligue-se à [*base de dados de trabalho*](job-automation-overview.md#elastic-job-database) e execute o seguinte comando:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -309,13 +313,13 @@ EXEC jobs.sp_update_job
 @job_name = 'ResultsJob',
 @enabled=1,
 @schedule_interval_type = 'Minutes',
-@schedule_interval_count = 15
+@schedule_interval_count = 15;
 ```
 
 ## <a name="monitor-job-execution-status"></a>Monitorizar o estado de execução do trabalho
 
 O exemplo a seguir mostra como ver os detalhes do estado de execução para todos os trabalhos.  
-Ligue-se à [*base de dados de trabalho*](job-automation-overview.md#job-database) e execute o seguinte comando:
+Ligue-se à [*base de dados de trabalho*](job-automation-overview.md#elastic-job-database) e execute o seguinte comando:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -323,27 +327,27 @@ Ligue-se à [*base de dados de trabalho*](job-automation-overview.md#job-databas
 --View top-level execution status for the job named 'ResultsPoolJob'
 SELECT * FROM jobs.job_executions
 WHERE job_name = 'ResultsPoolsJob' and step_id IS NULL
-ORDER BY start_time DESC
+ORDER BY start_time DESC;
 
 --View all top-level execution status for all jobs
 SELECT * FROM jobs.job_executions WHERE step_id IS NULL
-ORDER BY start_time DESC
+ORDER BY start_time DESC;
 
 --View all execution statuses for job named 'ResultsPoolsJob'
 SELECT * FROM jobs.job_executions
 WHERE job_name = 'ResultsPoolsJob'
-ORDER BY start_time DESC
+ORDER BY start_time DESC;
 
 -- View all active executions
 SELECT * FROM jobs.job_executions
 WHERE is_active = 1
-ORDER BY start_time DESC
+ORDER BY start_time DESC;
 ```
 
 ## <a name="cancel-a-job"></a>Cancelar um emprego
 
 O exemplo a seguir mostra como cancelar um emprego.  
-Ligue-se à [*base de dados de trabalho*](job-automation-overview.md#job-database) e execute o seguinte comando:
+Ligue-se à [*base de dados de trabalho*](job-automation-overview.md#elastic-job-database) e execute o seguinte comando:
 
 ```sql
 --Connect to the job database specified when creating the job agent
@@ -351,23 +355,23 @@ Ligue-se à [*base de dados de trabalho*](job-automation-overview.md#job-databas
 -- View all active executions to determine job execution id
 SELECT * FROM jobs.job_executions
 WHERE is_active = 1 AND job_name = 'ResultPoolsJob'
-ORDER BY start_time DESC
+ORDER BY start_time DESC;
 GO
 
 -- Cancel job execution with the specified job execution id
-EXEC jobs.sp_stop_job '01234567-89ab-cdef-0123-456789abcdef'
+EXEC jobs.sp_stop_job '01234567-89ab-cdef-0123-456789abcdef';
 ```
 
 ## <a name="delete-old-job-history"></a>Apagar o histórico de empregos antigos
 
 O exemplo a seguir mostra como apagar o histórico de trabalho antes de uma data específica.  
-Ligue-se à [*base de dados de trabalho*](job-automation-overview.md#job-database) e execute o seguinte comando:
+Ligue-se à [*base de dados de trabalho*](job-automation-overview.md#elastic-job-database) e execute o seguinte comando:
 
 ```sql
 --Connect to the job database specified when creating the job agent
 
--- Delete history of a specific job’s executions older than the specified date
-EXEC jobs.sp_purge_jobhistory @job_name='ResultPoolsJob', @oldest_date='2016-07-01 00:00:00'
+-- Delete history of a specific job's executions older than the specified date
+EXEC jobs.sp_purge_jobhistory @job_name='ResultPoolsJob', @oldest_date='2016-07-01 00:00:00';
 
 --Note: job history is automatically deleted if it is >45 days old
 ```
@@ -375,19 +379,19 @@ EXEC jobs.sp_purge_jobhistory @job_name='ResultPoolsJob', @oldest_date='2016-07-
 ## <a name="delete-a-job-and-all-its-job-history"></a>Apagar um emprego e todo o seu histórico de trabalho
 
 O exemplo a seguir mostra como apagar um emprego e todo o histórico de empregos relacionados.  
-Ligue-se à [*base de dados de trabalho*](job-automation-overview.md#job-database) e execute o seguinte comando:
+Ligue-se à [*base de dados de trabalho*](job-automation-overview.md#elastic-job-database) e execute o seguinte comando:
 
 ```sql
 --Connect to the job database specified when creating the job agent
 
-EXEC jobs.sp_delete_job @job_name='ResultsPoolsJob'
+EXEC jobs.sp_delete_job @job_name='ResultsPoolsJob';
 
 --Note: job history is automatically deleted if it is >45 days old
 ```
 
 ## <a name="job-stored-procedures"></a>Procedimentos de trabalho armazenados
 
-Os seguintes procedimentos armazenados estão na [base de dados](job-automation-overview.md#job-database)de empregos.
+Os seguintes procedimentos armazenados estão na [base de dados](job-automation-overview.md#elastic-job-database)de empregos.
 
 |Procedimento armazenado  |Description  |
 |---------|---------|
@@ -1065,27 +1069,27 @@ O exemplo a seguir adiciona todas as bases de dados nos servidores de Londres e 
 
 ```sql
 --Connect to the jobs database specified when creating the job agent
-USE ElasticJobs ;
+USE ElasticJobs;
 GO
 
 -- Add a target group containing server(s)
-EXEC jobs.sp_add_target_group @target_group_name =  N'Servers Maintaining Customer Information'
+EXEC jobs.sp_add_target_group @target_group_name =  N'Servers Maintaining Customer Information';
 GO
 
 -- Add a server target member
 EXEC jobs.sp_add_target_group_member
 @target_group_name = N'Servers Maintaining Customer Information',
 @target_type = N'SqlServer',
-@refresh_credential_name=N'mymastercred', --credential required to refresh the databases in server
-@server_name=N'London.database.windows.net' ;
+@refresh_credential_name=N'refresh_credential', --credential required to refresh the databases in server
+@server_name=N'London.database.windows.net';
 GO
 
 -- Add a server target member
 EXEC jobs.sp_add_target_group_member
 @target_group_name = N'Servers Maintaining Customer Information',
 @target_type = N'SqlServer',
-@refresh_credential_name=N'mymastercred', --credential required to refresh the databases in server
-@server_name=N'NewYork.database.windows.net' ;
+@refresh_credential_name=N'refresh_credential', --credential required to refresh the databases in server
+@server_name=N'NewYork.database.windows.net';
 GO
 
 --View the recently added members to the target group
@@ -1139,12 +1143,12 @@ GO
 
 -- Retrieve the target_id for a target_group_members
 declare @tid uniqueidentifier
-SELECT @tid = target_id FROM [jobs].target_group_members WHERE target_group_name = 'Servers Maintaining Customer Information' and server_name = 'London.database.windows.net'
+SELECT @tid = target_id FROM [jobs].target_group_members WHERE target_group_name = 'Servers Maintaining Customer Information' and server_name = 'London.database.windows.net';
 
 -- Remove a target group member of type server
 EXEC jobs.sp_delete_target_group_member
 @target_group_name = N'Servers Maintaining Customer Information',
-@target_id = @tid
+@target_id = @tid;
 GO
 ```
 
@@ -1202,7 +1206,7 @@ GO
 
 ## <a name="job-views"></a>Vistas de emprego
 
-As seguintes opiniões estão disponíveis na [base de dados](job-automation-overview.md#job-database)de empregos.
+As seguintes opiniões estão disponíveis na [base de dados](job-automation-overview.md#elastic-job-database)de empregos.
 
 |Vista  |Description  |
 |---------|---------|

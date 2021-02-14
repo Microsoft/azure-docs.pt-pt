@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 09/06/2019
+ms.date: 02/12/2021
 ms.author: erhopf
-ms.openlocfilehash: 85f239afd1b9263440abff1f924c12cdb7eeadaa
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: db3d8f4424f59d8432221753af776a5b55859882
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99560291"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388860"
 ---
 # <a name="how-to-create-human-labeled-transcriptions"></a>Como criar transcrições com rótulo humano
 
@@ -24,7 +24,12 @@ Se procura melhorar a precisão do reconhecimento, especialmente os problemas qu
 Uma grande amostra de dados de transcrição é necessária para melhorar o reconhecimento, sugerimos fornecer entre 10 a 20 horas de dados de transcrição. Nesta página, vamos rever as diretrizes desenhadas para ajudá-lo a criar transcrições de alta qualidade. Este guia é dividido por localidade, com secções para inglês americano, mandarim chinês e alemão.
 
 > [!NOTE]
-> Nem todos os modelos base suportam a personalização com ficheiros áudio. Se um modelo base não o suportar, a formação utilizará apenas o texto das transcrições da mesma forma que o texto relacionado é utilizado.
+> Nem todos os modelos base suportam a personalização com ficheiros áudio. Se um modelo base não o suportar, a formação utilizará apenas o texto das transcrições da mesma forma que o texto relacionado é utilizado. Consulte [o suporte linguístico](language-support.md#speech-to-text) para uma lista de modelos base que suportam a formação com dados áudio.
+
+> [!NOTE]
+> Nos casos em que altera o modelo base utilizado para o treino, e tem áudio no conjunto de dados de treino, verifique *sempre* se o novo modelo base selecionado [suporta a formação com dados áudio](language-support.md#speech-to-text). Se o modelo base anteriormente utilizado não suportasse a formação com dados áudio, e o conjunto de dados de formação contiver áudio, o tempo de treino com o novo modelo base aumentará **drasticamente,** podendo facilmente passar de várias horas para vários dias e mais. Isto é especialmente verdade se a subscrição do seu serviço Desem declarações **não** estiver numa [região com o hardware dedicado](custom-speech-overview.md#set-up-your-azure-account) para a formação.
+>
+> Se encarar a questão descrita no parágrafo acima, pode diminuir rapidamente o tempo de treino reduzindo a quantidade de áudio no conjunto de dados ou removendo-o completamente e deixando apenas o texto. Esta última opção é altamente recomendada se a subscrição do serviço Speech **não** estiver numa [região com o hardware dedicado](custom-speech-overview.md#set-up-your-azure-account) para a formação.
 
 ## <a name="us-english-en-us"></a>Inglês dos EUA (en-US)
 
@@ -120,7 +125,7 @@ Aqui estão alguns exemplos de normalização realizadas automaticamente na tran
 | Texto original | Texto após normalização |
 | ------------- | ------------------------ |
 | 3.1415 | 三 点 一 四 一 五 |
-| ≤ 3.5 | 三 元 五 角 |
+| ¥ 3.5 | 三 元 五 角 |
 | w f y z | W F Y Z |
 | 1992 年 8 月 8 日 | 一 九 九 二 年 八 月 八 日 |
 | 你吃饭了吗? | 你 吃饭 了 吗 |

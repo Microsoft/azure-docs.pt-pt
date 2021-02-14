@@ -7,23 +7,23 @@ author: Vkurpad
 ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/18/2020
-ms.openlocfilehash: 9fb76c5c96795b8092c86e22acbab4ea5963b42e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 02/09/2021
+ms.openlocfilehash: 2448609b1184c8e91947bffbd13cfea8e3fe5d52
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90971633"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100390866"
 ---
 # <a name="incremental-enrichment-and-caching-in-azure-cognitive-search"></a>Enriquecimento incremental e caching em Pesquisa Cognitiva Azure
 
 > [!IMPORTANT] 
-> O enriquecimento incremental está atualmente em visualização pública. Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
+> O enriquecimento incremental está atualmente em visualização pública. Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 > [As versões de pré-visualização da API](search-api-preview.md) REST fornecem esta funcionalidade. Não existe porta ou suporte .NET SDK neste momento.
 
 *O enriquecimento incremental* é uma característica que visa [as habilidades.](cognitive-search-working-with-skillsets.md) Aproveita o Azure Storage para salvar a produção de processamento emitida por um gasoduto de enriquecimento para reutilização em futuras operações de indexação. Sempre que possível, o indexante reutiliza qualquer saída em cache que ainda seja válida. 
 
-Não só o enriquecimento incremental preserva o seu investimento monetário no processamento (em particular, OCR e processamento de imagem), como também torna um sistema mais eficiente. Quando as estruturas e o conteúdo são cached, um indexante pode determinar quais as competências que mudaram e executar apenas as que foram modificadas, bem como quaisquer habilidades dependentes a jusante. 
+Não só o enriquecimento incremental preserva o seu investimento monetário no processamento (em particular, OCR e processamento de imagem), como também torna um sistema mais eficiente. 
 
 Um fluxo de trabalho que utiliza o caching incremental inclui os seguintes passos:
 
@@ -95,7 +95,7 @@ A definição deste parâmetro garante que apenas são comprometidas atualizaç�
 O exemplo a seguir mostra um pedido de Atualização skillset com o parâmetro:
 
 ```http
-PUT https://customerdemos.search.windows.net/skillsets/callcenter-text-skillset?api-version=2020-06-30-Preview&disableCacheReprocessingChangeDetection=true
+PUT https://[search service].search.windows.net/skillsets/[skillset name]?api-version=2020-06-30-Preview&disableCacheReprocessingChangeDetection=true
 ```
 
 ### <a name="bypass-data-source-validation-checks"></a>Verificações de validação de fontes de dados de bypass
@@ -103,7 +103,7 @@ PUT https://customerdemos.search.windows.net/skillsets/callcenter-text-skillset?
 A maioria das alterações a uma definição de fonte de dados invalidará a cache. No entanto, para cenários em que se sabe que uma alteração não deve invalidar a cache - como alterar uma cadeia de ligação ou rodar a chave na conta de armazenamento - anexar o `ignoreResetRequirement` parâmetro na atualização da fonte de dados. Definir este parâmetro `true` permite que o compromisso passe, sem desencadear uma condição de reset que resultaria na reconstrução de todos os objetos e povoados do zero.
 
 ```http
-PUT https://customerdemos.search.windows.net/datasources/callcenter-ds?api-version=2020-06-30-Preview&ignoreResetRequirement=true
+PUT https://[search service].search.windows.net/datasources/[data source name]?api-version=2020-06-30-Preview&ignoreResetRequirement=true
 ```
 
 ### <a name="force-skillset-evaluation"></a>Avaliação de skillset de força
@@ -111,6 +111,10 @@ PUT https://customerdemos.search.windows.net/datasources/callcenter-ds?api-versi
 O objetivo da cache é evitar o processamento desnecessário, mas suponha que faça uma alteração para uma habilidade que o indexante não deteta (por exemplo, alterando algo em código externo, como uma habilidade personalizada).
 
 Neste caso, pode utilizar as [Capacidades de Reset](/rest/api/searchservice/preview-api/reset-skills) para forçar o reprocessamento de uma determinada habilidade, incluindo quaisquer habilidades a jusante que tenham uma dependência da produção dessa habilidade. Esta API aceita um pedido de POST com uma lista de competências que devem ser invalidadas e marcadas para reprocessamento. Depois de redefinir competências, execute o indexante para invocar o pipeline.
+
+### <a name="reset-documents"></a>Redefinir documentos
+
+[O reset de um indexante](/rest/api/searchservice/reset-indexer) resultará no reprocessamento de todos os documentos do corpus de pesquisa. Em cenários em que apenas alguns documentos precisam de ser reprocessados, e a fonte de dados não pode ser atualizada, utilize [documentos de reset (pré-visualização)](/rest/api/searchservice/preview-api/reset-documents) para forçar o reprocessamento de documentos específicos. Quando um documento é reiniciado, o indexante invalida a cache desse documento e o documento é reprocessado lendo-o a partir da fonte de dados. Para obter mais informações, consulte [indexadores, competências e documentos de execução ou reposição.](search-howto-run-reset-indexers.md)
 
 ## <a name="change-detection"></a>Deteção da alteração
 

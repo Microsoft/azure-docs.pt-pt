@@ -11,12 +11,12 @@ ms.subservice: msi
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: 969ca74d628da2bf91e0a7c091c9792f2676fb71
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: b8e75b86d2cfd778aec44ea163a1bafda5ff6fba
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100095686"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100373679"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Serviços que suportam identidades geridas para recursos da Azure
 
@@ -213,7 +213,7 @@ Tipo de identidade gerido | Tudo geralmente disponível<br>Regiões Azure Globai
 | Sistema atribuído | ![Disponível][check] | ![Disponível][check] | Não disponível | ![Disponível][check] |
 | Utilizador atribuído | Não disponível | Não disponível | Não disponível | Não disponível |
 
-Consulte a seguinte lista para configurar a identidade gerida para a Azure Data Factory V2 (nas regiões onde disponível):
+Consulte a seguinte lista para configurar a identidade gerida para o Azure IoT Hub (nas regiões onde disponível):
 
 - [Portal do Azure](../../iot-hub/virtual-network-support.md#turn-on-managed-identity-for-iot-hub)
 

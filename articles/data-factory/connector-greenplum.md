@@ -1,22 +1,17 @@
 ---
 title: Copiar dados da Greenplum utilizando a Azure Data Factory
 description: Saiba como copiar dados da Greenplum para lojas de dados de sumidouros suportados utilizando uma atividade de cópia num pipeline da Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: jingwang
-ms.openlocfilehash: 858db354564bf3c3ef6dba9b04d57f887bcec56a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c02d69cd3d7d09f016fda44f835c7cc544f0ffff
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81417287"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388384"
 ---
 # <a name="copy-data-from-greenplum-using-azure-data-factory"></a>Copiar dados da Greenplum utilizando a Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -50,9 +45,9 @@ As seguintes propriedades são suportadas para o serviço ligado à Greenplum:
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo deve ser definida para: **Greenplum** | Sim |
-| conexãoStragem | Uma cadeia de ligação ODBC para ligar ao Greenplum. <br/>Também pode colocar a palavra-passe no Cofre da Chave Azure e retirar a `pwd` configuração da cadeia de ligação. Consulte as seguintes amostras e [guarde as credenciais no artigo do Azure Key Vault](store-credentials-in-key-vault.md) com mais detalhes. | Sim |
-| connectVia | O [tempo de execução de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Saiba mais na secção [Pré-Requisitos.](#prerequisites) Se não for especificado, utiliza o tempo de execução de integração Azure predefinido. |Não |
+| tipo | A propriedade tipo deve ser definida para: **Greenplum** | Yes |
+| conexãoStragem | Uma cadeia de ligação ODBC para ligar ao Greenplum. <br/>Também pode colocar a palavra-passe no Cofre da Chave Azure e retirar a `pwd` configuração da cadeia de ligação. Consulte as seguintes amostras e [guarde as credenciais no artigo do Azure Key Vault](store-credentials-in-key-vault.md) com mais detalhes. | Yes |
+| connectVia | O [tempo de execução de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Saiba mais na secção [Pré-Requisitos.](#prerequisites) Se não for especificado, utiliza o tempo de execução de integração Azure predefinido. |No |
 
 **Exemplo:**
 
@@ -81,13 +76,13 @@ As seguintes propriedades são suportadas para o serviço ligado à Greenplum:
         "type": "Greenplum",
         "typeProperties": {
             "connectionString": "HOST=<server>;PORT=<port>;DB=<database>;UID=<user name>;",
-            "pwd": { 
-                "type": "AzureKeyVaultSecret", 
-                "store": { 
-                    "referenceName": "<Azure Key Vault linked service name>", 
-                    "type": "LinkedServiceReference" 
-                }, 
-                "secretName": "<secretName>" 
+            "pwd": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
             }
         },
         "connectVia": {
@@ -106,7 +101,7 @@ Para copiar dados da Greenplum, defina a propriedade tipo do conjunto de dados p
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo do conjunto de dados deve ser definida para: **GreenplumTable** | Sim |
+| tipo | A propriedade tipo do conjunto de dados deve ser definida para: **GreenplumTable** | Yes |
 | esquema | O nome do esquema. |Não (se for especificada "consulta" na fonte de atividade)  |
 | table | O nome da mesa. |Não (se for especificada "consulta" na fonte de atividade)  |
 | tableName | Nome da mesa com esquema. Esta propriedade é suportada para retrocompatibilidade. Uso `schema` e para nova carga de `table` trabalho. | Não (se for especificada "consulta" na fonte de atividade) |
@@ -138,7 +133,7 @@ Para copiar dados da Greenplum, deslote o tipo de origem na atividade de cópia 
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **GreenplumSource** | Sim |
+| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **GreenplumSource** | Yes |
 | consulta | Utilize a consulta SQL personalizada para ler dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se for especificado "tableName" no conjunto de dados) |
 
 **Exemplo:**

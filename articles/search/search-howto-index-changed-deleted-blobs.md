@@ -8,14 +8,14 @@ ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/29/2021
-ms.openlocfilehash: b23dabb4388331de9e37ee9db1d4b9d727ccde68
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 79d5583f8c9e562a0d21a91c210aa6259472661d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99430565"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100383539"
 ---
-# <a name="how-to-set-up-change-and-deletion-detection-for-blobs-in-azure-cognitive-search-indexing"></a>Como configurar a deteção de alterações e eliminação para bolhas no índice de pesquisa cognitiva Azure
+# <a name="change-and-deletion-detection-in-blob-indexing-azure-cognitive-search"></a>Deteção de alterações e eliminação na indexação de bolhas (Pesquisa Cognitiva Azure)
 
 Após a criação de um índice inicial de pesquisa, poderá querer que os trabalhos indexantes subsequentes apenas recolham documentos novos e alterados. Para o conteúdo de pesquisa originário do armazenamento Azure Blob, a deteção de alterações ocorre automaticamente quando utiliza um crono de programa para desencadear a indexação. Por predefinição, o serviço reindexiza apenas as bolhas alteradas, conforme determinado pela estada de tempo da `LastModified` bolha. Em contraste com outras fontes de dados suportadas por indexadores de pesquisa, as bolhas têm sempre uma meta de tempo, o que elimina a necessidade de configurar manualmente uma política de deteção de alterações.
 

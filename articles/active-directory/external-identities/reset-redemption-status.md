@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc51a8af85b85db28265d1fca420a5b9b368b078
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: d843755847d074e00aec9ed2830cb873b6bb3382
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576919"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100365417"
 ---
 # <a name="reset-redemption-status-for-a-guest-user"></a>Redefinir o estado de resgate de um utilizador convidado
 
@@ -26,7 +26,7 @@ Depois de um utilizador convidado ter resgatado o seu convite para colaboração
 - O utilizador mudou-se para outra empresa, mas ainda precisa do mesmo acesso aos seus recursos.
 - As responsabilidades do utilizador foram transmitidas a outro utilizador
 
-Para gerir estes cenários anteriormente, teve de eliminar manualmente a conta do utilizador convidado do seu diretório e voltar a convidar o utilizador. Agora pode utilizar o PowerShell ou o convite do Microsoft Graph API para redefinir o estado de resgate do utilizador e voltar a convidar o utilizador, mantendo o ID do objeto do utilizador, as filiações em grupo e as atribuições de aplicações. Quando o utilizador resgatar o novo convite, o novo endereço de e-mail torna-se o UPN do utilizador. O utilizador pode posteriormente iniciar sposição através do novo e-mail ou de um e-mail que adicionou à `otherMails` propriedade do objeto do utilizador.
+Para gerir estes cenários anteriormente, teve de eliminar manualmente a conta do utilizador convidado do seu diretório e voltar a convidar o utilizador. Agora pode utilizar o PowerShell ou o convite do Microsoft Graph API para redefinir o estado de resgate do utilizador e voltar a convidar o utilizador, mantendo o ID do objeto do utilizador, as filiações em grupo e as atribuições de aplicações. Quando o utilizador resgata o novo convite, a UPN do utilizador não muda, mas o nome de inscrição do utilizador muda para o novo e-mail. O utilizador pode posteriormente iniciar sposição através do novo e-mail ou de um e-mail que adicionou à `otherMails` propriedade do objeto do utilizador.
 
 ## <a name="use-powershell-to-reset-redemption-status"></a>Utilize o PowerShell para redefinir o estado de resgate
 

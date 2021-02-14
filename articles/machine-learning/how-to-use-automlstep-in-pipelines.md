@@ -11,12 +11,12 @@ manager: cgronlun
 ms.date: 12/04/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, automl
-ms.openlocfilehash: 1b9d515c197b56f7e0520539b23be60504059675
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 14e3991c7a9c24ea8fa2a619dc7100af2cd8617c
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131258"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100362765"
 ---
 # <a name="use-automated-ml-in-an-azure-machine-learning-pipeline-in-python"></a>Utilize ML automatizado num oleoduto de aprendizagem de máquinas Azure em Python
 
@@ -108,32 +108,15 @@ O código bloqueia até que o alvo seja a provisionado e, em seguida, imprime al
 
 ### <a name="configure-the-training-run"></a>Configure a corrida de treino
 
-O próximo passo é garantir que o treino remoto tenha todas as dependências que são exigidas pelas etapas de treino. As dependências e o contexto de tempo de execução são definidos através da criação e configuração de um `RunConfiguration` objeto. 
+O AutoMLStep configura automaticamente as suas dependências durante a submissão do trabalho. O contexto de tempo de execução é definido através da criação e configuração de um `RunConfiguration` objeto. Aqui definimos o alvo do cálculo.
 
 ```python
 from azureml.core.runconfig import RunConfiguration
-from azureml.core.conda_dependencies import CondaDependencies
-from azureml.core import Environment 
 
 aml_run_config = RunConfiguration()
 # Use just-specified compute target ("cpu-cluster")
 aml_run_config.target = compute_target
-
-USE_CURATED_ENV = True
-if USE_CURATED_ENV :
-    curated_environment = Environment.get(workspace=ws, name="AzureML-Tutorial")
-    aml_run_config.environment = curated_environment
-else:
-    aml_run_config.environment.python.user_managed_dependencies = False
-    
-    # Add some packages relied on by data prep step
-    aml_run_config.environment.python.conda_dependencies = CondaDependencies.create(
-        conda_packages=['pandas','scikit-learn'], 
-        pip_packages=['azureml-sdk[automl]', 'azureml-dataprep[fuse,pandas]'], 
-        pin_sdk_version=False)
 ```
-
-O código acima mostra duas opções para lidar com dependências. Como apresentado, `USE_CURATED_ENV = True` com, a configuração baseia-se num ambiente curado. Os ambientes curados são "pré-preparados" com bibliotecas interdependentes comuns e podem ser significativamente mais rápidos de colocar online. Ambientes curados têm imagens estivais pré-construídas no [Registo de Contentores da Microsoft.](https://hub.docker.com/publishers/microsoftowner) O caminho tomado se mudar `USE_CURATED_ENV` para `False` mostrar o padrão para definir explicitamente as suas dependências. Nesse cenário, será criada e registada uma nova imagem personalizada do Docker num Registo de Contentores Azure dentro do seu grupo de recursos (ver [Introdução aos registos privados de contentores Docker em Azure).](../container-registry/container-registry-intro.md) Construir e registar esta imagem pode demorar alguns minutos. 
 
 ## <a name="prepare-data-for-automated-machine-learning"></a>Preparar dados para aprendizagem automática de máquinas
 

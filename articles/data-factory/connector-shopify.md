@@ -1,22 +1,18 @@
 ---
 title: Copiar dados do Shopify (Pré-visualização)
 description: Saiba como copiar dados do Shopify para lojas de dados de sumidouros suportados utilizando uma atividade de cópia num oleoduto Azure Data Factory.
-services: data-factory
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/01/2019
-ms.openlocfilehash: e387d8329249fff0b3e84460bd753f35dd275507
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 47b955ebd8827a46ae718d8a89863d5b37024e5d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81415199"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100393399"
 ---
 # <a name="copy-data-from-shopify-using-azure-data-factory-preview"></a>Copiar dados do Shopify utilizando a Azure Data Factory (Preview)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -49,12 +45,12 @@ As seguintes propriedades são suportadas para o serviço ligado ao Shopify:
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo deve ser definida para: **Shopify** | Sim |
-| anfitrião | O ponto final do servidor Shopify. (isto é, mystore.myshopify.com)  | Sim |
-| accessToken | O token de acesso da API que pode ser usado para aceder aos dados do Shopify. O token não expira se estiver em modo offline. Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Sim |
-| useEncryptedEndpoints | Especifica se os pontos finais de origem de dados são encriptados usando HTTPS. O valor predefinido é true.  | Não |
-| useHostVerification | Especifica se deve exigir que o nome do anfitrião no certificado do servidor corresponda ao nome de anfitrião do servidor ao ligar o TLS. O valor predefinido é true.  | Não |
-| usePeerVerificação | Especifica se deve verificar a identidade do servidor ao ligar o TLS. O valor predefinido é true.  | Não |
+| tipo | A propriedade tipo deve ser definida para: **Shopify** | Yes |
+| anfitrião | O ponto final do servidor Shopify. (isto é, mystore.myshopify.com)  | Yes |
+| accessToken | O token de acesso da API que pode ser usado para aceder aos dados do Shopify. O token não expira se estiver em modo offline. Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Yes |
+| useEncryptedEndpoints | Especifica se os pontos finais de origem de dados são encriptados usando HTTPS. O valor predefinido é true.  | No |
+| useHostVerification | Especifica se deve exigir que o nome do anfitrião no certificado do servidor corresponda ao nome de anfitrião do servidor ao ligar o TLS. O valor predefinido é true.  | No |
+| usePeerVerificação | Especifica se deve verificar a identidade do servidor ao ligar o TLS. O valor predefinido é true.  | No |
 
 **Exemplo:**
 
@@ -82,7 +78,7 @@ Para copiar dados do Shopify, defina a propriedade tipo do conjunto de dados par
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo do conjunto de dados deve ser definida para: **ShopifyObject** | Sim |
+| tipo | A propriedade tipo do conjunto de dados deve ser definida para: **ShopifyObject** | Yes |
 | tableName | O nome da mesa. | Não (se for especificada "consulta" na fonte de atividade) |
 
 **Exemplo**
@@ -112,7 +108,7 @@ Para copiar dados do Shopify, desaprote o tipo de fonte na atividade de cópia p
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **ShopifySource** | Sim |
+| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **ShopifySource** | Yes |
 | consulta | Utilize a consulta SQL personalizada para ler dados. Por exemplo: `"SELECT * FROM "Products" WHERE Product_Id = '123'"`. | Não (se for especificado "tableName" no conjunto de dados) |
 
 **Exemplo:**

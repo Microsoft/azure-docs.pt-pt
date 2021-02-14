@@ -1,22 +1,17 @@
 ---
 title: Copiar dados da Lista Online do SharePoint utilizando a Azure Data Factory
 description: Saiba como copiar dados da Lista Online do SharePoint para lojas de dados de sumidouros suportados utilizando uma atividade de cópia num pipeline da Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: jingwang
-ms.openlocfilehash: 440dd561beddc9696ec703142fe82655b69fbb48
-ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
+ms.openlocfilehash: 3f05c90ba3c7e6b47009cbb597c56dac8a01427a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99474952"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100393433"
 ---
 # <a name="copy-data-from-sharepoint-online-list-by-using-azure-data-factory"></a>Copiar dados da Lista Online do SharePoint utilizando a Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -81,12 +76,12 @@ As seguintes propriedades são suportadas para um serviço ligado à Lista Onlin
 
 | **Propriedade**        | **Descrição**                                              | **Obrigatório** |
 | ------------------- | ------------------------------------------------------------ | ------------ |
-| tipo                | A propriedade tipo deve ser definida para: **SharePointOnlineList**.  | Sim          |
-| siteUrl             | O url do site SharePoint Online, por `https://contoso.sharepoint.com/sites/siteName` exemplo. | Sim          |
-| servicePrincipalId  | O ID de Aplicação (cliente) da aplicação registada no Diretório Ativo Azure. | Sim          |
-| servicePrincipalKey | A chave da inscrição. Marque este campo como um **SecureString** para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Sim          |
-| inquilinoId            | A identificação do inquilino sob a qual a sua candidatura reside.          | Sim          |
-| connectVia          | O [Tempo de Execução de Integração](concepts-integration-runtime.md) para ligar à loja de dados. Saiba mais com [Pré-Requisitos](#prerequisites), mais cedo neste artigo. Se não for especificado, utiliza-se o tempo de execução de integração Azure predefinido. | Não           |
+| tipo                | A propriedade tipo deve ser definida para: **SharePointOnlineList**.  | Yes          |
+| siteUrl             | O url do site SharePoint Online, por `https://contoso.sharepoint.com/sites/siteName` exemplo. | Yes          |
+| servicePrincipalId  | O ID de Aplicação (cliente) da aplicação registada no Diretório Ativo Azure. | Yes          |
+| servicePrincipalKey | A chave da inscrição. Marque este campo como um **SecureString** para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Yes          |
+| inquilinoId            | A identificação do inquilino sob a qual a sua candidatura reside.          | Yes          |
+| connectVia          | O [Tempo de Execução de Integração](concepts-integration-runtime.md) para ligar à loja de dados. Saiba mais com [Pré-Requisitos](#prerequisites), mais cedo neste artigo. Se não for especificado, utiliza-se o tempo de execução de integração Azure predefinido. | No           |
 
 **Exemplo:**
 
@@ -114,8 +109,8 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade **tipo** do conjunto de dados deve ser definida para **SharePointOnlineLResource**. | Sim |
-| listName | O nome da Lista Online SharePoint. | Sim |
+| tipo | A propriedade **tipo** do conjunto de dados deve ser definida para **SharePointOnlineLResource**. | Yes |
+| listName | O nome da Lista Online SharePoint. | Yes |
 
 **Exemplo**
 
@@ -147,9 +142,9 @@ Para copiar dados da Lista Online do SharePoint, as seguintes propriedades são 
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade **tipo** da fonte de Atividade de Cópia deve ser definida para **SharePointOnlineListSource**. | Sim |
-| consulta | Opções de consulta personalizadas OData para filtragem de dados. Exemplo: `"$top=10&$select=Title,Number"`. | Não |
-| httpRequestTimeout | O tempo limite (em segundo) para o pedido HTTP para obter uma resposta. O padrão é de 300 (5 minutos). | Não |
+| tipo | A propriedade **tipo** da fonte de Atividade de Cópia deve ser definida para **SharePointOnlineListSource**. | Yes |
+| consulta | Opções de consulta personalizadas OData para filtragem de dados. Exemplo: `"$top=10&$select=Title,Number"`. | No |
+| httpRequestTimeout | O tempo limite (em segundo) para o pedido HTTP para obter uma resposta. O padrão é de 300 (5 minutos). | No |
 
 **Exemplo**
 
@@ -196,7 +191,7 @@ Ao copiar dados da Lista Online do SharePoint, são utilizados os seguintes mape
 | Várias linhas de texto                          | Edm.String                                           | String                                   |
 | Escolha (menu para escolher)                    | Edm.String                                           | String                                   |
 | Número (1, 1.0, 100)                            | Edm.Double                                           | Double (Duplo)                                   |
-| Moeda ($, ≤, €)                              | Edm.Double                                           | Double (Duplo)                                   |
+| Moeda ($, ¥, &euro; )                              | Edm.Double                                           | Double (Duplo)                                   |
 | Data e Hora                                   | Edm.DateTime                                         | DateTime                                 |
 | Procura (informação já neste site)       | Edm.Int32                                            | Int32                                    |
 | Sim/Não (caixa de verificação)                              | Edm.Boolean                                          | Booleano                                  |

@@ -1,15 +1,15 @@
 ---
-title: Desempenho dos serviços de aplicações Monitor Azure Microsoft Docs
+title: Monitor Azure app services performance | Microsoft Docs
 description: Monitorização do desempenho da aplicação para serviços de aplicações Azure. Cartografe o tempo de carga e resposta, informações de dependência e definir alertas sobre o desempenho.
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js, devx-track-dotnet
-ms.openlocfilehash: c0ee68659f4729ed8f63b9ea990343adf51513bd
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: cd203c64695a9a61a93409a96f6a92b9acf9fe70
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186376"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100365230"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Monitorizar o desempenho do Serviço de Aplicações do Azure
 
@@ -75,7 +75,8 @@ Existem duas formas de permitir a monitorização de aplicações para os Servi�
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/netcore)
 
-As seguintes versões de ASP.NET Core são suportadas: ASP.NET Core 2.1, ASP.NET Core 2.2, ASP.NET Core 3.0, ASP.NET Core 3.1
+> [!IMPORTANT]
+> As seguintes versões de ASP.NET Core são suportadas: ASP.NET Core 2.1, 3.1 e 5.0. As versões 2.0, 2.2 e 3.0 já não foram apoiadas. Por favor, atualize para uma [versão suportada](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) de .NET Core para que a auto-instrumentação funcione.
 
 O quadro completo de ASP.NET, as aplicações baseadas em Base e Linux não são atualmente **suportadas** com monitorização baseada em agentes/extensões. ([A instrumentação manual](./asp-net-core.md) via código funcionará em todos os cenários anteriores.)
 
@@ -90,7 +91,7 @@ O quadro completo de ASP.NET, as aplicações baseadas em Base e Linux não são
 
      ![Instrumente a sua aplicação Web](./media/azure-web-apps/create-resource-01.png)
 
-2. Depois de especificar que recurso utilizar, pode escolher como pretende que o Application Insights recolha dados por plataforma para a sua aplicação. ASP.NET Core oferece **coleção recomendada** ou **desativada** para ASP.NET Core 2.1, 2.2, 3.0 e 3.1.
+2. Depois de especificar que recurso utilizar, pode escolher como pretende que o Application Insights recolha dados por plataforma para a sua aplicação. ASP.NET Core oferece **coleção recomendada** ou **desativada** para ASP.NET Core 2.1 e 3.1.
 
     ![Escolha opções por plataforma](./media/azure-web-apps/choose-options-new-net-core.png)
 
@@ -419,6 +420,12 @@ Se desejar testar o servidor sem código e a monitorização do lado do cliente 
 ### <a name="connection-string-and-instrumentation-key"></a>Chave de ligação e instrumentação
 
 Quando se utiliza uma monitorização codificada, é necessário apenas o fio de ligação. No entanto, recomendamos ainda a definição da chave de instrumentação para preservar a retrocompatibilidade com versões mais antigas do SDK quando estiver a ser executada a instrumentação manual.
+
+### <a name="difference-between-standard-metrics-from-application-insights-vs-azure-app-service-metrics"></a>Diferença entre métricas padrão de Insights de Aplicação vs métricas do Serviço de Aplicações Azure?
+
+A Application Insights recolhe telemetria para os pedidos que o fizeram ao pedido. Se a falha ocorreu no WebApps/IIS, e o pedido não chegou à aplicação do utilizador, então o Application Insights não terá qualquer telemetria sobre o mesmo.
+
+A duração `serverresponsetime` calculada por Application Insights não corresponde necessariamente ao tempo de resposta do servidor observado pelas Web Apps. Isto porque o Application Insights apenas conta a duração quando o pedido real atinge a aplicação do utilizador. Se o pedido estiver preso/em fila no IIS, esse tempo de espera será incluído nas métricas da Web App, mas não nas métricas de Insights de Aplicação.
 
 ## <a name="release-notes"></a>Notas de versão
 
