@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 09/04/2020
+ms.date: 02/12/2021
 ms.author: v-demjoh
-ms.openlocfilehash: 572b3b3459e1d837130f3c987d45ee45629f37ad
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 93a0c171497faa9e87457a03da0b78003feaa533
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96485081"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100362272"
 ---
 # <a name="test-a-model-using-an-audio-file-in-speech-studio"></a>Teste um modelo usando um arquivo áudio no Speech Studio
 
@@ -23,7 +23,7 @@ Neste como fazer, você usa o Speech Studio para converter o discurso de um fich
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de utilizar o Portal da Fala, [siga estas instruções para criar uma conta Azure e subscreva o serviço Discurso](../custom-speech-overview.md#set-up-your-azure-account). Esta subscrição unificada dá-lhe acesso a discurso-a-texto, texto-a-discurso, tradução de fala e portal de discurso personalizado.
+Antes de utilizar o Speech Studio, [siga estas instruções para criar uma conta Azure e subscreva o serviço Speech](../custom-speech-overview.md#set-up-your-azure-account). Esta subscrição unificada dá-lhe acesso a discurso-a-texto, texto-a-discurso, tradução de fala e estúdio de fala.
 
 ## <a name="download-an-audio-file"></a>Descarregue um ficheiro áudio
 
@@ -32,7 +32,7 @@ Siga estes passos para descarregar um ficheiro áudio que contenha a fala e emba
 1. Descarregue o **[ficheiro de wav de amostra a partir deste link](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-speech-sdk/f9807b1079f3a85f07cbb6d762c6b5449d536027/samples/cpp/windows/console/samples/whatstheweatherlike.wav)** clicando à direita no link e selecionando Save link **como**. Clique **em Guardar** para descarregar o `whatstheweatherlike.wav` ficheiro.
 2. Utilizando um explorador de ficheiros ou uma janela terminal com uma ferramenta zip, crie um ficheiro zip nomeado `whatstheweatherlike.zip` que contenha o `whatstheweatherlike.wav` ficheiro que descarregou. No Windows, pode abrir o Windows Explorer, navegar para a `Downloads` pasta, clique com o botão `whatstheweatherliike.wav` direito, clicar **em Enviar para**, clicar na pasta **Comprimida (com fecho)** e pressionar para entrar para aceitar o nome de ficheiro predefinido.
 
-## <a name="create-a-project-in-the-custom-speech-portal"></a>Criar um projeto no portal Discurso Personalizado
+## <a name="create-a-project-in-the-speech-studio"></a>Criar um projeto no Estúdio da Fala
 
 Siga estes passos para criar um projeto que contenha o seu fecho de um ficheiro áudio.
 
@@ -58,7 +58,7 @@ Depois de o Speech Studio processar o conteúdo do seu ficheiro zip, pode reprod
 
 Pode descarregar ficheiros que descrevam transcrições em detalhes muito maiores. Os ficheiros incluem forma lexical de fala nos seus ficheiros áudio e ficheiros JSON que contêm detalhes de confiança compensação, duração e transcrição sobre cada palavra. Siga estes passos para ver estes ficheiros.
 
-1. Clique **em Baixar**.
+1. Clique em **Transferir**.
 2. No diálogo de Descarregamento, desescolh **o áudio** e clique em **Baixar**.
 3. Desaperte o ficheiro zip descarregado e examine os ficheiros extraídos.
 

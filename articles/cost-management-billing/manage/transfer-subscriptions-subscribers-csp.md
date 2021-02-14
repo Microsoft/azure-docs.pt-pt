@@ -6,14 +6,14 @@ ms.reviewer: dhgandhi
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 11/17/2020
+ms.date: 02/11/2021
 ms.author: banders
-ms.openlocfilehash: 4cc213db19a567f18c5ff483b64a75e3bbeef892
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
-ms.translationtype: HT
+ms.openlocfilehash: 63fbf76b2211e530707f3598d176b646c317cc53
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94962115"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100363054"
 ---
 # <a name="transfer-azure-subscriptions-between-subscribers-and-csps"></a>Transferir subscrições do Azure entre subscritores e CSPs
 
@@ -36,6 +36,7 @@ Quando o pedido for aprovado, o CSP poderá disponibilizar uma fatura combinada 
 
 Para transferir quaisquer outras subscrições do Azure para um parceiro CSP, o subscritor tem de mover os recursos das subscrições de origem para as subscrições CSP. Utilize as seguintes orientações para mover recursos entre subscrições.
 
+1. Estabeleça uma [relação de revendedor](/partner-center/request-a-relationship-with-a-customer) com o cliente. Reveja a Visão Geral de Autorização Regional da [CSP](/partner-center/regional-authorization-overview) para garantir que tanto o cliente como o inquilino parceiro se encontram nas mesmas regiões autorizadas.
 1. Trabalhe em conjunto com o parceiro CSP para criar subscrições de destino do Azure CSP.
 1. Garanta que as subscrições CSP de origem e de destino se encontram no mesmo inquilino do Azure Active Directory (AAD).  
     Não pode mudar o inquilino do AAD de uma subscrição do Azure CSP. Em vez disso, tem de adicionar ou associar a subscrição de origem ao inquilino do AAD CSP. Para obter mais informações, veja [Associar ou adicionar uma subscrição do Azure ao inquilino do Azure Active Directory](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).

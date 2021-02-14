@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: a5f0a7d8221e970c8c1aa3c1ddffbfc56f2d5715
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: 4fccff70fd267aef84550b4e2f5d6f5f9422a341
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99226190"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100103027"
 ---
 # <a name="tutorial-build-a-multi-tenant-daemon-that-uses-the-microsoft-identity-platform"></a>Tutorial: Construa um daemon multi-inquilino que usa a plataforma de identidade da Microsoft
 
@@ -93,7 +93,7 @@ Se não quiser utilizar a automatização, utilize os passos nas seguintes secç
 
 ### <a name="choose-the-azure-ad-tenant"></a>Escolha o inquilino AZure AD
 
-1. Inscreva-se no <a href="https://portal.azure.com/" target="_blank">portal <span class="docon docon-navigate-external x-hidden-focus"></span> Azure</a>.
+1. Inicie sessão no <a href="https://portal.azure.com/" target="_blank">portal do Azure</a>.
 1. Se tiver acesso a vários inquilinos, utilize o filtro **de subscrição Diretório +** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o inquilino no qual pretende registar uma candidatura.
 
 
@@ -203,7 +203,7 @@ Este projeto tem aplicativos web e projetos web API. Para os implementar nos web
 
 ### <a name="create-and-publish-dotnet-web-daemon-v2-to-an-azure-website"></a>Criar e publicar dotnet-web-daemon-v2 para um site da Azure
 
-1. Inscreva-se no <a href="https://portal.azure.com/" target="_blank">portal <span class="docon docon-navigate-external x-hidden-focus"></span> Azure</a>.
+1. Inicie sessão no <a href="https://portal.azure.com/" target="_blank">portal do Azure</a>.
 1. Selecione **Criar um recurso** no canto superior esquerdo.
 1. Selecione **Web**  >  **Web App** e, em seguida, dê ao seu site um nome. Por exemplo, diga-lhe **dotnet-web-daemon-v2-contoso.azurewebsites.net.**
 1. Selecione as informações para **Subscrição,** **Grupo de Recursos** e Plano de Serviço de **Aplicação e localização.** **O SO** é **Windows**, e **publicar** é **código.**
@@ -224,7 +224,7 @@ O Visual Studio publicará o projeto e abrirá automaticamente um navegador para
 
 ### <a name="update-the-azure-ad-tenant-application-registration-for-dotnet-web-daemon-v2"></a>Atualizar o registo de pedido de inquilino Azure AD para dotnet-web-daemon-v2
 
-1. Volte para o <a href="https://portal.azure.com/" target="_blank">portal <span class="docon docon-navigate-external x-hidden-focus"></span> Azure.</a>
+1. Volte para o <a href="https://portal.azure.com/" target="_blank">portal Azure.</a>
 1. No painel esquerdo, selecione o serviço **Azure Ative Directory** e, em seguida, selecione **registos de Aplicações**.
 1. Selecione a aplicação **dotnet-web-daemon-v2.**
 1. Na página **autenticação** para a sua aplicação, atualize os campos **URL de logotipo do canal frontal** com o endereço do seu serviço. Por exemplo, usar `https://dotnet-web-daemon-v2-contoso.azurewebsites.net/Account/EndSession` .

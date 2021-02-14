@@ -1,28 +1,23 @@
 ---
 title: Migrar no local as cargas de trabalho dos Serviços de Integração de Servidores SQL (SSIS) para o SSIS na Azure Data Factory (ADF)
 description: Migrar no local cargas de trabalho SSIS para SSIS em ADF.
-services: data-factory
-documentationcenter: ''
 author: chugugrace
 ms.author: chugu
-ms.reviewer: ''
-manager: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 9/3/2019
-ms.openlocfilehash: ef4b01e38a60d6770ba476988fab934ada0bc631
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 78c488302a874319f79a143e4657d161fe849855
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92635699"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100373611"
 ---
 # <a name="migrate-on-premises-ssis-workloads-to-ssis-in-adf"></a>Migrar cargas de trabalho SSIS no local para ssis em ADF
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Quando migra as suas cargas de dados do SQL Server nas instalações para os serviços de base de dados Azure, nomeadamente Azure SQL Database ou Azure SQL Managed Instance, as suas cargas de trabalho ETL nos Serviços de Integração de Servidores SQL (SSIS) como um dos serviços de valor acrescentado primários também terão de ser migradas.
 
@@ -49,7 +44,7 @@ Data Migration Assistant (DMA) é uma ferramenta livremente descarregada para es
   - MSDB, que é uma base de dados de sistema no SQL Server usado para armazenar pacotes SSIS.
   - Sistema de ficheiros gerido, que é uma pasta específica no caminho de instalação do SQL Server usado para armazenar pacotes SSIS.
 
-A DMA suporta atualmente a avaliação de lotes de pacotes armazenados no Sistema de **Ficheiros,** **Loja de Pacotes** e **catálogo SSIS** desde **a versão DMA v5.0** .
+A DMA suporta atualmente a avaliação de lotes de pacotes armazenados no Sistema de **Ficheiros,** **Loja de Pacotes** e **catálogo SSIS** desde **a versão DMA v5.0**.
 
 Obtenha [DMA](/sql/dma/dma-overview)e [realize a sua avaliação do pacote com ele](/sql/dma/dma-assess-ssis).
 

@@ -1,5 +1,5 @@
 ---
-title: Obtenha ajuda com o portal My Apps - Azure Ative Directory / Microsoft Docs
+title: Obtenha ajuda com o portal My Apps - Azure Ative Directory| Microsoft Docs
 description: Obtenha ajuda para iniciar sessão e executar tarefas comuns no portal My Apps.
 services: active-directory
 author: curtand
@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: end-user-help
-ms.date: 03/21/2019
+ms.date: 01/19/2021
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: 5ae946f82590f2270719570e4b589d49542ffec8
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 4377ed76de971f78336ea9024b59dafc5d513487
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94833984"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100094972"
 ---
 # <a name="troubleshoot-problems-with-the-my-apps-portal"></a>Problemas de resolução de problemas com o portal My Apps
 
@@ -31,9 +31,9 @@ Se tiver problemas em instalar a extensão de inscrição segura das minhas apps
 
     - **Microsoft Edge.** A correr na Edição de Aniversário do Windows 10 ou mais tarde.
 
-    - **Google Chrome.** A correr no Windows 7 ou mais tarde, e no Mac OS X ou mais tarde.
+    - **Google Chrome.** A correr no Windows 7 ou mais tarde, e no macOS X ou mais tarde.
 
-    - **Mozilla Firefox 26.0 ou mais tarde.** Em execução no Windows XP SP2 ou mais tarde, e no Mac OS X 10.6 ou mais tarde.
+    - **Mozilla Firefox 26.0 ou mais tarde.** Em execução no Windows XP SP2 ou posteriormente, e no macOS X 10.6 ou mais tarde.
 
     - **Internet Explorer 11.** A correr no Windows 7 ou mais tarde (suporte limitado).
 
@@ -46,6 +46,11 @@ Se tiver problemas em instalar a extensão de inscrição segura das minhas apps
 ## <a name="i-cant-sign-in-to-the-my-apps-portal"></a>Não posso entrar no portal **My Apps**
 
 Se tiver problemas em iniciar sessão no portal **My Apps,** pode experimentar o seguinte:
+
+- Se vir um erro de sessão com uma conta pessoal da Microsoft, ainda pode iniciar sessão utilizando o nome de domínio da sua organização (como contoso.com) ou o **ID** do Inquilino da sua organização a partir de um dos seguintes URLs:
+
+   - https://myapplications.microsoft.com?tenantId=*your_domain_name*
+   - https://myapplications.microsoft.com?tenant=*your_tenant_ID*
 
 - Certifique-se de que está a usar a URL certa. Deve ser https://myapps.microsoft.com ou uma página personalizada para a sua organização, https://myapps.microsoft.com/contoso.com como.
 

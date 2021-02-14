@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/14/2020
+ms.date: 02/10/2021
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: blobs
-ms.openlocfilehash: de42854f512a69b7b70a15a10fe8499ca1d0bf8b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 45fa5cf4c76577cb5e8ba9bf482f4aab7301e3c6
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96017734"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100391495"
 ---
 # <a name="run-powershell-commands-with-azure-ad-credentials-to-access-blob-data"></a>Executar comandos PowerShell com credenciais AD AD Azure para aceder a dados blob
 
@@ -28,6 +28,9 @@ Pode atribuir permissões para apresentar dados a um diretor de segurança AZure
 As extensões de Armazenamento Azure são suportadas para operações em dados blob. Quais as operações que pode ligar dependem das permissões concedidas ao diretor de segurança da AD Azure com a qual se inscreve na PowerShell. As permissões aos recipientes de armazenamento Azure são atribuídas através do Azure RBAC. Por exemplo, se lhe foi atribuída a função **De Leitore de Dados Blob,** então pode executar comandos de script que lêem dados a partir de um recipiente. Se lhe foi atribuída a **função De Contribuinte de Dados Blob,** então pode executar comandos de script que leiam, escrevam ou apaguem um recipiente ou os dados que contêm.
 
 Para obter mais informações sobre as permissões necessárias para cada operação de armazenamento Azure num recipiente, consulte [as operações de armazenamento de chamadas com fichas OAuth](/rest/api/storageservices/authorize-with-azure-active-directory#call-storage-operations-with-oauth-tokens).  
+
+> [!IMPORTANT]
+> Quando uma conta de armazenamento é bloqueada com um bloqueio **de leitura do** Gestor de Recursos Azure, a operação ['Lista Chaves'](/rest/api/storagerp/storageaccounts/listkeys) não é permitida para essa conta de armazenamento. **List Keys** é uma operação POST, e todas as operações POST são impedidas quando um bloqueio **ReadOnly** é configurado para a conta. Por esta razão, quando a conta está bloqueada com um bloqueio **ReadOnly,** os utilizadores que ainda não possuam as chaves da conta devem utilizar credenciais AZure AD para aceder a dados blob. No PowerShell, inclua o `-UseConnectedAccount` parâmetro para criar um objeto **AzureStorageContext** com as suas credenciais AZure AD.
 
 ## <a name="call-powershell-commands-using-azure-ad-credentials"></a>Ligue para comandos PowerShell usando credenciais Azure AD
 

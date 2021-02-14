@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/26/2021
+ms.date: 02/11/2021
 ms.author: memildin
-ms.openlocfilehash: 9e537bfa782569fb8fa2a7957c6874bda69d8c06
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: c12ad505777111499fb354709ce606189398458f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98805355"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100391944"
 ---
 # <a name="pricing-of-azure-security-center"></a>Preços do Centro de Segurança Azure
 O Centro de Segurança do Azure oferece gestão de segurança unificada e proteção avançada contra ameaças para cargas de trabalho em execução no Azure, no local e noutras clouds. Proporciona visibilidade e controlo sobre cargas de trabalho em nuvem híbrida, defesas ativas que reduzem a sua exposição a ameaças e deteção inteligente para ajudá-lo a manter o ritmo com riscos cibernéticos em rápida evolução.
@@ -108,7 +108,7 @@ Pode utilizar qualquer uma das seguintes formas de ativar o Azure Defender para 
 |||
 
 ### <a name="can-i-enable-azure-defender-for-servers-on-a-subset-of-servers-in-my-subscription"></a>Posso ativar o Azure Defender para os servidores num subconjunto de servidores na minha subscrição?
-Não. Quando ativar [o Azure Defender para servidores](defender-for-servers-introduction.md) numa subscrição, todos os servidores da subscrição serão protegidos pelo Azure Defender. 
+N.º Quando ativar [o Azure Defender para servidores](defender-for-servers-introduction.md) numa subscrição, todos os servidores da subscrição serão protegidos pelo Azure Defender. 
 
 Uma alternativa é ativar o Azure Defender para servidores ao nível do espaço de trabalho Log Analytics. Se o fizeres, apenas os servidores que reportem a esse espaço de trabalho serão protegidos e faturados. No entanto, várias capacidades estarão indisponíveis. Estes incluem acesso vm just-in-time, deteções de rede, conformidade regulamentar, endurecimento adaptativo da rede, controlo de aplicações adaptativos, e muito mais. 
 
@@ -118,26 +118,25 @@ Se já tem uma licença para o Microsoft Defender para o Endpoint, não terá de
 Para confirmar o seu desconto, contacte a equipa de apoio do Security Center e forneça o ID do espaço de trabalho relevante, região e informações de licença para cada licença relevante.
 
 ### <a name="my-subscription-has-azure-defender-for-servers-enabled-do-i-pay-for-not-running-servers"></a>A minha subscrição tem o Azure Defender para servidores ativados, pago por servidores não funcionando? 
-Não. Quando ativar [o Azure Defender para servidores](defender-for-servers-introduction.md) numa subscrição, será cobrado de hora a hora apenas para executar servidores. Não será cobrado por nenhum servidor desligado durante o tempo de desligação. 
+N.º Quando ativar [o Azure Defender para servidores](defender-for-servers-introduction.md) numa subscrição, não será cobrado por nenhum servidor que esteja no estado de "deallocated" enquanto estiver nesse estado.
 
-> [!TIP]
-> Isto também se aplica aos outros tipos de recursos protegidos pelo Security Center. 
+:::image type="content" source="media/security-center-pricing/deallocated-virtual-machines.png" alt-text="Máquinas virtuais Azure mostrando uma máquina deallocated":::
 
 ### <a name="will-i-be-charged-for-machines-without-the-log-analytics-agent-installed"></a>Serei cobrado por máquinas sem o agente Log Analytics instalado?
-Yes. Quando ativa [o Azure Defender para servidores](defender-for-servers-introduction.md) numa subscrição, as máquinas nessa subscrição obtêm uma série de proteções mesmo que não tenha instalado o agente Log Analytics.
+Sim. Quando ativa [o Azure Defender para servidores](defender-for-servers-introduction.md) numa subscrição, as máquinas nessa subscrição obtêm uma série de proteções mesmo que não tenha instalado o agente Log Analytics.
 
 ### <a name="if-a-log-analytics-agent-reports-to-multiple-workspaces-will-i-be-charged-twice"></a>Se um agente do Log Analytics reportar a vários espaços de trabalho, serei cobrado duas vezes? 
-Yes. Se configurar o seu agente Log Analytics para enviar dados para dois ou mais espaços de trabalho do Log Analytics (multi-homing), será cobrado por cada espaço de trabalho que tenha uma solução 'Security' ou 'AntiMalware' instaladas. 
+Sim. Se configurar o seu agente Log Analytics para enviar dados para dois ou mais espaços de trabalho do Log Analytics (multi-homing), será cobrado por cada espaço de trabalho que tenha uma solução 'Security' ou 'AntiMalware' instaladas. 
 
 ### <a name="if-a-log-analytics-agent-reports-to-multiple-workspaces-is-the-500-mb-free-data-ingestion-available-on-all-of-them"></a>Se um agente do Log Analytics reportar a vários espaços de trabalho, a ingestão gratuita de dados de 500-MB está disponível em todos eles?
-Yes. Se configurar o seu agente Log Analytics para enviar dados para dois ou mais espaços de trabalho do Log Analytics (multi-homing), obterá ingestão gratuita de dados de 500 MB. É calculado por nó, por espaço de trabalho reportado, por dia, e disponível para cada espaço de trabalho que tenha uma solução 'Security' ou 'AntiMalware' instaladas. Será cobrado por quaisquer dados ingeridos ao longo dos 500 MB.
+Sim. Se configurar o seu agente Log Analytics para enviar dados para dois ou mais espaços de trabalho do Log Analytics (multi-homing), obterá ingestão gratuita de dados de 500 MB. É calculado por nó, por espaço de trabalho reportado, por dia, e disponível para cada espaço de trabalho que tenha uma solução 'Security' ou 'AntiMalware' instaladas. Será cobrado por quaisquer dados ingeridos ao longo dos 500 MB.
 
 ### <a name="is-the-500-mb-free-data-ingestion-calculated-for-an-entire-workspace-or-strictly-per-machine"></a>A ingestão gratuita de dados de 500-MB é calculada para todo um espaço de trabalho ou estritamente por máquina?
 Você receberá 500-MB de ingestão gratuita de dados por dia, para cada máquina ligada ao espaço de trabalho. Especificamente para tipos de dados de segurança recolhidos diretamente pelo Azure Security Center.
 
 Estes dados são uma taxa diária média de todos os nós. Assim, mesmo que algumas máquinas enviem 100-MB e outras enviem 800-MB, se o total não exceder o limite de livre **[número de máquinas] x 500-MB,** não será cobrado extra.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Este artigo explicava as opções de preços do Centro de Segurança. Para obter material relacionado, consulte:
 
 - [Como otimizar os seus custos de carga de trabalho Azure](https://azure.microsoft.com/blog/how-to-optimize-your-azure-workload-costs/)

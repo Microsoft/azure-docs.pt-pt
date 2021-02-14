@@ -13,12 +13,12 @@ ms.date: 12/09/2020
 ms.author: kenwith
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 0ded249a55e5a59bdcad7407694cbd5ed4cf2352
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 05447f41ca891adfe14533a74dfedf153e3c5773
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756070"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100102704"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Como: personalizar reclamações emitidas no token SAML para aplicações empresariais
 
@@ -54,7 +54,7 @@ Se o pedido DE SAML não contiver um elemento para NameIDPolicy, então a plataf
 
 A partir do dropdown do **formato do identificador de nome Escolher,** pode selecionar uma das seguintes opções.
 
-| Formato NameID | Descrição |
+| Formato NameID | Description |
 |---------------|-------------|
 | **Predefinição** | A plataforma de identidade da Microsoft utilizará o formato de origem padrão. |
 | **Persistente** | A plataforma de identidade da Microsoft utilizará o Persistente como formato NameID. |
@@ -81,10 +81,8 @@ Para mais informações, consulte [o Quadro 3: Valores de identificação válid
 
 Também pode atribuir qualquer valor constante (estático) a quaisquer reclamações que defina no Azure AD. Siga os passos abaixo para atribuir um valor constante:
 
-1. No <a href="https://portal.azure.com/" target="_blank">portal <span class="docon docon-navigate-external x-hidden-focus"></span> Azure</a>, na secção **Atributos & Reclamações** do Utilizador, clique no ícone **Editar** para editar as reclamações.
-
+1. No <a href="https://portal.azure.com/" target="_blank">portal Azure</a>, na secção **Atributos & Reclamações** do Utilizador, clique no ícone **Editar** para editar as reclamações.
 1. Clique na reclamação necessária que pretende modificar.
-
 1. Introduza o valor constante sem cotações no **atributo Fonte** conforme a sua organização e clique em **Guardar**.
 
     ![Org Atribui & Seção reivindicações no portal Azure](./media/active-directory-saml-claims-customization/organization-attribute.png)
@@ -174,7 +172,7 @@ Em primeiro lugar, a plataforma de identidade da Microsoft verifica se o tipo de
 
 ![Configuração condicional de reclamações](./media/active-directory-saml-claims-customization/sso-saml-user-conditional-claims.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Gestão de aplicações em Azure AD](../manage-apps/what-is-application-management.md)
 * [Configurar aplicações únicas de inscrição que não constam da galeria de candidaturas Azure AD](../manage-apps/configure-saml-single-sign-on.md)

@@ -1,24 +1,18 @@
 ---
 title: Criar Azure Data Factory usando .NET SDK
 description: Crie uma Fábrica de Dados Azure e um pipeline utilizando .NET SDK para copiar dados de um local no armazenamento de Azure Blob para outro local.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: ''
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 12/18/2020
 ms.author: jingwang
-ms.openlocfilehash: c5e35fb8ab6a782ec79f10b1099f6781062c1d7c
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: 821f64c46e0ae813e7dcd437bb0d4af848647185
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97678865"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100372693"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-net-sdk"></a>Quickstart: Create a data factory and pipeline using .NET SDK (Guia de Início Rápido: Criar uma fábrica de dados e um pipeline com o SDK .NET)
 
@@ -63,7 +57,7 @@ Em seguida, crie uma aplicação de consola C# .NET no Visual Studio:
 
 ## <a name="install-nuget-packages"></a>Instalar pacotes NuGet
 
-1. Selecione **ferramentas**  >  **NuGet Package Manager** Package Manager  >  **Consola**.
+1. Selecione **Tools** (Ferramentas)  > **NuGet Package Manager** (Gestor de Pacotes NuGet)  > **Package Manager Console** (Consola do Gestor de Pacotes).
 2. No painel **de consolas Do Gestor de Pacotes,** executar os seguintes comandos para instalar pacotes. Para obter mais informações, consulte o [pacote nuget Microsoft.Azure.Management.DataFactory](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactory/).
 
     ```powershell

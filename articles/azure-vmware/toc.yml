@@ -32,6 +32,8 @@
       href: tutorial-deploy-vmware-hcx.md
     - name: 8 - Dimensionar uma cloud privada
       href: tutorial-scale-private-cloud.md
+    - name: 9 - Eliminar uma nuvem privada
+      href: tutorial-delete-private-cloud.md
 - name: Conceitos
   items:
     - name: Clouds privadas e clusters

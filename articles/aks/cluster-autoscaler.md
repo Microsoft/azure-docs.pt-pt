@@ -4,12 +4,12 @@ description: Aprenda a utilizar o autoescalador de cluster para escalar automati
 services: container-service
 ms.topic: article
 ms.date: 07/18/2019
-ms.openlocfilehash: 5f0754638be1aa29672b6a59218a6c9d695261a5
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: c0564dc3b394b4a65e70a487b6f6989cb306bdda
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98223147"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100373254"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Dimensionar automaticamente um cluster para satisfazer as exigências das aplicações no Azure Kubernetes Service (AKS)
 
@@ -17,7 +17,7 @@ Para acompanhar as exigências da aplicação no Serviço Azure Kubernetes (AKS)
 
 Este artigo mostra-lhe como ativar e gerir o cluster autoscaler num cluster AKS.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Este artigo requer que esteja a executar a versão 2.0.76 do Azure CLI ou mais tarde. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][azure-cli-install].
 
@@ -273,6 +273,9 @@ az aks nodepool update \
 ```
 
 Se desejar voltar a ativar o autoescalador de clusters num cluster existente, pode voltar a capacitá-lo utilizando o comando [de atualização az aks nodepool,][az-aks-nodepool-update] especificando o `--enable-cluster-autoscaler` , e os `--min-count` `--max-count` parâmetros.
+
+> [!NOTE]
+> Se está a planear utilizar o autoescalador de cluster com nodepools que abrangem várias zonas e funcionalidades de agendamento de alavancagem relacionadas com zonas como o agendamento topológico de volume, a recomendação é ter um nodepool por zona e `--balance-similar-node-groups` ativar o perfil de autoescala. Isto garantirá que o autoscaler se dimensione com sucesso e tente manter os tamanhos dos nosdepools equilibrados.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 5bfdf90ddbd500fd9d1c504bd37ed4ac35d8bf70
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: d9db845bfa4a7c0c117220b8932b370eb230f6dc
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98752767"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100102993"
 ---
 # <a name="tutorial-call-the-microsoft-graph-api-from-a-windows-desktop-app"></a>Tutorial: Ligue para a API do Gráfico microsoft a partir de uma aplicação para desktop do Windows
 
@@ -57,7 +57,7 @@ A MSAL gere fichas de acesso de caching e refrescantes para si, para que a sua a
 
 Este guia utiliza os seguintes pacotes NuGet:
 
-|Biblioteca|Descrição|
+|Biblioteca|Description|
 |---|---|
 |[Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)|Biblioteca de Autenticação da Microsoft (MSAL.NET)|
 
@@ -97,14 +97,14 @@ Pode registar a sua candidatura de duas formas.
 ### <a name="option-1-express-mode"></a>Opção 1: Modo expresso
 
 Pode registar rapidamente a sua candidatura fazendo o seguinte:
-1. Vá ao <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/WinDesktopQuickstartPage/sourceType/docs" target="_blank">portal Azure - <span class="docon docon-navigate-external x-hidden-focus"></span> Aplicação registra</a> experiência de arranque rápido.
+1. Vá ao <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/WinDesktopQuickstartPage/sourceType/docs" target="_blank">portal Azure - Aplicação registra</a> experiência de arranque rápido.
 1. Introduza um nome para a sua aplicação e xelecione **Registar**.
 1. Siga as instruções para transferir e configurar automaticamente a sua nova aplicação com um só clique.
 
 ### <a name="option-2-advanced-mode"></a>Opção 2: Modo avançado
 
 Para registar a sua aplicação e adicionar as informações de registo da aplicação à sua solução, faça o seguinte:
-1. Inscreva-se no <a href="https://portal.azure.com/" target="_blank">portal <span class="docon docon-navigate-external x-hidden-focus"></span> Azure</a>.
+1. Inicie sessão no <a href="https://portal.azure.com/" target="_blank">portal do Azure</a>.
 1. Se tiver acesso a vários inquilinos, utilize o filtro **de subscrição Diretório +** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o inquilino no qual pretende registar uma candidatura.
 1. Procure e selecione **Azure Active Directory**.
 1. Em **Gestão**, selecione **registos de aplicações**  >  **Novo registo**.
@@ -377,7 +377,7 @@ Além do token de acesso que é usado para chamar a API do Gráfico microsoft, d
 
 [!INCLUDE [5. Test and Validate](../../../includes/active-directory-develop-guidedsetup-windesktop-test.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre a construção de aplicativos de desktop que chamem APIs web protegidos na nossa série de cenários multi-partes:
 

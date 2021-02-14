@@ -12,12 +12,12 @@ ms.date: 11/23/2020
 ms.author: aahi
 ms.custom: seodec18, cog-serv-seo-aug-2020
 keywords: no local, OCR, Docker, contentor
-ms.openlocfilehash: fc5d281a6c0c9dd9620109de9d8deea27462ad0e
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.openlocfilehash: 843000963bc05cab5415c9bb1db32b3272c8dc9f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100008592"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100391780"
 ---
 # <a name="install-read-ocr-docker-containers-preview"></a>Instalar Ler recipientes OCR Docker (Pré-visualização) 
 
@@ -41,7 +41,7 @@ O recipiente OCR de pré-visualização Leia 3.2 fornece:
 * Pontuações de confiança.
 * Suporte para documentos com texto impresso e manuscrito.
 * Capacidade de extrair texto de apenas páginas selecionadas num documento.
-* Escolha a ordem de saída da linha de texto do padrão para uma ordem de leitura mais natural.
+* Escolha a ordem de saída da linha de texto do padrão para uma ordem de leitura mais natural apenas para línguas latinas.
 * Classificação da linha de texto como estilo manuscrito ou não apenas para línguas latinas.
 
 Se estiver a utilizar os recipientes Read 2.0 hoje, consulte o [guia de migração](read-container-migration-guide.md) para saber mais sobre as mudanças nas novas versões.

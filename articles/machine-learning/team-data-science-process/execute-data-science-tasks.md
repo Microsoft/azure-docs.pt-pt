@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 11/17/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: e47dad8498c48a5da5307517efe493fa5c1aa590
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: e180ecbf5c68dbd9c179244083a641ac6ed42de0
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94748068"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100371962"
 ---
 # <a name="execute-data-science-tasks-exploration-modeling-and-deployment"></a>Executar tarefas de ciência de dados: exploração, modelação e implantação
 
@@ -42,7 +42,7 @@ Existem inúmeros kits de ferramentas e pacotes para modelos de treino em vária
 Depois de vários modelos terem sido construídos, normalmente é necessário ter um sistema de registo e gestão dos modelos. Normalmente, você precisa de uma combinação de scripts ou APIs e uma base de dados de backend ou sistema de versão. Algumas opções que pode considerar para estas tarefas de gestão são:
 
 1. [Azure Machine Learning - serviço de gestão de modelos](../index.yml)
-2. [ModelDB do MIT](http://modeldb.csail.mit.edu:3000/projects) 
+2. [ModelDB do MIT](https://people.csail.mit.edu/mvartak/papers/modeldb-hilda.pdf) 
 3. [SQL-servidor como um sistema de gestão de modelos](https://blogs.technet.microsoft.com/dataplatforminsider/2016/10/17/sql-server-as-a-machine-learning-model-management-system/)
 4. [Microsoft Machine Learning Server](/sql/advanced-analytics/r/r-server-standalone)
 

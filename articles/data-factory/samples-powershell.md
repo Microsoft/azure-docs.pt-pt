@@ -1,21 +1,18 @@
 ---
 title: Amostras Azure PowerShell para Azure Data Factory
 description: Azure PowerShell Samples - Scripts para ajudá-lo a criar e gerir fábricas de dados.
-services: data-factory
 ms.service: data-factory
-ms.workload: data-services
 author: dcstwh
 ms.author: weetok
-manager: jroth
 ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 01/16/2018
-ms.openlocfilehash: 031c897c17a086e0ebb3b2708cfe942a1ef3208e
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 69d29fca13f24bfccd585de3ad83bdc13ec48a37
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96497270"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100373645"
 ---
 # <a name="azure-powershell-samples-for-azure-data-factory"></a>Amostras Azure PowerShell para Azure Data Factory
 
@@ -23,7 +20,7 @@ ms.locfileid: "96497270"
 
 A tabela seguinte inclui links para provar scripts Azure PowerShell para Azure Data Factory.
 
-| Script | Descrição  |
+| Script | Description  |
 |---|---|
 |**Copiar dados**||
 |[Copiar bolhas de uma pasta para outra pasta num Azure Blob Storage](scripts/copy-azure-blob-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Este script PowerShell copia bolhas de uma pasta no Azure Blob Storage para outra pasta no mesmo Blob Storage. |

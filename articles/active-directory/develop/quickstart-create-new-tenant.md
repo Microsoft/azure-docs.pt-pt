@@ -13,12 +13,12 @@ ms.date: 03/12/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: 815947b7c1774fb58ca4e3d20a4d1d2b43099cd2
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: 83cf8840ffb9d123efa88d4acc304c8af4db5bf8
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99593083"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100102466"
 ---
 # <a name="quickstart-set-up-a-tenant"></a>Início Rápido: Configurar um inquilino
 
@@ -50,7 +50,7 @@ Muitos desenvolvedores já têm inquilinos através de serviços ou subscriçõe
 
 Para verificar o inquilino:
 
-1. Inscreva-se no <a href="https://portal.azure.com/" target="_blank">portal <span class="docon docon-navigate-external x-hidden-focus"></span> Azure</a>. Utilize a conta que utilizará para gerir a sua aplicação.
+1. Inicie sessão no <a href="https://portal.azure.com/" target="_blank">portal do Azure</a>. Utilize a conta que utilizará para gerir a sua aplicação.
 1. Verifique o canto superior direito. Se tiver um inquilino, será automaticamente contratado. Você vê o nome do inquilino diretamente no seu nome de conta.
    * Passe sobre o nome da sua conta para ver o seu nome, endereço de e-mail, diretório ou iD do inquilino (um GUID) e domínio.
    * Se a sua conta estiver associada a vários inquilinos, pode selecionar o nome da sua conta para abrir um menu onde pode alternar entre inquilinos. Cada inquilino tem o seu próprio ID de inquilino.

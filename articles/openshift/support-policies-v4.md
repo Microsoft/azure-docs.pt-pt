@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/23/2020
-ms.openlocfilehash: c8d52609043f173e896668eadeb8c59493739859
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: c58b267874f013a4660428e23abd41810a0fbf34
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95521143"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100093170"
 ---
 # <a name="azure-red-hat-openshift-support-policy"></a>Política de suporte Azure Red Hat OpenShift
 
@@ -26,6 +26,7 @@ Certas configurações para a azure Red Hat OpenShift 4 clusters podem afetar a 
 * O aglomerado deve ter um mínimo de dois nós operários. Não escalone os trabalhadores do agrupamento a zero, nem tente uma paragem graciosa do cluster.
 * Não remova nem modifique os serviços prometheus e alertmanager.
 * Não remova as regras do Service Alertmanager.
+* Não remova nem modifique grupos de segurança de rede.
 * Não remova nem modifique o registo do serviço Azure Red Hat OpenShift (cápsulas mdsd).
 * Não remova nem modifique o conjunto de "arosvc.azurecr.io" retire o segredo.
 * Todas as máquinas virtuais de cluster devem ter acesso direto à Internet, pelo menos ao Gestor de Recursos Azure (ARM) e aos pontos finais de registo de serviços (Genebra).  Não é suportada qualquer forma de procuração HTTPS.
@@ -52,7 +53,7 @@ Azure Red Hat OpenShift 4 suporta instâncias de nó de trabalhadores nos seguin
 |Dsv3|Standard_D16s_v3|16|64|
 |Dsv3|Standard_D32s_v3|32|128|
 
-### <a name="memory-optimized"></a>Com otimização de memória
+### <a name="memory-optimized"></a>Otimizada para memória
 
 |Série|Tamanho|vCPU|Memória: GiB|
 |-|-|-|-|
@@ -61,7 +62,7 @@ Azure Red Hat OpenShift 4 suporta instâncias de nó de trabalhadores nos seguin
 |Esv3|Standard_E16s_v3|16|128|
 |Esv3|Standard_E32s_v3|32|256|
 
-### <a name="compute-optimized"></a>Com otimização de computação
+### <a name="compute-optimized"></a>Otimizado para computação
 
 |Série|Tamanho|vCPU|Memória: GiB|
 |-|-|-|-|

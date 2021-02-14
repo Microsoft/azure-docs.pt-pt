@@ -1,24 +1,20 @@
 ---
 title: 'Quickstart: Criar uma fábrica de dados Azure usando Python'
 description: Utilize uma fábrica de dados para copiar dados de um local no armazenamento da Azure Blob para outro local.
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
-manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
-ms.workload: data-services
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/15/2021
 ms.custom: seo-python-october2019, devx-track-python
-ms.openlocfilehash: 883b7df1d4dfd1b405f2952aa675db5948ab3ca3
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: f92a09e78d65f3723b9dfa83574f603dc113ebeb
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98234295"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100372370"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-python"></a>Quickstart: Create a data factory and pipeline using Python (Guia de Início Rápido: Criar uma fábrica de dados e um pipeline com o Python)
 
@@ -452,7 +448,7 @@ Number of bytes written: 18
 Copy duration: 4
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Para eliminar a fábrica de dados, adicione o código abaixo ao programa:
 

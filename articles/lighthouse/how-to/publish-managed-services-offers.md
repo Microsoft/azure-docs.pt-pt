@@ -1,14 +1,14 @@
 ---
 title: Publicar uma oferta de Serviço Gerido para o Azure Marketplace
 description: Saiba como publicar uma oferta de Serviço Gerido que a bordo dos clientes para o Farol de Azure.
-ms.date: 12/17/2020
+ms.date: 02/10/2021
 ms.topic: how-to
-ms.openlocfilehash: f6bd504185fab3fc698019a3eb8c530ba93f8abc
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 9abac28d982e5b33bc4952f73336810abcb44e45
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98791378"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100372065"
 ---
 # <a name="publish-a-managed-service-offer-to-azure-marketplace"></a>Publicar uma oferta de Serviço Gerido para o Azure Marketplace
 
@@ -18,9 +18,7 @@ Neste artigo, você aprenderá a publicar uma oferta de Serviço Gerido público
 
 Precisa de ter uma conta válida [no Partner Center](../../marketplace/partner-center-portal/create-account.md) para criar e publicar ofertas. Se ainda não tiver uma conta, o processo de inscrição irá [levá-lo](https://aka.ms/joinmarketplace) através dos passos de criação de uma conta no Partner Center e inscrição no programa Mercado Comercial.
 
-De acordo com os [requisitos de certificação do Serviço Gerido,](/legal/marketplace/certification-policies#7004-business-requirements)você deve ter um [nível](/partner-center/learn-about-competencies) de competência silver ou Gold Cloud Platform ou ser um [Azure Expert MSP](https://partner.microsoft.com/membership/azure-expert-msp) para publicar uma oferta de Serviço Gerido. Também tem de [introduzir um destino de chumbo que irá criar um registo no seu sistema CRM](../../marketplace/plan-managed-service-offer.md#customer-leads) sempre que um cliente implementar a sua oferta.
-
-O seu ID da Microsoft Partner Network (MPN) será [automaticamente associado às](../../cost-management-billing/manage/link-partner-id.md) ofertas que publicar para acompanhar o seu impacto através dos compromissos com os clientes.
+De acordo com os [requisitos de certificação do Serviço Gerido,](/legal/marketplace/certification-policies#700-managed-services)você deve ter um [nível](/partner-center/learn-about-competencies) de competência silver ou Gold Cloud Platform ou ser um [Azure Expert MSP](https://partner.microsoft.com/membership/azure-expert-msp) para publicar uma oferta de Serviço Gerido. Também tem de [introduzir um destino de chumbo que irá criar um registo no seu sistema CRM](../../marketplace/plan-managed-service-offer.md#customer-leads) sempre que um cliente implementar a sua oferta.
 
 Se não quiser publicar uma oferta ao Azure Marketplace, ou não cumprir todos os requisitos, pode embarcar manualmente os clientes utilizando modelos do Azure Resource Manager. Para mais informações, consulte [a bordo de um cliente do Farol Azure.](onboard-customer.md)
 
@@ -28,19 +26,19 @@ A tabela a seguir pode ajudar a determinar se devem ou não embarcar clientes pu
 
 |**Consideração**  |**Oferta de Serviço Gerido**  |**Modelos de ARM**  |
 |---------|---------|---------|
-|Requer [conta partner center](../../marketplace/partner-center-portal/create-account.md)   |Sim         |Não        |
-|Requer [nível](/partner-center/learn-about-competencies) de competência da Plataforma Cloud prateada ou dourada ou [MSP expert Azure](https://partner.microsoft.com/membership/azure-expert-msp)      |Sim         |Não         |
-|Disponível para novos clientes através do Azure Marketplace     |Sim     |Não       |
-|Pode limitar a oferta a clientes específicos     |Sim (apenas com ofertas privadas, que não podem ser usadas com subscrições estabelecidas através de um revendedor do programa Cloud Solution Provider (CSP)         |Sim         |
-|Requer aceitação do cliente no portal Azure     |Sim     |Não   |
-|Pode usar a automatização para embarcar várias subscrições, grupos de recursos ou clientes |Não     |Sim    |
-|Acesso imediato a novas funções incorporadas e características do Farol Azure     |Nem sempre (geralmente disponível após algum atraso)         |Sim         |
+|Requer [conta partner center](../../marketplace/partner-center-portal/create-account.md)   |Yes         |No        |
+|Requer [nível](/partner-center/learn-about-competencies) de competência da Plataforma Cloud prateada ou dourada ou [MSP expert Azure](https://partner.microsoft.com/membership/azure-expert-msp)      |Yes         |No         |
+|Disponível para novos clientes através do Azure Marketplace     |Yes     |No       |
+|Pode limitar a oferta a clientes específicos     |Sim (apenas com ofertas privadas, que não podem ser usadas com subscrições estabelecidas através de um revendedor do programa Cloud Solution Provider (CSP)         |Yes         |
+|Requer aceitação do cliente no portal Azure     |Yes     |No   |
+|Pode usar a automatização para embarcar várias subscrições, grupos de recursos ou clientes |No     |Yes    |
+|Acesso imediato a novas funções incorporadas e características do Farol Azure     |Nem sempre (geralmente disponível após algum atraso)         |Yes         |
 
 ## <a name="create-your-offer"></a>Crie a sua oferta
 
-Para instruções detalhadas sobre como criar a sua oferta, incluindo todas as informações e bens que necessitará de fornecer, consulte [Create a Managed Service offer](../../marketplace/plan-managed-service-offer.md).
+Para instruções detalhadas sobre como criar a sua oferta, incluindo todas as informações e bens que necessitará de fornecer, consulte [Create a Managed Service offer](../../marketplace/create-managed-service-offer.md).
 
-Para saber mais sobre o processo de publicação geral, consulte [o Azure Marketplace e o AppSource Publishing Guide](../../marketplace/overview.md). Deve também rever as [políticas de certificação](/legal/marketplace/certification-policies)do mercado comercial, nomeadamente a secção [serviços geridos.](/legal/marketplace/certification-policies#700-managed-services)
+Para conhecer o processo de publicação geral, reveja a documentação do [Mercado Comercial.](../../marketplace/overview.md) Deve também rever as [políticas de certificação](/legal/marketplace/certification-policies)do mercado comercial, nomeadamente a secção [serviços geridos.](/legal/marketplace/certification-policies#700-managed-services)
 
 Uma vez que um cliente adicione a sua oferta, eles serão capazes de delegar uma ou mais subscrições ou grupos de recursos, que serão então [a bordo do Farol de Azure.](#the-customer-onboarding-process)
 
@@ -49,7 +47,7 @@ Uma vez que um cliente adicione a sua oferta, eles serão capazes de delegar uma
 
 ## <a name="publish-your-offer"></a>Publique a sua oferta
 
-Uma vez concluídas todas as secções, o seu próximo passo é publicar a oferta ao Azure Marketplace. Selecione o botão **Publicar** para iniciar o processo de fazer a sua oferta ao vivo. Mais informações sobre este processo, podem ser encontradas [aqui.](../../marketplace/plan-managed-service-offer.md) 
+Uma vez concluídas todas as secções, o seu próximo passo é publicar a oferta ao Azure Marketplace. Selecione o botão **Publicar** para iniciar o processo de fazer a sua oferta ao vivo. Mais informações sobre este processo podem ser [encontradas aqui.](../../marketplace/review-publish-offer.md)
 
 Pode [publicar uma versão atualizada da sua oferta a](../..//marketplace/partner-center-portal/update-existing-offer.md) qualquer momento. Por exemplo, pode querer adicionar uma nova definição de papel a uma oferta publicada anteriormente. Quando o fizer, os clientes que já adicionaram a oferta verão um ícone na página de fornecedores de [**Serviços**](view-manage-service-providers.md) no portal Azure que lhes permite saber que uma atualização está disponível. Cada cliente poderá [rever as alterações](view-manage-service-providers.md#update-service-provider-offers) e decidir se pretende atualizar para a nova versão. 
 
@@ -62,8 +60,9 @@ Depois de um cliente adicionar a sua oferta, eles serão capazes [de delegar uma
 
 Uma vez que o cliente delega uma subscrição (ou um ou mais grupos de recursos dentro de uma subscrição), o fornecedor de recursos **Microsoft.ManagedServices** será registado para essa subscrição, e os utilizadores no seu inquilino poderão aceder aos recursos delegados de acordo com as autorizações da sua oferta.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Conheça o [Mercado Comercial.](../../marketplace/overview.md)
+- [Ligue o seu ID parceiro](partner-earned-credit.md) para rastrear o seu impacto através dos compromissos com os clientes.
 - Conheça as [experiências de gestão de inquilinos cruzados.](../concepts/cross-tenant-management-experience.md)
 - [Ver e gerir clientes](view-manage-customers.md) indo para **os meus clientes** no portal Azure.

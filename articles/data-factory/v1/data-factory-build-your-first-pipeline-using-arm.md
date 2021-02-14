@@ -1,22 +1,18 @@
 ---
 title: Construa a sua primeira fábrica de dados (modelo de Gestor de Recursos)
 description: Neste tutorial, vai criar um exemplo de pipeline do Azure Data Factory com um modelo do Azure Resource Manager.
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
-manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
-ms.openlocfilehash: e65039d39bea4063f717709f97b090e465c5e3c4
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: deeed3890094961b0934a6e093b9f5025990d1a3
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97508514"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100392107"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-resource-manager-template"></a>Tutorial: Criar a primeira fábrica de dados do Azure com o modelo Azure Resource Manager
 > [!div class="op_single_selector"]
@@ -49,7 +45,7 @@ O pipeline neste tutorial tem uma atividade: **atividade do HDInsight Hive**. Es
 
 ## <a name="in-this-tutorial"></a>Neste tutorial
 
-| Entidade | Descrição |
+| Entidade | Description |
 | --- | --- |
 | Serviço ligado do Storage do Azure |Liga a sua conta de Armazenamento do Azure à fábrica de dados. A conta de Armazenamento do Azure possui os dados de entrada e de saída do pipeline neste exemplo. |
 | Serviço ligado do HDInsight a pedido |Liga um cluster HDInsight a pedido à fábrica de dados. O cluster é automaticamente criado para que possa processar dados e é eliminado após o processamento estar concluído. |
@@ -620,7 +616,7 @@ Este modelo cria uma fábrica de dados com o nome GatewayUsingArmDF com um gatew
 
 ## <a name="see-also"></a>Consulte também
 
-| Tópico | Descrição |
+| Tópico | Description |
 |:--- |:--- |
 | [Pipelines](data-factory-create-pipelines.md) |Este artigo ajuda-o a compreender os pipelines e as atividades no Azure Data Factory e como os utilizar para construir fluxos de dados ponto a ponto condicionados por dados para o seu cenário ou empresa. |
 | [Conjuntos de dados](data-factory-create-datasets.md) |Este artigo ajuda-o a compreender os conjuntos de dados no Azure Data Factory. |

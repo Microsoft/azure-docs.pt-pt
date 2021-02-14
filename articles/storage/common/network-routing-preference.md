@@ -11,18 +11,21 @@ ms.author: santoshc
 ms.reviewer: tamram
 ms.subservice: common
 ms.custom: references_regions
-ms.openlocfilehash: 9afe58434d60280f635deab75b763077bc76b93c
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: 601c8dfb4b4e2f16da5c560f67e2d251a5d3072a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98797640"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100362748"
 ---
 # <a name="configure-network-routing-preference-for-azure-storage-preview"></a>Configure a preferência de encaminhamento de rede para armazenamento Azure (pré-visualização)
 
 Pode configurar a preferência de [encaminhamento de](../../virtual-network/routing-preference-overview.md) rede (pré-visualização) para a sua conta de armazenamento Azure para especificar como o tráfego de rede é encaminhado para a sua conta a partir de clientes através da Internet. Por padrão, o tráfego da Internet é encaminhado para o ponto final público da sua conta de armazenamento através da rede global da [Microsoft.](../../networking/microsoft-global-network.md) O Azure Storage fornece opções adicionais para configurar como o tráfego é encaminhado para a sua conta de armazenamento.
 
 Configurar a preferência de encaminhamento dá-lhe a flexibilidade para otimizar o seu tráfego, quer para o desempenho da rede premium, quer para o custo. Ao configurar uma preferência de encaminhamento, especifica como o tráfego será direcionado para o ponto final público para a sua conta de armazenamento por padrão. Também pode publicar pontos finais específicos da rota para a sua conta de armazenamento.
+
+> [!NOTE]
+> Esta função não é suportada em contas de armazenamento configuradas para utilizar o nível de desempenho premium ou armazenamento redundante de zona (ZRS).
 
 ## <a name="microsoft-global-network-versus-internet-routing"></a>Rede global da Microsoft versus encaminhamento de Internet
 
@@ -105,7 +108,7 @@ Os seguintes problemas conhecidos afetam a pré-visualização da preferência d
 
 Para obter detalhes sobre preços e faturação, consulte a secção **de preços** em Qual é a preferência [de encaminhamento (pré-visualização)?](../../virtual-network/routing-preference-overview.md#pricing)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [O que é a preferência de encaminhamento (pré-visualização)?](../../virtual-network/routing-preference-overview.md)
 - [Configurar as firewalls e as redes virtuais do Armazenamento do Microsoft Azure](storage-network-security.md)
