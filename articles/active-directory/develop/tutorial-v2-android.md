@@ -13,12 +13,12 @@ ms.date: 11/26/2019
 ms.author: hahamil
 ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: f3dee72180d0850ce6d920c7e3180cebcbe2f4b4
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 7d297d96ba764c812a3d4db6d9383122c73cfe31
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98753035"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100103146"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-application"></a>Tutorial: Inscreva-se nos utilizadores e ligue para a Microsoft Graph API a partir de uma aplicação Android
 
@@ -74,7 +74,7 @@ Se ainda não tem uma aplicação Android, siga estes passos para criar um novo 
 
 ### <a name="register-your-application"></a>Registar a aplicação
 
-1. Inscreva-se no <a href="https://portal.azure.com/" target="_blank">portal <span class="docon docon-navigate-external x-hidden-focus"></span> Azure</a>.
+1. Inicie sessão no <a href="https://portal.azure.com/" target="_blank">portal do Azure</a>.
 1. Se tiver acesso a vários inquilinos, utilize o filtro **de subscrição Diretório +** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o inquilino no qual pretende registar uma candidatura.
 1. Procure e selecione **Azure Active Directory**.
 1. Em **Gestão**, selecione **registos de aplicações**  >  **Novo registo**.
@@ -589,7 +589,7 @@ Quando já não for necessário, elimine o objeto da aplicação que criou no Pa
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre a construção de aplicações móveis que chamem APIs web protegidas na nossa série de cenários multi-partes.
 

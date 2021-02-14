@@ -1,23 +1,18 @@
 ---
 title: Mover dados de/para a Tabela Azure
 description: Saiba como mover dados de/para o Azure Table Storage utilizando a Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.assetid: 07b046b1-7884-4e57-a613-337292416319
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 1d7802a3fe4fb904aad7fd9257edbf8b10efe127
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: cc8e0272dc690ed541883ae943c118cbbe2f1854
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637433"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100392124"
 ---
 # <a name="move-data-to-and-from-azure-table-using-azure-data-factory"></a>Mover dados de e para a Azure Table usando a Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -36,9 +31,9 @@ Pode copiar dados de qualquer loja de dados de origem suportada para o Azure Tab
 ## <a name="getting-started"></a>Introdução
 Pode criar um pipeline com uma atividade de cópia que move dados de/para um Azure Table Storage utilizando diferentes ferramentas/APIs.
 
-A forma mais fácil de criar um oleoduto é utilizar o **Copy Wizard** . Ver [Tutorial: Criar um pipeline utilizando o Copy Wizard](data-factory-copy-data-wizard-tutorial.md) para uma rápida passagem na criação de um oleoduto utilizando o assistente de dados Copy.
+A forma mais fácil de criar um oleoduto é utilizar o **Copy Wizard**. Ver [Tutorial: Criar um pipeline utilizando o Copy Wizard](data-factory-copy-data-wizard-tutorial.md) para uma rápida passagem na criação de um oleoduto utilizando o assistente de dados Copy.
 
-Também pode utilizar as seguintes ferramentas para criar um pipeline: **Visual Studio** , **Azure PowerShell,** **Azure Resource Manager,** **.NET API** e **REST API** . Consulte o tutorial de [atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo para criar um oleoduto com uma atividade de cópia. 
+Também pode utilizar as seguintes ferramentas para criar um pipeline: **Visual Studio**, **Azure PowerShell,** **Azure Resource Manager,** **.NET API** e **REST API**. Consulte o tutorial de [atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo para criar um oleoduto com uma atividade de cópia. 
 
 Quer utilize as ferramentas ou APIs, executa os seguintes passos para criar um pipeline que transfere dados de uma loja de dados de origem para uma loja de dados de lavatórios: 
 
@@ -79,10 +74,10 @@ As propriedades disponíveis na secção de tipoProperties da atividade, por out
 
 **O AzureTableSource** suporta as seguintes propriedades na secção typeProperties:
 
-| Propriedade | Descrição | Valores permitidos | Obrigatório |
+| Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
-| azureTableSourceQuery |Utilize a consulta personalizada para ler dados. |Corda de consulta de mesa azul. Veja os exemplos na secção seguinte. |Não. Quando um nome de mesa é especificado sem um azureTableSourceQuery, todos os registos da tabela são copiados para o destino. Se for também especificado um azureTableSourceQuery, os registos da tabela que satisfaz a consulta são copiados para o destino. |
-| azureTableSourceIgnoreTableNotFound |Indicar se engolir a exceção da tabela não existe. |TRUE<br/>FALSE |Não |
+| azureTableSourceQuery |Utilize a consulta personalizada para ler dados. |Corda de consulta de mesa azul. Veja os exemplos na secção seguinte. |N.º Quando um nome de mesa é especificado sem um azureTableSourceQuery, todos os registos da tabela são copiados para o destino. Se for também especificado um azureTableSourceQuery, os registos da tabela que satisfaz a consulta são copiados para o destino. |
+| azureTableSourceIgnoreTableNotFound |Indicar se engolir a exceção da tabela não existe. |TRUE<br/>FALSE |No |
 
 ### <a name="azuretablesourcequery-examples"></a>exemplos azureTableSourceQuery
 Se a coluna da tabela Azure for do tipo de corda:
@@ -99,12 +94,12 @@ Se a coluna da tabela Azure for do tipo de data:
 
 **O AzureTableSink** suporta as seguintes propriedades na secção typeProperties:
 
-| Propriedade | Descrição | Valores permitidos | Obrigatório |
+| Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
-| azureTableDefaultPartitionKeyValue |Valor da chave de partição padrão que pode ser usado pela pia. |Um valor de corda. |Não |
-| azureTablePartitionKeyName |Especifique o nome da coluna cujos valores são utilizados como teclas de partição. Se não for especificado, a AzureTableDefaultPartitionKeyValue é utilizada como chave de partição. |Um nome de coluna. |Não |
-| nome azureTableRowKey |Especifique o nome da coluna cujos valores de coluna são utilizados como chave de linha. Se não for especificado, utilize um GUID para cada linha. |Um nome de coluna. |Não |
-| azureTableInsertType |O modo de inserir dados na tabela Azure.<br/><br/>Esta propriedade controla se as linhas existentes na tabela de saída com chaves de divisórias e linha correspondentes têm os seus valores substituídos ou fundidos. <br/><br/>Para saber como funcionam estas configurações (fundir e substituir), consulte [inserir ou fundir tópicos da Entidade](/rest/api/storageservices/Insert-Or-Merge-Entity) e inserir ou [substituir](/rest/api/storageservices/Insert-Or-Replace-Entity) entidades. <br/><br> Esta definição aplica-se ao nível da linha, não ao nível da tabela, e nenhuma das opções elimina linhas na tabela de saída que não existem na entrada. |fusão (padrão)<br/>substituir |Não |
+| azureTableDefaultPartitionKeyValue |Valor da chave de partição padrão que pode ser usado pela pia. |Um valor de corda. |No |
+| azureTablePartitionKeyName |Especifique o nome da coluna cujos valores são utilizados como teclas de partição. Se não for especificado, a AzureTableDefaultPartitionKeyValue é utilizada como chave de partição. |Um nome de coluna. |No |
+| nome azureTableRowKey |Especifique o nome da coluna cujos valores de coluna são utilizados como chave de linha. Se não for especificado, utilize um GUID para cada linha. |Um nome de coluna. |No |
+| azureTableInsertType |O modo de inserir dados na tabela Azure.<br/><br/>Esta propriedade controla se as linhas existentes na tabela de saída com chaves de divisórias e linha correspondentes têm os seus valores substituídos ou fundidos. <br/><br/>Para saber como funcionam estas configurações (fundir e substituir), consulte [inserir ou fundir tópicos da Entidade](/rest/api/storageservices/Insert-Or-Merge-Entity) e inserir ou [substituir](/rest/api/storageservices/Insert-Or-Replace-Entity) entidades. <br/><br> Esta definição aplica-se ao nível da linha, não ao nível da tabela, e nenhuma das opções elimina linhas na tabela de saída que não existem na entrada. |fusão (padrão)<br/>substituir |No |
 | escreverBatchSize |Insere dados na tabela Azure quando a escritaBatchSize ou escreverBatchTimeout é atingida. |Inteiro (número de linhas) |Não (padrão: 10000) |
 | escreverBatchTimeout |Insere dados na tabela Azure quando a escritaBatchSize ou escreverBatchTimeout é atingido |timespan<br/><br/>Exemplo: "00:20:00" (20 minutos) |Não (Padrão para armazenamento valor de tempo limite 90 seg) |
 
@@ -155,7 +150,7 @@ A amostra copia dados pertencentes à partição padrão numa Tabela Azure a uma
   }
 }
 ```
-A Azure Data Factory suporta dois tipos de serviços ligados ao Azure Storage: **AzureStorage** e **AzureStorageSas** . Para a primeira, especifique a cadeia de ligação que inclui a chave de conta e para a posterior, especifica a Assinatura de Acesso Partilhado (SAS) Uri. Consulte a secção [Serviços Ligados](#linked-service-properties) para mais detalhes.  
+A Azure Data Factory suporta dois tipos de serviços ligados ao Azure Storage: **AzureStorage** e **AzureStorageSas**. Para a primeira, especifique a cadeia de ligação que inclui a chave de conta e para a posterior, especifica a Assinatura de Acesso Partilhado (SAS) Uri. Consulte a secção [Serviços Ligados](#linked-service-properties) para mais detalhes.  
 
 **Conjunto de dados de entrada da tabela Azure:**
 
@@ -250,7 +245,7 @@ Os dados são escritos para uma nova bolha a cada hora (frequência: hora, inter
 
 **Copiar a atividade num oleoduto com a AzureTableSource e blobSink:**
 
-O pipeline contém uma Atividade de Cópia que está configurada para utilizar os conjuntos de dados de entrada e saída e está programado para ser executado a cada hora. Na definição JSON do gasoduto, o tipo **de fonte** é definido para **AzureTableSource** e o tipo **de pia** é definido para **BlobSink** . A consulta SQL especificada com a propriedade **AzureTableSourceQuery** seleciona os dados da partição padrão a cada hora para copiar.
+O pipeline contém uma Atividade de Cópia que está configurada para utilizar os conjuntos de dados de entrada e saída e está programado para ser executado a cada hora. Na definição JSON do gasoduto, o tipo **de fonte** é definido para **AzureTableSource** e o tipo **de pia** é definido para **BlobSink**. A consulta SQL especificada com a propriedade **AzureTableSourceQuery** seleciona os dados da partição padrão a cada hora para copiar.
 
 ```JSON
 {
@@ -323,7 +318,7 @@ A amostra copia os dados da série de tempo de uma bolha Azure para uma mesa Azu
 }
 ```
 
-A Azure Data Factory suporta dois tipos de serviços ligados ao Azure Storage: **AzureStorage** e **AzureStorageSas** . Para a primeira, especifique a cadeia de ligação que inclui a chave de conta e para a posterior, especifica a Assinatura de Acesso Partilhado (SAS) Uri. Consulte a secção [Serviços Ligados](#linked-service-properties) para mais detalhes.
+A Azure Data Factory suporta dois tipos de serviços ligados ao Azure Storage: **AzureStorage** e **AzureStorageSas**. Para a primeira, especifique a cadeia de ligação que inclui a chave de conta e para a posterior, especifica a Assinatura de Acesso Partilhado (SAS) Uri. Consulte a secção [Serviços Ligados](#linked-service-properties) para mais detalhes.
 
 **Conjunto de dados de entrada Azure Blob:**
 
@@ -417,7 +412,7 @@ A amostra copia dados para uma tabela chamada "MyTable" na Tabela Azure. Crie um
 
 **Copiar a atividade num oleoduto com BlobSource e AzureTableSink:**
 
-O pipeline contém uma Atividade de Cópia que está configurada para utilizar os conjuntos de dados de entrada e saída e está programado para ser executado a cada hora. Na definição JSON do gasoduto, o tipo **de fonte** é definido para **BlobSource** e o tipo **de pia** é definido para **AzureTableSink** .
+O pipeline contém uma Atividade de Cópia que está configurada para utilizar os conjuntos de dados de entrada e saída e está programado para ser executado a cada hora. Na definição JSON do gasoduto, o tipo **de fonte** é definido para **BlobSource** e o tipo **de pia** é definido para **AzureTableSink**.
 
 ```JSON
 {

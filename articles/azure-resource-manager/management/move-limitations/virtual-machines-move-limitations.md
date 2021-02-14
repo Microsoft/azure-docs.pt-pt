@@ -3,12 +3,12 @@ title: Mover VMs Azure para novo grupo de subscrição ou recursos
 description: Utilize o Azure Resource Manager para mover máquinas virtuais para um novo grupo de recursos ou subscrição.
 ms.topic: conceptual
 ms.date: 12/01/2020
-ms.openlocfilehash: b1032b5a632bcac82cb9ae1f1b3df7b49f5463f5
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: ad7023f309f1ca948711eaa9bdf3867d2ef7a6f8
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96456323"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104914"
 ---
 # <a name="move-guidance-for-virtual-machines"></a>Mover orientação para máquinas virtuais
 
@@ -58,7 +58,7 @@ Máquinas virtuais criadas a partir de recursos do Marketplace com planos anexad
 
 Para mover máquinas virtuais configuradas com Azure Backup, deve eliminar os pontos de restauro do cofre.
 
-Se [a eliminação suave](../../../backup/backup-azure-security-feature-cloud.md) estiver ativada para a sua máquina virtual, não pode mover a máquina virtual enquanto estes pontos de restauro são mantidos. [Desative a eliminação suave](../../../backup/backup-azure-security-feature-cloud.md#enabling-and-disabling-soft-delete) ou aguarde 14 dias após a eliminação dos pontos de restauro.
+Se [a eliminação suave](../../../backup/soft-delete-virtual-machines.md) estiver ativada para a sua máquina virtual, não pode mover a máquina virtual enquanto estes pontos de restauro são mantidos. [Desative a eliminação suave](../../../backup/backup-azure-security-feature-cloud.md#enabling-and-disabling-soft-delete) ou aguarde 14 dias após a eliminação dos pontos de restauro.
 
 ### <a name="portal"></a>Portal
 

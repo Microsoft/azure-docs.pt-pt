@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/10/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: bbd7ca198d04769f7e08a9407a0f73744c7cae01
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 0a5d44f0cc42b80fa344e06f31275e87d265800e
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99583642"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100103843"
 ---
 # <a name="quickstart-aspnet-core-web-app-that-signs-in-users-and-calls-microsoft-graph-on-their-behalf"></a>Quickstart: ASP.NET web web do Core que assina nos utilizadores e chama o Microsoft Graph em seu nome
 
@@ -38,7 +38,7 @@ Veja [como funciona a amostra](#how-the-sample-works) para uma ilustração.
 >
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Opção 1: registar e configurar automaticamente a sua aplicação e, em seguida, transferir o exemplo de código
 >
-> 1. Vá ao <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetCoreWebAppQuickstartPage/sourceType/docs" target="_blank">portal Azure - <span class="docon docon-navigate-external x-hidden-focus"></span> Aplicação registra</a> experiência de arranque rápido.
+> 1. Vá ao <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetCoreWebAppQuickstartPage/sourceType/docs" target="_blank">portal Azure - Aplicação registra</a> experiência de arranque rápido.
 > 1. Introduza um nome para a sua aplicação e xelecione **Registar**.
 > 1. Siga as instruções para transferir e configurar automaticamente a sua nova aplicação num só clique.
 >
@@ -47,7 +47,7 @@ Veja [como funciona a amostra](#how-the-sample-works) para uma ilustração.
 > #### <a name="step-1-register-your-application"></a>Passo 1: Registar a aplicação
 > Para registar a sua aplicação e adicionar as informações de registo da aplicação à sua solução manualmente, siga os passos a seguir:
 >
-> 1. Inscreva-se no <a href="https://portal.azure.com/" target="_blank">portal <span class="docon docon-navigate-external x-hidden-focus"></span> Azure</a>.
+> 1. Inicie sessão no <a href="https://portal.azure.com/" target="_blank">portal do Azure</a>.
 > 1. Se tiver acesso a vários inquilinos, utilize o filtro **de subscrição Diretório +** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o inquilino no qual pretende registar uma candidatura.
 > 1. Procure e selecione **Azure Active Directory**.
 > 1. Em **Gestão**, selecione **registos de aplicações**  >  **Novo registo**.

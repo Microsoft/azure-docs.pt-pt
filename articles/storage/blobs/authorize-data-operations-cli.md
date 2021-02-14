@@ -6,17 +6,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/13/2020
+ms.date: 02/10/2021
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 060bfb6c88bbed8ba12c5b5ebfd2e9617f5abfb2
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 06b37e8b25d932115384124a45156c801fb9708f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94637473"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100361677"
 ---
 # <a name="choose-how-to-authorize-access-to-blob-data-with-azure-cli"></a>Escolha como autorizar o acesso a dados blob com o Azure CLI
 
@@ -33,6 +33,9 @@ Os comandos Azure CLI para ler e escrever dados blob incluem o `--auth-mode` par
 - Desa estade o `--auth-mode` parâmetro ao valor do legado para tentar recuperar a chave de acesso à conta para usar para `key` autorização. Se omitir o `--auth-mode` parâmetro, o CLI Azure também tenta recuperar a chave de acesso.
 
 Para utilizar o `--auth-mode` parâmetro, certifique-se de que instalou a versão 2.0.46 ou posterior do Azure CLI. Corra `az --version` para verificar a sua versão instalada.
+
+> [!NOTE]
+> Quando uma conta de armazenamento é bloqueada com um bloqueio **de leitura do** Gestor de Recursos Azure, a operação ['Lista Chaves'](/rest/api/storagerp/storageaccounts/listkeys) não é permitida para essa conta de armazenamento. **List Keys** é uma operação POST, e todas as operações POST são impedidas quando um bloqueio **ReadOnly** é configurado para a conta. Por esta razão, quando a conta está bloqueada com um bloqueio **ReadOnly,** os utilizadores que ainda não possuam as chaves da conta devem utilizar credenciais AZure AD para aceder a dados blob.
 
 > [!IMPORTANT]
 > Se omitir o `--auth-mode` parâmetro ou o `key` definir, então o CLI Azure tenta utilizar a chave de acesso à conta para autorização. Neste caso, a Microsoft recomenda que forneça a chave de acesso no comando ou na variável ambiente **AZURE_STORAGE_KEY.** Para obter mais informações sobre variáveis ambientais, consulte a secção intitulada [Conjunto de variáveis ambientais para parâmetros de autorização](#set-environment-variables-for-authorization-parameters).
@@ -82,6 +85,9 @@ az storage container create \
     --account-key <key>
     --auth-mode key
 ```
+
+> [!IMPORTANT]
+> Quando uma conta de armazenamento é bloqueada com um bloqueio **de leitura do** Gestor de Recursos Azure, a operação ['Lista Chaves'](/rest/api/storagerp/storageaccounts/listkeys) não é permitida para essa conta de armazenamento. **List Keys** é uma operação POST, e todas as operações POST são impedidas quando um bloqueio **ReadOnly** é configurado para a conta. Por esta razão, quando a conta está bloqueada com um bloqueio **ReadOnly,** os utilizadores devem aceder aos dados com credenciais AD do AZure.
 
 ## <a name="authorize-with-a-sas-token"></a>Autorizar com um token SAS
 

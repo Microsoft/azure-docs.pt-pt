@@ -1,22 +1,18 @@
 ---
 title: Criar dependências de gatilho de janelas caindo
 description: Aprenda a criar dependência de um gatilho de janela caindo na Azure Data Factory.
-services: data-factory
 ms.author: chez
 author: chez-charlie
-manager: weetok
 ms.service: data-factory
-ms.workload: data-services
-ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/03/2020
-ms.openlocfilehash: 221f8bd7908613812a728d420a68b747051e095b
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: f969c06a3419a8017cfc5ebc0de19caa67c8dc68
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97508803"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100361473"
 ---
 # <a name="create-a-tumbling-window-trigger-dependency"></a>Criar uma dependência de acionamento de janela em cascata
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -79,11 +75,11 @@ Um gatilho de janela caindo com uma dependência tem as seguintes propriedades:
 
 A tabela seguinte fornece a lista de atributos necessários para definir uma dependência da Janela Tumbling.
 
-| **Nome da propriedade** | **Descrição**  | **Tipo** | **Obrigatório** |
+| **Nome da Propriedade** | **Descrição**  | **Tipo** | **Obrigatório** |
 |---|---|---|---|
-| tipo  | Todos os gatilhos da janela de caindo existentes são apresentados nesta queda. Escolha o gatilho para assumir a dependência.  | TumblingWindowTriggerDependencyReference ou SelfDependencyTumblingWindowTriggerReference | Sim |
+| tipo  | Todos os gatilhos da janela de caindo existentes são apresentados nesta queda. Escolha o gatilho para assumir a dependência.  | TumblingWindowTriggerDependencyReference ou SelfDependencyTumblingWindowTriggerReference | Yes |
 | offset | Compensação do gatilho da dependência. Fornecer um valor no formato de tempo e tanto compensações negativas como positivas são permitidas. Esta propriedade é obrigatória se o gatilho depender de si mesmo e em todos os outros casos é opcional. A auto-dependência deve ser sempre uma compensação negativa. Se nenhum valor especificado, a janela é a mesma que o gatilho em si. | Timespan<br/>(hh:mm:ss) | Auto-dependência: Sim<br/>Outros: Não |
-| size | Tamanho da janela de caindo de dependência. Fornecer um valor de tempos positivo. Esta propriedade é opcional. | Timespan<br/>(hh:mm:ss) | Não  |
+| size | Tamanho da janela de caindo de dependência. Fornecer um valor de tempos positivo. Esta propriedade é opcional. | Timespan<br/>(hh:mm:ss) | No  |
 
 > [!NOTE]
 > Um gatilho da janela caindo pode depender de um máximo de cinco outros gatilhos.

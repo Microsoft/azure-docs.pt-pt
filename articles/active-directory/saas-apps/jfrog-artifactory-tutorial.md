@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com a JFrog Artifactory Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com a JFrog Artifactory | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o JFrog Artifactory.
 services: active-directory
 author: jeevansd
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/16/2019
 ms.author: jeedes
-ms.openlocfilehash: bec931309cbd6bc8bfa96ba3e054d06336c031e1
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: f0fafa5c0cc2e0b1bf0f4e11db3265824feb5296
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92459548"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100374711"
 ---
 # <a name="tutorial-integrate-jfrog-artifactory-with-azure-active-directory"></a>Tutorial: Integre o Artígino JFrog com o Azure Ative Directory
 
@@ -81,20 +81,25 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
     a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão: `<servername>.jfrog.io`
 
-    b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão: `https://<servername>.jfrog.io/<servername>/webapp/saml/loginResponse`
+    b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:
+    
+    - Para o Artifactory 6.x: `https://<servername>.jfrog.io/artifactory/webapp/saml/loginResponse`
+    - Para o Artifactory 7.x: `https://<servername>.jfrog.io/<servername>/webapp/saml/loginResponse`
 
 1. Clique **em Definir URLs adicionais** e execute o seguinte passo se desejar configurar a aplicação **no** modo iniciado sp:
 
-    Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:  `https://<servername>.jfrog.io/<servername>/webapp/`
+    Na caixa de texto **URL de entrada de inscrição,** digite um URL utilizando o seguinte padrão:
+    - Para o Artifactory 6.x: `https://<servername>.jfrog.io/<servername>/webapp/`
+    - Para o Artifactory 7.x: `https://<servername>.jfrog.io/ui/login`
 
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o identificador real, URL de resposta e URL de inscrição. Contacte a [equipa de apoio ao cliente da JFrog Artifactory](https://support.jfrog.com) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 
-1. A aplicação JFrog Artifactory espera as afirmações SAML num formato específico, o que requer que adicione mapeamentos de atributos personalizados à configuração de atributos de token SAML. A imagem que se segue mostra a lista de atributos predefinidos. Clique **em Editar** o ícone para abrir o diálogo dos Atributos do Utilizador.
+1. A aplicação JFrog Artifactory espera as afirmações SAML num formato específico, o que requer que adicione mapeamentos de atributos personalizados à configuração de atributos de token SAML. A imagem que se segue mostra a lista de atributos predefinidos. Clique no ícone **Editar** para abrir o diálogo Atributos do Utilizador.
 
     ![A screenshot mostra atributos do utilizador com o controlo de edição chamado.](common/edit-attribute.png)
 
-1. Além de acima, a aplicação JFrog Artifactory espera que alguns mais atributos sejam repercutidos na resposta SAML. Na secção **"Atributos & Reclamações** do Utilizador no diálogo **'Pré-visualização)** do Grupo, execute os seguintes passos:
+1. Além do acima, a JFrog Artifactory espera que uma série de atributos adicionais sejam repercutidos na resposta SAML. Na secção **"Atributos & Reclamações** do Utilizador no diálogo **'Pré-visualização)** do Grupo, execute os seguintes passos:
 
     a. Clique na **caneta** ao lado **de Grupos devolvidos em reivindicação**.
 
@@ -106,17 +111,20 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
     c. Clique em **Guardar**.
 
-4. Na **configuração single Sign-On com página SAML,** na secção Certificado de Assinatura **SAML,** encontre **Certificado (Raw)** e selecione **Descarregamento** para descarregar o certificado e guardá-lo no seu computador.
+4. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** localizar o **Certificado (Base64)** e selecione **Descarregamento** para descarregar o certificado e guardá-lo no seu computador.
 
-    ![O link de descarregamento de certificado](common/certificateraw.png)
+    ![O link de descarregamento de certificado](./media/jfrog-artifactory-tutorial/certificate-base.png)
 
-6. Na secção **Configuração do Artefacto JFrog,** copie os URL(s) apropriados com base na sua exigência.
+6. Configure o Artifactory (Nome do Fornecedor de Serviços SAML) com o campo 'Identificador' (ver passo 4). Na secção **Configuração do Artefacto JFrog,** copie os URL(s) apropriados com base na sua exigência.
+
+   - Para o Artifactory 6.x: `https://<servername>.jfrog.io/artifactory/webapp/saml/loginResponse` 
+   - Para o Artifactory 7.x: `https://<servername>.jfrog.io/<servername>/webapp/saml/loginResponse`
 
     ![URLs de configuração de cópia](common/copy-configuration-urls.png)
 
 ### <a name="configure-jfrog-artifactory-sso"></a>Configurar JFrog Artifactory SSO
 
-Para configurar um único sign-on no lado **do Artefacto JFrog,** você precisa enviar o Certificado descarregado **(Raw)** e URLs copiados apropriados do portal Azure para a equipa de [suporte do Artefacto JFrog.](https://support.jfrog.com) Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
+Tudo o que precisa para configurar um único sinal no lado do **Artefacto JFrog** é configurável pelo administrador artifactório no ecrã de configugração SAML.
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD
 
@@ -134,7 +142,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
 
 Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso ao JFrog Artifactory.
 
-1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de candidaturas, selecione **JFrog Artifactory**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 

@@ -8,12 +8,12 @@ ms.date: 01/04/2021
 ms.author: chhenk
 ms.reviewer: azmetadatadev
 ms.custom: references_regions
-ms.openlocfilehash: 0121ea65b190f254f032085133f12f6eb0f374ca
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: fcdccf6701afe73ab0f11a7a907072b01a9d5aa4
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99808486"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100373317"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure Instance Metadata Service
 
@@ -42,7 +42,7 @@ Aqui está o código de amostra para recuperar todos os metadados, por exemplo. 
 #### <a name="windows"></a>[Windows](#tab/windows/)
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance?api-version=2020-09-01" | ConvertTo-Json
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance?api-version=2020-09-01" | ConvertTo-Json -Depth 64
 ```
 
 #### <a name="linux"></a>[Linux](#tab/linux/)
@@ -494,7 +494,7 @@ Como prestador de serviços, poderá receber uma chamada de apoio onde gostaria 
 #### <a name="windows"></a>[Windows](#tab/windows/)
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance/compute?api-version=2020-09-01" | ConvertTo-Json
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance/compute?api-version=2020-09-01" | ConvertTo-Json -Depth 64
 ```
 
 #### <a name="linux"></a>[Linux](#tab/linux/)
@@ -653,7 +653,7 @@ A nuvem e os valores do ambiente Azure estão listados aqui.
 #### <a name="windows"></a>[Windows](#tab/windows/)
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance/network?api-version=2017-08-01" | ConvertTo-Json
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance/network?api-version=2017-08-01" | ConvertTo-Json  -Depth 64
 ```
 
 #### <a name="linux"></a>[Linux](#tab/linux/)

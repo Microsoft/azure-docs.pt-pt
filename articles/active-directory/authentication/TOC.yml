@@ -245,6 +245,8 @@
       href: /graph/api/resources/authenticationmethods-overview?view=graph-rest-beta
     - name: Restrições e limites do serviço
       href: ../enterprise-users/directory-service-limits-restrictions.md
+    - name: Compatibilidade FIDO2
+      href: fido2-compatibility.md
 - name: Recursos
   items:
     - name: Fórum de comentários do Azure

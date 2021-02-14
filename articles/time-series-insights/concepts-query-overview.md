@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 01/22/2021
 ms.custom: seodec18
-ms.openlocfilehash: bf743bf1997a339664a6da2e5c02f1bcc1deea26
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: b1b055fa7f083bd8bccda16498e2894d5d67eace
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736756"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100374138"
 ---
 # <a name="querying-data-from-azure-time-series-insights-gen2"></a>Consultar dados no Azure Time Series Insights Gen2
 
@@ -54,13 +54,12 @@ A maioria destas APIs suportam a operação de execução de lotes para permitir
 
 ## <a name="time-series-query-tsq-apis"></a>Consultas de Séries De Tempo (TSQ) APIs
 
-Estas APIs estão disponíveis em ambas as lojas (Quente e Fria) na nossa solução de armazenamento multicamadas. Os parâmetros URL de consulta são utilizados para especificar o [tipo de loja](/rest/api/time-series-insights/dataaccessgen2/query/execute#uri-parameters) que a consulta deve executar em:
+Estas APIs estão disponíveis em ambas as lojas (Quente e Fria) na nossa solução de armazenamento multicamadas. 
 
 * [Get Events API](/rest/api/time-series-insights/dataaccessgen2/query/execute#getevents): Permite consulta e recuperação de eventos crus e os relógios de eventos associados à medida que são gravados em Azure Time Series Insights Gen2 do fornecedor de origem. Esta API permite a recuperação de eventos crus para um determinado ID da Série de Tempo e período de pesquisa. Esta API suporta a paginação para recuperar o conjunto completo de dados de resposta para a entrada selecionada.
 
   > [!IMPORTANT]
-
-  > * Como parte das [próximas alterações às regras de achatamento e fuga de JSON, as](./ingestion-rules-update.md)matrizes serão armazenadas como tipo **Dinâmico.** As propriedades de carga útil armazenadas como este tipo são **apenas acessíveis através da API Get Events**.
+  > Como parte das [próximas alterações às regras de achatamento e fuga de JSON, as](./ingestion-rules-update.md)matrizes serão armazenadas como tipo **Dinâmico.** As propriedades de carga útil armazenadas como este tipo são **apenas acessíveis através da API Get Events**.
 
 * [Obter API série](/rest/api/time-series-insights/dataaccessgen2/query/execute#getseries): Permite consulta e recuperação de valores calculados e dos timetamps de eventos associados, aplicando cálculos definidos por variáveis em eventos brutos. Estas variáveis podem ser definidas no Modelo de Séries Tempotamos ou em linha na consulta. Esta API suporta a paginação para recuperar o conjunto completo de dados de resposta para a entrada selecionada.
 
@@ -70,7 +69,17 @@ Estas APIs estão disponíveis em ambas as lojas (Quente e Fria) na nossa soluç
 
   Os tempos devolvidos no conjunto de resposta são dos limites do intervalo esquerdo, não dos eventos amostrados do intervalo.
 
-## <a name="next-steps"></a>Próximos passos
+
+### <a name="selecting-store-type"></a>Selecionando tipo de loja
+
+As APIs acima só podem ser executadas contra um dos dois tipos de armazenamento (Frio ou Quente) numa única chamada. Os parâmetros URL de consulta são utilizados para especificar o [tipo de loja](/rest/api/time-series-insights/dataaccessgen2/query/execute#uri-parameters) em que a consulta deve ser executada. 
+
+Se não for especificado nenhum parâmetro, a consulta será executada na Cold Store, por padrão. Se uma consulta abranger um intervalo de tempo sobreposto tanto a Loja Cold como a Warm, é aconselhável encaminhar a consulta para o Cold store para obter a melhor experiência, uma vez que a loja Warm apenas conterá dados parciais. 
+
+O [Azure Time Series Insights Explorer](./concepts-ux-panels.md) e o Power BI [Connector](./how-to-connect-power-bi.md) fazem chamadas para as APIs acima e selecionarão automaticamente o parâmetro de loja correto, se for caso disso. 
+
+
+## <a name="next-steps"></a>Passos seguintes
 
 * Leia mais sobre diferentes variáveis que podem ser definidas no [Modelo série de tempo.](./concepts-model-overview.md)
 * Leia mais sobre como consultar dados do [Azure Time Series Insights Explorer](./concepts-ux-panels.md).

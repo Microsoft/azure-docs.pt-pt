@@ -13,12 +13,12 @@ metadata:
   ms.date: 01/29/2021
   featureFlags:
   - clicktale
-  ms.openlocfilehash: 2f792ffb95323444d8666c4c676025995f5db438
-  ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+  ms.openlocfilehash: 58b5b8917aeeefb918914a598655da962019de34
+  ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 02/09/2021
-  ms.locfileid: "99979475"
+  ms.lasthandoff: 02/10/2021
+  ms.locfileid: "100102976"
 highlightedContent:
   items:
   - title: Guia de introdução para programadores do Azure
@@ -793,7 +793,7 @@ productDirectory:
     azureCategories:
     - hybrid
     url: /azure-stack/
-  - title: Azure Stack HCI (Pré-visualização)
+  - title: Azure Stack HCI
     summary: Integre a infraestrutura hiperconvergente no Azure e nos serviços híbridos para executar cargas de trabalho virtuais no local
     imageSrc: https://static.docs.com/ui/media/product/azure/stack-hci.svg
     azureCategories:

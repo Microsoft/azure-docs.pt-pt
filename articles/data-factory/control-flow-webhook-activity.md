@@ -1,22 +1,18 @@
 ---
 title: Atividade webhook na Azure Data Factory
 description: A atividade webhook não continua a execução do pipeline até validar o conjunto de dados anexado com determinados critérios que o utilizador especifica.
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
-manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.openlocfilehash: 144006c3d0722bc3211f542b7059bba0bb0cbdbf
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 435cad4d1ef002261b194431dbdb787e072808f5
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499412"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100361490"
 ---
 # <a name="webhook-activity-in-azure-data-factory"></a>Atividade webhook na Azure Data Factory
 
@@ -55,15 +51,15 @@ Uma atividade webhook pode controlar a execução de oleodutos através do seu c
 
 Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-**nome** | O nome da atividade webhook. | String | Sim |
-**tipo** | Deve ser definido como "WebHook". | String | Sim |
-**método** | O método REST API para o ponto final alvo. | Cadeia. O tipo suportado é "POST". | Sim |
-**url** | O ponto final e o caminho do alvo. | Uma corda ou uma expressão com o **resultado Valor** de um fio. | Sim |
+**name** | O nome da atividade webhook. | String | Yes |
+**tipo** | Deve ser definido como "WebHook". | String | Yes |
+**método** | O método REST API para o ponto final alvo. | Cadeia. O tipo suportado é "POST". | Yes |
+**url** | O ponto final e o caminho do alvo. | Uma corda ou uma expressão com o **resultado Valor** de um fio. | Yes |
 **cabeçalhos** | Cabeçalhos que são enviados para o pedido. Aqui está um exemplo que define o idioma e o tipo num pedido: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }` . | Uma corda ou uma expressão com o **resultado Valor** de um fio. | Sim. Um `Content-Type` cabeçalho como `"headers":{ "Content-Type":"application/json"}` é necessário. |
-**corpo** | Representa a carga útil que é enviada para o ponto final. | JSON válido ou uma expressão com o **resultado Valor de** Tipo de JSON. Consulte [o esquema de carga útil do Pedido](./control-flow-web-activity.md#request-payload-schema) para o esquema da carga útil do pedido. | Sim |
-**autenticação** | O método de autenticação usado para chamar o ponto final. Os tipos suportados são "Básico" e "ClientCertificate". Para obter mais informações, veja [Autenticação](./control-flow-web-activity.md#authentication). Se a autenticação não for necessária, exclua esta propriedade. | Uma corda ou uma expressão com o **resultado Valor** de um fio. | Não |
-**tempo limite** | Quanto tempo a atividade aguarda que a chamada especificada pelo **callBackUri** seja invocada. O valor predefinido é de 10 minutos ("00:10:00"). Os valores têm o formato TimeSpan *d*. *hh*:*mm*:*ss*. | String | Não |
-**Estado do relatório sobre o retorno** | Permite que um utilizador reporte o estado falhado de uma atividade webhook. | Booleano | Não |
+**corpo** | Representa a carga útil que é enviada para o ponto final. | JSON válido ou uma expressão com o **resultado Valor de** Tipo de JSON. Consulte [o esquema de carga útil do Pedido](./control-flow-web-activity.md#request-payload-schema) para o esquema da carga útil do pedido. | Yes |
+**autenticação** | O método de autenticação usado para chamar o ponto final. Os tipos suportados são "Básico" e "ClientCertificate". Para obter mais informações, veja [Autenticação](./control-flow-web-activity.md#authentication). Se a autenticação não for necessária, exclua esta propriedade. | Uma corda ou uma expressão com o **resultado Valor** de um fio. | No |
+**tempo limite** | Quanto tempo a atividade aguarda que a chamada especificada pelo **callBackUri** seja invocada. O valor predefinido é de 10 minutos ("00:10:00"). Os valores têm o formato TimeSpan *d*. *hh*:*mm*:*ss*. | String | No |
+**Estado do relatório sobre o retorno** | Permite que um utilizador reporte o estado falhado de uma atividade webhook. | Booleano | No |
 
 ## <a name="authentication"></a>Autenticação
 

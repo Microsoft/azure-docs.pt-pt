@@ -1,5 +1,5 @@
 ---
-title: Ligue a Zimperium Mobile Threat Defense a Azure Sentinel Microsoft Docs
+title: Ligue a Defesa da Ameaça Móvel zimperium a Azure Sentinel| Microsoft Docs
 description: Saiba como ligar a Zimperium Mobile Threat Defense ao Azure Sentinel.
 services: sentinel
 author: yelevin
@@ -12,19 +12,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/20/2020
 ms.author: yelevin
-ms.openlocfilehash: 86854fa22a49f09e5d3d2fc5fdb53c245850fbac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7cbf1c52af1d2902ae0726fc0dd98dbf12cecc44
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "77587945"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100097454"
 ---
 # <a name="connect-your-zimperium-mobile-threat-defense-to-azure-sentinel"></a>Ligue a sua Defesa de Ameaça Móvel Zimperium a Azure Sentinel
 
 
 > [!IMPORTANT]
 > O conector de dados de defesa da ameaça móvel zimperium em Azure Sentinel está atualmente em pré-visualização pública.
-> Esta funcionalidade é fornecida sem um contrato de nível de serviço, e não é recomendado para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Esta funcionalidade é fornecida sem um contrato de nível de serviço, e não é recomendado para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
 
@@ -58,7 +58,7 @@ Para utilizar o esquema relevante no Log Analytics para a Defesa de Ameaças Mó
 
 ## <a name="validate-connectivity"></a>Validar conectividade
 
-Pode demorar mais de 20 minutos até que os seus registos comecem a aparecer no Log Analytics.
+Pode demorar até que os seus registos comecem a aparecer no Log Analytics.
 
 ## <a name="next-steps"></a>Passos seguintes
 

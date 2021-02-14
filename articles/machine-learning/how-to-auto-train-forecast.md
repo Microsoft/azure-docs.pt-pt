@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy21q1, automl
 ms.date: 08/20/2020
-ms.openlocfilehash: 2b24b6480e4331f3a9470dcbb49e7ad221809187
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 6e686c7b22eb834a096cdd7a67beb6d8d291ef20
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98132087"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100392328"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Treina automaticamente um modelo de previsão da série de tempo
 
@@ -128,7 +128,7 @@ A aprendizagem automática de máquinas tenta automaticamente diferentes modelos
 >[!Tip]
 > Os modelos tradicionais de regressão também são testados como parte do sistema de recomendação para as experiências de previsão. Consulte a [tabela de modelos suportada](how-to-configure-auto-train.md#supported-models) para a lista completa dos modelos. 
 
-Modelos| Descrição | Benefícios
+Modelos| Description | Benefícios
 ----|----|---
 Profeta (Pré-visualização)|O profeta trabalha melhor com séries temporéticas que têm fortes efeitos sazonais e várias estações de dados históricos. Para alavancar este modelo, instale-o localmente `pip install fbprophet` utilizando. | A precisão & rápida, robusta para fora, dados em falta e mudanças dramáticas nas suas séries de tempo.
 Auto-ARIMA (Pré-visualização)|A média móvel integrada autorregressiva (ARIMA) tem um melhor desempenho, quando os dados estão estacionários. Isto significa que as suas propriedades estatísticas como a média e a variação são constantes em todo o conjunto. Por exemplo, se atirares uma moeda, então a probabilidade de receberes cabeças é de 50%, independentemente de virares hoje, amanhã ou no próximo ano.| Ótimo para séries univariadas, uma vez que os valores passados são usados para prever os valores futuros.
@@ -193,6 +193,14 @@ automl_config = AutoMLConfig(task='forecasting',
                              verbosity=logging.INFO,
                              **forecasting_parameters)
 ```
+
+A quantidade de dados necessários para formar com sucesso um modelo de previsão com ML automatizado é influenciada pelo `forecast_horizon` `n_cross_validations` , e ou `target_lags` `target_rolling_window_size` valores especificados quando configura o seu `AutoMLConfig` . 
+
+A fórmula a seguir calcula a quantidade de dados históricos que seriam necessários para construir as características das séries temporquis.
+
+Dados mínimos históricos necessários: (2x `forecast_horizon` ) + + # + `n_cross_validations` máx(máx). `target_lags` `target_rolling_window_size`
+
+Será levantada uma exceção de Erro para qualquer série no conjunto de dados que não satisfaça a quantidade necessária de dados históricos para as definições relevantes especificadas. 
 
 ### <a name="featurization-steps"></a>Etapas de exibição
 
@@ -368,7 +376,7 @@ day_datetime,store,week_of_year
 Repita os passos necessários para carregar estes dados futuros num dataframe e, em seguida, corra `best_run.predict(test_data)` para prever valores futuros.
 
 > [!NOTE]
-> Não se pode prever valores para um número de períodos superiores aos do `forecast_horizon` . O modelo deve ser re-treinado com um horizonte maior para prever valores futuros para além do horizonte atual.
+> As previsões in-sample não são suportadas para a previsão com ML automatizado quando `target_lags` e/ou `target_rolling_window_size` estão ativadas.
 
 
 ## <a name="example-notebooks"></a>Blocos de notas de exemplo

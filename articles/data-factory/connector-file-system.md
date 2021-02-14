@@ -1,22 +1,17 @@
 ---
 title: Copiar dados de/para um sistema de ficheiros utilizando a Azure Data Factory
 description: Saiba como copiar dados do sistema de ficheiros para lojas de dados de sumidouros suportados (ou) de lojas de dados de origem suportadas para sistema de ficheiros utilizando a Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: jingwang
-ms.openlocfilehash: a29cf81a6e074f680fc9c04337a07d273ac456cf
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: 62126eea36363c1e868ee978fb1e3a58f96ba9a0
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98555377"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100372336"
 ---
 # <a name="copy-data-to-or-from-a-file-system-by-using-azure-data-factory"></a>Copiar dados de ou para um sistema de ficheiros utilizando a Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -65,7 +60,7 @@ As seguintes propriedades são suportadas para o serviço ligado ao sistema de f
 
 ### <a name="sample-linked-service-and-dataset-definitions"></a>Definições de serviço e conjunto de dados ligados à amostra
 
-| Cenário | "Hospedeiro" na definição de serviço ligado | "FolderPath" na definição de conjunto de dados |
+| Scenario | "Hospedeiro" na definição de serviço ligado | "FolderPath" na definição de conjunto de dados |
 |:--- |:--- |:--- |
 | Pasta local na máquina de tempo de execução de integração: <br/><br/>Exemplos: D: \\ \* ou D:\pasta\sub-dobra\\* |Em JSON: `D:\\`<br/>Na UI: `D:\` |Em JSON: `.\\` ou `folder\\subfolder`<br>Na UI: `.\` ou `folder\subfolder` |
 | Pasta partilhada remotamente: <br/><br/>Exemplos: \\ \\ \\ myserver share ou \\ \* \\ \\ \\ myserver share pasta \\ \\ subfolder\\* |Em JSON: `\\\\myserver\\share`<br/>Na UI: `\\myserver\share` |Em JSON: `.\\` ou `folder\\subfolder`<br/>Na UI: `.\` ou `folder\subfolder` |
@@ -149,14 +144,14 @@ As seguintes propriedades são suportadas para o sistema de `storeSettings` fich
 | Propriedade                 | Descrição                                                  | Obrigatório                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
 | tipo                     | A propriedade tipo em baixo `storeSettings` deve ser definida para **FileServerReadSettings**. | Yes                                           |
-| **_Localize os ficheiros para copiar:_* _ |  |  |
-| OPÇÃO 1: caminho estático<br> | Cópia do caminho da pasta/ficheiro especificado no conjunto de dados. Se pretender copiar todos os ficheiros de uma pasta, especificar ainda `wildcardFileName` como `_` . |  |
+| ***Localize os ficheiros para copiar:*** |  |  |
+| OPÇÃO 1: caminho estático<br> | Cópia do caminho da pasta/ficheiro especificado no conjunto de dados. Se pretender copiar todos os ficheiros de uma pasta, especificar ainda `wildcardFileName` como `*` . |  |
 | OPÇÃO 2: filtro lateral do servidor<br>- ficheiroFiltro  | Filtro nativo do lado do servidor de ficheiro, que proporciona um melhor desempenho do que o filtro wildcard OPTION 3. Utilize `*` para combinar zero ou mais caracteres e para combinar com o carácter zero ou `?` único. Saiba mais sobre a sintaxe e as notas das **observações** desta [secção](/dotnet/api/system.io.directory.getfiles#System_IO_Directory_GetFiles_System_String_System_String_System_IO_SearchOption_). | No                                                          |
 | OPÇÃO 3: filtro do lado do cliente<br>- wildcardFolderPath | O caminho da pasta com caracteres wildcard para filtrar pastas de origem. Este filtro acontece no lado ADF, ADF enumera as pastas/ficheiros sob o caminho dado e, em seguida, aplique o filtro wildcard.<br>Os wildcards permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou caracteres individuais); use `^` para escapar se o nome da sua pasta tiver wildcard ou este char de fuga no interior. <br>Veja mais exemplos em [exemplos de pasta e filtro de ficheiros](#folder-and-file-filter-examples). | No                                            |
 | OPÇÃO 3: filtro do lado do cliente<br>- wildcardFileName | O nome do ficheiro com caracteres wildcard sob a pasta DadaPath/wildcardFolderPath para filtrar ficheiros de origem. Este filtro acontece no lado ADF, ADF enumera os ficheiros sob o caminho dado e, em seguida, aplicar o filtro wildcard.<br>Os wildcards permitidos são: `*` (corresponde a zero ou mais caracteres) e `?` (corresponde a zero ou caracteres individuais); use `^` para escapar se o seu nome de ficheiro real tiver wildcard ou este char de fuga no interior.<br>Veja mais exemplos em [exemplos de pasta e filtro de ficheiros](#folder-and-file-filter-examples). | Yes |
 | OPÇÃO 3: uma lista de ficheiros<br>- fileListPath | Indica copiar um determinado conjunto de ficheiros. Aponte para um ficheiro de texto que inclua uma lista de ficheiros que pretende copiar, um ficheiro por linha, que é o caminho relativo para o caminho configurado no conjunto de dados.<br/>Ao utilizar esta opção, não especifique o nome do ficheiro no conjunto de dados. Ver mais exemplos em [exemplos da lista de ficheiros.](#file-list-examples) |No |
-| ***Definições adicionais:** _ |  | |
-| recursivo | Indica se os dados são lidos novamente a partir das sub-dobradeiras ou apenas a partir da pasta especificada. Note que quando a recursiva é definida como verdadeira e a pia é uma loja baseada em ficheiros, uma pasta ou sub-dobrador vazio não é copiado ou criado na pia. <br>Os valores permitidos são _ *verdadeiros** (padrão) e **falsos**.<br>Esta propriedade não se aplica quando se `fileListPath` configura. |No |
+| ***Definições adicionais:*** |  | |
+| recursivo | Indica se os dados são lidos novamente a partir das sub-dobradeiras ou apenas a partir da pasta especificada. Note que quando a recursiva é definida como verdadeira e a pia é uma loja baseada em ficheiros, uma pasta ou sub-dobrador vazio não é copiado ou criado na pia. <br>Os valores permitidos são **verdadeiros** (padrão) e **falsos.**<br>Esta propriedade não se aplica quando se `fileListPath` configura. |No |
 | eliminarFilesAfterCompletion | Indica se os ficheiros binários serão eliminados da loja de origem depois de se mudarem com sucesso para a loja de destino. A eliminação do ficheiro é por ficheiro, pelo que quando a atividade da cópia falhar, verá que alguns ficheiros já foram copiados para o destino e eliminados da fonte, enquanto outros ainda permanecem na loja de origem. <br/>Esta propriedade é válida apenas em cenário de cópia de ficheiros binários. O valor predefinido: falso. |No |
 | modificadoDatetimeStart    | Filtro de ficheiros com base no atributo: Última Modificação. <br>Os ficheiros serão selecionados se o seu último tempo modificado estiver dentro do intervalo de tempo entre `modifiedDatetimeStart` e `modifiedDatetimeEnd` . . O tempo é aplicado ao fuso horário utc no formato de "2018-12-01T05:00:00Z". <br> As propriedades podem ser NUAS, o que significa que nenhum filtro de atributo de ficheiro será aplicado no conjunto de dados.  Quando `modifiedDatetimeStart` tem valor de data mas é `modifiedDatetimeEnd` NU, significa que os ficheiros cujo último atributo modificado é maior ou igual com o valor da data serão selecionados.  Quando `modifiedDatetimeEnd` tem valor de data mas é `modifiedDatetimeStart` NU, significa que os ficheiros cujo último atributo modificado é inferior ao valor da data serão selecionados.<br/>Esta propriedade não se aplica quando se `fileListPath` configura. | No                                            |
 | modificadoDatetimeEnd      | Mesmo que acima.                                               | No                                            |

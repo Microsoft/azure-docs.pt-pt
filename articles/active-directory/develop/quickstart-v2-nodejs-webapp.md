@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, devx-track-js
-ms.openlocfilehash: fec130ff02d9796fb9a6cea7a831bbdcb25cb1ed
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: f7f14b91dc69eeba4ac06f6608f6151634dc38d3
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99225635"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100103503"
 ---
 # <a name="quickstart-add-sign-in-using-openid-connect-to-a-nodejs-web-app"></a>Quickstart: Adicione o sinal na utilização do OpenID Connect a uma aplicação web Node.js
 
@@ -30,7 +30,7 @@ Neste arranque rápido, descarrega e execute uma amostra de código que demonstr
 
 ## <a name="register-your-application"></a>Registar a aplicação
 
-1. Inscreva-se no <a href="https://portal.azure.com/" target="_blank">portal <span class="docon docon-navigate-external x-hidden-focus"></span> Azure</a>.
+1. Inicie sessão no <a href="https://portal.azure.com/" target="_blank">portal do Azure</a>.
 1. Se tiver acesso a vários inquilinos, utilize o filtro **de subscrição Diretório +** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o inquilino no qual pretende registar uma candidatura.
 1. Procure e selecione **Azure Active Directory**.
 1. Em **Gestão**, selecione **registos de aplicações**  >  **Novo registo**.

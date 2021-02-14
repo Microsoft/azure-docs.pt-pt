@@ -30,6 +30,9 @@
     - name: Versioning policy (Política de versões)
       href: concepts-version-policy.md
       displayName: 'version, postgresql'
+    - name: Questões conhecidas & limitações
+      href: concepts-known-issues-limitations.md
+      displayName: 'issues, limitations, postgresql'
 - name: Servidor Único
   expanded: true
   items:

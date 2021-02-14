@@ -1,22 +1,17 @@
 ---
 title: Atividade web na Fábrica de Dados Azure
 description: Saiba como pode utilizar a Web Activity, uma das atividades de fluxo de controlo suportadas pela Data Factory, para invocar um ponto final REST a partir de um oleoduto.
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
-manager: jroth
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/19/2018
-ms.openlocfilehash: fbe37152f4ff1ce24754bc2d7b968c8e1c76ca10
-ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
+ms.openlocfilehash: e4578b41e5cbb62c8a1bfa0c48d4fd60d042a506
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97387722"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100361524"
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Atividade web na Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -75,16 +70,16 @@ A atividade Web pode ser utilizada para chamar um ponto final REST personalizado
 
 Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-name | Nome da atividade web | String | Sim
-tipo | Tem de ser definido para **WebActivity**. | String | Sim
-método | Desarre-se o método API para o ponto final do alvo. | Cadeia. <br/><br/>Tipos suportados: "GET", "POST", "PUT" | Sim
-url | Ponto final e caminho | Corda (ou expressão com resultadoTipo de corda). A atividade excederá o tempo limite após um minuto com um erro se não receber uma resposta do ponto final. | Sim
+name | Nome da atividade web | String | Yes
+tipo | Tem de ser definido para **WebActivity**. | String | Yes
+método | Desarre-se o método API para o ponto final do alvo. | Cadeia. <br/><br/>Tipos suportados: "GET", "POST", "PUT" | Yes
+url | Ponto final e caminho | Corda (ou expressão com resultadoTipo de corda). A atividade excederá o tempo limite após um minuto com um erro se não receber uma resposta do ponto final. | Yes
 cabeçalhos | Cabeçalhos que são enviados para o pedido. Por exemplo, para definir a língua e escrever num pedido: `"headers" : { "Accept-Language": "en-us", "Content-Type": "application/json" }` . | Corda (ou expressão com resultadoType de corda) | Sim, é necessário um cabeçalho do tipo conteúdo. `"headers":{ "Content-Type":"application/json"}`
 body | Representa a carga útil que é enviada para o ponto final.  | Corda (ou expressão com resultadoTipo de corda). <br/><br/>Consulte o esquema da carga útil do pedido na secção [de esquemas de carga útil do Pedido.](#request-payload-schema) | Requerido para métodos POST/PUT.
-autenticação | Método de autenticação utilizado para chamar o ponto final. Os Tipos Suportados são "Básico, ou Certificado cliente". Para mais informações, consulte a secção [autenticação.](#authentication) Se não for necessária a autenticação, exclua este imóvel. | Corda (ou expressão com resultadoType de corda) | Não
-conjuntos de dados | Lista de conjuntos de dados passados para o ponto final. | Conjunto de referências de conjunto de dados. Pode ser uma matriz vazia. | Sim
-linkedServes | Lista de serviços ligados passados para ponto final. | Conjunto de referências de serviço ligadas. Pode ser uma matriz vazia. | Sim
-connectVia | O [tempo de integração](./concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Pode utilizar o tempo de funcionamento da integração Azure ou o tempo de integração auto-hospedado (se a sua loja de dados estiver numa rede privada). Se esta propriedade não for especificada, o serviço utiliza o tempo de execução de integração Azure padrão. | A referência de tempo de integração. | Não 
+autenticação | Método de autenticação utilizado para chamar o ponto final. Os Tipos Suportados são "Básico, ou Certificado cliente". Para mais informações, consulte a secção [autenticação.](#authentication) Se não for necessária a autenticação, exclua este imóvel. | Corda (ou expressão com resultadoType de corda) | No
+conjuntos de dados | Lista de conjuntos de dados passados para o ponto final. | Conjunto de referências de conjunto de dados. Pode ser uma matriz vazia. | Yes
+linkedServes | Lista de serviços ligados passados para ponto final. | Conjunto de referências de serviço ligadas. Pode ser uma matriz vazia. | Yes
+connectVia | O [tempo de integração](./concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Pode utilizar o tempo de funcionamento da integração Azure ou o tempo de integração auto-hospedado (se a sua loja de dados estiver numa rede privada). Se esta propriedade não for especificada, o serviço utiliza o tempo de execução de integração Azure padrão. | A referência de tempo de integração. | No 
 
 > [!NOTE]
 > Os pontos finais REST que a atividade Web invoca têm de devolver uma resposta do tipo JSON. A atividade excederá o tempo limite após um minuto com um erro se não receber uma resposta do ponto final.
@@ -262,7 +257,7 @@ public HttpResponseMessage Execute(JObject payload)
 
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Consulte outras atividades de fluxo de controlo suportadas pela Data Factory:
 
 - [Executar a Atividade do Pipeline](control-flow-execute-pipeline-activity.md)

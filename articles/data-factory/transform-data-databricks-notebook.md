@@ -1,22 +1,17 @@
 ---
 title: Transformar dados com o caderno databricks
-description: Saiba como processar ou transformar dados executando um caderno Databricks.
-services: data-factory
-documentationcenter: ''
+description: Saiba como processar ou transformar dados executando um caderno Databricks na Azure Data Factory.
 ms.service: data-factory
-ms.workload: data-services
 author: nabhishek
 ms.author: abnarain
-manager: shwang
-ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.openlocfilehash: 4679d06e877679f0a56ee782b9a43a5a8147d7a5
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 486dc2ab3a14917e8c7bdddf8b5b9c6f9da1a1dc
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97608124"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100374002"
 ---
 # <a name="transform-data-by-running-a-databricks-notebook"></a>Transforme os dados executando um caderno Databricks
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -57,16 +52,15 @@ Aqui está a definição JSON de uma atividade de caderno de dados:
 
 A tabela a seguir descreve as propriedades JSON utilizadas na definição JSON:
 
-|Propriedade|Descrição|Obrigatório|
+|Propriedade|Descrição|Necessário|
 |---|---|---|
-|name|O nome da atividade no oleoduto.|Sim|
-|descrição|Texto descrevendo o que a atividade faz.|Não|
-|tipo|Para a Atividade do Caderno databricks, o tipo de atividade é DatabricksNotebook.|Sim|
-|linkedServiceName|Nome do Serviço Linked Databricks no qual funciona o portátil Databricks. Para saber mais sobre este serviço ligado, consulte o artigo [de serviços ligados a Compute.](compute-linked-services.md)|Sim|
-|notebookPath|O caminho absoluto do caderno a ser executado no Espaço de Trabalho databricks. Este caminho deve começar com um corte.|Sim|
-|basesParametros|Uma variedade de pares Key-Value. Os parâmetros de base podem ser utilizados para cada execução de atividade. Se o caderno tiver um parâmetro que não esteja especificado, o valor predefinido do portátil será utilizado. Saiba mais sobre os parâmetros nos [cadernos databricks.](https://docs.databricks.com/api/latest/jobs.html#jobsparampair)|Não|
-|bibliotecas|Uma lista de bibliotecas a instalar no cluster que executará o trabalho. Pode ser uma variedade \<string, object> de.|Não|
-
+|name|O nome da atividade no oleoduto.|Yes|
+|descrição|Texto descrevendo o que a atividade faz.|No|
+|tipo|Para a Atividade do Caderno databricks, o tipo de atividade é DatabricksNotebook.|Yes|
+|linkedServiceName|Nome do Serviço Linked Databricks no qual funciona o portátil Databricks. Para saber mais sobre este serviço ligado, consulte o artigo [de serviços ligados a Compute.](compute-linked-services.md)|Yes|
+|notebookPath|O caminho absoluto do caderno a ser executado no Espaço de Trabalho databricks. Este caminho deve começar com um corte.|Yes|
+|basesParametros|Uma variedade de pares Key-Value. Os parâmetros de base podem ser utilizados para cada execução de atividade. Se o caderno tiver um parâmetro que não esteja especificado, o valor predefinido do portátil será utilizado. Saiba mais sobre os parâmetros nos [cadernos databricks.](https://docs.databricks.com/api/latest/jobs.html#jobsparampair)|No|
+|bibliotecas|Uma lista de bibliotecas a instalar no cluster que executará o trabalho. Pode ser uma variedade \<string, object> de.|No|
 
 ## <a name="supported-libraries-for-databricks-activities"></a>Bibliotecas apoiadas para atividades databricks
 
@@ -110,31 +104,35 @@ Na definição de atividade dos Databricks acima, você especifica estes tipos d
 
 ```
 
-Para mais detalhes, consulte a [documentação databricks](https://docs.azuredatabricks.net/api/latest/libraries.html#managedlibrarieslibrary) para os tipos de biblioteca.
+Para mais detalhes, consulte a [documentação databricks](/azure/databricks/dev-tools/api/latest/libraries#managedlibrarieslibrary) para os tipos de biblioteca.
 
 ## <a name="passing-parameters-between-notebooks-and-data-factory"></a>Passando parâmetros entre cadernos e Fábrica de Dados
 
-Pode passar parâmetros de fábrica de dados para cadernos usando a propriedade *baseParameters* na atividade de databricks. 
+Pode passar parâmetros de fábrica de dados para cadernos usando a propriedade *baseParameters* na atividade de databricks.
 
-Em certos casos, poderá ser necessário repercutir certos valores do caderno de trás para a fábrica de dados, que pode ser utilizado para o fluxo de controlo (controlos condicional) na fábrica de dados ou ser consumido por atividades a jusante (o limite de tamanho é de 2MB). 
+Em certos casos, poderá ser necessário repercutir certos valores do caderno de trás para a fábrica de dados, que pode ser utilizado para o fluxo de controlo (controlos condicional) na fábrica de dados ou ser consumido por atividades a jusante (o limite de tamanho é de 2MB).
 
-1. No seu caderno, poderá ligar para [dbutils.notebook.exit ("returnValue")](https://docs.azuredatabricks.net/user-guide/notebooks/notebook-workflows.html#notebook-workflows-exit) e o correspondente "ReturnValue" será devolvido à fábrica de dados.
+1. No seu caderno, poderá ligar para [dbutils.notebook.exit ("returnValue")](/azure/databricks/notebooks/notebook-workflows#notebook-workflows-exit) e o correspondente "ReturnValue" será devolvido à fábrica de dados.
 
-2. Pode consumir a produção na fábrica de dados utilizando expressões como `'@activity('databricks notebook activity name').output.runOutput'` . 
+2. Pode consumir a produção na fábrica de dados utilizando expressões como `'@activity('databricks notebook activity name').output.runOutput'` .
 
    > [!IMPORTANT]
    > Se estiver a passar o objeto JSON, poderá obter valores através da anexação de nomes de propriedade. Exemplo: `'@activity('databricks notebook activity name').output.runOutput.PropertyName'`
 
 ## <a name="how-to-upload-a-library-in-databricks"></a>Como carregar uma biblioteca em Databricks
 
-#### <a name="using-databricks-workspace-ui"></a>[Utilização do espaço de trabalho Databricks UI](https://docs.azuredatabricks.net/user-guide/libraries.html#create-a-library)
+### <a name="you-can-use-the-workspace-ui"></a>Pode utilizar a UI workspace:
 
-Para obter o caminho dbfs da biblioteca adicionado usando UI, pode utilizar o [Databricks CLI (instalação)](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#install-the-cli). 
+1. [Utilize o espaço de trabalho Databricks UI](/azure/databricks/libraries/#create-a-library)
 
-Normalmente, as bibliotecas jar são armazenadas em dbfs:/FileStore/jars durante a utilização da UI. Pode listar todos através do CLI: *databricks fs ls dbfs:/FileStore/jars*.
+2. Para obter o caminho dbfs da biblioteca adicionado usando UI, você pode usar [Databricks CLI](/azure/databricks/dev-tools/cli/#install-the-cli).
 
+   Normalmente, as bibliotecas jar são armazenadas em dbfs:/FileStore/jars durante a utilização da UI. Pode listar todos através do CLI: *databricks fs ls dbfs:/FileStore/job-jars*
 
+### <a name="or-you-can-use-the-databricks-cli"></a>Ou pode usar o Databricks CLI:
 
-#### <a name="copy-library-using-databricks-cli"></a>[Biblioteca de cópias usando Databricks CLI](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#copy-a-file-to-dbfs)
+1. Siga [copiar a biblioteca utilizando databricks CLI](/azure/databricks/dev-tools/cli/#copy-a-file-to-dbfs)
 
-Exemplo: *databricks fs cp SparkPi-assembly-0.1.jar dbfs:/FileStore/jars*
+2. Utilizar databricks CLI [(etapas de instalação)](/azure/databricks/dev-tools/cli/#install-the-cli)
+
+   Como exemplo, para copiar um JAR para dbfs: `dbfs cp SparkPi-assembly-0.1.jar dbfs:/docs/sparkpi.jar`

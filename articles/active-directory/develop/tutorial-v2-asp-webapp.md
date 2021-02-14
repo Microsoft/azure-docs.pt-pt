@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
-ms.openlocfilehash: 17cff66d3f8c816099bcc61322a1d331bfe58872
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: 03ffea7688207b56a683d3afcbe49bf95ea00708
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99226309"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100103129"
 ---
 # <a name="tutorial-add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>Tutorial: Adicione o sôs-in à Microsoft a uma aplicação web ASP.NET
 
@@ -48,7 +48,7 @@ A aplicação de amostra que cria baseia-se num cenário em que utiliza o navega
 
 Este guia utiliza as seguintes bibliotecas:
 
-|Biblioteca|Descrição|
+|Biblioteca|Description|
 |---|---|
 |[Microsoft.Owin.Security.OpenIdConnect](https://www.nuget.org/packages/Microsoft.Owin.Security.OpenIdConnect/)|Middleware que permite que uma aplicação utilize o OpenIdConnect para autenticação|
 |[Microsoft.Owin.Security.Cookies](https://www.nuget.org/packages/Microsoft.Owin.Security.Cookies)|Middleware que permite uma aplicação para manter uma sessão de utilizador usando cookies|
@@ -361,7 +361,7 @@ Para registar a sua candidatura e adicionar as informações de registo da sua c
 
 Para registar rapidamente a sua candidatura, siga estes passos:
 
-1. Vá ao <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetWebAppQuickstartPage/sourceType/docs" target="_blank">portal Azure - <span class="docon docon-navigate-external x-hidden-focus"></span> Aplicação registra</a> experiência de arranque rápido.  
+1. Vá ao <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetWebAppQuickstartPage/sourceType/docs" target="_blank">portal Azure - Aplicação registra</a> experiência de arranque rápido.  
 1. Introduza um nome para a sua aplicação e xelecione **Registar**.
 1. Siga as instruções para descarregar e configurar automaticamente a sua nova aplicação num único clique.
 
@@ -375,7 +375,7 @@ Para registar a sua aplicação e adicionar as informações de registo da aplic
    1. Clique com o botão direito no projeto no Estúdio Visual, selecione **Propriedades** e, em seguida, selecione o separador **Web.** Na secção **Servidores,** altere a definição **de Url de projeto** para o URL **SSL**.
    1. Copie o URL SSL. Irá adicionar este URL à lista de URIs redirecionados na lista de URIs de redirecionamento do portal de redireccionamento no passo seguinte.<br/><br/>![Propriedades do projeto](media/active-directory-develop-guidedsetup-aspnetwebapp-configure/vsprojectproperties.png)<br />
    
-1. Inscreva-se no <a href="https://portal.azure.com/" target="_blank">portal <span class="docon docon-navigate-external x-hidden-focus"></span> Azure</a>.
+1. Inicie sessão no <a href="https://portal.azure.com/" target="_blank">portal do Azure</a>.
 1. Se tiver acesso a vários inquilinos, utilize o filtro **de subscrição Diretório +** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o inquilino no qual pretende registar uma candidatura.
 1. Procure e selecione **Azure Active Directory**.
 1. Em **Gestão**, selecione **registos de aplicações**  >  **Novo registo**.

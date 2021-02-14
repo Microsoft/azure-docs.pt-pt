@@ -1,5 +1,5 @@
 ---
-title: Segurança Azure Stack Edge Pro R / Microsoft Docs
+title: Segurança Azure Stack Edge Pro R | Microsoft Docs
 description: Descreve as funcionalidades de segurança e privacidade que protegem os seus dispositivos Azure Stack Edge Pro R e Azure Stack Edge Mini R, serviço e dados no local e na nuvem.
 services: databox
 author: alkohli
@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 10/14/2020
 ms.author: alkohli
-ms.openlocfilehash: f7d81d14ca561e6d4d897994088b2fc01b2c7701
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 891885dce52ee57fa163bb71b427591156091651
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96467799"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100362871"
 ---
 # <a name="security-and-data-protection-for-azure-stack-edge-pro-r-and-azure-stack-edge-mini-r"></a>Segurança e proteção de dados para Azure Stack Edge Pro R e Azure Stack Edge Mini R
 
-[!INCLUDE [applies-to-r-skus](../../includes/azure-stack-edge-applies-to-r-sku.md)]
+[!INCLUDE [applies-to-pro-r-and-mini-r--skus](../../includes/azure-stack-edge-applies-to-pro-r-mini-r-sku.md)]
 
 A segurança é uma grande preocupação quando se está a adotar uma nova tecnologia, especialmente se a tecnologia for usada com dados confidenciais ou proprietários. Azure Stack Edge Pro R e Azure Stack Edge Mini R ajudam-no a garantir que apenas as entidades autorizadas podem ver, modificar ou eliminar os seus dados.
 

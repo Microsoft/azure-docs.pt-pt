@@ -8,12 +8,12 @@ services: time-series-insights
 ms.service: time-series-insights
 ms.topic: conceptual
 ms.date: 12/14/2020
-ms.openlocfilehash: b4ed5a419df97f98b883a07825184122945e092e
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 38403eed56dc718afdfce13375dd2662beb13eb6
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879566"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100374172"
 ---
 # <a name="visualize-data-from-azure-time-series-insights-in-power-bi"></a>Visualizar dados da Azure Time Series Insights em Power BI
 
@@ -37,9 +37,7 @@ Por favor, reveja [as políticas de acesso](./concepts-access-policies.md) ao am
 > [!IMPORTANT]
 > * Descarregue e instale a versão mais recente do [Power BI Desktop](https://powerbi.microsoft.com/downloads/). Para acompanhar os passos deste artigo, certifique-se de que tem pelo menos a versão de dezembro de 2020 (2.88.321.0) do Power BI Desktop instalada. 
 
-## <a name="connect-data-from-azure-time-series-insights-to-power-bi"></a>Conecte os dados da Azure Time Series Insights ao Power BI
-
-### <a name="1-export-data-into-power-bi-desktop"></a>1. Dados de exportação para o ambiente de trabalho Power BI
+## <a name="export-data-from-azure-time-series-insights-into-power-bi-desktop"></a>Dados de exportação da Azure Time Series Insights para o ambiente de trabalho Power BI
 
 Para começar:
 
@@ -53,37 +51,36 @@ Para começar:
    * **Formato de dados**: Escolha se pretende exportar **dados agregados** ou **eventos brutos** para o Power BI. 
 
        > [!NOTE]
-       > * Se exportar eventos crus, pode agregar esses dados mais tarde no Power BI. No entanto, se exportar dados agregados, não pode reverter para dados brutos no Power BI. 
-       > * Há um limite de contagem de eventos de 250.000 para dados de nível de Eventos Brutos.
+       > Se exportar eventos crus, pode agregar esses dados mais tarde no Power BI. No entanto, se exportar dados agregados, não pode reverter para dados brutos no Power BI. Há um limite de contagem de eventos de 250.000 para dados de nível de Eventos Brutos.
 
    * **Intervalo de tempo**: Escolha se gostaria de ver um intervalo de tempo **fixo** ou os dados **mais recentes** no Power BI. Escolher o intervalo de tempo fixo significa que os dados no período de pesquisa que cartografou serão exportados para o Power BI. Escolher o último intervalo de tempo significa que o Power BI irá recolher os dados mais recentes para o período de pesquisa que escolheu (por exemplo, se traçar uma hora de dados e escolher a definição "mais recente", o Power BI Connector irá sempre fazer consultas para as últimas 1 hora de dados.)
   
-   * **Tipo de loja**: Escolha se pretende executar a sua consulta selecionada contra **a Warm Store** ou a Cold **Store**. 
+   * **Tipo de loja**: Escolha se pretende executar a sua consulta selecionada contra **a Warm Store** ou a Cold **Store**. Se selecionou uma gama que abrange lojas Cold e Warm, a sua consulta será encaminhada para a Cold Store por padrão, uma vez que a Warm Store conterá apenas os dados mais recentes. É permitida a alteração manual do parâmetro de lojaType, mas não é recomendado para uma melhor experiência. 
 
-    > [!TIP]
-    > * O Azure Time Series Insights Explorer selecionará automaticamente os parâmetros recomendados, dependendo dos dados que escolheu para exportar. 
+    > [!TIP] 
+    > O Azure Time Series Insights Explorer selecionará automaticamente os parâmetros recomendados dependendo do período de pesquisa e visão dos dados que escolheu para exportar. 
 
 1. Depois de configurar as suas definições, selecione **copy consulta para a área de transferência**.
 
     [![Azure Time Series Insights Explorer exporta modal](media/how-to-connect-power-bi/choose-explorer-parameters.jpg)](media/how-to-connect-power-bi/choose-explorer-parameters.jpg#lightbox)
 
-2. Inicie o Power BI Desktop.
+1. Inicie o Power BI Desktop.
    
-3. No Power BI Desktop no separador **'Casa',** **selecione Obter Dados** no canto superior esquerdo e, em seguida, **Mais**.
+1. No Power BI Desktop no separador **'Casa',** **selecione Obter Dados** no canto superior esquerdo e, em seguida, **Mais**.
 
     [![Obter dados no Power BI](media/how-to-connect-power-bi/get-data-power-bi.jpg)](media/how-to-connect-power-bi/get-data-power-bi.jpg#lightbox)
 
-4. Search for **Azure Time Series Insights**, selecione **Azure Time Series Insights (Beta)** e, em seguida, **Connect**.
+1. Search for **Azure Time Series Insights**, selecione **Azure Time Series Insights (Beta)** e, em seguida, **Connect**.
 
     [![Ligue o Power BI a Azure Time Series Insights](media/how-to-connect-power-bi/select-tsi-connector.jpg)](media/how-to-connect-power-bi/select-tsi-connector.jpg#lightbox)
 
     Em alternativa, navegue no separador **Azure,** selecione **Azure Time Series Insights (Beta)** e, em seguida, **Conecte-se**.
 
-5. Cole a consulta que copiou do Azure Time Series Insights Explorer no campo **de consulta personalizada** e, em seguida, prima **OK**.
+1. Cole a consulta que copiou do Azure Time Series Insights Explorer no campo **de consulta personalizada** e, em seguida, prima **OK**.
 
     [![Cole na consulta personalizada e selecione OK](media/how-to-connect-power-bi/custom-query-load.png)](media/how-to-connect-power-bi/custom-query-load.png#lightbox)  
 
-6.  A tabela de dados vai agora carregar. Prima **a carga** para carregar em Power BI. Se desejar fazer quaisquer transformações nos dados, pode fazê-lo agora clicando em **"Transform Data".** Também pode transformar os seus dados depois de carregado.
+1.  A tabela de dados vai agora carregar. Prima **a carga** para carregar em Power BI. Se desejar fazer quaisquer transformações nos dados, pode fazê-lo agora clicando em **"Transform Data".** Também pode transformar os seus dados depois de carregado.
 
     [![Reveja os dados na tabela e selecione Carregar](media/how-to-connect-power-bi/review-the-loaded-data-table.png)](media/how-to-connect-power-bi/review-the-loaded-data-table.png#lightbox)  
 

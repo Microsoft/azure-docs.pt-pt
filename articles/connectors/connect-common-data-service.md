@@ -5,21 +5,21 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jdaly, logicappspm
 ms.topic: conceptual
-ms.date: 12/11/2020
+ms.date: 02/11/2021
 tags: connectors
-ms.openlocfilehash: b17c3d54b7065a18e015363a0362766f844e4e10
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: bec3416195358121b85eb61679ab39647e664a9e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97355125"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100382361"
 ---
 # <a name="create-and-manage-records-in-common-data-service-microsoft-dataverse-by-using-azure-logic-apps"></a>Criar e gerir registos no Common DataVerse (Microsoft Dataverse) utilizando aplicações Azure Logic
 
 > [!NOTE]
 > Em novembro de 2020, o Common Data Service foi renomeado para Microsoft Dataverse.
 
-Com [as Aplicações Lógicas Azure](../logic-apps/logic-apps-overview.md) e o [conector Common Data Service,](/connectors/commondataservice/)pode construir fluxos de trabalho automatizados que gerem registos no seu [Serviço Comum de Dados, agora base de dados do Microsoft Dataverse.](/powerapps/maker/common-data-service/data-platform-intro) Estes fluxos de trabalho podem criar registos, atualizar registos e realizar outras operações. Também pode obter informações a partir da sua base de dados do Serviço de Dados Comuns e disponibilizar a saída para outras ações a utilizar na sua aplicação lógica. Por exemplo, quando um registo é atualizado na sua base de dados do Serviço de Dados Comum, pode enviar um e-mail utilizando o conector Office 365 Outlook.
+Com [as Aplicações Lógicas Azure](../logic-apps/logic-apps-overview.md) e o [conector Common Data Service,](/connectors/commondataservice/)pode construir fluxos de trabalho automatizados que gerem registos no seu [Serviço Comum de Dados, agora base de dados do Microsoft Dataverse.](/powerapps/maker/common-data-service/data-platform-intro) Estes fluxos de trabalho podem criar registos, atualizar registos e realizar outras operações. Também pode obter informações a partir da sua base de dados Dataverse e disponibilizar a saída para outras ações a utilizar na sua aplicação lógica. Por exemplo, quando um registo é atualizado na sua base de dados Dataverse, pode enviar um e-mail utilizando o conector Office 365 Outlook.
 
 Este artigo mostra como pode construir uma aplicação lógica que cria um registo de tarefas sempre que um novo registo de chumbo é criado.
 
@@ -32,7 +32,7 @@ Este artigo mostra como pode construir uma aplicação lógica que cria um regis
   * [Saiba: Começar com o Serviço Comum de Dados](/learn/modules/get-started-with-powerapps-common-data-service/)
   * [Plataforma de Energia - Visão geral dos ambientes](/power-platform/admin/environments-overview)
 
-* Conhecimentos [básicos sobre como criar aplicações lógicas](../logic-apps/quickstart-create-first-logic-app-workflow.md) e a aplicação lógica de onde pretende aceder aos registos na sua base de dados do Common Data Service. Para iniciar a sua aplicação lógica com um gatilho do Serviço de Dados Comum, precisa de uma aplicação lógica em branco. Se é novo em Azure Logic Apps, reveja [Quickstart: Crie o seu primeiro fluxo de trabalho utilizando apps Azure Logic](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* Conhecimentos [básicos sobre como criar aplicações lógicas](../logic-apps/quickstart-create-first-logic-app-workflow.md) e a aplicação lógica de onde pretende aceder aos registos na sua base de dados Dataverse. Para iniciar a sua aplicação lógica com um gatilho do Serviço de Dados Comum, precisa de uma aplicação lógica em branco. Se é novo em Azure Logic Apps, reveja [Quickstart: Crie o seu primeiro fluxo de trabalho utilizando apps Azure Logic](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="add-common-data-service-trigger"></a>Adicionar gatilho de serviço de dados comum
 
@@ -54,9 +54,9 @@ Para este exemplo, adicione o gatilho do Serviço Comum de Dados que dispara qua
 
    | Propriedade | Necessário | Descrição |
    |----------|----------|-------------|
-   | **Environment** | Sim | O ambiente para monitorizar, por exemplo, "Fabrikam Sales Production". Para mais informações, consulte [a Plataforma de Energia - Visão geral dos Ambientes.](/power-platform/admin/environments-overview) |
-   | **Nome da entidade** | Sim | A entidade para monitorizar, por exemplo, "Leads" |
-   | **Âmbito** | Sim | A fonte que criou o novo registo, por exemplo, um utilizador na sua unidade de negócio ou qualquer utilizador da sua organização. Este exemplo utiliza "Unidade de Negócio". |
+   | **Environment** | Yes | O ambiente para monitorizar, por exemplo, "Fabrikam Sales Production". Para mais informações, consulte [a Plataforma de Energia - Visão geral dos Ambientes.](/power-platform/admin/environments-overview) |
+   | **Nome da entidade** | Yes | A entidade para monitorizar, por exemplo, "Leads" |
+   | **Âmbito** | Yes | A fonte que criou o novo registo, por exemplo, um utilizador na sua unidade de negócio ou qualquer utilizador da sua organização. Este exemplo utiliza "Unidade de Negócio". |
    ||||
 
 ## <a name="add-common-data-service-action"></a>Adicionar ação comum de serviço de dados
@@ -75,8 +75,8 @@ Adicione agora uma ação do Serviço de Dados Comum que cria um registo de tare
 
    | Propriedade | Necessário | Descrição |
    |----------|----------|-------------|
-   | **Nome da Organização** | Sim | O ambiente onde se quer criar o disco, que não tem de ser o mesmo ambiente no seu gatilho, mas é a "Fabrikam Sales Production" neste exemplo. |
-   | **Nome da entidade** | Sim | A entidade onde pretende criar o registo, por exemplo, "Tarefas" |
+   | **Nome da Organização** | Yes | O ambiente onde se quer criar o disco, que não tem de ser o mesmo ambiente no seu gatilho, mas é a "Fabrikam Sales Production" neste exemplo. |
+   | **Nome da entidade** | Yes | A entidade onde pretende criar o registo, por exemplo, "Tarefas" |
    | **Assunto** | Sim, com base na entidade selecionada neste exemplo | Uma breve descrição sobre o objetivo para esta tarefa |
    ||||
 
@@ -90,7 +90,7 @@ Adicione agora uma ação do Serviço de Dados Comum que cria um registo de tare
 
       ![Selecione saídas de gatilho para usar no registo de tarefas](./media/connect-common-data-service/create-new-record-action-select-trigger-outputs.png)
 
-      | Saída do gatilho | Descrição |
+      | Saída do gatilho | Description |
       |----------------|-------------|
       | **Primeiro nome** | O primeiro nome do registo de chumbo a ser usado como o contacto principal no registo de tarefas |
       | **Último Nome** | O último nome do registo principal a ser usado como o contacto principal no registo de tarefas |
@@ -170,6 +170,62 @@ Este exemplo mostra como a **criação de uma nova** ação de gravação cria u
 ## <a name="connector-reference"></a>Referência do conector
 
 Para obter informações técnicas com base na descrição do Swagger do conector, tais como gatilhos, ações, limites e outros detalhes, consulte a [página de referência do conector](/connectors/commondataservice/).
+
+## <a name="troubleshooting-problems"></a>Problemas de resolução de problemas
+
+### <a name="calls-from-multiple-environments"></a>Chamadas de vários ambientes
+
+Ambos os conectores, Common Data Service e Common Data Service (ambiente atual), armazenam informações sobre os fluxos de trabalho de aplicações lógicas que precisam e recebem notificações sobre alterações de entidades utilizando a `callbackregistrations` entidade no seu Microsoft Dataverse. Se copiar uma organização Dataverse, quaisquer webhooks também são copiados. Se copiar a sua organização antes de desativar os fluxos de trabalho que estão mapeados para a sua organização, quaisquer webhooks copiados também apontam para as mesmas aplicações lógicas, que depois recebem notificações de várias organizações.
+
+Para parar as notificações indesejadas, elimine o registo de retorno da organização que envia essas notificações seguindo estas etapas:
+
+1. Identifique a organização Dataverse de onde pretende remover notificações e inscreva-se nessa organização.
+
+1. No navegador Chrome, encontre o registo de retorno que pretende eliminar seguindo estes passos:
+
+   1. Reveja a lista genérica de todos os registos de chamadas no seguinte OData URI para que possa ver os dados dentro da `callbackregistrations` entidade:
+
+      `https://{organization-name}.crm{instance-number}.dynamics.com/api/data/v9.0/callbackregistrations`:
+
+      > [!NOTE]
+      > Se não forem devolvidos valores, poderá não ter permissões para visualizar este tipo de entidade, ou poderá não ser inscrito na organização correta.
+
+   1. Filtrar o nome lógico da entidade de desencadeamento e o evento de `entityname` notificação que corresponde ao fluxo de trabalho da aplicação lógica (mensagem). Cada tipo de evento é mapeado para o inteiro de mensagem da seguinte forma:
+
+      | Tipo de evento | Inteiro de mensagem |
+      |------------|-----------------|
+      | Criar | 1 |
+      | Eliminar | 2 |
+      | Atualizar | 3 |
+      | CreateOrUpdate | 4 |
+      | CreateOrDelete | 5 |
+      | UpdateOrDelete | 6 |
+      | CreateOrUpdateOrDelete | 7 |
+      |||
+
+      Este exemplo mostra como pode filtrar `Create` notificações numa entidade nomeada `nov_validation` utilizando o seguinte OData URI para uma organização de amostras:
+
+      `https://fabrikam-preprod.crm1.dynamics.com/api/data/v9.0/callbackregistrations?$filter=entityname eq 'nov_validation' and message eq 1`
+
+      ![Screenshot que mostra a janela do navegador e OData URI na barra de endereços.](./media/connect-common-data-service/find-callback-registrations.png)
+
+      > [!TIP]
+      > Se existirem vários gatilhos para a mesma entidade ou evento, pode filtrar a lista utilizando filtros adicionais, como os `createdon` `_owninguser_value` atributos e atributos. O nome do utilizador do proprietário aparece sob `/api/data/v9.0/systemusers({id})` .
+
+   1. Depois de encontrar o ID para o registo de retorno que pretende apagar, siga estes passos:
+   
+      1. No seu navegador Chrome, abra as Ferramentas de Desenvolvimento Do Chrome (Teclado: F12).
+
+      1. Na janela, na parte superior, selecione o **separador Consola.**
+
+      1. No pedido de linha de comando, insira este comando, que envia um pedido para apagar o registo de retorno especificado:
+
+         `fetch('http://{organization-name}.crm{instance-number}.dynamics.com/api/data/v9.0/callbackregistrations({ID-to-delete})', { method: 'DELETE'})`
+
+         > [!IMPORTANT]
+         > Certifique-se de que faz o pedido a partir de uma página de Interface de Cliente não Unificada (UCI), por exemplo, a partir da própria página de resposta OData ou API. Caso contrário, a lógica no ficheiro app.js pode interferir com esta operação.
+
+   1. Para confirmar que o registo de retorno já não existe, consulte a lista de registos de chamadas.
 
 ## <a name="next-steps"></a>Passos seguintes
 

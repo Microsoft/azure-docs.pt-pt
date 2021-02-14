@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 08/06/2020
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, devx-track-js
-ms.openlocfilehash: 5dae14f546a8c51c7df016ba1e39698302be6f40
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: dab4ac22a8b0da927f05376755463885ce32c343
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99584351"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100103010"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>Tutorial: Inscreva-se nos utilizadores e ligue para a API do Gráfico microsoft a partir de uma aplicação de página única JavaScript (SPA)
 
@@ -265,7 +265,7 @@ Tem agora um servidor simples para servir o seu SPA. A estrutura de pastas prete
 
 Antes de prosseguir com a autenticação, registe o seu pedido no **Diretório Ativo Azure**.
 
-1. Inscreva-se no <a href="https://portal.azure.com/" target="_blank">portal <span class="docon docon-navigate-external x-hidden-focus"></span> Azure</a>.
+1. Inicie sessão no <a href="https://portal.azure.com/" target="_blank">portal do Azure</a>.
 1. Se tiver acesso a vários inquilinos, utilize o filtro **de subscrição Diretório +** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o inquilino no qual pretende registar uma candidatura.
 1. Procure e selecione **Azure Active Directory**.
 1. Em **Gestão**, selecione **registos de aplicações**  >  **Novo registo**.
