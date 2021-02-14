@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 1/29/2021
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 10bb0364bf7c54cd07d6dfa5725b3a626622d390
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 2ad6f5bf18d362f846e12720e00584b854729366
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99097797"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100515670"
 ---
 # <a name="collect-telemetry-data-for-search-traffic-analytics"></a>Recolher dados de telemetria para análise de tráfego de pesquisa
 
@@ -168,7 +168,7 @@ Sempre que um pedido de pesquisa é emitido por um utilizador, deve registar iss
 + **ScoringProfile**: (cadeia) nome do perfil de pontuação utilizado, se houver
 
 > [!NOTE]
-> Solicite a contagem de consultas geradas pelo utilizador adicionando $count=fiel à sua consulta de pesquisa. Para obter mais informações, consulte [Documentos de Pesquisa (REST)](/rest/api/searchservice/search-documents#counttrue--false).
+> Solicite a contagem de consultas geradas pelo utilizador adicionando $count=fiel à sua consulta de pesquisa. Para obter mais informações, consulte [Documentos de Pesquisa (REST)](/rest/api/searchservice/search-documents#query-parameters).
 >
 
 **Utilizar C#**

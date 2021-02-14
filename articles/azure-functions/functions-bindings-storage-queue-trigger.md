@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, cc996988-fb4f-47, devx-track-python
-ms.openlocfilehash: 95560801d4132735435e4d45e8a588476636ec38
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 59cedb25295770ba4ae4a33aac3287c5fed1297d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96001240"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100381499"
 ---
 # <a name="azure-queue-storage-trigger-for-azure-functions"></a>Gatilho de armazenamento da fila Azure para funções Azure
 
@@ -351,19 +351,21 @@ Os atributos não são suportados pela Python.
 
 A tabela seguinte explica as propriedades de configuração de encadernação que definiu no *function.jsno* ficheiro e no `QueueTrigger` atributo.
 
-|function.jsna propriedade | Propriedade de atributo |Descrição|
+|function.jsna propriedade | Propriedade de atributo |Description|
 |---------|---------|----------------------|
 |**tipo** | n/a| Deve ser definido para `queueTrigger` . Esta propriedade é definida automaticamente quando cria o gatilho no portal Azure.|
 |**direção**| n/a | Nofunction.jsapenas *arquivado.* Deve ser definido para `in` . Esta propriedade é definida automaticamente quando cria o gatilho no portal Azure. |
 |**nome** | n/a |O nome da variável que contém a carga útil do item da fila no código de função.  |
 |**nome de fila** | **Nome da fila**| O nome da fila para a sondagem. |
-|**conexão** | **Ligação** |O nome de uma definição de aplicação que contém o fio de ligação de armazenamento para usar para esta ligação. Se o nome de definição da aplicação começar com "AzureWebJobs", pode especificar apenas o restante do nome aqui. Por exemplo, se definir `connection` "MyStorage", o tempo de execução de Funções procura uma definição de app chamada "MyStorage". Se deixar `connection` vazio, o tempo de execução das funções utiliza a cadeia de ligação de armazenamento predefinido na definição da aplicação que está denominada `AzureWebJobsStorage` .|
+|**conexão** | **Ligação** |O nome de uma definição de aplicação que contém o fio de ligação de armazenamento para usar para esta ligação. Se o nome de definição da aplicação começar com "AzureWebJobs", pode especificar apenas o restante do nome aqui.<br><br>Por exemplo, se definir `connection` "MyStorage", o tempo de execução de Funções procura uma definição de app chamada "MyStorage". Se deixar `connection` vazio, o tempo de execução das funções utiliza a cadeia de ligação de armazenamento predefinido na definição da aplicação que está denominada `AzureWebJobsStorage` .<br><br>Se estiver a utilizar [a versão 5.x ou superior da extensão](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher), em vez de uma cadeia de ligação, pode fornecer uma referência a uma secção de configuração que defina a ligação. Ver [Ligações](./functions-reference.md#connections).|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="usage"></a>Utilização
 
 # <a name="c"></a>[C#](#tab/csharp)
+
+### <a name="default"></a>Predefinição
 
 Aceda aos dados da mensagem utilizando um parâmetro de método como `string paramName` . Pode ligar-se a qualquer um dos seguintes tipos:
 
@@ -374,7 +376,17 @@ Aceda aos dados da mensagem utilizando um parâmetro de método como `string par
 
 Se tentar ligar-se `CloudQueueMessage` e obter uma mensagem de erro, certifique-se de que tem uma referência à [versão SDK de armazenamento correta](functions-bindings-storage-queue.md#azure-storage-sdk-version-in-functions-1x).
 
+### <a name="additional-types"></a>Tipos adicionais
+
+As aplicações que utilizam a [versão 5.0.0 ou superior da extensão de Armazenamento](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher) também podem utilizar tipos do [Azure SDK para .NET](/dotnet/api/overview/azure/storage.queues-readme). Esta versão deixa cair o suporte para o tipo legado `CloudQueueMessage` a favor dos seguintes tipos:
+
+- [FilaMessage](/dotnet/api/azure.storage.queues.models.queuemessage)
+ 
+Por exemplo, utilizando estes tipos, consulte [o repositório GitHub para a extensão](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Queues#examples).
+
 # <a name="c-script"></a>[C# Script](#tab/csharp-script)
+
+### <a name="default"></a>Predefinição
 
 Aceda aos dados da mensagem utilizando um parâmetro de método como `string paramName` . O `paramName` valor especificado na `name` propriedade de *function.jsem*. Pode ligar-se a qualquer um dos seguintes tipos:
 
@@ -384,6 +396,14 @@ Aceda aos dados da mensagem utilizando um parâmetro de método como `string par
 * [CloudQueueMessage]
 
 Se tentar ligar-se `CloudQueueMessage` e obter uma mensagem de erro, certifique-se de que tem uma referência à [versão SDK de armazenamento correta](functions-bindings-storage-queue.md#azure-storage-sdk-version-in-functions-1x).
+
+### <a name="additional-types"></a>Tipos adicionais
+
+As aplicações que utilizam a [versão 5.0.0 ou superior da extensão de Armazenamento](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher) também podem utilizar tipos do [Azure SDK para .NET](/dotnet/api/overview/azure/storage.queues-readme). Esta versão deixa cair o suporte para o tipo legado `CloudQueueMessage` a favor dos seguintes tipos:
+
+- [FilaMessage](/dotnet/api/azure.storage.queues.models.queuemessage)
+
+Por exemplo, utilizando estes tipos, consulte [o repositório GitHub para a extensão](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Queues#examples).
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -407,7 +427,7 @@ Aceda à mensagem de fila através do parâmetro dactilografado como [QueueMessa
 
 O gatilho da fila fornece várias [propriedades de metadados.](./functions-bindings-expressions-patterns.md#trigger-metadata) Estas propriedades podem ser usadas como parte de expressões de ligação em outras encadernações ou como parâmetros no seu código. As propriedades são membros da classe [CloudQueueMessage.](/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage)
 
-|Propriedade|Tipo|Descrição|
+|Propriedade|Tipo|Description|
 |--------|----|-----------|
 |`QueueTrigger`|`string`|Carga útil da fila (se uma corda válida). Se a carga útil da mensagem de fila for uma cadeia, `QueueTrigger` tem o mesmo valor que a variável nomeada pela propriedade emfunction.js`name` *em*.|
 |`DequeueCount`|`int`|O número de vezes que esta mensagem foi descoduada.|
@@ -448,7 +468,7 @@ O gatilho da fila impede automaticamente que uma função processe uma mensagem 
 
 ## <a name="hostjson-properties"></a>host.jssobre propriedades
 
-A [host.jsno](functions-host-json.md#queues) ficheiro contém definições que controlam o comportamento do gatilho da fila. Consulte a secçãohost.jsna secção [ de definições](functions-bindings-storage-queue-output.md#hostjson-settings) para obter informações sobre as definições disponíveis.
+A [host.jsno](functions-host-json.md#queues) ficheiro contém definições que controlam o comportamento do gatilho da fila. Consulte a secçãohost.jsna secção [ de definições](functions-bindings-storage-queue.md#hostjson-settings) para obter informações sobre as definições disponíveis.
 
 ## <a name="next-steps"></a>Passos seguintes
 

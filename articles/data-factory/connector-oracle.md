@@ -1,22 +1,17 @@
 ---
 title: Copie dados de e para a Oracle utilizando a Azure Data Factory
 description: Saiba como copiar dados de lojas de origem suportadas para uma base de dados Oracle, ou da Oracle para lojas de lavatórios suportadas, utilizando a Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/28/2020
 ms.author: jingwang
-ms.openlocfilehash: b4d2b277eea85fb8a5c9eb733e5bfd64d66f392c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bba1ae991f2a4702a0d55a8dc3f6c7a44b9e7b65
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91407831"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100381346"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Copie os dados de e para a Oracle utilizando a Azure Data Factory
 
@@ -71,9 +66,9 @@ O serviço ligado à Oracle suporta as seguintes propriedades:
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo deve ser definida para **o Oráculo.** | Sim |
-| conexãoStragem | Especifica a informação necessária para ligar à placa da Base de Dados Oráculo. <br/>Também pode colocar uma palavra-passe no Cofre da Chave Azure e retirar a `password` configuração da cadeia de ligação. Consulte as seguintes amostras e [guarde as credenciais no Cofre da Chave Azure](store-credentials-in-key-vault.md) com mais detalhes. <br><br>**Tipo de ligação suportado**: Pode utilizar **o Oracle SID** ou o Oracle Service **Name** para identificar a sua base de dados:<br>- Se utilizar SID: `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>- Se utilizar o Nome de Serviço: `Host=<host>;Port=<port>;ServiceName=<servicename>;User Id=<username>;Password=<password>;`<br>Para opções avançadas de ligação nativa oracle, pode optar por adicionar uma entrada no [TNSNAMES. O ficheiro ORA](http://www.orafaq.com/wiki/Tnsnames.ora) no servidor Oracle e no serviço ligado ADF Oracle, opte por utilizar o tipo de ligação Oracle Service Name e configurar o nome de serviço correspondente. | Sim |
-| connectVia | O [tempo de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Saiba mais na secção [Pré-Requisitos.](#prerequisites) Se não for especificado, utiliza-se o tempo de execução de integração Azure predefinido. |Não |
+| tipo | A propriedade tipo deve ser definida para **o Oráculo.** | Yes |
+| conexãoStragem | Especifica a informação necessária para ligar à placa da Base de Dados Oráculo. <br/>Também pode colocar uma palavra-passe no Cofre da Chave Azure e retirar a `password` configuração da cadeia de ligação. Consulte as seguintes amostras e [guarde as credenciais no Cofre da Chave Azure](store-credentials-in-key-vault.md) com mais detalhes. <br><br>**Tipo de ligação suportado**: Pode utilizar **o Oracle SID** ou o Oracle Service **Name** para identificar a sua base de dados:<br>- Se utilizar SID: `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>- Se utilizar o Nome de Serviço: `Host=<host>;Port=<port>;ServiceName=<servicename>;User Id=<username>;Password=<password>;`<br>Para opções avançadas de ligação nativa oracle, pode optar por adicionar uma entrada no [TNSNAMES. O ficheiro ORA](http://www.orafaq.com/wiki/Tnsnames.ora) no servidor Oracle e no serviço ligado ADF Oracle, opte por utilizar o tipo de ligação Oracle Service Name e configurar o nome de serviço correspondente. | Yes |
+| connectVia | O [tempo de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Saiba mais na secção [Pré-Requisitos.](#prerequisites) Se não for especificado, utiliza-se o tempo de execução de integração Azure predefinido. |No |
 
 >[!TIP]
 >Se tiver um erro, "ORA-01025: Parâmetro UPI fora do alcance", e a sua versão Oracle é 8i, adicione `WireProtocolMode=1` à sua cadeia de ligação. Então tente de novo.
@@ -98,7 +93,7 @@ Para ativar a encriptação na ligação Oracle, tem duas opções:
         openssl x509 -inform DER -in [Full Path to the DER Certificate including the name of the DER Certificate] -text
         ```
 
-        **Exemplo:** Extraia informações de cert de DERcert.cer e, em seguida, guarde a saída para cert.txt.
+        **Exemplo:** Extrair informações de cert do DERcert.cer e, em seguida, guardar a saída para cert.txt.
 
         ```
         openssl x509 -inform DER -in DERcert.cer -text
@@ -154,13 +149,13 @@ Para ativar a encriptação na ligação Oracle, tem duas opções:
         "type": "Oracle",
         "typeProperties": {
             "connectionString": "Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;",
-            "password": { 
-                "type": "AzureKeyVaultSecret", 
-                "store": { 
-                    "referenceName": "<Azure Key Vault linked service name>", 
-                    "type": "LinkedServiceReference" 
-                }, 
-                "secretName": "<secretName>" 
+            "password": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
             }
         },
         "connectVia": {
@@ -178,7 +173,7 @@ Para copiar dados de e para a Oracle, defina a propriedade tipo do conjunto de d
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade do tipo do conjunto de dados deve ser definida para `OracleTable` . | Sim |
+| tipo | A propriedade do tipo do conjunto de dados deve ser definida para `OracleTable` . | Yes |
 | esquema | O nome do esquema. |Não para a fonte, sim para a pia  |
 | table | Nome da mesa/vista. |Não para a fonte, sim para a pia  |
 | tableName | Nome da tabela/vista com esquema. Esta propriedade é suportada para retrocompatibilidade. Para nova carga de trabalho, use `schema` e `table` . | Não para a fonte, sim para a pia |
@@ -217,14 +212,14 @@ Para copiar os dados da Oracle, desagrafe o tipo de origem na atividade da cópi
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade do tipo da fonte de atividade de cópia deve ser definida para `OracleSource` . | Sim |
-| OracleReaderQuery | Utilize a consulta SQL personalizada para ler dados. Um exemplo é `"SELECT * FROM MyTable"`.<br>Quando ativar a carga partida, tem de ligar os parâmetros de partição incorporados correspondentes na sua consulta. Por exemplo, consulte a cópia paralela da secção [Oráculo.](#parallel-copy-from-oracle) | Não |
-| partitionOptions | Especifica as opções de partição de dados utilizadas para carregar dados da Oracle. <br>Os valores permitidos são: **Nenhum** (padrão), **PhysicalPartitionsOfTable**e **DynamicRange**.<br>Quando uma opção de partição é ativada (isto é, `None` não), o grau de paralelismo para carregar simultaneamente dados de uma base de dados Oráculo é controlado pela [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) definição da atividade da cópia. | Não |
-| divisóriasSas | Especificar o grupo das definições para a partilha de dados. <br>Aplicar quando a opção de partição não `None` estiver. | Não |
-| partitionNames | A lista de divisórias físicas que precisam de ser copiadas. <br>Aplicar quando a opção de partição for `PhysicalPartitionsOfTable` . Se utilizar uma consulta para recuperar os dados de origem, `?AdfTabularPartitionName` ligue-se à cláusula WHERE. Por exemplo, consulte a cópia paralela da secção [Oráculo.](#parallel-copy-from-oracle) | Não |
-| partitionColumnName | Especificar o nome da coluna de origem **no tipo inteiro** que será utilizado por partição de gama para cópia paralela. Se não for especificada, a chave primária da tabela é detetada automaticamente e utilizada como coluna de partição. <br>Aplicar quando a opção de partição for `DynamicRange` . Se utilizar uma consulta para recuperar os dados de origem,  `?AdfRangePartitionColumnName` ligue-se à cláusula WHERE. Por exemplo, consulte a cópia paralela da secção [Oráculo.](#parallel-copy-from-oracle) | Não |
-| partitionUpperBound | O valor máximo da coluna de partição para copiar dados. <br>Aplicar quando a opção de partição for `DynamicRange` . Se utilizar uma consulta para recuperar os dados de origem, `?AdfRangePartitionUpbound` ligue-se à cláusula WHERE. Por exemplo, consulte a cópia paralela da secção [Oráculo.](#parallel-copy-from-oracle) | Não |
-| partitionLowerBound | O valor mínimo da coluna de partição para copiar dados. <br>Aplicar quando a opção de partição for `DynamicRange` . Se utilizar uma consulta para recuperar os dados de origem, `?AdfRangePartitionLowbound` ligue-se à cláusula WHERE. Por exemplo, consulte a cópia paralela da secção [Oráculo.](#parallel-copy-from-oracle) | Não |
+| tipo | A propriedade do tipo da fonte de atividade de cópia deve ser definida para `OracleSource` . | Yes |
+| OracleReaderQuery | Utilize a consulta SQL personalizada para ler dados. Um exemplo é `"SELECT * FROM MyTable"`.<br>Quando ativar a carga partida, tem de ligar os parâmetros de partição incorporados correspondentes na sua consulta. Por exemplo, consulte a cópia paralela da secção [Oráculo.](#parallel-copy-from-oracle) | No |
+| partitionOptions | Especifica as opções de partição de dados utilizadas para carregar dados da Oracle. <br>Os valores permitidos são: **Nenhum** (padrão), **PhysicalPartitionsOfTable** e **DynamicRange**.<br>Quando uma opção de partição é ativada (isto é, `None` não), o grau de paralelismo para carregar simultaneamente dados de uma base de dados Oráculo é controlado pela [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) definição da atividade da cópia. | No |
+| divisóriasSas | Especificar o grupo das definições para a partilha de dados. <br>Aplicar quando a opção de partição não `None` estiver. | No |
+| partitionNames | A lista de divisórias físicas que precisam de ser copiadas. <br>Aplicar quando a opção de partição for `PhysicalPartitionsOfTable` . Se utilizar uma consulta para recuperar os dados de origem, `?AdfTabularPartitionName` ligue-se à cláusula WHERE. Por exemplo, consulte a cópia paralela da secção [Oráculo.](#parallel-copy-from-oracle) | No |
+| partitionColumnName | Especificar o nome da coluna de origem **no tipo inteiro** que será utilizado por partição de gama para cópia paralela. Se não for especificada, a chave primária da tabela é detetada automaticamente e utilizada como coluna de partição. <br>Aplicar quando a opção de partição for `DynamicRange` . Se utilizar uma consulta para recuperar os dados de origem,  `?AdfRangePartitionColumnName` ligue-se à cláusula WHERE. Por exemplo, consulte a cópia paralela da secção [Oráculo.](#parallel-copy-from-oracle) | No |
+| partitionUpperBound | O valor máximo da coluna de partição para copiar dados. <br>Aplicar quando a opção de partição for `DynamicRange` . Se utilizar uma consulta para recuperar os dados de origem, `?AdfRangePartitionUpbound` ligue-se à cláusula WHERE. Por exemplo, consulte a cópia paralela da secção [Oráculo.](#parallel-copy-from-oracle) | No |
+| partitionLowerBound | O valor mínimo da coluna de partição para copiar dados. <br>Aplicar quando a opção de partição for `DynamicRange` . Se utilizar uma consulta para recuperar os dados de origem, `?AdfRangePartitionLowbound` ligue-se à cláusula WHERE. Por exemplo, consulte a cópia paralela da secção [Oráculo.](#parallel-copy-from-oracle) | No |
 
 **Exemplo: copiar dados utilizando uma consulta básica sem partição**
 
@@ -264,10 +259,10 @@ Para copiar os dados para a Oracle, desa um tipo de pia na atividade da cópia p
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade do tipo do lavatório de atividade de cópia deve ser definida para `OracleSink` . | Sim |
+| tipo | A propriedade do tipo do lavatório de atividade de cópia deve ser definida para `OracleSink` . | Yes |
 | escreverBatchSize | Insere dados na tabela SQL quando o tamanho do tampão chegar `writeBatchSize` .<br/>Os valores permitidos são Inteiros (número de linhas). |Não (o padrão é 10.000) |
-| escreverBatchTimeout | O tempo de espera para o funcionamento do inserção do lote deve ser concluído antes do tempo de se esgotar.<br/>Os valores permitidos são o Timespan. Um exemplo é 00:30:00 (30 minutos). | Não |
-| preCopyScript | Especifique uma consulta SQL para que a atividade da cópia seja executada antes de escrever dados na Oracle em cada execução. Pode utilizar esta propriedade para limpar os dados pré-carregados. | Não |
+| escreverBatchTimeout | O tempo de espera para o funcionamento do inserção do lote deve ser concluído antes do tempo de se esgotar.<br/>Os valores permitidos são o Timespan. Um exemplo é 00:30:00 (30 minutos). | No |
+| preCopyScript | Especifique uma consulta SQL para que a atividade da cópia seja executada antes de escrever dados na Oracle em cada execução. Pode utilizar esta propriedade para limpar os dados pré-carregados. | No |
 
 **Exemplo:**
 
@@ -308,9 +303,9 @@ O conector Oracle da Fábrica de Dados fornece partição de dados incorporada p
 
 Quando ativa a cópia dividida, a Data Factory executa consultas paralelas contra a sua fonte Oráculo para carregar dados por partições. O grau paralelo é controlado pela [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) regulação da atividade da cópia. Por exemplo, se definir `parallelCopies` para quatro, data factory simultaneamente gera e executa quatro consultas com base na sua opção e configurações de partição especificadas, e cada consulta recupera uma parte dos dados da sua base de dados Oráculo.
 
-Sugere-se que ative uma cópia paralela com a partilha de dados, especialmente quando carrega uma grande quantidade de dados a partir da base de dados da Oracle. São sugeridas configurações para diferentes cenários. Ao copiar dados para a loja de dados baseada em ficheiros, é recomcomcomerado para escrever para uma pasta como vários ficheiros (especificar apenas o nome da pasta), caso em que o desempenho é melhor do que escrever para um único ficheiro.
+Sugere-se que ative uma cópia paralela com a partilha de dados, especialmente quando carrega uma grande quantidade de dados a partir da base de dados da Oracle. São sugeridas configurações para diferentes cenários. Ao copiar dados para a loja de dados baseada em ficheiros, é recomerado para escrever para uma pasta como vários ficheiros (especificar apenas o nome da pasta), caso em que o desempenho é melhor do que escrever para um único ficheiro.
 
-| Cenário                                                     | Definições sugeridas                                           |
+| Scenario                                                     | Definições sugeridas                                           |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | Carga completa da mesa grande, com divisórias físicas.          | **Opção de partição**: Divisórias físicas da tabela. <br><br/>Durante a execução, a Data Factory deteta automaticamente as divisórias físicas e copia dados por partições. |
 | Carga completa da mesa grande, sem divisórias físicas, enquanto com uma coluna de inteiro para partição de dados. | **Opções de partição**: Partição dinâmica do alcance.<br>**Coluna de partição**: Especificar a coluna utilizada para os dados de partição. Se não for especificada, utiliza-se a coluna-chave primária. |
@@ -359,25 +354,25 @@ Quando copia dados de e para a Oracle, aplicam-se os seguintes mapeamentos. Para
 |:--- |:--- |
 | BFILE |Byte[] |
 | BLOB |Byte[]<br/>(apenas suportado no Oráculo 10g ou superior) |
-| CHAR |Cadeia |
-| CLOB |Cadeia |
+| CHAR |String |
+| CLOB |String |
 | DATE |DateTime |
 | FLUTUAR |Decimal, String (se a precisão > 28) |
 | INTEGER |Decimal, String (se a precisão > 28) |
-| Longo |Cadeia |
+| Longo |String |
 | LONGO CRU |Byte[] |
-| NCHAR |Cadeia |
-| NCLOB |Cadeia |
+| NCHAR |String |
+| NCLOB |String |
 | NÚMERO |Decimal, String (se a precisão > 28) |
-| NVARCHAR2 |Cadeia |
+| NVARCHAR2 |String |
 | RAW |Byte[] |
-| ROWID |Cadeia |
-| TIMETAMP |DateTime |
-| TIMETAMP COM FUSO HORÁRIO LOCAL |Cadeia |
-| TIMETAMP COM FUSO HORÁRIO |Cadeia |
+| ROWID |String |
+| CARIMBO DE DATA/HORA |DateTime |
+| TIMETAMP COM FUSO HORÁRIO LOCAL |String |
+| TIMETAMP COM FUSO HORÁRIO |String |
 | INTEIRO NÃO ASSINADO |Número |
-| VARCHAR2 |Cadeia |
-| XML |Cadeia |
+| VARCHAR2 |String |
+| XML |String |
 
 > [!NOTE]
 > Os tipos de dados INTERVALO DE ANO A MÊS e INTERVALO DIA A SEGUNDO não são suportados.

@@ -55,10 +55,8 @@
       href: disaster-recovery.md
 - name: Referência
   items:
-    - name: Pré-visualização da API v2.1 do Reconhecedor de Formato
-      href: 'https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeBusinessCardAsync'
-    - name: API do Reconhecedor de Formato v2.0
-      href: 'https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm'
+    - name: API REST
+      href: 'https://docs.microsoft.com/rest/api/formrecognizer/'
     - name: SDKs
       items:
         - name: .NET

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/01/2021
 ms.author: panosper
-ms.openlocfilehash: 61768991fc4e72b44568bd92278427e6af398d52
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: 21924ad5da8833ca5cf8373270ed1bfd3facfdc9
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99226561"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388622"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Discurso ao Texto frequentemente feito perguntas
 
@@ -140,7 +140,7 @@ Ver [Quotas e Limites de Serviços de Fala.](speech-services-quotas-and-limits.m
 
 Para obter resultados mais rápidos, utilize uma das [regiões](custom-speech-overview.md#set-up-your-azure-account) onde o hardware dedicado está disponível para treino. Em geral, o serviço processa aproximadamente 10 horas de dados áudio por dia em regiões com tal hardware. Só pode processar cerca de 1 hora de dados áudio por dia noutras regiões. Pode copiar o modelo totalmente treinado para outra região utilizando a [API REST](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscription). Treinar com texto justo é muito mais rápido e normalmente termina em minutos.
 
-Alguns modelos base não podem ser personalizados com dados áudio. Para eles o serviço apenas usará o texto da transcrição para treino e ignorará os dados áudio. A formação será então terminada muito mais rapidamente e os resultados serão os mesmos que treinar com texto justo.
+Alguns modelos base não podem ser personalizados com dados áudio. Para eles o serviço apenas usará o texto da transcrição para treino e ignorará os dados áudio. A formação será então terminada muito mais rapidamente e os resultados serão os mesmos que treinar com texto justo. Consulte [o suporte linguístico](language-support.md#speech-to-text) para uma lista de modelos base que suportam a formação com dados áudio.
 
 ## <a name="accuracy-testing"></a>Testes de precisão
 

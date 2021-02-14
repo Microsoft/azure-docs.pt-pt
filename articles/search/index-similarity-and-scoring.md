@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/08/2020
-ms.openlocfilehash: 5bd1a9111528146224561995feaecf54612a1c78
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d16eefc8dd3f693e108e457782dc9d076180ba8e
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91535666"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100520600"
 ---
 # <a name="similarity-and-scoring-in-azure-cognitive-search"></a>Semelhança e pontuação na Pesquisa Cognitiva Azure
 
@@ -21,7 +21,7 @@ Pontuação refere-se ao cálculo de uma pontuação de pesquisa de cada item de
 
 Por padrão, os 50 melhores são devolvidos na resposta, mas pode usar o parâmetro **$top** para devolver um número menor ou maior de itens (até 1000 numa única resposta) e **$skip** para obter o próximo conjunto de resultados.
 
-A pontuação de pesquisa é calculada com base nas propriedades estatísticas dos dados e na consulta. A Azure Cognitive Search encontra documentos que correspondem em termos de pesquisa (alguns ou todos, dependendo [do searchMode),](/rest/api/searchservice/search-documents#searchmodeany--all-optional)favorecendo documentos que contêm muitos casos do termo de pesquisa. A pontuação de pesquisa sobe ainda mais se o termo for raro em todo o índice de dados, mas comum dentro do documento. A base para esta abordagem da relevância da computação é conhecida como *TF-IDF ou* frequência de documento inverso de frequência a prazo.
+A pontuação de pesquisa é calculada com base nas propriedades estatísticas dos dados e na consulta. A Azure Cognitive Search encontra documentos que correspondem em termos de pesquisa (alguns ou todos, dependendo [do searchMode),](/rest/api/searchservice/search-documents#query-parameters)favorecendo documentos que contêm muitos casos do termo de pesquisa. A pontuação de pesquisa sobe ainda mais se o termo for raro em todo o índice de dados, mas comum dentro do documento. A base para esta abordagem da relevância da computação é conhecida como *TF-IDF ou* frequência de documento inverso de frequência a prazo.
 
 Os valores de pontuação de pesquisa podem ser repetidos ao longo de um conjunto de resultados. Quando vários hits têm a mesma pontuação de pesquisa, a encomenda dos mesmos itens pontuados não é definida, e não é estável. Volte a executar a consulta e poderá ver itens a mudar de posição, especialmente se estiver a utilizar o serviço gratuito ou um serviço de faturação com várias réplicas. Tendo em conta dois itens com uma pontuação idêntica, não há garantias de qual deles aparece primeiro.
 
@@ -32,7 +32,7 @@ Se quiser quebrar o empate entre as pontuações repetidas, pode adicionar uma c
 
 ## <a name="scoring-profiles"></a>Perfis de classificação
 
-Pode personalizar a forma como diferentes campos são classificados definindo um *perfil de pontuação*personalizado. Os perfis de pontuação dão-lhe um maior controlo sobre o ranking de itens nos resultados de pesquisa. Por exemplo, pode querer aumentar itens com base no seu potencial de receita, promover itens mais recentes ou talvez aumentar itens que estão em inventário há demasiado tempo. 
+Pode personalizar a forma como diferentes campos são classificados definindo um *perfil de pontuação* personalizado. Os perfis de pontuação dão-lhe um maior controlo sobre o ranking de itens nos resultados de pesquisa. Por exemplo, pode querer aumentar itens com base no seu potencial de receita, promover itens mais recentes ou talvez aumentar itens que estão em inventário há demasiado tempo. 
 
 Um perfil de pontuação faz parte da definição de índice, composto por campos ponderados, funções e parâmetros. Para obter mais informações sobre a definição de um, consulte [Perfis de Pontuação](index-add-scoring-profiles.md).
 
@@ -105,6 +105,6 @@ Para uma consulta que vise os campos de "descrição" e "título", uma resposta 
 Pode consumir estes pontos de dados em [soluções de pontuação personalizadas](https://github.com/Azure-Samples/search-ranking-tutorial) ou utilizar a informação para depurar problemas de relevância de pesquisa.
 
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 
  [Perfis de pontuação REST](index-add-scoring-profiles.md) [API Reference](/rest/api/searchservice/) Search Documents [API](/rest/api/searchservice/search-documents) [Azure Cognitive Search .NET SDK](/dotnet/api/overview/azure/search)

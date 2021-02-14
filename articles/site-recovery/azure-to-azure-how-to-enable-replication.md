@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 04/29/2018
-ms.openlocfilehash: fe5feed4bb6f9b84a3f161692310922f7a6d2f00
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 49929cfe0abc634dc4b704aba1c7b11a5d7dd777
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424801"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100383590"
 ---
 # <a name="replicate-azure-vms-to-another-azure-region"></a>Replicar VMs do Azure para outra região do Azure
 
@@ -54,7 +54,10 @@ Ative a replicação. Este procedimento pressupõe que a região primária de Az
    - **Contas de armazenamento de destino (fonte VM não utiliza discos geridos)**: Por padrão, a Recuperação do Site cria uma nova conta de armazenamento-alvo que imita a configuração de armazenamento de VM de origem. Caso a conta de armazenamento já exista, é reutilizada.
    - **Discos geridos por réplicas (fonte VM utiliza discos geridos)**: A Recuperação do Local cria novos discos geridos por réplicas na região alvo para espelhar os discos geridos pela fonte VM com o mesmo tipo de armazenamento (Standard ou premium) que o disco gerido pela VM de origem.
    - **Cache Contas de Armazenamento**: A Recuperação do Local necessita de uma conta de armazenamento extra chamada armazenamento de cache na região de origem. Todas as alterações que ocorram nos VMs de origem são rastreadas e enviadas para a conta de armazenamento de cache antes de as replicarem para o local alvo. Esta conta de armazenamento deve ser standard.
-   - **Conjuntos de disponibilidade de destino**: Por predefinição, a Recuperação do Site cria uma nova disponibilidade definida na região alvo com o sufixo "asr" no nome, para VMs que fazem parte de uma disponibilidade definida na região de origem. Se o conjunto de disponibilidade criado pela Recuperação do Site já existir, é reutilizado.
+   - **Conjuntos de disponibilidade de destino**: Por padrão, a Recuperação do Site cria uma nova disponibilidade definida na região alvo com o sufixo "Azure Site Recovery" no nome, para VMs que fazem parte de uma disponibilidade definida na região de origem. Se o conjunto de disponibilidade criado pela Recuperação do Site já existir, é reutilizado.
+     >[!NOTE]
+     >Ao configurar os conjuntos de disponibilidade do alvo, configurar diferentes conjuntos de disponibilidade para VMs de tamanho diferente. 
+     >
    - **Zonas de disponibilidade de destino**: Por predefinição, a Recuperação do Local atribui o mesmo número de zona que a região-fonte na região-alvo se a região alvo apoiar zonas de disponibilidade.
 
      Se a região alvo não suporta zonas de disponibilidade, os VM-alvo são configurados como instâncias únicas por padrão. Se necessário, pode configurar esses VMs para fazer parte dos conjuntos de disponibilidade na região alvo clicando em 'Personalizar'.
@@ -80,7 +83,7 @@ Se adicionar discos a um VM Azure para o qual a replicação está ativada, ocor
 Para permitir a replicação de um disco adicionado, faça o seguinte:
 
 1.  No cofre > **Itens Replicados,** clique no VM ao qual adicionou o disco.
-2.  Clique **em Discos**e, em seguida, selecione o disco de dados para o qual pretende ativar a replicação (estes discos têm um estado não **protegido).**
+2.  Clique **em Discos** e, em seguida, selecione o disco de dados para o qual pretende ativar a replicação (estes discos têm um estado não **protegido).**
 3.  Em **Detalhes do Disco**, clique em **Ativar a replicação.**
 
     ![Ativar a replicação para o disco adicionado](./media/azure-to-azure-how-to-enable-replication/enabled-added.png)

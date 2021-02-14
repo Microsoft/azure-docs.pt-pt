@@ -1,20 +1,19 @@
 ---
 title: incluir ficheiro
 description: incluir ficheiro
-services: data-factory
 author: lrtoyou1223
 ms.service: data-factory
 ms.topic: include
 ms.date: 10/09/2019
 ms.author: lle
-ms.openlocfilehash: 45c6bbb88ef1f01f729451af27ecc73244483216
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 24a541080b580eab967987fa7c92cea64b99d65c
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98121673"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100389514"
 ---
-| Nomes de domínio                                          | Portas de saída | Descrição                |
+| Nomes de domínio                                          | Portas de saída | Description                |
 | ----------------------------------------------------- | -------------- | ---------------------------|
 | Nuvem Pública: `*.servicebus.windows.net` <br> Governo de Azure: `*.servicebus.usgovcloudapi.net` <br> China: `*.servicebus.chinacloudapi.cn`   | 443            | Exigido pelo tempo de integração auto-hospedado para a autoria interativa. |
 | Nuvem Pública: `{datafactory}.{region}.datafactory.azure.net`<br> ou `*.frontend.clouddatahub.net` <br> Governo de Azure: `{datafactory}.{region}.datafactory.azure.us` <br> China: `{datafactory}.{region}.datafactory.azure.cn` | 443            | Requerido pelo tempo de integração auto-hospedado para ligar ao serviço Data Factory. <br>Para a nova Fábrica de Dados criada em nuvem pública, encontre o FQDN a partir da sua chave de runtime de integração auto-hospedada que está em formato {datafactory}. {region}.datafactory.azure.net. Para a antiga fábrica de dados, se não vir o FQDN na sua chave de integração auto-hospedada, utilize *.frontend.clouddatahub.net em vez disso. |

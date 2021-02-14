@@ -1,22 +1,18 @@
 ---
 title: Mapeamento de colunas de conjuntos de dados na Fábrica de Dados Azure
 description: Saiba como mapear colunas de origem para colunas de destino.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
+ms.author: jingwang
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: af7a1e40f21b6c9af490abe6f58edcaf798818b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fef2c6f120ae25e6aa1846d4971ff707da9bab92
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85318880"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100371129"
 ---
 # <a name="map-source-dataset-columns-to-destination-dataset-columns"></a>Colunas de conjunto de dados de origem do mapa para colunas de conjunto de dados de destino
 > [!NOTE]

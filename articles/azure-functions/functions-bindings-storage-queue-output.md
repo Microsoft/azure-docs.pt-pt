@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, cc996988-fb4f-47, devx-track-python
-ms.openlocfilehash: 087073437fe9d6159422799c04ce095c0aae5eca
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 778424cbb81f8fe51a57dd41d94aa9015ffad94e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "96001257"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100381516"
 ---
 # <a name="azure-queue-storage-output-bindings-for-azure-functions"></a>Encadernações de saída de armazenamento da fila Azure para funções Azure
 
@@ -392,19 +392,21 @@ Os atributos não são suportados pela Python.
 
 A tabela seguinte explica as propriedades de configuração de encadernação que definiu no *function.jsno* ficheiro e no `Queue` atributo.
 
-|function.jsna propriedade | Propriedade de atributo |Descrição|
+|function.jsna propriedade | Propriedade de atributo |Description|
 |---------|---------|----------------------|
 |**tipo** | n/a | Deve ser definido para `queue` . Esta propriedade é definida automaticamente quando cria o gatilho no portal Azure.|
 |**direção** | n/a | Deve ser definido para `out` . Esta propriedade é definida automaticamente quando cria o gatilho no portal Azure. |
 |**nome** | n/a | O nome da variável que representa a fila no código de função. Definir `$return` para referenciar o valor de retorno da função.|
 |**nome de fila** |**Nome da fila** | O nome da fila. |
-|**conexão** | **Ligação** |O nome de uma definição de aplicação que contém o fio de ligação de armazenamento para usar para esta ligação. Se o nome de definição da aplicação começar com "AzureWebJobs", pode especificar apenas o restante do nome aqui. Por exemplo, se definir `connection` "MyStorage", o tempo de execução de Funções procura uma definição de app chamada "MyStorage". Se deixar `connection` vazio, o tempo de execução das funções utiliza a cadeia de ligação de armazenamento predefinido na definição da aplicação que está denominada `AzureWebJobsStorage` .|
+|**conexão** | **Ligação** |O nome de uma definição de aplicação que contém o fio de ligação de armazenamento para usar para esta ligação. Se o nome de definição da aplicação começar com "AzureWebJobs", pode especificar apenas o restante do nome aqui.<br><br>Por exemplo, se definir `connection` "MyStorage", o tempo de execução de Funções procura uma definição de app chamada "MyStorage". Se deixar `connection` vazio, o tempo de execução das funções utiliza a cadeia de ligação de armazenamento predefinido na definição da aplicação que está denominada `AzureWebJobsStorage` .<br><br>Se estiver a utilizar [a versão 5.x ou superior da extensão](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher), em vez de uma cadeia de ligação, pode fornecer uma referência a uma secção de configuração que defina a ligação. Ver [Ligações](./functions-reference.md#connections).|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="usage"></a>Utilização
 
 # <a name="c"></a>[C#](#tab/csharp)
+
+### <a name="default"></a>Predefinição
 
 Escreva uma única mensagem de fila utilizando um parâmetro de método como `out T paramName` . Pode utilizar o tipo de devolução do método em vez de um `out` parâmetro, e `T` pode ser qualquer um dos seguintes tipos:
 
@@ -420,7 +422,18 @@ No script C# e C# escreva várias mensagens de fila utilizando um dos seguintes 
 * `ICollector<T>` ou `IAsyncCollector<T>`
 * [CloudQueue](/dotnet/api/microsoft.azure.storage.queue.cloudqueue)
 
+### <a name="additional-types"></a>Tipos adicionais
+
+As aplicações que utilizam a [versão 5.0.0 ou superior da extensão de Armazenamento](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher) também podem utilizar tipos do [Azure SDK para .NET](/dotnet/api/overview/azure/storage.queues-readme). Esta versão deixa cair o suporte para o legado `CloudQueue` e tipos a favor dos `CloudQueueMessage` seguintes tipos:
+
+- [FilaMessage](/dotnet/api/azure.storage.queues.models.queuemessage)
+- [FilaCient](/dotnet/api/azure.storage.queues.queueclient) para escrever várias mensagens de fila
+
+Por exemplo, utilizando estes tipos, consulte [o repositório GitHub para a extensão](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Queues#examples).
+
 # <a name="c-script"></a>[C# Script](#tab/csharp-script)
+
+### <a name="default"></a>Predefinição
 
 Escreva uma única mensagem de fila utilizando um parâmetro de método como `out T paramName` . O `paramName` valor especificado na `name` propriedade de *function.jsem*. Pode utilizar o tipo de devolução do método em vez de um `out` parâmetro, e `T` pode ser qualquer um dos seguintes tipos:
 
@@ -435,6 +448,15 @@ No script C# e C# escreva várias mensagens de fila utilizando um dos seguintes 
 
 * `ICollector<T>` ou `IAsyncCollector<T>`
 * [CloudQueue](/dotnet/api/microsoft.azure.storage.queue.cloudqueue)
+
+### <a name="additional-types"></a>Tipos adicionais
+
+As aplicações que utilizam a [versão 5.0.0 ou superior da extensão de Armazenamento](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher) também podem utilizar tipos do [Azure SDK para .NET](/dotnet/api/overview/azure/storage.queues-readme). Esta versão deixa cair o suporte para o legado `CloudQueue` e tipos a favor dos `CloudQueueMessage` seguintes tipos:
+
+- [FilaMessage](/dotnet/api/azure.storage.queues.models.queuemessage)
+- [FilaCient](/dotnet/api/azure.storage.queues.queueclient) para escrever várias mensagens de fila
+
+Por exemplo, utilizando estes tipos, consulte [o repositório GitHub para a extensão](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Queues#examples).
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -469,38 +491,6 @@ Existem duas opções para a saída de uma mensagem de fila a partir de uma fun�
 | Fila | [Códigos de erro de fila](/rest/api/storageservices/queue-service-error-codes) |
 | Blob, Mesa, Fila | [Códigos de erro de armazenamento](/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
 | Blob, Mesa, Fila |  [Resolução de problemas](/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
-
-<a name="host-json"></a>  
-
-## <a name="hostjson-settings"></a>host.jsnas definições
-
-Esta secção descreve as definições de configuração global disponíveis para esta ligação nas versões 2.x ou superiores. O exemplo host.jsno ficheiro abaixo contém apenas as definições da versão 2.x+ para esta ligação. Para obter mais informações sobre as configurações globais nas versões 2.x e não só, consulte [host.jsem referência para Funções Azure](functions-host-json.md).
-
-> [!NOTE]
-> Para obter uma referência de host.jsem Funções 1.x, consulte [host.jsem referência para as Funções Azure 1.x](functions-host-json-v1.md).
-
-```json
-{
-    "version": "2.0",
-    "extensions": {
-        "queues": {
-            "maxPollingInterval": "00:00:02",
-            "visibilityTimeout" : "00:00:30",
-            "batchSize": 16,
-            "maxDequeueCount": 5,
-            "newBatchThreshold": 8
-        }
-    }
-}
-```
-
-|Propriedade  |Predefinição | Descrição |
-|---------|---------|---------|
-|maxPollingInterval|00:00:01|O intervalo máximo entre as sondagens. Mínimo é 00:00:00.100 (100 ms) e incrementos até 00:01:00 (1 min).  Em 1.x o tipo de dados é milissegundos, e em 2.x e superior é um TimeSpan.|
-|visibilidadeTimeout|00:00:00|O intervalo de tempo entre as recauchutagens ao processamento de uma mensagem falha. |
-|batchSize|16|O número de mensagens de fila que o tempo de funcionamento das Funções recupera simultaneamente e processa em paralelo. Quando o número que está a ser processado chega ao `newBatchThreshold` , o tempo de funcionamento recebe outro lote e começa a processar essas mensagens. Assim, o número máximo de mensagens simultâneas a serem processadas por função é `batchSize` mais `newBatchThreshold` . Este limite aplica-se separadamente a cada função acionada pela fila. <br><br>Se quiser evitar a execução paralela das mensagens recebidas numa fila, pode definir `batchSize` para 1. No entanto, esta definição elimina a conusncy apenas desde que a sua aplicação de função seja executado numa única máquina virtual (VM). Se a aplicação de função se dimensionar para vários VMs, cada VM pode executar uma instância de cada função desencadeada pela fila.<br><br>O máximo `batchSize` é 32. |
-|maxDequeueCount|5|O número de vezes para tentar processar uma mensagem antes de movê-la para a fila de veneno.|
-|newBatchThreshold|lotEsize/2|Sempre que o número de mensagens a ser processadas se descientemente a este número, o tempo de funcionamento recupera outro lote.|
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -1,28 +1,24 @@
 ---
 title: Integração e entrega contínuas no Azure Data Factory
 description: Aprenda a usar a integração contínua e a entrega para mover os oleodutos data factory de um ambiente (desenvolvimento, teste, produção) para outro.
-services: data-factory
-documentationcenter: ''
 ms.service: data-factory
-ms.workload: data-services
 author: dcstwh
 ms.author: weetok
 ms.reviewer: maghan
-manager: jroth
 ms.topic: conceptual
 ms.date: 12/17/2020
-ms.openlocfilehash: b5b0f6dcef728f0597e7eac8ba57c8fd240d19c9
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: c0d3ba8d9bea9fade58ed4a65c6d3ae43ef6acb3
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97680292"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100383607"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Integração e entrega contínuas no Azure Data Factory
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 A integração contínua é a prática de testar cada alteração feita na sua base de código automaticamente e o mais cedo possível. A entrega contínua segue o teste que acontece durante a integração contínua e empurra alterações para um sistema de encenação ou produção.
 
@@ -241,7 +237,7 @@ Seguem-se algumas diretrizes a seguir quando criar o ficheiro de parâmetros per
       * `-` significa não manter o valor padrão para o parâmetro.
       * `|` é um caso especial para segredos do Azure Key Vault para cordas de ligação ou chaves.
    * `<name>` é o nome do parâmetro. Se estiver em branco, tem o nome da propriedade. Se o valor começar com um `-` personagem, o nome é encurtado. Por exemplo, `AzureStorage1_properties_typeProperties_connectionString` seria encurtado para `AzureStorage1_connectionString` .
-   * `<stype>` é o tipo de parâmetro. Se `<stype>` estiver em branco, o tipo predefinido é `string` . Valores apoiados: `string` `securestring` , , e `int` `bool` `object` `secureobject` `array` .
+   * `<stype>` é o tipo de parâmetro. Se `<stype>` estiver em branco, o tipo predefinido é `string` . Valores apoiados: `string` , , , , e `securestring` `int` `bool` `object` `secureobject` `array` .
 * Especificar uma matriz no ficheiro de definição indica que a propriedade correspondente no modelo é uma matriz. A Data Factory itera através de todos os objetos da matriz utilizando a definição especificada no objeto de execução de integração da matriz. O segundo objeto, uma corda, torna-se o nome da propriedade, que é usada como o nome para o parâmetro para cada iteração.
 * Uma definição não pode ser específica para uma instância de recursos. Qualquer definição aplica-se a todos os recursos desse tipo.
 * Por padrão, todas as cordas seguras, como os segredos do Cofre de Chaves, e cordas seguras, como cordas de ligação, chaves e fichas, são parametrizadas.

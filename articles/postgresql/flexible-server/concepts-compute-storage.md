@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: ca60c44d1e167367e2c138af1e7bfd4ba1a69417
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a3c8c8b2316a206ba837c0b32fd699dc0ed1eeea
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91710078"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100519393"
 ---
 # <a name="compute-and-storage-options-in-azure-database-for-postgresql---flexible-server"></a>Opções de computação e armazenamento em Base de Dados Azure para PostgreSQL - Servidor Flexível
 
@@ -151,7 +151,10 @@ Quando marcado com uma \* largura de banda , a largura de banda de I/S é limita
 
 Quando atingir o limite de armazenamento, o servidor começará a retornar erros e evitará quaisquer modificações adicionais. Isto também pode causar problemas com outras atividades operacionais, tais como backups e arquivo WAL.
 
+Para evitar esta situação, quando o uso do armazenamento atinge 95% ou se a capacidade disponível for inferior a 5 GiB, o servidor é automaticamente comutado para **o modo apenas de leitura**.
+
 Recomendamos monitorizar ativamente o espaço do disco que está em uso e aumentar o tamanho do disco antes de qualquer situação fora do armazenamento. Pode configurar um alerta para o notificar quando o armazenamento do servidor se aproxima do disco para evitar qualquer problema com o fim do disco. Para mais informações, consulte a documentação sobre [como configurar um alerta.](howto-alert-on-metrics.md)
+
 
 ### <a name="storage-auto-grow"></a>Armazenamento auto-cultivo
 

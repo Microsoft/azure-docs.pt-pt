@@ -1,22 +1,18 @@
 ---
 title: Atualizar modelos de machine learning usando Azure Data Factory
 description: Descreve como criar oleodutos preditivos usando Azure Data Factory v1 e Azure Machine Learning Studio (clássico)
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
-manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.openlocfilehash: 556936eb6e8c1c1c2dd1fab4ce7dfc1b648710b7
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 7a27ed657ba21d9e2125df903b40d74cd81eacf6
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96496607"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100379306"
 ---
 # <a name="updating-azure-machine-learning-studio-classic-models-using-update-resource-activity"></a>Atualizar modelos do Azure Machine Learning Studio (clássico) usando a atividade de recurso de atualização
 
@@ -38,11 +34,11 @@ ms.locfileid: "96496607"
 
 Este artigo complementa o principal artigo de integração do Azure Machine Learning Factory - Azure Machine Learning Studio (clássico): [Criar oleodutos preditivos utilizando o Azure Machine Learning Studio (clássico) e a Azure Data Factory.](data-factory-azure-ml-batch-execution-activity.md) Se ainda não o fez, reveja o artigo principal antes de ler este artigo. 
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 Com o tempo, os modelos preditivos no Azure Machine Learning Studio (clássico) experiências de pontuação precisam de ser retreinados usando novos conjuntos de dados de entrada. Depois de terminar a reconversão, pretende atualizar o serviço web de pontuação com o modelo ML retreinado. Os passos típicos para permitir a reconversão e atualização dos modelos studio (clássico) através de serviços web são:
 
 1. Crie uma experiência no [Azure Machine Learning Studio (clássico)](https://studio.azureml.net).
-2. Quando estiver satisfeito com o modelo, use o Azure Machine Learning Studio (clássico) para publicar serviços web tanto para a **experiência de treino** como para a experiência de pontuação/preditiva .**predictive experiment**
+2. Quando estiver satisfeito com o modelo, use o Azure Machine Learning Studio (clássico) para publicar serviços web tanto para a **experiência de treino** como para a experiência de pontuação/preditiva .
 
 A tabela seguinte descreve os serviços web utilizados neste exemplo.  Consulte [os modelos Retrain Azure Machine Learning Studio (clássico) programáticos](../../machine-learning/classic/retrain-machine-learning-model.md) para obter detalhes.
 

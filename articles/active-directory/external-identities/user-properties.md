@@ -1,23 +1,23 @@
 ---
-title: Propriedades de um utilizador convidado B2B - Azure Ative Directory / Microsoft Docs
+title: Propriedades de um utilizador convidado B2B - Azure Ative Directory | Microsoft Docs
 description: Azure Ative Directory B2B propriedades de utilizadores convidados e estados antes e depois do resgate de convites
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 06/19/2020
+ms.date: 02/12/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c97958add682a4c49d7832843c0b95ffd2663bf
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 0e9189b6608b74be6a72dbdfe66276c5050f042f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96859636"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100365468"
 ---
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Propriedades de um utilizador de colaboração Azure Ative Directory B2B
 
@@ -28,7 +28,7 @@ Dependendo das necessidades da organização convidativa, um utilizador de colab
 - Estado 1: Autódido num caso externo de Azure AD e representado como utilizador convidado na organização convidativa. Neste caso, o utilizador B2B assina através de uma conta AZure AD que pertence ao inquilino convidado. Se a organização parceira não utilizar a Azure AD, o utilizador convidado em Azure AD ainda é criado. Os requisitos são que eles resgatam o seu convite e a Azure AD verifica o seu endereço de e-mail. Este arranjo também é chamado de arrendamento just-in-time (JIT) ou um arrendamento "viral".
 
    > [!IMPORTANT]
-   > **A partir de 31 de março de 2021, a** Microsoft deixará de apoiar o resgate de convites através da criação de contas Ead AZure não geridas e inquilinos para cenários de colaboração B2B. Em preparação, encorajamos os clientes a optar em autenticação de senha única por [e-mail.](one-time-passcode.md) Congratulamo-nos com o seu feedback sobre esta funcionalidade de pré-visualização pública e estamos entusiasmados por criar ainda mais formas de colaborar.
+   > **A partir de outubro de 2021, a** Microsoft deixará de apoiar o resgate de convites através da criação de contas AZure AD não geridas e inquilinos para cenários de colaboração B2B. Em preparação, encorajamos os clientes a optar em autenticação de senha única por [e-mail.](one-time-passcode.md) Congratulamo-nos com o seu feedback sobre esta funcionalidade de pré-visualização pública e estamos entusiasmados por criar ainda mais formas de colaborar.
 
 - Estado 2: Alojado numa conta microsoft ou outra e representado como utilizador convidado na organização anfitriã. Neste caso, o utilizador convidado assina com uma conta Microsoft ou uma conta social (google.com ou similares). A identidade do utilizador convidado é criada como uma conta Microsoft no diretório da organização convidativa durante o resgate da oferta.
 
@@ -106,7 +106,7 @@ Pode haver casos em que queira dar aos seus utilizadores convidados privilégios
 ![Screenshot mostrando a opção de utilizadores externos nas definições do utilizador](media/user-properties/remove-guest-limitations.png)
 
 ## <a name="can-i-make-guest-users-visible-in-the-exchange-global-address-list"></a>Posso tornar os utilizadores convidados visíveis na Lista de Endereços Globais do Exchange?
-Sim. Por predefinição, os objetos convidados não estão visíveis na lista global de endereços da sua organização, mas pode utilizar o Azure Ative Directory PowerShell para os tornar visíveis. Para mais informações, consulte **Posso tornar os objetos convidados visíveis na lista global de endereços?** [Manage guest access in Microsoft 365 Groups](/office365/admin/create-groups/manage-guest-access-in-groups)
+Sim. Por predefinição, os objetos convidados não estão visíveis na lista global de endereços da sua organização, mas pode utilizar o Azure Ative Directory PowerShell para os tornar visíveis. Para mais informações, consulte **Posso tornar os objetos convidados visíveis na lista global de endereços?** [](/office365/admin/create-groups/manage-guest-access-in-groups)
 
 ## <a name="can-i-update-a-guest-users-email-address"></a>Posso atualizar o endereço de e-mail de um utilizador convidado?
 

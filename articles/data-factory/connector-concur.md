@@ -1,22 +1,17 @@
 ---
 title: Copiar dados da Concur utilizando a Azure Data Factory (Pré-visualização)
 description: Saiba como copiar dados da Concur para lojas de dados de sumidouros suportados utilizando uma atividade de cópia num pipeline da Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/25/2020
 ms.author: jingwang
-ms.openlocfilehash: f6d6c830eec8e711e700733a90611c353b68439d
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.openlocfilehash: 974682aa9e9bebd6e2d17237decd8389174ff28d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96030803"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100383675"
 ---
 # <a name="copy-data-from-concur-using-azure-data-factory-preview"></a>Copiar dados da Concur utilizando a Azure Data Factory (Pré-visualização)
 
@@ -51,21 +46,21 @@ As seguintes propriedades são suportadas para o serviço ligado à Concur:
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo deve ser definida para: **Concur** | Sim |
-| conexõesProperties | Um grupo de propriedades que define como se conectar a Concur. | Sim |
-| **_Em: `connectionProperties` __* | | |
-| authenticationType | Os valores permitidos são `OAuth_2.0_Bearer` e `OAuth_2.0` (legado). A opção de autenticação OAuth 2.0 funciona com a antiga API Concur, que estava depreciada desde fevereiro de 2017. | Sim |
-| anfitrião | O ponto final do servidor Concur, por `implementation.concursolutions.com` exemplo.  | Sim |
+| tipo | A propriedade tipo deve ser definida para: **Concur** | Yes |
+| conexõesProperties | Um grupo de propriedades que define como se conectar a Concur. | Yes |
+| ***Em `connectionProperties` :*** | | |
+| authenticationType | Os valores permitidos são `OAuth_2.0_Bearer` e `OAuth_2.0` (legado). A opção de autenticação OAuth 2.0 funciona com a antiga API Concur, que estava depreciada desde fevereiro de 2017. | Yes |
+| anfitrião | O ponto final do servidor Concur, por `implementation.concursolutions.com` exemplo.  | Yes |
 | baseUrl | O URL base da URL de autorização do seu Concur. | Sim para `OAuth_2.0_Bearer` autenticação |
-| clientId | ID do cliente de aplicação fornecido pela Concur App Management.  | Sim |
+| clientId | ID do cliente de aplicação fornecido pela Concur App Management.  | Yes |
 | segredo de clientes | O segredo do cliente correspondente à identificação do cliente. Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Sim para `OAuth_2.0_Bearer` autenticação |
-| nome de utilizador | O nome de utilizador que utiliza para aceder ao serviço Concur. | Sim |
-| palavra-passe | A palavra-passe correspondente ao nome de utilizador que forneceu no campo do nome de utilizador. Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Sim |
-| useEncryptedEndpoints | Especifica se os pontos finais de origem de dados são encriptados usando HTTPS. O valor predefinido é true.  | Não |
-| useHostVerification | Especifica se deve exigir que o nome do anfitrião no certificado do servidor corresponda ao nome de anfitrião do servidor ao ligar o TLS. O valor predefinido é true.  | Não |
-| usePeerVerificação | Especifica se deve verificar a identidade do servidor ao ligar o TLS. O valor predefinido é true.  | Não |
+| nome de utilizador | O nome de utilizador que utiliza para aceder ao serviço Concur. | Yes |
+| palavra-passe | A palavra-passe correspondente ao nome de utilizador que forneceu no campo do nome de utilizador. Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Yes |
+| useEncryptedEndpoints | Especifica se os pontos finais de origem de dados são encriptados usando HTTPS. O valor predefinido é true.  | No |
+| useHostVerification | Especifica se deve exigir que o nome do anfitrião no certificado do servidor corresponda ao nome de anfitrião do servidor ao ligar o TLS. O valor predefinido é true.  | No |
+| usePeerVerificação | Especifica se deve verificar a identidade do servidor ao ligar o TLS. O valor predefinido é true.  | No |
 
-_ *Exemplo:**
+**Exemplo:**
 
 ```json
 { 
@@ -125,7 +120,7 @@ Para copiar dados da Concur, defina a propriedade tipo do conjunto de dados para
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo do conjunto de dados deve ser definida para: **ConcurObject** | Sim |
+| tipo | A propriedade tipo do conjunto de dados deve ser definida para: **ConcurObject** | Yes |
 | tableName | O nome da mesa. | Não (se for especificada "consulta" na fonte de atividade) |
 
 
@@ -156,7 +151,7 @@ Para copiar dados da Concur, desaprote o tipo de origem na atividade de cópia *
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **ConcurSource** | Sim |
+| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **ConcurSource** | Yes |
 | consulta | Utilize a consulta SQL personalizada para ler dados. Por exemplo: `"SELECT * FROM Opportunities where Id = xxx "`. | Não (se for especificado "tableName" no conjunto de dados) |
 
 **Exemplo:**

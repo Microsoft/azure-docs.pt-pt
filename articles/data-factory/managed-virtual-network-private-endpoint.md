@@ -1,24 +1,20 @@
 ---
 title: Rede virtual gerida & geridos pontos finais privados
 description: Conheça a rede virtual gerida e gere os pontos finais privados geridos na Azure Data Factory.
-services: data-factory
 ms.author: abnarain
 author: nabhishek
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom:
 - seo-lt-2019
 - references_regions
 ms.date: 07/15/2020
-ms.openlocfilehash: 81d82bccd6b6bd97b84df5269dd59ffac4903370
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: d950b05dd34788c2c5ef0b34b8ec8ac0b20ad4b6
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94980383"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100379578"
 ---
 # <a name="azure-data-factory-managed-virtual-network-preview"></a>Azure Data Factory Rede Virtual Gerida (pré-visualização)
 
@@ -51,7 +47,7 @@ Os pontos finais privados geridos são pontos finais privados criados na Rede Vi
 
 ![Novo ponto final privado gerido](./media/tutorial-copy-data-portal-private/new-managed-private-endpoint.png)
 
-A Azure Data Factory suporta ligações privadas. O link privado permite-lhe aceder aos serviços Azure (PaaS) (como Azure Storage, Azure Cosmos DB, Azure Synapse Analytics (anteriormente SQL Data Warehouse)).
+A Azure Data Factory suporta ligações privadas. O link privado permite-lhe aceder aos serviços Azure (PaaS) (como Azure Storage, Azure Cosmos DB, Azure Synapse Analytics).
 
 Quando utiliza uma ligação privada, o tráfego entre as suas lojas de dados e a Rede Virtual gerida atravessa inteiramente a rede de espinha dorsal da Microsoft. A Private Link protege contra riscos de exfiltração de dados. Estabelece-se uma ligação privada a um recurso criando um ponto final privado.
 
@@ -86,7 +82,7 @@ Abaixo as fontes de dados são suportadas para se conectar através de ligação
 - Ficheiros do Azure
 - Azure Data Lake Gen2
 - Base de Dados Azure SQL (sem incluir a instância gerida do Azure SQL)
-- Azure Synapse Analytics (anteriormente SQL Data Warehouse)
+- Azure Synapse Analytics
 - Azure CosmosDB SQL
 - Azure Key Vault
 - Serviço de Ligação Privada Azure
@@ -115,7 +111,7 @@ Abaixo as fontes de dados são suportadas para se conectar através de ligação
 - O Azure Storage e o Azure Data Lake Gen2 não são suportados para serem conectados através do ponto final público da ADF Managed Virtual Network.
 
 ### <a name="linked-service-creation-of-azure-key-vault"></a>Criação de serviço ligado do Cofre chave Azure 
-- Quando cria um Serviço Linked para Azure Key Vault, não existe referência de runtime de integração Azure. Então não pode criar Private Endpoint durante a criação do Azure Key Vault. Mas quando cria o Linked Service para lojas de dados que faz referência ao Azure Key Vault Linked Service e este Serviço Linked refere-se a Azure Integration Runtime com Rede Virtual Gerida ativada, então é capaz de criar um ponto final privado para o Serviço Ligado ao Cofre de Chaves Azure durante a criação. 
+- Quando cria um Serviço Associado para o Azure Key Vault, não existe nenhuma referência ao Azure Integration Runtime. Então não pode criar Private Endpoint durante a criação do Azure Key Vault. Mas quando cria o Linked Service para lojas de dados que faz referência ao Azure Key Vault Linked Service e este Serviço Linked refere-se a Azure Integration Runtime com Rede Virtual Gerida ativada, então é capaz de criar um ponto final privado para o Serviço Ligado ao Cofre de Chaves Azure durante a criação. 
 - A operação de **ligação** de teste para o Serviço Ligado do Cofre de Chave Azure apenas valida o formato URL, mas não faz qualquer operação de rede.
 
 ## <a name="next-steps"></a>Passos seguintes

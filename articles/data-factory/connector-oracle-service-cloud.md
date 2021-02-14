@@ -1,22 +1,18 @@
 ---
 title: Copiar dados da Oracle Service Cloud (Pré-visualização)
 description: Saiba como copiar dados da Oracle Service Cloud para lojas de dados de sumidouros suportados utilizando uma atividade de cópia num pipeline da Azure Data Factory.
-services: data-factory
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/01/2019
-ms.openlocfilehash: c3f9046bd0cca8cb191397413c09a72c4cc11c55
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 33f2dcd13b64069949930606c5f619543fa36668
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81416800"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100368443"
 ---
 # <a name="copy-data-from-oracle-service-cloud-using-azure-data-factory-preview"></a>Copiar dados da Oracle Service Cloud utilizando a Azure Data Factory (Pré-visualização)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -49,13 +45,13 @@ As seguintes propriedades são suportadas para o serviço ligado à Oracle Servi
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo deve ser definida para: **OracleServiceCloud** | Sim |
-| anfitrião | A URL da placa da Nuvem de Serviço oráculo.  | Sim |
-| nome de utilizador | O nome de utilizador que utiliza para aceder ao servidor Oracle Service Cloud.  | Sim |
-| palavra-passe | A palavra-passe correspondente ao nome de utilizador que forneceu na tecla username. Pode optar por marcar este campo como um SecureString para armazená-lo de forma segura em ADF, ou armazenar a palavra-passe no Cofre da Chave Azure e deixar a atividade de cópia da ADF puxar daí quando executar a cópia de dados - saiba mais com [as credenciais](store-credentials-in-key-vault.md)da Loja no Key Vault . | Sim |
-| useEncryptedEndpoints | Especifica se os pontos finais de origem de dados são encriptados usando HTTPS. O valor predefinido é true.  | Não |
-| useHostVerification | Especifica se deve exigir que o nome do anfitrião no certificado do servidor corresponda ao nome de anfitrião do servidor ao ligar o TLS. O valor predefinido é true.  | Não |
-| usePeerVerificação | Especifica se deve verificar a identidade do servidor ao ligar o TLS. O valor predefinido é true.  | Não |
+| tipo | A propriedade tipo deve ser definida para: **OracleServiceCloud** | Yes |
+| anfitrião | A URL da placa da Nuvem de Serviço oráculo.  | Yes |
+| nome de utilizador | O nome de utilizador que utiliza para aceder ao servidor Oracle Service Cloud.  | Yes |
+| palavra-passe | A palavra-passe correspondente ao nome de utilizador que forneceu na tecla username. Pode optar por marcar este campo como um SecureString para armazená-lo de forma segura em ADF, ou armazenar a palavra-passe no Cofre da Chave Azure e deixar a atividade de cópia da ADF puxar daí quando executar a cópia de dados - saiba mais com [as credenciais](store-credentials-in-key-vault.md)da Loja no Key Vault . | Yes |
+| useEncryptedEndpoints | Especifica se os pontos finais de origem de dados são encriptados usando HTTPS. O valor predefinido é true.  | No |
+| useHostVerification | Especifica se deve exigir que o nome do anfitrião no certificado do servidor corresponda ao nome de anfitrião do servidor ao ligar o TLS. O valor predefinido é true.  | No |
+| usePeerVerificação | Especifica se deve verificar a identidade do servidor ao ligar o TLS. O valor predefinido é true.  | No |
 
 **Exemplo:**
 
@@ -88,7 +84,7 @@ Para copiar dados da Oracle Service Cloud, defina a propriedade tipo do conjunto
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo do conjunto de dados deve ser definida para: **OracleServiceCloudObject** | Sim |
+| tipo | A propriedade tipo do conjunto de dados deve ser definida para: **OracleServiceCloudObject** | Yes |
 | tableName | O nome da mesa. | Não (se for especificada "consulta" na fonte de atividade) |
 
 **Exemplo**
@@ -119,7 +115,7 @@ Para copiar dados da Oracle Service Cloud, detete o tipo de origem na atividade 
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **OracleServiceCloudSource** | Sim |
+| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **OracleServiceCloudSource** | Yes |
 | consulta | Utilize a consulta SQL personalizada para ler dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se for especificado "tableName" no conjunto de dados) |
 
 **Exemplo:**

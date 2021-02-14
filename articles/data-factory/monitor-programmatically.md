@@ -1,22 +1,18 @@
 ---
 title: Monitorize programáticamente uma fábrica de dados Azure
 description: Aprenda a monitorizar um oleoduto numa fábrica de dados utilizando diferentes kits de desenvolvimento de software (SDKs).
-services: data-factory
-documentationcenter: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/16/2018
 author: dcstwh
 ms.author: weetok
-manager: anandsub
 ms.custom: devx-track-python
-ms.openlocfilehash: b5d1f0c0d6aa848e590e68e1f18abf7861674483
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: 038da033c2bdf78a0a2547cc713944bc11bf093d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98556567"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100379901"
 ---
 # <a name="programmatically-monitor-an-azure-data-factory"></a>Monitorize programáticamente uma fábrica de dados Azure
 
@@ -28,12 +24,23 @@ Este artigo descreve como monitorizar um oleoduto numa fábrica de dados utiliza
 
 ## <a name="data-range"></a>Gama de dados
 
-A Data Factory só armazena dados de funcionação do gasoduto durante 45 dias. Quando consulta programáticamente dados sobre o gasoduto Data Factory - por exemplo, com o comando PowerShell `Get-AzDataFactoryV2PipelineRun` - não existem datas máximas para o opcional `LastUpdatedAfter` e `LastUpdatedBefore` parâmetros. Mas se consultar os dados do ano passado, por exemplo, a consulta não devolve um erro, mas apenas devolve dados de execução do pipeline dos últimos 45 dias.
+A Data Factory só armazena dados de funcionação do gasoduto durante 45 dias. Quando consulta programáticamente dados sobre o gasoduto Data Factory - por exemplo, com o comando PowerShell `Get-AzDataFactoryV2PipelineRun` - não existem datas máximas para o opcional `LastUpdatedAfter` e `LastUpdatedBefore` parâmetros. Mas se consultar dados do ano passado, por exemplo, não terá um erro, mas apenas os dados de funcionação do pipeline dos últimos 45 dias.
 
-Se pretender persistir em pipeline executar dados por mais de 45 dias, confiem o seu próprio registo de diagnóstico com [o Azure Monitor](monitor-using-azure-monitor.md).
+Se pretender manter os dados de funcionamento do gasoduto durante mais de 45 dias, confiem o seu próprio registo de diagnóstico com [o Azure Monitor](monitor-using-azure-monitor.md).
+
+## <a name="pipeline-run-information"></a>Informação de execução do gasoduto
+
+Para obter propriedades de execução de gasodutos, consulte a [referência PipelineRun API](https://docs.microsoft.com/rest/api/datafactory/pipelineruns/get#pipelinerun). Uma corrida de gasodutos tem um estatuto diferente durante o seu ciclo de vida, os valores possíveis do estado de funcionação são listados abaixo:
+
+* Em fila
+* InProgress
+* Com êxito
+* Com falhas
+* A Cancelar
+* Cancelado
 
 ## <a name="net"></a>.NET
-Para obter uma passagem completa da criação e monitorização de um gasoduto utilizando .NET SDK, consulte [Criar uma fábrica de dados e um gasoduto utilizando .NET](quickstart-create-data-factory-dot-net.md).
+Para obter um walk-through completo da criação e monitorização de um gasoduto utilizando .NET SDK, consulte [Criar uma fábrica de dados e um gasoduto utilizando .NET](quickstart-create-data-factory-dot-net.md).
 
 1. Adicione o seguinte código para verificar continuamente o estado do gasoduto até terminar de copiar os dados.
 
@@ -45,7 +52,7 @@ Para obter uma passagem completa da criação e monitorização de um gasoduto u
     {
         pipelineRun = client.PipelineRuns.Get(resourceGroup, dataFactoryName, runResponse.RunId);
         Console.WriteLine("Status: " + pipelineRun.Status);
-        if (pipelineRun.Status == "InProgress")
+        if (pipelineRun.Status == "InProgress" || pipelineRun.Status == "Queued")
             System.Threading.Thread.Sleep(15000);
         else
             break;
@@ -71,7 +78,7 @@ Para obter uma passagem completa da criação e monitorização de um gasoduto u
 Para obter documentação completa em .NET SDK, consulte a [referência Data Factory .NET SDK](/dotnet/api/microsoft.azure.management.datafactory).
 
 ## <a name="python"></a>Python
-Para obter uma passagem completa da criação e monitorização de um oleoduto utilizando a Python SDK, consulte [Criar uma fábrica de dados e um oleoduto utilizando python](quickstart-create-data-factory-python.md).
+Para obter uma completa passagem pela criação e monitorização de um gasoduto utilizando a Python SDK, consulte [Criar uma fábrica de dados e um oleoduto utilizando python](quickstart-create-data-factory-python.md).
 
 Para monitorizar o funcionado do gasoduto, adicione o seguinte código:
 
@@ -89,7 +96,7 @@ print_activity_run_details(activity_runs_paged[0])
 Para obter documentação completa sobre Python SDK, consulte a [referência SDK python da fábrica de dados](/python/api/overview/azure/datafactory).
 
 ## <a name="rest-api"></a>API REST
-Para uma caminhada completa da criação e monitorização de um oleoduto utilizando a API REST, consulte [Criar uma fábrica de dados e um oleoduto utilizando a API REST](quickstart-create-data-factory-rest-api.md).
+Para obter uma completa passagem pela criação e monitorização de um gasoduto utilizando a API REST, consulte [Criar uma fábrica de dados e um oleoduto utilizando a API REST](quickstart-create-data-factory-rest-api.md).
  
 1. Execute o script seguinte para verificar continuamente o estado de execução do pipeline até que este termine de copiar os dados.
 
@@ -99,7 +106,7 @@ Para uma caminhada completa da criação e monitorização de um oleoduto utiliz
         $response = Invoke-RestMethod -Method GET -Uri $request -Header $authHeader
         Write-Host  "Pipeline run status: " $response.Status -foregroundcolor "Yellow"
 
-        if ($response.Status -eq "InProgress") {
+        if ( ($response.Status -eq "InProgress") -or ($response.Status -eq "Queued") ) {
             Start-Sleep -Seconds 15
         }
         else {
@@ -119,7 +126,7 @@ Para uma caminhada completa da criação e monitorização de um oleoduto utiliz
 Para obter documentação completa sobre a API REST, consulte [a referência API do Rest da Fábrica de Dados.](/rest/api/datafactory/)
 
 ## <a name="powershell"></a>PowerShell
-Para obter uma passagem completa da criação e monitorização de um gasoduto utilizando o PowerShell, consulte [Criar uma fábrica de dados e um oleoduto utilizando o PowerShell](quickstart-create-data-factory-powershell.md).
+Para obter uma utilização completa da criação e monitorização de um gasoduto utilizando o PowerShell, consulte [criar uma fábrica de dados e um oleoduto utilizando o PowerShell](quickstart-create-data-factory-powershell.md).
 
 1. Execute o script seguinte para verificar continuamente o estado de execução do pipeline até que este termine de copiar os dados.
 
@@ -128,12 +135,12 @@ Para obter uma passagem completa da criação e monitorização de um gasoduto u
         $run = Get-AzDataFactoryV2PipelineRun -ResourceGroupName $resourceGroupName -DataFactoryName $DataFactoryName -PipelineRunId $runId
 
         if ($run) {
-            if ($run.Status -ne 'InProgress') {
-                Write-Host "Pipeline run finished. The status is: " $run.Status -foregroundcolor "Yellow"
+            if ( ($run.Status -ne "InProgress") -and ($run.Status -ne "Queued") ) {
+                Write-Output ("Pipeline run finished. The status is: " +  $run.Status)
                 $run
                 break
             }
-            Write-Host  "Pipeline is running...status: InProgress" -foregroundcolor "Yellow"
+            Write-Output ("Pipeline is running...status: " + $run.Status)
         }
 
         Start-Sleep -Seconds 30

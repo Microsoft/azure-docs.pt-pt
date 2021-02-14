@@ -3,16 +3,16 @@ title: Trocar mensagens com o Azure Service Bus
 description: Crie tarefas automatizadas e fluxos de trabalho que enviem e recebam mensagens utilizando o Azure Service Bus em Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: logicappspm
+ms.reviewer: logicappspm, azla
 ms.topic: conceptual
-ms.date: 10/22/2020
+ms.date: 02/10/2021
 tags: connectors
-ms.openlocfilehash: b6276ff940d8b156a671cb5386ce53ede30dd879
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 98d2ee8a85d25065c0021841a9b99a6d616a35d8
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96019719"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100367423"
 ---
 # <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-and-azure-service-bus"></a>Troque mensagens na nuvem usando Azure Logic Apps e Azure Service Bus
 
@@ -169,7 +169,7 @@ Ao criar uma aplicação lógica, pode selecionar a **entrega de encomenda corre
 
 ## <a name="delays-in-updates-to-your-logic-app-taking-effect"></a>Atrasos nas atualizações da sua app lógica a entrar em vigor
 
-Se o intervalo de votação de um gatilho do Service Bus for pequeno, como 10 segundos, as atualizações para a sua aplicação lógica podem não produzir efeitos até 10 minutos. Para resolver este problema, pode aumentar temporariamente o intervalo de votação para um valor maior, como 30 segundos ou 1 minuto, antes de atualizar a sua aplicação lógica. Depois de fazer a atualização, pode redefinir o intervalo de votação para o valor original. 
+Se o intervalo de votação de um gatilho do Service Bus for pequeno, como 10 segundos, as atualizações para a sua aplicação lógica podem não produzir efeitos até 10 minutos. Para contornar este problema, pode desativar a aplicação lógica, fazer as alterações e, em seguida, ativar novamente a aplicação lógica.
 
 <a name="connector-reference"></a>
 

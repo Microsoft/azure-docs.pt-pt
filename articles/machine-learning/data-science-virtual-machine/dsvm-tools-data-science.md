@@ -4,18 +4,17 @@ titleSuffix: Azure Data Science Virtual Machine
 description: Conheça as ferramentas e estruturas de machine-learning que estão pré-instaladas na Máquina Virtual de Ciência de Dados.
 keywords: ferramentas de ciência de dados, máquina de virtual de ciência de dados, ferramentas para ciência de dados, ciência de dados do linux
 services: machine-learning
-ms.service: machine-learning
-ms.subservice: data-science-vm
+ms.service: data-science-vm
 author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: 087679c49c3cc025268e6f895757ae5f5c47c917
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: ac71d8d7830f1d740d0156886a364b1d53ab247f
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96014215"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100519563"
 ---
 # <a name="machine-learning-and-data-science-tools-on-azure-data-science-virtual-machines"></a>Ferramentas de aprendizagem automática e ciência de dados em Azure Data Science Virtual Machines
 As máquinas virtuais Azure Data Science (DSVMs) têm um rico conjunto de ferramentas e bibliotecas para machine learning disponíveis em línguas populares, como Python, R e Julia.

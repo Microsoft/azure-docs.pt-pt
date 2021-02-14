@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mlottner
-ms.openlocfilehash: 6c441c9f81477a586c3e153e23b1fc63f2f76344
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.openlocfilehash: 4d99cdbb2f50d04eff790cdfe675d0f8031c48a9
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99819932"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100517183"
 ---
 # <a name="deploy-a-defender-for-iot-c-based-security-agent-for-windows"></a>Implementar um Defensor para ioT C#agente de segurança para windows
 
@@ -73,11 +73,11 @@ Para instalar o agente de segurança, utilize o seguinte fluxo de trabalho:
 Este script faz as seguintes ações:
 
 * Instala pré-requisitos.
-* Adiciona um utilizador de serviço (com sinal interativo em desativado).
+* Adiciona um utilizador de serviço (com insusição de insusição interativa).
 * Instala o agente como **um Serviço de Sistema**.
 * Configura o agente com os parâmetros de autenticação fornecidos.
 
-Para obter ajuda adicional, utilize o comando Get-Help em PowerShell.
+Para obter ajuda extra, utilize o comando Get-Help em PowerShell.
 
 Get-Help exemplo:    ```Get-Help .\InstallSecurityAgent.ps1```
 
@@ -119,7 +119,7 @@ Para ligar o registo:
 
 1. Reinicie o agente executando a seguinte linha de comando PowerShell ou comando:
 
-    **Powershell**
+    **PowerShell**
 
      ```
      Restart-Service "ASC IoT Agent"

@@ -3,22 +3,22 @@ title: 'ML Studio (clássico): retreine um serviço web - Azure'
 description: Saiba como atualizar um serviço web para utilizar um modelo de aprendizagem automática recentemente treinado no Azure Machine Learning Studio (clássico).
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: seodec18, devx-track-csharp
 ms.date: 02/14/2019
-ms.openlocfilehash: ff0378871139a038f096a44b9ee0c6af2cb67d73
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: a4fe9e54e5e03a8dbf2a727b22f784c36d6c65f9
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325815"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100517591"
 ---
 # <a name="retrain-and-deploy-a-machine-learning-model"></a>Retreine e implemente um modelo de aprendizagem automática
 
-**APLICA-SE A:** ![ Aplica-se a. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) ![ Não se aplica a. ](../../../includes/media/aml-applies-to-skus/no.png)[ Aprendizagem de Máquinas Azure](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
+**APLICA-SE A:** ![ Aplica-se a. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) ![ Não se aplica a.](../../../includes/media/aml-applies-to-skus/no.png)[ Aprendizagem de Máquinas Azure](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 
 A reconversão é uma forma de garantir que os modelos de machine learning se mantenham precisos e com base nos dados mais relevantes disponíveis. Este artigo mostra como retreinar e implementar um modelo de machine learning como um novo serviço web em Studio (clássico). Se procura retreinar um serviço web clássico, [veja este artigo de como fazer.](retrain-classic-web-service.md)
@@ -96,7 +96,7 @@ O código de amostra do BES envia um ficheiro de uma unidade local (por exemplo,
 1. Na coluna de navegação à esquerda, clique em **Blobs**.
 1. Selecione um recipiente existente, ou crie um novo e guarde o nome.
 
-Localize as declarações *de StorageAccountName* , *StorageAccountKey* e *StorageContainerName* e atualize os valores que guardou do portal.
+Localize as declarações *de StorageAccountName*, *StorageAccountKey* e *StorageContainerName* e atualize os valores que guardou do portal.
 
 ```csharp
 const string StorageAccountName = "mystorageacct"; // Replace this with your Azure storage account name
@@ -130,11 +130,11 @@ Aqui está um exemplo de saída de reconversão:
 
 Quando executa a aplicação, a saída inclui o URL e o token de assinaturas de acesso partilhado que são necessárias para aceder aos resultados da avaliação.
 
-Pode ver os resultados de desempenho do modelo retreinado combinando o *BaseLocation* , *RelativeLocation* e *SasBlobToken* a partir dos resultados de saída para *a saída2* e colando o URL completo na barra de endereços do navegador.
+Pode ver os resultados de desempenho do modelo retreinado combinando o *BaseLocation*, *RelativeLocation* e *SasBlobToken* a partir dos resultados de saída para *a saída2* e colando o URL completo na barra de endereços do navegador.
 
 Examine os resultados para determinar se o modelo recém-treinado tem um desempenho melhor do que o existente.
 
-Salve a *BaseLocation* , *RelativeLocation* e *SasBlobToken* dos resultados da saída.
+Salve a *BaseLocation*, *RelativeLocation* e *SasBlobToken* dos resultados da saída.
 
 ## <a name="update-the-predictive-experiment"></a>Atualizar a experiência preditiva
 

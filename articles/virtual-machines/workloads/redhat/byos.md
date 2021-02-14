@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/10/2020
 ms.author: alsin
 ms.reviewer: cynthn
-ms.openlocfilehash: 7006096154d8958e13e7a86783bd07067b95d293
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 38bf8b3c1c39322aea27f5f4d427c31010837bfb
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98872897"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100391025"
 ---
 # <a name="red-hat-enterprise-linux-bring-your-own-subscription-gold-images-in-azure"></a>Red Hat Enterprise Linux traz imagens de ouro em Azure
 
@@ -30,9 +30,6 @@ As imagens Red Hat Enterprise Linux (RHEL) estão disponíveis no Azure através
 - Os VMs ateados pela Red Hat Gold Images não têm taxas RHEL associadas a imagens de pay-as-you-go da RHEL.
 - As imagens não são enentadas. Tem de utilizar o Red Hat Subscription-Manager para registar e subscrever os VMs para obter atualizações diretamente da Red Hat.
 - É possível passar de imagens pay-as-you-go para BYOS usando o [Azure Hybrid Benefit](../../linux/azure-hybrid-benefit-linux.md). No entanto, não é possível mudar de um BYOS inicialmente implantado para modelos de faturação pay-as-you-go para imagens Linux. Para mudar o modelo de faturação de BYOS para pay-as-you-go, tem de recolocar o VM a partir da respetiva imagem.
-
->[!NOTE]
-> As imagens DA GERAÇÃO 2 RHEL BYOS não estão atualmente disponíveis através da oferta de marketplace. Se necessitar de uma imagem DE GERAÇÃO 2 RHEL BYOS, visite o painel de acesso à nuvem na gestão da subscrição do Red Hat. Para mais informações, consulte a [documentação do Chapéu Vermelho.](https://access.redhat.com/articles/4847681)
 
 ## <a name="requirements-and-conditions-to-access-the-red-hat-gold-images"></a>Requisitos e condições para aceder às Imagens De Chapéu Vermelho
 
@@ -209,7 +206,7 @@ Para obter medidas para aplicar a encriptação do disco Azure, consulte [os cen
 
 - Se utilizar a automatização para fornecer VMs a partir das imagens RHEL BYOS, deve fornecer parâmetros de plano semelhantes aos mostrados nos comandos da amostra. Por exemplo, se utilizar o Terraform, fornece as informações do plano num [bloco de planos.](https://www.terraform.io/docs/providers/azurerm/r/virtual_machine.html#plan)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Mais detalhes sobre o Red Hat Cloud Access estão disponíveis na [documentação da nuvem pública do Chapéu Vermelho](https://access.redhat.com/public-cloud)
 - Para guias passo a passo e detalhes do programa para o Acesso à Nuvem, consulte a [documentação do Red Hat Cloud Access](https://access.redhat.com/documentation/en-us/red_hat_subscription_management/1/html/red_hat_cloud_access_reference_guide/index).

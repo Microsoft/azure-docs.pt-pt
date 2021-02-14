@@ -3,22 +3,22 @@ title: 'Estúdio ML (clássico): Implantação e consumo - Azure'
 description: Você pode usar O Azure Machine Learning Studio (clássico) para implementar fluxos de trabalho de machine learning e modelos como serviços web. Estes serviços web podem então ser usados para chamar os modelos de machine learning de aplicações através da internet para fazer previsões em tempo real ou em modo de lote.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 04/19/2017
-ms.openlocfilehash: dc71dc87ca972c52fabb91a6412eec702eee5460
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 57c5462cd6eccab1d9c42e674e10ea34db3612b7
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93307440"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100520362"
 ---
 # <a name="azure-machine-learning-studio-classic-web-services-deployment-and-consumption"></a>Azure Machine Learning Studio (clássico) Web Services: Implantação e consumo
 
-**APLICA-SE A:** ![ Aplica-se a. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) ![ Não se aplica a. ](../../../includes/media/aml-applies-to-skus/no.png)[ Aprendizagem de Máquinas Azure](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
+**APLICA-SE A:** ![ Aplica-se a. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) ![ Não se aplica a.](../../../includes/media/aml-applies-to-skus/no.png)[ Aprendizagem de Máquinas Azure](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 Você pode usar O Azure Machine Learning Studio (clássico) para implementar fluxos de trabalho de machine learning e modelos como serviços web. Estes serviços web podem então ser usados para chamar os modelos de machine learning de aplicações através da Internet para fazer previsões em tempo real ou em modo de lote. Como os serviços web são RESTful, pode chamá-los de várias linguagens e plataformas de programação, tais como .NET e Java, e de aplicações, como o Excel.
 

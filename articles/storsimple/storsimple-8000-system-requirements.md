@@ -1,5 +1,5 @@
 ---
-title: StorSimple 8000 séries requisitos do sistema Microsoft Docs
+title: Os requisitos do sistema de série StorSimple 8000 | Microsoft Docs
 description: Descreve software, networking e elevados requisitos de disponibilidade e boas práticas para uma solução Microsoft Azure StorSimple.
 services: storsimple
 documentationcenter: NA
@@ -12,18 +12,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 09/28/2017
+ms.date: 02/11/2021
 ms.author: alkohli
-ms.openlocfilehash: 6dcaa83980210a1f5449e8a2e0982cb8e39ff03d
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: fa7616a740e8246fa08e950494428095f41ee404
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94966195"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100382859"
 ---
 # <a name="storsimple-8000-series-software-high-availability-and-networking-requirements"></a>Software de série StorSimple 8000, alta disponibilidade e requisitos de networking
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 [!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
 
@@ -41,7 +41,7 @@ Os seguintes requisitos de software são para os clientes de armazenamento que a
 
 | Sistemas operativos suportados | Versão necessária | Requisitos/notas adicionais |
 | --- | --- | --- |
-| Windows Server |2008 R2 SP1, 2012, 2012 R2, 2016 |Os volumes StorSimple iSCSI são suportados para utilização apenas nos seguintes tipos de discos Windows:<ul><li>Volume simples no disco básico</li><li>Volume simples e espelhado no disco dinâmico</li></ul>Apenas os iniciadores iSCSI de software presentes no sistema operativo são suportados de forma nativa. Os iniciadores iSCSI de hardware não são suportados.<br></br>O Windows Server 2012 e 2016 são funcionalidades finas e ODX suportadas se estiver a utilizar um volume StorSimple iSCSI.<br><br>A StorSimple pode criar volumes pouco abastetados e totalmente abastetados. Não pode criar volumes parcialmente a provisionados.<br><br>Reformatar um volume mal aprovisionado pode demorar muito tempo. Recomendamos que elimine o volume e, em seguida, crie um novo em vez de o reformatar. No entanto, se preferir reformatar um volume:<ul><li>Execute o seguinte comando antes de o reformatar para evitar atrasos de recuperação de espaço:  <br>`fsutil behavior set disabledeletenotify 1`</br></li><li>Após a conclusão da formatação, utilize o seguinte comando para ativar novamente a recuperação de espaço: <br>`fsutil behavior set disabledeletenotify 0`</br></li><li>Aplique o hotfix do Windows Server 2012 como descrito no [KB 2878635](https://support.microsoft.com/kb/2870270) no seu computador Windows Server.</li></ul></li></ul></ul> Se estiver a configurar o StorSimple Snapshot Manager ou o Adaptador StorSimple para o SharePoint, aceda aos [requisitos de Software para componentes opcionais](#software-requirements-for-optional-components). |
+| Windows Server |2008 R2 SP1, 2012, 2012 R2, 2016 |Os volumes StorSimple iSCSI são suportados para utilização apenas nos seguintes tipos de discos Windows:<ul><li>Volume simples no disco básico</li><li>Volume simples e espelhado no disco dinâmico</li></ul>Apenas os iniciadores iSCSI de software presentes no sistema operativo são suportados de forma nativa. Os iniciadores iSCSI de hardware não são suportados.<br></br>O Windows Server 2012 e 2016 são funcionalidades finas e ODX suportadas se estiver a utilizar um volume StorSimple iSCSI.<br><br>A StorSimple pode criar volumes pouco abastetados e totalmente abastetados. Não pode criar volumes parcialmente a provisionados.<br><br>Reformatar um volume mal aprovisionado pode demorar muito tempo. Recomendamos que elimine o volume e, em seguida, crie um novo em vez de o reformatar. No entanto, se preferir reformatar um volume:<ul><li>Execute o seguinte comando antes de o reformatar para evitar atrasos de recuperação de espaço:  <br>`fsutil behavior set disabledeletenotify 1`</br></li><li>Após a conclusão da formatação, utilize o seguinte comando para ativar novamente a recuperação de espaço: <br>`fsutil behavior set disabledeletenotify 0`</br></li><li>Aplique o hotfix do Windows Server 2012 como descrito no [KB 2878635](https://support.microsoft.com/kb/2870270) no seu computador Windows Server.</li></ul></li></ul></ul> Se estiver a configurar o StorSimple Snapshot Manager ou o Adaptador StorSimple para o SharePoint, aceda aos [requisitos de Software para componentes opcionais](#software-requirements-for-optional-components). <br> Se o seu cliente Do Windows Server estiver a utilizar o protocolo SMB para aceder ao dispositivo StorSimple, vá à [sintonização de desempenho para servidores de ficheiros SMB](/windows-server/administration/performance-tuning/role/file-server/smb-file-server) para obter orientação sobre o aumento do processamento paralelo.|
 | VMware ESX |5.5 e 6.0 |Suportado com VMware vSphere como cliente iSCSI. A funcionalidade de bloco VAAI é suportada com VMware vSphere em dispositivos StorSimple. |
 | Linux RHEL/CentOS |5, 6 e 7 |Suporte para clientes Linux iSCSI com versões de iniciador open-iSCSI 5, 6 e 7. |
 | Linux |SUSE Linux 11 | |
@@ -98,7 +98,7 @@ Recomendamos que estabeleça as suas regras de firewall para tráfego de saída,
 
 | Padrão url | Componente/Funcionalidade | IPs do dispositivo |
 | --- | --- | --- |
-| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*`<br>`https://login.windows.net` |Serviço de Gestor de Dispositivos do StorSimple<br>Serviço de Controlo de Acessos<br>Azure Service Bus<br>Serviço de Autenticação |Interfaces de rede ativadas pela nuvem |
+| `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*`<br>`https://login.windows.net` |Serviço de Gestor de Dispositivos do StorSimple<br>Serviço de Controlo de Acessos<br>Service Bus do Azure<br>Serviço de Autenticação |Interfaces de rede ativadas pela nuvem |
 | `https://*.backup.windowsazure.com` |Registo de dispositivo |APENAS DADOS 0 |
 | `https://crl.microsoft.com/pki/*`<br>`https://www.microsoft.com/pki/*` |Revogação do certificado |Interfaces de rede ativadas pela nuvem |
 | `https://*.core.windows.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Contas de armazenamento Azure e monitorização |Interfaces de rede ativadas pela nuvem |
@@ -110,7 +110,7 @@ Recomendamos que estabeleça as suas regras de firewall para tráfego de saída,
 
 | Padrão url | Componente/Funcionalidade | IPs do dispositivo |
 | --- | --- | --- |
-| `https://*.storsimple.windowsazure.us/*`<br>`https://*.accesscontrol.usgovcloudapi.net/*`<br>`https://*.servicebus.usgovcloudapi.net/*`<br>`https://login.microsoftonline.us` |Serviço de Gestor de Dispositivos do StorSimple<br>Serviço de Controlo de Acessos<br>Azure Service Bus<br>Serviço de Autenticação |Interfaces de rede ativadas pela nuvem |
+| `https://*.storsimple.windowsazure.us/*`<br>`https://*.accesscontrol.usgovcloudapi.net/*`<br>`https://*.servicebus.usgovcloudapi.net/*`<br>`https://login.microsoftonline.us` |Serviço de Gestor de Dispositivos do StorSimple<br>Serviço de Controlo de Acessos<br>Service Bus do Azure<br>Serviço de Autenticação |Interfaces de rede ativadas pela nuvem |
 | `https://*.backup.windowsazure.us` |Registo de dispositivo |APENAS DADOS 0 |
 | `https://crl.microsoft.com/pki/*`<br>`https://www.microsoft.com/pki/*` |Revogação do certificado |Interfaces de rede ativadas pela nuvem |
 | `https://*.core.usgovcloudapi.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Contas de armazenamento Azure e monitorização |Interfaces de rede ativadas pela nuvem |
@@ -233,7 +233,7 @@ O modelo de dispositivo StorSimple 8600 inclui um invólucro de discos estendido
 * Certifique-se de que ambos os módulos controladores de caixa EBOD, ambos os cabos SAS e todos os discos rígidos estão sempre instalados.
 * Se um módulo de controlador de recinto EBOD falhar, solicite uma substituição imediatamente.
 * Se um módulo de controlador de recinto EBOD falhar, certifique-se de que o outro módulo do controlador está ativo antes de substituir o módulo falhado. Para verificar se um controlador está ativo, vá [identificar o controlador ativo no seu dispositivo](storsimple-8000-controller-replacement.md#identify-the-active-controller-on-your-device).
-* Durante a substituição de um módulo controlador EBOD, monitorize continuamente o estado **Monitor** do componente no serviço StorSimple Device Manager acedendo à saúde do  >  **Hardware** do Monitor .
+* Durante a substituição de um módulo controlador EBOD, monitorize continuamente o estado do componente no serviço StorSimple Device Manager acedendo à saúde do  >  **Hardware** do Monitor .
 * Se um cabo SAS falhar ou necessitar de substituição (o Microsoft Support deve estar envolvido para fazer tal determinação), certifique-se de que remove apenas o cabo SAS que necessita de substituição.
 * Não remova simultaneamente ambos os cabos SAS do sistema em nenhum momento.
 

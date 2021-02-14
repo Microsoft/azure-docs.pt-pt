@@ -1,20 +1,20 @@
 ---
-title: 'Quickstart: Criar uma cache de nível Enterprise'
-description: Neste quickstart, aprenda a criar um exemplo de Azure Cache para o nível Redis Enterprise
+title: 'Quickstart: Criar uma cache Redis Enterprise'
+description: Neste quickstart, aprenda a criar um exemplo de Azure Cache para Redis em níveis enterprise
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 10/28/2020
-ms.openlocfilehash: 95f6e2cf7803ff0b152f33c08f170725b5a0e94e
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.date: 02/08/2021
+ms.openlocfilehash: 50535ab9ac2a3541ade7b9abd8f355bbeaf6d4b3
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95795677"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100365009"
 ---
-# <a name="quickstart-create-an-enterprise-tier-cache-preview"></a>Quickstart: Criar uma cache de nível Enterprise (pré-visualização)
+# <a name="quickstart-create-a-redis-enterprise-cache-preview"></a>Quickstart: Criar uma cache Redis Enterprise (Pré-visualização)
 
 Azure Cache para os níveis da Redis Enterprise fornecem a [Redis Enterprise](https://redislabs.com/redis-enterprise/) totalmente integrada e gerida em Azure. Estão disponíveis como pré-visualização. Há dois novos níveis nesta pré-visualização:
 * Enterprise, que usa memória volátil (DRAM) numa máquina virtual para armazenar dados
@@ -22,7 +22,7 @@ Azure Cache para os níveis da Redis Enterprise fornecem a [Redis Enterprise](ht
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Vai precisar de uma assinatura Azure antes de começar. Se não tiver uma, crie uma [conta.](https://azure.microsoft.com/) Para obter mais informações, consulte [os requisitos de nível da Enterprise.](cache-overview.md#enterprise-tier-requirements)
+Vai precisar de uma assinatura Azure antes de começar. Se não tiver uma, crie uma [conta.](https://azure.microsoft.com/) Para obter mais informações, consulte [os requisitos de nível da Enterprise.](cache-overview.md#enterprise-and-enterprise-flash-tier-requirements)
 
 ## <a name="create-a-cache"></a>Criar uma cache
 1. Para criar uma cache, inscreva-se no portal Azure utilizando o link no seu convite de pré-visualização e selecione **Criar um recurso**.

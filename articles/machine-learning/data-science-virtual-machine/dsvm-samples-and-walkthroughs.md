@@ -4,18 +4,17 @@ titleSuffix: Azure Data Science Virtual Machine
 description: Através destas amostras e de passagem, aprenda a lidar com tarefas e cenários comuns com a Máquina Virtual de Ciência de Dados.
 keywords: ferramentas de ciência de dados, máquina de virtual de ciência de dados, ferramentas para ciência de dados, ciência de dados do linux
 services: machine-learning
-ms.service: machine-learning
-ms.subservice: data-science-vm
+ms.service: data-science-vm
 author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 98a1cd883867aa2f785b15f4c7ae4f2266a421ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cda5dfd936243602775e1f4f965032b9d746b0b7
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87012574"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100519767"
 ---
 # <a name="samples-on-azure-data-science-virtual-machines"></a>Amostras em Azure Data Science Virtual Machines
 
@@ -28,12 +27,12 @@ As máquinas virtuais de ciência de dados Azure (DSVMs) incluem um conjunto abr
 Para executar estas amostras, deve ter adhido uma [Máquina Virtual Ubuntu Data Science.](./dsvm-ubuntu-intro.md)
 
 ## <a name="available-samples"></a>Exemplos disponíveis
-| Categoria amostras | Descrição | Localizações |
+| Categoria amostras | Description | Localizações |
 | ------------- | ------------- | ------------- |
 | Linguagem R  | As amostras ilustram cenários como como conectar-se com lojas de dados em nuvem baseadas em Azure e como comparar o Open-Source R e o Microsoft Machine Learning Server. Também explicam como operacionalizar modelos no Microsoft Machine Learning Server e no SQL Server. <br/> [Linguagem R](#r-language) | <br/>`~notebooks` <br/> <br/> `~samples/MicrosoftR` <br/> <br/> `~samples/RSqlDemo` <br/> <br/> `~samples/SQLRServices`<br/> <br/>|
 | Linguagem Python  | As amostras explicam cenários como como conectar-se com lojas de dados em nuvem baseadas em Azure e como trabalhar com a Azure Machine Learning.  <br/> [Linguagem Python](#python-language) | <br/>`~notebooks` <br/><br/>|
 | Língua julia  | Fornece uma descrição detalhada de conspiração e aprendizagem profunda em Julia. Também explica como ligar para C e Python de Julia. <br/> [Língua julia](#julia-language) |<br/> Windows:<br/> `~notebooks/Julia_notebooks`<br/><br/> Linux:<br/> `~notebooks/julia`<br/><br/> |
-| Azure Machine Learning  | Ilustra como construir modelos de aprendizagem automática e deep-learning com Machine Learning. Implemente modelos em qualquer lugar. Utilize aprendizagem automática de máquinas e afinação de hiperparímetro inteligente. Utilize também a gestão de modelos e formação distribuída. <br/> [Aprendizagem automática](#azure-machine-learning) | <br/>`~notebooks/AzureML`<br/> <br/>|
+| Azure Machine Learning  | Ilustra como construir modelos de aprendizagem automática e deep-learning com Machine Learning. Implemente modelos em qualquer lugar. Utilize aprendizagem automática de máquinas e afinação de hiperparímetro inteligente. Utilize também a gestão de modelos e formação distribuída. <br/> [Machine Learning](#azure-machine-learning) | <br/>`~notebooks/AzureML`<br/> <br/>|
 | Cadernos PyTorch  | Amostras de aprendizagem profunda que usam redes neuronais baseadas em PyTorch. Os cadernos vão desde principiantes a cenários avançados.  <br/> [Cadernos PyTorch](#pytorch) | <br/>`~notebooks/Deep_learning_frameworks/pytorch`<br/> <br/>|
 | TensorFlow  |  Uma variedade de amostras e técnicas de rede neural implementadas utilizando a estrutura TensorFlow. <br/> [TensorFlow](#tensorflow) | <br/>`~notebooks/Deep_learning_frameworks/tensorflow`<br/><br/> |
 | Microsoft Cognitive Toolkit <br/>   | Amostras de aprendizagem profunda publicadas pela equipa do Cognitive Toolkit na Microsoft.  <br/> [Cognitive Toolkit](#cntk) | <br/> `~notebooks/DeepLearningTools/CNTK/Tutorials`<br/><br/> Linux:<br/> `~notebooks/CNTK`<br/> <br/>|

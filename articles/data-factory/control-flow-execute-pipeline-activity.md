@@ -1,22 +1,18 @@
 ---
 title: Executar atividade de gasoduto na Fábrica de Dados Azure
 description: Saiba como pode utilizar a Atividade do Gasoduto executar para invocar um oleoduto data factory a partir de outro oleoduto data factory.
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
-manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 7df636bbdc85b9fcdcbfef260daca905f9949d8c
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 9bcf8fd62e3b20701136d7912074afb37d567e2f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500055"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100383352"
 ---
 # <a name="execute-pipeline-activity-in-azure-data-factory"></a>Executar atividade de pipeline na Fábrica de Dados Azure
 
@@ -66,11 +62,11 @@ A atividade Executar Pipeline permite que um pipeline do Data Factory invoque ou
 
 Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-name | Nome da atividade do gasoduto de execução. | String | Sim
-tipo | Deve ser definido para: **ExecutePipeline**. | String | Sim
-oleoduto | Referência do gasoduto ao gasoduto dependente que este gasoduto invoca. Um objeto de referência do gasoduto tem duas propriedades: nome de **referência** e **tipo**. A propriedade referenceName especifica o nome do gasoduto de referência. A propriedade tipo deve ser definida para PipelineReference. | PipelineReference | Sim
-parâmetros | Parâmetros a passar para o gasoduto invocado | Um objeto JSON que mapeia nomes de parâmetros para valores de argumento | Não
-esperaCompletion | Define se a execução da atividade aguarda o fim da execução do gasoduto dependente. A predefinição é falso. | Booleano | Não
+name | Nome da atividade do gasoduto de execução. | String | Yes
+tipo | Deve ser definido para: **ExecutePipeline**. | String | Yes
+oleoduto | Referência do gasoduto ao gasoduto dependente que este gasoduto invoca. Um objeto de referência do gasoduto tem duas propriedades: nome de **referência** e **tipo**. A propriedade referenceName especifica o nome do gasoduto de referência. A propriedade tipo deve ser definida para PipelineReference. | PipelineReference | Yes
+parâmetros | Parâmetros a passar para o gasoduto invocado | Um objeto JSON que mapeia nomes de parâmetros para valores de argumento | No
+esperaCompletion | Define se a execução da atividade aguarda o fim da execução do gasoduto dependente. A predefinição é falso. | Booleano | No
 
 ## <a name="sample"></a>Sample
 Este cenário tem dois oleodutos:

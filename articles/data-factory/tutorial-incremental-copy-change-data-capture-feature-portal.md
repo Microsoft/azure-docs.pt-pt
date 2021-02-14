@@ -1,22 +1,17 @@
 ---
 title: Copie gradualmente dados usando a Captura de Dados de Alteração
 description: Neste tutorial, você cria um pipeline Azure Data Factory que copia dados delta incrementalmente de uma tabela na base de dados Azure SQL Managed Instance para Azure Storage.
-services: data-factory
 ms.author: nihurt
 author: hurtn
-manager: ''
-ms.reviewer: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: tutorial
-ms.custom: ''
 ms.date: 05/04/2020
-ms.openlocfilehash: 754f58fe7ee9bc8d10ba1fa973615781ce4d6dce
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: ba4e5c3998c7c6218d2f0232e3c05930ca82e378
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98555921"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100391274"
 ---
 # <a name="incrementally-load-data-from-azure-sql-managed-instance-to-azure-storage-using-change-data-capture-cdc"></a>Carregue gradualmente os dados do Azure SQL Managed Instance para O Azure Storage utilizando a captura de dados de alteração (CDC)
 
@@ -33,7 +28,7 @@ Vai executar os seguintes passos neste tutorial:
 > * Modificar dados na tabela de origem
 > * Complete, corra e monitorize todo o pipeline de cópia incremental
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 A tecnologia Change Data Capture suportada por lojas de dados como Azure SQL Managed Instances (MI) e SQL Server pode ser usada para identificar dados alterados.  Este tutorial descreve como usar a Azure Data Factory com a tecnologia SQL Change Data Capture para carregar gradualmente dados delta da Azure SQL Managed Instance em Azure Blob Storage.  Para obter informações mais concretas sobre a tecnologia SQL Change Data Capture, consulte [a captura de dados de alteração no SQL Server](/sql/relational-databases/track-changes/about-change-data-capture-sql-server).
 
 ## <a name="end-to-end-workflow"></a>Fluxo de trabalho ponto a ponto
@@ -90,10 +85,10 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
 
     ```sql
      insert into customers 
-        (customer_id, first_name, last_name, email, city) 
+         (customer_id, first_name, last_name, email, city) 
      values 
-        (1, 'Chevy', 'Leward', 'cleward0@mapy.cz', 'Reading'),
-        (2, 'Sayre', 'Ateggart', 'sateggart1@nih.gov', 'Portsmouth'),
+         (1, 'Chevy', 'Leward', 'cleward0@mapy.cz', 'Reading'),
+         (2, 'Sayre', 'Ateggart', 'sateggart1@nih.gov', 'Portsmouth'),
         (3, 'Nathalia', 'Seckom', 'nseckom2@blogger.com', 'Portsmouth');
     ```
 

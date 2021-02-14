@@ -1,5 +1,5 @@
 ---
-title: Configurar dispositivos para proxies de rede - Azure IoT Edge / Microsoft Docs
+title: Configurar dispositivos para proxies de rede - Azure IoT Edge | Microsoft Docs
 description: Como configurar o tempo de execução do Azure IoT Edge e quaisquer módulos IoT Edge virados para a Internet para comunicar através de um servidor proxy.
 author: kgremban
 ms.author: kgremban
@@ -10,12 +10,12 @@ services: iot-edge
 ms.custom:
 - amqp
 - contperf-fy21q1
-ms.openlocfilehash: fb7cb0638ca86ea736749e6fb35e2295128162aa
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 7fc57b46055281c64b39767047f6b7cb5b748ad2
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97032988"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100373832"
 ---
 # <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>Configurar um dispositivo IoT Edge para comunicar através de um servidor proxy
 
@@ -245,7 +245,7 @@ Com as variáveis ambientais incluídas, a definição do módulo deve parecer o
 "edgeHub": {
     "type": "docker",
     "settings": {
-        "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
+        "image": "mcr.microsoft.com/azureiotedge-hub:1.1",
         "createOptions": ""
     },
     "env": {
@@ -275,7 +275,7 @@ Se incluiu a variável ambiente **UpstreamProtocol** no ficheiro confige.yaml no
 
 Se o representante que está a tentar utilizar realizar uma inspeção de tráfego em ligações seguras do TLS, é importante notar que a autenticação com certificados X.509 não funciona. O IoT Edge estabelece um canal TLS que é encriptado de ponta a ponta com o certificado e chave fornecidos. Se esse canal for quebrado para inspeção de tráfego, o representante não pode restabelecer o canal com as credenciais adequadas, e o IoT Hub e o serviço de fornecimento de dispositivos IoT Hub devolvem um `Unauthorized` erro.
 
-Para utilizar um proxy que efetue a inspeção de tráfego, deve utilizar a autenticação de assinatura de acesso partilhado ou ter o IoT Hub e o serviço de fornecimento de dispositivos IoT Hub adicionados a uma lista de admissões para evitar a inspeção.
+Para utilizar um proxy que efetue a inspeção de tráfego, deve utilizar a autenticação de assinatura de acesso partilhado ou ter o IoT Hub e o serviço de fornecimento de dispositivos IoT Hub adicionados a uma lista de permitis para evitar a inspeção.
 
 ## <a name="next-steps"></a>Passos seguintes
 

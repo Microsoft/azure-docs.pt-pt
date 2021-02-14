@@ -9,12 +9,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 12/18/2020
 ms.author: alkohli
-ms.openlocfilehash: dd71b03f55cc1522727f6c496c1bdbe0f42cb828
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: 13c07da7393c70bb1fc61930dd1179994c68ed75
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97678615"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100389812"
 ---
 # <a name="what-is-azure-data-box"></a>O que é o Azure Data Box?
 
@@ -42,7 +42,7 @@ Aqui estão os vários cenários onde a Caixa de Dados pode ser usada para expor
 
 - **Recuperação de desastres** - quando uma cópia dos dados do Azure é restaurada para uma rede no local. Num cenário típico de recuperação de desastres, uma grande quantidade de dados do Azure é exportado para uma Caixa de Dados. A Microsoft envia então esta Caixa de Dados e os dados são restaurados nas suas instalações num curto espaço de tempo.
 
-- **Requisitos de segurança** - quando você precisa ser capaz de exportar dados para fora fo Azure devido a requisitos governamentais ou de segurança. Por exemplo, o Azure Storage está disponível em nuvens secretas e ultrassecretas dos EUA, e pode usar a Data Box para exportar dados do Azure. 
+- **Requisitos de segurança** - quando você precisa ser capaz de exportar dados para fora de Azure devido a requisitos governamentais ou de segurança. Por exemplo, o Azure Storage está disponível em nuvens secretas e ultrassecretas dos EUA, e pode usar a Data Box para exportar dados do Azure. 
 
 - **Migrar de volta para o local ou para outro fornecedor de serviços na nuvem** - quando quiser mover todos os dados de volta para o local, ou para outro fornecedor de serviços na nuvem, os dados de exportação através da Data Box para migrar as cargas de trabalho.
 
@@ -66,7 +66,7 @@ O Data Box foi concebido para mover grandes quantidades de dados para o Azure co
 
 O dispositivo Data Box tem as seguintes funcionalidades nesta versão.
 
-| Especificações                                          | Descrição              |
+| Especificações                                          | Description              |
 |---------------------------------------------------------|--------------------------|
 | Peso                                                  | < 23 kg                |
 | Dimensões                                              | Dispositivo – Largura: 309,0 mm Altura: 430,4 mm Profundidade: 502,0 mm |            

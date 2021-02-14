@@ -3,18 +3,17 @@ title: Modelos de rastreio e implantação de experiências
 titleSuffix: Azure Data Science Virtual Machine
 description: Saiba como rastrear e registar experiências a partir da Máquina Virtual de Ciência de Dados com Azure Machine Learning e/ou MLFlow.
 services: machine-learning
-ms.service: machine-learning
-ms.subservice: data-science-vm
+ms.service: data-science-vm
 author: samkemp
 ms.author: samkemp
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: 7726fce7ac69ebfaabf44049abc49c53f8175718
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 3795d531c5c4c543587ab817c05cd1cfeea6be06
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98704545"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100518543"
 ---
 # <a name="track-experiments-and-deploy-models-in-azure-machine-learning"></a>Acompanhe experiências e implemente modelos em Azure Machine Learning
 
@@ -30,7 +29,7 @@ O diagrama seguinte ilustra que, com o MLflow Tracking, rastreia as métricas de
 
 ## <a name="create-a-new-notebook"></a>Criar um novo Notebook
 
-O Azure Machine Learning e o MLFlow SDK estão pré-instalados no VM da Ciência dos Dados e podem ser acedidos no ambiente **azureml_py36_ \** _ conda. No JupyterLab, clique no lançador e selecione o seguinte núcleo:
+O Azure Machine Learning e o MLFlow SDK estão pré-instalados no VM da Ciência dos Dados e podem ser acedidos no ambiente **conda azureml_py36_. \*** No JupyterLab, clique no lançador e selecione o seguinte núcleo:
 
 ![seleção de kernel](./media/how-to-track-experiments/experiment-tracking-1.png)
 
@@ -137,7 +136,7 @@ No menu à esquerda no [Estúdio AzureML](https://ml.azure.com) clique no __Comp
 
 No painel de agrupamento de __inferência Nova,__ os detalhes preenchem os detalhes para:
 
-_ Nome do cálculo
+* Nome do cálculo
 * Kubernetes Service - selecione criar novos
 * Selecione a região
 * Selecione o tamanho VM (para efeitos deste tutorial, o padrão de Standard_D3_v2 é suficiente)

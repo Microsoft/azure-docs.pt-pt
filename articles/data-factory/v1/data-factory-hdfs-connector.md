@@ -1,23 +1,18 @@
 ---
 title: Mover dados do HDFS no local
 description: Saiba como mover dados de HDFS no local usando a Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.assetid: 3215b82d-291a-46db-8478-eac1a3219614
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c4393ebeb8b1e287bd881233418a902fc523f7f5
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 52e176e0fed85b649d482614667d695db539e5d1
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97589626"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100383080"
 ---
 # <a name="move-data-from-on-premises-hdfs-using-azure-data-factory"></a>Mover dados do HDFS no local usando a Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -66,13 +61,13 @@ Um serviço ligado liga uma loja de dados a uma fábrica de dados. Cria um servi
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| tipo |A propriedade tipo deve ser definida para: **Hdfs** |Sim |
-| url |URL para o HDFS |Sim |
-| authenticationType |Anónimo, ou Windows. <br><br> Para utilizar **a autenticação Kerberos** para o conector HDFS, consulte [esta secção](#use-kerberos-authentication-for-hdfs-connector) para configurar o ambiente no local em conformidade. |Sim |
+| tipo |A propriedade tipo deve ser definida para: **Hdfs** |Yes |
+| url |URL para o HDFS |Yes |
+| authenticationType |Anónimo, ou Windows. <br><br> Para utilizar **a autenticação Kerberos** para o conector HDFS, consulte [esta secção](#use-kerberos-authentication-for-hdfs-connector) para configurar o ambiente no local em conformidade. |Yes |
 | userName |Nome de utilizador para autenticação do Windows. Para a autenticação de Kerberos, especifique `<username>@<domain>.com` . |Sim (para autenticação do Windows) |
 | palavra-passe |Palavra-passe para autenticação do Windows. |Sim (para autenticação do Windows) |
-| gatewayName |Nome do gateway que o serviço Data Factory deve utilizar para ligar ao HDFS. |Sim |
-| criptografadoCredential |[Saída new-AzDataFactoryEncryptValue](/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) da credencial de acesso. |Não |
+| gatewayName |Nome do gateway que o serviço Data Factory deve utilizar para ligar ao HDFS. |Yes |
+| criptografadoCredential |[Saída new-AzDataFactoryEncryptValue](/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) da credencial de acesso. |No |
 
 ### <a name="using-anonymous-authentication"></a>Utilização da autenticação anónima
 
@@ -112,6 +107,7 @@ Um serviço ligado liga uma loja de dados a uma fábrica de dados. Cria um servi
     }
 }
 ```
+
 ## <a name="dataset-properties"></a>Dataset properties (Propriedades do conjunto de dados)
 Para obter uma lista completa de secções & propriedades disponíveis para definir conjuntos de dados, consulte o artigo [Criar conjuntos de dados.](data-factory-create-datasets.md) Secções como estrutura, disponibilidade e política de um conjunto de dados JSON são semelhantes para todos os tipos de conjunto de dados (Azure SQL, Azure blob, Azure table, etc.).
 
@@ -119,11 +115,11 @@ A secção **typeProperties** é diferente para cada tipo de conjunto de dados e
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| folderPath |Caminho para a pasta. Exemplo: `myfolder`<br/><br/>Utilize o personagem de fuga ' \ ' para caracteres especiais na corda. Por exemplo: para a sub-dobragem pasta\, especifique \\ \\ a sub-dobradeira e para d:\samplefolder, especificar d: \\ \\ amostragem.<br/><br/>Pode combinar esta propriedade com **partição Para** ter caminhos de pasta baseados em intervalos de datas de início/fim da fatia. |Sim |
-| fileName |Especifique o nome do ficheiro na **pastaPata** se pretender que a tabela se refira a um ficheiro específico na pasta. Se não especificar qualquer valor para esta propriedade, a tabela aponta para todos os ficheiros da pasta.<br/><br/>Quando o data de ficheiro não for especificado para um conjunto de dados de saída, o nome do ficheiro gerado estará no seguinte formato: <br/><br/>`Data.<Guid>.txt` (por exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |Não |
-| partitionedBy |partitionedBy pode ser usado para especificar uma pasta dinâmicaPath, nome de ficheiro para dados da série de tempo. Exemplo: pastaPametante parametrizada para cada hora de dados. |Não |
-| formato | Os seguintes tipos de formato são suportados: **TextFormat,** **JsonFormat,** **AvroFormat,** **OrcFormat,** **ParquetFormat**. Desa um destes valores, o **tipo** de propriedade em formato. Para mais informações, consulte [formato de texto,](data-factory-supported-file-and-compression-formats.md#text-format) [formato Json,](data-factory-supported-file-and-compression-formats.md#json-format) [Formato Avro,](data-factory-supported-file-and-compression-formats.md#avro-format) [Formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format)e secções [de Formato Parquet.](data-factory-supported-file-and-compression-formats.md#parquet-format) <br><br> Se pretender **copiar ficheiros como-está** entre lojas baseadas em ficheiros (cópia binária), salte a secção de formato nas definições de conjunto de dados de entrada e saída. |Não |
-| compressão | Especifique o tipo e o nível de compressão para os dados. Os tipos suportados são: **GZip,** **Deflate,** **BZip2** e **ZipDeflate**. Os níveis suportados são: **Ideal** e **Mais rápido**. Para obter mais informações, consulte [os formatos de arquivo e compressão na Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Não |
+| folderPath |Caminho para a pasta. Exemplo: `myfolder`<br/><br/>Utilize o personagem de fuga ' \ ' para caracteres especiais na corda. Por exemplo: para a sub-dobragem pasta\, especifique \\ \\ a sub-dobradeira e para d:\samplefolder, especificar d: \\ \\ amostragem.<br/><br/>Pode combinar esta propriedade com **partição Para** ter caminhos de pasta baseados em intervalos de datas de início/fim da fatia. |Yes |
+| fileName |Especifique o nome do ficheiro na **pastaPata** se pretender que a tabela se refira a um ficheiro específico na pasta. Se não especificar qualquer valor para esta propriedade, a tabela aponta para todos os ficheiros da pasta.<br/><br/>Quando o data de ficheiro não for especificado para um conjunto de dados de saída, o nome do ficheiro gerado estará no seguinte formato: <br/><br/>`Data.<Guid>.txt` (por exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |No |
+| partitionedBy |partitionedBy pode ser usado para especificar uma pasta dinâmicaPath, nome de ficheiro para dados da série de tempo. Exemplo: pastaPametante parametrizada para cada hora de dados. |No |
+| formato | Os seguintes tipos de formato são suportados: **TextFormat,** **JsonFormat,** **AvroFormat,** **OrcFormat,** **ParquetFormat**. Desa um destes valores, o **tipo** de propriedade em formato. Para mais informações, consulte [formato de texto,](data-factory-supported-file-and-compression-formats.md#text-format) [formato Json,](data-factory-supported-file-and-compression-formats.md#json-format) [Formato Avro,](data-factory-supported-file-and-compression-formats.md#avro-format) [Formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format)e secções [de Formato Parquet.](data-factory-supported-file-and-compression-formats.md#parquet-format) <br><br> Se pretender **copiar ficheiros como-está** entre lojas baseadas em ficheiros (cópia binária), salte a secção de formato nas definições de conjunto de dados de entrada e saída. |No |
+| compressão | Especifique o tipo e o nível de compressão para os dados. Os tipos suportados são: **GZip,** **Deflate,** **BZip2** e **ZipDeflate**. Os níveis suportados são: **Ideal** e **Mais rápido**. Para obter mais informações, consulte [os formatos de arquivo e compressão na Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |No |
 
 > [!NOTE]
 > o nome de ficheiro e o ficheiroFiltro não podem ser utilizados simultaneamente.
@@ -168,9 +164,9 @@ Para a Atividade de Cópia, quando a fonte é do tipo **FileSystemSource,** as s
 
 **FileSystemSource** suporta as seguintes propriedades:
 
-| Propriedade | Descrição | Valores permitidos | Obrigatório |
+| Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
-| recursivo |Indica se os dados são lidos novamente a partir das sub-pastas ou apenas a partir da pasta especificada. |Verdadeiro, Falso (padrão) |Não |
+| recursivo |Indica se os dados são lidos novamente a partir das sub-pastas ou apenas a partir da pasta especificada. |Verdadeiro, Falso (padrão) |No |
 
 ## <a name="supported-file-and-compression-formats"></a>Formatos de ficheiro e de compressão suportados
 Consulte [os formatos de arquivo e compressão no artigo da Azure Data Factory](data-factory-supported-file-and-compression-formats.md) sobre detalhes.
@@ -363,25 +359,25 @@ Existem duas opções para configurar o ambiente no local de modo a utilizar a a
 
 **Na máquina de gateway:**
 
-1.  Executar o utilitário **Ksetup** para configurar o servidor e o reino do Kerberos KDC.
+1. Executar o utilitário **Ksetup** para configurar o servidor e o reino do Kerberos KDC.
 
-    A máquina deve ser configurada como membro de um grupo de trabalho, uma vez que um reino Kerberos é diferente de um domínio Windows. Isto pode ser conseguido definindo o reino de Kerberos e adicionando um servidor KDC da seguinte forma. Substitua *REALM.COM* pelo seu próprio reino, se necessário.
+   A máquina deve ser configurada como membro de um grupo de trabalho, uma vez que um reino Kerberos é diferente de um domínio Windows. Isto pode ser conseguido definindo o reino de Kerberos e adicionando um servidor KDC da seguinte forma. Substitua *REALM.COM* pelo seu próprio reino, se necessário.
 
-    ```cmd
-    C:> Ksetup /setdomain REALM.COM
-    C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
-    ```
+   ```cmd
+   Ksetup /setdomain REALM.COM
+   Ksetup /addkdc REALM.COM <your_kdc_server_address>
+   ```
 
-    **Reinicie** a máquina depois de executar estes 2 comandos.
+   **Reinicie** a máquina depois de executar estes 2 comandos.
 
-2.  Verifique a configuração com o comando **Ksetup.** A saída deve ser como:
+2. Verifique a configuração com o comando **Ksetup.** A saída deve ser como:
 
-    ```cmd
-    C:> Ksetup
-    default realm = REALM.COM (external)
-    REALM.com:
-        kdc = <your_kdc_server_address>
-    ```
+   ```cmd
+   Ksetup
+   default realm = REALM.COM (external)
+   REALM.com:
+      kdc = <your_kdc_server_address>
+   ```
 
 **Na Fábrica de Dados Azure:**
 
@@ -390,8 +386,8 @@ Existem duas opções para configurar o ambiente no local de modo a utilizar a a
 ### <a name="option-2-enable-mutual-trust-between-windows-domain-and-kerberos-realm"></a><a name="kerberos-mutual-trust"></a>Opção 2: Permitir a confiança mútua entre o domínio windows e o reino de Kerberos
 
 #### <a name="requirement"></a>Requisito:
-*   A máquina de porta de entrada deve juntar-se a um domínio Windows.
-*   Precisa de permissão para atualizar as definições do controlador de domínio.
+*    A máquina de porta de entrada deve juntar-se a um domínio Windows.
+*    Precisa de permissão para atualizar as definições do controlador de domínio.
 
 #### <a name="how-to-configure"></a>Como configurar:
 
@@ -450,54 +446,54 @@ Existem duas opções para configurar o ambiente no local de modo a utilizar a a
 
 **No controlador de domínio:**
 
-1.  Executar os seguintes comandos **Ksetup** para adicionar uma entrada de reino:
+1. Executar os seguintes comandos **Ksetup** para adicionar uma entrada de reino:
 
-    ```cmd
-    C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
-    C:> ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
-    ```
+   ```cmd
+   Ksetup /addkdc REALM.COM <your_kdc_server_address>
+   ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
+   ```
 
-2.  Estabeleça a confiança do Windows Domain para o Reino de Kerberos. [palavra-passe] é a palavra-passe para o principal **krbtgt/REALM.COM \@ AD.COM**.
+2. Estabeleça a confiança do Windows Domain para o Reino de Kerberos. [palavra-passe] é a palavra-passe para o principal **krbtgt/REALM.COM \@ AD.COM**.
 
-    ```cmd
-    C:> netdom trust REALM.COM /Domain: AD.COM /add /realm /passwordt:[password]
-    ```
+   ```cmd
+   netdom trust REALM.COM /Domain: AD.COM /add /realm /passwordt:[password]
+   ```
 
-3.  Selecione algoritmo de encriptação usado em Kerberos.
+3. Selecione algoritmo de encriptação usado em Kerberos.
 
-    1. Vá ao Gestor de Servidor > Gestão de Políticas de Grupo > Objetos de Política de Grupo > Objetos de Política de Grupo > Política de Domínio Padrão ou Ativo e Edite.
+   1. Vá ao Gestor de Servidor > Gestão de Políticas de Grupo > Objetos de Política de Grupo > Objetos de Política de Grupo > Política de Domínio Padrão ou Ativo e Edite.
 
-    2. Na janela popup do **Editor de Gestão de Políticas de Grupo,** aceda a Políticas de Configuração de Computador > Políticas > Definições de Segurança do Windows > Definições de Segurança > Políticas Locais > Opções de Segurança e configufique **a segurança da rede: Configurar tipos de encriptação permitidos para Kerberos**.
+   2. Na janela popup do **Editor de Gestão de Políticas de Grupo,** aceda a Políticas de Configuração de Computador > Políticas > Definições de Segurança do Windows > Definições de Segurança > Políticas Locais > Opções de Segurança e configufique **a segurança da rede: Configurar tipos de encriptação permitidos para Kerberos**.
 
-    3. Selecione o algoritmo de encriptação que pretende utilizar quando ligar ao KDC. Normalmente, pode simplesmente selecionar todas as opções.
+   3. Selecione o algoritmo de encriptação que pretende utilizar quando ligar ao KDC. Normalmente, pode simplesmente selecionar todas as opções.
 
-        ![Tipos de encriptação Config para Kerberos](media/data-factory-hdfs-connector/config-encryption-types-for-kerberos.png)
+      ![Tipos de encriptação Config para Kerberos](media/data-factory-hdfs-connector/config-encryption-types-for-kerberos.png)
 
-    4. Utilize o comando **Ksetup** para especificar o algoritmo de encriptação a utilizar no REALM específico.
+   4. Utilize o comando **Ksetup** para especificar o algoritmo de encriptação a utilizar no REALM específico.
 
-       ```cmd
-       C:> ksetup /SetEncTypeAttr REALM.COM DES-CBC-CRC DES-CBC-MD5 RC4-HMAC-MD5 AES128-CTS-HMAC-SHA1-96 AES256-CTS-HMAC-SHA1-96
-       ```
+      ```cmd
+      ksetup /SetEncTypeAttr REALM.COM DES-CBC-CRC DES-CBC-MD5 RC4-HMAC-MD5 AES128-CTS-HMAC-SHA1-96 AES256-CTS-HMAC-SHA1-96
+      ```
 
-4.  Crie o mapeamento entre a conta de domínio e kerberos principal, de modo a utilizar kerberos principal no Domínio do Windows.
+4. Crie o mapeamento entre a conta de domínio e kerberos principal, de modo a utilizar kerberos principal no Domínio do Windows.
 
-    1. Inicie as ferramentas administrativas > **Utilizadores e Computadores de Diretório Ativo**.
+   1. Inicie as ferramentas administrativas > **Utilizadores e Computadores de Diretório Ativo**.
 
-    2. Configure funcionalidades avançadas clicando **em Ver**  >  **Funcionalidades Avançadas**.
+   2. Configure funcionalidades avançadas clicando **em Ver**  >  **Funcionalidades Avançadas**.
 
-    3. Localize a conta à qual pretende criar mapeamentos e clique no botão direito para ver **Os Mapeamentos de Nome** > clique no separador **Nomes Kerberos.**
+   3. Localize a conta à qual pretende criar mapeamentos e clique no botão direito para ver **Os Mapeamentos de Nome** > clique no separador **Nomes Kerberos.**
 
-    4. Adicione um diretor do reino.
+   4. Adicione um diretor do reino.
 
-        ![Identidade de segurança do mapa](media/data-factory-hdfs-connector/map-security-identity.png)
+      ![Identidade de segurança do mapa](media/data-factory-hdfs-connector/map-security-identity.png)
 
 **Na máquina de gateway:**
 
 * Executar os seguintes comandos **Ksetup** para adicionar uma entrada de reino.
 
    ```cmd
-   C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
-   C:> ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
+   Ksetup /addkdc REALM.COM <your_kdc_server_address>
+   ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
    ```
 
 **Na Fábrica de Dados Azure:**
@@ -506,7 +502,6 @@ Existem duas opções para configurar o ambiente no local de modo a utilizar a a
 
 > [!NOTE]
 > Para mapear colunas de conjunto de dados de origem para colunas a partir do conjunto de dados da pia, consulte [as colunas de conjunto de dados de mapeamento na Azure Data Factory](data-factory-map-columns.md).
-
 
 ## <a name="performance-and-tuning"></a>Performance e Afinação
 Consulte [copy Activity Performance & Guia de Afinação](data-factory-copy-activity-performance.md) para conhecer os fatores-chave que impactam o desempenho do movimento de dados (Copy Activity) na Azure Data Factory e várias formas de otimizá-lo.

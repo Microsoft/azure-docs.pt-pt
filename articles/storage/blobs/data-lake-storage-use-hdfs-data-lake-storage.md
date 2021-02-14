@@ -9,12 +9,12 @@ ms.date: 12/06/2018
 ms.author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: artek
-ms.openlocfilehash: d2b36dd600efa864913e0087c49bffd556e8330d
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: f1f2ea8bd51b7eeda9afdd6a94d5de1d58acef57
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95912404"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100520651"
 ---
 # <a name="using-the-hdfs-cli-with-data-lake-storage-gen2"></a>Utilização do HDFS CLI com data lake storage gen2
 
@@ -25,7 +25,7 @@ O HDInsight fornece acesso ao recipiente distribuído que está ligado localment
 Para mais informações sobre o HDFS CLI, consulte a [documentação oficial](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html) e o Guia de [Permissões do HDFS](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html)
 
 >[!NOTE]
->Se estiver a utilizar a Azure Databricks em vez de HDInsight, e pretender interagir com os seus dados utilizando uma interface de linha de comando, pode utilizar o CLI databricks para interagir com o sistema de ficheiros Databricks. Ver [Databricks CLI](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html).
+>Se estiver a utilizar a Azure Databricks em vez de HDInsight, e pretender interagir com os seus dados utilizando uma interface de linha de comando, pode utilizar o CLI databricks para interagir com o sistema de ficheiros Databricks. Ver [Databricks CLI](/azure/databricks/dev-tools/cli/).
 
 ## <a name="use-the-hdfs-cli-with-an-hdinsight-hadoop-cluster-on-linux"></a>Use o HDFS CLI com um cluster HDInsight Hadoop em Linux
 

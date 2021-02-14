@@ -4,19 +4,18 @@ titleSuffix: Azure Data Science Virtual Machine
 description: Disponíveis quadros e ferramentas de aprendizagem profunda na Azure Data Science Virtual Machine.
 keywords: ferramentas de ciência de dados, máquina de virtual de ciência de dados, ferramentas para ciência de dados, ciência de dados do linux
 services: machine-learning
-ms.service: machine-learning
-ms.subservice: data-science-vm
+ms.service: data-science-vm
 ms.custom: devx-track-python
 author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: c8c6ee3d5eecc02ac921d7b10f2394380af684c2
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 3c720e2b033d07397f3b13c37e1b4e15251b0a17
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93309033"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100519495"
 ---
 # <a name="deep-learning-and-ai-frameworks-for-the-azure-data-science-vm"></a>Deep learning e ia frameworks para o Azure Data Science VM
 Os quadros de aprendizagem profunda no DSVM estão listados abaixo.
@@ -43,7 +42,7 @@ Os quadros de aprendizagem profunda no DSVM estão listados abaixo.
 
 | Categoria | Valor |
 | ------------- | ------------- |
-| Versão(s) suportadas | 5.2 |
+| Versão(s) suportadas | 5,2 |
 | Edições DSVM suportadas      | Ubuntu 16.04    |
 | Como é configurado / instalado no DSVM?  | Chainer está instalado em Python 3.5. |
 | Como executá-lo      | Terminal: Ative o ambiente Python 3.5, corra `python` e, em seguida, `import chainer` . <br/> * JupyterHub: [Ligue-se ao JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine)e, em seguida, vá ao diretório Chainer para encontrar cadernos de amostras.| 

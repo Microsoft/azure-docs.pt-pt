@@ -5,12 +5,12 @@ description: Saiba como atualizar ou redefinir as credenciais de serviço princi
 services: container-service
 ms.topic: article
 ms.date: 03/11/2019
-ms.openlocfilehash: c787f172bc03e11c574c4de967aee05da9df18aa
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: ba2c31872ae026cfdfcb7be17d333fb98194dce6
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427518"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100389013"
 ---
 # <a name="update-or-rotate-the-credentials-for-azure-kubernetes-service-aks"></a>Atualizar ou rodar as credenciais para o Serviço Azure Kubernetes (AKS)
 
@@ -47,6 +47,9 @@ az ad sp credential list --id $SP_ID --query "[].endDate" -o tsv
 ### <a name="reset-the-existing-service-principal-credential"></a>Repor a credencial principal de serviço existente
 
 Para atualizar as credenciais para o principal serviço existente, obtenha o iD principal de serviço do seu cluster usando o comando [az aks show.][az-aks-show] O exemplo a seguir obtém o ID para o cluster chamado *myAKSCluster* no grupo de recursos *myResourceGroup.* O ID principal de serviço é definido como uma variável chamada *SP_ID* para uso em comando adicional. Estes comandos usam sintaxe Bash.
+
+> [!WARNING]
+> Quando repõe as suas credenciais de cluster num cluster AKS que utiliza conjuntos de escala de máquina virtual Azure, é realizada uma [atualização de imagem de nó][node-image-upgrade] para atualizar os seus nós com as novas informações credenciais.
 
 ```azurecli-interactive
 SP_ID=$(az aks show --resource-group myResourceGroup --name myAKSCluster \
@@ -138,3 +141,4 @@ Neste artigo, o principal de serviço do cluster AKS em si e as Aplicações de 
 [az-ad-sp-create]: /cli/azure/ad/sp#az-ad-sp-create-for-rbac
 [az-ad-sp-credential-list]: /cli/azure/ad/sp/credential#az-ad-sp-credential-list
 [az-ad-sp-credential-reset]: /cli/azure/ad/sp/credential#az-ad-sp-credential-reset
+[node-image-upgrade]: ./node-image-upgrade.md

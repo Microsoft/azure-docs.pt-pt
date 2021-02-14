@@ -3,25 +3,25 @@ title: Monitorize a saúde de uma aplicação Azure IoT Central | Microsoft Docs
 description: Como operador ou administrador, monitorize a saúde geral dos dispositivos ligados à sua aplicação IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 05/14/2020
+ms.date: 01/27/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 12485e07bc3cad9d420141ecc6ee66763ac010b7
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 1c16da10a8a7853b1392383855aba0ff24424f33
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98760772"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100515874"
 ---
-# <a name="monitor-the-overall-health-of-the-devices-connected-to-an-iot-central-application"></a>Monitorize a saúde geral dos dispositivos ligados a uma aplicação IoT Central
+# <a name="monitor-the-overall-health-of-an-iot-central-application"></a>Monitorizar a saúde geral de uma aplicação IoT Central
 
 > [!NOTE]
 > As métricas só estão disponíveis para aplicações IoT Central da versão 3. Para saber como verificar a sua versão de aplicação, consulte [sobre a sua aplicação.](./howto-get-app-info.md)
 
 *Este artigo aplica-se aos operadores e administradores.*
 
-Neste artigo, aprende-se a utilizar o conjunto de métricas fornecidas pela IoT Central para avaliar a saúde geral dos dispositivos ligados à sua aplicação IoT Central.
+Neste artigo, aprende-se a utilizar o conjunto de métricas fornecidas pela IoT Central para avaliar a saúde dos dispositivos ligados à sua aplicação IoT Central e a saúde das suas exportações de dados em execução.
 
 As métricas são ativadas por padrão para a sua aplicação IoT Central e acede-las a partir do [portal Azure](https://portal.azure.com/). A [plataforma de dados Azure Monitor expõe estas métricas](../../azure-monitor/platform/data-platform-metrics.md) e fornece várias formas de interagir com elas. Por exemplo, pode utilizar gráficos no portal Azure, uma API REST ou consultas no PowerShell ou no Azure CLI.
 
@@ -31,7 +31,7 @@ As aplicações que usam o plano de teste gratuito não têm uma subscrição Az
 
 ## <a name="view-metrics-in-the-azure-portal"></a>Ver métricas no portal Azure
 
-Os seguintes passos pressupõem que tem uma [aplicação IoT Central](./quick-deploy-iot-central.md) com [alguns dispositivos conectados](./tutorial-connect-device.md).
+Os seguintes passos pressupõem que tem uma [aplicação IoT Central](./quick-deploy-iot-central.md) com [alguns dispositivos conectados](./tutorial-connect-device.md) ou uma exportação de dados em [execução.](howto-export-data.md)
 
 Para ver as métricas IoT Central no portal:
 
@@ -58,6 +58,6 @@ As métricas podem diferir dos números indicados na sua fatura Azure IoT Centra
 
 - Embora as métricas possam mostrar um subconjunto de comunicação dispositivo-nuvem, toda a comunicação entre o dispositivo e a nuvem [conta como uma mensagem para a faturação](https://azure.microsoft.com/pricing/details/iot-central/).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que aprendeu a usar modelos de aplicação, o próximo passo sugerido é aprender a [gerir o IoT Central a partir do portal Azure.](howto-manage-iot-central-from-portal.md)
