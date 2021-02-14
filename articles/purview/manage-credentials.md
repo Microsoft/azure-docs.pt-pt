@@ -1,102 +1,127 @@
 ---
 title: Criar e gerir credenciais para digitalizações
-description: Este artigo explica os passos para criar e gerir credenciais em Azure Purview.
+description: Conheça os passos para criar e gerir credenciais em Azure Purview.
 author: viseshag
 ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 11/23/2020
-ms.openlocfilehash: 4c964f3661e120026189a75d331e6db975b41c70
-ms.sourcegitcommit: 90caa05809d85382c5a50a6804b9a4d8b39ee31e
+ms.date: 02/11/2021
+ms.openlocfilehash: 091f4d7a4acdcc5d1a2b89a5121ee0cff3ee1f55
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97756080"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100381193"
 ---
 # <a name="credentials-for-source-authentication-in-azure-purview"></a>Credenciais para autenticação de origem em Azure Purview
 
-Este artigo descreve como pode criar credenciais no Azure Purview para reutilizar e aplicar rapidamente informações de autenticação guardada nas suas análises de fonte de dados.
+Este artigo descreve como pode criar credenciais em Azure Purview. Estas credenciais guardadas permitem-lhe reutilizar rapidamente e aplicar informações de autenticação guardada nas suas análises de fontes de dados.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Um cofre de chaves Azure. Para aprender a criar um, consulte [Quickstart: Crie um cofre-chave utilizando o portal Azure](../key-vault/general/quick-create-portal.md).
+- Um cofre de chaves Azure. Para aprender a criar um, consulte [Quickstart: Crie um cofre-chave utilizando o portal Azure](../key-vault/general/quick-create-portal.md).
 
 ## <a name="introduction"></a>Introdução
-Uma Credencial é a informação de autenticação que o Azure Purview pode utilizar para autenticar nas suas fontes de dados registadas. Um objeto credencial pode ser criado para vários tipos de cenários de autenticação (como a Autenticação Básica que requer nome de utilizador/palavra-passe) e irá capturar as informações específicas necessárias com base no tipo escolhido de método de autenticação. As credenciais utilizam os seus segredos Azure Key Vaults existentes para recuperar informações de autenticação sensível durante o processo de criação de credenciais.
 
-## <a name="using-purview-managed-identity-to-set-up-scans"></a>Usando a identidade gerida de Purview para configurar digitalizações
+Uma credencial é a informação de autenticação que o Azure Purview pode usar para autenticar nas suas fontes de dados registadas. Um objeto credencial pode ser criado para vários tipos de cenários de autenticação, como a Autenticação Básica que requer nome de utilizador/senha. Credenciais capturam informações específicas necessárias à autenticação, com base no tipo escolhido de método de autenticação. As credenciais utilizam os seus segredos Azure Key Vaults existentes para recuperar informações de autenticação sensível durante o processo de criação de credenciais.
+
+## <a name="use-purview-managed-identity-to-set-up-scans"></a>Use a identidade gerida de Purview para configurar digitalizações
+
 Se estiver a usar a identidade gerida pela Purview para configurar as sondagens, não terá de criar explicitamente uma credencial e ligar o cofre-chave ao Purview para os armazenar. Para obter instruções detalhadas sobre a adição da identidade gerida pela Alça deVisão para ter acesso a digitalizar as suas fontes de dados, consulte as secções de autenticação específicas da fonte de dados abaixo:
 
 - [Armazenamento de Blobs do Azure](register-scan-azure-blob-storage-source.md#setting-up-authentication-for-a-scan)
 - [Armazenamento do Azure Data Lake Ger1](register-scan-adls-gen1.md#setting-up-authentication-for-a-scan)
 - [Azure Data Lake Storage Gen2](register-scan-adls-gen2.md#setting-up-authentication-for-a-scan) (Armazenamento do Azure Data Lake Gen2)
 - [Base de Dados SQL do Azure](register-scan-azure-sql-database.md)
-- [Instância Gerida da Base de Dados SQL do Azure](register-scan-azure-sql-database-managed-instance.md#setting-up-authentication-for-a-scan)
+- [Exemplo gerido pela base de dados Azure SQL](register-scan-azure-sql-database-managed-instance.md#setting-up-authentication-for-a-scan)
 - [Azure Synapse Analytics](register-scan-azure-synapse-analytics.md#setting-up-authentication-for-a-scan)
 
 ## <a name="create-azure-key-vaults-connections-in-your-azure-purview-account"></a>Crie ligações Azure Key Vaults na sua conta Azure Purview
 
-Antes de poder criar uma Credencial, terá primeiro de associar uma ou mais das suas instâncias existentes do Azure Key Vault à sua conta Azure Purview.
+Antes de poder criar um Credencial, primeiro associe uma ou mais das suas instâncias existentes do Azure Key Vault com a sua conta Azure Purview.
 
-1. A partir do menu de navegação Azure Purview, navegue até ao Centro de Gestão e, em seguida, navegue até credenciais
+1. A partir do [portal Azure,](https://portal.azure.com)selecione a sua conta Azure Purview. Navegue para o **Centro de Gestão** e, em seguida, navegue para **credenciais.**
 
-2. A partir da barra de comando credenciais, selecione Gerir as ligações do Cofre de Chaves
+2. Na página **Credenciais,** **selecione 'Gerir as ligações 'Gestão do Cofre de Chaves'.**
 
-    :::image type="content" source="media/manage-credentials/manage-kv-connections.png" alt-text="Gerir ligações AKV":::
+   :::image type="content" source="media/manage-credentials/manage-kv-connections.png" alt-text="Gerir ligações Azure Key Vault":::
 
-3. Selecione +Novo do painel de ligações do Cofre de Chaves 
+3. Selecione **+ Novo** na página 'Gerir chaves' de ligações.
 
-4. Forneça as informações necessárias e, em seguida, selecione Criar
+4. Forneça as informações necessárias e, em seguida, **selecione Criar**.
 
-5. Confirme que o seu Cofre chave foi associado com sucesso à sua conta Azure Purview
+5. Confirme que o seu Key Vault foi associado com sucesso à sua conta Azure Purview, como mostrado neste exemplo:
 
-    :::image type="content" source="media/manage-credentials/view-kv-connections.png" alt-text="Ver ligações AKV":::
+   :::image type="content" source="media/manage-credentials/view-kv-connections.png" alt-text="Veja as ligações do Cofre da Chave Azure para confirmar.":::
 
 ## <a name="grant-the-purview-managed-identity-access-to-your-azure-key-vault"></a>Conceda ao Purview acesso de identidade gerido ao seu Cofre chave Azure
 
-Navegue para a sua chave de > políticas de acesso -> Adicionar Política de Acesso. Grant Obtenha permissão nas permissões secrets dropdown, e Select Principal para ser o MSI de Purview. 
+1. Navegue até ao cofre da chave Azure.
 
-:::image type="content" source="media/manage-credentials/add-msi-to-akv.png" alt-text="Adicionar MSI de Purview à AKV":::
+2. Selecione a página **'Políticas de Acesso'.**
 
+3. Selecione **Adicionar Política de Acesso**.
 
-:::image type="content" source="media/manage-credentials/add-access-policy.png" alt-text="Adicionar política de acesso":::
+   :::image type="content" source="media/manage-credentials/add-msi-to-akv.png" alt-text="Adicionar MSI de Purview à AKV":::
 
+4. Nas **permissões Secrets** dropdown, selecione **permissões Get** and **List.**
 
-:::image type="content" source="media/manage-credentials/save-access-policy.png" alt-text="Salvar a política de acesso":::
+5. Para **Select principal,** escolha a identidade gerida por Purview.
+
+   :::image type="content" source="media/manage-credentials/add-access-policy.png" alt-text="Adicionar política de acesso":::
+
+6. Selecione **Adicionar**.
+
+7. **Selecione Guardar** para guardar a política de Acesso.
+
+   :::image type="content" source="media/manage-credentials/save-access-policy.png" alt-text="Salvar a política de acesso":::
 
 ## <a name="create-a-new-credential"></a>Criar uma nova credencial
 
-Tipo credencial suportado em Purview hoje:
-* Autenticação básica : Irá adicionar a **palavra-passe** como segredo no cofre de chaves
-* Diretor de Serviço : Você adicionará a **chave principal** do serviço como um segredo no cofre chave 
-* Autenticação SQL : Irá adicionar a **palavra-passe** como segredo no cofre de chaves
-* Chave de conta : Irá adicionar a chave da **conta** como um segredo no cofre de chaves
+Estes tipos de credenciais são suportados em Purview:
+
+- Autenticação básica: Adicione a **palavra-passe** como segredo no cofre de chaves.
+- Diretor de serviço: Adiciona-se a **chave principal** do serviço como segredo no cofre das chaves.
+- Autenticação SQL: Adicione a **palavra-passe** como segredo no cofre de chaves.
+- Chave de conta: Adicione a chave da **conta** como um segredo no cofre de chaves.
 
 Para mais informações, consulte [Adicionar um segredo ao Key Vault.](../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault)
 
-Depois de guardar os seus segredos no seu cofre chave, crie a sua nova Credencial selecionando +New a partir da barra de comando de Credenciais. Forneça as informações necessárias, incluindo a seleção do método de autenticação e uma instância do Cofre de Chaves para selecionar um segredo. Uma vez preenchidos todos os detalhes, clique em criar.
+Depois de guardar os seus segredos no cofre da chave:
 
-:::image type="content" source="media/manage-credentials/new-credential.png" alt-text="Nova credencial":::
+1. Em Azure Purview, vá à página de Credenciais.
 
-Verifique se o seu novo Credencial aparece na vista da lista de credenciais e está pronto a usar
+2. Crie a sua nova Credencial selecionando **+ Novo**.
 
-:::image type="content" source="media/manage-credentials/view-credentials.png" alt-text="Ver credencial":::
+3. Forneça as informações necessárias. Selecione o **método de autenticação** e uma **ligação key Vault** para selecionar um segredo.
+
+4. Uma vez preenchidos todos os detalhes, **selecione Criar**.
+
+   :::image type="content" source="media/manage-credentials/new-credential.png" alt-text="Nova credencial":::
+
+5. Verifique se a sua nova credencial aparece na vista da lista e está pronta a ser utilizada.
+
+   :::image type="content" source="media/manage-credentials/view-credentials.png" alt-text="Ver credencial":::
 
 ## <a name="manage-your-key-vault-connections"></a>Gerencie as suas ligações de cofre chave
 
 1. Procurar/encontrar ligações key vault pelo nome
 
-    :::image type="content" source="media/manage-credentials/search-kv.png" alt-text="Cofre de chaves de pesquisa":::
+   :::image type="content" source="media/manage-credentials/search-kv.png" alt-text="Cofre de chaves de pesquisa":::
 
-1. Eliminar uma ou mais ligações do Cofre de Chaves
- 
-    :::image type="content" source="media/manage-credentials/delete-kv.png" alt-text="Apagar cofre de chaves":::
+2. Eliminar uma ou mais ligações do Cofre de Chaves
+
+   :::image type="content" source="media/manage-credentials/delete-kv.png" alt-text="Apagar cofre de chaves":::
 
 ## <a name="manage-your-credentials"></a>Gerencie as suas credenciais
 
-1. Pesquisar/encontrar Credenciais pelo nome
+1. Procurar/encontrar Credenciais pelo nome.
   
-2. Selecione e faça atualizações para uma credencial existente
+2. Selecione e faça atualizações para uma Credencial existente.
 
-3. Apagar uma ou mais credenciais
+3. Apague uma ou mais credenciais.
+
+## <a name="next-steps"></a>Passos seguintes
+
+[Criar um conjunto de regras de análise](create-a-scan-rule-set.md)

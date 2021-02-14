@@ -1,32 +1,30 @@
 ---
 title: Ligue o seu parceiro de ID para acompanhar o seu impacto em recursos delegados
 description: Saiba como associar o seu parceiro ID a receber o parceiro de crédito adquirido (PEC) sobre os recursos do cliente que gere através do Farol Azure.
-ms.date: 01/28/2021
+ms.date: 02/12/2021
 ms.topic: how-to
-ms.openlocfilehash: 46338b925b1ad44019c9cc95e4b7f8c0963c07c4
-ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
+ms.openlocfilehash: 4c18aae38570ab3fd84df7d45fb18e35404158be
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98985976"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100372098"
 ---
 # <a name="link-your-partner-id-to-track-your-impact-on-delegated-resources"></a>Ligue o seu parceiro de ID para acompanhar o seu impacto em recursos delegados 
 
 Se for membro da [Microsoft Partner Network,](https://partner.microsoft.com/)pode ligar o ID do seu parceiro às credenciais utilizadas para gerir os recursos delegados do cliente, permitindo à Microsoft identificar e reconhecer parceiros que impulsionam o sucesso do cliente da Azure. Este link também permite que os parceiros [da CSP (Cloud Solution Provider)](/partner-center/csp-overview) recebam [crédito adquirido pelos serviços geridos (PEC)](/partner-center/partner-earned-credit) para clientes que [assinaram o Microsoft Customer Agreement (MCA)](/partner-center/confirm-customer-agreement) e estão [ao abrigo do plano Azure.](/partner-center/azure-plan-get-started)
 
-Se você estiver [a bordo de clientes com ofertas de Serviço Gerido no Azure Marketplace,](publish-managed-services-offers.md)a ligação acontece automaticamente usando o ID MPN associado à conta Partner Center utilizada para publicar as ofertas. Não são necessárias mais medidas para acompanhar o seu impacto para estes clientes.
-
-Se você [estiver a bordo clientes usando modelos de Gestão de Recursos Azure,](onboard-customer.md)você precisará tomar medidas para criar este link. Isto é feito [ligando o seu ID MPN](../../cost-management-billing/manage/link-partner-id.md) com pelo menos uma conta de utilizador no seu inquilino gerente que tem acesso a cada uma das suas subscrições a bordo.
+Para obter reconhecimento para as atividades do Azure Lighthouse, terá de [ligar o seu ID MPN](../../cost-management-billing/manage/link-partner-id.md) a pelo menos uma conta de utilizador no seu inquilino gerente, e garantir que a conta ligada tem acesso a cada uma das suas subscrições a bordo.
 
 ## <a name="associate-your-partner-id-when-you-onboard-new-customers"></a>Associe o seu ID do parceiro quando estiver a bordo de novos clientes
 
-Ao embarcar os clientes através dos modelos Azure Resource Manager (modelos ARM), utilize o seguinte processo para ligar o ID do seu parceiro (e ativar o crédito adquirido pelo parceiro, se aplicável). Precisa de conhecer o seu [parceiro MPN para](/partner-center/partner-center-account-setup#locate-your-mpn-id) completar estes passos. Utilize o **ID do MPN associado** apresentado no seu perfil de parceiro.
+Utilize o seguinte processo para ligar o ID do seu parceiro (e ativar o crédito obtido pelo parceiro, se aplicável). Precisa de conhecer o seu [parceiro MPN para](/partner-center/partner-center-account-setup#locate-your-mpn-id) completar estes passos. Utilize o **ID do MPN associado** apresentado no seu perfil de parceiro.
 
 Para simplificar, recomendamos a criação de uma conta principal de serviço no seu inquilino, ligando-a ao seu **ID MPN Associado,** concedendo-lhe acesso a todos os clientes que você está a bordo com uma [função azure incorporada que é elegível para PEC.](/partner-center/azure-roles-perms-pec)
 
-1. [Crie uma conta principal](../../active-directory/develop/howto-authenticate-service-principal-powershell.md) de serviço no seu inquilino gerente. Para este exemplo, usaremos o nome *Dem automação de fornecedor para* este responsável de serviço.
+1. [Crie uma conta principal de utilizador](../../active-directory/develop/howto-authenticate-service-principal-powershell.md) de serviço no seu inquilino gerente. Para este exemplo, usaremos o nome *Dem automação de fornecedor para* esta conta principal de serviço.
 1. Utilizando essa conta principal de serviço, [ligue-se ao seu ID MPN Associado](../../cost-management-billing/manage/link-partner-id.md#link-to-a-partner-id) no seu inquilino gerente. Só precisas de fazer isto uma vez.
-1. Quando [embarcar num cliente utilizando modelos ARM,](onboard-customer.md)certifique-se de que inclui uma autorização que inclui a Conta de Automação do Fornecedor como utilizador com uma [função incorporada Azure que é elegível para PEC.](/partner-center/azure-roles-perms-pec)
+1. Quando embarcar num cliente [que utilize modelos ARM](onboard-customer.md) ou [ofertas de Serviço Gerido,](publish-managed-services-offers.md)certifique-se de incluir uma autorização que inclua a Conta de Automação do Fornecedor como utilizador com uma [função incorporada Azure que é elegível para PEC.](/partner-center/azure-roles-perms-pec)
 
 Ao seguir estes passos, todos os inquilinos que gere estarão associados ao seu parceiro ID. A Conta de Automação do Fornecedor não necessita de autenticar ou realizar quaisquer ações no cliente inquilino.
 

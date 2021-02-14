@@ -3,15 +3,15 @@ title: Windows Virtual Desktop MSIX app anexar pré-visualização do portal - A
 description: Como configurar o anexo de aplicações MSIX para o Windows Virtual Desktop utilizando o portal Azure.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 12/14/2020
+ms.date: 02/11/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 34bcef24d5e7fbda53984f14a2307859c9210262
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 19ce054ce29b744f900676ecf4e55af3487d9891
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98185959"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100373475"
 ---
 # <a name="set-up-msix-app-attach-with-the-azure-portal"></a>Configurar a anexação de aplicações MSIX com o portal do Azure
 
@@ -65,7 +65,7 @@ Em seguida, terá de descarregar e configurar a interface de gestão anexada à 
 
 Para configurar a interface de gestão:
 
-1. [Abra o portal de pré-visualização](https://preview.portal.azure.com/?feature.msixapplications=true#home).
+1. [Abra o portal Azure](https://portal.azure.com).
 2. Se receber uma pergunta a perguntar se considera a extensão de confiança, **selecione Permitir**.
 
       > [!div class="mx-imgBorder"]
@@ -171,6 +171,9 @@ Para publicar as aplicações:
 ## <a name="assign-a-user-to-an-app-group"></a>Atribuir um utilizador a um grupo de aplicações
 
 Depois de atribuir aplicações MSIX a um grupo de aplicações, terá de conceder aos utilizadores acesso às suas aplicações. Pode atribuir acesso adicionando utilizadores ou grupos de utilizadores a um grupo de aplicações com aplicações MSIX publicadas. Siga as instruções em [Gerir grupos de aplicações com o portal Azure](manage-app-groups.md) para atribuir os seus utilizadores a um grupo de aplicações.
+
+>[!NOTE]
+>A aplicação MSIX anexar aplicações remotas pode desaparecer do feed quando testa aplicações remotas durante a pré-visualização pública. As aplicações não aparecem porque o pool de anfitriões que você está usando no ambiente de avaliação está sendo servido por um Corretor RD no ambiente de produção. Como o Corretor RD no ambiente de produção não regista a presença da app MSIX anexar aplicações remotas, as aplicações não aparecerão no feed.
 
 ## <a name="change-msix-package-state"></a>Alterar estado de pacote MSIX
 

@@ -1,22 +1,18 @@
 ---
 title: Definir atividade variável na fábrica de dados Azure
 description: Saiba como utilizar a atividade de Variável Definida para definir o valor de uma variável existente definida num pipeline de Fábrica de Dados
-services: data-factory
-documentationcenter: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/07/2020
 author: dcstwh
 ms.author: weetok
-manager: jroth
 ms.reviewer: maghan
-ms.openlocfilehash: f3c1fae2cbf2a1ba8b71dcbc8f6639bda4765f5c
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 122a0a01c420d5efa12fa267a0d3605fc7a25960
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498409"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100385341"
 ---
 # <a name="set-variable-activity-in-azure-data-factory"></a>Definir atividade variável na fábrica de dados Azure
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -25,13 +21,13 @@ Utilize a atividade de Variável Definida para definir o valor de uma variável 
 
 ## <a name="type-properties"></a>Tipo de propriedades
 
-Propriedade | Descrição | Obrigatório
+Propriedade | Descrição | Necessário
 -------- | ----------- | --------
-name | Nome da atividade em pipeline | yes
+name | Nome da atividade em pipeline | sim
 descrição | Texto descrevendo o que a atividade faz | não
-tipo | Deve ser definido para **SetVariable** | yes
-valor | Valor de objeto literal ou expressão de corda a que a variável é atribuída | yes
-nome variável | Nome da variável que é definida por esta atividade | yes
+tipo | Deve ser definido para **SetVariable** | sim
+valor | Valor de objeto literal ou expressão de corda a que a variável é atribuída | sim
+nome variável | Nome da variável que é definida por esta atividade | sim
 
 ## <a name="incrementing-a-variable"></a>Incrementando uma variável
 

@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: 209125a5cc8d86c1af07966d52681aa91ea7dc19
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 584266a8f6aa82d8a47b5e3faff044acf0ef298c
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97027004"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100361626"
 ---
 # <a name="configure-azure-ad-multi-factor-authentication-settings"></a>Configurar configurar definições de autenticação multi-factor Ad Azure
 
@@ -65,9 +65,7 @@ Para bloquear um utilizador, complete os seguintes passos:
 
 1. Navegue para utilizadores do **Azure Ative Directory**  >  **Security**  >  **MFA**  >  **Block/desbloquear**.
 1. **Selecione Adicionar** para bloquear um utilizador.
-1. Selecione o **Grupo de Replicação** e, em seguida, escolha *Azure Default*.
-
-    Introduza o nome de utilizador para o utilizador bloqueado como `username\@domain.com` , em seguida, forneça um comentário no campo *'Razão'.*
+1. Introduza o nome de utilizador para o utilizador bloqueado como `username@domain.com` , em seguida, forneça um comentário no campo *'Razão'.*
 1. Quando estiver pronto, selecione **OK** para bloquear o utilizador.
 
 ### <a name="unblock-a-user"></a>Desbloquear um utilizador

@@ -1,26 +1,26 @@
 ---
 title: Proteja o seu VMS de Solução VMware Azure com integração do Centro de Segurança Azure
-description: Aprenda a proteger os seus VMS Azure VMware Solution com as ferramentas de segurança nativas da Azure a partir de um único dashboard no Azure Security Center.
+description: Proteja os VMS da Solução VMware Azure com as ferramentas de segurança nativas da Azure do painel do Centro de Segurança Azure.
 ms.topic: how-to
-ms.date: 02/04/2021
-ms.openlocfilehash: 58cfa1e8e7faa56675d966f86d3b390e52acec27
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.date: 02/12/2021
+ms.openlocfilehash: b37d09d6e8f239586a18c0fa3b1dcd7bfee98102
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99584962"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100516367"
 ---
 # <a name="protect-your-azure-vmware-solution-vms-with-azure-security-center-integration"></a>Proteja o seu VMS de Solução VMware Azure com integração do Centro de Segurança Azure
 
-As ferramentas de segurança nativas Azure fornecem uma infraestrutura segura para um ambiente híbrido de Azure, Azure VMware Solution e máquinas virtuais no local (VMs). Este artigo mostra-lhe como configurar ferramentas Azure para a segurança do ambiente híbrido. Utilizará várias ferramentas para identificar e abordar diferentes tipos de ameaças.
+As ferramentas de segurança nativas Azure fornecem proteção para um ambiente híbrido de Azure, Azure VMware Solution e máquinas virtuais no local (VMs). Este artigo mostra-lhe como configurar ferramentas Azure para a segurança do ambiente híbrido. Usará estas ferramentas para identificar e enfrentar várias ameaças.
 
 ## <a name="azure-native-services"></a>Serviços nativos de Azure
 
-Aqui está um resumo rápido de cada serviço nativo Azure:
+Aqui está um resumo rápido dos serviços nativos de Azure:
 
 - **Log Analytics espaço de trabalho:** Log Analytics workspace é um ambiente único para armazenar dados de registo. Cada área de trabalho tem o seu próprio repositório de dados e a sua própria configuração. As fontes de dados e as soluções estão configuradas para armazenar os seus dados num espaço de trabalho específico.
-- **Centro de Segurança Azure:** O Azure Security Center é um sistema unificado de gestão de segurança de infraestruturas. Fortalece a postura de segurança dos centros de dados e fornece uma proteção avançada de ameaças através das cargas de trabalho híbridas na nuvem ou nas instalações.
-- **Azure Sentinel:** Azure Sentinel é uma solução de gestão de eventos de informação de segurança (SIEM) nativa da nuvem e de orquestração de segurança (SOAR). Fornece análises inteligentes de segurança e inteligência de ameaças em todo o ambiente. É uma única solução para deteção de alerta, visibilidade de ameaças, caça proativa e resposta a ameaças.
+- **Centro de Segurança Azure:** O Azure Security Center é um sistema unificado de gestão de segurança de infraestruturas. Reforça a segurança dos centros de dados e fornece uma proteção avançada de ameaças através de cargas de trabalho híbridas na nuvem ou nas instalações.
+- **Azure Sentinel:** Azure Sentinel é uma solução nativa de informação de segurança (SIEM). Fornece análise de segurança, deteção de alerta e resposta automática de ameaças em todo o ambiente.
 
 ## <a name="topology"></a>Topologia
 
@@ -30,13 +30,13 @@ O agente Log Analytics permite a recolha de dados de registo da Azure, Azure VMw
 
 Uma vez recolhidos os registos pelo espaço de trabalho Log Analytics, pode configurar o espaço de trabalho Log Analytics com o Azure Security Center. O Azure Security Center avaliará o estado de vulnerabilidade dos VMs de Solução VMware Azure e levantará um alerta para qualquer vulnerabilidade crítica. Por exemplo, avalia patches de sistema operativo em falta, configurações de segurança e [proteção de pontos finais](../security-center/security-center-services.md).
 
-Pode configurar o espaço de trabalho Log Analytics com o Azure Sentinel para deteção de alerta, visibilidade de ameaças, caça proativa e resposta a ameaças. No diagrama anterior, o Azure Security Center está ligado ao Azure Sentinel utilizando o conector do Centro de Segurança Azure. O Azure Security Center irá encaminhar a vulnerabilidade ambiental para o Azure Sentinel para criar um incidente e mapear com outras ameaças. Também pode criar a consulta de regras programadas para detetar atividade indesejada e convertê-la nos incidentes.
+Pode configurar o espaço de trabalho Log Analytics com o Azure Sentinel para deteção de alerta, visibilidade de ameaças, caça e resposta a ameaças. No diagrama anterior, o Azure Security Center está ligado ao Azure Sentinel utilizando o conector do Centro de Segurança Azure. O Azure Security Center irá encaminhar a vulnerabilidade ambiental para o Azure Sentinel para criar um incidente e mapear com outras ameaças. Também pode criar a consulta de regras programadas para detetar atividade indesejada e convertê-la nos incidentes.
 
 ## <a name="benefits"></a>Benefícios
 
 - Os serviços nativos do Azure podem ser utilizados para a segurança do ambiente híbrido em Azure, Azure VMware Solution e serviços no local.
 - Utilizando um espaço de trabalho Log Analytics, pode recolher os dados ou os registos num único ponto e apresentar os mesmos dados a diferentes serviços nativos do Azure.
-- O Azure Security Center oferece uma série de funcionalidades, incluindo:
+- O Azure Security Center oferece muitas funcionalidades, incluindo:
     - Monitorização da integridade do ficheiro
     - Deteção de ataque sem ficheiros
     - Avaliação do patch do sistema operativo 
@@ -54,7 +54,7 @@ Você precisará de um espaço de trabalho Log Analytics para recolher dados de 
 
 ## <a name="deploy-security-center-and-configure-azure-vmware-solution-vms"></a>Implementar Centro de Segurança e configurar VMs de Solução VMware Azure
 
-O Centro de Segurança Azure é uma ferramenta pré-configurada e não necessita de implantação. No portal Azure, procure o **Centro de Segurança** e selecione-o.
+O Azure Security Center é uma ferramenta pré-configurada que não requer implantação. No portal Azure, procure o **Centro de Segurança** e selecione-o.
 
 ### <a name="enable-azure-defender"></a>Ativar o Azure Defender
 
@@ -149,7 +149,7 @@ Agora está pronto para ligar o Azure Sentinel às suas fontes de dados, neste c
 
 ## <a name="create-rules-to-identify-security-threats"></a>Criar regras para identificar ameaças à segurança
 
-Depois de ligar fontes de dados ao Azure Sentinel, pode criar regras para gerar alertas baseados em ameaças detetadas. No exemplo seguinte, criaremos uma regra para identificar tentativas de iniciar sessão no servidor do Windows com a palavra-passe errada.
+Depois de ligar fontes de dados ao Azure Sentinel, pode criar regras para gerar alertas para ameaças detetadas. No exemplo seguinte, criaremos uma regra para tentativas de iniciar sessão no servidor do Windows com a palavra-passe errada.
 
 1. Na página geral do Azure Sentinel, em Configurações, selecione **Analytics**.
 
@@ -196,7 +196,7 @@ Depois de ligar fontes de dados ao Azure Sentinel, pode criar regras para gerar 
 
 Após a terceira tentativa falhada de iniciar sposição no servidor do Windows, a regra criada despoleta um incidente para cada tentativa falhada.
 
-## <a name="view-generated-alerts"></a>Ver alertas gerados
+## <a name="view-alerts"></a>Ver alertas
 
 Pode ver incidentes gerados com Azure Sentinel. Também pode atribuir incidentes e fechá-los assim que forem resolvidos, todos de dentro de Azure Sentinel.
 

@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: end-user-help
-ms.date: 11/20/2020
+ms.date: 01/19/2021
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: 7b97edcac8bed23e03569d733746b547f5440cee
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 843f957ef8871f6372c1b08a5534f6e90098cc85
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97609674"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100095125"
 ---
 # <a name="user-collections-preview-in-my-apps"></a>Coleções de utilizadores (pré-visualização) nas Minhas Apps
 
@@ -33,6 +33,12 @@ Neste artigo, aprenderá a:
 - Coleções de ocultação
 - Mostrar coleções escondidas
 - Apagar coleções
+
+>[!Note]
+>Se vir um erro ao iniciar sessão com uma conta pessoal da Microsoft, ainda pode iniciar sessão utilizando o nome de domínio da sua organização (como contoso.com) ou o **ID** do Inquilino da sua organização a partir de um dos seguintes URLs:
+>
+>   - https://myapplications.microsoft.com?tenantId=*your_domain_name*
+>   - https://myapplications.microsoft.com?tenant=*your_tenant_ID*
 
 ## <a name="create-a-collection"></a>Criar uma coleção
 
@@ -103,6 +109,7 @@ Para esconder uma coleção:
 Para tornar visível uma coleção escondida:
 
 1. Vá às [coleções My Apps](https://myapplications.microsoft.com/?endUserCollections) e inscreva-se usando o seu trabalho ou conta escolar.
+
 1. Abra o menu de página :::image type="content" source="media/my-apps-portal-user-collections/17-ellipsis-icon.png" alt-text="Selecione o ícone de elipses para o menu de nível de página":::e, em seguida, selecione **Gerir**.
 
     :::image type="content" source="media/my-apps-portal-user-collections/13-manage-apps-again.png" alt-text="O menu de página contém o comando Gerir para gerir as suas apps":::

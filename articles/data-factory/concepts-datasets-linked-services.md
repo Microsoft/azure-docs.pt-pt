@@ -1,23 +1,19 @@
 ---
-title: Conjuntos de Dados
+title: Conjuntos de dados
 description: Saiba mais sobre conjuntos de dados na Data Factory. Os conjuntos de dados representam dados de entrada/saída.
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
-manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/24/2020
-ms.openlocfilehash: 6a9de6ff174adc5f6be9647560ad4e26367cb4ed
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 4dafb738fd7d44893705994baa962831c101804b
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500126"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100390033"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Conjuntos de dados no Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -31,7 +27,7 @@ Este artigo descreve quais são os conjuntos de dados, como são definidos no fo
 
 Se é novo na Data Factory, consulte [a Introdução à Fábrica de Dados Azure](introduction.md) para uma visão geral.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 Uma fábrica de dados pode ter um ou mais pipelines. Um **oleoduto** é um agrupamento lógico de **atividades** que juntos desempenham uma tarefa. As atividades num pipeline definem as ações a executar nos seus dados. Agora, um conjunto de **dados** é uma visão nomeada de dados que simplesmente apontam ou referenciam os dados que pretende utilizar nas suas **atividades** como entradas e saídas. Os conjuntos de dados identificam dados dentro de diferentes arquivos de dados, como tabelas, ficheiros, pastas e documentos. Por exemplo, um conjunto de dados de Blobs do Azure especifica o contentor de blobs e a pasta no armazenamento de Blobs a partir dos quais a atividade deve ler os dados.
 
 Antes de criar um conjunto de dados, tem de criar um [**serviço ligado**](concepts-linked-services.md) para ligar a sua loja de dados à fábrica de dados. Os serviços ligados são muito semelhantes às cadeias de ligação, que definem as informações de ligação necessárias para que o Data Factory se possa ligar a recursos externos. Pense desta forma; o conjunto de dados representa a estrutura dos dados dentro das lojas de dados ligadas, e o serviço ligado define a ligação à fonte de dados. Por exemplo, um serviço ligado ao Azure Storage liga uma conta de armazenamento à fábrica de dados. Um conjunto de dados Azure Blob representa o recipiente blob e a pasta dentro dessa conta de Armazenamento Azure que contém as bolhas de entrada a serem processadas.
@@ -67,12 +63,12 @@ Um conjunto de dados na Data Factory é definido no seguinte formato JSON:
 ```
 A tabela a seguir descreve propriedades no JSON acima:
 
-Propriedade | Descrição | Obrigatório |
+Propriedade | Descrição | Necessário |
 -------- | ----------- | -------- |
-name | Nome do conjunto de dados. Ver [Azure Data Factory - Regras de nomeação](naming-rules.md). |  Sim |
-tipo | Tipo do conjunto de dados. Especifique um dos tipos suportados pela Data Factory (por exemplo: DelimitedText, AzureSqlTable). <br/><br/>Para mais informações, consulte os [tipos de Dataset](#dataset-type). | Sim |
-esquema | O esquema do conjunto de dados representa o tipo e a forma de dados físicos. | Não |
-typeProperties | As propriedades do tipo são diferentes para cada tipo. Para obter mais informações sobre os tipos suportados e as suas propriedades, consulte [o tipo Dataset](#dataset-type). | Sim |
+name | Nome do conjunto de dados. Ver [Azure Data Factory - Regras de nomeação](naming-rules.md). |  Yes |
+tipo | Tipo do conjunto de dados. Especifique um dos tipos suportados pela Data Factory (por exemplo: DelimitedText, AzureSqlTable). <br/><br/>Para mais informações, consulte os [tipos de Dataset](#dataset-type). | Yes |
+esquema | O esquema do conjunto de dados representa o tipo e a forma de dados físicos. | No |
+typeProperties | As propriedades do tipo são diferentes para cada tipo. Para obter mais informações sobre os tipos suportados e as suas propriedades, consulte [o tipo Dataset](#dataset-type). | Yes |
 
 Quando importar o esquema do conjunto de dados, selecione o botão **Descoduma** de Importação e opte por importar da fonte ou de um ficheiro local. Na maioria dos casos, importará o esquema diretamente da fonte. Mas se já tiver um ficheiro de esquema local (um ficheiro Parquet ou CSV com cabeçalhos), pode direcionar a Data Factory para basear o esquema nesse ficheiro.
 

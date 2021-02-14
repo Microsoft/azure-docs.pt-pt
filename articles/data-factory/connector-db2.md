@@ -1,22 +1,17 @@
 ---
 title: Copiar dados da DB2 utilizando a Azure Data Factory
 description: Saiba como copiar dados do DB2 para lojas de dados de sumidouros suportados utilizando uma atividade de cópia num pipeline da Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: jingwang
-ms.openlocfilehash: f890e4c47a427b6ca8c07463d6795f0813ef5bbd
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 642f12386a7695e026eb0c30016acf6f53fc9e95
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92638198"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100381125"
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Copiar dados da DB2 utilizando a Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -69,21 +64,21 @@ As seguintes propriedades são suportadas para o serviço vinculado DB2:
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo deve ser definida para: **Db2** | Sim |
-| conexãoStragem | Especifique as informações necessárias para ligar à instância DB2.<br/> Também pode colocar a palavra-passe no Cofre da Chave Azure e retirar a `password` configuração da cadeia de ligação. Consulte as seguintes amostras e [guarde as credenciais no artigo do Azure Key Vault](store-credentials-in-key-vault.md) com mais detalhes. | Sim |
-| connectVia | O [tempo de execução de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Saiba mais na secção [Pré-Requisitos.](#prerequisites) Se não for especificado, utiliza o tempo de execução de integração Azure predefinido. |Não |
+| tipo | A propriedade tipo deve ser definida para: **Db2** | Yes |
+| conexãoStragem | Especifique as informações necessárias para ligar à instância DB2.<br/> Também pode colocar a palavra-passe no Cofre da Chave Azure e retirar a `password` configuração da cadeia de ligação. Consulte as seguintes amostras e [guarde as credenciais no artigo do Azure Key Vault](store-credentials-in-key-vault.md) com mais detalhes. | Yes |
+| connectVia | O [tempo de execução de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Saiba mais na secção [Pré-Requisitos.](#prerequisites) Se não for especificado, utiliza o tempo de execução de integração Azure predefinido. |No |
 
 Propriedades típicas dentro da cadeia de ligação:
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| servidor |Nome do servidor DB2. Pode especificar o número da porta seguindo o nome do servidor delimitado por cólon, por `server:port` exemplo.<br>O conector DB2 utiliza o protocolo DDM/DRDA e, por predefinição, utiliza a porta 50000 se não for especificada. A porta que a sua base de dados DB2 específica utiliza pode ser diferente com base na versão e nas suas definições, por exemplo para DB2 LUW a porta predefinida é 50000, para AS400 a porta predefinido é 446 ou 448 quando o TLS ativado. Consulte os seguintes documentos DB2 sobre como a porta é configurada tipicamente: [DB2 z/OS,](https://www.ibm.com/support/knowledgecenter/SSEPGG_11.5.0/com.ibm.db2.luw.qb.dbconn.doc/doc/t0008229.html) [DB2 iSeries](https://www.ibm.com/support/knowledgecenter/ssw_ibm_i_74/ddp/rbal1ports.htm), e [DB2 LUW](https://www.ibm.com/support/knowledgecenter/en/SSEKCU_1.1.3.0/com.ibm.psc.doc/install/psc_t_install_typical_db2_port.html). |Sim |
-| base de dados |Nome da base de dados DB2. |Sim |
-| authenticationType |Tipo de autenticação usada para ligar à base de dados DB2.<br/>O valor permitido é: **Básico.** |Sim |
-| nome de utilizador |Especifique o nome do utilizador para ligar à base de dados DB2. |Sim |
-| palavra-passe |Especifique a palavra-passe para a conta de utilizador especificada para o nome de utilizador. Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). |Sim |
-| pacoteCollection | Especificar em que os pacotes necessários são criados automaticamente pela ADF ao consultar a base de dados. Se isto não estiver definido, a Data Factory utiliza o nome {username} como valor predefinido. | Não |
-| nome de certificadoCommonName | Quando utilizar a encriptação Secure Sockets Layer (SSL) ou Transport Layer Security (TLS), deve introduzir um valor para o nome comum do Certificado. | Não |
+| servidor |Nome do servidor DB2. Pode especificar o número da porta seguindo o nome do servidor delimitado por cólon, por `server:port` exemplo.<br>O conector DB2 utiliza o protocolo DDM/DRDA e, por predefinição, utiliza a porta 50000 se não for especificada. A porta que a sua base de dados DB2 específica utiliza pode ser diferente com base na versão e nas suas definições, por exemplo para DB2 LUW a porta predefinida é 50000, para AS400 a porta predefinido é 446 ou 448 quando o TLS ativado. Consulte os seguintes documentos DB2 sobre como a porta é configurada tipicamente: [DB2 z/OS,](https://www.ibm.com/support/knowledgecenter/SSEPGG_11.5.0/com.ibm.db2.luw.qb.dbconn.doc/doc/t0008229.html) [DB2 iSeries](https://www.ibm.com/support/knowledgecenter/ssw_ibm_i_74/ddp/rbal1ports.htm), e [DB2 LUW](https://www.ibm.com/support/knowledgecenter/en/SSEKCU_1.1.3.0/com.ibm.psc.doc/install/psc_t_install_typical_db2_port.html). |Yes |
+| base de dados |Nome da base de dados DB2. |Yes |
+| authenticationType |Tipo de autenticação usada para ligar à base de dados DB2.<br/>O valor permitido é: **Básico.** |Yes |
+| nome de utilizador |Especifique o nome do utilizador para ligar à base de dados DB2. |Yes |
+| palavra-passe |Especifique a palavra-passe para a conta de utilizador especificada para o nome de utilizador. Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). |Yes |
+| pacoteCollection    | Especificar em que os pacotes necessários são criados automaticamente pela ADF ao consultar a base de dados. Se isto não estiver definido, a Data Factory utiliza o nome {username} como valor predefinido. | No |
+| nome de certificadoCommonName | Quando utilizar a encriptação Secure Sockets Layer (SSL) ou Transport Layer Security (TLS), deve introduzir um valor para o nome comum do Certificado. | No |
 
 > [!TIP]
 > Se receber uma mensagem de erro que indique , a razão é que `The package corresponding to an SQL statement execution request was not found. SQLSTATE=51002 SQLCODE=-805` um pacote necessário não é criado para o utilizador. Por padrão, a ADF tentará criar um pacote em recolha denominado utilizador que usou para ligar ao DB2. Especifique a propriedade de recolha de pacotes para indicar onde deseja que a ADF crie as embalagens necessárias ao consultar a base de dados.
@@ -166,9 +161,9 @@ Para copiar dados da DB2, as seguintes propriedades são suportadas:
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade do tipo do conjunto de dados deve ser definida para: **Db2Table** | Sim |
+| tipo | A propriedade do tipo do conjunto de dados deve ser definida para: **Db2Table** | Yes |
 | esquema | O nome do esquema. |Não (se for especificada "consulta" na fonte de atividade)  |
-| mesa | O nome da mesa. |Não (se for especificada "consulta" na fonte de atividade)  |
+| table | O nome da mesa. |Não (se for especificada "consulta" na fonte de atividade)  |
 | tableName | Nome da mesa com esquema. Esta propriedade é suportada para retrocompatibilidade. Uso `schema` e para nova carga de `table` trabalho. | Não (se for especificada "consulta" na fonte de atividade) |
 
 **Exemplo**
@@ -201,7 +196,7 @@ Para copiar dados do DB2, as seguintes propriedades são suportadas na secção 
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **Db2Source** | Sim |
+| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **Db2Source** | Yes |
 | consulta | Utilize a consulta SQL personalizada para ler dados. Por exemplo: `"query": "SELECT * FROM \"DB2ADMIN\".\"Customers\""`. | Não (se for especificado "tableName" no conjunto de dados) |
 
 **Exemplo:**
@@ -246,10 +241,10 @@ Ao copiar dados do DB2, os seguintes mapeamentos são usados de tipos de dados D
 |:--- |:--- |
 | BigInt |Int64 |
 | Binário |Byte[] |
-| Blob |Byte[] |
+| Blobs |Byte[] |
 | Char |String |
 | Clob |String |
-| Date |Datetime |
+| Data |Datetime |
 | DB2DynArray |String |
 | DbClob |String |
 | Decimal |Decimal |
@@ -261,11 +256,11 @@ Ao copiar dados do DB2, os seguintes mapeamentos são usados de tipos de dados D
 | LongVarBinary |Byte[] |
 | LongVarChar |String |
 | LongVarGraphic |String |
-| Numérico |Decimal |
+| Operador numérico |Decimal |
 | Real |Único |
 | PequenoInt |Int16 |
 | Hora |TimeSpan |
-| Timestamp |DateTime |
+| CarimboDeDataEHora |DateTime |
 | VarBinary |Byte[] |
 | Rio VarChar |String |
 | VarGraphic |String |

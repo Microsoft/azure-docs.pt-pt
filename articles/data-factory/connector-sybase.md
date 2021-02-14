@@ -1,22 +1,17 @@
 ---
 title: Copiar dados da Sybase utilizando a Azure Data Factory
 description: Saiba como copiar dados da Sybase para lojas de dados de sumidouros suportados utilizando uma atividade de cópia num pipeline da Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/10/2020
 ms.author: jingwang
-ms.openlocfilehash: ac9dff4b16d8ba1b346a2827f3b5487dbf97392e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2ef63eded5403c1cf5faddec71ed3503c3ae2138
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84669839"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100384814"
 ---
 # <a name="copy-data-from-sybase-using-azure-data-factory"></a>Copiar dados da Sybase utilizando a Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -61,13 +56,13 @@ As seguintes propriedades são suportadas para o serviço ligado à Sybase:
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo deve ser definida para: **Sybase** | Sim |
-| servidor | Nome do servidor Sybase. |Sim |
-| base de dados | Nome da base de dados Sybase. |Sim |
-| authenticationType | Tipo de autenticação usada para ligar à base de dados Sybase.<br/>Os valores permitidos são: **Básico**e **Windows**. |Sim |
-| nome de utilizador | Especifique o nome do utilizador para ligar à base de dados Sybase. |Sim |
-| palavra-passe | Especifique a palavra-passe para a conta de utilizador especificada para o nome de utilizador. Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). |Sim |
-| connectVia | O [tempo de execução de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. É necessário um tempo de integração auto-organizado, tal como mencionado nos [Pré-Requisitos](#prerequisites). |Sim |
+| tipo | A propriedade tipo deve ser definida para: **Sybase** | Yes |
+| servidor | Nome do servidor Sybase. |Yes |
+| base de dados | Nome da base de dados Sybase. |Yes |
+| authenticationType | Tipo de autenticação usada para ligar à base de dados Sybase.<br/>Os valores permitidos são: **Básico** e **Windows**. |Yes |
+| nome de utilizador | Especifique o nome do utilizador para ligar à base de dados Sybase. |Yes |
+| palavra-passe | Especifique a palavra-passe para a conta de utilizador especificada para o nome de utilizador. Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). |Yes |
+| connectVia | O [tempo de execução de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. É necessário um tempo de integração auto-organizado, tal como mencionado nos [Pré-Requisitos](#prerequisites). |Yes |
 
 **Exemplo:**
 
@@ -102,7 +97,7 @@ Para copiar dados da Sybase, suportam-se as seguintes propriedades:
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo do conjunto de dados deve ser definida para: **SybaseTable** | Sim |
+| tipo | A propriedade tipo do conjunto de dados deve ser definida para: **SybaseTable** | Yes |
 | tableName | O nome da tabela na base de dados da Sybase. | Não (se for especificada "consulta" na fonte de atividade) |
 
 **Exemplo**
@@ -134,7 +129,7 @@ Para copiar dados da Sybase, as seguintes propriedades são suportadas na secç�
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **SybaseSource** | Sim |
+| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **SybaseSource** | Yes |
 | consulta | Utilize a consulta SQL personalizada para ler dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se for especificado "tableName" no conjunto de dados) |
 
 **Exemplo:**

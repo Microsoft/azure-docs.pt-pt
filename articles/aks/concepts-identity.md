@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: 3c291d9a9d48b6f75148b673848b8451521bab91
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 8d69033dedc3a45263b087c9b9ee5b156af460be
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97615806"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100361065"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>Access and identity options for Azure Kubernetes Service (AKS) (Opções de acesso e de identidade do Azure Kubernetes Service (AKS))
 
@@ -166,7 +166,7 @@ Com a integração do Azure RBAC, a AKS utilizará um servidor webhook de autori
 
 ![Azure RBAC para o fluxo de autorização de Kubernetes](media/concepts-identity/azure-rbac-k8s-authz-flow.png)
 
-Como mostrado no diagrama acima, ao utilizar a integração Azure RBAC todos os pedidos à API de Kubernetes seguirão o mesmo fluxo de autenticação como explicado na [secção de integração Azure Ative](#azure-active-directory-integration). 
+Como mostrado no diagrama acima, ao utilizar a integração Azure RBAC todos os pedidos à API de Kubernetes seguirão o mesmo fluxo de autenticação que explicado na secção de integração do [Azure Ative Directory](#azure-active-directory-integration). 
 
 Mas depois disso, em vez de depender exclusivamente da Kubernetes RBAC para autorização, o pedido será realmente autorizado pela Azure, desde que a identidade que fez o pedido exista na AAD. Se a identidade não existir no AAD, por exemplo uma conta de serviço Kubernetes, então o Azure RBAC não vai fazer efeito, e será o RBAC normal de Kubernetes.
 
@@ -174,19 +174,20 @@ Neste cenário, você poderia dar aos utilizadores uma das quatro funções inco
 
 Esta funcionalidade permitirá, por exemplo, não só dar aos utilizadores permissões ao recurso AKS através de subscrições, como configurar e dar-lhes o papel e permissões que terão dentro de cada um desses clusters que controlam o acesso à API de Kubernetes. Por exemplo, pode conceder o `Azure Kubernetes Service RBAC Viewer` papel no âmbito de subscrição e o seu destinatário será capaz de listar e obter todos os objetos Kubernetes de todos os clusters, mas não modificá-los.
 
+> [!IMPORTANT]
+> Por favor, note que precisa de ativar a autorização do Azure RBAC para a Kubernetes antes de utilizar esta funcionalidade. Para mais detalhes e orientação passo a passo, [consulte aqui.](manage-azure-rbac.md)
 
 #### <a name="built-in-roles"></a>Funções incorporadas
 
 A AKS fornece os seguintes quatro papéis incorporados. São semelhantes aos [papéis incorporados de Kubernetes,](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#user-facing-roles) mas com algumas diferenças como apoiar CRDs. Para a lista completa de ações permitidas por cada papel incorporado, consulte [aqui.](../role-based-access-control/built-in-roles.md)
 
-| Função                                | Descrição  |
+| Função                                | Description  |
 |-------------------------------------|--------------|
 | Azure Kubernetes Service RBAC Viewer  | Permite o acesso apenas à leitura para ver a maioria dos objetos num espaço de nome. Não permite visualizar papéis ou encadernações de papéis. Esta função não permite a `Secrets` visualização, uma vez que a leitura do conteúdo dos Segredos permite o acesso a `ServiceAccount` credenciais no espaço de nomes, o que permitiria o acesso da API como qualquer outro `ServiceAccount` no espaço de nome (uma forma de escalada de privilégio)  |
 | Azure Kubernetes Service RBAC Writer | Permite ler/escrever o acesso à maioria dos objetos num espaço de nome. Esta função não permite visualizar ou modificar papéis ou encadernações de papéis. No entanto, esta função permite aceder `Secrets` e executar Pods como qualquer ServiceAccount no espaço de nomes, para que possa ser usado para obter os níveis de acesso API de qualquer ServiceAccount no espaço de nomes. |
 | Azure Kubernetes Serviço RBAC Administrador  | Permite o acesso a administrador, destinado a ser concedido dentro de um espaço de nome. Permite o acesso de leitura/escrita à maioria dos recursos num espaço de nome (ou âmbito de cluster), incluindo a capacidade de criar papéis e encadernações de papéis dentro do espaço de nomes. Esta função não permite escrever acesso à quota de recursos ou ao próprio espaço de nome. |
 | Azure Kubernetes Serviço RBAC Cluster Admin  | Permite o acesso do super-utilizador para realizar qualquer ação em qualquer recurso. Dá total controlo sobre todos os recursos do cluster e em todos os espaços de nome. |
 
-**Para aprender como ativar a autorização do Azure RBAC para a Kubernetes, [leia aqui.](manage-azure-rbac.md)**
 
 ## <a name="summary"></a>Resumo
 
@@ -197,7 +198,7 @@ Esta tabela resume a forma como os utilizadores podem autenticar em Kubernetes q
 
 A subvenção de papel referida na segunda coluna é a subvenção de função Azure RBAC mostrada no **separador Controlo de Acesso** no portal Azure. O Cluster Admin Azure AD Group é apresentado no **separador Configuração** no portal (ou com nome de parâmetro `--aad-admin-group-object-ids` no CLI Azure).
 
-| Descrição        | Subvenção de papel exigida| Grupo de administrador azure Ad cluster | Quando utilizar |
+| Description        | Subvenção de papel exigida| Grupo de administrador azure Ad cluster | Quando utilizar |
 | -------------------|------------|----------------------------|-------------|
 | Login de administração legado usando certificado de cliente| **Azure Kubernetes Admin Role**. Esta função permite `az aks get-credentials` ser utilizada com a `--admin` bandeira, que descarrega um [certificado de administração de cluster legacy (não-Azure AD)](control-kubeconfig-access.md) no do utilizador `.kube/config` . Este é o único propósito de "Azure Kubernetes Admin Role".|n/a|Se estiver permanentemente bloqueado por não ter acesso a um grupo AZure AD válido com acesso ao seu cluster.| 
 | Azure AD com rolebindings manuais (Cluster)| **Papel de utilizador de Azure Kubernetes**. A função "Utilizador" permite `az aks get-credentials` ser utilizada sem a `--admin` bandeira. (Este é o único propósito de "Azure Kubernetes User Role".) O resultado, num cluster AD ativado pelo Azure, é o download de [uma entrada vazia](control-kubeconfig-access.md) em , que despoleta a `.kube/config` autenticação baseada no navegador quando é usada pela primeira vez por `kubectl` .| O utilizador não está em nenhum destes grupos. Como o utilizador não está em nenhum grupo de Administração cluster, os seus direitos serão controlados inteiramente por quaisquer RoleBindings ou ClusterRoleBindings que tenham sido criados por administradores de cluster. Os (Cluster)RoleBindings [nomeiam os utilizadores AD do Azure ou os grupos AD Azure](azure-ad-rbac.md) como seus `subjects` . Se não tiverem sido criadas tais ligações, o utilizador não poderá excortar quaisquer `kubectl` comandos.|Se quer um controlo de acesso fino e não está a usar o Azure RBAC para a Autorização Kubernetes. Note que o utilizador que configura as ligações deve iniciar sessão por um dos outros métodos listados nesta tabela.|

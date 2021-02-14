@@ -9,16 +9,46 @@ ms.topic: reference
 ms.author: larryfr
 author: BlackMist
 ms.date: 09/10/2020
-ms.openlocfilehash: b814c12a0d57230a81a68f6030a26ded93bd0399
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: c54034ef927bb49a955ef6121f5a8d56b57f0bd3
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100097080"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100375566"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de lançamento do Azure Machine Learning
 
 Neste artigo, saiba mais sobre os lançamentos da Azure Machine Learning.  Para obter o conteúdo completo de referência SDK, visite a página de referência principal do Azure Machine Learning para a página de referência [**python.**](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)
+
+
+## <a name="2021-02-09"></a>2021-02-09
+
+### <a name="azure-machine-learning-sdk-for-python-v1220"></a>Azure Machine Learning SDK para Python v1.22.0
++ **Correções e melhorias de bugs**
+  + **azureml-automl-core**
+    + Bug fixo onde uma dependência extra de pip foi adicionada ao ficheiro conda yml para modelos de visão.
+  + **azureml-automl-runtime**
+    + Corrigiu um bug onde os modelos de previsão clássica (por exemplo, AutoArima) podiam receber dados de formação em que não existiam linhas com valores-alvo imputados. Isto violou o contrato de dados destes modelos. * Corrigimos vários bugs com comportamento de lag-by-ocorrência no operador de atraso da série de tempo. Anteriormente, a operação de lag-by-ocorrência não marcava corretamente todas as linhas imputadas e, por isso, nem sempre geraria os valores corretos do lag de ocorrência. Também corrigiu alguns problemas de compatibilidade entre o operador do lag e o operador da janela rolante com comportamento de lag-by-ocorrência. Isto previamente resultou na queda do operador da janela rolante de algumas linhas dos dados de formação que deveria utilizar de outra forma.
+  + **azureml-core**
+    + Adicionar suporte para autenticação token por público.
+    + Adicione `process_count` à [Configuração PyTorch](/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration?preserve-view=true&view=azure-ml-py) para suportar trabalhos pyTorch multi-processos multi-processo.
+  + **azureml-pipeline-steps**
+    + [CommandStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.commandstep?preserve-view=true&view=azure-ml-py) agora GA e não mais experimental.
+    + [ParallelRunConfig](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunconfig?preserve-view=true&view=azure-ml-py): adicione argumentos allowed_failed_count e allowed_failed_percent para verificar o limiar de erro no nível do mini lote. O limiar de erro tem 3 sabores agora:
+       + error_threshold - o número de mini-itens de lote autorizados; 
+       + allowed_failed_count - o número de mini lotes autorizados; 
+       + allowed_failed_percent, a percentagem de mini lotes falhados permitidos. 
+       
+       Um trabalho vai parar se exceder algum deles. error_threshold é necessário para mantê-lo para trás compatibilidade. Desa cosar o valor para -1 para ignorá-lo.
+    + Manuseamento fixo do espaço branco em nome AutoMLStep.
+    + ScriptRunConfig é agora suportado por HyperDriveStep
+  + **azureml-train-core**
+    + As corridas de HyperDrive invocadas de um ScriptRun serão agora consideradas uma corrida para crianças.
+    + Adicione `process_count` à [Configuração PyTorch](/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration?preserve-view=true&view=azure-ml-py) para suportar trabalhos pyTorch multi-processos multi-processo.
+  + **azureml-widgets**
+    + Adicione widget ParallelRunStepDetails para visualizar o estado de um ParallelRunStep.
+    + Permite que os utilizadores de hiperdrive vejam um eixo adicional no gráfico de coordenadas paralelas que mostra o valor métrico correspondente a cada conjunto de hiperparímetros para cada criança executada.
+
 
  ## <a name="2021-01-31"></a>2021-01-31
 ### <a name="azure-machine-learning-studio-notebooks-experience-january-update"></a>Experiência de cadernos do estúdio de aprendizagem de máquinas Azure (atualização de janeiro)
@@ -35,6 +65,7 @@ Neste artigo, saiba mais sobre os lançamentos da Azure Machine Learning.  Para 
   + Desempenho melhorado 
   + Melhoria da velocidade e da fiabilidade do núcleo
   
+
  ## <a name="2021-01-25"></a>2021-01-25
 
 ### <a name="azure-machine-learning-sdk-for-python-v1210"></a>Azure Machine Learning SDK para Python v1.21.0
@@ -145,7 +176,7 @@ Neste artigo, saiba mais sobre os lançamentos da Azure Machine Learning.  Para 
     + HyperDriveRun.get_children_sorted_by_primary_metric() deve completar mais rápido agora
     + Melhor manuseamento de erros no HyperDrive SDK.
     +  Precipreciou todas as classes de estimadores a favor da utilização do ScriptRunConfig para configurar as experiências. As classes preprecadas incluem:
-        + MMLBaseEstimator
+        + MMLBase
         + Estimador
         + PyTorch 
         + TensorFlow 

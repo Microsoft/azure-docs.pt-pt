@@ -4,19 +4,18 @@ titleSuffix: Azure Data Science Virtual Machine
 description: As linguagens de programa suportadas e ferramentas relacionadas pré-instaladas na Máquina Virtual de Ciência de Dados.
 keywords: ferramentas de ciência de dados, máquina de virtual de ciência de dados, ferramentas para ciência de dados, ciência de dados do linux
 services: machine-learning
-ms.service: machine-learning
-ms.subservice: data-science-vm
+ms.service: data-science-vm
 ms.custom: devx-track-python
 author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: 8a73336ba0a324c65ee0de764d81a8e69ab6079c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 42110eb896a751080044247932770f37617174c9
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87843271"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100516435"
 ---
 # <a name="languages-supported-on-the-data-science-virtual-machine"></a>Línguas suportadas na Máquina Virtual da Ciência de Dados 
 
@@ -111,7 +110,7 @@ A Máquina Virtual de Ciência de Dados (DSVM) vem com várias línguas pré-con
 | ------------- | ------------- |
 | Versões linguísticas suportadas | Microsoft R Open 3.x (100% compatível com CRAN-R)<br /> Microsoft R Server 9.x Developer edition (uma plataforma R pronta para empresas escaláveis)|
 | Edições DSVM suportadas      | Linux, Windows     |
-| Como é configurado / instalado no DSVM?  | Janelas: `C:\Program Files\Microsoft\ML Server\R_SERVER` <br />Linux: `/usr/lib64/microsoft-r/3.3/lib64/R`    |
+| Como é configurado / instalado no DSVM?  | Windows: `C:\Program Files\Microsoft\ML Server\R_SERVER` <br />Linux: `/usr/lib64/microsoft-r/3.3/lib64/R`    |
 | Ligações a amostras      | Os cadernos da Amostra Jupyter para R estão incluídos.     |
 | Ferramentas relacionadas no DSVM      | SparkR, Python, Julia      |
 

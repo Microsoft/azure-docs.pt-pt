@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev, devx-track-js
-ms.openlocfilehash: e6bbebafab45080a2076f33d66dd96296a761e4f
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: fc5d9cbd02490748c17a9f40a1440c5ad0c46278
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98754959"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104115"
 ---
 # <a name="migrate-a-javascript-single-page-app-from-implicit-grant-to-auth-code-flow"></a>Migrar uma aplicação de página única JavaScript de subvenção implícita para fluxo de código de auth
 
@@ -41,7 +41,7 @@ Se quiser continuar a utilizar o registo de aplicações existente para as suas 
 
 Siga estes passos para registos de aplicações que estão atualmente configurados com URIs de redirecionamento de plataforma **Web:**
 
-1. Inscreva-se no <a href="https://portal.azure.com/" target="_blank"> <span class="docon docon-navigate-external x-hidden-focus"></span> portal Azure</a> e selecione o seu inquilino **Azure Ative Directory.**
+1. Inscreva-se no <a href="https://portal.azure.com/" target="_blank">portal Azure</a> e selecione o seu inquilino **Azure Ative Directory.**
 1. Nas **inscrições da App,** selecione a sua candidatura e, em seguida, **autenticação.**
 1. No azulejo da plataforma **Web** em **Redirecionar URIs,** selecione o banner de aviso indicando que deve migrar os uris.
 
@@ -88,7 +88,7 @@ Quando desmarque as definições implícitas de subvenção no registo da aplica
 
 **Não** desative o fluxo de subvenção implícito antes de atualizar todas as suas aplicações para MSAL.js 2.x e a [PublicClientApplication][msal-js-publicclientapplication].
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre o fluxo de código de autorização, incluindo as diferenças entre os fluxos implícitos e de código de auth, consulte a plataforma de identidade da Microsoft e o [fluxo de código de autorização OAuth 2.0](v2-oauth2-auth-code-flow.md).
 

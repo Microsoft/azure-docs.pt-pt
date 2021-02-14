@@ -1,21 +1,17 @@
 ---
 title: 'Transforme dados usando a Spark na Azure Data Factory '
 description: Este tutorial fornece instruções passo a passo para transformar dados através da Atividade do Spark no Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
 author: nabhishek
 ms.author: abnarain
-manager: anandsub
-ms.openlocfilehash: bef80cdeab32d14aeaae350adda869a8ea7b05c7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cf425ecb1a8aebf594828bfba50e9aba8ca9dd7e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81409094"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100377623"
 ---
 # <a name="transform-data-in-the-cloud-by-using-spark-activity-in-azure-data-factory"></a>Transformar dados na cloud através da atividade do Spark no Azure Data Factory
 
@@ -66,7 +62,7 @@ Se não tiver uma subscrição do Azure, crie uma conta [gratuita](https://azure
     if __name__ == "__main__":
         main()
     ```
-2. Substitua ** &lt; o armazenamentoAme &gt; de contagem** de armazenamento pelo nome da sua conta de Armazenamento Azure. Em seguida, guarde o ficheiro. 
+2. Substitua **&lt; o armazenamentoAme &gt; de contagem** de armazenamento pelo nome da sua conta de Armazenamento Azure. Em seguida, guarde o ficheiro. 
 3. No Armazenamento de Blobs do Azure, crie um contentor com o nome **adftutorial**, caso ainda não exista. 
 4. Crie uma pasta com o nome **spark**.
 5. Crie uma subpasta com o nome **script** na pasta **spark**. 
@@ -182,7 +178,7 @@ Tenha em atenção os seguintes pontos:
 
 
 ## <a name="create-a-data-factory"></a>Criar uma fábrica de dados 
-Criou definições de serviço ligado e de pipeline em ficheiros JSON. Agora, vamos criar uma fábrica de dados e implementar os ficheiros JSON do serviço ligado e do pipeline através de cmdlets do PowerShell. Execute os seguintes comandos do PowerShell um a um: 
+Criou definições de serviço ligado e de pipeline em ficheiros JSON. Agora, vamos criar uma fábrica de dados, e implementar os ficheiros JSON de serviço e pipeline ligados usando cmdlets PowerShell. Execute os seguintes comandos do PowerShell um a um: 
 
 1. Defina as variáveis uma a uma.
 

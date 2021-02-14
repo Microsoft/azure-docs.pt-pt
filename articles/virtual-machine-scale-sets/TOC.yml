@@ -329,9 +329,10 @@
           href: virtual-machine-scale-sets-placement-groups.md
         - name: Converter um modelo de conjunto de dimensionamento para utilizar um disco gerido
           href: virtual-machine-scale-sets-convert-template-to-md.md
-        - name: Utilizar anfitriões dedicados (pré-visualização)
-          href: ../virtual-machines/dedicated-hosts.md
+        - name: Utilizar anfitriões dedicados
           items:
+            - name: Descrição geral
+              href: ../virtual-machines/dedicated-hosts.md
             - name: CLI
               href: ../virtual-machines/linux/dedicated-hosts-cli.md
             - name: PowerShell

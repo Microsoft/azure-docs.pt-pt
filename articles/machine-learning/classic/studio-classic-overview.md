@@ -7,15 +7,15 @@ ms.author: keli19
 ms.custom: seodec18
 ms.assetid: e65c8fe1-7991-4a2a-86ef-fd80a7a06269
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: overview
 ms.date: 08/19/2020
-ms.openlocfilehash: 0a18f9adb8c3723619b44b30bfa334edf4300c0d
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: ad0550dc20edfbc10fb8877ad049c27fc2edf086
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95509488"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100517540"
 ---
 # <a name="what-can-i-do-with-machine-learning-studio-classic"></a>O que posso fazer com o Machine Learning Studio (clássico)?
 
@@ -30,14 +30,14 @@ O Machine Learning Studio (clássico) é uma ferramenta de arrastar e largar que
 
 Para desenvolver um modelo de análise preditiva, normalmente utiliza dados de uma ou mais fontes, transforma e analisa esses dados através de várias funções de manipulação de dados e estatísticas, e gera um conjunto de resultados. Desenvolver um modelo como este é um processo iterativo. À medida que modifica as várias funções e os respetivos parâmetros, os seus resultados convergem até achar que tem um modelo preparado e eficaz.
 
-O Machine Learning Studio (clássico) dá-lhe um espaço de trabalho interativo e visual para facilmente construir, testar e iterar num modelo de análise preditiva. Arrasta-e-drop **_conjuntos_* de dados _ e _*_módulos_*_ de análise numa tela interativa, conectando-os para formar uma _*_experiência,_*_ que você corre no Machine Learning Studio (clássico). Para iterar o design do modelo, edite a experimentação, guarde uma cópia se assim pretender e execute-a novamente. Quando estiver pronto, pode converter a sua _*_experiência de treino_*_ numa experiência _*_preditiva_*_ e depois publicá-la como um _*_serviço web_*_ para que o seu modelo possa ser acedido por outros.
+O Machine Learning Studio (clássico) dá-lhe um espaço de trabalho interativo e visual para facilmente construir, testar e iterar num modelo de análise preditiva. Arrasta-e-drop ***conjuntos** de dados _ e _*_módulos_*_ de análise numa tela interativa, conectando-os para formar uma _*_experiência,_*_ que você corre no Machine Learning Studio (clássico). Para iterar o design do modelo, edite a experimentação, guarde uma cópia se assim pretender e execute-a novamente. Quando estiver pronto, pode converter a sua _*_experiência de treino_*_ numa experiência _*_preditiva_*_ e depois publicá-la como um *__ serviço web_* para que o seu modelo possa ser acedido por outros.
 
 Não é necessária programação, ligar visualmente conjuntos de dados e módulos para construir o seu modelo de análise preditiva.
 
 ![Diagrama do Machine Learning Studio (clássico): Criar experiências, ler dados para muitas fontes, escrever dados pontuados, escrever modelos.](./media/what-is-ml-studio/azure-ml-studio-diagram.jpg)
 
 ## <a name="download-the-ml-studio-classic-overview-diagram"></a>Descarregue o diagrama de visão geral do ML Studio (clássico)
-Descarregue o _ *Microsoft ML Studio (clássico) Capabilities Overview** diagrama e obtenha uma visão de alto nível das capacidades do Machine Learning Studio (clássico). Para o ter à mão, pode imprimir o diagrama no tamanho de tabloide (11 x 17 pol.).
+Descarregue o diagrama do **Microsoft ML Studio (clássico) Capabilities Overview** e obtenha uma visão de alto nível das capacidades do Machine Learning Studio (clássico). Para o ter à mão, pode imprimir o diagrama no tamanho de tabloide (11 x 17 pol.).
 
 **Descarregue o diagrama aqui: [Microsoft Machine Learning Studio (clássico) Capabilities Overview](https://download.microsoft.com/download/C/4/6/C4606116-522F-428A-BE04-B6D3213E9E52/ml_studio_overview_v1.1.pdf)** 
  ![ Visão geral do Microsoft Machine Learning Studio (clássico)](./media/what-is-ml-studio/ml_studio_overview_v1.1.png)
@@ -58,7 +58,7 @@ Para um exemplo de criação de uma experiência, consulte [Criar uma experiênc
 
 Para uma caminhada mais completa da criação de uma solução de análise preditiva, consulte [Desenvolver uma solução preditiva com o Machine Learning Studio (clássico)](tutorial-part1-credit-risk.md).
 
-### <a name="datasets"></a>Conjuntos de Dados
+### <a name="datasets"></a>Conjuntos de dados
 Um conjunto de dados são dados que foram enviados para o Machine Learning Studio (clássico) para que possa ser usado no processo de modelação. Vários conjuntos de dados de amostras estão incluídos no Machine Learning Studio (clássico) para você experimentar, e você pode carregar mais conjuntos de dados à medida que precisa deles. Seguem-se alguns exemplos de conjuntos de dados incluídos:
 
 * **Dados MPG para vários automóveis** - quilómetros por litro (MPG) valores para automóveis identificados pelo número de cilindros, potência de cavalos, etc.

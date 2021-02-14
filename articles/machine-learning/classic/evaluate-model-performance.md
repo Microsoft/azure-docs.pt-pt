@@ -3,22 +3,22 @@ title: 'Estúdio ML (clássico): Avaliar & modelos trans validados - Azure'
 description: Conheça as métricas que pode usar para monitorizar o desempenho do modelo no Azure Machine Learning Studio (clássico).
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: ca369f8a3e680a4d2aae49df83dda0cdd3dc4075
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: b2ca78d30659fce6e4246c81216cae94b404955e
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93310148"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100520022"
 ---
 # <a name="evaluate-model-performance-in-azure-machine-learning-studio-classic"></a>Avalie o desempenho do modelo no Azure Machine Learning Studio (clássico)
 
-**APLICA-SE A:** ![ Aplica-se a. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) ![ Não se aplica a. ](../../../includes/media/aml-applies-to-skus/no.png)[ Aprendizagem de Máquinas Azure](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
+**APLICA-SE A:** ![ Aplica-se a. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) ![ Não se aplica a.](../../../includes/media/aml-applies-to-skus/no.png)[ Aprendizagem de Máquinas Azure](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 
 Neste artigo, pode aprender sobre as métricas que pode usar para monitorizar o desempenho do modelo no Azure Machine Learning Studio (clássico).  Avaliar o desempenho de um modelo é uma das fases centrais do processo de ciência de dados. Indica o sucesso da pontuação (previsões) de um conjunto de dados por um modelo treinado. O Azure Machine Learning Studio (clássico) suporta a avaliação do modelo através de dois dos seus principais módulos de aprendizagem automática: 
@@ -117,7 +117,7 @@ Por essa razão, é útil calcular métricas adicionais que captam aspetos mais 
 
 Figura 6. Matriz de confusão de classificação binária.
 
-Voltando ao problema da classificação de rendimentos, gostaríamos de fazer várias perguntas de avaliação que nos ajudam a compreender o desempenho do classificador utilizado. Uma questão natural é a seguinte: "Dos indivíduos a quem o modelo previu estar a ganhar >50 K (TP+FP), quantos foram classificados corretamente (TP)?". Esta questão pode ser respondida olhando para a **precisão** do modelo, que é a proporção de positivos que são classificados corretamente: TP/(TP+FP). Outra questão comum é "De todos os trabalhadores com rendimentos elevados com rendimentos >50k (TP+FN), quantos classificaram corretamente (TP)". Esta é, na verdade, a **Recall** , ou a verdadeira taxa positiva: TP/(TP+FN) do classificador. Podem notar que há uma troca óbvia entre precisão e recordação. Por exemplo, dado um conjunto de dados relativamente equilibrado, um classificador que prevê casos maioritariamente positivos, teria uma elevada recuperação, mas uma precisão bastante baixa, uma vez que muitos dos casos negativos seriam mal classificados, resultando num grande número de falsos positivos. Para ver um enredo de como estas duas métricas variam, pode clicar na curva **PRECISION/RECALL** na página de saída do resultado da avaliação (parte superior esquerda da Figura 7).
+Voltando ao problema da classificação de rendimentos, gostaríamos de fazer várias perguntas de avaliação que nos ajudam a compreender o desempenho do classificador utilizado. Uma questão natural é a seguinte: "Dos indivíduos a quem o modelo previu estar a ganhar >50 K (TP+FP), quantos foram classificados corretamente (TP)?". Esta questão pode ser respondida olhando para a **precisão** do modelo, que é a proporção de positivos que são classificados corretamente: TP/(TP+FP). Outra questão comum é "De todos os trabalhadores com rendimentos elevados com rendimentos >50k (TP+FN), quantos classificaram corretamente (TP)". Esta é, na verdade, a **Recall**, ou a verdadeira taxa positiva: TP/(TP+FN) do classificador. Podem notar que há uma troca óbvia entre precisão e recordação. Por exemplo, dado um conjunto de dados relativamente equilibrado, um classificador que prevê casos maioritariamente positivos, teria uma elevada recuperação, mas uma precisão bastante baixa, uma vez que muitos dos casos negativos seriam mal classificados, resultando num grande número de falsos positivos. Para ver um enredo de como estas duas métricas variam, pode clicar na curva **PRECISION/RECALL** na página de saída do resultado da avaliação (parte superior esquerda da Figura 7).
 
 ![Resultados da avaliação da classificação binária](./media/evaluate-model-performance/7.png)
 
@@ -144,7 +144,7 @@ Nesta experiência, usaremos o popular conjunto de dados [da Íris,](https://arc
 ### <a name="creating-the-experiment"></a>Criação da Experiência
 Adicione os seguintes módulos ao seu espaço de trabalho no Azure Machine Learning Studio (clássico):
 
-* [Dados de Importação][import-data]
+* [Importar Dados][import-data]
 * [Floresta de Decisão de Várias Classes][multiclass-decision-forest]
 * [Dividir Dados][split]
 * [Preparar Modelo][train-model]
@@ -155,7 +155,7 @@ Ligue as portas como mostrado abaixo na Figura 10.
 
 Desa um índice de coluna label do módulo [Modelo de Comboio][train-model] para 5. O conjunto de dados não tem cabeçalho, mas sabemos que as etiquetas de classe estão na quinta coluna.
 
-Clique no módulo [de Dados de Importação][import-data] e desa estale a propriedade de fonte de *dados* para *URL web via HTTP* , e o *URL* para http://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data .
+Clique no módulo [de Dados de Importação][import-data] e desa estale a propriedade de fonte de *dados* para *URL web via HTTP*, e o *URL* para http://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data .
 
 Desfima a fração de instâncias a utilizar para a formação no módulo [de Dados Divididos][split] (0.7, por exemplo).
 

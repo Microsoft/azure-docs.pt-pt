@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: article
-ms.date: 01/07/2021
-ms.openlocfilehash: c2b89450c0e474f5030f8812e888890f1fedde7e
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.date: 02/12/2021
+ms.openlocfilehash: 4b431220dbab49b74f38a8f37be8aac1a0c5c460
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98019640"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100382893"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Conectores do Azure Logic Apps
 
@@ -324,7 +324,7 @@ Para aplicações lógicas que cria e execute num ambiente de serviço de integr
         [![][edifact-icon]<br>**Conector EDIFACT** ISE EDIFACT][edifact-doc]
     :::column-end:::
     :::column:::
-        [![Sistema de ficheiros ise do sistema de ][file-system-icon]<br> **<br> ficheiros**][file-system-doc]
+        [![Sistema de ficheiros ise do sistema de ficheiros do sistema de ficheiros do sistema de ficheiros do sistema de ][file-system-icon]<br> **<br> ficheiros**][file-system-doc]
     :::column-end:::
     :::column:::
         [![Conector FTP ISE ][ftp-icon]<br> **FTP**][ftp-doc]
@@ -452,17 +452,23 @@ Para chamar APIs que executam código personalizado ou não estão disponíveis 
 >
 > Para obter mais informações sobre a criação de ISEs, consulte [as redes virtuais Connect to Azure da Azure Logic Apps.](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)
 
+## <a name="get-ready-for-deployment"></a>Prepare-se para a implantação
+
+Embora crie ligações a partir de uma aplicação lógica, as ligações são recursos Azure separados com as suas próprias definições de recursos. Para rever estas definições de recursos de conexão, [baixe a sua aplicação lógica do Azure para o Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md), que é a forma mais fácil de criar um modelo de aplicação lógica parametrizada válido que esteja maioritariamente pronto para ser implantado.
+
 <a name="block-connections"></a>
 
 ## <a name="block-creating-connections"></a>Bloquear a criação de ligações
 
 Se a sua organização não permitir a ligação a recursos específicos utilizando os seus conectores em Azure Logic Apps, pode [bloquear a capacidade de criar essas ligações](../logic-apps/block-connections-connectors.md) para conectores específicos em fluxos de trabalho de aplicações lógicas utilizando a [Azure Policy.](../governance/policy/overview.md) Para obter mais informações, consulte [as ligações do Bloco criadas por conectores específicos em Azure Logic Apps](../logic-apps/block-connections-connectors.md).
 
-## <a name="get-ready-for-deployment"></a>Prepare-se para a implantação
+## <a name="known-issues"></a>Problemas conhecidos
 
-Embora crie ligações a partir de uma aplicação lógica, as ligações são recursos Azure separados com as suas próprias definições de recursos. Para rever estas definições de recursos de conexão, [baixe a sua aplicação lógica do Azure para o Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md), que é a forma mais fácil de criar um modelo de aplicação lógica parametrizada válido que esteja maioritariamente pronto para ser implantado.
+#### <a name="error-badgateway-client-request-id-guid"></a>Erro: BadGateway. Id de pedido do cliente: '{GUID}'
 
-## <a name="next-steps"></a>Próximos passos
+Este erro resulta da atualização das tags numa aplicação lógica onde uma ou mais ligações não suportam a autenticação OAuth do Azure Ative Directory (Azure AD), como a SFTP ad SQL, quebrando essas ligações. Para evitar este comportamento, evite atualizar essas etiquetas.
+
+## <a name="next-steps"></a>Passos seguintes
 
 * Ver a [lista completa do conector](/connectors)
 * [Criar a sua primeira aplicação lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md)

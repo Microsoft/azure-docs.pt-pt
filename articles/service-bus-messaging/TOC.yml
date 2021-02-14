@@ -144,6 +144,10 @@
           href: ./security-controls-policy.md
         - name: Segurança da rede
           href: network-security.md
+    - name: Integração noutros serviços
+      items:
+        - name: Integração de Azure Service Bus e Azure Event Grid
+          href: service-bus-to-event-grid-integration-concept.md
 - name: Guias de procedimentos
   items:
     - name: Mover entre regiões
@@ -168,8 +172,6 @@
               href: message-sequencing.md
             - name: Expiração de mensagem (TTL)
               href: message-expiration.md
-            - name: Processamento de mensagens com o Azure Event Grid
-              href: service-bus-to-event-grid-integration-concept.md
         - name: Filtros de tópico e ações
           href: topic-filters.md
         - name: Migrar de espaços de nomes Standard para Premium

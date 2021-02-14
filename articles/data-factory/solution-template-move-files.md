@@ -1,22 +1,19 @@
 ---
 title: Mover ficheiros entre o armazenamento baseado em ficheiros
 description: Aprenda a usar um modelo de solução para mover ficheiros entre o armazenamento baseado em ficheiros utilizando a Azure Data Factory.
-services: data-factory
 author: dearandyxu
 ms.author: yexu
 ms.reviewer: ''
-manager: shwang
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 7/12/2019
-ms.openlocfilehash: f6baea73c0c4964bb3937304603a2a92a13d52b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c88f2d25046ee017fccd2cee6e951be72d4dda91
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86522725"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100361949"
 ---
 # <a name="move-files-with-azure-data-factory"></a>Mover ficheiros com a Azure Data Factory
 
@@ -62,7 +59,7 @@ O modelo define quatro parâmetros:
 
     ![Mostrar o oleoduto](media/solution-template-move-files/move-files4.png)
 
-5. Selecione **Debug,** introduza os **parâmetros**e, em seguida, selecione **Terminar**.   Os parâmetros são o caminho da pasta para onde pretende mover ficheiros e o caminho da pasta para onde pretende mover ficheiros. 
+5. Selecione **Debug,** introduza os **parâmetros** e, em seguida, selecione **Terminar**.   Os parâmetros são o caminho da pasta para onde pretende mover ficheiros e o caminho da pasta para onde pretende mover ficheiros. 
 
     ![Executar o pipeline](media/solution-template-move-files/move-files5.png)
 

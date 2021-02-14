@@ -9,13 +9,13 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-zone_pivot_groups: acs-js-csharp-java-python
-ms.openlocfilehash: 2d0d80be367dda3689566dec2ade6fd7fc7c01fc
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+zone_pivot_groups: acs-js-csharp-java-python-swift
+ms.openlocfilehash: 97b9644b3d075a0d65826cbd38747ff0e45d51a4
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91665381"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100379682"
 ---
 # <a name="quickstart-add-chat-to-your-app"></a>Quickstart: Adicione chat à sua App
 
@@ -39,7 +39,11 @@ Inicie-se com os Serviços de Comunicação Azure utilizando a biblioteca de cli
 [!INCLUDE [Chat with C# client library](./includes/chat-csharp.md)]
 ::: zone-end
 
-## <a name="clean-up-resources"></a>Limpar recursos
+::: zone pivot="programming-language-swift"
+[!INCLUDE [Chat with iOS client library](./includes/chat-swift.md)]
+::: zone-end
+
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se pretender limpar e remover uma assinatura de Serviços de Comunicação, pode eliminar o grupo de recursos ou recursos. A eliminação do grupo de recursos também elimina quaisquer outros recursos que lhe sejam associados. Saiba mais sobre [a limpeza de recursos.](../create-communication-resource.md#clean-up-resources)
 

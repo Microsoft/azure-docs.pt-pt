@@ -1,14 +1,14 @@
 ---
-title: Métricas de autocarro da Azure Service em Azure Monitor Microsoft Docs
+title: Métricas de autocarro da Azure Service em Azure Monitor| Microsoft Docs
 description: Este artigo explica como usar o Azure Monitor para monitorizar as entidades de Service Bus (filas, tópicos e subscrições).
 ms.topic: article
-ms.date: 11/18/2020
-ms.openlocfilehash: 1f8bd9484bf2a2106818da1d6e4ef21e937d2ac3
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.date: 02/12/2021
+ms.openlocfilehash: fa242b4d8c8a6ce83801667e686864f858f8a000
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94916887"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100519104"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor"></a>Métricas de ônibus de serviço Azure em Azure Monitor
 
@@ -54,7 +54,7 @@ Todos os valores de métricas são enviados para o Azure Monitor a cada minuto. 
 
 Conta o número de pedidos de dados e operações de gestão.
 
-| Nome da Métrica | Descrição |
+| Nome da Métrica | Description |
 | ------------------- | ----------------- |
 | Pedidos Recebidos| O número de pedidos feitos ao serviço service bus durante um período especificado. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: Nome da entidade|
 |Pedidos Com Êxito|O número de pedidos bem sucedidos feitos ao serviço service bus durante um período especificado.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: Nome da entidade|
@@ -72,9 +72,9 @@ Os dois tipos seguintes de erros são classificados como erros do utilizador:
 
 ## <a name="message-metrics"></a>Métricas de mensagem
 
-| Nome da Métrica | Descrição |
+| Nome da Métrica | Description |
 | ------------------- | ----------------- |
-|Mensagens Recebidas|O número de eventos ou mensagens enviadas para a Service Bus durante um período especificado.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: Nome da entidade|
+|Mensagens Recebidas|O número de eventos ou mensagens enviadas para a Service Bus durante um período especificado. Esta métrica não inclui mensagens que são reencaminhadas automaticamente.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: Nome da entidade|
 |Mensagens Enviadas|O número de eventos ou mensagens recebidas da Service Bus durante um período especificado.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: Nome da entidade|
 | Mensagens| Contagem de mensagens em uma fila/tópico. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Média <br/> Dimensão: Nome da entidade |
 | Mensagens Ativas| Contagem de mensagens ativas em uma fila/tópico. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Média <br/> Dimensão: Nome da entidade |
@@ -89,7 +89,7 @@ Os dois tipos seguintes de erros são classificados como erros do utilizador:
 
 ## <a name="connection-metrics"></a>Métricas de ligação
 
-| Nome da Métrica | Descrição |
+| Nome da Métrica | Description |
 | ------------------- | ----------------- |
 |Ligações Ativas|O número de ligações ativas num espaço de nome e numa entidade no espaço de nomes. O valor desta métrica é um valor pontual. As ligações que estavam ativas imediatamente após esse ponto-a-tempo podem não ser refletidas na métrica.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: Nome da entidade|
 |Ligações Abertas |O número de ligações abertas.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: Nome da entidade|
@@ -104,7 +104,7 @@ Os dois tipos seguintes de erros são classificados como erros do utilizador:
 > 
 > A outra métrica que pode monitorizar é: **pedidos acelerados.** Não deve ser um problema, desde que o espaço de nomes permaneça dentro da sua memória, CPU, e limites de conexões intermediadas. Para mais informações, consulte [Throttling no nível Premium do Bus Da Azure Service](service-bus-throttling.md#throttling-in-azure-service-bus-premium-tier)
 
-| Nome da Métrica | Descrição |
+| Nome da Métrica | Description |
 | ------------------- | ----------------- |
 |Utilização do CPU por espaço de nome|A percentagem de utilização do CPU do espaço de nome.<br/><br/> Unidade: Por cento <br/> Tipo de agregação: Máximo <br/> Dimensão: Nome da entidade|
 |Uso do tamanho da memória por espaço de nome|O uso percentual da memória do espaço de nome.<br/><br/> Unidade: Por cento <br/> Tipo de agregação: Máximo <br/> Dimensão: Nome da entidade|
@@ -113,7 +113,7 @@ Os dois tipos seguintes de erros são classificados como erros do utilizador:
 
 A Azure Service Bus suporta as seguintes dimensões para métricas no Azure Monitor. Adicionar dimensões às suas métricas é opcional. Se não adicionar dimensões, as métricas são especificadas ao nível do espaço de nome. 
 
-|Nome de dimensão|Descrição|
+|Nome de dimensão|Description|
 | ------------------- | ----------------- |
 |Nome da entidade| A Service Bus suporta entidades de mensagens no espaço de nomes.|
 

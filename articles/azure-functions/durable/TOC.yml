@@ -79,6 +79,8 @@
       href: durable-functions-perf-and-scale.md
     - name: Elevada disponibilidade
       href: durable-functions-disaster-recovery-geo-distribution.md
+    - name: Persistência de dados e serialização
+      href: durable-functions-serialization-and-persistence.md
 - name: Referência
   items:
     - name: Definições de host.json

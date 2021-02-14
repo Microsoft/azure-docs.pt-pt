@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: article
 ms.date: 11/05/2019
 ms.author: alkohli
-ms.openlocfilehash: e003d0121721838bd5ae038a3a8b4d1b8cd9d1eb
-ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
+ms.openlocfilehash: 9975533e00b0ca184e7cc16c5d8ea51d4eafa0a8
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98573195"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100361711"
 ---
 # <a name="azure-data-box-disk-limits"></a>Limites de disco de caixa de dados Azure
 
@@ -64,7 +64,7 @@ Aqui estão os limites do tamanho dos dados que podem ser copiados numa conta de
 
 | Tipo de dados             | Limite predefinido          |
 |--------------------------|------------------------|
-| blob bloco, blob página    | Para obter informações atuais sobre estes limites, consulte [alvos da escala de armazenamento Azure Blob,](../storage/blobs/scalability-targets.md#scale-targets-for-blob-storage) [metas de escala de armazenamento padrão Azure](../storage/common/scalability-targets-standard-account.md#scale-targets-for-standard-storage-accounts)e alvo de escala de [ficheiros Azure](../storage/files/storage-files-scale-targets.md#file-share-and-file-scale-targets). <br /><br /> Os limites incluem dados de todas as fontes, incluindo o Disco caixa de dados.|
+| blob bloco, blob página    | Para obter informações atuais sobre estes limites, consulte [alvos da escala de armazenamento Azure Blob,](../storage/blobs/scalability-targets.md#scale-targets-for-blob-storage) [metas de escala de armazenamento padrão Azure](../storage/common/scalability-targets-standard-account.md#scale-targets-for-standard-storage-accounts)e [alvos de escala de ficheiros Azure](../storage/files/storage-files-scale-targets.md). <br /><br /> Os limites incluem dados de todas as fontes, incluindo o Disco caixa de dados.|
 
 
 ## <a name="azure-object-size-limits"></a>Limites de tamanho de objeto azul
