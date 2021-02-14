@@ -6,20 +6,20 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/17/2020
+ms.date: 02/09/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5802070bf9b495c0e866d160d6661349369a444e
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 5b6bd16eacf4b1bbb7b93f5500813e7fa9dc7eef
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95993754"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100095851"
 ---
 # <a name="enable-and-manage-blob-versioning"></a>Ativar e gerir a versão blob
 
-Pode permitir que a versão de armazenamento Blob mantenha automaticamente as versões anteriores de um objeto.  Quando a versão blob estiver ativada, pode restaurar uma versão anterior de uma bolha para recuperar os seus dados se for erroneamente modificada ou eliminada.
+Pode permitir que a versão de armazenamento Blob mantenha automaticamente as versões anteriores de uma bolha quando esta é modificada ou eliminada. Quando a versão blob estiver ativada, poderá restaurar uma versão anterior de uma bolha para recuperar os seus dados se este for erroneamente modificado ou eliminado.
 
 Este artigo mostra como ativar ou desativar a versão blob para a conta de armazenamento utilizando o portal Azure ou um modelo de Gestor de Recursos Azure. Para saber mais sobre a versão blob, consulte [a versão Blob](versioning-overview.md).
 
@@ -29,13 +29,39 @@ Este artigo mostra como ativar ou desativar a versão blob para a conta de armaz
 
 # <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
 
-Para permitir a versão blob no portal Azure:
+Para permitir a versão blob para uma conta de armazenamento no portal Azure:
 
 1. Navegue para a sua conta de armazenamento no portal.
 1. No **serviço Blob,** escolha **a proteção de dados.**
 1. Na secção **versão,** selecione **Ativado**.
 
 :::image type="content" source="media/versioning-enable/portal-enable-versioning.png" alt-text="Screenshot mostrando como permitir a versão blob no portal Azure":::
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Para ativar a versão blob para uma conta de armazenamento com o PowerShell, instale primeiro a versão 2.3.0 ou posterior do módulo [Az.Storage.](https://www.powershellgallery.com/packages/Az.Storage) Em seguida, ligue para o comando [Update-AzStorageBlobServiceProperty](/powershell/module/az.storage/update-azstorageblobserviceproperty) para ativar a versão, como mostra o exemplo a seguir. Lembre-se de substituir os valores em suportes angulares pelos seus próprios valores:
+
+```powershell
+# Set resource group and account variables.
+$rgName = "<resource-group>"
+$accountName = "<storage-account>"
+
+# Enable versioning.
+Update-AzStorageBlobServiceProperty -ResourceGroupName $rgName `
+    -StorageAccountName $accountName `
+    -IsVersioningEnabled $true
+```
+
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
+Para ativar a versão blob para uma conta de armazenamento com o Azure CLI, instale primeiro a versão Azure CLI 2.2.0 ou posterior. Em seguida, ligue para o comando [de atualização blob-service-properties de serviço de armazenamento az](/cli/azure/ext/storage-blob-preview/storage/account/blob-service-properties#ext_storage_blob_preview_az_storage_account_blob_service_properties_update) para ativar a versão, como mostrado no exemplo seguinte. Lembre-se de substituir os valores em suportes angulares pelos seus próprios valores:
+
+```azurecli
+az storage account blob-service-properties update \
+    --resource-group <resource_group> \
+    --account-name <storage-account> \
+    --enable-versioning true
+```
 
 # <a name="template"></a>[Modelo](#tab/template)
 

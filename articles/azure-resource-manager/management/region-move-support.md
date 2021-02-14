@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 08/25/2020
 ms.author: raynew
-ms.openlocfilehash: 49c5828e02bf96a536ff14f6b84e81f7adbe3090
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 18d4d84462d528b718d784ff6a16ecf990ed0d20
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98806893"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100094020"
 ---
 # <a name="support-for-moving-azure-resources-across-regions"></a>Apoio à deslocação de recursos do Azure pelas regiões
 
@@ -151,7 +151,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > - [Microsoft.Portal](#microsoftportal)
 > - [Microsoft.PowerBI](#microsoftpowerbi)
 > - [Microsoft.PowerBIDedicated](#microsoftpowerbidedicated)
-> - [Microsoft.ProjectBabylon](#microsoftprojectbabylon)
+> - [Microsoft.Purview](#microsoftpurview)
 > - [Microsoft.ProviderHub](#microsoftproviderhub)
 > - [Microsoft.Quantum](#microsoftquantum)
 > - [Microsoft.RecoveryServices](#microsoftrecoveryservices)
@@ -205,7 +205,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | serviços de domínio | No | 
+> | serviços de domínio | Não | 
 
 
 ## <a name="microsoftaadiam"></a>microsoft.aadiam
@@ -213,71 +213,71 @@ Salte para um espaço de nome de fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | diagnósticos | No |
-> | diagnósticoscategorias | No |
-> | privatelinkforazuread | No |
-> | inquilinos |  No |
+> | diagnósticos | Não |
+> | diagnósticoscategorias | Não |
+> | privatelinkforazuread | Não |
+> | inquilinos |  Não |
 
 ## <a name="microsoftaddons"></a>microsoft. Addons
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | supportproviders | No |
+> | supportproviders | Não |
 
 ## <a name="microsoftadhybridhealthservice"></a>Microsoft.ADHybridHealthService
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- | 
-> | aadsupportcases | No |
-> | adds serviços | No | 
-> | agentes | No | 
-> | anónimos | No |
-> | configuração | No | 
-> | registos | No | 
-> | relatórios | No | 
-> | serviços de saúde | No | 
-> | services | No | 
+> | aadsupportcases | Não |
+> | adds serviços | Não | 
+> | agentes | Não | 
+> | anónimos | Não |
+> | configuração | Não | 
+> | registos | Não | 
+> | relatórios | Não | 
+> | serviços de saúde | Não | 
+> | services | Não | 
 
 ## <a name="microsoftadvisor"></a>Microsoft.Advisor
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- | 
-> | configurações | No | 
-> | gerar recommendações | No |
-> | do IdP | No |
-> | recomendações | No |
-> | supressões | No | 
+> | configurações | Não | 
+> | gerar recommendações | Não |
+> | do IdP | Não |
+> | recomendações | Não |
+> | supressões | Não | 
 
 ## <a name="microsoftalertsmanagement"></a>Microsoft.AlertsManagement
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | regras de ação | No | 
-> | alerts | No | 
-> | lista de alertas | No | 
-> | alertasmetadata | No | 
-> | alertasummary | No | 
-> | alertasummarylista | No | 
-> | smartdetectoralertrules | No | 
-> | grupos inteligentes | No | 
+> | regras de ação | Não | 
+> | alerts | Não | 
+> | lista de alertas | Não | 
+> | alertasmetadata | Não | 
+> | alertasummary | Não | 
+> | alertasummarylista | Não | 
+> | smartdetectoralertrules | Não | 
+> | grupos inteligentes | Não | 
 
 ## <a name="microsoftanalysisservices"></a>Microsoft.AnalysisServices
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | servidores | No |
+> | servidores | Não |
 
 ## <a name="microsoftapimanagement"></a>Microsoft.ApiManagement
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | reportfeedback | No |
+> | reportfeedback | Não |
 > | serviço |  Sim (usando o modelo) <br/><br/> [Mover a API Management através das regiões.](../../api-management/api-management-howto-migrate.md) | 
 
 ## <a name="microsoftappconfiguration"></a>Microsoft.AppConfiguration
@@ -285,15 +285,15 @@ Salte para um espaço de nome de fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | lojas de configurações | No | 
-> | lojas de configurações / filtros de eventos | No |
+> | lojas de configurações | Não | 
+> | lojas de configurações / filtros de eventos | Não |
 
 ## <a name="microsoftappplatform"></a>Microsoft.AppPlatform
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- | 
-> | primavera | No | 
+> | primavera | Não | 
 
 ## <a name="microsoftappservice"></a>Microsoft.AppService
 
@@ -301,36 +301,36 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
 > | apiapps | Sim (usando o modelo)<br/><br/> [Mover uma app de Serviço de Aplicações para outra região](../../app-service/manage-move-across-regions.md) | 
-> | appidentidades | No | 
-> | portais | No | 
+> | appidentidades | Não | 
+> | portais | Não | 
 
 ## <a name="microsoftattestation"></a>Microsoft.Attestation
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- | 
-> | atesstationproviders | No | 
+> | atesstationproviders | Não | 
 
 ## <a name="microsoftauthorization"></a>Microsoft.Authorization
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | classicadministradores | No | 
-> | dataaliases | No | 
-> | denyassignments | No | 
-> | elevateaccess | No | 
-> | findorphanroleassignments | No | 
-> | fechaduras | No | 
-> | permissões | No | 
-> | assinaturas políticas | No | 
-> | definições de políticas | No | 
-> | políticas dedefinições | No | 
-> | privatelinkassociations | No | 
-> | recursos gestagementprivatelinks | No | 
-> | roleassignments | No | 
-> | roleassignmentsusagemetrics | No | 
-> | papéis dedefinições | No | 
+> | classicadministradores | Não | 
+> | dataaliases | Não | 
+> | denyassignments | Não | 
+> | elevateaccess | Não | 
+> | findorphanroleassignments | Não | 
+> | fechaduras | Não | 
+> | permissões | Não | 
+> | assinaturas políticas | Não | 
+> | definições de políticas | Não | 
+> | políticas dedefinições | Não | 
+> | privatelinkassociations | Não | 
+> | recursos gestagementprivatelinks | Não | 
+> | roleassignments | Não | 
+> | roleassignmentsusagemetrics | Não | 
+> | papéis dedefinições | Não | 
 
 ## <a name="microsoftautomation"></a>Microsoft.Automation
 
@@ -338,15 +338,15 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
 > | contas de automação | Sim (usando o modelo) <br/><br/> [Utilização de geo-replicação](../../automation/automation-managing-data.md#geo-replication-in-azure-automation) |  
-> | contas/configurações de automação | No | 
-> | contas de automação / runbooks | No | 
+> | contas/configurações de automação | Não | 
+> | contas de automação / runbooks | Não | 
 
 ## <a name="microsoftavs"></a>Microsoft.AVS
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | Subscrição |
 > | ------------- | ----------- | 
-> | nuvens privadas | No | 
+> | nuvens privadas | Não | 
 
 
 ## <a name="microsoftazureactivedirectory"></a>Microsoft.AzureActiveDirectory
@@ -354,36 +354,36 @@ Salte para um espaço de nome de fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | b2direões | No | 
-> | b2ctenants | No | 
+> | b2direões | Não | 
+> | b2ctenants | Não | 
 
 ## <a name="microsoftazuredata"></a>Microsoft.AzureData
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | datacontrollers | No | 
-> | híbridos gerentes | No | 
-> | pós-insinstâncias | No | 
-> | sqlinstances | No | 
-> | sqlmanagedinstances | No |
-> | sqlserverinstances | No | 
-> | sqlserverregistrations | No |
+> | datacontrollers | Não | 
+> | híbridos gerentes | Não | 
+> | pós-insinstâncias | Não | 
+> | sqlinstances | Não | 
+> | sqlmanagedinstances | Não |
+> | sqlserverinstances | Não | 
+> | sqlserverregistrations | Não |
 
 ## <a name="microsoftazurestack"></a>Microsoft.AzureStack
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | cloudmanifestfiles | No |
-> | registos | No | 
+> | cloudmanifestfiles | Não |
+> | registos | Não | 
 
 ## <a name="microsoftazurestackhci"></a>Microsoft.AzureStackHCI
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- | 
-> | aglomerados | No | 
+> | aglomerados | Não | 
 
 ## <a name="microsoftbatch"></a>Microsoft.Batch
 
@@ -397,46 +397,46 @@ Salte para um espaço de nome de fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- | 
-> | contas de faturação | No | 
-> | faturantes | No | 
-> | faturações | No | 
-> | billingproperty | No | 
-> | billingroleassignments | No | 
-> | billingroledefinitions | No | 
-> | departamentos | No | 
-> | matrículas | No | 
-> | faturas | No | 
-> | transferências | No | 
+> | contas de faturação | Não | 
+> | faturantes | Não | 
+> | faturações | Não | 
+> | billingproperty | Não | 
+> | billingroleassignments | Não | 
+> | billingroledefinitions | Não | 
+> | departamentos | Não | 
+> | matrículas | Não | 
+> | faturas | Não | 
+> | transferências | Não | 
 
 ## <a name="microsoftbingmaps"></a>Microsoft.BingMaps
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | mapapis | No | 
+> | mapapis | Não | 
 
 ## <a name="microsoftbiztalkservices"></a>Microsoft.BizTalkServices
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | biztalk | No | 
+> | biztalk | Não | 
 
 ## <a name="microsoftblockchain"></a>Microsoft.Blockchain
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | membros blockchain | No <br/><br/> A rede blockchain não pode ter nós em diferentes regiões. 
-> | cordamembers | No |
-> | observadores | No | 
+> | membros blockchain | Não <br/><br/> A rede blockchain não pode ter nós em diferentes regiões. 
+> | cordamembers | Não |
+> | observadores | Não | 
 
 ## <a name="microsoftblockchaintokens"></a>Microsoft.BlockchainTokens
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | serviços de token | No |
+> | serviços de token | Não |
 
 
 ## <a name="microsoftblueprint"></a>Microsoft.Blueprint
@@ -444,57 +444,57 @@ Salte para um espaço de nome de fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | blueprintassignments | No | 
-> | plantas | No |
+> | blueprintassignments | Não | 
+> | plantas | Não |
 
 ## <a name="microsoftbotservice"></a>Microsoft.BotService
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | botservices | No | 
+> | botservices | Não | 
 
 ## <a name="microsoftcache"></a>Microsoft.Cache
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | redis | No | 
-> | redisenterprise | No | 
+> | redis | Não | 
+> | redisenterprise | Não | 
 
 ## <a name="microsoftcapacity"></a>Microsoft.Capacity
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- | 
-> | reservações aplicadas | No | 
-> | calcular a troca | No | 
-> | calcular preço | No | 
-> | calcular o preço da compra | No | 
-> | catálogos | No | 
-> | ordenadores de reservação comercial | No | 
-> | troca | No |
-> | encomendas de reservas | No | 
-> | reservas | No | 
-> | resources | No | 
-> | validação encomenda de reservas | No | 
+> | reservações aplicadas | Não | 
+> | calcular a troca | Não | 
+> | calcular preço | Não | 
+> | calcular o preço da compra | Não | 
+> | catálogos | Não | 
+> | ordenadores de reservação comercial | Não | 
+> | troca | Não |
+> | encomendas de reservas | Não | 
+> | reservas | Não | 
+> | resources | Não | 
+> | validação encomenda de reservas | Não | 
 
 ## <a name="microsoftcdn"></a>Microsoft.Cdn
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | cdnwebapplicationfirewallpolicies | No |
-> | edgenodes | No
-> | perfis | No | 
-> | perfis / pontos finais | No | 
+> | cdnwebapplicationfirewallpolicies | Não |
+> | edgenodes | Não
+> | perfis | Não | 
+> | perfis / pontos finais | Não | 
 
 ## <a name="microsoftcertificateregistration"></a>Microsoft.CertificateRegistration
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | certificadores | No | 
+> | certificadores | Não | 
 
 
 ## <a name="microsoftclassiccompute"></a>Microsoft.ClassicCompute
@@ -502,61 +502,61 @@ Salte para um espaço de nome de fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | capacidades | No | 
-> | temas de domínio | Yes | No |
-> | quotas | No | 
-> | recursos | No |
-> | valida a subscrição demovedabilidade | No | 
-> | virtualmachines | No 
+> | capacidades | Não | 
+> | temas de domínio | Sim | Não |
+> | quotas | Não | 
+> | recursos | Não |
+> | valida a subscrição demovedabilidade | Não | 
+> | virtualmachines | Não 
 
 ## <a name="microsoftclassicinfrastructuremigrate"></a>Microsoft.ClassicInfrastructureMigrate
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- | 
-> | classicinfrastructureresources | No | 
+> | classicinfrastructureresources | Não | 
 
 ## <a name="microsoftclassicnetwork"></a>Microsoft.ClassicNetwork
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | capacidades | No | 
-> | expressroute crossconnections | No | 
-> | expressroutecrossconnections / peerings | No | 
-> | gatewaysupporteddes | No | 
-> | networksecuritygroups | No |
-> | quotas | No |
-> | reservedips | No | 
-> | virtualnetworks | No | 
+> | capacidades | Não | 
+> | expressroute crossconnections | Não | 
+> | expressroutecrossconnections / peerings | Não | 
+> | gatewaysupporteddes | Não | 
+> | networksecuritygroups | Não |
+> | quotas | Não |
+> | reservedips | Não | 
+> | virtualnetworks | Não | 
 
 ## <a name="microsoftclassicstorage"></a>Microsoft.ClassicStorage
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | discos | No | 
-> | imagens | No | 
-> | osimagems | No | 
-> | osplatformimages | No | 
-> | imagens públicas | No | 
-> | quotas | No | 
-> | contas de armazenamento | Yes |  
-> | vmimages | No |
+> | discos | Não | 
+> | imagens | Não | 
+> | osimagems | Não | 
+> | osplatformimages | Não | 
+> | imagens públicas | Não | 
+> | quotas | Não | 
+> | contas de armazenamento | Sim |  
+> | vmimages | Não |
 
 ## <a name="microsoftclassicsubscription"></a>Microsoft.ClassicSubscription
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- | 
-> | operações | No | 
+> | operações | Não | 
 
 ## <a name="microsoftcognitiveservices"></a>Microsoft.CognitiveServices
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | accounts | No | 
+> | accounts | Não | 
 > | Cognitive Search | Suportado com passos manuais.<br/><br/> Saiba como [mover o seu serviço de Pesquisa Cognitiva Azure para outra região](../../search/search-howto-move-across-regions.md)
 
 ## <a name="microsoftcommerce"></a>Microsoft.Commerce
@@ -564,60 +564,60 @@ Salte para um espaço de nome de fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- | 
-> | cartão de taxa | No | 
-> | usageaggregates | No | 
+> | cartão de taxa | Não | 
+> | usageaggregates | Não | 
 
 ## <a name="microsoftcompute"></a>Microsoft.Compute
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | conjuntos de disponibilidades | Yes <br/><br/> Utilize [o Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) para mover conjuntos de disponibilidade. | 
-> | diskaccesses | No |
-> | conjuntos de diskencrypations | No | 
-> | discos | Yes <br/><br/> Utilize [o Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) para mover VMs Azure e discos relacionados. | 
-> | galerias | No | 
-> | galerias / imagens | No | 
-> | galerias / imagens / versões | No | 
-> | grupos de anfitriões | No | 
-> | grupos de anfitriões / anfitriões | No | 
-> | imagens | No | 
-> | grupos de destacamentos de proximidade | No | 
-> | restaurar as recordações de pontos | No | 
-> | sharedvmimages | No | 
-> | sharedvmimages / versões | No | 
-> | instantâneos | No | 
-> | sshpublickeys | No |
-> | virtualmachines | Yes <br/><br/> Utilize [o Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) para mover VMs Azure. | 
-> | virtualmachines /extensões | No | 
-> | virtualmachinescalesets | No | 
+> | conjuntos de disponibilidades | Sim <br/><br/> Utilize [o Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) para mover conjuntos de disponibilidade. | 
+> | diskaccesses | Não |
+> | conjuntos de diskencrypations | Não | 
+> | discos | Sim <br/><br/> Utilize [o Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) para mover VMs Azure e discos relacionados. | 
+> | galerias | Não | 
+> | galerias / imagens | Não | 
+> | galerias / imagens / versões | Não | 
+> | grupos de anfitriões | Não | 
+> | grupos de anfitriões / anfitriões | Não | 
+> | imagens | Não | 
+> | grupos de destacamentos de proximidade | Não | 
+> | restaurar as recordações de pontos | Não | 
+> | sharedvmimages | Não | 
+> | sharedvmimages / versões | Não | 
+> | instantâneos | Não | 
+> | sshpublickeys | Não |
+> | virtualmachines | Sim <br/><br/> Utilize [o Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) para mover VMs Azure. | 
+> | virtualmachines /extensões | Não | 
+> | virtualmachinescalesets | Não | 
 
 ## <a name="microsoftconsumption"></a>Microsoft.Consumption
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- | 
-> | agregados de cussão | No | 
-> | saldos | No | 
-> | orçamentos | No | 
-> | encargos | No | 
-> | costtags | No | 
-> | créditos | No | 
-> | eventos | No | 
-> | previsões | No | 
-> | lotes | No | 
-> | mercados | No | 
-> | folhas de preços | No | 
-> | produtos | No | 
-> | detalhes de reservas | No | 
-> | reservas recommendaçõesdedetails | No | 
-> | reservas recommendações | No | 
-> | reservas | No | 
-> | transações de reservas | No | 
-> | etiquetas | No | 
-> | inquilinos | No | 
-> | termos | No | 
-> | usagedetails | No | 
+> | agregados de cussão | Não | 
+> | saldos | Não | 
+> | orçamentos | Não | 
+> | encargos | Não | 
+> | costtags | Não | 
+> | créditos | Não | 
+> | eventos | Não | 
+> | previsões | Não | 
+> | lotes | Não | 
+> | mercados | Não | 
+> | folhas de preços | Não | 
+> | produtos | Não | 
+> | detalhes de reservas | Não | 
+> | reservas recommendaçõesdedetails | Não | 
+> | reservas recommendações | Não | 
+> | reservas | Não | 
+> | transações de reservas | Não | 
+> | etiquetas | Não | 
+> | inquilinos | Não | 
+> | termos | Não | 
+> | usagedetails | Não | 
 
 
 ## <a name="microsoftcontainerinstance"></a>Microsoft.ContainerInstance
@@ -625,8 +625,8 @@ Salte para um espaço de nome de fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | grupos de contentores | No | 
-> | ligações de serviços de ações | No |
+> | grupos de contentores | Não | 
+> | ligações de serviços de ações | Não |
 
 
 ## <a name="microsoftcontainerregistry"></a>Microsoft.ContainerRegistry
@@ -634,178 +634,178 @@ Salte para um espaço de nome de fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | registos | No |  
-> | registos / agentpools | No | 
-> | registos / buildtasks | No |  
-> | registos / replicações | No | 
-> | registos / tarefas | No |  
-> | registos / webhooks | No | 
+> | registos | Não |  
+> | registos / agentpools | Não | 
+> | registos / buildtasks | Não |  
+> | registos / replicações | Não | 
+> | registos / tarefas | Não |  
+> | registos / webhooks | Não | 
 
 ## <a name="microsoftcontainerservice"></a>Microsoft.ContainerService
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | serviços de contentores | No |
-> | geremclusters | No | 
-> | aglomerados de gestão de turnos abertos | No | 
+> | serviços de contentores | Não |
+> | geremclusters | Não | 
+> | aglomerados de gestão de turnos abertos | Não | 
 
 ## <a name="microsoftcontentmoderator"></a>Microsoft.ContentModerator
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | aplicações | No | 
+> | aplicações | Não | 
 
 ## <a name="microsoftcortanaanalytics"></a>Microsoft.CortanaAnalytics
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | accounts | No | 
+> | accounts | Não | 
 
 ## <a name="microsoftcostmanagement"></a>Microsoft.CostManagement
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | alerts | No | 
-> | contas de faturação | No | 
-> | orçamentos | No | 
-> | cloudconnectors | No | 
-> | conectores | No | 
-> | departamentos | No | 
-> | dimensões | No | 
-> | matrículas | No | 
-> | exportações | No | 
-> | contas de falcão externos | No | 
-> | forecast | No | 
-> | consulta | No | 
-> | registar | No | 
-> | configs relatório | No | 
-> | relatórios | No | 
-> | definições | No | 
-> | showbackrules | No | 
-> | Modos de exibição | No | 
+> | alerts | Não | 
+> | contas de faturação | Não | 
+> | orçamentos | Não | 
+> | cloudconnectors | Não | 
+> | conectores | Não | 
+> | departamentos | Não | 
+> | dimensões | Não | 
+> | matrículas | Não | 
+> | exportações | Não | 
+> | contas de falcão externos | Não | 
+> | forecast | Não | 
+> | consulta | Não | 
+> | registar | Não | 
+> | configs relatório | Não | 
+> | relatórios | Não | 
+> | definições | Não | 
+> | showbackrules | Não | 
+> | Modos de exibição | Não | 
 
 ## <a name="microsoftcustomerinsights"></a>Microsoft.CustomerInsights
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | hubs | No |  
+> | hubs | Não |  
 
 ## <a name="microsoftcustomerlockbox"></a>Microsoft.CustomerLockbox
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- | 
-> | pedidos | No | 
+> | pedidos | Não | 
 
 ## <a name="microsoftcustomproviders"></a>Microsoft.CustomProviders
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | associações | No |
-> | recursosproviders | No | 
+> | associações | Não |
+> | recursosproviders | Não | 
 
 ## <a name="microsoftdatabox"></a>Microsoft.DataBox
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | empregos | No | 
+> | empregos | Não | 
 
 ## <a name="microsoftdataboxedge"></a>Microsoft.DataBoxEdge
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | availableskus | No |
-> | databoxedgedevices | No | 
+> | availableskus | Não |
+> | databoxedgedevices | Não | 
 
 ## <a name="microsoftdatabricks"></a>Microsoft.Databricks
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | áreas de trabalho | No | 
+> | áreas de trabalho | Não | 
 
 ## <a name="microsoftdatacatalog"></a>Microsoft.DataCatalog
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | catálogos | No | 
-> | datacatalogs | No | 
+> | catálogos | Não | 
+> | datacatalogs | Não | 
 
 ## <a name="microsoftdataconnect"></a>Microsoft.DataConnect
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | gerentes de conexão | No | 
+> | gerentes de conexão | Não | 
 
 ## <a name="microsoftdataexchange"></a>Microsoft.DataExchange
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | pacotes | No | 
-> | planos | No | 
+> | pacotes | Não | 
+> | planos | Não | 
 
 ## <a name="microsoftdatafactory"></a>Microsoft.DataFactory
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | datafactories | No | 
-> | fábricas | No |  
+> | datafactories | Não | 
+> | fábricas | Não |  
 
 ## <a name="microsoftdatalake"></a>Microsoft.DataLake
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | datalakeaccounts | No | 
+> | datalakeaccounts | Não | 
 
 ## <a name="microsoftdatalakeanalytics"></a>Microsoft.DataLakeAnalytics
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | accounts | No | 
+> | accounts | Não | 
 
 ## <a name="microsoftdatalakestore"></a>Microsoft.DataLakeStore
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | accounts | No | 
+> | accounts | Não | 
 
 ## <a name="microsoftdatamigration"></a>Microsoft.DataMigration
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | services | No | 
-> | serviços / projetos | No | 
-> | slots | No | 
+> | services | Não | 
+> | serviços / projetos | Não | 
+> | slots | Não | 
 
 ## <a name="microsoftdataprotection"></a>Microsoft.DataProtection
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- | ---------- |
-> | backupvaults | No | 
+> | backupvaults | Não | 
 
 ## <a name="microsoftdatashare"></a>Microsoft.DataShare
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | accounts | No | 
+> | accounts | Não | 
 
 ## <a name="microsoftdbformariadb"></a>Microsoft.DBforMariaDB
 
@@ -826,21 +826,21 @@ Salte para um espaço de nome de fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | grupos de servidores | No | 
+> | grupos de servidores | Não | 
 > | servidores | Pode utilizar uma réplica de leitura transversal para mover um servidor existente. [Saiba mais.](../../postgresql/howto-move-regions-portal.md)
-> | servidorv2 | No | 
+> | servidorv2 | Não | 
 
 ## <a name="microsoftdeploymentmanager"></a>Microsoft.DeploymentManager
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | artefactos | No | 
-> | rollouts | No |  
-> | topologias de serviço | No | 
-> | topologias de serviços / serviços | No |  
-> | topologias de serviços / serviços / unidades de serviço | No | 
-> | passos | No | 
+> | artefactos | Não | 
+> | rollouts | Não |  
+> | topologias de serviço | Não | 
+> | topologias de serviços / serviços | Não |  
+> | topologias de serviços / serviços / unidades de serviço | Não | 
+> | passos | Não | 
 
 
 ## <a name="microsoftdesktopvirtualization"></a>Microsoft.DesktopVirtualization
@@ -848,25 +848,25 @@ Salte para um espaço de nome de fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- | 
-> | grupos de aplicações | No | 
-> | áreas de trabalho | No | 
+> | grupos de aplicações | Não | 
+> | áreas de trabalho | Não | 
 
 ## <a name="microsoftdevices"></a>Microsoft.Devices
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | elásticos | Não. O recurso não está exposto.
-> | elásticos / iothubtenants | Não. O recurso não está exposto.
-> | iothubs | Yes. [Saiba mais](../../iot-hub/iot-hub-how-to-clone.md)
-> | serviços de provisionamento | No | 
+> | elásticos | N.º O recurso não está exposto.
+> | elásticos / iothubtenants | N.º O recurso não está exposto.
+> | iothubs | Sim. [Saiba mais](../../iot-hub/iot-hub-how-to-clone.md)
+> | serviços de provisionamento | Não | 
 
 ## <a name="microsoftdevops"></a>Microsoft.DevOps
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | controladores | No | 
+> | controladores | Não | 
 
 
 ## <a name="microsoftdevspaces"></a>Microsoft.DevSpaces
@@ -874,20 +874,20 @@ Salte para um espaço de nome de fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | controladores | No | 
-> | Aglomerado de AKS | No<br/><br/> [Saiba mais](../../dev-spaces/faq.md#can-i-migrate-my-aks-cluster-with-azure-dev-spaces-to-another-region) sobre a mudança para outra região.
+> | controladores | Não | 
+> | Aglomerado de AKS | Não<br/><br/> [Saiba mais](../../dev-spaces/faq.md#can-i-migrate-my-aks-cluster-with-azure-dev-spaces-to-another-region) sobre a mudança para outra região.
 
 ## <a name="microsoftdevtestlab"></a>Microsoft.DevTestLab
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | centros de laboratório | No | 
-> | laboratórios | No | 
-> | laboratórios / ambientes | No |  
-> | laboratórios / corredores de serviço | No | 
-> | laboratórios / virtualmachines | No |  
-> | horários | No |  
+> | centros de laboratório | Não | 
+> | laboratórios | Não | 
+> | laboratórios / ambientes | Não |  
+> | laboratórios / corredores de serviço | Não | 
+> | laboratórios / virtualmachines | Não |  
+> | horários | Não |  
 
 ## <a name="microsoftdigitaltwins"></a>Microsoft.DigitalTwins
 
@@ -901,107 +901,107 @@ Salte para um espaço de nome de fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | contas de base de dados | No | 
-> | contas de base de dados | No | 
+> | contas de base de dados | Não | 
+> | contas de base de dados | Não | 
 
 ## <a name="microsoftdomainregistration"></a>Microsoft.DomainRegistration
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | domínios | No | 
-> | gerassorequest | No | 
-> | topleveldomains | No | 
-> | validação da informação sobreregistration | No |
+> | domínios | Não | 
+> | gerassorequest | Não | 
+> | topleveldomains | Não | 
+> | validação da informação sobreregistration | Não |
 
 ## <a name="microsoftenterpriseknowledgegraph"></a>Microsoft.EnterpriseKnowledgeGraph
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | services | No |  
+> | services | Não |  
 
 ## <a name="microsofteventgrid"></a>Microsoft.EventGrid
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | domínios | No | 
-> | subscrições de eventos | No |
-> | extensõestópicas | No | 
-> | partnernamespaces | No | 
-> | registos de parceiros | No | 
-> | partnertopics | No | 
-> | sistematópicos | No | 
-> | tópicos | No | 
-> | tópicos | No | 
+> | domínios | Não | 
+> | subscrições de eventos | Não |
+> | extensõestópicas | Não | 
+> | partnernamespaces | Não | 
+> | registos de parceiros | Não | 
+> | partnertopics | Não | 
+> | sistematópicos | Não | 
+> | tópicos | Não | 
+> | tópicos | Não | 
 
 ## <a name="microsofteventhub"></a>Microsoft.EventHub
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | aglomerados | No |  
+> | aglomerados | Não |  
 > | espaços de nome | Sim (com modelo)<br/><br/> [Mover um espaço de nomes do Event Hub para outra região](../../event-hubs/move-across-regions.md) | 
-> | sku | No |  
+> | sku | Não |  
 
 ## <a name="microsoftexperimentation"></a>Microsoft.Experimentation
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- | 
-> | espaços de trabalho experimenta | No | 
+> | espaços de trabalho experimenta | Não | 
 
 ## <a name="microsoftfalcon"></a>Microsoft.Falcon
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- | 
-> | espaços de nome | No | 
+> | espaços de nome | Não | 
 
 ## <a name="microsoftfeatures"></a>Microsoft.Features
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- | 
-> | recursosproviders | No | 
-> | funcionalidades | No | 
-> | fornecedores | No | 
-> | subscrições de registos de assinaturas | No | 
+> | recursosproviders | Não | 
+> | funcionalidades | Não | 
+> | fornecedores | Não | 
+> | subscrições de registos de assinaturas | Não | 
 
 ## <a name="microsoftgenomics"></a>Microsoft.Geómica
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | accounts | No | 
+> | accounts | Não | 
 
 ## <a name="microsoftguestconfiguration"></a>Microsoft.GuestConfiguration
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- | 
-> | auto-administradores | No | 
-> | autogeridavmconfigurationprofils | No | 
-> | convidadoconfigurationasssignments | No | 
-> | software | No | 
-> | softwareupdateprofile | No | 
-> | datas de software | No | 
+> | auto-administradores | Não | 
+> | autogeridavmconfigurationprofils | Não | 
+> | convidadoconfigurationasssignments | Não | 
+> | software | Não | 
+> | softwareupdateprofile | Não | 
+> | datas de software | Não | 
 
 ## <a name="microsofthanaonazure"></a>Microsoft.HanaOnAzure
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | hanainstances | No | 
-> | sapmonitors | No |  
+> | hanainstances | Não | 
+> | sapmonitors | Não |  
 
 ## <a name="microsofthardwaresecuritymodules"></a>Microsoft.HardwareSecurityModules
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- | 
-> | dedicados | No | 
+> | dedicados | Não | 
 
 
 ## <a name="microsofthdinsight"></a>Microsoft.HDInsight
@@ -1009,96 +1009,96 @@ Salte para um espaço de nome de fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | aglomerados | No | 
+> | aglomerados | Não | 
 
 ## <a name="microsofthealthcareapis"></a>Microsoft.HealthcareApis
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | services | No |  
+> | services | Não |  
 
 ## <a name="microsofthybridcompute"></a>Microsoft.HybridCompute
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | máquinas | No | 
-> | máquinas / extensões | No |
+> | máquinas | Não | 
+> | máquinas / extensões | Não |
 
 ## <a name="microsofthybriddata"></a>Microsoft.HybridData
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | datamanagers |  No | 
+> | datamanagers |  Não | 
 
 ## <a name="microsofthybridnetwork"></a>Microsoft.HybridNetwork
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- | 
-> | dispositivos | No | 
-> | vnfs | No | 
+> | dispositivos | Não | 
+> | vnfs | Não | 
 
 ## <a name="microsofthydra"></a>Microsoft.Hydra
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- | 
-> | componentes | No | 
-> | networkscopes | No | 
+> | componentes | Não | 
+> | networkscopes | Não | 
 
 ## <a name="microsoftimportexport"></a>Microsoft.ImportExport
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | empregos |  No | 
+> | empregos |  Não | 
 
 ## <a name="microsoftinsights"></a>microsoft.insights
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | accounts | Não. [Saiba mais](../../azure-monitor/faq.md#how-do-i-move-an-application-insights-resource-to-a-new-region).
-> | grupos de ação |  No | 
-> | activitylogalerts | No | 
-> | alertas |  No | 
-> | autoescala |  No | 
-> | linha de base | No |
-> | componentes |  No |  
-> | datacollectionrules | No | 
-> | diagnósticos | No | 
-> | diagnósticoscategorias | No | 
-> | eventcategorias | No | 
-> | tipos de eventos | No | 
-> | diagnósticosgnósticos estendidos | No | |
-> | guestdiagnosticsettings | No | 
-> | listmigrationdate | No | 
-> | início de ções | No | 
-> | logprofiles | No | 
-> | registos | No | No |
-> | metricalerts | No | 
-> | bases métricas | No | 
-> | metricbatch | No | 
-> | métricas | No | 
-> | espaços de nomes métricos | No | 
-> | metrics | No | 
-> | migratealertrules | No |
-> | migrar modelo dericing | No | 
-> | livros de trabalho | No |
-> | grupos de notificações | No | 
-> | privatelinkscopes | No |
-> | modelo de backbacktolegacypricing | No |
-> | queryrules agendados |  No | 
-> | topology | No |
-> | transações | No |
-> | vminsightsonboardingstatuses | No |
-> | webtests |  No | 
-> | webtests / obtertestesultfile | No |
-> | livros |  No |  
-> | estalagens de livros | No |
+> | accounts | N.º [Saiba mais](../../azure-monitor/faq.md#how-do-i-move-an-application-insights-resource-to-a-new-region).
+> | grupos de ação |  Não | 
+> | activitylogalerts | Não | 
+> | alertas |  Não | 
+> | autoescala |  Não | 
+> | linha de base | Não |
+> | componentes |  Não |  
+> | datacollectionrules | Não | 
+> | diagnósticos | Não | 
+> | diagnósticoscategorias | Não | 
+> | eventcategorias | Não | 
+> | tipos de eventos | Não | 
+> | diagnósticosgnósticos estendidos | Não | |
+> | guestdiagnosticsettings | Não | 
+> | listmigrationdate | Não | 
+> | início de ções | Não | 
+> | logprofiles | Não | 
+> | registos | Não | Não |
+> | metricalerts | Não | 
+> | bases métricas | Não | 
+> | metricbatch | Não | 
+> | métricas | Não | 
+> | espaços de nomes métricos | Não | 
+> | metrics | Não | 
+> | migratealertrules | Não |
+> | migrar modelo dericing | Não | 
+> | livros de trabalho | Não |
+> | grupos de notificações | Não | 
+> | privatelinkscopes | Não |
+> | modelo de backbacktolegacypricing | Não |
+> | queryrules agendados |  Não | 
+> | topology | Não |
+> | transações | Não |
+> | vminsightsonboardingstatuses | Não |
+> | webtests |  Não | 
+> | webtests / obtertestesultfile | Não |
+> | livros |  Não |  
+> | estalagens de livros | Não |
 
 
 ## <a name="microsoftiotcentral"></a>Microsoft.IoTCentral
@@ -1106,8 +1106,8 @@ Salte para um espaço de nome de fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | apliques | No | 
-> | iotapps | No | 
+> | apliques | Não | 
+> | iotapps | Não | 
 
 
 
@@ -1123,54 +1123,54 @@ Salte para um espaço de nome de fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da Região |
 > | ------------- | ----------- | 
-> | gráfico | No | 
+> | gráfico | Não | 
 
 ## <a name="microsoftkeyvault"></a>Microsoft.KeyVault
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | deletedvaults | No |
-> | hsmpools | No | 
-> | geredhsmos | No |
-> | cofres |  No | 
+> | deletedvaults | Não |
+> | hsmpools | Não | 
+> | geredhsmos | Não |
+> | cofres |  Não | 
 
 ## <a name="microsoftkubernetes"></a>Microsoft.Kubernetes
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- | 
-> | aglomerados conectados | No | 
-> | assinaturas registadas | No | 
+> | aglomerados conectados | Não | 
+> | assinaturas registadas | Não | 
 
 ## <a name="microsoftkubernetesconfiguration"></a>Microsoft.KubernetesConfiguration
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- | 
-> | configurações de controlo de fontes | No | 
+> | configurações de controlo de fontes | Não | 
 
 ## <a name="microsoftkusto"></a>Microsoft.Kusto
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | aglomerados |  No |  
+> | aglomerados |  Não |  
 
 ## <a name="microsoftlabservices"></a>Microsoft.LabServices
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | contas de laboratório | No | 
-> | utilizadores | No | 
+> | contas de laboratório | Não | 
+> | utilizadores | Não | 
 
 ## <a name="microsoftlocationbasedservices"></a>Microsoft.LocationBasedServices
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | accounts | No | 
+> | accounts | Não | 
 
 ## <a name="microsoftlocationservices"></a>Microsoft.LocationServices
 
@@ -1184,36 +1184,36 @@ Salte para um espaço de nome de fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | hospedar ambientes | No | 
-> | contas de integração |  No |  
-> | integração de ambientes | No | 
-> | integração de ambientesvírus /managedapis | No |
-> | ambientes isolados | No | 
-> | fluxos de trabalho |  No |  
+> | hospedar ambientes | Não | 
+> | contas de integração |  Não |  
+> | integração de ambientes | Não | 
+> | integração de ambientesvírus /managedapis | Não |
+> | ambientes isolados | Não | 
+> | fluxos de trabalho |  Não |  
 
 ## <a name="microsoftmachinelearning"></a>Microsoft.MachineLearning
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | planos de compromisso |  No | 
-> | serviços web |  No | 
-> | áreas de trabalho |  No | 
+> | planos de compromisso |  Não | 
+> | serviços web |  Não | 
+> | áreas de trabalho |  Não | 
 
 ## <a name="microsoftmachinelearningcompute"></a>Microsoft.MachineLearningCompute
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | grupos de operacionalização |  No | 
+> | grupos de operacionalização |  Não | 
 
 ## <a name="microsoftmachinelearningexperimentation"></a>Microsoft.MachineLearningExperimentation
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | accounts | No | 
-> | contas de equipa | No | 
+> | accounts | Não | 
+> | contas de equipa | Não | 
 
 
 ## <a name="microsoftmachinelearningmodelmanagement"></a>Microsoft.MachineLearningModelagement
@@ -1221,7 +1221,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | accounts | No | 
+> | accounts | Não | 
 
 
 ## <a name="microsoftmachinelearningservices"></a>Microsoft.MachineLearningServices
@@ -1229,55 +1229,55 @@ Salte para um espaço de nome de fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | áreas de trabalho | No | 
+> | áreas de trabalho | Não | 
 
 ## <a name="microsoftmaintenance"></a>Microsoft.Maintenance
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | configurações de assinaturas | Yes. [Saiba mais](../../virtual-machines/move-region-maintenance-configuration.md) | 
-> | configurações de manutenção | Yes. [Saiba mais](../../virtual-machines/move-region-maintenance-configuration-resources.md) |
-> | atualizações | No | 
+> | configurações de assinaturas | Sim. [Saiba mais](../../virtual-machines/move-region-maintenance-configuration.md) | 
+> | configurações de manutenção | Sim. [Saiba mais](../../virtual-machines/move-region-maintenance-configuration-resources.md) |
+> | atualizações | Não | 
 
 ## <a name="microsoftmanagedidentity"></a>Microsoft.ManagedIdentity
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | identidades | No | 
-> | usassignedidentidades | No | 
+> | identidades | Não | 
+> | usassignedidentidades | Não | 
 
 ## <a name="microsoftmanagednetwork"></a>Microsoft.ManagedNetwork
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- | 
-> | managednetworks | No | 
-> | gerednetworks / grupos de redes geridas | No |
-> | managednetworks / managednetworkpeeringpolicies | No | 
-> | notificação | No | 
+> | managednetworks | Não | 
+> | gerednetworks / grupos de redes geridas | Não |
+> | managednetworks / managednetworkpeeringpolicies | Não | 
+> | notificação | Não | 
 
 ## <a name="microsoftmanagedservices"></a>Microsoft.ManagedServices
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- | 
-> | marketplaceregistrationdefinitions | No | 
-> | inscrições | No |
-> | definições de registos | No | 
+> | marketplaceregistrationdefinitions | Não | 
+> | inscrições | Não |
+> | definições de registos | Não | 
 
 ## <a name="microsoftmanagement"></a>Microsoft.Management
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- | 
-> | getentities | No | 
-> | managementgroups | No | 
-> | grupos de gestão / configurações | No | 
-> | resources | No | 
-> | filtro de backback starttenant | No | 
-> | inquilinosfillstatus | No | 
+> | getentities | Não | 
+> | managementgroups | Não | 
+> | grupos de gestão / configurações | Não | 
+> | resources | Não | 
+> | filtro de backback starttenant | Não | 
+> | inquilinosfillstatus | Não | 
 
 ## <a name="microsoftmaps"></a>Microsoft.Maps
 
@@ -1285,141 +1285,141 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
 > | accounts |  Não, a Azure Maps é um serviço geoespacial. 
-> | contas / privateatlases | No
+> | contas / privateatlases | Não
 
 ## <a name="microsoftmarketplace"></a>Microsoft.Marketplace
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | ofertas | No | 
-> | tipos de ofertas | No | 
-> | privadas | No | 
-> | privatestoreclient | No | 
-> | lojas privadas | No | 
-> | produtos | No | 
-> | editores | No | 
-> | registar | No | 
+> | ofertas | Não | 
+> | tipos de ofertas | Não | 
+> | privadas | Não | 
+> | privatestoreclient | Não | 
+> | lojas privadas | Não | 
+> | produtos | Não | 
+> | editores | Não | 
+> | registar | Não | 
 
 ## <a name="microsoftmarketplaceapps"></a>Microsoft.MarketplaceApps
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- | 
-> | classicdevservices | No | 
+> | classicdevservices | Não | 
 
 ## <a name="microsoftmarketplaceordering"></a>Microsoft.MarketplaceOrdering
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- | 
-> | acordos | No | 
-> | tipos de ofertas | No | 
+> | acordos | Não | 
+> | tipos de ofertas | Não | 
 
 ## <a name="microsoftmedia"></a>Microsoft.Media
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | mediaservices |  No | 
-> | mediaservices / liveevents |  No | 
-> | mediaservices / streamingendpoints |  No | 
+> | mediaservices |  Não | 
+> | mediaservices / liveevents |  Não | 
+> | mediaservices / streamingendpoints |  Não | 
 
 ## <a name="microsoftmicroservices4spring"></a>Microsoft.Microservices4Spring
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | apclusters | No | 
+> | apclusters | Não | 
 
 ## <a name="microsoftmigrate"></a>Microsoft.Migrate
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | projetos de avaliação | No | 
-> | migrarprojects | No | 
-> | câmaras de mudança | No
-> | projetos | No | 
+> | projetos de avaliação | Não | 
+> | migrarprojects | Não | 
+> | câmaras de mudança | Não
+> | projetos | Não | 
 
 ## <a name="microsoftmixedreality"></a>Microsoft.MixedReality
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- | ---------- |
-> | holográficosbroscastaccounts | No | 
-> | contas objectunderstanding | No | 
-> | contas de reconeradores remotos | No | 
-> | spatialanchorsaccounts | No | 
+> | holográficosbroscastaccounts | Não | 
+> | contas objectunderstanding | Não | 
+> | contas de reconeradores remotos | Não | 
+> | spatialanchorsaccounts | Não | 
 
 ## <a name="microsoftnetapp"></a>Microsoft.NetApp
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | contas netappac | No | 
-> | contas de netappacs /capacitypools | No | 
-> | contas de netappacs / capacitypools / volumes | No | 
-> | contas netappaccounts / capacitypools / volumes / mounttargets | No | 
-> | contas de netappacs / capacitypools / volumes / snapshots | No | 
+> | contas netappac | Não | 
+> | contas de netappacs /capacitypools | Não | 
+> | contas de netappacs / capacitypools / volumes | Não | 
+> | contas netappaccounts / capacitypools / volumes / mounttargets | Não | 
+> | contas de netappacs / capacitypools / volumes / snapshots | Não | 
 
 ## <a name="microsoftnetwork"></a>Microsoft.Network
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | pistas de aplicação | No |
-> | applicationgatewaywebapplicationfirewallpolicies | No | 
-> | grupos de aplicações |  No |  
-> | azurefirewalls |  No |  
-> | bastionhosts | No | 
-> | bgpservicecommunidades | No |
-> | conexões |  No | 
-> | ddoscustompolicias |  No | 
-> | ddosprotectionplans | No | 
-> | dnszones |  No | 
-> | expressroutecircuits | No | 
-> | vias expressas | No | 
-> | expressrouteserviceproviders | No | 
-> | firewallpolicies | No |
-> | frontdoors | No | 
-> | ipallocations | No |
-> | ipgrupos | No |
-> | loadbalancers | Yes <br/><br/> Utilize [o Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) para mover os equilibradores de carga internos e externos. |
-> | vias de rede locais |  No | 
-> | natgateways |  No | 
-> | projetos de bioperiment de rede | No |
-> | políticas de networkintent |  No | 
-> | networkinterfaces | Yes <br/><br/> Utilize [o Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) para mover NICs. | 
-> | redes de mentofils | No | 
-> | networksecuritygroups | Yes <br/><br/> Utilize [o Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) para mover grupos de segurança de rede (NGSs). | 
-> | observadores de rede |  No |  
-> | observadores de rede / suportes de conexão |  No | 
-> | networkwatchers / fluxologs |  No | 
-> | observadores de rede / pingmeshes |  No | 
-> | p2svpngateways | No | 
-> | zonas privadas |  No |  
-> | privatednszones / virtualnetworklinks | No |> | privatednszonesinternal | No |
-> | privateendpointredirectmaps | No |
-> | pontos privados | No | 
-> | serviços de privatelink | No | 
-> | endereços publicitários | Yes<br/><br/> Utilize [o Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) para mover endereços IP públicos. |
-> | publicipprefixos | No | 
-> | filtros de rota | No | 
-> | routetables |  No | 
-> | segurançapartnerproviders | No |
-> | serviceendpointpolicies |  No | 
-> | trafficmanagergeographichierarchies | No | 
-> | trafficmanagerprofiles |  No | 
-> | trafficmanagerusermetricskeys | No |
-> | virtualhubs | No | 
-> | vias virtualnetworkgateways |  No |  
-> | virtualnetworks |  No | 
-> | virtualnetworktaps | No | 
-> | virtualwans | No | 
-> | VPNgateways (Wan Virtual) | No | 
-> | vpnsites (WAN virtual) | No | 
-> | vpnsites (WAN virtual) | No |
+> | pistas de aplicação | Não |
+> | applicationgatewaywebapplicationfirewallpolicies | Não | 
+> | grupos de aplicações |  Não |  
+> | azurefirewalls |  Não |  
+> | bastionhosts | Não | 
+> | bgpservicecommunidades | Não |
+> | conexões |  Não | 
+> | ddoscustompolicias |  Não | 
+> | ddosprotectionplans | Não | 
+> | dnszones |  Não | 
+> | expressroutecircuits | Não | 
+> | vias expressas | Não | 
+> | expressrouteserviceproviders | Não | 
+> | firewallpolicies | Não |
+> | frontdoors | Não | 
+> | ipallocations | Não |
+> | ipgrupos | Não |
+> | loadbalancers | Sim <br/><br/> Utilize [o Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) para mover os equilibradores de carga internos e externos. |
+> | vias de rede locais |  Não | 
+> | natgateways |  Não | 
+> | projetos de bioperiment de rede | Não |
+> | políticas de networkintent |  Não | 
+> | networkinterfaces | Sim <br/><br/> Utilize [o Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) para mover NICs. | 
+> | redes de mentofils | Não | 
+> | networksecuritygroups | Sim <br/><br/> Utilize [o Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) para mover grupos de segurança de rede (NGSs). | 
+> | observadores de rede |  Não |  
+> | observadores de rede / suportes de conexão |  Não | 
+> | networkwatchers / fluxologs |  Não | 
+> | observadores de rede / pingmeshes |  Não | 
+> | p2svpngateways | Não | 
+> | zonas privadas |  Não |  
+> | privatednszones / virtualnetworklinks | Não |> | privatednszonesinternal | Não |
+> | privateendpointredirectmaps | Não |
+> | pontos privados | Não | 
+> | serviços de privatelink | Não | 
+> | endereços publicitários | Sim<br/><br/> Utilize [o Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) para mover endereços IP públicos. |
+> | publicipprefixos | Não | 
+> | filtros de rota | Não | 
+> | routetables |  Não | 
+> | segurançapartnerproviders | Não |
+> | serviceendpointpolicies |  Não | 
+> | trafficmanagergeographichierarchies | Não | 
+> | trafficmanagerprofiles |  Não | 
+> | trafficmanagerusermetricskeys | Não |
+> | virtualhubs | Não | 
+> | vias virtualnetworkgateways |  Não |  
+> | virtualnetworks |  Não | 
+> | virtualnetworktaps | Não | 
+> | virtualwans | Não | 
+> | VPNgateways (Wan Virtual) | Não | 
+> | vpnsites (WAN virtual) | Não | 
+> | vpnsites (WAN virtual) | Não |
 
 
 ## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
@@ -1427,36 +1427,36 @@ Salte para um espaço de nome de fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | espaços de nome |  No | 
-> | espaços de nomes / notificações |  No |  
+> | espaços de nome |  Não | 
+> | espaços de nomes / notificações |  Não |  
 
 ## <a name="microsoftobjectstore"></a>Microsoft.ObjectStore
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- | 
-> | osnamepas | No | 
+> | osnamepas | Não | 
 
 ## <a name="microsoftoffazure"></a>Microsoft.OffAzure
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- | 
-> | hipervsites | No | 
-> | importações | No | 
-> | servidores | No | 
-> | vmwaresites | No | 
+> | hipervsites | Não | 
+> | importações | Não | 
+> | servidores | Não | 
+> | vmwaresites | Não | 
 
 ## <a name="microsoftoperationalinsights"></a>Microsoft.OperationalInsights
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | aglomerados | No | 
-> | espaços de trabalho apagados | No | 
-> | linktargets | No | 
-> | storageinsightconfigs | No |
-> | áreas de trabalho | No |
+> | aglomerados | Não | 
+> | espaços de trabalho apagados | Não | 
+> | linktargets | Não | 
+> | storageinsightconfigs | Não |
+> | áreas de trabalho | Não |
 
 
 
@@ -1465,43 +1465,43 @@ Salte para um espaço de nome de fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | sociedades de gestão | No |
-> | configurações de gestão |  No | 
-> | soluções | No |
-> | Modos de exibição |  No | 
+> | sociedades de gestão | Não |
+> | configurações de gestão |  Não | 
+> | soluções | Não |
+> | Modos de exibição |  Não | 
 
 ## <a name="microsoftpeering"></a>Microsoft.Peering
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | legacypeerings | No | 
-> | peerasns | No | 
-> | peeringlocações | No | 
-> | espreiteiros | No | 
-> | países de serviço de peering | No | 
-> | localização de serviços de espre éming | No | 
-> | peeringserviceproviders | No | 
-> | serviços de espreiteiros | No | 
+> | legacypeerings | Não | 
+> | peerasns | Não | 
+> | peeringlocações | Não | 
+> | espreiteiros | Não | 
+> | países de serviço de peering | Não | 
+> | localização de serviços de espre éming | Não | 
+> | peeringserviceproviders | Não | 
+> | serviços de espreiteiros | Não | 
 
 ## <a name="microsoftpolicyinsights"></a>Microsoft.PolicyInsights
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- | 
-> | eventos de política | No | 
-> | estados de política | No | 
-> | recursos de recursos de pista de política | No | 
-> | remediações | No | 
+> | eventos de política | Não | 
+> | estados de política | Não | 
+> | recursos de recursos de pista de política | Não | 
+> | remediações | Não | 
 
 ## <a name="microsoftportal"></a>Microsoft.Portal
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | Consolas do | No |
-> | dashboards | No | 
-> | utilizadores | No | 
+> | Consolas do | Não |
+> | dashboards | Não | 
+> | utilizadores | Não | 
 
 
 ## <a name="microsoftpowerbi"></a>Microsoft.PowerBI
@@ -1509,98 +1509,98 @@ Salte para um espaço de nome de fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | trabalhopascoscollections |  No | 
+> | trabalhopascoscollections |  Não | 
 
 ## <a name="microsoftpowerbidedicated"></a>Microsoft.PowerBIDedicated
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | capacidades |  No | 
+> | capacidades |  Não | 
 
-## <a name="microsoftprojectbabylon"></a>Microsoft.ProjectBabylon
+## <a name="microsoftpurview"></a>Microsoft.Purview
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | accounts | No | 
+> | accounts | Não | 
 
 ## <a name="microsoftproviderhub"></a>Microsoft.ProviderHub
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- | 
-> | contas disponíveis | No | 
-> | registos de fornecedores | No | 
-> | rollouts | No | 
+> | contas disponíveis | Não | 
+> | registos de fornecedores | Não | 
+> | rollouts | Não | 
 
 ## <a name="microsoftquantum"></a>Microsoft.Quantum
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- | 
-> | áreas de trabalho | No | 
+> | áreas de trabalho | Não | 
 
 ## <a name="microsoftrecoveryservices"></a>Microsoft.RecoveryServices
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | replicationeligibilityres | No |
-> | cofres | Não.<br/><br/> A movimentação de cofres dos Serviços de Recuperação para o Azure Backup em todas as regiões de Azure não é suportada.<br/><br/> Nos cofres dos Serviços de Recuperação para recuperação do local de Azure, pode [desativar e recriar o cofre](../../site-recovery/move-vaults-across-regions.md) na região alvo. | 
+> | replicationeligibilityres | Não |
+> | cofres | N.º<br/><br/> A movimentação de cofres dos Serviços de Recuperação para o Azure Backup em todas as regiões de Azure não é suportada.<br/><br/> Nos cofres dos Serviços de Recuperação para recuperação do local de Azure, pode [desativar e recriar o cofre](../../site-recovery/move-vaults-across-regions.md) na região alvo. | 
 
 ## <a name="microsoftredhatopenshift"></a>Microsoft.RedHatopenShift
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- | 
-> | aglomerados de turnos abertos | No | 
+> | aglomerados de turnos abertos | Não | 
 
 ## <a name="microsoftrelay"></a>Microsoft.Relay
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | espaços de nome |  No | 
+> | espaços de nome |  Não | 
 
 ## <a name="microsoftresourcegraph"></a>Microsoft.ResourceGraph
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | consultas |  No |  
-> | resourcechangedetails | No | 
-> | mudanças de recursos | No | 
-> | resources | No | 
-> | recursos história | No | 
-> | subscriçõesstatus | No | 
+> | consultas |  Não |  
+> | resourcechangedetails | Não | 
+> | mudanças de recursos | Não | 
+> | resources | Não | 
+> | recursos história | Não | 
+> | subscriçõesstatus | Não | 
 
 ## <a name="microsoftresourcehealth"></a>Microsoft.ResourceHealth
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- | 
-> | fontes infantis | No | 
-> | emergentes | No | 
-> | eventos | No | 
-> | do IdP | No | 
-> | notificações | No | 
+> | fontes infantis | Não | 
+> | emergentes | Não | 
+> | eventos | Não | 
+> | do IdP | Não | 
+> | notificações | Não | 
 
 ## <a name="microsoftresources"></a>Microsoft.Resources
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região |
 > | ------------- | ----------- |
-> | implementaçõesScripts |  Yes<br/><br/>[Mover recursos da Microsoft.Resources para uma nova região](microsoft-resources-move-regions.md) |
-> | modeloSpecs |  Yes<br/><br/>[Mover recursos da Microsoft.Resources para uma nova região](microsoft-resources-move-regions.md) |  
+> | implementaçõesScripts |  Sim<br/><br/>[Mover recursos da Microsoft.Resources para uma nova região](microsoft-resources-move-regions.md) |
+> | modeloSpecs |  Sim<br/><br/>[Mover recursos da Microsoft.Resources para uma nova região](microsoft-resources-move-regions.md) |  
 
 ## <a name="microsoftsaas"></a>Microsoft.SaaS
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | aplicações |  No | 
-> | saasresources | No | 
+> | aplicações |  Não | 
+> | saasresources | Não | 
 
 
 ## <a name="microsoftsearch"></a>Microsoft.Search
@@ -1608,8 +1608,8 @@ Salte para um espaço de nome de fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | resourcehealthmetadata | No |
-> | serviços de pesquisa |  No | 
+> | resourcehealthmetadata | Não |
+> | serviços de pesquisa |  Não | 
 
 
 ## <a name="microsoftsecurity"></a>Microsoft.Security
@@ -1617,165 +1617,165 @@ Salte para um espaço de nome de fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | adaptíostas de redes | No | 
-> | advancedthreatprotectionsettings | No | 
-> | alerts | No | 
-> | permitidas ligações | No | 
-> | listas de aplicaçõeswhitelistings | No | 
-> | avaliaçãometadata | No | 
-> | avaliações | No | 
-> | autodismissalertsrules | No | 
-> | automações | No | 
-> | autoprovisionings | No |
-> | resultados de conformidade | No | 
-> | conformidades | No | 
-> | datacollectionagentes | No | 
-> | grupos de dispositivos de insegurança | No | 
-> | descobertas sões de inseguranças | No | 
-> | sões de segurança externa | No | 
-> | políticas de proteção de informação | No | 
-> | soluções de iotsecuritys | No | 
-> | iotsecuritysolutions / analyticsmodels | No | 
-> | iotsecuritysolutions / analyticsmodels / agregados | No | 
-> | iotsecuritysolutions / analyticsmodels / aggregatedrecommendations | No | 
-> | jitnetworkacsspolicies | No | 
-> | políticas | No | 
-> | preços | No | 
-> | padrões de regulação | No | 
-> | padrões de regulação /regulatórios | No | 
-> | padrões de regulação / regulatórios de controlo /regulatórios | No | 
-> | contactos de segurança | No | 
-> | garantias de segurança | No | 
-> | securitysolutionsreferencedata | No | 
-> | estados de segurança | No | 
-> | securitystatusessummaries | No | 
-> | servidorvulnerabilityaments | No | 
-> | definições | No | 
-> | subassessments | No |
-> | tarefas | No | 
-> | topologias | No | 
-> | espaços de trabalho | No | 
+> | adaptíostas de redes | Não | 
+> | advancedthreatprotectionsettings | Não | 
+> | alerts | Não | 
+> | permitidas ligações | Não | 
+> | listas de aplicaçõeswhitelistings | Não | 
+> | avaliaçãometadata | Não | 
+> | avaliações | Não | 
+> | autodismissalertsrules | Não | 
+> | automações | Não | 
+> | autoprovisionings | Não |
+> | resultados de conformidade | Não | 
+> | conformidades | Não | 
+> | datacollectionagentes | Não | 
+> | grupos de dispositivos de insegurança | Não | 
+> | descobertas sões de inseguranças | Não | 
+> | sões de segurança externa | Não | 
+> | políticas de proteção de informação | Não | 
+> | soluções de iotsecuritys | Não | 
+> | iotsecuritysolutions / analyticsmodels | Não | 
+> | iotsecuritysolutions / analyticsmodels / agregados | Não | 
+> | iotsecuritysolutions / analyticsmodels / aggregatedrecommendations | Não | 
+> | jitnetworkacsspolicies | Não | 
+> | políticas | Não | 
+> | preços | Não | 
+> | padrões de regulação | Não | 
+> | padrões de regulação /regulatórios | Não | 
+> | padrões de regulação / regulatórios de controlo /regulatórios | Não | 
+> | contactos de segurança | Não | 
+> | garantias de segurança | Não | 
+> | securitysolutionsreferencedata | Não | 
+> | estados de segurança | Não | 
+> | securitystatusessummaries | Não | 
+> | servidorvulnerabilityaments | Não | 
+> | definições | Não | 
+> | subassessments | Não |
+> | tarefas | Não | 
+> | topologias | Não | 
+> | espaços de trabalho | Não | 
 
 ## <a name="microsoftsecurityinsights"></a>Microsoft.SecurityInsights
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- | 
-> | agregações | No | 
-> | alertas | No | 
-> | alertaruletemplas | No | 
-> | regras automation | No |
-> | casos | No | 
-> | dataconnectors | No | 
-> | entidades | No | 
-> | entidadequeries | No |
-> | Incidentes | No | 
-> | escritórioconsents | No | 
-> | definições | No | 
-> | ameaçaintelligence | No | 
+> | agregações | Não | 
+> | alertas | Não | 
+> | alertaruletemplas | Não | 
+> | regras automation | Não |
+> | casos | Não | 
+> | dataconnectors | Não | 
+> | entidades | Não | 
+> | entidadequeries | Não |
+> | Incidentes | Não | 
+> | escritórioconsents | Não | 
+> | definições | Não | 
+> | ameaçaintelligence | Não | 
 
 ## <a name="microsoftserialconsole"></a>Microsoft.SerialConsole
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- | 
-> | serviços de consola | No | 
+> | serviços de consola | Não | 
 
 ## <a name="microsoftservermanagement"></a>Microsoft.ServerManagement
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | portais | No | 
-> | osdes | No | 
+> | portais | Não | 
+> | osdes | Não | 
 
 ## <a name="microsoftservicebus"></a>Microsoft.ServiceBus
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | espaços de nome |  No | 
-> | premiummessaging regiões | No | 
-> | sku | No | 
+> | espaços de nome |  Não | 
+> | premiummessaging regiões | Não | 
+> | sku | Não | 
 
 ## <a name="microsoftservicefabric"></a>Microsoft.ServiceFabric
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | aplicações | No | 
-> | aglomerados |  No |  
-> | grupos de contentores | No | 
-> | conjuntos de contentores | No | 
-> | edgeclusters | No | 
-> | geremclusters | No |
-> | redes | No | 
-> | lojas secretas | No | 
-> | volumes | No | 
+> | aplicações | Não | 
+> | aglomerados |  Não |  
+> | grupos de contentores | Não | 
+> | conjuntos de contentores | Não | 
+> | edgeclusters | Não | 
+> | geremclusters | Não |
+> | redes | Não | 
+> | lojas secretas | Não | 
+> | volumes | Não | 
 
 ## <a name="microsoftservicefabricmesh"></a>Microsoft.ServiceFabricMesh
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | aplicações |  No | 
-> | grupos de contentores | No | 
-> | portais |  No | 
-> | redes |  No | 
-> | segredos |  No | 
-> | volumes |  No |  
+> | aplicações |  Não | 
+> | grupos de contentores | Não | 
+> | portais |  Não | 
+> | redes |  Não | 
+> | segredos |  Não | 
+> | volumes |  Não |  
 
 ## <a name="microsoftservices"></a>Microsoft.Services
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- | 
-> | rollouts | No | 
+> | rollouts | Não | 
 
 ## <a name="microsoftsignalrservice"></a>Microsoft.SignalRService
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | sinaleiro |  No |  
+> | sinaleiro |  Não |  
 
 ## <a name="microsoftsoftwareplan"></a>Microsoft.SoftwarePlan
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- | 
-> | híbridosbenefits | No | 
+> | híbridosbenefits | Não | 
 
 ## <a name="microsoftsolutions"></a>Microsoft.Solutions
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | aparelhos dedefinições | No | 
-> | aparelhos | No | 
-> | jitrequests | No | 
+> | aparelhos dedefinições | Não | 
+> | aparelhos | Não | 
+> | jitrequests | Não | 
 
 ## <a name="microsoftsql"></a>Microsoft.Sql
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | instâncias | No | 
-> | Locais | No |
-> | managedinstances | Yes <br/><br/> [Saiba mais](../../azure-sql/database/move-resources-across-regions.md) sobre a mudança de instâncias geridas em todas as regiões. | 
-> | managedinstances / bases de dados | Yes | 
-> | servidores | Yes | 
-> | servidores / bases de dados | Yes <br/><br/> [Saiba mais](../../azure-sql/database/move-resources-across-regions.md) sobre a mudança de bases de dados em regiões.<br/><br/> [Saiba mais](../../resource-mover/tutorial-move-region-sql.md) sobre a utilização do Azure Resource Mover para mover bases de dados Azure SQL.  | 
-> | servidores / elásticos | Yes <br/><br/> [Saiba mais](../../azure-sql/database/move-resources-across-regions.md) sobre a movimentação de piscinas elásticas em regiões.<br/><br/> [Saiba mais](../../resource-mover/tutorial-move-region-sql.md) sobre a utilização do Azure Resource Mover para mover piscinas elásticas Azure SQL.  | 
-> | virtualclusters | Yes | 
+> | instâncias | Não | 
+> | Locais | Não |
+> | managedinstances | Sim <br/><br/> [Saiba mais](../../azure-sql/database/move-resources-across-regions.md) sobre a mudança de instâncias geridas em todas as regiões. | 
+> | managedinstances / bases de dados | Sim | 
+> | servidores | Sim | 
+> | servidores / bases de dados | Sim <br/><br/> [Saiba mais](../../azure-sql/database/move-resources-across-regions.md) sobre a mudança de bases de dados em regiões.<br/><br/> [Saiba mais](../../resource-mover/tutorial-move-region-sql.md) sobre a utilização do Azure Resource Mover para mover bases de dados Azure SQL.  | 
+> | servidores / elásticos | Sim <br/><br/> [Saiba mais](../../azure-sql/database/move-resources-across-regions.md) sobre a movimentação de piscinas elásticas em regiões.<br/><br/> [Saiba mais](../../resource-mover/tutorial-move-region-sql.md) sobre a utilização do Azure Resource Mover para mover piscinas elásticas Azure SQL.  | 
+> | virtualclusters | Sim | 
 
 ## <a name="microsoftsqlvirtualmachine"></a>Microsoft.SqlVirtualMachine
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | grupos sqlvirtualmachineinegroups |  No |  
-> | sqlvirtualmachines |  No |  
+> | grupos sqlvirtualmachineinegroups |  Não |  
+> | sqlvirtualmachines |  Não |  
 
 
 ## <a name="microsoftstorage"></a>Microsoft.Storage
@@ -1783,50 +1783,50 @@ Salte para um espaço de nome de fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | contas de armazenamento | Yes<br/><br/> [Mover uma conta de Armazenamento Azure para outra região](../../storage/common/storage-account-move.md) | 
+> | contas de armazenamento | Sim<br/><br/> [Mover uma conta de Armazenamento Azure para outra região](../../storage/common/storage-account-move.md) | 
 
 ## <a name="microsoftstoragecache"></a>Microsoft.StorageCache
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | caches | No | 
+> | caches | Não | 
 
 ## <a name="microsoftstoragesync"></a>Microsoft.StorageSync
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | storagesyncservices |  No | 
+> | storagesyncservices |  Não | 
 
 ## <a name="microsoftstoragesyncdev"></a>Microsoft.StorageSyncDev
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | storagesyncservices | No | 
+> | storagesyncservices | Não | 
 
 ## <a name="microsoftstoragesyncint"></a>Microsoft.StorageSyncInt
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | storagesyncservices | No | 
+> | storagesyncservices | Não | 
 
 ## <a name="microsoftstorsimple"></a>Microsoft.StorSimple
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | gestores | No | 
+> | gestores | Não | 
 
 ## <a name="microsoftstreamanalytics"></a>Microsoft.StreamAnalytics
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | aglomerados | No |
-> | streamingjobs |  No |  
+> | aglomerados | Não |
+> | streamingjobs |  Não |  
 
 
 ## <a name="microsoftstreamanalyticsexplorer"></a>Microsoft.StreamAnalyticsExplorer
@@ -1834,32 +1834,32 @@ Salte para um espaço de nome de fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | ambientes | No | 
-> | casos | No | 
+> | ambientes | Não | 
+> | casos | Não | 
 
 ## <a name="microsoftsubscription"></a>Microsoft.Subscrição
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- | 
-> | assinaturas | No | 
+> | assinaturas | Não | 
 
 ## <a name="microsoftsupport"></a>microsoft.support
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- | 
-> | services | No | 
-> | bilhetes de apoio | No | 
+> | services | Não | 
+> | bilhetes de apoio | Não | 
 
 ## <a name="microsoftsynapse"></a>Microsoft.Synapse
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- | 
-> | áreas de trabalho | No | 
-> | espaços de trabalho / bigdatapools | No | 
-> | espaços de trabalho / sqlpools | No | 
+> | áreas de trabalho | Não | 
+> | espaços de trabalho / bigdatapools | Não | 
+> | espaços de trabalho / sqlpools | Não | 
 
 
 ## <a name="microsofttimeseriesinsights"></a>Microsoft.TimeSeriesInsights
@@ -1867,70 +1867,70 @@ Salte para um espaço de nome de fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | ambientes |  No | 
-> | ambientes / fontes de eventos |  No |  
-> | ambientes / conjuntos de dados de referência |  No | 
+> | ambientes |  Não | 
+> | ambientes / fontes de eventos |  Não |  
+> | ambientes / conjuntos de dados de referência |  Não | 
 
 ## <a name="microsofttoken"></a>Microsoft.Token
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | lojas | No | 
+> | lojas | Não | 
 
 ## <a name="microsoftvirtualmachineimages"></a>Microsoft.VirtualMachineImages
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | imagens | No | 
+> | imagens | Não | 
 
 ## <a name="microsoftvisualstudio"></a>microsoft.visualstudio
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | conta |  No | 
-> | conta / extensão |  No | 
-> | conta / projeto |  No | 
+> | conta |  Não | 
+> | conta / extensão |  Não | 
+> | conta / projeto |  Não | 
 
 ## <a name="microsoftvmware"></a>Microsoft.VMware
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- | 
-> | arczones | No | 
-> | recursos | No | 
-> | vcenters | No | 
-> | virtualmachines | No | 
-> | virtualmachinetemplates | No | 
-> | virtualnetworks | No | 
+> | arczones | Não | 
+> | recursos | Não | 
+> | vcenters | Não | 
+> | virtualmachines | Não | 
+> | virtualmachinetemplates | Não | 
+> | virtualnetworks | Não | 
 
 ## <a name="microsoftvmwarecloudsimple"></a>Microsoft.VMwareCloudSimple
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | não-100 dedicados | No | 
-> | serviços decloud dedicados | No | 
-> | virtualmachines | No | 
+> | não-100 dedicados | Não | 
+> | serviços decloud dedicados | Não | 
+> | virtualmachines | Não | 
 
 ## <a name="microsoftvnfmanager"></a>Microsoft.VnfManager
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- | 
-> | dispositivos | No | 
-> | vnfs | No | 
+> | dispositivos | Não | 
+> | vnfs | Não | 
 
 ## <a name="microsoftvsonline"></a>Microsoft.VSOnline
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- | 
-> | accounts | No | 
-> | planos | No | 
-> | assinaturas registadas | No |
+> | accounts | Não | 
+> | planos | Não | 
+> | assinaturas registadas | Não |
 
 
 ## <a name="microsoftweb"></a>Microsoft.Web
@@ -1938,65 +1938,65 @@ Salte para um espaço de nome de fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | disponíveis mochilas | No | 
-> | billingmeters | No | 
-> | certificados | No | 
-> | vias de conexão |  No |  
-> | conexões |  No |  
-> | customapis |  No | 
-> | deletedsites | No | 
-> | implantações | No | 
-> | geo-regiões | No | 
-> | hospedar ambientes | No | 
-> | kubeenvironments | No | 
-> | editores | No |
-> | recomendações | No | 
-> | resourcehealthmetadata | No | 
-> | tempos de execução | No | 
-> | serverfarms | No |  
+> | disponíveis mochilas | Não | 
+> | billingmeters | Não | 
+> | certificados | Não | 
+> | vias de conexão |  Não |  
+> | conexões |  Não |  
+> | customapis |  Não | 
+> | deletedsites | Não | 
+> | implantações | Não | 
+> | geo-regiões | Não | 
+> | hospedar ambientes | Não | 
+> | kubeenvironments | Não | 
+> | editores | Não |
+> | recomendações | Não | 
+> | resourcehealthmetadata | Não | 
+> | tempos de execução | Não | 
+> | serverfarms | Não |  
 > | serverfarms / eventgridfilters | N
-> | sites |  No | 
-> | sites / premieraddons |  No |  
-> | sites / slots |  No |  
-> | controlos de fontes | No |
-> | estáticasites | No | 
+> | sites |  Não | 
+> | sites / premieraddons |  Não |  
+> | sites / slots |  Não |  
+> | controlos de fontes | Não |
+> | estáticasites | Não | 
 
 ## <a name="microsoftwindowsesu"></a>Microsoft.WindowsESU
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- | 
-> | multipleactivationkeys | No |
+> | multipleactivationkeys | Não |
 
 ## <a name="microsoftwindowsiot"></a>Microsoft.WindowsIoT
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- |
-> | serviços de dispositivos | No | 
+> | serviços de dispositivos | Não | 
 
 ## <a name="microsoftworkloadbuilder"></a>Microsoft.WorkloadBuilder
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- | 
-> | cargas de trabalho | No | 
+> | cargas de trabalho | Não | 
 
 ## <a name="microsoftworkloadmonitor"></a>Microsoft.WorkloadMonitor
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Movimento da região | 
 > | ------------- | ----------- | 
-> | componentes | No |
-> | consumada de componentes | No | 
-> | monitorinstâncias | No | 
-> | monitorinstancessummary | No | 
-> | monitores | No | 
+> | componentes | Não |
+> | consumada de componentes | Não | 
+> | monitorinstâncias | Não | 
+> | monitorinstancessummary | Não | 
+> | monitores | Não | 
 ## <a name="third-party-services"></a>Serviços de terceiros
 
 Os serviços de terceiros não suportam atualmente a operação de mudança.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Saiba mais](../../resource-mover/overview.md) sobre o serviço Demôr Recursos.
 

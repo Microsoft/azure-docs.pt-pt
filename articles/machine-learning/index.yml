@@ -13,20 +13,20 @@ metadata:
   author: BlackMist
   ms.date: 09/21/2020
   ms.custom: contperf-fy21q1
-  ms.openlocfilehash: 44f260d5e336433c7366dcbe7ce6f1bb79f92c3c
-  ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+  ms.openlocfilehash: b52e7908d07dcd342be59f9870dece13701f1dc6
+  ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 01/22/2021
-  ms.locfileid: "98707843"
+  ms.lasthandoff: 02/10/2021
+  ms.locfileid: "100096332"
 landingContent:
 - title: 'Introdução: Primeiro o código'
   linkLists:
   - linkListType: tutorial
     links:
-    - text: Tutorial de introdução (Python)
+    - text: Começa com scripts Python
       url: tutorial-1st-experiment-sdk-setup-local.md
-    - text: Tutorial de utilização do Jupyter Notebook
+    - text: Começa com cadernos Jupyter (Python)
       url: tutorial-1st-experiment-sdk-setup.md
     - text: Inferência de lote com pipelines de ML (Python)
       url: tutorial-pipeline-batch-scoring-classification.md

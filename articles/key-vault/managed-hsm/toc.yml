@@ -39,8 +39,6 @@
       href: access-control.md
     - name: Funções incorporadas do RBAC local
       href: built-in-roles.md
-- name: Guias de procedimentos
-  items: null
 - name: Referência
   items:
     - name: Azure PowerShell

@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: larryfr
 author: BlackMist
 ms.date: 09/10/2020
-ms.openlocfilehash: a01aab13b87398b7d27af02fa84dd7fadf7b8345
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: b814c12a0d57230a81a68f6030a26ded93bd0399
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99431002"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100097080"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de lançamento do Azure Machine Learning
 
@@ -162,7 +162,7 @@ Neste artigo, saiba mais sobre os lançamentos da Azure Machine Learning.  Para 
 ## <a name="2020-11-30"></a>2020-11-30
 ### <a name="azure-machine-learning-studio-notebooks-experience-november-update"></a>Experiência de cadernos do estúdio de aprendizagem de máquinas Azure (Atualização de novembro)
 + **Novas funcionalidades**
-   + Terminal Nativo. Os utilizadores passarão a ter acesso a um terminal integrado, bem como a uma operação git através do [terminal integrado.](./how-to-run-jupyter-notebooks.md#terminal)
+   + Terminal Nativo. Os utilizadores passarão a ter acesso a um terminal integrado, bem como a uma operação git através do [terminal integrado.](./how-to-access-terminal.md)
   + Pasta duplicada 
   + Custo para Compute Drop Down 
   + Offline Compute Pylance 
@@ -940,7 +940,7 @@ Agora pode criar, editar e partilhar cadernos e ficheiros de machine learning di
 
 Aceda às seguintes ferramentas de autoria baseadas na web do estúdio:
     
-| Ferramenta baseada na web  |     Descrição  |
+| Ferramenta baseada na web  |     Description  |
 |---|---|
 | Cadernos do estúdio Azure ML   |     Primeira autoria em classe para ficheiros de portátil e suporte a toda a operação disponível no Azure ML Python SDK. | 
 
@@ -1452,7 +1452,7 @@ A partir do estúdio, você pode treinar, testar, implementar e gerir ativos de 
 
 Aceda às seguintes ferramentas de autoria baseadas na web do estúdio:
 
-| Ferramenta baseada na web | Descrição | 
+| Ferramenta baseada na web | Description | 
 |-|-|-|
 | VM do portátil (pré-visualização) | Estação de trabalho totalmente gerida em nuvem | 
 | [Aprendizagem automática de máquinas](tutorial-first-experiment-automated-ml.md) (pré-visualização) | Nenhuma experiência de código para automatizar o desenvolvimento de modelos de aprendizagem automática | 
@@ -1836,7 +1836,7 @@ Utilizando esta nova interface Azure Machine Learning, pode agora:
 
 No momento desta versão, os seguintes navegadores são suportados: Chrome, Firefox, Safari e Microsoft Edge Preview.
 
-**Problemas conhecidos:**
+**Questões conhecidas:**
 
 1. Refresque o seu navegador se vir "Algo correu mal! Erros de carregamento de ficheiros de pedaços" quando a implementação está em curso.
 

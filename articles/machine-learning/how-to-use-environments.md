@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/23/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 2da90a2c8950d85d8db2a414bbe63dfc7b94cf01
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 4388c1a43cf958133356ed9d1ac80aec3ba0ce16
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98601322"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100093646"
 ---
 # <a name="create--use-software-environments-in-azure-machine-learning"></a>Crie & utilize ambientes de software em Azure Machine Learning
 
@@ -398,7 +398,7 @@ service = Model.deploy(
 
 ## <a name="notebooks"></a>Notebooks
 
-Este [artigo](./how-to-run-jupyter-notebooks.md#add-new-kernels) fornece informações sobre como instalar um ambiente Conda como um núcleo num caderno.
+Este [artigo](./how-to-access-terminal.md#add-new-kernels) fornece informações sobre como instalar um ambiente Conda como um núcleo num caderno.
 
 [Implementar um modelo utilizando uma imagem base personalizada do Docker](how-to-deploy-custom-docker-image.md) demonstra como implementar um modelo utilizando uma imagem base personalizada do Docker.
 

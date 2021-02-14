@@ -1,5 +1,5 @@
 ---
-title: Termos de Serviço e declaração de privacidade para apps ! Rio Azure
+title: Termos de Serviço e declaração de privacidade para apps | Rio Azure
 description: Saiba como pode configurar os termos de serviço e declaração de privacidade para aplicações registadas para usar Azure AD.
 services: active-directory
 author: rwike77
@@ -12,12 +12,12 @@ ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja
 ms.custom: aaddev
-ms.openlocfilehash: 46919a97364aeff29e2b458c619315571dba7710
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 311dfd976610c392909a0ec3d91fecaa4d733539
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98013673"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104200"
 ---
 # <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>Como: Configurar termos de serviço e declaração de privacidade para uma aplicação
 
@@ -58,11 +58,11 @@ Quando os termos de serviço e declaração de privacidade estiverem prontos, po
 ### <a name="using-the-azure-portal"></a><a name="azure-portal"></a>Utilizar o portal do Azure
 Siga estes passos no portal Azure.
 
-1. Inscreva-se no <a href="https://portal.azure.com/" target="_blank">portal <span class="docon docon-navigate-external x-hidden-focus"></span> Azure,</a>selecione o inquilino AzureAD correto (não B2C).
-2. Navegue na secção registos de **aplicações** e selecione a sua aplicação.
-3. Abra o painel **de marcação.**
+1. Inscreva-se no <a href="https://portal.azure.com/" target="_blank">portal Azure</a> e selecione o inquilino AD AD correto (não B2C).
+2. Navegue na secção **de registos** da App e selecione a sua aplicação.
+3. Under **Manage**, selecione **Branding**.
 4. Preencha os termos **de URL de serviço** e url de Declaração de **Privacidade.**
-5. Guarde as alterações.
+5. Selecione **Guardar**.
 
     ![As propriedades da aplicação contêm termos de serviço e declaração de privacidade URLs](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
 

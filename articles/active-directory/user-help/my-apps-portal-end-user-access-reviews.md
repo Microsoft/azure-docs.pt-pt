@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: end-user-help
-ms.date: 10/19/2020
+ms.date: 01/19/2021
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: 8da9e97aaa2c6d99990df4221d8b6e99ab18ac83
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 34885e2a364778a2f81f4920aa26aa3bb5f40320
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93124817"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100095023"
 ---
 # <a name="perform-an-access-review-from-the-my-apps-portal"></a>Realizar uma análise de acesso a partir do portal My Apps
 
@@ -29,6 +29,11 @@ Se não tiver acesso ao portal **My Apps,** contacte o seu Helpdesk para obter p
 
 >[!Important]
 >Este conteúdo destina-se aos **utilizadores das Minhas Apps.** Se for administrador, pode encontrar mais informações sobre como configurar e gerir as suas aplicações baseadas na nuvem na [Documentação de Gestão de Aplicações.](../manage-apps/index.yml)
+>
+> Se vir um erro de sessão com uma conta pessoal da Microsoft, ainda pode iniciar sessão utilizando o nome de domínio da sua organização (como contoso.com) ou o **ID** do Inquilino da sua organização a partir de um dos seguintes URLs:
+>
+>   - https://myapplications.microsoft.com?tenantId=*your_domain_name*
+>   - https://myapplications.microsoft.com?tenant=*your_tenant_ID*
 
 ## <a name="manage-access-reviews"></a>Gerir comentários de acesso
 
@@ -41,17 +46,17 @@ Se o seu administrador lhe tiver dado permissão para realizar as suas próprias
 
 1. Inscreva-se na sua conta de trabalho ou escola.
 
-2. Abra o seu navegador web e vá https://myapps.microsoft.com para, ou use o link fornecido pela sua organização. Por exemplo, pode ser direcionado para uma página personalizada para a sua organização, como https://myapps.microsoft.com/contoso.com .
+1. Abra o seu navegador web e vá https://myapps.microsoft.com para, ou use o link fornecido pela sua organização. Por exemplo, pode ser direcionado para uma página personalizada para a sua organização, como https://myapps.microsoft.com/contoso.com .
 
     A página **apps** aparece, mostrando todas as aplicações baseadas na nuvem pertencentes à sua organização e disponíveis para você usar.
 
     ![Página de aplicativos no portal My Apps](media/my-apps-portal/my-apps-home.png)
 
-3. Selecione o **azulejo de comentários de acesso** para ver uma lista de avaliações de acesso à espera da sua aprovação.
+1. Selecione o **azulejo de comentários de acesso** para ver uma lista de avaliações de acesso à espera da sua aprovação.
 
     ![Aceder à página de comentários com comentários de acesso pendentes para a organização](media/my-apps-portal/my-apps-portal-access-reviews-page.png)
 
-4. Selecione Iniciar a **revisão** para iniciar a sua avaliação de acesso.
+1. Selecione Iniciar a **revisão** para iniciar a sua avaliação de acesso.
 
 5. Reveja o seu acesso e determine se ainda é necessário.
 
@@ -66,7 +71,7 @@ Se o seu administrador lhe tiver dado permissão para realizar as suas próprias
 
     ![Aceder à página de revisão, mostrando a caixa Reason com texto de amostra](media/my-apps-portal/my-apps-portal-perform-access-reviews-reason-box.png)
 
-7. Selecione **Submeter** .
+7. Selecione **Submeter**.
 
     A sua análise de acesso está completa e regressa ao portal **My Apps.**
 

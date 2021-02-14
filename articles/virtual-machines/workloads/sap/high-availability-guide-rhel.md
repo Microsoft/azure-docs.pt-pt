@@ -1,5 +1,5 @@
 ---
-title: Azure VMs alta disponibilidade para SAP NW na RHEL Microsoft Docs
+title: Azure VMs alta disponibilidade para SAP NW em | RHEL Microsoft Docs
 description: Azure Virtual Machines alta disponibilidade para SAP NetWeaver em Red Hat Enterprise Linux
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 01/11/2021
 ms.author: radeltch
-ms.openlocfilehash: d30a9d0abf6984df502283f06b2745f8ee4b1966
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: 9c712e1e7536c35a937349aedef3065e1ad34ccc
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98116301"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100097063"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux"></a>Azure Virtual Machines alta disponibilidade para SAP NetWeaver em Red Hat Enterprise Linux
 
@@ -50,7 +50,7 @@ Nas configurações de exemplo, comandos de instalação, etc. É utilizado o n�
 
 Leia primeiro as seguintes notas e artigos SAP
 
-* Nota SAP [1928533,]que tem:
+* Nota SAP [1928533], que tem:
   * Lista de tamanhos Azure VM que são suportados para a implementação de software SAP
   * Informações importantes sobre a capacidade dos tamanhos Azure VM
   * Combinações suportadas de software SAP e sistema operativo (OS) e de base de dados
@@ -79,7 +79,7 @@ Leia primeiro as seguintes notas e artigos SAP
   * [Políticas de suporte para clusters de alta disponibilidade RHEL - Microsoft Azure Virtual Machines como Membros do Cluster](https://access.redhat.com/articles/3131341)
   * [Instalar e Configurar um Red Hat Enterprise Linux 7.4 (e mais tarde) High-Availability Cluster no Microsoft Azure](https://access.redhat.com/articles/3252491)
 
-## <a name="overview"></a>Descrição Geral
+## <a name="overview"></a>Descrição geral
 
 Para obter uma elevada disponibilidade, o SAP NetWeaver necessita de armazenamento partilhado. O GlusterFS está configurado num cluster separado e pode ser utilizado por vários sistemas SAP.
 
@@ -542,7 +542,7 @@ Os seguintes itens são prefixados com **ambos [A]** - aplicável a todos os nó
       
    sudo pcs constraint colocation add g-<b>NW1</b>_AERS with g-<b>NW1</b>_ASCS -5000
    sudo pcs constraint location rsc_sap_<b>NW1</b>_ASCS<b>00</b> rule score=2000 runs_ers_<b>NW1</b> eq 1
-   sudo pcs constraint order g-<b>NW1</b>_ASCS then g-<b>NW1</b>_AERS kind=Optional symmetrical=false
+   sudo pcs constraint order start g-<b>NW1</b>_ASCS then stop g-<b>NW1</b>_AERS kind=Optional symmetrical=false
    
    sudo pcs node unstandby <b>nw1-cl-0</b>
    sudo pcs property set maintenance-mode=false
@@ -569,7 +569,7 @@ Os seguintes itens são prefixados com **ambos [A]** - aplicável a todos os nó
       
    sudo pcs constraint colocation add g-<b>NW1</b>_AERS with g-<b>NW1</b>_ASCS -5000
    sudo pcs constraint order g-<b>NW1</b>_ASCS then g-<b>NW1</b>_AERS kind=Optional symmetrical=false
-   sudo pcs constraint order start g-<b>NW1</b>_ASCS then stop g-<b>NW1</b>_AERS symmetrical=false
+   sudo pcs constraint order start g-<b>NW1</b>_ASCS then stop g-<b>NW1</b>_AERS kind=Optional symmetrical=false
    
    sudo pcs node unstandby <b>nw1-cl-0</b>
    sudo pcs property set maintenance-mode=false

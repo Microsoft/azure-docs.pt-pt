@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: end-user-help
-ms.date: 10/19/2020
+ms.date: 01/19/2021
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: 61dd185d00cef2382763e7435c081e1d412cdb92
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 6dd9d65ee56bcbf8ca1da72f7d99d4545c5d7fbb
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93127881"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100095006"
 ---
 # <a name="sign-in-and-start-apps-from-the-my-apps-portal"></a>Inicie sômis e iniciem aplicações a partir do portal My Apps
 
@@ -31,6 +31,11 @@ Se não tiver acesso ao portal **My Apps,** contacte o balcão de ajuda da sua o
 
 > [!IMPORTANT]
 > Este conteúdo destina-se aos **utilizadores das Minhas Apps.** Se for administrador, pode encontrar mais informações sobre como configurar e gerir as suas aplicações baseadas na nuvem na [Documentação de Gestão de Aplicações.](../manage-apps/index.yml)
+>
+> Se vir um erro de sessão com uma conta pessoal da Microsoft, ainda pode iniciar sessão utilizando o nome de domínio da sua organização (como contoso.com) ou o **ID** do Inquilino da sua organização a partir de um dos seguintes URLs:
+>
+>   - https://myapplications.microsoft.com?tenantId=*your_domain_name*
+>   - https://myapplications.microsoft.com?tenant=*your_tenant_ID*
 
 ## <a name="supported-browsers"></a>Browsers suportados
 
@@ -60,7 +65,7 @@ Se tiver permissão para aceder e utilizar as aplicações baseadas na nuvem da 
 
 ### <a name="download-and-install-the-my-apps-secure-sign-in-extension"></a>Descarregue e instale a extensão de inscrição segura das minhas apps
 
-Faça o download e instale a **extensão de inscrição segura das minhas apps,** se for solicitado. Esta extensão ajuda-o a usar o seu navegador de ambiente de trabalho para utilizar um único s-on com as aplicações cloud da sua organização. Basta pairar sobre uma aplicação no portal **My Apps,** selecione... e, em seguida, selecione **Gerir a sua aplicação** . **...**
+Faça o download e instale a **extensão de inscrição segura das minhas apps,** se for solicitado. Esta extensão ajuda-o a usar o seu navegador de ambiente de trabalho para utilizar um único s-on com as aplicações cloud da sua organização. Basta pairar sobre uma aplicação no portal **My Apps,** selecione... e, em seguida, selecione **Gerir a sua aplicação**. 
 
 Se a sua organização já o configurar para um único início de saúde, a extensão é instalada automaticamente e pode saltar esta secção.
 
@@ -77,9 +82,9 @@ Faça o download e instale a extensão, com base no navegador que está a utiliz
 
 - **Microsoft Edge** - A partir da Microsoft Store, vá à funcionalidade [De Extensão de Inscrição Segura das Minhas Aplicações](https://microsoftedge.microsoft.com/addons/detail/my-apps-secure-signin-ex/gaaceiggkkiffbfdpmfapegoiohkiipl) e, em seguida, selecione **Obter** a extensão para o navegador legado Microsoft Edge.
 
-- **Google Chrome** - A partir da Loja Web do Chrome, vá à funcionalidade [de extensão de acesso seguro das minhas aplicações](https://chrome.google.com/webstore/detail/my-apps-secure-sign-in-ex/ggjhpefgjjfobnfoldnjipclpcfbgbhl) e, em seguida, selecione **Adicionar ao Chrome** .
+- **Google Chrome** - A partir da Loja Web do Chrome, vá à funcionalidade [de extensão de acesso seguro das minhas aplicações](https://chrome.google.com/webstore/detail/my-apps-secure-sign-in-ex/ggjhpefgjjfobnfoldnjipclpcfbgbhl) e, em seguida, selecione **Adicionar ao Chrome**.
 
-- **Mozilla Firefox** - A partir da página **de Add-ons do Firefox,** aceda à funcionalidade [Extensão de Inscrição Segura das Minhas Aplicações](https://addons.mozilla.org/firefox/addon/access-panel-extension/) e, em seguida, selecione **Add to Firefox** .
+- **Mozilla Firefox** - A partir da página **de Add-ons do Firefox,** aceda à funcionalidade [Extensão de Inscrição Segura das Minhas Aplicações](https://addons.mozilla.org/firefox/addon/access-panel-extension/) e, em seguida, selecione **Add to Firefox**.
 
 Um ícone é adicionado à direita da sua barra **de endereços,** permitindo-lhe iniciar sôm e personalizar a extensão.
 
@@ -87,9 +92,9 @@ Um ícone é adicionado à direita da sua barra **de endereços,** permitindo-lh
 
 Pode escolher quantas aplicações ver na secção **Recentemente Utilizadas** e decidir se permite que os URLs internos da sua organização redirecionem.
 
-1. Selecione o novo ícone de **extensão de extensão de inscrição das minhas aplicações para** ![ o lado direito da sua barra de ](media/my-apps-portal/my-apps-portal-extension-icon.png) **endereço** e, em seguida, selecione **Iniciar sôs-in para começar** .
+1. Selecione o novo ícone de **extensão de extensão de inscrição das minhas aplicações para** ![ o lado direito da sua barra de ](media/my-apps-portal/my-apps-portal-extension-icon.png) **endereço** e, em seguida, selecione **Iniciar sôs-in para começar**.
 
-1. Clique com o botão direito no ícone **definições** do ícone ![ Definições ](media/my-apps-portal/my-apps-portal-extension-settings-icon.png) e, em seguida, selecione **Definições** .
+1. Clique com o botão direito no ícone **definições** do ícone ![ Definições ](media/my-apps-portal/my-apps-portal-extension-settings-icon.png) e, em seguida, selecione **Definições**.
 
 1. Na caixa **Definições,** selecione o número de aplicações recentes que pretende ver no portal e se permite que os URLs internos da sua organização redirecionem para que possa utilizá-las remotamente.
 
@@ -113,11 +118,11 @@ Veja e use as aplicações da sua organização a partir da versão móvel do na
 
 Se o seu administrador lhe tiver dado permissão, pode adicionar uma nova aplicação à página **Apps.**
 
-1. Na página **Apps,** **selecione Adicionar aplicações de self-service** .
+1. Na página **Apps,** **selecione Adicionar aplicações de self-service**.
 
    ![Adicione a página de aplicações, no portal My Apps em myapplications.microsoft.com](media/my-apps-portal/my-apps-portal-add-app-link.png)
 
-1. Selecione a aplicação que pretende adicionar da lista fornecida e, em seguida, selecione **Adicionar** .
+1. Selecione a aplicação que pretende adicionar da lista fornecida e, em seguida, selecione **Adicionar**.
 
 1. A aplicação é adicionada à lista na página **Apps.**
 

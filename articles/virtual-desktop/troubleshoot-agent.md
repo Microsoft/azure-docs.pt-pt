@@ -6,19 +6,19 @@ ms.topic: troubleshooting
 ms.date: 12/16/2020
 ms.author: sefriend
 manager: clarkn
-ms.openlocfilehash: 8e3c372cb186d3043e89b0b084a86b7be128146d
-ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
+ms.openlocfilehash: 1500a635d5177ed8899cdc3f1364e57a8525892c
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99475257"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100099953"
 ---
 # <a name="troubleshoot-common-windows-virtual-desktop-agent-issues"></a>Resolução de problemas problemas comuns do Windows Virtual Desktop Agent
 
 O Windows Virtual Desktop Agent pode causar problemas de ligação devido a vários fatores:
    - Um erro no corretor que faz com que o agente pare o serviço.
    - Problemas com atualizações.
-   - Problemas com a instalação do agente durante a instalação do agente, o que interrompe a ligação ao anfitrião da sessão.
+   - Problemas com a instalação durante a instalação do agente, o que interrompe a ligação ao anfitrião da sessão.
 
 Este artigo irá guiá-lo através de soluções para estes cenários comuns e como abordar questões de conexão.
 
@@ -184,7 +184,7 @@ Para resolver esta questão, altere o limiar do batimento cardíaco:
 1. Abra o seu pedido de comando como administrador.
 2. Introduza o comando **qwinsta** e ordene.
 3. Devem ser apresentados dois componentes de pilha: **RDP-tcp** e **RDP-sxs**. 
-   - Dependendo da versão do SISTEMA que está a utilizar, os **rdp-sxs** podem ser seguidos pelo número de construção, tal como mostrado na imagem seguinte. Se for, certifique-se de escrever este número para mais tarde.
+   - Dependendo da versão do SISTEMA que está a utilizar, **os rdp-sxs** podem ser seguidos pelo número de construção. Se for, certifique-se de escrever este número para mais tarde.
 4. Abra o Editor de Registo.
 5. Vá para **HKEY_LOCAL_MACHINE**  >  **sistema sistema**  >    >    >  **controle terminal de**  >  **servidores WinStations**.
 6. No **WinStations** poderá ver várias pastas para diferentes versões de stack. Selecione a pasta que corresponde ao número da versão do passo 3.
@@ -207,7 +207,7 @@ Para resolver este problema, faça espaço no seu disco através de:
 Abra uma janela PowerShell como administrador e execute o seguinte cmdlet:
 
 ```powershell
-Get-AzWvdSessionHost -TenantName <tenantname> -HostPoolName <hostpoolname>|Select-Object *
+Get-AzWvdSessionHost -ResourceGroupName <resourcegroupname> -HostPoolName <hostpoolname> | Select-Object *
 ```
 
 Se o estado indicado para o anfitrião da sessão ou os anfitriões na piscina do anfitrião estiverem sempre **de acordo com Indisponíveis** ou **Atualização,** a instalação do agente ou da stack pode ter falhado

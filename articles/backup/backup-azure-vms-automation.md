@@ -3,12 +3,12 @@ title: Recuar e recuperar VMs Azure com PowerShell
 description: Descreve como fazer backup e recuperar VMs Azure usando Azure Backup com PowerShell
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 90bb6f60712fc59aec05ff2e85364fccf00ff1df
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 66b8fe0109a4dd2e054106b67f893def2ee596b0
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98804798"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100095091"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Recuar e restaurar VMs Azure com PowerShell
 
@@ -527,6 +527,53 @@ Um utilizador pode restaurar seletivamente alguns discos em vez de todo o conjun
 
 Assim que restaurar os discos, vá à secção seguinte para criar o VM.
 
+#### <a name="restore-disks-to-a-secondary-region"></a>Restaurar discos para uma região secundária
+
+Se a restauração inter-região estiver ativada no cofre com o qual protegeu os seus VMs, os dados de reserva são replicados na região secundária. Pode utilizar os dados de reserva para efetuar uma restauração. Execute os seguintes passos para desencadear uma restauração na região secundária:
+
+1. [Pegue a identificação do cofre](#fetch-the-vault-id) com a qual os seus VMs estão protegidos.
+1. Selecione o [item de cópia de segurança correto para restaurar](#select-the-vm-when-restoring-files).
+1. Selecione o ponto de recuperação apropriado na região secundária que pretende utilizar para executar o restauro.
+
+    Para completar este passo, executar este comando:
+
+    ```powershell
+    $rp=Get-AzRecoveryServicesBackupRecoveryPoint -UseSecondaryRegion -Item $backupitem -VaultId $targetVault.ID
+    $rp=$rp[0]
+    ```
+
+1. Execute o [cmdlet Restore-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem) com o `-RestoreToSecondaryRegion` parâmetro para desencadear uma restauração na região secundária.
+
+    Para completar este passo, executar este comando:
+
+    ```powershell
+    $restorejob = Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -StorageAccountName "DestAccount" -StorageAccountResourceGroupName "DestRG" -TargetResourceGroupName "DestRGforManagedDisks" -VaultId $targetVault.ID -VaultLocation $targetVault.Location -RestoreToSecondaryRegion -RestoreOnlyOSDisk
+    ```
+
+    O resultado vai ser semelhante ao exemplo seguinte:
+
+    ```output
+    WorkloadName     Operation             Status              StartTime                 EndTime          JobID
+    ------------     ---------             ------              ---------                 -------          ----------
+    V2VM             CrossRegionRestore   InProgress           4/23/2016 5:00:30 PM                       cf4b3ef5-2fac-4c8e-a215-d2eba4124f27
+    ```
+
+1. Execute o [cmdlet Get-AzRecoveryServicesBackupJob](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjob) com o `-UseSecondaryRegion` parâmetro para monitorizar a função de restauro.
+
+    Para completar este passo, executar este comando:
+
+    ```powershell
+    Get-AzRecoveryServicesBackupJob -From (Get-Date).AddDays(-7).ToUniversalTime() -To (Get-Date).ToUniversalTime() -UseSecondaryRegion -VaultId $targetVault.ID
+    ```
+
+    O resultado vai ser semelhante ao exemplo seguinte:
+
+    ```output
+    WorkloadName     Operation            Status               StartTime                 EndTime                   JobID
+    ------------     ---------            ------               ---------                 -------                   -----
+    V2VM             CrossRegionRestore   InProgress           2/8/2021 4:24:57 PM                                 2d071b07-8f7c-4368-bc39-98c7fb2983f7
+    ```
+
 ## <a name="replace-disks-in-azure-vm"></a>Substitua os discos em Azure VM
 
 Para substituir os discos e as informações de configuração, execute os seguintes passos:
@@ -893,6 +940,6 @@ Depois de copiar os ficheiros [necessários, utilize Disable-AzRecoveryServicesB
 Disable-AzRecoveryServicesBackupRPMountScript -RecoveryPoint $rp[0] -VaultId $targetVault.ID
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se preferir utilizar o PowerShell para se envolver com os seus recursos Azure, consulte o artigo PowerShell, [Implementar e Gerir a cópia de segurança para o Servidor do Windows](backup-client-automation.md). Se gerir backups DPM, consulte o artigo, [Implementar e Gerir a Cópia de Segurança para DPM](backup-dpm-automation.md).

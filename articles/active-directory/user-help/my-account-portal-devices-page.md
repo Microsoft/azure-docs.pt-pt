@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 07/29/2020
+ms.date: 01/19/2021
 ms.author: curtand
-ms.openlocfilehash: 784ee418c3713cce53d7e99e30fd445e75d144da
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d82b59e887eb35a972812dd82dbca5ca6bc5179b
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88798215"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100096213"
 ---
 # <a name="manage-your-connected-devices-from-the-devices-page"></a>Gerencie os seus dispositivos conectados a partir da página dispositivos
 
@@ -27,7 +27,12 @@ A página **dispositivos** do portal **My Account** ajuda-o a gerir os dispositi
 - Desative todos os dispositivos que já não possui, perdeu ou que foram roubados.
 
 >[!Important]
->Este artigo destina-se a utilizadores que tentem atualizar as informações do dispositivo ligadas a uma conta de trabalho ou escola. Se é um administrador que procura informações sobre a gestão do dispositivo para os seus colaboradores e outras utilizações, consulte a [Documentação de Identidades do Dispositivo](../devices/index.yml).
+>Este artigo destina-se a utilizadores que tentem atualizar as informações do dispositivo ligadas a uma conta de trabalho ou escola. Se vir um erro ao iniciar sessão com uma conta pessoal da Microsoft, ainda pode iniciar sessão utilizando o nome de domínio da sua organização (como contoso.com) ou o **ID** do Inquilino da sua organização a partir de um dos seguintes URLs:
+>
+>   - https://myaccount.microsoft.com?tenantId=*your_domain_name*
+>   - https://myaccount.microsoft.com?tenant=*your_tenant_ID*
+>
+>Se é um administrador que procura informações sobre a gestão do dispositivo para os seus colaboradores e outras utilizações, consulte a [Documentação de Identidades do Dispositivo](../devices/index.yml).
 
 ## <a name="view-your-connected-devices"></a>Ver os seus dispositivos conectados
 
@@ -62,7 +67,7 @@ Se estiver bloqueado fora do seu dispositivo ou tiver um erro fatal, pode ir a o
 
     ![Página do dispositivo com opção chave BitLocker](media/my-account-portal/my-account-portal-devices-bitlocker.png)
 
-2. Selecione **ver as teclas Bitlocker** para o dispositivo bloqueado e anota a tecla BitLocker para o seu dispositivo bloqueado.
+2. Selecione **ver as teclas BitLocker** para o dispositivo bloqueado e anota a tecla BitLocker para o seu dispositivo bloqueado.
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -1,5 +1,5 @@
 ---
-title: Adicione as funções de aplicativo e obtenha-as a partir de um token ! Rio Azure
+title: Adicione os papéis de aplicativo e obtenha-os de um símbolo | Rio Azure
 titleSuffix: Microsoft identity platform
 description: Saiba como adicionar funções de aplicação a uma aplicação registada no Azure Ative Directory, atribuir utilizadores e grupos a estas funções e recebê-las na reivindicação de 'roles' no token.
 services: active-directory
@@ -13,12 +13,12 @@ ms.date: 11/13/2020
 ms.author: kkrishna
 ms.reviewer: marsma, kkrishna, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: b2ac90334ade52d68c775d9db5a84545774f3844
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: fce963bd9ffdc6f768d7b3de4a9e4870add06136
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98013707"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104251"
 ---
 # <a name="how-to-add-app-roles-to-your-application-and-receive-them-in-the-token"></a>Como: Adicionar funções de aplicação à sua aplicação e recebê-las no token
 
@@ -37,23 +37,23 @@ Define as funções de aplicação utilizando o [portal Azure.](https://portal.a
 
 Existem duas formas de declarar os papéis da aplicação utilizando o portal Azure:
 
-* [Funções de aplicativo UI](#app-roles-ui--preview) / previsualizar
+* [Funções de aplicativo UI](#app-roles-ui--preview) | previsualizar
 * [Editor manifesto de aplicativo](#app-manifest-editor)
 
 O número de funções que adiciona conta para os limites manifestos de aplicação imposto pelo Azure Ative Directory. Para obter informações sobre estes limites, consulte a secção [Desproteturas](./reference-app-manifest.md#manifest-limits) da [aplicação Azure Ative Directory.](reference-app-manifest.md)
 
-### <a name="app-roles-ui--preview"></a>Funções de aplicativo UI / previsualizar
+### <a name="app-roles-ui--preview"></a>Funções de aplicativo UI | previsualizar
 
 > [!IMPORTANT]
 > A funcionalidade UI do portal de funções de aplicativos [!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-preview.md)]
 
 Para criar uma função de aplicação utilizando a interface de utilizador do portal Azure:
 
-1. Inscreva-se no <a href="https://portal.azure.com/" target="_blank">portal <span class="docon docon-navigate-external x-hidden-focus"></span> Azure</a>.
+1. Inicie sessão no <a href="https://portal.azure.com/" target="_blank">portal do Azure</a>.
 1. Selecione o filtro **de subscrição Directory +** no menu superior e, em seguida, escolha o inquilino do Azure Ative Directory que contém o registo da aplicação ao qual pretende adicionar uma função de app.
 1. Procure e selecione **Azure Active Directory**.
 1. Em **Manage**, selecione **registos de Aplicações** e, em seguida, selecione a aplicação em que pretende definir funções de aplicação.
-1. Selecione **funções de App / Pré-visualizar** e, em seguida, selecionar **Criar o papel da aplicação**.
+1. Selecione **funções de aplicação | Pré-visualizar** e, em seguida, selecionar **Criar o papel da aplicação**.
 
    :::image type="content" source="media/howto-add-app-roles-in-azure-ad-apps/app-roles-overview-pane.png" alt-text="Um painel de funções de aplicação de registo de aplicações no portal Azure":::
 1. No painel de funções da **aplicação Create,** introduza as definições para o papel. A tabela que segue a imagem descreve cada definição e os seus parâmetros.
@@ -66,7 +66,7 @@ Para criar uma função de aplicação utilizando a interface de utilizador do p
     | **Tipos de membros permitidos** | Especifica se esta função da app pode ser atribuída a utilizadores, aplicações ou ambos.<br/><br/>Quando disponível para `applications` , as funções da aplicação aparecem como permissões de aplicação na secção **de Gestão** de uma aplicação > **permissões de API > Adicionar uma permissão > As minhas APIs > Escolha uma API > Permissões de Aplicação.** | `Users/Groups` |
     | **Valor** | Especifica o valor das funções alegando que a aplicação deve esperar no token. O valor deve corresponder exatamente à cadeia referenciada no código da aplicação. O valor não pode conter espaços. | `Survey.Create` |
     | **Descrição** | Uma descrição mais detalhada da função da aplicação exibida durante a atribuição de aplicações de administração e experiências de consentimento. | `Writers can create surveys.` |
-    | **Deseja ativar esta função de aplicação?** | Especifica se a função da aplicação está ativada. Para eliminar uma função de aplicação, desmarcar esta caixa de verificação e aplicar a alteração antes de tentar a operação de eliminação. | *Marcado* |
+    | **Deseja ativar esta função de aplicação?** | Especifica se a função da aplicação está ativada. Para eliminar uma função de aplicação, desmarcar esta caixa de verificação e aplicar a alteração antes de tentar a operação de eliminação. | *Verificado* |
 
 1. Selecione **Aplicar** para guardar as alterações.
 
@@ -74,7 +74,7 @@ Para criar uma função de aplicação utilizando a interface de utilizador do p
 
 Para adicionar papéis editando o manifesto diretamente:
 
-1. Inscreva-se no <a href="https://portal.azure.com/" target="_blank">portal <span class="docon docon-navigate-external x-hidden-focus"></span> Azure</a>.
+1. Inicie sessão no <a href="https://portal.azure.com/" target="_blank">portal do Azure</a>.
 1. Selecione o filtro **de subscrição Directory +** no menu superior e, em seguida, escolha o inquilino do Azure Ative Directory que contém o registo da aplicação ao qual pretende adicionar uma função de app.
 1. Procure e selecione **Azure Active Directory**.
 1. Em **Manage**, selecione **registos de Aplicações** e, em seguida, selecione a aplicação em que pretende definir funções de aplicação.
@@ -107,7 +107,7 @@ Este exemplo define uma função de aplicação nomeada `Writer` que pode atribu
 "availableToOtherTenants": false,
 ```
 
-#### <a name="example-application-app-role"></a>Exemplo: Função de aplicação de aplicações
+#### <a name="example-application-app-role"></a>Exemplo: Função de aplicação de aplicação de aplicação de aplicações
 
 Quando disponível para `applications` , as funções da aplicação aparecem como permissões de aplicação na secção **de Gestão** de uma aplicação > **permissões de API > Adicionar uma permissão > As minhas APIs > Escolha uma API > Permissões de Aplicação.**
 
@@ -136,7 +136,7 @@ Uma vez adicionadas funções de aplicação na sua aplicação, pode atribuir u
 
 Para atribuir utilizadores e grupos a funções utilizando o portal Azure:
 
-1. Inscreva-se no <a href="https://portal.azure.com/" target="_blank">portal <span class="docon docon-navigate-external x-hidden-focus"></span> Azure</a>.
+1. Inicie sessão no <a href="https://portal.azure.com/" target="_blank">portal do Azure</a>.
 1. No **Azure Ative Directory,** selecione **aplicações Enterprise** no menu de navegação à esquerda.
 1. Selecione **Todas as aplicações** para ver uma lista de todas as suas aplicações. Se a sua aplicação não aparecer na lista, utilize os filtros no topo da lista de **aplicações** para restringir a lista, ou desloque a lista para localizar a sua aplicação.
 1. Selecione a aplicação na qual pretende atribuir utilizadores ou grupo de segurança a funções.
@@ -158,7 +158,7 @@ Quando atribui funções de aplicação a uma aplicação, cria *permissões de 
 
 Para atribuir funções de aplicação a uma aplicação utilizando o portal Azure:
 
-1. Inscreva-se no <a href="https://portal.azure.com/" target="_blank">portal <span class="docon docon-navigate-external x-hidden-focus"></span> Azure</a>.
+1. Inicie sessão no <a href="https://portal.azure.com/" target="_blank">portal do Azure</a>.
 1. No **Azure Ative Directory,** selecione **registos de Aplicações** no menu de navegação à esquerda.
 1. Selecione **Todas as aplicações** para ver uma lista de todas as suas aplicações. Se a sua aplicação não aparecer na lista, utilize os filtros no topo da lista de **aplicações** para restringir a lista, ou desloque a lista para localizar a sua aplicação.
 1. Selecione a aplicação à qual pretende atribuir uma função de aplicação.
@@ -199,7 +199,7 @@ Os desenvolvedores podem usar as funções de aplicação para controlar se um u
 
 As funções de aplicação são preferidas pelos desenvolvedores quando querem descrever e controlar os parâmetros de autorização na sua própria app. Por exemplo, uma aplicação que usa grupos para autorização irá quebrar o próximo inquilino, uma vez que tanto o ID do grupo como o nome poderiam ser diferentes. Uma aplicação que usa funções de aplicativo permanece segura. Na verdade, atribuir grupos a funções de apps é popular entre as aplicações do SaaS pelas mesmas razões.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre funções de aplicativos com os seguintes recursos.
 
