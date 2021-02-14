@@ -1,19 +1,17 @@
 ---
 title: Lidar com linhas de erro com fluxos de dados de mapeamento na Azure Data Factory
 description: Aprenda a lidar com erros de truncação SQL na Azure Data Factory utilizando fluxos de dados de mapeamento.
-services: data-factory
 author: kromerm
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/22/2020
 ms.author: makromer
-ms.openlocfilehash: c8b0ae7058aecc1813d720a3fbb2a1a1f967cf40
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: a7a03ff1a58f50f16ebefce48b9e2772a16a011a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96352611"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100386344"
 ---
 # <a name="handle-sql-truncation-error-rows-in-data-factory-mapping-data-flows"></a>Lidar com linhas de erro de truncação SQL nos fluxos de dados de mapeamento da Data Factory
 
@@ -29,7 +27,7 @@ Existem dois métodos primários para lidar com erros graciosos ao escrever dado
 > [!NOTE]
 > Ao permitir o manuseamento automático de linhas de erro, ao contrário do método abaixo de escrever a sua própria lógica de manuseamento de erros, haverá uma pequena penalidade de desempenho incorrida e um passo adicional dado pela ADF para executar uma operação de 2 fases para prender erros.
 
-## <a name="scenario"></a>Cenário
+## <a name="scenario"></a>Scenario
 
 1. Temos uma tabela de base de dados-alvo que tem uma ```nvarchar(5)``` coluna chamada "nome".
 

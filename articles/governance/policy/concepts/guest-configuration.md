@@ -3,12 +3,12 @@ title: Aprenda a auditar o conteúdo das máquinas virtuais
 description: Saiba como a Azure Policy utiliza o cliente de Configuração de Convidados para auditar as definições dentro de máquinas virtuais.
 ms.date: 01/14/2021
 ms.topic: conceptual
-ms.openlocfilehash: c141169545379f1ac0dd18a97e85652f97b90e6f
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: 5d1503680ea2ca7d0ff7c8adae19c05abfe441c0
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98210125"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104812"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Compreender a Configuração de Convidado do Azure Policy
 
@@ -142,11 +142,15 @@ Ao atribuir definições que comecem com _configuração,_ também deve atribuir
 
 As definições de política de auditoria disponíveis para configuração de hóspedes incluem o tipo de recurso **Microsoft.HybridCompute/machines.** Quaisquer máquinas a bordo do [Azure Arc para servidores](../../../azure-arc/servers/overview.md) que estejam no âmbito da atribuição de políticas são automaticamente incluídas.
 
+## <a name="troubleshooting-guest-configuration"></a>Configuração de hóspedes de resolução de problemas
+
+Para obter mais informações sobre a resolução de problemas da configuração do hóspede, consulte [a resolução de problemas da Política Azure](../troubleshoot/general.md).
+
 ### <a name="multiple-assignments"></a>Múltiplas atribuições
 
 Atualmente, as definições de política de configuração de hóspedes apenas suportam a atribuição da mesma Atribuição de Hóspedes uma vez por máquina, mesmo que a atribuição de Política utilize parâmetros diferentes.
 
-## <a name="client-log-files"></a>Ficheiros de registo de clientes
+### <a name="client-log-files"></a>Ficheiros de registo de clientes
 
 A extensão de Configuração do Hóspede escreve ficheiros de registo para os seguintes locais:
 
@@ -180,6 +184,15 @@ linesToIncludeAfterMatch=10
 logPath=/var/lib/GuestConfig/gc_agent_logs/gc_agent.log
 egrep -B $linesToIncludeBeforeMatch -A $linesToIncludeAfterMatch 'DSCEngine|DSCManagedEngine' $logPath | tail
 ```
+
+### <a name="client-files"></a>Ficheiros de clientes
+
+O cliente de Configuração de Hóspedes descarrega pacotes de conteúdo para uma máquina e extrai o conteúdo.
+Para verificar que conteúdo foi descarregado e armazenado, consulte as localizações da pasta abaixo.
+
+Windows: `c:\programdata\guestconfig\configurations`
+
+Linux: `/var/lib/guestconfig/configurations`
 
 ## <a name="guest-configuration-samples"></a>Amostras de configuração de hóspedes
 

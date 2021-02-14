@@ -1,21 +1,18 @@
 ---
 title: Transformar dados
 description: Transforme dados ou processos na Azure Data Factory usando Hadoop, Azure Machine Learning Studio (clássico) ou Azure Data Lake Analytics.
-services: data-factory
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
-manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 07/31/2018
-ms.openlocfilehash: 43a035662cc76dc6de1de3fa990e06f2e00cfd66
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 0a1eb593e9f9f15f88aefb2fe06706153a4b74a4
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98632330"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100361405"
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Transformar dados no Azure Data Factory
 
@@ -36,7 +33,7 @@ ms.locfileid: "98632330"
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 Este artigo explica as atividades de transformação de dados na Azure Data Factory que pode utilizar para transformar e processar os seus dados brutos em previsões e insights em escala. Uma atividade de transformação executa em um ambiente de computação como Azure Databricks ou Azure HDInsight. Fornece ligações a artigos com informações detalhadas sobre cada atividade de transformação.
 
 A Data Factory suporta as seguintes atividades de transformação de dados que podem ser adicionadas aos [oleodutos](concepts-pipelines-activities.md) individualmente ou acorrentados com outra atividade.

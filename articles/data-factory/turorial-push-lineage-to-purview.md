@@ -1,24 +1,20 @@
 ---
 title: Emitir dados de linhagem do Data Factory para o Azure Purview
 description: Saiba como empurrar os dados da linhagem data factory para a Azure Purview
-services: data-factory
 ms.author: lle
 author: lrtoyou1223
-manager: shwang
-ms.reviewer: craigg
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom:
 - seo-lt-2019
 - references_regions
 ms.date: 12/3/2020
-ms.openlocfilehash: e87a9d677fee94d410099db1da80a56b5539048c
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 3f2297ae619145ec19b53ba79d70b7c085cbcaab
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98935456"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100361456"
 ---
 # <a name="push-data-factory-lineage-data-to-azure-purview-preview"></a>Empurre os dados da linhagem da Data Factory para a Azure Purview (Pré-visualização)
 
@@ -75,7 +71,7 @@ Também pode ver dados de linhagem para executar a atividade do Pacote SSIS.
 > [!NOTE] 
 > Para a linhagem da atividade do Pacote SSIS Executo, apenas apoiamos a fonte e o destino. A linhagem para a transformação ainda não está apoiada.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 [Guia do utilizador da linhagem do catálogo](../purview/catalog-lineage-user-guide.md)
 
 [Ligue a Fábrica de Dados à Azure Purview](connect-data-factory-to-azure-purview.md)

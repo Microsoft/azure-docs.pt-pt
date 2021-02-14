@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: dfd0156907f18dcb7f38246993ddc4abcd508631
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 25d9d53b9bc597b5eb51586c594dd631609f476e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99549393"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100362153"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Use o Azure para hospedar e executar cenários de carga de trabalho SAP
 
@@ -84,6 +84,7 @@ Nesta secção, encontra documentos sobre a integração do Microsoft Power BI e
 
 ## <a name="change-log"></a>Alterar Registo
 
+- 02/11/2021: Alterações na [alta disponibilidade da IBM Db2 LUW em VMs Azure enterprise linux](./high-availability-guide-rhel-ibm-db2-luw.md) server para alterar comandos de cluster pacemaker para RHEL 8.x
 - 02/03/2021: Alteração na configuração do [Pacemaker na RHEL em Azure](./high-availability-guide-rhel-pacemaker.md) para atualizar pcmk_host_map no comando de criação de apedrejamento
 - 02/03/2021: Alteração na configuração do [Pacemaker no SLES em Azure](./high-availability-guide-suse-pacemaker.md) para adicionar pcmk_host_map no comando de criação de apedrejamento 
 - 02/03/2021: Mais detalhes sobre as definições do programador de E/S para SUSE nas [configurações de armazenamento de máquinas virtuais SAP HANA Azure](./hana-vm-operations-storage.md)

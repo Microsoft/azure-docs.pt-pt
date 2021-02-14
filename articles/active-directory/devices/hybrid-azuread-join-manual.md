@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5316a1647c96076696b14de157e74e2155a6b368
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 651e7156faf8305edb0a1541e957dd2abf3a71b8
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96860019"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100365757"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Tutorial: Configurar dispositivos híbridos associados ao Azure Active Directory manualmente.
 
@@ -75,7 +75,7 @@ Para dispositivos Windows 10 na versão 1703 ou mais cedo, se a sua organizaçã
 
 Começando pelo Windows 10 1803, mesmo que um AD híbrido Azure se junte à tentativa de um dispositivo num domínio federado através do AD FS falhar, e se o Azure AD Connect estiver configurado para sincronizar os objetos do computador/dispositivo para o AZure AD, o dispositivo tentará completar a adada híbrida Azure através do computador/dispositivo sincronizado.
 
-Para verificar se o dispositivo é capaz de aceder aos recursos acima da Microsoft sob a conta do sistema, pode utilizar o script [de Conectividade de Registo do Dispositivo de Teste.](https://gallery.technet.microsoft.com/Test-Device-Registration-3dc944c0)
+Para verificar se o dispositivo é capaz de aceder aos recursos acima da Microsoft sob a conta do sistema, pode utilizar o script [de Conectividade de Registo do Dispositivo de Teste.](https://docs.microsoft.com/samples/azure-samples/testdeviceregconnectivity/testdeviceregconnectivity/)
 
 ## <a name="verify-configuration-steps"></a>Verificar etapas de configuração
 

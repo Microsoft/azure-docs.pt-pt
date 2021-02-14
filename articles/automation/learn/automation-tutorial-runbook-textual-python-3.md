@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/22/2020
 ms.topic: tutorial
-ms.openlocfilehash: cf028722c8c7174aac42f9485e31a599d7713ba3
-ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
+ms.openlocfilehash: e03eba29d634fafa9302441b17ca3a6bf6598556
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97734067"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104982"
 ---
 # <a name="tutorial-create-a-python-3-runbook-preview"></a>Tutorial: Criar um livro de bordo Python 3 (pré-visualização)
 
@@ -135,32 +135,32 @@ Para isso, o script tem de autenticar utilizando as credenciais da sua conta Dem
    import automationassets 
    
    def get_automation_runas_credential(runas_connection): 
-   from OpenSSL import crypto 
-   import binascii 
-   from msrestazure import azure_active_directory 
-   import adal 
+    from OpenSSL import crypto 
+    import binascii 
+    from msrestazure import azure_active_directory 
+    import adal 
     
-   # Get the Azure Automation RunAs service principal certificate 
-   cert = automationassets.get_automation_certificate("AzureRunAsCertificate") 
-   pks12_cert = crypto.load_pkcs12(cert) 
-   pem_pkey = crypto.dump_privatekey(crypto.FILETYPE_PEM,pks12_cert.get_privatekey()) 
+    # Get the Azure Automation RunAs service principal certificate 
+    cert = automationassets.get_automation_certificate("AzureRunAsCertificate") 
+    pks12_cert = crypto.load_pkcs12(cert) 
+    pem_pkey = crypto.dump_privatekey(crypto.FILETYPE_PEM,pks12_cert.get_privatekey()) 
+
+    # Get run as connection information for the Azure Automation service principal 
+    application_id = runas_connection["ApplicationId"] 
+    thumbprint = runas_connection["CertificateThumbprint"] 
+    tenant_id = runas_connection["TenantId"] 
     
-   # Get run as connection information for the Azure Automation service principal 
-   application_id = runas_connection["ApplicationId"] 
-   thumbprint = runas_connection["CertificateThumbprint"] 
-   tenant_id = runas_connection["TenantId"] 
-    
-   # Authenticate with service principal certificate 
-   resource ="https://management.core.windows.net/" 
-   authority_url = ("https://login.microsoftonline.com/"+tenant_id) 
-   context = adal.AuthenticationContext(authority_url) 
-   return azure_active_directory.AdalAuthentication( 
-   lambda: context.acquire_token_with_client_certificate( 
-           resource, 
-           application_id, 
-           pem_pkey, 
-           thumbprint) 
-   ) 
+    # Authenticate with service principal certificate 
+    resource ="https://management.core.windows.net/" 
+    authority_url = ("https://login.microsoftonline.com/"+tenant_id) 
+    context = adal.AuthenticationContext(authority_url) 
+    return azure_active_directory.AdalAuthentication( 
+        lambda: context.acquire_token_with_client_certificate( 
+                resource, 
+                application_id, 
+                pem_pkey, 
+                thumbprint) 
+    ) 
     
    # Authenticate to Azure using the Azure Automation RunAs service principal 
    runas_connection = automationassets.get_automation_connection("AzureRunAsConnection") 

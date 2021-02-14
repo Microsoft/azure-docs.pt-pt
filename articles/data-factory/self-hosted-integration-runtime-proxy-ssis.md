@@ -1,23 +1,18 @@
 ---
 title: Configure um tempo de integração auto-hospedado como procuração para ssis
 description: Aprenda a configurar um tempo de integração auto-hospedado como procuração para um Tempo de Integração Azure-SSIS.
-services: data-factory
-documentationcenter: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 author: swinarko
 ms.author: sawinark
-ms.reviewer: douglasl
-manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 11/19/2020
-ms.openlocfilehash: bde8bc11a959bea4bd2c05c5ae75db81192aad6a
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: 5f393e95a7d468ea2c6130077e42b25b038e839d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98555870"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100376229"
 ---
 # <a name="configure-a-self-hosted-ir-as-a-proxy-for-an-azure-ssis-ir-in-azure-data-factory"></a>Configure um IR auto-hospedado como representante de um Azure-SSIS IR na Azure Data Factory
 

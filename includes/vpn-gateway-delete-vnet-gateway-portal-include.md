@@ -5,20 +5,20 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 10/16/2020
+ms.date: 02/10/2021
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: b8a61586acd888301350277d924f3d4fe176b4c8
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 91dc6ba0bcd455aefe9de2efdff2feb20938152d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148227"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100376395"
 ---
 ### <a name="step-1-navigate-to-the-virtual-network-gateway"></a>Passo 1: Navegue até ao portal de rede virtual
 
 1. No [portal Azure,](https://portal.azure.com)navegue para **todos os recursos.** 
-2. Para abrir a página de gateway de rede virtual, navegue para o portal de rede virtual que pretende eliminar e clicar nele.
+2. Para abrir a página de gateway de rede virtual, navegue para o gateway de rede virtual e clique para selecioná-la. 
 
 ### <a name="step-2-delete-connections"></a>Passo 2: Eliminar ligações
 

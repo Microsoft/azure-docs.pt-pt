@@ -1,23 +1,18 @@
 ---
 title: Ferramenta de dados para copiar ficheiros novos e atualizados incrementalmente
 description: Crie uma fábrica de dados Azure e, em seguida, utilize a ferramenta Dados de Cópia para carregar gradualmente novos ficheiros com base no LastModifiedDate.
-services: data-factory
 author: dearandyxu
 ms.author: yexu
-ms.reviewer: ''
-manager: ''
 ms.service: data-factory
-ms.workload: data-services
-ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/09/2020
-ms.openlocfilehash: f94975b91a332e480a1b570c29f02040a1047f75
-ms.sourcegitcommit: dc342bef86e822358efe2d363958f6075bcfc22a
+ms.openlocfilehash: f2f0b3e452b39cb81f435dbee4a3b0f524b0213d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94555418"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100361150"
 ---
 # <a name="incrementally-copy-new-and-changed-files-based-on-lastmodifieddate-by-using-the-copy-data-tool"></a>Copie gradualmente ficheiros novos e alterados com base no LastModifiedDate utilizando a ferramenta Dados de Cópia
 
@@ -39,8 +34,8 @@ Neste tutorial, completará estas tarefas:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Subscrição do Azure** : se não tem uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
-* **Conta de Armazenamento Azure** : Utilize o armazenamento blob para as lojas de dados de origem e afundamento. Se não tiver uma conta de Armazenamento Azure, siga as instruções na [Criar uma conta de armazenamento](../storage/common/storage-account-create.md).
+* **Subscrição do Azure**: se não tem uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+* **Conta de Armazenamento Azure**: Utilize o armazenamento blob para as lojas de dados de origem e afundamento. Se não tiver uma conta de Armazenamento Azure, siga as instruções na [Criar uma conta de armazenamento](../storage/common/storage-account-create.md).
 
 ## <a name="create-two-containers-in-blob-storage"></a>Criar dois recipientes no armazenamento blob
 
@@ -56,14 +51,14 @@ Prepare o seu armazenamento Blob para o tutorial completando estes passos:
 
    ![Selecione Fábrica de Dados](./media/doc-common-process/new-azure-data-factory-menu.png)
 
-2. Na página **Nova fábrica de dados** , em **Nome** , introduza **ADFTutorialDataFactory**.
+2. Na página **Nova fábrica de dados**, em **Nome**, introduza **ADFTutorialDataFactory**.
 
    O nome da fábrica de dados tem de ser globalmente exclusivo. Pode receber esta mensagem de erro:
 
    ![Nome não disponível mensagem de erro](./media/doc-common-process/name-not-available-error.png)
 
    Se receber uma mensagem de erro relacionada com o valor do nome, introduza um nome diferente para a fábrica de dados. Por exemplo, utilize o nome _**oseunome**_**ADFTutorialDataFactory**. Para ter acesso às regras de nomenclatura para artefactos do Data Factory, veja [Regras de nomenclatura do Data Factory](naming-rules.md).
-3. Em **Subscrição** , selecione a subscrição Azure na qual irá criar a nova fábrica de dados.
+3. Em **Subscrição**, selecione a subscrição Azure na qual irá criar a nova fábrica de dados.
 4. No **Grupo de Recursos,** tome um destes passos:
 
     * Selecione **Utilizar a existência** e, em seguida, selecione um grupo de recursos existente na lista.
@@ -72,8 +67,8 @@ Prepare o seu armazenamento Blob para o tutorial completando estes passos:
          
     Para saber mais sobre grupos de recursos, veja [Utilizar grupos de recursos para gerir os recursos do Azure](../azure-resource-manager/management/overview.md).
 
-5. Em **Versão** , selecione **V2**.
-6. Em **Localização** , selecione a localização para a fábrica de dados. Apenas locais suportados aparecem na lista. As lojas de dados (por exemplo, Azure Storage e Azure SQL Database) e calcula (por exemplo, Azure HDInsight) que a sua fábrica de dados utiliza pode estar em outros locais e regiões.
+5. Em **Versão**, selecione **V2**.
+6. Em **Localização**, selecione a localização para a fábrica de dados. Apenas locais suportados aparecem na lista. As lojas de dados (por exemplo, Azure Storage e Azure SQL Database) e calcula (por exemplo, Azure HDInsight) que a sua fábrica de dados utiliza pode estar em outros locais e regiões.
 8. Selecione **Criar**.
 9. Após a criação da fábrica de dados, aparece a página inicial da fábrica de dados.
 10. Para abrir a interface de utilizador da Azure Data Factory (UI) num separador, selecione o **azulejo do Monitor & autor:**
@@ -88,13 +83,13 @@ Prepare o seu armazenamento Blob para o tutorial completando estes passos:
 
 2. Na página **Propriedades,** tome os seguintes passos:
 
-    a. Sob **o nome de tarefa** , insira **DeltaCopyFromBlobPipeline**.
+    a. Sob **o nome de tarefa**, insira **DeltaCopyFromBlobPipeline**.
 
-    b. No horário **de cadência de tarefas ou agenda de tarefas** , selecione **Executar regularmente no horário**.
+    b. No horário **de cadência de tarefas ou agenda de tarefas**, selecione **Executar regularmente no horário**.
 
-    c. Sob **o tipo Gatilho** , selecione A janela **Tumbling**.
+    c. Sob **o tipo Gatilho**, selecione A janela **Tumbling**.
 
-    d. Em **Recorrência** , insira **15 Minutos(s)**.
+    d. Em **Recorrência**, insira **15 Minutos(s)**.
 
     e. Selecione **Seguinte**.
 
@@ -106,45 +101,45 @@ Prepare o seu armazenamento Blob para o tutorial completando estes passos:
 
     a. **Selecione Criar uma nova ligação** para adicionar uma ligação.
 
-    b. Selecione **Azure Blob Storage** da galeria e, em seguida, selecione **Continue** :
+    b. Selecione **Azure Blob Storage** da galeria e, em seguida, selecione **Continue**:
 
     ![Selecione armazenamento de blogs Azure](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/source-data-store-page-select-blob.png)
 
     c. Na página **New Linked Service (Azure Blob Storage),** selecione a sua conta de armazenamento na lista de nomes da **conta de armazenamento.** Teste a ligação e, em seguida, **selecione Criar**.
 
-    d. Selecione o novo serviço ligado e, em seguida, selecione **Seguinte** :
+    d. Selecione o novo serviço ligado e, em seguida, selecione **Seguinte**:
 
    ![Selecione o novo serviço ligado](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/source-data-store-page-select-linkedservice.png)
 
-4. Na página **Escolher o ficheiro ou pasta de entrada** , complete os seguintes passos:
+4. Na página **Escolher o ficheiro ou pasta de entrada**, complete os seguintes passos:
 
     a. Navegue e selecione a pasta **de origem** e, em seguida, selecione **Escolha**.
 
     ![Escolher o ficheiro ou pasta de entrada](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/choose-input-file-folder.png)
 
-    b. Sob **o comportamento de carregamento de ficheiros** , selecione carga **incremental: LastModifiedDate**.
+    b. Sob **o comportamento de carregamento de ficheiros**, selecione carga **incremental: LastModifiedDate**.
 
-    c. Selecione **a cópia Binária** e, em seguida, selecione **Seguinte** :
+    c. Selecione **a cópia Binária** e, em seguida, selecione **Seguinte**:
 
      ![Escolha o ficheiro de entrada ou a página de pasta](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/check-binary-copy.png)
 
 5. Na página da **loja de dados destino,** selecione o serviço **AzureBlobStorage** que criou. Esta é a mesma conta de armazenamento que a loja de dados de origem. Em seguida, selecione **Seguinte**.
 
-6. Na página **Escolher o ficheiro ou pasta de saída** , complete os seguintes passos:
+6. Na página **Escolher o ficheiro ou pasta de saída**, complete os seguintes passos:
 
-    a. Navegue e selecione a pasta de **destino** e, em seguida, selecione **Escolha** :
+    a. Navegue e selecione a pasta de **destino** e, em seguida, selecione **Escolha**:
 
     ![Escolha o ficheiro de saída ou a página de pasta](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/choose-output-file-folder.png)
 
     b. Selecione **Seguinte**.
 
-7. Na página **Definições** , selecione **Seguinte**.
+7. Na página **Definições**, selecione **Seguinte**.
 
 8. Na página **Resumo,** reveja as definições e, em seguida, selecione **Seguinte**.
 
     ![Página de resumo](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/summary-page.png)
 
-9. Na **Página de implementação** , selecione **Monitorizar** para monitorizar o pipeline (tarefa).
+9. Na **Página de implementação**, selecione **Monitorizar** para monitorizar o pipeline (tarefa).
 
     ![Página de implementação](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/deployment-page.png)
 
@@ -164,7 +159,7 @@ Prepare o seu armazenamento Blob para o tutorial completando estes passos:
 
     ![Crie file1.txt e carreca-o para o recipiente de origem](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/monitor-pipeline-runs3-1.png)
 
-13. Para voltar à vista **de execuções do Pipeline,** selecione **Todas as tubagem de gasodutos** , e aguarde que o mesmo gasoduto seja automaticamente acionado novamente.  
+13. Para voltar à vista **de execuções do Pipeline,** selecione **Todas as tubagem de gasodutos**, e aguarde que o mesmo gasoduto seja automaticamente acionado novamente.  
 
 14. Quando o segundo gasoduto terminar, siga os mesmos passos mencionados anteriormente para rever os detalhes da execução da atividade.  
 

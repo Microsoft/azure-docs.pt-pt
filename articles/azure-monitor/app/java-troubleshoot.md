@@ -6,12 +6,12 @@ ms.date: 03/14/2019
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 3144633f76d1c4738f2323f1e047d6f32329909f
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: df1f58418452ecafacddd013ab815ebca5cb8a35
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98133247"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100097556"
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java-sdk"></a>Resolução de problemas e Q e A para Insights de Aplicações para Java SDK
 
@@ -170,7 +170,7 @@ Assumindo que [criou a sua aplicação para Insights de Aplicação,][java]cliqu
 
 Sim, desde que o seu servidor possa enviar telemetria para o portal Application Insights através da internet pública.
 
-Na sua firewall, poderá ter de abrir as portas 80 e 443 para o tráfego de saída para dc.services.visualstudio.com e f5.services.visualstudio.com.
+Poderá ser necessário [abrir algumas portas de saída na firewall do seu servidor](./ip-addresses.md#outgoing-ports) para permitir que o SDK envie dados para o portal.
 
 ## <a name="data-retention"></a>Retenção de dados
 **Quanto tempo os dados são retidos no portal? É seguro?**

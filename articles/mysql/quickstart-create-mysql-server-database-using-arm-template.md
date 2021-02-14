@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 05/19/2020
-ms.openlocfilehash: 0e7fcf51d9c663ca4a289f54972f00ef037cb323
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 3da3b1694a16507203d7f1f1f6cb5df58dd54423
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542274"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100366182"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-mysql-server"></a>Quickstart: Use um modelo ARM para criar uma base de dados Azure para o servidor MySQL
 
@@ -70,7 +70,7 @@ Selecione o seguinte link para implementar o modelo de servidor Azure Database p
 
 Na **Base de Dados de Azure de implementação para o MySQL com** a página VNet:
 
-1. Para **o grupo de recursos** , selecione Criar **novo,** insira um nome para o novo grupo de recursos e selecione **OK**.
+1. Para **o grupo de recursos**, selecione Criar **novo,** insira um nome para o novo grupo de recursos e selecione **OK**.
 
 2. Se criou um novo grupo de recursos, selecione uma **Localização** para o grupo de recursos e para o novo servidor.
 
@@ -80,20 +80,20 @@ Na **Base de Dados de Azure de implementação para o MySQL com** a página VNet
 
 4. Altere as outras definições predefinidos se quiser:
 
-    * **Subscrição** : a subscrição Azure que pretende utilizar para o servidor.
-    * **Capacidade Sku** : capacidade vCore, que pode ser *2* (o padrão), *4,* *8,* *16,* *32* , ou *64*.
-    * **Nome Sku** : o prefixo de nível SKU, a família SKU e a capacidade SKU, unidos por sublinhados, tais como *B_Gen5_1* , *GP_Gen5_2* (o padrão), ou *MO_Gen5_32*.
-    * **Tamanho Sku MB** : o tamanho de armazenamento, em megabytes, da Base de Dados Azure para o servidor MySQL *(padrão 5120* ).
-    * **Sku Tier** : o nível de implantação, tal como *Basic,* *GeneralPurpose* (o padrão) ou *MemoryOptimed*.
-    * **Família Sku** : *Gen4* ou *Gen5* (o padrão), que indica geração de hardware para implementação de servidores.
-    * **Versão Mysql** : a versão do servidor MySQL a ser implantada, tal como *5.6* ou *5.7* (o padrão).
-    * **Dias de Retenção de Cópia de Segurança** : o período desejado para a retenção de backup geo-redundante, em dias (padrão *7* ).
-    * **Cópia de segurança geo redundante** : *Ativado* ou *desativado* (o padrão), dependendo dos requisitos de recuperação de geo-desastres (Geo-DR).
-    * **Nome da rede virtual** : o nome da rede virtual *(azure_mysql_vnet* padrão).
-    * **Nome da sub-rede** : o nome da sub-rede *(azure_mysql_subnet* predefinidos ).
-    * **Nome da regra da rede virtual** : o nome da regra de rede virtual que permite a sub-rede (padrão Permite a *sub-carteira).*
-    * **Prefixo do endereço Vnet** : o prefixo do endereço para a rede virtual *(predefinição 10.0.0.0/16* ).
-    * **Prefixo do sub-rede** : o prefixo do endereço da sub-rede (predefinição *10.0.0.0/16* ).
+    * **Subscrição**: a subscrição Azure que pretende utilizar para o servidor.
+    * **Capacidade Sku**: capacidade vCore, que pode ser *2* (o padrão), *4,* *8,* *16,* *32*, ou *64*.
+    * **Nome Sku**: o prefixo de nível SKU, a família SKU e a capacidade SKU, unidos por sublinhados, tais como *B_Gen5_1*, *GP_Gen5_2* (o padrão), ou *MO_Gen5_32*.
+    * **Tamanho Sku MB**: o tamanho de armazenamento, em megabytes, da Base de Dados Azure para o servidor MySQL *(padrão 5120*).
+    * **Sku Tier**: o nível de implantação, tal como *Basic,* *GeneralPurpose* (o padrão) ou *MemoryOptimed*.
+    * **Família Sku**: *Gen4* ou *Gen5* (o padrão), que indica geração de hardware para implementação de servidores.
+    * **Versão Mysql**: a versão do servidor MySQL a ser implantada, tal como *5.6* ou *5.7* (o padrão).
+    * **Dias de Retenção de Cópia de Segurança**: o período desejado para a retenção de backup geo-redundante, em dias (padrão *7*).
+    * **Cópia de segurança geo redundante**: *Ativado* ou *desativado* (o padrão), dependendo dos requisitos de recuperação de geo-desastres (Geo-DR).
+    * **Nome da rede virtual**: o nome da rede virtual *(azure_mysql_vnet* padrão).
+    * **Nome da sub-rede**: o nome da sub-rede *(azure_mysql_subnet* predefinidos ).
+    * **Nome da regra da rede virtual**: o nome da regra de rede virtual que permite a sub-rede (padrão Permite a *sub-carteira).*
+    * **Prefixo do endereço Vnet**: o prefixo do endereço para a rede virtual *(predefinição 10.0.0.0/16*).
+    * **Prefixo do sub-rede**: o prefixo do endereço da sub-rede (predefinição *10.0.0.0/16*).
 
 5. Leia os termos e condições e, em seguida, **selecione concordo com os termos e condições acima indicados**.
 
@@ -181,7 +181,33 @@ az resource show --resource-group $resourcegroupName --name $serverName --resour
 
 ---
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="exporting-arm-template-from-the-portal"></a>Modelo ARM de exportação a partir do portal
+Pode [exportar um modelo ARM](../azure-resource-manager/templates/export-template-portal.md) a partir do portal Azure. Existem duas formas de exportar um modelo:
+
+- [Exportação de grupo de recursos ou recursos.](../azure-resource-manager/templates/export-template-portal.md#export-template-from-a-resource) Esta opção gera um novo modelo a partir dos recursos existentes. O modelo exportado é um "instantâneo" do estado atual do grupo de recursos. Pode exportar um grupo de recursos inteiro ou recursos específicos dentro desse grupo de recursos.
+- [Exportar antes da implantação ou da história.](../azure-resource-manager/templates/export-template-portal.md#export-template-before-deployment) Esta opção recupera uma cópia exata de um modelo utilizado para a implantação.
+
+Ao exportar o modelo, na ```"properties":{ }``` secção do recurso do servidor MySQL irá notar isso e não será incluído por ```administratorLogin``` ```administratorLoginPassword``` razões de segurança. **Tem de** adicionar estes parâmetros ao seu modelo antes de implementar o modelo ou o modelo falhará.
+
+```
+"resources": [
+    {
+      "type": "Microsoft.DBforMySQL/servers",
+      "apiVersion": "2017-12-01",
+      "name": "[parameters('servers_name')]",
+      "location": "southcentralus",
+      "sku": {
+                "name": "B_Gen5_1",
+                "tier": "Basic",
+                "family": "Gen5",
+                "capacity": 1
+            },
+      "properties": {
+        "administratorLogin": "[parameters('administratorLogin')]",
+        "administratorLoginPassword": "[parameters('administratorLoginPassword')]",
+```
+
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não for necessário, elimine o grupo de recursos, que elimina os recursos do grupo de recursos.
 

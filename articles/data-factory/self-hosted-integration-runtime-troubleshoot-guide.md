@@ -1,18 +1,17 @@
 ---
 title: Resolução de problemas de integração auto-acolagem na Azure Data Factory
 description: Saiba como resolver problemas de integração auto-hospedados na Azure Data Factory.
-services: data-factory
 author: lrtoyou1223
 ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 01/25/2021
 ms.author: lle
-ms.openlocfilehash: 3735d7b21faf62905ed4c06dbef80c9737e7329e
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 2cb0e0870b32270340e37d54dc54a43b22ee014a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99551081"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100376467"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Resolver problemas do runtime de integração autoalojado
 
@@ -83,8 +82,8 @@ Cenário de exemplo: O valor máximo de empregos simultâneos está atualmente d
 O limite do número de empregos simultâneos depende do núcleo e memória lógicos do computador. Tente ajustar o valor para baixo para um valor como 24, e depois ver o resultado.
 
 > [!TIP] 
-> - Para saber mais sobre a contagem de núcleos lógicos e para determinar a contagem de núcleos lógicos da sua máquina, consulte [quatro formas de encontrar o número de núcleos no seu CPU no Windows 10](https://www.top-password.com/blog/find-number-of-cores-in-your-cpu-on-windows-10/).
-> - Para aprender a calcular a matemática.log, vá à [calculadora logaritm.](https://www.rapidtables.com/calc/math/Log_Calculator.html)
+> -    Para saber mais sobre a contagem de núcleos lógicos e para determinar a contagem de núcleos lógicos da sua máquina, consulte [quatro formas de encontrar o número de núcleos no seu CPU no Windows 10](https://www.top-password.com/blog/find-number-of-cores-in-your-cpu-on-windows-10/).
+> -    Para aprender a calcular a matemática.log, vá à [calculadora logaritm.](https://www.rapidtables.com/calc/math/Log_Calculator.html)
 
 
 ### <a name="self-hosted-ir-high-availability-ha-ssl-certificate-issue"></a>Emissão de certificado SSL auto-hospedado de alta disponibilidade (HA)

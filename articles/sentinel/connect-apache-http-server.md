@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2021
 ms.author: yelevin
-ms.openlocfilehash: 59ef34f9d6d42277d8e83bf4e0ebb8ee29096f52
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: 6a1a2a2a7dac961e49e6ced38803649ebf5ad523
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99566869"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100096859"
 ---
 # <a name="connect-your-apache-http-server-to-azure-sentinel"></a>Ligue o seu Servidor APACHE HTTP ao Azure Sentinel
 
@@ -37,7 +37,7 @@ Este artigo explica como ligar o seu Servidor HTTP Apache ao Azure Sentinel. O c
 
 ## <a name="configure-and-integrate-apache-http-server-logs-via-log-analytics-agent"></a>Configure e integre os registos do Servidor Apache HTTP através do agente Log Analytics
 
-Configurar a localização dos ficheiros do servidor Apache HTTP para encaminhar dados para o seu espaço de trabalho Azure através do agente Log Analytics.
+Configure o Servidor APACHE HTTP para enviar ficheiros de registo para o seu espaço de trabalho Azure através do agente Log Analytics.
 Configure o agente Log Analytics para ler ficheiros de registo do servidor Apache HTTP.
 
 1. Siga as instruções https://httpd.apache.org/docs/2.4/logs.html para configurar a localização dos ficheiros de registo no Servidor HTTP Apache.

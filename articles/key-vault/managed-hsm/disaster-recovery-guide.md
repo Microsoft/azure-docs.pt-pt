@@ -1,5 +1,5 @@
 ---
-title: O que fazer se houver uma rutura do serviço Azure que afete o Gerido HSM - Azure Key Vault Microsoft Docs
+title: O que fazer se houver uma rutura do serviço Azure que afete o Gerido HSM - Azure Key Vault | Microsoft Docs
 description: Saiba o que fazer se houver uma rutura do serviço Azure que afeta o HSM gerido.
 services: key-vault
 author: amitbapat
@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 69a0272061d8518119114e8fe7b023c889639844
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 8c284e9993002f6e05e41ca00d00b388feef8f82
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96171566"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100376008"
 ---
 # <a name="managed-hsm-disaster-recovery"></a>Recuperação de desastres geridos do HSM
 
@@ -105,7 +105,7 @@ Para criar uma cópia de segurança HSM, vai precisar do seguinte
 Utilizamos `az keyvault backup` o comando para a cópia de segurança HSM no contentor de armazenamento **mhsmbackupcontainer**, que está na conta de armazenamento **ContosoBackup** para o exemplo abaixo. Criamos um token SAS que expira em 30 minutos e fornecemos isso ao Managed HSM para escrever a cópia de segurança.
 
 ```azurecli-interactive
-end=$(date -u -d "30 minutes" '+%Y-%m-%dT%H:%MZ')
+end=$(date -u -d "500 minutes" '+%Y-%m-%dT%H:%MZ')
 skey=$(az storage account keys list --query '[0].value' -o tsv --account-name ContosoBackup)
 az storage container create --account-name  mhsmdemobackup --name mhsmbackupcontainer  --account-key $skey
 sas=$(az storage container generate-sas -n mhsmbackupcontainer --account-name ContosoBackup --permissions crdw --expiry $end --account-key $skey -o tsv)
@@ -122,7 +122,7 @@ Para este passo, precisa do seguinte:
 
 
 ```azurecli-interactive
-end=$(date -u -d "30 minutes" '+%Y-%m-%dT%H:%MZ')
+end=$(date -u -d "500 minutes" '+%Y-%m-%dT%H:%MZ')
 skey=$(az storage account keys list --query '[0].value' -o tsv --account-name ContosoBackup)
 sas=$(az storage container generate-sas -n mhsmdemobackupcontainer --account-name ContosoBackup --permissions rl --expiry $end --account-key $skey -o tsv)
 az keyvault restore start --hsm-name ContosoMHSM2 --storage-account-name ContosoBackup --blob-container-name mhsmdemobackupcontainer --storage-container-SAS-token $sas --backup-folder mhsm-ContosoMHSM-2020083120161860

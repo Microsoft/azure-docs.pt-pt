@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: cf34512c6825c2c6ee6aea631c3361f159392f62
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: d6f1746eee101a1dcf030e980c8a6469147a0166
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97933647"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100362204"
 ---
 # <a name="quickstart-azure-key-vault-secret-client-library-for-net-sdk-v4"></a>Quickstart: Azure Key Vault biblioteca secreta de clientes para .NET (SDK v4)
 
@@ -206,7 +206,7 @@ Modifique a aplicação de consola .NET Core para interagir com o Cofre de Chave
     
                 Console.WriteLine($"Retrieving your secret from {keyVaultName}.");
                 var secret = await client.GetSecretAsync(secretName);
-                Console.WriteLine($"Your secret is '{secret.Value}'.");
+                Console.WriteLine($"Your secret is '{secret.Value.Value}'.");
     
                 Console.Write($"Deleting your secret from {keyVaultName} ...");
                 DeleteSecretOperation operation = await client.StartDeleteSecretAsync(secretName);
@@ -249,7 +249,7 @@ Purging your secret from <your-unique-keyvault-name> ... done.
 Para saber mais sobre o Key Vault e como integrá-lo com as suas apps, consulte os seguintes artigos:
 
 - Leia uma [visão geral do cofre da chave Azure](../general/overview.md)
-- Veja um [cofre de chave de acesso a partir do tutorial de aplicações do serviço de aplicações](../general/tutorial-net-create-vault-azure-web-app.md)
+- Veja um [cofre de chave de acesso a partir do tutorial de aplicações do serviço de aplicações de aplicações de aplicações](../general/tutorial-net-create-vault-azure-web-app.md)
 - Veja um [cofre de chave de acesso a partir de tutorial de máquina virtual](../general/tutorial-net-virtual-machine.md)
 - Consulte o [guia do desenvolvedor do Azure Key Vault](../general/developers-guide.md)
 - Reveja a visão geral da [segurança do Cofre-Chave](../general/security-overview.md)

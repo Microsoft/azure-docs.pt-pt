@@ -1,22 +1,18 @@
 ---
 title: Copie gradualmente dados usando Change Tracking usando PowerShell
 description: Neste tutorial, cria-se um pipeline Azure Data Factory que copia dados delta incrementalmente de várias tabelas numa base de dados do SQL Server para a Base de Dados Azure SQL.
-services: data-factory
 ms.author: yexu
 author: dearandyxu
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019, devx-track-azurepowershell
 ms.date: 01/22/2018
-ms.openlocfilehash: 85fabb540180adb1848285f4c40f944225db2760
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 31bb13cc083c629b7033aec80c1b96b5d688c888
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97508582"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100361337"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-change-tracking-information-using-powershell"></a>Carregue gradualmente os dados da Base de Dados Azure SQL para o Armazenamento de Blob Azure usando informações de rastreio de alterações utilizando o PowerShell
 
@@ -37,7 +33,7 @@ Vai executar os seguintes passos neste tutorial:
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 Uma solução de integração de dados, que carrega dados incrementalmente após os carregamentos de dados iniciais é um cenário bastante utilizado. Em alguns casos, os dados alterados durante um período no seu arquivo de dados de origem podem ser facilmente segmentados (por exemplo, LastModifyTime, CreationTime). Em alguns casos, não há nenhuma forma explícita para identificar os dados delta da última vez que processou os dados. A tecnologia Controlo de Alterações suportada por arquivos de dados como a Base de Dados SQL do Azure e o SQL Server podem ser utilizados para identificar os dados delta.  Este tutorial descreve como utilizar o Azure Data Factory com a tecnologia de Controlo de Alterações do SQL Server para carregar dados delta incrementalmente da Base de Dados SQL do Azure para o Armazenamento de Blobs do Azure.  Para obter informações mais concretas sobre a tecnologia de Controlo de Alterações do SQL Server, consulte [Controlo de alterações no SQL Server](/sql/relational-databases/track-changes/about-change-tracking-sql-server).
 
 ## <a name="end-to-end-workflow"></a>Fluxo de trabalho ponto a ponto

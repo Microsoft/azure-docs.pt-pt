@@ -4,15 +4,15 @@ description: Excluir um gateway de rede virtual usando o portal Azure
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
-ms.date: 10/16/2020
+ms.date: 02/10/2021
 ms.author: cherylmc
 ms.topic: how-to
-ms.openlocfilehash: 7d9ae31b5701707589d79fd5f3d7eb0802038eb9
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 413fd8c7f03ef44abe4bece39ca717c533dea66b
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148207"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100376394"
 ---
 # <a name="delete-a-virtual-network-gateway-using-the-portal"></a>Excluir um gateway de rede virtual usando o portal
 
@@ -50,12 +50,12 @@ Os seguintes passos ajudam-no a eliminar quaisquer recursos que já não estejam
 #### <a name="to-delete-the-public-ip-address-resource-for-the-gateway"></a>Para eliminar o recurso de endereço IP público para o gateway
 
 1. Em **Todos os recursos**, localize o recurso de endereço IP público que estava associado ao gateway. Se o gateway de rede virtual estiver ativo, verá dois endereços IP públicos.
-1. Na página **'Visão Geral'** para o endereço IP público, clique em **Apagar**e, em seguida, **Sim** para confirmar.
+1. Na página **'Visão Geral'** para o endereço IP público, clique em **Apagar** e, em seguida, **Sim** para confirmar.
 
 #### <a name="to-delete-the-gateway-subnet"></a>Para eliminar a sub-rede gateway
 
 1. Em **Todos os recursos,** localize a rede virtual. 
-1. Na lâmina **sub-redes,** clique na **GatewaySubnet**e clique em **Eliminar**. 
+1. Na lâmina **sub-redes,** clique na **GatewaySubnet** e clique em **Eliminar**. 
 1. Clique **em Sim** para confirmar que pretende eliminar a sub-rede gateway.
 
 ## <a name="delete-a-vpn-gateway-by-deleting-the-resource-group"></a><a name="deleterg"></a>Eliminar uma porta de entrada VPN eliminando o grupo de recursos

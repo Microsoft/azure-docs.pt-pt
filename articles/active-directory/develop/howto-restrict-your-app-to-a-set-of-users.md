@@ -1,5 +1,5 @@
 ---
-title: Restringir a app AD do AZure a um conjunto de utilizadores Rio Azure
+title: Restringir a aplicação AD do AZure a um conjunto de utilizadores | Rio Azure
 titleSuffix: Microsoft identity platform
 description: Saiba como restringir o acesso às suas apps registadas no Azure AD a um conjunto selecionado de utilizadores.
 services: active-directory
@@ -13,12 +13,12 @@ ms.date: 09/24/2018
 ms.author: kkrishna
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 5f6ac11fc5c7bbe7a8f81e6ea89e2c582ebcf264
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: f3eff6f5660089472ef431bad9a4f05be1fffe24
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178743"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104150"
 ---
 # <a name="how-to-restrict-your-azure-ad-app-to-a-set-of-users-in-an-azure-ad-tenant"></a>Como: Restringir a sua app Azure AD a um conjunto de utilizadores num inquilino AZure AD
 
@@ -47,7 +47,7 @@ Existem duas formas de criar uma aplicação com a atribuição do utilizador at
 
 ### <a name="enterprise-applications-requires-the-global-administrator-role"></a>Aplicações empresariais (requer a função de Administrador Global)
 
-1. Inscreva-se no <a href="https://portal.azure.com/" target="_blank">portal <span class="docon docon-navigate-external x-hidden-focus"></span> Azure</a> como **Administrador Global.**
+1. Inscreva-se no <a href="https://portal.azure.com/" target="_blank">portal Azure</a> como **Administrador Global.**
 1. Se tiver acesso a vários inquilinos, utilize o filtro **de subscrição Diretório +** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o inquilino no qual pretende registar uma candidatura.
 1. Procure e selecione **Azure Active Directory**.
 1. Em **Gestão**, selecione **Aplicações empresariais**  >  **todas as aplicações**.
@@ -57,15 +57,15 @@ Existem duas formas de criar uma aplicação com a atribuição do utilizador at
 1. Localizar a **definição de atribuição do utilizador necessária?**  Quando esta opção for definida como **Sim,** os utilizadores do arrendatário devem primeiro ser designados para esta aplicação ou não poderão iniciar sessão nesta aplicação.
 1. Selecione **Guardar**.
 
-### <a name="app-registration"></a>Registo da aplicação
+### <a name="app-registration"></a>Registo de aplicações
 
-1. Inscreva-se no <a href="https://portal.azure.com/" target="_blank">portal <span class="docon docon-navigate-external x-hidden-focus"></span> Azure</a>.
+1. Inicie sessão no <a href="https://portal.azure.com/" target="_blank">portal do Azure</a>.
 1. Se tiver acesso a vários inquilinos, utilize o filtro **de subscrição Diretório +** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o inquilino no qual pretende registar uma candidatura.
 1. Procure e selecione **Azure Active Directory**.
 1. Em **Gerir**, selecione **Registos de aplicações**.
 1. Crie ou selecione a aplicação que pretende gerir. Tens de ser o **dono** desta aplicação.
 1. Na **página** geral da aplicação, selecione a **aplicação Managed no** link de diretório local na secção **Essentials.**
-1. Em **Gestão**, selecione **Propriedades**.
+1. Em **Gerir**, selecione **Propriedades**.
 1. Localizar a **definição de atribuição do utilizador necessária?**  Quando esta opção for definida como **Sim,** os utilizadores do arrendatário devem primeiro ser designados para esta aplicação ou não poderão iniciar sessão nesta aplicação.
 1. Selecione **Guardar**.
 

@@ -10,12 +10,12 @@ ms.subservice: keys
 ms.topic: tutorial
 ms.date: 02/01/2021
 ms.author: ambapat
-ms.openlocfilehash: 17ef0cb7efcd2a76b46a6bb0dbc82268895dae00
-ms.sourcegitcommit: 983eb1131d59664c594dcb2829eb6d49c4af1560
+ms.openlocfilehash: 86807899c06cb333238344b7168b5675e8f2e9a3
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99222205"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100366590"
 ---
 # <a name="import-hsm-protected-keys-to-key-vault"></a>Importar chaves protegidas por HSM para o Key Vault
 
@@ -38,9 +38,10 @@ A transferência de chaves protegidas pelo HSM para o Key Vault é suportada atr
 |Fortanix|Fabricante,<br/>HSM como serviço|<ul><li>Self-Defending Serviço de Gestão de Chaves (SDKMS)</li><li>Equinix SmartKey</li></ul>|[Use o novo método BYOK](hsm-protected-keys-byok.md)|
 |Rio Marvell|Fabricante|Todos os HSMs de LiquidSecurity com<ul><li>Versão firmware 2.0.4 ou posterior</li><li>Versão firmware 3.2 ou mais recente</li></ul>|[Use o novo método BYOK](hsm-protected-keys-byok.md)|
 |Criptomático|ISV (Sistema de Gestão de Chaves empresariais)|Múltiplas marcas e modelos HSM, incluindo<ul><li>nCipher</li><li>Thales</li><li>Rio Utimaco</li></ul>Consulte [o site Cryptomathic para mais detalhes](https://www.cryptomathic.com/azurebyok)|[Use o novo método BYOK](hsm-protected-keys-byok.md)|
-|Securosys SA|Fabricante, HSM como serviço|Família Primus HSM, Securosys Clouds HSM|[Use o novo método BYOK](hsm-protected-keys-byok.md)|
+|Securosys SA|Fabricante,<br/>HSM como serviço|Família Primus HSM, Securosys Clouds HSM|[Use o novo método BYOK](hsm-protected-keys-byok.md)|
 |StorMagic|ISV (Sistema de Gestão de Chaves empresariais)|Múltiplas marcas e modelos HSM, incluindo<ul><li>Rio Utimaco</li><li>Thales</li><li>nCipher</li></ul>Consulte [o site StorMagic para mais detalhes](https://stormagic.com/doc/svkms/Content/Integrations/Azure_KeyVault_BYOK.htm)|[Use o novo método BYOK](hsm-protected-keys-byok.md)|
-|IBM|Fabricante|IBM 476x, CryptoExpress|Utilizar o novo método BYOK[hsm-protected-keys-byok.md)|
+|IBM|Fabricante|IBM 476x, CryptoExpress|[Use o novo método BYOK](hsm-protected-keys-byok.md)|
+|Rio Utimaco|Fabricante,<br/>HSM como serviço|u.trust Anchor, CryptoServer|[Use o novo método BYOK](hsm-protected-keys-byok.md)|
 |||||
 
 ## <a name="next-steps"></a>Passos seguintes

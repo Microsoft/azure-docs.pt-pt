@@ -11,13 +11,13 @@ ms.reviewer: sngun
 adobe-target: true
 adobe-target-activity: DocsExp-A/B-384740-MongoDB-2.8.2021
 adobe-target-experience: Experience B
-adobe-target-content: connect-mongodb-account-experimental.md
-ms.openlocfilehash: d3e619559f1fb2500904aa7349aa131fd9b5fc00
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+adobe-target-content: ./connect-mongodb-account-experimental
+ms.openlocfilehash: 702c2d896da2316a2e75c4dbbe4f16249537832b
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99980801"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100093425"
 ---
 # <a name="connect-a-mongodb-application-to-azure-cosmos-db"></a>Ligar uma aplicação MongoDB ao Azure Cosmos DB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]

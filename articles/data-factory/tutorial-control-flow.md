@@ -1,22 +1,19 @@
 ---
 title: Ramificação no gasoduto Azure Data Factory
 description: Saiba como controlar o fluxo de dados no Azure Data Factory através de atividades de ramificação e encadeamento.
-services: data-factory
 author: dcstwh
 ms.author: weetok
-manager: anandsub
 ms.reviewer: maghan
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 9/27/2019
-ms.openlocfilehash: ab7d17ee61d733483b6d3573e9bd69b1628c7940
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 111fff6e35bed9c2af9c638549362039f25def12
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96496949"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100386021"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Atividades de ramificação e encadeamento num pipeline do Data Factory
 
@@ -79,7 +76,7 @@ Criar uma aplicação de consola C# .NET:
 
 ### <a name="install-nuget-packages"></a>Instalar pacotes NuGet
 
-1. Selecione **ferramentas**  >  **NuGet Package Manager** Package Manager  >  **Consola**.
+1. Selecione **Tools** (Ferramentas)  > **NuGet Package Manager** (Gestor de Pacotes NuGet)  > **Package Manager Console** (Consola do Gestor de Pacotes).
 1. Na **Consola Gestor de Pacotes,** executar os seguintes comandos para instalar pacotes. Consulte o [pacote nuget Microsoft.Azure.Management.DataFactory](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactory/) para obter mais detalhes.
 
    ```powershell
@@ -610,7 +607,7 @@ Creating linked service AzureStorageLinkedService...
 {
   "type": "AzureStorage",
   "typeProperties": {
-    "connectionString": "DefaultEndpointsProtocol=https;AccountName=***;AccountKey=**_"
+    "connectionString": "DefaultEndpointsProtocol=https;AccountName=***;AccountKey=***"
   }
 }
 Creating dataset SourceStorageDataset...
@@ -753,7 +750,7 @@ Press any key to exit...
 Fez as seguintes tarefas neste tutorial:
 
 > [!div class="checklist"]
-> _ Criar uma fábrica de dados
+> * Criar uma fábrica de dados
 > * Criar um serviço ligado do Armazenamento do Azure
 > * Criar um conjunto de dados do Blob do Azure
 > * Criar um pipeline que contém uma atividade de cópia e uma atividade da Web

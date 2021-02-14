@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d3da63503c80652bc8737f2cb4894e25d8bc6fc0
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 4fb45f222fcf5abd762d97d702925655db6cba60
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98893410"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100365774"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Tutorial: configurar a associação ao Azure Active Directory para os domínios geridos
 
@@ -82,7 +82,7 @@ Se não utilizar o WPAD, pode configurar as definições de procuração winHTTP
 
 Se a sua organização necessitar de acesso à internet através de um representante de saída autenticado, certifique-se de que os seus computadores Windows 10 podem autenticar com sucesso o representante de saída. Como os computadores windows 10 executam o registo do dispositivo utilizando o contexto da máquina, configuram a autenticação por procuração de saída utilizando o contexto da máquina. Consulte o seu fornecedor de proxy de saída sobre os requisitos de configuração.
 
-Verifique se o dispositivo pode aceder aos recursos da Microsoft acima, utilizando o script [de conectividade de registo do dispositivo de teste.](https://gallery.technet.microsoft.com/Test-Device-Registration-3dc944c0)
+Verifique se o dispositivo pode aceder aos recursos da Microsoft acima, utilizando o script [de conectividade de registo do dispositivo de teste.](https://docs.microsoft.com/samples/azure-samples/testdeviceregconnectivity/testdeviceregconnectivity/)
 
 ## <a name="configure-hybrid-azure-ad-join"></a>Configurar a associação ao Azure AD híbrido
 
@@ -218,7 +218,7 @@ Se sentir problemas em completar a ad AD híbrida para dispositivos Windows unid
 - [Resolver problemas de dispositivos associados ao Azure Active Directory híbrido](troubleshoot-hybrid-join-windows-current.md)
 - [O Azure Ative Directory híbrido de resolução de problemas juntou-se a dispositivos de nível inferior](troubleshoot-hybrid-join-windows-legacy.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Avance para o próximo artigo para aprender a gerir as identidades dos dispositivos utilizando o portal Azure.
 > [!div class="nextstepaction"]

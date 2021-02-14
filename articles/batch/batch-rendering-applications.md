@@ -1,14 +1,14 @@
 ---
 title: Aplicações de renderização
 description: É possível utilizar quaisquer aplicações de renderização com o Azure Batch. No entanto, as imagens VM do Azure Marketplace estão disponíveis com aplicações comuns pré-instaladas.
-ms.date: 02/01/2021
+ms.date: 02/12/2021
 ms.topic: how-to
-ms.openlocfilehash: 4eeb87c866858f2f1733b81e3e2154f4521e94bc
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: e296ab09498b6bb7ee21e3d88c9c416c66368d69
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99430033"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100362238"
 ---
 # <a name="pre-installed-applications-on-batch-rendering-vm-images"></a>Aplicações pré-instaladas em imagens VM de renderização de lotes
 
@@ -18,20 +18,15 @@ Se for caso disso, o licenciamento pay-per-use está disponível para os pedidos
 
 Algumas aplicações apenas suportam o Windows, mas a maioria é suportada tanto no Windows como no Linux.
 
-## <a name="applications-on-centos-7-rendering-image"></a>Aplicações na imagem de renderização CentOS 7
+## <a name="applications-on-latest-centos-7-rendering-image"></a>Aplicações na mais recente imagem de renderização do CentOS 7
 
-A lista a seguir aplica-se ao CentOS 7.6, versão 1.1.6 imagens de renderização.
+A lista a seguir aplica-se à imagem de renderização CentOS, versão 1.1.7.
 
-* Autodesk Maya I/O 2017 Atualização 5 (versão 201708032230)
-* Autodesk Maya I/O 2018 Atualização 2 (corte 201711281015)
-* Atualização 1 autodesk Maya I/O 2019
-* Autodesk Arnold para Maya 2017 (Arnold versão 5.3.1.1) MtoA-3.2.1.1-2017
-* Autodesk Arnold para Maya 2018 (Arnold versão 5.3.1.1) MtoA-3.2.1.1-2018
-* Autodesk Arnold para Maya 2019 (Arnold versão 5.3.1.1) MtoA-3.2.1.1-2019
-* Chaos Group V-Ray for Maya 2017 (versão 3.60.04)
-* Chaos Group V-Ray for Maya 2018 (versão 3.60.04)
-* Blender (2.68)
-* Liquidificador (2.8)
+* Atualização Autodesk Maya I/O 2020 4.6
+* Autodesk Arnold para Maya 2020 (Arnold versão 6.2.0.0) MtoA-4.2.0-2020
+* Grupo Caos V-Ray para maio de 2020 (versão 5.00.21)
+* Liquidificador (2.80)
+* AZ 10
 
 ## <a name="applications-on-latest-windows-server-rendering-image"></a>Aplicações na imagem de renderização do Windows Server mais recente
 
@@ -96,6 +91,21 @@ A lista a seguir aplica-se ao Windows Server 2016, versão 1.3.7 que renderiza i
 
 > [!NOTE]
 > O Grupo Caos V-Ray para 3ds Max 2019 (versão 4.10.01) introduz alterações no raio-V. Para utilizar a versão anterior (versão 3.60.02), utilize o Windows Server 2016, versão 1.3.2.
+
+## <a name="applications-on-previous-centos-rendering-images"></a>Aplicações em imagens anteriores de renderização centosa
+
+A lista a seguir aplica-se ao CentOS 7.6, versão 1.1.6 imagens de renderização.
+
+* Autodesk Maya I/O 2017 Atualização 5 (versão 201708032230)
+* Autodesk Maya I/O 2018 Atualização 2 (corte 201711281015)
+* Atualização 1 autodesk Maya I/O 2019
+* Autodesk Arnold para Maya 2017 (Arnold versão 5.3.1.1) MtoA-3.2.1.1-2017
+* Autodesk Arnold para Maya 2018 (Arnold versão 5.3.1.1) MtoA-3.2.1.1-2018
+* Autodesk Arnold para Maya 2019 (Arnold versão 5.3.1.1) MtoA-3.2.1.1-2019
+* Chaos Group V-Ray for Maya 2017 (versão 3.60.04)
+* Chaos Group V-Ray for Maya 2018 (versão 3.60.04)
+* Blender (2.68)
+* Liquidificador (2.8)
 
 ## <a name="next-steps"></a>Passos seguintes
 
