@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/23/2020
-ms.openlocfilehash: f76a05757f86308785d4ca678675b87b3fa9d63e
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 8be5def6d4780fd8b2ab65c5c9e1104a869f6d5a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96554419"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100391597"
 ---
 # <a name="troubleshoot-your-connections-in-azure-purview"></a>Resolva as suas ligações em Azure Purview
 
@@ -53,7 +53,7 @@ Verifique se as permissões corretas foram configuradas para que a identidade ge
 Para verificar isto, faça os seguintes passos:
 
 1. Navegue para o seu cofre chave e para a secção **de políticas de acesso**
-1. Verifique se a sua identidade gerida pela Purview aparece na secção *de políticas de acesso atuais* com permissões em segredos pelo menos **get**
+1. Verifique se a sua identidade gerida pela Purview aparece na secção *de políticas de acesso atuais* com obter e **listar** permissões em segredos pelo menos 
 
 Se não vir a sua identidade gerida por Purview listada, siga os passos na [Create e gere as credenciais para digitalizar](manage-credentials.md) para adicioná-la. 
 

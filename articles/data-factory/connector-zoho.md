@@ -1,22 +1,17 @@
 ---
 title: Copiar dados do Zoho utilizando a Azure Data Factory (Pré-visualização)
 description: Saiba como copiar dados do Zoho para lojas de dados de sumidouros suportados utilizando uma atividade de cópia num oleoduto Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/03/2020
 ms.author: jingwang
-ms.openlocfilehash: 78e7fc6b2a4c9804fbba60aa9946cc612b494461
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e42638d484d2a71052c3a9410f73cbca9e038682
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87531290"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100366896"
 ---
 # <a name="copy-data-from-zoho-using-azure-data-factory-preview"></a>Copiar dados do Zoho utilizando a Azure Data Factory (Pré-visualização)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -52,18 +47,18 @@ As seguintes propriedades são suportadas para o serviço ligado ao Zoho:
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo deve ser definida para: **Zoho** | Sim |
-| conexõesProperties | Um grupo de propriedades que define como se conectar ao Zoho. | Sim |
+| tipo | A propriedade tipo deve ser definida para: **Zoho** | Yes |
+| conexõesProperties | Um grupo de propriedades que define como se conectar ao Zoho. | Yes |
 | ***Em `connectionProperties` :*** | | |
-| endpoint | O ponto final do servidor Zoho `crm.zoho.com/crm/private` (). | Sim |
-| authenticationType | Os valores permitidos são `OAuth_2.0` `Access Token` e. | Sim |
+| endpoint | O ponto final do servidor Zoho `crm.zoho.com/crm/private` (). | Yes |
+| authenticationType | Os valores permitidos são `OAuth_2.0` `Access Token` e. | Yes |
 | clientId | A identificação do cliente associada à sua aplicação Zoho. | Sim para autenticação OAuth 2.0 | 
 | clienteSecrect | A secção de clientes associada à sua aplicação Zoho. Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Sim para autenticação OAuth 2.0 | 
 | refreshToken | O token de atualização OAuth 2.0 associado à sua aplicação Zoho, usado para refrescar o token de acesso quando expira. Refresh token nunca expirará. Para obter um token de atualização, você deve solicitar o `offline` access_type, saiba mais com [este artigo](https://www.zoho.com/crm/developer/docs/api/auth-request.html). <br>Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md).| Sim para autenticação OAuth 2.0 |
-| accessToken | O sinal de acesso para a autenticação do Zoho. Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Sim |
-| useEncryptedEndpoints | Especifica se os pontos finais de origem de dados são encriptados usando HTTPS. O valor predefinido é true.  | Não |
-| useHostVerification | Especifica se deve exigir que o nome do anfitrião no certificado do servidor corresponda ao nome de anfitrião do servidor ao ligar o TLS. O valor predefinido é true.  | Não |
-| usePeerVerificação | Especifica se deve verificar a identidade do servidor ao ligar o TLS. O valor predefinido é true.  | Não |
+| accessToken | O sinal de acesso para a autenticação do Zoho. Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Yes |
+| useEncryptedEndpoints | Especifica se os pontos finais de origem de dados são encriptados usando HTTPS. O valor predefinido é true.  | No |
+| useHostVerification | Especifica se deve exigir que o nome do anfitrião no certificado do servidor corresponda ao nome de anfitrião do servidor ao ligar o TLS. O valor predefinido é true.  | No |
+| usePeerVerificação | Especifica se deve verificar a identidade do servidor ao ligar o TLS. O valor predefinido é true.  | No |
 
 **Exemplo: Autenticação OAuth 2.0**
 
@@ -130,7 +125,7 @@ Para copiar dados do Zoho, defina a propriedade tipo do conjunto de dados para *
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo do conjunto de dados deve ser definida para: **ZohoObject** | Sim |
+| tipo | A propriedade tipo do conjunto de dados deve ser definida para: **ZohoObject** | Yes |
 | tableName | O nome da mesa. | Não (se for especificada "consulta" na fonte de atividade) |
 
 **Exemplo**
@@ -160,7 +155,7 @@ Para copiar dados do Zoho, desapedaque o tipo de origem na atividade de cópia p
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **ZohoSource** | Sim |
+| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **ZohoSource** | Yes |
 | consulta | Utilize a consulta SQL personalizada para ler dados. Por exemplo: `"SELECT * FROM Accounts"`. | Não (se for especificado "tableName" no conjunto de dados) |
 
 **Exemplo:**

@@ -1,23 +1,18 @@
 ---
 title: Copiar dados da Dynamics AX
 description: Saiba como copiar dados da Dynamics AX para lojas de dados de sumidouros suportados utilizando uma atividade de cópia num pipeline da Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/12/2020
-ms.openlocfilehash: b4dbedc0a30c80748ffc27bb7e17c86067ca0238
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 38ff77ad56f16fbd33b77021b18be77f6a153b3f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92638164"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100380989"
 ---
 # <a name="copy-data-from-dynamics-ax-by-using-azure-data-factory"></a>Copiar dados da Dynamics AX utilizando a Azure Data Factory
 
@@ -34,7 +29,7 @@ Este conector Dynamics AX é suportado para as seguintes atividades:
 
 Pode copiar dados da Dynamics AX para qualquer loja de dados de lavatórios suportados. Para obter uma lista de lojas de dados que a Copy Activity suporta como fontes e sumidouros, consulte [lojas e formatos de dados suportados.](copy-activity-overview.md#supported-data-stores-and-formats)
 
-Especificamente, este conector Dynamics AX suporta a cópia de dados do Dynamics AX utilizando **o protocolo OData** com **a autenticação principal do serviço** .
+Especificamente, este conector Dynamics AX suporta a cópia de dados do Dynamics AX utilizando **o protocolo OData** com **a autenticação principal do serviço**.
 
 >[!TIP]
 >Também pode utilizar este conector para copiar dados da **Dynamics 365 Finanças e Operações.** Consulte o método de suporte e [autenticação](/dynamics365/unified-operations/dev-itpro/data-entities/services-home-page#authentication) [OData](/dynamics365/unified-operations/dev-itpro/data-entities/odata) da Dynamics 365 .
@@ -63,13 +58,13 @@ As seguintes propriedades são suportadas para o serviço ligado à Dynamics AX:
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade **tipo** deve ser definida para **DynamicsAX** . |Sim |
-| url | O ponto final do Dynamics AX (ou Dynamics 365 Finance and Operations) é o ponto final do OData. |Sim |
-| servicePrincipalId | Especifique a identificação do cliente da aplicação. | Sim |
-| servicePrincipalKey | Especifique a chave da aplicação. Marque este campo como um **SecureString** para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Sim |
-| inquilino | Especifique a informação do inquilino (nome de domínio ou ID do inquilino) sob a qual a sua aplicação reside. Recupere-o pairando sobre o rato no canto superior direito do portal Azure. | Sim |
-| aadResourceId | Especifique o recurso AAD que está a solicitar para autorização. Por exemplo, se o seu URL Dinâmico `https://sampledynamics.sandbox.operations.dynamics.com/data/` for, o recurso AAD correspondente é geralmente `https://sampledynamics.sandbox.operations.dynamics.com` . | Sim |
-| connectVia | O [Tempo de Execução de Integração](concepts-integration-runtime.md) para ligar à loja de dados. Pode escolher o Tempo de Execução da Integração Azure ou um Tempo de Execução de Integração auto-hospedado (se a sua loja de dados estiver localizada numa rede privada). Se não for especificado, utiliza-se o tempo de execução de integração Azure predefinido. |Não |
+| tipo | A propriedade **tipo** deve ser definida para **DynamicsAX**. |Yes |
+| url | O ponto final do Dynamics AX (ou Dynamics 365 Finance and Operations) é o ponto final do OData. |Yes |
+| servicePrincipalId | Especifique a identificação do cliente da aplicação. | Yes |
+| servicePrincipalKey | Especifique a chave da aplicação. Marque este campo como um **SecureString** para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Yes |
+| inquilino | Especifique a informação do inquilino (nome de domínio ou ID do inquilino) sob a qual a sua aplicação reside. Recupere-o pairando sobre o rato no canto superior direito do portal Azure. | Yes |
+| aadResourceId | Especifique o recurso AAD que está a solicitar para autorização. Por exemplo, se o seu URL Dinâmico `https://sampledynamics.sandbox.operations.dynamics.com/data/` for, o recurso AAD correspondente é geralmente `https://sampledynamics.sandbox.operations.dynamics.com` . | Yes |
+| connectVia | O [Tempo de Execução de Integração](concepts-integration-runtime.md) para ligar à loja de dados. Pode escolher o Tempo de Execução da Integração Azure ou um Tempo de Execução de Integração auto-hospedado (se a sua loja de dados estiver localizada numa rede privada). Se não for especificado, utiliza-se o tempo de execução de integração Azure predefinido. |No |
 
 **Exemplo**
 
@@ -103,12 +98,12 @@ Esta secção fornece uma lista de propriedades que o conjunto de dados Dynamics
 
 Para obter uma lista completa de secções e propriedades disponíveis para definir conjuntos de dados, consulte [Datasets e serviços ligados](concepts-datasets-linked-services.md). 
 
-Para copiar dados da Dynamics AX, defina a propriedade **tipo** do conjunto de dados para **DynamicsAXResource** . As seguintes propriedades são suportadas:
+Para copiar dados da Dynamics AX, defina a propriedade **tipo** do conjunto de dados para **DynamicsAXResource**. As seguintes propriedades são suportadas:
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade **tipo** do conjunto de dados deve ser definida para **DynamicsAXResource** . | Sim |
-| caminho | O caminho para a entidade Dynamics AX OData. | Sim |
+| tipo | A propriedade **tipo** do conjunto de dados deve ser definida para **DynamicsAXResource**. | Yes |
+| caminho | O caminho para a entidade Dynamics AX OData. | Yes |
 
 **Exemplo**
 
@@ -137,13 +132,13 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 ### <a name="dynamics-ax-as-source"></a>Dynamics AX como fonte
 
-Para copiar dados da Dynamics AX, desafine o tipo **de fonte** em Atividade de Cópia para **DynamicsAXSource** . As seguintes propriedades são suportadas na secção **origem** da Atividade de Cópia:
+Para copiar dados da Dynamics AX, desafine o tipo **de fonte** em Atividade de Cópia para **DynamicsAXSource**. As seguintes propriedades são suportadas na secção **origem** da Atividade de Cópia:
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade **tipo** da fonte de Atividade de Cópia deve ser definida como **DynamicsAXSource** . | Sim |
-| consulta | Opções de consulta OData para filtragem de dados. Exemplo: `"?$select=Name,Description&$top=5"`.<br/><br/>**Nota:** O conector copia os dados do URL combinado: `[URL specified in linked service]/[path specified in dataset][query specified in copy activity source]` . Para obter mais informações, consulte [os componentes URL do OData](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Não |
-| httpRequestTimeout | O tempo limite (o valor **TimeSpan)** para o pedido HTTP obter uma resposta. Este valor é o tempo limite para obter uma resposta, não o tempo limite para ler dados de resposta. Se não for especificado, o valor predefinido é **00:30:00** (30 minutos). | Não |
+| tipo | A propriedade **tipo** da fonte de Atividade de Cópia deve ser definida como **DynamicsAXSource**. | Yes |
+| consulta | Opções de consulta OData para filtragem de dados. Exemplo: `"?$select=Name,Description&$top=5"`.<br/><br/>**Nota:** O conector copia os dados do URL combinado: `[URL specified in linked service]/[path specified in dataset][query specified in copy activity source]` . Para obter mais informações, consulte [os componentes URL do OData](https://www.odata.org/documentation/odata-version-3-0/url-conventions/). | No |
+| httpRequestTimeout | O tempo limite (o valor **TimeSpan)** para o pedido HTTP obter uma resposta. Este valor é o tempo limite para obter uma resposta, não o tempo limite para ler dados de resposta. Se não for especificado, o valor predefinido é **00:30:00** (30 minutos). | No |
 
 **Exemplo**
 

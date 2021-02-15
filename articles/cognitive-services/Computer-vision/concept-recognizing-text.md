@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/11/2020
 ms.author: pafarley
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 1d633b1a9f5fee0a5cceb48f2b37aaec2092069f
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 2833fd44b75f4bebf41b5100eb2350ca69436520
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99979540"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100362799"
 ---
 # <a name="optical-character-recognition-ocr"></a>Reconhecimento ótico de carateres (OCR)
 
@@ -132,8 +132,8 @@ Veja o seguinte exemplo de uma resposta JSON bem sucedida:
 }
 ```
 
-## <a name="natural-reading-order-output"></a>Saída de ordem de leitura natural
-Com a [API de pré-visualização Leitura 3.2,](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005)especifique a ordem em que as linhas de texto são saídas com o `readingOrder` parâmetro de consulta. Utilize `natural` para uma saída de ordem de leitura mais amiga do homem, como mostra o exemplo seguinte.
+## <a name="natural-reading-order-output-latin-only"></a>Saída da ordem de leitura natural (apenas em latim)
+Com a [API de pré-visualização Leitura 3.2,](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005)especifique a ordem em que as linhas de texto são saídas com o `readingOrder` parâmetro de consulta. Utilize `natural` para uma saída de ordem de leitura mais amiga do homem, como mostra o exemplo seguinte. Esta funcionalidade é suportada apenas para línguas latinas.
 
 :::image border type="content" source="./Images/ocr-reading-order-example.png" alt-text="Exemplo de ordem de leitura de OCR":::
 

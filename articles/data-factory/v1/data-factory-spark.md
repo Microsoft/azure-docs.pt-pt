@@ -1,22 +1,18 @@
 ---
 title: Invocar programas Spark da Azure Data Factory
 description: Aprenda a invocar programas Spark a partir de uma fábrica de dados Azure utilizando a atividade MapReduce.
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
-manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 417306e09a9424b302bb226aea5dd2c1debe96f5
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: a7fcccad039ff6d737e10cfc57ba97f914645a9d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97508429"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100382672"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Invocar programas Spark dos oleodutos Azure Data Factory
 
@@ -325,20 +321,20 @@ Aqui está a definição JSON de uma amostra de um oleoduto com uma atividade de
 
 A tabela seguinte descreve as propriedades JSON utilizadas na definição JSON.
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | Descrição | Necessário |
 | -------- | ----------- | -------- |
-| name | O nome da atividade no oleoduto. | Sim |
-| descrição | Texto que descreve o que a atividade faz. | Não |
-| tipo | Esta propriedade deve ser definida para HDInsightSpark. | Sim |
-| linkedServiceName | Nome do serviço ligado hdInsight no qual o programa Spark é executado. | Sim |
-| rootPath | O recipiente blob e a pasta que contém o ficheiro Spark. O nome do ficheiro é sensível ao caso. | Sim |
-| ingressoFilePata | Caminho relativo para a pasta raiz do código/embalagem Spark. | Sim |
-| nome de classeName | A classe principal java/faísca da candidatura. | Não |
-| argumentos | Uma lista de argumentos de linha de comando para o programa Spark. | Não |
-| proxyUser | A conta de utilizador a fazer-se passar para executar o programa Spark. | Não |
-| sparkConfig | Especifique os valores das propriedades de configuração Spark listadas na [configuração Spark: Propriedades da aplicação](https://spark.apache.org/docs/latest/configuration.html#available-properties). | Não |
-| obterDebugInfo | Especifica quando os ficheiros de registo spark são copiados para o armazenamento utilizado pelo cluster HDInsight (ou) especificado pelo sparkJobLinkedService. Os valores permitidos são Nenhum, Sempre ou Fracasso. O valor predefinido é Nenhum. | Não |
-| sparkJobLinkedService | O serviço de armazenamento ligado que detém o ficheiro de trabalho spark, dependências e registos. Se não especificar um valor para esta propriedade, o armazenamento associado ao cluster HDInsight é utilizado. | Não |
+| name | O nome da atividade no oleoduto. | Yes |
+| descrição | Texto que descreve o que a atividade faz. | No |
+| tipo | Esta propriedade deve ser definida para HDInsightSpark. | Yes |
+| linkedServiceName | Nome do serviço ligado hdInsight no qual o programa Spark é executado. | Yes |
+| rootPath | O recipiente blob e a pasta que contém o ficheiro Spark. O nome do ficheiro é sensível ao caso. | Yes |
+| ingressoFilePata | Caminho relativo para a pasta raiz do código/embalagem Spark. | Yes |
+| nome de classeName | A classe principal java/faísca da candidatura. | No |
+| argumentos | Uma lista de argumentos de linha de comando para o programa Spark. | No |
+| proxyUser | A conta de utilizador a fazer-se passar para executar o programa Spark. | No |
+| sparkConfig | Especifique os valores das propriedades de configuração Spark listadas na [configuração Spark: Propriedades da aplicação](https://spark.apache.org/docs/latest/configuration.html#available-properties). | No |
+| obterDebugInfo | Especifica quando os ficheiros de registo spark são copiados para o armazenamento utilizado pelo cluster HDInsight (ou) especificado pelo sparkJobLinkedService. Os valores permitidos são Nenhum, Sempre ou Fracasso. O valor predefinido é Nenhum. | No |
+| sparkJobLinkedService | O serviço de armazenamento ligado que detém o ficheiro de trabalho spark, dependências e registos. Se não especificar um valor para esta propriedade, o armazenamento associado ao cluster HDInsight é utilizado. | No |
 
 ## <a name="folder-structure"></a>Estrutura de pasta
 A atividade Spark não suporta um script inline como as atividades de Pig e Hive fazem. Os trabalhos de faísca são também mais extensíveis do que os empregos de Porco/Colmeia. Para trabalhos com Spark, pode fornecer várias dependências, tais como pacotes de frascos (colocados no java CLASSPATH), ficheiros Python (colocados no PYTHONPATH) e quaisquer outros ficheiros.
@@ -348,12 +344,12 @@ Crie a seguinte estrutura de pasta no armazenamento blob referenciado pelo servi
 | Caminho | Descrição | Necessário | Tipo |
 | ---- | ----------- | -------- | ---- |
 | . | O caminho principal do trabalho spark no serviço ligado ao armazenamento. | Sim | Pasta |
-| &lt;utilizador definido &gt; | O caminho que aponta para o ficheiro de entrada do trabalho de Faísca. | Sim | Ficheiro |
-| ./frascos | Todos os ficheiros desta pasta são carregados e colocados no classe Java do cluster. | Não | Pasta |
-| ./pyFiles | Todos os ficheiros desta pasta são carregados e colocados no PYTHONPATH do cluster. | Não | Pasta |
-| ./ficheiros | Todos os ficheiros desta pasta são carregados e colocados no diretório de funcionamento do executor. | Não | Pasta |
-| ./arquivos | Todos os ficheiros desta pasta não estão reprimidos. | Não | Pasta |
-| ./logs | A pasta onde são armazenados os registos do cluster Spark.| Não | Pasta |
+| &lt;utilizador definido &gt; | O caminho que aponta para o ficheiro de entrada do trabalho de Faísca. | Yes | Ficheiro |
+| ./frascos | Todos os ficheiros desta pasta são carregados e colocados no classe Java do cluster. | No | Pasta |
+| ./pyFiles | Todos os ficheiros desta pasta são carregados e colocados no PYTHONPATH do cluster. | No | Pasta |
+| ./ficheiros | Todos os ficheiros desta pasta são carregados e colocados no diretório de funcionamento do executor. | No | Pasta |
+| ./arquivos | Todos os ficheiros desta pasta não estão reprimidos. | No | Pasta |
+| ./logs | A pasta onde são armazenados os registos do cluster Spark.| No | Pasta |
 
 Aqui está um exemplo para armazenamento que contém dois ficheiros de trabalho Spark no armazenamento blob referenciado pelo serviço ligado hdInsight:
 

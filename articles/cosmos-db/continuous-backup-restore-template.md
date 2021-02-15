@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 02/01/2021
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 642c61414d882b9cfe83f585fda8ff5404e8834a
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 4abfdd0209bd9f13fb7bd902b27a53f65156da2e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99538481"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100381822"
 ---
 # <a name="configure-and-manage-continuous-backup-and-point-in-time-restore-preview---using-azure-resource-manager-templates"></a>Configure e gerencie a cópia de segurança contínua e o ponto no tempo de restauração (Preview) - utilizando modelos de Gestor de Recursos Azure
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -28,7 +28,7 @@ Este artigo descreve como fornecer uma conta com cópia de segurança contínua 
 
 ## <a name="provision-an-account-with-continuous-backup"></a><a id="provision"></a>Disponibilização de uma conta com backup contínuo
 
-Pode utilizar os modelos do Gestor de Recursos Azure para implementar uma conta DB Azure Cosmos com modo contínuo. Ao definir o modelo para fornecer uma conta, inclua o parâmetro "backupPolicy", como mostrado no exemplo seguinte:
+Pode utilizar os modelos do Gestor de Recursos Azure para implementar uma conta DB Azure Cosmos com modo contínuo. Ao definir o modelo para a prestação de uma conta, inclua o `backupPolicy` parâmetro como mostrado no exemplo seguinte:
 
 ```json
 {
@@ -66,9 +66,9 @@ az group deployment create -g <ResourceGroup> --template-file <ProvisionTemplate
 
 Também pode restaurar uma conta usando o modelo de Gestor de Recursos. Ao definir o modelo incluem os seguintes parâmetros:
 
-* Desaprote o parâmetro "createMode" para "Restaurar"
-* Defina os "restoreParameters", note que o valor "restoreSource" é extraído da saída do comando para a `az cosmosdb restorable-database-account list` sua conta de origem. O atributo de identificação de exemplo para o seu nome de conta é usado para fazer a restauração.
-* Defina o parâmetro "restaurar oMode" para "PointInTime" e configuure o valor "restaurarTimestampInUtc".
+* Definir o `createMode` parâmetro para *restaurar*
+* Defina o `restoreParameters` , note que o valor é extraído da saída do comando para a sua conta de `restoreSource` `az cosmosdb restorable-database-account list` origem. O atributo de identificação de exemplo para o seu nome de conta é usado para fazer a restauração.
+* Defina o `restoreMode` parâmetro para *PointInTime* e configuure o `restoreTimestampInUtc` valor.
 
 ```json
 {

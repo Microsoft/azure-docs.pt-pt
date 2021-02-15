@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 10/25/2020
 ms.author: xujiang1
 ms.reviewer: jrasnick
-ms.openlocfilehash: 41403a59be0395a6d9874c7369bfe59c22f5ac17
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: de7c5dba5a4868b7a8fdb390f974134cfaef7395
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98218370"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100384525"
 ---
 # <a name="connect-to-workspace-resources-from-a-restricted-network"></a>Conecte-se aos recursos do espaço de trabalho a partir de uma rede restrita
 
@@ -74,7 +74,7 @@ Após a criação do ponto final do link privado, pode aceder à página de entr
 
 Para aceder aos recursos dentro do seu recurso de espaço de trabalho Azure Synapse Analytics Studio, precisa de criar o seguinte:
 
-- Pelo menos um ponto final de ligação privada com um **sub-recurso** do tipo **Dev.**
+- Pelo menos um ponto final de ligação privada com um **sub-recurso alvo** do **Tipo Dev**.
 - Dois outros pontos finais de ligação privada opcional com tipos de **Sql** ou **SqlOnDemand,** dependendo dos recursos no espaço de trabalho a que pretende aceder.
 
 Criar estes é semelhante à forma como cria o ponto final no passo anterior.  
@@ -146,7 +146,8 @@ Depois de adicionar o link de rede virtual, é necessário adicionar o registo D
 
 * Para **nome,** insira as cordas de nome dedicadas para diferentes pontos finais privados: 
   * **web** é para o ponto final privado de acesso Azure Synapse Analytics Studio.
-  * "***YourWorkSpaceName**_" é para o ponto final privado da execução de consultas sql na piscina SQL e também para o ponto final privado de acesso a tudo o resto dentro dos espaços de trabalho do Azure Synapse Analytics Studio.***
+  * "***YourWorkSpaceName***" é para o ponto final privado da execução de consultas sql na piscina SQL e também para o ponto final privado de acesso a tudo o resto dentro dos espaços de trabalho do Azure Synapse Analytics Studio.
+  * "***YourWorkSpaceName*-ondemand"** é para o ponto final privado da execução de consulta de sql em piscina embutida.
 * Para **tipo**, selecione apenas o tipo de registo **DNS.** 
 * Para **o endereço IP,** insira o endereço IP correspondente de cada ponto final privado. Pode obter o endereço IP na **interface da Rede a** partir da sua visão geral do ponto final privado.
 

@@ -3,13 +3,13 @@ title: Conceitos - Kubernetes básicos para serviços Azure Kubernetes (AKS)
 description: Aprenda os componentes básicos de cluster e carga de trabalho de Kubernetes e como se relacionam com as funcionalidades no Serviço Azure Kubernetes (AKS)
 services: container-service
 ms.topic: conceptual
-ms.date: 06/03/2019
-ms.openlocfilehash: 54d6f4529c236c7ff9f6258122b5b49d6d3723e8
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.date: 12/07/2020
+ms.openlocfilehash: 7485631660395e03c558167c321e6091c6fac755
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98674931"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100373237"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Kubernetes conceitos fundamentais para O Serviço Azure Kubernetes (AKS)
 
@@ -31,8 +31,8 @@ O Azure Kubernetes Service (AKS) fornece um serviço gerido pela Kubernetes que 
 
 Um cluster Kubernetes é dividido em dois componentes:
 
-- Os nós *dos aviões* de controlo fornecem os serviços de Kubernetes e a orquestração das cargas de trabalho de aplicação.
-- *Os nós executam* as cargas de trabalho da sua aplicação.
+- O *avião Control* fornece os serviços principais de Kubernetes e a orquestração de cargas de carga de aplicação.
+- Nós que *executam* as cargas de trabalho da sua aplicação.
 
 ![Kubernetes controlam os componentes do plano e do nó](media/concepts-clusters-workloads/control-plane-and-nodes.png)
 

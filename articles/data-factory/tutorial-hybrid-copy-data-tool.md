@@ -1,22 +1,18 @@
 ---
 title: Copiar dados no local utilizando a ferramenta Azure Copy Data
 description: Crie uma Fábrica de Dados Azure e, em seguida, utilize a ferramenta Dados de Cópia para copiar dados de uma base de dados do SQL Server para o armazenamento de Azure Blob.
-services: data-factory
 ms.author: abnarain
 author: nabhishek
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 11/09/2020
-ms.openlocfilehash: d9cf9729d8be77845572efd9ef6e2486ddceaaaf
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 33dd1a1ca203ee57d3ef263bc5e8686841f03c1f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96002839"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100391257"
 ---
 # <a name="copy-data-from-a-sql-server-database-to-azure-blob-storage-by-using-the-copy-data-tool"></a>Copie os dados de uma base de dados do SQL Server para o armazenamento do Azure Blob utilizando a ferramenta Dados de Cópia
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -109,7 +105,7 @@ Nesta secção, vai criar um contentor de blobs com o nome **adftutorial** no se
 
 ## <a name="create-a-data-factory"></a>Criar uma fábrica de dados
 
-1. No menu à esquerda, **selecione Criar uma** Fábrica de  >  Dados **de Integração de**  >  **Data Factory** Recursos.
+1. No menu à esquerda, **selecione Criar uma** Fábrica de  >  Dados **de Integração de**  >  Recursos.
 
    ![Criação de nova fábrica de dados](./media/doc-common-process/new-azure-data-factory-menu.png)
 

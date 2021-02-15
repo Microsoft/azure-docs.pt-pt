@@ -4,15 +4,15 @@ description: A linha de base de segurança Azure Bastion fornece orientações p
 author: msmbaldwin
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 11/20/2020
+ms.date: 02/12/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 92c57c863cf09fee500b3ea7392757a4f729e4a5
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: d20a646eb7675efdab4cbdc5f13e929544dceaa3
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98723936"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100392379"
 ---
 # <a name="azure-security-baseline-for-azure-bastion"></a>Linha de segurança Azure para Azure Bastion
 
@@ -69,7 +69,11 @@ A conectividade com o Gateway Manager e a etiqueta de serviço Azure está prote
 
 **Orientação**: Azure Bastion está integrado com o Azure Ative Directory (Azure AD) que é o serviço de gestão de identidade e acesso padrão da Azure. Os utilizadores podem aceder ao portal Azure utilizando a autenticação Azure AD para gerir o serviço Azure Bastion (criar, atualizar e eliminar recursos de Bastião).
 
-A ligação a máquinas virtuais que utilizam O Azure Bastion depende de uma chave SSH ou nome de utilizador/palavra-passe, e atualmente não suporta a utilização de credenciais AD AZure.
+A ligação a máquinas virtuais que utilizam O Azure Bastion depende de uma chave SSH ou nome de utilizador/palavra-passe, e atualmente não suporta a utilização de credenciais AD AZure. 
+
+Pode armazenar as suas chaves SSH como segredos do Azure Key Vault e usar estes segredos para se ligar às suas máquinas virtuais utilizando o Azure Bastion. Pode controlar o acesso do utilizador a estes segredos [atribuindo políticas de acesso](../key-vault/general/assign-access-policy-portal.md) ao Key Vault em utilizadores individuais ou em grupos AD Azure. Os seus utilizadores precisarão das seguintes permissões para utilizar este método para se conectarem a uma máquina virtual:
+- **Obtenha** acesso aos segredos armazenados no cofre de chaves Azure escolhido
+- **Listar** o acesso aos segredos armazenados no Cofre da Chave Azure escolhido
 
 Além de uma chave SSH ou nome de utilizador/palavra-passe, ao ligar-se a máquinas virtuais utilizando O Azure Bastion, o seu utilizador necessitará das seguintes atribuições de funções:
 - Função do leitor na máquina virtual alvo
@@ -106,7 +110,8 @@ Para obter mais informações, veja as seguintes referências:
 
 ### <a name="im-4-use-strong-authentication-controls-for-all-azure-active-directory-based-access"></a>IM-4: Utilizar controlos de autenticação fortes para todos os acessos baseados no Azure Active Directory
 
-**Orientação**: Azure Bastion está integrado com o Azure Ative Directory (Azure AD) para acesso e gestão do serviço. Configurar a autenticação multi-factor Azure para o seu inquilino AZure AD. A Azure AD suporta controlos de autenticação forte através de autenticação multi-factor (MFA) e métodos fortes sem palavras-passe.  
+**Orientação**: Azure Bastion está integrado com o Azure Ative Directory (Azure AD) para acesso e gestão do serviço. Configure Azure Ative Directory Multi-Factor Authentication para o seu inquilino AZURE AD. A Azure AD suporta controlos de autenticação forte através de autenticação multi-factor (MFA) e métodos fortes sem palavras-passe.
+  
 - Autenticação multi-factor: Ative O Azure AD MFA e siga as recomendações de identidade e gestão de acesso do Azure Security Center para a sua configuração de MFA. O MFA pode ser aplicado em todos os utilizadores, utilizadores selecionados ou ao nível por utilizador com base em condições de inscrição e fatores de risco. 
 
 - Autenticação sem palavras-passe: Estão disponíveis três opções de autenticação sem palavras-passe: Windows Hello for Business, Microsoft Authenticator e métodos de autenticação no local, como cartões inteligentes. 
@@ -375,7 +380,7 @@ Ative e recolha registos de recursos do grupo de segurança da rede (NSG) e regi
 
 - [Compreenda o registo e diferentes tipos de registo em Azure](../azure-monitor/platform/platform-logs-overview.md)
 
-- [Ativar registos de recursos Azure para Azure Bastion ](diagnostic-logs.md)
+- [Ativar registos de recursos Azure para Azure Bastion](diagnostic-logs.md)
 
 **Monitorização do Centro de Segurança do Azure**: Não aplicável
 

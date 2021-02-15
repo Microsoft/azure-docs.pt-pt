@@ -4,18 +4,17 @@ titleSuffix: Azure Data Science Virtual Machine
 description: Conheça as ferramentas e utilitários de ingestão de dados que estão pré-instalados na Máquina Virtual de Ciência de Dados.
 keywords: ferramentas de ciência de dados, máquina de virtual de ciência de dados, ferramentas para ciência de dados, ciência de dados do linux
 services: machine-learning
-ms.service: machine-learning
-ms.subservice: data-science-vm
+ms.service: data-science-vm
 author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: 89cf81f8d0a66c29a345f56676fbb97601743710
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 21a6efa8108bfd0a317eb955e8b3ffcfba0862a2
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93308982"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100519376"
 ---
 # <a name="data-science-virtual-machine-data-ingestion-tools"></a>Ferramentas de ingestão de dados de máquina virtual de ciência de dados de dados
 
@@ -69,7 +68,7 @@ Aqui estão algumas ferramentas de movimento de dados que estão disponíveis no
 | Ligações a amostras      | [Dados de importação do CosmosDB](../../cosmos-db/import-data.md)      |
 | Ferramentas relacionadas no DSVM      | AzCopy      |
 
-## <a name="azure-storage-explorer"></a>Explorador do Storage do Azure
+## <a name="azure-storage-explorer"></a>Explorador de Armazenamento do Azure
 
 | Categoria | Valor |
 | ------------- | ------------- |
@@ -77,7 +76,7 @@ Aqui estão algumas ferramentas de movimento de dados que estão disponíveis no
 | Versões DSVM suportadas      | Windows      |
 | Usos típicos      | Dados de importação e exportação do DSVM.    |
 |  Como usá-lo/ executá-lo?    | Procure "Azure Storage Explorer" no menu Iniciar. |
-| Ligações a amostras      | [Explorador de Armazenamento do Azure](vm-do-ten-things.md#access-azure-data-and-analytics-services)      |
+| Ligações a amostras      | [Explorador do Storage do Azure](vm-do-ten-things.md#access-azure-data-and-analytics-services)      |
 
 
 ## <a name="bcp"></a>bcp

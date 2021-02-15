@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 12/09/2020
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy21q2, automl
-ms.openlocfilehash: d5556ffb18a7a67e9415310f221e470761bf8cb8
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: c95a75ef48aa9e3db070c6c237f913fabbe893fa
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100098644"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388214"
 ---
 # <a name="evaluate-automated-machine-learning-experiment-results"></a>Avaliar resultados automatizados de experiências de aprendizagem automática
 
@@ -234,10 +234,7 @@ Neste exemplo, note-se que o melhor modelo tem uma linha previsível vs. verdade
 
 Embora as métricas e gráficos de avaliação de modelos sejam bons para medir a qualidade geral de um modelo, inspecionar que conjunto de dados possui um modelo usado para fazer as suas previsões é essencial na prática de IA responsável. É por isso que a ML automatizada fornece um painel de interpretação de modelo para medir e reportar as contribuições relativas das funcionalidades do conjunto de dados.
 
-![Importâncias de recurso](./media/how-to-understand-automated-ml/how-to-feature-importance.gif)
-
 Para ver o painel de interpretação no estúdio:
-
 1. [Inscreva-se no estúdio](https://ml.azure.com/) e navegue para o seu espaço de trabalho
 2. No menu esquerdo, selecione **Experimentos**
 3. Selecione a sua experiência na lista de experiências
@@ -246,10 +243,11 @@ Para ver o painel de interpretação no estúdio:
 6. No separador **Explicações,** pode ver-se uma explicação já foi criada se o modelo fosse o melhor
 7. Para criar uma nova explicação, **selecione Explicar o modelo** e selecione o cálculo remoto com o qual calcular explicações
 
+[Saiba mais sobre explicações de modelos em ML automatizado.](how-to-machine-learning-interpretability-automl.md)
+
 > [!NOTE]
 > O modelo ForecastTCN não é atualmente suportado por explicações automáticas de ML e outros modelos de previsão podem ter acesso limitado a ferramentas de interpretação.
 
 ## <a name="next-steps"></a>Passos seguintes
 * Experimente os [cadernos de amostras de amostra de exemplo de machine learning automatizados.](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model)
-* Saiba mais sobre [ofertas de IA responsáveis em ML automatizado.](how-to-machine-learning-interpretability-automl.md)
 * Para perguntas específicas automatizadas do ML, askautomatedml@microsoft.com contacte.

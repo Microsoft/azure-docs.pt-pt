@@ -1,23 +1,18 @@
 ---
 title: Copiar dados em Dinâmica (Serviço Comum de Dados)
 description: Saiba como copiar dados do Microsoft Dynamics CRM ou do Microsoft Dynamics 365 (Common Data Service) para lojas de dados de sumidouros suportados ou de lojas de dados de origem suportadas para Dynamics CRM ou Dynamics 365 utilizando uma atividade de cópia num oleoduto de fábrica de dados.
-services: data-factory
-documentationcenter: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.custom: seo-lt-2019
 ms.date: 02/02/2021
-ms.openlocfilehash: 63816a40aa710d26dc036dfe82018883e917beb6
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: d238a232d719c75244e6f9b825272957d2a4a4bc
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99428492"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100381006"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Copiar dados de e para Dynamics 365 (Common Data Service) ou Dynamics CRM utilizando a Azure Data Factory
 
@@ -80,16 +75,16 @@ As seguintes propriedades são suportadas para o serviço ligado à Dynamics.
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | O tipo de propriedade deve ser definido como "Dynamics", "DynamicsCrm", ou "CommonDataServiceForApps". | Sim |
-| tipo de implantação | O tipo de implantação da instância Dynamics. O valor deve ser "Online" para a Dynamics online. | Sim |
-| serviceUri | O URL de serviço da sua instância Dynamics, o mesmo que você acede a partir do navegador. Um exemplo é "https:// \<organization-name> .crm[x].dynamics.com". | Sim |
-| authenticationType | O tipo de autenticação para ligar a um servidor Dynamics. Os valores válidos são "AADServicePrincipal" e "Office365". | Sim |
+| tipo | O tipo de propriedade deve ser definido como "Dynamics", "DynamicsCrm", ou "CommonDataServiceForApps". | Yes |
+| tipo de implantação | O tipo de implantação da instância Dynamics. O valor deve ser "Online" para a Dynamics online. | Yes |
+| serviceUri | O URL de serviço da sua instância Dynamics, o mesmo que você acede a partir do navegador. Um exemplo é "https:// \<organization-name> .crm[x].dynamics.com". | Yes |
+| authenticationType | O tipo de autenticação para ligar a um servidor Dynamics. Os valores válidos são "AADServicePrincipal" e "Office365". | Yes |
 | servicePrincipalId | A identificação do cliente da aplicação AD Azure. | Sim, quando a autenticação é "AADServicePrincipal" |
 | ServiçoPrincipalCredentialType | O tipo de credencial a utilizar para a autenticação principal de serviço. Os valores válidos são "ServicePrincipalKey" e "ServicePrincipalCert". | Sim, quando a autenticação é "AADServicePrincipal" |
 | serviçoPrincipalCredential | A credencial principal de serviço. <br/><br/>Quando utiliza o "ServicePrincipalKey" como tipo credencial, `servicePrincipalCredential` pode ser uma cadeia que a Azure Data Factory encripta após a implementação do serviço ligado. Ou pode ser uma referência a um segredo em Azure Key Vault. <br/><br/>Quando utilizar o "ServicePrincipalCert" como credencial, `servicePrincipalCredential` deve ser uma referência a um certificado no Cofre da Chave Azure. | Sim, quando a autenticação é "AADServicePrincipal" |
 | nome de utilizador | O nome de utilizador para ligar à Dynamics. | Sim, quando a autenticação é "Office365" |
 | palavra-passe | A palavra-passe para a conta de utilizador que especificou como nome de utilizador. Marque este campo com "SecureString" para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Sim, quando a autenticação é "Office365" |
-| connectVia | O [tempo de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Se nenhum valor for especificado, a propriedade utiliza o tempo de execução de integração Azure padrão. | Não |
+| connectVia | O [tempo de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Se nenhum valor for especificado, a propriedade utiliza o tempo de execução de integração Azure padrão. | No |
 
 >[!NOTE]
 >O conector Dynamics usou anteriormente a propriedade opcional **da organizaçãoName** para identificar a sua instância online Dynamics CRM ou Dynamics 365. Enquanto essa propriedade ainda funciona, sugerimos que especifique a nova propriedade **de ServiceUri** em vez de obter um melhor desempenho, por exemplo, a descoberta.
@@ -185,7 +180,7 @@ Propriedades adicionais que se comparam à Dynamics online são **o hostName** e
 | authenticationType | O tipo de autenticação para ligar ao servidor Dynamics. Especificar "Ifd" para Dinâmicas no local com IFD. | Sim. |
 | nome de utilizador | O nome de utilizador para ligar à Dynamics. | Sim. |
 | palavra-passe | A palavra-passe para a conta de utilizador que especificou para o nome de utilizador. Pode marcar este campo com "SecureString" para armazená-lo de forma segura na Data Factory. Ou pode armazenar uma palavra-passe no Key Vault e deixar a atividade de cópia sair daí quando fizer cópia de dados. Saiba mais com as credenciais da [Loja no Key Vault.](store-credentials-in-key-vault.md) | Sim. |
-| connectVia | O [tempo de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Se nenhum valor for especificado, a propriedade utiliza o tempo de execução de integração Azure padrão. | Não |
+| connectVia | O [tempo de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Se nenhum valor for especificado, a propriedade utiliza o tempo de execução de integração Azure padrão. | No |
 
 #### <a name="example-dynamics-on-premises-with-ifd-using-ifd-authentication"></a>Exemplo: Dinâmica nas instalações com IFD utilizando a autenticação IFD
 
@@ -223,7 +218,7 @@ Para copiar dados de e para a Dynamics, suportam-se as seguintes propriedades:
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo do conjunto de dados deve ser definida como "DynamicsEntity", "DynamicsCrmEntity", ou "CommonDataServiceForAppsEntity". |Sim |
+| tipo | A propriedade tipo do conjunto de dados deve ser definida como "DynamicsEntity", "DynamicsCrmEntity", ou "CommonDataServiceForAppsEntity". |Yes |
 | entidade Nome | O nome lógico da entidade para recuperar. | Não para a fonte se a fonte de atividade for especificada como "consulta" e sim para pia |
 
 #### <a name="example"></a>Exemplo
@@ -255,7 +250,7 @@ Para copiar dados da Dynamics, a secção **de origem** da atividade de cópia s
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida como "DynamicsSource", "DynamicsCrmSource", ou "CommonDataServiceForAppsSource". | Sim |
+| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida como "DynamicsSource", "DynamicsCrmSource", ou "CommonDataServiceForAppsSource". | Yes |
 | consulta | FetchXML é uma linguagem de consulta proprietária que é usada em Dynamics on-line e no local. Veja o seguinte exemplo. Para saber mais, consulte [Criar consultas com a FetchXML.](/previous-versions/dynamicscrm-2016/developers-guide/gg328332(v=crm.8)) | Não se `entityName` no conjunto de dados for especificado |
 
 >[!NOTE]
@@ -324,7 +319,7 @@ Para copiar dados para a Dynamics, a secção **de lavatório** de atividade de 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | tipo | A propriedade tipo do lavatório de atividade de cópia deve ser definida como "DynamicsSink", "DynamicsCrmSink", ou "CommonDataServiceForAppsSink". | Sim. |
-| escrever Comportamento | O comportamento de escrita da operação. O valor deve ser "Upsert". | Sim |
+| escrever Comportamento | O comportamento de escrita da operação. O valor deve ser "Upsert". | Yes |
 | nome alternativoKeyName | O nome de chave alternativa definido na sua entidade para fazer um upsert. | N.º |
 | escreverBatchSize | A contagem de dados escrita para a Dynamics em cada lote. | N.º O valor predefinido é 10. |
 | ignoreNullValues | Se ignorar valores nulos de dados de entrada que não sejam campos-chave durante uma operação de escrita.<br/><br/>Valores válidos são **VERDADEIROs** e **FALSOS:**<ul><li>**VERDADE**: Deixe os dados no objeto de destino inalterados quando fizer uma operação de atualização ou atualização. Insira um valor predefinido definido quando fizer uma operação de inserção.</li><li>**FALSO:** Atualize os dados no objeto de destino para um valor nulo quando fizer uma operação de atualização ou atualização. Insira um valor nulo quando fizer uma operação de inserção.</li></ul> | N.º O valor **predefinido** é FALSO . |

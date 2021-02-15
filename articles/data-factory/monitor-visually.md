@@ -1,21 +1,18 @@
 ---
 title: Monitorizar visualmente o Azure Data Factory
 description: Saiba como monitorizar visualmente as fábricas de dados do Azure
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
 ms.reviewer: maghan
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: f2bf1b1a16660b4e80bc0acc5c6e4201b452098f
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 4248969a5de384810f9718648ef8ac8f5f6d4129
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96497916"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100373169"
 ---
 # <a name="visually-monitor-azure-data-factory"></a>Monitorizar visualmente o Azure Data Factory
 
@@ -151,7 +148,7 @@ O comprimento da barra informa a duração do gasoduto. Também pode selecionar 
 
 ## <a name="alerts"></a>Alertas
 
-Pode levantar alertas sobre métricas suportadas na Data Factory. Selecione **Monitor**  >  **Alertas monitor & métricas** na página de monitorização da Data Factory para começar.
+Pode levantar alertas sobre métricas suportadas na Data Factory. Selecione   >  **Alertas monitor & métricas** na página de monitorização da Data Factory para começar.
 
 ![Página do Monitor da fábrica de dados](media/monitor-visually/start-page.png)
 

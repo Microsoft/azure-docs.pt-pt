@@ -12,12 +12,12 @@ ms.date: 07/23/2020
 ms.author: kenwith
 ms.reviewer: japere
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 121dcdf51374f625ad7393bb181b1be215775a0b
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 19a5d223b587e47c562977cc9fea34f990eb0e46
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99257782"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100370823"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Diretório Ativo (Azure AD) Aplicação Proxy frequentemente perguntas
 
@@ -106,6 +106,15 @@ O comprimento predefinido é de 85 segundos. A definição "longa" é de 180 seg
 
 Não, atualmente isto não é apoiado.
 
+### <a name="what-happens-if-i-delete-cwap_authsecret-the-client-secret-in-the-app-registration"></a>O que acontece se eu apagar CWAP_AuthSecret (o segredo do cliente) no registo da aplicação?
+
+O segredo do cliente, também chamado *CWAP_AuthSecret,* é automaticamente adicionado ao objeto de aplicação (registo de aplicações) quando a aplicação Azure AD Application Proxy é criada.
+
+O segredo do cliente é válido por um ano. Um novo segredo de cliente de um ano é automaticamente criado antes que o segredo do cliente válido atual expire. Três CWAP_AuthSecret segredos dos clientes são mantidos no objeto de aplicação em todos os momentos. 
+
+> [!IMPORTANT]
+> Eliminar CWAP_AuthSecret quebra a pré-autenticação para o Azure AD Application Proxy. Não apague CWAP_AuthSecret.
+
 ### <a name="how-do-i-change-the-landing-page-my-application-loads"></a>Como posso alterar a página de aterragem que a minha aplicação carrega?
 
 A partir da página 'Registos de Candidaturas', pode alterar o URL da página inicial para o URL externo pretendido da página de aterragem. A página especificada será carregada quando a aplicação for lançada a partir das Minhas Apps ou do Portal do Office 365. Para etapas de configuração, consulte [Definir uma página inicial personalizada para aplicações publicadas utilizando o Azure AD Application Proxy](./application-proxy-configure-custom-home-page.md)
@@ -187,11 +196,11 @@ N.º O Azure AD Application Proxy foi concebido para trabalhar com a Azure AD e 
 
 ## <a name="websocket"></a>WebSocket
 
-### <a name="does-websocket-support-work-for-applications-other-than-qliksense"></a>O suporte da WebSocket funciona para outras aplicações que não o QlikSense?
+### <a name="does-websocket-support-work-for-applications-other-than-qliksense-and-remote-desktop-web-client-html5"></a>O suporte da WebSocket funciona para outras aplicações que não o QlikSense e o Cliente Web de Desktop Remoto (HTML5)?
 
 Atualmente, o suporte ao protocolo WebSocket ainda se encontra em pré-visualização pública e pode não funcionar para outras aplicações. Alguns clientes tiveram sucesso misto usando o protocolo WebSocket com outras aplicações. Se testar tais cenários, adoraríamos ouvir os seus resultados. Por favor envie-nos o seu feedback em aadapfeedback@microsoft.com .
 
-As funcionalidades (Eventlogs, PowerShell e Remote Desktop Services) no Windows Admin Center (WAC) ou no Remote Desktop Web Client (HTML5) não funcionam atualmente através do Azure AD Application Proxy.
+As funcionalidades (Eventlogs, PowerShell e Remote Desktop Services) no Windows Admin Center (WAC) não funcionam atualmente através do Azure AD Application Proxy.
 
 ## <a name="link-translation"></a>Tradução de ligação
 

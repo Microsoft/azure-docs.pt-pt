@@ -1,23 +1,18 @@
 ---
 title: Mover dados de/para Azure Cosmos DB
 description: Saiba como mover dados de/para a a coleção DB da Azure Cosmos utilizando a Azure Data Factory
-services: data-factory, cosmosdb
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.assetid: c9297b71-1bb4-4b29-ba3c-4cf1f5575fac
-ms.service: multiple
-ms.workload: data-services
+ms.author: jingwang
+ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/22/2018
-ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 91f2b338ac9cda96521a5fe1d555de054826e273
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: a90b26c677c3d53794bce3c2ff48c618415e4cf2
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637637"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100379374"
 ---
 # <a name="move-data-to-and-from-azure-cosmos-db-using-azure-data-factory"></a>Mover dados de e para a Azure Cosmos DB usando a Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -39,9 +34,9 @@ Para copiar dados de/para ficheiros JSON ou outra coleção de Coss, consulte [d
 ## <a name="getting-started"></a>Introdução
 Pode criar um pipeline com uma atividade de cópia que move dados de/para Azure Cosmos DB utilizando diferentes ferramentas/APIs.
 
-A forma mais fácil de criar um oleoduto é utilizar o **Copy Wizard** . Ver [Tutorial: Criar um pipeline utilizando o Copy Wizard](data-factory-copy-data-wizard-tutorial.md) para uma rápida passagem na criação de um oleoduto utilizando o assistente de dados Copy.
+A forma mais fácil de criar um oleoduto é utilizar o **Copy Wizard**. Ver [Tutorial: Criar um pipeline utilizando o Copy Wizard](data-factory-copy-data-wizard-tutorial.md) para uma rápida passagem na criação de um oleoduto utilizando o assistente de dados Copy.
 
-Também pode utilizar as seguintes ferramentas para criar um pipeline: **Visual Studio** , **Azure PowerShell,** **Azure Resource Manager,** **.NET API** e **REST API** . Consulte o tutorial de [atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo para criar um oleoduto com uma atividade de cópia.
+Também pode utilizar as seguintes ferramentas para criar um pipeline: **Visual Studio**, **Azure PowerShell,** **Azure Resource Manager,** **.NET API** e **REST API**. Consulte o tutorial de [atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo para criar um oleoduto com uma atividade de cópia.
 
 Quer utilize as ferramentas ou APIs, executa os seguintes passos para criar um pipeline que transfere dados de uma loja de dados de origem para uma loja de dados de lavatórios:
 
@@ -56,10 +51,10 @@ As seguintes secções fornecem detalhes sobre as propriedades JSON que são usa
 ## <a name="linked-service-properties"></a>Propriedades de serviço ligadas
 A tabela seguinte fornece descrição para elementos JSON específicos do serviço ligado Azure Cosmos DB.
 
-| **Propriedade** | **Descrição** | **Necessário** |
+| **Propriedade** | **Descrição** | **Obrigatório** |
 | --- | --- | --- |
-| tipo |A propriedade tipo deve ser definida para: **DocumentDb** |Sim |
-| conexãoStragem |Especifique as informações necessárias para ligar à base de dados DB do Azure Cosmos. |Sim |
+| tipo |A propriedade tipo deve ser definida para: **DocumentDb** |Yes |
+| conexãoStragem |Especifique as informações necessárias para ligar à base de dados DB do Azure Cosmos. |Yes |
 
 Exemplo:
 
@@ -80,9 +75,9 @@ Para obter uma lista completa de secções & propriedades disponíveis para defi
 
 A secção typeProperties é diferente para cada tipo de conjunto de dados e fornece informações sobre a localização dos dados na loja de dados. A secção typeProperties para o conjunto de dados do tipo **DocumentDbCollection** tem as seguintes propriedades.
 
-| **Propriedade** | **Descrição** | **Necessário** |
+| **Propriedade** | **Descrição** | **Obrigatório** |
 | --- | --- | --- |
-| coleçãoName |Nome da coleção de documentos da Cosmos DB. |Sim |
+| coleçãoName |Nome da coleção de documentos da Cosmos DB. |Yes |
 
 Exemplo:
 
@@ -121,18 +116,18 @@ As propriedades disponíveis na secção de tipoProperties da atividade, por out
 
 No caso de atividade de Copy quando a fonte é do tipo **DocumentDbCollectionSource,** as seguintes propriedades estão disponíveis na secção **typeProperties:**
 
-| **Propriedade** | **Descrição** | **Valores permitidos** | **Necessário** |
+| **Propriedade** | **Descrição** | **Valores permitidos** | **Obrigatório** |
 | --- | --- | --- | --- |
-| consulta |Especifique a consulta para ler dados. |Linha de consulta suportada por Azure Cosmos DB. <br/><br/>Exemplo: `SELECT c.BusinessEntityID, c.PersonType, c.NameStyle, c.Title, c.Name.First AS FirstName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |Não <br/><br/>Se não for especificado, a declaração SQL que é executada: `select <columns defined in structure> from mycollection` |
-| nestingSeparator |Personagem especial para indicar que o documento está aninhado |Qualquer personagem. <br/><br/>AZure Cosmos DB é uma loja NoSQL para documentos JSON, onde são permitidas estruturas aninhadas. A Azure Data Factory permite ao utilizador denotar hierarquia através de nidificaçãoSeparator, que é "". nos exemplos acima. Com o separador, a atividade da cópia gerará o objeto "Nome" com três elementos infantis Primeiro, Médio e Último, de acordo com "Name.First", "Name.Middle" e "Name.Last" na definição de tabela. |Não |
+| consulta |Especifique a consulta para ler dados. |Linha de consulta suportada por Azure Cosmos DB. <br/><br/>Exemplo: `SELECT c.BusinessEntityID, c.PersonType, c.NameStyle, c.Title, c.Name.First AS FirstName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |No <br/><br/>Se não for especificado, a declaração SQL que é executada: `select <columns defined in structure> from mycollection` |
+| nestingSeparator |Personagem especial para indicar que o documento está aninhado |Qualquer personagem. <br/><br/>AZure Cosmos DB é uma loja NoSQL para documentos JSON, onde são permitidas estruturas aninhadas. A Azure Data Factory permite ao utilizador denotar hierarquia através de nidificaçãoSeparador, que é "." nos exemplos acima. Com o separador, a atividade da cópia gerará o objeto "Nome" com três elementos infantis Primeiro, Médio e Último, de acordo com "Name.First", "Name.Middle" e "Name.Last" na definição de tabela. |No |
 
 **DocumentDbCollectionSink** suporta as seguintes propriedades:
 
-| **Propriedade** | **Descrição** | **Valores permitidos** | **Necessário** |
+| **Propriedade** | **Descrição** | **Valores permitidos** | **Obrigatório** |
 | --- | --- | --- | --- |
 | nestingSeparator |Um carácter especial no nome da coluna de origem indica que o documento aninhado é necessário. <br/><br/>Por exemplo: `Name.First` na tabela de saída produz-se a seguinte estrutura JSON no documento Cosmos DB:<br/><br/>"Nome": {<br/>    "Primeiro": "John"<br/>}, |Caráter utilizado para separar níveis de aninhamento.<br/><br/>O valor predefinido é `.` (ponto). |Caráter utilizado para separar níveis de aninhamento. <br/><br/>O valor predefinido é `.` (ponto). |
 | escreverBatchSize |Número de pedidos paralelos ao serviço DB da Azure Cosmos para criar documentos.<br/><br/>Pode afinar o desempenho ao copiar dados de/para Cosmos DB utilizando esta propriedade. Pode esperar um melhor desempenho quando aumentar o writeBatchSize porque são enviados pedidos mais paralelos à Cosmos DB. No entanto, terá de evitar estrangulamentos que possam passar a mensagem de erro: "A taxa de pedido é grande".<br/><br/>O estrangulamento é decidido por uma série de fatores, incluindo a dimensão dos documentos, o número de termos em documentos, a política de indexação da recolha de destinos, etc. Para operações de cópia, pode utilizar uma melhor recolha (por exemplo, S3) para ter o maior rendimento disponível (2.500 unidades de pedido/segundo). |Número inteiro |Não (predefinição: 5) |
-| escreverBatchTimeout |Tempo de espera para a operação terminar antes que se esmua. |timespan<br/><br/> Exemplo: "00:30:00" (30 minutos). |Não |
+| escreverBatchTimeout |Tempo de espera para a operação terminar antes que se esmua. |timespan<br/><br/> Exemplo: "00:30:00" (30 minutos). |No |
 
 ## <a name="importexport-json-documents"></a>Documentos JSON de importação/exportação
 Utilizando este conector Cosmos DB, pode facilmente
@@ -478,7 +473,7 @@ Em seguida, a saída JSON em Cosmos DB será como:
   "id": "a5e8595c-62ec-4554-a118-3940f4ff70b6"
 }
 ```
-AZure Cosmos DB é uma loja NoSQL para documentos JSON, onde são permitidas estruturas aninhadas. A Azure Data Factory permite ao utilizador denotar hierarquia através de **nidificaçãoSeparator,** que é "". neste exemplo. Com o separador, a atividade da cópia gerará o objeto "Nome" com três elementos infantis Primeiro, Médio e Último, de acordo com "Name.First", "Name.Middle" e "Name.Last" na definição de tabela.
+AZure Cosmos DB é uma loja NoSQL para documentos JSON, onde são permitidas estruturas aninhadas. A Azure Data Factory permite ao utilizador denotar hierarquia através de **nidificaçãoSeparator,** que é "" neste exemplo. Com o separador, a atividade da cópia gerará o objeto "Nome" com três elementos infantis Primeiro, Médio e Último, de acordo com "Name.First", "Name.Middle" e "Name.Last" na definição de tabela.
 
 ## <a name="appendix"></a>Apêndice
 1. **Pergunta:** A Atividade de Cópia suporta a atualização dos registos existentes?

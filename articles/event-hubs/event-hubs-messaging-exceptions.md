@@ -2,13 +2,13 @@
 title: Azure Event Hubs - exceções (legado)
 description: Este artigo fornece uma lista de exceções de mensagens Azure Event Hubs e ações sugeridas.
 ms.topic: article
-ms.date: 11/02/2020
-ms.openlocfilehash: 357a87c53023962dd9195a616bd9ce9e01c55bf9
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.date: 02/10/2021
+ms.openlocfilehash: a76c98ec7d6d1f3370ed8787bf10d1d16a7baaa5
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96340972"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100390900"
 ---
 # <a name="event-hubs-messaging-exceptions---net-legacy"></a>Event Hubs exceções de mensagens -.NET (legado)
 Esta secção enumera as exceções .NET geradas por .NET Framework APIs. 
@@ -125,14 +125,14 @@ Este erro pode ocorrer por uma de duas razões:
 
     Se vir valores superiores ao número de TUs * limites (1 MB por segundo para entrada ou 1000 pedidos de entrada/segundo, 2 MB por segundo para saídas), aumente o número de TUs utilizando a página **scale** (no menu esquerdo) de um espaço de nome Desinsulado de Eventos para uma escala manual ou para utilizar a função [de auto-inflação](event-hubs-auto-inflate.md) de Centros de Eventos. Note que o auto-insuflado só pode aumentar até 20 TUS. Para elevar a 40 TUs, apresente um pedido de [apoio.](../azure-portal/supportability/how-to-create-azure-support-request.md)
 
-### <a name="error-code-50001"></a>Código de erro 50001
+### <a name="error-code-50008"></a>Código de erro 50008
 
 Este erro raramente deve ocorrer. Acontece quando o código de funcionamento do contentor para o seu espaço de identificação é baixo na CPU – não mais do que alguns segundos antes do início do balançor de carga do Event Hubs.
 
-**Resolução**: Limite das chamadas para o método GetRuntimeInformation. O Azure Event Hubs suporta até 50 chamadas por segundo para o GetRuntimeInfo por segundo. Poderá receber uma exceção semelhante à seguinte assim que o limite for atingido:
+**Resolução**: Limite as chamadas para o método GetRuntimeInformation. O Azure Event Hubs suporta até 50 chamadas por segundo por grupo de consumidores para o GetRuntimeInfo por segundo. Poderá receber uma exceção semelhante à seguinte assim que o limite for atingido:
 
 ```
-ExceptionId: 00000000000-00000-0000-a48a-9c908fbe84f6-ServerBusyException: The request was terminated because the namespace 75248:aaa-default-eventhub-ns-prodb2b is being throttled. Error code : 50001. Please wait 10 seconds and try again.
+ExceptionId: 00000000000-00000-0000-a48a-9c908fbe84f6-ServerBusyException: The request was terminated because the namespace 75248:aaa-default-eventhub-ns-prodb2b is being throttled. Error code : 50008. Please wait 10 seconds and try again.
 ```
 
 
@@ -141,5 +141,5 @@ ExceptionId: 00000000000-00000-0000-a48a-9c908fbe84f6-ServerBusyException: The r
 Pode saber mais sobre os Hubs de Eventos ao aceder às seguintes ligações:
 
 * [Descrição geral dos Event Hubs](./event-hubs-about.md)
-* [Criar um Centro de Eventos](event-hubs-create.md)
+* [Criar um Hub de Eventos](event-hubs-create.md)
 * [FAQ dos Hubs de Eventos](event-hubs-faq.md)

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/11/2020
+ms.date: 02/12/2021
 ms.author: trbye
-ms.openlocfilehash: 41fdb3d2e69ae39dbe80f21a953fd9fdaa6d1127
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: 4da93503c32e380adb82028e7c5e11dddb247d6f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97968471"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100373373"
 ---
 # <a name="train-and-deploy-a-custom-speech-model"></a>Preparar e implementar um modelo de Voz Personalizada
 
@@ -40,7 +40,19 @@ O primeiro passo para treinar um modelo é carregar dados de treino. Consulte [P
 3. Selecione **modelo de comboio**.
 4. Dê ao seu treino um **nome** e **descrição.**
 5. Na lista de **modelos Scenario e Baseline,** selecione o cenário que melhor se adequa ao seu domínio. Se não tem certeza de qual o cenário a escolher, selecione **General**. O modelo de base é o ponto de partida para o treino. O modelo mais recente é geralmente a melhor escolha.
-6. Na página **de dados de formação Select,** escolha um ou mais conjuntos de dados de texto relacionados ou conjuntos de dados de transcrição com rótulo humano que pretende utilizar para a formação. Quando treina um novo modelo, comece com texto relacionado; formação com transcrição áudio + etiqueta humana pode demorar muito mais tempo (até [vários dias).](how-to-custom-speech-evaluate-data.md#improve-model-recognition)
+6. Na página **de dados de formação Select,** escolha um ou mais conjuntos de dados de texto relacionados ou conjuntos de dados de transcrição com rótulo humano que pretende utilizar para a formação.
+
+> [!NOTE]
+> Quando treina um novo modelo, comece com texto relacionado; formação com transcrição áudio + etiqueta humana pode demorar muito mais tempo **(até [vários dias).](how-to-custom-speech-evaluate-data.md#add-audio-with-human-labeled-transcripts)**
+
+> [!NOTE]
+> Nem todos os modelos base suportam o treino com áudio. Se um modelo base não o suportar, o serviço Desemaguiso utilizará apenas o texto das transcrições e ignorará o áudio. Consulte [o suporte linguístico](language-support.md#speech-to-text) para uma lista de modelos base que suportam a formação com dados áudio.
+
+> [!NOTE]
+> Nos casos em que altera o modelo base utilizado para o treino, e tem áudio no conjunto de dados de treino, verifique *sempre* se o novo modelo base selecionado [suporta a formação com dados áudio](language-support.md#speech-to-text). Se o modelo base anteriormente utilizado não suportasse a formação com dados áudio, e o conjunto de dados de formação contiver áudio, o tempo de treino com o novo modelo base aumentará **drasticamente,** podendo facilmente passar de várias horas para vários dias e mais. Isto é especialmente verdade se a subscrição do seu serviço Desem declarações **não** estiver numa [região com o hardware dedicado](custom-speech-overview.md#set-up-your-azure-account) para a formação.
+>
+> Se encarar a questão descrita no parágrafo acima, pode diminuir rapidamente o tempo de treino reduzindo a quantidade de áudio no conjunto de dados ou removendo-o completamente e deixando apenas o texto. Esta última opção é altamente recomendada se a subscrição do serviço Speech **não** estiver numa [região com o hardware dedicado](custom-speech-overview.md#set-up-your-azure-account) para a formação.
+
 7. Após o treino estar completo, pode fazer testes de precisão no modelo recém-treinado. Este passo é opcional.
 8. Selecione **Criar** para construir o seu modelo personalizado.
 

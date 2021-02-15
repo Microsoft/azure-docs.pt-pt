@@ -1,20 +1,20 @@
 ---
 title: Crie um conjunto de escala que utilize VMs Azure Spot
 description: Saiba como criar conjuntos de escala de máquina virtual Azure que usam VMs spot para economizar em custos.
-author: cynthn
-ms.author: cynthn
+author: JagVeerappan
+ms.author: jagaveer
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
 ms.subservice: spot
 ms.date: 03/25/2020
-ms.reviewer: jagaveer
+ms.reviewer: cynthn
 ms.custom: jagaveer, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 4c5386e2fad0ebdd30ca8f9a8f4933e8adaf5d6b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 03bf5e0ef7e6268e68139b6d73685f67d88f6231
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91729020"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100385936"
 ---
 # <a name="azure-spot-vms-for-virtual-machine-scale-sets"></a>VMs Azure Spot para conjuntos de escala de máquina virtual 
 
@@ -29,6 +29,24 @@ Os preços dos casos spot são variáveis, com base na região e no SKU. Para ma
 
 
 Com preços variáveis, você tem a opção de definir um preço máximo, em dólares americanos (USD), usando até 5 casas decimais. Por exemplo, o valor `0.98765` seria um preço máximo de $0.98765 USD por hora. Se definir o preço `-1` máximo, o caso não será despejado com base no preço. O preço, por exemplo, será o preço atual para o Spot ou o preço de uma instância padrão, que sempre é menor, desde que haja capacidade e quota disponíveis.
+
+
+## <a name="limitations"></a>Limitações
+
+Os seguintes tamanhos não são suportados para Azure Spot:
+ - Série B
+ - Versões promocionais de qualquer tamanho (como tamanhos promocionais Dv2, NV, NC, H)
+
+O Azure Spot pode ser implantado em qualquer região, exceto o Microsoft Azure China 21Vianet.
+
+<a name="channel"></a>
+
+Os [seguintes tipos de oferta](https://azure.microsoft.com/support/legal/offer-details/) são atualmente suportados:
+
+-   Contrato Enterprise
+-   Código de oferta pay-as-you-go 003P
+-   Patrocinado
+- Para Provedor de Serviços cloud (CSP), contacte o seu parceiro
 
 ## <a name="eviction-policy"></a>Política de expulsão
 
@@ -163,22 +181,7 @@ Para eliminar o caso depois de ter sido despejado, altere o `evictionPolicy` par
 
 **Q:**  A autoescalação funciona com ambas as políticas de despejo (deallocate e delete)?
 
-**A:** Sim, no entanto, recomenda-se que desemocmente a sua política de despejo para eliminar quando utilizar a autoescala. Isto porque os casos de negociação são contados contra a sua capacidade de contar na escala definida. Ao utilizar a autoescala, é provável que atinja a contagem de casos de alvo rapidamente devido às situações de despejo e desalojados. Além disso, as suas operações de escala podem ser afetadas por despejos à vista. Por exemplo, as instâncias VMSS podem ficar abaixo da contagem de min definida devido a vários despejos de pontos durante as operações de escala. 
-
-**Q:** Que canais suportam Spot VMs?
-
-**A:** Consulte a tabela abaixo para obter disponibilidade do Spot VM.
-
-<a name="channel"></a>
-
-| Canais Azure               | Disponibilidade de VMs Azure Spot       |
-|------------------------------|-----------------------------------|
-| Contrato Enterprise         | Sim                               |
-| Pay As You Go                | Sim                               |
-| Fornecedor de serviços na nuvem (CSP) | [Contacte o seu parceiro](/partner-center/azure-plan-get-started) |
-| Benefícios                     | Não disponível                     |
-| Patrocinado                    | Sim                               |
-| Avaliação Gratuita                   | Não disponível                     |
+**A:** Sim, no entanto, recomenda-se que desemocmente a sua política de despejo para eliminar quando utilizar a autoescala. Isto porque os casos de negociação são contados contra a sua capacidade de contar na escala definida. Ao utilizar a autoescala, é provável que atinja a contagem de casos de alvo rapidamente devido às situações de despejo e desalojados. Além disso, as suas operações de escala podem ser afetadas por despejos à vista. Por exemplo, as instâncias de conjunto de escala de máquinas virtuais podem ficar abaixo da contagem de min definida devido a vários despejos de pontos durante as operações de escala. 
 
 
 **Q:** Onde posso fazer perguntas?

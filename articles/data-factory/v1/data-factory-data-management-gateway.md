@@ -1,23 +1,18 @@
 ---
 title: Gateway de gestão de dados para fábrica de dados
 description: Utilize o Gateway de Gestão de Dados na Azure Data Factory para mover os seus dados.
-services: data-factory
-documentationcenter: ''
 author: nabhishek
-manager: anandsub
-ms.assetid: b9084537-2e1c-4e96-b5bc-0e2044388ffd
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 94c1bed8d94f73bc7794037b307618f4c36c4518
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 708d84bdb3ebe8fbba6939aa771a9120868d5d1b
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96450612"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100375209"
 ---
 # <a name="data-management-gateway"></a>Data Management Gateway
 > [!NOTE]
@@ -37,7 +32,7 @@ Pode escalar uma porta de gestão de dados associando várias máquinas no local
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 ### <a name="capabilities-of-data-management-gateway"></a>Capacidades de gateway de gestão de dados
 Gateway de gestão de dados fornece as seguintes capacidades:
 
@@ -140,7 +135,7 @@ Há duas firewalls que você precisa considerar: **firewall corporativa** em exe
 
 Ao nível da firewall corporativa, é necessário configurar os seguintes domínios e portas de saída:
 
-| Nomes de domínio | Portas | Descrição |
+| Nomes de domínio | Portas | Description |
 | --- | --- | --- |
 | *.servicebus.windows.net |443 |Usado para comunicação com backend do Serviço de Movimento de Dados |
 | *.core.windows.net |443 |Utilizado para cópia encenada utilizando Azure Blob (se configurado)|
@@ -380,11 +375,11 @@ Nesta página, vê algumas definições que fazem mais sentido quando há dois o
 ### <a name="gateway-status"></a>Estado do gateway
 A tabela a seguir fornece os possíveis estatutos de um nó de **gateway:**
 
-Estado  | Comentários/Cenários
+Estado    | Comentários/Cenários
 :------- | :------------------
 Online | Nó ligado ao serviço Data Factory.
 Offline | O nó está desligado.
-Modernização | O nó está a ser atualizado automaticamente.
+Atualizar | O nó está a ser atualizado automaticamente.
 Limitado | Devido a problemas de conectividade. Pode ser devido à emissão da porta HTTP 8050, problema de conectividade do autocarro de serviço ou problema de sincronização de credenciais.
 Inativa | O nó está numa configuração diferente da configuração de outros nós maioritários.<br/><br/> Um nó pode ser inativo quando não pode ligar-se a outros nós.
 

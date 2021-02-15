@@ -5,15 +5,14 @@ author: ssabat
 ms.author: susabat
 ms.reviewer: susabat
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: troubleshooting
 ms.date: 12/03/2020
-ms.openlocfilehash: e5e1a4ff676a6677357638dc4b67dc94926adbd2
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: 091c0cb20877090453f38ab922cc2bd277e90093
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98556312"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100393756"
 ---
 # <a name="troubleshoot-ci-cd-azure-devops-and-github-issues-in-adf"></a>Problemas de CI-CD, Azure DevOps e GitHub em ADF 
 
@@ -78,14 +77,14 @@ O gasoduto de libertação ci/CD falha com o seguinte erro:
 
 #### <a name="cause"></a>Causa
 
-Isto deve-se a um Tempo de Integração com o mesmo nome na fábrica-alvo, mas com um tipo diferente. Integração O tempo de execução tem de ser do mesmo tipo quando se implementa.
+Isto deve-se a um tempo de integração com o mesmo nome na fábrica-alvo, mas com um tipo diferente. Integração O tempo de execução tem de ser do mesmo tipo quando se implementa.
 
 #### <a name="recommendation"></a>Recomendação
 
 - Consulte abaixo as melhores práticas para CI/CD:
 
     https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment#best-practices-for-cicd 
-- Os tempos de integração não mudam frequentemente e são semelhantes em todas as fases do seu CI/CD, por isso a Data Factory espera que tenha o mesmo nome e tipo de tempo de integração em todas as fases do CI/CD. Se o nome e os tipos & propriedades forem diferentes, certifique-se de que correspondem à configuração iv de origem e alvo e, em seguida, implemente o pipeline de desbloqueio.
+- Os tempos de integração não mudam frequentemente e são semelhantes em todas as fases do seu CI/CD, por isso a Data Factory espera que tenha o mesmo nome e tipo de tempo de integração em todas as fases do CI/CD. Se o nome e os tipos & propriedades forem diferentes, certifique-se de que correspondem à configuração de tempo de execução de integração de origem e alvo e, em seguida, implemente o pipeline de desbloqueio.
 - Se quiser partilhar os tempos de integração em todas as fases, considere usar uma fábrica ternuy apenas para conter os tempos de integração partilhada. Você pode usar esta fábrica partilhada em todos os seus ambientes como um tipo de tempo de execução de integração ligado.
 
 ### <a name="document-creation-or-update-failed-because-of-invalid-reference"></a>A criação ou atualização de documentos falhou devido a referência inválida
@@ -133,7 +132,7 @@ Não é possível mover a Data Factory de um Grupo de Recursos para outro, falha
 
 #### <a name="resolution"></a>Resolução
 
-Tem de eliminar as IRS SSIS-IR e Shared para permitir o funcionamento do movimento. Se não quiser eliminar as IRs, então a melhor maneira é seguir o documento de cópia e clone para fazer a cópia e depois de o fazer, eliminar a antiga fábrica de Dados.
+Tem de eliminar as IRS SSIS-IR e Shared para permitir o funcionamento do movimento. Se não quiser eliminar os tempos de integração, então a melhor maneira é seguir o documento de cópia e clone para fazer a cópia e depois de o fazer, eliminar a antiga Data Factory.
 
 ###  <a name="unable-to-export-and-import-arm-template"></a>Não pode exportar e importar modelo ARM
 
@@ -150,6 +149,34 @@ Criou um papel de cliente como utilizador e não teve a permissão necessária. 
 #### <a name="resolution"></a>Resolução
 
 Para resolver o problema, tem de adicionar a seguinte permissão à sua função: *Microsoft.DataFactory/fábricas/consultasFeaturesValue/action*. Esta permissão deve ser incluída por padrão na função "Data Factory Contributor".
+
+###  <a name="automatic-publishing-for-cicd-without-clicking-publish-button"></a>Publicação automática para CI/CD sem clicar no botão Publicar  
+
+#### <a name="issue"></a>Problema
+
+A publicação manual com clique de botão no portal ADF não permite o funcionamento automático do CI/CD.
+
+#### <a name="cause"></a>Causa
+
+Até recentemente, a única forma de publicar o pipeline ADF para implementações era usar o botão do Portal ADF. Agora, pode tornar o processo automático. 
+
+#### <a name="resolution"></a>Resolução
+
+O processo CI/CD foi melhorado. A funcionalidade **de publicação automatizada** retira, valida e exporta todas as funcionalidades do modelo Azure Resource Manager (ARM) do ADF UX. Torna a lógica consumível através de um pacote npm disponível ao [@microsoft/azure-data-factory-utilities](https://www.npmjs.com/package/@microsoft/azure-data-factory-utilities) público. Isto permite-lhe desencadear programáticamente estas ações em vez de ter de ir ao UI ADF e fazer um clique de botão. Isto proporciona aos seus oleodutos CI/CD uma **verdadeira** experiência de integração contínua. Siga as [melhorias da publicação de ADF CI/CD](https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment-improvements) para mais detalhes. 
+
+###  <a name="cannot-publish-because-of-4mb-arm-template-limit"></a>Não pode publicar por causa do limite de modelo de 4mb ARM  
+
+#### <a name="issue"></a>Problema
+
+Não pode ser implantado porque atingiu o limite do Gestor de Recursos Azure de 4mb de tamanho total do modelo. Precisa de uma solução para implementar depois de ultrapassar o limite. 
+
+#### <a name="cause"></a>Causa
+
+O Gestor de Recursos Azure restringe o tamanho do modelo a ser de 4mb. Limite o tamanho do seu modelo a 4 MB e cada ficheiro de parâmetro a 64 KB. O limite de 4-MB aplica-se ao estado final do modelo depois de ter sido expandido com definições de recursos iterativos e valores para variáveis e parâmetros. Mas ultrapassou o limite. 
+
+#### <a name="resolution"></a>Resolução
+
+Para obter soluções pequenas a médias, um único modelo é mais fácil de compreender e manter. Pode ver todos os recursos e valores num único ficheiro. Para cenários avançados, os modelos associados permitem-lhe dividir a solução em componentes direcionados. Siga as melhores práticas na [utilização de modelos ligados e aninhados.](https://docs.microsoft.com/azure/azure-resource-manager/templates/linked-templates?tabs=azure-powershell)
 
 ## <a name="next-steps"></a>Passos seguintes
 

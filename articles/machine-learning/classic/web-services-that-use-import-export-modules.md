@@ -4,23 +4,22 @@ description: Saiba como utilizar os módulos de Dados de Importação e Exporta�
 services: machine-learning
 author: likebupt
 ms.author: keli19
-editor: cgronlun
 ms.assetid: 3a7ac351-ebd3-43a1-8c5d-18223903d08e
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 ms.date: 03/28/2017
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5dc348318401c9362636893d70294496c7012408
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 4824b7a4233bc65d521e1c6ded7d1ea276b2a929
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93308472"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100520566"
 ---
 # <a name="deploy-azure-machine-learning-studio-classic-web-services-that-use-data-import-and-data-export-modules"></a>Implementar serviços web do Azure Machine Learning Studio (clássicos) que utilizam módulos de importação de dados e exportação de dados
 
-**APLICA-SE A:** ![ Aplica-se a. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) ![ Não se aplica a. ](../../../includes/media/aml-applies-to-skus/no.png)[ Aprendizagem de Máquinas Azure](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
+**APLICA-SE A:** ![ Aplica-se a. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) ![ Não se aplica a.](../../../includes/media/aml-applies-to-skus/no.png)[ Aprendizagem de Máquinas Azure](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 
 Quando cria uma experiência preditiva, normalmente adiciona-se uma entrada e saída de serviço web. Quando implementa a experiência, os consumidores podem enviar e receber dados do serviço web através das entradas e saídas. Para algumas aplicações, os dados de um consumidor podem estar disponíveis a partir de um feed de dados ou já residir numa fonte de dados externa, como o armazenamento Azure Blob. Nestes casos, não precisam de ler e escrever dados utilizando entradas e saídas de serviço web. Em vez disso, podem utilizar o Serviço de Execução de Lotes (BES) para ler dados da fonte de dados utilizando um módulo de Dados de Importação e escrever os resultados da pontuação para um local de dados diferente utilizando um módulo de Dados de Exportação.
@@ -41,7 +40,7 @@ Para ler os dados da tabela Azure SQL:
 3. Da lista de resultados, adicione um módulo *de Dados de Importação* à tela de experiência.
 4. Ligue a saída do módulo *de dados de importação* a entrada do módulo de *dados em falta.*
 5. No painel de propriedades, selecione **Azure SQL Database** na origem de **dados.**
-6. No nome do **servidor base de dados** , **nome de base de dados,** **nome de utilizador** **e** password, introduza as informações adequadas para a sua base de dados.
+6. No nome do **servidor base de dados**, **nome de base de dados,** **nome de utilizador** **e** password, introduza as informações adequadas para a sua base de dados.
 7. No campo de consulta de base de dados, insira a seguinte consulta.
 
     ```tsql
@@ -73,7 +72,7 @@ Em seguida, configura a experiência preditiva a partir da qual implementa o seu
 4. Da lista de resultados, adicione um módulo *de Dados de Exportação* à tela de experiência.
 5. Ligue a saída do módulo *'Modelo de Pontuação'* a entrada do módulo *de dados de exportação.*
 6. No painel de propriedades, selecione **Azure SQL Database** no dropdown do destino de dados.
-7. No nome do **servidor base de dados** , nome de base de **dados,** **nome da conta do utilizador do servidor** e na conta de utilizador do **Servidor,** introduza as informações apropriadas para a sua base de dados.
+7. No nome do **servidor base de dados**, nome de base de **dados,** **nome da conta do utilizador do servidor** e na conta de utilizador do **Servidor,** introduza as informações apropriadas para a sua base de dados.
 8. Na lista separada da **Vírgula de colunas a guardar,** escreva labels.
 9. No campo de **nome da tabela de dados,** escreva dbo. ScoredLabels. Se a tabela não existir, é criada quando a experiência é executada ou o serviço web é chamado.
 10. Na lista separada da **Vírgula do campo de colunas de dados,** escreva MarcouLabels.

@@ -1,23 +1,18 @@
 ---
 title: Monitorizar e gerir os gasodutos de dados - Azure
 description: Saiba como utilizar a app de Monitorização e Gestão para monitorizar e gerir fábricas de dados e oleodutos Azure.
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
-manager: jroth
 ms.reviewer: maghan
-ms.assetid: f3f07bc4-6dc3-4d4d-ac22-0be62189d578
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: afab2b03d31045b9f49f357b49d15368cde898da
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: be11f742eb99d25cb0e41a3dd0888d62417837dd
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96495706"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100380377"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-monitoring-and-management-app"></a>Monitorize e gere os oleodutos da Azure Data Factory utilizando a app de monitorização e gestão
 > [!div class="op_single_selector"]
@@ -159,7 +154,7 @@ As janelas de atividade podem estar num dos seguintes estados:
 
 <table>
 <tr>
-    <th align="left">Estado</th><th align="left">Subtátuo</th><th align="left">Descrição</th>
+    <th align="left">Estado</th><th align="left">Subtátuo</th><th align="left">Description</th>
 </tr>
 <tr>
     <td rowspan="8">Em espera</td><td>Horário</td><td>Não chegou a hora da janela de atividade funcionar.</td>
@@ -286,7 +281,7 @@ Pode utilizar a mesma janela pop-up para limpar filtros. Para limpar todos os fi
 
 ## <a name="perform-batch-actions"></a>Realizar ações de lote
 ### <a name="rerun-selected-activity-windows"></a>Rerun janelas de atividade selecionadas
-Selecione uma janela de atividade, clique na seta para baixo para o primeiro botão de barra de comando e selecione **Rerun**  /  **Rerun rerun com a montante no pipeline**. Quando seleciona a **Rerun com a montante na** opção pipeline, também volta a repetir todas as janelas de atividade a montante.
+Selecione uma janela de atividade, clique na seta para baixo para o primeiro botão de barra de comando e selecione   /  **Rerun rerun com a montante no pipeline**. Quando seleciona a **Rerun com a montante na** opção pipeline, também volta a repetir todas as janelas de atividade a montante.
     ![Repercuta uma janela de atividade](./media/data-factory-monitor-manage-app/ReRunSlice.png)
 
 Também pode selecionar várias janelas de atividade na lista e repeti-las ao mesmo tempo. É melhor filtrar as janelas de atividade com base no estado (por exemplo: **Falhados**)- e, em seguida, voltar a repetir as janelas de atividade falhadas depois de corrigir o problema que faz com que as janelas de atividade falhem. Consulte a seguinte secção para obter mais informações sobre as janelas de atividade de filtragem na lista.  
