@@ -1,22 +1,17 @@
 ---
 title: Sessão iniciar sessão na atividade de cópia
 description: Saiba como ativar o início de sessão na atividade de cópia do Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: dearandyxu
-manager: ''
-ms.reviewer: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/11/2020
 ms.author: yexu
-ms.openlocfilehash: e56a840da07a2f6e966867699506f0122a0e7956
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 7cb00d62556babbd8e43e2fac2faa815a63943ed
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94593660"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100385273"
 ---
 #  <a name="session-log-in-copy-activity"></a>Sessão iniciar sessão na atividade de cópia
 
@@ -69,14 +64,14 @@ O exemplo a seguir fornece uma definição JSON para permitir o registo de sess�
 }
 ```
 
-Propriedade | Descrição | Valores permitidos | Obrigatório
+Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | -------- 
-enableCopyActivityLog | Quando o definir como verdadeiro, terá a oportunidade de registar ficheiros copiados, ficheiros ignorados ou linhas ignoradas.  | Verdadeiro<br/>Falso (predefinição) | Não
-logLevel | "Info" registará todos os ficheiros copiados, ficheiros ignorados e linhas ignoradas. "Aviso" registará ficheiros ignorados e apenas saltará linhas.  | Informações<br/>Aviso (predefinição) | Não
-enableReliableLogging | Quando for verdade, a atividade de cópia em modo fiável irá descarregar os registos imediatamente assim que cada ficheiro for copiado para o destino.  Quando estiver a copiar grandes quantidades de ficheiros com modo de registo fiável ativado na atividade de cópia, deve esperar que o resultado da cópia seja impactado, uma vez que são necessárias operações de dupla escrita para cada cópia de ficheiros. Um pedido é para a loja de destino e outro pedido é para a loja de armazenamento de registos.  A atividade de cópia no melhor modo de esforço irá lavar os registos com um lote de registos dentro de um período de tempo, onde a produção de cópia será muito menos impactada. A completude e a atualidade da exploração madeireira não estão garantidas neste modo, uma vez que existem algumas possibilidades de que o último lote de eventos de registo não tenha sido lavado no ficheiro de registo quando a atividade da cópia falhou. Neste momento, verá que alguns ficheiros copiados para o destino não estão registados.  | Verdadeiro<br/>Falso (predefinição) | Não
-logLocationSettings | Um grupo de propriedades que podem ser usadas para especificar a localização para armazenar os registos de sessão. | | Não
-linkedServiceName | O serviço ligado do [Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) ou [da Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) para armazenar os ficheiros de registo de sessão. | Os nomes de um ou tipo de `AzureBlobStorage` `AzureBlobFS` serviço ligado, que se refere à instância que utiliza para armazenar os ficheiros de registo. | Não
-caminho | O caminho dos ficheiros de registo. | Especifique o caminho que pretende armazenar os ficheiros de registo. Se não providenciar um caminho, o serviço cria um recipiente para si. | Não
+enableCopyActivityLog | Quando o definir como verdadeiro, terá a oportunidade de registar ficheiros copiados, ficheiros ignorados ou linhas ignoradas.  | Verdadeiro<br/>Falso (predefinição) | No
+logLevel | "Info" registará todos os ficheiros copiados, ficheiros ignorados e linhas ignoradas. "Aviso" registará ficheiros ignorados e apenas saltará linhas.  | Informações<br/>Aviso (predefinição) | No
+enableReliableLogging | Quando for verdade, a atividade de cópia em modo fiável irá descarregar os registos imediatamente assim que cada ficheiro for copiado para o destino.  Quando estiver a copiar grandes quantidades de ficheiros com modo de registo fiável ativado na atividade de cópia, deve esperar que o resultado da cópia seja impactado, uma vez que são necessárias operações de dupla escrita para cada cópia de ficheiros. Um pedido é para a loja de destino e outro pedido é para a loja de armazenamento de registos.  A atividade de cópia no melhor modo de esforço irá lavar os registos com um lote de registos dentro de um período de tempo, onde a produção de cópia será muito menos impactada. A completude e a atualidade da exploração madeireira não estão garantidas neste modo, uma vez que existem algumas possibilidades de que o último lote de eventos de registo não tenha sido lavado no ficheiro de registo quando a atividade da cópia falhou. Neste momento, verá que alguns ficheiros copiados para o destino não estão registados.  | Verdadeiro<br/>Falso (predefinição) | No
+logLocationSettings | Um grupo de propriedades que podem ser usadas para especificar a localização para armazenar os registos de sessão. | | No
+linkedServiceName | O serviço ligado do [Azure Blob Storage](connector-azure-blob-storage.md#linked-service-properties) ou [da Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) para armazenar os ficheiros de registo de sessão. | Os nomes de um ou tipo de `AzureBlobStorage` `AzureBlobFS` serviço ligado, que se refere à instância que utiliza para armazenar os ficheiros de registo. | No
+caminho | O caminho dos ficheiros de registo. | Especifique o caminho que pretende armazenar os ficheiros de registo. Se não providenciar um caminho, o serviço cria um recipiente para si. | No
 
 
 ## <a name="monitoring"></a>Monitorização
@@ -102,14 +97,17 @@ Depois de a atividade da cópia funcionar completamente, pode ver o caminho dos 
 
 ```
 
+> [!NOTE]
+> Quando a `enableCopyActivityLog` propriedade está definida `Enabled` para, os nomes dos ficheiros de registo são gerados pelo sistema.
+
 ### <a name="the-schema-of-the-log-file"></a>O esquema do ficheiro de registo
 
 Segue-se o esquema de um ficheiro de registo.
 
 Coluna | Descrição 
 -------- | -----------  
-Timestamp | A hora da hora quando a ADF lê, escreve ou salta o objeto.
-Nível | O nível de registo deste item. Pode ser 'Aviso' ou "Informação".
+CarimboDeDataEHora | A hora da hora quando a ADF lê, escreve ou salta o objeto.
+Level | O nível de registo deste item. Pode ser 'Aviso' ou "Informação".
 OperationName | ADF copia comportamento operacional da atividade em cada objeto. Pode ser 'FileRead', 'FileWrite', 'FileSkip', ou 'TabularRowSkip'.
 OperaçãoItem | Os nomes dos ficheiros ou as filas ignoradas.
 Mensagem | Mais informações para mostrar se o ficheiro foi lido a partir da loja de origem ou escrito na loja de destino. Também pode ser por isso que o ficheiro ou linhas foi ignorado.

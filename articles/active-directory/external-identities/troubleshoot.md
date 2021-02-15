@@ -5,7 +5,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: troubleshooting
-ms.date: 12/11/2020
+ms.date: 02/12/2021
 tags: active-directory
 ms.author: mimart
 author: msmimart
@@ -14,12 +14,12 @@ ms.custom:
 - it-pro
 - seo-update-azuread-jan"
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa0d0d032c2ab6ae1d6c5e6b1c8b1793a6b3bd7c
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 60cd944ecb144a30e872259f6e959a11c3ea6319
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99090642"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100365434"
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Resolução de problemas Azure Ative Directy B2B colaboração
 
@@ -27,7 +27,7 @@ Aqui estão alguns remédios para problemas comuns com a colaboração B2B do Az
 
    > [!IMPORTANT]
    > - **A partir de 4 de janeiro de 2021, a** Google está [a depreciar o suporte de sing-in webView](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). Se estiver a utilizar a federação do Google ou a inscrição de self-service com o Gmail, deverá [testar as suas aplicações nativas de linha de negócios para compatibilidade](google-federation.md#deprecation-of-webview-sign-in-support).
-   > - **A partir de 31 de março de 2021, a** Microsoft deixará de apoiar o resgate de convites através da criação de contas Ead AZure não geridas e inquilinos para cenários de colaboração B2B. Em preparação, encorajamos os clientes a optar em autenticação de senha única por [e-mail.](one-time-passcode.md) Congratulamo-nos com o seu feedback sobre esta funcionalidade de pré-visualização pública e estamos entusiasmados por criar ainda mais formas de colaborar.
+   > - **A partir de outubro de 2021, a** Microsoft deixará de apoiar o resgate de convites através da criação de contas AZure AD não geridas e inquilinos para cenários de colaboração B2B. Em preparação, encorajamos os clientes a optar em autenticação de senha única por [e-mail.](one-time-passcode.md) Congratulamo-nos com o seu feedback sobre esta funcionalidade de pré-visualização pública e estamos entusiasmados por criar ainda mais formas de colaborar.
 
 ## <a name="ive-added-an-external-user-but-do-not-see-them-in-my-global-address-book-or-in-the-people-picker"></a>Adicionei um utilizador externo, mas não os vejo no meu Livro de Endereços Global ou no selecionador de pessoas
 
@@ -112,7 +112,7 @@ Dentro da nuvem do Governo dos EUA, a colaboração B2B é atualmente apenas apo
 
 Ao utilizar funcionalidades de inscrição de autosserviço, como atributos personalizados do utilizador ou fluxos de utilizador, uma aplicação chamada `aad-extensions-app. Do not modify. Used by AAD for storing user data.` é criada automaticamente. É usado pela Azure AD Identidades Externas para armazenar informações sobre utilizadores que se inscrevam e atributos personalizados recolhidos.
 
-Se acidentalmente apagar o `aad-extensions-app` , tem 30 dias para recuperá-lo. Pode restaurar a aplicação utilizando o módulo Azure AD PowerShell.
+Se tiver eliminado acidentalmente a `aad-extensions-app`, terá 30 dias para a recuperar. Pode restaurar a aplicação utilizando o módulo Azure AD PowerShell.
 
 1. Lançar o módulo Azure AD PowerShell e executar `Connect-AzureAD` .
 1. Inscreva-se como administrador global para o inquilino da Azure AD para o que pretende recuperar a aplicação eliminada.

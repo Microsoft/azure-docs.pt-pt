@@ -4,16 +4,19 @@ description: Fornece um resumo das configurações e limitações de suporte ao 
 ms.topic: conceptual
 ms.date: 5/07/2020
 ms.custom: references_regions
-ms.openlocfilehash: 999cb4c764e9960c509d19faa61016b2522259ac
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.openlocfilehash: 38c066c20399b39d676fb0c25aa158993258b979
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99819865"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100370993"
 ---
 # <a name="support-matrix-for-azure-file-share-backup"></a>Matriz de suporte para cópia de segurança da partilha de ficheiros Azure
 
 Pode utilizar o [serviço Azure Backup](./backup-overview.md) para fazer backup das ações de ficheiros Azure. Este artigo resume as definições de suporte quando faz backup de ações de ficheiros Azure com a Azure Backup.
+
+> [!NOTE]
+> A Azure Backup não suporta ações da NFS.
 
 ## <a name="supported-regions"></a>Regiões suportadas
 

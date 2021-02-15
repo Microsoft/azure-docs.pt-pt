@@ -4,12 +4,12 @@ description: Aprenda os conceitos e técnicas das Funções Azure que precisa pa
 ms.assetid: d8efe41a-bef8-4167-ba97-f3e016fcd39e
 ms.topic: conceptual
 ms.date: 10/12/2017
-ms.openlocfilehash: dd9a517749030f9f99731d36947c4d4ff2f13b01
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: fdc898c02cfd20ecfdd72dece4fb1e92d803dbb0
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936741"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100386905"
 ---
 # <a name="azure-functions-developer-guide"></a>Guia do programador das Funções do Azure
 Nas Funções Azure, funções específicas partilham alguns conceitos e componentes técnicos fundamentais, independentemente do idioma ou ligação que utilizar. Antes de entrar em detalhes de aprendizagem específicos de uma determinada língua ou ligação, não se esqueça de ler este resumo que se aplica a todos eles.
@@ -40,11 +40,11 @@ Para obter mais informações, consulte [os conceitos de gatilhos e encadernaç�
 
 A `bindings` propriedade é onde você configura tanto gatilhos como encadernações. Cada ligação partilha algumas configurações comuns e algumas configurações específicas de um determinado tipo de encadernação. Cada encadernação requer as seguintes definições:
 
-| Propriedade | Valores/Tipos | Comentários |
-| --- | --- | --- |
-| `type` |string |Tipo de ligação. Por exemplo, `queueTrigger`. |
-| `direction` |'dentro', 'fora' |Indica se a ligação é para receber dados na função ou para enviar dados da função. |
-| `name` |string |O nome que é usado para os dados vinculados na função. Para C#, este é um nome de argumento; para o JavaScript, é a chave de uma lista de chaves/valores. |
+| Propriedade    | Valores | Tipo | Comentários|
+|---|---|---|---|
+| tipo  | Nome da ligação.<br><br>Por exemplo, `queueTrigger`. | string | |
+| direção | `in`, `out`  | string | Indica se a ligação é para receber dados na função ou para enviar dados da função. |
+| name | Identificador de função.<br><br>Por exemplo, `myQueue`. | string | O nome que é usado para os dados vinculados na função. Para C#, este é um nome de argumento; para o JavaScript, é a chave de uma lista de chaves/valores. |
 
 ## <a name="function-app"></a>Aplicação de funções
 Uma aplicação de função fornece um contexto de execução em Azure no qual as suas funções são executadas. Como tal, é a unidade de implantação e gestão para as suas funções. Uma aplicação de função é composta por uma ou mais funções individuais que são geridas, implementadas e dimensionadas em conjunto. Todas as funções de uma aplicação de função partilham o mesmo plano de preços, método de implementação e versão de tempo de execução. Pense numa aplicação de função como uma forma de organizar e gerir coletivamente as suas funções. Para saber mais, consulte [Como gerir uma aplicação de função.](functions-how-to-use-azure-function-app-settings.md) 
@@ -91,6 +91,83 @@ Aqui está uma tabela de todas as encadernações apoiadas.
 [!INCLUDE [dynamic compute](../../includes/functions-bindings.md)]
 
 Ter problemas com erros vindos das ligações? Reveja a documentação [dos Códigos de Erro de Ligação de Funções Azure.](functions-bindings-error-pages.md)
+
+
+## <a name="connections"></a>Ligações
+
+O seu projeto de função refere informações de ligação pelo nome do seu fornecedor de configuração. Não aceita diretamente os detalhes da ligação, permitindo que sejam alterados em ambientes. Por exemplo, uma definição de gatilho pode incluir uma `connection` propriedade. Isto pode referir-se a uma cadeia de ligação, mas não é possível definir a cadeia de ligação diretamente num `function.json` . Em vez disso, definiria `connection` o nome de uma variável ambiental que contém a cadeia de ligação.
+
+O fornecedor de configuração padrão utiliza variáveis ambientais. Estas podem ser definidas pelas [Definições de Aplicação](./functions-how-to-use-azure-function-app-settings.md?tabs=portal#settings) quando estão a ser executadas no serviço Azure Functions ou no [ficheiro de definições locais](functions-run-local.md#local-settings-file) quando se desenvolve localmente.
+
+### <a name="connection-values"></a>Valores de ligação
+
+Quando o nome de ligação se resolve com um único valor exato, o tempo de execução identifica o valor como uma _cadeia de ligação_, que normalmente inclui um segredo. Os detalhes de uma cadeia de ligação são definidos pelo serviço ao qual deseja ligar.
+
+No entanto, um nome de ligação também pode referir-se a uma coleção de vários itens de configuração. As variáveis ambientais podem ser tratadas como uma coleção utilizando um prefixo partilhado que termina em duplos `__` sublinhados. O grupo pode então ser referenciado definindo o nome de ligação a este prefixo.
+
+Por exemplo, a `connection` propriedade para uma definição de gatilho Azure Blob pode ser `Storage1` . Desde que não exista um único valor de corda configurado com `Storage1` o seu nome, `Storage1__serviceUri` seria usado para a propriedade da `serviceUri` ligação. As propriedades de ligação são diferentes para cada serviço. Consulte a documentação para a extensão que utiliza a ligação.
+
+### <a name="configure-an-identity-based-connection"></a>Configure uma ligação baseada na identidade
+
+Algumas ligações em Funções Azure são configuradas para usar uma identidade em vez de um segredo. O suporte depende da extensão utilizando a ligação. Em alguns casos, um fio de ligação ainda pode ser necessário em Funções, mesmo que o serviço ao qual está a ligar suporte ligações baseadas na identidade.
+
+> [!IMPORTANT]
+> Mesmo que uma extensão vinculativa suporte ligações baseadas na identidade, essa configuração pode ainda não ser suportada no plano de Consumo. Consulte a tabela de apoio abaixo.
+
+As ligações baseadas na identidade são suportadas pelas seguintes extensões de gatilho e ligação:
+
+| Nome de extensão | Versão da extensão                                                                                     | Suporta ligações baseadas na identidade no plano de consumo |
+|----------------|-------------------------------------------------------------------------------------------------------|---------------------------------------|
+| Blob do Azure     | [Versão 5.0.0-beta1 ou posterior](./functions-bindings-storage-blob.md#storage-extension-5x-and-higher)  | No                                    |
+| Filas do Azure    | [Versão 5.0.0-beta1 ou posterior](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher) | No                                    |
+
+> [!NOTE]
+> O suporte para ligações baseadas na identidade ainda não está disponível para ligações de armazenamento utilizadas pelo tempo de execução de Funções para comportamentos fundamentais. Isto significa que a `AzureWebJobsStorage` regulação deve ser uma cadeia de ligação.
+
+#### <a name="connection-properties"></a>Propriedades de ligação
+
+Uma ligação baseada na identidade de um serviço Azure aceita as seguintes propriedades:
+
+| Propriedade    | Variável de ambiente | é necessário | Description |
+|---|---|---|---|
+| Serviço URI | `<CONNECTION_NAME_PREFIX>__serviceUri` | Yes | O plano de dados URI do serviço ao qual está a ligar. |
+
+Podem ser suportadas opções adicionais para um determinado tipo de ligação. Consulte a documentação do componente que estica a ligação.
+
+Quando hospedados no serviço Azure Functions, as ligações baseadas na identidade utilizam uma [identidade gerida](../app-service/overview-managed-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json). A identidade atribuída ao sistema é utilizada por defeito. Quando executado em outros contextos, como o desenvolvimento local, a sua identidade de desenvolvedor é usada em vez disso, embora isso possa ser personalizado usando parâmetros de conexão alternativos.
+
+##### <a name="local-development"></a>Desenvolvimento local
+
+Ao correr localmente, a configuração acima indica o tempo de execução para utilizar a identidade do desenvolvedor local. A ligação tentará obter um sinal dos seguintes locais, por ordem:
+
+- Uma cache local partilhada entre aplicações da Microsoft
+- O contexto atual do utilizador no Estúdio Visual
+- O contexto atual do utilizador no Código do Estúdio Visual
+- O contexto atual do utilizador no CLI Azure
+
+Se nenhuma destas opções for bem sucedida, ocorrerá um erro.
+
+Em alguns casos, pode desejar especificar o uso de uma identidade diferente. Pode adicionar propriedades de configuração para a ligação que aponta para a identidade alternativa.
+
+> [!NOTE]
+> As seguintes opções de configuração não são suportadas quando hospedadas no serviço Azure Functions.
+
+Para ligar usando um diretor de serviço Azure Ative Com um ID do cliente e secreto, defina a ligação com as seguintes propriedades:
+
+| Propriedade    | Variável de ambiente | é necessário | Description |
+|---|---|---|---|
+| Serviço URI | `<CONNECTION_NAME_PREFIX>__serviceUri` | Yes | O plano de dados URI do serviço ao qual está a ligar. |
+| ID do inquilino | `<CONNECTION_NAME_PREFIX>__tenantId` | Yes | Identificação do inquilino do Diretório Ativo Azure (diretório). |
+| ID de Cliente | `<CONNECTION_NAME_PREFIX>__clientId` | Yes |  O cliente (aplicação) ID de um registo de aplicação no inquilino. |
+| Segredo do cliente | `<CONNECTION_NAME_PREFIX>__clientSecret` | Yes | Um segredo de cliente que foi gerado para o registo da aplicação. |
+
+#### <a name="grant-permission-to-the-identity"></a>Conceder permissão à identidade
+
+Qualquer identidade que esteja a ser usada deve ter permissões para executar as ações pretendidas. Isto é normalmente feito atribuindo um papel no Azure RBAC ou especificando a identidade numa política de acesso, dependendo do serviço a que está a ligar. Consulte a documentação de cada serviço sobre as permissões necessárias e como podem ser definidas.
+
+> [!IMPORTANT]
+> Algumas permissões podem ser expostas pelo serviço que não é necessário para todos os contextos. Sempre que possível, aderir ao **princípio do menor privilégio,** concedendo a identidade apenas os privilégios necessários. Por exemplo, se a aplicação apenas precisar de ler a partir de uma bolha, use a função [de Leitor de Dados blob de armazenamento,](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) uma vez que o [Proprietário de Dados de Armazenamento blob](../role-based-access-control/built-in-roles.md#storage-blob-data-owner) inclui permissões excessivas para uma operação de leitura.
+
 
 ## <a name="reporting-issues"></a>Questões de Reporte
 [!INCLUDE [Reporting Issues](../../includes/functions-reporting-issues.md)]

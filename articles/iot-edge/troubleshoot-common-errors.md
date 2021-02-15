@@ -1,5 +1,5 @@
 ---
-title: Erros comuns - Azure IoT Edge / Microsoft Docs
+title: Erros comuns - Azure IoT Edge | Microsoft Docs
 description: Utilize este artigo para resolver problemas comuns encontrados ao implementar uma solução IoT Edge
 author: kgremban
 manager: philmea
@@ -11,12 +11,12 @@ services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 98ee865a3ddf6c26ffe9cb77767f3872b42018d8
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: e1605f45dc8a7a1c03b5481ea17478064414df59
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94442366"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100382213"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Problemas comuns e resoluções do Azure IoT Edge
 
@@ -174,7 +174,7 @@ No deployment.jsarquivado:
    ```json
    "edgeHub": {
        "settings": {
-           "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
+           "image": "mcr.microsoft.com/azureiotedge-hub:1.1",
            "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}]}}}"
        },
        "type": "docker",
@@ -188,7 +188,7 @@ No deployment.jsarquivado:
    ```json
    "edgeHub": {
        "settings": {
-           "image": "mcr.microsoft.com/azureiotedge-hub:1.0"
+           "image": "mcr.microsoft.com/azureiotedge-hub:1.1"
        },
        "type": "docker",
        "status": "running",
@@ -276,7 +276,7 @@ Para o hub IoT Edge, desaperte uma variável ambiental **OptimizeForPerformance*
 
 No portal do Azure:
 
-No seu IoT Hub, selecione o seu dispositivo IoT Edge e a partir da página de detalhes do dispositivo e selecione **Set Modules**  >  **Definições de tempo de execução de módulos de definição**. Crie uma variável ambiental para o módulo hub IoT Edge chamado *OptimizeForPerformance* que está definido como *falso*.
+No seu IoT Hub, selecione o seu dispositivo IoT Edge e a partir da página de detalhes do dispositivo e selecione   >  **Definições de tempo de execução de módulos de definição**. Crie uma variável ambiental para o módulo hub IoT Edge chamado *OptimizeForPerformance* que está definido como *falso*.
 
 ![OtimizarForPerformance definido para falso](./media/troubleshoot/optimizeforperformance-false.png)
 
@@ -286,7 +286,7 @@ No manifesto de implantação:
 "edgeHub": {
   "type": "docker",
   "settings": {
-    "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
+    "image": "mcr.microsoft.com/azureiotedge-hub:1.1",
     "createOptions": <snipped>
   },
   "env": {

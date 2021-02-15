@@ -1,22 +1,18 @@
 ---
 title: Considerações de segurança para o movimento de dados na Azure Data Factory
 description: Saiba como garantir o movimento de dados na Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: nabhishek
-manager: anandsub
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: c694cf58f4c6b613cbc183753785a34bc15063bd
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 33b1ad381b3f7865768f9e39295a2985f8aa5234
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97093609"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100375107"
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory - Considerações de segurança para o movimento de dados
 
@@ -33,10 +29,10 @@ Embora a Data Factory esteja disponível apenas nas regiões **oeste dos EUA**, 
 A Azure Data Factory em si não armazena quaisquer dados, exceto para credenciais de serviço ligadas para lojas de dados em nuvem, que são encriptadas usando certificados. Permite criar fluxos de trabalho baseados em dados para orquestrar o movimento de dados entre lojas de [dados apoiadas](data-factory-data-movement-activities.md#supported-data-stores-and-formats) e o processamento de dados utilizando [serviços de computação](data-factory-compute-linked-services.md) noutras regiões ou num ambiente no local. Também permite monitorizar [e gerir fluxos de trabalho](data-factory-monitor-manage-pipelines.md) utilizando mecanismos programáticos e de UI.
 
 O movimento de dados utilizando a Azure Data Factory foi **certificado** para:
--   [HIPAA/HITECH](/compliance/regulatory/offering-hipaa-hitech)  
--   [ISO/IEC 27001](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27001)  
--   [ISO/IEC 27018](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27018) 
--   [ESTRELA CSA](https://www.microsoft.com/en-us/trustcenter/Compliance/CSA-STAR-Certification)
+-    [HIPAA/HITECH](/compliance/regulatory/offering-hipaa-hitech)  
+-    [ISO/IEC 27001](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27001)  
+-    [ISO/IEC 27018](https://www.microsoft.com/en-us/trustcenter/Compliance/ISO-IEC-27018) 
+-    [ESTRELA CSA](https://www.microsoft.com/en-us/trustcenter/Compliance/CSA-STAR-Certification)
      
 Se estiver interessado na conformidade com o Azure e como a Azure assegura a sua própria infraestrutura, visite o [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/default.aspx). 
 
@@ -122,7 +118,7 @@ Todas as transferências de dados são através do canal seguro **HTTPS** e **TL
  
 Também pode utilizar [o IPSec VPN](../../vpn-gateway/vpn-gateway-about-vpn-devices.md) ou [a Rota Expressa](../../expressroute/expressroute-introduction.md) para proteger ainda mais o canal de comunicação entre a sua rede no local e o Azure.
 
-A rede virtual é uma representação lógica da sua rede na nuvem. Pode ligar uma rede no local à sua rede virtual Azure (VNet) configurando IPSec VPN (site-to-site) ou Rota Expressa (Private Peering)     
+A rede virtual é uma representação lógica da sua rede na nuvem. Pode ligar uma rede no local à sua rede virtual Azure (VNet) configurando IPSec VPN (site-to-site) ou Rota Expressa (Private Peering)        
 
 A tabela seguinte resume as recomendações de configuração da rede e gateway com base em diferentes combinações de origem e locais de destino para movimento de dados híbridos.
 
@@ -144,17 +140,17 @@ As imagens que se seguem mostram a utilização do Data Management Gateway para 
 
 ### <a name="firewall-configurations-and-filtering-ip-address-of-gateway"></a>Configurações de firewall e endereço IP filtrante do gateway
 
-#### <a name="firewall-requirements-for-on-premisesprivate-network"></a>Requisitos de firewall para as redes no local/rede privada  
+#### <a name="firewall-requirements-for-on-premisesprivate-network"></a>Requisitos de firewall para as redes no local/rede privada    
 Numa empresa, uma **firewall corporativa** funciona no router central da organização. E a **firewall do Windows** funciona como um daemon na máquina local na qual o portal está instalado. 
 
 A tabela seguinte fornece requisitos **de porta** e domínio de saída para a **firewall corporativa**.
 
-| Nomes de domínio | Portas de saída | Descrição |
+| Nomes de domínio | Portas de saída | Description |
 | ------------ | -------------- | ----------- | 
 | `*.servicebus.windows.net` | 443, 80 | Requerido pela porta de entrada para se ligar aos serviços de movimento de dados na Data Factory |
 | `*.core.windows.net` | 443 | Utilizado pelo portal para ligar à Conta de Armazenamento Azure quando utilizar a [função de cópia encenada.](data-factory-copy-activity-performance.md#staged-copy) | 
 | `*.frontend.clouddatahub.net` | 443 | Requerido pelo gateway para ligar ao serviço Azure Data Factory. | 
-| `*.database.windows.net` | 1433   | (OPCIONAL) necessário quando o seu destino é Azure SQL Database/ Azure Synapse Analytics. Utilize a função de cópia encenada para copiar dados para Azure SQL Database/Azure Synapse Analytics sem abrir a porta 1433. | 
+| `*.database.windows.net` | 1433    | (OPCIONAL) necessário quando o seu destino é Azure SQL Database/ Azure Synapse Analytics. Utilize a função de cópia encenada para copiar dados para Azure SQL Database/Azure Synapse Analytics sem abrir a porta 1433. | 
 | `*.azuredatalakestore.net` | 443 | (OPCIONAL) necessário quando o seu destino é a loja Azure Data Lake | 
 
 > [!NOTE] 
@@ -162,7 +158,7 @@ A tabela seguinte fornece requisitos **de porta** e domínio de saída para a **
 
 A tabela seguinte fornece requisitos de **porta de entrada** para a firewall do **windows**.
 
-| Portas de entrada | Descrição | 
+| Portas de entrada | Description | 
 | ------------- | ----------- | 
 | 8050 (TCP) | Exigido pela aplicação do gestor de credenciais para definir de forma segura credenciais para lojas de dados no local no gateway. | 
 

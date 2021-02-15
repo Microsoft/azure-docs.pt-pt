@@ -9,14 +9,15 @@ ms.topic: tutorial
 author: aminsaied
 ms.author: amsaied
 ms.reviewer: sgilley
-ms.date: 09/15/2020
+ms.date: 02/11/2021
 ms.custom: devx-track-python
-ms.openlocfilehash: 0d099d31db3619e14da4fe66e26b25a0e36ee39c
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+adobe-target: true
+ms.openlocfilehash: 5d61f330c823aff755a25e637bb58c132aa58100
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98250694"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100369145"
 ---
 # <a name="tutorial-get-started-with-azure-machine-learning-in-your-development-environment-part-1-of-4"></a>Tutorial: Começa com a Azure Machine Learning no teu ambiente de desenvolvimento (parte 1 de 4)
 
@@ -68,7 +69,7 @@ pip install azureml-core
 > [!NOTE]
 > Leva aproximadamente 2 minutos para a instalação Azure Machine Learning SDK para ser concluída.
 >
-> Se tiver um erro de tempo limite, tente `pip install --default-timeout=100 azureml-core` intstead.
+> Se tiver um erro de tempo limite, tente `pip install --default-timeout=100 azureml-core` em vez disso.
 
 
 > [!div class="nextstepaction"]
@@ -78,20 +79,29 @@ pip install azureml-core
 
 Recomendamos que crie a seguinte estrutura de diretório simples para este tutorial:
 
-```markdown
-tutorial
-└──.azureml
-```
+:::image type="content" source="media/tutorial-1st-experiment-sdk-local/directory-structure-1.png" alt-text="estrutura de diretório: tutorial de nível superior com subdireção .azureml":::
+
 
 - `tutorial`: Diretório de alto nível do projeto.
 - `.azureml`: Subdiretório oculto para armazenar ficheiros de configuração de aprendizagem automática Azure.
 
+Por exemplo, para criar isto numa janela de festa:
+
+```bash
+mkdir tutorial
+cd tutorial
+mkdir .azureml
+```
+
 > [!TIP]
-> Pode criar o subdiretório .azureml escondido numa janela terminal.  Ou usar o seguinte:
+> Para criar ou ver a estrutura numa janela gráfica, primeiro ativar a capacidade de ver e criar ficheiros e pastas ocultos:
 >
-> * Numa janela Mac Finder use **Command + Shift + .** para alternar a capacidade de ver e criar diretórios que começam com um ponto.  
+> * Numa janela Mac Finder use **Command + Shift + .** para alternar a exibição de ficheiros/pastas ocultos.  
 > * Num Explorador de Ficheiros Windows 10, veja [como visualizar ficheiros e pastas ocultos](https://support.microsoft.com/en-us/windows/view-hidden-files-and-folders-in-windows-10-97fbc472-c603-9d90-91d0-1166d1d9f4b5). 
 > * Na Interface Gráfica Linux, utilize **ctrl + h** ou o menu **Ver** e verifique a caixa para **mostrar ficheiros ocultos**.
+
+
+
 
 > [!div class="nextstepaction"]
 > [Criei um diretório](?success=create-dir#workspace) [que encontrei um problema.](https://www.research.net/r/7C8Z3DN?issue=create-dir)
@@ -138,12 +148,7 @@ python ./01-create-workspace.py
 
 Depois de ter executado com sucesso *01-create-workspace.py,* a sua estrutura de pasta será:
 
-```markdown
-tutorial
-└──.azureml
-|  └──config.json
-└──01-create-workspace.py
-```
+:::image type="content" source="media/tutorial-1st-experiment-sdk-local/directory-structure-2.png" alt-text="O ficheiro config.jsaparece na subdiretório .azureml após a execução 01-create-workspace.py":::
 
 O ficheiro `.azureml/config.json` contém os metadados necessários para ligar ao seu espaço de trabalho de aprendizagem de máquinas Azure. Ou seja, contém o seu ID de subscrição, grupo de recursos e nome do espaço de trabalho. 
 
@@ -196,13 +201,7 @@ python ./02-create-compute.py
 
 A sua estrutura de pastas será agora a seguinte:
 
-```bash
-tutorial
-└──.azureml
-|  └──config.json
-└──01-create-workspace.py
-└──02-create-compute.py
-```
+:::image type="content" source="media/tutorial-1st-experiment-sdk-local/directory-structure-3.png" alt-text="Adicione 02-create-compute.py ao diretório tutorial":::
 
 > [!div class="nextstepaction"]
 > [Criei um cluster de computação](?success=create-compute-cluster#next-steps) [que deparei com um problema](https://www.research.net/r/7C8Z3DN?issue=create-compute-cluster)

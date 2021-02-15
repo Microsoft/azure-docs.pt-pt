@@ -1,5 +1,5 @@
 ---
-title: Configure híbrido Azure Ative Directy junta-se a domínios federados Microsoft Docs
+title: Configure híbrido Azure Ative Directy junta-se a domínios federados | Microsoft Docs
 description: Saiba como configurar o Azure Ative Directory híbrido para domínios federados.
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc2f7d3ce5f8329038fea4ecbb5242015fb3fd0d
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: 636f209eeb74ada1b4c7c4232b6aba8738eee10a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96860138"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100365859"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Tutorial: Configurar a associação do Azure Active Directory híbrido para domínios federados
 
@@ -50,7 +50,7 @@ Saiba como:
 > * Configurar a associação ao Azure AD híbrido
 > * Ativar dispositivos de nível de downlevel do Windows
 > * Verificar o registo
-> * Resolução de Problemas
+> * Resolução de problemas
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -95,7 +95,7 @@ Se não utilizar o WPAD e quiser configurar as definições de procuração no s
 
 Se a sua organização necessitar de acesso à internet através de um representante de saída autenticado, deve certificar-se de que os seus computadores Windows 10 podem autenticar com sucesso o representante de saída. Uma vez que os computadores windows 10 executam o registo do dispositivo utilizando o contexto da máquina, tem de configurar a autenticação por procuração de saída utilizando o contexto da máquina. Consulte o seu fornecedor de proxy de saída sobre os requisitos de configuração.
 
-Para verificar se o dispositivo é capaz de aceder aos recursos acima da Microsoft sob a conta do sistema, pode utilizar o script [de Conectividade de Registo do Dispositivo de Teste.](https://gallery.technet.microsoft.com/Test-Device-Registration-3dc944c0)
+Para verificar se o dispositivo é capaz de aceder aos recursos acima da Microsoft sob a conta do sistema, pode utilizar o script [de Conectividade de Registo do Dispositivo de Teste.](https://docs.microsoft.com/samples/azure-samples/testdeviceregconnectivity/testdeviceregconnectivity/)
 
 ## <a name="configure-hybrid-azure-ad-join"></a>Configurar a associação ao Azure AD híbrido
 
@@ -117,7 +117,7 @@ Para configurar uma AD híbrida Azure juntando-se usando Azure AD Connect, você
 
 1. Na página **'Vista Geral',** selecione **Seguinte**.
 
-   ![Descrição geral](./media/hybrid-azuread-join-federated-domains/13.png)
+   ![Descrição Geral](./media/hybrid-azuread-join-federated-domains/13.png)
 
 1. Na página **Connect to Azure AD,** insira as credenciais de um administrador global para o seu inquilino AD Azure e, em seguida, selecione **Next**.
 

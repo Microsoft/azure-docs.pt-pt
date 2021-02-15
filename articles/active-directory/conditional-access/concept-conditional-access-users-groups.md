@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d14c9330977296630ee58bc2b508f4304472044c
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: c4c654f70af2188264465d97abded9cae95e9275
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92366365"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100364584"
 ---
 # <a name="conditional-access-users-and-groups"></a>Acesso Condicional: Utilizadores e grupos
 
@@ -42,6 +42,9 @@ As seguintes opções estão disponíveis para incluir ao criar uma política de
    - Utilizadores e grupos
       - Permite direcionar conjuntos específicos de utilizadores. Por exemplo, as organizações podem selecionar um grupo que contenha todos os membros do departamento de RH quando uma aplicação HR é selecionada como a aplicação cloud. Um grupo pode ser qualquer tipo de grupo em Azure AD, incluindo grupos dinâmicos ou atribuídos de segurança e distribuição. A política será aplicada aos utilizadores e grupos aninhados.
 
+> [!IMPORTANT]
+> Ao selecionar quais utilizadores e grupos estão incluídos numa Política de Acesso Condicional, existe um limite para o número de utilizadores individuais que podem ser adicionados diretamente a uma política de Acesso Condicional. Se houver uma grande quantidade de utilizadores individuais que são necessários para serem adicionados diretamente a uma política de Acesso Condicional, recomendamos colocar os utilizadores em um grupo, e atribuir o grupo à política de Acesso Condicional.
+
 > [!WARNING]
 > Se os utilizadores ou grupos forem membros de mais de 2048 grupos, o seu acesso pode ser bloqueado. Este limite aplica-se tanto à adesão direta como a um grupo aninhado.
 
@@ -52,7 +55,7 @@ As seguintes opções estão disponíveis para incluir ao criar uma política de
 
 Quando as organizações incluem e excluem um utilizador ou grupo, o utilizador ou grupo é excluído da política, uma vez que uma ação de exclusão substitui um incluído na política. As exclusões são geralmente utilizadas para acesso de emergência ou contas de break-glass. Mais informações sobre contas de acesso de emergência e por que são importantes podem ser encontradas nos seguintes artigos: 
 
-* [Gerir contas de acesso de emergência em Azure AD](../roles/security-emergency-access.md)
+* [Gerir contas de acesso de emergência no AAD](../roles/security-emergency-access.md)
 * [Crie uma estratégia resiliente de gestão de controlo de acessos com o Azure Ative Directory](../authentication/concept-resilient-controls.md)
 
 As seguintes opções estão disponíveis para excluir ao criar uma política de acesso condicional.

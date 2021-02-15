@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: article
-ms.date: 01/15/2021
-ms.openlocfilehash: 9ac8a23569d9a85787768419a0377967026e9bd9
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.date: 02/12/2021
+ms.openlocfilehash: 9a3a511a287f093b4fc317213afedd5fdc3c21be
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98251600"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100520668"
 ---
 # <a name="authenticate-access-to-azure-resources-by-using-managed-identities-in-azure-logic-apps"></a>Autenticar o acesso aos recursos do Azure utilizando identidades geridas em Azure Logic Apps
 
@@ -30,6 +30,9 @@ Atualmente, [apenas gatilhos e ações incorporados específicos](../logic-apps/
 * Funções do Azure
 * HTTP
 * HTTP + Webhook
+
+> [!NOTE]
+> Embora o gatilho e a ação HTTP possam autenticar as ligações às contas de Armazenamento Azure por trás das firewalls do Azure utilizando a identidade gerida atribuída pelo sistema, não podem utilizar a identidade gerida atribuída pelo utilizador para autenticar as mesmas ligações.
 
 **Conectores geridos**
 
@@ -72,7 +75,7 @@ Para configurar a identidade gerida que pretende utilizar, siga o link para essa
 Ao contrário das identidades atribuídas pelo utilizador, não é preciso criar manualmente a identidade atribuída ao sistema. Para configurar a identidade atribuída ao sistema para a sua aplicação lógica, aqui estão as opções que pode utilizar:
 
 * [Portal do Azure](#azure-portal-system-logic-app)
-* [Modelos de gestor de recursos Azure](#template-system-logic-app)
+* [Modelos do Azure Resource Manager](#template-system-logic-app)
 
 <a name="azure-portal-system-logic-app"></a>
 
@@ -150,7 +153,7 @@ Quando o Azure cria a definição de recursos de aplicação lógica, o `identit
 Para configurar uma identidade gerida atribuída pelo utilizador para a sua aplicação lógica, tem primeiro de criar essa identidade como um recurso autónomo separado da Azure. Aqui estão as opções que pode utilizar:
 
 * [Portal do Azure](#azure-portal-user-identity)
-* [Modelos de gestor de recursos Azure](#template-user-identity)
+* [Modelos do Azure Resource Manager](#template-user-identity)
 * Azure PowerShell
   * [Criar identidade atribuída ao utilizador](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md)
   * [Adicionar atribuição de função](../active-directory/managed-identities-azure-resources/howto-assign-access-powershell.md)
@@ -553,7 +556,7 @@ A ação do Azure Resource Manager, **Leia um recurso,** pode utilizar a identid
 Para parar de usar uma identidade gerida para a sua aplicação lógica, tem estas opções:
 
 * [Portal do Azure](#azure-portal-disable)
-* [Modelos de gestor de recursos Azure](#template-disable)
+* [Modelos do Azure Resource Manager](#template-disable)
 * Azure PowerShell
   * [Remover atribuição de funções](../role-based-access-control/role-assignments-powershell.md)
   * [Eliminar identidade atribuída ao utilizador](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md)

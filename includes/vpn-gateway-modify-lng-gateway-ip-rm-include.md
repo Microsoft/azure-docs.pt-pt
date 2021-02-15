@@ -5,62 +5,20 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 01/15/2020
+ms.date: 02/10/2021
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 22d68722afe4be6113263a7e7282dde3f188b18a
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 06df27b5eeb74f75bc49a848881b56aa4e81c57b
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96025752"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100380504"
 ---
-### <a name="to-modify-the-local-network-gateway-gatewayipaddress---no-gateway-connection"></a><a name="gwipnoconnection"></a> Para modificar o "GatewayIpAddress" do gateway de rede local - sem ligação de gateway
-
-Se o dispositivo VPN que pretende ligar foi alterou o respetivo endereço IP público, tem de modificar o gateway de rede local para que essa alteração seja refletida. Utilize o exemplo para modificar um gateway de rede local que não tem uma ligação de gateway.
-
-Ao modificar este valor, também pode modificar os prefixos de endereços em simultâneo. Certifique-se de que utiliza o nome existente do seu gateway de rede local, de modo a substituir as definições atuais. Se utilizar um nome diferente, irá criar um novo gateway de rede local, em vez de substituir o existente.
+Se o dispositivo VPN que pretende ligar foi alterou o respetivo endereço IP público, tem de modificar o gateway de rede local para que essa alteração seja refletida. Ao modificar este valor, também pode modificar os prefixos de endereços em simultâneo. Certifique-se de que utiliza o nome existente do seu gateway de rede local, de modo a substituir as definições atuais. Se utilizar um nome diferente, irá criar um novo gateway de rede local, em vez de substituir o existente.
 
 ```azurepowershell-interactive
 New-AzLocalNetworkGateway -Name Site1 `
 -Location "East US" -AddressPrefix @('10.101.0.0/24','10.101.1.0/24') `
 -GatewayIpAddress "5.4.3.2" -ResourceGroupName TestRG1
 ```
-
-### <a name="to-modify-the-local-network-gateway-gatewayipaddress---existing-gateway-connection"></a><a name="gwipwithconnection"></a> Para modificar o "GatewayIpAddress" do gateway de rede local - ligação de gateway existente
-
-Se o dispositivo VPN que pretende ligar foi alterou o respetivo endereço IP público, tem de modificar o gateway de rede local para que essa alteração seja refletida. Se já existir uma ligação de gateway, tem primeiro de remover a ligação. Depois de a ligação ser removida, pode modificar o endereço IP do gateway e recriar uma nova ligação. Também pode modificar os prefixos de endereços em simultâneo. Este procedimento resulta num período de indisponibilidade da ligação VPN. Ao modificar os endereços IP de gateway, não precisa de eliminar o gateway de VPN. Só tem de remover a ligação.
- 
-
-1. Remova a ligação. Pode encontrar o nome da sua ligação utilizando o cmdlet 'Get-AzVirtualNetworkGatewayConnection'.
-
-   ```azurepowershell-interactive
-   Remove-AzVirtualNetworkGatewayConnection -Name VNet1toSite1 `
-   -ResourceGroupName TestRG1
-   ```
-2. Modifique o valor "GatewayIpAddress". Também pode modificar os prefixos de endereços em simultâneo. Certifique-se de que utiliza o nome existente do seu gateway de rede local, para substituir as definições atuais. Se não o fizer, irá criar um novo gateway de rede local, em vez de substituir o existente.
-
-   ```azurepowershell-interactive
-   New-AzLocalNetworkGateway -Name Site1 `
-   -Location "East US" -AddressPrefix @('10.101.0.0/24','10.101.1.0/24') `
-   -GatewayIpAddress "104.40.81.124" -ResourceGroupName TestRG1
-   ```
-3. Crie a ligação. Neste exemplo, configuramos uma ligação do tipo IPsec. Ao recriar a ligação, utilize o tipo de ligação especificado para a sua configuração. Para tipos de ligação adicionais, veja a página [cmdlet do PowerShell](/powershell/module/Azurerm.Network/New-AzureRmVirtualNetworkGatewayConnection).  Para obter o nome VirtualNetworkGateway, pode executar o cmdlet 'Get-AzVirtualNetworkGateway'.
-   
-    Defina as variáveis.
-
-   ```azurepowershell-interactive
-   $local = Get-AzLocalNetworkGateway -Name Site1 -ResourceGroupName TestRG1
-
-   $vnetgw = Get-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1
-   ```
-   
-    Crie a ligação.
-
-   ```azurepowershell-interactive 
-   New-AzVirtualNetworkGatewayConnection -Name VNet1Site1 -ResourceGroupName TestRG1 `
-   -Location "East US" `
-   -VirtualNetworkGateway1 $vnetgw `
-   -LocalNetworkGateway2 $local `
-   -ConnectionType IPsec -RoutingWeight 10 -SharedKey 'abc123'
-   ```

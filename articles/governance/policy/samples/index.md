@@ -3,12 +3,12 @@ title: Índice de exemplos de política
 description: Índice de incorporações do Azure Policy. Etiquetas de categorias, Conformidade regulamentar, Key Vault, Kubernetes, Configuração do convidado e muito mais.
 ms.date: 01/29/2021
 ms.topic: sample
-ms.openlocfilehash: ad608f594c544cc8de2d80f7cedaeeffdc2b83ea
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: ae016e42af582847b871624844773ed971ef583d
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99095745"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100095601"
 ---
 # <a name="azure-policy-samples"></a>Exemplos do Azure Policy
 
@@ -43,6 +43,7 @@ Seguem-se as incorporações de [Conformidade Regulamentar](../concepts/regulato
 - [CMMC Nível 3](./cmmc-l3.md)
 - [HIPAA HITRUST 9.2](./hipaa-hitrust-9-2.md)
 - [ISO 27001:2013](./iso-27001.md)
+- [Manual de Segurança da Informação da Nova Zelândia](./new-zealand-ism.md)
 - [NIST SP 800-53 R4](./nist-sp-800-53-r4.md)
 - [NIST SP 800-171 R2](./nist-sp-800-171-r2.md)
 

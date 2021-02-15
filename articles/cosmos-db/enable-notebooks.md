@@ -5,35 +5,36 @@ author: deborahc
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 09/22/2019
+ms.date: 02/09/2021
 ms.author: dech
-ms.openlocfilehash: 7b52a066f80b686a0e424d8f63d520d46691a72a
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.custom: references_regions
+ms.openlocfilehash: b8ce745a0a0db96e7f6b9e3a0140d46364246e4a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187821"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100379612"
 ---
 # <a name="enable-notebooks-for-azure-cosmos-db-accounts-preview"></a>Ativar cadernos para contas DB do Azure Cosmos (pré-visualização)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!IMPORTANT]
-> Os cadernos incorporados para a Azure Cosmos DB estão atualmente disponíveis nas seguintes regiões de Azure: Austrália Oriental, Leste dos EUA, Leste dos EUA 2, Norte da Europa, South Central EUA, Sudeste Asiático, Reino Unido Sul, Europa Ocidental e EUA Ocidental 2. Para utilizar cadernos, [crie uma nova conta com cadernos](#enable-notebooks-in-a-new-cosmos-account) ou permita [cadernos numa conta existente](#enable-notebooks-in-an-existing-cosmos-account) numa dessas regiões.
+> Os cadernos incorporados para a Azure Cosmos DB estão atualmente disponíveis em [29 regiões.](#supported-regions) Para utilizar cadernos, [crie uma nova conta Cosmos](#create-a-new-cosmos-account) ou permita [cadernos numa conta existente](#enable-notebooks-in-an-existing-cosmos-account) numa dessas regiões. 
 
 Os cadernos Jupyter incorporados em Azure Cosmos DB permitem-lhe analisar e visualizar os seus dados a partir do portal Azure. Este artigo descreve como ativar esta funcionalidade para a conta do Azure Cosmos DB.
 
-## <a name="enable-notebooks-in-a-new-cosmos-account"></a>Ativar cadernos numa nova conta cosmos
-
-1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
+## <a name="create-a-new-cosmos-account"></a>Criar uma nova conta cosmos
+A partir de 10 de fevereiro de 2021, as novas contas Azure Cosmos criadas numa das [regiões suportadas](#supported-regions) terão automaticamente os cadernos ativados. Não é necessária nenhuma configuração adicional para permitir os cadernos. Utilize as seguintes instruções para criar uma nova conta:
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
 1. Selecione **Criar uma** base de  >  **dados de** recursos  >  **Azure Cosmos DB**.
-1. Na página **'Conta DB Create Azure Cosmos',** selecione **Cadernos**. 
+1. Introduza as definições básicas para a conta. 
  
-    :::image type="content" source="media/enable-notebooks/create-new-account-with-notebooks.png" alt-text="Selecione a opção de cadernos em Azure Cosmos DB Criar lâmina":::
+   :::image type="content" source="./media/create-cosmosdb-resources-portal/azure-cosmos-db-create-new-account-detail-2.png" alt-text="A página de nova conta do Azure Cosmos DB":::
 
 1. Selecione **Rever + criar**. Pode saltar a opção **Rede** e **Tags.** 
 1. Reveja as definições da conta e, em seguida, selecione **Criar**. A criação da conta demora alguns minutos. Aguarde até que a página do portal apresente **A implementação está concluída**. 
 
-   :::image type="content" source="media/enable-notebooks/create-new-account-with-notebooks-complete.png" alt-text="O painel de Notificações do portal do Azure":::
+   :::image type="content" source="media/enable-notebooks/create-new-account-with-notebooks-complete.png" alt-text="O painel Notificações do portal do Azure":::
 
 1. Selecione **Ir para recurso** para aceder à página da conta do Azure Cosmos DB.
 
@@ -74,6 +75,45 @@ Também pode selecionar **Novo Caderno** para criar um novo bloco de notas ou ca
 
 :::image type="content" source="media/enable-notebooks/create-or-upload-new-notebook.png" alt-text="Criar ou carregar um novo caderno":::
 
+## <a name="supported-regions"></a>Regiões suportadas
+Os cadernos incorporados para a Azure Cosmos DB estão atualmente disponíveis em 29 regiões de Azure. As novas contas Azure Cosmos criadas nestas regiões terão cadernos automaticamente ativados. Os cadernos são gratuitos com a sua conta. 
+
+- Austrália Central
+- Austrália Central 2
+- Leste da Austrália
+- Austrália Sudeste
+- Sul do Brasil
+- Canadá Central
+- Leste do Canadá
+- Índia Central
+- E.U.A. Central
+- E.U.A. Leste
+- E.U.A. Leste 2
+- França Central
+- Sul de França
+- Alemanha Norte
+- Alemanha Centro-Oeste
+- Oeste do Japão
+- Sul da Coreia do Sul
+- Central Norte
+- Europa do Norte
+- Central Sul nos
+- Sudeste Asiático
+- Suíça Norte
+- Centro dos Emirados Árabes Unidos
+- Sul do Reino Unido
+- Oeste do Reino Unido
+- Central Ocidental nos
+- Europa Ocidental
+- Oeste da Índia
+- E.U.A. Oeste 2
+
 ## <a name="next-steps"></a>Passos seguintes
 
-- Conheça os benefícios dos [cadernos Azure Cosmos DB Jupyter](cosmosdb-jupyter-notebooks.md)
+* Conheça os benefícios dos [cadernos Azure Cosmos DB Jupyter](cosmosdb-jupyter-notebooks.md)
+* [Explore a galeria de amostras de cadernos](https://cosmos.azure.com/gallery.html)
+* [Use funcionalidades e comandos de caderno Python](use-python-notebook-features-and-commands.md)
+* [Use funcionalidades e comandos de caderno C#](use-csharp-notebook-features-and-commands.md)
+* [Importar cadernos de um repo GitHub](import-github-notebooks.md)
+
+

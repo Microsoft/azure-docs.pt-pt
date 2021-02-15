@@ -3,36 +3,48 @@
 - name: Descrição geral
   items:
     - name: O que é o Azure Batch?
+      displayName: overview
       href: batch-technical-overview.md
 - name: Guias de Início Rápido
   expanded: true
   items:
     - name: Executar uma tarefa do Batch - CLI
+      displayName: 'quickstart, first, create'
       href: quick-create-cli.md
     - name: Executar uma tarefa do Batch - Portal
+      displayName: 'quickstart, first, create'
       href: quick-create-portal.md
     - name: Executar uma tarefa do Batch - .NET
+      displayName: 'quickstart, first, create, c#, csharp'
       href: quick-run-dotnet.md
     - name: Executar uma tarefa do Batch - Python
+      displayName: 'quickstart, first, create'
       href: quick-run-python.md
     - name: Criar uma conta Batch - modelo do ARM
       href: quick-create-template.md
-      displayName: Resource Manager
+      displayName: 'Resource Manager, quickstart, first, create'
 - name: Tutoriais
   items:
     - name: Processamento de ficheiros em paralelo - .NET
+      displayName: 'tutorial, hpc, high-performance, large, c#, csharp'
       href: tutorial-parallel-dotnet.md
     - name: Processamento de ficheiros em paralelo - Python
+      displayName: 'tutorial, hpc, high-performance, large'
       href: tutorial-parallel-python.md
     - name: Composição de cenas com o Arnold
+      displayName: tutorial
       href: tutorial-rendering-cli.md
     - name: Compor com o Batch Explorer
+      displayName: tutorial
       href: tutorial-rendering-batchexplorer-blender.md
     - name: Simulação de R em paralelo
+      displayName: 'tutorial, doAzureParallel, rstudio'
       href: tutorial-r-doazureparallel.md
     - name: OCR com o Batch e as Funções
+      displayName: 'trigger, optical'
       href: tutorial-batch-functions.md
     - name: Scripts do Python com o Data Factory
+      displayName: tutorial
       href: tutorial-run-python-batch-azure-data-factory.md
 - name: Amostras
   items:
@@ -68,20 +80,20 @@
         - name: Melhores práticas de segurança
           href: security-best-practices.md
     - name: Fluxo de trabalho e recursos do serviço Batch
-      displayName: developer features
+      displayName: 'developer features, core, component, overview'
       href: batch-service-workflow-features.md
       items:
         - name: Contas do Batch
           displayName: storage account
           href: accounts.md
         - name: Nós e conjuntos
-          displayName: 'compute node, application package, scaling, schedule, os'
+          displayName: 'compute node, application package, scaling, schedule, os, configuration'
           href: nodes-and-pools.md
         - name: Trabalhos e tarefas
-          displayName: Batch job
+          displayName: 'Batch job, start task, environment'
           href: jobs-and-tasks.md
         - name: Ficheiros e diretórios
-          displayName: Batch file
+          displayName: 'Batch file, working directory'
           href: files-and-directories.md
     - name: APIs e ferramentas
       href: batch-apis-tools.md
@@ -131,26 +143,34 @@
     - name: Criar e gerir agrupamentos
       items:
         - name: Nós de computação com dimensionamento automático
+          displayName: 'scaling, dynamic, formula'
           href: batch-automatic-scaling.md
         - name: Escolher um tamanho de VM para os nós de computação
           href: batch-pool-vm-sizes.md
         - name: Mover do Serviço Cloud para os conjuntos de Máquina Virtual
+          displayName: migrate
           href: batch-pool-cloud-service-to-virtual-machine-configuration.md
         - name: Configurar o acesso aos nós de computação
+          displayName: 'rdp, ssh, network, remote'
           href: pool-endpoint-configuration.md
         - name: Criar um conjunto com o Shared Image Gallery
+          displayName: 'managed image, sig'
           href: batch-sig-images.md
         - name: Criar um conjunto com um recurso de imagem gerida
           href: batch-custom-images.md
         - name: Criar uma piscina através de Zonas de Disponibilidade
+          displayName: 'region, zonal policy'
           href: create-pool-availability-zones.md
         - name: Criar um conjunto com a encriptação de disco ativada
           href: disk-encryption.md
         - name: Criar um conjunto numa rede virtual
+          displayName: vNet
           href: batch-virtual-network.md
         - name: Criar um conjunto com endereços IP públicos
+          displayName: static
           href: create-pool-public-ip.md
         - name: Criar um conjunto sem endereços IP públicos
+          displayName: private
           href: batch-pool-no-public-ip-address.md
         - name: Montar um sistema de ficheiros virtual
           href: virtual-file-mount.md
@@ -161,17 +181,21 @@
         - name: Utilizar nós de computação do Linux
           href: batch-linux-nodes.md
         - name: Utilizar VMs de baixa prioridade
+          displayName: 'preempted, surplus, capacity'
           href: batch-low-pri-vms.md
         - name: A verificar erros de agrupamento e de nó
+          displayName: 'troubleshoot, failure'
           href: batch-pool-node-error-checking.md
     - name: Criar um pipeline de CI/CD para o Batch
+      displayName: 'Azure DevOps, devops, continuous'
       href: batch-ci-cd.md
     - name: Gerir trabalhos e tarefas
       items:
         - name: Tarefas de preparação e conclusão de trabalhos
+          displayName: 'release, job release'
           href: batch-job-prep-release.md
         - name: Tarefas de nós simultâneas
-          displayName: concurrent
+          displayName: 'variable, maximize'
           href: batch-parallel-node-tasks.md
         - name: Dependências de tarefas
           href: batch-task-dependencies.md
@@ -182,6 +206,7 @@
         - name: Agendar trabalhos para eficiência
           href: batch-job-schedule.md
         - name: Verificar a existência de erros nos trabalhos e tarefas
+          displayName: 'failure, troubleshoot'
           href: batch-job-task-error-checking.md
     - name: Manter saída de trabalhos e tarefas
       href: batch-task-output.md
@@ -194,29 +219,37 @@
       href: monitoring-overview.md
       items:
         - name: Utilizar métricas e registos de diagnóstico
+          displayName: 'alert, monitor'
           href: batch-diagnostics.md
         - name: Monitorizar com o Application Insights
+          displayName: debug
           href: monitor-application-insights.md
         - name: Contar recursos por estado
           href: batch-get-resource-counts.md
         - name: Consultar recursos de forma eficiente
+          displayName: 'monitor, queries'
           href: batch-efficient-list-queries.md
     - name: Utilizar ferramentas de scripts
       items:
         - name: Utilizar o Azure PowerShell
+          displayName: 'ps, scripting, cmdlet'
           href: batch-powershell-cmdlets-get-started.md
         - name: Utilizar a CLI do Azure
+          displayName: command line
           href: batch-cli-get-started.md
-          items:
-            - name: Utilizar modelos da CLI do Batch
-              href: batch-cli-templates.md
+        - name: Utilizar modelos da CLI do Batch
+          diplayName: extension
+          href: batch-cli-templates.md
     - name: Utilizar o SDK do Batch em Node.js
+      displayName: json
       href: batch-nodejs-get-started.md
     - name: Executar cargas de trabalho
       items:
-        - name: Tarefas MPI
+        - name: MPI
+          displayName: 'multi-instance, message passing interface'
           href: batch-mpi.md
         - name: Cargas de trabalho de contentor
+          displayName: docker
           href: batch-docker-container-workloads.md
         - name: Composição
           items:
@@ -231,6 +264,7 @@
             - name: Composição de referência de aplicação
               href: batch-rendering-application-reference.md
             - name: Movimento de dados e armazenamento
+              displayName: 'rendering, assets'
               href: batch-rendering-storage-data-movement.md
             - name: Composição de arquiteturas
               href: batch-rendering-architectures.md

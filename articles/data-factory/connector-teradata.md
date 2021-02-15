@@ -1,22 +1,17 @@
 ---
 title: Copiar dados da Teradata Vantage utilizando a Azure Data Factory
 description: O Conector Teradata do serviço Data Factory permite-lhe copiar dados de uma Teradata Vantage para lojas de dados suportadas pela Data Factory como pias.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2021
 ms.author: jingwang
-ms.openlocfilehash: 430b9a1e567d9a79093f50ae388b4b69119c057d
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: c65b295dca16a3453b2ee5472b9a3ee5e8d62df7
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98695878"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100381771"
 ---
 # <a name="copy-data-from-teradata-vantage-by-using-azure-data-factory"></a>Copiar dados da Teradata Vantage utilizando a Azure Data Factory
 
@@ -278,7 +273,7 @@ Quando ativa a cópia dividida, a Data Factory executa consultas paralelas contr
 
 Sugere-se que ative uma cópia paralela com a partilha de dados, especialmente quando carrega uma grande quantidade de dados a partir do seu Teradata. São sugeridas configurações para diferentes cenários. Ao copiar dados para a loja de dados baseada em ficheiros, é recomerado para escrever para uma pasta como vários ficheiros (especificar apenas o nome da pasta), caso em que o desempenho é melhor do que escrever para um único ficheiro.
 
-| Cenário                                                     | Definições sugeridas                                           |
+| Scenario                                                     | Definições sugeridas                                           |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | Carga completa da mesa grande.                                   | **Opção de partição**: Haxixe. <br><br/>Durante a execução, a Data Factory deteta automaticamente a coluna de índice primário, aplica um haxixe contra ela e copia dados por partições. |
 | Carregue uma grande quantidade de dados utilizando uma consulta personalizada.                 | **Opção de partição**: Haxixe.<br>**Consulta:** `SELECT * FROM <TABLENAME> WHERE ?AdfHashPartitionCondition AND <your_additional_where_clause>` .<br>**Coluna de partição**: Especificar a coluna utilizada para aplicar a partição de haxixe. Se não for especificado, a Data Factory deteta automaticamente a coluna PK da tabela especificada no conjunto de dados Teradata.<br><br>Durante a execução, a Data Factory `?AdfHashPartitionCondition` substitui-se pela lógica de partição de haxixe e envia para Teradata. |
@@ -324,7 +319,7 @@ Quando copia dados da Teradata, aplicam-se os seguintes mapeamentos. Para saber 
 | ByteInt |Int16 |
 | Char |String |
 | Clob |String |
-| Date |DateTime |
+| Data |DateTime |
 | Decimal |Decimal |
 | Double (Duplo) |Double (Duplo) |
 | Gráfico |Não suportado. Aplicar elenco explícito na consulta de origem. |

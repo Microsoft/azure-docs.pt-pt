@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/05/2021
 ms.author: b-juche
-ms.openlocfilehash: 69a970b7b088795602dfb842b20ad6457d5f27c4
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: b173342c1c384213e88f216334b5e03cd8b7bea7
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99808350"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100374495"
 ---
 # <a name="what-changing-to-volume-hard-quota-means-for-your-azure-netapp-files-service"></a>O que mudar para volume de quota dura significa para o seu serviço Azure NetApp Files
 
 Desde o início do serviço, o Azure NetApp Files tem vindo a utilizar um mecanismo de fornecimento de capacidade e de crescimento automático. Os volumes Azure NetApp Files são pouco abastetados num conjunto de capacidades de subposição, abasteçados pelo cliente de um nível e tamanho selecionados. Os tamanhos de volume (quotas) são utilizados para proporcionar desempenho e capacidade, e as quotas podem ser ajustadas no voo a qualquer momento. Este comportamento significa que, atualmente, a quota de volume é uma alavanca de desempenho usada para controlar a largura de banda ao volume. Atualmente, os pools de capacidade de subposição crescem automaticamente quando a capacidade se enche.   
 
 > [!IMPORTANT] 
-> O comportamento do Azure NetApp Files de volume e capacidade de fornecimento de piscinas mudará para um mecanismo *manual* e *controlável.* **A partir de 15 de março de 2021, os tamanhos de volume (quota) vão gerir o desempenho da largura de banda, bem como a capacidade a provisionada, e as piscinas de capacidade subjacentes deixarão de crescer automaticamente.** 
+> O comportamento do Azure NetApp Files de volume e capacidade de fornecimento de piscinas mudará para um mecanismo *manual* e *controlável.* **A partir de 1 de abril de 2021, os tamanhos de volume (quota) vão gerir o desempenho da largura de banda, bem como a capacidade a provisionada, e os pools de capacidade subjacentes deixarão de crescer automaticamente.** 
 
 ## <a name="reasons-for-the-change-to-volume-hard-quota"></a>Razões para a alteração da quota dura do volume
 

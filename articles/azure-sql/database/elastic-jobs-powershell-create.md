@@ -11,17 +11,17 @@ author: johnpaulkee
 ms.author: joke
 ms.reviwer: sstein
 ms.date: 10/21/2020
-ms.openlocfilehash: 1fc5653f08f8fc7916257dfdba570f451c0afa75
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 95e9ef340328bb4c1835e966cc9c3019bca88c09
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131938"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100368834"
 ---
 # <a name="create-an-elastic-job-agent-using-powershell-preview"></a>Criar um agente de trabalho elástico utilizando o PowerShell (pré-visualização)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-[Os trabalhos elásticos (pré-visualização)](job-automation-overview.md#elastic-database-jobs-preview) permitem o funcionamento de um ou mais scripts Transact-SQL (T-SQL) em paralelo em muitas bases de dados.
+[Os trabalhos elásticos (pré-visualização)](job-automation-overview.md) permitem o funcionamento de um ou mais scripts Transact-SQL (T-SQL) em paralelo em muitas bases de dados.
 
 Neste tutorial, você aprende os passos necessários para executar uma consulta em várias bases de dados:
 
@@ -63,7 +63,7 @@ Além do módulo **Az.Sql,** este tutorial também requer o módulo *SqlServer* 
 
 ## <a name="create-required-resources"></a>Criar os recursos necessários
 
-A criação de um agente de Tarefa Elástica requer uma base de dados (S0 ou superior) para utilização como [base de dados de Tarefa](job-automation-overview.md#job-database).
+A criação de um agente de Tarefa Elástica requer uma base de dados (S0 ou superior) para utilização como [base de dados de Tarefa](job-automation-overview.md#elastic-job-database).
 
 O script abaixo cria um novo grupo de recursos, servidor e base de dados para utilização como base de dados de Tarefa. O segundo script cria um segundo servidor com duas bases de dados em branco para executar trabalhos contra.
 
@@ -280,7 +280,7 @@ A tabela que se segue enumera os possíveis estados de execução de empregos:
 |**Ignorado** | A execução do emprego foi ignorada porque outra execução do mesmo passo de trabalho já estava a decorrer no mesmo alvo.|
 |**WaitingForChildJobExecutions** | A execução do trabalho está à espera que as suas execuções infantis terminem.|
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Elimine os recursos do Azure criados neste tutorial ao eliminar o grupo de recursos.
 

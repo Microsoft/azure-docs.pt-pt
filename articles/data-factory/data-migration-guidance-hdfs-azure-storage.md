@@ -1,22 +1,18 @@
 ---
 title: Migrar dados de um cluster Hadoop no local para o armazenamento de Azure
 description: Saiba como usar a Azure Data Factory para migrar dados do cluster Hadoop para o Azure Storage.
-services: data-factory
 ms.author: yexu
 author: dearandyxu
-ms.reviewer: ''
-manager: shwang
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 8/30/2019
-ms.openlocfilehash: 3e691244c4c03635eb87a7905eff6756da5c04f9
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 9959a37d9b68d756437a3b4f0d75a2d63385758e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92638130"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100367797"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-an-on-premises-hadoop-cluster-to-azure-storage"></a>Utilize a Azure Data Factory para migrar dados de um cluster Hadoop no local para o armazenamento Azure 
 
@@ -27,7 +23,7 @@ A Azure Data Factory fornece um mecanismo performante, robusto e rentável para 
 A Data Factory oferece duas abordagens básicas para a migração de dados de HDFS para Azure no local. Pode selecionar a abordagem com base no seu cenário. 
 
 - **Modo DistCp da Fábrica de Dados** (recomendado): Na Data Factory, pode utilizar [o DistCp](https://hadoop.apache.org/docs/current3/hadoop-distcp/DistCp.html) (cópia distribuída) para copiar ficheiros como é para o armazenamento de Azure Blob (incluindo [cópia encenada)](./copy-activity-performance.md#staged-copy)ou Azure Data Lake Store Gen2. Utilize a Data Factory integrada com o DistCp para aproveitar um cluster poderoso existente para obter o melhor rendimento de cópia. Você também obtém o benefício de um agendamento flexível e uma experiência de monitorização unificada da Data Factory. Dependendo da configuração da data Factory, a atividade de cópia constrói automaticamente um comando DistCp, envia os dados para o seu cluster Hadoop e, em seguida, monitoriza o estado da cópia. Recomendamos o modo DistCp da Fábrica de Dados para migrar dados de um cluster Hadoop no local para Azure.
-- **Data Factory modo de execução de integração nativa** : O DistCp não é uma opção em todos os cenários. Por exemplo, num ambiente de Redes Virtuais Azure, a ferramenta DistCp não suporta o azure ExpressRoute com um ponto final de rede virtual Azure Storage. Além disso, em alguns casos, você não quer usar o seu cluster Hadoop existente como um motor para migrar dados para que você não coloque cargas pesadas no seu cluster, o que pode afetar o desempenho dos empregos ETL existentes. Em vez disso, pode utilizar a capacidade nativa do tempo de integração da Data Factory como o motor que copia dados de HDFS no local para Azure.
+- **Data Factory modo de execução de integração nativa**: O DistCp não é uma opção em todos os cenários. Por exemplo, num ambiente de Redes Virtuais Azure, a ferramenta DistCp não suporta o azure ExpressRoute com um ponto final de rede virtual Azure Storage. Além disso, em alguns casos, você não quer usar o seu cluster Hadoop existente como um motor para migrar dados para que você não coloque cargas pesadas no seu cluster, o que pode afetar o desempenho dos empregos ETL existentes. Em vez disso, pode utilizar a capacidade nativa do tempo de integração da Data Factory como o motor que copia dados de HDFS no local para Azure.
 
 Este artigo fornece as seguintes informações sobre ambas as abordagens:
 > [!div class="checklist"]

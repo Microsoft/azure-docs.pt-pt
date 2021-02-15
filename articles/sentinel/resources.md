@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/27/2021
 ms.author: yelevin
-ms.openlocfilehash: 11c5c77623fcc693210d5a42bf94c968e884fec3
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 2a6e31115fb2548f8248f741213970605f230036
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98920025"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100390730"
 ---
 # <a name="useful-resources-for-working-with-azure-sentinel"></a>Recursos úteis para trabalhar com Azure Sentinel
 
@@ -75,15 +75,6 @@ Pode visualizar estes dados transmitindo-os a partir do login da Azure Activity 
     ```
 
 
-
-## <a name="vendor-documentation"></a>Documentação do fornecedor
-
-| **Fornecedor**  | **Incidente de uso em Azure Sentinel** | **Ligação**|
-|----|----|----|
-| GitHub| Usado para aceder à página comunitária| <https://github.com/Azure/Azure-Sentinel> |
-| PaloAlto| CEF de configuração| <https://www.paloaltonetworks.com/documentation/misc/cef.html>|
-| PluralSight | Kusto Query Language course (Curso sobre Kusto Query Language)| [https://www.pluralsight.com/courses/kusto-query-language-kql-from-scratch](https://www.pluralsight.com/courses/kusto-query-language-kql-from-scratch)|
-
 ## <a name="blogs-and-forums"></a>Blogs e fóruns
 
 Adoramos ouvir dos nossos utilizadores!
@@ -97,10 +88,8 @@ Adoramos ouvir dos nossos utilizadores!
     - [TechCommunity](https://techcommunity.microsoft.com/t5/Azure-Sentinel/bg-p/AzureSentinelBlog) 
     - [Microsoft Azure](https://azure.microsoft.com/blog/tag/azure-sentinel/)
 
-Para obter mais informações sobre segurança e conformidade da Azure, consulte o [blog Microsoft Azure Security and Compliance](https://techcommunity.microsoft.com/t5/microsoft-security-and/bg-p/MicrosoftSecurityandCompliance).
 
-
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Certifica-se!](/learn/paths/security-ops-sentinel/)

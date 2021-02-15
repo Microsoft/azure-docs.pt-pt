@@ -1,23 +1,18 @@
 ---
 title: Dados de movimento - Gateway de Gestão de Dados
 description: Crie uma porta de dados para mover dados entre as instalações e a nuvem. Utilize o Gateway de Gestão de Dados na Azure Data Factory para mover os seus dados.
-services: data-factory
-documentationcenter: ''
 author: nabhishek
-manager: anandsub
-ms.assetid: 7bf6d8fd-04b5-499d-bd19-eff217aa4a9c
+ms.author: abnarain
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 7f07f08cd320d94495403b0f5ae65d60d8dc93b5
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 53fce1744ccbf4289b2415e926e084c90d708a13
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96019689"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100380292"
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>Mover dados entre fontes no local e a nuvem com Data Management Gateway
 > [!NOTE]
@@ -138,7 +133,7 @@ Neste passo, você usa o portal Azure para criar uma instância da Azure Data Fa
    * Ver ou exportar o certificado utilizado pelo gateway.
    * Altere o ponto final HTTPS utilizado pelo gateway.    
    * Desaprova um representante HTTP para ser utilizado pelo gateway.     
-9. (opcional) Mude para o separador **Diagnóstico,** verifique a opção **de registo verboso Enable** se pretender ativar a verificação de registo verboso que pode utilizar para resolver problemas com o gateway. As informações de registo podem ser encontradas no **Visualizador de Eventos** no nó de Gateway de Gestão de Dados de **Aplicações e Serviços.**  ->  **Data Management Gateway**
+9. (opcional) Mude para o separador **Diagnóstico,** verifique a opção **de registo verboso Enable** se pretender ativar a verificação de registo verboso que pode utilizar para resolver problemas com o gateway. As informações de registo podem ser encontradas no **Visualizador de Eventos** no nó de Gateway de Gestão de Dados de **Aplicações e Serviços.**  ->  
 
     ![Separador Diagnóstico](./media/data-factory-move-data-between-onprem-and-cloud/diagnostics-tab.png)
 
@@ -236,7 +231,7 @@ Neste passo, vai criar os conjuntos de dados de entrada e de saída que represen
             }
         }
     }     
-    ```     
+    ```       
    Tenha em atenção os seguintes pontos:
 
    * **tipo** é definido para **SqlServerTable**.
@@ -384,7 +379,7 @@ Neste passo, cria-se um **pipeline** com uma **Atividade de Cópia** que utiliza
     Pode ampliar, ampliar, ampliar para 100%, fazer zoom para encaixar, posicionar automaticamente os oleodutos e conjuntos de dados e mostrar informações de linhagem (destaques a montante e a jusante de itens selecionados).  Pode clicar duas vezes num objeto (conjunto de dados de entrada/saída ou pipeline) para ver propriedades para o mesmo.
 
 ## <a name="monitor-pipeline"></a>Monitorizar o pipeline
-Neste passo, irá utilizar o portal do Azure para monitorizar os acontecimentos de uma fábrica de dados do Azure. Também pode utilizar os cmdlets PowerShell para monitorizar os conjuntos de dados e pipelines. Para obter mais informações sobre a monitorização, consulte [Monitor e Gerencie os Gasodutos](data-factory-monitor-manage-pipelines.md).
+Neste passo, você usa o portal Azure para monitorizar o que se passa numa fábrica de dados Azure. Também pode utilizar os cmdlets PowerShell para monitorizar os conjuntos de dados e pipelines. Para obter mais informações sobre a monitorização, consulte [Monitor e Gerencie os Gasodutos](data-factory-monitor-manage-pipelines.md).
 
 1. No diagrama, clique duas vezes **em EmpOnPremSQLTable**.  
 
@@ -408,7 +403,7 @@ Neste passo, irá utilizar o portal do Azure para monitorizar os acontecimentos 
 8. (opcional) Clique em **Pipelines,** clique em **ADFTutorialOnPremDF,** e faça através de tabelas de entrada **(Consumida)** ou conjuntos de dados de saída **(Produzido).**
 9. Utilize ferramentas como o [Microsoft Storage Explorer](https://storageexplorer.com/) para verificar se uma bolha/ficheiro é criada por cada hora.
 
-   ![Explorador do Storage do Azure](./media/data-factory-move-data-between-onprem-and-cloud/OnPremAzureStorageExplorer.png)
+   ![Explorador de Armazenamento do Azure](./media/data-factory-move-data-between-onprem-and-cloud/OnPremAzureStorageExplorer.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 * Consulte o artigo [do Data Management Gateway](data-factory-data-management-gateway.md) para obter todos os detalhes sobre o Gateway de Gestão de Dados.

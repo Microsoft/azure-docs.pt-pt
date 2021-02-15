@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 6735b3377650c900a7b7d18933180991a6a2c9fd
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 1ee4e19a3e76a001a66f6498530fab4f4703fa85
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97930893"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100381613"
 ---
 # <a name="azure-blob-storage-trigger-for-azure-functions"></a>Gatilho de armazenamento Azure Blob para Funções Azure
 
@@ -317,13 +317,13 @@ Os atributos não são suportados pela Python.
 
 A tabela seguinte explica as propriedades de configuração de encadernação que definiu no *function.jsno* ficheiro e no `BlobTrigger` atributo.
 
-|function.jsna propriedade | Propriedade de atributo |Descrição|
+|function.jsna propriedade | Propriedade de atributo |Description|
 |---------|---------|----------------------|
 |**tipo** | n/a | Deve ser definido para `blobTrigger` . Esta propriedade é definida automaticamente quando cria o gatilho no portal Azure.|
 |**direção** | n/a | Deve ser definido para `in` . Esta propriedade é definida automaticamente quando cria o gatilho no portal Azure. As exceções são anotados na secção [de utilização.](#usage) |
 |**nome** | n/a | O nome da variável que representa a bolha no código de função. |
 |**caminho** | **BlobPath** |O [recipiente](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources) para monitorar.  Pode ser um [padrão de nome blob](#blob-name-patterns). |
-|**conexão** | **Ligação** | O nome de uma definição de aplicação que contém o fio de ligação de armazenamento para usar para esta ligação. Se o nome de definição da aplicação começar com "AzureWebJobs", pode especificar apenas o restante do nome aqui. Por exemplo, se definir `connection` "MyStorage", o tempo de execução de Funções procura uma definição de aplicação que se chama "AzureWebJobsMyStorage". Se deixar `connection` vazio, o tempo de execução das funções utiliza a cadeia de ligação de armazenamento predefinido na definição da aplicação que está denominada `AzureWebJobsStorage` .<br><br>O fio de ligação deve destinar-se a uma conta de armazenamento para fins gerais e não a uma [conta de armazenamento Blob](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
+|**conexão** | **Ligação** | O nome de uma definição de aplicação que contém o fio de ligação de armazenamento para usar para esta ligação. Se o nome de definição da aplicação começar com "AzureWebJobs", pode especificar apenas o restante do nome aqui. Por exemplo, se definir `connection` "MyStorage", o tempo de execução de Funções procura uma definição de aplicação que se chama "AzureWebJobsMyStorage". Se deixar `connection` vazio, o tempo de execução das funções utiliza a cadeia de ligação de armazenamento predefinido na definição da aplicação que está denominada `AzureWebJobsStorage` .<br><br>O fio de ligação deve destinar-se a uma conta de armazenamento para fins gerais e não a uma [conta de armazenamento Blob](../storage/common/storage-account-overview.md#types-of-storage-accounts).<br><br>Se estiver a utilizar [a versão 5.x ou superior da extensão](./functions-bindings-storage-blob.md#storage-extension-5x-and-higher), em vez de uma cadeia de ligação, pode fornecer uma referência a uma secção de configuração que defina a ligação. Ver [Ligações](./functions-reference.md#connections).|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -463,9 +463,16 @@ Se todas as 5 tentativas falharem, a Azure Functions adiciona uma mensagem a uma
 
 O gatilho blob utiliza uma fila internamente, pelo que o número máximo de invocações de função simultânea é controlado pela [configuração](functions-host-json.md#queues)de filas em host.jsem . As definições predefinitórias limitam a concordância a 24 invocações. Este limite aplica-se separadamente a cada função que utiliza um gatilho de bolha.
 
+> [!NOTE]
+> Para aplicações que utilizem a [versão 5.0.0 ou superior da extensão de Armazenamento,](functions-bindings-storage-blob.md#storage-extension-5x-and-higher)a configuração das filas em host.jsaplica-se apenas aos gatilhos da fila. A concuência do gatilho blob é, em vez disso, controlada pela [configuração de blobs em host.jsem](functions-host-json.md#blobs).
+
 [O plano de consumo](event-driven-scaling.md) limita uma aplicação de função numa máquina virtual (VM) a 1,5 GB de memória. A memória é utilizada por cada instância de execução simultânea e pelo tempo de funcionamento das funções em si. Se uma função com o gatilho de bolhas colocar toda a bolha na memória, a memória máxima utilizada por essa função apenas para bolhas é de 24 * tamanho máximo de bolha. Por exemplo, uma aplicação de função com três funções acionadas por bolhas e as definições predefinidas teria uma concordância máxima por VM de 3*24 = 72 invocações de função.
 
 As funções JavaScript e Java carregam toda a bolha na memória, e as funções C# fazem-no se se ligar a `string` , ou `Byte[]` . .
+
+## <a name="hostjson-properties"></a>host.jssobre propriedades
+
+A [host.jsno](functions-host-json.md#blobs) ficheiro contém definições que controlam o comportamento do gatilho da bolha. Consulte a secçãohost.jsna secção [ de definições](functions-bindings-storage-blob.md#hostjson-settings) para obter informações sobre as definições disponíveis.
 
 ## <a name="next-steps"></a>Passos seguintes
 

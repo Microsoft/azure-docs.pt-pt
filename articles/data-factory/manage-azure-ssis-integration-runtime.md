@@ -1,22 +1,17 @@
 ---
 title: Reconfigurar o Azure-SSIS Integration Runtime
 description: Saiba como reconfigurar um tempo de integração Azure-SSIS na Azure Data Factory depois de já o ter previsto.
-services: data-factory
-documentationcenter: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/03/2020
 author: swinarko
 ms.author: sawinark
-ms.reviewer: douglasl
-manager: anandsub
-ms.openlocfilehash: 7545f593aea2aca8c0aa240d44bcef3b7a1ca7c6
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 724411dc12654aec1614230c943923062b334cd2
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636277"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100370687"
 ---
 # <a name="reconfigure-the-azure-ssis-integration-runtime"></a>Reconfigurar o Azure-SSIS Integration Runtime
 
@@ -28,10 +23,10 @@ Este artigo descreve como reconfigurar um tempo de integração Azure-SSIS exist
 Pode utilizar a UI da Data Factory para parar, editar/reconfigurar ou eliminar um Azure-SSIS IR. 
 
 1. Open Data Factory UI selecionando o **azulejo do Monitor & autor** na página inicial da sua fábrica de dados.
-2. Selecione o hub **Manage** abaixo **de Home** , **Editar** e **Monitorar** os centros para mostrar o painel **de ligações.**
+2. Selecione o hub **Manage** abaixo **de Home**, **Editar** e **Monitorar** os centros para mostrar o painel **de ligações.**
 
 ### <a name="to-reconfigure-an-azure-ssis-ir"></a>Para reconfigurar um Azure-SSIS IR
-No painel **de ligações** do centro **De Gestão,** mude para a página **de tempos de execução** de integração e selecione **Refresh** . 
+No painel **de ligações** do centro **De Gestão,** mude para a página **de tempos de execução** de integração e selecione **Refresh**. 
 
    ![Painel de ligações](./media/tutorial-create-azure-ssis-runtime-portal/connections-pane.png)
 

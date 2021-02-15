@@ -7,14 +7,14 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 02/11/2021
 ms.topic: how-to
-ms.openlocfilehash: cd41f740d3cdb8130199a5dda6e73209637d5142
-ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.openlocfilehash: dd20a76ebc833320050c87862ad5022e99cd453a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2021
-ms.locfileid: "98745939"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100384967"
 ---
 # <a name="create-the-azure-arc-data-controller"></a>Criar o controlador de dados Azure Arc
 
@@ -59,7 +59,7 @@ Independentemente da opção que escolha, durante o processo de criação terá 
 - Nome do **grupo de recursos Azure** - O nome do grupo de recursos onde pretende que o recurso de controlador de dados em Azure seja criado.
 - **Localização azul** - A localização Azure onde os metadados de recursos do controlador de dados serão armazenados em Azure. Para obter uma lista das regiões disponíveis, consulte [a infraestrutura global Azure /Produtos por região.](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Existem múltiplas opções para a criação do controlador de dados Azure Arc:
 

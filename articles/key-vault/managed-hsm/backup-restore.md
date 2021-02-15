@@ -9,12 +9,12 @@ ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: daf7a9fe3291850bea8c78680bcf375931383020
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: e926dcd4b05d137c7927bdfe5221923d25d4670c
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99805610"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100093493"
 ---
 # <a name="full-backup-and-restore"></a>Cópia de segurança completa e restauro
 
@@ -44,9 +44,9 @@ A cópia de segurança é uma operação de longa duração, mas devolverá imed
 Enquanto a cópia de segurança estiver em andamento, o HSM pode não funcionar em pleno funcionamento, uma vez que algumas divisórias HSM estarão ocupadas a realizar a operação de backup.
 
 ```azurecli-interactive
-# time for 30 minutes later for SAS token expiry
+# time for 500 minutes later for SAS token expiry
 
-end=$(date -u -d "30 minutes" '+%Y-%m-%dT%H:%MZ')
+end=$(date -u -d "500 minutes" '+%Y-%m-%dT%H:%MZ')
 
 # Get storage account key
 
@@ -84,9 +84,9 @@ Deve fornecer as seguintes informações para executar uma restauração complet
 Restaurar é uma operação de longa duração, mas irá imediatamente devolver uma identificação de trabalho. Pode verificar o estado do processo de restauro utilizando este ID job. Quando o processo de restauro está em curso, o HSM entra num modo de restauro e todo o comando do plano de dados (exceto verificar o estado de restauro) são desativado.
 
 ```azurecli-interactive
-#### time for 30 minutes later for SAS token expiry
+#### time for 500 minutes later for SAS token expiry
 
-end=$(date -u -d "30 minutes" '+%Y-%m-%dT%H:%MZ')
+end=$(date -u -d "500 minutes" '+%Y-%m-%dT%H:%MZ')
 
 # Get storage account key
 

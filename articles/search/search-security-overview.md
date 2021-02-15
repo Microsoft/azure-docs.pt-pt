@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/04/2021
 ms.custom: references_regions
-ms.openlocfilehash: 954d08fa163b481393df28ae22016859badea694
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 46f2035e5f8409cd38faeb9c327b88b06fc7d7a0
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99537311"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100097641"
 ---
 # <a name="security-overview-for-azure-cognitive-search"></a>Visão geral de segurança para Azure Cognitive Search
 
@@ -113,12 +113,6 @@ Na Pesquisa Cognitiva Azure, o Gestor de Recursos é utilizado para criar ou eli
 
 > [!Note]
 > Utilizando mecanismos azures, pode bloquear uma subscrição ou recurso para evitar a eliminação acidental ou não não autorizada do seu serviço de pesquisa por utilizadores com direitos de administração. Para obter mais informações, consulte [os recursos de bloqueio para evitar a eliminação inesperada.](../azure-resource-manager/management/lock-resources.md)
-
-## <a name="threat-protection"></a>Proteção contra ameaças
-
-O acesso aos conteúdos num serviço de pesquisa é exclusivamente através de consultas. Se o seu serviço de pesquisa for alvo de um ataque de consulta, o sistema deixará cair as consultas à medida que o sistema se aproxima da capacidade máxima. 
-
-O estrangulamento comporta-se de forma diferente para diferentes APIs. APIs de consulta (Search/Suggest/Autocomplete) e indexar o acelerador APIs dinamicamente com base na carga do serviço. ApIs de índice e operações de serviço API têm limites estáticos de taxa de pedido. Pode rever os limites de pedido de taxa estática nos [limites de estrangulamento](search-limits-quotas-capacity.md#throttling-limits). Para obter mais informações sobre o comportamento de estrangulamento, consulte [os pedidos de consulta de monitorização](search-monitor-queries.md).
 
 <a name="encryption"></a>
 

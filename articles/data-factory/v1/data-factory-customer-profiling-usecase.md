@@ -1,27 +1,23 @@
 ---
 title: Caso de utilização - Perfis de Clientes
 description: Saiba como a Azure Data Factory é usada para criar um fluxo de trabalho (pipeline) orientado para dados para perfilar os clientes de jogos.
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
-manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 313050035694eaeabaefc8e09383ec3a887eb32b
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: bb7f0fb6184a813dd9fd3c193bc5e3bda5628f2d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96495927"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100376722"
 ---
 # <a name="use-case---customer-profiling"></a>Caso de utilização - Perfis de Clientes
 A Azure Data Factory é um dos muitos serviços utilizados para implementar o Conjunto de Inteligência Cortana de aceleradores de soluções.  Para mais informações sobre a Cortana Intelligence, visite [a Cortana Intelligence Suite.](https://www.microsoft.com/cortanaanalytics) Neste documento, descrevemos um caso de uso simples para ajudá-lo a começar a entender como a Azure Data Factory pode resolver problemas de análise comuns.
 
-## <a name="scenario"></a>Cenário
+## <a name="scenario"></a>Scenario
 A Contoso é uma empresa de jogos que cria jogos para várias plataformas: consolas de jogos, dispositivos portáteis e computadores pessoais (PCs). À medida que os jogadores jogam estes jogos, é produzido um grande volume de dados de registo que acompanha os padrões de utilização, o estilo de jogo e as preferências do utilizador.  Quando combinado com dados demográficos, regionais e de produtos, o Contoso pode realizar análises para os orientar sobre como melhorar a experiência dos jogadores e direcioná-los para upgrades e compras dentro do jogo. 
 
 O objetivo da Contoso é identificar oportunidades de venda/venda cruzada baseadas no histórico de jogos dos seus jogadores e adicionar funcionalidades convincentes para impulsionar o crescimento do negócio e proporcionar uma melhor experiência aos clientes. Para este caso de uso, usamos uma empresa de jogos como exemplo de um negócio. A empresa quer otimizar os seus jogos com base no comportamento dos jogadores. Estes princípios aplicam-se a qualquer negócio que queira envolver os seus clientes em torno dos seus bens e serviços e melhorar a experiência dos seus clientes.
