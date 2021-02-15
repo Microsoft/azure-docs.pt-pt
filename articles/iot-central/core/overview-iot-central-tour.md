@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: corywink
-ms.openlocfilehash: c702cb16267d5495feedd8d361092b23b6d4deac
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 569a1365e73acbc2fdaf351f2e2cff21181241e1
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100372470"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100523486"
 ---
 # <a name="take-a-tour-of-the-azure-iot-central-ui"></a>Apresentação da IU do Azure IoT Central
 
@@ -97,8 +97,8 @@ O menu superior é apresentado em todas as páginas:
 
 * Para procurar modelos e dispositivos do dispositivo, insira um valor **de Pesquisa.**
 * Para alterar o idioma ou tema da UI, escolha o ícone **Definições.** Saiba mais sobre [como gerir as suas preferências de candidatura](howto-manage-preferences.md)
-* Para assinar fora da aplicação, escolha o ícone **Conta.**
 * Para obter ajuda e suporte, escolha o menu pendente **Ajuda** para obter uma lista de recursos. Pode [obter informações sobre a sua aplicação](./howto-get-app-info.md) a partir do **link Sobre a sua aplicação.** Numa aplicação sobre o plano de preços gratuitos, os recursos de apoio incluem o acesso ao [chat ao vivo.](howto-show-hide-chat.md)
+* Para assinar fora da aplicação, escolha o ícone **Conta.**
 
 Pode escolher entre um tema claro ou um tema escuro para a IU:
 

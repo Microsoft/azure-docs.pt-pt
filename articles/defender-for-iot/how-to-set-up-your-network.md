@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 01/03/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: a71ea75eb603b141c4b28cff5f2b4aa957583bcd
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 3d5a29ed26d58f0cbaa57768d4b8ad236283deb9
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98621317"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100523860"
 ---
 # <a name="about-azure-defender-for-iot-network-setup"></a>Sobre o Azure Defender para a configuração da rede IoT
 
@@ -534,24 +534,23 @@ Reveja esta lista antes da implementação do site:
 
 | **#** | **Tarefa ou atividade** | **Estado** | **Comentários** |
 |--|--|--|--|
-| 1 | Fornecer global. | ☐ |  |
-| 3 | Encomende aparelhos. | ☐ |  |
-| 4 | Prepare uma lista de sub-redes na rede. | ☐ |  |
-| 5 | Fornecer uma lista VLAN das redes de produção. | ☐ |  |
-| 6 | Forneça uma lista de modelos switch na rede. | ☐ |  |
-| 7 | Forneça uma lista de fornecedores e protocolos do equipamento industrial. | ☐ |  |
-| 8 | Fornecer detalhes de rede para sensores (endereço IP, sub-rede, D-GW, DNS). | ☐ |  |
-| 9 | Crie as regras de firewall necessárias e a lista de acesso. | ☐ |  |
-| 10 | Crie portas de abrang extensão nos interruptores para monitorização da porta ou configuure torneiras de rede conforme desejado. | ☐ |  |
-| 11 | Prepare espaço para os aparelhos sensores. | ☐ |  |
-| 12 | Prepare um posto de trabalho para o pessoal. | ☐ |  |
-| 13 | Forneça um teclado, monitor e rato para o Defender para dispositivos de cremalheira IoT. | ☐ |  |
-| 14 | Grelhar e cabo dos aparelhos. | ☐ |  |
-| 15 | Alocar recursos do site para apoiar a implantação. | ☐ |  |
-| 16 | Crie grupos de Diretório Ativo ou utilizadores locais. | ☐ |  |
-| 17 | Formação de configuração (autoaprendizagem). | ☐ |  |
-| 18 | Vai ou não. | ☐ |  |
-| 19 | Agende a data de implantação. | ☐ |  |
+| 1 | Encomende aparelhos. | ☐ |  |
+| 2 | Prepare uma lista de sub-redes na rede. | ☐ |  |
+| 3 | Fornecer uma lista VLAN das redes de produção. | ☐ |  |
+| 4 | Forneça uma lista de modelos switch na rede. | ☐ |  |
+| 5 | Forneça uma lista de fornecedores e protocolos do equipamento industrial. | ☐ |  |
+| 6 | Fornecer detalhes de rede para sensores (endereço IP, sub-rede, D-GW, DNS). | ☐ |  |
+| 7 | Crie as regras de firewall necessárias e a lista de acesso. | ☐ |  |
+| 8 | Crie portas de abrang extensão nos interruptores para monitorização da porta ou configuure torneiras de rede conforme desejado. | ☐ |  |
+| 9 | Prepare espaço para os aparelhos sensores. | ☐ |  |
+| 10 | Prepare um posto de trabalho para o pessoal. | ☐ |  |
+| 11 | Forneça um teclado, monitor e rato para o Defender para dispositivos de cremalheira IoT. | ☐ |  |
+| 12 | Grelhar e cabo dos aparelhos. | ☐ |  |
+| 13 | Alocar recursos do site para apoiar a implantação. | ☐ |  |
+| 14 | Crie grupos de Diretório Ativo ou utilizadores locais. | ☐ |  |
+| 15 | Formação de configuração (autoaprendizagem). | ☐ |  |
+| 16 | Vai ou não. | ☐ |  |
+| 17 | Agende a data de implantação. | ☐ |  |
 
 
 | **Data** | **Nota** | **Data de implantação** | **Nota** |
@@ -696,6 +695,6 @@ Contacte um administrador ative directory para criar um grupo de utilizadores do
 | Câmara | |
 | Máquina de raio-X | |
 
-## <a name="see-also"></a>Ver também
+## <a name="next-steps"></a>Passos seguintes
 
 [Sobre o Defender para instalação IoT](how-to-install-software.md)

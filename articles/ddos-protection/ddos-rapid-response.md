@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/28/2020
 ms.author: yitoh
-ms.openlocfilehash: 8de95a56f3da928997a97ff216b13d522c82afca
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: 8e860bf47420f2b58c44df695da7761bcc2aa0ce
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97814198"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100521786"
 ---
 # <a name="azure-ddos-rapid-response"></a>Azure DDos resposta rápida
 
@@ -30,7 +30,7 @@ Durante um acesso ativo, os clientes Azure DDoS Protection Standard têm acesso 
 
 Só deve ativar a DRR se: 
 
-- Durante um ataque DDoS se descobrir que o desempenho do recurso protegido está severamente degradado, ou o recurso não está disponível. Rever o passo 2 acima sobre a configuração de monitores para detetar problemas de disponibilidade e desempenho de recursos.
+- Durante um ataque DDoS se descobrir que o desempenho do recurso protegido está severamente degradado, ou o recurso não está disponível. 
 - Acha que o seu recurso está sob ataque DDoS, mas o serviço de proteção DDoS não está a atenuar o ataque de forma eficaz.
 - Está a planear um evento viral que aumentará significativamente o tráfego da sua rede.
 - Para ataques que têm um impacto crítico no negócio.
