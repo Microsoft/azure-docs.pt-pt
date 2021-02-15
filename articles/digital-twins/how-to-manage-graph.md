@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 11/03/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: bc548d4cc728611387b36451d563be6ca0e21530
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: e5009e59477e6862c4441090a6480075c9e22385
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100388197"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100526788"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>Gerir um gráfico de gémeos digitais usando relacionamentos
 
@@ -53,7 +53,7 @@ A seguinte amostra de código ilustra como criar uma relação no seu exemplo de
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="CreateRelationshipMethod":::
 
-No seu método principal, pode agora chamar a `CreateRelationship()` função para criar uma relação _como_ esta: 
+No seu método principal, pode agora chamar a função personalizada para criar uma relação _contive_ como esta: 
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="UseCreateRelationship":::
 
@@ -86,7 +86,7 @@ Aqui está um exemplo que recupera uma lista de relacionamentos:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="FindOutgoingRelationshipsMethod":::
 
-Agora pode chamar este método para ver as relações de saída dos gémeos assim:
+Agora pode chamar este método personalizado para ver as relações de saída dos gémeos assim:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="UseFindOutgoingRelationships":::
 
@@ -102,17 +102,17 @@ Note que as `IncomingRelationship` chamadas não devolvem todo o corpo da relaç
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="FindIncomingRelationshipsMethod":::
 
-Agora pode chamar este método para ver as relações dos gémeos como este:
+Agora pode chamar este método personalizado para ver as relações dos gémeos como este:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="UseFindIncomingRelationships":::
 
 ### <a name="list-all-twin-properties-and-relationships"></a>Listar todas as propriedades e relacionamentos gémeos
 
-Utilizando os métodos acima referidos para listar relações de saída e entrada a um gémeo, pode criar um método que imprime informações gémeas completas, incluindo as propriedades do gémeo e ambos os tipos de relacionamentos. Aqui está um método de exemplo, chamado `FetchAndPrintTwinAsync()` , mostrando como fazê-lo.
+Utilizando os métodos acima referidos para listar relações de saída e entrada a um gémeo, pode criar um método que imprime informações gémeas completas, incluindo as propriedades do gémeo e ambos os tipos de relacionamentos. Aqui está um método personalizado de exemplo que mostra como fazê-lo.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="FetchAndPrintMethod":::
 
-Pode agora chamar esta função no seu método principal como este: 
+Pode agora chamar esta função personalizada no seu método principal como este: 
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="UseFetchAndPrint":::
 
@@ -127,7 +127,7 @@ Os parâmetros necessários para a chamada do cliente são o ID do gémeo de ori
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="UpdateRelationshipMethod":::
 
-Aqui está um exemplo de uma chamada para este método, passando num documento JSON Patch com a informação para atualizar uma propriedade.
+Aqui está um exemplo de uma chamada para este método personalizado, passando em um documento JSON Patch com a informação para atualizar um imóvel.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="UseUpdateRelationship":::
 
@@ -137,7 +137,7 @@ O primeiro parâmetro especifica o gémeo de origem (o gémeo de onde a relaçã
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="DeleteRelationshipMethod":::
 
-Pode agora chamar este método para eliminar uma relação como esta:
+Pode agora chamar a este método personalizado para eliminar uma relação como esta:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="UseDeleteRelationship":::
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/13/2020
-ms.openlocfilehash: d06501abe69ce9b06656cfa8949c42bb53a03983
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: fdd3886dda794ff9a91e2c2be6a3d810086d0ed2
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96019043"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100526991"
 ---
 # <a name="azure-monitor-logs-connector-for-logic-apps-and-power-automate"></a>Conector de registos Azure Monitor para Apps Lógicas e Automatização de Energia
 [As Azure Logic Apps](../../logic-apps/index.yml) e [Power Automamate](https://flow.microsoft.com) permitem criar fluxos de trabalho automatizados usando centenas de ações para uma variedade de serviços. O conector Azure Monitor Logs permite-lhe construir fluxos de trabalho que recuperem dados de um espaço de trabalho do Log Analytics ou de uma aplicação de Insights de Aplicação no Azure Monitor. Este artigo descreve as ações incluídas com o conector e fornece uma passagem para construir um fluxo de trabalho usando estes dados.
@@ -25,6 +25,7 @@ O conector Azure Monitor Logs tem estes limites:
 * Tamanho de resposta de consulta máxima 100 MB
 * Número máximo de registos: 500.000
 * Max consulta prazo de 110 segundos.
+* As visualizações de gráficos podem estar disponíveis na página de Logs e em falta no conector, uma vez que a página de conector e Logs não utiliza atualmente as mesmas bibliotecas de gráficos.
 
 Dependendo do tamanho dos seus dados e da consulta que utiliza, o conector pode atingir os seus limites e falhar. Pode trabalhar em torno desses casos ao ajustar a recorrência do gatilho para executar com mais frequência e consultar menos dados. Pode utilizar consultas que agregam os seus dados para devolver menos registos e colunas.
 

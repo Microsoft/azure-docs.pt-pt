@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/20/2020
+ms.date: 02/15/2021
 ms.author: memildin
-ms.openlocfilehash: 519285f2bad352aa16bdc8d9a1db7a63c2eb04e5
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 5a0fefd91e0aa60f6a3813513aa82a75b3557c7c
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98876398"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100526974"
 ---
 # <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>Proteja os seus pontos finais com a solução EDR integrada do Security Center: Microsoft Defender for Endpoint
 
@@ -43,12 +43,11 @@ O Microsoft Defender for Endpoint é uma solução holística de segurança de p
 | Estado de libertação:                  | Geralmente disponível (GA)                                                                                                                                                                                                                                                                                      |
 | Preços:                        | Requer [Azure Defender para servidores](security-center-pricing.md)                                                                                                                                                                                                                                             |
 | Plataformas suportadas:            | Máquinas Azure executando Janelas<br>Máquinas Azure Arc executando janelas|
-| Versões suportadas do Windows:  |  • Security Center suporta a deteção no Windows Server 2016, 2012 R2 e 2008 R2 SP1<br> • A monitorização do ponto final do servidor utilizando esta integração foi desativada para os clientes do Office 365 GCC|
-| Sistemas operativos não suportados:  |  • Windows Server 2019<br> • Windows 10<br> • Linux|
+| Versões suportadas do Windows:  |  • Security Center suporta deteção no Windows Server 2019, 2016, 2012 R2 e 2008 R2 SP1<br> • A monitorização do ponto final do servidor utilizando esta integração foi desativada para os clientes do Office 365 GCC<br> • [Várias sessões empresariais do Windows 10](../virtual-desktop/windows-10-multisession-faq.md) (anteriormente Enterprise for Virtual Desktops (EVD)<br> •  [Windows Virtual Desktop (WVD)](../virtual-desktop/overview.md)|
+| Sistemas operativos não suportados:  |  • Windows 10 (com além de EVD ou WVD)<br> • Linux|
 | Funções e permissões necessárias: | Para ativar/desativar a integração: **Administrador de segurança** ou **Proprietário**<br>Para ver alertas de MDATP no Centro de Segurança: **Leitor de segurança,** **leitor,** **contribuinte do grupo de recursos,** **proprietário do grupo de recursos,** **administrador de segurança,** **proprietário de assinatura,** ou **colaborador de subscrição**|
-| Nuvens:                         | ![Yes](./media/icons/yes-icon.png) Nuvens comerciais<br>![Yes](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) China Gov, Outro Gov<br>![No](./media/icons/no-icon.png) Clientes da GCC que executam cargas de trabalho em nuvens azure globais                                                        |
+| Nuvens:                         | ![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) US Gov<br>![Não](./media/icons/no-icon.png) China Gov, Outro Gov<br>![Não](./media/icons/no-icon.png) Clientes da GCC que executam cargas de trabalho em nuvens azure globais                                                        |
 |                                 |                                                                                                                                                                                                                                                                                                               |
-
 
 ## <a name="microsoft-defender-for-endpoint-features-in-security-center"></a>Microsoft Defender para funcionalidades de Endpoint no Security Center
 
@@ -62,7 +61,7 @@ O Microsoft Defender for Endpoint fornece:
 
 Ao integrar o Defender para Endpoint com o Security Center, irá beneficiar das seguintes capacidades adicionais:
 
-- **Embarque automatizado.** O Security Center ativa automaticamente o microsoft Defender para o sensor Endpoint para todos os servidores windows monitorizados pelo Security Center. Exceto aqueles que estão a executar o Windows Server 2019, que deve ser a bordo através de script local, Group Policy Object (GPO) ou [Microsoft Endpoint Configuration Manager](/mem/configmgr/) (anteriormente SCCM).
+- **Embarque automatizado.** O Security Center ativa automaticamente o microsoft Defender para o sensor Endpoint para todos os servidores windows monitorizados pelo Security Center.
 
 - **Uma única vidraça de vidro.** A consola Do Centro de Segurança apresenta alertas microsoft Defender para endpoint. Para investigar mais aprofundadamente, utilize o Microsoft Defender para as páginas do portal do Endpoint, onde verá informações adicionais, como a árvore do processo de alerta e o gráfico do incidente. Você também pode ver uma linha do tempo de máquina detalhada que mostra todos os comportamentos por um período histórico de até seis meses.
 
@@ -141,7 +140,7 @@ As instruções completas para mudar de uma solução de ponto final não micros
   
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Plataformas e funcionalidades suportadas pelo Centro de Segurança do Azure](security-center-os-coverage.md)
 - [Gerir recomendações de segurança no Azure Security Center](security-center-recommendations.md): Saiba como as recomendações o ajudam a proteger os seus recursos Azure.

@@ -4,12 +4,12 @@ description: Saiba mais sobre encriptação no resto do seu registo de contentor
 ms.topic: article
 ms.date: 12/03/2020
 ms.custom: ''
-ms.openlocfilehash: fb30610457e539250c33d7d9726fe10f9c0f8c5a
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: bc692dc8df133aa5fae352a7667062f81ceed350
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99062733"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100526447"
 ---
 # <a name="encrypt-registry-using-a-customer-managed-key"></a>Registo encriptado usando uma chave gerida pelo cliente
 
@@ -127,11 +127,11 @@ az keyvault set-policy \
   --key-permissions get unwrapKey wrapKey
 ```
 
-Em alternativa, utilize [o Azure RBAC para Key Vault](../key-vault/general/rbac-guide.md) (pré-visualização) para atribuir permissões à identidade para aceder ao cofre da chave. Por exemplo, atribua o papel de encriptação do serviço crypto do cofre de chave à identidade utilizando o comando [de criação de função az:](/cli/azure/role/assignment#az-role-assignment-create)
+Em alternativa, utilize [o Azure RBAC para o Key Vault](../key-vault/general/rbac-guide.md) para atribuir permissões à identidade para aceder ao cofre da chave. Por exemplo, atribua o papel de encriptação do serviço crypto do cofre de chave à identidade utilizando o comando [de criação de função az:](/cli/azure/role/assignment#az-role-assignment-create)
 
 ```azurecli 
 az role assignment create --assignee $identityPrincipalID \
-  --role "Key Vault Crypto Service Encryption (preview)" \
+  --role "Key Vault Crypto Service Encryption User" \
   --scope $keyvaultID
 ```
 
@@ -267,12 +267,12 @@ Configure uma política para o cofre chave para que a identidade possa acessá-l
 
 :::image type="content" source="media/container-registry-customer-managed-keys/add-key-vault-access-policy.png" alt-text="Criar política de acesso ao cofre chave":::
 
-Em alternativa, utilize [o Azure RBAC para Key Vault](../key-vault/general/rbac-guide.md) (pré-visualização) para atribuir permissões à identidade para aceder ao cofre da chave. Por exemplo, atribua o papel de encriptação do Serviço Crypto do Cofre de Chaves à identidade.
+Em alternativa, utilize [o Azure RBAC para o Key Vault](../key-vault/general/rbac-guide.md) para atribuir permissões à identidade para aceder ao cofre da chave. Por exemplo, atribua o papel de encriptação do Serviço Crypto do Cofre de Chaves à identidade.
 
 1. Navegue para o cofre da chave.
 1. Selecione **Access control (IAM)**  >  **+Add**  >  **Add role assignment**.
 1. Na janela **de atribuição de funções Adicionar:**
-    1. Selecione o papel **de encriptação do serviço crypto do cofre de chaves (pré-visualização).** 
+    1. Selecione a função de utilizador do **serviço de encriptação do serviço crypto do cofre** de chaves. 
     1. Atribuir acesso à **identidade gerida atribuída pelo Utilizador.**
     1. Selecione o nome de recurso da sua identidade gerida atribuída pelo utilizador e selecione **Save**.
 

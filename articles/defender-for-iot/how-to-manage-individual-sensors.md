@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 02/02/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: ba98eb7e87ba277dcd5279ecf17373a8276b1cb1
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: c8bb44d323574f6815aa570b271ed4c0df1fc6be
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/15/2021
-ms.locfileid: "100523979"
+ms.locfileid: "100526923"
 ---
 # <a name="manage-individual-sensors"></a>Gerir sensores individuais
 
@@ -282,7 +282,7 @@ Quando estiver a utilizar o comando CLI:
 
 Gerencie os seus certificados com os seguintes comandos:
 
-| Description | Comando CLI |
+| Descrição | Comando CLI |
 |--|--|
 | Gerar uma nova chave privada e pedido de assinatura de certificado | `openssl req -out CSR.csr -new -newkey rsa:2048 -nodes -keyout privateKey.key` |
 | Gerar um certificado autoassinado | `openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -keyout privateKey.key -out certificate.crt` |
@@ -292,7 +292,7 @@ Gerencie os seus certificados com os seguintes comandos:
 
 Se precisar de verificar as informações dentro de um Certificado, RSE ou Chave Privada, utilize estes comandos;
 
-| Description | Comando CLI |
+| Descrição | Comando CLI |
 |--|--|
 | Consulte um pedido de assinatura de certificado (CSR) | `openssl req -text -noout -verify -in CSR.csr` |
 | Verifique uma chave privada | `openssl rsa -in privateKey.key -check` |
@@ -300,13 +300,13 @@ Se precisar de verificar as informações dentro de um Certificado, RSE ou Chave
 
 Se receber um erro que a tecla privada não corresponda ao certificado, ou que não seja confiável um certificado que instalou num site, utilize estes comandos para corrigir o erro;
 
-| Description | Comando CLI |
+| Descrição | Comando CLI |
 |--|--|
 | Verifique um hash MD5 da chave pública para garantir que corresponde ao que está numa rse ou chave privada | 1. `openssl x509 -noout -modulus -in certificate.crt | openssl md5` <br /> 2. `openssl rsa -noout -modulus -in privateKey.key | openssl md5` <br /> 3. `openssl req -noout -modulus -in CSR.csr | openssl md5 ` |
 
 Para converter certificados e chaves em diferentes formatos para torná-los compatíveis com tipos específicos de servidores, ou software, utilize estes comandos;
 
-| Description | Comando CLI |
+| Descrição | Comando CLI |
 |--|--|
 | Converter um ficheiro DER (.crt .cer .der) para PEM  | `openssl x509 -inform der -in certificate.cer -out certificate.pem`  |
 | Converter um ficheiro PEM para DER | `openssl x509 -outform der -in certificate.pem -out certificate.der`  |
@@ -570,7 +570,7 @@ Para aceder às propriedades do sistema:
 
 3. Selecione Propriedades do **Sistema** na secção **Geral.**
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="see-also"></a>Ver também
 
 [Pesquisa e pacotes de inteligência de ameaça](how-to-work-with-threat-intelligence-packages.md)
 

@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 01/03/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 3d5a29ed26d58f0cbaa57768d4b8ad236283deb9
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 4ceedf4d05c6f92e5c32da95f8b54fc6c95de01c
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/15/2021
-ms.locfileid: "100523860"
+ms.locfileid: "100526515"
 ---
 # <a name="about-azure-defender-for-iot-network-setup"></a>Sobre o Azure Defender para a configuração da rede IoT
 
@@ -695,6 +695,6 @@ Contacte um administrador ative directory para criar um grupo de utilizadores do
 | Câmara | |
 | Máquina de raio-X | |
 
-## <a name="next-steps"></a>Passos seguintes
+## <a name="see-also"></a>Ver também
 
 [Sobre o Defender para instalação IoT](how-to-install-software.md)

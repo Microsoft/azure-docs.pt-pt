@@ -8,14 +8,14 @@ ms.subservice: security
 ms.date: 11/19/2020
 ms.author: nanditav
 ms.reviewer: jrasnick
-ms.openlocfilehash: d9a9d3c303739e68b5b8ef28053d6cf0b071f955
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: d4bc59a9bd5299698bff9949aaaa881fbdf385ee
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96501061"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100526277"
 ---
-# <a name="encryption-for-azure-synapse-analytics-workspaces"></a>Encriptação para espaços de trabalho Azure Synapse Analytics
+# <a name="encryption-for-azure-synapse-analytics-workspaces"></a>Encriptação das áreas de trabalho do Azure Synapse Analytics
 
 Este artigo descreverá:
 * Encriptação de dados em repouso em espaços de trabalho Synapse Analytics.
@@ -39,7 +39,7 @@ Os dados dos seguintes componentes da Sinapse são encriptados com a chave gerid
 * Conjuntos de SQL
  * Piscinas SQL dedicadas
  * Piscinas SQL sem servidor
-* Piscinas apache spark
+* Conjuntos do Apache Spark
 * Tempos de integração da Azure Data Factory, oleodutos, conjuntos de dados.
 
 ## <a name="workspace-encryption-configuration"></a>Configuração de encriptação do espaço de trabalho
@@ -53,7 +53,7 @@ Os espaços de trabalho podem ser configurados para permitir a dupla encriptaç�
 
 ### <a name="key-access-and-workspace-activation"></a>Acesso chave e ativação do espaço de trabalho
 
-O modelo de encriptação Azure Synapse com chaves geridas pelo cliente envolve o espaço de trabalho que acede às chaves no Cofre da Chave Azure para encriptar e desencriptar conforme necessário. As teclas são disponibilizações acessíveis ao espaço de trabalho através de uma política de acesso ou do acesso RBAC do Cofre de Chaves Azure[(pré-visualização).](../../key-vault/general/rbac-guide.md) Ao conceder permissões através de uma política de acesso a Azure Key Vault, escolha a opção ["Apenas para aplicação"](../../key-vault/general/secure-your-key-vault.md#key-vault-authentication-options) durante a criação de políticas (selecione a identidade gerida do espaço de trabalho e não a adicione como uma aplicação autorizada).
+O modelo de encriptação Azure Synapse com chaves geridas pelo cliente envolve o espaço de trabalho que acede às chaves no Cofre da Chave Azure para encriptar e desencriptar conforme necessário. As chaves são tornadas acessíveis ao espaço de trabalho através de uma política de acesso ou [do acesso RBAC do Azure Key Vault](../../key-vault/general/rbac-guide.md). Ao conceder permissões através de uma política de acesso a Azure Key Vault, escolha a opção ["Apenas para aplicação"](../../key-vault/general/secure-your-key-vault.md#key-vault-authentication-options) durante a criação de políticas (selecione a identidade gerida do espaço de trabalho e não a adicione como uma aplicação autorizada).
 
  A identidade gerida pelo espaço de trabalho deve ser concedida as permissões que necessita no cofre da chave antes de o espaço de trabalho poder ser ativado. Esta abordagem faseada da ativação do espaço de trabalho garante que os dados no espaço de trabalho são encriptados com a chave gerida pelo cliente. Note que a encriptação pode ser ativada ou desativada para piscinas SQL dedicadas, cada pool não está ativado para encriptação por padrão.
 

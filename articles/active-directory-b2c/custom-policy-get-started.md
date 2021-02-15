@@ -12,12 +12,12 @@ ms.date: 02/28/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ae3865c1ee5e656fc4feda48de9ab67995619593
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 9612a26d7ac2e7a059655636fc1a2a7a43e3b8d7
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96936374"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100526243"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Começar com políticas personalizadas no Azure Ative Directory B2C
 
@@ -111,7 +111,7 @@ Em seguida, expor a API adicionando um âmbito:
 Em seguida, especifique que o pedido deve ser tratado como um cliente público:
 
 1. No menu esquerdo, em **Manage,** **selecione Autenticação.**
-1. Em **definições avançadas,** ative **a aplicação Treat como cliente público** (selecione **Sim).** Certifique-se de que **"permite o Mencimento Público": o verdadeiro** está definido no manifesto de aplicação. 
+1. Em **definições avançadas,** na secção **Permitir fluxos de clientes públicos,** defina **Ativar os seguintes fluxos móveis e de ambiente de trabalho** para **Sim**. Certifique-se de que **"permite o Mencimento Público": o verdadeiro** está definido no manifesto de aplicação. 
 1. Selecione **Guardar**.
 
 Agora, conceda permissões ao âmbito da API que expôs anteriormente no registo *IdentityExperienceFramework:*

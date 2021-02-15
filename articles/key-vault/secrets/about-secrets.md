@@ -10,12 +10,12 @@ ms.subservice: secrets
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 78e9c50cb0601f6be69ae61f3a8e02621c7dd808
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 55814dff5cba572e2e22b5a0f9971bc920e32372
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98786044"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100526647"
 ---
 # <a name="about-azure-key-vault-secrets"></a>Sobre os segredos do Cofre da Chave Azure
 
@@ -74,7 +74,7 @@ Guias para controlar o acesso no Cofre de Chaves:
 - [Atribua uma política de acesso ao Cofre de Chaves utilizando o CLI](../general/assign-access-policy-cli.md)
 - [Atribua uma política de acesso ao Cofre de Chaves utilizando o PowerShell](../general/assign-access-policy-powershell.md)
 - [Atribua uma política de acesso ao Cofre de Chaves utilizando o portal Azure](../general/assign-access-policy-portal.md)
-- [Fornecer acesso a chaves, certificados e segredos do Cofre Chave com um controlo de acesso baseado em funções Azure (pré-visualização)](../general/rbac-guide.md)
+- [Fornecer acesso a chaves, certificados e segredos do Cofre Chave com um controlo de acesso baseado em funções Azure](../general/rbac-guide.md)
 
 ## <a name="secret-tags"></a>Etiquetas secretas  
 Pode especificar metadados específicos de aplicação adicionais sob a forma de etiquetas. O Key Vault suporta até 15 tags, cada uma das quais pode ter um nome de 256 caracteres e um valor de 256 caracteres.  
@@ -124,10 +124,10 @@ Guias para controlar o acesso no Cofre de Chaves:
 - [Atribua uma política de acesso ao Cofre de Chaves utilizando o CLI](../general/assign-access-policy-cli.md)
 - [Atribua uma política de acesso ao Cofre de Chaves utilizando o PowerShell](../general/assign-access-policy-powershell.md)
 - [Atribua uma política de acesso ao Cofre de Chaves utilizando o portal Azure](../general/assign-access-policy-portal.md)
-- [Fornecer acesso a chaves, certificados e segredos do Cofre Chave com um controlo de acesso baseado em funções Azure (pré-visualização)](../general/rbac-guide.md)
+- [Fornecer acesso a chaves, certificados e segredos do Cofre Chave com um controlo de acesso baseado em funções Azure](../general/rbac-guide.md)
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Sobre o Key Vault](../general/overview.md)
 - [Acerca de chaves, segredos e certificados](../general/about-keys-secrets-certificates.md)

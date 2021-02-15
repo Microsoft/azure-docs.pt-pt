@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 02/11/2021
-ms.openlocfilehash: 091f4d7a4acdcc5d1a2b89a5121ee0cff3ee1f55
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 9ffc450294f186b77cc7a6c44c10eecf266161d3
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100381193"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100526702"
 ---
 # <a name="credentials-for-source-authentication-in-azure-purview"></a>Credenciais para autenticação de origem em Azure Purview
 
@@ -67,7 +67,7 @@ Antes de poder criar um Credencial, primeiro associe uma ou mais das suas instâ
 
 4. Nas **permissões Secrets** dropdown, selecione **permissões Get** and **List.**
 
-5. Para **Select principal,** escolha a identidade gerida por Purview.
+5. Para **Select principal,** escolha a identidade gerida por Purview. Pode pesquisar o MSI do Purview utilizando o nome da instância de Purview **ou** o ID de aplicação de identidade gerido. Não suportamos atualmente identidades compostas (nome de identidade gerido + ID de aplicação).
 
    :::image type="content" source="media/manage-credentials/add-access-policy.png" alt-text="Adicionar política de acesso":::
 

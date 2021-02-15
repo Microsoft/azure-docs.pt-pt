@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/18/2020
 ms.author: Zhchia
-ms.openlocfilehash: 902bd46fcf6efc20c81992e29fd463781fecc15e
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 817b6b373f521543234cf02818cde8c4b4ba40c1
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98731442"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100526430"
 ---
 # <a name="tutorial-configure-parsable-for-automatic-user-provisioning"></a>Tutorial: Configurar Parsable para o fornecimento automático de utilizadores
 
@@ -32,6 +32,7 @@ Este tutorial descreve os passos necessários para realizar tanto no Diretório 
 > * Criar utilizadores em Parsable
 > * Remova os utilizadores em Parsable quando já não necessitam de acesso
 > * Mantenha os atributos do utilizador sincronizados entre AZure AD e Parsable
+> * Grupos de provisão e membros do grupo na Parsable
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -107,17 +108,25 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
    |userName|String|&check;|
    |displayName|String|
 
-10. Para configurar filtros de âmbito, veja as instruções seguintes disponibilizadas no [Tutorial de filtro de âmbito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+10. Na secção **Mappings,** selecione **Synchronize Azure Ative Directory Groups para Parsable**.
 
-11. Para ativar o serviço de prestação de Ad Azure para o Parsable, altere o **Estado de Provisionamento** para **On** na secção **Definições.**
+11. Reveja os atributos do grupo que são sincronizados de Azure AD para Parsable na secção **De mapeamento de Atributos.** Os atributos selecionados como propriedades **de correspondência** são utilizados para combinar com os grupos em Parsable para operações de atualização. Selecione o botão **Guardar** para escoar quaisquer alterações.
+
+      |Atributo|Tipo|Suportado para filtragem|
+      |---|---|---|
+      |displayName|String|&check;|
+      |membros|Referência|
+12. Para configurar filtros de âmbito, veja as instruções seguintes disponibilizadas no [Tutorial de filtro de âmbito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+
+13. Para ativar o serviço de prestação de Ad Azure para o Parsable, altere o **Estado de Provisionamento** para **On** na secção **Definições.**
 
     ![Estado do Aprovisionamento Ativado](common/provisioning-toggle-on.png)
 
-12. Defina os utilizadores e/ou grupos que deseja prestar à Parsable, escolhendo os valores desejados no **Âmbito** na secção **Definições.**
+14. Defina os utilizadores e/ou grupos que deseja prestar à Parsable, escolhendo os valores desejados no **Âmbito** na secção **Definições.**
 
     ![Âmbito de Aprovisionamento](common/provisioning-scope.png)
 
-13. Quando estiver pronto para aprovisionar, clique em **Guardar**.
+15. Quando estiver pronto para aprovisionar, clique em **Guardar**.
 
     ![Guardar Configuração de Aprovisionamento](common/provisioning-configuration-save.png)
 
@@ -129,6 +138,10 @@ Depois de configurar o aprovisionamento, utilize os seguintes recursos para moni
 1. Utilize os [registos de aprovisionamento](../reports-monitoring/concept-provisioning-logs.md) para determinar quais os utilizadores que foram aprovisionados com ou sem êxito
 2. Verifique a [barra de progresso](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) para ver o estado do ciclo de aprovisionamento e quão próximo está da conclusão
 3. Se a configuração de aprovisionamento parecer estar num mau estado de funcionamento, a aplicação vai entrar em quarentena. Saiba mais sobre os estados de quarentena [aqui](../app-provisioning/application-provisioning-quarantine-status.md).  
+
+## <a name="change-log"></a>Change log
+
+* 02/15/2021 - Habilitação do grupo.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

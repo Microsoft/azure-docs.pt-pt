@@ -7,17 +7,20 @@ ms.topic: conceptual
 author: ShaneBala-keyvault
 ms.author: sudbalas
 ms.date: 12/15/2020
-ms.openlocfilehash: 68c690b9cbd2028f73492550adbe86111f9ec3a7
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: e06a388f2391f4ed94370dd072a66a162ba5240f
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99257951"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100526668"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Descrição geral da eliminação recuperável do Azure Key Vault
 
 > [!IMPORTANT]
 > Tem de ativar a eliminação suave dos cofres das chaves imediatamente. A capacidade de excluir o soft-delete será depreciada em breve. Veja todos os detalhes [aqui](soft-delete-change.md)
+
+> [!IMPORTANT]
+> Os gatilhos de abóbada com eliminação suave apagam as definições para integração com os serviços key Vault, ou seja, atribuições de funções Azure RBAC, subscrições de Grade de Eventos, definições de diagnóstico do Azure Monitor. Após a recuperação das definições do Cofre de Chaves de eliminar suavemente para serviços integrados, terá de ser recriada manualmente. 
 
 A funcionalidade de eliminação suave do Key Vault permite a recuperação dos cofres apagados e dos objetos do cofre de chaves eliminados (por exemplo, chaves, segredos, certificados), conhecidos como soft-delete. Especificamente, abordamos os seguintes cenários: Esta salvaguarda oferece as seguintes proteções:
 
@@ -27,7 +30,7 @@ A funcionalidade de eliminação suave do Key Vault permite a recuperação dos 
 
 ## <a name="supporting-interfaces"></a>Interfaces de apoio
 
-A função soft-delete está disponível através da [API REST,](/rest/api/keyvault/)do [Azure CLI,](./key-vault-recovery.md) [do Azure PowerShell](./key-vault-recovery.md)e das interfaces [.NET/C#,](/dotnet/api/microsoft.azure.keyvault?view=azure-dotnet) bem como [dos modelos ARM](/azure/templates/microsoft.keyvault/2019-09-01/vaults).
+A função soft-delete está disponível através da [API REST,](/rest/api/keyvault/)do [Azure CLI,](./key-vault-recovery.md) [do Azure PowerShell](./key-vault-recovery.md)e das interfaces [.NET/C#,](/dotnet/api/microsoft.azure.keyvault?view=azure-dotnet&preserve-view=true) bem como [dos modelos ARM](/azure/templates/microsoft.keyvault/2019-09-01/vaults).
 
 ## <a name="scenarios"></a>Cenários
 
