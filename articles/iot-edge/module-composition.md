@@ -8,12 +8,12 @@ ms.date: 10/08/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 3f6c12b892e01aafd5beecdff14751481cf7fc96
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 406420fcd517ceda8ea6eedfc955f54b15541f74
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91963402"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100366607"
 ---
 # <a name="learn-how-to-deploy-modules-and-establish-routes-in-iot-edge"></a>Saiba como implementar módulos e estabelecer rotas no IoT Edge
 
@@ -162,7 +162,7 @@ Por exemplo:
 }
 ```
 
-Cada módulo tem uma propriedade **de definições** que contém a **imagem**do módulo, um endereço para a imagem do recipiente num registo de contentores, e quaisquer **criações Opções** para configurar a imagem no arranque. Para obter mais informações, consulte [Como configurar o recipiente para criar opções para módulos IoT Edge](how-to-use-create-options.md).
+Cada módulo tem uma propriedade **de definições** que contém a **imagem** do módulo, um endereço para a imagem do recipiente num registo de contentores, e quaisquer **criações Opções** para configurar a imagem no arranque. Para obter mais informações, consulte [Como configurar o recipiente para criar opções para módulos IoT Edge](how-to-use-create-options.md).
 
 O módulo edgeHub e os módulos personalizados também têm três propriedades que dizem ao agente IoT Edge como geri-los:
 
@@ -234,7 +234,7 @@ A propriedade de origem pode ser qualquer um dos seguintes valores:
 
 A condição é opcional numa declaração de rota. Se quiser passar todas as mensagens da fonte para a pia, deixe de fora a cláusula **WHERE** inteiramente. Ou pode usar o [idioma de consulta IoT Hub](../iot-hub/iot-hub-devguide-routing-query-syntax.md) para filtrar determinadas mensagens ou tipos de mensagens que satisfaçam a condição. As rotas IoT Edge não suportam mensagens de filtragem baseadas em etiquetas ou propriedades duplas.
 
-As mensagens que passam entre módulos no IoT Edge são formatadas da mesma forma que as mensagens que passam entre os seus dispositivos e o Azure IoT Hub. Todas as mensagens são formatadas como JSON e têm **sistemasProperties,** **appProperties**e parâmetros **corporais.**
+As mensagens que passam entre módulos no IoT Edge são formatadas da mesma forma que as mensagens que passam entre os seus dispositivos e o Azure IoT Hub. Todas as mensagens são formatadas como JSON e têm **sistemasProperties,** **appProperties** e parâmetros **corporais.**
 
 Pode criar consultas em torno de qualquer um dos três parâmetros com a seguinte sintaxe:
 
@@ -256,7 +256,7 @@ A pia define para onde as mensagens são enviadas. Apenas os módulos e o IoT Hu
 
 A propriedade da pia pode ser qualquer um dos seguintes valores:
 
-| Sink | Descrição |
+| Sink | Description |
 | ---- | ----------- |
 | `$upstream` | Envie a mensagem para o IoT Hub |
 | `BrokeredEndpoint("/modules/<moduleId>/inputs/<input>")` | Envie a mensagem para uma entrada específica de um módulo específico |
@@ -327,7 +327,7 @@ O exemplo a seguir mostra como pode ser um documento manifesto de implantação 
           "edgeAgent": {
             "type": "docker",
             "settings": {
-              "image": "mcr.microsoft.com/azureiotedge-agent:1.0",
+              "image": "mcr.microsoft.com/azureiotedge-agent:1.1",
               "createOptions": ""
             }
           },
@@ -337,7 +337,7 @@ O exemplo a seguir mostra como pode ser um documento manifesto de implantação 
             "restartPolicy": "always",
             "startupOrder": 0,
             "settings": {
-              "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
+              "image": "mcr.microsoft.com/azureiotedge-hub:1.1",
               "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}]}}}"
             }
           }

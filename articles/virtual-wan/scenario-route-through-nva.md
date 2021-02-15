@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 9d4eb90d49e8cc671156833f22a85e7c2b4dd15b
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: 24671a34214864e253d96c356dc8b2853bf6d560
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99626665"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100519801"
 ---
 # <a name="scenario-route-traffic-through-an-nva"></a>Cenário: Encaminhar o tráfego através de uma NVA
 
@@ -30,9 +30,9 @@ Ao trabalhar com o encaminhamento virtual do hub virtual WAN, existem alguns cen
 
 Neste cenário, utilizaremos a convenção de nomeação:
 
-* "NVA VNets" para redes virtuais onde os utilizadores tenham implementado um NVA e tenham conectado outras redes virtuais como porta-vozes (VNet 2 e VNet 4 na **matriz de conectividade**, abaixo).
-* "NVA Spokes" para redes virtuais ligadas a um VNet NVA (VNet 5, VNet 6, VNet 7 e VNet 8 na **matriz de conectividade**, abaixo).
-* "VNets não-NVA" para redes virtuais ligadas a WAN virtuais que não tenham um NVA ou outros VNets com eles (VNet 1 e VNet 3 na **matriz de conectividade,** abaixo).
+* "NVA VNets" para redes virtuais onde os utilizadores tenham implementado um NVA e tenham conectado outras redes virtuais como porta-vozes (VNet 2 e VNet 4 na **Figura 2** mais abaixo no artigo).
+* "NVA Spokes" para redes virtuais ligadas a um VNet NVA (VNet 5, VNet 6, VNet 7 e VNet 8 na **Figura 2** mais abaixo no artigo).
+* "VNets não-NVA" para redes virtuais ligadas a WAN virtuais que não tenham um NVA ou outros VNets com eles (VNet 1 e VNet 3 na **Figura 2** mais abaixo no artigo).
 * "Hubs" para Hubs VIRTUAIS WAN geridos pela Microsoft, onde os VNets NVA estão ligados. Os VNets de NVA não precisam de ser ligados aos hubs VIRTUAIS WAN, apenas aos VNets NVA.
 
 A seguinte matriz de conectividade, resume os fluxos suportados neste cenário:
@@ -49,7 +49,7 @@ A seguinte matriz de conectividade, resume os fluxos suportados neste cenário:
 Cada uma das células da matriz de conectividade descreve como um VNet ou ramo (o lado "De" do fluxo, os cabeçalhos de linha na tabela) comunica com um destino VNet ou ramo (o lado "To" do fluxo, os cabeçalhos da coluna em itálico na tabela). "Direto" significa que a conectividade é fornecida de forma nativa por PARTE Virtual, "Peering" significa que a conectividade é fornecida por uma Rota User-Defined no VNet, "Over NVA VNet" significa que a conectividade atravessa a NVA implantada no VNet NVA. Considere o seguinte:
 
 * Os porta-vozes da NVA não são geridos pela Virtual WAN. Como resultado, os mecanismos com os quais comunicarão a outros VNets ou ramos são mantidos pelo utilizador. A conectividade com o VNet NVA é fornecida por um peering VNet, e uma rota padrão para 0.0.0.0/0 apontando para o NVA como o próximo salto deve cobrir conectividade com a Internet, com outros raios, e para sucursais
-* Os VNets NVA saberão dos seus próprios porta-vozes da NVA, mas não sobre os porta-vozes da NVA ligados a outros VNets NVA. Por exemplo, na Tabela 1, o VNet 2 sabe sobre o VNet 5 e o VNet 6, mas não sobre outros porta-vozes como o VNet 7 e o VNet 8. É necessária uma rota estática para injetar os prefixos de outros porta-vozes em VNets NVA
+* Os VNets NVA saberão dos seus próprios porta-vozes da NVA, mas não sobre os porta-vozes da NVA ligados a outros VNets NVA. Por exemplo, na Figura 2 mais abaixo neste artigo, o VNet 2 sabe sobre o VNet 5 e o VNet 6, mas não sobre outros porta-vozes como vNet 7 e VNet 8. É necessária uma rota estática para injetar os prefixos de outros porta-vozes em VNets NVA
 * Da mesma forma, os balcões e os VNets não-NVA não saberão de nenhum NVA falado, uma vez que os porta-vozes da NVA não estão ligados aos hubs virtuais do WAN. Como resultado, também aqui serão necessárias rotas estáticas.
 
 Tendo em conta que os porta-vozes da NVA não são geridos pela VIRTUAL WAN, todas as outras linhas apresentam o mesmo padrão de conectividade. Como resultado, uma única tabela de rotas (a predefinida) fará:

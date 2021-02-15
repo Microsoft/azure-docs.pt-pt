@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 01/19/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 7214a1eb41e4434818123ee26765ceb10ad551a5
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 598673bca5b893236cfd38a7fa220ff25ee9dd7e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99094914"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388520"
 ---
 # <a name="azure-storage-redundancy"></a>Redundância do Armazenamento do Azure
 
@@ -185,6 +185,14 @@ A tabela a seguir indica se os seus dados são duráveis e disponíveis num dete
 | Leia o acesso à região secundária disponível se a região primária ficar indisponível | No | No | Sim (com RA-GRS) | Sim (com RA-GZRS) |
 
 <sup>1</sup> O failover da conta é necessário para restaurar a disponibilidade de escrita se a região primária ficar indisponível. Para obter mais informações, consulte [a recuperação de desastres e a falha da conta de armazenamento.](storage-disaster-recovery-guidance.md)
+
+### <a name="supported-azure-storage-services"></a>Serviços de armazenamento suportados da Azure
+
+A tabela que se segue mostra quais as opções de despedimento suportadas por cada serviço de Armazenamento Azure.
+
+| LRS | ZRS | GRS/RA-GRS | GZRS/RA-GZRS |
+|:-|:-|:-|:-|
+| Armazenamento de blobs<br />Armazenamento de filas<br />Table Storage<br />Ficheiros do Azure<br />Discos geridos Azure | Armazenamento de blobs<br />Armazenamento de filas<br />Table Storage<br />Ficheiros do Azure | Armazenamento de blobs<br />Armazenamento de filas<br />Table Storage<br />Ficheiros do Azure<br /> | Armazenamento de blobs<br />Armazenamento de filas<br />Table Storage<br />Ficheiros do Azure<br /> |
 
 ### <a name="supported-storage-account-types"></a>Tipos de conta de armazenamento suportados
 

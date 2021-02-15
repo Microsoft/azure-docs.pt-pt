@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/25/2021
 ms.author: shhazam
-ms.openlocfilehash: d11154e26e2ffe97a1ea102a11dddb746db9433a
-ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
+ms.openlocfilehash: 10246277715d23f42eb0bd17d19794b8d4503f3f
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99809274"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100521871"
 ---
 # <a name="security-recommendations"></a>Recomendações de segurança
 
@@ -60,7 +60,6 @@ Os alertas de recomendação fornecem insights e sugestões para ações para me
 | Médio | A política de filtro IP predefinido deve ser negada | IoT Hub | A configuração do filtro IP deve ter regras definidas para tráfego permitido, e deve, por padrão, negar todo o tráfego por padrão. |
 | Médio | A regra do filtro IP inclui grande gama de IP | IoT Hub | Um intervalo IP de fonte de fonte de filtro IP permite que seja demasiado grande. Regras excessivamente permissivas podem expor o seu hub IoT a atores mal-intencionados. |
 | Baixo | Ativar registos de diagnóstico no IoT Hub | IoT Hub | Ativar os registos e retê-los por um ano. A retenção de registos permite-lhe recriar pistas de atividade para fins de investigação quando ocorre um incidente de segurança ou se a sua rede está comprometida. |
-
 
 ## <a name="next-steps"></a>Passos seguintes
 

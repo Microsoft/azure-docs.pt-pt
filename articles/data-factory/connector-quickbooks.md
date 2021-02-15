@@ -1,23 +1,18 @@
 ---
 title: Copiar dados de QuickBooks Online usando Azure Data Factory (Pré-visualização)
 description: Saiba como copiar dados do QuickBooks Online para lojas de dados de sumidouros suportados utilizando uma atividade de cópia num pipeline da Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
 ms.author: jingwang
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/15/2021
-ms.openlocfilehash: ecdb0e55aa7127a373e63612908ed58109c1f8e2
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: eecbcb817ad31480f8f6c3c7272328d06b17c081
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98233173"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100384066"
 ---
 # <a name="copy-data-from-quickbooks-online-using-azure-data-factory-preview"></a>Copiar dados de QuickBooks Online usando Azure Data Factory (Pré-visualização)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -50,17 +45,17 @@ As seguintes propriedades são suportadas para o serviço ligado quickBooks:
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo deve ser definida para: **QuickBooks** | Sim |
-| conexõesProperties | Um grupo de propriedades que define como se conectar com QuickBooks. | Sim |
-| **_Em: `connectionProperties` __* | | |
-| endpoint | O ponto final do servidor QuickBooks Online. (isto é, quickbooks.api.intuit.com)  | Sim |
-| companyId | A identificação da empresa quickBooks para autorizar. Para obter informações sobre como encontrar o ID da empresa, veja [como encontro o meu ID da empresa.](https://quickbooks.intuit.com/community/Getting-Started/How-do-I-find-my-Company-ID/m-p/185551) | Sim |
-| consumerKey | O ID do cliente da sua aplicação QuickBooks Online para autenticação OAuth 2.0. Saiba mais a partir [daqui.](https://developer.intuit.com/app/developer/qbo/docs/develop/authentication-and-authorization/oauth-2.0#obtain-oauth2-credentials-for-your-app) | Sim |
-| segredo do consumidor | O segredo do cliente da sua aplicação QuickBooks Online para autenticação OAuth 2.0. Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Sim |
-| refreshToken | O token de atualização OAuth 2.0 associado à aplicação QuickBooks. Saiba mais a partir [daqui.](https://developer.intuit.com/app/developer/qbo/docs/develop/authentication-and-authorization/oauth-2.0#obtain-oauth2-credentials-for-your-app) Note que o token de atualização expirará após 180 dias. O cliente precisa de atualizar regularmente o token de atualização. <br/>Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md).| Sim |
-| useEncryptedEndpoints | Especifica se os pontos finais de origem de dados são encriptados usando HTTPS. O valor predefinido é true.  | Não |
+| tipo | A propriedade tipo deve ser definida para: **QuickBooks** | Yes |
+| conexõesProperties | Um grupo de propriedades que define como se conectar com QuickBooks. | Yes |
+| ***Em `connectionProperties` :*** | | |
+| endpoint | O ponto final do servidor QuickBooks Online. (isto é, quickbooks.api.intuit.com)  | Yes |
+| companyId | A identificação da empresa quickBooks para autorizar. Para obter informações sobre como encontrar o ID da empresa, veja [como encontro o meu ID da empresa.](https://quickbooks.intuit.com/community/Getting-Started/How-do-I-find-my-Company-ID/m-p/185551) | Yes |
+| consumerKey | O ID do cliente da sua aplicação QuickBooks Online para autenticação OAuth 2.0. Saiba mais a partir [daqui.](https://developer.intuit.com/app/developer/qbo/docs/develop/authentication-and-authorization/oauth-2.0#obtain-oauth2-credentials-for-your-app) | Yes |
+| segredo do consumidor | O segredo do cliente da sua aplicação QuickBooks Online para autenticação OAuth 2.0. Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Yes |
+| refreshToken | O token de atualização OAuth 2.0 associado à aplicação QuickBooks. Saiba mais a partir [daqui.](https://developer.intuit.com/app/developer/qbo/docs/develop/authentication-and-authorization/oauth-2.0#obtain-oauth2-credentials-for-your-app) Note que o token de atualização expirará após 180 dias. O cliente precisa de atualizar regularmente o token de atualização. <br/>Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md).| Yes |
+| useEncryptedEndpoints | Especifica se os pontos finais de origem de dados são encriptados usando HTTPS. O valor predefinido é true.  | No |
 
-_ *Exemplo:**
+**Exemplo:**
 
 ```json
 {
@@ -95,7 +90,7 @@ Para copiar dados do QuickBooks Online, defina a propriedade tipo do conjunto de
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo do conjunto de dados deve ser definida para: **QuickBooksObject** | Sim |
+| tipo | A propriedade tipo do conjunto de dados deve ser definida para: **QuickBooksObject** | Yes |
 | tableName | O nome da mesa. | Não (se for especificada "consulta" na fonte de atividade) |
 
 **Exemplo**
@@ -125,7 +120,7 @@ Para copiar dados do QuickBooks Online, desacione o tipo de origem na atividade 
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **QuickBooksSource** | Sim |
+| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **QuickBooksSource** | Yes |
 | consulta | Utilize a consulta SQL personalizada para ler dados. Por exemplo: `"SELECT * FROM "Bill" WHERE Id = '123'"`. | Não (se for especificado "tableName" no conjunto de dados) |
 
 **Exemplo:**

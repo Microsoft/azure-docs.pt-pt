@@ -5,25 +5,25 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 11/30/2020
+ms.date: 02/12/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: elisol
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f9ea8b1c1346deee9fed591493607270f18ad5b
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 94fd488ceb7ddb3724dd576c97c9070481e95147
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96547768"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100365638"
 ---
 # <a name="azure-active-directory-b2b-best-practices"></a>Azure Ative Directy B2B boas práticas
 Este artigo contém recomendações e boas práticas para a colaboração entre empresas (B2B) no Azure Ative Directory (Azure AD).
 
    > [!IMPORTANT]
-   > **A partir de março de 2021, a** Microsoft deixará de apoiar o resgate de convites através da criação de contas de AD não geridas ("virais" ou "just-in-time") e inquilinos para cenários de colaboração B2B. Nessa altura, a funcionalidade de código de acesso de e-mail será ativada para todos os inquilinos existentes e ativada por padrão para novos inquilinos. Estamos a ativar a funcionalidade de código de acesso de e-mail uma vez porque fornece um método de autenticação de recuo sem emenda para os utilizadores convidados. No entanto, tem a opção de desativar esta funcionalidade se optar por não a utilizar. Para mais detalhes, consulte [a autenticação de código de acesso](one-time-passcode.md) de email uma vez
+   > **A partir de outubro de 2021, a** Microsoft deixará de apoiar o resgate de convites através da criação de contas de AD não geridas ("virais" ou "just-in-time") e inquilinos para cenários de colaboração B2B. Nessa altura, a funcionalidade de código de acesso de e-mail será ativada para todos os inquilinos existentes e ativada por padrão para novos inquilinos. Estamos a ativar a funcionalidade de código de acesso de e-mail uma vez porque fornece um método de autenticação de recuo sem emenda para os utilizadores convidados. No entanto, tem a opção de desativar esta funcionalidade se optar por não a utilizar. Para mais detalhes, consulte [a autenticação de código de acesso](one-time-passcode.md) de email uma vez
 
 
 ## <a name="b2b-recommendations"></a>Recomendações B2B

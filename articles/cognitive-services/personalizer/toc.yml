@@ -118,7 +118,7 @@
     - name: Conformidade
       href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
     - name: Encriptação
-      href: personalizer-encryption-of-data-at-rest.md
+      href: encrypt-data-at-rest.md
     - name: Mapa do Azure
       href: 'https://go.microsoft.com/fwlink/?linkid=2092153'
     - name: Preços

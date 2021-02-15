@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: f51b46efcaf9be4f51e96b038b93562d0e3eae0b
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 6321b96cb3db570102f138dcfd949d9c32daedbc
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98601149"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100384474"
 ---
 # <a name="web-sdk-supported-browsers"></a>Browsers suportados por SDK web
 
@@ -40,7 +40,7 @@ O Azure Maps Web SDK suporta os seguintes navegadores de ambiente de trabalho:
 
 Consulte também [navegadores legados target](#Target-Legacy-Browsers) mais tarde neste artigo.
 
-## <a name="mobile"></a>Telemóvel
+## <a name="mobile"></a>Móvel
 
 O Azure Maps Web SDK suporta os seguintes navegadores móveis:
 
@@ -72,6 +72,8 @@ Consulte os Mapas Pen <a href='https://codepen.io/azuremaps/pen/GeLgyx/'>Azure +
 </iframe>
 
 Podem ser [encontradas](https://azuremapscodesamples.azurewebsites.net/?search=leaflet)aqui amostras de código adicionais utilizando mapas Azure em Folheto.
+
+[Aqui](open-source-projects.md#third-part-map-control-plugins) estão alguns populares controlos de mapas abertos para os que a equipa do Azure Maps criou plugin's.
 
 ## <a name="next-steps"></a>Passos seguintes
 

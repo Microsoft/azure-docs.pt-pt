@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 02/05/2021
-ms.openlocfilehash: 6c064acc44e180d3e99bdcf68d2e1e129d52fd5d
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 19c7d37d62ec54e57127f5993e8bae4d4e9a2908
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99805939"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388537"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limites e informações de configuração para o Azure Logic Apps
 
@@ -193,19 +193,20 @@ Para obter mais informações sobre a definição de recursos da sua aplicação
 
 ### <a name="integration-service-environment-ise"></a>Ambiente de serviço de integração (ISE)
 
-Aqui estão os limites de produção para o [Premium ISE SKU:](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level)
+* [Developer ISE SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level): Fornece até 500 execuções por minuto, mas note estas considerações:
 
-| Name | Limite | Notas |
-|------|-------|-------|
-| Limite de execução da unidade de base | Sistema acelerado quando a capacidade de infraestrutura atinge os 80% | Fornece ~4.000 execuções de ação por minuto, que é ~160 milhões de execuções de ação por mês | |
-| Limite de execução da unidade de escala | Sistema acelerado quando a capacidade de infraestrutura atinge os 80% | Cada unidade de escala pode fornecer ~2.000 execuções de ação adicionais por minuto, que é ~80 milhões mais execuções de ação por mês | |
-| Unidades de escala máxima que pode adicionar | 10 | |
-||||
+  * Certifique-se de que utiliza este SKU apenas para exploração, experiências, desenvolvimento ou testes - não para testes de produção ou desempenho. Este SKU não tem nenhum acordo de nível de serviço (SLA), capacidade de escala ou redundância durante a reciclagem, o que significa que você pode experimentar atrasos ou tempo de inatividade.
 
-Para ultrapassar estes limites no processamento normal, ou executar testes de carga que possam ir além destes limites, [contacte a equipa da Logic Apps](mailto://logicappsemail@microsoft.com) para obter ajuda com os seus requisitos.
+  * As atualizações de backend podem interromper intermitentemente o serviço.
 
-> [!NOTE]
-> O [Developer ISE SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) não tem limites publicados, não tem capacidades para aumentar e não tem acordo de nível de serviço (SLA). Utilize este SKU apenas para experimentar, desenvolvimento e testes, não testes de produção ou desempenho.
+* [Premium ISE SKU](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level): A tabela a seguir descreve os limites de produção deste SKU, mas para ultrapassar estes limites no processamento normal, ou executar testes de carga que possam ir acima destes limites, [contacte a equipa da Logic Apps](mailto://logicappsemail@microsoft.com) para obter ajuda com os seus requisitos.
+
+  | Name | Limite | Notas |
+  |------|-------|-------|
+  | Limite de execução da unidade de base | Sistema acelerado quando a capacidade de infraestrutura atinge os 80% | Fornece ~4.000 execuções de ação por minuto, que é ~160 milhões de execuções de ação por mês | |
+  | Limite de execução da unidade de escala | Sistema acelerado quando a capacidade de infraestrutura atinge os 80% | Cada unidade de escala pode fornecer ~2.000 execuções de ação adicionais por minuto, que é ~80 milhões mais execuções de ação por mês | |
+  | Unidades de escala máxima que pode adicionar | 10 | |
+  ||||
 
 <a name="gateway-limits"></a>
 

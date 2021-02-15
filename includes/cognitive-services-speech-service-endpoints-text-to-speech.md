@@ -4,38 +4,38 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/06/2019
 ms.author: wolfma
-ms.openlocfilehash: df6f7311613057c445ae714b8b11240d0d5be14b
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: 6b16dea3c4f9241133b91b092c90c9056da57de0
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99569543"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100515072"
 ---
 ### <a name="standard-and-neural-voices"></a>Vozes padrão e neurais
 
 Utilize esta tabela para determinar a disponibilidade de vozes padrão e neurais por região/ponto final:
 
-| Region | Ponto final | Vozes Padrão | Vozes Neurais |
+| Region | Ponto final | Vozes Neurais | Vozes Padrão |
 |--------|----------|-----------------|---------------|
 | Leste da Austrália | `https://australiaeast.tts.speech.microsoft.com/cognitiveservices/v1` | Yes | Yes |
-| Sul do Brasil | `https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/v1` | Yes | No |
+| Sul do Brasil | `https://brazilsouth.tts.speech.microsoft.com/cognitiveservices/v1` | No | Yes |
 | Canadá Central | `https://canadacentral.tts.speech.microsoft.com/cognitiveservices/v1` | Yes | Yes |
-| E.U.A. Central | `https://centralus.tts.speech.microsoft.com/cognitiveservices/v1` | Yes | No |
-| Ásia Leste | `https://eastasia.tts.speech.microsoft.com/cognitiveservices/v1` | Yes | No |
+| E.U.A. Central | `https://centralus.tts.speech.microsoft.com/cognitiveservices/v1` | No | Yes |
+| Ásia Leste | `https://eastasia.tts.speech.microsoft.com/cognitiveservices/v1` | No | Yes |
 | E.U.A. Leste | `https://eastus.tts.speech.microsoft.com/cognitiveservices/v1` | Yes | Yes |
-| E.U.A. Leste 2 | `https://eastus2.tts.speech.microsoft.com/cognitiveservices/v1` | Yes | No |
-| França Central | `https://francecentral.tts.speech.microsoft.com/cognitiveservices/v1` | Yes | No |
+| E.U.A. Leste 2 | `https://eastus2.tts.speech.microsoft.com/cognitiveservices/v1` | No | Yes |
+| França Central | `https://francecentral.tts.speech.microsoft.com/cognitiveservices/v1` | No | Yes |
 | Índia Central | `https://centralindia.tts.speech.microsoft.com/cognitiveservices/v1` | Yes | Yes |
-| Leste do Japão | `https://japaneast.tts.speech.microsoft.com/cognitiveservices/v1` | Yes | No |
-| Oeste do Japão | `https://japanwest.tts.speech.microsoft.com/cognitiveservices/v1` | Yes | No |
-| Coreia do Sul Central | `https://koreacentral.tts.speech.microsoft.com/cognitiveservices/v1` | Yes | No |
-| E.U.A. Centro-Norte | `https://northcentralus.tts.speech.microsoft.com/cognitiveservices/v1` | Yes | No |
-| Europa do Norte | `https://northeurope.tts.speech.microsoft.com/cognitiveservices/v1` | Yes | No |
+| Leste do Japão | `https://japaneast.tts.speech.microsoft.com/cognitiveservices/v1` | No | Yes |
+| Oeste do Japão | `https://japanwest.tts.speech.microsoft.com/cognitiveservices/v1` | No | Yes |
+| Coreia do Sul Central | `https://koreacentral.tts.speech.microsoft.com/cognitiveservices/v1` | No | Yes |
+| E.U.A. Centro-Norte | `https://northcentralus.tts.speech.microsoft.com/cognitiveservices/v1` | No | Yes |
+| Europa do Norte | `https://northeurope.tts.speech.microsoft.com/cognitiveservices/v1` | No | Yes |
 | E.U.A. Centro-Sul | `https://southcentralus.tts.speech.microsoft.com/cognitiveservices/v1` | Yes | Yes |
 | Sudeste Asiático | `https://southeastasia.tts.speech.microsoft.com/cognitiveservices/v1` | Yes | Yes |
 | Sul do Reino Unido | `https://uksouth.tts.speech.microsoft.com/cognitiveservices/v1` | Yes | Yes |
 | Europa Ocidental | `https://westeurope.tts.speech.microsoft.com/cognitiveservices/v1` | Yes | Yes |
-| E.U.A. Oeste | `https://westus.tts.speech.microsoft.com/cognitiveservices/v1` | Yes | No |
+| E.U.A. Oeste | `https://westus.tts.speech.microsoft.com/cognitiveservices/v1` | No | Yes |
 | E.U.A. Oeste 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/v1` | Yes | Yes |
 
 > [!TIP]
@@ -78,3 +78,15 @@ A tabela seguinte detalha o suporte regional para as funcionalidades de Voz Neur
 | Personagens em tempo real | Leste dos EUA, Oeste dos EUA 2, South Central EUA, Sudeste Asiático, Reino Unido Sul, Europa Ocidental, Austrália Leste |
 | Personagens de áudio longos | Leste dos EUA, Europa Ocidental, Reino Unido Sul, Sudeste Asiático, Índia Central |
 | Treino Neural Personalizado | East US, Reino Unido Sul |
+
+### <a name="long-audio-api"></a>API de áudio longo
+
+A API áudio longa está disponível em várias regiões com pontos finais únicos.
+
+| Region | Ponto final |
+|--------|----------|
+| E.U.A. Leste | `https://eastus.customvoice.api.speech.microsoft.com` |
+| Índia Central | `https://centralindia.customvoice.api.speech.microsoft.com` |
+| Sudeste Asiático | `https://southeastasia.customvoice.api.speech.microsoft.com` |
+| Sul do Reino Unido | `https://uksouth.customvoice.api.speech.microsoft.com` |
+| Europa Ocidental | `https://westeurope.customvoice.api.speech.microsoft.com` |

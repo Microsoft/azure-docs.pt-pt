@@ -5,30 +5,30 @@ description: Como criar uma partilha de ficheiros Azure utilizando o portal Azur
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 2/22/2020
+ms.date: 1/20/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli, references_regions
-ms.openlocfilehash: 3ff7b3cd29740461a4f94f3c1d433086db119a09
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 5a27f38e92955c0aa240f6be394aacd187c3a8b8
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98673811"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100370908"
 ---
 # <a name="create-an-azure-file-share"></a>Criar uma partilha de ficheiros do Azure
 Para criar uma partilha de ficheiros Azure, precisa responder a três perguntas sobre como irá usá-lo:
 
 - **Quais são os requisitos de desempenho para a sua partilha de ficheiros Azure?**  
-    A Azure Files oferece ações de ficheiros padrão (incluindo ações de ficheiros otimizadas, quentes e cool), que são hospedadas em hardware baseado em discos rígidos (baseado em HDD) e ações de ficheiros premium, que estão hospedadas em hardware baseado em disco de estado sólido (baseado em SSD).
-
-- **De que tamanho precisa?**  
-    As ações de ficheiros standard podem abranger até 100 TiB, no entanto esta funcionalidade não é ativada por padrão; se precisar de uma partilha de ficheiros superior a 5 TiB, terá de ativar a grande funcionalidade de partilha de ficheiros para a sua conta de armazenamento. As ações de ficheiros premium podem abranger até 100 TiB sem qualquer definição especial, no entanto, as ações de ficheiros premium são a provisionadas, em vez de pagarem à medida que forem como ações de ficheiros padrão. Isto significa que o fornecimento de uma parte de ficheiros muito maior do que o que você precisa aumentará o custo total de armazenamento.
+    A Azure Files oferece ações de ficheiros padrão que são hospedadas em hardware baseado em discos rígidos (baseado em HDD) e ações de ficheiros premium, que estão hospedadas em hardware baseado em disco de estado sólido (baseado em SSD).
 
 - **Quais são os seus requisitos de despedimento para a sua partilha de ficheiros Azure?**  
     As ações de ficheiros standard oferecem armazenamento localmente redundante (LRS), zona redundante (ZRS), geo-redundante (GRS) ou armazenamento de geo-zonas redundantes (GZRS), no entanto a grande funcionalidade de partilha de ficheiros só é suportada em ações de ficheiros redundantes locais e de zonas redundantes. As ações de ficheiros premium não suportam qualquer forma de geo-redundância.
 
-    As ações de ficheiros premium estão disponíveis com redundância local na maioria das regiões que oferecem contas de armazenamento e com redundância de zona num subconjunto menor de regiões. Para saber se as ações de ficheiros premium estão atualmente disponíveis na sua região, consulte os [produtos disponíveis por página da região](https://azure.microsoft.com/global-infrastructure/services/?products=storage) para a Azure. Para obter informações sobre as regiões que suportam o ZRS, consulte [a redundância do Azure Storage](../common/storage-redundancy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+    As ações de ficheiros premium estão disponíveis com redundância local e redundância de zona num subconjunto de regiões. Para saber se as ações de ficheiros premium estão atualmente disponíveis na sua região, consulte os [produtos disponíveis por página da região](https://azure.microsoft.com/global-infrastructure/services/?products=storage) para a Azure. Para obter informações sobre as regiões que suportam o ZRS, consulte [a redundância do Azure Storage](../common/storage-redundancy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+
+- **De que tamanho precisa?**  
+    Nas contas de armazenamento redundantes locais e de zona, as ações de ficheiros Azure podem abranger até 100 TiB, no entanto, em contas de armazenamento redundantes geo-e geo-zona, as ações de ficheiros Azure podem abranger apenas até 5 TiB. 
 
 Para obter mais informações sobre estas três opções, consulte [Planeamento para uma implementação de Ficheiros Azure](storage-files-planning.md).
 
@@ -51,7 +51,7 @@ Para criar uma conta de armazenamento através do portal Azure, selecione **+ Cr
 
 ![Uma imagem da conta de armazenamento cria opção rápida num browser](media/storage-how-to-create-file-share/create-storage-account-0.png)
 
-#### <a name="the-basics-section"></a>A secção De Bases
+#### <a name="basics"></a>Informações básicas
 A primeira secção a completar para criar uma conta de armazenamento é rotulada **Basics**. Isto contém todos os campos necessários para criar uma conta de armazenamento. Para criar uma conta de armazenamento GPv2, certifique-se de que o botão de rádio **Performance** está definido para *Standard* e a lista de drop-down **tipo conta** é selecionada para *StorageV2 (finalidade geral v2)*.
 
 ![Uma imagem do botão de rádio Performance com o tipo Standard selecionado e conta com StorageV2 selecionado](media/storage-how-to-create-file-share/create-storage-account-1.png)
@@ -61,28 +61,28 @@ Para criar uma conta de armazenamento de fileStorage, certifique-se de que o bot
 ![Uma imagem do botão de rádio Performance com premium selecionado e tipo de Conta com FileStorage selecionado](media/storage-how-to-create-file-share/create-storage-account-2.png)
 
 Os outros campos básicos são independentes da escolha da conta de armazenamento:
-- **Assinatura**: A subscrição da conta de armazenamento a ser implantada. 
-- **Grupo de recursos**: O grupo de recursos para a conta de armazenamento a ser implantado. Pode criar um novo grupo de recursos ou utilizar um grupo de recursos existente. Um grupo de recursos é um contentor lógico para agrupar os seus serviços do Azure. Quando cria uma conta de armazenamento, tem a opção de criar um novo grupo de recursos ou utilizar um grupo de recursos existente.
 - **Nome da conta de** armazenamento : O nome do recurso da conta de armazenamento a criar. Este nome deve ser globalmente único, mas de outra forma pode qualquer nome que deseje. O nome da conta de armazenamento será usado como o nome do servidor quando montar uma partilha de ficheiroS Azure via SMB.
 - **Localização**: A região para a conta de armazenamento a ser implantada. Esta pode ser a região associada ao grupo de recursos, ou qualquer outra região disponível.
-- **Replicação**: Embora esta seja a replicação rotulada, este campo significa, na verdade, **redundância;** este é o nível de redundância desejado: redundância local (LRS), redundância de zona (ZRS), geo-redundância (GRS) e geo-redundância. Esta lista de abandonos contém também a geo-redundância de acesso à leitura (RA-GRS) e a redundância de geo-zona de acesso à leitura (RA-GZRS), que não se aplicam às ações de ficheiros Azure; qualquer ação de ficheiro criada numa conta de armazenamento com estes selecionados será, na verdade, geo-redundante ou geo-zona redundante, respectivamente. Dependendo da sua região ou do tipo de conta de armazenamento selecionado, algumas opções de redundância podem não ser permitidas.
-- **Nível de acesso blob**: Este campo não se aplica aos Ficheiros Azure, para que possa escolher um dos botões de rádio. 
+- **Replicação**: Embora esta seja a replicação rotulada, este campo significa, na verdade, **redundância;** este é o nível de redundância desejado: redundância local (LRS), redundância de zona (ZRS), geo-redundância (GRS) e geo-redundância (GZRS). Esta lista de abandonos contém também a geo-redundância de acesso à leitura (RA-GRS) e a redundância de geo-zona de acesso à leitura (RA-GZRS), que não se aplicam às ações de ficheiros Azure; qualquer ação de ficheiro criada numa conta de armazenamento com estes selecionados será, na verdade, geo-redundante ou geo-zona redundante, respectivamente. 
 
-> [!Important]  
-> A seleção do nível de acesso blob não afeta o nível da partilha de ficheiros.
-
-#### <a name="the-networking-blade"></a>A lâmina de networking
+#### <a name="networking"></a>Rede
 A secção de networking permite-lhe configurar opções de networking. Estas configurações são opcionais para a criação da conta de armazenamento e podem ser configuradas posteriormente, se desejar. Para obter mais informações sobre estas opções, consulte [considerações de networking de ficheiros Azure](storage-files-networking-overview.md).
 
-#### <a name="the-advanced-blade"></a>A lâmina avançada
+#### <a name="data-protection"></a>Proteção de dados
+A secção de proteção de dados permite-lhe configurar a política de eliminação suave das ações de ficheiros Azure na sua conta de armazenamento. Outras definições relacionadas com a eliminação suave para bolhas, recipientes, restauro pontual para recipientes, versões e alimentos para mudanças aplicam-se apenas ao armazenamento do Azure Blob.
+
+#### <a name="advanced"></a>Avançado
 A secção avançada contém várias definições importantes para as ações de ficheiros Azure:
 
-- **Transferência segura necessária**: Este campo indica se a conta de armazenamento requer encriptação em trânsito para comunicação à conta de armazenamento. Recomendamos que isto fique ativado, no entanto, se necessitar de suporte SMB 2.1, deve desativá-lo. Recomendamos que, se desativar a encriptação, conclua o acesso da sua conta de armazenamento a uma rede virtual com pontos finais de serviço e/ou pontos finais privados.
+- **Transferência segura necessária**: Este campo indica se a conta de armazenamento requer encriptação em trânsito para comunicação à conta de armazenamento. Se necessitar de suporte SMB 2.1, deve desativá-lo.
 - **Grandes ações de ficheiros**: Este campo permite a conta de armazenamento de ações de ficheiros que podem ir até 100 TiB. Ativar esta funcionalidade limitará a sua conta de armazenamento apenas a opções de armazenamento redundantes localmente e zonas redundantes. Uma vez que uma conta de armazenamento GPv2 tenha sido ativada para grandes ações de ficheiros, não é possível desativar a grande capacidade de partilha de ficheiros. As contas de armazenamento de filestorage (contas de armazenamento de ações de ficheiros premium) não têm esta opção, uma vez que todas as ações de ficheiros premium podem escalar até 100 TiB. 
 
 ![Uma imagem das definições avançadas importantes que se aplicam aos Ficheiros Azure](media/storage-how-to-create-file-share/create-storage-account-3.png)
 
-As outras definições que estão disponíveis no separador avançado (blob soft-delete, espaço hierárquico de nomes para Azure Data Lake de armazenamento gen 2, e NFSv3 para armazenamento de bolhas) não se aplicam aos Ficheiros Azure.
+As outras definições que estão disponíveis no separador avançado (espaço hierárquico para a azure Data Lake de armazenamento gen 2, nível blob padrão, NFSv3 para armazenamento de bolhas, etc.) não se aplicam aos Ficheiros Azure.
+
+> [!Important]  
+> A seleção do nível de acesso blob não afeta o nível da partilha de ficheiros.
 
 #### <a name="tags"></a>Etiquetas
 As etiquetas são pares de nome/valor que lhe permitem categorizar recursos e visualizar a faturação consolidada aplicando a mesma etiqueta a múltiplos recursos e grupos de recursos. Estes são opcionais e podem ser aplicados após a criação de conta de armazenamento.
@@ -163,19 +163,19 @@ az storage account create \
 ## <a name="create-file-share"></a>Criar a partilha de ficheiros
 Uma vez criada a sua conta de armazenamento, tudo o que resta é criar a sua parte de ficheiro. Este processo é maioritariamente o mesmo, independentemente de estar a utilizar uma parte de ficheiro premium ou uma parte de ficheiro padrão. Devia considerar as seguintes diferenças.
 
-As ações de ficheiros standard podem ser implantadas num dos níveis padrão: transação otimizada (padrão), quente ou fria. Este é um nível de partilha por ficheiro que não é afetado pelo nível de **acesso blob** da conta de armazenamento (esta propriedade apenas diz respeito ao armazenamento Azure Blob - não tem nada a ver com ficheiros Azure). Pode alterar o nível da partilha a qualquer momento depois de ter sido implantada. As ações de ficheiro premium não podem ser convertidas diretamente para ações de ficheiros padrão em qualquer nível padrão.
+As ações de ficheiros standard podem ser implantadas num dos níveis padrão: transação otimizada (padrão), quente ou fria. Este é um nível de partilha por ficheiro que não é afetado pelo nível de **acesso blob** da conta de armazenamento (esta propriedade apenas diz respeito ao armazenamento Azure Blob - não tem nada a ver com ficheiros Azure). Pode alterar o nível da partilha a qualquer momento depois de ter sido implantada. As ações de ficheiros premium não podem ser convertidas diretamente para qualquer nível padrão.
 
 > [!Important]  
 > Pode mover ações de ficheiros entre níveis dentro dos tipos de conta de armazenamento GPv2 (transação otimizada, quente e fria). Os movimentos de ações entre os níveis incorrem em transações: passar de um nível mais quente para um nível mais frio incorrerá na taxa de transação de escrita do nível mais frio para cada ficheiro da ação, enquanto uma mudança de um nível mais frio para um nível mais quente incorrerá na taxa de transação de leitura do nível cool para cada ficheiro da ação.
 
 A propriedade **de quota** significa algo ligeiramente diferente entre as ações de arquivo premium e standard:
 
-- Para ações de ficheiros padrão, é um limite superior da partilha de ficheiros Azure, para além da qual os utilizadores finais não podem ir. O principal objetivo da quota para uma quota-padrão é o orçamento: "Não quero que esta parte dos ficheiros cresça para além deste ponto". Se uma quota não for especificada, a quota-padrão pode abranger até 100 TiB (ou 5 TiB se a propriedade de grandes ações não estiver definida para uma conta de armazenamento).
+- Para ações de ficheiros padrão, é um limite superior da partilha de ficheiros Azure, para além da qual os utilizadores finais não podem ir. Se uma quota não for especificada, a quota-padrão pode abranger até 100 TiB (ou 5 TiB se a propriedade de grandes ações não estiver definida para uma conta de armazenamento).
 
-- No caso das ações de ficheiros premium, a quota está sobrecarregada para o **tamanho previsto.** O tamanho previsto é o valor que será cobrado, independentemente do uso real. Ao providenciar uma parte de ficheiro premium, pretende considerar dois fatores: 1) o crescimento futuro da parte numa perspetiva de utilização do espaço e 2) o IOPS necessário para a sua carga de trabalho. Cada GiB abasteci-se a um IOPS adicional reservado e rebentado. Para obter mais informações sobre como planear uma partilha de ficheiros premium, consulte [a provisionar ações de ficheiros premium](understanding-billing.md#provisioned-model).
+- Para as ações de ficheiros premium, a quota significa **tamanho provisionado**. O tamanho previsto é o valor que será cobrado, independentemente do uso real. Para obter mais informações sobre como planear uma partilha de ficheiros premium, consulte [a provisionar ações de ficheiros premium](understanding-billing.md#provisioned-model).
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
-Se acabou de criar a sua conta de armazenamento, pode navegar para ela a partir do ecrã de implementação selecionando **Go para o recurso**. Se criou previamente a conta de armazenamento, pode navegar para ela através do grupo de recursos que a contém. Uma vez na conta de armazenamento, selecione as **ações de ficheiro** com rótulo de azulejo (também pode navegar para **arquivar ações** através da tabela de conteúdos para a conta de armazenamento).
+Se acabou de criar a sua conta de armazenamento, pode navegar para ela a partir do ecrã de implementação selecionando **Go para o recurso**. Uma vez na conta de armazenamento, selecione as **ações de ficheiro** com rótulo de azulejo (também pode navegar para **arquivar ações** através da tabela de conteúdos para a conta de armazenamento).
 
 ![Uma imagem do arquivo partilha azulejo](media/storage-how-to-create-file-share/create-file-share-1.png)
 
@@ -185,9 +185,9 @@ A nova lâmina de partilha de ficheiros deve aparecer no ecrã. Complete os camp
 
 - **Nome:** o nome da partilha de ficheiros a criar.
 - **Quota**: quota da ação de ficheiros para ações de ficheiros padrão; a dimensão prevista da parte do ficheiro para ações de ficheiros premium.
-- **Níveis**: o nível selecionado para uma partilha de ficheiros. Este campo só está disponível numa **conta de armazenamento para fins gerais (GPv2).** Pode escolher transações otimizadas, quentes ou legais. O nível da ação pode ser alterado a qualquer momento. Recomendamos escolher o nível mais alto possível durante uma migração, minimizar as despesas de transação e, em seguida, mudar para um nível mais baixo, se desejar que a migração esteja completa.
+- **Níveis**: o nível selecionado para uma partilha de ficheiros. Este campo só está disponível numa **conta de armazenamento para fins gerais (GPv2).** Pode escolher transações otimizadas, quentes ou legais. O nível da ação pode ser alterado a qualquer momento. Recomendamos escolher o nível mais quente possível durante uma migração, para minimizar as despesas de transação e, em seguida, mudar para um nível mais baixo, se desejar após a migração estar completa.
 
-Selecione **Criar** para terminar criando a nova partilha. Note que se a sua conta de armazenamento estiver numa rede virtual, não será capaz de criar com sucesso uma partilha de ficheiros Azure, a menos que o seu cliente também esteja na rede virtual. Também pode trabalhar em torno desta limitação pontual utilizando o cmdlet Azure `New-AzRmStorageShare` PowerShell.
+Selecione **Criar** para terminar criando a nova partilha.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 Pode criar uma partilha de ficheiros Azure com o [`New-AzRmStorageShare`](/powershell/module/az.storage/New-AzRmStorageShare) cmdlet. Os seguintes comandos PowerShell assumem que definiu as variáveis `$resourceGroupName` e como definido acima na `$storageAccountName` criação de uma conta de armazenamento com a secção Azure PowerShell. 
@@ -198,16 +198,6 @@ O exemplo a seguir mostra a criação de uma partilha de ficheiros com um nível
 > Para ações de ficheiros premium, o `-QuotaGiB` parâmetro refere-se ao tamanho previsto da parte do ficheiro. O tamanho previsto da parte do ficheiro é o valor pelo qual será cobrado, independentemente da sua utilização. As ações de ficheiros padrão são faturadas com base no uso e não no tamanho previsto.
 
 ```powershell
-# Update the Azure storage module to use the preview version. You may need to close and 
-# reopen PowerShell before running this command. If you are running PowerShell 5.1, ensure 
-# the following:
-# - Run the below cmdlets as an administrator.
-# - Have PowerShellGet 2.2.3 or later. Uncomment the following line to check.
-# Get-Module -ListAvailable -Name PowerShellGet
-Remove-Module -Name Az.Storage -ErrorAction SilentlyContinue
-Uninstall-Module -Name Az.Storage
-Install-Module -Name Az.Storage -RequiredVersion "2.1.1-preview" -AllowClobber -AllowPrerelease 
-
 # Assuming $resourceGroupName and $storageAccountName from earlier in this document have already
 # been populated. The access tier parameter may be TransactionOptimized, Hot, or Cool for GPv2 
 # storage accounts. Standard tiers are only available in standard storage accounts. 
@@ -222,13 +212,8 @@ New-AzRmStorageShare `
     Out-Null
 ```
 
-> [!Note]  
-> A capacidade de definir e alterar níveis através do PowerShell é fornecida no módulo Az.Storage PowerShell de pré-visualização. Estes cmdlets ou a sua saída podem mudar antes de serem lançados no módulo Az.Storage PowerShell geralmente disponível, por isso crie scripts com isto em mente.
-
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 Pode criar uma partilha de ficheiros Azure com o [`az storage share-rm create`](/cli/azure/storage/share-rm?preserve-view=true&view=azure-cli-latest#az_storage_share_rm_create) comando. Os seguintes comandos Azure CLI assumem que definiu as variáveis `$resourceGroupName` e como definido acima na `$storageAccountName` criação de uma conta de armazenamento com a secção Azure CLI.
-
-A funcionalidade para criar ou mover uma partilha de ficheiros para um nível específico está disponível na mais recente atualização do Azure CLI. A atualização do Azure CLI é específica para a distribuição do sistema operativo/Linux que está a utilizar. Para obter instruções sobre como atualizar o Azure CLI no seu sistema, consulte [instalar o Azure CLI](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
 
 > [!Important]  
 > Para ações de ficheiros premium, o `--quota` parâmetro refere-se ao tamanho previsto da parte do ficheiro. O tamanho previsto da parte do ficheiro é o valor pelo qual será cobrado, independentemente da sua utilização. As ações de ficheiros padrão são faturadas com base no uso e não no tamanho previsto.
@@ -244,9 +229,6 @@ az storage share-rm create \
     --quota 1024 \
     --output none
 ```
-
-> [!Note]  
-> A capacidade de definir um nível com o `--access-tier` parâmetro é fornecida uma pré-visualização no mais recente pacote Azure CLI. Este comando ou a sua saída podem mudar antes de serem marcados como geralmente disponíveis, por isso crie scripts com isso em mente.
 
 ---
 
@@ -273,8 +255,6 @@ No diálogo resultante, selecione o nível pretendido: transação otimizada, qu
 O cmdlet PowerShell seguintes pressupõe que definiu as `$resourceGroupName` `$storageAccountName` variáveis , como `$shareName` descrito nas secções anteriores deste documento.
 
 ```PowerShell
-# This cmdlet requires Az.Storage version 2.1.1-preview, which is installed
-# in the earlier example.
 Update-AzRmStorageShare `
     -ResourceGroupName $resourceGroupName `
     -StorageAccountName $storageAccountName `

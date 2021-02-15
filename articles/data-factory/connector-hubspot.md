@@ -1,22 +1,17 @@
 ---
 title: Copiar dados do HubSpot utilizando a Azure Data Factory
 description: Saiba como copiar dados do HubSpot para lojas de dados de sumidouros suportados utilizando uma atividade de cópia num pipeline da Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/18/2020
 ms.author: jingwang
-ms.openlocfilehash: 151f156439a40b2e5515886849635f00b2fcc1e7
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: 7f2ab069be7985376c44f2cd2ae3ccdd728d4e2a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97680915"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100385664"
 ---
 # <a name="copy-data-from-hubspot-using-azure-data-factory"></a>Copiar dados do HubSpot utilizando a Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -47,14 +42,14 @@ As seguintes propriedades são suportadas para o serviço ligado ao HubSpot:
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo deve ser definida para: **Hubspot** | Sim |
-| clientId | O ID do cliente associado à sua aplicação HubSpot. Saiba como criar uma aplicação no HubSpot a partir [daqui.](https://developers.hubspot.com/docs/faq/how-do-i-create-an-app-in-hubspot) | Sim |
-| segredo de clientes | O segredo do cliente associado à sua aplicação HubSpot. Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Sim |
-| accessToken | O token de acesso obtido ao autenticar inicialmente a sua integração OAuth. Saiba como obter acesso com a identificação do seu cliente e em segredo a partir [daqui.](https://developers.hubspot.com/docs/methods/oauth2/get-access-and-refresh-tokens) Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Sim |
-| refreshToken | O token refresh obtido ao autenticar inicialmente a sua integração OAuth. Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Sim |
-| useEncryptedEndpoints | Especifica se os pontos finais de origem de dados são encriptados usando HTTPS. O valor predefinido é true.  | Não |
-| useHostVerification | Especifica se deve exigir que o nome do anfitrião no certificado do servidor corresponda ao nome de anfitrião do servidor ao ligar o TLS. O valor predefinido é true.  | Não |
-| usePeerVerificação | Especifica se deve verificar a identidade do servidor ao ligar o TLS. O valor predefinido é true.  | Não |
+| tipo | A propriedade tipo deve ser definida para: **Hubspot** | Yes |
+| clientId | O ID do cliente associado à sua aplicação HubSpot. Saiba como criar uma aplicação no HubSpot a partir [daqui.](https://developers.hubspot.com/docs/faq/how-do-i-create-an-app-in-hubspot) | Yes |
+| segredo de clientes | O segredo do cliente associado à sua aplicação HubSpot. Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Yes |
+| accessToken | O token de acesso obtido ao autenticar inicialmente a sua integração OAuth. Saiba como obter acesso com a identificação do seu cliente e em segredo a partir [daqui.](https://developers.hubspot.com/docs/methods/oauth2/get-access-and-refresh-tokens) Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Yes |
+| refreshToken | O token refresh obtido ao autenticar inicialmente a sua integração OAuth. Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Yes |
+| useEncryptedEndpoints | Especifica se os pontos finais de origem de dados são encriptados usando HTTPS. O valor predefinido é true.  | No |
+| useHostVerification | Especifica se deve exigir que o nome do anfitrião no certificado do servidor corresponda ao nome de anfitrião do servidor ao ligar o TLS. O valor predefinido é true.  | No |
+| usePeerVerificação | Especifica se deve verificar a identidade do servidor ao ligar o TLS. O valor predefinido é true.  | No |
 
 **Exemplo:**
 
@@ -90,7 +85,7 @@ Para copiar dados do HubSpot, defina a propriedade tipo do conjunto de dados par
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo do conjunto de dados deve ser definida para: **HubspotObject** | Sim |
+| tipo | A propriedade tipo do conjunto de dados deve ser definida para: **HubspotObject** | Yes |
 | tableName | O nome da mesa. | Não (se for especificada "consulta" na fonte de atividade) |
 
 **Exemplo**
@@ -120,7 +115,7 @@ Para copiar dados do HubSpot, desagrafe o tipo de origem na atividade de cópia 
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **HubspotSource** | Sim |
+| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **HubspotSource** | Yes |
 | consulta | Utilize a consulta SQL personalizada para ler dados. Por exemplo: `"SELECT * FROM Companies where Company_Id = xxx"`. | Não (se for especificado "tableName" no conjunto de dados) |
 
 **Exemplo:**

@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/27/2020
 ms.author: cherylmc
-ms.openlocfilehash: 3055c9dd1294af81c6c52603dd60bb5aa6075abd
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: bff1eec0152ab0f57edd212adf6b14f7b588fb51
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92777859"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100390169"
 ---
 # <a name="create-an-azure-active-directory-tenant-for-p2s-openvpn-protocol-connections"></a>Criar um inquilino do Azure Active Directory para as ligações do protocolo OpenVPN P2S
 
@@ -36,13 +36,13 @@ O seu inquilino Azure AD precisa das seguintes contas: uma conta Global Admin e 
 Utilize os passos em [Adicionar ou apagar utilizadores - Azure Ative Directy](../active-directory/fundamentals/add-users-azure-active-directory.md) para criar pelo menos dois utilizadores para o seu inquilino AZure AD. Certifique-se de alterar a **Função de Diretório** para criar os tipos de conta:
 
 * Admin Global
-* Utilizador
+* User
 
 ## <a name="3-enable-azure-ad-authentication-on-the-vpn-gateway"></a><a name="enable-authentication"></a>3. Ativar a autenticação AD AZure no gateway VPN
 
 1. Localize a identificação do diretório do diretório que pretende utilizar para autenticação. Está listado na secção de propriedades da página do Ative Directory.
 
-   :::image type="content" source="./media/openvpn-create-azure-ad-tenant/directory-id.png" alt-text="Novo inquilino da AD AZure" lightbox="./media/openvpn-create-azure-ad-tenant/directory-id.png":::
+   :::image type="content" source="./media/openvpn-create-azure-ad-tenant/directory-id.png" alt-text="Screenshot que mostra as Propriedades do Diretório" lightbox="./media/openvpn-create-azure-ad-tenant/directory-id.png":::
 
 1. Copie o ID do Diretório.
 
@@ -80,28 +80,28 @@ Utilize os passos em [Adicionar ou apagar utilizadores - Azure Ative Directy](..
 
 1. Selecione a conta **Global Admin** se solicitado.
 
-   :::image type="content" source="./media/openvpn-create-azure-ad-tenant/pick.png" alt-text="Novo inquilino da AD AZure" border="false":::
+   :::image type="content" source="./media/openvpn-create-azure-ad-tenant/pick.png" alt-text="Escolher uma conta" border="false":::
 1. Selecione **Aceitar** quando solicitado.
 
-   :::image type="content" source="./media/openvpn-create-azure-ad-tenant/accept.jpg" alt-text="Novo inquilino da AD AZure" border="false":::
+   :::image type="content" source="./media/openvpn-create-azure-ad-tenant/accept.jpg" alt-text="Screenshot mostra a mensagem Permissões solicitadas Aceitar para a sua organização com detalhes e a opção de aceitar." border="false":::
 1. Sob o seu Azure AD, em **aplicações enterprise,** você vê **Azure VPN** listado.
 
-   :::image type="content" source="./media/openvpn-create-azure-ad-tenant/azurevpn.png" alt-text="Novo inquilino da AD AZure" lightbox="./media/openvpn-create-azure-ad-tenant/azurevpn.png" :::
+   :::image type="content" source="./media/openvpn-create-azure-ad-tenant/azurevpn.png" alt-text="Screenshot que mostra a página todas as aplicações." lightbox="./media/openvpn-create-azure-ad-tenant/azurevpn.png" :::
 1. Se ainda não tiver um ambiente local funcional, siga as instruções para criar um. Consulte [Criar uma VPN ponto-a-local](vpn-gateway-howto-point-to-site-resource-manager-portal.md) para criar e configurar uma porta VPN ponto a local.
 
     > [!IMPORTANT]
     > O SKU Básico não é suportado para a OpenVPN.
 
-1. Ativar a autenticação AZure AD no gateway VPN navegando para a **configuração ponto-a-local** e escolhendo **o OpenVPN (SSL)** como o **tipo de túnel** . Selecione **O Diretório Ativo Azure** como o **tipo de Autenticação,** em seguida, preencha as informações na secção **Diretório Ativo Azure.**
+1. Ativar a autenticação AZure AD no gateway VPN navegando para a **configuração ponto-a-local** e escolhendo **o OpenVPN (SSL)** como o **tipo de túnel**. Selecione **O Diretório Ativo Azure** como o **tipo de Autenticação,** em seguida, preencha as informações na secção **Diretório Ativo Azure.**
 
    * **Inquilino:** TenantID para o inquilino da AD Azure ```https://login.microsoftonline.com/{AzureAD TenantID}/```
 
    * **Público:** AplicaçãoID da app "Azure VPN" Azure AD Enterprise ```{AppID of the "Azure VPN" AD Enterprise app}```
 
-   * **Emitente** : URL do Serviço De Token Seguro ```https://sts.windows.net/{AzureAD TenantID}/```
+   * **Emitente**: URL do Serviço De Token Seguro ```https://sts.windows.net/{AzureAD TenantID}/```
 
 
-   :::image type="content" source="./media/openvpn-create-azure-ad-tenant/azure-ad-auth-portal.png" alt-text="Novo inquilino da AD AZure" border="false":::
+   :::image type="content" source="./media/openvpn-create-azure-ad-tenant/azure-ad-auth-portal.png" alt-text="SAzure VPN" border="false":::
 
    > [!NOTE]
    > Certifique-se de incluir um corte de fuga no final do `AadIssuerUri` valor. Caso contrário, a ligação pode falhar.
@@ -117,4 +117,4 @@ Utilize os passos em [Adicionar ou apagar utilizadores - Azure Ative Directy](..
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para a sua rede virtual, tem de criar e configurar um perfil de cliente VPN. Consulte [configurar um cliente VPN para ligações P2S VPN](openvpn-azure-ad-client.md).
+Criar e configurar um perfil de cliente VPN. Consulte [configurar um cliente VPN para ligações P2S VPN](openvpn-azure-ad-client.md).

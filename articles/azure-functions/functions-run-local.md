@@ -5,12 +5,12 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: devx-track-csharp, 80e4ff38-5174-43
-ms.openlocfilehash: efb91c7b26c67a3672abb3f9cc8992fd45971a25
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 3ddd84f2f73546b42a3925802b3357df16485488
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96932460"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100521446"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Trabalhar com o Azure Functions Core Tools
 
@@ -41,7 +41,7 @@ Só é possível instalar uma versão do Core Tools num determinado computador. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-A Azure Functions Core Tools atualmente depende do CLI Azure para autenticar com a sua conta Azure. Isto significa que deve [instalar o Azure CLI localmente](/cli/azure/install-azure-cli) para poder [publicar no Azure](#publish) a partir de Ferramentas Principais de Funções Azure. 
+A Azure Functions Core Tools atualmente depende do [Azure CLI](/cli/azure/install-azure-cli) ou [do Azure PowerShell](/powershell/azure/install-az-ps) para autenticar com a sua conta Azure. Isto significa que deve instalar uma destas ferramentas para poder [publicar no Azure](#publish) a partir de Ferramentas Principais de Funções Azure. 
 
 ## <a name="install-the-azure-functions-core-tools"></a>Instalar as Ferramentas de Núcleo de Funções do Azure
 
@@ -275,7 +275,7 @@ Mesmo quando utilizar o Emulador de Armazenamento Microsoft Azure para desenvolv
 
 ## <a name="create-a-function"></a><a name="create-func"></a>Criar uma função
 
-Para criar uma função, executar o seguinte comando:
+Para criar uma função, execute o seguinte comando:
 
 ```
 func new
@@ -309,7 +309,7 @@ Writing C:\myfunctions\myMyFunctionProj\MyQueueTrigger\function.json
 
 Também pode especificar estas opções no comando utilizando os seguintes argumentos:
 
-| Argumento     | Descrição                            |
+| Argumento     | Description                            |
 | ------------------------------------------ | -------------------------------------- |
 | **`--csx`** | (Versão 2.x e versões posteriores.) Gera os mesmos modelos de script C# (.csx) utilizados na versão 1.x e no portal. |
 | **`--language`**, **`-l`**| A linguagem de programação do modelo, como C#, F#ou JavaScript. Esta opção é necessária na versão 1.x. Nas versões 2.x e posteriores, não utilize esta opção nem escolha um idioma que corresponda ao tempo de funcionação do trabalhador. |
@@ -505,7 +505,7 @@ func run MyHttpTrigger -c '{\"name\": \"Azure\"}'
 As Ferramentas Principais de Funções Azure suportam dois tipos de implementação: implantar ficheiros de projetos de função diretamente para a sua aplicação de função através do [Zip Deploy](functions-deployment-technologies.md#zip-deploy) e [implantar um recipiente Docker personalizado](functions-deployment-technologies.md#docker-container). Já deve ter [criado uma aplicação de função na sua subscrição Azure,](functions-cli-samples.md#create)para a qual irá implementar o seu código. Os projetos que exigem a compilação devem ser construídos para que os binários possam ser implantados.
 
 >[!IMPORTANT]
->Você deve ter o [Azure CLI](/cli/azure/install-azure-cli) instalado localmente para ser capaz de publicar para Azure a partir de Core Tools.  
+>Você deve ter o [Azure CLI](/cli/azure/install-azure-cli) ou [Azure PowerShell](/powershell/azure/install-az-ps) instalado localmente para ser capaz de publicar para Azure a partir de Core Tools.  
 
 Uma pasta de projeto pode conter ficheiros e diretórios específicos da linguagem que não devem ser publicados. Os itens excluídos estão listados num ficheiro .funcignore na pasta do projeto raiz.     
 
@@ -520,7 +520,7 @@ func azure functionapp publish <FunctionAppName>
 >[!IMPORTANT]
 > Java usa Maven para publicar o seu projeto local para Azure. Utilize o seguinte comando para publicar no Azure: `mvn azure-functions:deploy` . Os recursos Azure são criados durante a implantação inicial.
 
-Este comando publica a uma aplicação de função existente em Azure. Terá um erro se tentar publicar para um `<FunctionAppName>` que não existe na sua subscrição. Para aprender a criar uma aplicação de função a partir da solicitação de comando ou janela do terminal utilizando o Azure CLI, consulte [Criar uma App de função para execução sem servidor](./scripts/functions-cli-create-serverless.md). Por predefinição, este comando utiliza [a construção remota](functions-deployment-technologies.md#remote-build) e implementa a sua aplicação para [executar a partir do pacote de implementação.](run-functions-from-deployment-package.md) Para desativar este modo de implementação recomendado, utilize a `--nozip` opção.
+Este comando publica a uma aplicação de função existente em Azure. Terá um erro se tentar publicar para um `<FunctionAppName>` que não existe na sua subscrição. Para aprender a criar uma aplicação de função a partir da janela de comando ou terminal utilizando o Azure CLI ou Azure PowerShell, consulte [Criar uma App de função para execução sem servidor](./scripts/functions-cli-create-serverless.md). Por predefinição, este comando utiliza [a construção remota](functions-deployment-technologies.md#remote-build) e implementa a sua aplicação para [executar a partir do pacote de implementação.](run-functions-from-deployment-package.md) Para desativar este modo de implementação recomendado, utilize a `--nozip` opção.
 
 >[!IMPORTANT]
 > Quando cria uma aplicação de função no portal Azure, utiliza a versão 3.x do tempo de execução da Função por predefinição. Para fazer com que a aplicação de função utilize a versão 1.x do tempo de execução, siga as instruções em [Executar na versão 1.x](functions-versions.md#creating-1x-apps).

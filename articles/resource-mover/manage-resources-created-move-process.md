@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: raynew
-ms.openlocfilehash: 6d6f56fb47bfdaadc6704e2a13ebcf0e893b8b1c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7ad0e73a90e733af0dd752100ebc71908f68181a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90602358"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388486"
 ---
 # <a name="manage-resources-created-for-the-vm-move"></a>Gerir os recursos criados para o movimento VM
 
@@ -28,7 +28,7 @@ Elimine manualmente a recolha de movimentos e os recursos de recuperação do lo
 2. Verifique se o VM e todos os outros recursos de origem na recolha de movimentos foram movidos/eliminados. Isto garante que não existem recursos pendentes que os utilizem.
 2. Apague estes recursos.
 
-    - O nome da coleção move é ```movecollection-<sourceregion>-<target-region>``` .
+    - O nome da coleção move é ```movecollection-<sourceregion>-<target-region>-<metadata-region>``` .
     - O nome da conta de armazenamento de cache é ```resmovecache<guid>```
     - O nome do cofre ```ResourceMove-<sourceregion>-<target-region>-GUID``` é.
 
