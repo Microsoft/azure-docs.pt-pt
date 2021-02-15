@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 1/21/2021
 ms.author: cavoeg
-ms.openlocfilehash: 4d071af6f72bfe6136296185e65007d2413ed2c4
-ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.openlocfilehash: d83bc653ae8c3ff5a9553de568bc6f2355f18760
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2021
-ms.locfileid: "98746718"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104625"
 ---
 # <a name="frequently-asked-questions-about-the-azure-api-for-fhir"></a>Perguntas frequentes sobre a AZure API para FHIR
 
@@ -108,13 +108,16 @@ Apoiamos a triagem até à data atualizada pela última vez: _sort=_lastUpdated.
 
 ### <a name="does-the-azure-api-for-fhir-support-everything"></a>A Azure API para fHIR apoia $everything? 
 
-Não. Neste momento, não apoiamos $everything. No entanto, pode ser alcançado com duas chamadas API. Por exemplo, para obter o Paciente$tudo, você pode primeiro pegar o registo do paciente usando /Paciente/[ID] e, em seguida, uma segunda chamada para recuperar todos os dados do paciente usando /Paciente/[ID]/*.
+N.º Neste momento, não apoiamos $everything. No entanto, pode ser alcançado com duas chamadas API. Por exemplo, para obter o Paciente$tudo, você pode primeiro pegar o registo do paciente usando /Paciente/[ID] e, em seguida, uma segunda chamada para recuperar todos os dados do paciente usando /Paciente/[ID]/*.
 
 Pode ver mais detalhes neste [post comunitário.](https://chat.fhir.org/#narrow/stream/179166-implementers/topic/.24everything.20with.20_type) 
 
 ### <a name="how-does-export-work"></a>Como funciona $export?
 
 $export faz parte da especificação FHIR: https://hl7.org/fhir/uv/bulkdata/export/index.html . Se o serviço FHIR estiver configurado com uma identidade gerida e uma conta de armazenamento, e se a identidade gerida tiver acesso a essa conta de armazenamento - pode simplesmente ligar para $export na API do FHIR e todos os recursos FHIR serão exportados para a conta de armazenamento. Para mais informações, consulte o nosso [artigo sobre $export.](./export-data.md)
+
+### <a name="is-de-identified-export-available-at-patient-and-group-level-as-well"></a>A exportação desinsinc identificada também está disponível ao nível do Paciente e do Grupo?
+Atualmente, a exportação anonimizada é suportada apenas numa exportação completa do sistema (/$export), e não para a exportação de doentes (/Paciente/$export). Estamos a trabalhar para o disponibilizar também ao nível do Paciente.
 
 ## <a name="using-azure-api-for-fhir"></a>Utilização da AZure API para FHIR
 

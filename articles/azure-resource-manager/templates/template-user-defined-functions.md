@@ -2,13 +2,13 @@
 title: Funções definidas pelo utilizador em modelos
 description: Descreve como definir e utilizar funções definidas pelo utilizador num modelo de Gestor de Recursos Azure (modelo ARM).
 ms.topic: conceptual
-ms.date: 03/09/2020
-ms.openlocfilehash: f428fa3bc827af3820ad9f928f4f92b881c9c84c
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.date: 02/11/2021
+ms.openlocfilehash: 9c7480958e6315c8aea1fd8d12613bcf9d606723
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97934684"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100379629"
 ---
 # <a name="user-defined-functions-in-arm-template"></a>Funções definidas pelo utilizador no modelo ARM
 
@@ -44,7 +44,7 @@ As suas funções requerem um valor de espaço de nome para evitar o nome de con
 
 ## <a name="use-the-function"></a>Use a função
 
-O exemplo a seguir mostra um modelo que inclui uma função definida pelo utilizador. Usa essa função para obter um nome único para uma conta de armazenamento. O modelo tem um parâmetro chamado `storageNamePrefix` que passa como um parâmetro para a função.
+O exemplo a seguir mostra um modelo que inclui uma função definida pelo utilizador para obter um nome único para uma conta de armazenamento. O modelo tem um parâmetro nomeado `storageNamePrefix` que é passado como um parâmetro para a função.
 
 ```json
 {
@@ -92,6 +92,12 @@ O exemplo a seguir mostra um modelo que inclui uma função definida pelo utiliz
  ]
 }
 ```
+
+Durante a implementação, o `storageNamePrefix` parâmetro é passado para a função:
+
+* O modelo define um parâmetro chamado `storageNamePrefix` .
+* A função `namePrefix` utiliza-se porque só é possível utilizar parâmetros definidos na função. Para mais informações, consulte [As Limitações.](#limitations)
+* Na secção do `resources` modelo, o `name` elemento utiliza a função e passa o valor `storageNamePrefix` para a função `namePrefix` .
 
 ## <a name="limitations"></a>Limitações
 

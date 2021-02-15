@@ -2,14 +2,14 @@
 title: Configurar pontos finais de serviço de rede virtual para Azure Service Bus
 description: Este artigo fornece informações sobre como adicionar um ponto final de serviço Microsoft.ServiceBus a uma rede virtual.
 ms.topic: article
-ms.date: 06/23/2020
+ms.date: 02/12/2021
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 8005a2c43d42908a9ad6ebea10b6a13ef381084c
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.openlocfilehash: 6b168bbdc69f2d18a724084d9de694fa83d23dda
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427654"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100516146"
 ---
 # <a name="allow-access-to-azure-service-bus-namespace-from-specific-virtual-networks"></a>Permitir o acesso ao espaço de nomes do Azure Service Bus a partir de redes virtuais específicas
 A integração do Service Bus com [os pontos finais de serviço da Rede Virtual (VNet)][vnet-sep] permite o acesso seguro às capacidades de mensagens a partir de cargas de trabalho, como máquinas virtuais, que estão ligadas a redes virtuais, com o caminho de tráfego da rede a ser assegurado em ambas as extremidades.
@@ -57,7 +57,8 @@ Esta secção mostra-lhe como usar o portal Azure para adicionar um ponto final 
     > [!NOTE]
     > Você vê o **separador Networking** apenas para espaços de nome **premium.**  
     
-    Por predefinição, a opção **de rede Selecionada** é selecionada. Se não adicionar pelo menos uma regra de firewall IP ou uma rede virtual nesta página, o espaço de nome pode ser acedido através da internet pública (utilizando a chave de acesso).
+    >[!WARNING]
+    > Se selecionar a opção **redes selecionadas** e não adicionar pelo menos uma regra de firewall IP ou uma rede virtual nesta página, o espaço de nome pode ser acedido através da internet pública (utilizando a chave de acesso).
 
     :::image type="content" source="./media/service-bus-ip-filtering/default-networking-page.png" alt-text="Página de rede - padrão" lightbox="./media/service-bus-ip-filtering/default-networking-page.png":::
     
@@ -88,26 +89,11 @@ Esta secção mostra-lhe como usar o portal Azure para adicionar um ponto final 
 [!INCLUDE [service-bus-trusted-services](../../includes/service-bus-trusted-services.md)]
 
 ## <a name="use-resource-manager-template"></a>Utilizar o modelo do Resource Manager
-O modelo seguinte do Gestor de Recursos permite adicionar uma regra de rede virtual a um espaço de nomes de service bus existente.
+O modelo seguinte do Gestor de Recursos de amostra adiciona uma regra de rede virtual a um espaço de nomes de serviço de serviço existente. Para a regra da rede, especifica o ID de uma sub-rede numa rede virtual. 
 
-Parâmetros do modelo:
+O ID é um caminho totalmente qualificado de Gestor de Recursos para a sub-rede de rede virtual. Por exemplo, `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` para a sub-rede predefinida de uma rede virtual.
 
-* **nomespaceName** : Espaço de nome de ônibus de serviço.
-* **virtualNetworkingSubnetId** : Caminho de gestor de recursos totalmente qualificado para a sub-rede de rede virtual; por exemplo, `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` para a sub-rede predefinida de uma rede virtual.
-
-> [!NOTE]
-> Embora não existam regras de negação possíveis, o modelo de Gestor de Recursos Azure tem a ação padrão definida para **"Permitir"** que não restringe as ligações.
-> Ao fazer as regras de Rede Virtual ou Firewalls, temos de alterar o **_"defaultAction"_**
-> 
-> De
-> ```json
-> "defaultAction": "Allow"
-> ```
-> para
-> ```json
-> "defaultAction": "Deny"
-> ```
->
+Ao adicionar regras de rede virtual ou firewalls, desa um valor de `defaultAction` `Deny` .
 
 Modelo:
 
@@ -211,6 +197,9 @@ Modelo:
 ```
 
 Para implementar o modelo, siga as instruções para [O Gestor de Recursos Azure][lnk-deploy].
+
+> [!IMPORTANT]
+> Se não houver regras de IP e rede virtual, todo o tráfego flui para o espaço de nomes, mesmo que você desempate o `defaultAction` `deny` .  O espaço de nomes pode ser acedido através da internet pública (utilizando a chave de acesso). Especifique pelo menos uma regra de IP ou rede virtual para o espaço de nomes para permitir o tráfego apenas a partir dos endereços IP especificados ou sub-rede de uma rede virtual.  
 
 ## <a name="next-steps"></a>Passos seguintes
 

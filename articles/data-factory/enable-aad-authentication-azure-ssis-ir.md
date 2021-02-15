@@ -1,22 +1,19 @@
 ---
 title: Ativar o tempo de funcionamento da integração do Azure SSIS
 description: Este artigo descreve como permitir a autenticação do Azure Ative Directory com a identidade gerida para a Azure Data Factory criar o Tempo de Execução de Integração Azure-SSIS.
-services: data-factory
 ms.service: data-factory
-ms.workload: data-services
 ms.devlang: powershell
 ms.topic: conceptual
 author: swinarko
 ms.author: sawinark
-manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 07/09/2020
-ms.openlocfilehash: 30f5b5990e189cb6942c15b65b6a417ce49f0c2b
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: cd3f590e1869b28f0ac08ce98da32a98160e4e86
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637807"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100392736"
 ---
 # <a name="enable-azure-active-directory-authentication-for-azure-ssis-integration-runtime"></a>Ativar a autenticação do Azure Active Directory para o Azure-SSIS Integration Runtime
 
@@ -86,9 +83,9 @@ Pode [configurar e gerir a autenticação Azure AD com SQL](../azure-sql/databas
 
 2.  Selecione o seu servidor na Base de Dados SQL para ser configurado com autenticação AD Azure.
 
-3.  Na secção **Definições** da lâmina, selecione **Administrador Ative Directory** .
+3.  Na secção **Definições** da lâmina, selecione **Administrador Ative Directory**.
 
-4.  Na barra de comando, selecione **Definir a administração** .
+4.  Na barra de comando, selecione **Definir a administração**.
 
 5.  Selecione uma conta de utilizador AD Azure para ser feita administradora do servidor e, em seguida, **selecione Select.**
 
@@ -110,7 +107,7 @@ Para este próximo passo, precisa do [Microsoft SQL Server Management Studio](/s
 
 6. No **Explorador** de **Objetos,** expanda a pasta  ->  **bases de dados do sistema de bases de dados.**
 
-7. Clique com o botão direito na base de dados **principal** e selecione **Nova consulta** .
+7. Clique com o botão direito na base de dados **principal** e selecione **Nova consulta**.
 
 8. Na janela de consulta, introduza o seguinte comando T-SQL e selecione **Executar** na barra de ferramentas.
 
@@ -128,7 +125,7 @@ Para este próximo passo, precisa do [Microsoft SQL Server Management Studio](/s
 
    O comando deve ser concluído com sucesso, concedendo ao utilizador contido a capacidade de criar uma base de dados (SSISDB).
 
-10. Se o seu SSISDB foi criado utilizando a autenticação SQL e pretende mudar para utilizar a autenticação AZure AD para o seu Azure-SSIS IR aceder ao mesmo, certifique-se primeiro de que os passos para conceder permissão à base de dados **principal** terminaram com sucesso. Em seguida, clique com o botão direito na base de **dados SSISDB** e selecione **Nova consulta** .
+10. Se o seu SSISDB foi criado utilizando a autenticação SQL e pretende mudar para utilizar a autenticação AZure AD para o seu Azure-SSIS IR aceder ao mesmo, certifique-se primeiro de que os passos para conceder permissão à base de dados **principal** terminaram com sucesso. Em seguida, clique com o botão direito na base de **dados SSISDB** e selecione **Nova consulta**.
 
 11. Na janela de consulta, introduza o seguinte comando T-SQL e selecione **Executar** na barra de ferramentas.
 
@@ -160,11 +157,11 @@ Para este próximo passo, precisa do [Microsoft SQL Server Management Studio](/s
 
 1.  Inicie ssms.
 
-2.  Conecte-se a SQL Managed Instance usando uma conta SQL Server que é um **sysadmin** . Esta é uma limitação temporária que será removida assim que os principais do servidor AZure AD (logins) para Azure SQL Managed Instance se tornarem GA. Verá o seguinte erro se tentar utilizar uma conta de administração Azure AD para criar o login: Msg 15247, Nível 16, Estado 1, Linha 1 O utilizador não tem permissão para realizar esta ação.
+2.  Conecte-se a SQL Managed Instance usando uma conta SQL Server que é um **sysadmin**. Esta é uma limitação temporária que será removida assim que os principais do servidor AZure AD (logins) para Azure SQL Managed Instance se tornarem GA. Verá o seguinte erro se tentar utilizar uma conta de administração Azure AD para criar o login: Msg 15247, Nível 16, Estado 1, Linha 1 O utilizador não tem permissão para realizar esta ação.
 
 3.  No **Explorador** de **Objetos,** expanda a pasta  ->  **bases de dados do sistema de bases de dados.**
 
-4.  Clique com o botão direito na base de dados **principal** e selecione **Nova consulta** .
+4.  Clique com o botão direito na base de dados **principal** e selecione **Nova consulta**.
 
 5.  Na janela de consulta, execute o seguinte script T-SQL para adicionar a identidade gerida para o seu ADF como utilizador
 
@@ -176,7 +173,7 @@ Para este próximo passo, precisa do [Microsoft SQL Server Management Studio](/s
     
     O comando deverá ser concluído com sucesso, concedendo à identidade gerida para o seu ADF a capacidade de criar uma base de dados (SSISDB).
 
-6.  Se o seu SSISDB foi criado utilizando a autenticação SQL e pretende mudar para utilizar a autenticação AZure AD para o seu Azure-SSIS IR aceder ao mesmo, certifique-se primeiro de que os passos para conceder permissão à base de dados **principal** terminaram com sucesso. Em seguida, clique com o botão direito na base de **dados SSISDB** e selecione **Nova consulta** .
+6.  Se o seu SSISDB foi criado utilizando a autenticação SQL e pretende mudar para utilizar a autenticação AZure AD para o seu Azure-SSIS IR aceder ao mesmo, certifique-se primeiro de que os passos para conceder permissão à base de dados **principal** terminaram com sucesso. Em seguida, clique com o botão direito na base de **dados SSISDB** e selecione **Nova consulta**.
 
 7.  Na janela de consulta, introduza o seguinte comando T-SQL e selecione **Executar** na barra de ferramentas.
 

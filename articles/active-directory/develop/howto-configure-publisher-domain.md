@@ -1,5 +1,5 @@
 ---
-title: Configure o domínio de uma aplicação editora Rio Azure
+title: Configure o domínio de uma aplicação | Rio Azure
 titleSuffix: Microsoft identity platform
 description: Saiba como configurar o domínio de uma aplicação para informar os utilizadores para onde as suas informações estão a ser enviadas.
 services: active-directory
@@ -13,12 +13,12 @@ ms.date: 07/23/2020
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, zachowd
 ms.custom: aaddev
-ms.openlocfilehash: d793ed912af1c6fdd6e0da417b8709cad8bf08b9
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 9b3840ffb39a204cfa24dcb0430f20ac16587582
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98013639"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104183"
 ---
 # <a name="how-to-configure-an-applications-publisher-domain"></a>Como: Configurar o domínio de uma aplicação
 
@@ -48,18 +48,12 @@ Se a sua aplicação foi registada antes de 21 de maio de 2019, o pedido de cons
 
 Para definir o domínio de editor da sua aplicação, siga estes passos.
 
-1. Inscreva-se no <a href="https://portal.azure.com/" target="_blank">portal <span class="docon docon-navigate-external x-hidden-focus"></span> Azure</a> usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
-
-1. Se a sua conta estiver presente em mais de um inquilino da AZure AD:
-   1. Selecione o seu perfil a partir do menu no canto superior direito da página e, em seguida, altere o **diretório**.
-   1. Mude a sua sessão para o inquilino Azure AD onde pretende criar a sua candidatura.
-
+1. Inicie sessão no <a href="https://portal.azure.com/" target="_blank">portal do Azure</a>.
+1. Se tiver acesso a vários inquilinos, utilize o filtro **de subscrição Diretório +** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o inquilino no qual a aplicação está registada.
 1. Navegue para [o Azure Ative Directory > as inscrições](https://go.microsoft.com/fwlink/?linkid=2083908) da App para encontrar e selecionar a aplicação que pretende configurar.
 
    Uma vez selecionada a aplicação, verá a página **geral** da aplicação.
-
-1. Na página **'Visão Geral'** da aplicação, selecione a secção **de Branding.**
-
+1. Under **Manage**, selecione o **Branding**.
 1. Encontre o campo **de domínio Publisher** e selecione uma das seguintes opções:
 
    - Selecione **Configurar um domínio** se ainda não tiver configurado um domínio.

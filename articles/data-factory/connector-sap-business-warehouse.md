@@ -1,23 +1,18 @@
 ---
 title: Copiar dados da SAP BW
 description: Saiba como copiar dados do SAP Business Warehouse para armazenar dados de sumidouros suportados utilizando uma atividade de cópia num oleoduto Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/04/2019
-ms.openlocfilehash: 86d4f82b70a6b6b3ceed262cf96fa291e26dd53c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4a5eb7c8d729fc0c3b95a61a4b8dbc8266d1eec3
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87534384"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100386667"
 ---
 # <a name="copy-data-from-sap-business-warehouse-using-azure-data-factory"></a>Copiar dados do SAP Business Warehouse utilizando a Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -69,13 +64,13 @@ As seguintes propriedades são suportadas para o serviço ligado ao SAP Business
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo deve ser definida para: **SapBw** | Sim |
-| servidor | Nome do servidor em que reside a instância SAP BW. | Sim |
-| sistemaNumbre | Número do sistema do sistema SAP BW.<br/>Valor permitido: número decimal de dois dígitos representado como uma corda. | Sim |
-| clientId | Identificação do cliente do cliente no sistema SAP W.<br/>Valor permitido: número decimal de três dígitos representado como uma corda. | Sim |
-| userName | Nome do utilizador que tem acesso ao servidor SAP. | Sim |
-| palavra-passe | A palavra-passe do utilizador. Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Sim |
-| connectVia | O [tempo de execução de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. É necessário um tempo de integração auto-organizado, tal como mencionado nos [Pré-Requisitos](#prerequisites). |Sim |
+| tipo | A propriedade tipo deve ser definida para: **SapBw** | Yes |
+| servidor | Nome do servidor em que reside a instância SAP BW. | Yes |
+| sistemaNumbre | Número do sistema do sistema SAP BW.<br/>Valor permitido: número decimal de dois dígitos representado como uma corda. | Yes |
+| clientId | Identificação do cliente do cliente no sistema SAP W.<br/>Valor permitido: número decimal de três dígitos representado como uma corda. | Yes |
+| userName | Nome do utilizador que tem acesso ao servidor SAP. | Yes |
+| palavra-passe | A palavra-passe do utilizador. Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Yes |
+| connectVia | O [tempo de execução de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. É necessário um tempo de integração auto-organizado, tal como mencionado nos [Pré-Requisitos](#prerequisites). |Yes |
 
 **Exemplo:**
 
@@ -137,8 +132,8 @@ Para copiar dados da SAP BW, as seguintes propriedades são suportadas na secç�
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **SapBwSource** | Sim |
-| consulta | Especifica a consulta MDX para ler dados a partir da instância SAP BW. | Sim |
+| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **SapBwSource** | Yes |
+| consulta | Especifica a consulta MDX para ler dados a partir da instância SAP BW. | Yes |
 
 **Exemplo:**
 
@@ -181,27 +176,27 @@ Ao copiar dados da SAP BW, os seguintes mapeamentos são usados desde os tipos d
 | Tipo de dados SAP BW | Tipo de dados provisórios da fábrica de dados |
 |:--- |:--- |
 | ACCP | int |
-| CHAR | Cadeia |
-| CLNT | Cadeia |
+| CHAR | String |
+| CLNT | String |
 | CURR | Decimal |
-| RIO CUKY | Cadeia |
+| RIO CUKY | String |
 | DEC | Decimal |
 | FLTP | Double (Duplo) |
 | INT1 | Byte |
 | INT2 | Int16 |
 | INT4 | int |
-| LANG | Cadeia |
-| LCHR | Cadeia |
+| LANG | String |
+| LCHR | String |
 | RIO LRAW | Byte[] |
 | PREC | Int16 |
 | QUAN | Decimal |
 | RAW | Byte[] |
 | RAWSTRING | Byte[] |
-| CORDA | Cadeia |
-| UNIDADE | Cadeia |
-| DATS | Cadeia |
-| NUMC | Cadeia |
-| TIMS | Cadeia |
+| CORDA | String |
+| UNIDADE | String |
+| DATS | String |
+| NUMC | String |
+| TIMS | String |
 
 
 ## <a name="lookup-activity-properties"></a>Propriedades de atividade de procura

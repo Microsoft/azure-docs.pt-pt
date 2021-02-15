@@ -1,22 +1,18 @@
 ---
 title: Copiar e transformar dados na Base de Dados Azure para PostgreSQL
 description: Saiba como copiar e transformar dados na Base de Dados Azure para PostgreSQL utilizando a Azure Data Factory.
-services: data-factory
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/01/2021
-ms.openlocfilehash: 8b1177278583bdb46f17119eb59235e70c58e806
-ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
+ms.openlocfilehash: 32c65a3e1063b29ab6458151aec42e4415a73b62
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99223101"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100381329"
 ---
 # <a name="copy-and-transform-data-in-azure-database-for-postgresql-by-using-azure-data-factory"></a>Copiar e transformar dados na Base de Dados Azure para PostgreSQL utilizando a Azure Data Factory
 
@@ -73,7 +69,7 @@ Uma cadeia de ligação típica é `Server=<server>.postgres.database.azure.com;
 
 **Exemplo:**
 
-**_Armazenar senha em Azure Key Vault_* _
+***Guarde a palavra-passe no Cofre da Chave Azure***
 
 ```json
 {
@@ -99,7 +95,7 @@ Uma cadeia de ligação típica é `Server=<server>.postgres.database.azure.com;
 
 Para obter uma lista completa de secções e propriedades disponíveis para definir conjuntos de dados, consulte [datasets na Azure Data Factory](concepts-datasets-linked-services.md). Esta secção fornece uma lista de propriedades que a Base de Dados Azure para PostgreSQL suporta em conjuntos de dados.
 
-Para copiar os dados da Base de Dados Azure para PostgreSQL, defina a propriedade tipo do conjunto de dados para _*AzurePostgreSqlTable***. As seguintes propriedades são suportadas:
+Para copiar os dados da Base de Dados Azure para PostgreSQL, defina a propriedade tipo do conjunto de dados para **AzurePostgreSqlTable**. As seguintes propriedades são suportadas:
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |

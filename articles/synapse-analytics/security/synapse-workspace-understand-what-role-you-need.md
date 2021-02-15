@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 12/1/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: ba00e6f4fe97b0614483fd04ddee9fc768558db5
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 950a786b29a8144c4bb192fa6078e8c88d67481d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100102109"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100384457"
 ---
 # <a name="understand-the-roles-required-to-perform-common-tasks-in-synapse"></a>Compreender as funções necessárias para executar tarefas comuns na Sinapse
 
@@ -87,7 +87,7 @@ Ver os registos para o caderno e execução de emprego |Operador de Computação
 Cancele qualquer caderno ou trabalho de faísca em execução numa piscina Apache Spark|Operador de computação de sinapse na piscina Apache Spark.|bigDataPools/useCompute
 Criar um caderno ou definição de trabalho|Utilizador da Sinapse, ou </br>Proprietário, Colaborador ou Leitor do Azure Proprietário, Colaborador ou Leitor no espaço de trabalho</br> *São necessárias permissões adicionais para executar, publicar ou cometer alterações*|leitura</br></br></br></br></br> 
 Listar e abrir um caderno publicado ou definição de emprego, incluindo a revisão de saídas guardadas|Utilizador de Artefactos De Sinapse, Editor de Artefactos De Sinapse, Colaborador de Sinapse no espaço de trabalho|artefactos/leitura
-Executar um caderno e rever a sua saída|Administrador de faíscas Da Sinapse Apache, Operador de Cálculo De Sinapse na piscina selecionada apache spark|bigDataPools/useCompute 
+Executar um caderno e rever a sua saída, ou submeter um trabalho de Spark|Administrador de faíscas Da Sinapse Apache, Operador de Cálculo De Sinapse na piscina selecionada apache spark|bigDataPools/useCompute 
 Publicar ou excluir um caderno ou definição de emprego (incluindo saída) para o serviço|Editor de Artefactos no espaço de trabalho, Administrador de Faíscas Apache Synapse|cadernos/escrever, excluir
 Comprometer alterações a um caderno ou definição de emprego para o git repo|Permissões de Git|nenhum
 PIPELINES, INTEGRAÇÃO TEMPOS DE EXECUÇÃO, FLUXOS DE DADOS, DATASETS & TRIGGERS|

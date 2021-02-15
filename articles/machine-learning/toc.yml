@@ -278,8 +278,16 @@
         - name: Configurar ambientes de desenvolvimento
           displayName: 'local, remote, azure notebooks, notebook, Jupyter, dsvm, Databricks, ADB'
           href: how-to-configure-environment.md
-        - name: Executar Blocos de Notas do Jupyter
-          href: how-to-run-jupyter-notebooks.md
+        - name: Configurar ambiente de estúdio
+          items:
+            - name: Criar e gerir ficheiros
+              href: how-to-manage-files.md
+              displayName: 'Jupyter, notebooks, clone, samples'
+            - name: Executar Blocos de Notas do Jupyter
+              href: how-to-run-jupyter-notebooks.md
+            - name: Use um terminal
+              href: how-to-access-terminal.md
+              displayName: 'git, github, clone, kernel, package'
         - name: Configurar ambientes de software
           displayName: 'pip, Conda, anaconda'
           href: how-to-use-environments.md

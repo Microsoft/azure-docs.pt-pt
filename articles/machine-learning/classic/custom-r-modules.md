@@ -3,22 +3,22 @@ title: 'Estúdio ML (clássico): Criar & implementar módulos R personalizados -
 description: Aprenda a ser autor e implemente um módulo R personalizado no ML Studio (clássico).
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: ec6a3304ffe035e7ac206e96f7666e3ba1877d9e
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: d44f2cfa72bd53b01da073fca31ca698eb42720d
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322788"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100520481"
 ---
 # <a name="define-custom-r-modules-for-machine-learning-studio-classic"></a>Definir módulos R personalizados para Machine Learning Studio (clássico)
 
-**APLICA-SE A:** ![ Aplica-se a. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) ![ Não se aplica a. ](../../../includes/media/aml-applies-to-skus/no.png)[ Aprendizagem de Máquinas Azure](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
+**APLICA-SE A:** ![ Aplica-se a. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) ![ Não se aplica a.](../../../includes/media/aml-applies-to-skus/no.png)[ Aprendizagem de Máquinas Azure](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 Este tópico descreve como ser autor e implementar um Estúdio R personalizado (clássico). Explica o que são os módulos R personalizados e quais os ficheiros utilizados para os definir. Ilustra como construir os ficheiros que definem um módulo e como registar o módulo para implantação num espaço de trabalho machine learning. Os elementos e atributos utilizados na definição do módulo personalizado são então descritos com mais detalhe. É também discutida a utilização de funcionalidades e ficheiros auxiliares e várias saídas. 
 
@@ -32,7 +32,7 @@ Um módulo R personalizado é definido por um ficheiro .zip que contém, no mín
 * Um **ficheiro de origem** que implementa a função R exposta pelo módulo
 * Um **ficheiro de definição XML** que descreve a interface do módulo personalizado
 
-Ficheiros auxiliares adicionais também podem ser incluídos no ficheiro .zip que fornece funcionalidade que pode ser acedida a partir do módulo personalizado. Esta opção é discutida na parte dos **Argumentos** da secção de referência **Elementos no ficheiro de definição XML** seguindo o exemplo de arranque rápido.
+Os ficheiros auxiliares adicionais também podem ser incluídos no ficheiro .zip que fornece funcionalidades que podem ser acedidas a partir do módulo personalizado. Esta opção é discutida na parte dos **Argumentos** da secção de referência **Elementos no ficheiro de definição XML** seguindo o exemplo de arranque rápido.
 
 ## <a name="quickstart-example-define-package-and-register-a-custom-r-module"></a>Exemplo de arranque rápido: definir, embalar e registar um módulo R personalizado
 Este exemplo ilustra como construir os ficheiros necessários por um módulo R personalizado, embalá-los num ficheiro zip e, em seguida, registar o módulo no seu espaço de trabalho Machine Learning. O pacote de informação e os ficheiros de amostras de exemplo podem ser descarregados a partir do [ficheiro Descarregamento CustomAddRows.zip.](https://go.microsoft.com/fwlink/?LinkID=524916&clcid=0x409)
@@ -91,7 +91,7 @@ Para expor esta `CustomAddRows` função como módulo Azure Machine Learning Stu
 </Module>
 ```
 
-É fundamental notar que o valor dos atributos de **id** dos elementos **Entrada** e **Arg** no ficheiro XML deve corresponder aos nomes dos parâmetros de função do código R no ficheiro CustomAddRows.R exatamente: *(conjunto de dados1,* *conjunto de dados2* , e *troca* no exemplo). Da mesma forma, o valor do atributo ponto de **entrada** do elemento **idioma** deve corresponder ao nome da função no script R EXACT: *(CustomAddRows* no exemplo). 
+É fundamental notar que o valor dos atributos de **id** dos elementos **Entrada** e **Arg** no ficheiro XML deve corresponder aos nomes dos parâmetros de função do código R no ficheiro CustomAddRows.R exatamente:*(conjunto de dados1,* *conjunto de dados2*, e *troca* no exemplo). Da mesma forma, o valor do atributo ponto de **entrada** do elemento **idioma** deve corresponder ao nome da função no script R EXACT:*(CustomAddRows* no exemplo). 
 
 Em contraste, o atributo **id** para o elemento **Saída** não corresponde a variáveis no script R. Quando for necessária mais de uma saída, basta devolver uma lista da função R com resultados colocados *na mesma ordem que os* **elementos outputs** são declarados no ficheiro XML.
 
@@ -188,7 +188,7 @@ Para módulos R personalizados, o ID para uma porta Zip não tem de corresponder
 
 Para saídas em módulos R personalizados, o valor do atributo **id** não tem de corresponder a nada no script R, mas deve ser único. Para uma única saída de módulo, o valor de retorno da função R deve ser um *data.frame*. Para podermos desempecar mais do que um objeto de um tipo de dados suportado, as portas de saída adequadas devem ser especificadas no ficheiro de definição XML e os objetos precisam de ser devolvidos como lista. Os objetos de saída são atribuídos às portas de saída da esquerda para a direita, refletindo a ordem em que os objetos são colocados na lista de devoluções.
 
-Por exemplo, se pretender modificar o módulo **Custom Add Rows** para a produção dos dois conjuntos de dados originais, *dataset1* e *dataset2* , além do novo conjunto de dados, conjunto de *dados,* (numa ordem, da esquerda para a direita, como: conjunto de *dados,* conjunto *de dados1,* *conjunto de dados2),* então defina as portas de saída no ficheiro CustomAddRows.xml da seguinte forma:
+Por exemplo, se pretender modificar o módulo **Custom Add Rows** para a produção dos dois conjuntos de dados originais, *dataset1* e *dataset2*, além do novo conjunto de dados, conjunto de *dados,*(numa ordem, da esquerda para a direita, como: conjunto de *dados,* conjunto *de dados1,* *conjunto de dados2),* então defina as portas de saída no ficheiro CustomAddRows.xml da seguinte forma:
 
 ```xml
 <Ports> 
@@ -253,7 +253,7 @@ Um parâmetro do módulo é definido usando o elemento **arg** da secção **de 
 </Arg>
 ```
 
-* *Propriedades Opcionais* : **min,** **máx,** **predefinição** e **isOptional**
+* *Propriedades Opcionais*: **min,** **máx,** **predefinição** e **isOptional**
 
 **duplo** – um parâmetro de duplo tipo.
 
@@ -264,7 +264,7 @@ Um parâmetro do módulo é definido usando o elemento **arg** da secção **de 
 </Arg>
 ```
 
-* *Propriedades Opcionais* : **min,** **máx,** **predefinição** e **isOptional**
+* *Propriedades Opcionais*: **min,** **máx,** **predefinição** e **isOptional**
 
 **bool** – um parâmetro Boolean que é representado por uma caixa de verificação em UX.
 
@@ -275,7 +275,7 @@ Um parâmetro do módulo é definido usando o elemento **arg** da secção **de 
 </Arg>
 ```
 
-* *Propriedades Opcionais* : **padrão** - falso se não definido
+* *Propriedades Opcionais*: **padrão** - falso se não definido
 
 **corda:** uma corda padrão
 
@@ -286,9 +286,9 @@ Um parâmetro do módulo é definido usando o elemento **arg** da secção **de 
 </Arg>    
 ```
 
-* *Propriedades Opcionais* : **predefinição** e **isOptional**
+* *Propriedades Opcionais*: **predefinição** e **isOptional**
 
-**ColumnPicker** : um parâmetro de seleção de colunas. Este tipo presta no UX como um escolhidor de coluna. O elemento **Propriedade** é utilizado aqui para especificar o ID da porta a partir do qual são selecionadas colunas, onde o tipo de porta-alvo deve ser *DataTable*. O resultado da seleção da coluna é passado para a função R como uma lista de cordas contendo os nomes de colunas selecionados. 
+**ColumnPicker**: um parâmetro de seleção de colunas. Este tipo presta no UX como um escolhidor de coluna. O elemento **Propriedade** é utilizado aqui para especificar o ID da porta a partir do qual são selecionadas colunas, onde o tipo de porta-alvo deve ser *DataTable*. O resultado da seleção da coluna é passado para a função R como uma lista de cordas contendo os nomes de colunas selecionados. 
 
 ```xml
 <Arg id="colset" name="Column set" type="ColumnPicker">      
@@ -297,7 +297,7 @@ Um parâmetro do módulo é definido usando o elemento **arg** da secção **de 
 </Arg>
 ```
 
-* *Propriedades Requeridas* : **portId** - corresponde ao ID de um elemento de entrada com o tipo *DataTable*.
+* *Propriedades Requeridas*: **portId** - corresponde ao ID de um elemento de entrada com o tipo *DataTable*.
 * *Propriedades Opcionais:*
   
   * **allowedTypes** - Filtra os tipos de colunas a partir dos quais pode escolher. Valores válidos incluem: 
@@ -334,7 +334,7 @@ Um parâmetro do módulo é definido usando o elemento **arg** da secção **de 
     * AllScore
     * Todos
 
-**DropDown** : uma lista enumerada pelo utilizador (dropdown). Os itens de entrega são especificados dentro do elemento **Propriedades** utilizando um elemento **Item.** O **id** para cada **item** deve ser único e uma variável R válida. O valor do **nome** de um **Item** serve tanto como o texto que vê e o valor que é passado para a função R.
+**DropDown**: uma lista enumerada pelo utilizador (dropdown). Os itens de entrega são especificados dentro do elemento **Propriedades** utilizando um elemento **Item.** O **id** para cada **item** deve ser único e uma variável R válida. O valor do **nome** de um **Item** serve tanto como o texto que vê e o valor que é passado para a função R.
 
 ```xml
 <Arg id="color" name="Color" type="DropDown">

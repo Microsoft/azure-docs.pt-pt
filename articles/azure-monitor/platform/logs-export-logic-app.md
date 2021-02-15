@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/02/2020
-ms.openlocfilehash: 04f1eb0d9db00a2be1a4619cafe38aa18145fc78
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 21b9d73da0df5ada626500a706a19d1025de1dcc
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186002"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100391971"
 ---
 # <a name="archive-data-from-log-analytics-workspace-to-azure-storage-using-logic-app"></a>Arquivar dados do log analytics espaço de trabalho para o armazenamento do Azure usando a Logic App
 Este artigo descreve um método para usar [Azure Logic Apps](../../logic-apps/index.yml) para consultar dados de um espaço de trabalho Log Analytics no Azure Monitor e enviar para o Azure Storage. Utilize este processo quando necessitar de exportar os seus dados de Registo do Monitor Azure para cenários de auditoria e conformidade ou para permitir que outro serviço recupere estes dados.  
@@ -24,7 +24,7 @@ O método descrito neste artigo descreve uma exportação programada de uma cons
 - Uma vez exportar usando uma App Lógica. Consulte [o conector de registos Azure Monitor para aplicações lógicas e automatização de energia](logicapp-flow-connector.md).
 - Uma vez exporta para máquina local usando o script PowerShell. Ver [Invoke-AzOperationalInsightsQueryExport]. https://www.powershellgallery.com/packages/Invoke-AzOperationalInsightsQueryExport)
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 Este procedimento utiliza o [conector Azure Monitor Logs](/connectors/azuremonitorlogs/) que permite executar uma consulta de registo a partir de uma aplicação lógica e utilizar a sua saída noutras ações do fluxo de trabalho. O [conector de armazenamento Azure Blob](/connectors/azureblob/) é utilizado neste procedimento para enviar a saída de consulta para o armazenamento Azure. As outras ações são descritas nas secções abaixo.
 
 ![Visão geral da aplicação lógica](media/logs-export-logicapp/logic-app-overview.png)
@@ -69,7 +69,7 @@ Vá a **Aplicações Lógicas** no portal Azure e clique em **Adicionar**. Selec
 Clique **em 'Rever +' criar** e, em seguida, **criar**. Quando a implementação estiver concluída, clique em **Ir ao recurso** para abrir o Design de **Aplicações Lógicas**.
 
 ## <a name="create-a-trigger-for-the-logic-app"></a>Criar um gatilho para a aplicação lógica
-Em **Iniciar com um gatilho comum**, selecione **Recorrência**. Isto cria uma aplicação lógica que funciona automaticamente num intervalo regular. Na caixa de **frequência** da ação, selecione **Hora** e na caixa **Intervalo,** introduza **1** para executar o fluxo de trabalho uma vez por dia.
+Em **Iniciar com um gatilho comum**, selecione **Recorrência**. Isto cria uma aplicação lógica que funciona automaticamente num intervalo regular. Na caixa de **frequência** da ação, selecione **Day** e na caixa **Interval,** introduza **1** para executar o fluxo de trabalho uma vez por dia.
 
 ![Ação de recorrência](media/logs-export-logicapp/recurrence-action.png)
 

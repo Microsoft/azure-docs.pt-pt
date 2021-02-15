@@ -1,22 +1,18 @@
 ---
 title: Fábrica de Dados Azure - Amostras
 description: Fornece detalhes sobre as amostras que o navio com o serviço Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
-manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: b373b5c440bf2ef2f50bf323baa2488981cdc775
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 82c871e8914d70dde7f2586b7dbf6556ebd2621f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96495196"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100387041"
 ---
 # <a name="azure-data-factory---samples"></a>Fábrica de Dados Azure - Amostras
 > [!NOTE]
@@ -46,7 +42,7 @@ O [repositório gitHub Azure-DataFactory](https://github.com/azure/azure-datafac
 ## <a name="azure-resource-manager-templates"></a>Modelos do Azure Resource Manager
 Pode encontrar os seguintes modelos de Gestor de Recursos Azure para data factory no GitHub.
 
-| Modelo | Descrição |
+| Modelo | Description |
 | --- | --- |
 | [Cópia do Azure Blob Storage para Azure SQL Database](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-blob-to-sql-copy) |A implementação deste modelo cria uma fábrica de dados Azure com um pipeline que copia dados do armazenamento de blob Azure especificado para a Base de Dados Azure SQL |
 | [Cópia da Salesforce para o Armazenamento Azure Blob](https://github.com/Azure/azure-quickstart-templates/tree/master/101-data-factory-salesforce-to-blob-copy) |A implementação deste modelo cria uma fábrica de dados Azure com um pipeline que copia dados da conta de Salesforce especificada para o armazenamento de blob Azure. |
@@ -80,7 +76,7 @@ Tem de ter o seguinte instalado no computador:
 
 * Visual Studio 2013 ou Visual Studio 2015
 * Transfira o Azure SDK para o Visual Studio 2013 ou Visual Studio 2015. Navegue até à [Página de Transferências do Azure](https://azure.microsoft.com/downloads/) e clique em **VS 2013** ou **VS 2015** na secção **.NET**.
-* Transfira o plug-in mais recente do Azure Data Factory para o Visual Studio: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) ou [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). Se estiver a utilizar o Visual Studio 2013, também pode atualizar o plugin fazendo os seguintes passos: No menu, clique em **Tools**  ->  **Extensões de Ferramentas e Atualizações**  ->  **Online**  ->  **Visual Studio Gallery** Microsoft  ->  **Azure Data Factory Tools para Atualização visual do estúdio.**  ->  **Update**
+* Transfira o plug-in mais recente do Azure Data Factory para o Visual Studio: [VS 2013](https://visualstudiogallery.msdn.microsoft.com/754d998c-8f92-4aa7-835b-e89c8c954aa5) ou [VS 2015](https://visualstudiogallery.msdn.microsoft.com/371a4cf9-0093-40fa-b7dd-be3c74f49005). Se estiver a utilizar o Visual Studio 2013, também pode atualizar o plugin fazendo os seguintes passos: No menu, clique em   ->  **Extensões de Ferramentas e Atualizações**  ->  **Online**  ->  **Visual Studio Gallery** Microsoft  ->  **Azure Data Factory Tools para Atualização visual do estúdio.**  ->  
 
 ### <a name="use-data-factory-templates"></a>Use modelos de fábrica de dados
 1. Clique em **Arquivar** no menu, aponte para **Novo** e clique em **Projeto**.
@@ -102,7 +98,7 @@ Tem de ter o seguinte instalado no computador:
    2. Insira um **nome** para a fábrica de dados.
    3. Selecione a **subscrição Azure** na qual deseja que a fábrica de dados seja criada.
    4. Selecione o **grupo de recursos** para a fábrica de dados.
-   5. Selecione os EUA **ocidentais, os EUA orientais** ou a **Europa do Norte** para a **região.** **West US**
+   5. Selecione os EUA **ocidentais, os EUA orientais** ou a **Europa do Norte** para a **região.** 
    6. Clique em **Seguinte**.
 6. Na página **de lojas de dados Configure,** especifique uma base de dados existente **na Base de Dados Azure SQL** e **na conta de armazenamento Azure** (ou) crie base de dados/armazenamento e clique em Seguinte.
 7. Na página **de cálculo configurar,** selecione predefinições e clique em **Seguinte**.

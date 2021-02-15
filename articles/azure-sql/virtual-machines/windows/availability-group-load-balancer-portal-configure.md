@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 02/16/2017
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 9fa23ca2ae655a11d7aaa4be67e08a6b3fa44394
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 6e53a6a4875b3dde55d1822daa342d6cde536d1c
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97359392"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100096434"
 ---
 # <a name="configure-a-load-balancer-for-a-sql-server-always-on-availability-group-in-azure-virtual-machines"></a>Configure um equilibrador de carga para um sql servidor sempre em grupo de disponibilidade em Máquinas Virtuais Azure
 
@@ -76,7 +76,7 @@ Primeiro, crie o equilibrador de carga.
    | **Rede virtual** |Selecione a rede virtual em que se encontram as instâncias do SQL Server. |
    | **Sub-rede** |Selecione a sub-rede em que se encontram as instâncias do SQL Server. |
    | **Atribuição de endereços IP** |**Estático** |
-   | **Endereço IP privado** |Especifique um endereço IP disponível a partir da sub-rede. Utilize este endereço IP quando criar um ouvinte no cluster. Num script PowerShell, mais tarde neste artigo, utilize este endereço para a `$ILBIP` variável. |
+   | **Endereço IP privado** |Especifique um endereço IP disponível a partir da sub-rede. Utilize este endereço IP quando criar um ouvinte no cluster. Num script PowerShell, mais tarde neste artigo, utilize este endereço para a `$ListenerILBIP` variável. |
    | **Subscrição** |Se tiver várias subscrições, este campo pode aparecer. Selecione a subscrição que pretende associar a este recurso. Normalmente é a mesma subscrição que todos os recursos para o grupo de disponibilidade. |
    | **Grupo de recursos** |Selecione o grupo de recursos em que se encontram as instâncias do SQL Server. |
    | **Localização** |Selecione a localização Azure em que se encontram as instâncias do SQL Server. |

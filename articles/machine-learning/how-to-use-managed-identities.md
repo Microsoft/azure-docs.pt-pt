@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: b0b0c43039648737b229edc79dd4e0a3dc45f38e
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 014c592713a8568b3bbc7e8e536f81b203271ccc
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98683345"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388078"
 ---
 # <a name="use-managed-identities-with-azure-machine-learning-preview"></a>Utilizar identidades geridas com Azure Machine Learning (pré-visualização)
 
@@ -29,6 +29,7 @@ Neste artigo, você vai aprender a usar identidades geridas para:
 
  * Configure e utilize o ACR para o seu espaço de trabalho Azure Machine Learning sem ter de permitir o acesso do utilizador administrativo ao ACR.
  * Aceda a um ACR privado externo ao seu espaço de trabalho, para retirar imagens base para treino ou inferência.
+ * Criar espaço de trabalho com identidade gerida atribuída ao utilizador para aceder a recursos associados.
 
 > [!IMPORTANT]
 > A utilização de identidades geridas para controlar o acesso a recursos com a Azure Machine Learning está atualmente em pré-visualização. A funcionalidade de pré-visualização é fornecida "as-is", sem garantia de suporte ou acordo de nível de serviço. Para obter mais informações, consulte os [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -102,7 +103,7 @@ Se não trouxer o seu próprio ACR, o serviço Azure Machine Learning criará um
 
 ### <a name="create-compute-with-managed-identity-to-access-docker-images-for-training"></a>Criar computação com identidade gerida para aceder a imagens do Docker para treino
 
-Para aceder ao espaço de trabalho ACR, crie um cluster de cálculo de machine learning com identidade gerida atribuída pelo sistema. Pode ativar a identidade a partir do portal Azure ou estúdio ao criar o cálculo, ou a partir de Azure CLI usando
+Para aceder ao espaço de trabalho ACR, crie um cluster de cálculo de machine learning com identidade gerida atribuída pelo sistema. Pode ativar a identidade a partir do portal Azure ou estúdio ao criar o cálculo, ou a partir de Azure CLI usando o seguinte. Para obter mais informações, consulte [a utilização da identidade gerida com clusters compute](how-to-create-attach-compute-cluster.md#managed-identity).
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -171,7 +172,7 @@ env.python.user_managed_dependencies = True
 
 ### <a name="build-azure-machine-learning-managed-environment-into-base-image-from-private-acr-for-training-or-inference"></a>Construa o ambiente gerido pela Azure Machine Learning em imagem base a partir de ACR privado para treino ou inferência
 
-Neste cenário, o serviço Azure Machine Learning constrói o ambiente de formação ou inferência em cima de uma imagem base que fornece a partir de um ACR privado. Como a tarefa de construção de imagens acontece no espaço de trabalho ACR utilizando tarefas ACR, deve executar passos adicionais para permitir o acesso.
+Neste cenário, o serviço Azure Machine Learning constrói o ambiente de formação ou inferência em cima de uma imagem base que fornece a partir de um ACR privado. Como a tarefa de construção de imagens acontece no espaço de trabalho ACR utilizando tarefas ACR, deve executar mais passos para permitir o acesso.
 
 1. Crie __identidade gerida atribuída ao utilizador__ e conceda à identidade ACRPull acesso ao __ACR privado__.  
 1. Conceder ao sistema de trabalho atribuído a identidade gerida uma __função__ de Operador de Identidade Gerida na __identidade gerida atribuída pelo utilizador__ a partir do passo anterior. Esta função permite que o espaço de trabalho atribua a identidade gerida atribuída ao utilizador para a Tarefa ACR para a construção do ambiente gerido. 
@@ -228,6 +229,41 @@ Depois de configurar o ACR sem o utilizador administrativo, como descrito anteri
 
 > [!NOTE]
 > Se você trouxer o seu próprio cluster AKS, o cluster deve ter o principal de serviço habilitado em vez de identidade gerida.
+
+## <a name="create-workspace-with-user-assigned-managed-identity"></a>Criar espaço de trabalho com identidade gerida atribuída pelo utilizador
+
+Ao criar espaço de trabalho, pode especificar uma identidade gerida atribuída ao utilizador que será usada para aceder aos recursos associados: ACR, KeyVault, Storage e App Insights.
+
+Primeiro [crie uma identidade gerida atribuída ao utilizador](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli]), e tome nota do ID de recursos ARM da identidade gerida.
+
+Em seguida, use Azure CLI ou Python SDK para criar o espaço de trabalho. Ao utilizar o CLI, especifique o ID utilizando o `--primary-user-assigned-identity` parâmetro. Quando utilizar o SDK, `primary_user_assigned_identity` utilize. Seguem-se exemplos de utilização do Azure CLI e python para criar um novo espaço de trabalho utilizando estes parâmetros:
+
+__CLI do Azure__
+
+```azurecli-interactive
+az ml workspace create -w <workspace name> -g <resource group> --primary-user-assigned-identity <managed identity ARM ID>
+```
+
+__Python__
+
+```python
+from azureml.core import Workspace
+
+ws = Workspace.create(name="workspace name", 
+    subscription_id="subscription id", 
+    resource_group="resource group name",
+    primary_user_assigned_identity="managed identity ARM ID")
+```
+
+Também pode utilizar [um modelo ARM](https://github.com/Azure/azure-quickstart-templates/tree/master/201-machine-learning-advanced) para criar um espaço de trabalho com identidade gerida atribuída pelo utilizador.
+
+> [!IMPORTANT]
+> Se você trouxer os seus próprios recursos associados, em vez de ter o serviço Azure Machine Learning criá-los, você deve conceder as funções de identidade geridas nesses recursos. Utilize o [modelo ARM de atribuição de funções](https://github.com/Azure/azure-quickstart-templates/tree/master/201-machine-learning-dependencies-role-assignment) para esbudê-lo.
+
+Para um espaço de trabalho com (chaves geridas pelo cliente para encriptação)[], https://docs.microsoft.com/azure/machine-learning/concept-data-encryption pode passar numa identidade gerida pelo utilizador para autenticar do armazenamento para o Key Vault. Utilize o argumento __de identidade-para-cmk-encriptação__ (CLI) ou __user_assigned_identity_for_cmk_encryption__ (SDK) para passar na identidade gerida. Esta identidade gerida pode ser a mesma ou diferente do utilizador primário do espaço de trabalho atribuído à identidade gerida.
+
+Se tiver um espaço de trabalho existente, pode atualizá-lo a partir do sistema atribuído à identidade gerida atribuída pelo utilizador utilizando ```az ml workspace update``` o comando CLI ou ```Workspace.update``` o método Python SDK.
+
 
 ## <a name="next-steps"></a>Passos seguintes
 

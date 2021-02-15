@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/07/2019
 ms.author: mlottner
-ms.openlocfilehash: 75c6841b7fed354843b955a971f02946be349a02
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 04fe87cd69efc4c064b8fbdc596a5f9e187abbb1
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96548890"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100102245"
 ---
 # <a name="azure-defender-for-iot-baseline-and-custom-checks"></a>Azure Defender para linha de base IoT e verificações personalizadas
 
@@ -35,9 +35,13 @@ As verificações personalizadas de base estabelecem uma lista personalizada de 
 ## <a name="setting-baseline-properties"></a>Definição de propriedades de base
 
 1. No seu Hub IoT, localize e selecione o dispositivo que pretende alterar.
+
 1. Clique no dispositivo e, em seguida, clique no módulo **de insegurança azureiot.**
+
 1. Clique **na identidade do módulo Twin.**
+
 1. Faça o upload do ficheiro **de verificação personalizada** da linha de base para o dispositivo.
+
 1. Adicione propriedades de base ao módulo de segurança e clique em **Guardar**.
 
 ### <a name="baseline-custom-check-file-example"></a>Exemplo de ficheiro de verificação personalizado de linha de base
@@ -62,7 +66,7 @@ Para configurar verificações personalizadas de base:
 
 ## <a name="baseline-custom-check-properties"></a>Propriedades de verificação personalizadas de base
 
-| Nome| Estado | Valores válidos| Valores predefinidos| Descrição |
+| Name| Estado | Valores válidos| Valores predefinidos| Description |
 |------|-----|------|-----|-----|
 |linha de baseCustomChecksEnabled|Requerido: verdadeiro |Valores válidos: **Boolean** |Valor predefinido: **falso** |Intervalo de tempo máximo antes de serem enviadas mensagens de alta prioridade.|
 |linha de baseCustomChecksFilePath |Requerido: verdadeiro|Valores válidos: **String,** **nulo** |Valor predefinido: **nulo** |Caminho completo da configuração xml de base|

@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Versão de lançamento histórico / Microsoft Docs'
+title: 'Azure AD Connect: Versão lança histórico | Microsoft Docs'
 description: Este artigo lista todos os lançamentos de Azure AD Connect e Azure AD Sync.
 services: active-directory
 author: billmath
@@ -12,12 +12,12 @@ ms.date: 08/07/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73318d1ee14894f5d22f7c4d2e61418e3b1038c1
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 706f759243fd9edbd5f47633cb2638d6b06beec1
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94636882"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100376365"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: histórico de versões
 A equipa do Azure Ative Directory (Azure AD) atualiza regularmente o Azure AD Connect com novas funcionalidades e funcionalidades. Nem todas as adições são aplicáveis a todos os públicos.
@@ -45,17 +45,17 @@ No entanto, se quiser todas as funcionalidades e atualizações mais recentes, a
 Por favor, siga este link para ler mais sobre [atualização automática](how-to-connect-install-automatic-upgrade.md)
 
 >[!IMPORTANT]
-> A partir de 1 de novembro de 2020, começaremos a implementar um processo de depreciação pelo qual as versões do Azure AD Connect que foram lançadas há mais de 18 meses serão depreciadas. Nessa altura iniciaremos este processo depretendo todos os lançamentos do Azure AD Connect com a versão 1.3.20.0 (que foi lançada em 4/24/2019) e mais antiga, e vamos proceder à avaliação da depreciação das versões mais antigas do Azure AD Connect sempre que uma nova versão for lançada.
+> A partir de 1 de abril de 2024, vamos retirar as versões do Azure AD Connect que foram lançadas antes de 1 de maio de 2018 - versão 1.1.751.0 ou mais antiga. 
 >
 > Tem de se certificar de que está a executar uma versão recente do Azure AD Connect para receber uma experiência de suporte ideal. 
 >
->Se executar uma versão prectificada do Azure AD Connect poderá não ter as mais recentes correções de segurança, melhorias de desempenho, resolução de problemas e ferramentas de diagnóstico e melhorias de serviço, e se necessitar de apoio, poderemos não ser capazes de lhe fornecer o nível de serviço que a sua organização necessita.
+>Se executar uma versão aposentada do Azure AD Connect poderá não ter as mais recentes correções de segurança, melhorias de desempenho, resolução de problemas e ferramentas de diagnóstico e melhorias de serviço, e se necessitar de apoio, poderemos não ser capazes de lhe fornecer o nível de serviço que a sua organização necessita.
 >
->Se tiver ativado o Azure AD Connect para sincronização, em breve começará automaticamente a receber notificações de Saúde que o avisam sobre as próximas depreciações quando estiver a executar uma das versões mais antigas.
+
 >
 >Consulte [este artigo](./how-to-upgrade-previous-version.md) para saber mais sobre como atualizar o Azure AD Connect para a versão mais recente.
 >
->Para obter informações sobre o histórico da versão em versões prepretadas, consulte [o arquivo histórico de versão Azure AD Connect](reference-connect-version-history-archive.md)
+>Para obter informações sobre o histórico da versão em versões aposentadas, consulte [o arquivo histórico de lançamento da versão Azure AD Connect](reference-connect-version-history-archive.md)
 
 ## <a name="15450"></a>1.5.45.0
 

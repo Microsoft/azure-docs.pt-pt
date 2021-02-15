@@ -2,13 +2,13 @@
 title: Isolar as aplicações do Azure Service Bus contra interrupções e desastres
 description: Estes artigos fornecem técnicas para proteger as aplicações contra uma possível paragem do autocarro da Azure Service.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 4f3ff89e3ec59ad4445ab0b7ee7eeb45d18fa3b8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 02/10/2021
+ms.openlocfilehash: b9090a54cd58788dbd13f528af4dda4aa96005b7
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88065629"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100374597"
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Melhores práticas para proteger aplicações de indisponibilidades e de desastres do Service Bus
 
@@ -23,11 +23,13 @@ Os conceitos de Alta Disponibilidade e Recuperação de Desastres são integrado
 
 ### <a name="geo-disaster-recovery"></a>Recuperação Geo-Disaster
 
-Service Bus Premium suporta a recuperação de geo-desastres, ao nível do espaço de nome. Para mais informações, consulte [a recuperação de geo-desastres de autocarros da Azure Service.](service-bus-geo-dr.md) A funcionalidade de recuperação de desastres, disponível apenas para o [Premium SKU,](service-bus-premium-messaging.md) implementa a recuperação de desastres de metadados e baseia-se em espaços de nomes de recuperação de desastres primários e secundários.
+Service Bus Premium suporta a recuperação de geo-desastres, ao nível do espaço de nome. Para mais informações, consulte [a recuperação de geo-desastres de autocarros da Azure Service.](service-bus-geo-dr.md) A funcionalidade de recuperação de desastres, disponível apenas para o [Premium SKU,](service-bus-premium-messaging.md) implementa a recuperação de desastres de metadados e baseia-se em espaços de nomes de recuperação de desastres primários e secundários. Com Geo-Disaster Recuperação, apenas os metadados para entidades são replicados entre espaços de nome primário e secundário.  
 
 ### <a name="availability-zones"></a>Zonas de Disponibilidade
 
 O Service Bus Premium SKU suporta [Zonas de Disponibilidade,](../availability-zones/az-overview.md)fornecendo localizações isoladas de falhas na mesma região de Azure. A Service Bus gere três cópias da loja de mensagens (1 primária e 2 secundária). A Service Bus mantém as três cópias sincronizadas para operações de dados e gestão. Se a cópia primária falhar, uma das cópias secundárias é promovida para primária sem tempo de inatividade percebido. Se as aplicações virem desconexões transitórias do Service Bus, a lógica de repetição no SDK reconectará-se automaticamente ao Service Bus. 
+
+Quando utiliza zonas de disponibilidade, tanto os metadados como os dados (mensagens) são replicados em centros de dados na zona de disponibilidade. 
 
 > [!NOTE]
 > O suporte das Zonas disponibilidade para o Azure Service Bus Premium só está disponível nas [regiões de Azure](../availability-zones/az-region.md) onde existem zonas de disponibilidade.
@@ -66,7 +68,7 @@ Em geral, a replicação passiva é mais económica do que a replicação ativa,
 
 Ao utilizar a replicação passiva, nos seguintes cenários as mensagens podem ser perdidas ou recebidas duas vezes:
 
-* **Atraso ou perda**de mensagem : Assuma que o remetente enviou com sucesso uma mensagem m1 para a fila primária e, em seguida, a fila fica indisponível antes de o recetor receber m1. O remetente envia uma mensagem m2 subsequente para a fila secundária. Se a fila primária estiver temporariamente indisponível, o recetor recebe m1 depois de a fila voltar a estar disponível. Em caso de catástrofe, o recetor nunca poderá receber m1.
+* **Atraso ou perda** de mensagem : Assuma que o remetente enviou com sucesso uma mensagem m1 para a fila primária e, em seguida, a fila fica indisponível antes de o recetor receber m1. O remetente envia uma mensagem m2 subsequente para a fila secundária. Se a fila primária estiver temporariamente indisponível, o recetor recebe m1 depois de a fila voltar a estar disponível. Em caso de catástrofe, o recetor nunca poderá receber m1.
 * **Receção duplicada**: Assuma que o remetente envia uma mensagem m para a fila primária. A Service Bus processa m com sucesso mas não envia uma resposta. Após o envio dos tempos de funcionamento, o remetente envia uma cópia idêntica de m para a fila secundária. Se o recetor conseguir receber a primeira cópia de m antes da fila primária ficar indisponível, o recetor recebe ambas as cópias de m aproximadamente ao mesmo tempo. Se o recetor não conseguir receber a primeira cópia de m antes da fila primária ficar indisponível, o recetor recebe inicialmente apenas a segunda cópia de m, mas recebe uma segunda cópia de m quando a fila primária fica disponível.
 
 A [geo-replicação com][Geo-replication with Service Bus Standard Tier] a amostra Service Bus Standard Tier demonstra a replicação passiva de entidades de mensagens.

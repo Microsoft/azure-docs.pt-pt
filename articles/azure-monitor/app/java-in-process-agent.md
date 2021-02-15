@@ -6,12 +6,12 @@ ms.date: 03/29/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 249afa361946e85a8c8ff241f07d7aae608949ae
-ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.openlocfilehash: 811827c1053349d4fa80a25e5cf362331e5d87bc
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2021
-ms.locfileid: "98745705"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100383182"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights"></a>Java aplicação codificada monitorizando Azure Monitor Application Insights
 
@@ -143,13 +143,13 @@ O quadro abaixo representa os tipos de telemetria personalizados atualmente supo
 
 |                     | Micrometer | Log4j, logback, JUL | 2.x SDK |
 |---------------------|------------|---------------------|---------|
-| **Eventos Personalizados**   |            |                     |  Sim    |
-| **Métricas Personalizadas**  |  Sim       |                     |  Sim    |
-| **Dependências**    |            |                     |  Sim    |
-| **Exceções**      |            |  Sim                |  Sim    |
-| **Vistas de página**      |            |                     |  Sim    |
-| **Pedidos**        |            |                     |  Sim    |
-| **Rastreios**          |            |  Sim                |  Sim    |
+| **Eventos Personalizados**   |            |                     |  Yes    |
+| **Métricas Personalizadas**  |  Yes       |                     |  Yes    |
+| **Dependências**    |            |                     |  Yes    |
+| **Exceções**      |            |  Yes                |  Yes    |
+| **Vistas de página**      |            |                     |  Yes    |
+| **Pedidos**        |            |                     |  Yes    |
+| **Rastreios**          |            |  Yes                |  Yes    |
 
 Não estamos a planear lançar um SDK com o Application Insights 3.0 neste momento.
 
@@ -230,6 +230,7 @@ try {
 } finally {
     long endTime = System.currentTimeMillis();
     RemoteDependencyTelemetry telemetry = new RemoteDependencyTelemetry();
+    telemetry.setSuccess(success);
     telemetry.setTimestamp(new Date(startTime));
     telemetry.setDuration(new Duration(endTime - startTime));
     telemetryClient.trackDependency(telemetry);

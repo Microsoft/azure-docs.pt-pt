@@ -3,17 +3,17 @@ title: Faça uma pergunta que os dados podem responder - ML Studio (clássico) -
 description: Aprenda a formular uma questão aguda da ciência dos dados em Data Science para Principiantes vídeo 3. Inclui uma comparação entre questões de classificação e regressão.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: conceptual
 author: sdgilley
 ms.author: sgilley
 ms.date: 03/22/2019
-ms.openlocfilehash: dbac7c8818300ffb09959969e6b79f949177f457
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 2ff440801db7ba8c5bfc1785fc7a399a1d773b73
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93307665"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100517030"
 ---
 # <a name="ask-a-question-you-can-answer-with-data"></a>Fazer perguntas que podem ser respondidas com dados
 ## <a name="video-3-data-science-for-beginners-series"></a>Vídeo 3: Data Science for Beginners series

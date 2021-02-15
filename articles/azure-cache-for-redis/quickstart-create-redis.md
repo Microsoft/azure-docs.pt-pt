@@ -1,20 +1,20 @@
 ---
-title: 'Quickstart: Criar uma cache Azure para Redis'
-description: Neste quickstart, aprenda a criar um exemplo de Azure Cache para Redis
+title: 'Quickstart: Criar uma cache Redis de código aberto'
+description: Neste arranque rápido, aprenda a criar um exemplo de Azure Cache para Redis em nível básico, padrão ou premium
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 05/12/2020
-ms.openlocfilehash: 829f954fede18da2dbf7b3f2d84f69452294a17a
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 02/08/2021
+ms.openlocfilehash: 24de9e4eabfbc03e942868cce7560b5df093e1ad
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "83204809"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100365128"
 ---
-# <a name="quickstart-create-an-azure-cache-for-redis-instance"></a>Quickstart: Criar uma Cache Azure para a instância Redis
+# <a name="quickstart-create-an-open-source-redis-cache"></a>Quickstart: Criar uma cache Redis de código aberto
 
 Azure Cache for Redis fornece [Redis de código aberto](https://redis.io/) totalmente gerido dentro de Azure. Pode começar com uma Cache Azure para redis de qualquer nível (Básico, Standard ou Premium) e tamanho, e dimensioná-lo para atender às necessidades de desempenho da sua aplicação. Este quickstart demonstra como usar o portal Azure para criar um novo Cache Azure para Redis.
 
@@ -31,4 +31,3 @@ Neste arranque rápido, aprendeu a criar um exemplo de Azure Cache para Redis.
 
 > [!div class="nextstepaction"]
 > [Crie uma aplicação web ASP.NET que utilize um Cache Azure para Redis.](./cache-web-app-howto.md)
-

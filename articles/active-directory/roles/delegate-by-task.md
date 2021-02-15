@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ad48141c69d78096981b89758afd56089093021
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 8d096bcd15254df4081a005b268934659e43037d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98742935"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100380309"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Funções de administrador por tarefa de administração no Azure Ative Directory
 
@@ -109,7 +109,7 @@ Ver métricas e alertas de serviço sincronizado | Leitor[(ver documentação)](
 
 Tarefa | Papel menos privilegiado | Funções adicionais
 ---- | --------------------- | ----------------
-Gerir domínios | Administrador Global | 
+Gerir domínios | Administrador de Nome de Domínio | 
 Leia todas as configurações | Leitores de diretório | Papel de utilizador predefinido[(ver documentação)](../fundamentals/users-default-permissions.md)
 
 ## <a name="domain-services"></a>Serviços de Domínio
@@ -216,9 +216,9 @@ Ler registos de inscrição | Leitor de relatórios | Leitor de Segurança, Admi
 Tarefa | Papel menos privilegiado | Funções adicionais
 ---- | --------------------- | ----------------
 Eliminar todas as palavras-passe de aplicações existentes geradas pelos utilizadores selecionados | Administrador Global | 
-Desativar o MFA | Administrador Global | 
-Ativar MFA | Administrador Global | 
-Gerir as definições de serviço MFA | Administrador Global | 
+Desativar o MFA | Administrador de autenticação (via PowerShell) | Administrador de Autenticação Privilegiada (via PowerShell)
+Ativar MFA | Administrador de autenticação (via PowerShell) | Administrador de Autenticação Privilegiada (via PowerShell) 
+Gerir as definições de serviço MFA | Administrador de Política de Autenticação | 
 Exigir que os utilizadores selecionados forneçam novamente métodos de contacto | Administrador de Autenticação | 
 Restaurar a autenticação de vários fatores em todos os dispositivos lembrados  | Administrador de Autenticação | 
 
@@ -226,15 +226,15 @@ Restaurar a autenticação de vários fatores em todos os dispositivos lembrados
 
 Tarefa | Papel menos privilegiado | Funções adicionais
 ---- | --------------------- | ----------------
-Utilizadores de bloco/desbloqueio | Administrador Global | 
-Configurar bloqueio de conta | Administrador Global | 
-Configurar regras de caching | Administrador Global | 
-Alerta de fraude de configuração | Administrador Global
-Configurar notificações | Administrador Global | 
-Configure um bypass único | Administrador Global | 
-Configurar as definições de chamadas telefónicas | Administrador Global | 
-Configure fornecedores | Administrador Global | 
-Configurar as definições do servidor | Administrador Global | 
+Utilizadores de bloco/desbloqueio | Administrador de Política de Autenticação | 
+Configurar bloqueio de conta | Administrador de Política de Autenticação | 
+Configurar regras de caching | Administrador de Política de Autenticação | 
+Alerta de fraude de configuração | Administrador de Política de Autenticação
+Configurar notificações | Administrador de Política de Autenticação | 
+Configure um bypass único | Administrador de Política de Autenticação | 
+Configurar as definições de chamadas telefónicas | Administrador de Política de Autenticação | 
+Configure fornecedores | Administrador de Política de Autenticação | 
+Configurar as definições do servidor | Administrador de Política de Autenticação | 
 Ler relatório de atividades | Leitor global | 
 Leia todas as configurações | Leitor global | 
 Ler estado do servidor | Leitor global |  
@@ -360,7 +360,7 @@ Tarefa | Papel menos privilegiado | Funções adicionais
 ---- | --------------------- | ----------------
 Envie bilhete de apoio | Administrador de Serviços | Administrador de Aplicação, Administrador de Proteção de Informação Azure, Administrador de Faturação, Administrador de Aplicação na Nuvem, Administrador de Conformidade, Administrador dinâmico 365, Administrador de Análise de Ambiente, Administrador de Intercâmbio, Administrador de Password, Administrador Intune, Administrador de Negócios, Administrador de Power BI, Administrador de Autenticação Privilegiada, Administrador de Partilha de Comunicações, Administrador de Equipas, Administrador de Equipas, Administrador de Análise de Utilizador, Administrador de Análise de Trabalho
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Como atribuir ou remover funções de administrador ad azul](manage-roles-portal.md)
 * [Referência de funções de administrador da AD Azure](permissions-reference.md)

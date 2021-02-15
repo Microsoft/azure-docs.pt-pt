@@ -12,6 +12,8 @@
       href: quickstarts/create-communication-resource.md
     - name: Criar e gerir tokens de acesso
       href: quickstarts/access-tokens.md
+    - name: Utilizar identidades geridas (.NET)
+      href: quickstarts/managed-identity.md
     - name: Chat
       items:
         - name: Adicionar o chat à aplicação
@@ -58,8 +60,6 @@
 - name: Conceitos
   expanded: false
   items:
-    - name: Interoperabilidade com o Teams
-      href: concepts/teams-interop.md
     - name: Chat
       items:
         - name: Descrição geral da biblioteca de cliente de chat
@@ -72,8 +72,12 @@
           href: concepts/telephony-sms/sdk-features.md
         - name: Conceitos de SMS
           href: concepts/telephony-sms/concepts.md
-        - name: Planear a solução de telefonia e SMS
+        - name: Conceitos de telefonia
+          href: concepts/telephony-sms/telephony-concept.md
+        - name: Tipos de números de telefone nos Serviços de Comunicação Azure
           href: concepts/telephony-sms/plan-solution.md
+        - name: Requisitos de infraestrutura sip Interface
+          href: concepts/telephony-sms/sip-interface-infrastructure.md
     - name: Chamadas de voz e vídeo
       items:
         - name: Descrição geral da biblioteca de cliente de chamadas
@@ -86,6 +90,8 @@
           href: concepts/ui-framework/ui-sdk-overview.md
         - name: Capacidades de enquadramento da UI
           href: concepts/ui-framework/ui-sdk-features.md
+    - name: Interoperabilidade com o Teams
+      href: concepts/teams-interop.md
     - name: Arquitetura de cliente e servidor
       href: concepts/client-and-server-architecture.md
     - name: Fluxos de chamada

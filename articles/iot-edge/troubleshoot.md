@@ -1,5 +1,5 @@
 ---
-title: Resolução de problemas - Azure IoT Edge / Microsoft Docs
+title: Resolução de problemas - Azure IoT Edge | Microsoft Docs
 description: Use este artigo para aprender habilidades de diagnóstico padrão para Azure IoT Edge, como recuperar o estado do componente e os registos
 author: kgremban
 manager: philmea
@@ -8,12 +8,12 @@ ms.date: 11/12/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 035cf5be4471cad7ac11eb8ce9a8a0ecb13a68da
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: c5f28e2c2d370329dbee0fb76284a4b76b2b945e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96462372"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100376515"
 ---
 # <a name="troubleshoot-your-iot-edge-device"></a>Resolução de problemas do seu dispositivo IoT Edge
 
@@ -240,7 +240,7 @@ Por padrão, o `agent` elemento será o seguinte exemplo:
      type: docker
      env: {}
      config:
-       image: mcr.microsoft.com/azureiotedge-agent:1.0
+       image: mcr.microsoft.com/azureiotedge-agent:1.1
        auth: {}
    ```
 
@@ -252,7 +252,7 @@ Substitua `env: {}` por:
    ```
 
    > [!WARNING]
-   > Os ficheiros YAML não podem conter separadores como identificação. Utilize 2 espaços em vez disso. Itens de alto nível não podem ter espaço em branco líder.
+   > Os ficheiros YAML não podem conter separadores como recuo. Utilize 2 espaços em vez disso. Itens de alto nível não podem ter espaço em branco líder.
 
 Guarde o ficheiro e reinicie o gestor de segurança IoT Edge.
 
