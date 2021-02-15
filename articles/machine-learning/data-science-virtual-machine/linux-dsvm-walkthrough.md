@@ -3,18 +3,17 @@ title: Explore Linux
 titleSuffix: Azure Data Science Virtual Machine
 description: Aprenda a completar várias tarefas comuns de ciência de dados utilizando a Máquina Virtual de Ciência de Dados Linux.
 services: machine-learning
-ms.service: machine-learning
-ms.subservice: data-science-vm
+ms.service: data-science-vm
 author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 09/17/2020
-ms.openlocfilehash: b0ee83cdf3ea710974ce6985db3fc8ce8782351c
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 42136d0d58dbc318aab0e111fcef46f80751ca88
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93315790"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100517676"
 ---
 # <a name="data-science-with-an-ubuntu-data-science-virtual-machine-in-azure"></a>Ciência de dados com uma máquina virtual de ciência de dados Ubuntu em Azure
 
@@ -351,11 +350,11 @@ Também pode utilizar o separador **Explore** para gerar enredos perspicazes. Pa
 
 Os enredos **da Correlação** também são interessantes. Para criar um enredo:
 
-1. Para **tipo** , selecione **Correlation**.
+1. Para **tipo**, selecione **Correlation**.
 1. Selecione **Execute** (Executar).
 1. O Rattle avisa-lhe que recomenda um máximo de 40 variáveis. Selecione **Sim** para ver o enredo.
 
-Há algumas correlações interessantes que surgem: a _tecnologia_ está fortemente correlacionada com a _HP_ e _os laboratórios_ , por exemplo. Também está fortemente correlacionado com _650_ porque o código de área dos dadores de conjuntos de dados é 650.
+Há algumas correlações interessantes que surgem: a _tecnologia_ está fortemente correlacionada com a _HP_ e _os laboratórios_, por exemplo. Também está fortemente correlacionado com _650_ porque o código de área dos dadores de conjuntos de dados é 650.
 
 Os valores numéricos para as correlações entre palavras estão disponíveis na janela **Explore.** É interessante notar, por exemplo, que a _tecnologia_ está negativamente correlacionada com _o seu_ dinheiro e _dinheiro._
 
@@ -374,18 +373,18 @@ O chocalho também pode executar a análise do cluster. Vamos excluir algumas fu
 * word_freq_business
 * spam
 
-Volte ao **separador Cluster.** Selecione **KMeans** e, em seguida, coloque **o número de aglomerados** em **4**. Selecione **Execute** (Executar). Os resultados são apresentados na janela de saída. Um cluster tem alta frequência _de george_ e _hp_ , e é provavelmente um e-mail de negócios legítimo.
+Volte ao **separador Cluster.** Selecione **KMeans** e, em seguida, coloque **o número de aglomerados** em **4**. Selecione **Execute** (Executar). Os resultados são apresentados na janela de saída. Um cluster tem alta frequência _de george_ e _hp_, e é provavelmente um e-mail de negócios legítimo.
 
 Para construir um modelo básico de aprendizagem de máquinas de decisão:
 
 1. Selecione o separador **Modelo,**
-1. Para o **Tipo** , selecione **Árvore**.
+1. Para o **Tipo**, selecione **Árvore**.
 1. **Selecione Executar** para exibir a árvore no formulário de texto na janela de saída.
 1. Selecione o botão **Desenhar** para ver uma versão gráfica. A árvore de decisão é semelhante à árvore que obtivemos anteriormente usando o rpart.
 
 Uma característica útil do Rattle é a sua capacidade de executar vários métodos de aprendizagem automática e avaliá-los rapidamente. Aqui estão os passos:
 
-1. Para **escrever** , selecione **All**.
+1. Para **escrever**, selecione **All**.
 1. Selecione **Execute** (Executar).
 1. Quando o Rattle terminar de correr, pode selecionar qualquer valor **tipo,** como **SVM,** e ver os resultados.
 1. Também pode comparar o desempenho dos modelos no conjunto de validação utilizando o separador **Avaliar.** Por exemplo, a seleção **Desemprete Matrix** mostra-lhe a matriz de confusão, erro geral e erro de classe médio para cada modelo no conjunto de validação. Também pode traçar curvas ROC, executar análises de sensibilidade e fazer outros tipos de avaliações de modelos.
@@ -464,23 +463,23 @@ Agora, vamos explorar os dados e executar algumas consultas usando o SQuirreL SQ
 
 Para começar, no menu **Aplicações,** abra O SQL SQuirreL. Para configurar o condutor:
 
-1. Selecione **Windows**  >  **controladores de visualização do** Windows .
+1. Selecione   >  **controladores de visualização do** Windows .
 1. Clique à direita **PostgreSQL** e selecione **Modificar o Controlador.**
 1. Selecione **extra class path**  >  **add**.
-1. Para **o nome do ficheiro** , insira **/usr/share/java/jdbcdrivers/postgresql-9.4.1208.jre6.jar**.
+1. Para **o nome do ficheiro**, insira **/usr/share/java/jdbcdrivers/postgresql-9.4.1208.jre6.jar**.
 1. Selecione **Abrir**.
-1. Selecione **Condutores de Listas**. Para **o nome da classe** , selecione **org.postgresql.Driver** , e, em seguida, selecione **OK**.
+1. Selecione **Condutores de Listas**. Para **o nome da classe**, selecione **org.postgresql.Driver**, e, em seguida, selecione **OK**.
 
 Para configurar a ligação ao servidor local:
 
-1. Selecione **Windows**  >  **Aliases de visualização do Windows.**
+1. Selecione   >  **Aliases de visualização do Windows.**
 1. Selecione o **+** botão para criar um novo pseudónimo. Para o novo nome de pseudónimo, insira a **base de dados do Spam**. 
-1. Para **o controlador** , selecione **PostgreSQL**.
+1. Para **o controlador**, selecione **PostgreSQL**.
 1. Desajuste o URL para **jdbc:postgresql://localhost/spam**.
 1. Introduza o nome de utilizador e a palavra-passe.
 1. Selecione **OK**.
 1. Para abrir a janela **'Ligação',** clique duas vezes no pseudónimo da base de dados de **spam.**
-1. Selecione **Connect** (Ligar).
+1. Selecione **Ligar**.
 
 Para executar algumas consultas:
 

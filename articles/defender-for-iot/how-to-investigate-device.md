@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/04/2020
 ms.author: mlottner
-ms.openlocfilehash: a7b51138abe6d8e97f55ceae11d4cf13b9ebc136
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.openlocfilehash: 096549c37c9f1feb04cd9214e1835956dae53735
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99820607"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100516843"
 ---
 # <a name="investigate-a-suspicious-iot-device"></a>Investigue um dispositivo IoT suspeito
 
@@ -39,12 +39,12 @@ Para localizar o seu espaço de trabalho Log Analytics para armazenamento de dad
 1. Abra o seu hub IoT,
 1. Em **Segurança**, selecione **Definições** e, em seguida, selecione **Data Collection**.
 1. Altere os detalhes da configuração do espaço de trabalho do Log Analytics.
-1. Clique em **Guardar**.
+1. Selecione **Guardar**.
 
 Seguinte configuração, faça o seguinte para aceder aos dados armazenados no seu espaço de trabalho Log Analytics:
 
-1. Selecione e clique num Alerta Defender para IoT no seu Hub IoT.
-1. Clique **em mais investigação.**
+1. Selecione e selecione num alerta Defender para IoT no seu Hub IoT.
+1. Selecione **mais investigação**.
 1. **Selecione Para ver quais os dispositivos que têm este clique de alerta aqui e ver a coluna DeviceId**.
 
 ## <a name="investigation-steps-for-suspicious-iot-devices"></a>Etapas de investigação para dispositivos IoT suspeitos
@@ -55,7 +55,7 @@ Consulte as consultas de kql de amostra abaixo para começar com alertas e ativi
 
 ### <a name="related-alerts"></a>Alertas relacionados
 
-Para saber se outros alertas foram desencadeados por volta da mesma hora, utilize a seguinte consulta kql:
+Pode descobrir se outros alertas foram desencadeados por volta da mesma hora através da seguinte consulta kql:
 
   ```
   let device = "YOUR_DEVICE_ID";
@@ -143,9 +143,9 @@ Para encontrar utilizadores que iniciaram sessão no dispositivo, utilize a segu
 
 Utilize os resultados da consulta para descobrir:
 
-- Que utilizadores iniciaram sessão no dispositivo?
-- Os utilizadores que iniciaram sessão, devem fazer login?
-- Os utilizadores que iniciaram sessão conectaram-se a partir de endereços IP esperados ou inesperados?
+- Que utilizadores se inscreveram no dispositivo?
+- Os utilizadores que se inscreveram, devem entrar?
+- Os utilizadores que assinaram em ligação a partir de endereços IP esperados ou inesperados?
 
 ### <a name="process-list"></a>Lista de processos
 

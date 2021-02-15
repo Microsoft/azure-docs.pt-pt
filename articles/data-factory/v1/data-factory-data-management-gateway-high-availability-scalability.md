@@ -1,23 +1,18 @@
 ---
 title: Alta disponibilidade com porta de gestão de dados na Azure Data Factory
 description: Este artigo explica como se pode escalar uma porta de entrada de gestão de dados adicionando mais nós e aumentando o número de empregos simultâneos que podem funcionar num nó.
-services: data-factory
-documentationcenter: ''
 author: nabhishek
-manager: anandsub
-editor: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: b8d05293359cff16bb6d8c9a629a1fbf68104365
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: ad34ed14682d729157f45e67eb3e0d3bb3eb39b7
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96003621"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100391733"
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Data Management Gateway - alta disponibilidade e escalabilidade (Pré-visualização)
 > [!NOTE]
@@ -31,7 +26,7 @@ Este artigo ajuda-o a configurar uma solução de alta disponibilidade e escalab
 > 
 > **Esta funcionalidade de pré-visualização é oficialmente suportada na versão 2.12.xxxx.x e acima**. Certifique-se de que está a utilizar a versão 2.12.xxxx.x ou acima. Descarregue [aqui](https://www.microsoft.com/download/details.aspx?id=39717)a versão mais recente do Data Management Gateway .
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 Pode associar gateways de gestão de dados que são instalados em várias máquinas no local com um único portal lógico. Estas máquinas são chamadas **nós.** Pode ter até **quatro nós associados** a uma porta lógica. Os benefícios de ter múltiplos nós (máquinas no local com gateway instalado) para um gateway lógico são:  
 
 - Melhorar o desempenho do movimento de dados entre as lojas de dados no local e as lojas de dados em nuvem.  
@@ -98,7 +93,7 @@ Esta secção pressupõe que tenha passado pelos seguintes dois artigos ou famil
         > Consulte a secção [de requisitos de certificado TLS/SSL](#tlsssl-certificate-requirements) para obter uma lista de requisitos para a utilização de um certificado TLS/SSL. 
     5. Depois de o gateway ser instalado com sucesso, clique em Launch Configuration Manager:
     
-        ![Configuração manual - gestor de configuração de lançamento](media/data-factory-data-management-gateway-high-availability-scalability/manual-setup-launch-configuration-manager.png)   
+        ![Configuração manual - gestor de configuração de lançamento](media/data-factory-data-management-gateway-high-availability-scalability/manual-setup-launch-configuration-manager.png)     
     6. você vê data Management Gateway Configuration Manager no nó (no local máquina Windows), que mostra o estado de conectividade, **nome de porta de entrada** e nome do **nó**.  
 
         ![Data Management Gateway - instalação bem sucedida](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-installation-success.png)
@@ -200,11 +195,11 @@ Função | Existem dois tipos de funções – Despacho e trabalhador. Todos os 
 
 A tabela a seguir fornece os possíveis estatutos de um nó de **gateway:** 
 
-Estado  | Comentários/Cenários
+Estado    | Comentários/Cenários
 :------- | :------------------
 Online | Nó ligado ao serviço Data Factory.
 Offline | O nó está desligado.
-Modernização | O nó está a ser atualizado automaticamente.
+Atualizar | O nó está a ser atualizado automaticamente.
 Limitado | Devido a problemas de conectividade. Pode ser devido à emissão da porta HTTP 8050, problema de conectividade do autocarro de serviço ou problema de sincronização de credenciais. 
 Inativa | O nó está numa configuração diferente da configuração de outros nós maioritários.<br/><br/> Um nó pode ser inativo quando não pode ligar-se a outros nós. 
 
@@ -240,7 +235,7 @@ Quando a memória disponível e a CPU não são bem utilizadas, mas a capacidade
 
 - Atualmente, você pode ter até quatro nós de gateway físico para um único portal lógico. Se precisar de mais de quatro nós por razões de desempenho, envie um e-mail para [DMGHelp@microsoft.com](mailto:DMGHelp@microsoft.com) .
 - Não é possível re-registar um nó de gateway com a chave de autenticação de outra porta lógica para mudar a partir do gateway lógico atual. Para voltar a registar-se, desinstale o gateway a partir do nó, reinstale o gateway e registe-o com a chave de autenticação para o outro gateway lógico. 
-- Se for necessário um representante HTTP para todos os seus nós de gateway, desaprote o proxy em diahost.exe.config e diawp.exe.config e utilize o gestor do servidor para se certificar de que todos os nós têm os mesmos diahost.exe.config e diawip.exe.config. Consulte a secção [de configuração de configuração de configuração](data-factory-data-management-gateway.md#configure-proxy-server-settings) para obter mais informações. 
+- Se for necessário um representante HTTP para todos os seus nós de gateway, desaprote o proxy em diahost.exe.config e diawp.exe.config e utilize o gestor do servidor para se certificar de que todos os nós têm os mesmos diahost.exe.config e diawip.exe.config. Consulte a secção [de configuração](data-factory-data-management-gateway.md#configure-proxy-server-settings) para obter mais informações. 
 - Para alterar o modo de encriptação para a comunicação nó-a-nó no Gateway Configuration Manager, elimine todos os nós no portal, exceto um. Em seguida, adicione os nós de volta depois de alterar o modo de encriptação.
 - Utilize um certificado oficial de TLS se optar por encriptar o canal de comunicação nó-a-nó. O certificado auto-assinado pode causar problemas de conectividade, uma vez que o mesmo certificado não pode ser confiado na lista de autoridades de certificação noutras máquinas. 
 - Não é possível registar um nó de gateway para um gateway lógico quando a versão do nó é inferior à versão lógica do gateway. Elimine todos os nós do portal de gateway lógico para que possa registar um nó de versão inferior (downgrade) do mesmo. Se eliminar todos os nós de um gateway lógico, instale e registe manualmente novos nós para esse gateway lógico. A configuração expressa não é suportada neste caso.

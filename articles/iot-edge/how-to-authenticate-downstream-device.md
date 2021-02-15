@@ -8,12 +8,12 @@ ms.date: 10/15/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 3876b44bc6bb1ddbc5398126421fb9651003838f
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 13ac18abd0a557d02435c3805e1ab86bcbf1ff84
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98678828"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100391988"
 ---
 # <a name="authenticate-a-downstream-device-to-azure-iot-hub"></a>Autenticar um dispositivo a jusante no Hub IoT do Azure
 
@@ -68,6 +68,11 @@ Quando criar a nova identidade do dispositivo, forneça as seguintes informaçõ
 * Selecione **Definir um dispositivo-mãe** e selecionar o dispositivo de gateway IoT Edge que este dispositivo a jusante irá ligar. Podes sempre mudar o pai mais tarde.
 
    ![Criar iD do dispositivo com chave simétrica no portal](./media/how-to-authenticate-downstream-device/symmetric-key-portal.png)
+
+   >[!NOTE]
+   >A definição do dispositivo-mãe costumava ser um passo opcional para dispositivos a jusante que utilizam a autenticação simétrica da chave. No entanto, a partir da versão 1.1.0 do IoT Edge, todos os dispositivos a jusante devem ser atribuídos a um dispositivo-mãe.
+   >
+   >Pode configurar o hub IoT Edge para voltar ao comportamento anterior, definindo a variável ambiente **AuthenticationMode** para o valor **CloudAndScope**.
 
 Também pode utilizar a [extensão IoT para o Azure CLI](https://github.com/Azure/azure-iot-cli-extension) completar a mesma operação. O exemplo a seguir utiliza o comando [az iot hub de identidade do dispositivo](/cli/azure/ext/azure-iot/iot/hub/device-identity) para criar um novo dispositivo IoT com autenticação de chave simétrica e atribuir um dispositivo-mãe:
 
@@ -195,7 +200,7 @@ Tudo junto, parece:
 HostName=myiothub.azure-devices.net;DeviceId=myDownstreamDevice;SharedAccessKey=xxxyyyzzz;GatewayHostName=myGatewayDevice
 ```
 
-Ou:
+Arte
 
 ```console
 HostName=myiothub.azure-devices.net;DeviceId=myDownstreamDevice;x509=true;GatewayHostName=myGatewayDevice

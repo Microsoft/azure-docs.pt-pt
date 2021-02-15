@@ -1,23 +1,18 @@
 ---
 title: Mover dados da Teradata usando a Azure Data Factory
 description: Saiba mais sobre o Conector Teradata para o serviço data factory que permite mover dados da Teradata Database
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.assetid: 98eb76d8-5f3d-4667-b76e-e59ed3eea3ae
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: ecde5784e759ef5259b8c67ed574cef6cae98f30
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: ef992ed907bc070643f290e7fd536de05ebf9242
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96019604"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100387211"
 ---
 # <a name="move-data-from-teradata-using-azure-data-factory"></a>Mover dados da Teradata usando a Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -63,12 +58,12 @@ A tabela a seguir fornece descrição para elementos JSON específicos do servi�
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| tipo |A propriedade tipo deve ser definida para: **OnPremisesTeradata** |Sim |
-| servidor |Nome do servidor Teradata. |Sim |
-| authenticationType |Tipo de autenticação usada para ligar à base de dados Teradata. Os valores possíveis são: Anónimo, Básico e Windows. |Sim |
-| nome de utilizador |Especifique o nome do utilizador se estiver a utilizar a autenticação Básica ou o Windows. |Não |
-| palavra-passe |Especifique a palavra-passe para a conta de utilizador especificada para o nome de utilizador. |Não |
-| gatewayName |Nome do gateway que o serviço data factory deve usar para ligar à base de dados Teradata no local. |Sim |
+| tipo |A propriedade tipo deve ser definida para: **OnPremisesTeradata** |Yes |
+| servidor |Nome do servidor Teradata. |Yes |
+| authenticationType |Tipo de autenticação usada para ligar à base de dados Teradata. Os valores possíveis são: Anónimo, Básico e Windows. |Yes |
+| nome de utilizador |Especifique o nome do utilizador se estiver a utilizar a autenticação Básica ou o Windows. |No |
+| palavra-passe |Especifique a palavra-passe para a conta de utilizador especificada para o nome de utilizador. |No |
+| gatewayName |Nome do gateway que o serviço data factory deve usar para ligar à base de dados Teradata no local. |Yes |
 
 ## <a name="dataset-properties"></a>Dataset properties (Propriedades do conjunto de dados)
 Para obter uma lista completa de secções & propriedades disponíveis para definir conjuntos de dados, consulte o artigo [Criar conjuntos de dados.](data-factory-create-datasets.md) Secções como estrutura, disponibilidade e política de um conjunto de dados JSON são semelhantes para todos os tipos de conjunto de dados (Azure SQL, Azure blob, Azure table, etc.).
@@ -84,7 +79,7 @@ Quando a fonte é do tipo **RelationalSource** (que inclui Teradata), as seguint
 
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
-| consulta |Utilize a consulta personalizada para ler dados. |Cadeia de consulta SQL. Por exemplo: selecione * do MyTable. |Sim |
+| consulta |Utilize a consulta personalizada para ler dados. |Cadeia de consulta SQL. Por exemplo: selecione * do MyTable. |Yes |
 
 ### <a name="json-example-copy-data-from-teradata-to-azure-blob"></a>Exemplo JSON: Copiar dados de Teradata para Azure Blob
 O exemplo a seguir fornece definições JSON de amostra que pode usar para criar um oleoduto utilizando [o Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Mostram como copiar dados de Teradata para Azure Blob Storage. No entanto, os dados podem ser copiados para qualquer um dos lavatórios [aqui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) indicados utilizando a Atividade de Cópia na Fábrica de Dados Azure.
@@ -302,7 +297,7 @@ Ao mover dados para Teradata, os seguintes mapeamentos são usados do tipo Terad
 | Data |Data e Hora |
 | Hora |TimeSpan |
 | Tempo com fuso horário |String |
-| Timestamp |DateTime |
+| CarimboDeDataEHora |DateTime |
 | Relógio com fuso horário |Início de execução de tempo de data |
 | Dia do Intervalo |TimeSpan |
 | Intervalo dia a hora |TimeSpan |

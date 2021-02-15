@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: e895640daeb3fbbba2f2708969ee4cf856bf1033
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 17c31bbe54326962c26ab53f702cbd28d1e36c6d
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98621186"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100092796"
 ---
 # <a name="connect-your-f5-big-ip-appliance"></a>Ligue o seu aparelho F5 BIG-IP 
 
@@ -42,7 +42,7 @@ F5 BIG-IP pode integrar e exportar registos diretamente para Azure Sentinel.
 
 ## <a name="validate-connectivity"></a>Validar conectividade
 
-Pode demorar mais de 20 minutos até que os seus registos comecem a aparecer no Log Analytics. 
+Pode demorar até que os seus registos comecem a aparecer no Log Analytics. 
 
 
 

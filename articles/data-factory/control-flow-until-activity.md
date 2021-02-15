@@ -1,22 +1,18 @@
 ---
 title: Até à atividade na Azure Data Factory
 description: A atividade Até executar um conjunto de atividades em loop até que a condição associada à atividade avalie a verdade ou o tempo de saída.
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
-manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: ab3644b11273017ea6e4e5a395a7d3cc3a201217
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 6431321d788e7311e076d302173ffffb96e07876
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96486017"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100385375"
 ---
 # <a name="until-activity-in-azure-data-factory"></a>Até à atividade na Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -55,11 +51,11 @@ A atividade Until disponibiliza a mesma funcionalidade que uma estrutura de cicl
 
 Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-name | O nome da `Until` atividade. | String | Sim
-tipo | Deve ser definido para **Até**. . | String | Sim
-expression | Expressão que deve avaliar a verdade ou falsa | A expressão.  | Sim
-tempo limite | O ciclo de fazer até ao fim após o tempo especificado aqui. | Cadeia. `d.hh:mm:ss` (ou) `hh:mm:ss` . . O valor predefinido é 7 dias. O valor máximo é: 90 dias. | Não
-Atividades | Conjunto de atividades que são executadas até que a expressão avalie para `true` . | Um conjunto de atividades. |  Sim
+name | O nome da `Until` atividade. | String | Yes
+tipo | Deve ser definido para **Até**. . | String | Yes
+expression | Expressão que deve avaliar a verdade ou falsa | A expressão.  | Yes
+tempo limite | O ciclo de fazer até ao fim após o tempo especificado aqui. | Cadeia. `d.hh:mm:ss` (ou) `hh:mm:ss` . . O valor predefinido é 7 dias. O valor máximo é: 90 dias. | No
+Atividades | Conjunto de atividades que são executadas até que a expressão avalie para `true` . | Um conjunto de atividades. |  Yes
 
 ## <a name="example-1"></a>Exemplo 1
 

@@ -9,14 +9,14 @@ ms.topic: reference
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
-ms.date: 11/10/2020
+ms.date: 1/12/2021
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: cc31ad851441c980365841b1131405339a1092fa
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: d43f794d6d73e26d791c5a11961470d2131b8951
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99626279"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100378626"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Diferenças T-SQL entre SQL Server & Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -284,6 +284,7 @@ Para mais informações, consulte [a ALTER DATABASE](/sql/t-sql/statements/alter
 ### <a name="sql-server-agent"></a>SQL Server Agent
 
 - Ativar e desativar o Agente do Servidor SQL não é suportado atualmente em SQL Managed Instance. O SQL Agent está sempre em execução.
+- O gatilho do horário de trabalho baseado num CPU ocioso não é suportado.
 - As definições do Agente do Servidor SQL são lidas apenas. O procedimento `sp_set_agent_properties` não é suportado em SQL Managed Instance. 
 - Tarefas
   - Os passos de trabalho T-SQL são suportados.
@@ -306,13 +307,7 @@ Para mais informações, consulte [a ALTER DATABASE](/sql/t-sql/statements/alter
   - Os proxies não são apoiados.
 - O EventLog não é suportado.
 - O utilizador deve ser diretamente mapeado para o principal do servidor AD do Azure (login) para criar, modificar ou executar trabalhos de Agente SQL. Os utilizadores que não estejam diretamente mapeados, por exemplo, os utilizadores que pertençam a um grupo AZure AD que tenha o direito de criar, modificar ou executar trabalhos de Agente SQL, não serão efetivamente capazes de executar essas ações. Isto deve-se a imitações de Instâncias Geridas e [A EXECUTE AS limitações](#logins-and-users).
-
-As seguintes funcionalidades do Agente SQL não são suportadas:
-
-- Proxies
-- Agendamento de postos de trabalho num CPU ocioso
-- Permitir ou desativar um agente
-- Alertas
+- A funcionalidade de Administração multi-servidor para trabalhos master/target (MSX/TSX) não é suportada.
 
 Para obter informações sobre o Agente do Servidor [SQL,](/sql/ssms/agent/sql-server-agent)consulte o Agente do Servidor SQL .
 

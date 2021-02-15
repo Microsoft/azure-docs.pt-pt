@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/28/2020
 ms.author: yitoh
-ms.openlocfilehash: a3f6c14b7ed2686a262f28510efb37068cfb9cb3
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: b34fcd66f0b64e2522da69bcfc7d119628b9d9d9
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98787303"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100516707"
 ---
 # <a name="view-and-configure-ddos-protection-telemetry"></a>Ver e configurar telemetria de proteção contra DDoS
 
@@ -37,9 +37,8 @@ Neste tutorial, irá aprender a:
 As [seguintes métricas](../azure-monitor/platform/metrics-supported.md#microsoftnetworkpublicipaddresses) estão disponíveis para a Norma de Proteção DDoS Azure. Estas métricas também são exportáveis através de configurações de diagnóstico (ver [e configurar registo de diagnóstico DDoS).](diagnostic-logging.md)
 
 
-| Metric | Nome de exibição métrica | Unidade | Tipo de Agregação | Descrição |
+| Metric | Nome de exibição métrica | Unidade | Tipo de Agregação | Description |
 | --- | --- | --- | --- | --- |
-| ByteCount | Byte Count | de palavras | Total | Número total de Bytes transmitidos dentro do período de tempo |
 | BytesDroppedDDoS | Bytes de entrada deixaram cair DDoS | BytesPerSecond | Máximo | Bytes de entrada deixaram cair DDoS| 
 | BytesForwardedDDoS | Bytes de entrada reencaminhado DDoS | BytesPerSecond | Máximo | Bytes de entrada reencaminhado DDoS |
 | BytesInDDoS | Bytes de entrada DDoS | BytesPerSecond | Máximo | Bytes de entrada DDoS |
@@ -47,11 +46,9 @@ As [seguintes métricas](../azure-monitor/platform/metrics-supported.md#microsof
 | Pacotes DDoSTriggerTCP | Pacotes TCP de entrada para desencadear mitigação do DDoS | CondePerSecond | Máximo | Pacotes TCP de entrada para desencadear mitigação do DDoS |
 | DDoSTriggerUDPPackets | Pacotes UDP de entrada para desencadear mitigação do DDoS | CondePerSecond | Máximo | Pacotes UDP de entrada para desencadear mitigação do DDoS |
 | IfUnderDDosAttack | Sob o ataque do DDoS ou não | de palavras | Máximo | Sob o ataque do DDoS ou não |
-| PacoteCount | Contagem de Pacotes | de palavras | Total | Número total de Pacotes transmitidos dentro do período de tempo |
 | PacotesDroppedDDoS | Pacotes de entrada deixaram cair DDoS | CondePerSecond | Máximo | Pacotes de entrada deixaram cair DDoS |
 | PacotesForwardedDDoS | Pacotes de entrada reencaminhados DDoS | CondePerSecond | Máximo | Pacotes de entrada reencaminhados DDoS |
 | PacotesInDDoS | Pacotes de entrada DDoS | CondePerSecond | Máximo | Pacotes de entrada DDoS |
-| SynCount | Contagem de SINA | de palavras | Total | Número total de pacotes SYN transmitidos dentro do período de tempo |
 | TCPBytesDroppedDDoS | Bytes TCP de entrada deixaram cair DDoS | BytesPerSecond | Máximo | Bytes TCP de entrada deixaram cair DDoS |
 | TCPBytesForwardedDDoS | Inbound TCP bytes reencaminhado DDoS | BytesPerSecond | Máximo | Inbound TCP bytes reencaminhado DDoS |
 | TCPBytesInDDoS | Entrada TCP bytes DDoS | BytesPerSecond | Máximo | Entrada TCP bytes DDoS |
@@ -64,7 +61,6 @@ As [seguintes métricas](../azure-monitor/platform/metrics-supported.md#microsof
 | UDPPacketsDroppedDDoS | Pacotes UDP de entrada deixaram cair DDoS | CondePerSecond | Máximo | Pacotes UDP de entrada deixaram cair DDoS |
 | UDPPacketsForwardedDDoS | Pacotes UDP de entrada reencaminhados DDoS | CondePerSecond | Máximo | Pacotes UDP de entrada reencaminhados DDoS |
 | UDPPacketsInDDoS | Pacotes de UDP de entrada DDoS | CondePerSecond | Máximo | Pacotes de UDP de entrada DDoS |
-| VipSAdability | Disponibilidade do Caminho de Dados | de palavras | Média | Disponibilidade média de endereço IP por duração de tempo |
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

@@ -42,6 +42,14 @@
     - name: Referência de Segurança do Azure
       displayName: 'standards, azure, benchmark'
       href: ./samples/azure-security-benchmark.md
+    - name: Fundação de Referência de Segurança Azure
+      items:
+        - name: Descrição geral
+          displayName: 'standards, azure, benchmark, foundation'
+          href: ./samples/azure-security-benchmark-foundation/index.md
+        - name: Passos para implementar
+          displayName: 'standards, azure, benchmark, foundation, deploy'
+          href: ./samples/azure-security-benchmark-foundation/deploy.md
     - name: ISM PROTECTED da Administração Australiana
       items:
         - name: Descrição geral

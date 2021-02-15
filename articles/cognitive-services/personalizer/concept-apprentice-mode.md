@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: f2b9f6dfe60aa50eb4ec6da76fe8781ecd8a1f13
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 531917d9c48915f71354b4cd35747ecd9d33a6f8
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98951332"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100385035"
 ---
 # <a name="use-apprentice-mode-to-train-personalizer-without-affecting-your-existing-application"></a>Utilize o modo Aprendiz para treinar o Personalizar sem afetar a sua aplicação existente
 
@@ -63,7 +63,7 @@ Aprender quando em modo Aprendiz difere do modo Online das seguintes formas.
 |--|--|--|
 |Impacto na Experiência do Utilizador|Pode utilizar o comportamento do utilizador existente para treinar o Personalizer, deixando-o observar (não afetar) o que teria sido a sua **ação padrão** e a recompensa que obteve. Isto significa que a experiência dos seus utilizadores e os resultados do negócio deles não serão impactados.|Mostrar ação de topo devolvida da chamada Rank para afetar o comportamento do utilizador.|
 |Velocidade de aprendizagem|O personalização aprenderá mais lentamente quando estiver em modo Aprendiz do que ao aprender em modo Online. O modo aprendiz só pode aprender observando as recompensas obtidas pela sua **ação padrão**, o que limita a velocidade de aprendizagem, uma vez que nenhuma exploração pode ser realizada.|Aprende mais rapidamente porque tanto pode explorar o modelo atual como explorar novas tendências.|
-|Eficácia da aprendizagem "Teto"|O personalização pode aproximar-se, muito raramente, e nunca exceder o desempenho da sua lógica de negócio base (o total de recompensa alcançado pela **ação padrão** de cada chamada Rank).|O personalização deve exceder a linha de base das aplicações, e com o tempo em que esta estagna, deve realizar uma avaliação offline e uma avaliação de recursos para continuar a obter melhorias no modelo. |
+|Eficácia da aprendizagem "Teto"|O personalização pode aproximar-se, muito raramente, e nunca exceder o desempenho da sua lógica de negócio base (o total de recompensa alcançado pela **ação padrão** de cada chamada Rank). Este teto de aproximação é reduzido pela exploração. Por exemplo, com a exploração a 20% é muito improvável que o desempenho do modo de aprendiz exceda os 80%, e 60% é um alvo razoável para se formar em modo online.|O personalização deve exceder a linha de base das aplicações, e com o tempo em que esta estagna, deve realizar uma avaliação offline e uma avaliação de recursos para continuar a obter melhorias no modelo. |
 |Valor API de classificação para recompensaActionId|A experiência dos utilizadores não é impactada, uma vez que _o RewardActionId_ é sempre a primeira ação que envia no pedido rank. Por outras palavras, a API rank não faz nada visível para a sua aplicação durante o modo Aprendiz. As APIs de recompensa na sua aplicação não devem alterar a forma como utiliza a API Reward entre um modo e outro.|A experiência dos utilizadores será alterada pela _recompensaActionId_ que o Personalizer escolhe para a sua aplicação. |
 |Avaliações|O personalização mantém uma comparação dos totais de recompensa que a sua lógica de negócio padrão está a receber, e os totais de recompensa personalizer estariam recebendo se em modo Online nessa altura. Uma comparação está disponível no portal Azure para esse recurso|Avalie a eficácia do Personaler executando [avaliações offline,](concepts-offline-evaluation.md)que permitem comparar as recompensas totais que o Personalizer conseguiu face às potenciais recompensas da linha de base da aplicação.|
 

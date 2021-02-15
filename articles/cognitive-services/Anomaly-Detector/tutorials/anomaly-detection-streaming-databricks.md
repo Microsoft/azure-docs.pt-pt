@@ -11,12 +11,12 @@ ms.subservice: anomaly-detector
 ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: mbullwin
-ms.openlocfilehash: 0982f89d59f2ef9a282a46a93b98801b9df00a40
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: f42d294dec4dd2c92fe08498a7bce3c1eabae4b3
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94368717"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100519138"
 ---
 # <a name="tutorial-anomaly-detection-on-streaming-data-using-azure-databricks"></a>Tutorial: Deteção de anomalias em dados de streaming utilizando Azure Databricks
 
@@ -109,7 +109,7 @@ Para receber um fluxo de tweets, tem de criar uma aplicação no Twitter. Siga o
 
     ![Criar aplicação twitter](../media/tutorials/databricks-create-twitter-app.png "Criar aplicação twitter")
 
-2. Na página **Criar uma aplicação** , forneça os detalhes da nova aplicação e, em seguida, selecione **Criar a sua aplicação do Twitter**.
+2. Na página **Criar uma aplicação**, forneça os detalhes da nova aplicação e, em seguida, selecione **Criar a sua aplicação do Twitter**.
 
     ![Detalhes da aplicação do Twitter](../media/tutorials/databricks-provide-twitter-app-details.png "Detalhes da aplicação do Twitter")
 
@@ -123,7 +123,7 @@ Guarde os valores que obteve da aplicação do Twitter. Vai precisar dos valores
 
 Neste tutorial, vai utilizar as APIs do Twitter para enviar tweets para os Hubs de Eventos. Também pode utilizar o [Conector de Hubs de eventos do Spark](https://github.com/Azure/azure-event-hubs-spark) para ler e escrever dados em Hubs de Eventos do Azure. Para utilizar estas APIs como parte do cluster, adicione-as como bibliotecas ao Azure Databricks e, em seguida, associe-as ao cluster do Spark. As seguintes instruções mostram como adicionar as bibliotecas à pasta **Partilhada** no seu espaço de trabalho.
 
-1. Na área de trabalho do Azure Databricks, selecione **Área de Trabalho** e, em seguida, clique com botão direito do rato em **Partilhados**. A partir do **Create** menu de contexto, selecione  >  **Criar Biblioteca.**
+1. Na área de trabalho do Azure Databricks, selecione **Área de Trabalho** e, em seguida, clique com botão direito do rato em **Partilhados**. A partir do menu de contexto, selecione  >  **Criar Biblioteca.**
 
    ![Adicione caixa de diálogo de biblioteca](../media/tutorials/databricks-add-library-option.png "Adicione caixa de diálogo de biblioteca")
 
@@ -151,7 +151,7 @@ Na página da biblioteca, selecione o cluster onde pretende utilizar a bibliotec
 
 Neste tutorial, você usa as APIs do [Detetor de Anomalias de Serviços Cognitivos Azure](../overview.md) para executar a deteção de anomalias num fluxo de tweets em tempo real. Antes de utilizar as APIs, tem de criar um recurso de detetor de anomalias no Azure e recuperar uma chave de acesso para utilizar as APIs do Detetor de Anomalias.
 
-1. Inicie sessão no [Portal do Azure](https://portal.azure.com/).
+1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
 
 2. Selecione **+ Criar um recurso**.
 
@@ -159,7 +159,7 @@ Neste tutorial, você usa as APIs do [Detetor de Anomalias de Serviços Cognitiv
 
     ![Criar recurso de detetor de anomalias](../media/tutorials/databricks-cognitive-services-anomaly-detector.png "Criar recurso de detetor de anomalias")
 
-4. Na caixa de diálogo **Criar** , forneça os valores seguintes:
+4. Na caixa de diálogo **Criar**, forneça os valores seguintes:
 
     |Valor |Descrição  |
     |---------|---------|
@@ -187,7 +187,7 @@ Nesta secção, vai criar dois blocos de notas na área de trabalho do Databrick
 - **SendTweetsToEventHub** – Um bloco de notas de produtor que utiliza para obter tweets do Twitter e transmiti-los para os Hubs de Eventos.
 - **AnalyzeTweetsFromEventHub** - Um caderno de consumo que usa para ler os tweets dos Event Hubs e executar a deteção de anomalias.
 
-1. No espaço de trabalho Azure Databricks, selecione **Workspace** a partir do painel esquerdo. No menu pendente **Área de Trabalho** , selecione **Criar** e, em seguida, selecione **Bloco de Notas**.
+1. No espaço de trabalho Azure Databricks, selecione **Workspace** a partir do painel esquerdo. No menu pendente **Área de Trabalho**, selecione **Criar** e, em seguida, selecione **Bloco de Notas**.
 
     ![Criar caderno em Databricks](../media/tutorials/databricks-create-notebook.png "Criar caderno em Databricks")
 
@@ -586,7 +586,7 @@ groupTime                       average
 
 Em seguida, obter o resultado de saída agregado para a Delta. Como a deteção de anomalias requer uma janela de história mais longa, estamos a usar a Delta para manter os dados de história para o ponto que queres detetar.
 Substitua o "[Espaço reservado: nome de mesa]" por um nome de mesa Delta qualificado a criar (por exemplo, "tweets"). Substitua "[Espaço reservado: nome de pasta para pontos de verificação]" por um valor de corda único cada vez que executar este código (por exemplo, "etl-from-eventhub-20190605").
-Para saber mais sobre o Lago Delta em Azure Databricks, consulte o [Delta Lake Guide](https://docs.azuredatabricks.net/delta/index.html)
+Para saber mais sobre o Lago Delta em Azure Databricks, consulte o [Delta Lake Guide](/databricks/delta/)
 
 
 ```scala
@@ -682,7 +682,7 @@ Resultado como abaixo:
 Já está! Utilizando a Azure Databricks, transmitiu dados com sucesso para a Azure Event Hubs, consumiu os dados de fluxo usando o conector Event Hubs e, em seguida, executou a deteção de anomalias em dados de streaming em tempo real.
 Embora neste tutorial, a granularidade seja de hora a hora, pode sempre mudar a granularidade para satisfazer as suas necessidades.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Depois de executar o tutorial, pode terminar o cluster. Para tal, no espaço de trabalho Azure Databricks, selecione **Clusters** a partir do painel esquerdo. Para o cluster que pretende terminar, mova o cursor sobre a elipse sob a coluna **Actions** e selecione o ícone **Terminate** e, em seguida, selecione **Confirmar**.
 

@@ -2,18 +2,17 @@
 title: 'Quickstart: Criar uma máquina virtual Ubuntu Data Science'
 titleSuffix: Azure Data Science Virtual Machine
 description: Configure e crie uma máquina virtual de ciência de dados para linux (Ubuntu) para fazer analítica e aprendizagem automática.
-ms.service: machine-learning
-ms.subservice: data-science-vm
+ms.service: data-science-vm
 author: lobrien
 ms.author: laobri
 ms.topic: quickstart
 ms.date: 03/10/2020
-ms.openlocfilehash: 4a414b706dffae76eaa9841ee7b1fe6bcc1ac0d3
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: b25d9846f3bb678c182fa22d824f7b4171d2d803
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97109849"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100515636"
 ---
 # <a name="quickstart-set-up-the-data-science-virtual-machine-for-linux-ubuntu"></a>Quickstart: Configurar a Máquina Virtual de Ciência de Dados para Linux (Ubuntu)
 
@@ -30,7 +29,7 @@ Para criar uma Máquina Virtual Ubuntu 18.04 Data Science, tem de ter uma subscr
 
 Aqui estão os passos para criar uma instância da Máquina Virtual de Ciência de Dados Ubuntu 18.04:
 
-1. Aceda ao [portal do Azure](https://portal.azure.com). Pode ser solicitado a assinar na sua conta Azure se ainda não tiver assinado.
+1. Aceda ao [Portal do Azure](https://portal.azure.com). Pode ser solicitado a assinar na sua conta Azure se ainda não tiver assinado.
 1. Encontre a listagem de máquinas virtuais digitando em "data science virtual machine" e selecionando "Data Science Virtual Machine- Ubuntu 18.04"
 
 1. Na janela seguinte, **selecione Criar**.

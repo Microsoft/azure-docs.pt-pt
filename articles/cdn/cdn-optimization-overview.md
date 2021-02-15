@@ -4,22 +4,16 @@ description: Saiba como a Azure Content Delivery Network pode otimizar a entrega
 services: cdn
 documentationcenter: ''
 author: asudbring
-manager: danielgi
-editor: ''
-ms.assetid: ''
 ms.service: azure-cdn
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 03/25/2019
 ms.author: allensu
-ms.openlocfilehash: 7c7e4ff05307452da67c37b23bf492db8855e2ef
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 3d207ee09a76509a65a2645515b182f8d92753b0
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96004505"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100387925"
 ---
 # <a name="optimize-azure-cdn-for-the-type-of-content-delivery"></a>Otimizar a Azure CDN para o tipo de entrega de conteúdos
 
@@ -64,7 +58,11 @@ A Microsoft recomenda que teste as variações de desempenho entre diferentes fo
 
 ## <a name="select-and-configure-optimization-types"></a>Selecione e configuure tipos de otimização
 
-Quando criar um ponto final cdn, selecione um tipo de otimização que melhor corresponda ao cenário e tipo de conteúdo que deseja que o ponto final entregue. **A entrega geral da web** é a seleção predefinitiva. Para o **Azure CDN Standard** apenas a partir de pontos finais da Akamai, pode atualizar a opção de otimização a qualquer momento. Esta alteração não interrompe a entrega da Azure CDN. 
+Quando criar um ponto final cdn, selecione um tipo de otimização que melhor corresponda ao cenário e tipo de conteúdo que deseja que o ponto final entregue. 
+
+**A entrega geral da web** é a seleção predefinitiva. Só é possível atualizar **o Azure CDN Standard a partir da** otimização dos pontos finais da Akamai a qualquer momento. 
+
+Para **o Azure CDN Standard da Microsoft**, **Azure CDN Standard de Verizon** e **Azure CDN Premium da Verizon,** não pode.
 
 1. Num **Azure CDN Standard do** perfil Akamai, selecione um ponto final.
 

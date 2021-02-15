@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/27/2020
+ms.date: 02/12/2021
 ms.author: trbye
-ms.openlocfilehash: 605bae706bbc1db2e008b8d050cbba9eacd16933
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 8546201d21e68fbcf1e519c8fe9ba0de1dc38a96
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98702207"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100367984"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Preparar dados para Voz Personalizada
 
@@ -46,9 +46,9 @@ Esta tabela lista os tipos de dados aceites, quando cada tipo de dados deve ser 
 
 | Tipo de dados | Utilizado para testes | Quantidade recomendada | Usado para treino | Quantidade recomendada |
 |-----------|-----------------|----------|-------------------|----------|
-| [Áudio](#audio-data-for-testing) | Sim<br>Usado para inspeção visual | 5+ ficheiros áudio | Não | N/D |
-| [Transcrições com rótulo humano + áudio +](#audio--human-labeled-transcript-data-for-testingtraining) | Sim<br>Usado para avaliar a precisão | 0,5-5 horas de áudio | Sim | 1-20 horas de áudio |
-| [Texto relacionado](#related-text-data-for-training) | Não | N/a | Sim | 1-200 MB de texto relacionado |
+| [Áudio](#audio-data-for-testing) | Yes<br>Usado para inspeção visual | 5+ ficheiros áudio | No | N/D |
+| [Transcrições com rótulo humano + áudio +](#audio--human-labeled-transcript-data-for-testingtraining) | Yes<br>Usado para avaliar a precisão | 0,5-5 horas de áudio | Yes | 1-20 horas de áudio |
+| [Texto relacionado](#related-text-data-for-training) | No | N/a | Yes | 1-200 MB de texto relacionado |
 
 Quando treinar um novo modelo, comece com [textos relacionados.](#related-text-data-for-training) Estes dados já melhorarão o reconhecimento de termos e frases especiais. Treinar com texto é muito mais rápido do que treinar com áudio (minutos vs. dias).
 
@@ -57,9 +57,17 @@ Os ficheiros devem ser agrupados por tipo num conjunto de dados e carregados com
 > [!TIP]
 > Para começar rapidamente, considere usar dados da amostra. Consulte este repositório GitHub para <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/sampledata/customspeech" target="_target">amostra de dados de discurso personalizado <span class="docon docon-navigate-external x-hidden-focus"></span> </a>
 
+> [!NOTE]
+> Nem todos os modelos base suportam o treino com áudio. Se um modelo base não o suportar, o serviço Desemaguiso utilizará apenas o texto das transcrições e ignorará o áudio. Consulte [o suporte linguístico](language-support.md#speech-to-text) para uma lista de modelos base que suportam a formação com dados áudio.
+
+> [!NOTE]
+> Nos casos em que altera o modelo base utilizado para o treino, e tem áudio no conjunto de dados de treino, verifique *sempre* se o novo modelo base selecionado [suporta a formação com dados áudio](language-support.md#speech-to-text). Se o modelo base anteriormente utilizado não suportasse a formação com dados áudio, e o conjunto de dados de formação contiver áudio, o tempo de treino com o novo modelo base aumentará **drasticamente,** podendo facilmente passar de várias horas para vários dias e mais. Isto é especialmente verdade se a subscrição do seu serviço Desem declarações **não** estiver numa [região com o hardware dedicado](custom-speech-overview.md#set-up-your-azure-account) para a formação.
+>
+> Se encarar a questão descrita no parágrafo acima, pode diminuir rapidamente o tempo de treino reduzindo a quantidade de áudio no conjunto de dados ou removendo-o completamente e deixando apenas o texto. Esta última opção é altamente recomendada se a subscrição do serviço Speech **não** estiver numa [região com o hardware dedicado](custom-speech-overview.md#set-up-your-azure-account) para a formação.
+
 ## <a name="upload-data"></a>Carregar dados
 
-Para fazer o upload dos seus dados, navegue para o <a href="https://speech.microsoft.com/customspeech" target="_blank">portal <span class="docon docon-navigate-external x-hidden-focus"></span> Discurso Personalizado </a>. A partir do portal, clique em **Carregar dados** para lançar o assistente e criar o seu primeiro conjunto de dados. Será solicitado que selecione um tipo de dados de voz para o seu conjunto de dados, antes de lhe permitir fazer o upload dos seus dados.
+Para fazer o upload dos seus dados, navegue para o <a href="https://speech.microsoft.com/customspeech" target="_blank">Estúdio <span class="docon docon-navigate-external x-hidden-focus"></span> da Fala. </a> A partir do portal, clique em **Carregar dados** para lançar o assistente e criar o seu primeiro conjunto de dados. Será solicitado que selecione um tipo de dados de voz para o seu conjunto de dados, antes de lhe permitir fazer o upload dos seus dados.
 
 ![Screenshot que realça a opção de upload áudio a partir do Portal do Discurso.](./media/custom-speech/custom-speech-select-audio.png)
 
@@ -93,7 +101,7 @@ Utilize esta tabela para garantir que os seus ficheiros áudio são formatados c
 
 Utilize <a href="http://sox.sourceforge.net" target="_blank" rel="noopener">o <span class="docon docon-navigate-external x-hidden-focus"></span> SoX</a> para verificar as propriedades áudio ou converter o áudio existente nos formatos apropriados. Abaixo estão alguns exemplos de como cada uma destas atividades pode ser feita através da linha de comando SoX:
 
-| Atividade | Descrição | Comando SoX |
+| Atividade | Description | Comando SoX |
 |----------|-------------|-------------|
 | Verifique o formato áudio | Use este comando para verificar<br>o formato de ficheiro áudio. | `sox --i <filename>` |
 | Converter formato áudio | Use este comando para converter<br>o ficheiro áudio para um único canal, 16-bit, 16 KHz. | `sox <input> -b 16 -e signed-integer -c 1 -r 16k -t wav <output>.wav` |
@@ -136,14 +144,14 @@ speech03.wav    the lazy dog was not amused
 
 As transcrições são normalizadas para texto, de modo a que o sistema as possa processar. No entanto, existem algumas normalizações importantes que devem ser feitas antes de enviar os dados para o Estúdio da Fala. Para que a língua apropriada utilize quando prepara as suas transcrições, consulte [Como criar uma transcrição com rótulo humano](how-to-custom-speech-human-labeled-transcriptions.md)
 
-Depois de ter recolhido os seus ficheiros áudio e transcrições correspondentes, embale-os como um único ficheiro .zip antes de enviar para o <a href="https://speech.microsoft.com/customspeech" target="_blank">portal Desemaguiso <span class="docon docon-navigate-external x-hidden-focus"></span> </a>. Abaixo está um conjunto de dados de exemplo com três ficheiros áudio e um ficheiro de transcrição com rótulo humano:
+Depois de ter recolhido os seus ficheiros áudio e transcrições correspondentes, embale-os como um único ficheiro .zip antes de enviar para o <a href="https://speech.microsoft.com/customspeech" target="_blank">Estúdio <span class="docon docon-navigate-external x-hidden-focus"></span> </a>da Fala . Abaixo está um conjunto de dados de exemplo com três ficheiros áudio e um ficheiro de transcrição com rótulo humano:
 
 > [!div class="mx-imgBorder"]
 > ![Selecione áudio do Portal do Discurso](./media/custom-speech/custom-speech-audio-transcript-pairs.png)
 
 Consulte [configurar a sua conta Azure](custom-speech-overview.md#set-up-your-azure-account) para obter uma lista de regiões recomendadas para as suas subscrições de serviço de Discurso. A criação das assinaturas Discurso numa destas regiões reduzirá o tempo necessário para formar o modelo. Nestas regiões, a formação pode processar cerca de 10 horas de áudio por dia em comparação com apenas 1 hora por dia noutras regiões. Se a formação de modelos não puder ser concluída dentro de uma semana, o modelo será marcado como falhado.
 
-Nem todos os modelos base suportam o treino com dados áudio. Se o modelo base não o suportar, o serviço ignorará o áudio e apenas treinará com o texto das transcrições. Neste caso, a formação será a mesma que a formação com texto relacionado.
+Nem todos os modelos base suportam o treino com dados áudio. Se o modelo base não o suportar, o serviço ignorará o áudio e apenas treinará com o texto das transcrições. Neste caso, a formação será a mesma que a formação com texto relacionado. Consulte [o suporte linguístico](language-support.md#speech-to-text) para uma lista de modelos base que suportam a formação com dados áudio.
 
 ## <a name="related-text-data-for-training"></a>Dados de texto relacionados para a formação
 
@@ -154,7 +162,7 @@ Os nomes ou funcionalidades do produto que são únicos, devem incluir dados de 
 | Frases (expressões) | Melhore a precisão ao reconhecer os nomes dos produtos ou o vocabulário específico da indústria no contexto de uma frase. |
 | Pronúncias | Melhorar a pronúncia de termos incomuns, siglas ou outras palavras com pronúncias indefinidas. |
 
-As frases podem ser fornecidas como um único ficheiro de texto ou vários ficheiros de texto. Para melhorar a precisão, utilize dados de texto mais próximos das declarações faladas esperadas. As pronúncias devem ser fornecidas como um único ficheiro de texto. Tudo pode ser embalado como um único ficheiro zip e enviado para o <a href="https://speech.microsoft.com/customspeech" target="_blank">portal <span class="docon docon-navigate-external x-hidden-focus"></span> Discurso Personalizado </a>.
+As frases podem ser fornecidas como um único ficheiro de texto ou vários ficheiros de texto. Para melhorar a precisão, utilize dados de texto mais próximos das declarações faladas esperadas. As pronúncias devem ser fornecidas como um único ficheiro de texto. Tudo pode ser embalado como um único ficheiro zip e enviado para o <a href="https://speech.microsoft.com/customspeech" target="_blank">Estúdio <span class="docon docon-navigate-external x-hidden-focus"></span> de Fala </a>.
 
 O treino com texto relacionado geralmente completa em poucos minutos.
 
@@ -174,7 +182,7 @@ Utilize esta tabela para garantir que o seu ficheiro de dados relacionado para e
 
 Além disso, você vai querer prestar contas das seguintes restrições:
 
-* Evite repetir caracteres, palavras ou grupos de palavras mais de três vezes. Por exemplo: "aaaa", "sim sim", ou "é isso que é que é isto". O serviço de discurso pode deixar cair linhas com demasiadas repetições.
+* Evite repetir caracteres, palavras ou grupos de palavras mais de três vezes. Por exemplo: "aaaa", "sim sim sim sim", ou "é isso que é que é isto". O serviço de discurso pode deixar cair linhas com demasiadas repetições.
 * Não utilize caracteres especiais ou caracteres UTF-8 acima `U+00A1` .
 * UrIs será rejeitado.
 
@@ -210,7 +218,7 @@ Utilize a seguinte tabela para garantir que o seu ficheiro de dados relacionado 
 | # de pronúncias por linha | 1 |
 | Tamanho máximo do ficheiro | 1 MB (1 KB para nível livre) |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Fiscalizar os seus dados](how-to-custom-speech-inspect-data.md)
 * [Avaliar os seus dados](how-to-custom-speech-evaluate-data.md)

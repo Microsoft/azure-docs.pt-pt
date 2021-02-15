@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/13/2021
+ms.date: 02/02/2021
 ms.author: jeedes
-ms.openlocfilehash: 18d64e2b2ac359a9036ebd548ef886cb0efd3405
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 3d99ed71e284ae2e986a93591a61c3c9011857eb
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98622201"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100371298"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-splunk-enterprise-and-splunk-cloud"></a>Tutorial: Integração do Azure Ative Directory com a Splunk Enterprise e a Splunk Cloud
 
@@ -28,10 +28,10 @@ Neste tutorial, você vai aprender a integrar a Splunk Enterprise e a Splunk Clo
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração AD da Azure com a Splunk Enterprise e a Splunk Cloud, precisa dos seguintes itens:
+Para começar, precisa dos seguintes itens:
 
-* Uma assinatura AD Azure. Se não tiver um ambiente AD Azure, pode ter um mês de julgamento [aqui.](https://azure.microsoft.com/pricing/free-trial/)
-* Splunk Enterprise e Splunk Cloud assinatura ativada única.
+* Uma assinatura AD Azure. Se não tiver uma subscrição, pode obter uma [conta gratuita.](https://azure.microsoft.com/free/)
+* Splunk Enterprise e Splunk Cloud única assinatura ativada (SSO) ativada.
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
@@ -63,7 +63,7 @@ Para configurar e testar Azure AD SSO com Splunk Enterprise e Splunk Cloud, exec
     1. **[Create Splunk Enterprise e Splunk Cloud test user](#create-splunk-enterprise-and-splunk-cloud-test-user)** - para ter uma contraparte de B.Simon em Splunk Enterprise e Splunk Cloud que está ligada à representação AD AD Azure do utilizador.
 1. **[Teste SSO](#test-sso)** - para verificar se a configuração funciona.
 
-### <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
+## <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
 Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
@@ -111,16 +111,15 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 1. Se estiver à espera que uma função seja atribuída aos utilizadores, pode selecioná-la a partir do Dropdown de **função** Select. Se não tiver sido configurada qualquer função para esta aplicação, vê a função "Acesso Predefinido" selecionada.
 1. No diálogo **'Adicionar Atribuição',** clique no botão **'Atribuir'.**
 
-### <a name="configure-splunk-enterprise-and-splunk-cloud-sso"></a>Configure Splunk Enterprise e Splunk Cloud SSO
+## <a name="configure-splunk-enterprise-and-splunk-cloud-sso"></a>Configure Splunk Enterprise e Splunk Cloud SSO
 
   Para configurar um único sign-on no lado **da Splunk Enterprise e splunk Cloud,** você precisa enviar o **metdata XML da Federação** descarregado e URLs copiados apropriados do portal Azure para a [splunk Enterprise e splunk cloud equipe de suporte](https://www.splunk.com/en_us/about-splunk/contact-us.html). Eles definem esta definição para ter a ligação SSO SAML corretamente definida em ambos os lados.
-
 
 ### <a name="create-splunk-enterprise-and-splunk-cloud-test-user"></a>Criar utilizador de teste Splunk Enterprise e Splunk Cloud
 
 Nesta secção, cria-se um utilizador chamado Britta Simon em Splunk Enterprise e Splunk Cloud. Trabalhe com [a equipa de suporte splunk Enterprise e Splunk Cloud](https://www.splunk.com/en_us/about-splunk/contact-us.html) para adicionar os utilizadores na plataforma Splunk Enterprise e Splunk Cloud. Os utilizadores devem ser criados e ativados antes de utilizar uma única s ativação.
 
-### <a name="test-sso"></a>Teste SSO
+## <a name="test-sso"></a>Teste SSO
 
 Nesta secção, testa a configuração de um único sinal de inscrição Azure AD com as seguintes opções. 
 
@@ -132,4 +131,4 @@ Nesta secção, testa a configuração de um único sinal de inscrição Azure A
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Assim que configurar a Splunk Enterprise e a Splunk Cloud, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se a partir do Acesso Condicional. [Saiba como impor o controlo da sessão com a Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app)
+Uma vez configurado a Splunk Enterprise e a Splunk Cloud, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com a Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app)

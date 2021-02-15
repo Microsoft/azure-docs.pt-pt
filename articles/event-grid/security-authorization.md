@@ -2,13 +2,13 @@
 title: Segurança e autenticação da Grelha de Eventos Azure
 description: Descreve o Azure Event Grid e respetivos conceitos.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: 24954ce0a0dc54a04720c0d0b495d14e950a2f71
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.date: 02/12/2021
+ms.openlocfilehash: 326fa00645302eb4b9c9bc59f17c1ca153bdb0b7
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97109594"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100371725"
 ---
 # <a name="authorizing-access-to-event-grid-resources"></a>Autorizar o acesso aos recursos da Grade de Eventos
 O Azure Event Grid permite-lhe controlar o nível de acesso dado a diferentes utilizadores para fazer várias operações de **gestão,** tais como subscrições de eventos de lista, criar novas e gerar chaves. A Grade de Eventos utiliza o controlo de acesso baseado em funções Azure (Azure RBAC).
@@ -51,6 +51,8 @@ Pode [atribuir estas funções a um utilizador ou grupo.](../role-based-access-c
         "Actions": [
           "Microsoft.Authorization/*/read",
           "Microsoft.EventGrid/eventSubscriptions/*",
+          "Microsoft.EventGrid/systemtopics/eventsubscriptions/*",
+          "Microsoft.EventGrid/partnertopics/eventsubscriptions/*",
           "Microsoft.EventGrid/topicTypes/eventSubscriptions/read",
           "Microsoft.EventGrid/locations/eventSubscriptions/read",
           "Microsoft.EventGrid/locations/topicTypes/eventSubscriptions/read",
@@ -188,7 +190,7 @@ Se estiver a usar um manipulador de eventos que não seja um WebHook (como um ce
 Tem de ter a permissão **Microsoft.EventGrid/EventSubscriptions/Write** no recurso que é a fonte do evento. Precisa desta permissão porque está a escrever uma nova subscrição no âmbito do recurso. O recurso necessário difere com base no facto de estar a subscrever um tópico do sistema ou um tópico personalizado. Ambos os tipos são descritos nesta secção.
 
 ### <a name="system-topics-azure-service-publishers"></a>Tópicos do sistema (editores de serviços Azure)
-Para tópicos do sistema, precisa de permissão para escrever uma nova subscrição de eventos no âmbito da publicação de recursos do evento. O formato do recurso é: `/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}`
+Para os tópicos do sistema, se não for o proprietário ou colaborador do recurso de origem, necessita de autorização para escrever uma nova subscrição de eventos no âmbito da publicação de recursos do evento. O formato do recurso é: `/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}`
 
 Por exemplo, para subscrever um evento numa conta de armazenamento chamada **myacct,** precisa da permissão microsoft.EventGrid/EventSubscriptions/Write on: `/subscriptions/####/resourceGroups/testrg/providers/Microsoft.Storage/storageAccounts/myacct`
 

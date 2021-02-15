@@ -3,22 +3,22 @@ title: 'ML Studio (clássico): Excel add-in para serviços web - Azure'
 description: Como utilizar os serviços web de aprendizagem automática Azure diretamente no Excel sem escrever qualquer código.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/01/2018
-ms.openlocfilehash: fb87afcc6edc02d241dca763aff9ecdd594e4711
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 45d9e494b9f885cfa0680bec595aefcd4074d41e
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93310080"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100520005"
 ---
 # <a name="excel-add-in-for-azure-machine-learning-studio-classic-web-services"></a>Excel Add-in para Azure Machine Learning Studio (clássico) serviços web
 
-**APLICA-SE A:** ![ Aplica-se a. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) ![ Não se aplica a. ](../../../includes/media/aml-applies-to-skus/no.png)[ Aprendizagem de Máquinas Azure](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
+**APLICA-SE A:** ![ Aplica-se a. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) ![ Não se aplica a.](../../../includes/media/aml-applies-to-skus/no.png)[ Aprendizagem de Máquinas Azure](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 
 O Excel facilita a chamada diretamente dos serviços web sem a necessidade de escrever qualquer código.
@@ -38,7 +38,7 @@ O Excel facilita a chamada diretamente dos serviços web sem a necessidade de es
     ![Selecione serviço Web](./media/excel-add-in-for-web-services/image1.png)
 3. Isto leva-o à secção **de Previsão.**  Este livro já contém dados de amostra, mas para um livro em branco pode selecionar uma célula no Excel e clicar em **Utilizar dados de amostras.**
 4. Selecione os dados com cabeçalhos e clique no ícone de gama de dados de entrada.  Certifique-se de que a caixa "Os meus dados têm cabeçalhos" está verificada.
-5. Em **Saída** , introduza o número de célula onde deseja que a saída esteja, por exemplo , "H1" aqui.
+5. Em **Saída**, introduza o número de célula onde deseja que a saída esteja, por exemplo , "H1" aqui.
 6. Clique **em Prever**. Se selecionar a caixa de verificação "auto-prever" qualquer alteração nas áreas selecionadas (as especificadas como entrada) irá desencadear um pedido e uma atualização das células de saída sem a necessidade de premir o botão de previsão.
    
     ![Previsão de secção](./media/excel-add-in-for-web-services/image1.png)

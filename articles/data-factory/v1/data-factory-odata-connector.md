@@ -1,23 +1,18 @@
 ---
 title: Mover dados de fontes OData
 description: Saiba como mover dados de fontes OData utilizando a Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.assetid: de28fa56-3204-4546-a4df-21a21de43ed7
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 95f92d4e5616d7754c355610685701a8e089b84e
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: fae78459a752d78fe47f189bca67667e917ba561
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96019655"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100380071"
 ---
 # <a name="move-data-from-an-odata-source-using-azure-data-factory"></a>Mover dados de uma fonte OData utilizando a Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -62,13 +57,13 @@ A tabela a seguir fornece descrição para elementos JSON específicos do servi�
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| tipo |A propriedade tipo deve ser definida para: **OData** |Sim |
-| url |Url do serviço OData. |Sim |
-| authenticationType |Tipo de autenticação utilizada para ligar à fonte OData. <br/><br/> Para o OData na nuvem, os valores possíveis são Anónimos, Básicos e OAuth (nota Azure Data Factory atualmente apenas suporta OAuth baseado em Azure Ative Directory). <br/><br/> Para o OData no local, os valores possíveis são Anónimos, Básicos e Windows. |Sim |
+| tipo |A propriedade tipo deve ser definida para: **OData** |Yes |
+| url |Url do serviço OData. |Yes |
+| authenticationType |Tipo de autenticação utilizada para ligar à fonte OData. <br/><br/> Para o OData na nuvem, os valores possíveis são Anónimos, Básicos e OAuth (nota Azure Data Factory atualmente apenas suporta OAuth baseado em Azure Ative Directory). <br/><br/> Para o OData no local, os valores possíveis são Anónimos, Básicos e Windows. |Yes |
 | nome de utilizador |Especifique o nome do utilizador se estiver a utilizar a autenticação Básica. |Sim (apenas se estiver a utilizar a autenticação básica) |
 | palavra-passe |Especifique a palavra-passe para a conta de utilizador especificada para o nome de utilizador. |Sim (apenas se estiver a utilizar a autenticação básica) |
 | autorizadoCredential |Se estiver a utilizar o OAuth, clique no botão **Authorize** no Assistente de Cópia de Data Factory ou editor e introduza a sua credencial, então o valor desta propriedade será gerado automaticamente. |Sim (apenas se estiver a utilizar a autenticação OAuth) |
-| gatewayName |Nome do gateway que o serviço Data Factory deve utilizar para ligar ao serviço OData no local. Especifique apenas se estiver a copiar dados a partir da fonte OData das instalações. |Não |
+| gatewayName |Nome do gateway que o serviço Data Factory deve utilizar para ligar ao serviço OData no local. Especifique apenas se estiver a copiar dados a partir da fonte OData das instalações. |No |
 
 ### <a name="using-basic-authentication"></a>Utilização da autenticação básica
 ```json
@@ -147,7 +142,7 @@ A secção **typeProperties** é diferente para cada tipo de conjunto de dados e
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| caminho |Caminho para o recurso OData |Não |
+| caminho |Caminho para o recurso OData |No |
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 Para obter uma lista completa das secções & propriedades disponíveis para definir atividades, consulte o artigo [Criar Pipelines.](data-factory-create-pipelines.md) Propriedades como nome, descrição, tabelas de entrada e saída, e política estão disponíveis para todos os tipos de atividades.
@@ -158,7 +153,7 @@ Quando a fonte é do tipo **RelationalSource** (que inclui OData) as seguintes p
 
 | Propriedade | Descrição | Exemplo | Necessário |
 | --- | --- | --- | --- |
-| consulta |Utilize a consulta personalizada para ler dados. |"?$select=Nome, Descrição&$top=5" |Não |
+| consulta |Utilize a consulta personalizada para ler dados. |"?$select=Nome, Descrição&$top=5" |No |
 
 ## <a name="type-mapping-for-odata"></a>Mapeamento de tipo para OData
 Como mencionado no artigo [de atividades](data-factory-data-movement-activities.md) de movimento de dados, a atividade copy realiza conversões automáticas de tipo de origem para tipos de pia com a seguinte abordagem em duas etapas.

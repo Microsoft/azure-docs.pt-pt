@@ -1,5 +1,5 @@
 ---
-title: Gerir instantâneos utilizando ficheiros Azure NetApp Microsoft Docs
+title: Gerir instantâneos utilizando ficheiros Azure NetApp | Microsoft Docs
 description: Descreve como criar, gerir e utilizar instantâneos utilizando ficheiros Azure NetApp.
 services: azure-netapp-files
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 11/18/2020
+ms.date: 02/10/2021
 ms.author: b-juche
-ms.openlocfilehash: 35fce3723e92a3a7c68aaa62b28b756432182a8c
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 4d992bcc202dc8bdacdda6426371df1adb1ec3e6
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97629668"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100379119"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Gerir instantâneos com o Azure NetApp Files
 
@@ -187,7 +187,9 @@ Se não quiser [restaurar a totalidade do instantâneo num volume,](#restore-a-s
 
 O volume montado contém um diretório instantâneo denominado  `.snapshot` (em clientes NFS) ou `~snapshot` (em clientes SMB) que é acessível ao cliente. O diretório instantâneo contém subdireções correspondentes às imagens do volume. Cada subdiretório contém os ficheiros do instantâneo. Se eliminar acidentalmente ou substituir um ficheiro, pode restaurar o ficheiro no diretório de leitura-escrita dos pais copiando o ficheiro de uma subdiretório instantânea para o diretório de leitura. 
 
-Se não vir o diretório instantâneo, pode ser escondido porque a opção Hide Snapshot Path está ativada. Pode [editar a opção Hide Snapshot Path](#edit-the-hide-snapshot-path-option) para desativá-la.  
+Pode controlar o acesso aos diretórios instantâneos utilizando a [opção Hide Snapshot Path](#edit-the-hide-snapshot-path-option). Esta opção controla se o diretório deve ser escondido dos clientes. Portanto, também controla o acesso a ficheiros e pastas nas imagens.  
+
+NFSv4.1 não mostra o `.snapshot` diretório ( `ls -la` . No entanto, quando a opção Hide Snapshot Path não estiver definida, ainda pode aceder ao `.snapshot` diretório via NFSv4.1 utilizando o `cd <snapshot-path>` comando da linha de comando do cliente. 
 
 ### <a name="restore-a-file-by-using-a-linux-nfs-client"></a>Restaurar um ficheiro utilizando um cliente Linux NFS 
 
@@ -269,4 +271,4 @@ Pode apagar imagens que já não precisa de guardar.
 * [Resolver problemas das políticas de instantâneo](troubleshoot-snapshot-policies.md)
 * [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md) (Limites dos recursos do Azure NetApp Files)
 * [Azure NetApp Files Snapshots 101 vídeo](https://www.youtube.com/watch?v=uxbTXhtXCkw&feature=youtu.be)
-* [O que é a ferramenta instantânea consistente da aplicação Azure](azacsnap-introduction.md)
+* [O que é a Ferramenta de Instantâneo Consistente da Aplicação Azure](azacsnap-introduction.md)

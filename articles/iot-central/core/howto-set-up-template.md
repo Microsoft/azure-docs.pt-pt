@@ -10,12 +10,12 @@ services: iot-central
 ms.custom:
 - contperf-fy21q1
 - device-developer
-ms.openlocfilehash: 236acc2ded3fcb651295e0342ab4e1e88174be46
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 22e948a0100f23dbddef8fc138576bb4b9372c77
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202968"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100363207"
 ---
 # <a name="define-a-new-iot-device-type-in-your-azure-iot-central-application"></a>Definir um novo tipo de dispositivo IoT na aplicação do Azure IoT Central
 
@@ -31,9 +31,9 @@ Por exemplo, um construtor pode criar um modelo de dispositivo para uma ventoinh
 - Envia estado de operação de fãs
 - Fornece uma propriedade de velocidade de fã writable
 - Fornece um comando para reiniciar o dispositivo
-- Dá-lhe uma visão geral do dispositivo através de um dashboard
+- Dá-lhe uma visão geral do dispositivo usando uma vista
 
-A partir deste modelo de dispositivo, um operador pode criar e ligar dispositivos de ventilação reais. Todos estes ventiladores têm medições, propriedades e comandos que os operadores usam para monitorizá-los e geri-los. Os operadores utilizam os painéis e [formulários do dispositivo](#add-dashboards) para interagir com os dispositivos do ventilador. Um desenvolvedor de dispositivos usa o modelo para entender como o dispositivo interage com a aplicação. Para saber mais, consulte [telemetria, propriedade e cargas de comando.](concepts-telemetry-properties-commands.md)
+A partir deste modelo de dispositivo, um operador pode criar e ligar dispositivos de ventilação reais. Todos estes ventiladores têm medições, propriedades e comandos que os operadores usam para monitorizá-los e geri-los. Os operadores utilizam as vistas e [formulários](#add-views) do dispositivo para interagir com os dispositivos do ventilador. Um desenvolvedor de dispositivos usa o modelo para entender como o dispositivo interage com a aplicação. Para saber mais, consulte [telemetria, propriedade e cargas de comando.](concepts-telemetry-properties-commands.md)
 
 > [!NOTE]
 > Apenas construtores e administradores podem criar, editar e eliminar modelos de dispositivos. Qualquer utilizador pode criar dispositivos na página **dispositivos** a partir dos modelos de dispositivos existentes.
@@ -46,8 +46,8 @@ Numa aplicação IoT Central, um modelo de dispositivo utiliza um modelo de disp
 > O IoT Central requer o modelo completo com todas as interfaces referenciadas no mesmo ficheiro, quando importa um modelo do repositório do modelo use a palavra-chave "expandida" para obter a versão completa.
 Por exemplo. https://devicemodels.azure.com/dtmi/com/example/thermostat-1.expanded.json
 
-- Autor de um modelo de dispositivo utilizando a [Linguagem de Definição de Gémeos Digitais (DTDL) - versão 2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). O código Visual Studio tem uma extensão que suporta a autoria de modelos DTDL. Para saber mais, consulte [instalar e utilizar as ferramentas de autoria DTDL.](../../iot-pnp/howto-use-dtdl-authoring-tools.md) Em seguida, publique o modelo para o repositório de modelos públicos. Para saber mais, consulte [o repositório de modelos do Dispositivo.](../../iot-pnp/concepts-model-repository.md) Implemente o código do dispositivo a partir do modelo e ligue o seu verdadeiro dispositivo à sua aplicação IoT Central. A IoT Central encontra e importa o modelo do dispositivo do repositório público para si e gera um modelo de dispositivo. Em seguida, pode adicionar quaisquer propriedades na nuvem, personalizações e dashboards que a sua aplicação IoT Central necessita ao modelo do dispositivo.
-- Autore um modelo de dispositivo utilizando o DTDL. Implemente o código do dispositivo a partir do modelo. Importe manualmente o modelo do dispositivo na sua aplicação IoT Central e, em seguida, adicione quaisquer propriedades na nuvem, personalizações e dashboards que a sua aplicação IoT Central necessita.
+- Autor de um modelo de dispositivo utilizando a [Linguagem de Definição de Gémeos Digitais (DTDL) - versão 2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). O código Visual Studio tem uma extensão que suporta a autoria de modelos DTDL. Para saber mais, consulte [instalar e utilizar as ferramentas de autoria DTDL.](../../iot-pnp/howto-use-dtdl-authoring-tools.md) Em seguida, publique o modelo para o repositório de modelos públicos. Para saber mais, consulte [o repositório de modelos do Dispositivo.](../../iot-pnp/concepts-model-repository.md) Implemente o código do dispositivo a partir do modelo e ligue o seu verdadeiro dispositivo à sua aplicação IoT Central. A IoT Central encontra e importa o modelo do dispositivo do repositório público para si e gera um modelo de dispositivo. Em seguida, pode adicionar quaisquer propriedades na nuvem, personalizações e visualizações que a sua aplicação IoT Central necessita para o modelo do dispositivo.
+- Autore um modelo de dispositivo utilizando o DTDL. Implemente o código do dispositivo a partir do modelo. Importe manualmente o modelo do dispositivo na sua aplicação IoT Central e, em seguida, adicione quaisquer propriedades na nuvem, personalizações e vistas para as suas necessidades de aplicação IoT Central.
 
 > [!TIP]
 > A IoT Central requer o modelo completo com todas as interfaces referenciadas no mesmo ficheiro. Quando importa um modelo do repositório do modelo, use a palavra-chave *expandida* para obter a versão completa.
@@ -72,8 +72,8 @@ Um modelo de dispositivo contém:
 
 - Um _modelo de dispositivo_ que especifica a telemetria, propriedades e comandos que o dispositivo implementa. Estas capacidades são organizadas em um ou mais componentes.
 - _Propriedades em nuvem_ que definem a informação que a sua aplicação IoT Central armazena sobre os seus dispositivos. Por exemplo, uma propriedade em nuvem pode gravar a data em que um dispositivo foi reparado pela última vez. Esta informação nunca é partilhada com o dispositivo.
-- _As personalizações_ permitem ao construtor sobrepor-se a algumas das definições no modelo do dispositivo. Por exemplo, o construtor pode sobrepor-se ao nome de uma propriedade do dispositivo. Os nomes das propriedades aparecem nos dashboards e formulários da IoT Central.
-- _Os dashboards e formulários_ permitem ao construtor criar uma UI que permite aos operadores monitorizar e gerir os dispositivos ligados à sua aplicação.
+- _As personalizações_ permitem ao construtor sobrepor-se a algumas das definições no modelo do dispositivo. Por exemplo, o construtor pode sobrepor-se ao nome de uma propriedade do dispositivo. Os nomes dos imóveis aparecem nas vistas e formulários da IoT Central.
+- _As vistas e formulários_ permitem ao construtor criar uma UI que permite aos operadores monitorizar e gerir os dispositivos ligados à sua aplicação.
 
 Para criar um modelo de dispositivo na IoT Central:
 
@@ -129,7 +129,7 @@ A tabela a seguir mostra as definições de configuração para uma capacidade d
 
 | Campo | Descrição |
 | ----- | ----------- |
-| Nome a Apresentar | O nome do visor para o valor da telemetria utilizado nos painéis e formulários. |
+| Nome a Apresentar | O nome do visor para o valor da telemetria utilizado nas vistas e nos formulários. |
 | Name | O nome do campo na mensagem de telemetria. O IoT Central gera um valor para este campo a partir do nome do visor, mas pode escolher o seu próprio valor se necessário. Este campo tem de ser alfanumérico. |
 | Tipo de Capacidade | A telemetria. |
 | Tipo semântico | O tipo semântico da telemetria, como temperatura, estado ou evento. A escolha do tipo semântico determina quais dos seguintes campos estão disponíveis. |
@@ -137,7 +137,7 @@ A tabela a seguir mostra as definições de configuração para uma capacidade d
 | Gravidade | Disponível apenas para o tipo semântico do evento. As severidades são **Erro,** **Informação** ou **Aviso**. |
 | Valores do Estado | Disponível apenas para o tipo semântico do estado. Defina os valores de estado possíveis, cada um dos quais tem nome de exibição, nome, tipo de enumeração e valor. |
 | Unidade | Uma unidade para o valor da telemetria, como **mph** **%** , ou **&deg; C**. |
-| Unidade de Exibição | Uma unidade de visualização para utilização em painéis e formulários. |
+| Unidade de Exibição | Uma unidade de visualização para utilização em vistas e formulários. |
 | Comentário | Qualquer comentário sobre a capacidade de telemetria. |
 | Description | Uma descrição da capacidade de telemetria. |
 
@@ -149,7 +149,7 @@ A tabela a seguir mostra as definições de configuração para uma capacidade d
 
 | Campo | Descrição |
 | ----- | ----------- |
-| Nome a Apresentar | O nome de exibição para o valor da propriedade usado em dashboards e formulários. |
+| Nome a Apresentar | O nome de exibição para o valor da propriedade usado em vistas e formulários. |
 | Name | O nome da propriedade. O IoT Central gera um valor para este campo a partir do nome do visor, mas pode escolher o seu próprio valor se necessário. Este campo tem de ser alfanumérico. |
 | Tipo de Capacidade | Propriedade. |
 | Tipo semântico | O tipo semântico da propriedade, como temperatura, estado ou evento. A escolha do tipo semântico determina quais dos seguintes campos estão disponíveis. |
@@ -158,7 +158,7 @@ A tabela a seguir mostra as definições de configuração para uma capacidade d
 | Gravidade | Disponível apenas para o tipo semântico do evento. As severidades são **Erro,** **Informação** ou **Aviso**. |
 | Valores do Estado | Disponível apenas para o tipo semântico do estado. Defina os valores de estado possíveis, cada um dos quais tem nome de exibição, nome, tipo de enumeração e valor. |
 | Unidade | Uma unidade para o valor da propriedade, como **mph,** **%** ou **&deg; C**. |
-| Unidade de Exibição | Uma unidade de visualização para utilização em painéis e formulários. |
+| Unidade de Exibição | Uma unidade de visualização para utilização em vistas e formulários. |
 | Comentário | Quaisquer comentários sobre a capacidade da propriedade. |
 | Description | Uma descrição da capacidade da propriedade. |
 
@@ -170,7 +170,7 @@ A tabela a seguir mostra as definições de configuração para uma capacidade d
 
 | Campo | Descrição |
 | ----- | ----------- |
-| Nome a Apresentar | O nome de visualização do comando utilizado nos painéis e formulários. |
+| Nome a Apresentar | O nome do visor para o comando utilizado nas vistas e formulários. |
 | Name | O nome do comando. O IoT Central gera um valor para este campo a partir do nome do visor, mas pode escolher o seu próprio valor se necessário. Este campo tem de ser alfanumérico. |
 | Tipo de Capacidade | O comando. |
 | Comentário | Qualquer comentário sobre a capacidade de comando. |
@@ -209,7 +209,7 @@ A tabela a seguir mostra as definições de configuração de uma propriedade na
 
 | Campo | Descrição |
 | ----- | ----------- |
-| Nome a Apresentar | O nome de exibição para o valor da propriedade na nuvem usado em dashboards e formulários. |
+| Nome a Apresentar | O nome do visor para o valor da propriedade na nuvem usado em vistas e formulários. |
 | Name | O nome da propriedade na nuvem. O IoT Central gera um valor para este campo a partir do nome do visor, mas pode escolher o seu próprio valor se necessário. |
 | Tipo semântico | O tipo semântico da propriedade, como temperatura, estado ou evento. A escolha do tipo semântico determina quais dos seguintes campos estão disponíveis. |
 | Esquema | O tipo de dados de propriedade em nuvem, como duplo, string ou vetor. As escolhas disponíveis são determinadas pelo tipo semântico. |
@@ -234,24 +234,24 @@ Gerar vistas padrão é uma forma rápida de visualizar as informações importa
 
 Depois de ter selecionado **As vistas predefinidas**, verá que foram adicionadas automaticamente na secção **Visualizações** do modelo do seu dispositivo.
 
-## <a name="add-dashboards"></a>Adicionar dashboards
+## <a name="add-views"></a>Adicionar vistas
 
-Adicione dashboards a um modelo de dispositivo para permitir que os operadores visualizem um dispositivo utilizando gráficos e métricas. Pode ter vários dashboards para um modelo de dispositivo.
+Adicione vistas a um modelo de dispositivo para permitir que os operadores visualizem um dispositivo utilizando gráficos e métricas. Pode ter múltiplas vistas para um modelo de dispositivo.
 
-Para adicionar um dashboard a um modelo de dispositivo:
+Para adicionar uma vista a um modelo de dispositivo:
 
 1. Vá ao seu modelo de dispositivo e selecione **Vistas**.
 1. Escolha **visualizar o dispositivo.**
-1. Introduza um nome para o seu painel de **instrumentos** no Nome dashboard .
-1. Adicione azulejos ao seu painel a partir da lista de estática, propriedade, propriedade em nuvem, telemetria e telhas de comando. Arraste e largue os azulejos que pretende adicionar ao seu painel de instrumentos.
+1. Insira um nome para a sua vista no **nome Ver**.
+1. Adicione azulejos à sua vista a partir da lista de estática, propriedade, propriedade em nuvem, telemetria e azulejos de comando. Arraste e largue os azulejos que pretende adicionar à sua vista.
 1. Para traçar vários valores de telemetria num único bloco gráfico, selecione os valores da telemetria e, em seguida, selecione **Combine**.
 1. Configure cada telha que adiciona para personalizar a forma como exibe dados. Aceda a esta opção selecionando o ícone de engrenagem ou selecionando a **configuração Change** no seu azulejo de gráfico.
-1. Arrume e redimensione os azulejos do seu painel de instrumentos.
+1. Organize e redimensione os azulejos da sua vista.
 1. Guarde as alterações.
 
-### <a name="configure-preview-device-to-view-dashboard"></a>Configurar dispositivo de pré-visualização para visualizar o dashboard
+### <a name="configure-preview-device-to-view"></a>Configurar dispositivo de pré-visualização para visualizar
 
-Para visualizar e testar o seu painel de instrumentos, selecione **o dispositivo de pré-visualização Configure**. Esta funcionalidade permite-lhe ver o dashboard como o seu operador o vê depois de publicado. Utilize esta funcionalidade para validar que as suas opiniões mostram os dados corretos. Pode escolher de entre as seguintes opções:
+Para visualizar e testar a sua vista, selecione **o dispositivo de pré-visualização Configure**. Esta funcionalidade permite-lhe ver a vista como o seu operador a vê depois de publicada. Utilize esta funcionalidade para validar que as suas opiniões mostram os dados corretos. Pode escolher de entre as seguintes opções:
 
 - Sem dispositivo de pré-visualização.
 - O verdadeiro dispositivo de teste que configuraste para o modelo do dispositivo.

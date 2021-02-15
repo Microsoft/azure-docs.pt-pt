@@ -10,12 +10,12 @@ ms.subservice: azure-sentinel
 ms.topic: reference
 ms.custom: ''
 ms.date: 01/14/2021
-ms.openlocfilehash: 32ec711309190d4bb7c6c98a05b6a75cf88a8f5c
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: b5d53ec6c6a8002c72a53d6928d56e55d520ef38
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98920511"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100390832"
 ---
 # <a name="data-source-schema-reference"></a>Referência de esquema de fonte de dados
 
@@ -37,11 +37,14 @@ Este artigo lista o suporte do Azure e de esquemas de fonte de dados de terceiro
 | **Rede**                          | Registos de fluxo NSG          | AzureNetworkAnalytics  | [Schema e agregação de dados em Análise de Tráfego](/azure/network-watcher/traffic-analytics-schema) |
 | | | | |
 
+> [!NOTE]
+> Para mais informações, consulte toda a referência de dados do [Azure Monitor](/azure/azure-monitor/reference/).
+>
 ## <a name="3rd-party-vendor-data-sources"></a>Fontes de dados de fornecedores de terceiros
 
 As listas de tabelas que se seguem suportam fornecedores de terceiros e a sua documentação de mapeamento de Syslog ou Common Event Format (CEF) para vários tipos de registos suportados, que contêm mapeamentos de campo CEF e registos de amostras para cada tipo de categoria.
 
-| Tipo |    Fornecedor |    Product | Registar Nome de mesa Do Registo | Referência de mapeamento de campo CEF  |
+| Tipo |    Fornecedor |    Produto | Registar Nome de mesa Do Registo | Referência de mapeamento de campo CEF  |
 | ----- | ----- | ----- | ----- |----- |
 | **Rede** | Palo Alto   | PAN OS    | CommonSecurityLog |   [Guia comum de integração do formato de evento PAN-OS 9.0](https://docs.paloaltonetworks.com/content/dam/techdocs/en_US/pdf/cef/pan-os-90-cef-configuration-guide.pdf) (pesquisa por *formatos de registo ao estilo CEF)* |
 | **Rede** | Check Point  |ALL   | CommonSecurityLog | [Descrição dos campos de registo](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk109795)       |
@@ -59,7 +62,7 @@ As listas de tabelas que se seguem suportam fornecedores de terceiros e a sua do
 |**Anfitrião** |Tendência Micro |Todos |CommonSecurityLog | [Syslog Content Mapping - CEF](https://docs.trendmicro.com/en-us/enterprise/control-manager-70/appendices/syslog-mapping-cef.aspx) |
 | | | | | |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba conectores Azure Sentinel mais suportados, tais como CEF, Syslog, direct, agente e conectores personalizados:
 

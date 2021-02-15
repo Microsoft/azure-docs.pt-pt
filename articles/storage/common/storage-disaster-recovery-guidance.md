@@ -10,12 +10,12 @@ ms.date: 05/05/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: f7d7bff1bc85e0dec78a69422d126b86f61b7704
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 9a4453c29c52f8821643e93584666c3a6a8e6b4c
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92783985"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100379833"
 ---
 # <a name="disaster-recovery-and-storage-account-failover"></a>Recuperação após desastre e ativação pós-falha de contas de armazenamento
 
@@ -23,7 +23,7 @@ A Microsoft esforça-se por garantir que os serviços Azure estão sempre dispon
 
 O Azure Storage suporta a falha da conta para contas de armazenamento geo-redundantes. Com o failover da conta, pode iniciar o processo de failover para a sua conta de armazenamento se o ponto final principal ficar indisponível. O failover atualiza o ponto final secundário para se tornar o principal ponto final da sua conta de armazenamento. Uma vez que o failover esteja concluído, os clientes podem começar a escrever para o novo ponto final primário.
 
-O failover da conta está disponível para os tipos de conta v1, v2 de uso geral e blob com implementações do Azure Resource Manager. A falta de contas é apoiada em todas as regiões públicas, mas não está disponível em nuvens soberanas ou nacionais neste momento.
+A ativação pós-falha de contas está disponível para os tipos de conta de armazenamento de fins gerais v1, fins gerais v2 e de Blobs com implementações do Azure Resource Manager. A falta de contas é apoiada em todas as regiões públicas, mas não está disponível em nuvens soberanas ou nacionais neste momento.
 
 Este artigo descreve os conceitos e processos envolvidos com uma falha de conta e discute como preparar a sua conta de armazenamento para recuperação com o menor impacto do cliente. Para aprender a iniciar uma falha de conta no portal Azure ou PowerShell, consulte [Iniciar uma falha de conta](storage-initiate-account-failover.md).
 
@@ -55,7 +55,7 @@ Além disso, tenha em mente estas boas práticas para manter a alta disponibilid
 
 - **Discos:** Utilize [a Cópia de Segurança Azure](https://azure.microsoft.com/services/backup/) para fazer cópia de segurança dos discos VM utilizados pelas suas máquinas virtuais Azure. Considere também utilizar [a Recuperação do Sítio Azure](https://azure.microsoft.com/services/site-recovery/) para proteger os seus VMs em caso de desastre regional.
 - **Bolhas de bloco:** Ligue [a eliminação suave](../blobs/soft-delete-blob-overview.md) para proteger contra supressões e substituições ao nível de objetos, ou copie bolhas de blocos para outra conta de armazenamento numa região diferente usando [AzCopy](./storage-use-azcopy-v10.md), [Azure PowerShell,](/powershell/module/az.storage/)ou a [biblioteca Azure Data Movement](storage-use-data-movement-library.md).
-- **Ficheiros:** Utilize [a AzCopy](./storage-use-azcopy-v10.md) ou [a Azure PowerShell](/powershell/module/az.storage/) para copiar os seus ficheiros para outra conta de armazenamento numa região diferente.
+- **Ficheiros:** Utilize [o Azure Backup](https://docs.microsoft.com/azure/backup/azure-file-share-backup-overview) para fazer backup das suas ações de ficheiros. Também permita eliminar [suavemente](https://docs.microsoft.com/azure/storage/files/storage-files-prevent-file-share-deletion) para proteger contra eliminações acidentais de partilha de ficheiros. Para a geo-redundância quando o GRS não estiver disponível, utilize [a AzCopy](./storage-use-azcopy-v10.md) ou [a Azure PowerShell](/powershell/module/az.storage/) para copiar os seus ficheiros para outra conta de armazenamento numa região diferente.
 - **Quadros:** utilize [a AzCopy](./storage-use-azcopy-v10.md) para exportar dados de tabelas para outra conta de armazenamento numa região diferente.
 
 ## <a name="track-outages"></a>Interrupções nas faixas

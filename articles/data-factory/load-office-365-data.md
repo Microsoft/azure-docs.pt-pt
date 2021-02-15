@@ -1,22 +1,17 @@
 ---
 title: Carregar dados do Office 365 utilizando a Azure Data Factory
 description: Utilize a Fábrica de Dados Azure para copiar dados do Office 365
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 05f336af62bc0869249d5b32700ea3515ac5994f
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 8b98344dcb2321d5d91c9974dc833a735164d428
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96459696"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100370662"
 ---
 # <a name="load-data-from-office-365-by-using-azure-data-factory"></a>Carregar dados do Office 365 utilizando a Azure Data Factory
 
@@ -79,7 +74,7 @@ Este artigo mostra-lhe como utilizar os dados de carga da Data Factory _do Offic
 
     ![Tabela de conjuntos de dados config Office 365](./media/load-office-365-data/edit-dataset.png)
 
-8. Volte agora ao **separador de origem** do gasoduto  >  **Source tab** para continuar a configurar propriedades adicionais para a extração de dados do Office 365.  O âmbito do utilizador e o filtro de âmbito do utilizador são predicados opcionais que pode definir para restringir os dados que pretende extrair do Office 365. Consulte a secção [de propriedades do conjunto de dados do Office 365](./connector-office-365.md#dataset-properties) para saber como configura estas definições.
+8. Volte agora ao **separador de origem** do gasoduto  >   para continuar a configurar propriedades adicionais para a extração de dados do Office 365.  O âmbito do utilizador e o filtro de âmbito do utilizador são predicados opcionais que pode definir para restringir os dados que pretende extrair do Office 365. Consulte a secção [de propriedades do conjunto de dados do Office 365](./connector-office-365.md#dataset-properties) para saber como configura estas definições.
 
 9. É-lhe exigido que escolha um dos filtros de data e forneça os valores de início e de tempo de fim.
 

@@ -1,22 +1,19 @@
 ---
 title: Execução de pacotes de resolução de problemas no tempo de execução da integração do SSIS
 description: Este artigo fornece orientações de resolução de problemas para a execução do pacote SSIS no tempo de execução da integração SSIS
-services: data-factory
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.author: wenjiefu
 author: wenjiefu
 ms.reviewer: sawinark
-manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 04/15/2019
-ms.openlocfilehash: 9609c382161514611ddc41af040e8fb438431fdf
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: 2bc56d39de392c9e4c20c25b554e3bdeea048bfb
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98556006"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100361881"
 ---
 # <a name="troubleshoot-package-execution-in-the-ssis-integration-runtime"></a>Execução de pacotes de resolução de problemas no tempo de execução da integração do SSIS
 
@@ -119,7 +116,7 @@ Este erro geralmente significa que o tempo de integração SSIS tem um estado po
 
 Este erro ocorre quando o tempo de funcionaamento da integração SSIS não consegue aceder ao armazenamento configurado para configuração personalizada. Verifique se a assinatura de acesso partilhado (SAS) URI que forneceu é válida e não expirou.
 
-### <a name="error-message-microsoft-ole-db-provider-for-analysis-services-hresult-0x80004005-description-com-error-com-error-mscorlib-exception-has-been-thrown-by-the-target-of-an-invocation"></a>Mensagem de erro: "Microsoft OLE DB Provider for Analysis Services. 'Hresult: 0x80004005 Descrição:' ERRO COM: erro COM: mscorlib; A exceção foi lançada pelo alvo de uma invocação"
+### <a name="error-message-microsoft-ole-db-provider-for-analysis-services-hresult-0x80004005-description-com-error-com-error-mscorlib-exception-has-been-thrown-by-the-target-of-an-invocation"></a>Mensagem de erro: "Microsoft OLE DB Provider for Analysis Services. 'Hresult: 0x80004005 Description:' COM error: COM error: mscorlib; A exceção foi lançada pelo alvo de uma invocação"
 
 Uma das causas potenciais é que o nome de utilizador ou palavra-passe com autenticação multi-factor AZure AD ativada está configurado para a autenticação dos Serviços de Análise Azure. Esta autenticação não é suportada no tempo de integração do SSIS. Tente utilizar um principal de serviço para autenticação dos Serviços de Análise Azure:
 

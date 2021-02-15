@@ -105,6 +105,8 @@
       items:
         - name: Transformar dados com fluxos de dados de mapeamento
           items:
+            - name: Transforme dados no lago com o Lago Delta
+              href: tutorial-data-flow-delta-lake.md
             - name: Transformar dados com fluxos de dados de mapeamento
               href: tutorial-data-flow.md
             - name: Tutoriais de vídeo sobre fluxo de dados de mapeamento
@@ -556,6 +558,8 @@
           href: data-flow-lookup.md
         - name: Novo ramo
           href: data-flow-new-branch.md
+        - name: Analisar
+          href: data-flow-parse.md
         - name: Dinamizar
           href: data-flow-pivot.md
         - name: Posição
@@ -806,6 +810,8 @@
       href: /azure/templates/microsoft.datafactory/allversions
     - name: Python
       href: /python/api/overview/azure/datafactory
+    - name: Incorporações do Azure Policy
+      href: policy-reference.md
 - name: Recursos
   items:
     - name: Documentos técnicos

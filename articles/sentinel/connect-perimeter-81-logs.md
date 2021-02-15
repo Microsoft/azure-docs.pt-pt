@@ -1,5 +1,5 @@
 ---
-title: Ligue os dados do Perímetro 81 ao Azure Sentinel. Microsoft Docs
+title: Ligue os dados do Perímetro 81 ao Azure Sentinel| Microsoft Docs
 description: Saiba como ligar os dados do Perímetro 81 ao Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/21/2020
 ms.author: yelevin
-ms.openlocfilehash: 8c9a7a09d3085b1ec67bf29f142c6e7b205561ef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e70bfd12b018e785e7b3b91e098c99fea1101c04
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87021754"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100093102"
 ---
 # <a name="connect-your-perimeter-81-activity-logs-to-azure-sentinel"></a>Ligue o seu Perímetro 81 registos de atividades a Azure Sentinel
 
 > [!IMPORTANT]
 > O conector de dados do Perímetro 81 em Azure Sentinel está atualmente em pré-visualização pública.
-> Esta funcionalidade é fornecida sem um contrato de nível de serviço, e não é recomendado para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Esta funcionalidade é fornecida sem um contrato de nível de serviço, e não é recomendado para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Este artigo explica como ligar o seu aparelho [de registos de atividades do Perímetro 81](https://www.perimeter81.com/) ao Azure Sentinel. O conector de registos de atividade perimeter 81 permite-lhe facilmente trazer os dados do Perímetro 81 para o Azure Sentinel, para que possa vê-lo em livros de trabalho, usá-lo para criar alertas personalizados e incorporá-lo para melhorar a investigação.
 
@@ -54,7 +54,7 @@ Perímetro 81 Registos de atividade podem integrar e exportar registos diretamen
 
 Após a criação de uma ligação bem sucedida, os dados aparecem em **Registos** em **Perimeter81_CL Desempaçamentos**  -  **Personalizados**.
 
-Pode demorar mais de 20 minutos até que os seus registos comecem a aparecer.
+Pode levar até 20 minutos até que os seus registos comecem a aparecer.
 
 ## <a name="next-steps"></a>Passos seguintes
 
