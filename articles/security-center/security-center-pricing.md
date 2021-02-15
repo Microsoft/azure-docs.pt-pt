@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/14/2021
 ms.author: memildin
-ms.openlocfilehash: 8d6cee5e8d9683ca88a71608595b7dfde8261b8d
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 845697b9d2fd8d43caa3a9992fea8a780b7d9b7c
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100520532"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100522874"
 ---
 # <a name="pricing-of-azure-security-center"></a>Preços do Centro de Segurança Azure
 O Centro de Segurança do Azure oferece gestão de segurança unificada e proteção avançada contra ameaças para cargas de trabalho em execução no Azure, no local e noutras clouds. Proporciona visibilidade e controlo sobre cargas de trabalho em nuvem híbrida, defesas ativas que reduzem a sua exposição a ameaças e deteção inteligente para ajudá-lo a manter o ritmo com riscos cibernéticos em rápida evolução.
@@ -125,11 +125,9 @@ N.º Quando ativar [o Azure Defender para servidores](defender-for-servers-intro
 | A iniciar     | O VM está a começar.                                                                                                                               | Não cobrado            |
 | Em Execução      | Estado de trabalho normal para um VM                                                                                                                    | Faturado                |
 | A parar     | Este é um estado de transição. Quando estiver concluído, mostrará como "Parado".                                                                           | Faturado                |
-| Parada      | O VM foi desligado a partir do so do hóspede ou utilizando as APIs PowerOff. O hardware ainda está atribuído ao VM e permanece no anfitrião. | Faturado (1)            |
-| A desalocar | Estado de transição. Quando concluído, o VM mostrará como Deallocated.                                                                             | Não faturado (1)        |
+| Parada      | O VM foi desligado a partir do so do hóspede ou utilizando as APIs PowerOff. O hardware ainda está atribuído ao VM e permanece no anfitrião. | Faturado                |
+| A desalocar | Estado de transição. Quando concluído, o VM mostrará como Deallocated.                                                                             | Não cobrado            |
 | Desalocada  | O VM foi interrompido com sucesso e removido do hospedeiro.                                                                                  | Não cobrado            |
-
-(1) Alguns recursos Azure, tais como discos e networking, incorrem em encargos. As licenças de software no caso não incorrem em encargos.
 
 :::image type="content" source="media/security-center-pricing/deallocated-virtual-machines.png" alt-text="Máquinas virtuais Azure mostrando uma máquina deallocated":::
 

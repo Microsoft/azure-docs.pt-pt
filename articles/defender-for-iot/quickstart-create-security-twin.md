@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/21/2021
 ms.author: shhazam
-ms.openlocfilehash: 35195ea5d66bcf27764fa889e5f2e8ebb6a2bae1
-ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
+ms.openlocfilehash: 68d137caeed91e9dea2dbf3883929d85c25382aa
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99809104"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100523265"
 ---
 # <a name="create-an-azureiotsecurity-module-twin"></a>Criar um módulo de azureiotsecurity twin
 

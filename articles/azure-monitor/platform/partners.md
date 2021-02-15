@@ -4,12 +4,12 @@ description: Conheça os parceiros do Azure Monitor e como pode aceder à docume
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: 6e707e77f4618d71cb2fa3f32b05895b97658f76
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: bfec05935b4cbe5c3c4495f7c261bd34bc0a0032
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500245"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100522173"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Integrações de parceiros do Azure Monitor
 
@@ -161,7 +161,7 @@ A Microfocus **ArcSight** tem um conector inteligente para os centros de eventos
 
 A Microfocus **Operations Bridge** monitoriza automaticamente todos os recursos de TI híbridos – qualquer dispositivo, sistema operativo, base de dados, aplicação ou serviço, independentemente do local onde funciona e aplica AIOps a todos os tipos de dados – eventos, métricas, registos e dependências. Fornece uma combinação única de monitorização de qualidade de serviço, juntamente com análises profundas de saúde de aplicações, e inclui uma monitorização abrangente de desempenho e disponibilidade dos serviços microsoft Azure. Operations Bridge permite que os clientes forneçam um único painel de vidro, disponível em qualquer dispositivo com um browser, de forma a que tanto as partes interessadas de negócios como de TI possam compreender.
 
-Saiba mais
+Saber mais
 - [Visão geral da Suite OB](https://www.microfocus.com/products/operations-bridge-suite/overview)
 - [Transferência](https://marketplace.microfocus.com/itom/content/obm-management-pack-for-microsoft-azure)
 - [SiteScope](https://docs.microfocus.com/itom/SiteScope:2019.05/MSAzureMonitor) - SiteScope é um componente na Suite da Ponte de Operações.
@@ -275,6 +275,24 @@ A SIGNL4 - a aplicação de alerta móvel para equipas de operações - é a for
 
 [Documentação SIGNL4](https://www.signl4.com/blog/mobile-alert-notifications-azure-monitor/)
 
+## <a name="site24x7"></a>Site24x7
+
+![Logotipo do site24x7](./media/partners/site24-7.png)
+
+O Site24x7 fornece uma solução de monitorização Azure avançada e completa, proporcionando visibilidade e visão das suas aplicações, permitindo aos proprietários de aplicações detetar rapidamente estrangulamentos de desempenho, automatizar a resolução de falhas e otimizar o seu desempenho.
+Com o Site24x7 Azure Monitoring, poderá:
+
+* Monitorize mais de 100 serviços Azure IaaS e PaaS.
+* Obtenha uma monitorização aprofundada para Windows e Linux VMs com extensões Azure exclusivas, a partir do Azure Marketplace.
+* Aplicações de resolução de problemas com informações sobre registos do Azure. Envie registos para o Site24x7, guarde consultas de pesquisa, desconfie alertas baseados em consultas e gere registos Azure a partir de um único dashboard.
+* Detetar quaisquer problemas de saúde do serviço e garantir implementações fiáveis através do Verificado de Saúde do Gestor de Implementação do Azure (ADM).
+* Automatizar a resolução de falhas com um conjunto de ferramentas de automatização de TI.
+* Monitorize a sua ecosfera completa da Microsoft, incluindo aplicações SQL, Exchange, Ative Directory, Office 365, IIS e Hyper-V.
+* Integre-se perfeitamente com serviços de terceiros como Microsoft Teams, PagerDuty, Zapier, e muito mais.
+
+[Documentação do site 24X7](https://www.site24x7.com/)
+
+
 ## <a name="solarwinds"></a>Ventos Solares
 
 [Documentação SolarWinds](https://www.solarwinds.com/topics/azure-monitoring)
@@ -315,15 +333,15 @@ A Turbonomic fornece automatização de carga de trabalho para nuvens híbridas,
 
 A utilização do Azure Monitor para encaminhar dados de monitorização para um Hub de Eventos Azure permite-lhe integrar-se facilmente com algumas ferramentas externas de SIEM e monitorização. Os seguintes parceiros são conhecidos por terem integração através do Event Hub. 
 
-| Ferramenta | Hospedado em Azure | Descrição |
+| Ferramenta | Hospedado em Azure | Description |
 |:---|:---| :---|
-|  IBM QRadar | Não | O Microsoft Azure DSM e o Microsoft Azure Event Hub Protocol estão disponíveis para download a partir do website de [suporte da IBM](https://www.ibm.com/support). Pode saber mais sobre a integração com o Azure na [configuração do DSM QRadar.](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0) |
-| Splunk | Não | [Microsoft Azure Add-On para a Splunk](https://splunkbase.splunk.com/app/3757/) é um projeto de código aberto disponível em Splunkbase. <br><br> Se não conseguir instalar um addon no seu caso Splunk, se, por exemplo, estiver a utilizar um proxy ou a correr em Splunk Cloud, pode encaminhar estes eventos para o Splunk HTTP Event Collector utilizando [a Função Azure Para Splunk,](https://github.com/Microsoft/AzureFunctionforSplunkVS)que é desencadeada por novas mensagens no centro de eventos. |
-| SumoLogic | Não | As instruções para a criação da SumoLogic para consumir dados de um centro de eventos estão disponíveis no [Collect Logs para a App de Auditoria Azure do Event Hub](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure-Audit/02Collect-Logs-for-Azure-Audit-from-Event-Hub). |
-| ArcSight | Não | O conector inteligente ArcSight Azure Event Hub está disponível como parte da coleção de [conector inteligente ArcSight](https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852). |
-| Syslog server | Não | Se pretender transmitir os dados do Azure Monitor diretamente para um servidor sislog, pode utilizar uma [solução baseada numa função Azure](https://github.com/miguelangelopereira/azuremonitor2syslog/).
-| LogRhythm | Não| As instruções para configurar o LogRhythm para recolher registos de um centro de eventos estão disponíveis [aqui](https://logrhythm.com/six-tips-for-securing-your-azure-cloud-environment/). 
-|Logz.io | Sim | Para obter mais informações, consulte [Começar com a monitorização e o registo utilizando Logz.io para aplicações Java em execução no Azure](/azure/developer/java/fundamentals/java-get-started-with-logzio)
+|  IBM QRadar | No | O Microsoft Azure DSM e o Microsoft Azure Event Hub Protocol estão disponíveis para download a partir do website de [suporte da IBM](https://www.ibm.com/support). Pode saber mais sobre a integração com o Azure na [configuração do DSM QRadar.](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0) |
+| Splunk | No | [Microsoft Azure Add-On para a Splunk](https://splunkbase.splunk.com/app/3757/) é um projeto de código aberto disponível em Splunkbase. <br><br> Se não conseguir instalar um addon no seu caso Splunk, se, por exemplo, estiver a utilizar um proxy ou a correr em Splunk Cloud, pode encaminhar estes eventos para o Splunk HTTP Event Collector utilizando [a Função Azure Para Splunk,](https://github.com/Microsoft/AzureFunctionforSplunkVS)que é desencadeada por novas mensagens no centro de eventos. |
+| SumoLogic | No | As instruções para a criação da SumoLogic para consumir dados de um centro de eventos estão disponíveis no [Collect Logs para a App de Auditoria Azure do Event Hub](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure-Audit/02Collect-Logs-for-Azure-Audit-from-Event-Hub). |
+| ArcSight | No | O conector inteligente ArcSight Azure Event Hub está disponível como parte da coleção de [conector inteligente ArcSight](https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852). |
+| Syslog server | No | Se pretender transmitir os dados do Azure Monitor diretamente para um servidor sislog, pode utilizar uma [solução baseada numa função Azure](https://github.com/miguelangelopereira/azuremonitor2syslog/).
+| LogRhythm | No| As instruções para configurar o LogRhythm para recolher registos de um centro de eventos estão disponíveis [aqui](https://logrhythm.com/six-tips-for-securing-your-azure-cloud-environment/). 
+|Logz.io | Yes | Para obter mais informações, consulte [Começar com a monitorização e o registo utilizando Logz.io para aplicações Java em execução no Azure](/azure/developer/java/fundamentals/java-get-started-with-logzio)
 
 
 ## <a name="next-steps"></a>Passos seguintes

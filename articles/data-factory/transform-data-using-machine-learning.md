@@ -3,19 +3,16 @@ title: Criar oleodutos de dados preditivos
 description: Aprenda a criar um oleoduto preditivo utilizando o Azure Machine Learning Studio (clássico) - Atividade de execução de lote na Azure Data Factory.
 author: nabhishek
 ms.author: abnarain
-manager: shwang
-services: data-factory
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/16/2020
-ms.openlocfilehash: 50ef97bca0a5359c49ba2f18b1ec789ab076350a
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 37a31891c3c1d812b396548036c4b59cc6523c2d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637739"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100375668"
 ---
 # <a name="create-a-predictive-pipeline-using-azure-machine-learning-studio-classic-and-azure-data-factory"></a>Crie um oleoduto preditivo utilizando o Azure Machine Learning Studio (clássico) e a Azure Data Factory
 
@@ -39,7 +36,7 @@ Com o tempo, os modelos preditivos no Azure Machine Learning Studio (clássico) 
 1. Publique a experiência de formação (não experiência preditiva) como um serviço web. Você faz este passo no Azure Machine Learning Studio (clássico) como fez para expor a experiência preditiva como um serviço web no cenário anterior.
 2. Utilize o Azure Machine Learning Studio (clássico) Batch Execution Activity para invocar o serviço web para a experiência de treino. Basicamente, você pode usar a atividade de execução de lote Azure Machine Learning Studio (clássico) para invocar tanto o serviço web de formação como o serviço web de pontuação.
 
-Depois de terminar a reconversão, atualize o serviço web de pontuação (experiência preditiva exposta como um serviço web) com o modelo recém-treinado utilizando o **Azure Machine Learning Studio (clássico) Update Resource Activity** . Consulte [os modelos de atualização utilizando](update-machine-learning-models.md) o artigo de Atualização da Atividade de Recursos para obter mais detalhes.
+Depois de terminar a reconversão, atualize o serviço web de pontuação (experiência preditiva exposta como um serviço web) com o modelo recém-treinado utilizando o **Azure Machine Learning Studio (clássico) Update Resource Activity**. Consulte [os modelos de atualização utilizando](update-machine-learning-models.md) o artigo de Atualização da Atividade de Recursos para obter mais detalhes.
 
 ## <a name="azure-machine-learning-studio-classic-linked-service"></a>Azure Machine Learning Studio (clássico) serviço ligado
 
@@ -126,15 +123,15 @@ O seguinte snippet JSON define uma atividade de execução de lote Azure Machine
 }
 ```
 
-| Propriedade          | Descrição                              | Obrigatório |
+| Propriedade          | Descrição                              | Necessário |
 | :---------------- | :--------------------------------------- | :------- |
-| name              | Nome da atividade no oleoduto     | Sim      |
-| descrição       | Texto descrevendo o que a atividade faz.  | Não       |
-| tipo              | Para a atividade U-SQL do Data Lake Analytics, o tipo de atividade é **AzureMLBatchExecution** . | Sim      |
-| linkedServiceName | Serviços ligados ao Azure Machine Learning Studio (clássico) Linked Service. Para saber mais sobre este serviço ligado, consulte o artigo [de serviços ligados a Compute.](compute-linked-services.md) | Sim      |
-| webServiceInputs  | Chave, pares de valor, mapeando os nomes do Azure Machine Learning Studio (clássico) Web Service Inputs. A chave deve corresponder aos parâmetros de entrada definidos no Azure Machine Learning Studio (clássico) Do Azure Machine Learning Studio (clássico). Value é um par de serviços ligados ao armazenamento Azure e par de propriedades FilePath especificando as localizações blob de entrada. | Não       |
-| webServiceOutputs | Chave, pares de valor, mapeando os nomes de Azure Machine Learning Studio (clássico) Web Service Outputs. A chave deve corresponder aos parâmetros de saída definidos no Azure Machine Learning Studio (clássico) Serviço Web. Value é um par de serviços ligados ao armazenamento Azure e um par de propriedades FilePath especificando as localizações blob de saída. | Não       |
-| globalParameters  | Chave, pares de valor a serem passados para o Azure Machine Learning Studio (clássico) Ponto final do Serviço de Execução de Lote. As teclas devem corresponder aos nomes dos parâmetros de serviço web definidos no serviço web Azure Machine Learning Studio (clássico) publicado. Os valores são passados na propriedade GlobalParameters do Azure Machine Learning Studio (clássico) pedido de execução de lote | Não       |
+| name              | Nome da atividade no oleoduto     | Yes      |
+| descrição       | Texto descrevendo o que a atividade faz.  | No       |
+| tipo              | Para a atividade U-SQL do Data Lake Analytics, o tipo de atividade é **AzureMLBatchExecution**. | Yes      |
+| linkedServiceName | Serviços ligados ao Azure Machine Learning Studio (clássico) Linked Service. Para saber mais sobre este serviço ligado, consulte o artigo [de serviços ligados a Compute.](compute-linked-services.md) | Yes      |
+| webServiceInputs  | Chave, pares de valor, mapeando os nomes do Azure Machine Learning Studio (clássico) Web Service Inputs. A chave deve corresponder aos parâmetros de entrada definidos no Azure Machine Learning Studio (clássico) Do Azure Machine Learning Studio (clássico). Value é um par de serviços ligados ao armazenamento Azure e par de propriedades FilePath especificando as localizações blob de entrada. | No       |
+| webServiceOutputs | Chave, pares de valor, mapeando os nomes de Azure Machine Learning Studio (clássico) Web Service Outputs. A chave deve corresponder aos parâmetros de saída definidos no Azure Machine Learning Studio (clássico) Serviço Web. Value é um par de serviços ligados ao armazenamento Azure e um par de propriedades FilePath especificando as localizações blob de saída. | No       |
+| globalParameters  | Chave, pares de valor a serem passados para o Azure Machine Learning Studio (clássico) Ponto final do Serviço de Execução de Lote. As teclas devem corresponder aos nomes dos parâmetros de serviço web definidos no serviço web Azure Machine Learning Studio (clássico) publicado. Os valores são passados na propriedade GlobalParameters do Azure Machine Learning Studio (clássico) pedido de execução de lote | No       |
 
 ### <a name="scenario-1-experiments-using-web-service-inputsoutputs-that-refer-to-data-in-azure-blob-storage"></a>Cenário 1: Experiências utilizando entradas/saídas de serviço Web que se referem a dados no Armazenamento Azure Blob
 
@@ -213,7 +210,7 @@ Vamos olhar para um cenário para usar parâmetros de serviço Web. Tem um servi
 > [!NOTE]
 > Os parâmetros do serviço Web são sensíveis a casos, por isso certifique-se de que os nomes especificados na atividade JSON correspondem aos expostos pelo serviço Web.
 
-Depois de terminar a reconversão, atualize o serviço web de pontuação (experiência preditiva exposta como um serviço web) com o modelo recém-treinado utilizando o **Azure Machine Learning Studio (clássico) Update Resource Activity** . Consulte [os modelos de atualização utilizando](update-machine-learning-models.md) o artigo de Atualização da Atividade de Recursos para obter mais detalhes.
+Depois de terminar a reconversão, atualize o serviço web de pontuação (experiência preditiva exposta como um serviço web) com o modelo recém-treinado utilizando o **Azure Machine Learning Studio (clássico) Update Resource Activity**. Consulte [os modelos de atualização utilizando](update-machine-learning-models.md) o artigo de Atualização da Atividade de Recursos para obter mais detalhes.
 
 ## <a name="next-steps"></a>Passos seguintes
 Veja os seguintes artigos que explicam como transformar dados de outras formas:
@@ -223,6 +220,6 @@ Veja os seguintes artigos que explicam como transformar dados de outras formas:
 * [Atividade do porco](transform-data-using-hadoop-pig.md)
 * [Atividade mapReduce](transform-data-using-hadoop-map-reduce.md)
 * [Atividade de streaming de Hadoop](transform-data-using-hadoop-streaming.md)
-* [Atividade de faísca](transform-data-using-spark.md)
+* [Atividade do Apache Spark](transform-data-using-spark.md)
 * [Atividade personalizada do .NET](transform-data-using-dotnet-custom-activity.md)
 * [Atividade de procedimento armazenado](transform-data-using-stored-procedure.md)

@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 1/3/2021
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: b91827fc0a6fb8380c9f8aa87a3def3bc1819523
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: 624f60441f56646c3633a2afa79d326c92ba1a37
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97955438"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100523724"
 ---
 # <a name="troubleshoot-the-sensor-and-on-premises-management-console"></a>Resolver problemas do sensor e da consola de gestão no local
 
@@ -283,7 +283,7 @@ Os registos exportados são adicionados à lista **de Registos Arquivados.** Env
 
 A lista de registos arquivados pode conter até cinco itens. Se o número de itens da lista for além desse número, o item mais antigo é eliminado.
 
-## <a name="see-also"></a>Ver também
+## <a name="next-steps"></a>Passos seguintes
 
 - [Ver alertas](how-to-view-alerts.md)
 

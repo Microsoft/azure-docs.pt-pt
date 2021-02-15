@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/10/2020
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: 6dbe15da85a85303742ef28c7ca609755193f25e
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: b8a7679521096cf3d98e8f55748eb0398fdc4ab8
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99509104"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100523605"
 ---
 # <a name="track-sensor-activity"></a>Controlar a atividade do sensor
 
@@ -89,6 +89,6 @@ Para filtrar a linha do tempo:
     
       O ficheiro PCAP contém informações técnicas que podem ajudar os engenheiros de rede a determinar os parâmetros exatos do evento. Pode analisar o ficheiro PCAP com um analisador de protocolo de rede, como o Wireshark, uma aplicação de código aberto.
 
-## <a name="see-also"></a>Ver também
+## <a name="next-steps"></a>Passos seguintes
 
 [Ver alertas](how-to-view-alerts.md)

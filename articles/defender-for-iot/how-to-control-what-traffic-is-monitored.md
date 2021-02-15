@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: bfe3e00c4930ba57c930eb1bc2f2dd4ed11886e0
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: a7af817074400bedd8f07adaefc35309566dc931
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98624689"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100522398"
 ---
 # <a name="control-what-traffic-is-monitored"></a>Controlar que tráfego é monitorizado
 
@@ -295,7 +295,7 @@ Para visualizar os resultados da verificação:
 
 1. Quando a verificação estiver concluída, no painel **de Ações,** selecione **Ver Resultados da Verificação**. O ficheiro CSV com os resultados da varredura é descarregado para o seu computador.
 
-## <a name="see-also"></a>Ver também
+## <a name="next-steps"></a>Passos seguintes
 
 [Investigar deteções de sensores num inventário de dispositivos](how-to-investigate-sensor-detections-in-a-device-inventory.md) 
  [Investigue as deteções de sensores no mapa do dispositivo](how-to-work-with-the-sensor-device-map.md)

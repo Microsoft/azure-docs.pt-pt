@@ -108,7 +108,7 @@
     - name: Formato de testes em lote
       href: reference-tsv-format-batch-testing.md
     - name: Encriptação
-      href: qna-maker-encryption-of-data-at-rest.md
+      href: encrypt-data-at-rest.md
     - name: Referência da API REST
       items:
         - name: Criador de FAQ 4.0

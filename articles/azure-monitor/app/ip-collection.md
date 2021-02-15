@@ -1,15 +1,15 @@
 ---
-title: Coleção de endereços IP Azure Application Insights / Microsoft Docs
+title: Azure Application Insights RECOLHA de endereços IP | Microsoft Docs
 description: Compreender como os endereços IP e geolocalização são tratados com Insights de Aplicação Azure
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 6131105ef78a8559b0fb95043a87e562e887ebfd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3a8969d5d0df2fdacf78815c6f47c7c6bfa73a37
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91333312"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100521922"
 ---
 # <a name="geolocation-and-ip-address-handling"></a>Geolocalização e tratamento de endereços IP
 
@@ -62,7 +62,7 @@ Para permitir a recolha e armazenamento ip, a `DisableIpMasking` propriedade do 
 
 Se necessitar apenas de modificar o comportamento para um único recurso Application Insights, utilize o portal Azure. 
 
-1. Vá ao seu recurso de insights de aplicação > modelo **de exportação de automação**  >  **Export Template** 
+1. Vá ao seu recurso de insights de aplicação > modelo **de exportação de automação**  >   
 
 2. Selecione **Implementar**
 
@@ -77,7 +77,7 @@ Se necessitar apenas de modificar o comportamento para um único recurso Applica
     ![Screenshot adiciona uma vírgula após "IbizaAIExtension" e adiciona uma nova linha abaixo com "DisableIpMasking": verdadeiro](media/ip-collection/save.png)
 
     > [!WARNING]
-    > Se sentir um erro que diga: ** _O grupo de recursos está num local que não é suportado por um ou mais recursos no modelo. Por favor, escolha um grupo de recursos diferente._** Selecione temporariamente um grupo de recursos diferente do dropdown e, em seguida, reescorê-lo o seu grupo de recursos original para resolver o erro.
+    > Se sentir um erro que diga: **_O grupo de recursos está num local que não é suportado por um ou mais recursos no modelo. Por favor, escolha um grupo de recursos diferente._** Selecione temporariamente um grupo de recursos diferente do dropdown e, em seguida, reescorê-lo o seu grupo de recursos original para resolver o erro.
 
 5. **Selecione Eu concordo**  >  **Compra.** 
 
@@ -99,7 +99,7 @@ Se necessitar apenas de modificar o comportamento para um único recurso Applica
     
     Como resultado, será devolvida uma lista de propriedades. Uma das propriedades deve `DisableIpMasking: true` ler. Se executar o PowerShell antes de implantar a nova propriedade com o Azure Resource Manager, a propriedade não existirá.
 
-### <a name="rest-api"></a>Repouso API
+### <a name="rest-api"></a>API REST
 
 A carga útil [da API](/rest/api/azure/) para fazer as mesmas modificações é a seguinte:
 
@@ -241,7 +241,7 @@ requests
 
 Os endereços IP recentemente recolhidos aparecerão na `customDimensions_client-ip` coluna. A `client-ip` coluna predefinida ainda terá os quatro octetos a zeros. 
 
-Se os testes realizados a partir de local, e o valor para `customDimensions_client-ip` o valor `::1` for, este valor é o comportamento esperado. `::1` representa o endereço loopback no IPv6. É equivalente ao `127.0.01` IPv4.
+Se os testes realizados a partir de local, e o valor para `customDimensions_client-ip` o valor `::1` for, este valor é o comportamento esperado. `::1` representa o endereço loopback no IPv6. É equivalente ao `127.0.0.1` IPv4.
 
 ## <a name="next-steps"></a>Passos Seguintes
 

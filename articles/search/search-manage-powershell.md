@@ -8,13 +8,13 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 02/11/2020
-ms.openlocfilehash: d7b672b7e2c3004eba4a38bd659965b7dee24db6
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.date: 02/09/2021
+ms.openlocfilehash: c992693bfb278ac559feb6fa82fa947086ceafbb
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422489"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100381142"
 ---
 # <a name="manage-your-azure-cognitive-search-service-with-powershell"></a>Gerencie o seu serviço de Pesquisa Cognitiva Azure com o PowerShell
 > [!div class="op_single_selector"]
@@ -22,7 +22,7 @@ ms.locfileid: "93422489"
 > * [PowerShell](search-manage-powershell.md)
 > * [API REST](/rest/api/searchmanagement/)
 > * [SDK do .NET](/dotnet/api/microsoft.azure.management.search)
-> * [Pitão](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)> 
+> * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)
 
 Pode executar cmdlets e scripts PowerShell no Windows, Linux ou em [Azure Cloud Shell](../cloud-shell/overview.md) para criar e configurar a Pesquisa Cognitiva Azure. O módulo **Az.Search** estende [a Azure PowerShell](/powershell/) com total paridade às APIs de [Gestão de Gestão de Pesquisa](/rest/api/searchmanagement) e a capacidade de executar as seguintes tarefas:
 
@@ -30,9 +30,11 @@ Pode executar cmdlets e scripts PowerShell no Windows, Linux ou em [Azure Cloud 
 > * [Listar serviços de pesquisa em uma subscrição](#list-search-services)
 > * [Informações sobre serviços de devolução](#get-search-service-information)
 > * [Criar ou apagar um serviço](#create-or-delete-a-service)
+> * [Criar um serviço com um ponto final privado](#create-a-service-with-a-private-endpoint)
 > * [Regenerar a admin API-keys](#regenerate-admin-keys)
 > * [Criar ou eliminar chaves api de consulta](#create-or-delete-query-keys)
 > * [Escalar para cima ou para baixo com réplicas e divisórias](#scale-replicas-and-partitions)
+> * [Criar um recurso de ligação privada partilhada](#create-a-shared-private-link-resource)
 
 Ocasionalmente, fazem-se perguntas sobre tarefas *que não* constam da lista acima. Atualmente, não é possível utilizar o módulo **Az.Search** ou a gestão REST API para alterar um nome de servidor, região ou nível. Os recursos dedicados são atribuídos quando um serviço é criado. Como tal, a alteração do hardware subjacente (localização ou tipo de nó) requer um novo serviço. Da mesma forma, não existem ferramentas ou APIs para transferir conteúdo, como um índice, de um serviço para outro.
 
@@ -111,7 +113,7 @@ Name              : my-demo-searchapp
 ResourceGroupName : demo-westus
 ResourceType      : Microsoft.Search/searchServices
 Location          : westus
-ResourceId        : /subscriptions/<alpha-numeric-subscription-ID>/resourceGroups/demo-westus/providers/Microsoft.Search/searchServices/my-demo-searchapp
+ResourceId        : /subscriptions/<alphanumeric-subscription-ID>/resourceGroups/demo-westus/providers/Microsoft.Search/searchServices/my-demo-searchapp
 ```
 
 ## <a name="import-azsearch"></a>Import Az.Search
@@ -133,17 +135,31 @@ Get-Command -Module Az.Search
 Os resultados devem ser semelhantes à seguinte saída.
 
 ```
-CommandType     Name                                Version    Source
------------     ----                                -------    ------
-Cmdlet          Get-AzSearchAdminKeyPair            0.7.1      Az.Search
-Cmdlet          Get-AzSearchQueryKey                0.7.1      Az.Search
-Cmdlet          Get-AzSearchService                 0.7.1      Az.Search
-Cmdlet          New-AzSearchAdminKey                0.7.1      Az.Search
-Cmdlet          New-AzSearchQueryKey                0.7.1      Az.Search
-Cmdlet          New-AzSearchService                 0.7.1      Az.Search
-Cmdlet          Remove-AzSearchQueryKey             0.7.1      Az.Search
-Cmdlet          Remove-AzSearchService              0.7.1      Az.Search
-Cmdlet          Set-AzSearchService                 0.7.1      Az.Search
+CommandType     Name                                               Version    Source                                                                
+-----------     ----                                               -------    ------                                                                
+Cmdlet          Get-AzSearchAdminKeyPair                           0.8.0      Az.Search                                                             
+Cmdlet          Get-AzSearchPrivateEndpointConnection              0.8.0      Az.Search                                                             
+Cmdlet          Get-AzSearchPrivateLinkResource                    0.8.0      Az.Search                                                             
+Cmdlet          Get-AzSearchQueryKey                               0.8.0      Az.Search                                                             
+Cmdlet          Get-AzSearchService                                0.8.0      Az.Search                                                             
+Cmdlet          Get-AzSearchSharedPrivateLinkResource              0.8.0      Az.Search                                                             
+Cmdlet          New-AzSearchAdminKey                               0.8.0      Az.Search                                                             
+Cmdlet          New-AzSearchQueryKey                               0.8.0      Az.Search                                                             
+Cmdlet          New-AzSearchService                                0.8.0      Az.Search                                                             
+Cmdlet          New-AzSearchSharedPrivateLinkResource              0.8.0      Az.Search                                                             
+Cmdlet          Remove-AzSearchPrivateEndpointConnection           0.8.0      Az.Search                                                             
+Cmdlet          Remove-AzSearchQueryKey                            0.8.0      Az.Search                                                             
+Cmdlet          Remove-AzSearchService                             0.8.0      Az.Search                                                             
+Cmdlet          Remove-AzSearchSharedPrivateLinkResource           0.8.0      Az.Search                                                             
+Cmdlet          Set-AzSearchPrivateEndpointConnection              0.8.0      Az.Search                                                             
+Cmdlet          Set-AzSearchService                                0.8.0      Az.Search                                                             
+Cmdlet          Set-AzSearchSharedPrivateLinkResource              0.8.0      Az.Search   
+```
+
+Se tiver uma versão mais antiga do pacote, atualize o módulo para obter a funcionalidade mais recente.
+
+```azurepowershell-interactive
+Update-Module -Name Az.Search
 ```
 
 ## <a name="get-search-service-information"></a>Obtenha informações do serviço de pesquisa
@@ -173,7 +189,7 @@ ResourceId        : /subscriptions/<alphanumeric-subscription-ID>/resourceGroups
 [**O New-AzSearchService**](/powershell/module/az.search/new-azsearchadminkey) é utilizado para [criar um novo serviço de pesquisa.](search-create-service-portal.md)
 
 ```azurepowershell-interactive
-New-AzSearchService -ResourceGroupName "demo-westus" -Name "my-demo-searchapp" -Sku "Standard" -Location "West US" -PartitionCount 3 -ReplicaCount 3
+New-AzSearchService -ResourceGroupName <resource-group-name> -Name <search-service-name> -Sku "Standard" -Location "West US" -PartitionCount 3 -ReplicaCount 3 -HostingMode Default
 ``` 
 Os resultados devem ser semelhantes à seguinte saída.
 
@@ -188,6 +204,141 @@ PartitionCount    : 3
 HostingMode       : Default
 Tags
 ```     
+
+### <a name="create-a-service-with-ip-rules"></a>Criar um serviço com regras IP
+
+Dependendo dos seus requisitos de segurança, poderá querer criar um serviço de pesquisa com uma [firewall IP configurada](service-configure-firewall.md). Para tal, primeiro defina as Regras de IP e, em seguida, passe-as para o `IPRuleList` parâmetro como mostrado abaixo.
+
+```azurepowershell-interactive
+$ipRules = @([pscustomobject]@{Value="55.5.63.73"},
+        [pscustomobject]@{Value="52.228.215.197"},
+        [pscustomobject]@{Value="101.37.221.205"})
+
+ New-AzSearchService -ResourceGroupName <resource-group-name> `
+                      -Name <search-service-name> `
+                      -Sku Standard `
+                      -Location "West US" `
+                      -PartitionCount 3 -ReplicaCount 3 `
+                      -HostingMode Default `
+                      -IPRuleList $ipRules
+```
+
+### <a name="create-a-service-with-a-system-assigned-managed-identity"></a>Criar um serviço com um sistema atribuído identidade gerida
+
+Em alguns casos, como quando [se utiliza identidade gerida para ligar a uma fonte de dados,](search-howto-managed-identities-storage.md)terá de ligar a [identidade gerida do sistema atribuída.](../active-directory/managed-identities-azure-resources/overview.md) Isto é feito adicionando `-IdentityType SystemAssigned` ao comando.
+
+```azurepowershell-interactive
+New-AzSearchService -ResourceGroupName <resource-group-name> `
+                      -Name <search-service-name> `
+                      -Sku Standard `
+                      -Location "West US" `
+                      -PartitionCount 3 -ReplicaCount 3 `
+                      -HostingMode Default `
+                      -IdentityType SystemAssigned
+```
+
+## <a name="create-a-service-with-a-private-endpoint"></a>Criar um serviço com um ponto final privado
+
+[Os pontos finais privados](../private-link/private-endpoint-overview.md) para a Azure Cognitive Search permitem que um cliente numa rede virtual aceda de forma segura a dados num índice de pesquisa sobre um [Link Privado](../private-link/private-link-overview.md). O ponto final privado utiliza um endereço IP a partir do [espaço de endereço de rede virtual](../virtual-network/private-ip-addresses.md) para o seu serviço de pesquisa. O tráfego de rede entre o cliente e o serviço de pesquisa atravessa a rede virtual e uma ligação privada na rede de espinha dorsal da Microsoft, eliminando a exposição da internet pública. Para mais detalhes, consulte a documentação sobre a [criação de um ponto final privado para a Pesquisa Cognitiva do Azure](service-create-private-endpoint.md)
+
+O exemplo a seguir mostra como criar um serviço de pesquisa com um ponto final privado.
+
+Em primeiro lugar, implementar um serviço de pesquisa com `PublicNetworkAccess` set to `Disabled` .
+
+```azurepowershell-interactive
+$searchService = New-AzSearchService `
+    -ResourceGroupName <resource-group-name> `
+    -Name <search-service-name> `
+    -Sku Standard `
+    -Location "West US" `
+    -PartitionCount 1 -ReplicaCount 1 `
+    -HostingMode Default `
+    -PublicNetworkAccess Disabled
+```
+
+Em seguida, crie uma rede virtual, uma ligação de rede privada e o ponto final privado.
+
+```azurepowershell-interactive
+# Create the subnet
+$subnetConfig = New-AzVirtualNetworkSubnetConfig `
+    -Name <subnet-name> `
+    -AddressPrefix 10.1.0.0/24 `
+    -PrivateEndpointNetworkPolicies Disabled 
+
+# Create the virtual network
+$virtualNetwork = New-AzVirtualNetwork `
+    -ResourceGroupName <resource-group-name> `
+    -Location "West US" `
+    -Name <virtual-network-name> `
+    -AddressPrefix 10.1.0.0/16 `
+    -Subnet $subnetConfig
+
+# Create the private network connection
+$privateLinkConnection = New-AzPrivateLinkServiceConnection `
+    -Name <private-link-name> `
+    -PrivateLinkServiceId $searchService.Id `
+    -GroupId searchService
+
+# Create the private endpoint
+$privateEndpoint = New-AzPrivateEndpoint `
+    -Name <private-endpoint-name> `
+    -ResourceGroupName <resource-group-name> `
+    -Location "West US" `
+    -Subnet $virtualNetwork.subnets[0] `
+    -PrivateLinkServiceConnection $privateLinkConnection
+```
+
+Finalmente, crie uma Zona DE DNS privada. 
+
+```azurepowershell-interactive
+## Create private dns zone
+$zone = New-AzPrivateDnsZone `
+    -ResourceGroupName <resource-group-name> `
+    -Name "privatelink.search.windows.net"
+
+## Create dns network link
+$link = New-AzPrivateDnsVirtualNetworkLink `
+    -ResourceGroupName <resource-group-name> `
+    -ZoneName "privatelink.search.windows.net" `
+    -Name "myLink" `
+    -VirtualNetworkId $virtualNetwork.Id
+
+## Create DNS configuration 
+$config = New-AzPrivateDnsZoneConfig `
+    -Name "privatelink.search.windows.net" `
+    -PrivateDnsZoneId $zone.ResourceId
+
+## Create DNS zone group
+New-AzPrivateDnsZoneGroup `
+    -ResourceGroupName <resource-group-name> `
+    -PrivateEndpointName <private-endpoint-name> `
+    -Name 'myZoneGroup' `
+    -PrivateDnsZoneConfig $config
+```
+
+Para obter mais detalhes sobre a criação de pontos finais privados no PowerShell, consulte este [Private Link Quickstart](https://docs.microsoft.com/azure/private-link/create-private-endpoint-powershell)
+
+### <a name="manage-private-endpoint-connections"></a>Gerir ligações privadas de ponto final
+
+Além de criar uma ligação de ponto final privado, também `Get` `Set` pode, e `Remove` a ligação.
+
+[O Get-AzSearchPrivateEndpointConnection](/powershell/module/az.search/Get-AzSearchPrivateEndpointConnection) é utilizado para recuperar uma ligação de ponto final privado e para ver o seu estado.
+
+```azurepowershell-interactive
+Get-AzSearchPrivateEndpointConnection -ResourceGroupName <resource-group-name> -ServiceName <search-service-name>
+```
+
+[O Set-AzSearchPrivateEndpointConnection](/powershell/module/az.search/Set-AzSearchPrivateEndpointConnection) é utilizado para atualizar a ligação. O exemplo a seguir define uma ligação privada de ponto final para rejeitado:
+
+```azurepowershell-interactive
+Set-AzSearchPrivateEndpointConnection -ResourceGroupName <resource-group-name> -ServiceName <search-service-name> -Name <pe-connection-name> -Status Rejected  -Description "Rejected"
+```
+
+[Remove-AzSearchPrivateEndpointConnection](/powershell/module/az.search/Remove-AzSearchPrivateEndpointConnection) é utilizado para eliminar a ligação de ponto final privado.
+
+```azurepowershell-interactive
+ Remove-AzSearchPrivateEndpointConnection -ResourceGroupName <resource-group-name> -ServiceName <search-service-name> -Name <pe-connection-name>
+```
 
 ## <a name="regenerate-admin-keys"></a>Regenerar chaves de administração
 
@@ -247,6 +398,46 @@ PartitionCount    : 6
 HostingMode       : Default
 Id                : /subscriptions/65a1016d-0f67-45d2-b838-b8f373d6d52e/resourceGroups/demo-westus/providers/Microsoft.Search/searchServices/my-demo-searchapp
 ```
+
+## <a name="create-a-shared-private-link-resource"></a>Criar um recurso de ligação privada partilhada
+
+Os pontos finais privados de recursos seguros que são criados através das APIs de Pesquisa Cognitiva Azure são referidos como *recursos de ligação privada partilhados.* Isto porque está a "partilhar" o acesso a um recurso, como uma conta de armazenamento, que foi integrado com o [serviço Azure Private Link.](https://azure.microsoft.com/services/private-link/)
+
+Se estiver a utilizar um indexante para indexar dados na Pesquisa Cognitiva Azure, e a sua fonte de dados estiver numa rede privada, pode criar uma [ligação de ponto final privado](../private-link/private-endpoint-overview.md) de saída para chegar aos dados.
+
+Uma lista completa dos Recursos Azure para os quais pode criar pontos finais privados de saída da Azure Cognitive Search pode ser encontrada [aqui](search-indexer-howto-access-private.md#shared-private-link-resources-management-apis) juntamente com os valores de **ID do Grupo** relacionados.
+
+[New-AzSearchSharedPrivateLinkResource](/powershell/module/az.search/New-AzSearchSharedPrivateLinkResource) é usado para criar o recurso de ligação privada compartilhado. Tenha em mente que poderá ser necessária alguma configuração para a fonte de dados antes de executar este comando.
+
+```azurepowershell-interactive
+New-AzSearchSharedPrivateLinkResource -ResourceGroupName <resource-group-name> -ServiceName <search-service-name> -Name <spl-name> -PrivateLinkResourceId /subscriptions/<alphanumeric-subscription-ID>/resourcegroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/myBlobStorage -GroupId <group-id> -RequestMessage "Please approve" 
+```
+
+[O Get-AzSearchSharedPrivateLinkResource](/powershell/module/az.search/Get-AzSearchSharedPrivateLinkResource) permite-lhe recuperar os recursos de ligação privada partilhados e ver o seu estado.
+
+```azurepowershell-interactive
+Get-AzSearchSharedPrivateLinkResource -ResourceGroupName <resource-group-name> -ServiceName <search-service-name> -Name <spl-name>
+```
+
+Terá de aprovar a ligação com o seguinte comando antes de poder ser utilizado.
+
+```azurepowershell-interactive
+Approve-AzPrivateEndpointConnection `
+    -Name <spl-name> `
+    -ServiceName <search-service-name> `
+    -ResourceGroupName <resource-group-name> `
+    -Description = "Approved"
+```
+
+[Remove-AzSearchSharedPrivateLinkResource](/powershell/module/az.search/Remove-AzSearchSharedPrivateLinkResource) é utilizado para eliminar o recurso de ligação privada partilhado.
+
+```azurepowershell-interactive
+$job = Remove-AzSearchSharedPrivateLinkResource -ResourceGroupName <resource-group-name> -ServiceName <search-service-name> -Name <spl-name> -Force -AsJob
+
+$job | Get-Job
+```
+
+Para obter todos os detalhes sobre a criação de recursos de ligação privada partilhados, consulte a documentação sobre [a realização de ligações indexantes através de um ponto final privado](search-indexer-howto-access-private.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 

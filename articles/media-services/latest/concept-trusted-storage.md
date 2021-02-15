@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: conceptual
 ms.date: 1/29/2020
 ms.author: inhenkel
-ms.openlocfilehash: e8d21e57f9a844b3cc0538f4805780829a1350f4
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 96031642efb1248fb3b1acabeb9d7381177a2c70
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99428593"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100098083"
 ---
 # <a name="trusted-storage-for-media-services"></a>Armazenamento fidedigno para Serviços de Mídia
 
@@ -22,7 +22,11 @@ Ao criar uma conta de Serviços de Comunicação, deve associá-la a uma conta d
 
 ## <a name="trusted-storage-with-a-firewall"></a>Armazenamento confiável com uma firewall
 
-No entanto, se pretender utilizar uma firewall para proteger a sua conta de armazenamento e ativar o armazenamento fidedigno, a autenticação [Managed Identities](concept-managed-identities.md) é a opção preferida. Permite que os Serviços de Comunicação Social acedam à conta de armazenamento que foi configurada com uma firewall ou uma restrição VNet através de acesso de armazenamento fidedigno. Permite que os Serviços de Comunicação Social acedam à conta de armazenamento que foi configurada com uma firewall ou uma restrição VNet através de acesso de armazenamento fidedigno.
+No entanto, se pretender utilizar uma firewall para proteger a sua conta de armazenamento e ativar o armazenamento fidedigno, a autenticação [Managed Identities](concept-managed-identities.md) é a opção preferida. Permite que os Serviços de Comunicação Social acedam à conta de armazenamento que foi configurada com uma firewall ou uma restrição VNet através de acesso de armazenamento fidedigno.
+
+## <a name="tutorial"></a>Tutorial
+
+Você pode saber mais sobre como ativar o armazenamento fidedigno com o tutorial [de armazenamento fidedigno dos Media Services.](tutorial-trusted-storage-rest.md)
 
 > [!NOTE]
 > É necessário conceder o acesso do Contribuinte de Dados do Blob de Armazenamento de Identidade Gerido da AMS para que os Serviços de Mídia possam ler e escrever na conta de armazenamento.  Conceder o papel genérico de Contribuinte não funcionará, uma vez que não permite as permissões corretas no plano de dados.

@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 73eb693ab9f06535fd523eb386969e2cce961eef
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 10051bfdf7a93a8d6c83d649a7b0ad008b5e2caf
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98624596"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100523962"
 ---
 # <a name="manage-sensors-from-the-management-console"></a>Gerir sensores a partir da consola de gestão
 
@@ -72,7 +72,7 @@ Pode atualizar vários sensores simultaneamente a partir da consola de gestão n
 
 Para atualizar vários sensores:
 
-1. Aceda ao [portal do Azure](https://portal.azure.com/).
+1. Aceda ao [Portal do Azure](https://portal.azure.com/).
 
 2. Vá ao Azure Defender para ioT.
 
@@ -144,7 +144,7 @@ Pode enviar alertas a terceiros com informações sobre sensores desligados. Par
 
 Os sensores estão protegidos por cinco motores Defender para motores IoT. Pode ativar ou desativar os motores para sensores ligados.
 
-| Motor | Descrição | Cenário de exemplo |
+| Motor | Description | Cenário de exemplo |
 |--|--|--|
 | Motor de violação de protocolo | Uma violação do protocolo ocorre quando a estrutura do pacote ou os valores de campo não cumprem a especificação do protocolo. | alerta "Operação Ilegal de MODBUS (Código de Função Zero)". Este alerta indica que um dispositivo primário enviou um pedido com o código de função 0 para um dispositivo secundário. Isto não é permitido de acordo com a especificação do protocolo, e o dispositivo secundário pode não manusear corretamente a entrada. |
 | Motor de violação de políticas | Uma violação de política ocorre com um desvio do comportamento básico definido na política aprendida ou configurada. | Alerta "Agente de Utilizador HTTP NÃO Autorizado". Este alerta indica que uma aplicação que não tenha sido aprendida ou aprovada pela apólice é utilizada como cliente HTTP num dispositivo. Este pode ser um novo navegador web ou aplicação nesse dispositivo. |
@@ -315,6 +315,6 @@ Para configurar um servidor SMB para que possa guardar uma cópia de segurança 
 
 9. Definir `Backup.shared_location` para `<backup_folder_name_on_cyberx_server>` .
 
-## <a name="see-also"></a>Ver também
+## <a name="next-steps"></a>Passos seguintes
 
 [Gerir sensores individuais](how-to-manage-individual-sensors.md)

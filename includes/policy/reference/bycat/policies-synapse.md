@@ -2,18 +2,19 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 02/04/2021
+ms.date: 02/09/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 4991bb889d4b9a099662b8d46c6d5cd5a89c1c63
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: dcd08c0635eb4a104cc945fbf4025a6807987968
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99561749"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100100598"
 ---
 |Name<br /><sub>(Portal Azure)</sub> |Description |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
+|[Os espaços de trabalho do Azure Synapse devem permitir o tráfego de dados de saída apenas para alvos aprovados](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3484ce98-c0c5-4c83-994b-c5ac24785218) |Aumentar a segurança do seu espaço de trabalho Synapse, permitindo o tráfego de dados de saída apenas para alvos aprovados. Isto ajuda a prevenir a exfiltração de dados, validando o alvo antes de enviar dados. |Auditoria, Deficientes, Negar |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/Workspace_RestrictOutboundDataTraffic_Audit.json) |
 |[Os espaços de trabalho do Azure Synapse devem usar chaves geridas pelo cliente para encriptar dados em repouso](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff7d52b2d-e161-4dfa-a82b-55e564167385) |Utilize chaves geridas pelo cliente para controlar a encriptação no resto dos dados armazenados nos espaços de trabalho do Azure Synapse. As teclas geridas pelo cliente fornecem encriptação dupla adicionando uma segunda camada de encriptação em cima da encriptação padrão com teclas geridas pelo serviço. |Auditoria, Negar, Deficientes |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/SynapseWorkspaceCMK_Audit.json) |
 |[As regras de firewall ip nos espaços de trabalho do Azure Synapse devem ser removidas](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F56fd377d-098c-4f02-8406-81eb055902b8) |A remoção de todas as regras de firewall IP melhora a segurança garantindo que o seu espaço de trabalho Azure Synapse só pode ser acedido a partir de um ponto final privado. Esta configuração audita a criação de regras de firewall que permitem o acesso da rede pública no espaço de trabalho. |Auditoria, Deficientes |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/SynapseWorkspaceFirewallRules_Audit.json) |
 |[Rede virtual gerida do espaço de trabalho nos espaços de trabalho do Azure Synapse deve ser ativada](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2d9dbfa3-927b-4cf0-9d0f-08747f971650) |Ativar uma rede virtual gerida do espaço de trabalho garante que o seu espaço de trabalho está isolado de outros espaços de trabalho. A integração de dados e os recursos de Faíscas implantados nesta rede virtual também proporcionam isolamento ao nível do utilizador para as atividades da Spark. |Auditoria, Negar, Deficientes |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/SynapseWorkspaceManagedVnet_Audit.json) |

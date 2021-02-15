@@ -4,15 +4,15 @@ description: Saiba como gerir sensores individuais, incluindo gerir ficheiros de
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 1/12/2021
+ms.date: 02/02/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: b35851bae8db39392d10a302d5f1059ba3ace696
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: ba98eb7e87ba277dcd5279ecf17373a8276b1cb1
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99508765"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100523979"
 ---
 # <a name="manage-individual-sensors"></a>Gerir sensores individuais
 
@@ -86,7 +86,7 @@ Receberá uma mensagem de erro se o ficheiro de ativação não puder ser carreg
 
 - **Para sensores ligados à nuvem:** O sensor não pode ligar-se à internet. Verifique a configuração da rede do sensor. Se o seu sensor precisar de ser conectado através de um representante web para aceder à internet, verifique se o seu servidor proxy está configurado corretamente no ecrã de **Configuração da Rede de Sensores.** Verifique se \* .azure-devices.net:443 é permitido na firewall e/ou proxy. Se os wildcards não forem suportados ou se pretender mais controlo, o FQDN para o seu hub específico Defender para IoT deve ser aberto na sua firewall e/ou proxy. Para mais detalhes, consulte [pontos finais reference - IoT Hub](../iot-hub/iot-hub-devguide-endpoints.md).  
 
-- **Para sensores ligados à nuvem**: O ficheiro de ativação é válido, mas o Defender para IoT rejeitou-o. Se não conseguir resolver este problema, pode descarregar outra ativação a partir da página de Gestão de **Sensores** do portal Defender para IoT. Se isto não funcionar, contacte o Microsoft Support.
+- **Para sensores ligados à nuvem**: O ficheiro de ativação é válido, mas o Defender para IoT rejeitou-o. Se não conseguir resolver este problema, pode descarregar outra ativação a partir da página 'Sites e Sensores' do portal Defender para IoT. Se isto não funcionar, contacte o Microsoft Support.
 
 ## <a name="manage-certificates"></a>Gerir certificados
 
@@ -114,7 +114,7 @@ O sensor Defender para IoT e a consola de gestão no local utilizam certificados
  
  - Comunicações seguras entre os sensores e uma consola de gestão no local. 
 
-Uma vez instalado, o aparelho gera um certificado auto-assinado local para permitir o acesso preliminar à consola web. Os certificados Enterprise SSL e TLS podem ser instalados utilizando a [`cyberx-xsense-certificate-import`](#cli-commands) ferramenta da linha de comando. 
+Uma vez instalado, o aparelho gera um certificado auto-assinado local para permitir o acesso preliminar à consola web. Os certificados Enterprise SSL e TLS podem ser instalados utilizando a [`cyberx-xsense-certificate-import`](#cli-commands) ferramenta da linha de comando.
 
  > [!NOTE]
  > Para integrações e regras de encaminhamento em que o aparelho é o cliente e iniciador da sessão, são utilizados certificados específicos e não estão relacionados com os certificados do sistema.  
@@ -282,7 +282,7 @@ Quando estiver a utilizar o comando CLI:
 
 Gerencie os seus certificados com os seguintes comandos:
 
-| Descrição | Comando CLI |
+| Description | Comando CLI |
 |--|--|
 | Gerar uma nova chave privada e pedido de assinatura de certificado | `openssl req -out CSR.csr -new -newkey rsa:2048 -nodes -keyout privateKey.key` |
 | Gerar um certificado autoassinado | `openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -keyout privateKey.key -out certificate.crt` |
@@ -292,7 +292,7 @@ Gerencie os seus certificados com os seguintes comandos:
 
 Se precisar de verificar as informações dentro de um Certificado, RSE ou Chave Privada, utilize estes comandos;
 
-| Descrição | Comando CLI |
+| Description | Comando CLI |
 |--|--|
 | Consulte um pedido de assinatura de certificado (CSR) | `openssl req -text -noout -verify -in CSR.csr` |
 | Verifique uma chave privada | `openssl rsa -in privateKey.key -check` |
@@ -300,13 +300,13 @@ Se precisar de verificar as informações dentro de um Certificado, RSE ou Chave
 
 Se receber um erro que a tecla privada não corresponda ao certificado, ou que não seja confiável um certificado que instalou num site, utilize estes comandos para corrigir o erro;
 
-| Descrição | Comando CLI |
+| Description | Comando CLI |
 |--|--|
 | Verifique um hash MD5 da chave pública para garantir que corresponde ao que está numa rse ou chave privada | 1. `openssl x509 -noout -modulus -in certificate.crt | openssl md5` <br /> 2. `openssl rsa -noout -modulus -in privateKey.key | openssl md5` <br /> 3. `openssl req -noout -modulus -in CSR.csr | openssl md5 ` |
 
 Para converter certificados e chaves em diferentes formatos para torná-los compatíveis com tipos específicos de servidores, ou software, utilize estes comandos;
 
-| Descrição | Comando CLI |
+| Description | Comando CLI |
 |--|--|
 | Converter um ficheiro DER (.crt .cer .der) para PEM  | `openssl x509 -inform der -in certificate.cer -out certificate.pem`  |
 | Converter um ficheiro PEM para DER | `openssl x509 -outform der -in certificate.pem -out certificate.der`  |
@@ -363,15 +363,23 @@ Se o seu sensor foi registado como um sensor ligado à nuvem, o nome do sensor �
 
 Para alterar o nome:
 
-1. No portal Azure Defender for IoT, aceda à página **de Gestão de Sensores.**
+1. No portal Azure Defender for IoT, aceda à página 'Sites e Sensores'.
 
-1. Elimine o sensor da janela **de Gestão de Sensores.**
+1. Elimine o sensor da página 'Sites e Sensores'.
 
-1. Re-registrar com o novo nome.
+1. Registe-se com o novo nome selecionando **o sensor** a bordo da página 'Iniciar'.
 
 1. Descarregue o novo ficheiro de ativação.
 
-1. Inscreva-se no sensor e carre faça o upload do novo ficheiro de ativação.
+1. Inscreva-se no Defender para consola de sensores IoT.
+
+1. Na consola do sensor, selecione **Definições do Sistema** e, em seguida, selecione **Reativação**.
+
+   :::image type="content" source="media/how-to-manage-sensors-on-the-cloud/reactivate.png" alt-text="Faça o upload do seu ficheiro de ativação para reativar o sensor.":::
+
+1. Selecione **Upload** e selecione o ficheiro que guardou.
+
+1. **Selecione Ativar**.
 
 ## <a name="update-the-sensor-network-configuration"></a>Atualizar a configuração da rede de sensores
 
@@ -387,7 +395,7 @@ Para alterar a configuração:
 
     :::image type="content" source="media/how-to-manage-individual-sensors/edit-network-configuration-screen.png" alt-text="Configure as definições de rede.":::
 
-3. Definir os parâmetros da seguinte forma:
+3. Definir os parâmetros:
 
     | Parâmetro | Descrição |
     |--|--|
@@ -458,7 +466,7 @@ Para guardar a cópia de segurança para um servidor SMB externo:
 
     - `sudo chmod 777 /<backup_folder_name_on_cyberx_server>/`
 
-3. `fstab`Editar: 
+3. `fstab`Editar:
 
     - `sudo nano /etc/fstab`
 
@@ -526,7 +534,7 @@ O procedimento a seguir descreve como atualizar um sensor autónomo utilizando a
 
     :::image type="content" source="media/how-to-manage-individual-sensors/defender-for-iot-version.png" alt-text="Screenshot da versão de upgrade que aparece depois de iniciar sinduções.":::
 
-## <a name="forward-sensor-failure-alerts"></a>Alertas de falha do sensor para a frente 
+## <a name="forward-sensor-failure-alerts"></a>Alertas de falha do sensor para a frente
 
 Pode encaminhar alertas para terceiros para fornecer detalhes sobre:
 
@@ -562,7 +570,7 @@ Para aceder às propriedades do sistema:
 
 3. Selecione Propriedades do **Sistema** na secção **Geral.**
 
-## <a name="see-also"></a>Ver também
+## <a name="next-steps"></a>Passos seguintes
 
 [Pesquisa e pacotes de inteligência de ameaça](how-to-work-with-threat-intelligence-packages.md)
 

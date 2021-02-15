@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 1/12/2021
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: 80dbad919e9446100bdeebb7cde71c147abfc8bc
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: d76db6830839902a46aaf6515f816fdcc36d0df5
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98539356"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100523945"
 ---
 # <a name="manage-the-on-premises-management-console"></a>Gerir a consola de gestão no local
 
@@ -399,7 +399,7 @@ Para repor a sua palavra-passe:
 
 O procedimento a seguir descreve como atualizar a versão de software de consola de gestão de informação no local. O processo de atualização demora cerca de 30 minutos.
 
-1. Aceda ao [portal do Azure](https://portal.azure.com/).
+1. Aceda ao [Portal do Azure](https://portal.azure.com/).
 
 1. Vá ao Defender para ioT.
 
@@ -415,7 +415,7 @@ O procedimento a seguir descreve como atualizar a versão de software de consola
 
 1. Selecione o ficheiro que descarregou na página Defender para **IoT Updates.**
 
-## <a name="see-also"></a>Ver também
+## <a name="next-steps"></a>Passos seguintes
 
 [Gerir sensores a partir da consola de gestão](how-to-manage-sensors-from-the-on-premises-management-console.md)
 

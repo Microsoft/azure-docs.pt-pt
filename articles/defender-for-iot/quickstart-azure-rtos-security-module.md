@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2021
 ms.author: shhazam
-ms.openlocfilehash: 3054981bbbff45666297399033663d1830ad9e4e
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.openlocfilehash: a11a8ec2d8eb82950cf0ab55eb6ca1913b41c84a
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99820437"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100522942"
 ---
 # <a name="quickstart-security-module-for-azure-rtos-preview"></a>Quickstart: Módulo de segurança para Azure RTOS (pré-visualização)
 

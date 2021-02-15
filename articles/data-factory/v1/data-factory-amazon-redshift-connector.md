@@ -1,23 +1,18 @@
 ---
 title: Mover dados da Amazon Redshift utilizando a Azure Data Factory
 description: Saiba como mover dados da Amazon Redshift utilizando a Azure Data Factory Copy Activity.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.assetid: 01d15078-58dc-455c-9d9d-98fbdf4ea51e
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c0dcaec9c8e9a310af1fd6fc319e0784694610e2
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 025250f47bf0630be5ae988140a5feeecfd0eaf0
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96463091"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100377555"
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Mover dados da Amazon Redshift usando a Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -61,12 +56,12 @@ A tabela seguinte fornece descrições para os elementos JSON que são específi
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| **tipo** |Esta propriedade deve ser definida para **AmazonRedshift.** |Sim |
-| **servidor** |O endereço IP ou o nome de anfitrião do servidor Amazon Redshift. |Sim |
+| **tipo** |Esta propriedade deve ser definida para **AmazonRedshift.** |Yes |
+| **servidor** |O endereço IP ou o nome de anfitrião do servidor Amazon Redshift. |Yes |
 | **porto** |O número da porta TCP que o servidor Amazon Redshift utiliza para ouvir as ligações dos clientes. |Não (o padrão é 5439) |
-| **base de dados** |O nome da base de dados Amazon Redshift. |Sim |
-| **nome de utilizador** |O nome do utilizador que tem acesso à base de dados. |Sim |
-| **palavra-passe** |A palavra-passe para a conta de utilizador. |Sim |
+| **base de dados** |O nome da base de dados Amazon Redshift. |Yes |
+| **nome de utilizador** |O nome do utilizador que tem acesso à base de dados. |Yes |
+| **palavra-passe** |A palavra-passe para a conta de utilizador. |Yes |
 
 ## <a name="dataset-properties"></a>Dataset properties (Propriedades do conjunto de dados)
 
@@ -87,7 +82,7 @@ Para a Atividade de Cópia, quando a fonte é do tipo **AmazonRedshiftSource,** 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
 | **consulta** | Utilize a consulta personalizada para ler os dados. |Não (se for especificada a propriedade do nome de **tabela** de um conjunto de dados) |
-| **redshiftUnloadSettings** | Contém o grupo de propriedade ao utilizar o comando Redshift **UNLOAD.** | Não |
+| **redshiftUnloadSettings** | Contém o grupo de propriedade ao utilizar o comando Redshift **UNLOAD.** | No |
 | **s3LinkedServiceName** | O Amazon S3 para usar como loja provisória. O serviço ligado é especificado utilizando um nome Azure Data Factory do tipo **AwsAccessKey**. | Necessário ao utilizar a propriedade **redshiftUnloadSettings** |
 | **baldeName** | Indica o balde Amazon S3 para utilizar para armazenar os dados provisórios. Se esta propriedade não for fornecida, copy Activity gera automaticamente um balde. | Necessário ao utilizar a propriedade **redshiftUnloadSettings** |
 
@@ -339,7 +334,7 @@ Os seguintes mapeamentos são utilizados quando a Copy Activity converte os dado
 | CHAR |String |
 | RIO VARCHAR |String |
 | DATE |DateTime |
-| TIMETAMP |DateTime |
+| CARIMBO DE DATA/HORA |DateTime |
 | TEXT |String |
 
 ## <a name="map-source-to-sink-columns"></a>Fonte do mapa para afundar colunas

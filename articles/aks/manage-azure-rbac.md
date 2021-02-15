@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 09/21/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: af8d0300b533d9f25cddf225f4ffbe78ca6bf2cb
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: aa1693ba2b17c344475b96db42fa55514cf6b4db
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98249640"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100380581"
 ---
 # <a name="use-azure-rbac-for-kubernetes-authorization-preview"></a>Utilizar o RBAC do Azure para Autorização do Kubernetes (pré-visualização)
 
@@ -21,7 +21,7 @@ Esta funcionalidade permite-lhe gerir separadamente as identidades e credenciais
 
 Este documento abrange uma nova abordagem que permite a gestão unificada e o controlo de acessos através dos recursos Azure Resources, AKS e Kubernetes.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 A capacidade de gerir o RBAC para os recursos de Kubernetes da Azure dá-lhe a opção de gerir o RBAC para os recursos do cluster, quer utilizando mecanismos Azure ou Kubernetes nativos. Quando ativados, os principais AD do Azure serão validados exclusivamente pela Azure RBAC, enquanto os utilizadores regulares de Kubernetes e contas de serviço são validados exclusivamente pela Kubernetes RBAC. Para mais detalhes sobre a autenticação e autorização com o RBAC na AKS, consulte [aqui.](concepts-identity.md#azure-rbac-for-kubernetes-authorization-preview)
 
@@ -49,7 +49,7 @@ az feature register --namespace "Microsoft.ContainerService" --name "EnableAzure
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableAzureRBACPreview')].{Name:name,State:properties.state}"
 ```
 
-Quando estiver pronto, reaprovi o registo do fornecedor de recursos *Microsoft.ContainerService* utilizando o comando [az-provider-register]:
+Quando estiver pronto, reaprovi o registo do fornecedor de recursos *Microsoft.ContainerService* utilizando o comando [de registo do fornecedor az:][az-provider-register]
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
@@ -285,3 +285,4 @@ az group delete -n MyResourceGroup
 [az-feature-list]: /cli/azure/feature#az-feature-list
 [az-feature-register]: /cli/azure/feature#az-feature-register
 [az-aks-install-cli]: /cli/azure/aks?view=azure-cli-latest#az-aks-install-cli&preserve-view=true
+[az-provider-register]: /cli/azure/provider?view=azure-cli-latest#az-provider-register

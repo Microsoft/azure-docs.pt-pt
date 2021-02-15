@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/12/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: cac8d609272be1d9f34b7e0d6404e0a0ea524df7
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: 2083da329c41afbe95ff570194a1c3ad5c2661be
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99509036"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100523571"
 ---
 # <a name="work-with-device-notifications"></a>Trabalhar com as notificações de dispositivo
 
@@ -48,7 +48,7 @@ Para ver notificações:
 
 Utilize filtros de pesquisa para apresentar notificações de interesse para si.
 
-| Filtro por | Descrição |
+| Filtro por | Description |
 |--|--|
 | Filtro por tipo | Ver notificações que cobrem uma área de interesse específica. Por exemplo, consulte apenas notificações para dispositivos inativos. |
 | Filtrar por intervalo de datas | Apresentar notificações que cobrem um intervalo de tempo específico. Por exemplo, ver notificações enviadas apenas na semana passada. |
@@ -58,7 +58,7 @@ Utilize filtros de pesquisa para apresentar notificações de interesse para si.
 
 A tabela seguinte descreve os tipos de eventos de notificação que poderá receber, juntamente com as opções de manipulação dos mesmos. Pode atualizar as informações do dispositivo com um valor recomendado ou rejeitar a notificação. Quando rejeita uma notificação, as informações do dispositivo não são atualizadas com as informações recomendadas. Se o tráfego for detetado novamente, a notificação será reenusada.
 
-| Tipos de eventos de notificação | Descrição | Respostas |
+| Tipos de eventos de notificação | Description | Respostas |
 |--|--|--|
 | Novo IP detetado | Um novo endereço IP está associado ao dispositivo. Podem ser detetados cinco cenários: <br /><br /> Um endereço IP adicional foi associado a um dispositivo. Este dispositivo também está associado a um endereço MAC existente.<br /><br /> Foi detetado um novo endereço IP para um dispositivo que está a usar um endereço MAC existente. Atualmente, o dispositivo não comunica utilizando um endereço IP.<br /> <br /> Foi detetado um novo endereço IP para um dispositivo que está a usar um nome NetBIOS. <br /><br /> Foi detetado um endereço IP como interface de gestão de um dispositivo associado a um endereço MAC. <br /><br /> Foi detetado um novo endereço IP para um dispositivo que está a utilizar um endereço IP virtual. | **Definir IP adicional ao dispositivo** (dispositivos de fusão) <br /> <br />**Substituir IP existente** <br /> <br /> **Dispensar**<br /> Remova a notificação. |
 | Dispositivos inativos | O trânsito não foi detetado num dispositivo há mais de 60 dias. | **Eliminar** <br /> Se este dispositivo não fizer parte da sua rede, retire-o. <br /><br />**Dispensar** <br /> Remova a notificação se o dispositivo fizer parte da sua rede. Se o dispositivo estiver inativo (por exemplo, por estar desligado erradamente da rede), dispense a notificação e reconecte o dispositivo. |
@@ -98,6 +98,6 @@ Investigue as recomendações para enriquecer a classificação do SO. Esta info
 
 Quando aceitar uma recomendação, as informações do tipo SO serão atualizadas no sensor.
 
-## <a name="see-also"></a>Ver também
+## <a name="next-steps"></a>Passos seguintes
 
 [Ver alertas](how-to-view-alerts.md)

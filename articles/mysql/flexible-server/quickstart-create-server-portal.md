@@ -7,12 +7,12 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 10/22/2020
-ms.openlocfilehash: 864152d1f1d0074305cbba448946bc05888b4f3b
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 074b799a4f0e83c47aac0b2b3fca5386bd45429f
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566763"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100521973"
 ---
 # <a name="quickstart-use-the-azure-portal-to-create-an-azure-database-for-mysql-flexible-server"></a>Quickstart: Use o portal Azure para criar uma Base de Dados Azure para servidor flexível MySQL
 
@@ -24,7 +24,7 @@ Azure Database for MySQL Flexible Server é um serviço gerido que pode utilizar
 Se não tiver uma subscrição do Azure, crie uma [conta do Azure gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Iniciar sessão no portal do Azure
-Aceda ao [portal do Azure](https://portal.azure.com/). Introduza as suas credenciais para iniciar sessão no portal. A vista predefinida é o dashboard de serviço.
+Aceda ao [Portal do Azure](https://portal.azure.com/). Introduza as suas credenciais para iniciar sessão no portal. A vista predefinida é o dashboard de serviço.
 
 ## <a name="create-an-azure-database-for-mysql-flexible-server"></a>Criar uma base de dados Azure para servidor flexível MySQL
 
@@ -42,7 +42,7 @@ Complete estes passos para criar um servidor flexível:
      
     > :::image type="content" source="./media/quickstart-create-server-portal/deployment-option.png" alt-text="Screenshot que mostra a opção de servidor flexível.":::    
 
-4. No separador **Informações Básicas** , introduza as seguintes informações: 
+4. No separador **Informações Básicas**, introduza as seguintes informações: 
 
     > :::image type="content" source="./media/quickstart-create-server-portal/create-form.png" alt-text="Screenshot que mostra o separador Básico da página do servidor Flexível."::: 
                                     
@@ -53,9 +53,9 @@ Complete estes passos para criar um servidor flexível:
     Nome do servidor |**mydemoserver**|Um nome único que identifica o seu servidor flexível. O nome de domínio `mysql.database.azure.com` é anexado ao nome do servidor que fornece. O nome do servidor pode conter apenas letras minúsculas, números e o caráter de hífen (-). Tem de conter entre 3 e 63 carateres.|
     Nome de utilizador de administrador |**mydemouser**| A sua própria conta de inscrição para utilizar quando se ligar ao servidor. O nome de utilizador administrativo não pode ser **azure_superuser,** **administrador,** **administrador,** **raiz,** **hóspede,** ou **público.**|
     Palavra-passe |A sua palavra-passe| Uma palavra-passe nova para a conta de administrador do servidor. Tem de conter entre 8 e 128 carateres. Deve ainda conter caracteres de três das seguintes categorias: letras maiúsculas inglesas, letras minúsculas inglesas, números (0 a 9) e caracteres não alfanuméricos (!, $, #, %, e assim por diante).|
-    Região|A região mais próxima dos seus utilizadores| A localização que esteja mais próxima dos seus utilizadores.|
+    Region|A região mais próxima dos seus utilizadores| A localização que esteja mais próxima dos seus utilizadores.|
     Versão|**5.7**| Uma versão principal do MySQL.|
-    Computação e armazenamento | **Burstable** , **Standard_B1ms** , **10 GiB,** **7 dias** | As configurações de computação, armazenamento e cópia de segurança do seu novo servidor. Selecione **o servidor Configurar**. **Burstable** , **Standard_B1ms** , **10 GiB** , e **7 dias** são os valores padrão para o **nível compute,** **tamanho computo,** tamanho de **armazenamento** e período de **retenção** de backup . Pode deixar esses valores como está ou ajustá-los. Para guardar a seleção de cálculo e armazenamento, **selecione Guardar** para continuar com a configuração. A imagem que se segue mostra as opções de cálculo e armazenamento.|
+    Computação e armazenamento | **Burstable**, **Standard_B1ms**, **10 GiB,** **7 dias** | As configurações de computação, armazenamento e cópia de segurança do seu novo servidor. Selecione **o servidor Configurar**. **Burstable**, **Standard_B1ms**, **10 GiB**, e **7 dias** são os valores padrão para o **nível compute,** **tamanho computo,** tamanho de **armazenamento** e período de **retenção** de backup . Pode deixar esses valores como está ou ajustá-los. Para guardar a seleção de cálculo e armazenamento, **selecione Guardar** para continuar com a configuração. A imagem que se segue mostra as opções de cálculo e armazenamento.|
     
     > :::image type="content" source="./media/quickstart-create-server-portal/compute-storage.png" alt-text="Screenshot que mostra opções de computação e armazenamento.":::
 
@@ -76,7 +76,7 @@ Complete estes passos para criar um servidor flexível:
 
 7. Selecione **Criar** para aprovisionar o servidor. O provisionamento pode levar alguns minutos.
 
-8. Selecione **Notificações** na barra de ferramentas (o botão de campainha) para monitorizar o processo de implantação. Depois de ter sido feita a implementação, pode selecionar **Pin para dashboard** , que cria um azulejo para o servidor flexível no seu painel de instrumentos do portal Azure. Este azulejo é um atalho para a página **geral** do servidor. Quando selecionar **Go to resource,** a página **de visão geral** do servidor abre.
+8. Selecione **Notificações** na barra de ferramentas (o botão de campainha) para monitorizar o processo de implantação. Depois de ter sido feita a implementação, pode selecionar **Pin para dashboard**, que cria um azulejo para o servidor flexível no seu painel de instrumentos do portal Azure. Este azulejo é um atalho para a página **geral** do servidor. Quando selecionar **Go to resource,** a página **de visão geral** do servidor abre.
 
 Por padrão, estas bases de dados são criadas sob o seu servidor: information_schema, mysql, performance_schema e sys.
 
@@ -85,18 +85,36 @@ Por padrão, estas bases de dados são criadas sob o seu servidor: information_s
 
 ## <a name="connect-to-the-server-by-using-mysqlexe"></a>Ligue-se ao servidor utilizando mysql.exe
 
-Se criou o seu servidor flexível utilizando o acesso privado (Integração VNet), terá de se ligar ao seu servidor a partir de um recurso dentro da mesma rede virtual que o seu servidor. Pode criar uma máquina virtual e adicioná-la à rede virtual criada com o seu servidor flexível.
+Se criou o seu servidor flexível utilizando o acesso privado (Integração VNet), terá de se ligar ao seu servidor a partir de um recurso dentro da mesma rede virtual que o seu servidor. Pode criar uma máquina virtual e adicioná-la à rede virtual criada com o seu servidor flexível. Consulte a [documentação de acesso privado](how-to-manage-virtual-network-portal.md) para saber mais.
 
-Se criou o seu servidor flexível utilizando o acesso público (endereços IP autorizados), pode adicionar o seu endereço IP local à lista de regras de firewall no seu servidor.
+Se criou o seu servidor flexível utilizando o acesso público (endereços IP autorizados), pode adicionar o seu endereço IP local à lista de regras de firewall no seu servidor. Consulte a documentação das [regras de firewall](how-to-manage-firewall-portal.md) para obter orientação passo a passo.
 
 Pode utilizar [mysql.exe](https://dev.mysql.com/doc/refman/8.0/en/mysql.html) ou [mySQL Workbench](./connect-workbench.md) para se ligar ao servidor a partir do seu ambiente local. 
 
-Se estiver a utilizar mysql.exe, ligue-se utilizando o seguinte comando. Use o nome do servidor, o nome de utilizador e a palavra-passe no comando. 
-
 ```bash
- mysql -h mydemoserver.mysql.database.azure.com -u mydemouser -p
+wget --no-check-certificate https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem
+mysql -h mydemoserver.mysql.database.azure.com -u mydemouser -p --ssl=true --ssl-ca=DigiCertGlobalRootCA.crt.pem
 ```
-## <a name="clean-up-resources"></a>Limpar recursos
+
+Se tiver provisionado o seu servidor flexível utilizando **o acesso público,** também pode utilizar [o Azure Cloud Shell](https://shell.azure.com/bash) para se ligar ao seu servidor flexível utilizando o cliente mysql pré-instalado, como mostrado abaixo:
+
+Para utilizar o Azure Cloud Shell para ligar ao seu servidor flexível, terá de permitir o acesso em rede do Azure Cloud Shell ao seu servidor flexível. Para isso, pode aceder à lâmina **de rede** no portal Azure para o seu servidor flexível MySQL e verificar a caixa na secção **Firewall** que diz: "Permitir o acesso público de qualquer serviço Azure dentro do Azure a este servidor" e clicar em Guardar para persistir a definição.
+
+> [!NOTE]
+> A verificação do **acesso público a partir de qualquer serviço Azure dentro do Azure a este servidor** deve ser utilizado apenas para desenvolvimento ou teste. Configura a firewall para permitir ligações a partir de endereços IP atribuídos a qualquer serviço ou ativo Azure, incluindo ligações a partir das subscrições de outros clientes.
+
+Clique em **Experimentá-lo** para lançar o Azure Cloud Shell e utilizar os seguintes comandos para ligar ao seu servidor flexível. Use o nome do servidor, o nome de utilizador e a palavra-passe no comando. 
+
+```azurecli-interactive
+wget --no-check-certificate https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem
+mysql -h mydemoserver.mysql.database.azure.com -u mydemouser -p --ssl=true --ssl-ca=DigiCertGlobalRootCA.crt.pem
+```
+
+Se vir a seguinte mensagem de erro enquanto se liga ao seu servidor flexível seguindo o comando anteriormente, falhou a definição da regra de firewall utilizando a regra "Permitir o acesso público de qualquer serviço Azure dentro do Azure a este servidor" mencionado anteriormente ou a opção não é guardada. Por favor, tente configurar a firewall e tente novamente.
+
+ERROR 2002 (HY000): Não é possível ligar ao servidor MySQL <servername> em (115)
+
+## <a name="clean-up-resources"></a>Limpar os recursos
 Criou agora uma Base de Dados Azure para servidor flexível MySQL num grupo de recursos. Se não espera precisar destes recursos no futuro, pode eliminá-los eliminando o grupo de recursos, ou simplesmente apagar o servidor MySQL. Para eliminar o grupo de recursos, complete estes passos:
 
 1. No portal Azure, procure e selecione **grupos de Recursos.**

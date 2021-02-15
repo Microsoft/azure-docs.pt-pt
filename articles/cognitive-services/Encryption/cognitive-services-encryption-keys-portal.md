@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/28/2020
 ms.author: egeaney
-ms.openlocfilehash: 1d161c82c087fd86a3774f0d121330260b1574e4
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: fca3fc80411432f2e82a68faa3b6f297b8ca5f9c
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94366099"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100522007"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-for-cognitive-services"></a>Configure as chaves geridas pelo cliente com cofre chave Azure para serviços cognitivos
 
@@ -21,20 +21,20 @@ O processo para permitir Customer-Managed Chaves com Cofre chave Azure para Serv
 
 ## <a name="vision"></a>Visão
 
-* [Encriptação personalizada da Visão de dados em repouso](../Custom-Vision-Service/custom-vision-encryption-of-data-at-rest.md)
-* [Encriptação dos Serviços faciais de dados em repouso](../Face/face-encryption-of-data-at-rest.md)
-* [Encriptação do Reconhecimento de Formulários de Dados em repouso](../form-recognizer/form-recognizer-encryption-of-data-at-rest.md)
+* [Encriptação personalizada da Visão de dados em repouso](../Custom-Vision-Service/encrypt-data-at-rest.md)
+* [Encriptação dos Serviços faciais de dados em repouso](../Face/encrypt-data-at-rest.md)
+* [Encriptação do Reconhecimento de Formulários de Dados em repouso](../form-recognizer/encrypt-data-at-rest.md)
 
 ## <a name="language"></a>Linguagem
 
-* [Encriptação do serviço de compreensão de linguagem de dados em repouso](../LUIS/luis-encryption-of-data-at-rest.md)
-* [Encriptação de dados do QnA Maker em repouso](../QnAMaker/qna-maker-encryption-of-data-at-rest.md)
-* [Encriptação do tradutor de dados em repouso](../translator/translator-encryption-of-data-at-rest.md)
+* [Encriptação do serviço de compreensão de linguagem de dados em repouso](../LUIS/encrypt-data-at-rest.md)
+* [Encriptação de dados do QnA Maker em repouso](../QnAMaker/encrypt-data-at-rest.md)
+* [Encriptação do tradutor de dados em repouso](../translator/encrypt-data-at-rest.md)
 
 ## <a name="decision"></a>Decisão
 
-* [Encriptação do Moderador de Conteúdo dos dados em repouso](../Content-Moderator/content-moderator-encryption-of-data-at-rest.md)
-* [Encriptação personalizada de dados em repouso](../personalizer/personalizer-encryption-of-data-at-rest.md)
+* [Encriptação do Moderador de Conteúdo dos dados em repouso](../Content-Moderator/encrypt-data-at-rest.md)
+* [Encriptação personalizada de dados em repouso](../personalizer/encrypt-data-at-rest.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 

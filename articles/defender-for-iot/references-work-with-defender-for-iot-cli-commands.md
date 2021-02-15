@@ -1,5 +1,5 @@
 ---
-title: Trabalhar com o Defender para comandos IoT CLI
+title: Trabalhar com os comandos da CLI do Defender para IoT
 description: Este artigo descreve os comandos Defender para IoT CLI para sensores e consolas de gestão no local.
 author: shhazam-ms
 manager: rkarlin
@@ -7,14 +7,14 @@ ms.author: shhazam
 ms.date: 12/12/2020
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: 48c525004b095c1e0f498f86a5395d0002be26f1
-ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
+ms.openlocfilehash: 2ec682bf76e35b54f58acc1956972c57128edd75
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/01/2021
-ms.locfileid: "97845247"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100523146"
 ---
-# <a name="work-with-defender-for-iot-cli-commands"></a>Trabalhar com o Defender para comandos IoT CLI
+# <a name="work-with-defender-for-iot-cli-commands"></a>Trabalhar com os comandos da CLI do Defender para IoT
 
 Este artigo descreve comandos CLI para sensores e consolas de gestão no local. Os comandos são acessíveis a administradores, utilizadores de ciberx e utilizadores de suporte.
 
@@ -103,7 +103,7 @@ O atributo que pode definir dentro do comando é o endereço IP do servidor NTP.
 
 A tabela a seguir descreve os comandos disponíveis para configurar as suas opções de rede para Azure Defender para IoT:
 
-|Nome|Comando|Descrição|
+|Name|Comando|Descrição|
 |-----------|-------|-----------|
 |Ping|`ping IP `| Os endereços de pings fora da plataforma Defender for IoT.|
 |Blink|`network blink`|Permite alterar os parâmetros de configuração da rede.|
@@ -177,7 +177,7 @@ Perguntam-lhe o seguinte:
 
 >`In which component do you wish to apply this capture filter?`
 
-As suas opções são:  `all` `dissector` , ou `collector` `statistics-collector` `rpc-parser` `smb-parser` .
+As suas opções são:  `all` , , , , ou `dissector` `collector` `statistics-collector` `rpc-parser` `smb-parser` .
 
 Na maioria dos casos de utilização, selecione `all` .
 
@@ -254,7 +254,7 @@ Pode utilizar os seguintes atributos com o `directions` comando:
 ## <a name="system-actions"></a>Ações do sistema
 A tabela a seguir descreve os comandos disponíveis para executar várias ações do sistema dentro do Defender para IoT:
 
-|Nome|Código|Description|
+|Name|Código|Description|
 |----|----|-----------|
 |Reinicie o anfitrião|`system reboot`|Reinicia o dispositivo de anfitrião.|
 |Desligue o anfitrião|`system shutdown`|Desliga o hospedeiro.|
@@ -279,7 +279,7 @@ O comando suporta as seguintes bandeiras de entrada:
 |--|--|
 | -h | Mostra a sintaxe de ajuda da linha de comando. |
 | --crt | O caminho para o ficheiro de certificado (extensão.crt). |
-| -chave | O \* ficheiro .key. O comprimento da chave deve ser no mínimo 2.048 bits. |
+| ---chave | O \* ficheiro .key. O comprimento da chave deve ser no mínimo 2.048 bits. |
 | ...cadeia | Caminho para o arquivo da cadeia de certificados (opcional). |
 | --passe | Frase-passe usada para encriptar o certificado (opcional). |
 | --passphrase-set | O padrão é **falso,** **não é desuso**. <br />Definir para **True** para utilizar a frase de passe anterior fornecida com o certificado anterior (opcional). |  |
@@ -290,6 +290,6 @@ Quando estiver a utilizar a ferramenta:
 
 - Confirme com o domínio do aparelho (tal como aparece no certificado) com o seu servidor DNS e o endereço IP correspondente. 
     
-## <a name="see-also"></a>Veja também
+## <a name="next-steps"></a>Passos seguintes
 
 [Defender para apis sensores e consolas de gestão IoT](references-work-with-defender-for-iot-apis.md)

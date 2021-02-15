@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 1/3/2021
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: c33b3e5fee19edc5d4ac85284e507b53e96234a0
-ms.sourcegitcommit: 8f0803d3336d8c47654e119f1edd747180fe67aa
+ms.openlocfilehash: fd0c7b74bea979737644824f93b4dce7a2364b99
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97977018"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100522347"
 ---
 # <a name="about-defender-for-iot-console-users"></a>Sobre o Defender para utilizadores de consolas IoT
 
@@ -185,7 +185,7 @@ Para configurar o Diretório Ativo:
 
 1. Desa esta medida os parâmetros do servidor ative directory, da seguinte forma:
 
-   | Parâmetro do servidor | Descrição |
+   | Parâmetro do servidor | Description |
    |--|--|
    | Controlador de domínio FQDN | Desaceie o nome de domínio totalmente qualificado (FQDN) exatamente como aparece no seu servidor LDAP. Por exemplo, introduza `host1.subdomain.domain.com`. |
    | Porta controladora de domínio | Defina a porta na qual o seu LDAP está configurado. |
@@ -193,7 +193,7 @@ Para configurar o Diretório Ativo:
    | Grupos de diretório ativo | Introduza os nomes de grupo definidos na configuração do Ative Directory no servidor LDAP. |
    | Domínios fidedignos | Para adicionar um domínio de confiança, adicione o nome de domínio e o tipo de ligação de um domínio fidedigno. <br />Só é possível configurar domínios fidedignos para utilizadores definidos pelos utilizadores. |
 
-1. Selecione **Save** (Guardar).
+1. Selecione **Guardar**.
 
 1. Para adicionar um servidor de confiança, **selecione Adicionar Servidor** e configuure outro servidor.
 
@@ -265,7 +265,7 @@ Para redefinir a palavra-passe de um utilizador na consola de gestão no local:
 
 1. Selecione **Atualizar**.
 
-## <a name="see-also"></a>Ver também
+## <a name="next-steps"></a>Passos seguintes
 
 [Ative e crie o seu sensor](how-to-activate-and-set-up-your-sensor.md) 
  [Ative e crie a sua consola](how-to-activate-and-set-up-your-on-premises-management-console.md) 

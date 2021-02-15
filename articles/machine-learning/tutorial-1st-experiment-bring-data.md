@@ -9,14 +9,14 @@ ms.topic: tutorial
 author: aminsaied
 ms.author: amsaied
 ms.reviewer: sgilley
-ms.date: 09/15/2020
+ms.date: 02/11/2021
 ms.custom: tracking-python
-ms.openlocfilehash: c08d9ee6704203d0634d7a1b90a57de9c6a99d31
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 5e1af60cccb48195db38e420dfe3df01f404669c
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98622799"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100378009"
 ---
 # <a name="tutorial-use-your-own-data-part-4-of-4"></a>Tutorial: Use os seus próprios dados (parte 4 de 4)
 
@@ -39,7 +39,7 @@ Neste tutorial:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Conclusão da [3.00m](tutorial-1st-experiment-sdk-train.md) da série.
+* Conclusão da [3.....00m](tutorial-1st-experiment-sdk-train.md) da série.
 
 ## <a name="adjust-the-training-script"></a>Ajuste o roteiro de treino
 
@@ -82,21 +82,8 @@ optimizer = optim.SGD(
 
 O seu script aceita agora _o caminho dos dados_ como argumento. Para começar, teste-o localmente. Adicione à sua estrutura de diretório tutorial uma pasta chamada `data` . A sua estrutura de diretório deve parecer:
 
-```txt
-tutorial
-└──.azureml
-|  └──config.json
-|  └──pytorch-env.yml
-└──data
-└──src
-|  └──hello.py
-|  └──model.py
-|  └──train.py
-└──01-create-workspace.py
-└──02-create-compute.py
-└──03-run-hello.py
-└──04-run-pytorch.py
-```
+:::image type="content" source="media/tutorial-1st-experiment-bring-data/directory-structure.png" alt-text="A estrutura do diretório mostra sub-directórios .azureml, dados e sub-directórios de SRC":::
+
 
 Se não correu `train.py` localmente no tutorial anterior, não terá o `data/` diretório. Neste caso, execute o `torchvision.datasets.CIFAR10` método localmente com `download=True` o seu `train.py` script.
 

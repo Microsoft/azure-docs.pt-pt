@@ -8,12 +8,12 @@ ms.date: 01/27/2021
 ms.topic: how-to
 ms.service: iot-central
 ms.custom: contperf-fy21q1, contperf-fy21q3
-ms.openlocfilehash: d31673b8d789cff5de3ddce63b67a98854b7aabc
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 7152012c7c4a342c7491e5f8b835eaede4269c4c
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100515908"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100522619"
 ---
 # <a name="export-iot-data-to-cloud-destinations-using-data-export"></a>Exportar dados de IoT para destinos em nuvem usando exportação de dados
 
@@ -168,14 +168,14 @@ Agora que tem um destino para exportar os seus dados, crie exportação de dados
 
 ## <a name="monitor-your-export"></a>Monitorize a sua exportação
 
-Além de ver o estado das suas exportações na IoT Central, pode monitorizar a quantidade de dados que flui através das suas exportações e observar erros de exportação na plataforma de dados Azure Monitor. Pode aceder a métricas sobre as suas exportações e saúde do dispositivo em gráficos no portal Azure, uma API REST, ou consultas no PowerShell ou no Azure CLI. Atualmente, pode monitorizar estas métricas de exportação de dados no Azure Monitor:
+Além de ver o estado das suas exportações na IoT Central, pode utilizar [o Azure Monitor](../../azure-monitor/overview.md) para ver quantos dados está a exportar e quaisquer erros de exportação. Pode aceder às métricas de saúde de exportação e dispositivo em gráficos no portal Azure, com uma API REST, ou com consultas no PowerShell ou no Azure CLI. Atualmente, pode monitorizar as seguintes métricas de exportação de dados no Azure Monitor:
 
-1. Número de mensagens a chegar à exportação antes da aplicação dos filtros
-2. Número de mensagens que passam através de filtros
-3. Número de mensagens exportadas com sucesso para destinos
-4. Número de erros encontrados
- 
-[Saiba mais sobre como aceder às métricas IoT Central.](howto-monitor-application-health.md)
+- Número de mensagens a chegar à exportação antes de os filtros serem aplicados.
+- Número de mensagens que passam através de filtros.
+- Número de mensagens exportadas com sucesso para destinos.
+- Número de erros encontrados.
+
+Para saber mais, consulte [Monitor a saúde geral de uma aplicação IoT Central](howto-monitor-application-health.md).
 
 ## <a name="destinations"></a>Destinos
 

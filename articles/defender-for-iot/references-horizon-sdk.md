@@ -8,12 +8,12 @@ ms.author: shhazam
 ms.date: 1/13/2021
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: 53aafc4146680c89dd01174ec5fde765f1cc0c01
-ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.openlocfilehash: 06663e12bbcaee2243be75d6aa9ea9cf4fd125bf
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2021
-ms.locfileid: "98746024"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100523367"
 ---
 # <a name="horizon-proprietary-protocol-dissector"></a>Dissector de protocolo proprietário horizonte
 
@@ -95,7 +95,7 @@ Contacte <support@cyberx-labs.com> para obter informações sobre a receção de
 
 ## <a name="about-the-environment-and-setup"></a>Sobre o ambiente e a configuração 
 
-### <a name="requirements"></a>Requirements 
+### <a name="requirements"></a>Requisitos 
 
 - O ambiente de desenvolvimento preferido é o Linux. Se estiver a desenvolver-se num ambiente Windows, considere utilizar um VM com um Sistema Linux.
 
@@ -320,13 +320,13 @@ Esta secção descreve parâmetros básicos.
 | **sanity_failure_codes** | Estes são os códigos devolvidos do parser quando há um conflito de sanidade no que diz respeito à identidade do código. Consulte a validação do número mágico na secção C++. | String |
 | **malformed_codes** | Estes são códigos que foram devidamente identificados, mas um erro é detetado. Por exemplo, se o comprimento do campo for demasiado curto ou longo, ou se um valor for inválido. | String |
 | **dissect_as** | Uma matriz que define onde deve chegar o tráfego específico do protocolo. | TCP/UDP, porta etc. |
-| **fields** | A declaração de quais os campos serão extraídos do tráfego. Cada campo tem o seu próprio ID (nome), e tipo (numérico, corda, cru, matriz, complexo). Por exemplo, a [função](https://docs.google.com/document/d/14nm8cyoGiaE0ODOYQd_xjULxVz9U_bjfPKkcDhOFr5Q/edit#bookmark=id.6s1zcxa9184k) de campo que é extraída no ficheiro Implementation Parser. Os campos escritos no ficheiro config são os únicos que podem ser adicionados à camada. |  |
+| **campos** | A declaração de quais os campos serão extraídos do tráfego. Cada campo tem o seu próprio ID (nome), e tipo (numérico, corda, cru, matriz, complexo). Por exemplo, a [função](https://docs.google.com/document/d/14nm8cyoGiaE0ODOYQd_xjULxVz9U_bjfPKkcDhOFr5Q/edit#bookmark=id.6s1zcxa9184k) de campo que é extraída no ficheiro Implementation Parser. Os campos escritos no ficheiro config são os únicos que podem ser adicionados à camada. |  |
 
 ### <a name="other-advanced-fields"></a>Outros campos avançados 
 
 Esta secção descreve outros campos.
 
-| Etiqueta de parâmetro | Descrição |
+| Etiqueta de parâmetro | Description |
 |-----------------|--------|
 | **permitir listas** | Pode indexar os valores do protocolo e exibi-los em Relatórios de Mineração de Dados. Estes relatórios refletem a sua linha de base de rede. :::image type="content" source="media/references-horizon-sdk/data-mining.png" alt-text="Uma amostra da visão da mineração de dados."::: <br /> Para obter mais informações, consulte [Connect to a indexing service (Baseline)](#connect-to-an-indexing-service-baseline) para obter mais informações. |
 | **firmware** | Pode extrair informações de firmware, definir valores de índice e acionar alertas de firmware para o protocolo plugin. Para obter mais informações, consulte [extrair dados do firmware](#extract-firmware-data) para obter mais informações. |
@@ -817,7 +817,7 @@ Adicione o parâmetro **de alerta** ao `config.json` plugin.
 
 Esta secção descreve os campos de configuração JSON. 
 
-| Nome do campo | Descrição | Valores possíveis |
+| Nome do campo | Description | Valores possíveis |
 |--|--|--|
 | **ID** | Representa uma única identificação de alerta. Deve ser único neste contexto. | Valor numérico 0 - 10000 |
 | **Mensagem** | Informação apresentada ao utilizador. Este campo permite-lhe utilizar diferentes campos. | Utilize qualquer campo a partir do seu protocolo ou qualquer protocolo de camada inferior. |
@@ -1640,6 +1640,6 @@ Para monitorizar:
 
 Selecione o botão Monitor para o seu plugin a partir da visão geral.
 
-Passos Seguintes
+## <a name="next-steps"></a>Passos seguintes
 
 Configurar a sua [API Horizonte](references-horizon-api.md)

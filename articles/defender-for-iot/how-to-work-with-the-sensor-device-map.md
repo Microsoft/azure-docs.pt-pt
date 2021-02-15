@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 1/7/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: edd1438a665e4917d5dd4cdcfba08d9cee01d3bb
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: 5b7059129c45149c64bc7fc145c68d9e09a7c046
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99509053"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100523843"
 ---
 # <a name="investigate-sensor-detections-in-the-device-map"></a>Investigar deteções de sensores no Mapa do Dispositivo
 
@@ -36,7 +36,7 @@ As seguintes ferramentas são usadas para trabalhar no mapa.
 
 A sua função de utilizador determina quais as ferramentas disponíveis na janela do Mapa do Dispositivo. Consulte [criar e gerir os utilizadores](how-to-create-and-manage-users.md) para obter detalhes sobre as funções dos utilizadores.
 
-| Símbolo | Descrição |
+| Símbolo | Description |
 |---|---|
 | :::image type="icon" source="media/how-to-work-with-maps/search-bar-icon-v2.png" border="false":::| Procure por endereço IP ou endereço MAC para um dispositivo específico. Insira o endereço IP ou MAC na caixa de texto. O mapa apresenta o dispositivo que procurou com dispositivos ligados ao mesmo. |
 | Destaque de grupo e filtros <br /> :::image type="content" source="media/how-to-work-with-maps/group-highlight-and-filters-v2.png" alt-text="Screenshot dos destaques e filtros do grupo."::: | Filtre ou realce o mapa com base em grupos de dispositivos padrão e personalizados. |
@@ -118,7 +118,7 @@ Ver grupos por:
 
 Estão disponíveis os seguintes grupos predefinidos:
 
-| Nome do grupo | Descrição |
+| Nome do grupo | Description |
 |--|--|
 | **Aplicações conhecidas** | Dispositivos que utilizem portas reservadas, como tCP.  |
 | **portas não normalizas (padrão)** | Dispositivos que utilizem portas ou portas não standard que não tenham sido designados um pseudónimo. |
@@ -267,7 +267,7 @@ Uma vasta gama de ferramentas estão disponíveis para saber mais sobre disposit
 
 Podem aparecer nos dispositivos do mapa os seguintes rótulos e indicadores:
 
-| Etiqueta do dispositivo | Descrição |
+| Etiqueta do dispositivo | Description |
 |--|--|
 | :::image type="content" source="media/how-to-work-with-maps/host-v2.png" alt-text="Nome do anfitrião IP"::: | Nome do anfitrião do endereço IP e endereço IP ou endereços de sub-rede |
 | :::image type="content" source="media/how-to-work-with-maps/amount-alerts-v2.png" alt-text="Número de alertas"::: | Número de alertas associados ao dispositivo |
@@ -313,7 +313,7 @@ As seguintes informações podem ser atualizadas manualmente. As informações i
 
   - Camada purdue
 
-  - Descrição
+  - Description
 
 | Item | Descrição |
 |--|--|
@@ -323,14 +323,14 @@ As seguintes informações podem ser atualizadas manualmente. As informações i
 | Fornecedor | O fornecedor de dispositivos. Isto é determinado pelos caracteres principais do endereço MAC do dispositivo. Este campo é só para leitura. |
 | Sistema Operativo | O dispositivo OS detetado pelo sensor. |
 | Camada purdue | A camada Purdue identificada pelo sensor para este dispositivo, incluindo: <br /> - Automático <br /> - Controlo de Processos <br /> - Supervisão <br /> - Enterprise |
-| Descrição | Um campo de texto gratuito. <br /> Adicione mais informações sobre o dispositivo. |
+| Description | Um campo de texto gratuito. <br /> Adicione mais informações sobre o dispositivo. |
 | Atributos | Qualquer informação adicional que tenha sido descoberta sobre o dispositivo durante o período de aprendizagem e que não pertença a outras categorias, aparece na secção de atributos. <br /> A informação é RO. |
 | Definições | Pode alterar manualmente as definições do dispositivo para evitar falsos positivos: <br /> - **Dispositivo autorizado**: Durante o período de aprendizagem, todos os dispositivos descobertos na rede são identificados como dispositivos autorizados. Quando um dispositivo é descoberto após o período de aprendizagem, aparece como um dispositivo não autorizado por defeito. Pode alterar esta definição manualmente. <br /> - **Conhecido como Scanner**: Ative esta opção se souber que este dispositivo é conhecido como scanner e não há necessidade de o alertar sobre o mesmo. <br /> - **Dispositivo de programação**: Ative esta opção se souber que este dispositivo é conhecido como um dispositivo de programação e é utilizado para fazer alterações de programação. Identificá-lo como um dispositivo de programação evitará alertas para alterações de programação originárias deste ativo. |
 | Grupos personalizados | Os grupos personalizados no mapa do dispositivo no qual este dispositivo participa. |
 | Estado | A segurança e o estado de autorização do dispositivo: <br /> - O estado é `Secured` quando não há alertas <br /> - Quando há alertas sobre o dispositivo, o número de alertas é apresentado <br /> - O estado `Unauthorized` é apresentado para dispositivos adicionados à rede após o período de aprendizagem. Pode definir manualmente o dispositivo como `Authorized Device` nas definições <br /> - Caso o endereço deste dispositivo seja definido como um endereço dinâmico, `DHCP` é adicionado ao estado. |
 
 
-| Rede | Descrição |
+| Rede | Description |
 |--|--|
 | Interfaces | As interfaces do dispositivo. Um campo RO. |
 | Protocolos | Os protocolos usados pelo dispositivo. Um campo RO. |
@@ -489,7 +489,7 @@ Esta secção descreve como visualizar ficheiros de programação e comparar ver
 
 :::image type="content" source="media/how-to-work-with-maps/timeline-view.png" alt-text="janela de linha do tempo de programação":::
 
-|Tipo de linha do tempo de programação | Descrição |
+|Tipo de linha do tempo de programação | Description |
 |--|--|
 | Dispositivo programado | Fornece detalhes sobre o dispositivo que foi programado, incluindo o nome de anfitrião e arquivo. |
 | Eventos Recentes | Apresenta os 50 eventos mais recentes detetados pelo sensor. <br />Para destacar um evento, paire sobre ele e clique na estrela. :::image type="icon" source="media/how-to-work-with-maps/star.png" border="false"::: <br /> Os últimos 50 eventos podem ser vistos. |
@@ -544,7 +544,7 @@ Para comparar:
 
 Além de rever detalhes na Linha do Tempo de Programação, pode aceder a informações de programação na janela Propriedades do Dispositivo e no Inventário do Dispositivo.
 
-| Tipo de Dispositivo | Descrição |
+| Tipo de Dispositivo | Description |
 |--|--|
 | Propriedades do dispositivo | A janela de propriedades do dispositivo fornece informações sobre o último evento de programação detetado no dispositivo\. :::image type="content" source="media/how-to-work-with-maps/information-from-device-v2.png" alt-text="As propriedades do seu dispositivo"::: |
 | O inventário do dispositivo | O inventário do dispositivo indica se o dispositivo é um dispositivo de programação\. :::image type="content" source="media/how-to-work-with-maps/inventory-v2.png" alt-text="O inventário dos dispositivos"::: |
@@ -709,6 +709,6 @@ Para exportar:
 
 1. Selecione uma opção de exportação.
 
-## <a name="see-also"></a>Ver também
+## <a name="next-steps"></a>Passos seguintes
 
 [Investigar deteções de sensores num Inventário de Dispositivos](how-to-investigate-sensor-detections-in-a-device-inventory.md)

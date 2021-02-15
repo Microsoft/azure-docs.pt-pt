@@ -1,22 +1,17 @@
 ---
 title: Copiar dados da Couchbase utilizando a Azure Data Factory (Preview)
 description: Saiba como copiar dados da Couchbase para lojas de dados de lavatórios suportados utilizando uma atividade de cópia num oleoduto Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: jingwang
-ms.openlocfilehash: d78d533bc4a863a0a70b1dbb47bdfa85d539884f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e8de7982e99e258f0a72bd507ac0d8de16a7227a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81417429"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100383658"
 ---
 # <a name="copy-data-from-couchbase-using-azure-data-factory-preview"></a>Copiar dados da Couchbase utilizando a Azure Data Factory (Preview)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -52,9 +47,9 @@ As seguintes propriedades são suportadas para o serviço ligado à Couchbase:
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo deve ser definida para: **Couchbase** | Sim |
-| conexãoStragem | Uma cadeia de ligação ODBC para ligar à Couchbase. <br/>Também pode colocar o cordão credencial no Cofre da Chave Azure e retirar a `credString` configuração da cadeia de ligação. Consulte as seguintes amostras e [guarde as credenciais no artigo do Azure Key Vault](store-credentials-in-key-vault.md) com mais detalhes. | Sim |
-| connectVia | O [tempo de execução de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Saiba mais na secção [Pré-Requisitos.](#prerequisites) Se não for especificado, utiliza o tempo de execução de integração Azure predefinido. |Não |
+| tipo | A propriedade tipo deve ser definida para: **Couchbase** | Yes |
+| conexãoStragem | Uma cadeia de ligação ODBC para ligar à Couchbase. <br/>Também pode colocar o cordão credencial no Cofre da Chave Azure e retirar a `credString` configuração da cadeia de ligação. Consulte as seguintes amostras e [guarde as credenciais no artigo do Azure Key Vault](store-credentials-in-key-vault.md) com mais detalhes. | Yes |
+| connectVia | O [tempo de execução de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Saiba mais na secção [Pré-Requisitos.](#prerequisites) Se não for especificado, utiliza o tempo de execução de integração Azure predefinido. |No |
 
 **Exemplo:**
 
@@ -83,13 +78,13 @@ As seguintes propriedades são suportadas para o serviço ligado à Couchbase:
         "type": "Couchbase",
         "typeProperties": {
             "connectionString": "Server=<server>; Port=<port>;AuthMech=1;",
-            "credString": { 
-                "type": "AzureKeyVaultSecret", 
-                "store": { 
-                    "referenceName": "<Azure Key Vault linked service name>", 
-                    "type": "LinkedServiceReference" 
-                }, 
-                "secretName": "<secretName>" 
+            "credString": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
             }
         },
         "connectVia": {
@@ -108,7 +103,7 @@ Para copiar dados da Couchbase, defina a propriedade tipo do conjunto de dados p
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo do conjunto de dados deve ser definida para: **CouchbaseTable** | Sim |
+| tipo | A propriedade tipo do conjunto de dados deve ser definida para: **CouchbaseTable** | Yes |
 | tableName | O nome da mesa. | Não (se for especificada "consulta" na fonte de atividade) |
 
 
@@ -139,7 +134,7 @@ Para copiar dados da Couchbase, desave o tipo de origem na atividade de cópia p
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **CouchbaseSource** | Sim |
+| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **CouchbaseSource** | Yes |
 | consulta | Utilize a consulta SQL personalizada para ler dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se for especificado "tableName" no conjunto de dados) |
 
 **Exemplo:**

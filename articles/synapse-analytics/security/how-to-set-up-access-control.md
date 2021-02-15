@@ -2,19 +2,19 @@
 title: Como configurar o controlo de acesso para o seu espaço de trabalho Synapse
 description: Este artigo irá ensiná-lo a controlar o acesso a um espaço de trabalho da Sinapse usando funções Azure, funções de Sinapse, permissões SQL e Git.
 services: synapse-analytics
-author: billgib
+author: RonyMSFT
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: security
 ms.date: 12/03/2020
-ms.author: billgib
+ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7dbbe3afb2a5eb19b5c4893bd73eddbf11e788d4
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: c6ec84d41d113a38e78ab13404ef19faf625530b
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98218081"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100102177"
 ---
 # <a name="how-to-set-up-access-control-for-your-synapse-workspace"></a>Como configurar o controlo de acesso para o seu espaço de trabalho Synapse 
 

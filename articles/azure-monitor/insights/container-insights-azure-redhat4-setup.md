@@ -3,12 +3,12 @@ title: Configure Azure Red Hat OpenShift v4.x com Monitor Azure para recipientes
 description: Este artigo descreve como configurar a monitorização para um cluster Kubernetes com o Azure Monitor que está hospedado na versão 4 ou mais tarde do Azure Red Hat OpenShift.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 8cd551a028f2fc67c26f8e32d59c0e0650aa1e54
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: e6668ac22c6c0f53c7511cfb76bf50c5474f3a76
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98944528"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100521633"
 ---
 # <a name="configure-azure-red-hat-openshift-v4x-with-azure-monitor-for-containers"></a>Configure Azure Red Hat OpenShift v4.x com Monitor Azure para recipientes
 
@@ -121,7 +121,7 @@ Se não tiver um espaço de trabalho para especificar, pode saltar para a Secç�
     export kubeContext="<kubeContext name of your ARO v4 cluster>"  
     ```
 
-    Exemplo:
+    Aqui está o comando que deve executar depois de ter povoado as 3 variáveis com comandos de Exportação:
 
     `bash enable-monitoring.sh --resource-id $azureAroV4ClusterResourceId --kube-context $kubeContext --workspace-id $logAnalyticsWorkspaceResourceId`
 
@@ -164,7 +164,7 @@ A vista multi-cluster no Azure Monitor para contentores destaca os seus clusters
 
     Pode identificar os resultados da lista procurando o valor **ARO** na coluna **Cluster Type.** Depois de selecionar **Enable,** é redirecionado para este artigo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Agora que permitiu a monitorização para recolher a saúde e a utilização de recursos do seu cluster RedHat OpenShift 4.x e das cargas de trabalho que estão a funcionar sobre eles, aprenda [a usar](container-insights-analyze.md) o Azure Monitor para recipientes.
 

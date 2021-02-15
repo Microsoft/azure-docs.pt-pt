@@ -1,19 +1,19 @@
 ---
 title: Como gerir atribuições do SYNAPSE RBAC no Synapse Studio
 description: Este artigo descreve como atribuir e revogar funções de Sinaapse RBAC aos principais de segurança da AAD
-author: billgib
+author: RonyMSFT
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: security
 ms.date: 12/1/2020
-ms.author: billgib
+ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: c88371eb450d5b0e2e8b821cdec0e87190e291f8
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: bed0c00b8cb5718456302dff06e98ff2f7f2b4e8
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98218200"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100102194"
 ---
 # <a name="how-to-manage-synapse-rbac-role-assignments-in-synapse-studio"></a>Como gerir atribuições de funções do SYNAPC no Synapse Studio
 

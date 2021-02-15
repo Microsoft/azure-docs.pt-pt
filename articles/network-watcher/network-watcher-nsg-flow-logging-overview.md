@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: damendo
-ms.openlocfilehash: 2222c6b020f712282a78ac5f82a87015d4cd86a5
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: bc085163b4f738d022ab9771794ec85293de5ed8
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100368205"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100521684"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introdução ao registo de fluxos para grupos de segurança de rede
 
@@ -356,7 +356,7 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 - Nível de desempenho: Atualmente, apenas as contas de armazenamento de nível padrão são suportadas.
 - Rotação da chave de auto-gestão: Se alterar/rodar as teclas de acesso à sua conta de armazenamento, os Registos de Fluxo NSG deixarão de funcionar. Para corrigir este problema, tem de desativar e, em seguida, voltar a ativar os Registos de Fluxo NSG.
 
-**Custos de registo do fluxo**: A exploração de fluxo NSG é faturada no volume de registos produzidos. O elevado volume de tráfego pode resultar num grande volume de registo de fluxo e nos custos associados. O preço do registo do NSG Flow não inclui os custos subjacentes de armazenamento. A utilização da função de política de retenção com a NSG Flow Logging significa incorrer em custos de armazenamento separados por longos períodos de tempo. Se não necessitar da função de política de retenção, recomendamos que desemote este valor para 0. Para mais informações, consulte [o Preço do Observador de Rede](https://azure.microsoft.com/pricing/details/network-watcher/) e os Preços de Armazenamento [Azure](https://azure.microsoft.com/pricing/details/storage/) para obter mais detalhes.
+**Custos de registo do fluxo**: A exploração de fluxo NSG é faturada no volume de registos produzidos. O elevado volume de tráfego pode resultar num grande volume de registo de fluxo e nos custos associados. O preço do registo do NSG Flow não inclui os custos subjacentes de armazenamento. A utilização da função de política de retenção com a NSG Flow Logging significa incorrer em custos de armazenamento separados por longos períodos de tempo. Se pretender reter dados para sempre e não quiser aplicar qualquer política de retenção, desembarate a retenção (dias) para 0. Para mais informações, consulte [o Preço do Observador de Rede](https://azure.microsoft.com/pricing/details/network-watcher/) e os Preços de Armazenamento [Azure](https://azure.microsoft.com/pricing/details/storage/) para obter mais detalhes.
 
 **Problemas com as regras de entrada definidas pelo utilizador**: [Os Grupos de Segurança da Rede (NSGs)](../virtual-network/network-security-groups-overview.md) são implementados como uma firewall [stateful](https://en.wikipedia.org/wiki/Stateful_firewall?oldformat=true). No entanto, devido às limitações atuais da plataforma, as regras definidas pelo utilizador que afetam os fluxos de TCP de entrada são implementadas de forma apátrida. Devido a isso, os fluxos afetados pelas regras de entrada definidas pelo utilizador tornam-se não-terminantes. Adicionalmente, as contagens de byte e pacotes não são registadas para estes fluxos. Consequentemente, o número de bytes e pacotes relatados em Registos de Fluxo NSG (e Traffic Analytics) poderia ser diferente dos números reais. Uma bandeira de opt-in que corrige estas questões está prevista para março de 2021. Entretanto, os clientes que enfrentam problemas graves devido a este comportamento podem solicitar a opt-in via Support, por favor, levantem um pedido de suporte no âmbito do Network Watcher > NSG Flow Logs.  
 

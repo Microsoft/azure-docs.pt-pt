@@ -1,30 +1,30 @@
 ---
 title: Ver alertas
-description: Veja os alertas de acordo com várias categorias e use funcionalidades de pesquisa para ajudá-lo a encontrar alertas de interesse.
+description: Veja os alertas de acordo com várias categorias e utiliza funcionalidades de pesquisa para ajudá-lo a encontrar alertas de interesse.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
 ms.date: 12/02/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: bce83e11a0d4567d37e78388445c108385ca9a61
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: 6dc2a9683a48f20816adc8ce0ee0c1e8dc57b287
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99509079"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100523673"
 ---
 # <a name="view-alerts"></a>Ver alertas
 
 Este artigo descreve como visualizar alertas desencadeados pelo seu sensor e geri-los com ferramentas de alerta.
 
-Pode ver alertas com base em várias categorias, tais como alertas que tenham sido arquivados ou presos. Ou pode procurar alertas de interesse, como alertas baseados num endereço IP ou MAC.  
+Pode ver alertas com base em várias categorias, tais como alertas que tenham sido arquivados ou presos. Também pode pesquisar alertas de interesse, tais como alertas baseados num endereço IP ou MAC.  
 
 Também pode ver alertas do painel de instrumentos do sensor.
 
 Para ver alertas:
 
-- Selecione **Alertas** do menu lateral. A janela **Alertas** apresenta os alertas detetados pelo seu sensor.
+- Selecione **Alertas** do menu lateral. A janela Alertas apresenta os alertas detetados pelo seu sensor.
 
   :::image type="content" source="media/how-to-work-with-alerts-sensor/alerts-screen.png" alt-text="Vista do ecrã Alertas.":::
 
@@ -32,7 +32,7 @@ Para ver alertas:
 
 Pode ver alertas de acordo com várias categorias a partir da vista principal **alerta.** Selecione um alerta para rever detalhes e gerir o evento.
 
-| Ordenar por tipo | Descrição |
+| Ordenar por tipo | Description |
 |--|--|
 | **Alertas Importantes** | Alertas ordenados por importância. |
 | **Alertas Pinned** | Alertas que o utilizador prendeu para mais investigação. Os alertas fixos não são arquivados e são armazenados durante 14 dias na pasta fixada. |
@@ -42,21 +42,21 @@ Pode ver alertas de acordo com várias categorias a partir da vista principal **
 
 ## <a name="search-for-alerts-of-interest"></a>Pesquisa de alertas de interesse
 
-A vista principal **dos Alertas** fornece várias funcionalidades de pesquisa para ajudá-lo a encontrar alertas de interesse.
+A vista principal dos Alertas fornece várias funcionalidades de pesquisa para ajudá-lo a encontrar alertas de interesse.
 
 :::image type="content" source="media/how-to-work-with-alerts-sensor/main-alerts-view.png" alt-text="Alertas a aprender imagens.":::
 
-### <a name="text-search"></a>Pesquisa de texto 
+### <a name="text-search"></a>Pesquisa de texto
 
-Utilize a opção **'Pesquisa Gratuita'** para procurar alertas por texto, números ou caracteres.
+Utilize a opção 'Pesquisa Gratuita' para procurar alertas por texto, números ou caracteres.
 
 Para pesquisar:
 
-- Digite o texto necessário no campo **'Procurar' livre** e prima Enter no seu teclado.
+- Digite o texto necessário no campo 'Procurar' livre e prima Enter no seu teclado.
 
 Para limpar a procura:
 
-- Elimine o texto no campo **'Procurar' livre** e prima Enter no seu teclado.
+- Elimine o texto no campo 'Procurar' livre e prima Enter no seu teclado.
 
 ### <a name="device-group-or-device-ip-address-search"></a>Pesquisa de endereços IP de grupo de dispositivo ou dispositivo
 
@@ -100,7 +100,7 @@ As mensagens de alerta fornecem as seguintes ações:
 
 - Selecione :::image type="icon" source="media/how-to-work-with-alerts-sensor/learn-and-acknowledge-all-alerts.png" border="false"::: para aprender e reconhecer todos os alertas.
 
-- Selecione :::image type="icon" source="media/how-to-work-with-alerts-sensor/export-to-csv.png" border="false"::: para exportar a lista de alerta para um ficheiro CSV e selecione a opção de exportação. Escolha **Alert Export** para a opção exportação regular para CSV. Ou escolha **Exporto de alerta alargado** para a possibilidade de adicionar linhas separadas para informações adicionais sobre um alerta no ficheiro CSV.
+- Selecione :::image type="icon" source="media/how-to-work-with-alerts-sensor/export-to-csv.png" border="false"::: para exportar informações de alerta para um ficheiro .csv. Utilize a opção **de exportação de alerta prolongado** para exportar informações de alerta em linhas separadas para cada alerta que cubra vários dispositivos.
 
 ## <a name="alert-pop-up-window-options"></a>Opções de janela pop-up de alerta
 

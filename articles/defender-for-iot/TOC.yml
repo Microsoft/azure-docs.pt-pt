@@ -131,8 +131,8 @@
               displayName: 'Active Directory, roles, permissions'
               href: how-to-create-and-manage-users.md
             - name: Definir o controlo de acesso de utilizador global
-              displayName: 'business unit, site, region'
               href: how-to-define-global-user-access-control.md
+              displayName: 'business unit, site, region, user'
         - name: Controlar que tráfego é monitorizado
           displayName: 'Windows, Learning, Smart IT Learning, DNS, DHCP, engines, subnets'
           href: how-to-control-what-traffic-is-monitored.md
@@ -140,8 +140,8 @@
           displayName: 'disconnect, connect, activation file, sensor backup'
           href: how-to-manage-sensors-from-the-on-premises-management-console.md
         - name: Gerir sensores individuais
-          displayName: 'activation, certificate, connect, timezone time zone, backup, restore, software update, failure'
           href: how-to-manage-individual-sensors.md
+          displayName: 'activation, certificate, SSL, TLS, connect, timezone time zone, backup, restore, software update, failure'
         - name: Gerir sensores na cloud
           href: how-to-manage-sensors-on-the-cloud.md
         - name: Gerir a consola de gestão no local
@@ -153,10 +153,13 @@
           items:
             - name: Investigar todas as deteções do sensor empresarial num inventário de dispositivos
               href: how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md
+              displayName: classification
             - name: Investigar as deteções do sensor num inventário de dispositivos
               href: how-to-investigate-sensor-detections-in-a-device-inventory.md
+              displayName: 'classification, Windows registry'
         - name: Trabalhar com o mapa de dispositivos do sensor
           href: how-to-work-with-the-sensor-device-map.md
+          displayName: 'connections, Purdue, zoom'
         - name: Trabalhar com os alertas detetados por um sensor
           items:
             - name: Trabalhar com um alerta no seu sensor
@@ -165,8 +168,10 @@
               href: how-to-view-alerts.md
             - name: Ver as informações fornecidas pelos alertas
               href: how-to-view-information-provided-in-alerts.md
+              displayName: PCAP
             - name: Gerir o evento de alerta
               href: how-to-manage-the-alert-event.md
+              displayName: 'PCAP, acknowledge, learn, mute, policy'
             - name: Acelerar a resposta aos incidentes de alertas
               href: how-to-accelerate-alert-incident-response.md
               displayName: 'custom, alerts, comments, groups'
@@ -175,18 +180,21 @@
               displayName: 'integration, partners, vendor, Syslog server, NetWitness,CEF, LEEF, email'
         - name: 'Obter informações sobre ameaças globais, regionais e locais'
           href: how-to-gain-insight-into-global-regional-and-local-threats.md
+          displayName: 'site, business unit, region, map'
         - name: Trabalhar com alertas na consola de gestão no local
           href: how-to-work-with-alerts-on-premises-management-console.md
         - name: Criar relatórios
           items:
             - name: Criar relatórios de avaliação de riscos
               href: how-to-create-risk-assessment-reports.md
+              displayName: 'vulnerability, security score, score'
             - name: Criar relatórios de vetores de ataque
               href: how-to-create-attack-vector-reports.md
             - name: Criar relatórios de mineração de dados
               href: how-to-create-data-mining-queries.md
             - name: Criar tendências e relatórios estatísticos
-              href: how-to-create-data-mining-queries.md
+              href: how-to-create-trends-and-statistics-reports.md
+              displayName: 'widgets, charts'
         - name: Melhorar as informações do dispositivo
           items:
             - name: Trabalhar com as notificações de dispositivo

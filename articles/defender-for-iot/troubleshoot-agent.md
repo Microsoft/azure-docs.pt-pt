@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mlottner
-ms.openlocfilehash: e9904e9157a560e2a4853a1a9cd37977defe73ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9367cf4324d577e4dd44cb9294a8b82b1bceaf74
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90937390"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100522959"
 ---
 # <a name="security-agent-troubleshoot-guide-linux"></a>Guia de resolução de problemas do agente de segurança (Linux)
 
@@ -101,17 +101,11 @@ Defender for IoT agent encountered an error! Error in: {Error Code}, reason: {Er
 | Autenticação | Permissão de arquivo | O agente não tem permissões suficientes para abrir o ficheiro. | Dê ao utilizador **asciotagent** que leia permissões no ficheiro no caminho dado. | Certifique-se de que o ficheiro está acessível. |
 | Autenticação | Formato do Ficheiro | O ficheiro dado não está no formato correto. | Certifique-se de que o ficheiro está no formato correto. Os tipos de ficheiros suportados são .pfx e .pem. | Certifique-se de que o ficheiro é um ficheiro de certificado válido. |
 | Autenticação | Não autorizado | O agente não foi capaz de autenticar contra o IoT Hub com as credenciais dadas. | Validar a configuração de autenticação no ficheiro Configuração Local, analisar a configuração de autenticação e certificar-se de que todos os detalhes estão corretos, validar que o segredo no ficheiro corresponde à identidade autenticada. | Valide a configuração de autenticação em Authentication.config, percorra a configuração de autenticação e certifique-se de que todos os detalhes estão corretos e, em seguida, valide que o segredo no ficheiro corresponde à identidade autenticada.
-| Autenticação | Não encontrado | O dispositivo/módulo foi encontrado. | Validar a configuração de autenticação - certifique-se de que o nome de anfitrião está correto, o dispositivo existe no IoT Hub e tem um módulo duplo de azureiotsecurity. |  Validar a configuração de autenticação - certifique-se de que o nome de anfitrião está correto, o dispositivo existe no IoT Hub e tem um módulo duplo de azureiotsecurity. |
-| Autenticação | Configuração em falta | Falta uma configuração no ficheiro *Authentication.config.* A mensagem de erro deve indicar qual a chave que falta. | Adicione a chave que falta à *LocalConfiguration.jsno* ficheiro.| Adicione a chave em falta no ficheiro *Authentication.config, * consulte a [referência c#-localconfig](azure-iot-security-local-configuration-csharp.md) para obter mais detalhes. |
+| Autenticação | Não Encontrado | O dispositivo/módulo foi encontrado. | Validar a configuração de autenticação - certifique-se de que o nome de anfitrião está correto, o dispositivo existe no IoT Hub e tem um módulo duplo de azureiotsecurity. |  Validar a configuração de autenticação - certifique-se de que o nome de anfitrião está correto, o dispositivo existe no IoT Hub e tem um módulo duplo de azureiotsecurity. |
+| Autenticação | Configuração em falta | Falta uma configuração no ficheiro *Authentication.config.* A mensagem de erro deve indicar qual a chave que falta. | Adicione a chave que falta à *LocalConfiguration.jsno* ficheiro.| Adicione a chave em falta no ficheiro *Authentication.config,* consulte a [referência c#-localconfig](azure-iot-security-local-configuration-csharp.md) para obter mais detalhes. |
 | Autenticação | Configuração de Parse Cant | Um valor de configuração não pode ser analisado. A mensagem de erro deve indicar qual a chave que não pode ser analisada. Um valor de configuração não pode ser analisado porque ou o valor não é do tipo esperado, ou o valor está fora de alcance. |Fixe o valor da chave no **LocalConfiguration.jsno** ficheiro. |Fixe o valor da chave no ficheiro **Authentication.config** para combinar com o esquema, consulte a [referência cs-localconfig](azure-iot-security-local-configuration-c.md) para obter mais detalhes.|
 |
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Leia o Defender para o serviço IoT [Visão geral](overview.md)
-- Saiba mais sobre o Defender for IoT [Architecture](architecture.md)
-- Ativar o [Serviço](quickstart-onboard-iot-hub.md) Defender para IoT
-- Leia o Defender para o serviço IoT [FAQ](resources-frequently-asked-questions.md)
-- Saiba como aceder aos [dados de segurança bruta](how-to-security-data-access.md)
-- Compreender [recomendações](concept-recommendations.md)
-- Compreender [alertas de](concept-security-alerts.md) segurança
+Leia o Defender para o serviço IoT [Visão geral](overview.md) Saiba mais sobre Defender para [arquitetura](architecture.md) IoT Permitir o Defender para [o serviço](quickstart-onboard-iot-hub.md) IoT Leia o Defender para o serviço IoT [FAQ](resources-frequently-asked-questions.md) Saiba como aceder a [dados de segurança bruta](how-to-security-data-access.md) Compreenda recomendações Compreenda [alertas](concept-recommendations.md) [de](concept-security-alerts.md) segurança
