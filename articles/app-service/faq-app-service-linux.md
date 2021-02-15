@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: e2ab39f090124aaf590798795f446bda5b0fe48a
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: 6faec27bf368b3eb45e05a91307df6027bda93b1
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97008559"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100094003"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>FAQ do Serviço de Aplicações do Azure no Linux
 
@@ -110,7 +110,7 @@ Sim, durante uma implementação de Git, Kudu deve detetar que você está imple
 
 **Estou a usar o meu próprio contentor personalizado. Quero que a plataforma monte uma participação da SMB no `/home/` diretório.**
 
-Se `WEBSITES_ENABLE_APP_SERVICE_STORAGE` a definição não for **especificada** ou definida como *verdadeira,* o `/home/` diretório será **partilhado** em instâncias de escala e os ficheiros escritos **persistirão** através de reinicialização. A definição explícita `WEBSITES_ENABLE_APP_SERVICE_STORAGE` para *falso* irá desativar o suporte.
+Se `WEBSITES_ENABLE_APP_SERVICE_STORAGE` a definição não for **especificada** ou definida como *falsa,* o `/home/` diretório não será **partilhado** em instâncias de escala, e os ficheiros escritos **não persistirão** em todo o recomeço. A definição explícita `WEBSITES_ENABLE_APP_SERVICE_STORAGE` para *o verdadeiro* ativará o suporte.
 
 **O meu contentor personalizado demora muito tempo a começar, e a plataforma reinicia o contentor antes de terminar o arranque.**
 

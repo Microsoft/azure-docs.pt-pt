@@ -1,22 +1,18 @@
 ---
 title: Construa a sua primeira fábrica de dados (REST)
 description: Neste tutorial, vai criar um exemplo de pipeline do Azure Data Factory com a API REST do Data Factory.
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
-manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: tutorial
 ms.date: 11/01/2017
-ms.openlocfilehash: 835f72df5c0c693c90b0cf7c45f7805b767d2bcb
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 9aa3e7f2b5f382e1212955479d8e35f91b458bf0
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96496369"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100392022"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-data-factory-rest-api"></a>Tutorial: Criar a primeira fábrica de dados do Azure com a API REST do Data Factory
 > [!div class="op_single_selector"]
@@ -57,7 +53,7 @@ O pipeline neste tutorial tem uma atividade: **atividade do HDInsight Hive**. Es
 * Inicie o **PowerShell** e execute o comando seguinte. Mantenha o Azure PowerShell aberto até ao fim deste tutorial. Se o fechar e reabrir, terá de executar os comandos novamente.
   1. Executar **Connect-AzAccount** e inserir o nome de utilizador e a palavra-passe que utiliza para iniciar seduca no portal Azure.
   2. Executar **Get-AzSubscription** para ver todas as subscrições desta conta.
-  3. Executar **Get-AzSubscription -SubscriptionName NameOfAzureSubscription / Set-AzContext** para selecionar a subscrição com a quais pretende trabalhar. Substitua **NameOfAzureSubscription** pelo nome da sua subscrição do Azure.
+  3. Executar **Get-AzSubscription -SubscriptionName NameOfAzureSubscription | Set-AzContext** para selecionar a subscrição com a quais pretende trabalhar. Substitua **NameOfAzureSubscription** pelo nome da sua subscrição do Azure.
 * Criar um grupo de recursos Azure chamado **ADFTutorialResourceGroup** executando o seguinte comando no PowerShell:
 
     ```powershell
@@ -487,7 +483,7 @@ Neste tutorial, criou uma fábrica de dados do Azure para processar dados execut
 Neste artigo, criou um pipeline com uma atividade de transformação (Atividade do HDInsight) que executa um Script de ramo de registo num cluster do Azure HDInsight a pedido. Para ver como utilizar uma Atividade de Cópia para copiar dados de um Blob do Azure para o Azure SQL, veja o [Tutorial: Copiar dados de um Blob do Azure para o Azure SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 ## <a name="see-also"></a>Consulte também
-| Tópico | Descrição |
+| Tópico | Description |
 |:--- |:--- |
 | [Referência da API REST do Data Factory](/rest/api/datafactory/) |Consulte a documentação abrangente sobre os cmdlets do Data Factory |
 | [Pipelines](data-factory-create-pipelines.md) |Este artigo ajuda-o a compreender os pipelines e as atividades no Azure Data Factory e como os utilizar para construir fluxos de dados ponto a ponto condicionados por dados para o seu cenário ou empresa. |

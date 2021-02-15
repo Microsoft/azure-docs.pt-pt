@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/31/2020
 ms.author: trbye
-ms.openlocfilehash: 7d4d1acac591bfe6ce40efcf6166357d43718363
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: eb8d2d956eac23c02201f7fd855dcae71e960e8d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95024964"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388588"
 ---
 # <a name="improve-synthesis-with-the-audio-content-creation-tool"></a>Melhorar a síntese com a ferramenta de Criação de Conteúdos Áudio
 
@@ -114,7 +114,7 @@ Depois de ter revisto a sua saída de áudio e de estar satisfeito com a sua afi
 2. Escolha o formato de saída para o seu áudio afinado. Uma lista de formatos suportados e taxas de amostra está disponível abaixo.
 3. Pode ver o estado da tarefa no separador **tarefa Exportação.** Se a tarefa falhar, consulte a página de informação detalhada para um relatório completo.
 4. Quando a tarefa estiver concluída, o seu áudio está disponível para download no separador **Audio Library.**
-5. Clique **em Baixar**. Agora está pronto para usar o seu áudio afinado personalizado nas suas apps ou produtos.
+5. Clique em **Transferir**. Agora está pronto para usar o seu áudio afinado personalizado nas suas apps ou produtos.
 
 **Formatos áudio suportados**
 
@@ -125,7 +125,7 @@ Depois de ter revisto a sua saída de áudio e de estar satisfeito com a sua afi
 
 ## <a name="how-to-addremove-audio-content-creation-users"></a>Como adicionar/remover utilizadores da Criação de Conteúdos áudio?
 
-Se mais do que um utilizador quiser utilizar a Criação de Conteúdos Áudio, pode partilhar a sua conta E palavra-passe Azure com o utilizador, ou conceder acesso ao utilizador à subscrição do Azure e ao recurso de fala. Se adicionar um utilizador a uma subscrição do Azure, o utilizador pode aceder a todos os recursos sob a subscrição do Azure. Mas se apenas adicionar um utilizador a um recurso de fala, o utilizador apenas terá acesso ao recurso de fala, e não poderá aceder a outros recursos ao abrigo desta subscrição do Azure. Um utilizador com acesso ao recurso de fala pode utilizar a Criação de Conteúdos Áudio.
+Se mais de um utilizador quiser utilizar a Criação de Conteúdos Áudio, pode conceder ao utilizador acesso à subscrição do Azure e ao recurso de fala. Se adicionar um utilizador a uma subscrição do Azure, o utilizador pode aceder a todos os recursos sob a subscrição do Azure. Mas se apenas adicionar um utilizador a um recurso de fala, o utilizador apenas terá acesso ao recurso de fala, e não poderá aceder a outros recursos ao abrigo desta subscrição do Azure. Um utilizador com acesso ao recurso de fala pode utilizar a Criação de Conteúdos Áudio.
 
 ### <a name="add-users-to-a-speech-resource"></a>Adicione os utilizadores a um recurso de fala
 
@@ -146,7 +146,7 @@ Os utilizadores que estejam no mesmo recurso de fala verão o trabalho uns dos o
 
 ### <a name="remove-users-from-a-speech-resource"></a>Remover os utilizadores de um recurso de fala
 1. Procure **serviços cognitivos** no portal Azure, selecione o recurso de voz de onde pretende remover os utilizadores.
-2. Clique em **Controlo de acesso (IAM)** . Clique no **separador atribuições de funções** para ver todas as atribuições de funções para este recurso de fala.
+2. Clique em **Controlo de acesso (IAM)**. Clique no **separador atribuições de funções** para ver todas as atribuições de funções para este recurso de fala.
 3. Selecione os utilizadores que pretende remover, clique em **Remover**  >  **Ok**.
     :::image source="media/audio-content-creation/remove-user.png" alt-text="Remover botão":::
 
@@ -162,7 +162,7 @@ Se pretender que um dos utilizadores dê acesso a outros utilizadores, tem de da
 
 * [API de áudio longo](./long-audio-api.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Speech Studio](https://speech.microsoft.com)

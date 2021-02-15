@@ -1,16 +1,16 @@
 ---
-title: Encriptação de dados de backup usando chaves geridas pelo cliente
+title: Encriptação de dados de cópias de segurança com chaves geridas pelo cliente
 description: Saiba como o Azure Backup permite encriptar os seus dados de backup utilizando teclas geridas pelo cliente (CMK).
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: d5daa88475e3becde6e513391c555471f80396c5
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 230669e0a3543a0709dda3f7fee35a0cae300d5a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98735865"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100369463"
 ---
-# <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Encriptação de dados de backup usando chaves geridas pelo cliente
+# <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Encriptação de dados de cópias de segurança com chaves geridas pelo cliente
 
 O Azure Backup permite-lhe encriptar os seus dados de backup utilizando teclas geridas pelo cliente (CMK) em vez de utilizar teclas geridas pela plataforma, que são ativadas por padrão. As suas chaves que são utilizadas para encriptar os dados de backup devem ser armazenadas no [Cofre da Chave Azure](../key-vault/index.yml).
 
@@ -36,6 +36,7 @@ Este artigo aborda o seguinte:
 - O cofre dos Serviços de Recuperação só pode ser encriptado com chaves armazenadas num Cofre de Chaves Azure, localizado na **mesma região.** Além disso, as chaves devem ser **apenas teclas RSA 2048** e devem estar em estado **ativado.**
 
 - A movimentação do cofre dos Serviços de Recuperação encriptado da CMK através de Grupos de Recursos e Subscrições não é suportada atualmente.
+- Quando você mover um cofre de Serviços de Recuperação já encriptado com chaves geridas pelo cliente para um novo inquilino, você precisará atualizar o cofre dos Serviços de Recuperação para recriar e reconfigurar a identidade gerida do cofre e CMK (que deve estar no novo inquilino). Se isto não for feito, as operações de backup e restauro começarão a falhar. Além disso, quaisquer permissões de controlo de acesso baseadas em funções (RBAC) criadas dentro da subscrição terão de ser reconfiguradas.
 
 - Esta funcionalidade pode ser configurada através do portal Azure e PowerShell.
 
@@ -119,32 +120,6 @@ Agora precisa de permitir que o cofre dos Serviços de Recuperação aceda ao Co
 
 1. **Selecione Guardar** para guardar as alterações feitas na política de acesso do Cofre da Chave Azure.
 
-**Com PowerShell:**
-
-Utilize o comando [Set-AzRecoveryServicesVaultProperty](/powershell/module/az.recoveryservices/set-azrecoveryservicesvaultproperty) para permitir a encriptação utilizando as teclas geridas pelo cliente e para atribuir ou atualizar a chave de encriptação a utilizar.
-
-Exemplo:
-
-```azurepowershell
-$keyVault = Get-AzKeyVault -VaultName "testkeyvault" -ResourceGroupName "testrg" 
-$key = Get-AzKeyVaultKey -VaultName $keyVault -Name "testkey" 
-Set-AzRecoveryServicesVaultProperty -EncryptionKeyId $key.ID -KeyVaultSubscriptionId "xxxx-yyyy-zzzz"  -VaultId $vault.ID
-
-
-$enc=Get-AzRecoveryServicesVaultProperty -VaultId $vault.ID
-$enc.encryptionProperties | fl
-```
-
-Resultado:
-
-```output
-EncryptionAtRestType          : CustomerManaged
-KeyUri                        : testkey
-SubscriptionId                : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx 
-LastUpdateStatus              : Succeeded
-InfrastructureEncryptionState : Disabled
-```
-
 ### <a name="enable-soft-delete-and-purge-protection-on-the-azure-key-vault"></a>Permitir a eliminação suave e a proteção de purga no Cofre da Chave Azure
 
 Tem de ativar a **proteção de eliminação e purga suave** no cofre da chave Azure que armazena a sua chave de encriptação. Pode fazê-lo a partir do Cofre da Chave Azure UI, como mostrado abaixo. (Alternativamente, estas propriedades podem ser definidas enquanto criam o Cofre da Chave). Leia mais sobre estas propriedades do Key Vault [aqui.](../key-vault/general/soft-delete-overview.md)
@@ -197,7 +172,7 @@ Também pode ativar a proteção de eliminação e purga suave através do Power
 
 Uma vez assegurados os acima, continue a selecionar a chave de encriptação para o seu cofre.
 
-Para atribuir a chave:
+#### <a name="to-assign-the-key-in-the-portal"></a>Para atribuir a chave no portal
 
 1. Vá ao cofre dos Serviços de Recuperação -> **Propriedades**
 
@@ -230,6 +205,32 @@ Para atribuir a chave:
     As atualizações das chaves de encriptação também estão registadas no Registo de Atividade do cofre.
 
     ![Registo de atividades](./media/encryption-at-rest-with-cmk/activity-log.png)
+
+#### <a name="to-assign-the-key-with-powershell"></a>Para atribuir a chave com PowerShell
+
+Utilize o comando [Set-AzRecoveryServicesVaultProperty](/powershell/module/az.recoveryservices/set-azrecoveryservicesvaultproperty) para permitir a encriptação utilizando as teclas geridas pelo cliente e para atribuir ou atualizar a chave de encriptação a utilizar.
+
+Exemplo:
+
+```azurepowershell
+$keyVault = Get-AzKeyVault -VaultName "testkeyvault" -ResourceGroupName "testrg" 
+$key = Get-AzKeyVaultKey -VaultName $keyVault -Name "testkey" 
+Set-AzRecoveryServicesVaultProperty -EncryptionKeyId $key.ID -KeyVaultSubscriptionId "xxxx-yyyy-zzzz"  -VaultId $vault.ID
+
+
+$enc=Get-AzRecoveryServicesVaultProperty -VaultId $vault.ID
+$enc.encryptionProperties | fl
+```
+
+Resultado:
+
+```output
+EncryptionAtRestType          : CustomerManaged
+KeyUri                        : testkey
+SubscriptionId                : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx 
+LastUpdateStatus              : Succeeded
+InfrastructureEncryptionState : Disabled
+```
 
 >[!NOTE]
 > Este processo permanece o mesmo quando pretende atualizar ou alterar a chave de encriptação. Se desejar atualizar e utilizar uma chave de outro Cofre-Chave (diferente da que está a ser utilizada atualmente), certifique-se de que:
@@ -311,7 +312,7 @@ Ao executar uma restauração de ficheiros, os dados restaurados serão encripta
 
 Ao restaurar a partir de uma base de dados SAP HANA/SQL com rede de apoio que funciona num Azure VM, os dados restaurados serão encriptados utilizando a chave de encriptação utilizada no local de armazenamento do alvo. Pode ser uma chave gerida pelo cliente ou uma chave gerida pela plataforma usada para encriptar os discos do VM.
 
-## <a name="frequently-asked-questions"></a>Perguntas frequentes
+## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
 ### <a name="can-i-encrypt-an-existing-backup-vault-with-customer-managed-keys"></a>Posso encriptar um cofre de reserva existente com chaves geridas pelo cliente?
 
@@ -337,6 +338,6 @@ Não seguir os passos do artigo e continuar a proteger os itens pode levar a que
 
 A utilização da encriptação CMK para cópia de segurança não incorre em custos adicionais para si. No entanto, pode continuar a incorrer em custos para a utilização do seu Cofre de Chaves Azure, onde a sua chave está armazenada.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Visão geral das funcionalidades de segurança no Azure Backup](security-overview.md)

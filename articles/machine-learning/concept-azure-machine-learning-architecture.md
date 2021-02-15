@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 08/20/2020
 ms.custom: seoapril2019, seodec18
-ms.openlocfilehash: a36481b2496060cb12bd755f56680915ec1074bb
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 987b56eb1b258e1c5f2fd7d5bcfdd0e95f6c0730
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94540197"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100091674"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Como funciona a Azure Machine Learning: Arquitetura e conceitos
 
@@ -47,28 +47,15 @@ Um espaço de trabalho inclui outros recursos Azure que são usados pelo espaço
 
 Podes partilhar um espaço de trabalho com os outros.
 
-### <a name="create-workspace"></a>Criar área de trabalho
-
-O diagrama seguinte mostra o fluxo de trabalho criar espaço de trabalho.
-
-* Você insiná-lo no Azure AD de um dos clientes suportados Azure Machine Learning (Azure CLI, Python SDK, portal Azure) e solicitar o token apropriado do Azure Resource Manager.
-* Você chama Azure Resource Manager para criar o espaço de trabalho. 
-* A Azure Resource Manager contacta o fornecedor de recursos Azure Machine Learning para providenciar o espaço de trabalho.
-* Se não especificar os recursos existentes, são criados recursos necessários adicionais na sua subscrição..
-
-Você também pode fornecer outros alvos de computação que estão ligados a um espaço de trabalho (como Azure Kubernetes Service ou VMs) conforme necessário.
-
-[![Criar fluxo de trabalho do espaço de trabalho](media/concept-azure-machine-learning-architecture/create-workspace.png)](media/concept-azure-machine-learning-architecture/create-workspace.png#lightbox)
-
 ## <a name="computes"></a>Cálculos
 
 <a name="compute-targets"></a> Um [alvo de cálculo](concept-compute-target.md) é qualquer máquina ou conjunto de máquinas que utilize para executar o seu script de treino ou hospedar a sua implementação de serviço. Pode utilizar a sua máquina local ou um recurso de computação remota como alvo de computação.  Com alvos de cálculo, pode começar a treinar na sua máquina local e depois escalar para a nuvem sem alterar o seu script de treino.
 
 A Azure Machine Learning introduz duas máquinas virtuais totalmente geridas (VM) totalmente geridas que estão configuradas para tarefas de aprendizagem automática:
 
-* <a name="compute-instance"></a>**Instância de cálculo** : Uma instância computacional é um VM que inclui múltiplas ferramentas e ambientes instalados para machine learning. O uso primário de um exemplo de computação é para o seu posto de trabalho de desenvolvimento.  Pode começar a executar cadernos de amostra sem necessidade de configuração. Uma instância computacional também pode ser usada como um alvo de computação para a formação e inferenção de empregos.
+* <a name="compute-instance"></a>**Instância de cálculo**: Uma instância computacional é um VM que inclui múltiplas ferramentas e ambientes instalados para machine learning. O uso primário de um exemplo de computação é para o seu posto de trabalho de desenvolvimento.  Pode começar a executar cadernos de amostra sem necessidade de configuração. Uma instância computacional também pode ser usada como um alvo de computação para a formação e inferenção de empregos.
 
-* **Clusters computativo** : Os clusters computacional são um aglomerado de VMs com capacidades de escala de vários nós. Os clusters computacional são mais adequados para metas de computação para grandes empregos e produção.  O cluster aumenta automaticamente quando um trabalho é submetido.  Utilizar como alvo de computação de treino ou para implantação dev/teste.
+* **Clusters computativo**: Os clusters computacional são um aglomerado de VMs com capacidades de escala de vários nós. Os clusters computacional são mais adequados para metas de computação para grandes empregos e produção.  O cluster aumenta automaticamente quando um trabalho é submetido.  Utilizar como alvo de computação de treino ou para implantação dev/teste.
 
 Para obter mais informações sobre os alvos de computação de formação, consulte [os alvos do computação de formação](concept-compute-target.md#train).  Para obter mais informações sobre os alvos de computação de implantação, consulte [os alvos de implementação](concept-compute-target.md#deploy).
 
@@ -126,10 +113,6 @@ Por exemplo, executar configurações, ver [Configurar uma execução de treino]
 [Espaço de](#workspace)  >  trabalho [Experiências](#experiments)  >  [Correr](#runs)  >  **Instantâneo**
 
 Quando submete uma execução, o Azure Machine Learning comprime o diretório que contém o script como ficheiro zip e envia-o para o alvo do cálculo. O ficheiro zip é então extraído, e o script é executado lá. A Azure Machine Learning também armazena o ficheiro zip como um instantâneo como parte do registo de execução. Qualquer pessoa com acesso ao espaço de trabalho pode navegar num registo de execução e descarregar o instantâneo.
-
-O diagrama seguinte mostra o fluxo de trabalho do instantâneo do código.
-
-[![Fluxo de trabalho de instantâneo de código](media/concept-azure-machine-learning-architecture/code-snapshot.png)](media/concept-azure-machine-learning-architecture/code-snapshot.png#lightbox)
 
 ### <a name="logging"></a>Registo
 

@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 02/01/2021
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 73652f821abfa4a092e4a61ffe2be9e7262a2f10
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 5261075a82eaefd91cbedd2dd2fe08cb1e0a20b4
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99538565"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100381839"
 ---
 # <a name="configure-and-manage-continuous-backup-and-point-in-time-restore-preview---using-azure-powershell"></a>Configure e gerencie a cópia de segurança contínua e o ponto no tempo de restauração (Preview) - usando a Azure PowerShell
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -50,7 +50,7 @@ Este artigo descreve como fornecer uma conta com cópia de segurança contínua 
 
 Para fornecer uma conta com cópia de segurança contínua, adicione um argumento `-BackupPolicyType Continuous` juntamente com o comando de provisionamento regular.
 
-O cmdlet seguinte é um exemplo de uma única conta de escrita de região `pitracct2` com uma política de backup contínua criada na região "West US" no âmbito do grupo de recursos "myrg":
+O cmdlet seguinte é um exemplo de uma única conta de escrita de região `pitracct2` com uma política de backup contínua criada na região oeste dos *EUA* sob o grupo de recursos *myrg:*
 
 ```azurepowershell
 
@@ -65,7 +65,7 @@ New-AzCosmosDBAccount `
 
 ## <a name="provision-a-mongodb-api-account-with-continuous-backup"></a><a id="provision-mongodb-api"></a>Fornecimento de uma conta API mongoDB com backup contínuo
 
-O cmdlet seguinte é um exemplo de conta de backup contínua "pitracct2" criada na região "West US" no âmbito do grupo de recursos "myrg":
+O cmdlet seguinte é um exemplo de conta de backup contínua *pitracct2* criado na região *oeste dos EUA* sob o grupo de recursos *myrg:*
 
 ```azurepowershell
 
@@ -162,13 +162,13 @@ A resposta inclui todas as contas de base de dados (ao vivo e eliminadas) que po
   },
 ```
 
-Tal como o "Tempo de Criação" ou "Hora da Eliminação" para a conta, existe também um "Tempo de Criação" ou "Hora da Eliminação" para a região. Estes tempos permitem-lhe escolher a região certa e um intervalo de tempo válido para restaurar naquela região.
+Tal como a `CreationTime` conta ou para a `DeletionTime` conta, há um ou para `CreationTime` a `DeletionTime` região também. Estes tempos permitem-lhe escolher a região certa e um intervalo de tempo válido para restaurar naquela região.
 
 **Listar todas as versões das bases de dados SQL numa conta de base de dados ao vivo**
 
 A listagem de todas as versões de bases de dados permite-lhe escolher a base de dados certa num cenário em que o tempo real de existência da base de dados é desconhecido.
 
-Execute o seguinte comando PowerShell para listar todas as versões das bases de dados. Este comando só funciona com contas ao vivo. Os parâmetros "DatabaseAccountInstanceId" e "LocationName" são obtidos a partir das propriedades "nome" e "localização" na resposta do `Get-AzCosmosDBRestorableDatabaseAccount` cmdlet. O atributo "DatabaseAccountInstanceId" refere-se à propriedade "instanceId" da conta de base de dados de origem que está a ser restaurada:
+Execute o seguinte comando PowerShell para listar todas as versões das bases de dados. Este comando só funciona com contas ao vivo. Os `DatabaseAccountInstanceId` parâmetros e os `LocationName` parâmetros são obtidos a partir da `name` `location` esto de propriedades na resposta do `Get-AzCosmosDBRestorableDatabaseAccount` cmdlet. O `DatabaseAccountInstanceId` atributo refere-se à `instanceId` propriedade da conta de base de dados de origem que está a ser restaurada:
 
 
 ```azurepowershell
@@ -181,7 +181,7 @@ Get-AzCosmosdbSqlRestorableDatabase `
 
 **Lista todas as versões de contentores SQL de uma base de dados numa conta de base de dados ao vivo.**
 
-Utilize o seguinte comando para listar todas as versões dos recipientes SQL. Este comando só funciona com contas ao vivo. O parâmetro "DatabaseRid" é o "ResourceId" da base de dados que pretende restaurar. É o valor do atributo "ownerResourceid" encontrado na resposta do `Get-AzCosmosdbSqlRestorableDatabase` cmdlet. A resposta inclui também uma lista de operações realizadas em todos os contentores dentro desta base de dados.
+Utilize o seguinte comando para listar todas as versões dos recipientes SQL. Este comando só funciona com contas ao vivo. O `DatabaseRid` parâmetro é a base de `ResourceId` dados que pretende restaurar. É o valor do `ownerResourceid` atributo encontrado na resposta do `Get-AzCosmosdbSqlRestorableDatabase` cmdlet. A resposta inclui também uma lista de operações realizadas em todos os contentores dentro desta base de dados.
 
 ```azurepowershell
 
@@ -208,7 +208,7 @@ Get-AzCosmosdbSqlRestorableResource `
 
 ## <a name="enumerate-restorable-resources-for-mongodb"></a><a id="enumerate-mongodb-api"></a>Enumerar recursos restauradores para o MongoDB
 
-Os comandos de enumeração descritos abaixo ajudam-no a descobrir os recursos disponíveis para restauro em vários picos de tempo. Além disso, fornecem também um feed de eventos-chave na conta, base de dados e recursos de contentores restauradores. Estes comandos funcionam apenas para contas ao vivo e são semelhantes aos comandos API SQL, mas com "MongoDB" no nome de comando em vez de "sql".
+Os comandos de enumeração descritos abaixo ajudam-no a descobrir os recursos disponíveis para restauro em vários picos de tempo. Além disso, fornecem também um feed de eventos-chave na conta, base de dados e recursos de contentores restauradores. Estes comandos funcionam apenas para contas ao vivo e são semelhantes aos comandos API SQL, mas com `MongoDB` no nome de comando em vez de `sql` .
 
 **Listar todas as versões das bases de dados do MongoDB numa conta de base de dados ao vivo**
 

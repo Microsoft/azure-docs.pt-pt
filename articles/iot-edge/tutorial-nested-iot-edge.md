@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: 05d6607c091361ecee3fcd5527025b6f9fb59051
-ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
+ms.openlocfilehash: a7f82ec5a4ef918b1bc7ab0fd6813199c0a1d772
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98573212"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100366397"
 ---
 # <a name="tutorial-create-a-hierarchy-of-iot-edge-devices-preview"></a>Tutorial: Criar uma hierarquia de dispositivos IoT Edge (Pré-visualização)
 
@@ -27,7 +27,7 @@ Você pode estruturar uma hierarquia de dispositivos para que apenas a camada su
 
 O objetivo deste tutorial é criar uma hierarquia de dispositivos IoT Edge que simula um ambiente de produção. No final, irá implantar o [módulo Sensor de Temperatura Simulado](https://azuremarketplace.microsoft.com/marketplace/apps/azure-iot.simulated-temperature-sensor) num dispositivo de camada inferior sem acesso à Internet, descarregando imagens de contentores através da hierarquia.
 
-Para atingir este objetivo, este tutorial acompanha-o através da criação de uma hierarquia de dispositivos IoT Edge, implantando recipientes de tempo de execução IoT Edge para os seus dispositivos e configurando os seus dispositivos localmente. Neste tutorial, vai aprender a:
+Para atingir este objetivo, este tutorial acompanha-o através da criação de uma hierarquia de dispositivos IoT Edge, implantando recipientes de tempo de execução IoT Edge para os seus dispositivos e configurando os seus dispositivos localmente. Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 >
@@ -190,12 +190,6 @@ Cada dispositivo necessita de uma cópia do certificado de CA raiz e de uma cóp
 Instale o IoT Edge seguindo estes passos em ambos os dispositivos.
 
 1. Instale a configuração do repositório que corresponda ao sistema operativo do dispositivo.
-
-   * **Servidor Ubuntu 16.04**:
-
-     ```bash
-     curl https://packages.microsoft.com/config/ubuntu/16.04/multiarch/prod.list > ./microsoft-prod.list
-     ```
 
    * **Servidor Ubuntu 18.04**:
 
@@ -360,7 +354,7 @@ No [portal Azure:](https://ms.portal.azure.com/)
 
 1. Adicione as seguintes variáveis ambientais ao seu módulo Edge Hub:
 
-    | Nome | Valor |
+    | Name | Valor |
     | - | - |
     | `experimentalFeatures__enabled` | `true` |
     | `experimentalFeatures__nestedEdgeEnabled` | `true` |
@@ -373,7 +367,7 @@ No [portal Azure:](https://ms.portal.azure.com/)
 
 1. No separador variáveis ambientais, insira o seguinte par de valor-nome variável do ambiente:
 
-    | Nome | Valor |
+    | Name | Valor |
     | - | - |
     | `REGISTRY_PROXY_REMOTEURL` | `https://mcr.microsoft.com` |
 
@@ -532,7 +526,7 @@ No [portal Azure:](https://ms.portal.azure.com/)
 
 1. Adicione as seguintes variáveis ambientais ao seu módulo Edge Hub:
 
-    | Nome | Valor |
+    | Name | Valor |
     | - | - |
     | `experimentalFeatures__enabled` | `true` |
     | `experimentalFeatures__nestedEdgeEnabled` | `true` |
@@ -651,7 +645,7 @@ sudo iotedge check --diagnostics-image-name <parent_device_fqdn_or_ip>:8000/azur
    
 O `azureiotedge-diagnostics` valor é retirado do registo do contentor que está ligado ao módulo de registo. Este tutorial tem definido por padrão para https://mcr.microsoft.com:
 
-| Nome | Valor |
+| Name | Valor |
 | - | - |
 | `REGISTRY_PROXY_REMOTEURL` | `https://mcr.microsoft.com` |
 

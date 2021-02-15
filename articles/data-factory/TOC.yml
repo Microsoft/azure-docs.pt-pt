@@ -736,6 +736,8 @@
               href: how-to-sqldb-to-cosmosdb.md
             - name: Eliminar duplicados e verificação null com fragmentos
               href: how-to-data-flow-dedupe-nulls-snippets.md
+            - name: Processar dados de modelos aml usando fluxo de dados
+              href: scenario-dataflow-process-data-aml-models.md
         - name: Migração SSIS a partir do local
           items:
             - name: Descrição geral da migração SSIS

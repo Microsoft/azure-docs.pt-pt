@@ -3,16 +3,15 @@ title: Formato do Common Data Model
 description: Transformar dados utilizando o sistema de metadados do Modelo de Dados Comuns
 author: kromerm
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/04/2021
 ms.author: makromer
-ms.openlocfilehash: a08457ba041fa39fda367976498a4a89930c56e3
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 45f5334ebee3365c17bfa52c8d47ed75b82bdfa1
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99585165"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100387704"
 ---
 # <a name="common-data-model-format-in-azure-data-factory"></a>Formato comum do modelo de dados na Fábrica de Dados Azure
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]

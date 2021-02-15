@@ -138,6 +138,23 @@
               href: ./scripts/functions-cli-create-function-app-vsts-continuous.md
 - name: Conceitos
   items:
+    - name: Melhores práticas
+      items:
+        - name: Desempenho e fiabilidade
+          href: functions-best-practices.md
+          displayName: best practices
+        - name: Gerir ligações
+          href: manage-connections.md
+          displayName: best practices
+        - name: Considerações sobre armazenamento
+          href: storage-considerations.md
+          displayName: 'encryption, keys, mount, files'
+        - name: Manipulação de erros e recaímentos de funções
+          href: functions-bindings-error-pages.md
+          displayName: best practices
+        - name: Segurança
+          href: security-concepts.md
+          displayName: best practices
     - name: Comparar versões de runtime
       href: functions-versions.md
       displayName: 'migrate, migration, v3'
@@ -212,12 +229,7 @@
       href: functions-diagnostics.md
     - name: Custos do plano de consumo
       href: functions-consumption-costs.md
-    - name: Considerações de desempenho
-      href: functions-best-practices.md
       displayName: best practice
-    - name: Considerações sobre armazenamento
-      href: storage-considerations.md
-      displayName: 'encryption, keys, mount, files'
     - name: Proxies de Funções
       href: functions-proxies.md
     - name: Opções de redes

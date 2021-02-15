@@ -1,22 +1,18 @@
 ---
 title: Adicione tolerância a falhas na atividade de cópia da fábrica de dados Azure, ignorando linhas incompatíveis
 description: Saiba como adicionar tolerância a falhas na Atividade de Cópia da Fábrica de Dados Azure, ignorando linhas incompatíveis durante a cópia
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/27/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 65584b2a6a3bdfbb863c26dac688b20279c4b54d
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 10e4bedae5b7c429152a3503fff2cb2769d66eb5
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452294"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100377181"
 ---
 # <a name="add-fault-tolerance-in-copy-activity-by-skipping-incompatible-rows"></a>Adicione a tolerância à falha na Atividade de Cópia saltando linhas incompatíveis
 
@@ -71,10 +67,10 @@ O exemplo a seguir fornece uma definição JSON para configurar saltar as linhas
 
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
-| **enableSkipIncompatibleRow** | Ativar o salto de linhas incompatíveis durante a cópia ou não. | Verdadeiro<br/>Falso (predefinição) | Não |
-| **redireccionamentosIncompatíveis** | Um grupo de propriedades que podem ser especificadas quando pretende registar as linhas incompatíveis. | &nbsp; | Não |
-| **linkedServiceName** | O serviço ligado do Azure Storage para armazenar o registo que contém as linhas ignoradas. | O nome de um serviço ligado [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) ou [AzureStorageSas,](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) que se refere à instância de armazenamento que pretende utilizar para armazenar o ficheiro de registo. | Não |
-| **caminho** | O caminho do ficheiro de registo que contém as linhas ignoradas. | Especifique a trajetória de armazenamento Blob que pretende utilizar para registar os dados incompatíveis. Se não providenciar um caminho, o serviço cria um recipiente para si. | Não |
+| **enableSkipIncompatibleRow** | Ativar o salto de linhas incompatíveis durante a cópia ou não. | Verdadeiro<br/>Falso (predefinição) | No |
+| **redireccionamentosIncompatíveis** | Um grupo de propriedades que podem ser especificadas quando pretende registar as linhas incompatíveis. | &nbsp; | No |
+| **linkedServiceName** | O serviço ligado do Azure Storage para armazenar o registo que contém as linhas ignoradas. | O nome de um serviço ligado [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) ou [AzureStorageSas,](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) que se refere à instância de armazenamento que pretende utilizar para armazenar o ficheiro de registo. | No |
+| **caminho** | O caminho do ficheiro de registo que contém as linhas ignoradas. | Especifique a trajetória de armazenamento Blob que pretende utilizar para registar os dados incompatíveis. Se não providenciar um caminho, o serviço cria um recipiente para si. | No |
 
 ## <a name="monitoring"></a>Monitorização
 Após o funcionamento da atividade da cópia, pode ver o número de linhas ignoradas na secção de monitorização:

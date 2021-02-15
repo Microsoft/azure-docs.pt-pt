@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/05/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: ec8fd05c0661178cc07b9165793c9f34f2463948
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 9dc787c57ef3ab84d9a2b90cfe059594b0a31d08
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98754322"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100102517"
 ---
 # <a name="quickstart-call-an-aspnet-web-api-thats-protected-by-microsoft-identity-platform"></a>Quickstart: Ligue para uma API web ASP.NET protegida pela plataforma de identidade da Microsoft
 
@@ -48,13 +48,12 @@ Nesta secção, registe a sua API web nas **inscrições** da App no portal Azur
 
 Para registar as suas aplicações manualmente, escolha o inquilino Azure Ative Directory (Azure AD) onde pretende criar as suas apps.
 
-1. Inscreva-se no <a href="https://portal.azure.com/" target="_blank">portal <span class="docon docon-navigate-external x-hidden-focus"></span> Azure</a> com uma conta de trabalho ou escola ou uma conta pessoal da Microsoft.
-1. Se a sua conta estiver presente em mais de um inquilino AD Azure, selecione o seu perfil no canto superior direito e, em seguida, selecione **o diretório da Switch**.
-1. Mude a sua sessão de portal para o inquilino AZure AD que pretende utilizar.
+1. Inicie sessão no <a href="https://portal.azure.com/" target="_blank">portal do Azure</a>.
+1. Se tiver acesso a vários inquilinos, use o filtro **de subscrição Diretório +** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o inquilino que pretende utilizar.
 
 ### <a name="register-the-todolistservice-app"></a>Registe a aplicação TodoListService
 
-1. Inscreva-se no <a href="https://portal.azure.com/" target="_blank">portal <span class="docon docon-navigate-external x-hidden-focus"></span> Azure</a>.
+1. Inicie sessão no <a href="https://portal.azure.com/" target="_blank">portal do Azure</a>.
 1. Se tiver acesso a vários inquilinos, utilize o filtro **de subscrição Diretório +** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o inquilino no qual pretende registar uma candidatura.
 1. Procure e selecione **Azure Active Directory**.
 1. Em **Gestão**, selecione **registos de aplicações**  >  **Novo registo**.
@@ -183,7 +182,7 @@ Pode implementar um método personalizado para validar emitentes utilizando o `I
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Saiba mais sobre o cenário de API web protegido que a plataforma de identidade da Microsoft suporta:
 > [!div class="nextstepaction"]
 > [Cenário de API web protegido](scenario-protected-web-api-overview.md)

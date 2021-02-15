@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 04/29/2018
-ms.openlocfilehash: 49929cfe0abc634dc4b704aba1c7b11a5d7dd777
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 427b471158e89b2b3ae4ea6477133f1e69247078
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/14/2021
-ms.locfileid: "100383590"
+ms.locfileid: "100518849"
 ---
 # <a name="replicate-azure-vms-to-another-azure-region"></a>Replicar VMs do Azure para outra região do Azure
 
@@ -54,7 +54,7 @@ Ative a replicação. Este procedimento pressupõe que a região primária de Az
    - **Contas de armazenamento de destino (fonte VM não utiliza discos geridos)**: Por padrão, a Recuperação do Site cria uma nova conta de armazenamento-alvo que imita a configuração de armazenamento de VM de origem. Caso a conta de armazenamento já exista, é reutilizada.
    - **Discos geridos por réplicas (fonte VM utiliza discos geridos)**: A Recuperação do Local cria novos discos geridos por réplicas na região alvo para espelhar os discos geridos pela fonte VM com o mesmo tipo de armazenamento (Standard ou premium) que o disco gerido pela VM de origem.
    - **Cache Contas de Armazenamento**: A Recuperação do Local necessita de uma conta de armazenamento extra chamada armazenamento de cache na região de origem. Todas as alterações que ocorram nos VMs de origem são rastreadas e enviadas para a conta de armazenamento de cache antes de as replicarem para o local alvo. Esta conta de armazenamento deve ser standard.
-   - **Conjuntos de disponibilidade de destino**: Por padrão, a Recuperação do Site cria uma nova disponibilidade definida na região alvo com o sufixo "Azure Site Recovery" no nome, para VMs que fazem parte de uma disponibilidade definida na região de origem. Se o conjunto de disponibilidade criado pela Recuperação do Site já existir, é reutilizado.
+   - **Conjuntos de disponibilidade de destino**: Por predefinição, a Recuperação do Site cria uma nova disponibilidade definida na região alvo com o sufixo "asr" no nome, para VMs que fazem parte de uma disponibilidade definida na região de origem. Se o conjunto de disponibilidade criado pela Recuperação do Site já existir, é reutilizado.
      >[!NOTE]
      >Ao configurar os conjuntos de disponibilidade do alvo, configurar diferentes conjuntos de disponibilidade para VMs de tamanho diferente. 
      >

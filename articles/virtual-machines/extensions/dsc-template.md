@@ -2,8 +2,7 @@
 title: Extensão de configuração de estado desejada com modelos de gestor de recursos Azure
 description: Saiba mais sobre a definição do modelo do Gestor de Recursos para a extensão de Configuração do Estado Desejado (DSC) em Azure.
 services: virtual-machines-windows
-author: bobbytreed
-manager: carmonm
+author: mgoedtel
 tags: azure-resource-manager
 keywords: dsc
 ms.assetid: b5402e5a-1768-4075-8c19-b7f7402687af
@@ -12,14 +11,14 @@ ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: na
-ms.date: 10/05/2018
-ms.author: robreed
-ms.openlocfilehash: 8b862238c0c04fae72659d644dbaf882d00cca19
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.date: 02/09/2021
+ms.author: magoedte
+ms.openlocfilehash: 4e9133697cda4a46a895c7e41eff6d17ccd01e4a
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98735695"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100093663"
 ---
 # <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>Extensão de configuração de estado desejada com modelos de gestor de recursos Azure
 
@@ -37,7 +36,7 @@ Para mais informações, consulte [a classe VirtualMachineExtension](/dotnet/api
 ```json
 {
   "type": "Microsoft.Compute/virtualMachines/extensions",
-  "name": "Microsoft.Powershell.DSC",
+  "name": "[concat(parameters('VMName'), '/Microsoft.Powershell.DSC')]",
   "apiVersion": "2018-06-01",
   "location": "[parameters('location')]",
   "dependsOn": [
@@ -178,7 +177,7 @@ Para obter uma lista dos argumentos disponíveis para o script de configuração
 
 ## <a name="details"></a>Detalhes
 
-| Nome da propriedade | Tipo | Descrição |
+| Nome da propriedade | Tipo | Description |
 | --- | --- | --- |
 | definições.wmfVersion |string |Especifica a versão do Quadro de Gestão do Windows (WMF) que deve ser instalada no seu VM. Definir esta propriedade para as **mais recentes** instala a versão mais recente do WMF. Atualmente, os únicos valores possíveis para esta propriedade são **4.0,** **5.0**, **5.1,** e **os mais recentes.** Estes valores possíveis estão sujeitos a atualizações. O valor predefinido é **o mais recente**. |
 | settings.configuration.url |string |Especifica a localização do URL a partir do qual descarregar a sua configuração DSC .zip ficheiro. Se o URL fornecido necessitar de um token SAS para acesso, desacorra a **propriedade urationUrlSasTokenprotectedSettings.config** o valor do seu token SAS. Esta propriedade é necessária se **settings.configuration.script** ou **settings.configuration.fun** forem definidos. Se não for dado qualquer valor para estas propriedades, a extensão chama o script de configuração padrão para definir metadados do Gestor de Configuração de Localização (LCM) e os argumentos devem ser fornecidos. |
@@ -197,7 +196,7 @@ Para obter uma lista dos argumentos disponíveis para o script de configuração
 Para obter mais informações sobre os seguintes valores, consulte [as definições básicas do Gestor de Configurações Local](/powershell/scripting/dsc/managing-nodes/metaConfig#basic-settings).
 Pode utilizar o script de configuração padrão de extensão DSC para configurar apenas as propriedades LCM que estão listadas na tabela seguinte.
 
-| Nome da propriedade | Tipo | Descrição |
+| Nome da propriedade | Tipo | Description |
 | --- | --- | --- |
 | protectedSettings.configurationArguments.RegistrationKey |PSCredential |Propriedade requerida. Especifica a chave que é usada para um nó para registar-se com o serviço Azure Automation como a palavra-passe de um objeto credencial PowerShell. Este valor pode ser descoberto automaticamente utilizando o método **listkeys** contra a conta Automation.  Veja o [exemplo.](#example-using-referenced-azure-automation-registration-values) |
 | settings.configurationArguments.RegistrationUrl |string |Propriedade requerida. Especifica o URL do ponto final da Automatização onde o nó tenta registar-se. Este valor pode ser descoberto automaticamente utilizando o método **de referência** contra a conta Automação. |
@@ -426,7 +425,7 @@ Siga o formato fornecido nos exemplos anteriores. Cuidado com citações, vírgu
 - Forneça a propriedade desaparecida.
 - Remova a propriedade que precisa da propriedade desaparecida.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais [sobre a utilização de conjuntos de balança de máquinas virtuais com a extensão Azure DSC](../../virtual-machine-scale-sets/virtual-machine-scale-sets-dsc.md).
 - Saiba mais detalhes sobre a [gestão de credenciais seguras da DSC.](dsc-credentials.md)

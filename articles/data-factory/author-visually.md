@@ -1,21 +1,17 @@
 ---
 title: Autoria visual
 description: Saiba como utilizar a autoria visual na Azure Data Factory
-services: data-factory
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 author: dcstwh
 ms.author: weetok
-ms.reviewer: ''
-manager: anandsub
 ms.date: 09/08/2020
-ms.openlocfilehash: c3204d33cac9f0944ec2ea2cf43be65c7afa46df
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 704360ac37e016de9efe2248181f7db358f5a7cf
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500143"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100371486"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Autoria visual na Azure Data Factory
 

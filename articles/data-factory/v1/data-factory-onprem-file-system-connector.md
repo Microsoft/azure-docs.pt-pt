@@ -1,23 +1,18 @@
 ---
 title: Copiar dados de/para um sistema de ficheiros utilizando a Azure Data Factory
 description: Saiba como copiar dados de e para um sistema de ficheiros no local utilizando a Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.assetid: ce19f1ae-358e-4ffc-8a80-d802505c9c84
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: d298c83c0c1a0f33f28644e2e467ad5035300221
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9acd2adb68347978bb123d2239eedbb3e5595bc3
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85847610"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100387398"
 ---
 # <a name="copy-data-to-and-from-an-on-premises-file-system-by-using-azure-data-factory"></a>Copiar dados de e para um sistema de ficheiros no local utilizando a Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -54,7 +49,7 @@ Pode criar um pipeline com uma atividade de cópia que move dados de/para um sis
 
 A forma mais fácil de criar um oleoduto é utilizar o **Copy Wizard**. Ver [Tutorial: Criar um pipeline utilizando o Copy Wizard](data-factory-copy-data-wizard-tutorial.md) para uma rápida passagem na criação de um oleoduto utilizando o assistente de dados Copy.
 
-Também pode utilizar as seguintes ferramentas para criar um pipeline: **Visual Studio**, **Azure PowerShell,** **Azure Resource Manager,** **.NET API**e **REST API**. Consulte o tutorial de [atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo para criar um oleoduto com uma atividade de cópia.
+Também pode utilizar as seguintes ferramentas para criar um pipeline: **Visual Studio**, **Azure PowerShell,** **Azure Resource Manager,** **.NET API** e **REST API**. Consulte o tutorial de [atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo para criar um oleoduto com uma atividade de cópia.
 
 Quer utilize as ferramentas ou APIs, executa os seguintes passos para criar um pipeline que transfere dados de uma loja de dados de origem para uma loja de dados de lavatórios:
 
@@ -72,16 +67,16 @@ Pode ligar um sistema de ficheiros no local a uma fábrica de dados Azure com o 
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| tipo |Certifique-se de que a propriedade tipo está definida para **OnPremisesFileServer**. |Sim |
-| anfitrião |Especifica o caminho da raiz da pasta que pretende copiar. Utilize o personagem de fuga ' \ ' para caracteres especiais na corda. Consulte por exemplo [o serviço ligado à amostra e definições de conjunto de dados.](#sample-linked-service-and-dataset-definitions) |Sim |
+| tipo |Certifique-se de que a propriedade tipo está definida para **OnPremisesFileServer**. |Yes |
+| anfitrião |Especifica o caminho da raiz da pasta que pretende copiar. Utilize o personagem de fuga ' \ ' para caracteres especiais na corda. Consulte por exemplo [o serviço ligado à amostra e definições de conjunto de dados.](#sample-linked-service-and-dataset-definitions) |Yes |
 | userid |Especifique o ID do utilizador que tem acesso ao servidor. |Não (se escolher o Criptografial) |
 | palavra-passe |Especifique a palavra-passe para o utilizador (userid). |Não (se escolher o Criptografial |
 | criptografadoCredential |Especifique as credenciais encriptadas que pode obter executando o New-AzDataFactoryEncryptValue cmdlet. |Não (se optar por especificar userid e palavra-passe em texto simples) |
-| gatewayName |Especifica o nome do gateway que a Data Factory deve utilizar para ligar ao servidor de ficheiros no local. |Sim |
+| gatewayName |Especifica o nome do gateway que a Data Factory deve utilizar para ligar ao servidor de ficheiros no local. |Yes |
 
 
 ### <a name="sample-linked-service-and-dataset-definitions"></a>Definições de serviço e conjunto de dados ligados à amostra
-| Cenário | Hospedagem na definição de serviço ligado | fase de pasta na definição de conjunto de dados |
+| Scenario | Hospedagem na definição de serviço ligado | fase de pasta na definição de conjunto de dados |
 | --- | --- | --- |
 | Pasta local na máquina Data Management Gateway: <br/><br/>Exemplos: D: \\ \* ou D:\pasta\sub-dobra\\\* |D: \\ \\ (para a Gestão de Dados Gateway 2.0 e versões posteriores) <br/><br/> local (para versões anteriores do que data Management Gateway 2.0) |.\\\\ sub-dobragem ou pasta \\ \\ (para a gestão de dados Gateway 2.0 e versões posteriores) <br/><br/>D: \\ \\ ou D: \\ \\ \\ \\ sub-dobragem de pasta (para a versão gateway abaixo de 2.0) |
 | Pasta partilhada remotamente: <br/><br/>Exemplos: \\ \\ \\ myserver share ou \\ \* \\ \\ \\ myserver share pasta \\ \\ subfolder\\\* |\\\\\\\\partilha de myserver \\ \\ |.\\\\ ou \\ \\ sub-dobragem de pasta |
@@ -129,12 +124,12 @@ A secção typeProperties é diferente para cada tipo de conjunto de dados. Forn
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| folderPath |Especifica o subpato à pasta. Use o personagem de fuga \' para caracteres especiais na corda. O filtro Wildcard não é suportado. Consulte por exemplo [o serviço ligado à amostra e definições de conjunto de dados.](#sample-linked-service-and-dataset-definitions)<br/><br/>Pode combinar esta propriedade com **partição Para** ter caminhos de pasta baseados em intervalos de datas de início/fim da fatia. |Sim |
-| fileName |Especifique o nome do ficheiro na **pastaPata** se pretender que a tabela se refira a um ficheiro específico na pasta. Se não especificar qualquer valor para esta propriedade, a tabela aponta para todos os ficheiros da pasta.<br/><br/>Quando **o nome de ficheiro** não é especificado para um conjunto de dados de saída e **preservarAequia** não é especificado na pia de atividade, o nome do ficheiro gerado está no seguinte formato: <br/><br/>`Data.<Guid>.txt` (Exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |Não |
-| ficheiroFiltro |Especifique um filtro a ser utilizado para selecionar um subconjunto de ficheiros na pastaPalho em vez de todos os ficheiros. <br/><br/>Os valores permitidos são: `*` (múltiplos caracteres) e `?` (único carácter).<br/><br/>Exemplo 1: "fileFilter": "*.log"<br/>Exemplo 2: "fileFilter": 2014-1-?. txt "<br/><br/>Note que o ficheiroFiltro é aplicável para um conjunto de dados de FileShare de entrada. |Não |
-| partitionedBy |Pode utilizar partitionedBy para especificar uma pasta dinâmicaPa/nome de ficheiros Para dados da série de tempo. Um exemplo é pastaPamota parametrizada para cada hora de dados. |Não |
-| formato | Os seguintes tipos de formato são suportados: **TextFormat,** **JsonFormat,** **AvroFormat,** **OrcFormat,** **ParquetFormat**. Desa um destes valores, o **tipo** de propriedade em formato. Para mais informações, consulte [formato de texto,](data-factory-supported-file-and-compression-formats.md#text-format) [formato Json,](data-factory-supported-file-and-compression-formats.md#json-format) [Formato Avro,](data-factory-supported-file-and-compression-formats.md#avro-format) [Formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format)e secções [de Formato Parquet.](data-factory-supported-file-and-compression-formats.md#parquet-format) <br><br> Se pretender **copiar ficheiros como-está** entre lojas baseadas em ficheiros (cópia binária), salte a secção de formato nas definições de conjunto de dados de entrada e saída. |Não |
-| compressão | Especifique o tipo e o nível de compressão para os dados. Os tipos suportados são: **GZip,** **Deflate,** **BZip2**e **ZipDeflate**. Os níveis suportados são: **Ideal** e **Mais rápido**. ver [formatos de arquivo e compressão na Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |Não |
+| folderPath |Especifica o subpato à pasta. Use o personagem de fuga \' para caracteres especiais na corda. O filtro Wildcard não é suportado. Consulte por exemplo [o serviço ligado à amostra e definições de conjunto de dados.](#sample-linked-service-and-dataset-definitions)<br/><br/>Pode combinar esta propriedade com **partição Para** ter caminhos de pasta baseados em intervalos de datas de início/fim da fatia. |Yes |
+| fileName |Especifique o nome do ficheiro na **pastaPata** se pretender que a tabela se refira a um ficheiro específico na pasta. Se não especificar qualquer valor para esta propriedade, a tabela aponta para todos os ficheiros da pasta.<br/><br/>Quando **o nome de ficheiro** não é especificado para um conjunto de dados de saída e **preservarAequia** não é especificado na pia de atividade, o nome do ficheiro gerado está no seguinte formato: <br/><br/>`Data.<Guid>.txt` (Exemplo: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt) |No |
+| ficheiroFiltro |Especifique um filtro a ser utilizado para selecionar um subconjunto de ficheiros na pastaPalho em vez de todos os ficheiros. <br/><br/>Os valores permitidos são: `*` (múltiplos caracteres) e `?` (único carácter).<br/><br/>Exemplo 1: "fileFilter": "*.log"<br/>Exemplo 2: "fileFilter": 2014-1-?. txt "<br/><br/>Note que o ficheiroFiltro é aplicável para um conjunto de dados de FileShare de entrada. |No |
+| partitionedBy |Pode utilizar partitionedBy para especificar uma pasta dinâmicaPa/nome de ficheiros Para dados da série de tempo. Um exemplo é pastaPamota parametrizada para cada hora de dados. |No |
+| formato | Os seguintes tipos de formato são suportados: **TextFormat,** **JsonFormat,** **AvroFormat,** **OrcFormat,** **ParquetFormat**. Desa um destes valores, o **tipo** de propriedade em formato. Para mais informações, consulte [formato de texto,](data-factory-supported-file-and-compression-formats.md#text-format) [formato Json,](data-factory-supported-file-and-compression-formats.md#json-format) [Formato Avro,](data-factory-supported-file-and-compression-formats.md#avro-format) [Formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format)e secções [de Formato Parquet.](data-factory-supported-file-and-compression-formats.md#parquet-format) <br><br> Se pretender **copiar ficheiros como-está** entre lojas baseadas em ficheiros (cópia binária), salte a secção de formato nas definições de conjunto de dados de entrada e saída. |No |
+| compressão | Especifique o tipo e o nível de compressão para os dados. Os tipos suportados são: **GZip,** **Deflate,** **BZip2** e **ZipDeflate**. Os níveis suportados são: **Ideal** e **Mais rápido**. ver [formatos de arquivo e compressão na Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). |No |
 
 > [!NOTE]
 > Não é possível utilizar o ficheiroName e o ficheiroFiltro simultaneamente.
@@ -181,13 +176,13 @@ Para a atividade copy, variam dependendo dos tipos de fontes e pias. Se estiver 
 
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
-| recursivo |Indica se os dados são lidos novamente a partir das sub-dobradeiras ou apenas a partir da pasta especificada. |Verdadeiro, Falso (padrão) |Não |
+| recursivo |Indica se os dados são lidos novamente a partir das sub-dobradeiras ou apenas a partir da pasta especificada. |Verdadeiro, Falso (padrão) |No |
 
 **FileSystemSink** suporta as seguintes propriedades:
 
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
-| copyOportundo |Define o comportamento da cópia quando a fonte é BlobSource ou FileSystem. |**PreservarHierarquia:** Preserva a hierarquia do ficheiro na pasta alvo. Ou seja, o percurso relativo do ficheiro de origem para a pasta de origem é o mesmo que o caminho relativo do ficheiro-alvo para a pasta alvo.<br/><br/>**Achatamento da Achata:** Todos os ficheiros da pasta de origem são criados no primeiro nível de pasta alvo. Os ficheiros-alvo são criados com um nome autogerado.<br/><br/>**Filtros de fusão:** Combina todos os ficheiros da pasta de origem a um ficheiro. Se o nome do ficheiro/nome blob for especificado, o nome do ficheiro fundido é o nome especificado. Caso contrário, é um nome de ficheiro gerado automaticamente. |Não |
+| copyOportundo |Define o comportamento da cópia quando a fonte é BlobSource ou FileSystem. |**PreservarHierarquia:** Preserva a hierarquia do ficheiro na pasta alvo. Ou seja, o percurso relativo do ficheiro de origem para a pasta de origem é o mesmo que o caminho relativo do ficheiro-alvo para a pasta alvo.<br/><br/>**Achatamento da Achata:** Todos os ficheiros da pasta de origem são criados no primeiro nível de pasta alvo. Os ficheiros-alvo são criados com um nome autogerado.<br/><br/>**Filtros de fusão:** Combina todos os ficheiros da pasta de origem a um ficheiro. Se o nome do ficheiro/nome blob for especificado, o nome do ficheiro fundido é o nome especificado. Caso contrário, é um nome de ficheiro gerado automaticamente. |No |
 
 ### <a name="recursive-and-copybehavior-examples"></a>recursivo e copySA examples de comportamento
 Esta secção descreve o comportamento resultante da operação Copy para diferentes combinações de valores para as propriedades recursivas e cópiasBehavior.
@@ -255,7 +250,7 @@ Recomendamos a utilização da propriedade **criptografada DomEdial,** em vez da
 
 **Conjunto de dados de entrada do sistema de ficheiros no local:**
 
-Os dados são recolhidos de um novo ficheiro a cada hora. As propriedades de pastaaaatas e ficheirosastomas são determinadas com base na hora de início da fatia.
+Os dados são recolhidos de um novo ficheiro a cada hora. As propriedades de pastaatas e ficheirosastomas são determinadas com base na hora de início da fatia.
 
 A Definição `"external": "true"` informa a Data Factory que o conjunto de dados é externo à fábrica de dados e não é produzido por uma atividade na fábrica de dados.
 
@@ -477,7 +472,7 @@ Recomendamos a utilização da propriedade **criptografada** Em vez de utilizar 
 
 A amostra assume que criou uma tabela "MyTable" em Azure SQL, e contém uma coluna chamada "timetampcolumn" para dados da série temporal.
 
-A Definição ``“external”: ”true”`` informa a Data Factory que o conjunto de dados é externo à fábrica de dados e não é produzido por uma atividade na fábrica de dados.
+A Definição ``"external": "true"`` informa a Data Factory que o conjunto de dados é externo à fábrica de dados e não é produzido por uma atividade na fábrica de dados.
 
 ```JSON
 {

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
 ms.date: 01/14/2021
-ms.openlocfilehash: 89cd9f46474e8e311f003f317b90bdb21eae55fe
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.openlocfilehash: 2433e62fd1dbf35748483b40958fc3367532102a
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98247565"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100099239"
 ---
 # <a name="introduction-to-listing-options"></a>Introdução às opções de listagem
 
@@ -38,7 +38,11 @@ Esta tabela mostra quais as opções de listagem disponíveis para cada tipo de 
 
 &#42; a opção de listagem Get It Now inclui Get It Now (Grátis), traga a sua própria licença (BYOL), Subscrição e preços baseados em Uso. Para mais detalhes, consulte [Get It Now](#get-it-now).
 
-### <a name="free-trial"></a>Avaliação Gratuita
+## <a name="changing-offer-type"></a>Alterar tipo de oferta
+
+[!INCLUDE [change-offer-type](./includes/change-offer-type.md)]
+
+## <a name="free-trial"></a>Avaliação Gratuita
 
 Utilize o mercado comercial para melhorar a descoberta e automatizar o fornecimento da experiência experimental da sua solução. Isto permite que os potenciais clientes utilizem o seu software como um serviço (SaaS), IaaS ou experiência na aplicação da Microsoft sem custos de 30 dias a seis meses, dependendo do tipo de oferta.
 
@@ -46,18 +50,18 @@ Os clientes usam o botão _Teste Gratuito_ na página de listagem da sua oferta 
 
 Para ofertas de máquinas virtuais, os clientes são cobrados custos de infraestrutura Azure para usar a oferta durante um período experimental. Após o termo do período experimental, os clientes são automaticamente cobrados pelo último plano que tentaram com base em tarifas padrão, a menos que cancelem antes do final do período experimental.
 
-### <a name="test-drive"></a>Versão de Teste
+## <a name="test-drive"></a>Versão de Teste
 
 Os clientes usam o botão _Test Drive_ na página de listagem da sua oferta para ter acesso a um ambiente pré-configurado durante um número fixo de horas. Para saber mais sobre test drives, veja [o que é um test drive?](what-is-test-drive.md)
 
 > [!TIP]
 > Um test drive é diferente de um teste gratuito. Pode oferecer um test drive, teste gratuito, ou ambos. Ambos fornecem aos seus clientes a sua solução para um período de tempo fixo. Mas um test drive também inclui uma visita prática e auto-guiada às principais características e benefícios do seu produto sendo demonstrados num cenário de implementação real.
 
-### <a name="contact-me"></a>Contacte-me
+## <a name="contact-me"></a>Contacte-me
 
 Listagem simples da sua aplicação ou serviço. Os clientes utilizam o botão _Contacte-me_ na página de listagem da sua oferta para solicitar que se conecte com eles sobre a sua oferta.
 
-### <a name="get-it-now"></a>Get It Now
+## <a name="get-it-now"></a>Get It Now
 
 Esta opção de listagem inclui ofertas transacionáveis (subscrições e preços baseados no utilizador), traz as suas próprias ofertas de licença e Get It Now (Grátis). As ofertas transacionáveis são vendidas através do mercado comercial. A Microsoft é responsável pela faturação e cobranças. Os clientes usam o _botão Get It Now_ para receber a oferta.
 
@@ -92,28 +96,28 @@ Esta tabela mostra quais os tipos de oferta suportam as opções de preços adic
 
 <sup>2</sup> Preço por hora e faturado mensalmente.
 
-#### <a name="get-it-now-free"></a>Get It Now (Grátis)
+### <a name="get-it-now-free"></a>Get It Now (Grátis)
 
 Utilize esta opção de listagem para oferecer gratuitamente a sua candidatura. Os clientes usam o botão _Get It Now_ para obter a sua oferta gratuita.
 
 > [!NOTE]
 > As ofertas get It Now (Grátis) não são elegíveis para benefícios do Marketplace Rewards para ofertas transacionáveis. Como não há transação através da montra, estas são classificadas como "Trial". Consulte [as Recompensas do Mercado](#marketplace-rewards) abaixo.
 
-#### <a name="bring-your-own-license-byol"></a>Traga a Sua Própria Licença (BYOL)
+### <a name="bring-your-own-license-byol"></a>Traga a Sua Própria Licença (BYOL)
 
 Utilize esta opção de listagem para permitir que os clientes implementem a sua oferta utilizando uma licença adquirida fora do mercado comercial. Esta opção é ideal para migrações no local para nuvem. Os clientes usam o botão _Get It Now_ para comprar a sua oferta utilizando uma licença que pré-compraram de si.
 
 > [!NOTE]
 > As ofertas da BYOL não são elegíveis para benefícios do Marketplace Rewards para ofertas transacionáveis. Porque estes requerem que um cliente adquira a licença ao parceiro e não há transação através da montra do mercado comercial, estes são categorizados como "List". Consulte [as Recompensas do Mercado](#marketplace-rewards) abaixo.
 
-#### <a name="subscription"></a>Subscrição
+### <a name="subscription"></a>Subscrição
 
 Pode cobrar uma taxa fixa por estes tipos de oferta:
 
 - A Azure Application (Aplicação Gerida) oferece subscrições mensais de suporte.
 - O SaaS oferece suporte tanto mensal como anual.
 
-#### <a name="usage-based-pricing"></a>Preços baseados na utilização
+### <a name="usage-based-pricing"></a>Preços baseados na utilização
 
 Os seguintes tipos de oferta suportam preços baseados na utilização:
 

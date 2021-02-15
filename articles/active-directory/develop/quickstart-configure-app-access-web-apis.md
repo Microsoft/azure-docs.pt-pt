@@ -13,12 +13,12 @@ ms.date: 09/03/2020
 ms.author: marsma
 ms.custom: aaddev, contperf-fy21q1
 ms.reviewer: lenalepa, aragra, sureshja
-ms.openlocfilehash: 460c96ddb06318cacd4e436190f459e4c060536e
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: bd6acc5d3b7cd6e88b56e4a922e777adca031538
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99583693"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100102568"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-a-web-api"></a>Quickstart: Configurar uma aplicação do cliente para aceder a uma API web
 
@@ -42,7 +42,7 @@ Este diagrama mostra como os dois registos de aplicações se relacionam entre s
 
 Uma vez registado tanto a sua app de clientes como a API web e expôs a API criando âmbitos, pode configurar as permissões do cliente para a API seguindo estes passos:
 
-1. Inscreva-se no <a href="https://portal.azure.com/" target="_blank">portal <span class="docon docon-navigate-external x-hidden-focus"></span> Azure</a>.
+1. Inicie sessão no <a href="https://portal.azure.com/" target="_blank">portal do Azure</a>.
 1. Se tiver acesso a vários inquilinos, utilize o filtro **de subscrição Diretório +** :::image type="icon" source="./media/quickstart-configure-app-access-web-apis/portal-01-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o inquilino que contém o registo da sua aplicação do cliente.
 1. Selecione as inscrições da **Azure Ative Directory**  >  **App** e, em seguida, selecione a sua aplicação ao cliente *(não* a sua API web).
 1. Selecione **permissões API**  >  **Adicione uma permissão**  >  **As minhas APIs**.
@@ -71,7 +71,7 @@ Além de aceder à sua própria API web em nome do utilizador inscrito, a sua ap
 
 Configure a permissão delegada no Microsoft Graph para permitir que a sua aplicação do cliente realize operações em nome do utilizador com sessão iniciada, por exemplo, lendo o seu e-mail ou modificando o seu perfil. Por predefinição, os utilizadores da sua aplicação cliente são questionados quando fazem login para consentir com as permissões delegadas que configuraram para a mesmo.
 
-1. Inscreva-se no <a href="https://portal.azure.com/" target="_blank">portal <span class="docon docon-navigate-external x-hidden-focus"></span> Azure</a>.
+1. Inicie sessão no <a href="https://portal.azure.com/" target="_blank">portal do Azure</a>.
 1. Se tiver acesso a vários inquilinos, utilize o filtro **de subscrição Diretório +** :::image type="icon" source="./media/quickstart-configure-app-access-web-apis/portal-01-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o inquilino que contém o registo da sua aplicação do cliente.
 1. Selecione as inscrições da **App Azure Ative Directory**  >  App e, em seguida, selecione a sua aplicação ao cliente.
 1. Selecione **permissões API**  >  **Adicionar uma permissão**  >  **Microsoft Graph**
@@ -96,7 +96,7 @@ Configure permissões de aplicação para uma aplicação que precisa de autenti
 
 Nos seguintes passos, concede permissão aos Ficheiros do Microsoft *Graph.Read.All* como exemplo.
 
-1. Inscreva-se no <a href="https://portal.azure.com/" target="_blank">portal <span class="docon docon-navigate-external x-hidden-focus"></span> Azure</a>.
+1. Inicie sessão no <a href="https://portal.azure.com/" target="_blank">portal do Azure</a>.
 1. Se tiver acesso a vários inquilinos, utilize o filtro **de subscrição Diretório +** :::image type="icon" source="./media/quickstart-configure-app-access-web-apis/portal-01-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o inquilino que contém o registo da sua aplicação do cliente.
 1. Selecione as inscrições da **App Azure Ative Directory**  >  App e, em seguida, selecione a sua aplicação ao cliente.
 1. Selecione **permissões API**  >  **Adicione uma permissão** as  >    >  **permissões da Aplicação de Gráficos do** Microsoft .

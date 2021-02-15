@@ -3,33 +3,33 @@ title: 'ML Studio (clássico): Como um modelo se torna um serviço web - Azure'
 description: Uma visão geral da mecânica de como o seu modelo Azure Machine Learning Studio (clássico) progride de uma experiência de desenvolvimento para um serviço Web.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: conceptual
 author: likebupt
 ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 03/20/2017
-ms.openlocfilehash: c92f8c74da76b2ac938892e27f3d6be9c70c3238
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 4e0f5786047977a319825aae9f3c7b89c0aa118b
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95507265"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100518628"
 ---
 # <a name="how-a-machine-learning-studio-classic-model-progresses-from-an-experiment-to-a-web-service"></a>Como um modelo de Machine Learning Studio (clássico) progride de uma experiência para um serviço Web
 
 **APLICA-SE A:** ![ Esta é uma marca de verificação, o que significa que este artigo se aplica ao Machine Learning Studio (clássico). ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) ![ Este é um X, o que significa que este artigo se aplica ao Azure Machine Learning.](../../../includes/media/aml-applies-to-skus/no.png)[ Aprendizagem de Máquinas Azure](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
-O Azure Machine Learning Studio (clássico) fornece uma tela interativa que permite desenvolver, executar, testar e iterar uma *_experiência_** representando um modelo de análise preditiva. Há uma grande variedade de módulos disponíveis que podem:
+O Azure Machine Learning Studio (clássico) fornece uma tela interativa que permite desenvolver, executar, testar e iterar uma ***experiência*** que representa um modelo de análise preditiva. Há uma grande variedade de módulos disponíveis que podem:
 
-_ Inserir dados na sua experiência
+* Inserir dados na sua experiência
 * Manipular os dados
 * Treine um modelo usando algoritmos de aprendizagem automática
 * Classificar o modelo
 * Avaliar os resultados
 * Valores finais de saída
 
-Uma vez satisfeito com a sua experiência, pode implantá-lo como um ***Classic Azure Machine Learning Web service** _ ou um serviço Web New _*_Azure Machine Learning_*_ para que os utilizadores possam enviar-lhe novos dados e receber resultados de volta.
+Uma vez satisfeito com a sua experiência, pode implantá-lo como um ***Classic Azure Machine Learning Web service** _ ou um _ New *_Azure Machine Learning Web service_** para que os utilizadores possam enviar-lhe novos dados e receber resultados de volta.
 
 Neste artigo, damos uma visão geral da mecânica de como o seu modelo de Machine Learning progride de uma experiência de desenvolvimento para um serviço Web operacionalizado.
 
@@ -38,7 +38,7 @@ Neste artigo, damos uma visão geral da mecânica de como o seu modelo de Machin
 >
 >
 
-Enquanto o Azure Machine Learning Studio (clássico) é projetado para ajudá-lo a desenvolver e implementar um modelo de análise de _predictive*, é possível usar o Studio (clássico) para desenvolver uma experiência que não inclua um modelo de análise preditiva. Por exemplo, uma experiência pode apenas inserir dados, manipulá-lo e, em seguida, obter os resultados. Tal como uma experiência de análise preditiva, pode implementar esta experiência não preditiva como um serviço Web, mas é um processo mais simples porque a experiência não é treinar ou marcar um modelo de aprendizagem automática. Embora não seja o típico de usar o Studio (clássico) desta forma, vamos incluí-lo na discussão para que possamos dar uma explicação completa de como o Studio (clássico) funciona.
+Enquanto o Azure Machine Learning Studio (clássico) é projetado para ajudá-lo a desenvolver e implementar um *modelo de análise preditiva,* é possível usar o Studio (clássico) para desenvolver uma experiência que não inclua um modelo de análise preditiva. Por exemplo, uma experiência pode apenas inserir dados, manipulá-lo e, em seguida, obter os resultados. Tal como uma experiência de análise preditiva, pode implementar esta experiência não preditiva como um serviço Web, mas é um processo mais simples porque a experiência não é treinar ou marcar um modelo de aprendizagem automática. Embora não seja o típico de usar o Studio (clássico) desta forma, vamos incluí-lo na discussão para que possamos dar uma explicação completa de como o Studio (clássico) funciona.
 
 ## <a name="developing-and-deploying-a-predictive-web-service"></a>Desenvolvimento e implantação de um serviço Web preditivo
 Aqui estão as fases que uma solução típica segue à medida que a desenvolve e implementa usando o Machine Learning Studio (clássico):
@@ -48,14 +48,14 @@ Aqui estão as fases que uma solução típica segue à medida que a desenvolve 
 *Figura 1 - Estágios de um modelo típico de análise preditiva*
 
 ### <a name="the-training-experiment"></a>A experiência de treino
-A **experiência de treino*** _ é a fase inicial de desenvolvimento do seu serviço Web no Machine Learning Studio (clássico). O objetivo da experiência de treino é dar-lhe um lugar para desenvolver, testar, iterar e, eventualmente, treinar um modelo de aprendizagem automática. Pode até treinar vários modelos em simultâneo à medida que procura a melhor solução, mas assim que terminar de experimentar, irá selecionar um único modelo treinado e eliminar o resto da experiência. Para um exemplo de desenvolvimento de uma experiência de análise preditiva, consulte [Desenvolver uma solução de análise preditiva para avaliação de risco de crédito no Azure Machine Learning Studio (clássico)](tutorial-part1-credit-risk.md).
+A ***experiência de formação*** é a fase inicial de desenvolvimento do seu serviço Web no Machine Learning Studio (clássico). O objetivo da experiência de treino é dar-lhe um lugar para desenvolver, testar, iterar e, eventualmente, treinar um modelo de aprendizagem automática. Pode até treinar vários modelos em simultâneo à medida que procura a melhor solução, mas assim que terminar de experimentar, irá selecionar um único modelo treinado e eliminar o resto da experiência. Para um exemplo de desenvolvimento de uma experiência de análise preditiva, consulte [Desenvolver uma solução de análise preditiva para avaliação de risco de crédito no Azure Machine Learning Studio (clássico)](tutorial-part1-credit-risk.md).
 
 ### <a name="the-predictive-experiment"></a>A experiência preditiva
-Assim que tiver um modelo treinado na sua experiência de treino, clique em _*Configurar o Serviço Web** e selecione **o Serviço Web Preditivo** no Machine Learning Studio (clássico) para iniciar o processo de conversão da sua experiência de treino para uma *_experiência preditiva_**_ O objetivo da experiência preditiva é usar o seu modelo treinado para obter novos dados, com o objetivo de eventualmente se tornar operacionalizado como um serviço Web Azure.
+Assim que tiver um modelo treinado na sua experiência de treino, clique em **Configurar o Serviço Web** e selecione **o Serviço Web Preditivo** no Machine Learning Studio (clássico) para iniciar o processo de conversão da sua experiência de treino para uma **_experiência preditiva._** O objetivo da experiência preditiva é usar o seu modelo treinado para obter novos dados, com o objetivo de eventualmente se tornar operacionalizado como um serviço Web Azure.
 
 Esta conversão é feita para si através dos seguintes passos:
 
-_ Converter o conjunto de módulos utilizados para o treino num único módulo e guardá-lo como um modelo treinado
+* Converter o conjunto de módulos utilizados para treinar num único módulo e guardá-lo como um modelo treinado
 * Elimine quaisquer módulos extra-existentes não relacionados com a pontuação
 * Adicione portas de entrada e saída que o eventual serviço Web irá utilizar
 

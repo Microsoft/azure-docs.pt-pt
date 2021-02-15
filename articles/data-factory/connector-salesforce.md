@@ -1,22 +1,18 @@
 ---
 title: Copiar dados de e para a Salesforce
 description: Saiba como copiar dados da Salesforce para lojas de dados de sumidouros suportados ou de lojas de dados de origem suportadas para a Salesforce utilizando uma atividade de cópia num oleoduto de fábrica de dados.
-services: data-factory
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/02/2021
-ms.openlocfilehash: 9c85b02ac0e83f3463c458629411989062adc4e6
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: d820be66c70ae336361de7209722c4018ffd5077
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99430752"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100392175"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Copiar dados de e para a Salesforce utilizando a Azure Data Factory
 
@@ -69,13 +65,13 @@ As seguintes propriedades são suportadas para o serviço ligado à Salesforce.
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo |A propriedade tipo deve ser definida para **Salesforce.** |Sim |
-| ambienteUrl | Especifique o URL da instância Salesforce. <br> - O padrão é `"https://login.salesforce.com"` . <br> - Para copiar dados da caixa de areia, especifique `"https://test.salesforce.com"` . <br> - Para copiar dados do domínio personalizado, especifique, por exemplo, `"https://[domain].my.salesforce.com"` . |Não |
-| nome de utilizador |Especifique um nome de utilizador para a conta de utilizador. |Sim |
-| palavra-passe |Especifique uma palavra-passe para a conta de utilizador.<br/><br/>Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). |Sim |
-| securityToken |Especifique um sinal de segurança para a conta de utilizador. <br/><br/>Para conhecer os tokens de segurança em geral, consulte [a Segurança e a API.](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm) O token de segurança só pode ser ignorado se adicionar o IP do Tempo de Integração à [lista de endereços IP fidedignas](https://developer.salesforce.com/docs/atlas.en-us.securityImplGuide.meta/securityImplGuide/security_networkaccess.htm) no Salesforce. Ao utilizar o Azure IR, consulte os [endereços IP do tempo de execução da integração Azure](azure-integration-runtime-ip-addresses.md).<br/><br/>Para obter instruções sobre como obter e redefinir um sinal de segurança, consulte [obter um token de segurança](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm). Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). |Não |
-| apiVersion | Especifique a versão API salesforce/granel para utilizar, por `48.0` exemplo. Por predefinição, o conector utiliza [o V45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm) para copiar dados da Salesforce e utiliza [o V40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) para copiar dados para a Salesforce. | Não |
-| connectVia | O [tempo de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Se não for especificado, utiliza o tempo de execução de integração Azure predefinido. | Não |
+| tipo |A propriedade tipo deve ser definida para **Salesforce.** |Yes |
+| ambienteUrl | Especifique o URL da instância Salesforce. <br> - O padrão é `"https://login.salesforce.com"` . <br> - Para copiar dados da caixa de areia, especifique `"https://test.salesforce.com"` . <br> - Para copiar dados do domínio personalizado, especifique, por exemplo, `"https://[domain].my.salesforce.com"` . |No |
+| nome de utilizador |Especifique um nome de utilizador para a conta de utilizador. |Yes |
+| palavra-passe |Especifique uma palavra-passe para a conta de utilizador.<br/><br/>Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). |Yes |
+| securityToken |Especifique um sinal de segurança para a conta de utilizador. <br/><br/>Para conhecer os tokens de segurança em geral, consulte [a Segurança e a API.](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm) O token de segurança só pode ser ignorado se adicionar o IP do Tempo de Integração à [lista de endereços IP fidedignas](https://developer.salesforce.com/docs/atlas.en-us.securityImplGuide.meta/securityImplGuide/security_networkaccess.htm) no Salesforce. Ao utilizar o Azure IR, consulte os [endereços IP do tempo de execução da integração Azure](azure-integration-runtime-ip-addresses.md).<br/><br/>Para obter instruções sobre como obter e redefinir um sinal de segurança, consulte [obter um token de segurança](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm). Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). |No |
+| apiVersion | Especifique a versão API salesforce/granel para utilizar, por `48.0` exemplo. Por predefinição, o conector utiliza [o V45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm) para copiar dados da Salesforce e utiliza [o V40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) para copiar dados para a Salesforce. | No |
+| connectVia | O [tempo de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Se não for especificado, utiliza o tempo de execução de integração Azure predefinido. | No |
 
 **Exemplo: Armazenar credenciais na Fábrica de Dados**
 
@@ -145,7 +141,7 @@ Para copiar dados de e para Salesforce, defina o tipo de propriedade do conjunto
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo deve ser definida para **SalesforceObject**.  | Sim |
+| tipo | A propriedade tipo deve ser definida para **SalesforceObject**.  | Yes |
 | objectApiName | O nome do objeto Salesforce para obter dados de. | Não para a fonte, sim para a pia |
 
 > [!IMPORTANT]
@@ -177,7 +173,7 @@ Para copiar dados de e para Salesforce, defina o tipo de propriedade do conjunto
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade do tipo do conjunto de dados deve ser definida como **RelationalTable**. | Sim |
+| tipo | A propriedade do tipo do conjunto de dados deve ser definida como **RelationalTable**. | Yes |
 | tableName | O nome da mesa na Salesforce. | Não (se for especificada "consulta" na fonte de atividade) |
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
@@ -190,9 +186,9 @@ Para copiar dados da Salesforce, deteta o tipo de origem na atividade de cópia 
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para **SalesforceSource**. | Sim |
+| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para **SalesforceSource**. | Yes |
 | consulta |Utilize a consulta personalizada para ler dados. Pode utilizar a consulta [de idioma de consulta de objetos salesforce (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) ou consulta SQL-92. Veja mais dicas na secção [de dicas de consulta.](#query-tips) Se a consulta não for especificada, todos os dados do objeto Salesforce especificados em "objectApiName" no conjunto de dados serão recuperados. | Não (se for especificado "objectApiName" no conjunto de dados) |
-| readOportur-se | Indica se deve consultar os registos existentes ou consultar todos os registos, incluindo os eliminados. Se não for especificado, o comportamento padrão é o primeiro. <br>Valores permitidos: **consulta** (predefinição), **consultaTo.**  | Não |
+| readOportur-se | Indica se deve consultar os registos existentes ou consultar todos os registos, incluindo os eliminados. Se não for especificado, o comportamento padrão é o primeiro. <br>Valores permitidos: **consulta** (predefinição), **consultaTo.**  | No |
 
 > [!IMPORTANT]
 > A parte "__c" do **Nome API** é necessária para qualquer objeto personalizado.
@@ -240,7 +236,7 @@ Para copiar dados para a Salesforce, desaperte o tipo de pia na atividade de có
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade do tipo do lavatório de atividade de cópia deve ser definida para **SalesforceSink**. | Sim |
+| tipo | A propriedade do tipo do lavatório de atividade de cópia deve ser definida para **SalesforceSink**. | Yes |
 | escrever Comportamento | O comportamento de escrita para a operação.<br/>Os valores permitidos são **Insert** e **Upsert**. | Não (predefinição é Inserir) |
 | nome externoIdField | O nome do campo de identificação externo para a operação de upsert. O campo especificado deve ser definido como "Campo de Identificação Externa" no objeto Salesforce. Não pode ter valores NULOS nos dados de entrada correspondentes. | Sim para "Upsert" |
 | escreverBatchSize | A contagem de dados escrita à Salesforce em cada lote. | Não (o padrão é 5.000) |

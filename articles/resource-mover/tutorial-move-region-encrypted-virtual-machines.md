@@ -5,15 +5,15 @@ manager: evansma
 author: rayne-wiselman
 ms.service: resource-move
 ms.topic: tutorial
-ms.date: 02/04/2021
+ms.date: 02/10/2021
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 0bc70e14e341d9681c75933455eae6b0278724ca
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 014b4d09a991ae4d0bb31ec0b9adee0c9e3b3553
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99982295"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100361014"
 ---
 # <a name="tutorial-move-encrypted-azure-vms-across-regions"></a>Tutorial: Mover VMs Azure encriptados em regiões
 
@@ -54,26 +54,49 @@ Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure
 **Taxas da região alvo** | Verifique os preços e os encargos associados à região-alvo para a qual está a mover VMs. Use a [calculadora de preços](https://azure.microsoft.com/pricing/calculator/) para ajudá-lo.
 
 
-## <a name="verify-key-vault-permissions-azure-disk-encryption"></a>Verifique permissões de cofre de chaves (Encriptação do disco Azure)
+## <a name="verify-user-permissions-on-key-vault-for-vms-using-azure-disk-encryption-ade"></a>Verifique as permissões do utilizador no cofre de chaves para VMS utilizando encriptação de disco Azure (ADE)
 
-Se estiver a mover VMs que tenham encriptação de disco Azure ativada, nos cofres-chave nas regiões de origem e destino, verifique/desconfiem de que os VMs encriptados em movimento funcionarão como esperado. 
+Se estiver a mover VMs que tenham encriptação de disco Azure ativada, tem de executar um script como mencionado [abaixo](#copy-the-keys-to-the-destination-key-vault) para o qual o utilizador que executa o script deve ter permissões apropriadas. Por favor, consulte a tabela abaixo para saber mais sobre as permissões necessárias. As opções para alterar as permissões podem ser encontradas navegando para o cofre chave no portal Azure, Em **Definições,** selecione **políticas de acesso**.
 
-1. No portal Azure, abra o cofre chave na região de origem.
-2. Em **Definições**, selecione **políticas de acesso**.
+:::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/key-vault-access-policies.png" alt-text="Botão para abrir as políticas de acesso ao cofre." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/key-vault-access-policies.png":::
 
-    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/key-vault-access-policies.png" alt-text="Botão para abrir as políticas de acesso ao cofre." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/key-vault-access-policies.png":::
+Se não houver permissões do utilizador, selecione **Adicionar Política de Acesso** e especifique as permissões. Se a conta de utilizador já tiver uma política, no **Utilizador,** desa estale as permissões de acordo com a tabela abaixo.
 
-3. Se não houver permissões do utilizador, selecione **Adicionar Política de Acesso** e especifique as permissões. Se a conta de utilizador já tiver uma política, no **Utilizador,** desa estale as permissões.
+Os VMs Azure que utilizam a ADE podem ter as seguintes variações e as permissões devem ser definidas em conformidade para os componentes relevantes.
+- Opção padrão onde o disco é encriptado usando apenas segredos
+- Segurança adicionada usando [chave de encriptação](../virtual-machines/windows/disk-encryption-key-vault.md#set-up-a-key-encryption-key-kek)
 
-    - Se os VMs que pretende mover estiverem ativados com encriptação do disco Azure (ADE), em Operações de Gestão de **Chaves de Permissões De Chaves**,  >  selecione **Get** and **List** se não estiverem selecionados.
-    - Se estiver a utilizar teclas geridas pelo cliente (CMKs) para encriptar as chaves de encriptação do disco utilizadas para encriptação em repouso (encriptação do lado do servidor), em Operações de Gestão de Chaves de **Permissões** de Chaves  >  , selecione **Get** and **List**. Adicionalmente, em **Operações Criptográficas,** selecione **Desencriptar** e **Criptografe**
- 
-    :::image type="content" source="./media/tutorial-move-region-encrypted-virtual-machines/set-vault-permissions.png" alt-text="Lista de dropdown para selecionar permissões de cofre de chaves." lightbox="./media/tutorial-move-region-encrypted-virtual-machines/set-vault-permissions.png":::
+### <a name="source-region-keyvault"></a>Keyvault da região de origem
 
-4. Em **permissões secretas,**  **Operações de Gestão Secreta,** selecione **Get,** **List** e **set**. 
-5. Se estiver a atribuir permissões a uma nova conta de utilizador, em **Select principal,** selecione o utilizador a quem está a atribuir permissões.
-6. Nas **políticas de Acesso,** certifique-se de que **a encriptação do disco Azure para encriptação de volume** está ativada.
-7. Repita o procedimento para o cofre chave na região de destino.
+As permissões abaixo precisam de ser definidas para o utilizador executar o script 
+
+**Componente** | **Permissão necessária**
+--- | ---
+Segredos|  Obter permissão <br> </br> Em **permissões secretas** >   **Operações de Gestão Secreta,** selecione **Get** 
+Chaves <br> </br> Se estiver a usar a chave de encriptação chave (KEK) precisa desta permissão para além de segredos| Obter e Desencriptar permissão <br> </br> Nas   >  **Principais Permissões Operações de Gestão de Chaves**, selecione **Get**. Em **Operações Criptográficas,** selecione **Desencript**.
+
+### <a name="destination-region-keyvault"></a>Keyvault da região de destino
+
+Nas **políticas de Acesso,** certifique-se de que **a encriptação do disco Azure para encriptação de volume** está ativada. 
+
+As permissões abaixo precisam de ser definidas para o utilizador executar o script 
+
+**Componente** | **Permissão necessária**
+--- | ---
+Segredos|  Definir permissão <br> </br> Em **permissões secretas** >   **Operações de Gestão Secreta,** selecione **Conjunto** 
+Chaves <br> </br> Se estiver a usar a chave de encriptação chave (KEK) precisa desta permissão para além de segredos| Obter, Criar e Encriptar a permissão <br> </br> Em **Principais Permissões**  >  **Operações de Gestão de Chaves,** selecione **Get** and **Create** . Em **Operações Criptográficas,** selecione **Encrypt**.
+
+Além das permissões acima referidas, no cofre chave de destino é necessário adicionar permissões para a [Identidade do Sistema Gerido](./common-questions.md#how-is-managed-identity-used-in-resource-mover) que o Resource Mover utiliza para aceder aos recursos do Azure em seu nome. 
+
+1. Em **Definições**, **selecione Adicionar Políticas de Acesso**. 
+2. Em **Select principal,** procure o MSI. O nome MSI é ```movecollection-<sourceregion>-<target-region>-<metadata-region>``` . 
+3. Adicione as permissões abaixo para o MSI
+
+**Componente** | **Permissão necessária**
+--- | ---
+Segredos|  Obter e Listar permissão <br> </br> Em **permissões secretas** >   **Operações de Gestão Secreta,** selecione **Get** and **List** 
+Chaves <br> </br> Se estiver a usar a chave de encriptação chave (KEK) precisa desta permissão para além de segredos| Obter, Obter, Lista de permissão <br> </br> Em **Principais Permissões**  >  **Operações de Gestão de Chaves**, selecione **Get** and **List**
+
 
 
 ### <a name="copy-the-keys-to-the-destination-key-vault"></a>Copie as chaves do cofre da chave de destino

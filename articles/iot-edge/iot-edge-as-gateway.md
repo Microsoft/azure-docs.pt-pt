@@ -1,5 +1,5 @@
 ---
-title: Gateways para dispositivos a jusante - Azure IoT Edge / Microsoft Docs
+title: Gateways para dispositivos a jusante - Azure IoT Edge | Microsoft Docs
 description: Utilize o Azure IoT Edge para criar um dispositivo de gateway transparente, opaco ou proxy que envia dados de vários dispositivos a jusante para a nuvem ou processa-os localmente.
 author: kgremban
 manager: philmea
@@ -11,12 +11,12 @@ services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 83e8089073f7e7e7634ddf00f7276e12aaf645b0
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: f95068b66fdd7907bf06086f855473b156738847
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94536443"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100371108"
 ---
 # <a name="how-an-iot-edge-device-can-be-used-as-a-gateway"></a>De que forma um dispositivo IoT Edge pode ser utilizado como gateway
 
@@ -37,7 +37,7 @@ Todos os padrões de gateway fornecem os seguintes benefícios:
 
 * **Analytics at the edge** – Use serviços de IA localmente para processar dados provenientes de dispositivos a jusante sem enviar telemetria de fidelidade total para a nuvem. Encontre e reaja a insights localmente e envie apenas um subconjunto de dados para o IoT Hub.
 * **Isolamento do dispositivo a jusante** – O dispositivo gateway pode proteger todos os dispositivos a jusante da exposição à internet. Pode situar-se entre uma rede de tecnologia operacional (OT) que não tem conectividade e uma rede de tecnologias da informação (TI) que fornece acesso à web. Da mesma forma, os dispositivos que não têm a capacidade de se ligarem ao IoT Hub por si só podem ligar-se a um dispositivo de gateway.
-* **Multiplexing de ligação** - Todos os dispositivos que se ligam ao IoT Hub através de um gateway IoT Edge utilizam a mesma ligação subjacente.
+* **Multiplexing de ligação** - Todos os dispositivos que se ligam ao IoT Hub através de um gateway IoT Edge podem utilizar a mesma ligação subjacente. Esta capacidade de multiplexing requer que o gateway IoT Edge utilize amQP como protocolo a montante.
 * **Alisamento do tráfego** - O dispositivo IoT Edge implementará automaticamente o backoff exponencial se o IoT Hub acelerar o tráfego, enquanto persiste as mensagens localmente. Este benefício torna a sua solução resiliente a picos de tráfego.
 * **Suporte offline** - O dispositivo gateway armazena mensagens e duas atualizações que não podem ser entregues no IoT Hub.
 
@@ -45,7 +45,9 @@ Todos os padrões de gateway fornecem os seguintes benefícios:
 
 No padrão transparente de gateway, os dispositivos que teoricamente poderiam ligar-se ao IoT Hub podem ligar-se a um dispositivo de gateway. Os dispositivos a jusante têm as suas próprias identidades IoT Hub e conectam-se utilizando protocolos MQTT ou AMQP. O gateway simplesmente transmite as comunicações entre os dispositivos e o Hub IoT. Tanto os dispositivos como os utilizadores que interagem com eles através do IoT Hub desconhecem que um portal está a mediar as suas comunicações. Esta falta de consciência significa que a porta de entrada é considerada *transparente.*
 
-<!-- 1.0.10 -->
+Para obter mais informações sobre como o hub IoT Edge gere a comunicação entre dispositivos a jusante e a nuvem, consulte [o tempo de execução Azure IoT Edge e a sua arquitetura.](iot-edge-runtime.md)
+
+<!-- 1.1 -->
 ::: moniker range="iotedge-2018-06"
 
 Os dispositivos IoT Edge não podem estar a jusante de um gateway IoT Edge.
@@ -73,6 +75,11 @@ A relação pai/filho é estabelecida em três pontos na configuração do gatew
 
 Todos os dispositivos num cenário de gateway transparente precisam de identidades em nuvem para que possam autenticar para o IoT Hub. Quando criar ou atualizar a identidade do dispositivo, pode configurar os dispositivos de pai ou filho do dispositivo. Esta configuração autoriza o dispositivo de porta de entrada dos pais a manusear a autenticação dos seus dispositivos para crianças.
 
+>[!NOTE]
+>A definição do dispositivo principal no IoT Hub costumava ser um passo opcional para dispositivos a jusante que utilizam a autenticação de chaves simétricas. No entanto, a partir da versão 1.1.0, todos os dispositivos a jusante devem ser atribuídos a um dispositivo-mãe.
+>
+>Pode configurar o hub IoT Edge para voltar ao comportamento anterior, definindo a variável ambiente **AuthenticationMode** para o valor **CloudAndScope**.
+
 Os dispositivos infantis só podem ter um pai. Cada pai pode ter até 100 filhos.
 
 <!-- 1.2.0 -->
@@ -82,7 +89,7 @@ Os dispositivos IoT Edge podem ser pais e filhos em relações transparentes de 
 
 #### <a name="gateway-discovery"></a>Descoberta gateway
 
-Um dispositivo infantil precisa de ser capaz de encontrar o seu dispositivo-mãe na rede local. Configure os dispositivos de gateway com um **nome de hospedeiro** , um nome de domínio totalmente qualificado (FQDN) ou um endereço IP, que os seus dispositivos para crianças utilizarão para o localizar.
+Um dispositivo infantil precisa de ser capaz de encontrar o seu dispositivo-mãe na rede local. Configure os dispositivos de gateway com um **nome de hospedeiro**, um nome de domínio totalmente qualificado (FQDN) ou um endereço IP, que os seus dispositivos para crianças utilizarão para o localizar.
 
 Nos dispositivos IoT a jusante, utilize o parâmetro **gatewayHostname** na cadeia de ligação para apontar para o dispositivo principal.
 
@@ -106,7 +113,7 @@ Todos os primitivos IoT Hub que trabalham com o pipeline de mensagens IoT Edge t
 
 Utilize a tabela seguinte para ver como as diferentes capacidades do IoT Hub são suportadas para dispositivos em comparação com dispositivos por trás de gateways.
 
-<!-- 1.0.10 -->
+<!-- 1.1 -->
 ::: moniker range="iotedge-2018-06"
 
 | Funcionalidade | Dispositivo IoT | IoT atrás de um portal |
@@ -134,7 +141,7 @@ Utilize a tabela seguinte para ver como as diferentes capacidades do IoT Hub sã
 
 **As imagens do contentor** podem ser descarregadas, armazenadas e entregues de dispositivos parentais para dispositivos infantis.
 
-**As bolhas** , incluindo pacotes de suporte e troncos, podem ser carregadas de dispositivos infantis para dispositivos-mãe.
+**As bolhas**, incluindo pacotes de suporte e troncos, podem ser carregadas de dispositivos infantis para dispositivos-mãe.
 
 ::: moniker-end
 

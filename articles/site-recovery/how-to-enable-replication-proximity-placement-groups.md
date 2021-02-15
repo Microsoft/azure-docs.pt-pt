@@ -4,13 +4,13 @@ description: Saiba como replicar VMs Azure em execução em Grupos de Colocaçã
 author: Sharmistha-Rai
 manager: gaggupta
 ms.topic: how-to
-ms.date: 05/25/2020
-ms.openlocfilehash: 7ac836992db33c6212fd009b914b30b7221249d8
-ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.date: 02/11/2021
+ms.openlocfilehash: 681b635099d450f061e0bcdb5b2c5d60d56c20a3
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2021
-ms.locfileid: "98745588"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100380765"
 ---
 # <a name="replicate-azure-virtual-machines-running-in-proximity-placement-groups-to-another-region"></a>Replicar máquinas virtuais do Azure em execução em Grupos de Colocação por Proximidade para outra região
 
@@ -25,21 +25,72 @@ Num cenário típico, poderá ter as suas máquinas virtuais a funcionar num gru
 ## <a name="considerations"></a>Considerações
 
 - O melhor esforço será falhar/falhar as máquinas virtuais num grupo de colocação de proximidade. No entanto, se o VM não puder ser criado dentro da Colocação de Proximidade durante o failover/failback, então o failover/failback continuará a acontecer, e máquinas virtuais serão criadas fora de um grupo de colocação de proximidade.
--  Se um Conjunto de Disponibilidade for fixado a um Grupo de Colocação de Proximidade e durante os VMs de failover/failback no conjunto de disponibilidades tiverem uma restrição de atribuição, então as máquinas virtuais serão criadas fora do conjunto de disponibilidade e do grupo de colocação de proximidade.
--  A recuperação do local para grupos de colocação de proximidade não é suportada para discos não geridos.
+- Se um Conjunto de Disponibilidade for fixado a um Grupo de Colocação de Proximidade e durante os VMs de failover/failback no conjunto de disponibilidades tiverem uma restrição de atribuição, então as máquinas virtuais serão criadas fora do conjunto de disponibilidade e do grupo de colocação de proximidade.
+- A recuperação do local para grupos de colocação de proximidade não é suportada para discos não geridos.
 
 > [!NOTE]
 > A Azure Site Recovery não suporta falhas de discos geridos para cenários De Hiper-V a Azure. Assim, não é suportado o recuo do Grupo de Colocação de Proximidade em Azure para o Hiper-V.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="set-up-disaster-recovery-for-vms-in-proximity-placement-groups-via-portal"></a>Configurar recuperação de desastres para VMs em grupos de colocação de proximidade via Portal
+
+### <a name="azure-to-azure-via-portal"></a>Azure para Azure via Portal
+
+Pode optar por ativar a replicação de uma máquina virtual através da página de recuperação de desastres VM ou indo para um cofre pré-criado e navegando para a secção de Recuperação do Local e, em seguida, permitindo a replicação. Vamos ver como a Recuperação do Site pode ser configurada para VMs dentro de um PPG através de ambas as abordagens:
+
+- Como selecionar o PPG na região DR, permitindo a replicação através da lâmina IaaS VM DR:
+  1. Vai para a máquina virtual. Na lâmina do lado esquerdo, em 'Operações', selecione 'Recuperação de Desastres'
+  2. No separador 'Básicos', escolha a região DR à qual gostaria de replicar o VM. Ir para 'Definições Avançadas'
+  3. Aqui, pode ver o Grupo de Colocação de Proximidade do seu VM e a opção de selecionar um PPG na região DR. A Recuperação do Site também lhe dá a opção de utilizar um novo Grupo de Colocação de Proximidade que cria para si se optar por utilizar esta opção predefinição. É livre de escolher o Grupo de Colocação de Proximidade que deseja e depois ir para 'Rever + Iniciar a replicação' e, finalmente, ativar a replicação.
+
+   :::image type="content" source="media/how-to-enable-replication-proximity-placement-groups/proximity-placement-group-a2a-1.png" alt-text="Ativar a replicação.":::
+
+- Como selecionar PPG na região DR, permitindo a replicação através da lâmina do cofre:
+  1. Vá ao cofre dos serviços de recuperação e vá ao separador de Recuperação do Local
+  2. Clique em '+ Ativar a recuperação do site' e, em seguida, selecione '1: Ativar a replicação' em máquinas virtuais Azure (como procura replicar um VM Azure)
+  3. Preencha os campos necessários no separador 'Fonte' e clique em 'Seguinte'
+  4. Selecione a lista de VMs que pretende ativar a replicação no separador 'Máquinas Virtuais' e clique em 'Seguinte'
+  5. Aqui, pode ver a opção de selecionar um PPG na região DR. A Recuperação do Site também lhe dá a opção de usar um novo PPG que cria para si se optar por utilizar esta opção predefinição. Você é livre de escolher o PPG que deseja e, em seguida, proceder para ativar a replicação.
+
+   :::image type="content" source="media/how-to-enable-replication-proximity-placement-groups/proximity-placement-group-a2a-2.png" alt-text="Ativar a replicação através do cofre.":::
+
+Note que pode atualizar facilmente a seleção PPG na região DR depois de ter sido ativada a replicação para o VM.
+
+1. Vá para a máquina virtual e na lâmina lateral esquerda, em 'Operações', selecione 'Recuperação de Desastres'
+2. Vá à lâmina 'Compute and Network' e clique em 'Editar' no topo da página
+3. Pode ver as opções para editar várias definições de alvo, incluindo PPG alvo. Escolha o PPG que gostaria que o VM falhasse e clicasse em 'Save'.
+
+### <a name="vmware-to-azure-via-portal"></a>VMware para Azure via Portal
+
+O grupo de colocação de proximidade para o VM alvo pode ser configurado após permitir a replicação para o VM. Certifique-se de que cria separadamente o PPG na região alvo de acordo com a sua exigência. Posteriormente, pode atualizar facilmente a seleção PPG na região DR depois de ter sido ativada a replicação para o VM.
+
+1. Selecione a máquina virtual a partir do cofre e na lâmina lateral esquerda, em 'Operações', selecione 'Recuperação de Desastres'
+2. Vá à lâmina 'Compute and Network' e clique em 'Editar' no topo da página
+3. Pode ver as opções para editar várias definições de alvo, incluindo PPG alvo. Escolha o PPG que gostaria que o VM falhasse e clicasse em 'Save'.
+
+   :::image type="content" source="media/how-to-enable-replication-proximity-placement-groups/proximity-placement-groups-update-v2a.png" alt-text="Atualização PPG V2A":::
+
+### <a name="hyper-v-to-azure-via-portal"></a>Hiper-V para Azure via Portal
+
+O grupo de colocação de proximidade para o VM alvo pode ser configurado após permitir a replicação para o VM. Certifique-se de que cria separadamente o PPG na região alvo de acordo com a sua exigência. Posteriormente, pode atualizar facilmente a seleção PPG na região DR depois de ter sido ativada a replicação para o VM.
+
+1. Selecione a máquina virtual a partir do cofre e na lâmina lateral esquerda, em 'Operações', selecione 'Recuperação de Desastres'
+2. Vá à lâmina 'Compute and Network' e clique em 'Editar' no topo da página
+3. Pode ver as opções para editar várias definições de alvo, incluindo PPG alvo. Escolha o PPG que gostaria que o VM falhasse e clicasse em 'Save'.
+
+   :::image type="content" source="media/how-to-enable-replication-proximity-placement-groups/proximity-placement-groups-update-h2a.png" alt-text="Atualização PPG H2A":::
+
+## <a name="set-up-disaster-recovery-for-vms-in-proximity-placement-groups-via-powershell"></a>Configurar a recuperação de desastres para VMs em grupos de colocação de proximidade via PowerShell
+
+### <a name="prerequisites"></a>Pré-requisitos 
 
 1. Certifique-se de que tem o módulo Azure PowerShell Az. Se necessitar de instalar ou atualizar o Azure PowerShell, siga este [Guia para instalar e configurar a Azure PowerShell](/powershell/azure/install-az-ps).
 2. A versão mínima Azure PowerShell Az deve ser 4.1.0. Para verificar a versão atual, use o comando abaixo -
+
     ```
     Get-InstalledModule -Name Az
     ```
 
-## <a name="set-up-site-recovery-for-virtual-machines-in-proximity-placement-group"></a>Configurar a recuperação do site para máquinas virtuais no Grupo de Colocação de Proximidade
+### <a name="set-up-site-recovery-for-virtual-machines-in-proximity-placement-group"></a>Configurar a recuperação do site para máquinas virtuais no Grupo de Colocação de Proximidade
 
 > [!NOTE]
 > Certifique-se de que tem à mão o ID único do Grupo de Colocação de Proximidade alvo. Se está a criar um novo Grupo de Colocação de Proximidade, verifique o comando [aqui](../virtual-machines/windows/proximity-placement-groups.md#create-a-proximity-placement-group) e se estiver a utilizar um Grupo de Colocação de Proximidade existente, use o comando [aqui](../virtual-machines/windows/proximity-placement-groups.md#list-proximity-placement-groups).
@@ -165,7 +216,7 @@ Update-AzRecoveryServicesAsrProtectionDirection -ReplicationProtectedItem $Repli
 
 14. Para desativar a replicação, siga os passos [aqui.](./azure-to-azure-powershell.md#disable-replication)
 
-### <a name="vmware-to-azure"></a>VMware para o Azure
+### <a name="vmware-to-azure-via-powershell"></a>VMware para Azure via PowerShell
 
 1. Certifique-se de que [prepara os seus servidores VMware no local](./vmware-azure-tutorial-prepare-on-premises.md) para a recuperação de desastres para Azure.
 2. Inscreva-se na sua conta e descreva a sua subscrição conforme especificado [aqui.](./vmware-azure-disaster-recovery-powershell.md#log-into-azure)
@@ -203,7 +254,7 @@ Get-AzRecoveryServicesAsrReplicationProtectedItem -ProtectionContainer $Protecti
 10. [Fazer](./vmware-azure-disaster-recovery-powershell.md#run-a-test-failover) um teste falhado.
 11. Falha no Azure utilizando [estes](./vmware-azure-disaster-recovery-powershell.md#fail-over-to-azure) passos.
 
-### <a name="hyper-v-to-azure"></a>Hyper-V para o Azure
+### <a name="hyper-v-to-azure-via-powershell"></a>Hiper-V para Azure via PowerShell
 
 1. Certifique-se de que [prepara os seus servidores Hiper-V no local](./hyper-v-prepare-on-premises-tutorial.md) para a recuperação de desastres para Azure.
 2. [Inscreva-se no](./hyper-v-azure-powershell-resource-manager.md#step-1-sign-in-to-your-azure-account) Azure.
@@ -253,7 +304,7 @@ Get-AzRecoveryServicesAsrReplicationProtectedItem -ProtectionContainer $Protecti
 8. Executar um teste [falhado](./hyper-v-azure-powershell-resource-manager.md#step-8-run-a-test-failover).
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para realizar reprotegido e failback para VMware para Azure, siga os passos [aqui](./vmware-azure-prepare-failback.md)descritos .
 

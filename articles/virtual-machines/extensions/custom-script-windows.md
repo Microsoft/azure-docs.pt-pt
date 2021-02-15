@@ -2,21 +2,21 @@
 title: Extensão de script personalizada Azure para windows
 description: Automatizar as tarefas de configuração do Windows VM utilizando a extensão de Script Personalizado
 services: virtual-machines-windows
-manager: carmonm
-author: bobbytreed
+manager: gwallace
+author: amjads1
 ms.service: virtual-machines-windows
 ms.subservice: extensions
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/31/2020
-ms.author: robreed
-ms.openlocfilehash: d4cfb8d6a48ac41b4deb8913d4277f07cbb43208
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.author: amjads
+ms.openlocfilehash: d06be4efae895cfe6903be4451f892660ce689f3
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99258709"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100390135"
 ---
 # <a name="custom-script-extension-for-windows"></a>Extensão de Script Personalizado para o Windows
 
@@ -32,6 +32,7 @@ Este documento detalha como utilizar a extensão de script personalizada utiliza
 ### <a name="operating-system"></a>Sistema Operativo
 
 A extensão de script personalizada para windows será executada na extensão de extensão suportada OSs;
+
 ### <a name="windows"></a>Windows
 
 * Windows Server 2008 R2
@@ -67,7 +68,7 @@ Se o seu script estiver num servidor local, poderá ainda necessitar de firewall
 * A extensão apenas executará um script de uma vez. Se quiser executar um script a cada arranque, tem de utilizar a extensão para criar uma Tarefa Agendada do Windows.
 * Se quiser agendar a execução de um script, deve utilizar a extensão para criar uma Tarefa Agendada do Windows.
 * Quando o script estiver em execução, verá apenas um estado de extensão "em transição" no portal ou na CLI do Azure. Se quiser atualizações de estado mais frequentes de um script em execução, terá de criar a sua própria solução.
-* A extensão de Script personalizado não suporta de forma nativa servidores proxy, no entanto pode utilizar uma ferramenta de transferência de ficheiros que suporta servidores proxy dentro do seu script, como *Curl*
+* A extensão de Script personalizado não suporta de forma nativa servidores proxy, no entanto pode utilizar uma ferramenta de transferência de ficheiros que suporta servidores proxy dentro do seu script, como *Invoke-WebRequest*
 * Tenha em atenção as localizações de diretório não predefinidas de que os scripts ou comandos possam depender. Tenha uma lógica para lidar com esta situação.
 * A extensão do script personalizado será executada sob a conta do Sistema Local
 * Se pretender utilizar as propriedades *de ArmazenamentoSeMe* e *armazenamentoCocountKey,* estas propriedades devem ser collocadas em *instalações protegidas*.

@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/11/2021
+ms.date: 02/14/2021
 ms.author: memildin
-ms.openlocfilehash: c12ad505777111499fb354709ce606189398458f
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 8d6cee5e8d9683ca88a71608595b7dfde8261b8d
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/14/2021
-ms.locfileid: "100391944"
+ms.locfileid: "100520532"
 ---
 # <a name="pricing-of-azure-security-center"></a>Preços do Centro de Segurança Azure
 O Centro de Segurança do Azure oferece gestão de segurança unificada e proteção avançada contra ameaças para cargas de trabalho em execução no Azure, no local e noutras clouds. Proporciona visibilidade e controlo sobre cargas de trabalho em nuvem híbrida, defesas ativas que reduzem a sua exposição a ameaças e deteção inteligente para ajudá-lo a manter o ritmo com riscos cibernéticos em rápida evolução.
@@ -118,7 +118,18 @@ Se já tem uma licença para o Microsoft Defender para o Endpoint, não terá de
 Para confirmar o seu desconto, contacte a equipa de apoio do Security Center e forneça o ID do espaço de trabalho relevante, região e informações de licença para cada licença relevante.
 
 ### <a name="my-subscription-has-azure-defender-for-servers-enabled-do-i-pay-for-not-running-servers"></a>A minha subscrição tem o Azure Defender para servidores ativados, pago por servidores não funcionando? 
-N.º Quando ativar [o Azure Defender para servidores](defender-for-servers-introduction.md) numa subscrição, não será cobrado por nenhum servidor que esteja no estado de "deallocated" enquanto estiver nesse estado.
+N.º Quando ativar [o Azure Defender para servidores](defender-for-servers-introduction.md) numa subscrição, não será cobrado por nenhuma máquina que esteja no estado de energia translocado enquanto estiver nesse estado. As máquinas são faturadas de acordo com o seu estado de poder, tal como mostrado na tabela seguinte:
+
+| Estado        | Descrição                                                                                                                                      | Taxa de utilização de instâncias |
+|--------------|--------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------|
+| A iniciar     | O VM está a começar.                                                                                                                               | Não cobrado            |
+| Em Execução      | Estado de trabalho normal para um VM                                                                                                                    | Faturado                |
+| A parar     | Este é um estado de transição. Quando estiver concluído, mostrará como "Parado".                                                                           | Faturado                |
+| Parada      | O VM foi desligado a partir do so do hóspede ou utilizando as APIs PowerOff. O hardware ainda está atribuído ao VM e permanece no anfitrião. | Faturado (1)            |
+| A desalocar | Estado de transição. Quando concluído, o VM mostrará como Deallocated.                                                                             | Não faturado (1)        |
+| Desalocada  | O VM foi interrompido com sucesso e removido do hospedeiro.                                                                                  | Não cobrado            |
+
+(1) Alguns recursos Azure, tais como discos e networking, incorrem em encargos. As licenças de software no caso não incorrem em encargos.
 
 :::image type="content" source="media/security-center-pricing/deallocated-virtual-machines.png" alt-text="Máquinas virtuais Azure mostrando uma máquina deallocated":::
 

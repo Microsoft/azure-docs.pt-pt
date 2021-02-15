@@ -12,12 +12,12 @@ ms.date: 06/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: d20a363a0320ca45f22183e54bcc390d4733c8bc
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 8a4a4153261b93b3b17641e8561962c274570bd0
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99581759"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104217"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>How to: Utilizar o portal para criar uma aplicação e um principal de serviço do Azure AD que possam aceder aos recursos
 
@@ -75,7 +75,7 @@ Para verificar as permissões de subscrição:
 
 Vamos saltar diretamente para criar a identidade. Se tiver algum problema, verifique as [permissões necessárias](#permissions-required-for-registering-an-app) para se certificar de que a sua conta pode criar a identidade.
 
-1. Inscreva-se na sua Conta Azure através do <a href="https://portal.azure.com/" target="_blank">portal <span class="docon docon-navigate-external x-hidden-focus"></span> Azure</a>.
+1. Inscreva-se na sua Conta Azure através do <a href="https://portal.azure.com/" target="_blank">portal Azure</a>.
 1. Selecione **Azure Active Directory**.
 1. Selecione **Registos de aplicações**.
 1. Selecione **Novo registo**.
@@ -181,7 +181,7 @@ Se optar por não utilizar um certificado, pode criar um novo segredo de aplica�
 ## <a name="configure-access-policies-on-resources"></a>Configure políticas de acesso aos recursos
 Tenha em mente que poderá ter de configurar permissões adicionais sobre recursos a que a sua aplicação necessita de aceder. Por exemplo, também deve [atualizar as políticas de acesso de um cofre chave](../../key-vault/general/secure-your-key-vault.md#data-plane-and-access-policies) para dar acesso à sua aplicação a chaves, segredos ou certificados.
 
-1. No <a href="https://portal.azure.com/" target="_blank">portal <span class="docon docon-navigate-external x-hidden-focus"></span> Azure,</a>navegue para o cofre e selecione **as políticas de acesso**.
+1. No <a href="https://portal.azure.com/" target="_blank">portal Azure,</a>navegue para o cofre e selecione **as políticas de acesso**.
 1. **Selecione Adicionar a política de acesso,** em seguida, selecione as permissões de chave, segredo e certificado que pretende conceder à sua candidatura.  Selecione o principal de serviço que criou anteriormente.
 1. **Selecione Adicionar** para adicionar a política de acesso e, em seguida, **guardar** para cometer as suas alterações.
     ![Adicionar política de acesso](./media/howto-create-service-principal-portal/add-access-policy.png)

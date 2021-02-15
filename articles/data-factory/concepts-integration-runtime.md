@@ -1,22 +1,18 @@
 ---
 title: Runtime de integração
 description: Saiba mais sobre integration runtime no Azure Data Factory.
-services: data-factory
 ms.author: abnarain
 author: nabhishek
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/14/2020
-ms.openlocfilehash: d5e20b1fc0ce32eae8dc2888fdda982f0de95d90
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 911674a80b531a50cfb429c5dc0ff41f1aaceb08
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636651"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100389948"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Integration runtime no Azure Data Factory 
 
@@ -24,10 +20,10 @@ ms.locfileid: "92636651"
 
 O Integration Runtime (IR) é a infraestrutura de computação que o Azure Data Factory utiliza para proporcionar as seguintes capacidades de integração de dados em diferentes ambientes de rede:
 
-- **Fluxo de dados** : Execute um [fluxo de dados](concepts-data-flow-overview.md) em ambiente computacional gerido do Azure.  
-- **Movimento de dados** : Copiar dados em lojas de dados em redes públicas e lojas de dados em rede privada (no local ou rede privada virtual). Oferece suporte para conectores incorporados, conversão de formatos, mapeamento de colunas e transferência de dados dimensionável e de desempenho elevado.
-- **Despacho de atividades** : Despachar e monitorizar as atividades de transformação em execução numa variedade de serviços de computação, tais como Azure Databricks, Azure HDInsight, Azure Machine Learning, Azure SQL Database, SQL Server, entre outros.
-- **Execução de pacotes do SSIS** : executar, nativamente, pacotes do SQL Server Integration Services (SSIS) num ambiente de computação gerida do Azure.
+- **Fluxo de dados**: Execute um [fluxo de dados](concepts-data-flow-overview.md) em ambiente computacional gerido do Azure.  
+- **Movimento de dados**: Copiar dados em lojas de dados em redes públicas e lojas de dados em rede privada (no local ou rede privada virtual). Oferece suporte para conectores incorporados, conversão de formatos, mapeamento de colunas e transferência de dados dimensionável e de desempenho elevado.
+- **Despacho de atividades**: Despachar e monitorizar as atividades de transformação em execução numa variedade de serviços de computação, tais como Azure Databricks, Azure HDInsight, Azure Machine Learning, Azure SQL Database, SQL Server, entre outros.
+- **Execução de pacotes do SSIS**: executar, nativamente, pacotes do SQL Server Integration Services (SSIS) num ambiente de computação gerida do Azure.
 
 No Data Factory, as atividades definem as ações que vão ser realizadas. Os serviços ligados definem um arquivo de dados ou um serviço de computação de destino. Os runtimes de integração estabelecem a ponte entre a atividade e os serviços ligados.  É referenciado pelo serviço ou atividade ligado, e fornece o ambiente computacional onde a atividade funciona ou é despachada. Desta forma, a atividade pode ser realizada na região mais perto possível do arquivo de dados ou do serviço de computação de destino com o melhor desempenho possível, satisfazendo as necessidades de segurança e conformidade.
 
@@ -180,9 +176,9 @@ O diagrama seguinte mostra as definições de localização do Data Factory e os
 
 Para a atividade Cópia, precisa que os serviços ligados de origem e sink definam a direção do fluxo de dados. É utilizada a lógica seguinte para determinar que instância do runtime de integração é utilizada para fazer a cópia: 
 
-- **Cópia entre duas fontes de dados em nuvem** : quando os serviços ligados à fonte e ao lavatório estão a utilizar o Azure IR, a ADF utiliza o Azure IR regional se especificado, ou determina automaticamente a localização do Azure IR se escolher a auto-base IR (predefinição) como descrito na secção [de localização de tempo de integração.](#integration-runtime-location)
-- **Copiar entre uma origem de dados na cloud e uma origem de dados numa rede privada** : se o serviço ligado de origem ou sink apontar para um runtime de integração autoalojado, a atividade Cópia é executada no mesmo.
-- **Cópia entre duas fontes de dados na rede privada** : tanto o Serviço Ligado de origem como o sinkdes devem apontar para o mesmo caso de tempo de integração, e que o tempo de integração é utilizado para executar a atividade de cópia.
+- **Cópia entre duas fontes de dados em nuvem**: quando os serviços ligados à fonte e ao lavatório estão a utilizar o Azure IR, a ADF utiliza o Azure IR regional se especificado, ou determina automaticamente a localização do Azure IR se escolher a auto-base IR (predefinição) como descrito na secção [de localização de tempo de integração.](#integration-runtime-location)
+- **Copiar entre uma origem de dados na cloud e uma origem de dados numa rede privada**: se o serviço ligado de origem ou sink apontar para um runtime de integração autoalojado, a atividade Cópia é executada no mesmo.
+- **Cópia entre duas fontes de dados na rede privada**: tanto o Serviço Ligado de origem como o sinkdes devem apontar para o mesmo caso de tempo de integração, e que o tempo de integração é utilizado para executar a atividade de cópia.
 
 ### <a name="lookup-and-getmetadata-activity"></a>Atividade de Pesquisa e GetMetadata
 

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/17/2020
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: 57fda08a996b7d46da74c0ce35bff0df20821b31
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 708c70a5144e4e38dd5de9524711c80ef28cd839
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97654834"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100092133"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Como chamar a API de Sms Analytics REST
 
@@ -34,6 +34,16 @@ Antes de utilizar a API text Analytics, terá de criar um recurso Azure com uma 
 2.  Selecione a região que pretende utilizar para o seu ponto final.  Por favor, note que os `/analyze` `/health` pontos finais estão disponíveis apenas nas seguintes regiões: West US 2, East US 2, Central US, North Europe e West Europe.
 
 3.  Crie o recurso Text Analytics e vá para a "lâmina de teclas e ponto final" no lado esquerdo da página. Copie a chave a ser usada mais tarde quando ligar para as APIs. Vais acrescentar isto mais tarde como um valor para o `Ocp-Apim-Subscription-Key` cabeçalho.
+
+## <a name="change-your-pricing-tier"></a>Altere o seu nível de preços 
+
+Se tiver um recurso de Análise de Texto existente utilizando o nível de preços S0-S4, pode atualizá-lo para utilizar o [nível de preços](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/)Standard (S):
+
+1. Navegue para o seu recurso Text Analytics no [portal Azure](https://portal.azure.com/).
+2. Selecione **o nível de preços** no menu de navegação à esquerda. Estará abaixo **da gestão de recursos.** 
+3. Escolha o nível de preços Standard (S). Em seguida, clique em **Selecionar**.
+
+Também pode criar um novo recurso Text Analytics com o nível de preços Standard (S) e migrar as suas aplicações para usar as credenciais para o novo recurso. 
 
 ## <a name="using-the-api-synchronously"></a>Usando a API sincronizadamente
 
@@ -254,8 +264,8 @@ Depois de ter o seu ponto final, no Carteiro (ou noutra ferramenta de teste web 
 
 5. Cole em alguns documentos JSON num formato válido. Utilize os exemplos na secção de formulário de pedido da **API** acima, e para mais informações e exemplos, consulte os tópicos abaixo:
 
-      + [Deteção de idioma](text-analytics-how-to-language-detection.md)
-      + [Extração de expressões-chave](text-analytics-how-to-keyword-extraction.md)
+      + [Deteção linguística](text-analytics-how-to-language-detection.md)
+      + [Extração de frase-chave](text-analytics-how-to-keyword-extraction.md)
       + [Análise de sentimento](text-analytics-how-to-sentiment-analysis.md)
       + [Reconhecimento de entidades](text-analytics-how-to-entity-linking.md)
 
@@ -284,8 +294,8 @@ Por favor, note que tanto para assíncronos `/analyze` como `/health` para opera
 
 As respostas sincronizadas do ponto final variam consoante o ponto final que utilizar. Consulte os seguintes artigos, por exemplo, respostas.
 
-+ [Deteção de idioma](text-analytics-how-to-language-detection.md#step-3-view-the-results)
-+ [Extração de expressões-chave](text-analytics-how-to-keyword-extraction.md#step-3-view-results)
++ [Deteção linguística](text-analytics-how-to-language-detection.md#step-3-view-the-results)
++ [Extração de frase-chave](text-analytics-how-to-keyword-extraction.md#step-3-view-results)
 + [Análise de sentimento](text-analytics-how-to-sentiment-analysis.md#view-the-results)
 + [Reconhecimento de entidades](text-analytics-how-to-entity-linking.md#view-results)
 
@@ -295,7 +305,7 @@ As respostas sincronizadas do ponto final variam consoante o ponto final que uti
 
 Se for bem sucedido, o pedido GET ao `/analyze` ponto final devolverá um objeto que contenha as tarefas atribuídas. Por exemplo, `keyPhraseExtractionTasks`. Estas tarefas contêm o objeto de resposta da função de Análise de Texto apropriado. Consulte os seguintes artigos para mais informações.
 
-+ [Extração de expressões-chave](text-analytics-how-to-keyword-extraction.md#step-3-view-results)
++ [Extração de frase-chave](text-analytics-how-to-keyword-extraction.md#step-3-view-results)
 + [Reconhecimento de entidades](text-analytics-how-to-entity-linking.md#view-results)
 + [Análise de Texto para a saúde](text-analytics-for-health.md#hosted-asynchronous-web-api-response)
 

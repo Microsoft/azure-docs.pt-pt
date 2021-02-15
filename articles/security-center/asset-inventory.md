@@ -5,15 +5,15 @@ author: memildin
 manager: rkarlin
 services: security-center
 ms.author: memildin
-ms.date: 12/22/2020
+ms.date: 02/10/2021
 ms.service: security-center
 ms.topic: how-to
-ms.openlocfilehash: 5b8d167992e57cd0fae35c57212ea700cd677afa
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 873fdba1d24db55b3269cc2c13f0140da4a9b4e3
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98920431"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100393361"
 ---
 # <a name="explore-and-manage-your-resources-with-asset-inventory"></a>Explore e gere os seus recursos com o inventário de ativos
 
@@ -37,7 +37,6 @@ As possibilidades de gestão de ativos para esta ferramenta são substanciais e 
 
 
 ## <a name="availability"></a>Disponibilidade
-
 |Aspeto|Detalhes|
 |----|:----|
 |Estado de libertação:|Disponibilidade Geral (GA)|
@@ -48,33 +47,36 @@ As possibilidades de gestão de ativos para esta ferramenta são substanciais e 
 
 
 ## <a name="what-are-the-key-features-of-asset-inventory"></a>Quais são as principais características do inventário de ativos?
-
 A página de inventário fornece as seguintes ferramentas:
 
-- **Resumos** - Antes de definir quaisquer filtros, uma tira proeminente de valores no topo da vista de inventário mostra:
+:::image type="content" source="media/asset-inventory/highlights-of-inventory.png" alt-text="Principais características da página de inventário de ativos no Azure Security Center" lightbox="media/asset-inventory/highlights-of-inventory.png":::
 
-    - **Recursos totais**: O número total de recursos ligados ao Centro de Segurança.
-    - **Recursos insalubres**: Recursos com recomendações de segurança ativas. [Saiba mais sobre recomendações de segurança.](security-center-recommendations.md)
-    - **Recursos não monitorizados**: Recursos com problemas de monitorização de agentes - eles têm o agente Log Analytics implantado, mas o agente não está a enviar dados ou tem outros problemas de saúde.
 
-- **Filtros** - Os múltiplos filtros no topo da página fornecem uma forma de refinar rapidamente a lista de recursos de acordo com a pergunta que está a tentar responder. Por exemplo, se quiser responder à pergunta *Qual das minhas máquinas com a etiqueta 'Produção' está a faltar ao agente Log Analytics?*  
+### <a name="1---summaries"></a>1 - Resumos
+Antes de definir quaisquer filtros, uma tira proeminente de valores no topo da vista de inventário mostra:
 
-    :::image type="content" source="./media/asset-inventory/filtering-to-prod-unmonitored.gif" alt-text="Filtragem para recursos produtivos que não são monitorizados":::
+- **Recursos totais**: O número total de recursos ligados ao Centro de Segurança.
+- **Recursos insalubres**: Recursos com recomendações de segurança ativas. [Saiba mais sobre recomendações de segurança.](security-center-recommendations.md)
+- **Recursos não monitorizados**: Recursos com problemas de monitorização de agentes - eles têm o agente Log Analytics implantado, mas o agente não está a enviar dados ou tem outros problemas de saúde.
+- **Assinaturas não registadas**: Qualquer subscrição no âmbito selecionado que ainda não tenha sido ligada ao Centro de Segurança Azure.
 
-    Assim que tiver aplicado filtros, os valores do resumo são atualizados para se relacionarem com os resultados da consulta. 
+### <a name="2---filters"></a>2 - Filtros
+Os múltiplos filtros no topo da página fornecem uma forma de refinar rapidamente a lista de recursos de acordo com a pergunta que está a tentar responder. Por exemplo, se quiser responder à pergunta *Qual das minhas máquinas com a etiqueta 'Produção' está a faltar ao agente Log Analytics?*  
 
-- **Opções de exportação** - O inventário oferece a opção de exportar os resultados das suas opções de filtro selecionadas para um ficheiro CSV. Além disso, pode exportar a própria consulta para o Azure Resource Graph Explorer para aperfeiçoar, guardar ou modificar a consulta de Língua De Consulta de Kusto (KQL).
+Assim que tiver aplicado filtros, os valores do resumo são atualizados para se relacionarem com os resultados da consulta. 
 
-    :::image type="content" source="./media/asset-inventory/inventory-export-options.png" alt-text="Opções de exportação do inventário":::
+### <a name="3---export-and-asset-management-tools"></a>3 - Ferramentas de exportação e gestão de ativos
 
-    > [!TIP]
-    > A documentação do KQL fornece uma base de dados com alguns dados da amostra, juntamente com algumas perguntas simples para obter a "sensação" para o idioma. [Saiba mais neste tutorial da KQL.](/azure/data-explorer/kusto/query/tutorial?pivots=azuredataexplorer)
+**Opções de exportação** - O inventário inclui uma opção para exportar os resultados das suas opções de filtro selecionadas para um ficheiro CSV. Também pode exportar a consulta em si para O Azure Resource Graph Explorer para refinar, guardar ou modificar a consulta de Língua De Consulta de Kusto (KQL).
 
-- **Opções de gestão de ativos** - O inventário permite-lhe realizar consultas complexas de descoberta. Quando encontra os recursos que combinam com as suas consultas, o inventário fornece atalhos para operações como:
+> [!TIP]
+> A documentação do KQL fornece uma base de dados com alguns dados da amostra, juntamente com algumas perguntas simples para obter a "sensação" para o idioma. [Saiba mais neste tutorial da KQL.](/azure/data-explorer/kusto/query/tutorial?pivots=azuredataexplorer)
 
-    - Atribua etiquetas aos recursos filtrados - selecione as caixas de verificação ao lado dos recursos que pretende marcar.
-    - A bordo de novos servidores para o Security Center - utilize o botão de barra **de ferramentas add non-Azure servers.**
-    - Automatizar cargas de trabalho com apps Azure Logic - use o botão **Trigger Logic App** para executar uma aplicação lógica em um ou mais recursos. As suas aplicações lógicas têm de ser preparadas com antecedência e aceitar o tipo de gatilho relevante (pedido HTTP). [Saiba mais sobre aplicações lógicas.](../logic-apps/logic-apps-overview.md)
+**Opções de gestão de ativos** - O inventário permite-lhe realizar consultas complexas de descoberta. Quando encontra os recursos que combinam com as suas consultas, o inventário fornece atalhos para operações como:
+
+- Atribua etiquetas aos recursos filtrados - selecione as caixas de verificação ao lado dos recursos que pretende marcar.
+- A bordo de novos servidores para o Security Center - utilize o botão de barra **de ferramentas add non-Azure servers.**
+- Automatizar cargas de trabalho com apps Azure Logic - use o botão **Trigger Logic App** para executar uma aplicação lógica em um ou mais recursos. As suas aplicações lógicas têm de ser preparadas com antecedência e aceitar o tipo de gatilho relevante (pedido HTTP). [Saiba mais sobre aplicações lógicas.](../logic-apps/logic-apps-overview.md)
 
 
 ## <a name="how-does-asset-inventory-work"></a>Como funciona o inventário de ativos?
@@ -94,14 +96,14 @@ Utilizando a [Língua de Consulta de Kusto (KQL),](/azure/data-explorer/kusto/qu
 
 1. Selecione as opções relevantes nos filtros para criar a consulta específica que pretende realizar.
 
-    :::image type="content" source="./media/asset-inventory/inventory-filters.png" alt-text="Opções de filtragem do inventário" lightbox="./media/asset-inventory/inventory-filters.png":::
-
     Por padrão, os recursos são classificados pelo número de recomendações de segurança ativas.
 
     > [!IMPORTANT]
     > As opções em cada filtro são específicas dos recursos nas subscrições atualmente selecionadas **e** das suas seleções nos outros filtros.
     >
     > Por exemplo, se selecionou apenas uma subscrição, e a subscrição não tiver recursos com recomendações de segurança pendentes para remediar (0 recursos não saudáveis), o filtro **Recomendações** não terá opções. 
+
+    :::image type="content" source="./media/asset-inventory/filtering-to-prod-unmonitored.gif" alt-text="Usando as opções de filtro no inventário de ativos do Azure Security Center para filtrar recursos para recursos de produção que não são monitorizados":::
 
 1. Para utilizar as **conclusões** de Segurança contêm filtro, introduza texto gratuito a partir do ID, verificação de segurança ou nome CVE de uma vulnerabilidade que encontra para filtrar para os recursos afetados:
 
@@ -112,7 +114,7 @@ Utilizando a [Língua de Consulta de Kusto (KQL),](/azure/data-explorer/kusto/qu
 
 1. Para utilizar o filtro **Azure Defender,** selecione uma ou mais opções (Desligada, On ou Parcial):
 
-    - **Off** - Recursos que não estão protegidos por um plano Azure Defender. Pode clicar em qualquer um destes e atualizá-los:
+    - **Off** - Recursos que não estão protegidos por um plano Azure Defender. Pode clicar com o direito em qualquer um destes e atualizá-los:
 
         :::image type="content" source="./media/asset-inventory/upgrade-resource-inventory.png" alt-text="Atualize um recurso para Azure Defender a partir do clique direito" lightbox="./media/asset-inventory/upgrade-resource-inventory.png":::
 
@@ -150,7 +152,7 @@ Quando a monitorização de preços ou agentes não é relevante para um recurso
 
 :::image type="content" source="./media/asset-inventory/agent-pricing-blanks.png" alt-text="Alguns recursos mostram informações em branco na monitorização do agente ou colunas do Azure Defender":::
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Este artigo descreveu a página de inventário de ativos do Azure Security Center.
 

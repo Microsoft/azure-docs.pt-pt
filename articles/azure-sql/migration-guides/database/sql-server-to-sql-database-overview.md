@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 2d668775e8d11faa0b2913cebc41e5217b49c278
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 2d97d02aec84fec92e29e971cd5c667c847b2541
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97357335"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100368052"
 ---
 # <a name="migration-overview-sql-server-to-sql-database"></a>Visão geral da migração: SQL Server para SQL Database
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
@@ -32,7 +32,7 @@ Pode migrar o SQL Server a funcionar no local ou em:
 
 Para outros cenários, consulte o [Guia de Migração da Base de Dados.](https://datamigration.microsoft.com/) 
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 [A Azure SQL Database](../../database/sql-database-paas-overview.md) é uma opção-alvo recomendada para cargas de trabalho do SQL Server que requerem uma Plataforma totalmente gerida como um Serviço (PaaS). A SQL Database lida com a maioria das funções de gestão de bases de dados, juntamente com alta disponibilidade, processamento inteligente de consultas, escalabilidade e capacidades de desempenho incorporadas para atender a muitos tipos de aplicação diferentes. 
 
@@ -157,7 +157,7 @@ Existem considerações adicionais ao migrar cargas de trabalho que dependem de 
 Migrar pacotes de Serviços de Integração de Servidores SQL (SSIS) para a Azure, recolocando os pacotes para o tempo de funcionamento do Azure-SSIS na [Azure Data Factory](../../../data-factory/introduction.md). A Azure Data Factory apoia a [migração de pacotes SSIS,](../../../data-factory/scenario-ssis-migration-overview.md#azure-sql-database-as-database-workload-destination) fornecendo um tempo de execução construído para executar pacotes SSIS em Azure. Em alternativa, também pode reescrever a lógica SSIS ETL de forma nativa em ADF utilizando [dataflows](../../../data-factory/concepts-data-flow-overview.md).
 
 
-#### <a name="sql-server-reporting-services"></a>SQL Server Reporting Services
+#### <a name="sql-server-reporting-services"></a>SQL Server Reporting Services
 A Migração de Serviços de Relato de Servidores SQL (SSRS) reporta relatórios paginados no Power BI. Utilize a [Ferramenta de Migração RDL](https://github.com/microsoft/RdlMigration) para ajudar a preparar e migrar os seus relatórios. Essa ferramenta foi desenvolvida pela Microsoft para ajudar os clientes a migrar relatórios RDL dos seus servidores do SSRS para o Power BI. Está disponível no GitHub, e documenta uma passagem de ponta a ponta do cenário de migração. 
 
 #### <a name="high-availability"></a>Elevada disponibilidade
@@ -166,7 +166,7 @@ A configuração manual de funcionalidades de alta disponibilidade do SQL Server
 Para além da arquitetura de alta disponibilidade que está incluída na Base de Dados SQL, existe também a funcionalidade [de grupos de falha automática](../../database/auto-failover-group-overview.md) que permite gerir a replicação e falha de bases de dados em um caso gerido para outra região. 
 
 #### <a name="sql-agent-jobs"></a>Empregos de agente SQL
-Os trabalhos do Agente SQL não são suportados diretamente na Base de Dados Azure SQL e terão de ser implantados em [Trabalhos de Base de Dados Elásticas (Pré-visualização)](../../database/job-automation-overview.md#elastic-database-jobs-preview).
+Os trabalhos do Agente SQL não são suportados diretamente na Base de Dados Azure SQL e terão de ser implantados em [Trabalhos de Base de Dados Elásticas (Pré-visualização)](../../database/job-automation-overview.md).
 
 #### <a name="logins-and-groups"></a>Logins e grupos
 Mover os logins SQL do servidor SQL de origem para a base de dados Azure SQL utilizando o Serviço de Migração de Bases de Dados (DMS) em modo offline.  Utilize a lâmina **de login selecionada** no Assistente de **Migração** para migrar os logins para a base de dados SQL alvo. 
@@ -194,7 +194,7 @@ Além de funcionalidades avançadas de gestão e segurança, a SQL Database forn
 
 Para assistência adicional, consulte os seguintes recursos que foram desenvolvidos para projetos de migração no mundo real.
 
-|Recurso  |Descrição  |
+|Recurso  |Description  |
 |---------|---------|
 |[Modelo e ferramenta de avaliação da carga de trabalho de dados](https://github.com/Microsoft/DataMigrationTeam/tree/master/Data%20Workload%20Assessment%20Model%20and%20Tool)| Esta ferramenta fornece plataformas-alvo sugeridas "melhor ajuste", prontidão na nuvem e nível de remediação de aplicações/bases de dados para uma determinada carga de trabalho. Oferece um cálculo simples e de um clique e uma geração de relatórios que ajuda a acelerar as grandes avaliações imobiliárias, fornecendo um processo de decisão de plataforma-alvo automatizado e uniforme.|
 |[Utilidade DBLoader](https://github.com/microsoft/DataMigrationTeam/tree/master/DBLoader%20Utility)|O DBLoader pode ser usado para carregar dados de ficheiros de texto delimitados para o SQL Server. Este utilitário de consola Windows utiliza a interface de volume de pessoal do cliente nativo do SQL Server, que funciona em todas as versões do SQL Server, incluindo a Base de Dados Azure SQL.|

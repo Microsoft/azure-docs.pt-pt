@@ -1,14 +1,14 @@
 ---
 title: Monitorar recursos delegados à escala
 description: Aprenda a utilizar eficazmente os Registos do Monitor Azure de forma escalável através dos inquilinos do cliente que está a gerir.
-ms.date: 02/02/2021
+ms.date: 02/11/2021
 ms.topic: how-to
-ms.openlocfilehash: 8847c2e5ee4986d35ad676440720b150794003e8
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: f3a789c855f7b05d24cdacd0fb31ee7d6d3e188b
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99575911"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100379238"
 ---
 # <a name="monitor-delegated-resources-at-scale"></a>Monitorar recursos delegados à escala
 
@@ -65,7 +65,6 @@ alertsmanagementresources
 
 ## <a name="next-steps"></a>Passos seguintes
 
+- Experimente os [registos de atividade por livro de domínio](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/workbook-activitylogs-by-domain) no GitHub.
 - Explore este [livro de amostras construído pelo MVP,](https://github.com/scautomation/Azure-Automation-Update-Management-Workbooks)que rastreia o relatório de conformidade de remendos [consultando registos de Gestão de Atualização](../../automation/update-management/query-logs.md) em vários espaços de trabalho do Log Analytics. 
-- Saiba mais sobre [o Azure Monitor](../../azure-monitor/index.yml).
-- Saiba mais [sobre os Registos do Monitor Azure](../../azure-monitor/platform/data-platform-logs.md).
-- Conheça as [experiências de gestão de inquilinos cruzados.](../concepts/cross-tenant-management-experience.md)
+- Conheça outras [experiências de gestão de inquilinos cruzados.](../concepts/cross-tenant-management-experience.md)

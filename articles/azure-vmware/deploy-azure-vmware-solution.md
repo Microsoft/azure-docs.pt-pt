@@ -3,12 +3,12 @@ title: Implementar e configurar a solução VMware Azure
 description: Saiba como utilizar as informações recolhidas na fase de planeamento para implementar a nuvem privada Azure VMware Solution.
 ms.topic: tutorial
 ms.date: 12/24/2020
-ms.openlocfilehash: f2b6f3c4ad82117fee96e0c2e5973a7011384d48
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 4c6929ca59bae022642082e8382203a10bd41309
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98760891"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100382060"
 ---
 # <a name="deploy-and-configure-azure-vmware-solution"></a>Implementar e configurar a solução VMware Azure
 
@@ -68,13 +68,13 @@ Neste exemplo, a rede 10.74.72.0/22 foi a entrada durante a implantação deriva
 
 ## <a name="connect-and-sign-in-to-vcenter-and-nsx-t"></a>Conecte-se e inscreva-se no vCenter e no NSX-T
 
-Inicie sessão na caixa de salto que criou no passo anterior. Uma vez iniciado o login, abra um navegador web e navegue para e inicie sessão na consola de administração vCenter e NSX-T.  
+Inicie sessão na caixa de salto que criou no passo anterior. Uma vez iniciado o login, abra um navegador web e navegue para e inicie sessão no vCenter e no NSX-T Manager.  
 
-Pode identificar os endereços IP e credenciais ip da consola de administração VSX-T no portal Azure.  Selecione a sua nuvem privada e, em seguida, na **vista geral,** selecione **Identidade > Padrão**. 
+Pode identificar os endereços IP e credenciais ip da consola VSX-T Manager no portal Azure.  Selecione a sua nuvem privada e, em seguida, na **vista geral,** selecione **Identidade > Padrão**. 
 
 ## <a name="create-a-network-segment-on-azure-vmware-solution"></a>Criar um segmento de rede na Solução VMware Azure
 
-Utiliza o NSX-T para criar novos segmentos de rede no seu ambiente Azure VMware Solution.  Definiu as redes que pretende criar na [secção de planeamento.](production-ready-deployment-steps.md)  Se ainda não os definiu, volte para a [secção de planeamento](production-ready-deployment-steps.md) antes de prosseguir.
+Utiliza o NSX-T Manager para criar novos segmentos de rede no seu ambiente de Solução VMware Azure.  Definiu as redes que pretende criar na [secção de planeamento.](production-ready-deployment-steps.md)  Se ainda não os definiu, volte para a [secção de planeamento](production-ready-deployment-steps.md) antes de prosseguir.
 
 >[!IMPORTANT]
 >Certifique-se de que o bloco de endereços de rede CIDR que definiu não se sobrepõe a nada nos ambientes Azure ou no local.  
@@ -129,7 +129,7 @@ Inicie sessão no VM criado no passo anterior e verifique a conectividade;
 
 A Azure VMware Solution está agora em funcionamento, e você estabeleceu com sucesso conectividade de e para a Rede Virtual Azure e a internet.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Na secção seguinte, irá ligar a Solução Azure VMware à sua rede no local através do ExpressRoute.
 > [!div class="nextstepaction"]
