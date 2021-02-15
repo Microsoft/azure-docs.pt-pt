@@ -1,22 +1,17 @@
 ---
 title: Ferramenta de dados de cópia Azure Data Factory
 description: Fornece informações sobre a ferramenta Dados de Cópia na UI da Fábrica de Dados Azure
-services: data-factory
-documentationcenter: ''
 author: dearandyxu
-manager: anandsub
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: yexu
-ms.openlocfilehash: b0ba14a05ac42e9fccc1a146ad5943716652104d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 18d61c7f51547a524e64fc44c98e70e0f5bc2752
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89434202"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100372999"
 ---
 # <a name="copy-data-tool-in-azure-data-factory"></a>Ferramenta Copiar Dados no Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -69,7 +64,7 @@ O esquema da fonte de dados pode não ser o mesmo que o esquema do destino dado 
 A ferramenta Dados de Cópia monitoriza e aprende o seu comportamento quando está a mapear colunas entre as lojas de origem e destino. Depois de escolher uma ou algumas colunas da loja de dados de origem e mapeá-las para o esquema de destino, a ferramenta Copy Data começa a analisar o padrão para pares de colunas que escolheu de ambos os lados. Depois, aplica o mesmo padrão ao resto das colunas. Portanto, você vê todas as colunas foram mapeadas para o destino de uma forma que você deseja apenas após vários cliques.  Se não estiver satisfeito com a escolha do mapeamento de colunas fornecido pela ferramenta Copy Data, pode ignorá-lo e continuar a mapear manualmente as colunas. Enquanto isso, a ferramenta Dados de Cópia aprende e atualiza constantemente o padrão e, em última análise, atinge o padrão certo para o mapeamento da coluna que pretende alcançar. 
 
 > [!NOTE]
-> Ao copiar dados do SQL Server ou da Base de Dados Azure SQL para a Azure Synapse Analytics (anteriormente SQL Data Warehouse), se a tabela não existir na loja de destino, a ferramenta Copy Data suporta a criação da tabela automaticamente utilizando o esquema de origem. 
+> Ao copiar dados do SQL Server ou da Base de Dados Azure SQL para a Azure Synapse Analytics, se a tabela não existir na loja de destino, a ferramenta Copy Data suporta a criação da tabela automaticamente utilizando o esquema de origem. 
 
 ## <a name="filter-data"></a>Filtrar dados
 Pode filtrar dados de origem para selecionar apenas os dados que precisam de ser copiados para a loja de dados da pia. A filtragem reduz o volume dos dados a copiar para a loja de dados da pia e, portanto, aumenta o rendimento da operação de cópia. A ferramenta Copy Data fornece uma forma flexível de filtrar dados numa base de dados relacional utilizando o idioma de consulta SQL, ou ficheiros numa pasta de blob Azure. 

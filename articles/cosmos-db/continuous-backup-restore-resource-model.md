@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/01/2021
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 91421b66af441ed2c7e9c8b66c16ee83f489b03e
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: d838425583638aef5199b52df4869923c826553d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99538509"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100369973"
 ---
 # <a name="resource-model-for-the-azure-cosmos-db-point-in-time-restore-feature-preview"></a>Modelo de recursos para a funcionalidade de restauro ponto-a-tempo do Azure Cosmos (Preview)
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -30,14 +30,14 @@ O modelo de recursos da conta de base de dados é atualizado com algumas proprie
 
 ### <a name="backuppolicy"></a>Política de Apoio
 
-Uma nova propriedade na política de backup de nível de conta chamada "Tipo" no parâmetro "backuppolicy" permite funcionalidades de backup contínua e restauro pontual. Este modo **chama-se backup contínuo.** Na pré-visualização pública, só é possível definir este modo ao criar a conta. Depois de ativado, todos os contentores e bases de dados criados dentro desta conta terão funcionalidades de backup contínua e restauro pontual ativadas por padrão.
+Uma nova propriedade na política de backup de nível de conta indicada `Type` no `backuppolicy` parâmetro permite funcionalidades de backup contínua e restauração pontual. Este modo **chama-se backup contínuo.** Na pré-visualização pública, só é possível definir este modo ao criar a conta. Depois de ativado, todos os contentores e bases de dados criados dentro desta conta terão funcionalidades de backup contínua e restauro pontual ativadas por padrão.
 
 > [!NOTE]
 > Atualmente, a funcionalidade de restauro pontual está em pré-visualização pública e está disponível para Azure Cosmos DB API para as contas MongoDB e SQL. Depois de criar uma conta com modo contínuo, não pode mudá-la para um modo periódico.
 
 ### <a name="createmode"></a>CriarMode
 
-Esta propriedade indica como a conta foi criada. Os valores possíveis são "Padrão" e "Restaurar". Para realizar uma restauração, desaceia este valor para "Restaurar" e fornecer os valores adequados na `RestoreParameters` propriedade.
+Esta propriedade indica como a conta foi criada. Os valores possíveis são *Predefinidos* e *Restaurados.* Para realizar uma restauração, desa estabeleça este valor para *Restaurar* e forneça os valores adequados na `RestoreParameters` propriedade.
 
 ### <a name="restoreparameters"></a>Restauradores DeParmetros
 
@@ -45,7 +45,7 @@ O `RestoreParameters` recurso contém os detalhes da operação de restauro, inc
 
 |Nome da Propriedade |Description  |
 |---------|---------|
-|restaurarMode  | O modo de restauro deve ser "PointInTime" |
+|restaurarMode  | O modo de restauro deve ser *PointInTime* |
 |restaurarSource   |  O casoId da conta de origem a partir da qual a restauração será iniciada.       |
 |restaurarTimestampInUtc  | Ponto no tempo na UTC para o qual a conta deve ser restaurada. |
 |bases de dadosToRestore   | Lista de `DatabaseRestoreSource` objetos para especificar quais bases de dados e contentores devem ser restaurados. Se este valor estiver vazio, então toda a conta é restaurada.   |

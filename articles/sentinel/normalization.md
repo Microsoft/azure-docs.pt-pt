@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: yelevin
-ms.openlocfilehash: 66c315132ef0ef4d320e9edd8e9bcc28b2240924
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 3d9e436d636fbd5414367efb0e122748a8e9e2cb
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99805095"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100390815"
 ---
 # <a name="normalization-in-azure-sentinel"></a>Normalização em Azure Sentinel
 
@@ -70,6 +70,9 @@ A referência de esquema também inclui padronização de valor e formato. Os ca
 
 ## <a name="parsers"></a>Parsers
 
+- [O que está a analisar](#what-is-parsing)
+- [Usando os parsers do tempo de consulta](#using-query-time-parsers)
+
 ### <a name="what-is-parsing"></a>O que está a analisar
 
 Com um conjunto base de tabelas normalizadas definidas disponíveis, terá de transformar (parse/map) os seus dados nessas tabelas. Ou seja, irá extrair dados específicos da sua forma bruta em colunas bem conhecidas no esquema normalizado. A análise em Azure Sentinel acontece na **hora da consulta** - os parsers são construídos como funções de utilizador do Log Analytics (usando a Linguagem de Consulta de Kusto - KQL) que transformam dados em tabelas existentes (como CommonSecurityLog, tabelas de registos personalizados, syslog) no esquema de tabelas normalizadas.
@@ -77,6 +80,10 @@ Com um conjunto base de tabelas normalizadas definidas disponíveis, terá de tr
 O outro tipo de análise, ainda não suportado no Azure Sentinel, está no momento de **ingestão** - permitindo recolher dados diretamente na(s) tabela(s) normalizada à medida que é ingerida a partir das suas fontes de dados. A análise do tempo de ingestão proporciona um melhor desempenho, uma vez que o modelo de dados é consultado diretamente sem a necessidade de usar funções.
 
 ### <a name="using-query-time-parsers"></a>Usando os parsers do tempo de consulta
+
+- [Instalação de um parser](#installing-a-parser)
+- [Usando os parsers](#using-the-parsers)
+- [Personalizar parsers](#customizing-parsers)
 
 #### <a name="installing-a-parser"></a>Instalação de um parser
 
@@ -119,6 +126,12 @@ No painel à direita, expanda a secção "Consultas Guardadas" e encontre a past
 
 Pode clicar em cada analisador individual e ver a função subjacente que utiliza, e executá-la (ou aceder-lhe diretamente pelo seu pseudónimo, conforme descrito acima). Note que alguns parsers podem reter os campos originais lado a lado para os campos normalizados por conveniência. Isto pode ser facilmente editado na consulta do parser.
 
+> [!TIP]
+> Pode utilizar as suas funções guardadas em vez de tabelas Azure Sentinel em qualquer consulta, incluindo consultas de caça e deteção. Para obter mais informações, consulte:
+>
+> - [Normalização de dados em Azure Sentinel](normalization.md#parsers)
+> - [Texto de parse em registos do Monitor Azure](/azure/azure-monitor/log-query/parse-text)
+>
 #### <a name="customizing-parsers"></a>Personalizar parsers
 
 Pode repetir os passos acima (encontrar o parser no explorador de consultas), clicar no parser relevante e ver a sua implementação da função.
@@ -131,6 +144,8 @@ Uma vez alterada a função, clique em "Guardar" novamente e use o mesmo nome, p
 :::image type="content" source="./media/normalization/are-you-sure.png" alt-text="Tens a certeza":::
 
 #### <a name="additional-information"></a>Informações adicionais
+
+JSON, XML e CSV são especialmente convenientes para a análise na hora da consulta. O Azure Sentinel tem funções de análise incorporadas para JSON, XML e CSV, bem como uma ferramenta de análise JSON.  Para obter mais informações, consulte [os campos JSON em Azure Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/tip-easily-use-json-fields-in-sentinel/ba-p/768747) (blog). 
 
 Saiba mais sobre [consultas guardadas](../azure-monitor/log-query/example-queries.md) (a implementação dos parsers de consulta) no Log Analytics.
 

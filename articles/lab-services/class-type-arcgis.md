@@ -5,12 +5,12 @@ author: nicolela
 ms.topic: article
 ms.date: 02/04/2021
 ms.author: nicolela
-ms.openlocfilehash: dbe4191b64773b71bc1ae04842d824fbfead8e55
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: 8d5356f7fd2661d9743d1058a147a0b20f62850e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99628170"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100373713"
 ---
 # <a name="set-up-a-lab-for-arcmaparcgis-desktop"></a>Criar um laboratório para o ArcMap\ArcGIS Desktop
 
@@ -55,7 +55,7 @@ Os passos desta secção mostram como configurar o modelo VM:
 1.  Inicie o VM do modelo e ligue-se à máquina utilizando RDP.
 
 2.  Faça o download e instale os componentes do Ambiente de Trabalho ArcGIS utilizando instruções do ESRI.  Estas etapas incluem a atribuição do gestor de licenças para o licenciamento de uso simultâneo: 
-    - [Introdução à instalação e configuração do Ambiente de Trabalho arcgis](https://desktop.arcgis.com/arcmap/latest/get-started/installation-guide/introduction.htm)
+    - [Introdução à instalação e configuração do Ambiente de Trabalho arcgis](https://desktop.arcgis.com/en/arcmap/latest/get-started/installation-guide/introduction.htm)
 
 3.  Configurar um armazenamento externo de backup para os estudantes.  Os alunos podem guardar ficheiros diretamente para o VM atribuído, uma vez que todas as alterações que fazem são guardadas em todas as sessões.  No entanto, recomendamos que os alunos apoiem o seu trabalho de armazenamento que seja externo ao seu VM por algumas razões:
     - Para permitir que os alunos acedam ao seu trabalho após o fim da aula e do laboratório.  

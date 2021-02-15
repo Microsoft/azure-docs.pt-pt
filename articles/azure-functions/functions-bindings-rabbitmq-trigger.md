@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 12/17/2020
 ms.author: cachai
 ms.custom: ''
-ms.openlocfilehash: 4ba19fdf700790d89fe04867985fb803c3b0a2fc
-ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
+ms.openlocfilehash: be3c5bc2d178171aaebd322e13b23b3a6f79c442
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97760406"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388996"
 ---
 # <a name="rabbitmq-trigger-for-azure-functions-overview"></a>Gatilho RabbitMQ para visão geral das funções azure
 
@@ -27,7 +27,7 @@ Para obter informações sobre detalhes de configuração e configuração, cons
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-O exemplo a seguir mostra uma [função C#](functions-dotnet-class-library.md) que lê e regista a mensagem RabbitMQ como um [Evento RabbitMQ](https://www.rabbitmq.com/releases/rabbitmq-dotnet-client/v3.2.2/rabbitmq-dotnet-client-3.2.2-client-htmldoc/html/type-RabbitMQ.Client.Events.BasicDeliverEventArgs.html):
+O exemplo a seguir mostra uma [função C#](functions-dotnet-class-library.md) que lê e regista a mensagem RabbitMQ como um [Evento RabbitMQ](https://rabbitmq.github.io/rabbitmq-dotnet-client/api/RabbitMQ.Client.Events.BasicDeliverEventArgs.html):
 
 ```cs
 [FunctionName("RabbitMQTriggerCSharp")]
@@ -229,7 +229,7 @@ A tabela seguinte explica as propriedades de configuração de encadernação qu
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-O tipo de mensagem padrão é [o Evento RabbitMQ,](https://www.rabbitmq.com/releases/rabbitmq-dotnet-client/v3.2.2/rabbitmq-dotnet-client-3.2.2-client-htmldoc/html/type-RabbitMQ.Client.Events.BasicDeliverEventArgs.html)e a `Body` propriedade do Evento RabbitMQ pode ser lida como os tipos listados abaixo:
+O tipo de mensagem padrão é [o Evento RabbitMQ,](https://rabbitmq.github.io/rabbitmq-dotnet-client/api/RabbitMQ.Client.Events.BasicDeliverEventArgs.html)e a `Body` propriedade do Evento RabbitMQ pode ser lida como os tipos listados abaixo:
 
 * `An object serializable as JSON` - A mensagem é entregue como uma cadeia JSON válida.
 * `string`
@@ -238,7 +238,7 @@ O tipo de mensagem padrão é [o Evento RabbitMQ,](https://www.rabbitmq.com/rele
 
 # <a name="c-script"></a>[C# Script](#tab/csharp-script)
 
-O tipo de mensagem padrão é [o Evento RabbitMQ,](https://www.rabbitmq.com/releases/rabbitmq-dotnet-client/v3.2.2/rabbitmq-dotnet-client-3.2.2-client-htmldoc/html/type-RabbitMQ.Client.Events.BasicDeliverEventArgs.html)e a `Body` propriedade do Evento RabbitMQ pode ser lida como os tipos listados abaixo:
+O tipo de mensagem padrão é [o Evento RabbitMQ,](https://rabbitmq.github.io/rabbitmq-dotnet-client/api/RabbitMQ.Client.Events.BasicDeliverEventArgs.html)e a `Body` propriedade do Evento RabbitMQ pode ser lida como os tipos listados abaixo:
 
 * `An object serializable as JSON` - A mensagem é entregue como uma cadeia JSON válida.
 * `string`

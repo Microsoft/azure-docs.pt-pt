@@ -1,22 +1,18 @@
 ---
 title: Atividade de filtro na Fábrica de Dados Azure
 description: A atividade do Filtro filtra as entradas.
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
-manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/04/2018
-ms.openlocfilehash: 2026bdd1898df460bfed2ae9d5544f90c532308f
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 035ee5a5f1fe193fcb4579f1d46472ad9cd0b8b5
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97507443"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100385596"
 ---
 # <a name="filter-activity-in-azure-data-factory"></a>Atividade de filtro na Fábrica de Dados Azure
 Pode utilizar uma atividade de filtro num oleoduto para aplicar uma expressão de filtro a uma matriz de entrada. 
@@ -39,10 +35,10 @@ Pode utilizar uma atividade de filtro num oleoduto para aplicar uma expressão d
 
 Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-name | O nome da `Filter` atividade. | String | Sim
-tipo | Deve ser programado para **filtrar.** | String | Sim
-condição | Condições a utilizar para filtrar a entrada. | Expression | Sim
-itens | Matriz de entrada sobre o filtro deve ser aplicado. | Expression | Sim
+name | O nome da `Filter` atividade. | String | Yes
+tipo | Deve ser programado para **filtrar.** | String | Yes
+condição | Condições a utilizar para filtrar a entrada. | Expression | Yes
+itens | Matriz de entrada sobre o filtro deve ser aplicado. | Expression | Yes
 
 ## <a name="example"></a>Exemplo
 

@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/11/2020
+ms.date: 02/12/2021
 ms.author: trbye
-ms.custom: contperf-fy21q2
-ms.openlocfilehash: 51f9ad4fea1c139cee5974ecd81645c9a904feb4
-ms.sourcegitcommit: c538b6e4cf27b992500c079ad9c914c05d55eb7f
+ms.custom: contperf-fy21q2; references_regions
+ms.openlocfilehash: f2dca513b4413f1761ea1b21bf71f90bb27d3053
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/03/2021
-ms.locfileid: "97854898"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388656"
 ---
 # <a name="what-is-custom-speech"></a>O que é a Voz Personalizada?
 
@@ -26,25 +26,26 @@ ms.locfileid: "97854898"
 
 Antes de poder fazer qualquer coisa com o Discurso Personalizado, vai precisar de uma conta Azure e de uma subscrição de serviço de discurso. Depois de ter uma conta, pode preparar os seus dados, treinar e testar os seus modelos, inspecionar a qualidade do reconhecimento, avaliar a precisão e, em última análise, implementar e utilizar o modelo personalizado de voz a texto.
 
-Este diagrama destaca as peças que compõem o [portal Discurso Personalizado.](https://aka.ms/customspeech) Use os links abaixo para saber mais sobre cada passo.
+Este diagrama destaca as peças que compõem a [área de Discurso Personalizado do Estúdio da Fala.](https://aka.ms/customspeech) Use os links abaixo para saber mais sobre cada passo.
 
-![Diagrama que destaca os componentes que compõem o portal Discurso Personalizado.](./media/custom-speech/custom-speech-overview.png)
+![Diagrama que destaca os componentes que compõem a área de Discurso Personalizado do Estúdio de Discurso.](./media/custom-speech/custom-speech-overview.png)
 
-1. [Inscreva-se e crie um projeto.](#set-up-your-azure-account) Crie uma conta Azure e subscreva o serviço Discurso. Esta subscrição unificada dá-lhe acesso a discurso-a-texto, texto-a-discurso, tradução de fala e portal de [discurso personalizado](https://speech.microsoft.com/customspeech). Em seguida, utilize a sua subscrição de serviço de Discurso para criar o seu primeiro projeto de Discurso Personalizado.
+1. [Inscreva-se e crie um projeto.](#set-up-your-azure-account) Crie uma conta Azure e subscreva o serviço Discurso. Esta subscrição unificada dá-lhe acesso a discurso-a-texto, texto-a-discurso, tradução de fala e ao Estúdio da [Fala](https://speech.microsoft.com/customspeech). Em seguida, utilize a sua subscrição de serviço de Discurso para criar o seu primeiro projeto de Discurso Personalizado.
 
 1. [Carregar dados de teste](./how-to-custom-speech-test-and-train.md). Faça upload de dados de teste (ficheiros áudio) para avaliar a oferta de voz para texto da Microsoft para as suas aplicações, ferramentas e produtos.
 
-1. [Inspecione a qualidade do reconhecimento.](how-to-custom-speech-inspect-data.md) Utilize o [portal Discurso Personalizado](https://speech.microsoft.com/customspeech) para reproduzir áudio carregado e inspecione a qualidade de reconhecimento de voz dos seus dados de teste. Para medições quantitativas, consulte [os dados do Inspecione](how-to-custom-speech-inspect-data.md).
+1. [Inspecione a qualidade do reconhecimento.](how-to-custom-speech-inspect-data.md) Utilize o [Estúdio de Fala](https://speech.microsoft.com/customspeech) para reproduzir áudio carregado e inspecione a qualidade de reconhecimento de voz dos seus dados de teste. Para medições quantitativas, consulte [os dados do Inspecione](how-to-custom-speech-inspect-data.md).
 
-1. [Avaliar e melhorar a precisão.](how-to-custom-speech-evaluate-data.md) Avaliar e melhorar a precisão do modelo de discurso-texto. O [portal De Discurso Personalizado](https://speech.microsoft.com/customspeech) fornecerá uma Taxa de Erro de *Palavras,* que pode utilizar para determinar se é necessária formação adicional. Se estiver satisfeito com a precisão, pode utilizar diretamente os APIs do serviço de fala. Se quiser melhorar a precisão numa média relativa de 5% a 20%, utilize o **separador Formação** no portal para carregar dados de formação adicionais, como transcrições com rótulo humano e textos relacionados.
+1. [Avaliar e melhorar a precisão.](how-to-custom-speech-evaluate-data.md) Avaliar e melhorar a precisão do modelo de discurso-texto. O [Estúdio de Fala](https://speech.microsoft.com/customspeech) fornecerá uma Taxa de Erro de *Palavras,* que pode utilizar para determinar se é necessária formação adicional. Se estiver satisfeito com a precisão, pode utilizar diretamente os APIs do serviço de fala. Se quiser melhorar a precisão numa média relativa de 5% a 20%, utilize o **separador Formação** no portal para carregar dados de formação adicionais, como transcrições com rótulo humano e textos relacionados.
 
 1. [Treine e implemente um modelo.](how-to-custom-speech-train-model.md) Melhore a precisão do seu modelo de discurso-texto fornecendo transcrições escritas (10 a 1.000 horas) e texto relacionado (<200 MB) juntamente com os dados do seu teste áudio. Estes dados ajudam a formar o modelo de discurso-texto. Depois do treino, reteste. Se estiver satisfeito com o resultado, pode colocar o seu modelo num ponto final personalizado.
 
 ## <a name="set-up-your-azure-account"></a>Crie a sua conta Azure
 
-Precisa de ter uma subscrição de serviço de conta Azure e Speech antes de poder utilizar o [portal Discurso Personalizado](https://speech.microsoft.com/customspeech) para criar um modelo personalizado. Se não tiver uma conta e subscrição, [experimente gratuitamente o serviço Desemação](overview.md#try-the-speech-service-for-free).
+Precisa de ter uma subscrição de serviço de conta Azure e Speech antes de poder utilizar o [Estúdio da Fala](https://speech.microsoft.com/customspeech) para criar um modelo personalizado. Se não tiver uma conta e subscrição, [experimente gratuitamente o serviço Desemação](overview.md#try-the-speech-service-for-free).
 
-Se planeia formar um modelo personalizado com dados áudio, escolha uma das seguintes regiões que tenham hardware dedicado disponível para treino. Isto reduzirá o tempo que leva para treinar um modelo.
+> [!NOTE]
+> Se planeia formar um modelo personalizado com **dados áudio,** escolha uma das seguintes regiões que tenham hardware dedicado disponível para treino. Isto reduzirá o tempo que leva para treinar um modelo.
 
 * Leste da Austrália
 * Canadá Central
@@ -64,20 +65,20 @@ Se planeia formar um modelo personalizado com dados áudio, escolha uma das segu
 > [!NOTE]
 > Por favor, certifique-se de criar uma subscrição padrão (S0). As assinaturas gratuitas (F0) não são suportadas.
 
-Depois de criar uma conta Azure e uma subscrição de serviço de Discurso, terá de iniciar sessão no [portal Discurso Personalizado](https://speech.microsoft.com/customspeech) e ligar a sua subscrição.
+Depois de criar uma conta Azure e uma subscrição de serviço de discurso, terá de iniciar sessão no Estúdio da [Fala](https://speech.microsoft.com/customspeech) e ligar a sua subscrição.
 
-1. Inscreva-se no [portal de Discurso Personalizado](https://aka.ms/custom-speech).
+1. Inscreva-se no [Estúdio de Discurso.](https://aka.ms/custom-speech)
 1. Selecione a subscrição em que precisa para trabalhar e crie um projeto de fala.
 1. Se quiser modificar a sua subscrição, selecione o botão de engrenagem no menu superior.
 
 ## <a name="how-to-create-a-project"></a>Como criar um projeto
 
-Conteúdos como dados, modelos, testes e pontos finais são organizados em *projetos* no [portal Discurso Personalizado.](https://speech.microsoft.com/customspeech) Cada projeto é específico de um domínio e país/língua. Por exemplo, você pode criar um projeto para call centers que usam inglês nos Estados Unidos.
+Conteúdos como dados, modelos, testes e pontos finais são organizados em *projetos* no [Estúdio da Fala.](https://speech.microsoft.com/customspeech) Cada projeto é específico de um domínio e país/língua. Por exemplo, você pode criar um projeto para call centers que usam inglês nos Estados Unidos.
 
 Para criar o seu primeiro projeto, selecione **Speech-to-text/Custom speech** e, em seguida, selecione **New Project**. Siga as instruções fornecidas pelo assistente para criar o seu projeto. Depois de criar um projeto, deverá ver quatro separadores: **Dados,** **Testes,** **Formação** e **Implantação.** Utilize os links fornecidos nos [próximos passos](#next-steps) para aprender a utilizar cada separador.
 
 > [!IMPORTANT]
-> O [portal De Discurso Personalizado](https://aka.ms/custom-speech) foi recentemente atualizado! Se criou dados anteriores, modelos, testes e pontos finais publicados no portal CRIS.ai ou com APIs, precisa de criar um novo projeto no novo portal para ligar a estas entidades antigas.
+> O [Estúdio de Fala](https://aka.ms/custom-speech) anteriormente conhecido como "Portal da Fala Personalizada" foi recentemente atualizado! Se criou dados anteriores, modelos, testes e pontos finais publicados no portal CRIS.ai ou com APIs, precisa de criar um novo projeto no novo portal para ligar a estas entidades antigas.
 
 ## <a name="model-lifecycle"></a>Ciclo de vida modelo
 
@@ -106,7 +107,7 @@ Outros termos-chave relacionados com o ciclo de vida do modelo incluem:
 * Descoding: Disponível durante dois anos após a criação do modelo. Assim, pode utilizar o modelo personalizado durante dois anos (lote/em tempo real/teste) após a sua criação. Passados dois anos, *deves voltar a treinar o teu modelo,* porque o modelo base terá sido normalmente depreciado para adaptação.  
 * Pontos finais: Disponível na mesma linha temporal que a descodagem.
 
-Quando um modelo base ou um modelo personalizado expirarem, ele irá sempre voltar para a *versão mais recente* do modelo base . Portanto, a sua implementação nunca irá quebrar, mas pode tornar-se menos precisa para *os seus dados específicos* se os modelos personalizados atingirem a expiração. Pode ver a expiração de um modelo nos seguintes lugares no portal Discurso Personalizado:
+Quando um modelo base ou um modelo personalizado expirarem, ele irá sempre voltar para a *versão mais recente* do modelo base . Portanto, a sua implementação nunca irá quebrar, mas pode tornar-se menos precisa para *os seus dados específicos* se os modelos personalizados atingirem a expiração. Pode ver a expiração de um modelo nos seguintes locais na área de Discurso Personalizado do Estúdio da Fala:
 
 * Resumo da formação do modelo
 * Detalhe de treinamento de modelo
@@ -115,7 +116,7 @@ Quando um modelo base ou um modelo personalizado expirarem, ele irá sempre volt
 
 Também pode verificar as datas de validade através das [`GetModel`](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetModel) APIs de [`GetBaseModel`](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetBaseModel) fala personalizadas sob a `deprecationDates` propriedade na resposta JSON.
 
-Note que pode atualizar o modelo num ponto final de fala personalizado sem tempo de inatividade alterando o modelo utilizado pelo ponto final na secção de implementação do portal de fala personalizado, ou através da API de discurso personalizado.
+Note que pode atualizar o modelo num ponto final de fala personalizado sem tempo de inatividade alterando o modelo utilizado pelo ponto final na secção de implementação do Estúdio de Discurso, ou através da API de discurso personalizado.
 
 ## <a name="next-steps"></a>Passos seguintes
 

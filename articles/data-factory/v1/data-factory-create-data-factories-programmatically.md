@@ -1,29 +1,25 @@
 ---
 title: Criar oleodutos de dados utilizando a Azure .NET SDK
 description: Aprenda a criar, monitorizar e gerir programáticamente fábricas de dados Azure utilizando a Data Factory SDK.
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
-manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0305094d3883fa6fc3254a682f9aa6f3202c9e48
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: 1b7f5d1ad671b6d97bd6597386c714b026c02232
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98555547"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100376858"
 ---
 # <a name="create-monitor-and-manage-azure-data-factories-using-azure-data-factory-net-sdk"></a>Criar, monitorizar e gerir fábricas de dados Azure utilizando a Azure Data Factory .NET SDK
 > [!NOTE]
 > Este artigo aplica-se à versão 1 do Data Factory. Se estiver a utilizar a versão atual do serviço Data Factory, veja [tutorial de atividade de cópia](../quickstart-create-data-factory-dot-net.md). 
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 Pode criar, monitorizar e gerir fábricas de dados Azure programáticamente utilizando data factory .NET SDK. Este artigo contém uma passagem que pode seguir para criar uma aplicação de consola .NET que cria e monitoriza uma fábrica de dados. 
 
 > [!NOTE]

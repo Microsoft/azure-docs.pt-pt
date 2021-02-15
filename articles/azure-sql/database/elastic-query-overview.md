@@ -11,17 +11,17 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 12/05/2019
-ms.openlocfilehash: c8f0bb6e0e58d672faa0929d6266e5e2c5a4f1f1
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: cac17bbac96d44d8d9bfce2e168de4ea6d4c5c08
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92781061"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100364958"
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Visão geral da consulta elástica Azure SQL Database (pré-visualização)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-A função de consulta elástica (em pré-visualização) permite executar uma consulta Transact-SQL que abrange várias bases de dados na Base de Dados Azure SQL. Permite-lhe realizar consultas de base de dados cruzadas para aceder a tabelas remotas e ligar ferramentas da Microsoft e de terceiros (Excel, Power BI, Tableau, etc.) a consultas através de níveis de dados com várias bases de dados. Utilizando esta funcionalidade, pode reduzir as consultas a grandes níveis de dados e visualizar os resultados em relatórios de inteligência empresarial (BI).
+A funcionalidade de consulta elástica (em pré-visualização) permite-lhe executar uma consulta Transact-SQL que abrange várias bases de dados na Base de Dados SQL do Azure. Permite-lhe realizar consultas de base de dados cruzadas para aceder a tabelas remotas e ligar ferramentas da Microsoft e de terceiros (Excel, Power BI, Tableau, etc.) a consultas através de níveis de dados com várias bases de dados. Com esta funcionalidade, pode aumentar horizontalmente as consultas para grandes escalões de dados e visualizar os resultados em relatórios BI (business intelligence).
 
 ## <a name="why-use-elastic-queries"></a>Por que usar consultas elásticas
 
@@ -73,7 +73,7 @@ Uma consulta elástica pode ser usada para disponibilizar dados localizados numa
 > Tem de possuir qualquer permissão DE FONTE DE DADOS EXTERNA. Esta permissão está incluída na permissão ALTER DATABASE. ALTERAR QUAISquer permissões EXTERNAS DE FONTE DE DADOS são necessárias para consultar a fonte de dados subjacente.
 >
 
-**Dados de referência** : A topologia é utilizada para a gestão de dados de referência. Na figura abaixo, duas tabelas (T1 e T2) com dados de referência são mantidas numa base de dados dedicada. Utilizando uma consulta elástica, pode agora aceder às tabelas T1 e T2 remotamente a partir de outras bases de dados, como mostra a figura. Utilize topologia 1 se as tabelas de referência forem pequenas ou remotas em tabela de referência têm predicados seletivos.
+**Dados de referência**: A topologia é utilizada para a gestão de dados de referência. Na figura abaixo, duas tabelas (T1 e T2) com dados de referência são mantidas numa base de dados dedicada. Utilizando uma consulta elástica, pode agora aceder às tabelas T1 e T2 remotamente a partir de outras bases de dados, como mostra a figura. Utilize topologia 1 se as tabelas de referência forem pequenas ou remotas em tabela de referência têm predicados seletivos.
 
 **Figura 2** Partição vertical - Utilização de consulta elástica para consultar dados de referência
 
@@ -120,7 +120,7 @@ Podem ser encontradas mais informações sobre os passos necessários para o cen
 Para começar a codificar, consulte [Começar com consulta elástica para partição horizontal (fragmento)](elastic-query-getting-started.md).
 
 > [!IMPORTANT]
-> A execução bem sucedida de consultas elásticas sobre um grande conjunto de bases de dados depende fortemente da disponibilidade de cada uma das bases de dados durante a execução da consulta. Se uma das bases de dados não estiver disponível, toda a consulta falhará. Se planeia consultar centenas ou milhares de bases de dados ao mesmo tempo, certifique-se de que a sua aplicação de clientes tem novamente a lógica incorporada, ou considere alavancar [a Elastic Database Jobs](./job-automation-overview.md#elastic-database-jobs-preview) (pré-visualização) e consultar subconjuntos menores de bases de dados, consolidando os resultados de cada consulta num único destino.
+> A execução bem sucedida de consultas elásticas sobre um grande conjunto de bases de dados depende fortemente da disponibilidade de cada uma das bases de dados durante a execução da consulta. Se uma das bases de dados não estiver disponível, toda a consulta falhará. Se planeia consultar centenas ou milhares de bases de dados ao mesmo tempo, certifique-se de que a sua aplicação de clientes tem novamente a lógica incorporada, ou considere alavancar [a Elastic Database Jobs](./job-automation-overview.md) (pré-visualização) e consultar subconjuntos menores de bases de dados, consolidando os resultados de cada consulta num único destino.
 
 ## <a name="t-sql-querying"></a>Consulta T-SQL
 

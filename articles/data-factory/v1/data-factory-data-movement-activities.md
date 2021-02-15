@@ -1,23 +1,18 @@
 ---
 title: Mover dados utilizando a Atividade de Cópia
 description: 'Saiba mais sobre o movimento de dados nos oleodutos data factory: migração de dados entre lojas de nuvem, e entre uma loja no local e uma loja na nuvem. Use a atividade de cópia.'
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.assetid: 67543a20-b7d5-4d19-8b5e-af4c1fd7bc75
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/05/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: a48a6de406f14c5339a4e6d92cd09a12357b73f5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8a3fe99896ff244d2e35737919e6797141095acb
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84195971"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100364023"
 ---
 # <a name="move-data-by-using-copy-activity"></a>Mover dados utilizando a Atividade de Cópia
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -27,7 +22,7 @@ ms.locfileid: "84195971"
 > [!NOTE]
 > Este artigo aplica-se à versão 1 do Data Factory. Se estiver a utilizar a versão atual do serviço Data Factory, consulte a [Copy Activity em V2](../copy-activity-overview.md).
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 Na Azure Data Factory, pode utilizar a Copy Activity para copiar dados entre as lojas de dados no local e as lojas de dados em nuvem. Depois de os dados serem copiados, pode ser ainda mais transformado e analisado. Também pode utilizar a Copy Activity para publicar resultados de transformação e análise para inteligência empresarial (BI) e consumo de aplicações.
 
 ![Função da Atividade de Cópia](media/data-factory-data-movement-activities/copy-activity.png)
@@ -112,7 +107,7 @@ Quando tanto as lojas de dados de origem como as de sumidouros estão na nuvem, 
 | Ásia-Pacífico | Sudeste Asiático | Sudeste Asiático |
 | &nbsp; | Ásia Leste | Sudeste Asiático |
 | Austrália | Leste da Austrália | Leste da Austrália |
-| &nbsp; | Austrália Sudeste | Sudeste da Austrália |
+| &nbsp; | Austrália Sudeste | Austrália Sudeste |
 | Índia | Índia Central | Índia Central |
 | &nbsp; | Oeste da Índia | Índia Central |
 | &nbsp; | Sul da Índia | Índia Central |

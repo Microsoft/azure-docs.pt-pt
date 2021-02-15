@@ -51,7 +51,7 @@
     - name: Etiquetas de imagem de contentor e notas de versão
       href: ./containers/container-image-tags.md
     - name: FAQ do contentor
-      href: ./containers/container-faq.md
+      href: ./containers/container-faq.yml
     - name: Receitas de contentor
       items:
         - name: Reutilização do Contentor

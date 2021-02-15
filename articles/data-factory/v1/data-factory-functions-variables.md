@@ -1,21 +1,18 @@
 ---
 title: Funções de fábrica de dados e variáveis do sistema
 description: Fornece uma lista de funções de Fábrica de Dados Azure e variáveis do sistema
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
-manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 9b5f91655367e866858a04b941cec4ee61dfe180
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: d47a26b46fad1ab8238f9fa7a1183aad20530ef5
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96495655"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100363938"
 ---
 # <a name="azure-data-factory---functions-and-system-variables"></a>Fábrica de Dados Azure - Funções e Variáveis do Sistema
 > [!NOTE]
@@ -25,7 +22,7 @@ Este artigo fornece informações sobre funções e variáveis apoiadas pela Azu
 
 ## <a name="data-factory-system-variables"></a>Variáveis do sistema data factory
 
-| Nome da Variável | Descrição | Âmbito do objeto | Casos de âmbito e utilização JSON |
+| Nome da Variável | Description | Âmbito do objeto | Casos de âmbito e utilização JSON |
 | --- | --- | --- | --- |
 | JanelaStart |Intervalo de início do intervalo de tempo para a janela de execução da atividade atual |atividade |<ol><li>Especifique consultas de seleção de dados. Consulte os artigos de conector referenciados no artigo atividades de [movimento de dados.](data-factory-data-movement-activities.md)</li> |
 | WindowEnd |Intervalo de fim de tempo para a janela de execução da atividade atual |atividade |o mesmo que o WindowStart. |
@@ -75,7 +72,7 @@ Consulte o tópico de cordas de data e formato de tempo personalizado que descre
 ### <a name="functions"></a>Funções
 As tabelas a seguir enumeram todas as funções na Azure Data Factory:
 
-| Categoria | Função | Parâmetros | Descrição |
+| Categoria | Função | Parâmetros | Description |
 | --- | --- | --- | --- |
 | Hora |AddHours (X,Y) |X: DataTime <br/><br/>Y: int |Adiciona Y horas ao tempo X dado. <br/><br/>Exemplo: `9/5/2013 12:00:00 PM + 2 hours = 9/5/2013 2:00:00 PM` |
 | Hora |AddMinutes (X,Y) |X: DataTime <br/><br/>Y: int |Adiciona minutos Y a X.<br/><br/>Exemplo: `9/15/2013 12: 00:00 PM + 15 minutes = 9/15/2013 12: 15:00 PM` |

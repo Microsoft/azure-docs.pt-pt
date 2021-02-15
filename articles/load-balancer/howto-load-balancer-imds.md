@@ -8,22 +8,22 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 02/12/2021
 ms.author: allensu
-ms.openlocfilehash: 35e32627eaf26eb6f73ca382f119eab61ebd8711
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 5196b03ccd513e4afd93b8b8fcf18f7c2580024a
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/14/2021
-ms.locfileid: "100418256"
+ms.locfileid: "100519223"
 ---
 # <a name="retrieve-load-balancer-metadata-using-the-azure-instance-metadata-service-imds"></a>Recupere metadados do balançador de carga utilizando o Serviço de Metadados de Instância Azure (IMDS)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Utilize a [versão API mais recente](/virtual-machines/windows/instance-metadata-service?tabs=windows#supported-api-versions) para o seu pedido.
+* Utilize a [versão API mais recente](../virtual-machines/windows/instance-metadata-service.md?tabs=windows#supported-api-versions) para o seu pedido.
 
 ## <a name="sample-request-and-response"></a>Pedido e resposta da amostra
 > [!IMPORTANT]
-> Este exemplo contorna os proxies. **Tem de** contornar os proxies ao consultar o IMDS. Para mais informações, consulte [Proxies.](/virtual-machines/windows/instance-metadata-service?tabs=windows#proxies)
+> Este exemplo contorna os proxies. **Tem de** contornar os proxies ao consultar o IMDS. Para mais informações, consulte [Proxies.](../virtual-machines/windows/instance-metadata-service.md?tabs=windows#proxies)
 ### <a name="windows"></a>[Windows](#tab/windows/)
 
 ```powershell
@@ -82,9 +82,9 @@ curl -H "Metadata:true" --noproxy "*" "http://169.254.169.254:80/metadata/loadba
 ## <a name="next-steps"></a>Passos seguintes
 [Códigos de erro comuns e etapas de resolução de problemas](troubleshoot-load-balancer-imds.md)
 
-Saiba mais sobre [o Serviço de Metadados Azure Instance](/virtual-machines/windows/instance-metadata-service)
+Saiba mais sobre [o Serviço de Metadados Azure Instance](../virtual-machines/windows/instance-metadata-service.md)
 
-[Recupere todos os metadados para um exemplo](/virtual-machines/windows/instance-metadata-service?tabs=windows#access-azure-instance-metadata-service)
+[Recupere todos os metadados para um exemplo](../virtual-machines/windows/instance-metadata-service.md?tabs=windows#access-azure-instance-metadata-service)
 
 [Implementar um equilibrador de carga padrão](quickstart-load-balancer-standard-public-portal.md)
 

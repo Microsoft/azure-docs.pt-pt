@@ -1,17 +1,17 @@
 ---
 title: Arquitetura de conectividade - Base de Dados Azure para MySQL
 description: Descreve a arquitetura de conectividade para o seu Azure Database para o servidor MySQL.
-author: mksuni
-ms.author: sumuth
+author: Bashar-MSFT
+ms.author: bahusse
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 03/16/2020
-ms.openlocfilehash: 2a557bb436b3bc10cf83beb450761465b43f621f
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.date: 2/11/2021
+ms.openlocfilehash: c888a6882f2a408801492de914c57e3e9a6eeaed
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97655361"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100375515"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mysql"></a>Arquitetura de conectividade em Azure Database para MySQL
 Este artigo explica a Base de Dados Azure para a arquitetura de conectividade MySQL, bem como como o tráfego é direcionado para a sua Base de Dados Azure para o caso MySQL de clientes dentro e fora de Azure.
@@ -48,14 +48,14 @@ A tabela que se segue lista os endereços IP gateway da Base de Dados Azure para
 | Sul do Brasil |191.233.201.8, 191.233.200.16    |  | 104.41.11.5|
 | Canadá Central |40.85.224.249  | | |
 | Leste do Canadá | 40.86.226.166    | | |
-| E.U.A. Central | 23.99.160.139, 13.67.215.62, 52.182.136.37, 52.182.136.38 | | |
+| E.U.A. Central | 23.99.160.139, 52.182.136.37, 52.182.136.38 | 13.67.215.62 | |
 | Leste da China | 139.219.130.35    | | |
 | China Leste 2 | 40.73.82.1  | | |
 | Norte da China | 139.219.15.17    | | |
 | China Norte 2 | 40.73.50.0     | | |
 | Ásia Leste | 191.234.2.139, 52.175.33.150, 13.75.33.20, 13.75.33.21     | | |
 | E.U.A. Leste |40.71.8.203, 40.71.83.113 |40.121.158.30|191.238.6.43 |
-| E.U.A. Leste 2 |40.79.84.180, 191.239.224.107, 52.177.185.181, 40.70.144.38, 52.167.105.38  | | |
+| E.U.A. Leste 2 | 40.70.144.38, 52.167.105.38  | 52.177.185.181 | |
 | França Central | 40.79.137.0, 40.79.129.1  | | |
 | Sul de França | 40.79.177.0     | | |
 | Alemanha Central | 51.4.144.100     | | |
@@ -63,22 +63,22 @@ A tabela que se segue lista os endereços IP gateway da Base de Dados Azure para
 | Índia Central | 104.211.96.159     | | |
 | Índia do Sul | 104.211.224.146  | | |
 | Oeste da Índia | 104.211.160.80    | | |
-| Leste do Japão | 13.78.61.196, 191.237.240.43, 40.79.192.23 | | |
-| Oeste do Japão | 104.214.148.156, 191.238.68.11, 40.74.96.6, 40.74.96.7    | | |
-| Coreia do Sul Central | 52.231.32.42   | | |
-| Sul da Coreia do Sul | 52.231.200.86    | | |
-| E.U.A. Centro-Norte | 23.96.178.199, 23.98.55.75, 52.162.104.35, 52.162.104.36    | | |
-| Europa do Norte | 52.138.224.6, 52.138.224.7  |40.113.93.91 |191.235.193.75 |
+| Leste do Japão | 40.79.192.23 | 13.78.61.196 | |
+| Oeste do Japão | 191.238.68.11, 40.74.96.6, 40.74.96.7     | 104.214.148.156 | |
+| Coreia do Sul Central | 52.231.17.13   | 52.231.32.42 | |
+| Sul da Coreia do Sul | 52.231.145.3     | 52.231.200.86 | |
+| E.U.A. Centro-Norte | 52.162.104.35, 52.162.104.36    | 23.96.178.199 | |
+| Europa do Norte | 52.138.224.6, 52.138.224.7  | 40.113.93.91 |191.235.193.75 |
 | Norte da África do Sul  | 102.133.152.0    | | |
 | Oeste da África do Sul | 102.133.24.0   | | |
 | E.U.A. Centro-Sul |104.214.16.39, 20.45.120.0  |13.66.62.124  |23.98.162.75 |
-| Ásia Sudeste | 104.43.15.0, 23.100.117.95, 40.78.233.2, 23.98.80.12     | | |
+| Ásia Sudeste | 40.78.233.2, 23.98.80.12     | 104.43.15.0 | |
 | Centro dos Emirados Árabes Unidos | 20.37.72.64  | | |
 | Uae Norte | 65.52.248.0    | | |
 | Sul do Reino Unido | 51.140.184.11   | | |
 | Oeste do Reino Unido | 51.141.8.11  | | |
 | E.U.A. Centro-Oeste | 13.78.145.25     | | |
-| Europa Ocidental |13.69.105.208,104.40.169.187 |40.68.37.158 | 191.237.232.75|
+| Europa Ocidental |13.69.105.208, 104.40.169.187 | 40.68.37.158 | 191.237.232.75 |
 | E.U.A. Oeste |13.86.216.212, 13.86.217.212 |104.42.238.205  | 23.99.34.75|
 | E.U.A. Oeste 2 | 13.66.226.202  | | |
 ||||

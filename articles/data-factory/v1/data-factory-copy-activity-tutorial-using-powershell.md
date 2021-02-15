@@ -1,24 +1,18 @@
 ---
 title: 'Tutorial: Criar um oleoduto para mover dados utilizando a Azure PowerShell '
 description: Neste tutorial, vai utilizar o Azure PowerShell para criar um pipeline do Azure Data Factory com a Atividade de Cópia.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: ''
-editor: ''
-ms.assetid: 71087349-9365-4e95-9847-170658216ed8
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: aa97fd2ac12ca73d1a317fb09e03e49d0056ceb1
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 54c296ed8013b9962de9487cfec3e2568c03e738
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97608634"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100377045"
 ---
 # <a name="tutorial-create-a-data-factory-pipeline-that-moves-data-by-using-azure-powershell"></a>Tutorial: Criar um pipeline do Data Factory que move os dados com o Azure PowerShell
 > [!div class="op_single_selector"]
@@ -114,7 +108,7 @@ Tenha em atenção os seguintes pontos:
 * O nome do Azure Data Factory deve ser globalmente exclusivo. Se receber o seguinte erro, altere o nome (por exemplo, oseunomeADFTutorialDataFactory). Utilize este nome em vez de ADFTutorialFactoryPSH ao realizar os passos deste tutorial. Veja [Data Factory - Naming Rules (Data Factory - Regras de Nomenclatura)](data-factory-naming-rules.md) para obter as regras de nomenclatura dos artefactos do Data Factory.
 
     ```
-    Data factory name “ADFTutorialDataFactoryPSH” is not available
+    Data factory name "ADFTutorialDataFactoryPSH" is not available
     ```
 * Para criar instâncias do Data Factory, tem de ser contribuidor ou administrador da subscrição do Azure.
 * O nome da fábrica de dados pode ser registado como um nome DNS no futuro e, por conseguinte, ficar publicamente visível.
@@ -452,7 +446,7 @@ Atualmente, é o conjunto de dados de saída que controla a agenda. Neste tutori
 **Parabéns!** Criou com sucesso uma fábrica de dados Azure com um oleoduto para copiar dados de um armazenamento de bolhas Azure para a Base de Dados Azure SQL. 
 
 ## <a name="monitor-the-pipeline"></a>Monitorizar o pipeline
-Neste passo, irá utilizar o Azure PowerShell para monitorizar os acontecimentos de uma fábrica de dados do Azure.
+Neste passo, você usa a Azure PowerShell para monitorizar o que se passa numa fábrica de dados Azure.
 
 1. Substitua &lt; o DataFactoryName &gt; pelo nome da sua fábrica de dados e execute **o Get-AzDataFactory,** e atribua a saída a uma $df variável.
 

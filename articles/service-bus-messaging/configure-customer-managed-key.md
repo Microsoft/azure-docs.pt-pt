@@ -2,13 +2,13 @@
 title: Configure a sua própria chave para encriptar os dados do Azure Service Bus em repouso
 description: Este artigo fornece informações sobre como configurar a sua própria chave para encriptar o repouso de dados do Azure Service Bus.
 ms.topic: conceptual
-ms.date: 01/26/2021
-ms.openlocfilehash: 132ee3883b818dcc5a5d8e0cc7b372daee41e273
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.date: 02/10/2021
+ms.openlocfilehash: 5d14c8953819575d1c2688520838135efc7121e5
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98928096"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100378320"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-service-bus-data-at-rest-by-using-the-azure-portal"></a>Configure as chaves geridas pelo cliente para encriptar os dados do Azure Service Bus em repouso utilizando o portal Azure
 A Azure Service Bus Premium fornece encriptação de dados em repouso com a Encriptação do Serviço de Armazenamento Azure (Azure SSE). Service Bus Premium utiliza o Azure Storage para armazenar os dados. Todos os dados armazenados com O Azure Storage são encriptados utilizando as teclas geridas pela Microsoft. Se utilizar a sua própria chave (também designada por Bring Your Own Key (BYOK) ou tecla gerida pelo cliente), os dados ainda são encriptados utilizando a chave gerida pela Microsoft, mas além disso a chave gerida pela Microsoft será encriptada utilizando a chave gerida pelo cliente. Esta funcionalidade permite-lhe criar, rodar, desativar e revogar o acesso às chaves geridas pelo cliente que são utilizadas para encriptar as chaves geridas pela Microsoft. Ativar a função BYOK é um processo de configuração de uma única vez no seu espaço de nome.
@@ -94,6 +94,17 @@ Pode rodar a chave no cofre da chave utilizando o mecanismo de rotação Azure K
 Revogar o acesso às chaves de encriptação não vai expurgar os dados do Service Bus. No entanto, os dados não podem ser acedidos a partir do espaço de nomes do Service Bus. Pode revogar a chave de encriptação através da política de acesso ou eliminando a chave. Saiba mais sobre as políticas de acesso e a garantia do seu cofre chave do [acesso seguro a um cofre de chaves](../key-vault/general/secure-your-key-vault.md).
 
 Uma vez revogada a chave de encriptação, o serviço Service Bus no espaço de nome encriptado tornar-se-á inoperável. Se o acesso à chave estiver ativado ou a chave eliminada for restaurada, o serviço Service Bus escolherá a chave para que possa aceder aos dados a partir do espaço de nomes do Service Bus encriptado.
+
+## <a name="caching-of-keys"></a>Caching de chaves
+A instância do Service Bus sonda as chaves de encriptação listadas a cada 5 minutos. Faz cache e usa-os até à próxima sondagem, que é depois de 5 minutos. Enquanto pelo menos uma chave estiver disponível, as filas e tópicos estão acessíveis. Se todas as chaves listadas estiverem inacessíveis quando as sondagens forem votadas, todas as filas e tópicos ficarão indisponíveis. 
+
+Veja a seguir mais detalhes: 
+
+- A cada 5 minutos, o serviço service bus sonda todas as chaves geridas pelo cliente listadas no registo do espaço de nome:
+    - Se uma chave tiver sido rodada, o registo é atualizado com a nova chave.
+    - Se uma chave tiver sido revogada, a chave é removida do registo.
+    - Se todas as chaves tiverem sido revogadas, o estado de encriptação do espaço de nome está definido para **revogação**. Os dados não podem ser acedidos a partir do espaço de nomes do Service Bus. 
+    
 
 ## <a name="use-resource-manager-template-to-enable-encryption"></a>Use o modelo de Gestor de Recursos para ativar a encriptação
 Esta secção mostra como fazer as seguintes tarefas utilizando **modelos do Gestor de Recursos Azure**. 
@@ -313,7 +324,7 @@ Neste passo, irá atualizar o espaço de nomes do Service Bus com informações 
     ```
     
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Consulte os seguintes artigos:
 - [Visão geral do ônibus de serviço](service-bus-messaging-overview.md)
 - [Visão geral do cofre de chaves](../key-vault/general/overview.md)

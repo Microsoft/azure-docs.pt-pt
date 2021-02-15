@@ -1,5 +1,5 @@
 ---
-title: Crie uma revisão de acesso das funções de recursos da Azure na PIM - Azure AD ! Microsoft Docs
+title: Crie uma revisão de acesso das funções de recursos Azure em PIM - Azure AD | Microsoft Docs
 description: Saiba como criar uma revisão de acesso das funções de recursos Azure em Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: pim
-ms.date: 12/08/2020
+ms.date: 02/11/2021
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2a618da7c9a66b8f687c1b75914530080ed56bea
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: b8f05ca02068c82a3839b22b698e49a7be818a56
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905830"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100370551"
 ---
 # <a name="create-an-access-review-of-azure-resource-roles-in-privileged-identity-management"></a>Criar uma revisão de acesso das funções de recursos da Azure na Gestão de Identidade Privilegiada
 
@@ -30,7 +30,7 @@ Este artigo descreve como criar uma ou mais avaliações de acesso para funçõe
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-[Administrador privilegiado](../roles/permissions-reference.md#privileged-role-administrator)
+ Para criar revisões de acesso, tem de ser atribuído à função [Azure do Administrador de](../../role-based-access-control/built-in-roles.md#owner) Acesso ao Utilizador ou ao Proprietário ou ao Administrador de Acesso ao [Utilizador](../../role-based-access-control/built-in-roles.md#user-access-administrator) para o recurso.
 
 ## <a name="open-access-reviews"></a>Comentários de acesso aberto
 

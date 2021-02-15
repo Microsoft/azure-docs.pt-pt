@@ -4,18 +4,17 @@ titleSuffix: Azure Data Science Virtual Machine
 description: Padrões para implantar o VM da Ciência de Dados num ambiente de equipa empresarial.
 keywords: aprendizagem profunda, IA, ferramentas de ciência de dados, máquina virtual de ciência de dados, análise geoespacial, processo de ciência de dados de equipa
 services: machine-learning
-ms.service: machine-learning
-ms.subservice: data-science-vm
+ms.service: data-science-vm
 author: vijetajo
 ms.author: vijetaj
 ms.topic: overview
 ms.date: 05/08/2018
-ms.openlocfilehash: 9126dbcfbfe9e3a94514ebf45685bdfc55dd0306
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: a22b253081a6695758a737a506620f2f56e90227
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96463000"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100519699"
 ---
 # <a name="data-science-virtual-machine-based-team-analytics-and-ai-environment"></a>Análise de equipe baseada em máquina virtual de ciência de dados e ambiente de IA 
 A [Data Science Virtual Machine](overview.md) (DSVM) fornece um ambiente rico na plataforma Azure, com software pré-construído para inteligência artificial (IA) e análise de dados.

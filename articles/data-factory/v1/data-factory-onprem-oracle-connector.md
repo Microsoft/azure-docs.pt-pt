@@ -1,23 +1,18 @@
 ---
 title: Copiar dados de ou para a Oracle utilizando a Data Factory
 description: Saiba como copiar dados de ou para uma base de dados oracle no local utilizando a Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.assetid: 3c20aa95-a8a1-4aae-9180-a6a16d64a109
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 1aa8708701af37834ae3b6cdc42de9c691ccacec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 02fc142a08176aa577250417c0e394218e832f34
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86084295"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100387347"
 ---
 # <a name="copy-data-to-or-from-oracle-on-premises-by-using-azure-data-factory"></a>Copiar dados de ou para a Oracle no local através da Azure Data Factory
 
@@ -82,7 +77,7 @@ Pode criar um oleoduto com uma atividade de cópia. O pipeline move dados para o
 
 A forma mais fácil de criar um oleoduto é utilizar o assistente copy. Consulte [Tutorial: Crie um oleoduto utilizando o assistente copy](data-factory-copy-data-wizard-tutorial.md) para uma rápida passagem na criação de um oleoduto utilizando o assistente de Dados de Cópia.
 
-Também pode utilizar uma das seguintes ferramentas para criar um pipeline: **Visual Studio**, **Azure PowerShell**, um **modelo Azure Resource Manager**, a **API .NET**ou a **API REST**. Consulte o tutorial de [Atividade de Cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo sobre como criar um pipeline que tenha uma atividade de cópia.
+Também pode utilizar uma das seguintes ferramentas para criar um pipeline: **Visual Studio**, **Azure PowerShell**, um **modelo Azure Resource Manager**, a **API .NET** ou a **API REST**. Consulte o tutorial de [Atividade de Cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo sobre como criar um pipeline que tenha uma atividade de cópia.
 
 Quer utilize as ferramentas ou APIs, complete os seguintes passos para criar um pipeline que transfere dados de uma loja de dados de origem para uma loja de dados de lavatórios:
 
@@ -101,10 +96,10 @@ A tabela a seguir descreve elementos JSON específicos do serviço ligado à Or�
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| tipo |A propriedade **tipo** deve ser definida para **OnPremisesOracle**. |Sim |
-| Tipo de motorista | Especificar qual o condutor a utilizar para copiar dados de ou para uma base de dados oracle. Os valores permitidos são **Microsoft** e **ODP** (predefinição). Consulte [a versão e a instalação suportadas](#supported-versions-and-installation) para obter detalhes do condutor. | Não |
-| conexãoStragem | Especifique as informações necessárias para ligar à placa de base de dados oracle para a **propriedade connectionString.** | Sim |
-| gatewayName | O nome do portal que é usado para ligar ao servidor Oracle no local. |Sim |
+| tipo |A propriedade **tipo** deve ser definida para **OnPremisesOracle**. |Yes |
+| Tipo de motorista | Especificar qual o condutor a utilizar para copiar dados de ou para uma base de dados oracle. Os valores permitidos são **Microsoft** e **ODP** (predefinição). Consulte [a versão e a instalação suportadas](#supported-versions-and-installation) para obter detalhes do condutor. | No |
+| conexãoStragem | Especifique as informações necessárias para ligar à placa de base de dados oracle para a **propriedade connectionString.** | Yes |
+| gatewayName | O nome do portal que é usado para ligar ao servidor Oracle no local. |Yes |
 
 **Exemplo: Utilizar o controlador da Microsoft**
 
@@ -171,7 +166,7 @@ Na Atividade de Cópia, quando a fonte é o tipo **OracleSource,** as seguintes 
 
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
-| OracleReaderQuery |Utilize a consulta personalizada para ler dados. |Uma cadeia de consulta SQL. Por exemplo, "selecione \* a partir de **MyTable".** <br/><br/>Se não for especificado, esta declaração SQL é executada: "selecione \* from **MyTable"** |Não<br />(se **o nome** de tabela do conjunto de **dados** for especificado) |
+| OracleReaderQuery |Utilize a consulta personalizada para ler dados. |Uma cadeia de consulta SQL. Por exemplo, "selecione \* a partir de **MyTable".** <br/><br/>Se não for especificado, esta declaração SQL é executada: "selecione \* from **MyTable"** |No<br />(se **o nome** de tabela do conjunto de **dados** for especificado) |
 
 ### <a name="oraclesink"></a>Oráculosink
 
@@ -179,10 +174,10 @@ Na Atividade de Cópia, quando a fonte é o tipo **OracleSource,** as seguintes 
 
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
-| escreverBatchTimeout |O tempo de espera para o funcionamento do inserção do lote deve ser concluído antes do tempo de se esgotar. |**timespan**<br/><br/> Exemplo: 00:30:00 (30 minutos) |Não |
+| escreverBatchTimeout |O tempo de espera para o funcionamento do inserção do lote deve ser concluído antes do tempo de se esgotar. |**timespan**<br/><br/> Exemplo: 00:30:00 (30 minutos) |No |
 | escreverBatchSize |Insere dados na tabela SQL quando o tamanho do tampão atinge o valor da **writeBatchSize**. |Inteiro (número de linhas) |Não (padrão: 100) |
-| sqlWriterCleanUpScript |Especifica uma consulta para a Atividade de Cópia a executar de modo a que os dados de uma fatia específica seja limpo. |Uma declaração de consulta. |Não |
-| sliceIdentifierColumnName |Especifica o nome da coluna para a Atividade de Cópia para preencher com um identificador de fatias autogerado. O valor para **sliceIdentifierColumnName** é utilizado para limpar dados de uma fatia específica quando reexecutivo. |O nome da coluna de uma coluna que tem o tipo de dados **binário(32)**. |Não |
+| sqlWriterCleanUpScript |Especifica uma consulta para a Atividade de Cópia a executar de modo a que os dados de uma fatia específica seja limpo. |Uma declaração de consulta. |No |
+| sliceIdentifierColumnName |Especifica o nome da coluna para a Atividade de Cópia para preencher com um identificador de fatias autogerado. O valor para **sliceIdentifierColumnName** é utilizado para limpar dados de uma fatia específica quando reexecutivo. |O nome da coluna de uma coluna que tem o tipo de dados **binário(32)**. |No |
 
 ## <a name="json-examples-for-copying-data-to-and-from-the-oracle-database"></a>Exemplos JSON para copiar dados de e para a base de dados oracle
 
@@ -604,27 +599,27 @@ Quando se move dados da Oracle, os seguintes mapeamentos são usados do tipo de 
 | --- | --- |
 | BFILE |Byte[] |
 | BLOB |Byte[]<br/>(suportado apenas nas versões Oracle 10g e posteriores quando utiliza um controlador Microsoft) |
-| CHAR |Cadeia |
-| CLOB |Cadeia |
+| CHAR |String |
+| CLOB |String |
 | DATE |DateTime |
 | FLUTUAR |Decimal, String (se a precisão > 28) |
 | INTEGER |Decimal, String (se a precisão > 28) |
 | INTERVALO DE ANO PARA MÊS |Int32 |
 | DIA DE INTERVALO PARA SEGUNDO |TimeSpan |
-| Longo |Cadeia |
+| Longo |String |
 | LONGO CRU |Byte[] |
-| NCHAR |Cadeia |
-| NCLOB |Cadeia |
+| NCHAR |String |
+| NCLOB |String |
 | NÚMERO |Decimal, String (se a precisão > 28) |
-| NVARCHAR2 |Cadeia |
+| NVARCHAR2 |String |
 | RAW |Byte[] |
-| ROWID |Cadeia |
-| TIMETAMP |DateTime |
+| ROWID |String |
+| CARIMBO DE DATA/HORA |DateTime |
 | TIMETAMP COM FUSO HORÁRIO LOCAL |DateTime |
 | TIMETAMP COM FUSO HORÁRIO |DateTime |
 | INTEIRO NÃO ASSINADO |Número |
-| VARCHAR2 |Cadeia |
-| XML |Cadeia |
+| VARCHAR2 |String |
+| XML |String |
 
 > [!NOTE]
 > Os tipos de **dados INTERVALO DE ANO A MÊS** e **INTERVALO DIA A SEGUNDO** não são suportados quando utiliza um controlador Microsoft.

@@ -10,12 +10,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: 01e5095e5ff5c65bff508f4bd526ee5f85e3dc56
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 8fa61855b5647c1caefd939af17b70c9d08c2f8f
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99575165"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100517829"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Azure SQL Database migração de tráfego para gateways mais recentes
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -29,26 +29,42 @@ As informações mais atualizadas serão mantidas na tabela de [endereços IP do
 ## <a name="status-updates"></a>Atualizações de estado
 
 # <a name="in-progress"></a>[Em curso](#tab/in-progress-ip)
-## <a name="february-2021"></a>fevereiro de 2021
+## <a name="march-2021"></a>março de 2021
+Os seguintes Gateways SQL em várias regiões estão em vias de ser desativados:
+
+- Brasil Sul: 104.41.11.5
+- Leste asiático: 191.234.2.139
+- Leste dos EUA: 191.238.6.43
+- Japão Leste: 191.237.240.43
+- Japão Oeste: 191.238.68.11
+- Norte da Europa: 191.235.193.75
+- Centro Sul dos EUA: 23.98.162.75
+- Sudeste Asiático: 23.100.117.95
+- Europa Ocidental: 191.237.232.75
+- Oeste dos EUA: 23.99.34.75
+
+Nenhum impacto do cliente é antecipado uma vez que estes Gateways (em execução em hardware mais antigo) não estão a encaminhar nenhum tráfego do cliente. Os endereços IP para estes Gateways serão desativados no dia 15 de março de 2021.
+
+## <a name="february-2021"></a>Fevereiro de 2021
 Novos Gateways SQL estão a ser adicionados às seguintes regiões:
 
-- Centro dos EUA : 13.89.169.20
+- Centro dos EUA: 13.89.169.20
 
 Estes SQL Gateways começarão a aceitar o tráfego de clientes no dia 28 de fevereiro de 2021.
 
 ## <a name="january-2021"></a>Janeiro de 2021
 Novos Gateways SQL estão a ser adicionados às seguintes regiões:
 
-- Austrália Central : 20.36.104.6 , 20.36.104.7 
-- Austrália Central 2 : 20.36.112.6 
-- Brasil Sul : 191.234.144.16 ,191.234.152.3 
-- Canadá Leste : 40.69.105.9 ,40.69.105.10
-- Índia Central : 104.211.86.30 , 104.211.86.31 
-- Leste da Ásia : 13.75.32.14 
+- Austrália Central: 20.36.104.6 , 20.36.104.7 
+- Austrália Central 2: 20.36.112.6 
+- Brasil Sul: 191.234.144.16 ,191.234.152.3 
+- Canadá Leste: 40.69.105.9 (40.69.105.10
+- Índia Central: 104.211.86.30 , 104.211.86.31 
+- Leste asiático: 13.75.32.14 
 - França Central: 40.79.137.8, 40.79.145.12 
-- França Sul : 40.79.177.10 ,40.79.177.12
-- Coreia Central : 52.231.17.22 ,52.231.17.23
-- Índia Oeste : 104.211.144.4
+- França Sul: 40.79.177.10 (40.79.177.12)
+- Coreia Central: 52.231.17.22 (52.231.17.23)
+- Índia Oeste: 104.211.144.4
 
 Estes GATEWAYS SQL começarão a aceitar o tráfego de clientes no dia 31 de janeiro de 2021.
 
@@ -59,53 +75,53 @@ As seguintes migrações de gateway estão completas:
 
 Novos Gateways SQL estão a ser adicionados às seguintes regiões:
 
-- Alemanha Centro Oeste: 51.116.240.0, 51.116.248.0
+- Alemanha Centro-Oeste: 51.116.240.0, 51.116.248.0
 
 Estes SQL Gateways começarão a aceitar o tráfego de clientes no dia 12 de outubro de 2020. 
 
 ### <a name="september-2020"></a>Setembro de 2020
 Novos Gateways SQL estão a ser adicionados às seguintes regiões. Estes GATEWAYS SQL devem começar a aceitar o tráfego de clientes no dia **15 de setembro de 2020:**
 
-- Sudeste da Austrália : 13.77.48.10
-- Canadá Leste : 40.86.226.166, 52.242.30.154
-- Reino Unido Sul : 51.140.184.11, 51.105.64.0
+- Sudeste da Austrália: 13.77.48.10
+- Canadá Leste: 40.86.226.166, 52.242.30.154
+- Reino Unido Sul: 51.140.184.11, 51.105.64.0
 
 Os gateways SQL existentes começarão a aceitar o tráfego nas seguintes regiões. Estes GATEWAYS SQL devem começar a aceitar o tráfego de clientes no dia **15 de setembro de 2020:**
 
-- Sudeste da Austrália : 191.239.192.109 e 13.73.109.251
-- Centro dos EUA : 13.67.215.62, 52.182.137.15, 23.99.160.139, 104.208.16.96 e 104.208.21.1
-- Ásia Oriental : 191.234.2.139, 52.175.33.150 e 13.75.32.4
-- Leste dos EUA : 40.121.158.30, 40.79.153.12, 191.238.6.43 e 40.78.225.32
-- Leste DOS EUA 2 : 40.79.84.180, 52.177.185.181, 52.167.104.0, 191.239.224.107 e 104.208.150.3
+- Sudeste da Austrália: 191.239.192.109 e 13.73.109.251
+- Centro dos EUA: 13.67.215.62, 52.182.137.15, 23.99.160.139, 104.208.16.96 e 104.208.21.1
+- Leste asiático: 191.234.2.139, 52.175.33.150 e 13.75.32.4
+- Leste dos EUA: 40.121.158.30, 40.79.153.12, 191.238.6.43 e 40.78.225.32
+- Leste DOS EUA 2: 40.79.84.180, 52.177.185.181, 52.167.104.0, 191.239.224.107 e 104.208.150.3
 - França Central: 40.79.137.0 e 40.79.129.1
 - Japão Oeste: 104.214.148.156, 40.74.100.192, 191.238.68.11 e 40.74.97.10
-- Norte Central EUA : 23.96.178.199, 23.98.55.75 e 52.162.104.33
-- Sudeste Asiático : 104.43.15.0, 23.100.117.95 e 40.78.232.3
+- Centro-Norte: 23.96.178.199, 23.98.55.75 e 52.162.104.33
+- Sudeste Asiático: 104.43.15.0, 23.100.117.95 e 40.78.232.3
 - Oeste dos EUA: 104.42.238.205, 23.99.34.75 e 13.86.216.196
 
 Novos Gateways SQL estão a ser adicionados às seguintes regiões. Estes GATEWAYS SQL devem começar a aceitar o tráfego de clientes no dia **10 de setembro de 2020:**
 
-- Centro-Oeste dos EUA : 13.78.248.43 
-- África do Sul Norte : 102.133.120.2  
+- Centro-Oeste dos EUA: 13.78.248.43 
+- África do Sul Norte: 102.133.120.2  
 
 Novos Gateways SQL estão a ser adicionados às seguintes regiões. Estes GATEWAYS SQL devem começar a aceitar o tráfego de clientes no dia **1 de setembro de 2020:**
 
-- Norte da Europa : 13.74.104.113 
-- West US2 : 40.78.248.10 
-- Europa Ocidental : 52.236.184.163 
-- Centro Sul dos EUA : 20.45.121.1, 20.49.88.1 
+- Norte da Europa: 13.74.104.113 
+- West US2: 40.78.248.10 
+- Europa Ocidental: 52.236.184.163 
+- Centro Sul dos EUA: 20.45.121.1, 20.49.88.1 
 
 Os gateways SQL existentes começarão a aceitar o tráfego nas seguintes regiões. Estes GATEWAYS SQL devem começar a aceitar o tráfego de clientes no dia **1 de setembro de 2020:**
-- Japão Leste : 40.79.184.8, 40.79.192.5
+- Japão Leste: 40.79.184.8, 40.79.192.5
 
 
 ### <a name="august-2020"></a>Agosto de 2020
 
 Novos Gateways SQL estão a ser adicionados às seguintes regiões:
 
-- Austrália Leste : 13.70.112.9
-- Canadá Central : 52.246.152.0, 20.38.144.1 
-- Oeste DOS EUA 2 : 40.78.240.8
+- Austrália Leste: 13.70.112.9
+- Canadá Central: 52.246.152.0, 20.38.144.1 
+- Oeste DOS EUA 2: 40.78.240.8
 
 Estes SQL Gateways começarão a aceitar o tráfego de clientes no dia 10 de agosto de 2020. 
 

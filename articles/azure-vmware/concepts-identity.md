@@ -3,16 +3,16 @@ title: Conceitos - Identidade e acesso
 description: Conheça os conceitos de identidade e acesso da Azure VMware Solution
 ms.topic: conceptual
 ms.date: 02/02/2021
-ms.openlocfilehash: 0f58cbdaa641af24cef53c3cfd9604cf1b0c1c3b
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 68f4ce9136cca1cf9bf0824395e31704d8ed1a17
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99538946"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100364890"
 ---
 # <a name="azure-vmware-solution-identity-concepts"></a>Conceitos de identidade de solução Azure VMware
 
-As nuvens privadas Azure VMware Solution são a provisionadas com um servidor vCenter e um Gestor NSX-T. Utiliza o vCenter para gerir cargas de trabalho de máquinas virtuais (VM). Usa o gestor NSX-T para estender a nuvem privada.
+As nuvens privadas Azure VMware Solution são a provisionadas com um servidor vCenter e um Gestor NSX-T. Utiliza o vCenter para gerir cargas de trabalho de máquinas virtuais (VM). Usa o Gestor NSX-T para estender a nuvem privada.
 
 O acesso e a gestão de identidade utilizam os privilégios do grupo CloudAdmin para vCenter e direitos de administrador restritos para o NSX-T Manager. Garante que a sua plataforma de nuvem privada atualiza automaticamente com as funcionalidades e patches mais recentes.  Para mais informações, consulte [o artigo conceitos de atualizações de nuvem privada.][concepts-upgrades]
 
@@ -49,7 +49,7 @@ A tabela mostra privilégios **CloudAdmin** e **CloudGlobalAdmin.**
 
 ## <a name="nsx-t-manager-access-and-identity"></a>Acesso e identidade do Gerente NSX-T
 
-Utilize a conta "administrador" para aceder ao NSX-T Manager. Tem plenos privilégios e permite criar e gerir routers T1, comutadores lógicos e todos os serviços. Os privilégios dão-lhe acesso ao router NSX-T T0. Uma alteração no router T0 pode resultar num desempenho de rede degradado ou sem acesso privado à nuvem. Abra um pedido de suporte no portal Azure para solicitar quaisquer alterações ao seu router NSX-T T0.
+Utilize a conta *de administrador* para aceder ao NSX-T Manager. Tem plenos privilégios e permite criar e gerir Gateways Tier-1 (T1), segmentos (comutadores lógicos) e todos os serviços. Os privilégios dão-lhe acesso ao Gateway NSX-T Tier-0 (T0). Uma alteração no Gateway T0 pode resultar num desempenho de rede degradado ou sem acesso privado à nuvem. Abra um pedido de suporte no portal Azure para solicitar quaisquer alterações ao seu Gateway NSX-T T0.
   
 ## <a name="next-steps"></a>Passos seguintes
 

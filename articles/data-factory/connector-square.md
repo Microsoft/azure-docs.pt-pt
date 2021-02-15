@@ -1,23 +1,18 @@
 ---
 title: Copiar dados da Square (Pré-visualização)
 description: Saiba como copiar dados da Square para lojas de dados de sumidouros suportados utilizando uma atividade de cópia num oleoduto Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/03/2020
-ms.openlocfilehash: 2bfe9115f38c79618924379837dda8014ee31ed5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ac10e42d338e0ddd44cb3c07709645a69653808d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87529369"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100384797"
 ---
 # <a name="copy-data-from-square-using-azure-data-factory-preview"></a>Copiar dados da Square utilizando a Azure Data Factory (Pré-visualização)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -50,17 +45,17 @@ As seguintes propriedades são suportadas para o serviço ligado à Square:
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo deve ser definida para: **Quadrado** | Sim |
-| conexõesProperties | Um grupo de propriedades que define como se conectar à Square. | Sim |
+| tipo | A propriedade tipo deve ser definida para: **Quadrado** | Yes |
+| conexõesProperties | Um grupo de propriedades que define como se conectar à Square. | Yes |
 | ***Em `connectionProperties` :*** | | |
-| anfitrião | A URL da instância square. (isto é, mystore.mysquare.com)  | Sim |
-| clientId | A identificação do cliente associada à sua aplicação Square.  | Sim |
-| segredo de clientes | O segredo do cliente associado à sua aplicação Square. Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Sim |
-| accessToken | O sinal de acesso obtido da Square. Concede acesso limitado a uma conta Square pedindo a um utilizador autenticado permissões explícitas. Os tokens de acesso OAuth expiram 30 dias após a emissão, mas os tokens de atualização não expiram. Os tokens de acesso podem ser refrescados com token refresh.<br>Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md).  | Sim |
-| refreshToken | O token refresh obtido da Square. Usado para obter novos tokens de acesso quando o atual expira.<br>Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Não |
-| useEncryptedEndpoints | Especifica se os pontos finais de origem de dados são encriptados usando HTTPS. O valor predefinido é true.  | Não |
-| useHostVerification | Especifica se deve exigir que o nome do anfitrião no certificado do servidor corresponda ao nome de anfitrião do servidor ao ligar o TLS. O valor predefinido é true.  | Não |
-| usePeerVerificação | Especifica se deve verificar a identidade do servidor ao ligar o TLS. O valor predefinido é true.  | Não |
+| anfitrião | A URL da instância square. (isto é, mystore.mysquare.com)  | Yes |
+| clientId | A identificação do cliente associada à sua aplicação Square.  | Yes |
+| segredo de clientes | O segredo do cliente associado à sua aplicação Square. Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Yes |
+| accessToken | O sinal de acesso obtido da Square. Concede acesso limitado a uma conta Square pedindo a um utilizador autenticado permissões explícitas. Os tokens de acesso OAuth expiram 30 dias após a emissão, mas os tokens de atualização não expiram. Os tokens de acesso podem ser refrescados com token refresh.<br>Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md).  | Yes |
+| refreshToken | O token refresh obtido da Square. Usado para obter novos tokens de acesso quando o atual expira.<br>Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | No |
+| useEncryptedEndpoints | Especifica se os pontos finais de origem de dados são encriptados usando HTTPS. O valor predefinido é true.  | No |
+| useHostVerification | Especifica se deve exigir que o nome do anfitrião no certificado do servidor corresponda ao nome de anfitrião do servidor ao ligar o TLS. O valor predefinido é true.  | No |
+| usePeerVerificação | Especifica se deve verificar a identidade do servidor ao ligar o TLS. O valor predefinido é true.  | No |
 
 Suporte quadrado dois tipos de ficha de acesso: **pessoal** e **OAuth**.
 
@@ -109,7 +104,7 @@ Para copiar dados da Square, defina a propriedade tipo do conjunto de dados para
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo do conjunto de dados deve ser definida para: **SquareObject** | Sim |
+| tipo | A propriedade tipo do conjunto de dados deve ser definida para: **SquareObject** | Yes |
 | tableName | O nome da mesa. | Não (se for especificada "consulta" na fonte de atividade) |
 
 **Exemplo**
@@ -139,7 +134,7 @@ Para copiar dados da Square, desagrafe o tipo de origem na atividade da cópia p
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **SquareSource** | Sim |
+| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **SquareSource** | Yes |
 | consulta | Utilize a consulta SQL personalizada para ler dados. Por exemplo: `"SELECT * FROM Business"`. | Não (se for especificado "tableName" no conjunto de dados) |
 
 **Exemplo:**

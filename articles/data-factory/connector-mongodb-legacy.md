@@ -1,22 +1,18 @@
 ---
 title: Copiar dados da MongoDB utilizando o legado
 description: Saiba como copiar dados da Mongo DB para lojas de dados de sumidouros suportados utilizando uma atividade de cópia num oleoduto legado da Azure Data Factory.
-services: data-factory
 author: linda33wj
 ms.author: jingwang
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 08/12/2019
-ms.openlocfilehash: 7cf4be078a7bee0bedbeac4326acb9ca290cde88
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e13a1a5a939d314bdf4500c0827fa13201505016
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91331986"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100368851"
 ---
 # <a name="copy-data-from-mongodb-using-azure-data-factory-legacy"></a>Copiar dados da MongoDB utilizando a Azure Data Factory (legado)
 
@@ -57,17 +53,17 @@ As seguintes propriedades são suportadas para o serviço ligado a MongoDB:
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo |A propriedade tipo deve ser definida para: **MongoDb** |Sim |
-| servidor |Endereço IP ou nome de anfitrião do servidor MongoDB. |Sim |
+| tipo |A propriedade tipo deve ser definida para: **MongoDb** |Yes |
+| servidor |Endereço IP ou nome de anfitrião do servidor MongoDB. |Yes |
 | porta |Porta TCP que o servidor MongoDB utiliza para ouvir as ligações do cliente. |Não (padrão é 27017) |
-| base de dados Nome |Nome da base de dados mongoDB a que pretende aceder. |Sim |
-| authenticationType | Tipo de autenticação usada para ligar à base de dados mongoDB.<br/>Os valores permitidos são: **Básico,** e **Anónimo.** |Sim |
+| base de dados Nome |Nome da base de dados mongoDB a que pretende aceder. |Yes |
+| authenticationType | Tipo de autenticação usada para ligar à base de dados mongoDB.<br/>Os valores permitidos são: **Básico,** e **Anónimo.** |Yes |
 | nome de utilizador |Conta de utilizador para aceder a MongoDB. |Sim (se for utilizada a autenticação básica). |
 | palavra-passe |A palavra-passe do utilizador. Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). |Sim (se for utilizada a autenticação básica). |
 | authSource |Nome da base de dados MongoDB que pretende utilizar para verificar as suas credenciais para autenticação. |N.º Para a autenticação básica, o predefinido é utilizar a conta de administração e a base de dados especificada através da base de dados PropriedadeName. |
-| ativarSl | Especifica se as ligações ao servidor são encriptadas utilizando O S.TLS. O valor predefinido é false.  | Não |
-| permitirSelfSignedServerCert | Especifica se permite certificados auto-assinados a partir do servidor. O valor predefinido é false.  | Não |
-| connectVia | O [tempo de execução de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Saiba mais na secção [Pré-Requisitos.](#prerequisites) Se não for especificado, utiliza o tempo de execução de integração Azure predefinido. |Não |
+| ativarSl | Especifica se as ligações ao servidor são encriptadas utilizando O S.TLS. O valor predefinido é false.  | No |
+| permitirSelfSignedServerCert | Especifica se permite certificados auto-assinados a partir do servidor. O valor predefinido é false.  | No |
+| connectVia | O [tempo de execução de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Saiba mais na secção [Pré-Requisitos.](#prerequisites) Se não for especificado, utiliza o tempo de execução de integração Azure predefinido. |No |
 
 **Exemplo:**
 
@@ -100,8 +96,8 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade do tipo do conjunto de dados deve ser definida para: **MongoDbCollection** | Sim |
-| coleçãoName |Nome da coleção na base de dados mongoDB. |Sim |
+| tipo | A propriedade do tipo do conjunto de dados deve ser definida para: **MongoDbCollection** | Yes |
+| coleçãoName |Nome da coleção na base de dados mongoDB. |Yes |
 
 **Exemplo:**
 
@@ -131,7 +127,7 @@ As seguintes propriedades são suportadas na secção fonte de **origem** da ati
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **MongoDbSource** | Sim |
+| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **MongoDbSource** | Yes |
 | consulta |Utilize a consulta personalizada SQL-92 para ler dados. Por exemplo: selecione * do MyTable. |Não (se for especificado "nome de recolha" no conjunto de dados) |
 
 **Exemplo:**
@@ -230,8 +226,8 @@ As tabelas seguintes mostram as tabelas virtuais que representam as matrizes ori
 
 | _id | ExampleTable_Invoices_dim1_idx | invoice_id | item | preço | Desconto |
 | --- | --- | --- | --- | --- | --- |
-| 1111 |0 |123 |torradeira |456 |0.2 |
-| 1111 |1 |124 |forno |1235 |0.2 |
+| 1111 |0 |123 |torradeira |456 |0,2 |
+| 1111 |1 |124 |forno |1235 |0,2 |
 | 2222 |0 |135 |frigorífico |12543 |0,0 |
 
 **Tabela "ExampleTable_Ratings":**

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Migrar de Bing Maps para Azure Maps Microsoft Azure Maps'
+title: 'Tutorial: Migrar de Bing Maps para Azure Maps | Microsoft Azure Maps'
 description: Um tutorial sobre como migrar de Bing Maps para Microsoft Azure Maps. A orientação acompanha-o como mudar para Azure Maps APIs e SDKs.
 author: rbrundritt
 ms.author: richbrun
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 52768874ef27bf87846d4abbd68e9e8c1972f996
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: 9bd0516889733a666bf15668cffd124dcc468f3e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97679445"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388962"
 ---
 # <a name="tutorial-migrate-from-bing-maps-to-azure-maps"></a>Tutorial: Migrar de Bing Maps para Azure Maps
 
@@ -47,8 +47,8 @@ A tabela seguinte fornece uma lista de alto nível de funcionalidades do Bing Ma
 | Web SDK                               | ✓                  |
 | SDK Android                           | ✓                  |
 | iOS SDK                               | Planeado            |
-| UWP SDK                               | Planeado            |
-| WPF SDK                               | Planeado            |
+| UWP SDK                               | N/D                 |
+| WPF SDK                               | N/D                 |
 | APIs de serviço de descanso                     | ✓                  |
 | Sugestão Automática                           | ✓                  |
 | Instruções (incluindo o camião)          | ✓                  |

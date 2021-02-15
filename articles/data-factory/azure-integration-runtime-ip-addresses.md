@@ -1,22 +1,18 @@
 ---
 title: Endereços IP do Azure Integration Runtime
 description: Saiba quais os endereços IP a partir dos quais deve permitir o tráfego de entrada, de modo a configurar adequadamente firewalls para garantir o acesso à rede nas lojas de dados.
-services: data-factory
 ms.author: abnarain
 author: nabhishek
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/06/2020
-ms.openlocfilehash: fb83be59a3ccb11ea8bbd88307596937caa2b354
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 7b663c8d6e5849d39bb8366c82f45e0fd66d77dd
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92638300"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100371401"
 ---
 # <a name="azure-integration-runtime-ip-addresses"></a>Endereços IP do Azure Integration Runtime
 
@@ -31,7 +27,7 @@ O IP endereça que o Tempo de Execução da Integração Azure depende da regiã
 
 ## <a name="azure-integration-runtime-ip-addresses-specific-regions"></a>Endereços IP de integração do Azure: Regiões específicas
 
-Permitir o tráfego dos endereços IP listados para o tempo de funcionamento da Integração Azure na região específica de Azure onde os seus recursos estão localizados. Pode obter uma lista de etiquetas de serviço da gama IP das tags de [serviço.](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) Por exemplo, se a região de Azure for **AustraliaEast,** pode obter uma lista de gama de IP a partir de **DataFactory.AustraliaEast** .
+Permitir o tráfego dos endereços IP listados para o tempo de funcionamento da Integração Azure na região específica de Azure onde os seus recursos estão localizados. Pode obter uma lista de etiquetas de serviço da gama IP das tags de [serviço.](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) Por exemplo, se a região de Azure for **AustraliaEast,** pode obter uma lista de gama de IP a partir de **DataFactory.AustraliaEast**.
 
 
 ## <a name="known-issue-with-azure-storage"></a>Problema conhecido com Azure Storage

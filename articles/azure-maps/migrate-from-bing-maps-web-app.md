@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: devx-track-js
-ms.openlocfilehash: db53e4407674abc1e6c81090dc4a50afa784940d
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 2b072107275fba1ff83ab3ddac63ed8bf7766356
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98684829"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100389115"
 ---
 # <a name="tutorial-migrate-a-web-app-from-bing-maps"></a>Tutorial: Migrar uma aplicação web a partir de Bing Maps
 
@@ -33,9 +33,9 @@ As aplicações web que usam bing Maps usam frequentemente o Bing Maps V8 JavaSc
 
 Se migrar uma aplicação web existente, verifique se está a utilizar uma biblioteca de controlo de mapas de código aberto, como Cesium, Folheto e OpenLayers. Se for e preferir continuar a usar essa biblioteca, pode ligá-la aos serviços de azulejos Azure Maps[](/rest/api/maps/render/getmaptile) \| [(azulejos de telhas de](/rest/api/maps/render/getmapimagerytile)estrada). Os links abaixo fornecem detalhes sobre como usar o Azure Maps em algumas bibliotecas de controlo de mapas de código aberto comumente utilizadas.
 
-* Cesium - Um controlo de mapa 3D para a web. [Amostra de código](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Raster%20Tiles%20in%20Cesium%20JS) \| [Documentação](https://cesiumjs.org/)
-* Folheto – Controlo de mapa 2D leve para a web. [Amostra de código](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Azure%20Maps%20Raster%20Tiles%20in%20Leaflet%20JS) \| [Documentação](https://leafletjs.com/)
-* OpenLayers - Um controlo de mapa 2D para a web que suporta projeções. [Amostra de código](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Raster%20Tiles%20in%20OpenLayers) \| [Documentação](https://openlayers.org/)
+* [Cesium](https://cesiumjs.org/) - Um controlo de mapa 3D para a web. [Amostras de código](https://azuremapscodesamples.azurewebsites.net/?search=Cesium) \| [Repo plugin]()
+* [Folheto](https://leafletjs.com/) – Controlo de mapa 2D leve para a web. [Amostras de código](https://azuremapscodesamples.azurewebsites.net/?search=leaflet) \| [Repo plugin]()
+* [OpenLayers](https://openlayers.org/) - Um controlo de mapa 2D para a web que suporta projeções. [Amostras de código](https://azuremapscodesamples.azurewebsites.net/?search=openlayers) \| [Repo plugin]()
 
 Se desenvolver usando uma estrutura JavaScript, um dos seguintes projetos de código aberto pode ser útil:
 
@@ -64,7 +64,7 @@ A tabela que se segue lista as principais funcionalidades da API no Bing Maps V8
 | Camadas de azulejos              | ✓                                                                                      |
 | Camada KML                | ✓                                                                                      |
 | Camada de contorno            | [Amostras](https://azuremapscodesamples.azurewebsites.net/?search=contour)              |
-| Camada de binário de dados       | [Amostras](https://azuremapscodesamples.azurewebsites.net/?search=data%20binning)       |
+| Camada de binário de dados       | Incluído no módulo de fonte aberta Azure Maps [Gridded Data Source](https://github.com/Azure-Samples/azure-maps-gridded-data-source)       |
 | Camada de azulejo animado      | Incluído no módulo de [animação](https://github.com/Azure-Samples/azure-maps-animations) Azure Maps de código aberto |
 | Ferramentas de desenho            | ✓                                                                                      |
 | Serviço geocoder         | ✓                                                                                      |
@@ -72,10 +72,10 @@ A tabela que se segue lista as principais funcionalidades da API no Bing Maps V8
 | Serviço Matrix distância  | ✓                                                                                      |
 | Serviço de Dados Espaciais     | N/D                                                                                    |
 | Imagens de satélite/aérea | ✓                                                                                      |
-| Imagens de olhos de pássaros         | Planeado                                                                                |
-| Imagens de rua       | Planeado                                                                                |
+| Imagens de olhos de pássaros         | N/D                                                                                |
+| Imagens de rua       | N/D                                                                                |
 | Suporte GeoJSON          | ✓                                                                                      |
-| Suporte GeoXML           | ✓                                                                                      |
+| Suporte GeoXML           | ✓ [Módulo IO espacial](how-to-use-spatial-io-module.md)                                                                                     |
 | suporte de texto Well-Known  | ✓                                                                                      |
 | Estilos de mapa personalizados        | Parcial                                                                                |
 

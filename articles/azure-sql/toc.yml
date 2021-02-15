@@ -143,8 +143,10 @@
       items:
         - name: Pedir aumentos de quota
           href: database/quota-increase-request.md
-        - name: Automatização de tarefas
+        - name: Automação de emprego com trabalhos elásticos
           href: database/job-automation-overview.md
+        - name: Automação de emprego com Agente SQL
+          href: database/job-automation-managed-instances.md
         - name: Continuidade do negócio
           items:
             - name: Configurar o grupo de ativação pós-falha

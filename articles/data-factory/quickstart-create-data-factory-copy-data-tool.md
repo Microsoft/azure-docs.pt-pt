@@ -1,22 +1,17 @@
 ---
 title: Copie dados utilizando a ferramenta Azure Copy Data
 description: Crie uma Fábrica de Dados Azure e, em seguida, utilize a ferramenta Dados de Cópia para copiar dados de um local no armazenamento de Azure Blob para outro local.
-services: data-factory
-documentationcenter: ''
 author: dearandyxu
 ms.author: yexu
-manager: anandsub
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: quickstart
 ms.date: 11/09/2020
-ms.openlocfilehash: 282917a6bbf7edb962a87ad87810adde56206d97
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 48624e415649be2fb76aed99c5cb0e1b3b12f04b
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96013518"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100372863"
 ---
 # <a name="quickstart-use-the-copy-data-tool-to-copy-data"></a>Início rápido: Utilize a ferramenta Dados de Cópia para copiar dados
 
@@ -36,8 +31,8 @@ Neste início rápido, irá utilizar o portal do Azure para criar uma fábrica d
 ## <a name="create-a-data-factory"></a>Criar uma fábrica de dados
 
 1. Abra o browser **Microsoft Edge** ou **Google Chrome**. Atualmente, a IU do Data Factory é suportada apenas nos browsers Microsoft Edge e Google Chrome.
-1. Aceda ao [portal do Azure](https://portal.azure.com). 
-1. A partir do menu do portal Azure, **selecione Criar uma** Fábrica de  >  Dados **de Integração de**  >  **Data Factory** Recursos:
+1. Aceda ao [Portal do Azure](https://portal.azure.com). 
+1. A partir do menu do portal Azure, **selecione Criar uma** Fábrica de  >  Dados **de Integração de**  >  Recursos:
 
     ![Criação de nova fábrica de dados](./media/doc-common-process/new-azure-data-factory-menu.png)
 

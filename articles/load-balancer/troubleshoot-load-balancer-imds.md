@@ -8,12 +8,12 @@ ms.service: load-balancer
 ms.topic: troubleshooting
 ms.date: 02/12/2021
 ms.author: allensu
-ms.openlocfilehash: e648d71ed3c501c07a2491054b273a13d74cedaf
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: e932e211996a05b2740613381735a7de3492e5bf
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/14/2021
-ms.locfileid: "100418075"
+ms.locfileid: "100519189"
 ---
 # <a name="error-codes-common-error-codes-when-using-imds-to-retrieve-load-balancer-information"></a>Códigos de erro: Códigos de erro comuns ao utilizar o IMDS para recuperar informações do balançador de carga
 
@@ -28,8 +28,8 @@ Este artigo descreve erros de implementação comuns e como resolver esses erros
 | 400 | Pedido inesperado. Verifique os parâmetros de consulta e volte a tentar. | O código de erro indica que o formato de pedido não está configurado corretamente. </br> Para obter mais informações, consulte [como recuperar metadados do balanceador de carga utilizando o Serviço de Metadados de Instância Azure (IMDS)](howto-load-balancer-imds.md#sample-request-and-response) para corrigir o corpo de pedido e emitir uma nova agem. |
 | 404 | Não são encontrados metadados do balançador de carga. Verifique se o seu VM está a utilizar algum balanceador de carga SKU não básico e volte a tentar mais tarde. | O código de erro indica que a sua máquina virtual não está associada a um equilibrador de carga ou que o equilibrador de carga é SKU básico em vez de padrão. </br> Para obter mais informações, consulte [Quickstart: Crie um equilibrador de carga público para carregar vMs de equilíbrio utilizando o portal Azure](quickstart-load-balancer-standard-public-portal.md?tabs=option-1-create-load-balancer-standard) para implantar um equilibrador de carga padrão.|
 | 404 | API não é encontrada: Caminho = " \<UrlPath> método = \<Method> " | O código de erro indica uma configuração errada do caminho. </br> Para obter mais informações, consulte [como recuperar metadados do balanceador de carga utilizando o Serviço de Metadados de Instância Azure (IMDS)](howto-load-balancer-imds.md#sample-request-and-response) para corrigir o corpo de pedido e emitir uma nova agem.|
-| 405 | O método http não é permitido: Caminho = " \<UrlPath> método = \<Method> " | O código de erro indica um verbo HTTP não suportado. </br> Para obter mais informações, consulte [o Serviço de Metadados de Exemplo de Azure (IMDS)](/virtual-machines/windows/instance-metadata-service?tabs=windows.md#http-verbs) para verbos suportados. |
-| 429 | Muitos pedidos | O código de erro indica um limite de taxa. </br> Para obter mais informações sobre a limitação da taxa, consulte [o Serviço de Metadados de Instância Azure (IMDS)](/virtual-machines/windows/instance-metadata-service?tabs=windows#rate-limiting).|
+| 405 | O método http não é permitido: Caminho = " \<UrlPath> método = \<Method> " | O código de erro indica um verbo HTTP não suportado. </br> Para obter mais informações, consulte [o Serviço de Metadados de Exemplo de Azure (IMDS)](../virtual-machines/windows/instance-metadata-service.md?tabs=windows#http-verbs) para verbos suportados. |
+| 429 | Muitos pedidos | O código de erro indica um limite de taxa. </br> Para obter mais informações sobre a limitação da taxa, consulte [o Serviço de Metadados de Instância Azure (IMDS)](../virtual-machines/windows/instance-metadata-service.md?tabs=windows#rate-limiting).|
 | 400 | O corpo de pedido é maior que MaxBodyLength: ... | O código de erro indica um pedido maior do que o MaxBodyLength. </br> Para obter mais informações sobre o comprimento do corpo, consulte [como recuperar metadados do balançador de carga utilizando o Serviço de Metadados de Instância Azure (IMDS)](howto-load-balancer-imds.md#sample-request-and-response).|
 | 400 | O comprimento da chave do parâmetro é maior do que maxparameterKeyLength: ... | O código de erro indica um comprimento da chave de parâmetro maior do que o comprimento MaxParameterKeyL. </br> Para obter mais informações sobre o comprimento do corpo, consulte [como recuperar metadados do balançador de carga utilizando o Serviço de Metadados de Instância Azure (IMDS)](howto-load-balancer-imds.md#sample-request-and-response). |
 | 400 | O comprimento do valor do parâmetro é maior do que maxparameterValueLength: ... | O código de erro indica um comprimento da chave de parâmetro maior do que o comprimento MaxParameterValueL. </br> Para obter mais informações sobre o comprimento do valor, consulte [como recuperar metadados do balançador de carga utilizando o Serviço de Metadados de Instância Azure (IMDS)](howto-load-balancer-imds.md#sample-request-and-response).|
@@ -41,5 +41,5 @@ Este artigo descreve erros de implementação comuns e como resolver esses erros
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre [o Serviço de Metadados Azure Instance](/virtual-machines/windows/instance-metadata-service.md)
+Saiba mais sobre [o Serviço de Metadados Azure Instance](../virtual-machines/windows/instance-metadata-service.md)
 

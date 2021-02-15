@@ -1,20 +1,17 @@
 ---
 title: Mover dados do MongoDB
 description: Saiba como mover dados da base de dados mongoDB usando a Azure Data Factory.
-services: data-factory
 author: linda33wj
 ms.author: jingwang
-manager: shwang
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/13/2018
-ms.openlocfilehash: edddd100bddab1d642a8169353298a2d20620274
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cedb0b99f04df00763a3ee83287eec90bd5fb45d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79281343"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100387517"
 ---
 # <a name="move-data-from-mongodb-using-azure-data-factory"></a>Mover dados da MongoDB usando a Azure Data Factory
 
@@ -46,7 +43,7 @@ Pode criar um pipeline com uma atividade de cópia que move dados de uma loja de
 
 A forma mais fácil de criar um oleoduto é utilizar o **Copy Wizard**. Ver [Tutorial: Criar um pipeline utilizando o Copy Wizard](data-factory-copy-data-wizard-tutorial.md) para uma rápida passagem na criação de um oleoduto utilizando o assistente de dados Copy.
 
-Também pode utilizar as seguintes ferramentas para criar um pipeline: **Visual Studio**, **Azure PowerShell,** **Azure Resource Manager,** **.NET API**e **REST API**. Consulte o tutorial de [atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo para criar um oleoduto com uma atividade de cópia.
+Também pode utilizar as seguintes ferramentas para criar um pipeline: **Visual Studio**, **Azure PowerShell,** **Azure Resource Manager,** **.NET API** e **REST API**. Consulte o tutorial de [atividade de cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) para obter instruções passo a passo para criar um oleoduto com uma atividade de cópia.
 
 Quer utilize as ferramentas ou APIs, executa os seguintes passos para criar um pipeline que transfere dados de uma loja de dados de origem para uma loja de dados de lavatórios:
 
@@ -63,15 +60,15 @@ A tabela seguinte fornece descrição para elementos JSON específicos do servi�
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| tipo |A propriedade tipo deve ser definida para: **OnPremisesMongoDb** |Sim |
-| servidor |Endereço IP ou nome de anfitrião do servidor MongoDB. |Sim |
+| tipo |A propriedade tipo deve ser definida para: **OnPremisesMongoDb** |Yes |
+| servidor |Endereço IP ou nome de anfitrião do servidor MongoDB. |Yes |
 | porta |Porta TCP que o servidor MongoDB utiliza para ouvir as ligações do cliente. |Valor opcional, padrão: 27017 |
-| authenticationType |Básico, ou Anónimo. |Sim |
+| authenticationType |Básico, ou Anónimo. |Yes |
 | nome de utilizador |Conta de utilizador para aceder a MongoDB. |Sim (se for utilizada a autenticação básica). |
 | palavra-passe |A palavra-passe do utilizador. |Sim (se for utilizada a autenticação básica). |
 | authSource |Nome da base de dados MongoDB que pretende utilizar para verificar as suas credenciais para autenticação. |Opcional (se for utilizada a autenticação básica). padrão: utiliza a conta de administração e a base de dados especificada através da base de dados PropriedadeName. |
-| base de dados Nome |Nome da base de dados mongoDB a que pretende aceder. |Sim |
-| gatewayName |Nome do portal que acede à loja de dados. |Sim |
+| base de dados Nome |Nome da base de dados mongoDB a que pretende aceder. |Yes |
+| gatewayName |Nome do portal que acede à loja de dados. |Yes |
 | criptografadoCredential |Credencial encriptada por gateway. |Opcional |
 
 ## <a name="dataset-properties"></a>Dataset properties (Propriedades do conjunto de dados)
@@ -81,7 +78,7 @@ A secção **typeProperties** é diferente para cada tipo de conjunto de dados e
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| coleçãoName |Nome da coleção na base de dados mongoDB. |Sim |
+| coleçãoName |Nome da coleção na base de dados mongoDB. |Yes |
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade Copy
 Para obter uma lista completa das secções & propriedades disponíveis para definir atividades, consulte o artigo [Criar Pipelines.](data-factory-create-pipelines.md) Propriedades como nome, descrição, tabelas de entrada e saída, e política estão disponíveis para todos os tipos de atividades.
@@ -343,8 +340,8 @@ Tabela "ExampleTable_Invoices":
 
 | _id | ExampleTable_Invoices_dim1_idx | invoice_id | item | preço | Desconto |
 | --- | --- | --- | --- | --- | --- |
-| 1111 |0 |123 |torradeira |456 |0.2 |
-| 1111 |1 |124 |forno |1235 |0.2 |
+| 1111 |0 |123 |torradeira |456 |0,2 |
+| 1111 |1 |124 |forno |1235 |0,2 |
 | 2222 |0 |135 |frigorífico |12543 |0,0 |
 
 Tabela "ExampleTable_Ratings":

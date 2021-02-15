@@ -2,16 +2,15 @@
 title: Problemas na resolução de problemas do runbook da Azure Automation
 description: Este artigo diz como resolver problemas e resolver problemas com os runbooks da Azure Automation.
 services: automation
-ms.subservice: ''
-ms.date: 11/03/2020
+ms.date: 02/11/2021
 ms.topic: troubleshooting
 ms.custom: has-adal-ref
-ms.openlocfilehash: e154284df8eaad798c5cfaf4de69c40601863cf4
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 0ae7af848fd3ceb1d5b186a5a326c8fa43a69d24
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99053674"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388027"
 ---
 # <a name="troubleshoot-runbook-issues"></a>Resolver problemas de runbooks
 
@@ -224,37 +223,46 @@ Ao executar livros de execução, o livro de recortes não consegue gerir os rec
 
 ### <a name="cause"></a>Causa
 
-O livro não está a usar o contexto correto quando está a correr.
+O livro não está a usar o contexto correto quando está a correr. Isto pode ser porque o livro de recortes está acidentalmente a tentar aceder à subscrição incorreta.
+
+Pode ver erros como este:
+
+```error
+Get-AzVM : The client '<automation-runas-account-guid>' with object id '<automation-runas-account-guid>' does not have authorization to perform action 'Microsoft.Compute/virtualMachines/read' over scope '/subscriptions/<subcriptionIdOfSubscriptionWichDoesntContainTheVM>/resourceGroups/REsourceGroupName/providers/Microsoft.Compute/virtualMachines/VMName '.
+   ErrorCode: AuthorizationFailed
+   StatusCode: 403
+   ReasonPhrase: Forbidden Operation
+   ID : <AGuidRepresentingTheOperation> At line:51 char:7 + $vm = Get-AzVM -ResourceGroupName $ResourceGroupName -Name $UNBV... +
+```
 
 ### <a name="resolution"></a>Resolução
 
-O contexto de subscrição pode perder-se quando um livro de bordo invoca vários runbooks. Para garantir que o contexto de subscrição é passado para os runbooks, certifique-se de que o livro de bordo do cliente passe o contexto para o `Start-AzureRmAutomationRunbook` cmdlet no `AzureRmContext` parâmetro. Utilize o `Disable-AzureRmContextAutosave` cmdlet com o `Scope` parâmetro definido para garantir que as `Process` credenciais especificadas são utilizadas apenas para o livro de bordo atual. Para mais informações, consulte [Subscrições.](../automation-runbook-execution.md#subscriptions)
+O contexto de subscrição pode perder-se quando um livro de bordo invoca vários runbooks. Para evitar acidentalmente tentar aceder à subscrição incorreta, deve seguir as orientações abaixo.
 
-```azurepowershell-interactive
-# Ensures that any credentials apply only to the execution of this runbook
-Disable-AzContextAutosave –Scope Process
+* Para evitar fazer referência à subscrição errada, desative a poupança de contexto nos seus livros de automação utilizando o seguinte código no início de cada livro de execução.
 
-# Connect to Azure with Run As account
-$ServicePrincipalConnection = Get-AutomationConnection -Name 'AzureRunAsConnection'
+   ```azurepowershell-interactive
+   Disable-AzContextAutosave –Scope Process
+   ```
 
-Connect-AzAccount `
-    -ServicePrincipal `
-    -Tenant $ServicePrincipalConnection.TenantId `
-    -ApplicationId $ServicePrincipalConnection.ApplicationId `
-    -CertificateThumbprint $ServicePrincipalConnection.CertificateThumbprint
+* Os cmdlets Azure PowerShell suportam o `-DefaultProfile` parâmetro. Isto foi adicionado a todos os cmdlets Az e AzureRm para suportar a execução de vários scripts PowerShell no mesmo processo, permitindo-lhe especificar o contexto e qual subscrição a utilizar para cada cmdlet. Com os seus runbooks, deve guardar o objeto de contexto no seu runbook quando o livro de execução for criado (isto é, quando uma conta se inscreve) e sempre que for alterada, e fazer referência ao contexto quando especificar um cmdlet Az.
 
-$AzContext = Select-AzSubscription -SubscriptionId $ServicePrincipalConnection.SubscriptionID
+   > [!NOTE]
+   > Deve passar num objeto de contexto mesmo quando manipular o contexto utilizando cmdlets como [Set-AzContext](/powershell/module/az.accounts/Set-AzContext) ou [Select-AzSubscription](/powershell/module/servicemanagement/azure.service/set-azuresubscription).
 
-$params = @{"VMName"="MyVM";"RepeatCount"=2;"Restart"=$true}
-
-Start-AzAutomationRunbook `
-    –AutomationAccountName 'MyAutomationAccount' `
-    –Name 'Test-ChildRunbook' `
-    -ResourceGroupName 'LabRG' `
-    -AzContext $AzContext `
-    –Parameters $params –wait
-```
-
+   ```azurepowershell-interactive
+   $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName 
+   $context = Add-AzAccount `
+             -ServicePrincipal `
+             -TenantId $servicePrincipalConnection.TenantId `
+             -ApplicationId $servicePrincipalConnection.ApplicationId `
+             -Subscription 'cd4dxxxx-xxxx-xxxx-xxxx-xxxxxxxx9749' `
+             -CertificateThumbprint $servicePrincipalConnection.CertificateThumbprint 
+   $context = Set-AzContext -SubscriptionName $subscription `
+       -DefaultProfile $context
+   Get-AzVm -DefaultProfile $context
+   ```
+  
 ## <a name="scenario-authentication-to-azure-fails-because-multifactor-authentication-is-enabled"></a><a name="auth-failed-mfa"></a>Cenário: Autenticação para Azure falha porque a autenticação multifactor está ativada
 
 ### <a name="issue"></a>Problema

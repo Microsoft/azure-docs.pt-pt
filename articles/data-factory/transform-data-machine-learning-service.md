@@ -1,21 +1,17 @@
 ---
 title: Executar gasodutos de aprendizagem automática Azure
 description: Aprenda a executar os seus oleodutos Azure Machine Learning nos seus oleodutos Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.author: daperlov
 author: djpmsft
-manager: anandsub
 ms.date: 07/16/2020
-ms.openlocfilehash: 7239c1516c4a04b57249ea4f39bff4aec9156d72
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: db1816baf0ebc476a132b344d8db3cdbdd170e50
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87337692"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100373934"
 ---
 # <a name="execute-azure-machine-learning-pipelines-in-azure-data-factory"></a>Execute os oleodutos Azure Machine Learning na Azure Data Factory
 
@@ -52,14 +48,14 @@ O vídeo abaixo apresenta uma introdução de seis minutos e demonstração dest
 
 Propriedade | Descrição | Valores permitidos | Necessário
 -------- | ----------- | -------------- | --------
-name | Nome da atividade no oleoduto | Cadeia | Sim
-tipo | Tipo de atividade é 'AzureMLExecutePipeline' | Cadeia | Sim
-linkedServiceName | Serviço ligado à aprendizagem automática Azure | Referência de serviço ligada | Sim
-mlPipelineId | ID do oleoduto de aprendizagem automática Azure publicado | Corda (ou expressão com resultadoType de corda) | Sim
-experimentName | Executar o nome da experiência de história do gasoduto Machine Learning | Corda (ou expressão com resultadoType de corda) | Não
-mlPipelineParametros | Chave, pares de valor a serem passados para o ponto final do pipeline Azure Machine Learning publicado. As teclas devem corresponder aos nomes dos parâmetros do gasoduto definidos no pipeline de Machine Learning publicado | Objeto com pares de valor chave (ou Expressão com objeto de tipo resultado) | Não
-mlParentRunId | O oleoduto de aprendizagem da máquina de azure pai executar iD | Corda (ou expressão com resultadoType de corda) | Não
-continueOnStepFailure | Se continuar a execução de outros passos no gasoduto machine learning executado se um passo falhar | boolean | Não
+name | Nome da atividade no oleoduto | String | Yes
+tipo | Tipo de atividade é 'AzureMLExecutePipeline' | String | Yes
+linkedServiceName | Serviço ligado à aprendizagem automática Azure | Referência de serviço ligada | Yes
+mlPipelineId | ID do oleoduto de aprendizagem automática Azure publicado | Corda (ou expressão com resultadoType de corda) | Yes
+experimentName | Executar o nome da experiência de história do gasoduto Machine Learning | Corda (ou expressão com resultadoType de corda) | No
+mlPipelineParametros | Chave, pares de valor a serem passados para o ponto final do pipeline Azure Machine Learning publicado. As teclas devem corresponder aos nomes dos parâmetros do gasoduto definidos no pipeline de Machine Learning publicado | Objeto com pares de valor chave (ou Expressão com objeto de tipo resultado) | No
+mlParentRunId | O oleoduto de aprendizagem da máquina de azure pai executar iD | Corda (ou expressão com resultadoType de corda) | No
+continueOnStepFailure | Se continuar a execução de outros passos no gasoduto machine learning executado se um passo falhar | boolean | No
 
 > [!NOTE]
 > Para preencher os itens dropdown no nome do gasoduto Machine Learning e ID, o utilizador precisa de ter permissão para listar os gasodutos ML. A ADF UX chama APIs AzureMLService diretamente usando o registado nas credenciais do utilizador.  
@@ -73,6 +69,6 @@ Veja os seguintes artigos que explicam como transformar dados de outras formas:
 * [Atividade do porco](transform-data-using-hadoop-pig.md)
 * [Atividade mapReduce](transform-data-using-hadoop-map-reduce.md)
 * [Atividade de streaming de Hadoop](transform-data-using-hadoop-streaming.md)
-* [Atividade de faísca](transform-data-using-spark.md)
+* [Atividade do Apache Spark](transform-data-using-spark.md)
 * [Atividade personalizada do .NET](transform-data-using-dotnet-custom-activity.md)
 * [Atividade de procedimento armazenado](transform-data-using-stored-procedure.md)

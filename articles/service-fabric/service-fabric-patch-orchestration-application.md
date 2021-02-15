@@ -14,24 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
 ms.author: atsenthi
-ms.openlocfilehash: d64c6383b9a83b759dd8368a4e3e0f1847b5ee16
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 7d52d49ab5d3a47dd69fdc1708f9e52f4f796a92
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98791228"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100390645"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Corrigir o sistema operativo Windows no seu cluster de Tecido de Serviço
 
-> 
 > [!IMPORTANT]
-> A partir de 30 de abril de 2019, a versão 1.2** da Aplicação de Orquestração de Patch já não é suportada. Certifique-se de atualizar para a versão mais recente.
+> A partir de 30 de abril de 2019, a versão 1.2** da Aplicação de Orquestração de Patch já não é suportada. Certifique-se de atualizar para a versão mais recente. As atualizações VM onde o "Windows Update" aplica patches do sistema operativo sem substituir o disco OS não são suportados. 
 
 > [!NOTE]
-> Obter [atualizações automáticas de imagem de SO no seu conjunto de escala de máquina virtual](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) é a melhor prática para manter o seu sistema operativo remendado em Azure. Escala de máquina virtual Conjunto de atualizações automáticas de imagem DE SO exigirão prata ou maior durabilidade num conjunto de escala.
->
+> Obter [atualizações automáticas de imagem de SO no seu conjunto de escala de máquina virtual](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) é a melhor prática para manter o seu sistema operativo remendado em Azure. Escala de máquina virtual Conjunto de atualizações automáticas de imagem DE SO exigirão prata ou maior durabilidade num conjunto de escala. Nos tipos de nó com nível de durabilidade Bronze este não é suportado, neste caso, por favor, use a Aplicação de Orquestração patch.
 
- Patch Orchestration Application (POA) é um invólucro em torno do serviço Azure Service Fabric Repair Manager, que permite o agendamento de patchs de sistemas operativos não-Azure. O POA não é necessário para clusters hospedados não-Azure, mas a instalação de patch de agendamento por domínio de atualização é necessária para remendar os anfitriões do cluster de tecido de serviço sem incorrer em tempo de inatividade.
+Patch Orchestration Application (POA) é um invólucro em torno do serviço Azure Service Fabric Repair Manager, que permite o agendamento de patchs de sistemas operativos não-Azure. O POA não é necessário para clusters hospedados não-Azure, mas a instalação de patch de agendamento por domínio de atualização é necessária para remendar os anfitriões do cluster de tecido de serviço sem incorrer em tempo de inatividade.
 
 POA é uma aplicação de Tecido de Serviço que automatiza a correção do sistema operativo num cluster de Tecido de Serviço sem incorrer em tempo de inatividade.
 
@@ -313,7 +311,7 @@ Para ajudá-lo a entender como as atualizações prosseguem num nó, vamos passo
 
    Se ainda houver mais problemas, inicie sessão na sua máquina virtual (VM) ou VMs e aprenda sobre eles utilizando registos de eventos windows. A tarefa de reparação anteriormente mencionada só pode existir nos seguintes subestuais executor:
 
-      Estado do ExecutorSub | Descrição
+      Estado do ExecutorSub | Description
     -- | -- 
       Nenhum=1 |  Implica que não houve uma operação em curso no nó. O Estado pode estar em transição.
       DownloadCompleted=2 | Implica que a operação de descarregamento foi concluída com sucesso, falha parcial ou falha.
@@ -443,7 +441,7 @@ R: O POA utiliza o Service Fabric Repair Manager para criar tarefas de reparaç�
 
 - O POA recolhe telemetria para acompanhar o uso e o desempenho. A telemetria da aplicação segue a definição da definição de telemetria do tecido de serviço (que está ligado por predefinição).
 
-## <a name="troubleshooting"></a>Resolução de Problemas
+## <a name="troubleshooting"></a>Resolução de problemas
 
 Esta secção fornece possíveis soluções de resolução de problemas para problemas com os nós de remendação.
 

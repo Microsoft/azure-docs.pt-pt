@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/19/2021
-ms.openlocfilehash: 7013a4ab1becd6108d30d8369f1f72bcb3e55c37
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: d48d72a0ccbec67c6700af9120e0dd914db11f32
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98611071"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100374920"
 ---
 # <a name="data-collection-rules-in-azure-monitor-preview"></a>Regras de recolha de dados no Azure Monitor (pré-visualização)
 As Regras de Recolha de Dados (DCR) definem os dados que entram no Azure Monitor e especificam para onde esses dados devem ser enviados ou armazenados. Este artigo fornece uma visão geral das regras de recolha de dados, incluindo o seu conteúdo e estrutura e como pode criar e trabalhar com eles.
@@ -40,7 +40,7 @@ O diagrama seguinte mostra os componentes de uma regra de recolha de dados e a s
 ### <a name="data-source-types"></a>Tipos de origem de dados
 Cada fonte de dados tem um tipo de fonte de dados. Cada tipo define um conjunto único de propriedades que devem ser especificadas para cada fonte de dados. Os tipos de fonte de dados atualmente disponíveis são apresentados na tabela seguinte.
 
-| Tipo de fonte de dados | Descrição | 
+| Tipo de fonte de dados | Description | 
 |:---|:---|
 | extensão | Fonte de dados baseada em extensão VM |
 | performanceCounters | Contadores de desempenho tanto para Windows como Linux |
@@ -119,7 +119,7 @@ A regra de recolha de dados da amostra abaixo é para máquinas virtuais com o a
           {
             "name": "cloudSecurityTeamEvents",
             "streams": [
-              "Microsoft-WindowsEvent"
+              "Microsoft-Event"
             ],
             "scheduledTransferPeriod": "PT1M",
             "xPathQueries": [
@@ -129,7 +129,7 @@ A regra de recolha de dados da amostra abaixo é para máquinas virtuais com o a
           {
             "name": "appTeam1AppEvents",
             "streams": [
-              "Microsoft-WindowsEvent"
+              "Microsoft-Event"
             ],
             "scheduledTransferPeriod": "PT5M",
             "xPathQueries": [
@@ -182,7 +182,7 @@ A regra de recolha de dados da amostra abaixo é para máquinas virtuais com o a
           "streams": [
             "Microsoft-Perf",
             "Microsoft-Syslog",
-            "Microsoft-WindowsEvent"
+            "Microsoft-Event"
           ],
           "destinations": [
             "centralWorkspace"
