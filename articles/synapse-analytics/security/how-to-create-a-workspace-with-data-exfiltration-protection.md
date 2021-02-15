@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 12/01/2020
 ms.author: NanditaV
 ms.reviewer: jrasnick
-ms.openlocfilehash: f8ebbdf70836f3f2613183268f03dc43da1f0671
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 12d858488c4530e4b0d949cd36ed9ad2f7df4c59
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97590565"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100384491"
 ---
 # <a name="create-a-workspace-with-data-exfiltration-protection-enabled"></a>Criar um espaço de trabalho com proteção de exfiltração de dados ativada
 Este artigo descreve como criar um espaço de trabalho com proteção de exfiltração de dados habilitado e como gerir os inquilinos aprovados da AZure AD para este espaço de trabalho.
@@ -49,6 +49,9 @@ Você pode criar pontos finais privados geridos para conectar aos recursos Azure
 >[!IMPORTANT]
 >Os recursos em inquilinos que não sejam o inquilino do espaço de trabalho não devem ter regras de firewall bloqueadas para que as piscinas SQL se conectem a eles. Os recursos dentro da rede virtual gerida do espaço de trabalho, como os clusters Spark, podem ligar-se sobre ligações privadas geridas a recursos protegidos por firewall.
 
+## <a name="known-limitations"></a>Limitações conhecidas
+Os utilizadores podem fornecer um ficheiro de configuração ambiental para instalar pacotes Python a partir de repositórios públicos como o PyPI. Nos espaços de trabalho protegidos pela exfiltração de dados, as ligações aos repositórios de saída estão bloqueadas. Como resultado, a biblioteca Python instalada a partir de repositórios públicos como pyPI não são suportados. 
+  
 ## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre [a proteção de exfiltração de dados nos espaços de trabalho da Sinapse](./workspace-data-exfiltration-protection.md)

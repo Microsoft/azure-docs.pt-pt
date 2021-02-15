@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: overview
 ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: b42aa3bfaeaa454b5d870dbae3bce539b682028f
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: a5fa6b1c75bee562394af42fcea9ebfabeb732f0
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96754084"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100389540"
 ---
 # <a name="about-azure-migrate"></a>Acerca do Azure Migrate
 
@@ -83,7 +83,7 @@ A Avaliação do Servidor utiliza um [aparelho Azure Migrate](migrate-appliance.
 
 A ferramenta Azure Migrate: Servidor Migração ajuda-o a migrar para Azure:
 
-**Migrar** | **Detalhes**
+**Migrate** | **Detalhes**
 --- | ---
 VMs VMware no local | Migrar VMs para Azure utilizando migração sem agentes ou por agentes.<br/><br/> Para a migração sem agentes, a Migração do Servidor utiliza o mesmo aparelho Azure Migrate que também pode ser usado pela Avaliação do Servidor para a descoberta e avaliação de VMware VMs.<br/><br/> Para a migração baseada em agentes, a Migração do Servidor utiliza um aparelho de replicação.
 VMs de Hyper-V no local | Migrar VMs para Azure.<br/><br/> A Migração do Servidor utiliza agentes de fornecedor instalados no hospedeiro Hyper-V para a migração.
@@ -121,7 +121,7 @@ Se procura ajuda especializada para começar, a Microsoft tem fornecedores de [s
 Existem duas versões do serviço Azure Migrate.
 
 - **Versão atual**: Utilize esta versão para criar projetos Azure Migrate, descubra máquinas no local e orquestrar avaliações e migrações. [Saiba mais](whats-new.md) sobre as novidades desta versão.
-- **Versão anterior**: A versão anterior do Azure Migrate suporta apenas a avaliação dos VMS VMware no local. Se usou a versão anterior, deve agora utilizar a versão atual. Já não é possível criar projetos Azure Migrate utilizando a versão anterior. E recomendamos que não faça novas descobertas com ele.
+- **Versão anterior**: A versão anterior de Azure Migrate, também conhecida como clássico Azure Migrate, suporta apenas a avaliação dos VMware VMware no local. O clássico Azure Migrate vai reformar-se em fevereiro de 2024. Depois de fevereiro de 2024, a versão clássica do Azure Migrate deixará de ser suportada e os metadados de inventário em projetos clássicos serão eliminados. Não é possível atualizar projetos ou componentes na versão anterior para a nova versão. Você precisa [criar um novo projeto Azure Migrate](create-manage-projects.md), e [adicionar-lhe ferramentas de avaliação e migração.](./create-manage-projects.md) Use os tutoriais para entender como usar as ferramentas de avaliação e migração disponíveis. Se tiver um espaço de trabalho log Analytics ligado a um projeto clássico, pode anexá-lo a um projeto de versão atual depois de eliminar o projeto clássico.
 
     Para aceder aos projetos existentes no portal Azure, procure e selecione **Azure Migrate.** O dashboard **Azure Migrate** tem uma notificação e uma ligação para aceder a projetos antigos da Azure Migrate.
 

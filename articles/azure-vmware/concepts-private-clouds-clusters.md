@@ -3,12 +3,12 @@ title: Conceitos - Nuvens privadas e aglomerados
 description: Conheça as principais capacidades dos centros de dados definidos por software Azure VMware Solution e clusters vSphere.
 ms.topic: conceptual
 ms.date: 02/02/2021
-ms.openlocfilehash: 960187629c5dc1120b720ec9009276fa3f313e5d
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 87bd2592da681726227f89b403916a12593a9db8
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99538929"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100391393"
 ---
 #  <a name="azure-vmware-solution-private-cloud-and-cluster-concepts"></a>Azure VMware Solution conceitos de nuvem privada e cluster
 
@@ -25,7 +25,7 @@ Este artigo descreve todos estes conceitos.
 
 ## <a name="private-clouds"></a>Nuvens privadas
 
-Nuvens privadas contêm aglomerados vSAN construídos com hospedeiros Azure dedicados e de metal nu. Cada nuvem privada pode ter vários clusters geridos pelo mesmo servidor vCenter e gestor NSX-T. Pode implementar e gerir nuvens privadas no portal, CLI ou PowerShell. 
+Nuvens privadas contêm aglomerados vSAN construídos com hospedeiros Azure dedicados e de metal nu. Cada nuvem privada pode ter vários clusters geridos pelo mesmo servidor vCenter e NSX-T Manager. Pode implementar e gerir nuvens privadas no portal, CLI ou PowerShell. 
 
 Tal como acontece com outros recursos, as nuvens privadas são instaladas e geridas a partir de uma subscrição do Azure. O número de nuvens privadas dentro de uma subscrição é escalável. Inicialmente, há um limite de uma nuvem privada por subscrição.
 
@@ -73,6 +73,7 @@ Agora que cobriu os conceitos de nuvem privada Azure VMware Solution, talvez que
 - [Como ativar o recurso Azure VMware Solution](enable-azure-vmware-solution.md).
 
 <!-- LINKS - internal -->
+[concepts-networking]: ./concepts-networking.md
 
 <!-- LINKS - external-->
 [VCSA versions]: https://kb.vmware.com/s/article/2143838

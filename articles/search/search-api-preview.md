@@ -8,23 +8,23 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 983322800198246bcfaecec92fe0b2b74e587756
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: bf2ff2fc20d3581a297881fbd9e6db15d825814d
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91952102"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100519002"
 ---
 # <a name="preview-features-in-azure-cognitive-search"></a>Funcionalidades de pré-visualização em Azure Cognitive Search
 
-Este artigo é uma lista completa de todas as funcionalidades que estão em pré-visualização pública. A funcionalidade de pré-visualização é fornecida sem um contrato de nível de serviço, e não é recomendada para cargas de trabalho de produção. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Este artigo é uma lista completa de todas as funcionalidades que estão em pré-visualização pública. A funcionalidade de pré-visualização é fornecida sem um contrato de nível de serviço, e não é recomendada para cargas de trabalho de produção. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 As funcionalidades de pré-visualização de que a transição para a disponibilidade geral são removidas desta lista. Se uma funcionalidade não estiver listada abaixo, pode presumir que está geralmente disponível. Para anúncios sobre disponibilidade geral, consulte [Atualizações de Serviço](https://azure.microsoft.com/updates/?product=search) ou [Novidades](whats-new.md).
 
 |Recurso&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  | Categoria | Descrição | Disponibilidade  |
 |---------|------------------|-------------|---------------|
 | [**Habilidade de Aprendizagem automática Azure (AML)**](cognitive-search-aml-skill.md) | Melhoramento de IA| Um novo tipo de habilidade para integrar um ponto final inferencing da Azure Machine Learning. Começa com [este tutorial.](cognitive-search-tutorial-aml-custom-skill.md) | Use [Search REST API 2020-06-30-Preview](/rest/api/searchservice/) ou 2019-05-06-Preview. Também disponível no portal, em design skillset, assumindo que os serviços de Pesquisa Cognitiva e Azure ML são implantados na mesma subscrição. |
-| [**featuresOde parâmetro**](/rest/api/searchservice/search-documents#featuresmode) | Relevância (pontuação) | Expansão da pontuação de relevância para incluir detalhes: por pontuação de semelhança de campo, por frequência de período de campo, e por número de campo de fichas únicas correspondidas. Pode consumir estes pontos de dados em [soluções de pontuação personalizadas.](https://github.com/Azure-Samples/search-ranking-tutorial) | Adicione este parâmetro de consulta utilizando [Documentos de Pesquisa (REST)](/rest/api/searchservice/search-documents) com versão api=2020-06-30-Preview ou 2019-05-06-Preview. |
+| [**featuresOde parâmetro**](/rest/api/searchservice/preview-api/search-documents#query-parameters) | Relevância (pontuação) | Expansão da pontuação de relevância para incluir detalhes: por pontuação de semelhança de campo, por frequência de período de campo, e por número de campo de fichas únicas correspondidas. Pode consumir estes pontos de dados em [soluções de pontuação personalizadas.](https://github.com/Azure-Samples/search-ranking-tutorial) | Adicione este parâmetro de consulta utilizando [Documentos de Pesquisa (REST)](/rest/api/searchservice/preview-api/search-documents) com versão api=2020-06-30-Preview ou 2019-05-06-Preview. |
 | [**Sessões de Debug**](cognitive-search-debug-session.md) | Portal, Enriquecimento de IA (skillset) | Um editor de skillset em sessão usado para investigar e resolver problemas com um skillset. As correções aplicadas durante uma sessão de depurar podem ser guardadas para um skillset no serviço. | Apenas portal, utilizando links de página média na página 'Vista Geral' para abrir uma sessão de depuração. |
 | [**Mancha nativa soft delete**](search-howto-index-changed-deleted-blobs.md) | Indexantes, bolhas Azure| O indexante de armazenamento Azure Blob na Azure Cognitive Search reconhecerá as bolhas que estão em estado de eliminação suave e removerá o documento de pesquisa correspondente durante a indexação. | Adicione esta definição de configuração usando [Criar Indexer (REST)](/rest/api/searchservice/create-indexer) com versão api=2020-06-30-Preview ou versão api=2019-05-06-Preview. |
 | [**Competência de procura de entidade personalizada**](cognitive-search-skill-custom-entity-lookup.md ) | Enriquecimento de IA (skillset) | Uma habilidade cognitiva que procura texto a partir de uma lista personalizada, definida pelo utilizador de palavras e frases. Utilizando esta lista, rotula todos os documentos com quaisquer entidades correspondentes. A habilidade também suporta um grau de correspondência difusa que pode ser aplicada para encontrar fósforos que são semelhantes, mas não exatamente exatos. | Consulte esta habilidade de pré-visualização utilizando o editor skillset no portal ou [Create Skillset (REST)](/rest/api/searchservice/create-skillset) com versão api=2020-06-30-Preview ou api-versão=2019-05-06-Preview. |

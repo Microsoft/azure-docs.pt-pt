@@ -8,21 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 09/23/2020
+ms.date: 02/12/2021
 ms.author: erhopf
-ms.openlocfilehash: 87bc411903604a7068f346604853a2a61c9a6f1c
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 9ce0d3a06846cbc3aa37ab836564150e6f2c34ee
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499191"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100362816"
 ---
 # <a name="inspect-custom-speech-data"></a>Inspecionar dados da Voz Personalizada
 
 > [!NOTE]
 > Esta página assume que leu [Preparar os dados](./how-to-custom-speech-test-and-train.md) do teste para a Fala Personalizada e ter enviado um conjunto de dados para inspeção.
 
-A Custom Speech fornece ferramentas que permitem inspecionar visualmente a qualidade de reconhecimento de um modelo, comparando os dados áudio com o resultado correspondente do reconhecimento. A partir do [portal Discurso Personalizado,](https://speech.microsoft.com/customspeech)pode reproduzir áudio carregado e determinar se o resultado do reconhecimento fornecido está correto. Esta ferramenta ajuda-o a inspecionar a qualidade do modelo de linha de base da Microsoft, a inspecionar um modelo personalizado treinado ou a comparar a transcrição por dois modelos.
+A Custom Speech fornece ferramentas que permitem inspecionar visualmente a qualidade de reconhecimento de um modelo, comparando os dados áudio com o resultado correspondente do reconhecimento. A partir do Estúdio de [Discurso,](https://speech.microsoft.com/customspeech)pode reproduzir áudio carregado e determinar se o resultado do reconhecimento fornecido está correto. Esta ferramenta ajuda-o a inspecionar a qualidade do modelo de linha de base da Microsoft, a inspecionar um modelo personalizado treinado ou a comparar a transcrição por dois modelos.
 
 Neste documento, aprende-se a inspecionar visualmente a qualidade do modelo de fala-texto da Microsoft e/ou modelos personalizados que treinou. Também aprende a usar o editor de transcrição online para criar e refinar conjuntos de dados de áudio rotulados.
 
@@ -30,7 +30,7 @@ Neste documento, aprende-se a inspecionar visualmente a qualidade do modelo de f
 
 Siga estas instruções para criar um teste:
 
-1. Inscreva-se no [portal de Discurso Personalizado](https://speech.microsoft.com/customspeech).
+1. Inscreva-se no [Estúdio de Discurso.](https://speech.microsoft.com/customspeech)
 2. Navegue **para discurso a texto > > de discurso personalizado [nome do projeto] > Testes**.
 3. Clique **em Adicionar Teste**.
 4. **Selecione Inspecionar a qualidade (dados áudio-only)**. Dê ao teste um nome, descrição e selecione o seu conjunto de dados áudio.
@@ -91,7 +91,7 @@ Depois de fazer edições, clique no botão **Guardar.**
 
 Para exportar conjuntos de dados de volta para o separador **Dados,** navegue na página de detalhes de dados e clique no botão **Exportar** todos os ficheiros como um novo conjunto de dados. Também pode filtrar os ficheiros pelo último tempo editado, durações de áudio, etc. para selecionar parcialmente os ficheiros pretendidos. 
 
-![Exportar os dados](media/custom-speech/custom-speech-editor-export.png)
+![Exportar dados](media/custom-speech/custom-speech-editor-export.png)
 
 Os ficheiros exportados para Dados serão utilizados como um conjunto de dados novinho em folha e não afetarão nenhuma das entidades existentes de dados/formação/teste.
 

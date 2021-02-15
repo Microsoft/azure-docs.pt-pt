@@ -2,13 +2,13 @@
 title: Configure as regras de firewall IP para o Azure Service Bus
 description: Como utilizar as Regras de Firewall para permitir ligações de endereços IP específicos para o Azure Service Bus.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 3aacf54dca07f0e1f2a66c8cdd85f892dda68cd4
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.date: 02/12/2021
+ms.openlocfilehash: 11a17575e65bc8878819767804d7f69f3d590ad3
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94426582"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100516554"
 ---
 # <a name="allow-access-to-azure-service-bus-namespace-from-specific-ip-addresses-or-ranges"></a>Permitir o acesso ao espaço de nomes do Azure Service Bus a partir de endereços ou intervalos IP específicos
 Por predefinição, os espaços de nome do Service Bus estão acessíveis a partir da Internet desde que o pedido venha com autenticação e autorização válidas. Com a firewall IP, pode restringi-lo ainda mais a um conjunto de endereços IPv4 ou intervalos de endereços IPv4 na notação [CIDR (Classless Inter-Domain Encaminhamento).](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
@@ -37,7 +37,8 @@ Esta secção mostra-lhe como usar o portal Azure para criar regras de firewall 
     > [!NOTE]
     > Você vê o **separador Networking** apenas para espaços de nome **premium.**  
     
-    Por predefinição, a opção **de rede Selecionada** é selecionada. Se não adicionar pelo menos uma regra de firewall IP ou uma rede virtual nesta página, o espaço de nome pode ser acedido através da internet pública (utilizando a chave de acesso).
+    >[!WARNING]
+    > Se selecionar a opção **redes selecionadas** e não adicionar pelo menos uma regra de firewall IP ou uma rede virtual nesta página, o espaço de nome pode ser acedido através da internet pública (utilizando a chave de acesso).
 
     :::image type="content" source="./media/service-bus-ip-filtering/default-networking-page.png" alt-text="Página de rede - padrão" lightbox="./media/service-bus-ip-filtering/default-networking-page.png":::
     
@@ -46,7 +47,7 @@ Esta secção mostra-lhe como usar o portal Azure para criar regras de firewall 
     ![Screenshot da página de networking do portal Azure. A opção de permitir o acesso a partir de todas as redes é selecionada no separador Firewalls e redes virtuais.](./media/service-bus-ip-filtering/firewall-all-networks-selected.png)
 1. Para permitir o acesso a partir de apenas um endereço IP especificado, selecione a opção **redes Selecionadas** se ainda não estiver selecionada. Na secção **Firewall,** siga estes passos:
     1. Selecione Adicionar a opção **de endereço IP** do seu cliente para dar ao seu cliente atual IP o acesso ao espaço de nome. 
-    2. Para **o intervalo de endereços** , insira um endereço IPv4 específico ou um intervalo de endereço IPv4 na notação CIDR. 
+    2. Para **o intervalo de endereços**, insira um endereço IPv4 específico ou um intervalo de endereço IPv4 na notação CIDR. 
     3. Especificar se pretende **permitir que serviços de confiança da Microsoft contornem esta firewall.** 
 
         > [!WARNING]
@@ -61,28 +62,12 @@ Esta secção mostra-lhe como usar o portal Azure para criar regras de firewall 
 [!INCLUDE [service-bus-trusted-services](../../includes/service-bus-trusted-services.md)]
 
 ## <a name="use-resource-manager-template"></a>Utilizar o modelo do Resource Manager
-Esta secção tem uma amostra do modelo Azure Resource Manager que cria uma rede virtual e uma regra de firewall.
+Esta secção tem uma amostra do modelo Azure Resource Manager que adiciona uma rede virtual e uma regra de firewall a um espaço de nomes de Service Bus existente.
 
+**ipMask** é um único endereço IPv4 ou um bloco de endereços IP na notação CIDR. Por exemplo, na notação CIDR 70.37.104.0/24 representa os 256 endereços IPv4 de 70.37.104.0 a 70.37.104.255, com 24 indicando o número de bits prefixos significativos para a gama.
 
-O modelo seguinte do Gestor de Recursos permite adicionar uma regra de rede virtual a um espaço de nomes de service bus existente.
+Ao adicionar regras de rede virtual ou firewalls, desa um valor de `defaultAction` `Deny` .
 
-Parâmetros do modelo:
-
-- **ipMask** é um único endereço IPv4 ou um bloco de endereços IP na notação CIDR. Por exemplo, na notação CIDR 70.37.104.0/24 representa os 256 endereços IPv4 de 70.37.104.0 a 70.37.104.255, com 24 indicando o número de bits prefixos significativos para a gama.
-
-> [!NOTE]
-> Embora não existam regras de negação possíveis, o modelo de Gestor de Recursos Azure tem a ação padrão definida para **"Permitir"** que não restringe as ligações.
-> Ao fazer as regras de Rede Virtual ou Firewalls, temos de alterar o **_"defaultAction"_**
-> 
-> De
-> ```json
-> "defaultAction": "Allow"
-> ```
-> para
-> ```json
-> "defaultAction": "Deny"
-> ```
->
 
 ```json
 {
@@ -147,6 +132,10 @@ Parâmetros do modelo:
 ```
 
 Para implementar o modelo, siga as instruções para [O Gestor de Recursos Azure][lnk-deploy].
+
+> [!IMPORTANT]
+> Se não houver regras de IP e rede virtual, todo o tráfego flui para o espaço de nomes, mesmo que você desempate o `defaultAction` `deny` . O espaço de nomes pode ser acedido através da internet pública (utilizando a chave de acesso). Especifique pelo menos uma regra de IP ou rede virtual para o espaço de nomes para permitir o tráfego apenas a partir dos endereços IP especificados ou sub-rede de uma rede virtual.  
+
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -12,12 +12,12 @@ ms.date: 1/06/2021
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 6855e8f550c14574795ec00f4fed36762944dca1
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 7c0394e765923c027cc15a6278ee451fb13ed1b2
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756044"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104285"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>Como: Fornecer reclamações opcionais à sua app
 
@@ -105,7 +105,7 @@ Algumas reclamações opcionais podem ser configuradas para alterar a forma como
 
 **Quadro 4: Valores para configurar reclamações opcionais**
 
-| Nome da propriedade  | Nome de propriedade adicional | Descrição |
+| Nome da propriedade  | Nome de propriedade adicional | Description |
 |----------------|--------------------------|-------------|
 | `upn`          |                          | Pode ser usado tanto para respostas SAML como JWT, e para tokens v1.0 e v2.0. |
 |                | `include_externally_authenticated_upn`  | Inclui o hóspede UPN como armazenado no inquilino de recursos. Por exemplo, `foo_hometenant.com#EXT#@resourcetenant.com` |
@@ -138,7 +138,7 @@ Este objeto OpcionalClaims faz com que o sinal de identificação devolvido ao c
 
 Pode configurar reclamações opcionais para a sua aplicação através do UI ou manifesto de aplicação.
 
-1. Vá ao <a href="https://portal.azure.com/" target="_blank">portal <span class="docon docon-navigate-external x-hidden-focus"></span> Azure.</a> 
+1. Aceda ao <a href="https://portal.azure.com/" target="_blank">Portal do Azure</a>. 
 1. Procure e selecione **Azure Active Directory**.
 1. Em **Gerir**, selecione **Registos de aplicações**.
 1. Selecione a aplicação para a inscrição que pretende configurar pedidos opcionais na lista.
@@ -201,7 +201,7 @@ Declara os pedidos facultativos solicitados por um pedido. Uma aplicação pode 
 
 **Quadro 5: OpcionaisClaims tipo propriedades**
 
-| Nome          | Tipo                       | Descrição                                           |
+| Nome          | Tipo                       | Description                                           |
 |---------------|----------------------------|-------------------------------------------------------|
 | `idToken`     | Coleção (OpcionalClaim) | As reclamações opcionais devolvidas no token JWT ID.     |
 | `accessToken` | Coleção (OpcionalClaim) | As reclamações opcionais devolvidas no token de acesso JWT. |
@@ -214,7 +214,7 @@ Se suportado por uma reclamação específica, também pode modificar o comporta
 
 **Quadro 6: Propriedades do tipo OpcionalClaim**
 
-| Nome                   | Tipo                    | Descrição                                                                                                                                                                                                                                                                                                   |
+| Nome                   | Tipo                    | Description                                                                                                                                                                                                                                                                                                   |
 |------------------------|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `name`                 | Edm.String              | O nome da reclamação opcional.                                                                                                                                                                                                                                                                               |
 | `source`               | Edm.String              | A fonte (objeto de diretório) da reclamação. Existem reclamações predefinidas e reclamações definidas pelo utilizador a partir de propriedades de extensão. Se o valor de origem for nulo, o pedido é uma reclamação opcional predefinida. Se o valor de origem for o utilizador, o valor na propriedade do nome é a propriedade de extensão do objeto do utilizador. |
@@ -246,7 +246,7 @@ Esta secção abrange as opções de configuração em pedidos opcionais para al
 
 **Configurar reivindicações opcionais de grupos através da UI:**
 
-1. Inscreva-se no <a href="https://portal.azure.com/" target="_blank">portal <span class="docon docon-navigate-external x-hidden-focus"></span> Azure</a>.
+1. Inicie sessão no <a href="https://portal.azure.com/" target="_blank">portal do Azure</a>.
 1. Depois de autenticar, escolha o seu inquilino Azure AD selecionando-o no canto superior direito da página.
 1. Procure e selecione **Azure Active Directory**.
 1. Em **Gerir**, selecione **Registos de aplicações**.
@@ -259,7 +259,7 @@ Esta secção abrange as opções de configuração em pedidos opcionais para al
 
 **Configurar pedidos opcionais de grupos através do manifesto de aplicação:**
 
-1. Inscreva-se no <a href="https://portal.azure.com/" target="_blank">portal <span class="docon docon-navigate-external x-hidden-focus"></span> Azure</a>.
+1. Inicie sessão no <a href="https://portal.azure.com/" target="_blank">portal do Azure</a>.
 1. Depois de autenticar, escolha o seu inquilino Azure AD selecionando-o no canto superior direito da página.
 1. Procure e selecione **Azure Active Directory**.
 1. Selecione a aplicação para a inscrição que pretende configurar pedidos opcionais na lista.
@@ -388,7 +388,7 @@ No exemplo abaixo, utilizará a **configuração Token** UI e **Manifesto** para
 
 **Configuração de UI:**
 
-1. Inscreva-se no <a href="https://portal.azure.com/" target="_blank">portal <span class="docon docon-navigate-external x-hidden-focus"></span> Azure</a>.
+1. Inicie sessão no <a href="https://portal.azure.com/" target="_blank">portal do Azure</a>.
 1. Depois de autenticar, escolha o seu inquilino Azure AD selecionando-o no canto superior direito da página.
 
 1. Procure e selecione **Azure Active Directory**.
@@ -411,7 +411,7 @@ No exemplo abaixo, utilizará a **configuração Token** UI e **Manifesto** para
 
 **Configuração manifesta:**
 
-1. Inscreva-se no <a href="https://portal.azure.com/" target="_blank">portal <span class="docon docon-navigate-external x-hidden-focus"></span> Azure</a>.
+1. Inicie sessão no <a href="https://portal.azure.com/" target="_blank">portal do Azure</a>.
 1. Depois de autenticar, escolha o seu inquilino Azure AD selecionando-o no canto superior direito da página.
 1. Procure e selecione **Azure Active Directory**.
 1. Encontre a aplicação que pretende configurar reclamações opcionais para a lista e selecione-a.
@@ -447,7 +447,7 @@ No exemplo abaixo, utilizará a **configuração Token** UI e **Manifesto** para
 
 1. Quando terminar de atualizar o manifesto, **selecione Guardar** para guardar o manifesto.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre as reclamações padrão fornecidas pela Azure AD.
 

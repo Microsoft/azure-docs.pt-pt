@@ -8,22 +8,22 @@ author: Microsoft-BradleyWright
 ms.author: brwrigh
 ms.reviewer: anbene
 ms.date: 12/23/2020
-ms.openlocfilehash: 57a6883a2c4fff14507df27b55ac0f6621306bf5
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: f096e53f8054039f361bde1c5f2adffac615c53d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879280"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100371945"
 ---
 # <a name="how-to-plan-a-managed-service-offer-for-the-microsoft-commercial-marketplace"></a>Como planear uma oferta de Serviço Gerido para o mercado comercial da Microsoft
 
 Este artigo introduz os requisitos para a publicação de uma oferta de Serviço Gerido ao mercado comercial da Microsoft através do Partner Center.
 
-Os Serviços Geridos são ofertas do Azure Marketplace que permitem a gestão de inquilinos e multi-inquilinos com o Farol Azure. Para saber mais, veja [o que é o Farol de Azure?](../lighthouse/overview.md) Quando um cliente compra uma oferta de Serviço Gerido, é capaz de delegar uma ou mais subscrições ou grupo de recursos
+Os Serviços Geridos são ofertas do Azure Marketplace que permitem a gestão de inquilinos e multi-inquilinos com o Farol Azure. Para saber mais, veja [o que é o Farol de Azure?](../lighthouse/overview.md) Quando um cliente compra uma oferta de Serviço Gerido, é capaz de delegar uma ou mais subscrições ou grupo de recursos. Em seguida, pode trabalhar nesses recursos utilizando as capacidades de gestão de recursos delegadas da [Azure.](../lighthouse/concepts/azure-delegated-resource-management.md)
 
 ## <a name="eligibility-requirements"></a>Requisitos de elegibilidade
 
-Para publicar um Serviço Gerido, deve ter ganho uma Competência Gold ou Silver Microsoft na Cloud Platform. Esta competência demonstra a sua experiência aos clientes. Para obter mais informações, consulte [as Competências da Rede de Parceiros da Microsoft.](https://partner.microsoft.com/membership/competencies)
+Para publicar uma oferta de Serviço Gerido, deve ter ganho uma Competência Gold ou Silver Microsoft na Cloud Platform. Esta competência demonstra a sua experiência aos clientes. Para obter mais informações, consulte [as Competências da Rede de Parceiros da Microsoft.](https://partner.microsoft.com/membership/competencies)
 
 As ofertas devem satisfazer todas as políticas de [certificação do mercado comercial aplicáveis](/legal/marketplace/certification-policies) a publicar no Azure Marketplace.
 
@@ -50,7 +50,7 @@ Quando criar a sua oferta de Serviço Gerido no Partner Center, introduzirá tex
 1. Breve descrição
 1. Categorias
 1. Contratos legais e política de privacidade
-1. Descrição
+1. Description
 1. Screenshots/vídeos
 1. Ligações úteis
 
@@ -129,7 +129,7 @@ As ofertas de Serviço Gerido requerem pelo menos um plano. Um plano define o â
 
 Serviços Geridos suportam apenas um modelo de preços: **Traga a sua própria licença (BYOL)**. Isto significa que vai cobrar diretamente aos seus clientes, e a Microsoft não lhe cobrará quaisquer taxas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Criar uma oferta de Serviço Gerido](./create-managed-service-offer.md)
 * [Melhores práticas de listagem de ofertas](./gtm-offer-listing-best-practices.md)

@@ -1,7 +1,7 @@
 ---
-title: Planeie a sua solução de telefonia e SMS dos Serviços de Comunicação Azure
+title: Tipos de números de telefone nos Serviços de Comunicação Azure
 titleSuffix: An Azure Communication Services concept document
-description: Saiba como planear eficazmente o seu uso de números de telefone e telefonia.
+description: Saiba como utilizar eficazmente diferentes tipos de números de telefone para SMS e telefonia.
 author: prakulka
 manager: nmurav
 services: azure-communication-services
@@ -10,26 +10,21 @@ ms.date: 10/05/2020
 ms.topic: overview
 ms.custom: references_regions
 ms.service: azure-communication-services
-ms.openlocfilehash: 271d7ce38d50fd21975327eb1f21528aeacc485e
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 97ac8a63740bb3a0df74a2a698cacecf842760e9
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96937241"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100366471"
 ---
-# <a name="plan-your-telephony-and-sms-solution"></a>Planear a solução de telefonia e SMS
+# <a name="phone-number-types-in-azure-communication-services"></a>Tipos de números de telefone nos Serviços de Comunicação Azure
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 [!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
 
 Os Serviços de Comunicação Azure permitem-lhe utilizar números de telefone para fazer chamadas de voz e enviar mensagens SMS com a rede telefónica comutada pelo público (PSTN). Neste documento, vamos rever os tipos de números de telefone, opções de configuração e disponibilidade da região para o planeamento da sua solução de telefonia e SMS utilizando serviços de comunicação.
 
-
-
-
-
-## <a name="phone-number-types-in-azure-communication-services"></a>Tipos de números de telefone nos Serviços de Comunicação Azure
- 
+## <a name="number-types-and-features"></a>Tipos e funcionalidades de números
 Os Serviços de Comunicação oferecem dois tipos de números de telefone: **locais** e **gratuitos.** 
 
 ### <a name="local-numbers"></a>Números locais
@@ -52,7 +47,7 @@ A tabela abaixo resume estes tipos de números de telefone:
 | Toll-Free         | +1 *(código* de área sem portagem) XXX XX XX | EUA                      | Chamada (Saída), SMS (Entrada/Saída)| Atribuir números de telefone a sistemas/Bots de resposta vocal interativa (IVR), aplicações SMS                                        |
 
 
-## <a name="phone-number-features-in-azure-communication-services"></a>Características de número de telefone nos Serviços de Comunicação Azure 
+### <a name="phone-number-features-in-azure-communication-services"></a>Características de número de telefone nos Serviços de Comunicação Azure 
 
 [!INCLUDE [Emergency Calling Notice](../../includes/emergency-calling-notice-include.md)]
 
@@ -92,5 +87,6 @@ Atualmente, a disponibilidade de números de telefone está restrita a subscriç
 ### <a name="conceptual-documentation"></a>Documentação conceptual
 
 - [Conceitos de voz e vídeo](../voice-video-calling/about-call-types.md)
+- [Conceitos de telefonia](./telephony-concept.md)
 - [Fluxos de chamada](../call-flows.md)
 - [Preços](../pricing.md)

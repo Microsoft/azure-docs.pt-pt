@@ -1,23 +1,18 @@
 ---
 title: Carregue terabytes de dados em Azure Synapse Analytics
 description: Demonstra como 1 TB de dados pode ser carregado no Azure Synapse Analytics em menos de 15 minutos com Azure Data Factory
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.assetid: a6c133c0-ced2-463c-86f0-a07b00c9e37f
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 68c9e594201f0d0689a289e13f2c4ebf909c2f87
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 5acae7c90efbf178fad199177fa6e0886e497fdf
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96457108"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100371214"
 ---
 # <a name="load-1-tb-into-azure-synapse-analytics-under-15-minutes-with-data-factory"></a>Carregue 1 TB em Azure Synapse Analytics em menos de 15 minutos com data factory
 > [!NOTE]
@@ -160,7 +155,7 @@ Esta secção mostra-lhe os passos para configurar a fonte: Azure Blob contendo 
 
     ![Copy Wizard - selecione a pasta de entrada](media/data-factory-load-sql-data-warehouse/select-input-folder.png)
 
-4. Ao clicar em **Seguinte,** as definições do formato de ficheiro são detetadas automaticamente.  Verifique se o delimiter da coluna é '/' em vez da vírgula padrão '','.  Clique **em Seguinte** depois de ter pré-visualizado os dados.
+4. Ao clicar em **Seguinte,** as definições do formato de ficheiro são detetadas automaticamente.  Verifique se o delimiter da coluna é "|" em vez da vírgula padrão '','.  Clique **em Seguinte** depois de ter pré-visualizado os dados.
 
     ![Copy Wizard - definições de formato de ficheiro](media/data-factory-load-sql-data-warehouse/file-format-settings.png)
 

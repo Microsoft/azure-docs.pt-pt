@@ -3,18 +3,18 @@ title: Utilize políticas de segurança do pod no Serviço Azure Kubernetes (AKS
 description: Saiba como controlar as admissões de pod usando PodSecurityPolicy no Serviço Azure Kubernetes (AKS)
 services: container-service
 ms.topic: article
-ms.date: 07/21/2020
-ms.openlocfilehash: 77c618429503caf9aa7bb6abda109504bbf68d71
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.date: 02/12/2021
+ms.openlocfilehash: 23c436cb3ddf970939ab9d7b936a4e03e1fbb7ff
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94696001"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100371231"
 ---
 # <a name="preview---secure-your-cluster-using-pod-security-policies-in-azure-kubernetes-service-aks"></a>Pré-visualização - Proteja o seu cluster utilizando as políticas de segurança do pod no Serviço Azure Kubernetes (AKS)
 
 > [!WARNING]
-> **A funcionalidade descrita neste documento, a política de segurança do pod (pré-visualização), está definida para depreciação e deixará de estar disponível após 31 de maio de 2021 a** favor da [Política Azure para a AKS.](use-pod-security-on-azure-policy.md) A data de depreciação foi prorrogada a partir da data anterior de 15 de outubro de 2020.
+> **A funcionalidade descrita neste documento, a política de segurança do pod (pré-visualização), está definida para depreciação e deixará de estar disponível após 30 de junho de 2021 a** favor da [Política Azure para a AKS.](use-pod-security-on-azure-policy.md) A data de depreciação foi prorrogada a partir da data anterior de 15 de outubro de 2020.
 >
 > Após a deprecação da política de segurança do pod (pré-visualização), tem de desativar a funcionalidade em quaisquer clusters existentes utilizando a funcionalidade prevadida para realizar futuras atualizações de clusters e permanecer dentro do suporte do Azure.
 >
@@ -24,7 +24,7 @@ Para melhorar a segurança do seu cluster AKS, pode limitar quais as cápsulas q
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Este artigo pressupõe que você tem um cluster AKS existente. Se precisar de um cluster AKS, consulte o quickstart AKS [utilizando o Azure CLI][aks-quickstart-cli] ou [utilizando o portal Azure][aks-quickstart-portal].
 

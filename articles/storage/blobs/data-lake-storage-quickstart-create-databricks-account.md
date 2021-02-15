@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Analise os dados em Azure Data Lake Storage Gen2 utilizando Azure Databricks Microsoft Docs'
+title: 'Quickstart: Analise os dados em Azure Data Lake Storage Gen2 utilizando Azure Databricks | Microsoft Docs'
 description: Aprenda a executar um trabalho de Spark em Azure Databricks usando o portal Azure e uma conta de armazenamento Azure Data Lake Gen2.
 author: normesta
 ms.author: normesta
@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 06/12/2020
 ms.reviewer: jeking
-ms.openlocfilehash: e289bea6b1a23f1622ced62656164d9865303298
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 0d712dc0ebe91ea8815adf235e02b8945e0dea84
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95912829"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100518866"
 ---
 # <a name="quickstart-analyze-data-with-databricks"></a>Quickstart: Analisar dados com Databricks
 
@@ -76,7 +76,7 @@ Nesta secção, vai criar uma área de trabalho do Azure Databricks com o portal
 
 4. Selecione **Criar cluster**. Depois de o cluster estar em execução, pode anexar blocos de notas ao cluster e executar tarefas do Spark.
 
-Para obter mais informações sobre a criação de clusters, veja [Criar um cluster do Spark no Azure Databricks](https://docs.azuredatabricks.net/user-guide/clusters/create.html).
+Para obter mais informações sobre a criação de clusters, veja [Criar um cluster do Spark no Azure Databricks](/azure/databricks/clusters/create).
 
 ## <a name="create-notebook"></a>Criar caderno
 
@@ -149,7 +149,7 @@ Realize as seguintes tarefas para executar uma tarefa SQL do Spark nos dados.
 
     Depois de o comando ser concluído com êxito, terá todos os dados do ficheiro JSON como uma tabela num cluster do Databricks.
 
-    O comando mágico de linguagem `%sql` permite executar um código SQL a partir do bloco de notas, mesmo se o bloco de notas for de outro tipo. Para obter mais informações, veja [Misturar linguagens num bloco de notas](https://docs.azuredatabricks.net/user-guide/notebooks/index.html#mixing-languages-in-a-notebook).
+    O comando mágico de linguagem `%sql` permite executar um código SQL a partir do bloco de notas, mesmo se o bloco de notas for de outro tipo. Para obter mais informações, veja [Misturar linguagens num bloco de notas](/azure/databricks/notebooks/notebooks-use#mix-languages).
 
 2. Vamos ver um instantâneo dos dados JSON de exemplo para compreender melhor a consulta que irá executar. Cole o fragmento seguinte na célula de código e prima **SHIFT + ENTER**.
 
@@ -200,6 +200,6 @@ Avance para o artigo seguinte para saber como executar uma operação de ETL (ex
 > [!div class="nextstepaction"]
 >[Extrair, transformar e carregar dados utilizando dados Azure Databricks](/azure/databricks/scenarios/databricks-extract-load-sql-data-warehouse).
 
-- Para saber como importar dados de outras fontes de dados para a Azure Databricks, consulte [fontes de dados da Spark](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html).
+- Para saber como importar dados de outras fontes de dados para a Azure Databricks, consulte [fontes de dados da Spark](/azure/databricks/data/data-sources/).
 
-- Para saber mais sobre outras formas de aceder ao Azure Data Lake Storage Gen2 a partir de um espaço de trabalho Azure Databricks, consulte [a Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html).
+- Para saber mais sobre outras formas de aceder ao Azure Data Lake Storage Gen2 a partir de um espaço de trabalho Azure Databricks, consulte [a Azure Data Lake Storage Gen2](/azure/databricks/data/data-sources/azure/azure-datalake-gen2).

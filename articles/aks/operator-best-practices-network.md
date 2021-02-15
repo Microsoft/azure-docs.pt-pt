@@ -5,12 +5,12 @@ description: Aprenda as melhores práticas do operador de cluster para recursos 
 services: container-service
 ms.topic: conceptual
 ms.date: 12/10/2018
-ms.openlocfilehash: 9ec6423a853aacbc8a03cc5472bf1a95a5623b1f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f004e0e78d7a626f878ba3651e4c6078f9cd21e8
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89482730"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100366573"
 ---
 # <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>Melhores práticas para conectividade e segurança da rede no Azure Kubernetes Service (AKS)
 
@@ -19,7 +19,7 @@ Ao criar e gerir clusters no Serviço Azure Kubernetes (AKS), fornece conectivid
 Este artigo de boas práticas centra-se na conectividade da rede e na segurança dos operadores de cluster. Neste artigo, vai aprender a:
 
 > [!div class="checklist"]
-> * Compare os modos de rede Kubenet e Azure CNI em AKS
+> * Compare os modos de rede de kubenet e Azure Container (CNI) em AKS
 > * Plano para a morada ip necessária e conectividade
 > * Distribuir tráfego utilizando equilibradores de carga, controladores de entrada ou uma firewall de aplicação web (WAF)
 > * Ligar-se de forma segura aos nosdes de cluster
@@ -33,11 +33,13 @@ As redes virtuais fornecem a conectividade básica para os nós AKS e os cliente
 * **Rede Kubenet** - Azure gere os recursos de rede virtuais à medida que o cluster é implantado e utiliza o [plugin kubenetes][kubenet] Kubernetes.
 * **Rede CNI Azure** - Implementa-se numa rede virtual e utiliza o plugin kubernetes [da Interface de Rede de Contentores Azure (CNI).][cni-networking] Os pods recebem IPs individuais que podem encaminhar-se para outros serviços de rede ou recursos no local.
 
-A Interface de Rede de Contentores (CNI) é um protocolo neutro do fornecedor que permite ao contentor fazer pedidos a um fornecedor de rede. O Azure CNI atribui endereços IP a pods e nós e fornece funcionalidades de gestão de endereços IP (IPAM) à medida que se conecta às redes virtuais Azure existentes. Cada recurso de nó e pod recebe um endereço IP na rede virtual Azure, e não é necessário um encaminhamento adicional para comunicar com outros recursos ou serviços.
+Para as implementações de produção, tanto a Kubenet como a Azure CNI são opções válidas.
+
+### <a name="cni-networking"></a>Rede CNI
+
+A Interface de Rede de Contentores (CNI) é um protocolo neutro do fornecedor que permite ao contentor fazer pedidos a um fornecedor de rede. O Azure CNI atribui endereços IP a pods e nós e fornece funcionalidades de gestão de endereços IP (IPAM) à medida que se conecta às redes virtuais Azure existentes. Cada nó e recurso de pod recebe um endereço IP na rede virtual Azure, e não é necessário um encaminhamento extra para comunicar com outros recursos ou serviços.
 
 ![Diagrama mostrando dois nós com pontes conectando cada um a um único Azure VNet](media/operator-best-practices-network/advanced-networking-diagram.png)
-
-Para as implementações de produção, tanto a Kubenet como a Azure CNI são opções válidas.
 
 Um benefício notável da rede CNI Azure para produção é que o modelo de rede permite a separação do controlo e gestão dos recursos. Do ponto de vista da segurança, muitas vezes queremos que diferentes equipas gerem e garantam esses recursos. A rede CNI Azure permite-lhe ligar-se aos recursos Azure existentes, recursos no local ou outros serviços diretamente através de endereços IP atribuídos a cada cápsula.
 
@@ -47,22 +49,26 @@ Quando utiliza a rede CNI Azure, o recurso de rede virtual encontra-se num grupo
 
 Para obter mais informações sobre a delegação principal do serviço AKS, consulte [o acesso do delegado a outros recursos da Azure.][sp-delegation] Em vez de um principal de serviço, também pode utilizar o sistema atribuído à identidade gerida para permissões. Para obter mais informações, consulte [utilização de identidades geridas.](use-managed-identity.md)
 
-À medida que cada nó e pod recebem o seu próprio endereço IP, planeie os intervalos de endereços para as sub-redes AKS. A sub-rede deve ser suficientemente grande para fornecer endereços IP para cada nó, cápsulas e recursos de rede que implementar. Cada cluster AKS deve ser colocado na sua própria sub-rede. Para permitir a conectividade às redes no local ou nas redes espreitadas em Azure, não utilize intervalos de endereços IP que se sobreponham aos recursos de rede existentes. Existem limites padrão para o número de cápsulas que cada nó funciona com a rede kubenet e Azure CNI. Para lidar com eventos de escala ou atualizações de clusters, também precisa de endereços IP adicionais disponíveis para utilização na sub-rede atribuída. Este espaço adicional de endereço é especialmente importante se utilizar recipientes do Windows Server, uma vez que esses conjuntos de nós requerem uma atualização para aplicar as mais recentes correções de segurança. Para obter mais informações sobre os nós do Windows Server, consulte [a atualização de um conjunto de nós em AKS][nodepool-upgrade].
+À medida que cada nó e pod recebem o seu próprio endereço IP, planeie os intervalos de endereços para as sub-redes AKS. A sub-rede deve ser suficientemente grande para fornecer endereços IP para cada nó, cápsulas e recursos de rede que implementar. Cada cluster AKS deve ser colocado na sua própria sub-rede. Para permitir a conectividade às redes no local ou nas redes espreitadas em Azure, não utilize intervalos de endereços IP que se sobreponham aos recursos de rede existentes. Existem limites padrão para o número de cápsulas que cada nó funciona com a rede kubenet e Azure CNI. Para lidar com eventos de escala ou atualizações de clusters, também precisa de endereços IP extra disponíveis para utilização na sub-rede atribuída. Este espaço de endereço extra é especialmente importante se utilizar recipientes do Windows Server, uma vez que esses conjuntos de nós requerem uma atualização para aplicar as mais recentes correções de segurança. Para obter mais informações sobre os nós do Windows Server, consulte [a atualização de um conjunto de nós em AKS][nodepool-upgrade].
 
 Para calcular o endereço IP necessário, consulte [a rede CNI Configure CNI em AKS][advanced-networking].
+
+Quando cria um cluster com rede CNI Azure, especifica outras gamas de endereços para utilização pelo cluster, como o endereço da ponte Docker, o IP de serviço DNS e a gama de endereços de serviço. Em geral, estes intervalos de endereços não devem sobrepor-se uns aos outros e não devem sobrepor-se a quaisquer redes associadas ao cluster, incluindo quaisquer redes virtuais, sub-redes, no local e redes esprevadas. Para obter os detalhes específicos em torno dos limites e dimensionamento para estas gamas de endereços, consulte [a rede Configure Azure CNI em AKS][advanced-networking].
 
 ### <a name="kubenet-networking"></a>Rede Kubenet
 
 Embora o Kubenet não exija que crie as redes virtuais antes do cluster ser implantado, existem desvantagens:
 
-* Os nós e as cápsulas são colocados em diferentes sub-redes IP. O encaminhamento definido do utilizador (UDR) e o encaminhamento IP é utilizado para encaminhar o tráfego entre cápsulas e nós. Este encaminhamento adicional pode reduzir o desempenho da rede.
+* Os nós e as cápsulas são colocados em diferentes sub-redes IP. O encaminhamento definido do utilizador (UDR) e o encaminhamento IP é utilizado para encaminhar o tráfego entre cápsulas e nós. Este encaminhamento extra pode reduzir o desempenho da rede.
 * As ligações às redes existentes no local ou olhando para outras redes virtuais Azure podem ser complexas.
 
-A Kubenet é adequada para pequenas cargas de trabalho de desenvolvimento ou teste, uma vez que não precisa de criar a rede virtual e sub-redes separadamente do cluster AKS. Sites simples com tráfego baixo, ou para levantar e transferir cargas de trabalho em contentores, também podem beneficiar da simplicidade dos clusters AKS implantados com rede kubenet. Para a maioria das implementações de produção, deve planear e utilizar a rede Azure CNI. Também pode [configurar as suas próprias gamas de endereços IP e redes virtuais utilizando kubenet.][aks-configure-kubenet-networking]
+A Kubenet é adequada para pequenas cargas de trabalho de desenvolvimento ou teste, uma vez que não precisa de criar a rede virtual e sub-redes separadamente do cluster AKS. Sites simples com tráfego baixo, ou para levantar e transferir cargas de trabalho em contentores, também podem beneficiar da simplicidade dos clusters AKS implantados com rede kubenet. Para a maioria das implementações de produção, deve planear e utilizar a rede Azure CNI.
+
+Também pode [configurar as suas próprias gamas de endereços IP e redes virtuais utilizando kubenet.][aks-configure-kubenet-networking] Semelhantes à rede Azure CNI, estes intervalos de endereços não devem sobrepor-se uns aos outros e não devem sobrepor-se a quaisquer redes associadas ao cluster, incluindo quaisquer redes virtuais, sub-redes, no local e redes de olhos. Para obter os detalhes específicos em torno de limites e dimensionamento para estas gamas de endereços, consulte [utilizar a rede kubenet com os seus próprios intervalos de endereço IP em AKS][aks-configure-kubenet-networking].
 
 ## <a name="distribute-ingress-traffic"></a>Distribuir tráfego de entrada
 
-**Orientação de boas práticas** - Para distribuir tráfego HTTP ou HTTPS às suas aplicações, utilize recursos e controladores de entrada. Os controladores ingress fornecem funcionalidades adicionais sobre um balanceador de carga Azure regular, e podem ser geridos como recursos nativos de Kubernetes.
+**Orientação de boas práticas** - Para distribuir tráfego HTTP ou HTTPS às suas aplicações, utilize recursos e controladores de entrada. Os controladores ingress fornecem funcionalidades extras sobre um balanceador de carga Azure regular, e podem ser geridos como recursos nativos de Kubernetes.
 
 Um equilibrador de carga Azure pode distribuir o tráfego do cliente para aplicações no seu cluster AKS, mas é limitado no que entende sobre esse tráfego. Um recurso de balanceador de carga funciona na camada 4 e distribui tráfego com base em protocolos ou portas. A maioria das aplicações web que usam HTTP ou HTTPS devem usar recursos e controladores de entrada de Kubernetes, que funcionam na camada 7. A Ingress pode distribuir tráfego com base no URL da aplicação e lidar com a rescisão TLS/SSL. Esta capacidade também reduz o número de endereços IP que expõe e mapeia. Com um equilibrador de carga, cada aplicação normalmente necessita de um endereço IP público atribuído e mapeado para o serviço no cluster AKS. Com um recurso de entrada, um único endereço IP pode distribuir tráfego para várias aplicações.
 
@@ -70,7 +76,7 @@ Um equilibrador de carga Azure pode distribuir o tráfego do cliente para aplica
 
  Existem dois componentes para a entrada:
 
- * Um *recurso*ingress, e
+ * Um *recurso* ingress, e
  * Um *controlador ingress*
 
 O recurso ingress é um manifesto YAML `kind: Ingress` que define o anfitrião, certificados e regras para encaminhar o tráfego para serviços que funcionam no seu cluster AKS. O exemplo seguinte, o manifesto YAML distribuiria o tráfego de *myapp.com* a um dos dois serviços, *blogservice* ou *serviço de loja.* O cliente é direcionado para um serviço ou outro com base no URL a que acedem.
@@ -118,7 +124,7 @@ Um controlador ingress que distribui tráfego a serviços e aplicações é tipi
 
 ![Uma firewall de aplicação web (WAF) como a Azure App Gateway pode proteger e distribuir tráfego para o seu cluster AKS](media/operator-best-practices-network/web-application-firewall-app-gateway.png)
 
-Uma firewall de aplicação web (WAF) fornece uma camada adicional de segurança filtrando o tráfego de entrada. O Open Web Application Security Project (OWASP) fornece um conjunto de regras para observar ataques como scripts de sites cruzados ou envenenamento por cookies. [O Azure Application Gateway][app-gateway] (atualmente em pré-visualização em AKS) é um WAF que pode integrar-se com clusters AKS para fornecer estas funcionalidades de segurança, antes que o tráfego chegue ao seu cluster AKS e aplicações. Outras soluções de terceiros também desempenham estas funções, para que possa continuar a utilizar investimentos ou conhecimentos existentes num determinado produto.
+Uma firewall de aplicação web (WAF) fornece uma camada extra de segurança filtrando o tráfego de entrada. O Open Web Application Security Project (OWASP) fornece um conjunto de regras para observar ataques como scripts de sites cruzados ou envenenamento por cookies. [O Azure Application Gateway][app-gateway] (atualmente em pré-visualização em AKS) é um WAF que pode integrar-se com clusters AKS para fornecer estas funcionalidades de segurança, antes que o tráfego chegue ao seu cluster AKS e aplicações. Outras soluções de terceiros também desempenham estas funções, para que possa continuar a utilizar investimentos ou conhecimentos existentes num determinado produto.
 
 Os recursos de balançadores de carga ou de entrada continuam a funcionar no seu cluster AKS para aperfeiçoar ainda mais a distribuição de tráfego. App Gateway pode ser gerido centralmente como um controlador de entrada com uma definição de recurso. Para começar, [crie um controlador Application Gateway Ingress][app-gateway-ingress].
 

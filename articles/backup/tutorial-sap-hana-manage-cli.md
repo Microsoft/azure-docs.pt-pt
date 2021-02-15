@@ -4,12 +4,12 @@ description: Neste tutorial, aprenda a gerir bases de dados SAP HANA com apoio e
 ms.topic: tutorial
 ms.date: 12/4/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: cb552c5a336c3c55652936b87a668b54cfdeb41e
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: 665dfc64e750f448fc4c1a2d7e18f0cb6552f223
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99507236"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100371775"
 ---
 # <a name="tutorial-manage-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>Tutorial: Gerir bases de dados SAP HANA num Azure VM utilizando O Azure CLI
 
@@ -95,7 +95,7 @@ Exemplo:
 az backup policy create --resource-group saphanaResourceGroup --vault-name saphanaVault --name sappolicy --backup-management-type AzureWorkload --policy sappolicy.json --workload-type SAPHana
 ```
 
-Saída JSON (sappolicy.jsem) da amostra:
+Amostra JSON (sappolicy.jsem):
 
 ```json
   "eTag": null,
@@ -226,11 +226,12 @@ Saída JSON (sappolicy.jsem) da amostra:
     ],
     "workLoadType": "SAPHanaDatabase"
   },
-  "resourceGroup": "azurefiles",
+  "resourceGroup": "saphanaResourceGroup",
   "tags": null,
   "type": "Microsoft.RecoveryServices/vaults/backupPolicies"
 } 
 ```
+Uma vez criada a política com sucesso, a saída do comando mostrará a política JSON que passou como parâmetro enquanto executa o comando.
 
 Pode modificar a seguinte secção da política para especificar a frequência de backup e retenção desejadas para cópias de segurança incrementais.
 

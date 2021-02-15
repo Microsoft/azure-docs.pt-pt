@@ -4,12 +4,12 @@ description: Resume o apoio à recuperação de desastres dos VMs do Azure para 
 ms.topic: article
 ms.date: 11/29/2020
 ms.author: raynew
-ms.openlocfilehash: 856d8961cbdf77fc848df41502678cb438773dbe
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 78c27292a92152946ba33258d27940e3c1aea47d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99550122"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100391580"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Matriz de suporte para recuperação após desastre de VMs do Azure entre regiões do Azure
 
@@ -35,6 +35,7 @@ Este artigo resume o suporte e os pré-requisitos para a recuperação de desast
 **Replicar VMs do Azure de uma subscrição para outra para recuperação de desastres** | Apoiado no mesmo inquilino do Azure Ative Directory.
 **Migrar VMs através de regiões dentro de aglomerados geográficos apoiados (dentro e em todas as subscrições)** | Apoiado no mesmo inquilino do Azure Ative Directory.
 **VMs migram dentro da mesma região** | Não suportado.
+**Anfitriões Dedicados Azure** | Não suportado.
 
 ## <a name="region-support"></a>Suporte de região
 
@@ -75,7 +76,7 @@ Firewalls de armazenamento Azure para redes virtuais  | Suportado | Se estiver a
 
 ## <a name="replicated-machine-operating-systems"></a>Sistemas operativos de máquinas replicadas
 
-A Recuperação do Site suporta a replicação de VMs Azure que executam os sistemas operativos listados nesta secção. Por favor, note que se uma máquina já replicando é posteriormente atualizada (ou desclassificada) para um núcleo importante diferente, você precisa desativar a replicação e reativar a replicação após a atualização.
+A Recuperação do Site suporta a replicação de VMs Azure que executam os sistemas operativos listados nesta secção. Note que se uma máquina já replicante for posteriormente atualizada (ou degradada) para um núcleo importante diferente, é necessário desativar a replicação e voltar a ativar a replicação após a atualização.
 
 ### <a name="windows"></a>Windows
 
@@ -205,7 +206,7 @@ VMs migraram usando a Recuperação do Local | Suportado | Se um VMware VM ou um
 Políticas de Azure RBAC | Não suportado | As políticas de controlo de acesso baseado em funções (Azure RBAC) em VM não são replicadas para o VM de failover na região-alvo.
 Extensões | Não suportado | As extensões não são replicadas para o VM de failover na região-alvo. Tem de ser instalado manualmente após a falha.
 Grupos de colocação de proximidade | Suportado | As máquinas virtuais localizadas dentro de um Grupo de Colocação de Proximidade podem ser protegidas através da Recuperação do Local.
-Etiquetas  | Suportado | As tags geradas pelo utilizador aplicadas em máquinas virtuais de origem são transportadas para as máquinas virtuais alvo após o teste de failover ou failover.
+Etiquetas  | Suportado | As tags geradas pelo utilizador aplicadas em máquinas virtuais de origem são transportadas para as máquinas virtuais alvo após o teste de failover ou failover. As etiquetas nos VM(s) são replicadas uma vez a cada 24 horas durante o tempo que os VM(s) estiverem/estiverem presentes na região-alvo.
 
 
 ## <a name="replicated-machines---disk-actions"></a>Máquinas replicadas - ações de disco
@@ -265,7 +266,7 @@ Discos NVMe | Não suportado
 Discos partilhados do Azure | Não suportado
 Opção de transferência segura | Suportado
 Escreva discos ativados pelo acelerador | Não suportado
-Etiquetas  | As tags geradas pelo utilizador são replicadas a cada 24 horas.
+Etiquetas  | Suportado | As tags geradas pelo utilizador são replicadas a cada 24 horas.
 
 >[!IMPORTANT]
 > Para evitar problemas de desempenho, certifique-se de que segue a escalabilidade do disco VM e os objetivos de desempenho dos [discos geridos](../virtual-machines/disks-scalability-targets.md). Se utilizar as definições predefinidas, a Recuperação do Site cria os discos e contas de armazenamento necessários, com base na configuração de origem. Se personalizar e selecionar as suas próprias definições, siga a escalabilidade do disco e os alvos de desempenho para os seus VMs de origem.

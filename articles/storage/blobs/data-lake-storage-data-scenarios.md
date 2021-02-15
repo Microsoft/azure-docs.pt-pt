@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/14/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: bffa7894f7603f95c4840019be5e5670797881df
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 1d22a992ac4ae69c8541b6efbaee58340f48caa4
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98873251"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100517880"
 ---
 # <a name="using-azure-data-lake-storage-gen2-for-big-data-requirements"></a>Usando Azure Data Lake Storage Gen2 para grandes requisitos de dados
 
@@ -119,7 +119,7 @@ Aqui está uma lista de ferramentas que você pode usar para executar trabalhos 
 |Ferramenta | Orientação |
 |---|--|
 |Azure HDInsight | [Utilizar o Azure Data Lake Storage Gen2 com clusters do Azure HDInsight](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md) |
-|Azure Databricks | [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) (Armazenamento do Azure Data Lake Gen2)<br><br>[Quickstart: Analise os dados em Azure Data Lake Storage Gen2 utilizando Azure Databricks](./data-lake-storage-quickstart-create-databricks-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)<br><br>[Tutorial: Extrair, transformar e carregar dados através do Azure Databricks](/azure/databricks/scenarios/databricks-extract-load-sql-data-warehouse?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
+|Azure Databricks | [Azure Data Lake Storage Gen2](/azure/databricks/data/data-sources/azure/azure-datalake-gen2) (Armazenamento do Azure Data Lake Gen2)<br><br>[Quickstart: Analise os dados em Azure Data Lake Storage Gen2 utilizando Azure Databricks](./data-lake-storage-quickstart-create-databricks-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)<br><br>[Tutorial: Extrair, transformar e carregar dados através do Azure Databricks](/azure/databricks/scenarios/databricks-extract-load-sql-data-warehouse?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 
 ## <a name="visualize-the-data"></a>Ver os dados
 

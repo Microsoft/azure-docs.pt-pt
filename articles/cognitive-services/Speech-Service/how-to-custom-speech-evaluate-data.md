@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/11/2020
+ms.date: 02/12/2021
 ms.author: trbye
-ms.openlocfilehash: 54a54dccd82e4f6cfd72a1cc8a71b51f9fd4ed95
-ms.sourcegitcommit: 697638c20ceaf51ec4ebd8f929c719c1e630f06f
+ms.openlocfilehash: 078118ec793530720a49a19046854e5ea4b7f5c4
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97857363"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388945"
 ---
 # <a name="evaluate-and-improve-custom-speech-accuracy"></a>Avaliar e melhorar a precisão da Voz Personalizada
 
@@ -115,10 +115,15 @@ Considere estes detalhes:
 * Quando a qualidade das transcrições varia, pode duplicar frases excepcionalmente boas (como excelentes transcrições que incluem frases-chave) para aumentar o seu peso.
 * O serviço Desemação utilizará automaticamente as transcrições para melhorar o reconhecimento de palavras e frases específicas do domínio, como se fossem adicionadas como texto relacionado.
 * O treino com áudio trará mais benefícios se o áudio também for difícil de entender para os humanos. Na maioria dos casos, deve começar a treinar usando apenas texto relacionado.
-* Pode levar vários dias para uma operação de treino ser concluída. Para melhorar a velocidade de formação, certifique-se de criar a sua subscrição de serviço De Discurso numa [região com hardware dedicado](custom-speech-overview.md#set-up-your-azure-account) para treino.
+* Pode levar vários dias para uma operação de treino ser concluída. Para melhorar a velocidade de formação, certifique-se de criar a sua subscrição de serviço De Discurso numa [região com o hardware dedicado](custom-speech-overview.md#set-up-your-azure-account) para a formação.
 
 > [!NOTE]
-> Nem todos os modelos base suportam o treino com áudio. Se um modelo base não o suportar, o serviço Desemaguiso utilizará apenas o texto das transcrições e ignorará o áudio.
+> Nem todos os modelos base suportam o treino com áudio. Se um modelo base não o suportar, o serviço Desemaguiso utilizará apenas o texto das transcrições e ignorará o áudio. Consulte [o suporte linguístico](language-support.md#speech-to-text) para uma lista de modelos base que suportam a formação com dados áudio.
+
+> [!NOTE]
+> Nos casos em que altera o modelo base utilizado para o treino, e tem áudio no conjunto de dados de treino, verifique *sempre* se o novo modelo base selecionado [suporta a formação com dados áudio](language-support.md#speech-to-text). Se o modelo base anteriormente utilizado não suportasse a formação com dados áudio, e o conjunto de dados de formação contiver áudio, o tempo de treino com o novo modelo base aumentará **drasticamente,** podendo facilmente passar de várias horas para vários dias e mais. Isto é especialmente verdade se a subscrição do seu serviço Desem declarações **não** estiver numa [região com o hardware dedicado](custom-speech-overview.md#set-up-your-azure-account) para a formação.
+>
+> Se encarar a questão descrita no parágrafo acima, pode diminuir rapidamente o tempo de treino reduzindo a quantidade de áudio no conjunto de dados ou removendo-o completamente e deixando apenas o texto. Esta última opção é altamente recomendada se a subscrição do serviço Speech **não** estiver numa [região com o hardware dedicado](custom-speech-overview.md#set-up-your-azure-account) para a formação.
 
 ### <a name="add-new-words-with-pronunciation"></a>Adicione novas palavras com pronúncia
 

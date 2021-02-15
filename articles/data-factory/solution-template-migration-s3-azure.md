@@ -1,22 +1,18 @@
 ---
 title: Migrar dados da Amazon S3 para a Azure Data Lake Storage Gen2
 description: Aprenda a usar um modelo de solução para migrar dados do Amazon S3 utilizando uma tabela de controlo externo para armazenar uma lista de divisórias no AWS S3 com a Azure Data Factory.
-services: data-factory
 author: dearandyxu
 ms.author: yexu
-ms.reviewer: ''
-manager: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/07/2019
-ms.openlocfilehash: e25299c2ce5d31da8f3caa5b02ab8def816b31ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c1fd4cb248abdc219c6ee5d098e10c329826c160
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91398225"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100362000"
 ---
 # <a name="migrate-data-from-amazon-s3-to-azure-data-lake-storage-gen2"></a>Migrar dados da Amazon S3 para a Azure Data Lake Storage Gen2
 
@@ -25,7 +21,7 @@ ms.locfileid: "91398225"
 Use os modelos para migrar petabytes de dados que consistem em centenas de milhões de ficheiros da Amazon S3 para a Azure Data Lake Storage Gen2. 
 
  > [!NOTE]
- > If you want to copy small data volume from AWS S3 to Azure (for example, less than 10 TB), it's more efficient and easy to use the [Azure Data Factory Copy Data tool](copy-data-tool.md). O modelo descrito neste artigo é mais do que o que você precisa.
+ > Se pretender copiar pequenos volumes de dados de AWS S3 a Azure (por exemplo, menos de 10 TB), é mais eficiente e fácil de utilizar a [ferramenta Azure Data Factory Copy Data Data](copy-data-tool.md)Data . O modelo descrito neste artigo é mais do que o que você precisa.
 
 ## <a name="about-the-solution-templates"></a>Sobre os modelos de solução
 
@@ -119,7 +115,7 @@ O modelo contém dois parâmetros:
 
     ![Screenshot que mostra os dois oleodutos e três conjuntos de dados que foram criados usando o modelo.](media/solution-template-migration-s3-azure/historical-migration-s3-azure3.png)
 
-6. Selecione **Debug,** introduza os **parâmetros**e, em seguida, selecione **Terminar**.
+6. Vá ao gasoduto "BulkCopyFromS3" e selecione **Debug,** introduza os **Parâmetros**. Em seguida, selecione **Finish** (Concluir).
 
     ![Screenshot que mostra onde selecionar Debug e introduzir os parâmetros antes de selecionar Terminar.](media/solution-template-migration-s3-azure/historical-migration-s3-azure4.png)
 
@@ -182,7 +178,7 @@ O modelo contém dois parâmetros:
 
     ![Reveja o oleoduto](media/solution-template-migration-s3-azure/delta-migration-s3-azure3.png)
 
-6. Selecione **Debug,** introduza os **parâmetros**e, em seguida, selecione **Terminar**.
+6.  Vá ao gasoduto "DeltaCopyFromS3" e selecione **Debug** e introduza os **Parâmetros**. Em seguida, selecione **Finish** (Concluir).
 
     ![Clique em **Debug**](media/solution-template-migration-s3-azure/delta-migration-s3-azure4.png)
 

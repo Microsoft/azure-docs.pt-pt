@@ -1,22 +1,17 @@
 ---
 title: Copiar dados de e para IBM Informix usando Azure Data Factory
 description: Saiba como copiar dados de e para a IBM Informix utilizando uma atividade de cópia num oleoduto Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/28/2020
 ms.author: jingwang
-ms.openlocfilehash: 93f484bd30de1ba0ca0f7aa5db263243bebc5b09
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 95ecb44f154ab84a60a1ee673826d83fc51305b3
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85508814"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100383505"
 ---
 # <a name="copy-data-from-and-to-ibm-informix-using-azure-data-factory"></a>Copiar dados de e para IBM Informix usando Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -51,13 +46,13 @@ As seguintes propriedades são suportadas para o serviço ligado à Informix:
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo deve ser definida para: **Informix** | Sim |
-| conexãoStragem | O fio de ligação ODBC excluindo a parte credencial. Pode especificar a cadeia de ligação ou utilizar o sistema DSN (Data Source Name) que configura na máquina de tempo de execução de integração (ainda precisa especificar a parte credencial no serviço ligado em conformidade). <br> Também pode colocar uma palavra-passe no Cofre da Chave Azure e retirar a  `password`   configuração da cadeia de ligação. Consulte [as credenciais da Loja no Cofre de Chaves Azure](store-credentials-in-key-vault.md)   com mais detalhes.| Sim |
-| authenticationType | Tipo de autenticação utilizada para ligar à loja de dados Informix.<br/>Os valores permitidos são: **Básico** e **Anónimo.** | Sim |
-| userName | Especifique o nome do utilizador se estiver a utilizar a autenticação Básica. | Não |
-| palavra-passe | Especifique a palavra-passe para a conta de utilizador especificada para o nome de utilizador. Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Não |
-| credencial | A parte credencial de acesso da cadeia de ligação especificada no formato de valor da propriedade específica do condutor. Marque este campo como um SecureString. | Não |
-| connectVia | O [tempo de execução de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. É necessário um tempo de integração auto-organizado, tal como mencionado nos [Pré-Requisitos](#prerequisites). |Sim |
+| tipo | A propriedade tipo deve ser definida para: **Informix** | Yes |
+| conexãoStragem | O fio de ligação ODBC excluindo a parte credencial. Pode especificar a cadeia de ligação ou utilizar o sistema DSN (Data Source Name) que configura na máquina de tempo de execução de integração (ainda precisa especificar a parte credencial no serviço ligado em conformidade). <br> Também pode colocar uma palavra-passe no Cofre da Chave Azure e retirar a `password` configuração da cadeia de ligação. Consulte [as credenciais da Loja no Cofre de Chaves Azure](store-credentials-in-key-vault.md) com mais detalhes.| Yes |
+| authenticationType | Tipo de autenticação utilizada para ligar à loja de dados Informix.<br/>Os valores permitidos são: **Básico** e **Anónimo.** | Yes |
+| userName | Especifique o nome do utilizador se estiver a utilizar a autenticação Básica. | No |
+| palavra-passe | Especifique a palavra-passe para a conta de utilizador especificada para o nome de utilizador. Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | No |
+| credencial | A parte credencial de acesso da cadeia de ligação especificada no formato de valor da propriedade específica do condutor. Marque este campo como um SecureString. | No |
+| connectVia | O [tempo de execução de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. É necessário um tempo de integração auto-organizado, tal como mencionado nos [Pré-Requisitos](#prerequisites). |Yes |
 
 **Exemplo:**
 
@@ -91,7 +86,7 @@ Para copiar dados da Informix, suportam-se as seguintes propriedades:
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo do conjunto de dados deve ser definida para: **InformixTable** | Sim |
+| tipo | A propriedade tipo do conjunto de dados deve ser definida para: **InformixTable** | Yes |
 | tableName | Nome da tabela no Informix. | Não para a fonte (se for especificada "consulta" na fonte de atividade);<br/>Sim para afundar |
 
 **Exemplo**
@@ -122,7 +117,7 @@ Para copiar dados da Informix, as seguintes propriedades são suportadas na sec�
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **InformixSource** | Sim |
+| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **InformixSource** | Yes |
 | consulta | Utilize a consulta personalizada para ler dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se for especificado "tableName" no conjunto de dados) |
 
 **Exemplo:**
@@ -163,10 +158,10 @@ Para copiar dados para a Informix, as seguintes propriedades são suportadas na 
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo do lavatório de atividade de cópia deve ser definida para: **InformixSink** | Sim |
-| escreverBatchTimeout |Tempo de espera para que o funcionamento do encaixe do lote esteja concluído antes de esgotar o tempo.<br/>Os valores permitidos são: timepan. Exemplo: "00:30:00" (30 minutos). |Não |
+| tipo | A propriedade tipo do lavatório de atividade de cópia deve ser definida para: **InformixSink** | Yes |
+| escreverBatchTimeout |Tempo de espera para que o funcionamento do encaixe do lote esteja concluído antes de esgotar o tempo.<br/>Os valores permitidos são: timepan. Exemplo: "00:30:00" (30 minutos). |No |
 | escreverBatchSize |Insere dados na tabela SQL quando o tamanho do tampão atinge o writeBatchSize.<br/>Os valores permitidos são: inteiro (número de linhas). |Não (o padrão é 0 - auto detetado) |
-| preCopyScript |Especifique uma consulta SQL para a Copy Activity para executar antes de escrever dados em loja de dados em cada execução. Pode utilizar esta propriedade para limpar os dados pré-carregados. |Não |
+| preCopyScript |Especifique uma consulta SQL para a Copy Activity para executar antes de escrever dados em loja de dados em cada execução. Pode utilizar esta propriedade para limpar os dados pré-carregados. |No |
 
 **Exemplo:**
 

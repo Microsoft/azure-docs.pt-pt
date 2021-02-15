@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.custom: mvc
-ms.openlocfilehash: 4fda6c51121838bfa1f3624759b1230d8554d573
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 719fcca74d2cd048bf170940eff7da6a25425469
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96753948"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100373288"
 ---
 # <a name="work-with-the-previous-version-of-azure-migrate"></a>Trabalhar com a versão anterior de Azure Migrate
 
@@ -22,7 +22,7 @@ Este artigo fornece informações sobre o trabalho com a versão anterior do Azu
 Existem duas versões do serviço Azure Migrate:
 
 - **Versão atual**: Utilize esta versão para criar projetos Azure Migrate, descubra máquinas no local e orquestrar avaliações e migrações. [Saiba mais](whats-new.md) sobre as novidades desta versão.
-- **Versão anterior**: Se estiver a utilizar a versão anterior do Azure Migrate (apenas foi suportada a avaliação dos VMS VMware no local), deverá agora utilizar a versão atual. Os projetos de versão anterior são referidos como projetos clássicos neste artigo. Se ainda precisa de utilizar os projetos Azure Migrate criados na versão anterior, isto é o que pode e não pode fazer:
+- **Versão anterior**: Se estiver a utilizar a versão anterior do Azure Migrate (apenas foi suportada a avaliação dos VMS VMware no local), deverá agora utilizar a versão atual. Os projetos de versão anterior são referidos como projetos clássicos neste artigo. O clássico Azure Migrate vai reformar-se em fevereiro de 2024. Depois de fevereiro de 2024, a versão clássica do Azure Migrate deixará de ser suportada e os metadados de inventário em projetos clássicos serão eliminados. Se ainda precisa de usar projetos clássicos do Azure Migrate, isto é o que pode e não pode fazer:
     - Já não se pode criar projetos de migração.
     - Recomendamos que não realize novas descobertas.
     - Ainda pode aceder a projetos existentes.
@@ -304,7 +304,7 @@ Para executar as consultas de Kusto:
 
 1. Depois de instalar os agentes, vá ao portal e clique em **Overview**.
 2. Em **Visão Geral**, vá à secção **Essentials** do projeto e clique no nome do espaço de trabalho fornecido junto ao **Espaço de Trabalho OMS.**
-3. Na página do espaço de **General** trabalho Log Analytics, clique em  >  **Registos Gerais**.
+3. Na página do espaço de trabalho Log Analytics, clique em  >  **Registos Gerais**.
 4. Escreva a sua consulta para recolher dados de dependência utilizando registos do Azure Monitor. Encontre consultas de amostra na secção seguinte.
 5. Executar a sua consulta clicando em Run. 
 

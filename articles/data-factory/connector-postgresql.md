@@ -1,22 +1,17 @@
 ---
 title: Copiar dados do PostgreSQL utilizando a Azure Data Factory
 description: Saiba como copiar dados da PostgreSQL para lojas de dados de sumidouros suportados utilizando uma atividade de cópia num pipeline da Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: jingwang
-ms.openlocfilehash: 6d10e7b9b24817eb738172bd0f2d2c3e7f8f2cbf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c0d8783c4b07c8c87e57ccd9a5d65983825347c9
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81416757"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100384100"
 ---
 # <a name="copy-data-from-postgresql-by-using-azure-data-factory"></a>Copiar dados da PostgreSQL utilizando a Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -36,7 +31,7 @@ Este conector PostgreSQL é suportado para as seguintes atividades:
 
 Pode copiar dados da base de dados PostgreSQL para qualquer loja de dados de sumidouro suportado. Para obter uma lista de lojas de dados suportadas como fontes/pias pela atividade de cópia, consulte a tabela [de lojas de dados suportadas.](copy-activity-overview.md#supported-data-stores-and-formats)
 
-Especificamente, este conector PostgreSQL suporta a **versão 7.4 e superior**do PostgreSQL .
+Especificamente, este conector PostgreSQL suporta a **versão 7.4 e superior** do PostgreSQL .
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -56,16 +51,16 @@ As seguintes propriedades são suportadas para o serviço ligado postgreSQL:
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo deve ser definida para: **PostgreSql** | Sim |
-| conexãoStragem | Um fio de ligação ODBC para ligar à Base de Dados Azure para PostgreSQL. <br/>Também pode colocar a palavra-passe no Cofre da Chave Azure e retirar a `password` configuração da cadeia de ligação. Consulte as seguintes amostras e [guarde as credenciais no artigo do Azure Key Vault](store-credentials-in-key-vault.md) com mais detalhes. | Sim |
-| connectVia | O [tempo de execução de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Saiba mais na secção [Pré-Requisitos.](#prerequisites) Se não for especificado, utiliza o tempo de execução de integração Azure predefinido. |Não |
+| tipo | A propriedade tipo deve ser definida para: **PostgreSql** | Yes |
+| conexãoStragem | Um fio de ligação ODBC para ligar à Base de Dados Azure para PostgreSQL. <br/>Também pode colocar a palavra-passe no Cofre da Chave Azure e retirar a `password` configuração da cadeia de ligação. Consulte as seguintes amostras e [guarde as credenciais no artigo do Azure Key Vault](store-credentials-in-key-vault.md) com mais detalhes. | Yes |
+| connectVia | O [tempo de execução de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Saiba mais na secção [Pré-Requisitos.](#prerequisites) Se não for especificado, utiliza o tempo de execução de integração Azure predefinido. |No |
 
 Uma cadeia de ligação típica é `Server=<server>;Database=<database>;Port=<port>;UID=<username>;Password=<Password>` . Mais propriedades que pode definir por seu caso:
 
 | Propriedade | Descrição | Opções | Necessário |
 |:--- |:--- |:--- |:--- |
-| Método de Encriptação (EM)| O método que o condutor utiliza para encriptar os dados enviados entre o controlador e o servidor de base de dados. Por exemplo,  `EncryptionMethod=<0/1/6>;`| 0 (Sem encriptação) **(Padrão)** / 1 (SSL) / 6 (RequestSSL) | Não |
-| ValidaçãoServerCertificato (VSC) | Determina se o controlador valida o certificado enviado pelo servidor de base de dados quando a encriptação SSL está ativada (Método de Encriptação=1). Por exemplo,  `ValidateServerCertificate=<0/1>;`| 0 (Desativado) **(Predefinição)** / 1 (Habilitado) | Não |
+| Método de Encriptação (EM)| O método que o condutor utiliza para encriptar os dados enviados entre o controlador e o servidor de base de dados. Por exemplo,  `EncryptionMethod=<0/1/6>;`| 0 (Sem encriptação) **(Padrão)** / 1 (SSL) / 6 (RequestSSL) | No |
+| ValidaçãoServerCertificato (VSC) | Determina se o controlador valida o certificado enviado pelo servidor de base de dados quando a encriptação SSL está ativada (Método de Encriptação=1). Por exemplo,  `ValidateServerCertificate=<0/1>;`| 0 (Desativado) **(Predefinição)** / 1 (Habilitado) | No |
 
 **Exemplo:**
 
@@ -94,13 +89,13 @@ Uma cadeia de ligação típica é `Server=<server>;Database=<database>;Port=<po
         "type": "PostgreSql",
         "typeProperties": {
             "connectionString": "Server=<server>;Database=<database>;Port=<port>;UID=<username>;",
-            "password": { 
-                "type": "AzureKeyVaultSecret", 
-                "store": { 
-                    "referenceName": "<Azure Key Vault linked service name>", 
-                    "type": "LinkedServiceReference" 
-                }, 
-                "secretName": "<secretName>" 
+            "password": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
             }
         },
         "connectVia": {
@@ -145,7 +140,7 @@ Para copiar dados da PostgreSQL, suportam-se as seguintes propriedades:
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo do conjunto de dados deve ser definida para: **PostgreSqlTable** | Sim |
+| tipo | A propriedade tipo do conjunto de dados deve ser definida para: **PostgreSqlTable** | Yes |
 | esquema | O nome do esquema. |Não (se for especificada "consulta" na fonte de atividade)  |
 | table | O nome da mesa. |Não (se for especificada "consulta" na fonte de atividade)  |
 | tableName | Nome da mesa com esquema. Esta propriedade é suportada para retrocompatibilidade. Uso `schema` e para nova carga de `table` trabalho. | Não (se for especificada "consulta" na fonte de atividade) |
@@ -180,7 +175,7 @@ Para copiar dados da PostgreSQL, as seguintes propriedades são suportadas na se
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **PostgreSqlSource** | Sim |
+| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **PostgreSqlSource** | Yes |
 | consulta | Utilize a consulta SQL personalizada para ler dados. Por exemplo: `"query": "SELECT * FROM \"MySchema\".\"MyTable\""`. | Não (se for especificado "tableName" no conjunto de dados) |
 
 > [!NOTE]
