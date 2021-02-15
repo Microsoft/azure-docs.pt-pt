@@ -8,22 +8,26 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/04/2021
+ms.date: 02/09/2021
 ms.author: kenwith
 ms.reviewer: japere
-ms.custom: contperf-fy21q3
-ms.openlocfilehash: f18126448f5a6dca29e798ad80cb53a8760689d8
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.custom: contperf-fy21q3-portal
+ms.openlocfilehash: 6bd44ea0217f11a156598a1a6f3703e528dd82d4
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576519"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100095176"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Tutorial: Adicionar uma aplicação no local para acesso remoto através de Aplicação Proxy em Diretório Ativo Azure
 
-O Azure Ative Directory (Azure AD) tem um serviço de Procuração de Aplicações que permite aos utilizadores aceder em aplicações no local, insinundo-se com a sua conta Azure AD. Este tutorial prepara o seu ambiente para uso com Aplicação Proxy. Assim que o seu ambiente estiver pronto, utilizará o portal Azure para adicionar uma aplicação no local ao seu inquilino AZure AD. Para **ver as suas apps e se atualizar rapidamente** com a App Management em Azure, não se esqueça de conferer a Série [Quickstart.](view-applications-portal.md)
+O Azure Ative Directory (Azure AD) tem um serviço de Procuração de Aplicações que permite aos utilizadores aceder em aplicações no local, insinundo-se com a sua conta Azure AD. Para saber mais sobre o Application Proxy, veja [o que é App Proxy?](what-is-application-proxy.md) Este tutorial prepara o seu ambiente para uso com Aplicação Proxy. Assim que o seu ambiente estiver pronto, utilizará o portal Azure para adicionar uma aplicação no local ao seu inquilino AZure AD. 
 
 :::image type="content" source="./media/application-proxy-add-on-premises-application/app-proxy-diagram.png" alt-text="Diagrama de visão geral do formulário de procuração de aplicação" lightbox="./media/application-proxy-add-on-premises-application/app-proxy-diagram.png":::
+
+Antes de começar, certifique-se de que está familiarizado com a gestão de aplicações e conceitos **de Sign-On (SSO).** Confira os seguintes links:
+- [Quickstart Series on App Management in Azure AD](view-applications-portal.md)
+- [O que é Single Sign-On (SSO)?](what-is-single-sign-on.md)
 
 Os conectores são uma parte chave do Application Proxy. Para saber mais sobre conectores, consulte [os conectores Proxy da aplicação AD Azure.](application-proxy-connectors.md)
 

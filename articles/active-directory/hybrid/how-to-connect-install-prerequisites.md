@@ -16,12 +16,12 @@ ms.date: 11/05/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73376994e01ed89891726a8f6e1b727f89dab2fb
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 1957adc0effd5b37d7aff3f813267da6ca065e0a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201727"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100368970"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Pré-requisitos do Azure AD Connect
 Este artigo descreve os pré-requisitos e os requisitos de hardware para a Azure Ative Directory (Azure AD) Connect.
@@ -73,6 +73,7 @@ Para ler mais sobre a segurança do seu ambiente de Diretório Ativo, consulte [
     - Tem de configurar os certificados TLS/SSL. Para obter mais informações, consulte [os protocolos SSL/TLS de Gestão e suítes de cifra para](/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs) certificados AD FS e Managing [SSL em AD FS](/windows-server/identity/ad-fs/operations/manage-ssl-certificates-ad-fs-wap).
     - Tem de configurar a resolução do nome. 
 - Se os seus administradores globais tiverem MFA ativado, o URL https://secure.aadcdn.microsoftonline-p.com *deve* estar na lista de sites fidedignos. É-lhe pedido que adicione este site à lista de sites fidedignos quando é solicitado para um desafio de MFA e não foi adicionado antes. Pode utilizar o Internet Explorer para o adicionar aos seus sites de confiança.
+- Se planeia utilizar o Azure AD Connect Health para sincronização, certifique-se de que os pré-requisitos para a Azure AD Connect Health também são cumpridos. Para obter mais informações, consulte a instalação do [agente Azure AD Connect Health](how-to-connect-health-agent-install.md).
 
 #### <a name="harden-your-azure-ad-connect-server"></a>Endureça o servidor AZure AD Connect 
 Recomendamos que endureça o servidor Azure AD Connect para diminuir a superfície de ataque de segurança para este componente crítico do seu ambiente de TI. Seguir estas recomendações ajudará a mitigar alguns riscos de segurança para a sua organização.
@@ -201,7 +202,7 @@ Quando utilizar o Azure AD Connect para implementar O FS AD ou o Proxy da Aplica
 * Se estiver a implementar mais de um servidor AD FS ou servidor Proxy de aplicações web, certifique-se de que configura o seu equilibrador de carga e que os registos DNS para o nome AD FS (por exemplo, sts.contoso.com) apontam para o balançador de carga.
 * Para a autenticação integrada do Windows funcionar para aplicações de navegador utilizando o Internet Explorer na sua intranet, certifique-se de que o nome AD FS (por exemplo, sts.contoso.com) é adicionado à zona intranet no Internet Explorer. Este requisito pode ser controlado através da Política de Grupo e implementado em todos os seus computadores unidos pelo domínio.
 
-## <a name="azure-ad-connect-supporting-components"></a>Componentes de suporte AD
+## <a name="azure-ad-connect-supporting-components"></a>Componentes de suporte AD AD AD
 O Azure AD Connect instala os seguintes componentes no servidor onde o Azure AD Connect está instalado. Esta lista destina-se a uma instalação básica do Expresso. Se optar por utilizar um servidor SQL diferente na página de **serviços de sincronização instalar,** o SQL Express LocalDB não está instalado localmente.
 
 * Azure AD Connect Health

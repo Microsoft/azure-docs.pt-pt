@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.date: 06/01/2020
 ms.author: ericrad
 ms.reviewer: mimckitt
-ms.openlocfilehash: 99528d1575056917b68bcb38f41a24d065822827
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 3bda1e2076e29fc1365bfc236adc9071db2564a1
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792808"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104744"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Azure Metadata Service: Scheduled Events for Linux VMs (Azure Metadata Service: Scheduled Events para VMs do Linux)
 
@@ -71,7 +71,7 @@ Para VMs ativados por VNET, o Serviço de Metadados está disponível a partir d
 Se o VM não for criado dentro de uma Rede Virtual, os casos padrão para serviços na nuvem e VMs clássicos, a lógica adicional é necessária para descobrir o endereço IP para usar. Para aprender a [descobrir o ponto final do hospedeiro,](https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm)consulte esta amostra.
 
 ### <a name="version-and-region-availability"></a>Disponibilidade de versão e região
-O serviço Eventos Agendados é versão. As versões são obrigatórias; a versão atual é `2019-01-01` .
+O serviço Eventos Agendados é versão. As versões são obrigatórias; a versão atual é `2019-08-01` .
 
 | Versão | Tipo de libertação | Regiões | Notas de Versão | 
 | - | - | - | - | 
@@ -138,7 +138,7 @@ No caso de existirem eventos agendados, a resposta contém uma série de eventos
 | Recursos| Lista de recursos que este evento afeta. A lista é garantida para conter máquinas de um domínio de [atualização](../manage-availability.md)no máximo , mas pode não conter todas as máquinas na UD. <br><br> Exemplo: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
 | EventStatus | Estado deste evento. <br><br> Valores: <ul><li>`Scheduled`: Este evento está agendado para começar após o tempo especificado na `NotBefore` propriedade.<li>`Started`: Este evento já começou.</ul> Nenhum `Completed` estatuto ou estatuto semelhante é fornecido. O evento já não é devolvido quando o evento estiver terminado.
 | NotBefore| Tempo após o qual este evento pode começar. <br><br> Exemplo: <br><ul><li> Seg, 19 set 2016 18:29:47 GMT  |
-| Descrição | Descrição deste evento. <br><br> Exemplo: <br><ul><li> O servidor anfitrião está a ser submetido a manutenção. |
+| Description | Descrição deste evento. <br><br> Exemplo: <br><ul><li> O servidor anfitrião está a ser submetido a manutenção. |
 | Fonte de Eventos | Iniciador do evento. <br><br> Exemplo: <br><ul><li> `Platform`: Este evento é iniciado por plataforma. <li>`User`: Este evento é iniciado pelo utilizador. |
 
 ### <a name="event-scheduling"></a>Agendamento de eventos

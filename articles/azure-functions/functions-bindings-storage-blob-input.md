@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 6ac3a492c5544a4a782871ff50cda9a248fe50f4
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 678b6f02245e463870fc5b2c4bfc8b5ffa50de60
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97882386"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100381699"
 ---
 # <a name="azure-blob-storage-input-binding-for-azure-functions"></a>Ligação de entrada de armazenamento Azure Blob para funções Azure
 
@@ -349,7 +349,7 @@ A tabela seguinte explica as propriedades de configuração de encadernação qu
 |**direção** | n/a | Deve ser definido para `in` . As exceções são anotados na secção [de utilização.](#usage) |
 |**nome** | n/a | O nome da variável que representa a bolha no código de função.|
 |**caminho** |**BlobPath** | O caminho para a bolha. |
-|**conexão** |**Ligação**| O nome de uma definição de aplicação que contém o [fio de ligação de armazenamento](../storage/common/storage-configure-connection-string.md) para usar para esta ligação. Se o nome de definição da aplicação começar com "AzureWebJobs", pode especificar apenas o restante do nome aqui. Por exemplo, se definir `connection` para "MyStorage", o tempo de execução de Funções procura uma definição de aplicação que se chama "AzureWebJobsMyStorage". Se deixar `connection` vazio, o tempo de execução das funções utiliza a cadeia de ligação de armazenamento predefinido na definição da aplicação que está denominada `AzureWebJobsStorage` .<br><br>O fio de ligação deve destinar-se a uma conta de armazenamento para fins gerais e não a uma [conta de armazenamento apenas com bolhas](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
+|**conexão** |**Ligação**| O nome de uma definição de aplicação que contém o [fio de ligação de armazenamento](../storage/common/storage-configure-connection-string.md) para usar para esta ligação. Se o nome de definição da aplicação começar com "AzureWebJobs", pode especificar apenas o restante do nome aqui. Por exemplo, se definir `connection` para "MyStorage", o tempo de execução de Funções procura uma definição de aplicação que se chama "AzureWebJobsMyStorage". Se deixar `connection` vazio, o tempo de execução das funções utiliza a cadeia de ligação de armazenamento predefinido na definição da aplicação que está denominada `AzureWebJobsStorage` .<br><br>O fio de ligação deve destinar-se a uma conta de armazenamento para fins gerais e não a uma [conta de armazenamento apenas com bolhas](../storage/common/storage-account-overview.md#types-of-storage-accounts).<br><br>Se estiver a utilizar [a versão 5.x ou superior da extensão](./functions-bindings-storage-blob.md#storage-extension-5x-and-higher), em vez de uma cadeia de ligação, pode fornecer uma referência a uma secção de configuração que defina a ligação. Ver [Ligações](./functions-reference.md#connections).|
 |**dataType**| n/a | Para idiomas de tipo dinâmico, especifica o tipo de dados subjacente. Os valores possíveis `string` `binary` são, ou `stream` . Para obter mais detalhes, consulte os [conceitos de gatilhos e encadernações.](functions-triggers-bindings.md?tabs=python#trigger-and-binding-definitions) |
 |n/a | **Acesso** | Indica se vai ler ou escrever. |
 

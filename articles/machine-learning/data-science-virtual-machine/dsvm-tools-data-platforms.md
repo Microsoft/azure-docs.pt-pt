@@ -4,18 +4,17 @@ titleSuffix: Azure Data Science Virtual Machine
 description: Conheça as plataformas e ferramentas de dados suportadas para a Máquina Virtual Azure Data Science.
 keywords: ferramentas de ciência de dados, máquina de virtual de ciência de dados, ferramentas para ciência de dados, ciência de dados do linux
 services: machine-learning
-ms.service: machine-learning
-ms.subservice: data-science-vm
+ms.service: data-science-vm
 author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: 9f432b417140440584bf4dfd01ed45814a746953
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 927e945a0d045abcd1caa2951dbd484224b2f425
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93320921"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100519546"
 ---
 # <a name="data-platforms-supported-on-the-data-science-virtual-machine"></a>Plataformas de dados suportadas na Máquina Virtual da Ciência de Dados
 
@@ -31,7 +30,7 @@ As seguintes ferramentas da plataforma de dados são suportadas no DSVM.
 | Edições DSVM suportadas      | Windows 2016: SQL Server 2017, Windows 2019: SQL Server 2019      |
 | Usos típicos      | <ul><li>Desenvolvimento rápido localmente com conjunto de dados mais pequeno</li><li>Executar in-database R</li></ul> |
 | Ligações a amostras      | <ul><li>Uma pequena amostra de um conjunto de dados da cidade de Nova Iorque é carregada na base de dados SQL:<br/>  `nyctaxi`</li><li>A amostra do Jupyter que mostra o Microsoft Machine Learning Server e a análise in-database pode ser encontrada em:<br/> `~notebooks/SQL_R_Services_End_to_End_Tutorial.ipynb`</li></ul> |
-| Ferramentas relacionadas no DSVM       | <ul><li>SQL Server Management Studio</li><li>Condutores ODBC/JDBC</li><li>pyodbc, RODBC</li><li>Apache Drill</li></ul> |
+| Ferramentas relacionadas no DSVM       | <ul><li>O SQL Server Management Studio</li><li>Condutores ODBC/JDBC</li><li>pyodbc, RODBC</li><li>Apache Drill</li></ul> |
 
 > [!NOTE]
 > A SQL Server Developer Edition só pode ser utilizada para fins de desenvolvimento e teste. Precisa de uma licença ou de um dos VMs do SQL Server para executá-la em produção.

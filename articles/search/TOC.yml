@@ -212,6 +212,8 @@
       items:
         - name: Criar um indexador
           href: search-howto-create-indexers.md
+        - name: Executar ou repor indexantes
+          href: search-howto-run-reset-indexers.md
         - name: Agende um indexador
           href: search-howto-schedule-indexers.md
         - name: Definir mapeamentos de campo

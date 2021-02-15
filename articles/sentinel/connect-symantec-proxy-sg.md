@@ -1,5 +1,5 @@
 ---
-title: Ligue os dados da Symantec ProxySG ao Azure Sentinel. Microsoft Docs
+title: Ligue os dados da Symantec ProxySG ao Azure Sentinel| Microsoft Docs
 description: Saiba como ligar os dados da Symantec ProxySG ao Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
-ms.openlocfilehash: fe49481357b542ce52de5fc9dab3059cb584c229
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 902475ae3e60761fb30620c5ba2fa8cbd905c916
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87083910"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100099188"
 ---
 # <a name="connect-your-symantec-proxysg-to-azure-sentinel"></a>Ligue o seu Symantec ProxySG ao Azure Sentinel
 
 > [!IMPORTANT]
 > O conector de dados Symantec ProxySG em Azure Sentinel está atualmente em pré-visualização pública.
-> Esta funcionalidade é fornecida sem um contrato de nível de serviço, e não é recomendado para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Esta funcionalidade é fornecida sem um contrato de nível de serviço, e não é recomendado para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Este artigo explica como ligar o seu aparelho [Symantec ProxySG](https://www.broadcom.com/products/cyber-security/network/gateway/proxy-sg-and-advanced-secure-gateway) ao Azure Sentinel. O conector de dados Symantec ProxySG permite-lhe ligar facilmente os seus registos Symantec ProxySG com o Azure Sentinel, para ver dashboards, criar alertas personalizados e melhorar a investigação. A integração entre a Symantec ProxySG e a Azure Sentinel faz uso do Syslog.
 
@@ -48,7 +48,7 @@ Após a criação de uma ligação bem sucedida, os dados aparecem no Log Analyt
 
 ## <a name="validate-connectivity"></a>Validar conectividade
 
-Pode demorar mais de 20 minutos até que os seus registos comecem a aparecer no Log Analytics. 
+Pode demorar até que os seus registos comecem a aparecer no Log Analytics. 
 
 ## <a name="next-steps"></a>Passos seguintes
 

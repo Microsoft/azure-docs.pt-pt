@@ -3,18 +3,18 @@ title: 'ML Studio (clássico): Redes neurais personalizadas Net # - Azure'
 description: Guia de sintaxe para o idioma de especificação de redes neurais Net#. Aprenda a criar modelos de rede neural personalizados no Azure Machine Learning Studio (clássico).
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2018
-ms.openlocfilehash: a36eb21f681aec1cfc52a000b60bdbc30cab0633
-ms.sourcegitcommit: ab94795f9b8443eef47abae5bc6848bb9d8d8d01
+ms.openlocfilehash: 5137b633f66088efbee41b96ba715eb3b18961dc
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/27/2020
-ms.locfileid: "96302797"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100519257"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-machine-learning-studio-classic"></a>Guia para net# linguagem de especificação de rede neural para Machine Learning Studio (clássico)
 
@@ -214,7 +214,7 @@ Existem dois conjuntos de propriedades que controlam o acolchoamento, sendo as p
 
     Se o valor para uma dimensão for Falso, os núcleos são definidos de modo a que o número de nós de cada lado que são deixados de fora seja o mesmo (até uma diferença de 1). O valor predefinido deste atributo é um tuple com todos os componentes iguais ao Falso.
 
-+ **UpperPad** e **LowerPad**: (opcional) Forneça um maior controlo sobre a quantidade de estofos a utilizar. **Importante:** Estes atributos podem ser definidos se e somente se a propriedade **de enchimento** acima não for **_not_*definida. Os valores devem ser tuples de valor inteiro com comprimentos que são a aridade do feixe. Quando estes atributos são especificados, os nós "manequim" são adicionados às extremidades inferior e superior de cada dimensão da camada de entrada. O número de nós adicionados às extremidades inferior e superior de cada dimensão é determinado por _* LowerPad**[i] e **UpperPad**[i] respectivamente.
++ **UpperPad** e **LowerPad**: (opcional) Forneça um maior controlo sobre a quantidade de estofos a utilizar. **Importante:** Estes atributos podem ser definidos se e somente se a propriedade **de enchimento** acima não for ***definida. Os valores devem ser tuples de valor inteiro com comprimentos que são a aridade do feixe. Quando estes atributos são especificados, os nós "manequim" são adicionados às extremidades inferior e superior de cada dimensão da camada de entrada. O número de nós adicionados às extremidades inferior e superior de cada dimensão é determinado por _* LowerPad**[i] e **UpperPad**[i] respectivamente.
 
     Para garantir que os miolos correspondem apenas aos nóns "reais" e não aos nóns "manequim", devem ser satisfeitas as seguintes condições:
   - Cada componente do **LowerPad** deve ser estritamente inferior `KernelShape[d]/2` .
@@ -266,9 +266,9 @@ A normalização da resposta é utilizada para ajudar a generalização nas rede
 
 Os pacotes de normalização de resposta suportam todos os atributos convolucionais, exceto **partilha,** **MapCount** e **Pesos.**
 
-+ Se o núcleo contiver neurónios no mesmo mapa **_que x_*_, o esquema de normalização é referido como _* mesma normalização do mapa**. Para definir a mesma normalização do mapa, a primeira coordenada no **InputShape** deve ter o valor 1.
++ Se o núcleo contiver neurónios no mesmo mapa que ***x _**, o esquema de normalização é referido como _*mesma normalização do mapa**. Para definir a mesma normalização do mapa, a primeira coordenada no **InputShape** deve ter o valor 1.
 
-+ Se o núcleo contiver neurónios na mesma posição espacial que **_x_*_, mas os neurónios estão em outros mapas, o esquema de normalização é chamado de _* através da normalização dos mapas**. Este tipo de normalização de resposta implementa uma forma de inibição lateral inspirada no tipo encontrado em neurónios reais, criando competição para grandes níveis de ativação entre as saídas de neurónios computadas em diferentes mapas. Para definir entre mapas a normalização, a primeira coordenada deve ser um número inteiro maior do que um e não maior do que o número de mapas, e o resto das coordenadas deve ter o valor 1.
++ Se o núcleo contém neurónios na mesma posição espacial que ***x _,** mas os neurónios estão em outros mapas, o esquema de normalização é chamado _*através dos mapas normalização**. Este tipo de normalização de resposta implementa uma forma de inibição lateral inspirada no tipo encontrado em neurónios reais, criando competição para grandes níveis de ativação entre as saídas de neurónios computadas em diferentes mapas. Para definir entre mapas a normalização, a primeira coordenada deve ser um número inteiro maior do que um e não maior do que o número de mapas, e o resto das coordenadas deve ter o valor 1.
 
 Como os pacotes de normalização de resposta aplicam uma função predefinida aos valores do nó de origem para determinar o valor do nó de destino, não têm estado treinável (pesos ou enviesamentos).
 

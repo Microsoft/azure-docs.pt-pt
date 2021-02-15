@@ -1,14 +1,14 @@
 ---
-title: Pontos finais de serviço de Rede Virtual - Azure Event Hubs Microsoft Docs
+title: Pontos finais do serviço de rede virtual - Azure Event Hubs | Microsoft Docs
 description: Este artigo fornece informações sobre como adicionar um ponto final de serviço Microsoft.EventHub a uma rede virtual.
 ms.topic: article
-ms.date: 07/29/2020
-ms.openlocfilehash: 029338e3835d03b1a66ff6629e872c84113b0ff2
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.date: 02/12/2021
+ms.openlocfilehash: f725c4f4d94cbf7d0463ce49c1d2809444ef6f7a
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96015588"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100516689"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-from-specific-virtual-networks"></a>Permitir o acesso aos espaços de nome do Azure Event Hubs a partir de redes virtuais específicas 
 
@@ -46,8 +46,8 @@ Esta secção mostra-lhe como usar o portal Azure para adicionar um ponto final 
 1. Navegue para o seu **espaço de nomes de Centros de Eventos** no [portal Azure.](https://portal.azure.com)
 4. Selecione **rede em** **Definições** no menu esquerdo. Você vê o **separador Networking** apenas para espaços de nome **padrão** ou **dedicados.** 
 
-    > [!NOTE]
-    > Por predefinição, a opção **de redes Selecionada** é selecionada como mostrado na imagem seguinte. Se não especificar uma regra de firewall IP ou adicionar uma rede virtual nesta página, o espaço de nome pode ser acedido através da **internet pública** (utilizando a chave de acesso). 
+    > [!WARNING]
+    > Se selecionar a opção **redes selecionadas** e não adicionar pelo menos uma regra de firewall IP ou uma rede virtual nesta página, o espaço de nome pode ser acedido através da **internet pública** (utilizando a chave de acesso). 
 
     :::image type="content" source="./media/event-hubs-firewall/selected-networks.png" alt-text="Separador de redes - opção de redes selecionada" lightbox="./media/event-hubs-firewall/selected-networks.png":::    
 
@@ -79,28 +79,12 @@ Esta secção mostra-lhe como usar o portal Azure para adicionar um ponto final 
 [!INCLUDE [event-hubs-trusted-services](../../includes/event-hubs-trusted-services.md)]
 
 ## <a name="use-resource-manager-template"></a>Utilizar o modelo do Resource Manager
+O modelo seguinte do Gestor de Recursos de amostra adiciona uma regra de rede virtual a um espaço de nomes de Centros de Eventos existente. Para a regra da rede, especifica o ID de uma sub-rede numa rede virtual. 
 
-O modelo seguinte do Gestor de Recursos permite adicionar uma regra de rede virtual a um espaço de nomes de Centros de Eventos existente.
+O ID é um caminho totalmente qualificado de Gestor de Recursos para a sub-rede de rede virtual. Por exemplo, `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` para a sub-rede predefinida de uma rede virtual.
 
-Parâmetros do modelo:
+Ao adicionar regras de rede virtual ou firewalls, desa um valor de `defaultAction` `Deny` .
 
-* `namespaceName`: Espaço de nomes do Event Hubs.
-* `vnetRuleName`: Nome da regra da Rede Virtual a criar.
-* `virtualNetworkingSubnetId`: Caminho de Gestor de Recursos totalmente qualificado para a sub-rede de rede virtual; por exemplo, `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` para a sub-rede predefinida de uma rede virtual.
-
-> [!NOTE]
-> Embora não existam regras de negação possíveis, o modelo de Gestor de Recursos Azure tem a ação padrão definida para **"Permitir"** que não restringe as ligações.
-> Ao fazer as regras de Rede Virtual ou Firewalls, temos de alterar o **_"defaultAction"_**
-> 
-> De
-> ```json
-> "defaultAction": "Allow"
-> ```
-> para
-> ```json
-> "defaultAction": "Deny"
-> ```
->
 
 ```json
 {
@@ -202,6 +186,9 @@ Parâmetros do modelo:
 ```
 
 Para implementar o modelo, siga as instruções para [O Gestor de Recursos Azure][lnk-deploy].
+
+> [!IMPORTANT]
+> Se não houver regras de IP e rede virtual, todo o tráfego flui para o espaço de nomes, mesmo que você desempate o `defaultAction` `deny` .  O espaço de nomes pode ser acedido através da internet pública (utilizando a chave de acesso). Especifique pelo menos uma regra de IP ou rede virtual para o espaço de nomes para permitir o tráfego apenas a partir dos endereços IP especificados ou sub-rede de uma rede virtual.  
 
 ## <a name="next-steps"></a>Passos seguintes
 

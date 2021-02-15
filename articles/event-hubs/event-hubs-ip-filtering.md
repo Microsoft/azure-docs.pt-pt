@@ -1,14 +1,14 @@
 ---
-title: Regras de Firewall do Azure Event Hubs Firewall Microsoft Docs
+title: Azure Event Hubs Firewall Rules | Microsoft Docs
 description: Utilize regras de firewall para permitir ligações de endereços IP específicos para Azure Event Hubs.
 ms.topic: article
-ms.date: 07/16/2020
-ms.openlocfilehash: e07f863bf8b7d5f64ec0ba04bf16fba12f4a785d
-ms.sourcegitcommit: 0dcafc8436a0fe3ba12cb82384d6b69c9a6b9536
+ms.date: 02/12/2021
+ms.openlocfilehash: 18d043ebff7ff317207d0a33eaeba741fea8cc8a
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94427450"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100517200"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-from-specific-ip-addresses-or-ranges"></a>Permitir o acesso aos espaços de nomes do Azure Event Hubs a partir de endereços ou intervalos IP específicos
 Por predefinição, os espaços de nomes do Event Hubs estão acessíveis a partir da Internet desde que o pedido venha com autenticação e autorização válidas. Com a firewall IP, pode restringi-lo ainda mais a um conjunto de endereços IPv4 ou intervalos de endereços IPv4 na notação [CIDR (Classless Inter-Domain Encaminhamento).](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing)
@@ -26,8 +26,9 @@ Esta secção mostra-lhe como usar o portal Azure para criar regras de firewall 
 
 1. Navegue para o seu **espaço de nomes de Centros de Eventos** no [portal Azure.](https://portal.azure.com)
 4. Selecione **rede em** **Definições** no menu esquerdo. Você vê o **separador Networking** apenas para espaços de nome **padrão** ou **dedicados.** 
-    > [!NOTE]
-    > Por predefinição, a opção **de redes Selecionada** é selecionada como mostrado na imagem seguinte. Se não especificar uma regra de firewall IP ou adicionar uma rede virtual nesta página, o espaço de nome pode ser acedido através da **internet pública** (utilizando a chave de acesso).  
+    
+    > [!WARNING]
+    > Se selecionar a opção **redes selecionadas** e não adicionar pelo menos uma regra de firewall IP ou uma rede virtual nesta página, o espaço de nome pode ser acedido através da **internet pública** (utilizando a chave de acesso).  
 
     :::image type="content" source="./media/event-hubs-firewall/selected-networks.png" alt-text="Separador de redes - opção de redes selecionada" lightbox="./media/event-hubs-firewall/selected-networks.png":::    
 
@@ -36,7 +37,7 @@ Esta secção mostra-lhe como usar o portal Azure para criar regras de firewall 
     ![Screenshot que mostra a página "Firewall e redes virtuais" com a opção "Todas as redes" selecionada.](./media/event-hubs-firewall/firewall-all-networks-selected.png)
 1. Para restringir o acesso a endereços IP específicos, confirme que a opção **de redes Selecionadas** está selecionada. Na secção **Firewall,** siga estes passos:
     1. Selecione Adicionar a opção **de endereço IP** do seu cliente para dar ao seu cliente atual IP o acesso ao espaço de nome. 
-    2. Para **o intervalo de endereços** , insira um endereço IPv4 específico ou um intervalo de endereço IPv4 na notação CIDR. 
+    2. Para **o intervalo de endereços**, insira um endereço IPv4 específico ou um intervalo de endereço IPv4 na notação CIDR. 
 3. Especificar se pretende **permitir que serviços de confiança da Microsoft contornem esta firewall.** Consulte [os serviços da Microsoft fidedignos](#trusted-microsoft-services) para obter mais detalhes. 
 
       ![Firewall - Todas as opções de redes selecionadas](./media/event-hubs-firewall/firewall-selected-networks-trusted-access-disabled.png)
@@ -55,23 +56,9 @@ Esta secção mostra-lhe como usar o portal Azure para criar regras de firewall 
 
 O modelo seguinte do Gestor de Recursos permite adicionar uma regra de filtro IP a um espaço de nomes de Centros de Eventos existente.
 
-Parâmetros do modelo:
+**ipMask** no modelo é um único endereço IPv4 ou um bloco de endereços IP na notação CIDR. Por exemplo, na notação CIDR 70.37.104.0/24 representa os 256 endereços IPv4 de 70.37.104.0 a 70.37.104.255, com 24 indicando o número de bits prefixos significativos para a gama.
 
-- **ipMask** é um único endereço IPv4 ou um bloco de endereços IP na notação CIDR. Por exemplo, na notação CIDR 70.37.104.0/24 representa os 256 endereços IPv4 de 70.37.104.0 a 70.37.104.255, com 24 indicando o número de bits prefixos significativos para a gama.
-
-> [!NOTE]
-> Embora não existam regras de negação possíveis, o modelo de Gestor de Recursos Azure tem a ação padrão definida para **"Permitir"** que não restringe as ligações.
-> Ao fazer as regras de Rede Virtual ou Firewalls, temos de alterar o **_"defaultAction"_**
-> 
-> De
-> ```json
-> "defaultAction": "Allow"
-> ```
-> para
-> ```json
-> "defaultAction": "Deny"
-> ```
->
+Ao adicionar regras de rede virtual ou firewalls, desa um valor de `defaultAction` `Deny` .
 
 ```json
 {
@@ -136,6 +123,9 @@ Parâmetros do modelo:
 ```
 
 Para implementar o modelo, siga as instruções para [O Gestor de Recursos Azure][lnk-deploy].
+
+> [!IMPORTANT]
+> Se não houver regras de IP e rede virtual, todo o tráfego flui para o espaço de nomes, mesmo que você desempate o `defaultAction` `deny` .  O espaço de nomes pode ser acedido através da internet pública (utilizando a chave de acesso). Especifique pelo menos uma regra de IP ou rede virtual para o espaço de nomes para permitir o tráfego apenas a partir dos endereços IP especificados ou sub-rede de uma rede virtual.  
 
 ## <a name="next-steps"></a>Passos seguintes
 

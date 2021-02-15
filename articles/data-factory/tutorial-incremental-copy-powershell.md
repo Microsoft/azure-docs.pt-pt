@@ -1,22 +1,18 @@
 ---
 title: Copie incrementalmente uma tabela usando PowerShell
 description: Neste tutorial, você cria um pipeline Azure Data Factory que copia gradualmente dados de uma base de dados Azure SQL para armazenamento Azure Blob.
-services: data-factory
 author: dearandyxu
 ms.author: yexu
-manager: anandsub
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-dt-2019
 ms.date: 01/22/2018
-ms.openlocfilehash: 50608870fa397ad5586c626f1d1fe5c9d893b4ca
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: a3346f3f126b880a5a2983f9dd35aa84f6389a31
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222824"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100367729"
 ---
 # <a name="incrementally-load-data-from-azure-sql-database-to-azure-blob-storage-using-powershell"></a>Carregue gradualmente os dados da Base de Dados Azure SQL para o armazenamento de Azure Blob utilizando o PowerShell
 
@@ -35,7 +31,7 @@ Vai executar os seguintes passos neste tutorial:
 > * Executar o pipeline.
 > * Monitorizar a execução do pipeline.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 Eis o diagrama de nível elevado da solução:
 
 ![Carregar dados de forma incremental](media/tutorial-Incrementally-copy-powershell/incrementally-load.png)

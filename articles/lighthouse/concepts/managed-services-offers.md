@@ -1,14 +1,14 @@
 ---
 title: Ofertas de Serviço Gerido no Azure Marketplace
 description: As ofertas de Serviço Gerido permitem-lhe vender ofertas de gestão de recursos a clientes no Azure Marketplace.
-ms.date: 07/28/2020
+ms.date: 02/10/2021
 ms.topic: conceptual
-ms.openlocfilehash: 6c3047cd95128f689e75d9c1f5fba5a39f86291c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7f3a12f34b4cedcb12ad2786fcb687044c30c211
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88163327"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100375549"
 ---
 # <a name="managed-service-offers-in-azure-marketplace"></a>Ofertas de Serviço Gerido no Azure Marketplace
 
@@ -18,7 +18,7 @@ Este artigo descreve o tipo de oferta **de serviço gerido** no [Azure Marketpla
 
 O Managed Service oferece agilização do processo de embarque de clientes para o Farol de Azure. Quando um cliente comprar uma oferta no Azure Marketplace, poderá especificar quais as subscrições e/ou grupos de recursos que devem ser a bordo.
 
-Depois disso, os utilizadores da sua organização poderão trabalhar nesses recursos a partir do seu inquilino gerente através da [gestão de recursos delegados da Azure,](azure-delegated-resource-management.md)de acordo com o acesso que definiu ao criar a oferta. Isto é feito através de um manifesto que especifica os utilizadores, grupos e diretores de serviço Azure Ative Que terão acesso aos recursos dos clientes, juntamente com funções que definem o seu nível de acesso. Ao atribuir permissões a um grupo Azure AD em vez de uma série de contas individuais de utilizador ou aplicação, pode adicionar ou remover utilizadores individuais quando os seus requisitos de acesso mudarem.
+Depois disso, os utilizadores da sua organização poderão trabalhar nesses recursos a partir do seu inquilino gerente através da [gestão de recursos delegados da Azure,](azure-delegated-resource-management.md)de acordo com o acesso que definiu ao criar a oferta. Isto é feito através de um manifesto que especifica os utilizadores, grupos e diretores de serviço Azure Ative Que terão acesso aos recursos dos clientes, juntamente com [funções](tenants-users-roles.md) que definem o seu nível de acesso.
 
 ## <a name="public-and-private-offers"></a>Ofertas públicas e privadas
 

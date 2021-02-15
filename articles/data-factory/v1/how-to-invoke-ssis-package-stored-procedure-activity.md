@@ -1,24 +1,18 @@
 ---
 title: Invocar pacote SSIS usando Azure Data Factory - Atividade do Procedimento Armazenado
 description: Este artigo descreve como invocar um pacote SQL Server Integration Services (SSIS) a partir de um oleoduto Azure Data Factory utilizando a Atividade de Procedimento Armazenado.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: jingwang
-ms.openlocfilehash: c7a99e7e5f27f8c3503c7fa6124d27cfc4e7f4a4
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 6c831fa1c6351840693f2b10a22f59c5cc424d0f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96012838"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100392889"
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Invocar um pacote SSIS utilizando atividade de procedimento armazenado na Azure Data Factory
 Este artigo descreve como invocar um pacote SSIS a partir de um oleoduto Azure Data Factory utilizando uma atividade de procedimento armazenado. 

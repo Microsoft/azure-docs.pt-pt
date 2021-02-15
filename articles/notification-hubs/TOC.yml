@@ -151,6 +151,8 @@
       href: notification-hubs-baidu-china-android-notifications-get-started.md
     - name: Utilizar APNS VOIP através de Hubs de Notificação
       href: voip-apns.md
+    - name: Ativar registos de diagnóstico para centros de notificação
+      href: notification-hubs-diagnostic-logs.md
 - name: Referência
   items:
     - name: .NET

@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 12/18/2020
+ms.date: 02/12/2021
 ms.author: mimart
 author: msmimart
 manager: CelesteDG
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9a0668b3ea651d129dc076e5f2247e38f5ab7d0
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: f37c7e2f21c76fcc902b0922399081b9be949e99
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98725500"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100365536"
 ---
 # <a name="email-one-time-passcode-authentication"></a>E-mail autenticação de senha única
 
@@ -26,7 +26,7 @@ Este artigo descreve como ativar a autenticação de código de acesso único po
 ![E-mail código de visão geral de visão única](media/one-time-passcode/email-otp.png)
 
 > [!IMPORTANT]
-> **A partir de março de 2021,** a funcionalidade de senha de e-mail one-time será ativada para todos os inquilinos existentes e ativada por padrão para novos inquilinos. Se não quiser permitir que esta funcionalidade se ligue automaticamente, pode desativá-la. Consulte [abaixo a senha de acesso de um email desativada.](#disable-email-one-time-passcode)
+> **A partir de outubro de 2021,** a funcionalidade de senha de e-mail one-time será ativada para todos os inquilinos existentes e ativada por padrão para novos inquilinos. Se não quiser permitir que esta funcionalidade se ligue automaticamente, pode desativá-la. Consulte [abaixo a senha de acesso de um email desativada.](#disable-email-one-time-passcode)
 
 > [!NOTE]
 > Os utilizadores de código de acesso único devem inscrever-se através de um link que inclua o contexto do inquilino (por `https://myapps.microsoft.com/?tenantid=<tenant id>` `https://portal.azure.com/<tenant id>` exemplo, ou, no caso de um domínio verificado, `https://myapps.microsoft.com/<verified domain>.onmicrosoft.com` ). As ligações diretas a aplicações e recursos também funcionam desde que incluam o contexto do inquilino. Os utilizadores convidados não conseguem assinar o uso de pontos finais que não têm contexto de inquilino. Por exemplo, a utilização `https://myapps.microsoft.com` de , `https://portal.azure.com` resultará num erro.
@@ -71,7 +71,7 @@ O utilizador convidado teri@gmail.com é convidado para a Fabrikam, que não tem
 
 ## <a name="disable-email-one-time-passcode"></a>Desativar a senha de uma vez por e-mail
 
-A partir de março de 2021, a funcionalidade de senha de e-mail one-time será ativada para todos os inquilinos existentes e ativada por padrão para novos inquilinos. Nessa altura, a Microsoft deixará de apoiar o resgate de convites criando contas de colaboração Azure AD não geridas ("virais" ou "just-in-time") E inquilinos para cenários de colaboração B2B. Estamos a ativar a funcionalidade de código de acesso de e-mail uma vez porque fornece um método de autenticação de recuo sem emenda para os utilizadores convidados. No entanto, tem a opção de desativar esta funcionalidade se optar por não a utilizar.
+A partir de outubro de 2021, a funcionalidade de senha de e-mail será ativada para todos os inquilinos existentes e ativada por padrão para novos inquilinos. Nessa altura, a Microsoft deixará de apoiar o resgate de convites criando contas de colaboração Azure AD não geridas ("virais" ou "just-in-time") E inquilinos para cenários de colaboração B2B. Estamos a ativar a funcionalidade de código de acesso de e-mail uma vez porque fornece um método de autenticação de recuo sem emenda para os utilizadores convidados. No entanto, tem a opção de desativar esta funcionalidade se optar por não a utilizar.
 
 > [!NOTE]
 >
@@ -87,10 +87,8 @@ A partir de março de 2021, a funcionalidade de senha de e-mail one-time será a
 
 4. Sob **o Email, código de acesso único para os hóspedes,** selecione **Desativar a senha de uma vez para os hóspedes**.
 
-    ![Envie por e-mail definições de código de acesso único](media/one-time-passcode/otp-admin-settings.png)
-
    > [!NOTE]
-   > Se vir o seguinte alternar em vez das opções acima apresentadas, isto significa que já ativou, desativou ou optou pela pré-visualização da funcionalidade. Selecione **Não** para desativar a função.
+   > Se vir o seguinte alternar em vez das opções de código de acesso de e-mail, isto significa que já ativou, desativou ou optou pela pré-visualização da funcionalidade. Selecione **Não** para desativar a função.
    >
    >![Ativar a senha de e-mail uma vez optada em](media/delegate-invitations/enable-email-otp-opted-in.png)
 
@@ -98,14 +96,14 @@ A partir de março de 2021, a funcionalidade de senha de e-mail one-time será a
 
 ## <a name="note-for-public-preview-customers"></a>Nota para clientes de pré-visualização pública
 
-Se já optou pela pré-visualização do código de acesso por e-mail, a data de março de 2021 para ativação automática de funcionalidades não se aplica a si, pelo que os seus processos comerciais relacionados não serão afetados. Além disso, no portal Azure, sob a senha de email para propriedades **dos hóspedes,** não verá a opção de ativar automaticamente a **senha de e-mail para os hóspedes em março de 2021.** Em vez disso, verá o seguinte **sim** ou **não:**
+Se já optou pela pré-visualização do código de acesso por e-mail, a data de outubro de 2021 para ativação automática de funcionalidades não se aplica a si, pelo que os seus processos comerciais relacionados não serão afetados. Além disso, no portal Azure, sob a senha de email para propriedades **dos hóspedes,** não verá a opção de ativar automaticamente a **senha de e-mail para os hóspedes em outubro de 2021.** Em vez disso, verá o seguinte **sim** ou **não:**
 
 ![Ativar a senha de e-mail uma vez optada em](media/delegate-invitations/enable-email-otp-opted-in.png)
 
-No entanto, se preferir excluir a funcionalidade e permitir que seja ativada automaticamente em março de 2021, pode reverter para as definições predefinidas utilizando o tipo de recurso de configuração do método de [autenticação de email](/graph/api/resources/emailauthenticationmethodconfiguration)da Microsoft Graph API . Depois de reverter para as definições predefinidas, as seguintes opções estarão disponíveis no **Email one-time passcode para os hóspedes:**
+No entanto, se preferir excluir a funcionalidade e permitir que seja ativada automaticamente em outubro de 2021, pode reverter para as definições predefinidas utilizando o tipo de recurso de configuração do método de [autenticação de email](/graph/api/resources/emailauthenticationmethodconfiguration)da Microsoft Graph API . Depois de reverter para as definições predefinidas, as seguintes opções estarão disponíveis no **Email one-time passcode para os hóspedes:**
 
-- **Ativar automaticamente a senha de e-mail para os hóspedes em março de 2021**. (Predefinição) Se a funcionalidade de código de acesso de e-mail não estiver já ativada para o seu inquilino, será automaticamente ativada em março de 2021. Não é necessária mais nenhuma ação se pretender que a funcionalidade seja ativada nesse momento. Se já tiver ativado ou desativado a funcionalidade, esta opção não estará disponível.
+- **Ativar automaticamente a senha de e-mail para os hóspedes em outubro de 2021**. (Predefinição) Se a funcionalidade de código de acesso de e-mail não estiver já ativada para o seu inquilino, será automaticamente ativada em outubro de 2021. Não é necessária mais nenhuma ação se pretender que a funcionalidade seja ativada nesse momento. Se já tiver ativado ou desativado a funcionalidade, esta opção não estará disponível.
 
 - **Ativar a senha de e-mail para os hóspedes com efeito agora**. Liga o recurso de senha de e-mail para o seu inquilino.
 
-- **Desativar a senha de e-mail uma vez para os hóspedes.** Desliga a funcionalidade de código de acesso de uma vez por e-mail para o seu inquilino e impede que a funcionalidade se apia em março de 2021.
+- **Desativar a senha de e-mail uma vez para os hóspedes.** Desliga a funcionalidade de código de acesso de uma vez por e-mail para o seu inquilino e impede que a funcionalidade se apia em outubro de 2021.

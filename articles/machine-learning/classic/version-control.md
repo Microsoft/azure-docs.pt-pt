@@ -3,21 +3,21 @@ title: 'Estúdio ML (clássico): Gestão do ciclo de vida da aplicação - Azure
 description: Aplicar aplicações Lifecycle Management boas práticas no Azure Machine Learning Studio (clássico)
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: studio
+ms.subservice: studio-classic
 ms.topic: how-to
 author: likebupt
 ms.author: keli19
 ms.date: 10/27/2016
-ms.openlocfilehash: f5c9e27e894541d71986fe929cbc5d6fde31bc18
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 82d6f1fd250621ec34015970e1339ccfbd134675
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93308804"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100518407"
 ---
 # <a name="application-lifecycle-management-in-azure-machine-learning-studio-classic"></a>Gestão de ciclo de vida de aplicação no Azure Machine Learning Studio (clássico)
 
-**APLICA-SE A:** ![ Aplica-se a. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) ![ Não se aplica a. ](../../../includes/media/aml-applies-to-skus/no.png)[ Aprendizagem de Máquinas Azure](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
+**APLICA-SE A:** ![ Aplica-se a. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (clássico) ![ Não se aplica a.](../../../includes/media/aml-applies-to-skus/no.png)[ Aprendizagem de Máquinas Azure](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 
 O Azure Machine Learning Studio (clássico) é uma ferramenta para desenvolver experiências de machine learning que são operacionalizadas na plataforma cloud Azure. É como o Visual Studio IDE e o serviço de nuvem escalável fundido numa única plataforma. Pode incorporar práticas padrão de Gestão de Ciclo de Vida (ALM) desde a versão de vários ativos até à execução e implementação automatizada, no Azure Machine Learning Studio (clássico). Este artigo discute algumas das opções e abordagens.

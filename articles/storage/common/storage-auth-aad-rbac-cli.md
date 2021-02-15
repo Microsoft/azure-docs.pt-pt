@@ -6,17 +6,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/07/2020
+ms.date: 02/10/2021
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9b818b8b46b6ac3af98ff5f25ef69335231744cc
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: c42061520b73966f2cd516716039d78c2b9cbeb8
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96779044"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100375991"
 ---
 # <a name="use-azure-cli-to-assign-an-azure-role-for-access-to-blob-and-queue-data"></a>Use o CLI Azure para atribuir uma função Azure para acesso a dados de bolhas e filas
 
@@ -58,8 +58,10 @@ Storage Queue Data Reader                 Allows for read access to Azure Storag
 
 Para atribuir um papel de Azure a um principal de segurança, use a [atribuição de funções az criar](/cli/azure/role/assignment#az-role-assignment-create) comando. O formato do comando pode diferir com base no âmbito da atribuição. Os exemplos a seguir mostram como atribuir uma função a um utilizador em vários âmbitos, mas pode usar o mesmo comando para atribuir uma função a qualquer diretor de segurança.
 
-> [!NOTE]
-> Quando cria uma conta de Armazenamento Azure, não lhe são atribuídas automaticamente permissões de acesso aos dados através do Azure AD. Deve atribuir-se explicitamente um papel Azure para o Azure Storage. Pode atribuí-lo ao nível da sua subscrição, grupo de recursos, conta de armazenamento ou contentor ou fila.
+> [!IMPORTANT]
+> Quando cria uma conta de Armazenamento Azure, não lhe são atribuídas automaticamente permissões de acesso aos dados através do Azure AD. Deve atribuir-se explicitamente a si mesmo um papel Azure RBAC para o acesso a dados. Pode atribuí-lo ao nível da sua subscrição, grupo de recursos, conta de armazenamento ou contentor ou fila.
+>
+> Se a conta de armazenamento estiver bloqueada com um bloqueio de leitura do Azure Resource Manager, então o bloqueio impede a atribuição de funções Azure RBAC que são procuradas na conta de armazenamento ou num recipiente de dados (recipiente blob ou fila).
 
 ### <a name="container-scope"></a>Âmbito do contentor
 
@@ -144,4 +146,4 @@ az role assignment create \
 
 - [Adicione ou remova atribuições de funções Azure utilizando o módulo Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
 - [Utilize o módulo Azure PowerShell para atribuir uma função Azure para acesso a dados de bolhas e filas](storage-auth-aad-rbac-powershell.md)
-- [Utilize o portal Azure para atribuir uma função Azure para acesso a dados de bolhas e filas](storage-auth-aad-rbac-portal.md)
+- [Utilizar o portal do Azure para atribuir uma função do Azure para aceder a dados de blobs e filas](storage-auth-aad-rbac-portal.md)

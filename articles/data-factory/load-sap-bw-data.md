@@ -1,22 +1,18 @@
 ---
 title: Carregar dados do SAP Business Warehouse
 description: Utilize a Azure Data Factory para copiar dados do SAP Business Warehouse (BW)
-services: data-factory
 author: linda33wj
 ms.author: jingwang
-manager: shwang
-ms.reviewer: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/22/2019
-ms.openlocfilehash: bad9a706c5289966334af26eacbfa41c418b7ab5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3dabb6d5df0a74cc7ae2fb8b381ad9e0dfe04e63
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91360808"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100370704"
 ---
 # <a name="copy-data-from-sap-business-warehouse-by-using-azure-data-factory"></a>Copiar dados do SAP Business Warehouse utilizando a Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -51,7 +47,7 @@ No portal do Azure, aceda à sua fábrica de dados. Selecione **Author & Monitor
 
 1. Na página **'Iniciar's,** selecione **Copy Data** para abrir a ferramenta Dados de Cópia.
 
-2. Na página **Propriedades,** especifique um **nome de Tarefa**e, em seguida, selecione **Seguinte**.
+2. Na página **Propriedades,** especifique um **nome de Tarefa** e, em seguida, selecione **Seguinte**.
 
 3. Na página **'Source data store',** selecione **+Criar nova ligação**. Selecione **SAP BW Open Hub** da galeria do conector e, em seguida, selecione **Continue**. Para filtrar os conectores, pode escrever **SAP** na caixa de pesquisa.
 
@@ -61,11 +57,11 @@ No portal do Azure, aceda à sua fábrica de dados. Selecione **Author & Monitor
 
    1. A partir da lista de **tempo de execução de integração,** selecione um IR auto-hospedado existente. Ou, escolha criar um se ainda não tiver um.
 
-      Para criar um novo IR auto-hospedado, selecione **+New**, e, em seguida, **selecione Self-hosted**. Introduza um **Nome**e, em seguida, selecione **Seguinte**. Selecione **a configuração Express** para instalar no computador atual ou siga os passos **de configuração manual** fornecidos.
+      Para criar um novo IR auto-hospedado, selecione **+New**, e, em seguida, **selecione Self-hosted**. Introduza um **Nome** e, em seguida, selecione **Seguinte**. Selecione **a configuração Express** para instalar no computador atual ou siga os passos **de configuração manual** fornecidos.
 
       Como mencionado em [Pré-requisitos](#prerequisites), certifique-se de que tem o CONECTOR SAP para o Microsoft .NET 3.0 instalado no mesmo computador onde o IR auto-alojado está a funcionar.
 
-   2. Preencha o **nome**do Servidor SAP BW , **Número do sistema,** **ID do cliente, Id** **do cliente** (se não for **EN**), Nome **de utilizador**e **Palavra-passe**.
+   2. Preencha o **nome** do Servidor SAP BW , **Número do sistema,** **ID do cliente, Id** **do cliente** (se não for **EN**), Nome **de utilizador** e **Palavra-passe**.
 
    3. Selecione **a ligação de teste** para validar as definições e, em seguida, selecione **Terminar**.
 
@@ -77,7 +73,7 @@ No portal do Azure, aceda à sua fábrica de dados. Selecione **Author & Monitor
 
 6. Especifique um filtro, se precisar de um. Se o seu OHD apenas contiver dados de uma única execução de processo de transferência de dados (DTP) com um único ID de pedido, ou se tiver a certeza de que o seu DTP está terminado e pretende copiar os dados, limpe a caixa de verificação **'Exclua** o Último Pedido'.
 
-   Saiba mais sobre estas definições na secção de configurações do [Sap BW Open Hub Destination](#sap-bw-open-hub-destination-configurations) deste artigo. **Selecione Validate** para verificar novamente quais os dados que serão devolvidos. e selecione **Seguinte**.
+   Saiba mais sobre estas definições na secção de configurações do [Sap BW Open Hub Destination](#sap-bw-open-hub-destination-configurations) deste artigo. **Selecione Validate** para verificar novamente quais os dados que serão devolvidos. Em seguida, selecione **Seguinte**.
 
    ![Configure o filtro SAP BW Open Hub](media/load-sap-bw-data/configure-sap-bw-open-hub-filter.png)
 
@@ -87,10 +83,10 @@ No portal do Azure, aceda à sua fábrica de dados. Selecione **Author & Monitor
 
    ![Criar uma página de serviço ligada à ADLS Gen2](media/load-sap-bw-data/create-adls-gen2-linked-service.png)
 
-   1. Selecione a sua conta de **Name** armazenamento de dados Gen2 da lista de drop-down name.
-   2. Selecione **Concluir** para criar a ligação. e selecione **Seguinte**.
+   1. Selecione a sua conta de  armazenamento de dados Gen2 da lista de drop-down name.
+   2. Selecione **Concluir** para criar a ligação. Em seguida, selecione **Seguinte**.
 
-9. Na página Escolha o ficheiro de saída ou a página **de pasta,** **introduza o copyfromopenhub** como o nome da pasta de saída. e selecione **Seguinte**.
+9. Na página Escolha o ficheiro de saída ou a página **de pasta,** **introduza o copyfromopenhub** como o nome da pasta de saída. Em seguida, selecione **Seguinte**.
 
    ![Escolha a página da pasta de saída](media/load-sap-bw-data/choose-output-folder.png)
 
@@ -98,11 +94,11 @@ No portal do Azure, aceda à sua fábrica de dados. Selecione **Author & Monitor
 
     ![Especifique a página do formato do lavatório](media/load-sap-bw-data/specify-sink-format.png)
 
-11. Na página **Definições,** expanda as **definições de desempenho**. Introduza um valor para **o paralelismo de cópia,** como 5 para carregar a partir de SAP BW em paralelo. e selecione **Seguinte**.
+11. Na página **Definições,** expanda as **definições de desempenho**. Introduza um valor para **o paralelismo de cópia,** como 5 para carregar a partir de SAP BW em paralelo. Em seguida, selecione **Seguinte**.
 
     ![Configurar definições de cópias](media/load-sap-bw-data/configure-copy-settings.png)
 
-12. Na página **Resumo,** reveja as definições. e selecione **Seguinte**.
+12. Na página **Resumo,** reveja as definições. Em seguida, selecione **Seguinte**.
 
 13. Na página **'Implantação',** selecione **Monitor** para monitorizar o gasoduto.
 
@@ -149,7 +145,7 @@ Na fábrica **de** dados Vamos começar a página, selecione **Criar o pipeline 
 
    ![Cópia incremental do modelo SAP BW](media/load-sap-bw-data/incremental-copy-from-sap-bw-template.png)
 
-3. Este modelo gera um pipeline com as seguintes três atividades e torna-as acorrentadas no sucesso: *Lookup,* *Copy Data*e *Web*.
+3. Este modelo gera um pipeline com as seguintes três atividades e torna-as acorrentadas no sucesso: *Lookup,* *Copy Data* e *Web*.
 
    Vá ao separador **parâmetros** do gasoduto. Vê todas as configurações que precisa de fornecer.
 

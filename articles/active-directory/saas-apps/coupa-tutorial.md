@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/14/2021
+ms.date: 02/05/2021
 ms.author: jeedes
-ms.openlocfilehash: c6932292b86924cfab6d17c315cbd6946bd63f61
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 0be2e2f6ce22525cb4c3a7e0656ce9ce75fb7f77
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98621333"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100363545"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-coupa"></a>Tutorial: Integração do Diretório Ativo Azure com Coupa
 
@@ -28,10 +28,10 @@ Neste tutorial, você vai aprender a integrar Coupa com Azure Ative Directory (A
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para configurar a integração AZure AD com Coupa, precisa dos seguintes itens:
+Para começar, precisa dos seguintes itens:
 
-* Uma assinatura AD Azure. Se não tiver um ambiente AD Azure, pode ter um mês de julgamento [aqui.](https://azure.microsoft.com/pricing/free-trial/)
-* Coupa assinatura única ativada.
+* Uma assinatura AD Azure. Se não tiver uma subscrição, pode obter uma [conta gratuita.](https://azure.microsoft.com/free/)
+* Coupa assinatura única ativada (SSO).
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
@@ -63,7 +63,7 @@ Para configurar e testar a Azure AD SSO com Coupa, execute os seguintes passos:
     1. **[Create Coupa test user](#create-coupa-test-user)** - para ter uma contraparte de B.Simon inCoupa que está ligada à representação AD AD do utilizador.
 1. **[Teste SSO](#test-sso)** - para verificar se a configuração funciona.
 
-### <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
+## <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
 Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
@@ -128,17 +128,17 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 1. Se estiver à espera que uma função seja atribuída aos utilizadores, pode selecioná-la a partir do Dropdown de **função** Select. Se não tiver sido configurada qualquer função para esta aplicação, vê a função "Acesso Predefinido" selecionada.
 1. No diálogo **'Adicionar Atribuição',** clique no botão **'Atribuir'.**
 
-### <a name="configure-coupa-sso"></a>Configure Coupa SSO
+## <a name="configure-coupa-sso"></a>Configure Coupa SSO
 
 1. Inscreva-se no site da sua empresa Coupa como administrador.
 
 2. Vá para **o Controlo de Segurança \> de Configuração**.
 
-    ![Controlos de Segurança](./media/coupa-tutorial/ic791900.png "Controlos de Segurança")
+    ![Controlos de Segurança](./media/coupa-tutorial/setup.png "Controlos de Segurança")
 
 3. Na secção **'Iniciar sessão' utilizando a secção de credenciais Coupa,** execute os seguintes passos:
 
-    ![Metadados Coupa SP](./media/coupa-tutorial/ic791901.png "Metadados Coupa SP")
+    ![Metadados Coupa SP](./media/coupa-tutorial/login.png "Metadados Coupa SP")
 
     a. Selecione **Iniciar sessão utilizando o SAML**.
 
@@ -158,15 +158,15 @@ Para permitir que os utilizadores da Azure AD acedam a Coupa, devem ser a provis
 
 2. No menu em cima, clique em **Configuração** e, em seguida, clique em **Utilizadores**.
 
-    ![Utilizadores](./media/coupa-tutorial/ic791908.png "Utilizadores")
+    ![Utilizadores](./media/coupa-tutorial/user.png "Utilizadores")
 
 3. Clique em **Criar**.
 
-    ![Create Users](./media/coupa-tutorial/ic791909.png "Criar Utilizadores") (Criar Utilizadores)
+    ![Create Users](./media/coupa-tutorial/create.png "Criar Utilizadores") (Criar Utilizadores)
 
 4. Na secção Criação de **Utilizador,** execute os seguintes passos:
 
-    ![Detalhes do utilizador](./media/coupa-tutorial/ic791910.png "Detalhes do utilizador")
+    ![Detalhes do utilizador](./media/coupa-tutorial/details.png "Detalhes do utilizador")
 
     a. Digite o **Login**, **Nome Próprio**, **Apelido**, **ID Sign-On único,** **E-mail** atributos de uma conta de Diretório Ativo Azure válida que pretende apresentar nas caixas de texto relacionadas.
 
@@ -179,7 +179,7 @@ Para permitir que os utilizadores da Azure AD acedam a Coupa, devem ser a provis
 >[!NOTE]
 >Pode utilizar quaisquer outras ferramentas de criação de conta de utilizador Coupa ou APIs fornecidas pela Coupa para fornecer contas de utilizador Azure AD.
 
-### <a name="test-sso"></a>Teste SSO
+## <a name="test-sso"></a>Teste SSO
 
 Nesta secção, testa a configuração de um único sinal de inscrição Azure AD com as seguintes opções. 
 

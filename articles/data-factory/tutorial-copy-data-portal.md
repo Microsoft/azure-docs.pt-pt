@@ -1,23 +1,18 @@
 ---
 title: Utilize o portal Azure para criar um oleoduto de fábrica de dados
 description: Este tutorial disponibiliza instruções passo-a-passo para utilizar o portal do Azure para criar uma fábrica de dados com um pipeline. O pipeline utiliza a atividade de cópia para copiar dados do armazenamento Azure Blob para a Base de Dados Azure SQL.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 12/14/2020
 ms.author: jingwang
-ms.openlocfilehash: 34eb34a86948a2b4c043d5d9b58b50958855e449
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: ca3250fb54440d6b68a808a3b1b3800bdcfd14eb
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97508719"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100375770"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-database-in-azure-sql-database-by-using-azure-data-factory"></a>Copie os dados do armazenamento do Azure Blob para uma base de dados na Base de Dados Azure SQL utilizando a Azure Data Factory
 

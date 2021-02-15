@@ -1,20 +1,17 @@
 ---
 title: Visão geral do conector da Azure Data Factory
 description: Aprenda os conectores suportados na Fábrica de Dados.
-services: data-factory
 author: linda33wj
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/28/2020
 ms.author: jingwang
-ms.reviewer: craigg
-ms.openlocfilehash: 9b346c24b6a363e66e56f6c16b70058df3864c88
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 9dff36704fc0e3163da0439d55452fa82cb40e55
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945838"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100381312"
 ---
 # <a name="azure-data-factory-connector-overview"></a>Visão geral do conector da Azure Data Factory
 
@@ -52,7 +49,7 @@ A Azure Data Factory suporta os seguintes formatos de ficheiros. Consulte cada a
 - [Formato Parquet](format-parquet.md)
 - [Formato XML](format-xml.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Atividade Copiar](copy-activity-overview.md)
 - [Fluxo de Dados de Mapeamento](concepts-data-flow-overview.md)

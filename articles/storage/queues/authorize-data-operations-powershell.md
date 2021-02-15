@@ -6,16 +6,16 @@ author: tamram
 services: storage
 ms.author: tamram
 ms.reviewer: ozgun
-ms.date: 09/14/2020
+ms.date: 02/10/2021
 ms.topic: how-to
 ms.service: storage
 ms.subservice: queues
-ms.openlocfilehash: bf2696d329f852741c42219219600dc773090623
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 61bcf7abca2860078bd89da070309a0057360f0c
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97590720"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100370228"
 ---
 # <a name="run-powershell-commands-with-azure-ad-credentials-to-access-queue-data"></a>Executar comandos PowerShell com credenciais AD AZure para aceder a dados de fila
 
@@ -28,6 +28,9 @@ Pode atribuir permissões para os dados de fila a um diretor de segurança Azure
 As extensões de Armazenamento Azure são suportadas para operações em dados de fila. Quais as operações que pode ligar dependem das permissões concedidas ao diretor de segurança da AD Azure com a qual se inscreve na PowerShell. As permissões às filas são atribuídas através do Azure RBAC. Por exemplo, se lhe foi atribuído o papel de **Leitor de Dados** de Fila, então pode executar comandos de script que lêem dados a partir de uma fila. Se lhe foi atribuída a **função de Contribuinte de Dados de Fila,** então pode executar comandos de script que leiam, escrevam ou apaguem uma fila ou os dados que contêm.
 
 Para obter mais informações sobre as permissões necessárias para cada operação de Armazenamento Azure em uma fila, consulte [as operações de armazenamento de chamadas com fichas OAuth](/rest/api/storageservices/authorize-with-azure-active-directory#call-storage-operations-with-oauth-tokens).
+
+> [!IMPORTANT]
+> Quando uma conta de armazenamento é bloqueada com um bloqueio **de leitura do** Gestor de Recursos Azure, a operação ['Lista Chaves'](/rest/api/storagerp/storageaccounts/listkeys) não é permitida para essa conta de armazenamento. **List Keys** é uma operação POST, e todas as operações POST são impedidas quando um bloqueio **ReadOnly** é configurado para a conta. Por esta razão, quando a conta está bloqueada com um bloqueio **ReadOnly,** os utilizadores que ainda não possuam as chaves da conta devem utilizar credenciais AZure AD para aceder aos dados da fila. No PowerShell, inclua o `-UseConnectedAccount` parâmetro para criar um objeto **AzureStorageContext** com as suas credenciais AZure AD.
 
 ## <a name="call-powershell-commands-using-azure-ad-credentials"></a>Ligue para comandos PowerShell usando credenciais Azure AD
 

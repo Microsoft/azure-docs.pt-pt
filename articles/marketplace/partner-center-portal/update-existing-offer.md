@@ -8,12 +8,12 @@ author: trkeya
 ms.author: trkeya
 ms.date: 10/27/2020
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 26ceee828bae7ea3fe2d78ec1393f308556b8401
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: c28ab557f6aac94fa9acde78c7433b850ecba0be
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033362"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100097263"
 ---
 # <a name="update-existing-offers-in-the-commercial-marketplace"></a>Atualizar as ofertas existentes no mercado comercial
 
@@ -31,6 +31,10 @@ Use estes passos para atualizar uma oferta que foi publicada com sucesso para vi
     - **Alterações não publicadas**: A secção foi atualizada e está completa. Todos os dados necessários foram fornecidos e não foram introduzidos erros nas atualizações.
     - **Incompleto**: As atualizações efetuadas à secção introduziram erros que precisam de ser corrigidos ou exigem mais informações.
 2. Selecione **Publicar** para submeter a oferta atualizada para publicação. A sua oferta passará então pelas etapas de [validação e publicação](../review-publish-offer.md#validation-and-publishing-steps)padrão.
+
+## <a name="changing-offer-type"></a>Alterar tipo de oferta
+
+[!INCLUDE [change-offer-type](../includes/change-offer-type.md)]
 
 > [!IMPORTANT]
 > Tem de rever a pré-visualização da sua oferta assim que estiver disponível e selecione **Go-live** para publicar a sua oferta atualizada para o seu público pretendido (público ou privado).

@@ -11,12 +11,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 07/16/2020
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1
-ms.openlocfilehash: 02045c7ba2373c57213cc7fffb71a5e6bb5979e6
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 9a937336e1628add54ab5f52cdd6ef475d463f7d
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99538005"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100515993"
 ---
 # <a name="secure-an-azure-machine-learning-training-environment-with-virtual-networks"></a>Garantir um ambiente de formação Azure Machine Learning com redes virtuais
 
@@ -26,7 +26,7 @@ Este artigo é parte três de uma série de cinco partes que o acompanha atravé
 
 Veja os outros artigos desta série:
 
-[1. Visão geral do VNet](how-to-network-security-overview.md)  >  [Fixe o espaço de trabalho](how-to-secure-workspace-vnet.md)  >  **3. Proteja o ambiente de treino**  >  [4. Fixe o ambiente de inferencção](how-to-secure-inferencing-vnet.md)   >  [5. Ativar a funcionalidade do estúdio](how-to-enable-studio-virtual-network.md)
+[1. Visão geral da VNet](how-to-network-security-overview.md)  >  [2. Proteja o espaço de trabalho](how-to-secure-workspace-vnet.md)  >  **3. Proteja o ambiente de treino**  >  [4. Fixe o ambiente de inferencção](how-to-secure-inferencing-vnet.md)   >  [5. Ativar a funcionalidade do estúdio](how-to-enable-studio-virtual-network.md)
 
 Neste artigo aprende-se a garantir os seguintes recursos de computação de formação numa rede virtual:
 > [!div class="checklist"]
@@ -273,7 +273,7 @@ Para utilizar a Azure Databricks numa rede virtual com o seu espaço de trabalho
 > * Se a conta de armazenamento Azure para o espaço de trabalho também estiver protegida numa rede virtual, devem estar na mesma rede virtual que o cluster Azure Databricks.
 > * Além das __sub-redes databricks-private__ e __databricks-public__ utilizadas pela Azure Databricks, a sub-rede __padrão__ criada para a rede virtual também é necessária.
 
-Para obter informações específicas sobre a utilização de databricks Azure com uma rede virtual, consulte [Implementar databricks no seu Azure Virtual Network](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html).
+Para obter informações específicas sobre a utilização de databricks Azure com uma rede virtual, consulte [Implementar databricks no seu Azure Virtual Network](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject).
 
 <a id="vmorhdi"></a>
 

@@ -9,18 +9,19 @@ ms.topic: conceptual
 author: FrancescaLazzeri
 ms.author: lazzeri
 ms.date: 03/05/2020
-ms.openlocfilehash: b824604ce9d0171b5612ab559eace4b35fd01eb8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+adobe-target: true
+ms.openlocfilehash: 730fcf3fb552b92a02b255ad654f64d5ff7a92fa
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82890968"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100367061"
 ---
 # <a name="machine-learning-algorithm-cheat-sheet-for-azure-machine-learning-designer"></a>Folha de batota de algoritmo de aprendizagem de máquina para designer de aprendizagem de máquinas Azure
 
 A Folha de Batota do **Algoritmo de Aprendizagem de Máquinas Azure** ajuda-o a escolher o algoritmo certo do designer para um modelo de análise preditiva.
 
-A Azure Machine Learning tem uma grande biblioteca de algoritmos da ***classificação,*** ***sistemas recomendadores,*** ***clustering,*** ***deteção de*** ***anomalias, regressão***e famílias ***de análise de texto.*** Cada um deles é projetado para resolver um tipo diferente de problema de aprendizagem automática.
+A Azure Machine Learning tem uma grande biblioteca de algoritmos da **classificação*** _, _*_sistemas recomendadores,_*_ _*_clustering,_*_ _*_deteção de_*_ _*_anomalias, regressão_*_ e _ *_análise de texto_** famílias. Cada um deles é projetado para resolver um tipo diferente de problema de aprendizagem automática.
 
 Para obter orientação adicional, consulte [Como selecionar algoritmos](how-to-select-algorithms.md)
 
@@ -42,7 +43,7 @@ Para saber mais sobre os algoritmos no designer de Aprendizagem automática Azur
 
 ## <a name="kinds-of-machine-learning"></a>Tipos de aprendizagem automática
 
-Existem três categorias principais de aprendizagem automática: *aprendizagem supervisionada,* *aprendizagem sem supervisão*e *aprendizagem de reforço.*
+Existem três categorias principais de aprendizagem automática: *aprendizagem supervisionada,* *aprendizagem sem supervisão* e *aprendizagem de reforço.*
 
 ### <a name="supervised-learning"></a>Aprendizagem supervisionada
 

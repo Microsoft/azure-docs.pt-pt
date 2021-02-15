@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 02/04/2021
+ms.date: 02/09/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: f802758c20e06a8e7201c08087b990c4924e434b
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: 6dd60d30daa80b8d7b522c0695ada782e4bdb38b
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99555289"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100105878"
 ---
 ## <a name="cmmc-level-3"></a>CMMC Nível 3
 
@@ -23,6 +23,6 @@ Para obter mais informações sobre esta norma de conformidade, consulte [a Cert
 |Controlo de Acesso |AC.1.002 |Limitar o acesso do sistema de informação aos tipos de transações e funções que os utilizadores autorizados estão autorizados a executar. |[O CORS não deve permitir que todos os domínios acedam à sua API para FHIR](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0fea8f8a-4169-495d-8307-30ec335f387d) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/API%20for%20FHIR/HealthcareAPIs_RestrictCORSAccess_Audit.json) |
 |Controlo de Acesso |AC.2.016 |Controlar o fluxo de CUI de acordo com as autorizações aprovadas. |[O CORS não deve permitir que todos os domínios acedam à sua API para FHIR](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0fea8f8a-4169-495d-8307-30ec335f387d) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/API%20for%20FHIR/HealthcareAPIs_RestrictCORSAccess_Audit.json) |
 |Gestão da Configuração |CM.3.068 |Restringir, desativar ou impedir o uso de programas não essenciais, funções, portas, protocolos e serviços. |[O CORS não deve permitir que todos os domínios acedam à sua API para FHIR](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0fea8f8a-4169-495d-8307-30ec335f387d) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/API%20for%20FHIR/HealthcareAPIs_RestrictCORSAccess_Audit.json) |
-|Proteção de Sistemas e Comunicações |SC.3.177 |Empregue criptografia validada pelo FIPS quando utilizada para proteger a confidencialidade da CUI. |[A Azure API para FHIR deve usar uma chave gerida pelo cliente (CMK) para encriptar dados em repouso](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F051cba44-2429-45b9-9649-46cec11c7119) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/API%20for%20FHIR/HealthcareAPIs_EnableByok_Audit.json) |
+|Proteção de Sistemas e Comunicações |SC.3.177 |Empregue criptografia validada pelo FIPS quando utilizada para proteger a confidencialidade da CUI. |[A Azure API para FHIR deve usar uma chave gerida pelo cliente para encriptar dados em repouso](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F051cba44-2429-45b9-9649-46cec11c7119) |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/API%20for%20FHIR/HealthcareAPIs_EnableByok_Audit.json) |
 |Proteção de Sistemas e Comunicações |SC.3.183 |Negar o tráfego de comunicações de rede por defeito e permitir o tráfego de comunicações de rede por exceção (isto é, negar tudo, permitir por exceção). |[O CORS não deve permitir que todos os domínios acedam à sua API para FHIR](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0fea8f8a-4169-495d-8307-30ec335f387d) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/API%20for%20FHIR/HealthcareAPIs_RestrictCORSAccess_Audit.json) |
 

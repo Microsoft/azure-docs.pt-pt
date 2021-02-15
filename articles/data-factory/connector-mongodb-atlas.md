@@ -1,23 +1,18 @@
 ---
 title: Copiar dados do Atlas mongoDB
 description: Saiba como copiar dados do Atlas MongoDB para lojas de dados de sumidouros suportados utilizando uma atividade de cópia num pipeline da Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
 ms.author: jingwang
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 09/28/2020
-ms.openlocfilehash: 34b0c053f4f0fea933a6e1f48d8f93e6352776b9
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: b2f77e4bd8df66084937da3dd203ebb71d9a3511
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91946793"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100368800"
 ---
 # <a name="copy-data-from-mongodb-atlas-using-azure-data-factory"></a>Copiar dados do Atlas mongoDB usando a Azure Data Factory
 
@@ -47,10 +42,10 @@ As seguintes propriedades são suportadas para o serviço ligado ao Atlas MongoD
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo |A propriedade tipo deve ser definida para: **MongoDbAtlas** |Sim |
-| conexãoStragem |Especificar a cadeia de ligação Atlas MongoDB, por `mongodb+srv://<username>:<password>@<clustername>.<randomString>.<hostName>/<dbname>?<otherProperties>` exemplo. <br/><br /> Também pode colocar uma corda de ligação no Cofre da Chave Azure. Consulte [as credenciais da Loja no Cofre de Chaves Azure](store-credentials-in-key-vault.md) com mais detalhes. |Sim |
-| base de dados | Nome da base de dados a que pretende aceder. | Sim |
-| connectVia | O [tempo de execução de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Saiba mais na secção [Pré-Requisitos.](#prerequisites) Se não for especificado, utiliza o tempo de execução de integração Azure predefinido. |Não |
+| tipo |A propriedade tipo deve ser definida para: **MongoDbAtlas** |Yes |
+| conexãoStragem |Especificar a cadeia de ligação Atlas MongoDB, por `mongodb+srv://<username>:<password>@<clustername>.<randomString>.<hostName>/<dbname>?<otherProperties>` exemplo. <br/><br /> Também pode colocar uma corda de ligação no Cofre da Chave Azure. Consulte [as credenciais da Loja no Cofre de Chaves Azure](store-credentials-in-key-vault.md) com mais detalhes. |Yes |
+| base de dados | Nome da base de dados a que pretende aceder. | Yes |
+| connectVia | O [tempo de execução de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Saiba mais na secção [Pré-Requisitos.](#prerequisites) Se não for especificado, utiliza o tempo de execução de integração Azure predefinido. |No |
 
 **Exemplo:**
 
@@ -77,8 +72,8 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo do conjunto de dados deve ser definida para: **MongoDbAtlasCollection** | Sim |
-| coleçãoName |Nome da coleção na base de dados do Atlas mongoDB. |Sim |
+| tipo | A propriedade tipo do conjunto de dados deve ser definida para: **MongoDbAtlasCollection** | Yes |
+| coleçãoName |Nome da coleção na base de dados do Atlas mongoDB. |Yes |
 
 **Exemplo:**
 
@@ -109,13 +104,13 @@ As seguintes propriedades são suportadas na secção fonte de **origem** da ati
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **MongoDbAtlasSource** | Sim |
-| filter | Especifica o filtro de seleção utilizando operadores de consulta. Para devolver todos os documentos numa coleção, omita este parâmetro ou passe um documento vazio ( {} ). | Não |
-| cursorMethods.project | Especifica os campos para retornar nos documentos para projeção. Para devolver todos os campos nos documentos correspondentes, omita este parâmetro. | Não |
-| cursorMethods.sort | Especifica a ordem na qual a consulta devolve documentos correspondentes. Consulte [cursor.sort()](https://docs.mongodb.com/manual/reference/method/cursor.sort/#cursor.sort). | Não |
-| cursorMethods.limite | Especifica o número máximo de documentos que o servidor devolve. Consulte [cursor.limit()](https://docs.mongodb.com/manual/reference/method/cursor.limit/#cursor.limit).  | Não |
-| cursorMethods.skip | Especifica o número de documentos a saltar e de onde o Atlas mongoDB começa a devolver os resultados. Consulte [cursor.skip()](https://docs.mongodb.com/manual/reference/method/cursor.skip/#cursor.skip). | Não |
-| batchSize | Especifica o número de documentos a devolver em cada lote da resposta a partir da instância Do Atlas mongoDB. Na maioria dos casos, a modificação do tamanho do lote não afetará o utilizador nem a aplicação. Cosmos DB limita cada lote não pode exceder 40MB de tamanho, que é a soma do tamanho do loteSize número de documentos, por isso diminua este valor se o tamanho do seu documento for grande. | Não<br/>(o padrão é **100)** |
+| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **MongoDbAtlasSource** | Yes |
+| filter | Especifica o filtro de seleção utilizando operadores de consulta. Para devolver todos os documentos numa coleção, omita este parâmetro ou passe um documento vazio ( {} ). | No |
+| cursorMethods.project | Especifica os campos para retornar nos documentos para projeção. Para devolver todos os campos nos documentos correspondentes, omita este parâmetro. | No |
+| cursorMethods.sort | Especifica a ordem na qual a consulta devolve documentos correspondentes. Consulte [cursor.sort()](https://docs.mongodb.com/manual/reference/method/cursor.sort/#cursor.sort). | No |
+| cursorMethods.limite | Especifica o número máximo de documentos que o servidor devolve. Consulte [cursor.limit()](https://docs.mongodb.com/manual/reference/method/cursor.limit/#cursor.limit).  | No |
+| cursorMethods.skip | Especifica o número de documentos a saltar e de onde o Atlas mongoDB começa a devolver os resultados. Consulte [cursor.skip()](https://docs.mongodb.com/manual/reference/method/cursor.skip/#cursor.skip). | No |
+| batchSize | Especifica o número de documentos a devolver em cada lote da resposta a partir da instância Do Atlas mongoDB. Na maioria dos casos, a modificação do tamanho do lote não afetará o utilizador nem a aplicação. Cosmos DB limita cada lote não pode exceder 40MB de tamanho, que é a soma do tamanho do loteSize número de documentos, por isso diminua este valor se o tamanho do seu documento for grande. | No<br/>(o padrão é **100)** |
 
 >[!TIP]
 >Suporte ADF a consumir documento BSON em **modo rígido**. Certifique-se de que a sua consulta de filtro está no modo Rígido em vez do modo Shell. Mais descrição pode ser encontrada no [manual do MongoDB.](https://docs.mongodb.com/manual/reference/mongodb-extended-json/index.html)
@@ -166,5 +161,5 @@ Você pode usar este conector Atlas MongoDB para exportar documentos JSON como �
 
 Para copiar dados do Atlas mongoDB para a pia tabular, consulte o [mapeamento de esquemas](copy-activity-schema-and-type-mapping.md#schema-mapping).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Para obter uma lista de lojas de dados suportadas como fontes e sumidouros pela atividade de cópia na Azure Data Factory, consulte lojas de [dados suportadas.](copy-activity-overview.md#supported-data-stores-and-formats)

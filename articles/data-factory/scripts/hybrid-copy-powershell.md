@@ -1,21 +1,18 @@
 ---
 title: Copiar dados das instalações para a Azure utilizando o PowerShell
 description: Este script PowerShell copia dados de uma base de dados do SQL Server para outro um Azure Blob Storage.
-services: data-factory
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: article
 ms.author: jingwang
 author: linda33wj
-manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 10/31/2017
-ms.openlocfilehash: bc10017da8561cda09658ec9380cc82095f3ef94
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 34c5497a8b059260dfe60e8015e62c0f1511f021
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92632237"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100373390"
 ---
 # <a name="use-powershell-to-create-a-data-factory-pipeline-to-copy-data-from-sql-server-to-azure"></a>Utilize o PowerShell para criar um pipeline de fábrica de dados para copiar dados do SQL Server para OZure
 
@@ -27,8 +24,8 @@ Esta amostra de script PowerShell cria um pipeline na Azure Data Factory que cop
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- **Sql Server** . Utiliza uma base de dados SQL Server como uma loja de dados **de origem** nesta amostra.
-- **Conta de Armazenamento Azure** . Utiliza o armazenamento de blob Azure como uma loja de dados **de destino/pia** nesta amostra. se não tiver uma conta de armazenamento Azure, consulte o artigo de [conta de armazenamento Criar um](../../storage/common/storage-account-create.md) artigo de conta de armazenamento para etapas para criar uma.
+- **Sql Server**. Utiliza uma base de dados SQL Server como uma loja de dados **de origem** nesta amostra.
+- **Conta de Armazenamento Azure**. Utiliza o armazenamento de blob Azure como uma loja de dados **de destino/pia** nesta amostra. se não tiver uma conta de armazenamento Azure, consulte o artigo de [conta de armazenamento Criar um](../../storage/common/storage-account-create.md) artigo de conta de armazenamento para etapas para criar uma.
 - **Tempo de integração auto-hospedado.** Descarregue o ficheiro MSI do centro de [descarregamento](https://www.microsoft.com/download/details.aspx?id=39717) e execute-o para instalar um tempo de integração auto-hospedado na sua máquina.  
 
 ### <a name="create-sample-database-in-sql-server"></a>Criar base de dados de amostras no SQL Server

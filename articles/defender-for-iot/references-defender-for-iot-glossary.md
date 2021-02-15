@@ -7,16 +7,19 @@ ms.author: shhazam
 ms.date: 12/09/2020
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: 8007f11cb37063cef46ac7f3ac51e23bdfaae11a
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: 13eb84e91e1809012a2ae1ad01397b20cb322f16
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99226459"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104455"
 ---
 # <a name="defender-for-iot-glossary"></a>Glossário do Defender para IoT
 
 Este glossário fornece uma breve descrição de termos e conceitos importantes para o Azure Defender para a plataforma IoT. Selecione os links **Learn para** ir a termos relacionados no glossário. Isto irá ajudá-lo a aprender e a utilizar mais rapidamente ferramentas de produto.
+
+> [!Note]
+> Qualquer termo com um `(AL)` nome listado no seu nome, é um termo de construtor de dispositivos baseado em agente. 
 
 <a name="glossary-a"></a>
 
@@ -58,6 +61,7 @@ Este glossário fornece uma breve descrição de termos e conceitos importantes 
 | **Inventário do dispositivo - sensor** | O inventário do dispositivo apresenta uma vasta gama de atributos do dispositivo detetados pelo Defender para IoT. As opções estão disponíveis para:<br /><br />- Filtrar informações apresentadas.<br /><br />- Exporte esta informação para um ficheiro CSV.<br /><br />- Importar detalhes do registo do Windows. | **[Group](#g)** <br /><br />**[Consola de gestão de inventário de dispositivos no local](#d)** |
 | **Inventário de dispositivos - consola de gestão no local** | As informações do dispositivo a partir de sensores conectados podem ser visualizadas a partir da consola de gestão no local no inventário do dispositivo. Isto dá aos utilizadores da consola de gestão no local uma visão abrangente de todas as informações da rede. | **[Inventário do dispositivo - sensor](#d) <br /> <br /> [Inventário de dispositivos - integrador de dados](#d)** |
 | **Inventário de dispositivos - integrador de dados** | As capacidades de integração de dados da consola de gestão de dados no local permitem-lhe melhorar os dados no inventário do dispositivo com informações de outros recursos da empresa. Os recursos de exemplo são CMDBs, DNS, firewalls e APIs web. | **[Inventário de dispositivos - consola de gestão no local](#d)** |
+| **Gémeos do dispositivo**`(AL)` | Os gémeos do dispositivo são documentos JSON que armazenam informações do estado do dispositivo, incluindo metadados, configurações e condições. | [Módulo Twin](#m) <br /> <br />[Módulo de segurança gémeo](#s) |
 
 ## <a name="e"></a>E
 
@@ -90,6 +94,7 @@ Este glossário fornece uma breve descrição de termos e conceitos importantes 
 
 | Termo | Descrição | Saber mais |
 |--|--|--|
+| **Hub IoT** `(AL)` | Serviço gerido, hospedado na nuvem, que funciona como um centro de mensagens central para comunicação bidis entre a sua aplicação IoT e os dispositivos que gere.  |   |
 | **Integrações** | Expandir as capacidades do Defender para IoT partilhando informações do dispositivo com sistemas parceiros. As organizações podem colmatar soluções de segurança previamente siloed, NAC, gestão de incidentes e gestão de dispositivos para acelerar as respostas a nível do sistema e mitigar mais rapidamente os riscos. | **[Regra de encaminhamento](#f)** |
 | **Sub-rede interna** | Configurações de sub-rede definidas pelo Defender para IoT. Em alguns casos, como ambientes que utilizam as gamas públicas como gamas internas, pode instruir o Defender para ioT para resolver todas as sub-redes como sub-redes internas. As sub-redes são apresentadas no mapa e em vários relatórios Do Defender para IoT. | **[Sub-redes](#s)** |
 
@@ -105,6 +110,8 @@ Este glossário fornece uma breve descrição de termos e conceitos importantes 
 
 | Termo | Descrição | Saber mais |
 |--|--|--|
+| **Micro Agente**`(AL)` | Fornece capacidades de segurança de profundidade para dispositivos IoT, incluindo postura de segurança e deteção de ameaças.  |    |
+| **Módulo gémeo**`(AL)` | Os módulos duplos são documentos JSON que armazenam informações de estado do módulo, incluindo metadados, configurações e condições. | [Dispositivo duplo](#d) <br /> <br />[Módulo de segurança gémeo](#s) |
 | **Evento de Alerta de Mudo** | Instrua o Defender para ioT a ignorar continuamente a atividade com dispositivos idênticos e tráfego comparável. | **[](#glossary-a) <br /> Alerta <br /> [Regra de exclusão](#e) <br /> <br /> [Reconhecer evento de](#glossary-a) <br /> <br /> alerta [Aprenda evento de alerta](#l)** |
 
 ## <a name="n"></a>N
@@ -140,6 +147,7 @@ Este glossário fornece uma breve descrição de termos e conceitos importantes 
 | Termo | Descrição | Saber mais |
 |--|--|--|
 | **Alerta de segurança** | Alertas que lidam com problemas de segurança, como sinais SMB excessivos em tentativas ou deteções de malware. | **[](#glossary-a) <br /> Alerta <br /> [Alerta operacional](#o)** |
+| **Módulo de segurança gémeo**`(AL)` | O módulo de segurança twin contém toda a informação que é relevante para a segurança do dispositivo, para cada dispositivo específico na sua solução. | [Dispositivo duplo](#d) <br /> <br />[Módulo Twin](#m)  |
 | **Sondagem seletiva** | O Defender for IoT inspeciona passivamente o tráfego de TI e OT e deteta informações relevantes sobre dispositivos, seus atributos, seu comportamento, e muito mais. Em certos casos, algumas informações podem não ser visíveis em análises passivas da rede.<br /><br />Quando isto acontece, pode utilizar as ferramentas de sondagem granular seguras no Defender para ioT para descobrir informações importantes sobre dispositivos anteriormente inacessíveis. | - |
 | **Sensor** | A máquina física ou virtual na qual está instalada a plataforma Defender for IoT. | **[Consola de gestão no local](#o)** |
 | **Site** | Um local que uma fábrica ou outra entidade. O local deve conter uma zona ou várias zonas em que um sensor está instalado. | **[Zona](#z)** |

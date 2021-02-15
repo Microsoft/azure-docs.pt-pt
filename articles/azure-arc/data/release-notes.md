@@ -7,18 +7,45 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 12/09/2020
+ms.date: 02/11/2021
 ms.topic: conceptual
-ms.openlocfilehash: 2c9b239269aa00255aa08d6c233cd7978b253d94
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: f303ddb4d32da4c4cb6609f3ceec34e5c83529a8
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97653576"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100391461"
 ---
 # <a name="release-notes---azure-arc-enabled-data-services-preview"></a>Notas de lançamento - Azure Arc habilitado serviços de dados (Pré-visualização)
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
+
+## <a name="january-2021"></a>Janeiro de 2021
+
+### <a name="new-capabilities-and-features"></a>Novas capacidades e funcionalidades
+
+Número da versão Azure Data CLI `azdata` ( 20.3.0. Faça o download em [https://aka.ms/azdata](https://aka.ms/azdata) . Pode instalar `azdata` a partir do [Azure Data CLI `azdata` ()](/sql/azdata/install/deploy-install-azdata).
+
+
+Atualizações adicionais incluem:
+- Portal localizado disponível para 17 novos idiomas
+- Pequenas alterações nos ficheiros Kube-native .yaml
+- Novas versões de Grafana e Kibana
+- Problemas com ambientes Python ao usar azdata em cadernos no Azure Data Studio resolvidos
+- A extensão pg_audit já está disponível para a Escala de Hiperescala PostgreSQL
+- Um ID de backup já não é necessário quando se faz uma restauração completa de uma base de dados de hiperescala PostgreSQL
+- O estado (estado de saúde) é reportado para cada um dos casos postgreSQL que constituem um grupo de corte
+
+   Em lançamentos anteriores, o estado foi agregado ao nível do grupo do servidor e não itemado ao nível do nó PostgreSQL.
+
+- As implementações pós-SQL agora honram os parâmetros de tamanho de volume indicados na criação de comandos
+- Os parâmetros da versão do motor são agora honrados ao editar um grupo de servidores
+- A convenção de nomeação das cápsulas para Azure Arc habilitada a Hiperescala PósgreSQL mudou
+
+    Está agora na forma: `ServergroupName{c, w}-n` . Por exemplo, um grupo de servidores com três nóns, um nó coordenador e dois nóiros operários é representado como:
+   - `Postgres01c-0` (nó coordenador)
+   - `Postgres01w-0` (nó do trabalhador)
+   - `Postgres01w-1` (nó do trabalhador)
 
 ## <a name="december-2020"></a>Dezembro de 2020
 

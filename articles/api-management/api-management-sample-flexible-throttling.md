@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2018
 ms.author: apimpm
-ms.openlocfilehash: ad1ad622b354215e9837b1154a13bac148d54164
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36b21196207f65975dae950f43ec0c7094991dad
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91537349"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100362034"
 ---
 # <a name="advanced-request-throttling-with-azure-api-management"></a>Limitação de pedidos avançada com a Gestão de API do Azure
 Ser capaz de acelerar os pedidos de entrada é um papel fundamental da Azure API Management. Quer controlando a taxa de pedidos ou o total de pedidos/dados transferidos, a API Management permite que os fornecedores de API protejam as suas APIs de abusos e criem valor para diferentes níveis de produtos API.
@@ -40,14 +40,14 @@ Dentro da Azure API Management, os limites de taxas são normalmente propagados 
 > Devido à natureza distribuída da arquitetura de estrangulamento, a limitação das taxas nunca é completamente precisa. A diferença entre o configurado e o número real de pedidos permitidos varia em função do volume e taxa de pedido, da latência de backend e de outros fatores.
 
 ## <a name="product-based-throttling"></a>Estrangulamento à base de produtos
-Até à data, as capacidades de aceleração da taxa limitaram-se a ser definidas para uma determinada subscrição do Produto, definida no portal Azure. Isto é útil para o fornecedor API aplicar limites aos desenvolvedores que se inscreveram para usar a sua API, no entanto, não ajuda, por exemplo, a estrangular os utilizadores finais individuais da API. É possível que para um único utilizador da aplicação do desenvolvedor consuma toda a quota e, em seguida, impeça outros clientes do desenvolvedor de poderem utilizar a aplicação. Além disso, vários clientes que podem gerar um grande volume de pedidos podem limitar o acesso a utilizadores ocasionais.
+As capacidades de estrangulamento de tarifas que são scopedas para uma determinada subscrição são úteis para que o fornecedor de API aplique limites aos desenvolvedores que se inscreveram para usar a sua API. No entanto, não ajuda, por exemplo, a estrangular os utilizadores finais individuais da API. É possível que um único utilizador da aplicação do desenvolvedor consuma toda a quota e, em seguida, impeça outros clientes do desenvolvedor de poderem utilizar a aplicação. Além disso, vários clientes que podem gerar um grande volume de pedidos podem limitar o acesso a utilizadores ocasionais.
 
 ## <a name="custom-key-based-throttling"></a>Estrangulamento personalizado baseado em chaves
 
 > [!NOTE]
 > As `rate-limit-by-key` políticas e as políticas não `quota-by-key` estão disponíveis quando estão no nível de Consumo da Azure API Management. 
 
-As novas políticas [de limite de taxas por chave](./api-management-access-restriction-policies.md#LimitCallRateByKey) e [quotas-a-chave](./api-management-access-restriction-policies.md#SetUsageQuotaByKey) proporcionam uma solução mais flexível para o controlo do tráfego. Estas novas políticas permitem definir expressões para identificar as chaves que são usadas para rastrear o uso do tráfego. A forma como isto funciona é mais fácil ilustrada com um exemplo. 
+As políticas [de limite de taxas por chave](./api-management-access-restriction-policies.md#LimitCallRateByKey) e [quotas-a-chave](./api-management-access-restriction-policies.md#SetUsageQuotaByKey) proporcionam uma solução mais flexível para o controlo do tráfego. Estas políticas permitem definir expressões para identificar as chaves que são usadas para rastrear o uso do tráfego. A forma como isto funciona é mais fácil ilustrada com um exemplo. 
 
 ## <a name="ip-address-throttling"></a>Estrangulamento do endereço IP
 As seguintes políticas restringem um único endereço IP do cliente a apenas 10 chamadas por minuto, com um total de 1.000.000 chamadas e 10.000 quilobytes de largura de banda por mês. 
@@ -77,7 +77,7 @@ Se um utilizador final for autenticado, então uma chave de estrangulamento pode
 Este exemplo mostra como extrair o cabeçalho de autorização, convertê-lo em `JWT` objeto e usar o objeto do token para identificar o utilizador e usá-lo como a chave limite de taxa. Se a identidade do utilizador for armazenada como `JWT` uma das outras reclamações, esse valor poderá ser utilizado no seu lugar.
 
 ## <a name="combined-policies"></a>Políticas combinadas
-Embora as novas políticas de estrangulamento proporcionem mais controlo do que as políticas de estrangulamento existentes, ainda há valor combinando ambas as capacidades. O estrangulamento por chave de subscrição de produto[(Taxa de chamada limite por subscrição](./api-management-access-restriction-policies.md#LimitCallRate) e [quota de utilização definida por subscrição](./api-management-access-restriction-policies.md#SetUsageQuota)) é uma ótima maneira de permitir a rentabilização de uma API cobrando com base nos níveis de utilização. O controlo mais fino de ser capaz de acelerar pelo utilizador é complementar e impede que o comportamento de um utilizador degrade a experiência de outro. 
+Embora as políticas de estrangulamento baseadas no utilizador ofereçam mais controlo do que as políticas de estrangulamento baseadas em subscrições, ainda há valor combinando ambas as capacidades. O estrangulamento por chave de subscrição de produto[(Taxa de chamada limite por subscrição](./api-management-access-restriction-policies.md#LimitCallRate) e [quota de utilização definida por subscrição](./api-management-access-restriction-policies.md#SetUsageQuota)) é uma ótima maneira de permitir a rentabilização de uma API cobrando com base nos níveis de utilização. O controlo mais fino de ser capaz de acelerar pelo utilizador é complementar e impede que o comportamento de um utilizador degrade a experiência de outro. 
 
 ## <a name="client-driven-throttling"></a>Estrangulamento conduzido pelo cliente
 Quando a chave de estrangulamento é definida usando uma [expressão de política](./api-management-policy-expressions.md), então é o provedor da API que está escolhendo como o estrangulamento é definido. No entanto, um desenvolvedor pode querer controlar a forma como classificam limitar os seus próprios clientes. Isto poderia ser ativado pelo provedor da API introduzindo um cabeçalho personalizado para permitir que a aplicação do cliente do desenvolvedor comunicasse a chave à API.

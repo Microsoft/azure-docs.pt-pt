@@ -1,24 +1,18 @@
 ---
 title: 'Tutorial: Criar um oleoduto usando o modelo do gestor de recursos '
 description: Neste tutorial, vai criar um pipeline do Azure Data Factory com um modelo do Azure Resource Manager. Este pipeline copia dados de um armazenamento de bolhas Azure para Azure SQL Database.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: ''
-editor: ''
-ms.assetid: 1274e11a-e004-4df5-af07-850b2de7c15e
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: a007e64a7bd034397c2030c435a5ad349bd4acc7
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 18e8965a152deb6393d7e3b63ea22994484e100c
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97608753"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100377249"
 ---
 # <a name="tutorial-use-azure-resource-manager-template-to-create-a-data-factory-pipeline-to-copy-data"></a>Tutorial: Utilizar o modelo do Azure Resource Manager para criar um pipeline do Data Factory e copiar dados 
 > [!div class="op_single_selector"]
@@ -54,7 +48,7 @@ Um pipeline pode ter mais de uma atividade. Além disso, pode encadear duas ativ
 ## <a name="in-this-tutorial"></a>Neste tutorial
 Neste tutorial, cria uma fábrica de dados com as entidades do Data Factory seguintes:
 
-| Entidade | Descrição |
+| Entidade | Description |
 | --- | --- |
 | Serviço ligado do Storage do Azure |Liga a sua conta de Armazenamento do Azure à fábrica de dados. O Azure Storage é a loja de dados de origem e a Base de Dados Azure SQL é a loja de dados da pia para a atividade de cópia no tutorial. Especifica a conta de armazenamento que contém os dados de entrada para a atividade de cópia. |
 | Serviço ligado da Base de Dados SQL do Azure |Liga a nossa base de dados na Base de Dados Azure SQL à fábrica de dados. Especifica a base de dados que detém os dados de saída para a atividade da cópia. |

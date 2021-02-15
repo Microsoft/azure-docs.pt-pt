@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/28/2021
-ms.openlocfilehash: 5fc47599d09e5be60311dbda15868d87de4d91d2
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: 5381c12253f3f301099d469639cc75e390ebceff
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99509389"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100360963"
 ---
 # <a name="creating-indexers-in-azure-cognitive-search"></a>Criação de indexantes na Pesquisa Cognitiva Azure
 
@@ -142,6 +142,20 @@ O processamento programado geralmente coincide com a necessidade de indexação 
 + [Azure Data Lake Storage Gen2](search-howto-index-azure-data-lake-storage.md) (Armazenamento do Azure Data Lake Gen2)
 + [Armazenamento de mesa Azure](search-howto-indexing-azure-tables.md)
 + [Azure Cosmos DB](search-howto-index-cosmosdb.md)
+
+## <a name="change-detection-and-indexer-state"></a>Alterar estado de deteção e indexante
+
+Os indexantes podem detetar alterações nos dados subjacentes e apenas processar documentos novos ou atualizados em cada execução do indexante. Por exemplo, se o estado do indexante diz que uma corrida foi bem sucedida com `0/0` documentos processados, significa que o indexante não encontrou nenhuma linha nova ou alterada ou bolhas na fonte de dados subjacente.
+
+A forma como um indexante suporta a deteção de alterações varia consoante a fonte de dados:
+
++ Azure Blob Storage, Azure Table Storage e Azure Data Lake Storage Gen2 carimbam cada atualização de blob ou linha com uma data e hora. Os vários indexantes utilizam esta informação para determinar quais os documentos a atualizar no índice. A deteção de alterações incorporadas significa que um indexante pode reconhecer documentos novos e atualizados, sem necessidade de configuração adicional da sua parte.
+
++ A Azure SQL e Cosmos DB fornecem funcionalidades de deteção de alterações nas suas plataformas. Pode especificar a política de deteção de alterações na definição de fonte de dados.
+
+Para grandes cargas de indexação, um indexante também acompanha o último documento que processou através de uma "marca de água alta" interna. O marcador nunca é exposto na API, mas internamente o indexante mantém o local onde parou. Quando a indexação retoma, seja através de uma execução programada ou de uma invocação a pedido, o indexante faz referência à marca de água elevada para que possa retomar onde deixou de lado.
+
+Se precisar de limpar a marca de água elevada para voltar a indexar na íntegra, pode utilizar [o Indexer reset](https://docs.microsoft.com/rest/api/searchservice/reset-indexer). Para uma re indexação seletiva, utilize [competências de reposição](https://docs.microsoft.com/rest/api/searchservice/preview-api/reset-skills) ou [documentos de reposição](https://docs.microsoft.com/rest/api/searchservice/preview-api/reset-documents). Através das APIs de reset, pode limpar o estado interno e também lavar a cache se ativar o [enriquecimento incremental](search-howto-incremental-index.md). Para obter mais antecedentes e comparação de cada opção de reset, consulte [indexadores, competências e documentos de execução ou reposição](search-howto-run-reset-indexers.md).
 
 ## <a name="know-your-data"></a>Conheça os seus dados
 

@@ -1,5 +1,5 @@
 ---
-title: Como permitir o SSO cross-app no Android usando o MSAL Rio Azure
+title: Como ativar o SSO cross-app no Android utilizando o MSAL | Rio Azure
 titleSuffix: Microsoft identity platform
 description: Como utilizar a Microsoft Authentication Library (MSAL) para Android para permitir um único sinal de sação em todas as suas aplicações.
 services: active-directory
@@ -14,12 +14,12 @@ ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: hahamil
 ms.reviewer: marsma
-ms.openlocfilehash: c4c98ad377100c35b0c364607bfd3803d07a95a7
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: f3d4ec8db89e9bebfdcd594e842a6c19d3d66d54
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98015934"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104098"
 ---
 # <a name="how-to-enable-cross-app-sso-on-android-using-msal"></a>Como: Ativar sSO cross-app no Android usando o MSAL
 
@@ -119,7 +119,7 @@ keytool -exportcert -alias androiddebugkey -keystore %HOMEPATH%\.android\debug.k
 
 Depois de gerar um hash de assinatura com *tecla,* use o portal Azure para gerar o URI de redirecionamento:
 
-1. Inscreva-se no <a href="https://portal.azure.com/" target="_blank">portal <span class="docon docon-navigate-external x-hidden-focus"></span> Azure</a> e selecione a sua aplicação Android em **registos de Aplicações.**
+1. Inscreva-se no <a href="https://portal.azure.com/" target="_blank">portal Azure</a> e selecione a sua aplicação Android em **registos de Aplicações.**
 1. Selecione **Autenticação**  >  **Adicione uma plataforma**  >  **Android**.
 1. No **painel de configuração** da sua aplicação Android que abre, insira o **hash Signature** que gerou anteriormente e um nome **pacote.**
 1. Selecione o **botão Configurar.**
@@ -233,6 +233,6 @@ Os seguintes navegadores foram testados para ver se redirecionam corretamente pa
 <sup>2</sup> O navegador incorporado da Huawei é o Navegador Huawei.<br/>
 <sup>3</sup> O navegador predefinido não pode ser alterado dentro da definição do dispositivo Oppo.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [O modo de dispositivo partilhado para dispositivos Android](msal-android-shared-devices.md) permite configurar um dispositivo Android para que possa ser facilmente partilhado por vários colaboradores.

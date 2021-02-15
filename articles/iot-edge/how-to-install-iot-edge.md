@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 01/20/2021
 ms.author: kgremban
-ms.openlocfilehash: ab783d6cb20f1c2fe31e8556dc57999df20d5637
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: efbae71162bdd0c126287191f7ad35cf903db138
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98629815"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100378082"
 ---
 # <a name="install-or-uninstall-azure-iot-edge-for-linux"></a>Instale ou desinstale a borda Azure IoT para o Linux
 
@@ -32,7 +32,7 @@ Este artigo lista os passos para instalar o tempo de funcionamento do Azure IoT 
 
 * Um dispositivo Linux
 
-  Tenha um dispositivo X64, ARM32 ou ARM64 Linux. A Microsoft fornece pacotes de instalação para sistemas operativos Ubuntu Server 16.04, Ubuntu Server 18.04 e Raspberry Pi OS Stretch.
+  Tenha um dispositivo X64, ARM32 ou ARM64 Linux. A Microsoft fornece pacotes de instalação para sistemas operativos Ubuntu Server 18.04 e Raspberry Pi OS Stretch.
 
   Para obter as informações mais recentes sobre quais os sistemas operativos que são atualmente suportados para cenários de produção, consulte [os sistemas suportados Azure IoT Edge](support.md#operating-systems)
 
@@ -42,12 +42,6 @@ Este artigo lista os passos para instalar o tempo de funcionamento do Azure IoT 
 * Prepare o seu dispositivo para aceder aos pacotes de instalação da Microsoft.
 
   Instale a configuração do repositório que corresponda ao sistema operativo do dispositivo.
-
-  * **Servidor Ubuntu 16.04**:
-
-    ```bash
-    curl https://packages.microsoft.com/config/ubuntu/16.04/multiarch/prod.list > ./microsoft-prod.list
-    ```
 
   * **Servidor Ubuntu 18.04**:
 
