@@ -1,5 +1,5 @@
 ---
-title: 'Como: Alterar os tipos de conta suportados por uma aplicação Rio Azure'
+title: 'Como: Alterar os tipos de conta suportados por uma aplicação | Rio Azure'
 titleSuffix: Microsoft identity platform
 description: Neste como fazer, configura uma aplicação registada na plataforma de identidade da Microsoft para alterar quem, ou que contas, pode aceder à aplicação.
 services: active-directory
@@ -13,12 +13,12 @@ ms.date: 11/15/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: marsma, aragra, lenalepa, sureshja
-ms.openlocfilehash: 1d30d1e6c9cc60af96336cfdc7bea7126b4df7a8
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 3ae6616263de605d5910f244423b9e7ffc036c5d
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98017634"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100103962"
 ---
 # <a name="how-to-modify-the-accounts-supported-by-an-application"></a>Como modificar as contas suportadas por uma aplicação
 
@@ -34,17 +34,17 @@ Nas secções seguintes, aprende-se a modificar o registo da sua aplicação no 
 
 Para especificar uma definição diferente para os tipos de conta suportados por um registo de aplicações existente:
 
-1. Inscreva-se no <a href="https://portal.azure.com/" target="_blank">portal <span class="docon docon-navigate-external x-hidden-focus"></span> Azure</a>.
+1. Inicie sessão no <a href="https://portal.azure.com/" target="_blank">portal do Azure</a>.
 1. Se tiver acesso a vários inquilinos, utilize o filtro **de subscrição Diretório +** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o inquilino no qual pretende registar uma candidatura.
 1. Procure e selecione **Azure Active Directory**.
 1. Em **Manage**, selecione **registos de Aplicações** e, em seguida, selecione a sua candidatura.
 1. Agora, especifique quem pode usar a aplicação, por vezes referida como o *público de inscrição*.
 
-    | Tipos de conta suportados | Descrição |
+    | Tipos de conta suportados | Description |
     |-------------------------|-------------|
     | **Contas apenas neste diretório organizacional** | Selecione esta opção se estiver a construir uma aplicação para uso apenas pelos utilizadores (ou hóspedes) no *seu* inquilino.<br><br>Muitas vezes chamado de aplicação *line-of-business* (LOB), esta é uma aplicação **de inquilino único** na plataforma de identidade da Microsoft. |
     | **Contas em qualquer diretório organizacional** | Selecione esta opção se quiser que os utilizadores de *qualquer* inquilino AZure AD possam usar a sua aplicação. Esta opção é apropriada se, por exemplo, estiver a construir uma aplicação de software-as-a-service (SaaS) que pretende fornecer a várias organizações.<br><br>Isto é conhecido como uma aplicação **multi-inquilino** na plataforma de identidade da Microsoft. |
-1. Selecione **Save** (Guardar).
+1. Selecione **Guardar**.
 
 ### <a name="why-changing-to-multi-tenant-can-fail"></a>Por que mudar para multi-inquilino pode falhar
 
@@ -56,6 +56,6 @@ Por exemplo, se o nome do seu inquilino for *contoso.onmicrosoft.com,* então `h
 
 Para obter mais informações sobre a configuração de um domínio de editor verificado, consulte [configurar um domínio verificado](howto-configure-publisher-domain.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba mais sobre os requisitos para [a conversão de uma app de solteiro para multi-inquilino.](howto-convert-app-to-be-multi-tenant.md)

@@ -1,5 +1,5 @@
 ---
-title: Ligue os dados do ICDx da Symantec ao Azure Sentinel. Microsoft Docs
+title: Ligue os dados do ICDx da Symantec ao Azure Sentinel| Microsoft Docs
 description: Aprenda a usar o conector Symantec ICDx para ligar facilmente todos os seus registos de soluções de segurança Symantec com o Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: 67fc80b5f34cf3a98fd39ddc352cb2dd9a5e7151
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b32baa23a31342095e542d60745a503b81e89a9
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85564919"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100092711"
 ---
 # <a name="connect-your-symantec-icdx-appliance"></a>Ligue o seu aparelho Symantec ICDx 
 
@@ -70,7 +70,7 @@ O ICDx Symantec pode integrar e exportar registos diretamente para o Azure Senti
 
 ## <a name="validate-connectivity"></a>Validar conectividade
 
-Pode demorar mais de 20 minutos até que os seus registos comecem a aparecer no Log Analytics. 
+Pode demorar até que os seus registos comecem a aparecer no Log Analytics. 
 
 
 

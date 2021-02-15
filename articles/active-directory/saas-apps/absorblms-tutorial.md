@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com Absorb LMS Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com | de Absorção de LMS Microsoft Docs'
 description: Saiba como configurar um único sinal de inscrição entre o Azure Ative Directory e o Absorb LMS.
 services: active-directory
 author: jeevansd
@@ -9,33 +9,29 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/02/2019
+ms.date: 02/05/2021
 ms.author: jeedes
-ms.openlocfilehash: 3d90d35e113b5f9757faf59681bb2532b66f2b09
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 5e962592779494e1d60d03e9e8a167d53ac8bda2
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97673873"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100364175"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-absorb-lms"></a>Tutorial: Integração do Diretório Ativo Azure com Absorver LMS
 
-Neste tutorial, aprende-se a integrar o Absorb LMS com o Azure Ative Directory (Azure AD).
-A integração do Absorb LMS com a AD Azure proporciona-lhe os seguintes benefícios:
+Neste tutorial, você vai aprender a integrar Absorver LMS com Azure Ative Directory (Azure AD). Quando integrar absorver LMS com AD Azure, pode:
 
-* Você pode controlar em Azure AD que tem acesso a Absorb LMS.
-* Pode permitir que os seus utilizadores sejam automaticamente inscritos para absorver LMS (Sign-On Único) com as suas contas AD Azure.
-* Pode gerir as suas contas numa localização central - o portal Azure.
-
-Se quiser saber mais detalhes sobre a integração da aplicação SaaS com o Azure AD, consulte o que é o acesso à [aplicação e o único acesso ao Azure Ative Directory](../manage-apps/what-is-single-sign-on.md).
-Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
+* Controlo em Azure AD que tem acesso a Absorver LMS.
+* Ative os seus utilizadores a serem automaticamente inscritos para absorver LMS com as suas contas AD Azure.
+* Gerencie as suas contas numa localização central - o portal Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração AD Azure com Absorver LMS, precisa dos seguintes itens:
 
-* Uma assinatura AD Azure. Se não tiver um ambiente AD Azure, pode obter uma [conta gratuita](https://azure.microsoft.com/free/)
-* Absorva a assinatura única ativada lMS
+* Uma assinatura AD Azure. Se não tiver um ambiente AD Azure, pode obter uma [conta gratuita.](https://azure.microsoft.com/free/)
+* Absorva a assinatura ativada por LMS.
 
 > [!NOTE]
 > Esta integração também está disponível para usar a partir do ambiente cloud do governo dos EUA Azure AD. Você pode encontrar esta aplicação na Azure AD US Government Cloud Application Gallery e configurá-la da mesma forma que você faz a partir de nuvem pública.
@@ -46,75 +42,56 @@ Neste tutorial, você configura e testa Azure AD um único sinal de acesso em um
 
 * Absorver LMS suporta **IDP** iniciado SSO
 
-## <a name="adding-absorb-lms-from-the-gallery"></a>Adicionar Absorva LMS da galeria
+> [!NOTE]
+> O identificador desta aplicação é um valor fixo de cadeia para que apenas um caso possa ser configurado em um inquilino.
+
+## <a name="add-absorb-lms-from-the-gallery"></a>Adicione Absorva LMS da galeria
 
 Para configurar a integração do Absorb LMS em AD Azure, é necessário adicionar O Absorvão LMS da galeria à sua lista de aplicações geridas pelo SaaS.
 
-**Para adicionar Absorb LMS da galeria, execute os seguintes passos:**
+1. Inscreva-se no portal Azure usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
+1. No painel de navegação à esquerda, selecione o serviço **Azure Ative Directory.**
+1. Navegue para **aplicações empresariais** e, em seguida, selecione **Todas as Aplicações**.
+1. Para adicionar nova aplicação, selecione **Nova aplicação**.
+1. Na secção Adicionar a partir da secção **de galeria,** **digite Absorver LMS** na caixa de pesquisa.
+1. **Selecione Absorver LMS** do painel de resultados e, em seguida, adicione a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
-1. No **[portal Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.**
+## <a name="configure-and-test-azure-ad-sso-for-absorb-lms"></a>Configure e teste Azure AD SSO para absorver LMS
 
-    ![O botão Azure Ative Directory](common/select-azuread.png)
+Configure e teste Azure AD SSO com Absorb LMS usando um utilizador de teste chamado **B.Simon**. Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador Azure AD e o utilizador relacionado em Absorver LMS.
 
-2. Navegue para **Aplicações Empresariais** e, em seguida, selecione a opção **Todas as Aplicações.**
+Para configurar e testar o Azure AD SSO com Absorver LMS, execute os seguintes passos:
 
-    ![A lâmina de aplicações da Enterprise](common/enterprise-applications.png)
+1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
+    1. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com B.Simon.
+    1. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que b.Simon utilize um único sinal de Ad AD.
+1. **[Configure Absorva O LMS SSO](#configure-absorb-lms-sso)** - para configurar as definições de inscrição única no lado da aplicação.
+    1. **[Create Absorb LMS test user](#create-absorb-lms-test-user)** - para ter uma contraparte de B.Simon in Absorb LMS que está ligada à representação AD AD Azure do utilizador.
+1. **[Teste SSO](#test-sso)** - para verificar se a configuração funciona.
 
-3. Para adicionar nova aplicação, clique em Novo botão de **aplicação** no topo do diálogo.
+## <a name="configure-azure-ad-sso"></a>Configurar o SSO do Azure AD
 
-    ![O novo botão de aplicação](common/add-new-app.png)
+Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
-4. Na caixa de pesquisa, **digite Absorva LMS,** selecione **Absorva LMS** do painel de resultados e clique em Adicionar o botão **Adicionar** a aplicação.
+1. No portal Azure, na página de integração da aplicação **Absorva LMS,** encontre a secção **Gerir** e selecione **um único sinal de sação**.
+1. Na página de método **de inscrição** única, selecione **SAML**.
+1. No **set-on único com** a página SAML, clique no ícone de lápis para **configuração SAML Básica** para editar as definições.
 
-    ![Absorva LMS na lista de resultados](common/search-new-app.png)
-
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
-
-Nesta secção, configura e testa o Azure AD com um único sinal de absorção LMS com base num utilizador de teste chamado **Britta Simon**.
-Para um único sinal de sação a funcionar, é necessário estabelecer uma relação de ligação entre um utilizador Azure AD e o utilizador relacionado em Absorb LMS.
-
-Para configurar e testar o único sinal de Ad AD com Absorb LMS, é necessário completar os seguintes blocos de construção:
-
-1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
-2. **[Configure Absorva lMS Single Sign-On](#configure-absorb-lms-single-sign-on)** - para configurar as definições de Sign-On únicas no lado da aplicação.
-3. Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com Britta Simon.
-4. **[Atribua o utilizador de teste Azure AD](#assign-the-azure-ad-test-user)** - para permitir que Britta Simon utilize um único sinal de Azure.
-5. **[Create Absorb LMS test user](#create-absorb-lms-test-user)** - para ter uma contraparte de Britta Simon em Absorb LMS que está ligada à representação AD AZure do utilizador.
-6. **[Teste um único sinal](#test-single-sign-on)** - para verificar se a configuração funciona.
-
-### <a name="configure-azure-ad-single-sign-on"></a>Configurar Azure AD único sinal de inscrição
-
-Nesta secção, você ativa a Azure AD um único sinal no portal Azure.
-
-Para configurar o Azure AD com um único sinal de absorção de LMS, execute os seguintes passos:
-
-1. No [portal Azure](https://portal.azure.com/), na página de integração da aplicação **Absorva LMS,** selecione **Single sign-on**.
-
-    ![Configurar link único de inscrição](common/select-sso.png)
-
-2. No diálogo do **método de inscrição única,** selecione o modo **SAML/WS-Fed** para ativar um único sinal de súplica.
-
-    ![Único modo de seleção de s-on](common/select-saml-option.png)
-
-3. Na **configuração single Sign-On com página SAML,** clique em **Editar** o ícone para abrir o diálogo **básico de configuração SAML.**
-
-    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
+   ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
 
 4. Na **configuração single Sign-On com página SAML,** clique no botão **Editar** para abrir o diálogo **básico de configuração SAML.**
 
-    ![Absorva informações únicas de súmis de LMS e URLs](common/idp-intiated.png)
-
     Se estiver a utilizar **Absorva 5 - UI** utilize a seguinte configuração:
 
-    a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão: `https://company.myabsorb.com/account/saml`
+    a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão:: `https://<SUBDOMAIN>.myabsorb.com/account/saml`
 
-    b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão: `https://company.myabsorb.com/account/saml`
+    b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão:: `https://<SUBDOMAIN>.myabsorb.com/account/saml`
 
     Se estiver a utilizar **o Absorb 5 - New Learner Experience,** utilize a seguinte configuração:
 
-    a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão: `https://company.myabsorb.com/api/rest/v2/authentication/saml`
+    a. Na caixa de texto **do identificador,** digite um URL utilizando o seguinte padrão: `https://<SUBDOMAIN>.myabsorb.com/api/rest/v2/authentication/saml`
 
-    b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão: `https://company.myabsorb.com/api/rest/v2/authentication/saml`
+    b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão: `https://<SUBDOMAIN>.myabsorb.com/api/rest/v2/authentication/saml`
 
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o URL de identificação e resposta real. Contacte [a equipa de suporte do Cliente absorver LMS](https://support.absorblms.com/hc/) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
@@ -131,27 +108,45 @@ Para configurar o Azure AD com um único sinal de absorção de LMS, execute os 
 
     ![URLs de configuração de cópia](common/copy-configuration-urls.png)
 
-    a. URL de Inicio de Sessão
+### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD
 
-    b. Identificador de Azure Ad
+Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simon.
 
-    c. Logout URL
+1. A partir do painel esquerdo no portal Azure, selecione **Azure Ative Directory**, selecione **Utilizadores**, e, em seguida, selecione **Todos os utilizadores**.
+1. Selecione **Novo utilizador** na parte superior do ecrã.
+1. Nas propriedades do **Utilizador,** siga estes passos:
+   1. No campo **Nome**, introduza `B.Simon`.  
+   1. No campo **nome do utilizador,** insira o username@companydomain.extension . Por exemplo, `B.Simon@contoso.com`.
+   1. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa **palavra-passe.**
+   1. Clique em **Criar**.
 
-### <a name="configure-absorb-lms-single-sign-on"></a>Configure absorver LMS single Sign-On
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
+
+Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso a Absorb LMS.
+
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
+1. Na lista de aplicações, **selecione Absorb LMS**.
+1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
+1. **Selecione Adicionar utilizador,** em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
+1. No diálogo **de Utilizadores e grupos,** selecione **B.Simon** da lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
+1. Se estiver à espera que uma função seja atribuída aos utilizadores, pode selecioná-la a partir do Dropdown de **função** Select. Se não tiver sido configurada qualquer função para esta aplicação, vê a função "Acesso Predefinido" selecionada.
+1. No diálogo **'Adicionar Atribuição',** clique no botão **'Atribuir'.**
+
+## <a name="configure-absorb-lms-sso"></a>Configure absorver LMS SSO
 
 1. Numa nova janela do navegador web, inscreva-se no site da empresa Absorção LMS como administrador.
 
 2. Selecione o botão **Conta** no topo direito.
 
-    ![O botão Conta](./media/absorblms-tutorial/1.png)
+    ![O botão Conta](./media/absorblms-tutorial/account.png)
 
 3. No painel 'Conta', selecione **Definições do Portal**.
 
-    ![A ligação de Definições do Portal](./media/absorblms-tutorial/2.png)
+    ![A ligação de Definições do Portal](./media/absorblms-tutorial/portal.png)
 
 4. Selecione o **separador 'Gestão de Definições SSO'.**
 
-    ![O separador Utilizadores](./media/absorblms-tutorial/managesso.png)
+    ![O separador Utilizadores](./media/absorblms-tutorial/sso.png)
 
 5. Na página **'Gerir as Definições Sign-On' Únicas,** faça o seguinte:
 
@@ -179,57 +174,6 @@ Para configurar o Azure AD com um único sinal de absorção de LMS, execute os 
 
     ![O único permite que o SSO Login altere](./media/absorblms-tutorial/save.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD
-
-O objetivo desta secção é criar um utilizador de teste no portal Azure chamado Britta Simon.
-
-1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory**, selecione **Utilizadores**, e, em seguida, selecione **Todos os utilizadores**.
-
-    ![Os links "Utilizadores e grupos" e "Todos os utilizadores"](common/users.png)
-
-2. Selecione **Novo utilizador** na parte superior do ecrã.
-
-    ![Novo botão de utilizador](common/new-user.png)
-
-3. Nas propriedades do Utilizador, execute os seguintes passos.
-
-    ![A caixa de diálogo do utilizador](common/user-properties.png)
-
-    a. No campo **Nome** entra **BrittaSimon**.
-
-    b. No tipo de campo **nome de utilizador**`brittasimon\@yourcompanydomain.extension`  
-    Por exemplo, BrittaSimon@contoso.com
-
-    c. Selecione Mostrar caixa de verificação de **palavra-passe** e, em seguida, anotar o valor que é apresentado na caixa de palavra-passe.
-
-    d. Clique em **Criar**.
-
-### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
-
-Nesta secção, você permite que Britta Simon utilize a Azure single sign-on, concedendo acesso a Absorb LMS.
-
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações** e, em seguida, selecione **Absorva LMS**.
-
-    ![Painel Aplicações empresariais](common/enterprise-applications.png)
-
-2. Na lista de aplicações, escreva e selecione **Absorb LMS**.
-
-    ![O link Absorver LMS na lista de Aplicações](common/all-applications.png)
-
-3. No menu à esquerda, selecione **Utilizadores e grupos**.
-
-    ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
-
-4. Clique no botão **Adicionar utilizador** e, em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
-
-    ![O painel de atribuição de adição](common/add-assign-user.png)
-
-5. No diálogo **de Utilizadores e grupos** selecione **Britta Simon** na lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
-
-6. Se estiver à espera de qualquer valor de função na afirmação SAML, então no diálogo **'Fun's Select** selecione a função adequada para o utilizador da lista e, em seguida, clique no botão **Selecione** na parte inferior do ecrã.
-
-7. No diálogo **'Adicionar Atribuição'** clique no botão **'Atribuir'.**
-
 ### <a name="create-absorb-lms-test-user"></a>Criar absorver o utilizador de teste LMS
 
 Para que os utilizadores de Azure AD inscrevam-se para absorver LMS, devem ser configurados em Absorver LMS. No caso do Absorver LMS, o provisionamento é uma tarefa manual.
@@ -240,11 +184,11 @@ Para que os utilizadores de Azure AD inscrevam-se para absorver LMS, devem ser c
 
 2. No painel **de Utilizadores,** selecione **Utilizadores**.
 
-    ![A ligação dos Utilizadores](./media/absorblms-tutorial/absorblms_userssub.png)
+    ![A ligação dos Utilizadores](./media/absorblms-tutorial/users.png)
 
 3. Selecione **o separador Utilizador.**
 
-    ![A lista de lançamentos adicionais](./media/absorblms-tutorial/absorblms_createuser.png)
+    ![A lista de lançamentos adicionais](./media/absorblms-tutorial/add.png)
 
 4. Na página **'Adicionar Utilizador',** faça o seguinte:
 
@@ -269,16 +213,14 @@ Para que os utilizadores de Azure AD inscrevam-se para absorver LMS, devem ser c
     > [!NOTE]
     > Por predefinição, o Provisionamento do Utilizador não está ativado em SSO. Se o cliente quiser ativar esta funcionalidade, tem de a configurar como mencionado [nesta](https://support.absorblms.com/hc/en-us/articles/360014083294-Incoming-SAML-2-0-SSO-Account-Provisioning) documentação. Note também que a Provisioing do Utilizador só está disponível no **Absorb 5 - New Learner Experience** com URL ACS-`https://company.myabsorb.com/api/rest/v2/authentication/saml`
 
-### <a name="test-single-sign-on"></a>Testar o início de sessão único
+## <a name="test-sso"></a>Teste SSO
 
-Nesta secção, testa a configuração de inscrição única AZure AD utilizando o Painel de Acesso.
+Nesta secção, testa a configuração de um único sinal de inscrição Azure AD com as seguintes opções.
 
-Quando clicar no azulejo Absorver LMS no Painel de Acesso, deverá ser automaticamente inscrito no Absorver LMS para o qual configura SSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](../user-help/my-apps-portal-end-user-access.md)
+* Clique em Testar esta aplicação no portal Azure e deverá ser automaticamente inscrito no Absorção LMS para o qual configura o SSO.
 
-## <a name="additional-resources"></a>Recursos adicionais
+* Pode utilizar as minhas apps do Microsoft. Quando clicar no azulejo Absorver LMS nas Minhas Apps, deverá ser automaticamente inscrito no Absorver LMS para o qual configura o SSO. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
-- [Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure](./tutorial-list.md)
+## <a name="next-steps"></a>Passos seguintes
 
-- [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (O que é o acesso a aplicações e o início de sessão único com o Azure Active Directory?)
-
-- [O que é Acesso Condicional no Diretório Ativo Azure?](../conditional-access/overview.md)
+Uma vez configurado Absorver LMS, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

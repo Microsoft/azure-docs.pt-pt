@@ -1,22 +1,18 @@
 ---
 title: Descubra e explore dados em ADF usando a Purview
 description: Saiba como descobrir, explore dados na Azure Data Factory usando a Purview
-services: data-factory
-documentationcenter: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 author: lrtoyou1223
 ms.author: lle
-manager: shwang
 ms.custom: seo-lt-2019
 ms.date: 01/15/2021
-ms.openlocfilehash: accb9bbf195daa3d25e1aed109e36ef309083385
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 031e7ceee739ffd666ad367bd6778865a297a25d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99805314"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100386276"
 ---
 # <a name="discover-and-explore-data-in-adf-using-purview"></a>Descubra e explore dados em ADF usando a Purview
 

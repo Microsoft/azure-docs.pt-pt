@@ -1,22 +1,18 @@
 ---
 title: Copie incrementalmente várias tabelas usando o portal Azure
 description: Neste tutorial, cria-se uma fábrica de dados Azure com um pipeline que carrega dados delta de várias tabelas numa base de dados do SQL Server para uma base de dados na Base de Dados Azure SQL.
-services: data-factory
 ms.author: yexu
 author: dearandyxu
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 11/09/2020
-ms.openlocfilehash: f3060a7308d728b31266008d75e18470883e4480
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 10ebca487e8149b509935b5eb4c8d9f67ced8ade
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97508599"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100361133"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-a-database-in-azure-sql-database-using-the-azure-portal"></a>Carregue gradualmente os dados de várias tabelas no SQL Server para uma base de dados na Base de Dados Azure SQL utilizando o portal Azure
 
@@ -39,7 +35,7 @@ Vai executar os seguintes passos neste tutorial:
 > * Voltou a executar e a monitorizar o pipeline.
 > * Reviu os resultados finais.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 Eis os passos importantes para criar esta solução: 
 
 1. **Selecionar a coluna de limite de tamanho**.

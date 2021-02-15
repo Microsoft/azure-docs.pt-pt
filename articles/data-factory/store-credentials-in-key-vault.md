@@ -1,21 +1,17 @@
 ---
 title: Armazenar credenciais no Azure Key Vault
 description: Saiba como armazenar credenciais para lojas de dados utilizadas num cofre de chaves Azure que a Azure Data Factory pode recuperar automaticamente no tempo de funcionamento.
-services: data-factory
 author: linda33wj
-manager: shwang
-editor: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/13/2020
 ms.author: jingwang
-ms.openlocfilehash: 22ab4433d84db926733fd0b18035875e63322dda
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 828794715af1e7676253714da6fdc1a487c7c107
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81451691"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100361898"
 ---
 # <a name="store-credential-in-azure-key-vault"></a>Credencial de loja em Azure Key Vault
 
@@ -44,8 +40,8 @@ As seguintes propriedades são suportadas para o serviço ligado ao Cofre da Cha
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo deve ser definida para: **AzureKeyVault**. | Sim |
-| baseUrl | Especifique o URL do cofre da chave Azure. | Sim |
+| tipo | A propriedade tipo deve ser definida para: **AzureKeyVault**. | Yes |
+| baseUrl | Especifique o URL do cofre da chave Azure. | Yes |
 
 **Utilização da UI de autor:**
 
@@ -77,10 +73,10 @@ As seguintes propriedades são suportadas quando configura um campo em serviço 
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo do campo deve ser definida para: **AzureKeyVaultSecret**. | Sim |
-| nome secreto | O nome do segredo em Azure Key Vault. | Sim |
-| versão secreta | A versão do segredo em Azure Key Vault.<br/>Se não for especificado, utiliza sempre a versão mais recente do segredo.<br/>Se especificado, então mantém-se na versão dada.| Não |
-| Loja | Refere-se a um serviço ligado ao Cofre da Chave Azure que utiliza para armazenar a credencial. | Sim |
+| tipo | A propriedade tipo do campo deve ser definida para: **AzureKeyVaultSecret**. | Yes |
+| nome secreto | O nome do segredo em Azure Key Vault. | Yes |
+| versão secreta | A versão do segredo em Azure Key Vault.<br/>Se não for especificado, utiliza sempre a versão mais recente do segredo.<br/>Se especificado, então mantém-se na versão dada.| No |
+| Loja | Refere-se a um serviço ligado ao Cofre da Chave Azure que utiliza para armazenar a credencial. | Yes |
 
 **Utilização da UI de autor:**
 

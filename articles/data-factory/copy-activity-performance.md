@@ -1,25 +1,20 @@
 ---
-title: Copiar o desempenho da atividade e o guia de escalabilidade
+title: Guia de desempenho e de escalabilidade da Atividade de cópia
 description: Conheça os factores-chave que afetam o desempenho do movimento de dados na Azure Data Factory quando utilizar a atividade da cópia.
-services: data-factory
-documentationcenter: ''
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/15/2020
-ms.openlocfilehash: a6e89883ec0e1e493bad9572876af86f4a0d3853
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1c166b99243e5a6ee576100b8470aa38b9535c7a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324451"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100387670"
 ---
-# <a name="copy-activity-performance-and-scalability-guide"></a>Copiar o desempenho da atividade e o guia de escalabilidade
+# <a name="copy-activity-performance-and-scalability-guide"></a>Guia de desempenho e de escalabilidade da Atividade de cópia
 
 > [!div class="op_single_selector" title1="Selecione a versão da Azure Data Factory que está a utilizar:"]
 > * [Versão 1](v1/data-factory-copy-activity-performance.md)
@@ -149,7 +144,7 @@ A Azure Data Factory fornece as seguintes funcionalidades de otimização de des
 
 ### <a name="data-integration-units"></a>Unidades de Integração de Dados
 
-Uma Unidade de Integração de Dados (DIU) é uma medida que representa o poder de uma única unidade na Azure Data Factory. A energia é uma combinação de CPU, memória e alocação de recursos de rede. O DIU aplica-se apenas ao [tempo de funcionamento da integração do Azure.](concepts-integration-runtime.md#azure-integration-runtime) O DIU não se aplica ao [tempo de integração auto-hospedado](concepts-integration-runtime.md#self-hosted-integration-runtime). [Saiba mais aqui.](copy-activity-performance-features.md#data-integration-units)
+Uma Unidade de Integração de Dados (DIU) é uma medida que representa o poder de uma única unidade na Azure Data Factory. A energia é uma combinação de CPU, memória e alocação de recursos de rede. O DIU aplica-se apenas ao [tempo de funcionamento da integração do Azure.](concepts-integration-runtime.md#azure-integration-runtime) O DIU não se aplica ao [tempo de integração auto-hospedado](concepts-integration-runtime.md#self-hosted-integration-runtime). [Saiba mais aqui](copy-activity-performance-features.md#data-integration-units).
 
 ### <a name="self-hosted-integration-runtime-scalability"></a>Escalabilidade de tempo de execução de integração auto-hospedada
 
@@ -176,7 +171,7 @@ Uma operação de cópia de dados pode enviar os dados _diretamente_ para a loja
 
 Consulte os outros artigos de atividade de cópia:
 
-* [Descrição geral da atividade de cópia](copy-activity-overview.md)
+* [Visão geral da atividade da cópia](copy-activity-overview.md)
 * [Desempenho da atividade da cópia de resolução de problemas](copy-activity-performance-troubleshooting.md)
 * [Copiar funcionalidades de otimização do desempenho da atividade](copy-activity-performance-features.md)
 * [Utilize a Azure Data Factory para migrar dados do seu lago de dados ou armazém de dados para Azure](data-migration-guidance-overview.md)

@@ -2,19 +2,16 @@
 title: Formato ORC na Azure Data Factory
 description: Este tópico descreve como lidar com o formato ORC na Azure Data Factory.
 author: linda33wj
-manager: shwang
-ms.reviewer: craigg
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/28/2020
 ms.author: jingwang
-ms.openlocfilehash: 4a25a1ec5f2d650501a7c5da8bb1c60f57ad549d
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 8973692b90cc9d6caa852616bf2962371d25abfa
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945792"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100386463"
 ---
 # <a name="orc-format-in-azure-data-factory"></a>Formato ORC na Azure Data Factory
 
@@ -30,9 +27,9 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 | Propriedade         | Descrição                                                  | Obrigatório |
 | ---------------- | ------------------------------------------------------------ | -------- |
-| tipo             | A propriedade do tipo do conjunto de dados deve ser definida para **Orc**. | Sim      |
-| localização         | Definições de localização do(s) ficheiros. Cada conector baseado em ficheiros tem o seu próprio tipo de localização e propriedades suportadas em `location` . **Consulte os detalhes na secção de propriedades do conector -> Dataset**. | Sim      |
-| compressãoCodec         | O codec de compressão para utilizar ao escrever em ficheiros ORC. Ao ler em ficheiros ORC, as Fábricas de Dados determinam automaticamente o código de compressão com base nos metadados de ficheiro.<br>Os tipos suportados não são **nenhum,** **zlib,** **snappy** (padrão) e **lzo**. Nota atualmente A atividade copy não suporta LZO quando lê/escreve ficheiros ORC. | Não      |
+| tipo             | A propriedade do tipo do conjunto de dados deve ser definida para **Orc**. | Yes      |
+| localização         | Definições de localização do(s) ficheiros. Cada conector baseado em ficheiros tem o seu próprio tipo de localização e propriedades suportadas em `location` . **Consulte os detalhes na secção de propriedades do conector -> Dataset**. | Yes      |
+| compressãoCodec         | O codec de compressão para utilizar ao escrever em ficheiros ORC. Ao ler em ficheiros ORC, as Fábricas de Dados determinam automaticamente o código de compressão com base nos metadados de ficheiro.<br>Os tipos suportados não são **nenhum,** **zlib,** **snappy** (padrão) e **lzo**. Nota atualmente A atividade copy não suporta LZO quando lê/escreve ficheiros ORC. | No      |
 
 Abaixo está um exemplo do conjunto de dados ORC no Armazenamento Azure Blob:
 
@@ -68,30 +65,30 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 ### <a name="orc-as-source"></a>ORC como fonte
 
-As seguintes propriedades são suportadas na secção *** \* de origem \* *** da atividade de cópia.
+As seguintes propriedades são suportadas na secção ***\* de origem \**** da atividade de cópia.
 
 | Propriedade      | Descrição                                                  | Obrigatório |
 | ------------- | ------------------------------------------------------------ | -------- |
-| tipo          | A propriedade tipo da fonte de atividade de cópia deve ser definida para **OrcSource**. | Sim      |
-| lojaSs | Um grupo de propriedades sobre como ler dados de uma loja de dados. Cada conector baseado em ficheiros tem as suas próprias definições de leitura suportadas em `storeSettings` . **Consulte os detalhes na secção de propriedades de atividade do conector -> Copy**. | Não       |
+| tipo          | A propriedade tipo da fonte de atividade de cópia deve ser definida para **OrcSource**. | Yes      |
+| lojaSs | Um grupo de propriedades sobre como ler dados de uma loja de dados. Cada conector baseado em ficheiros tem as suas próprias definições de leitura suportadas em `storeSettings` . **Consulte os detalhes na secção de propriedades de atividade do conector -> Copy**. | No       |
 
 ### <a name="orc-as-sink"></a>ORC como pia
 
-As seguintes propriedades são suportadas na secção de *** \* lavatório \* *** de atividade de cópia.
+As seguintes propriedades são suportadas na secção de ***\* lavatório \**** de atividade de cópia.
 
 | Propriedade      | Descrição                                                  | Obrigatório |
 | ------------- | ------------------------------------------------------------ | -------- |
-| tipo          | A propriedade do tipo do lavatório de atividade de cópia deve ser definida para **OrcSink**. | Sim      |
-| formatoStas | Um grupo de propriedades. Consulte a tabela de **definições de escrita ORC** abaixo. |    Não      |
-| lojaSs | Um grupo de propriedades sobre como escrever dados para uma loja de dados. Cada conector baseado em ficheiros tem as suas próprias definições de escrita suportadas em `storeSettings` . **Consulte os detalhes na secção de propriedades de atividade do conector -> Copy**. | Não       |
+| tipo          | A propriedade do tipo do lavatório de atividade de cópia deve ser definida para **OrcSink**. | Yes      |
+| formatoStas | Um grupo de propriedades. Consulte a tabela de **definições de escrita ORC** abaixo. |    No      |
+| lojaSs | Um grupo de propriedades sobre como escrever dados para uma loja de dados. Cada conector baseado em ficheiros tem as suas próprias definições de escrita suportadas em `storeSettings` . **Consulte os detalhes na secção de propriedades de atividade do conector -> Copy**. | No       |
 
 As **definições** de escrita ORC suportadas em `formatSettings` :
 
 | Propriedade      | Descrição                                                  | Obrigatório                                              |
 | ------------- | ------------------------------------------------------------ | ----------------------------------------------------- |
-| tipo          | O tipo de formatoStas devem ser definidas para **OrcWriteSettings**. | Sim                                                   |
-| maxRowsPerFile | Ao escrever dados numa pasta, pode optar por escrever em vários ficheiros e especificar as linhas máximas por ficheiro.  | Não |
-| fileNamePrefix | Aplicável quando `maxRowsPerFile` é configurado.<br> Especifique o prefixo do nome do ficheiro ao escrever dados em vários ficheiros, resultando neste padrão: `<fileNamePrefix>_00000.<fileExtension>` . Se não for especificado, o prefixo do nome do ficheiro será gerado automaticamente. Esta propriedade não se aplica quando a fonte é loja baseada em ficheiros ou [loja de dados ativada por opção de partição.](copy-activity-performance-features.md)  | Não |
+| tipo          | O tipo de formatoStas devem ser definidas para **OrcWriteSettings**. | Yes                                                   |
+| maxRowsPerFile | Ao escrever dados numa pasta, pode optar por escrever em vários ficheiros e especificar as linhas máximas por ficheiro.  | No |
+| fileNamePrefix | Aplicável quando `maxRowsPerFile` é configurado.<br> Especifique o prefixo do nome do ficheiro ao escrever dados em vários ficheiros, resultando neste padrão: `<fileNamePrefix>_00000.<fileExtension>` . Se não for especificado, o prefixo do nome do ficheiro será gerado automaticamente. Esta propriedade não se aplica quando a fonte é loja baseada em ficheiros ou [loja de dados ativada por opção de partição.](copy-activity-performance-features.md)  | No |
 
 ## <a name="mapping-data-flow-properties"></a>Mapeamento de propriedades de fluxo de dados
 
@@ -107,13 +104,13 @@ Ao utilizar o conjunto de dados inline, verá definições de ficheiros adiciona
 
 | Nome | Descrição | Obrigatório | Valores permitidos | Propriedade de script de fluxo de dados |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| Formatar | Formato deve ser `orc` | sim | `orc` | formato |
+| Formato | Formato deve ser `orc` | sim | `orc` | formato |
 | Caminhos de wild card | Todos os ficheiros correspondentes ao caminho wildcard serão processados. Substitui a pasta e o caminho do ficheiro definido no conjunto de dados. | não | Corda[] | wildcardPaths |
-| Caminho da raiz da partição | Para os dados de ficheiros que são divididos, pode introduzir um caminho de raiz de partição para ler pastas partidas como colunas | não | Cadeia | partitionRootPath |
+| Caminho da raiz da partição | Para os dados de ficheiros que são divididos, pode introduzir um caminho de raiz de partição para ler pastas partidas como colunas | não | String | partitionRootPath |
 | Lista de ficheiros | Se a sua fonte está a apontar para um ficheiro de texto que lista ficheiros para processar | não | `true` ou `false` | fileList |
-| Coluna para armazenar nome de ficheiro | Criar uma nova coluna com o nome e caminho do ficheiro de origem | não | Cadeia | rowUrlColumn |
+| Coluna para armazenar nome de ficheiro | Criar uma nova coluna com o nome e caminho do ficheiro de origem | não | String | rowUrlColumn |
 | Após a conclusão | Elimine ou mova os ficheiros após o processamento. O caminho do arquivo começa a partir da raiz do recipiente | não | Excluir: `true` ou `false` <br> Mover-se: `[<from>, <to>]` | purgeFiles <br> moveFiles |
-| Filtrar por última modificação | Opte por filtrar ficheiros com base na última alteração que foram alterados | não | Timestamp | modificado Depois <br> modificadoSForo antes |
+| Filtrar por última modificação | Opte por filtrar ficheiros com base na última alteração que foram alterados | não | CarimboDeDataEHora | modificado Depois <br> modificadoSForo antes |
 | Não permita que não encontrem ficheiros | Se for verdade, um erro não é jogado se nenhum ficheiro for encontrado | não | `true` ou `false` | ignoreNoFilesFound |
 
 ### <a name="source-example"></a>Exemplo de origem
@@ -135,7 +132,7 @@ Ao utilizar o conjunto de dados inline, verá definições de ficheiros adiciona
 
 | Nome | Descrição | Obrigatório | Valores permitidos | Propriedade de script de fluxo de dados |
 | ---- | ----------- | -------- | -------------- | ---------------- |
-| Formatar | Formato deve ser `orc` | sim | `orc` | formato |
+| Formato | Formato deve ser `orc` | sim | `orc` | formato |
 | Limpe a pasta | Se a pasta de destino for apurada antes de escrever | não | `true` ou `false` | truncato |
 | Opção de nome de ficheiro | O formato de nomeação dos dados escritos. Por predefinição, um ficheiro por partição em formato `part-#####-tid-<guid>` | não | Padrão: Corda <br> Por partição: String[] <br> Como dados na coluna: String <br> Saída para um único ficheiro: `['<fileName>']` | filePattern <br> partitionFileNames <br> rowUrlColumn <br> partitionFileNames |
 
@@ -172,8 +169,8 @@ Para a cópia em execução em IR auto-hospedado com serialização/deserializa�
 
 Exemplo: definir variável `_JAVA_OPTIONS` com valor `-Xms256m -Xmx16g` . A bandeira `Xms` especifica o conjunto inicial de atribuição de memória para uma Máquina Virtual Java (JVM), enquanto `Xmx` especifica o conjunto máximo de atribuição de memória. Isto significa que jVM será iniciado com `Xms` quantidade de memória e será capaz de usar um máximo de quantidade de `Xmx` memória. Por predefinição, a ADF utiliza min 64 MB e máx 1G.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-- [Descrição geral da atividade de cópia](copy-activity-overview.md)
+- [Visão geral da atividade da cópia](copy-activity-overview.md)
 - [Atividade de procura](control-flow-lookup-activity.md)
 - [Atividade getMetadata](control-flow-get-metadata-activity.md)

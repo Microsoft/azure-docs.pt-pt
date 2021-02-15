@@ -11,12 +11,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: 40882f2a0c1a65650d633d0784214afbeef9ae63
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 5fc5b52cb8fb4d654bef136f44d8579036921364
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842894"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100097199"
 ---
 # <a name="create-and-manage-an-azure-machine-learning-compute-instance"></a>Criar e gerir um exemplo de cálculo de aprendizagem automática Azure
 
@@ -44,9 +44,9 @@ As instâncias computacional podem executar empregos de forma segura num [ambien
 
 **Estimativa de tempo:** Aproximadamente 5 minutos.
 
-Criar uma instância computacional é um processo único para o seu espaço de trabalho. Pode reutilizar este cálculo como uma estação de trabalho de desenvolvimento ou como um alvo de computação para a formação. Pode ter várias instâncias de computação anexadas ao seu espaço de trabalho.
+Criar uma instância computacional é um processo único para o seu espaço de trabalho. Pode reutilizar o cálculo como uma estação de trabalho de desenvolvimento ou como um alvo de computação para a formação. Pode ter várias instâncias de computação anexadas ao seu espaço de trabalho.
 
-Os núcleos dedicados por região por quota familiar VM e quotas regionais totais, que se aplicam à criação de instâncias computacional, são unificados e partilhados com a quota de cluster de formação de aprendizagem de máquinas de azure. Parar a instância de computação não liberta quota para garantir que poderá reiniciar a instância do cálculo. Por favor, note que não é possível alterar o tamanho da máquina virtual de instância computacional uma vez que é criado.
+Os núcleos dedicados por região por quota familiar VM e quotas regionais totais, que se aplicam à criação de instâncias computacional, são unificados e partilhados com a quota de cluster de formação de aprendizagem de máquinas de azure. Parar a instância de computação não liberta quota para garantir que poderá reiniciar a instância do cálculo. Note que não é possível alterar o tamanho virtual da máquina de instância computacional uma vez que é criado.
 
 O exemplo a seguir demonstra como criar uma instância computacional:
 
@@ -125,7 +125,7 @@ O cientista de dados pode começar, parar e reiniciar a instância de computaç�
 
 ## <a name="manage"></a>Gerir
 
-Iniciar, parar, reiniciar e apagar uma instância de cálculo. Uma instância de cálculo não diminui automaticamente, por isso certifique-se de parar o recurso para evitar cargas em curso.
+Iniciar, parar, reiniciar e apagar uma instância de computação. Uma instância de cálculo não diminui automaticamente, por isso certifique-se de parar o recurso para evitar cargas em curso.
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -226,7 +226,7 @@ Para cada instância de cálculo no seu espaço de trabalho que criou (ou que fo
 
 ---
 
-[O Azure RBAC](../role-based-access-control/overview.md) permite-lhe controlar quais os utilizadores no espaço de trabalho que podem criar, eliminar, iniciar, parar, reiniciar uma instância de computação. Todos os utilizadores no espaço de trabalho colaborador e papel de proprietário podem criar, eliminar, iniciar, parar e reiniciar casos de cálculo em todo o espaço de trabalho. No entanto, apenas o criador de uma instância computacional específica, ou o utilizador designado se foi criado em seu nome, é autorizado a aceder a Jupyter, JupyterLab e RStudio nessa instância de computação. Uma instância computacional é dedicada a um único utilizador que tenha acesso à raiz, e pode terminalizar através do Jupyter/JupyterLab/RStudio. A instância computacional terá um único utilizador e todas as ações usarão a identidade desse utilizador para o RBAC Azure e a atribuição de execuções de experiências. O acesso ao SSH é controlado através de um mecanismo chave público/privado.
+[O Azure RBAC](../role-based-access-control/overview.md) permite-lhe controlar quais os utilizadores no espaço de trabalho que podem criar, eliminar, iniciar, parar, reiniciar uma instância de computação. Todos os utilizadores no espaço de trabalho colaborador e papel de proprietário podem criar, eliminar, iniciar, parar e reiniciar casos de cálculo em todo o espaço de trabalho. No entanto, apenas o criador de uma instância computacional específica, ou o utilizador designado se foi criado em seu nome, é autorizado a aceder a Jupyter, JupyterLab e RStudio nessa instância de computação. Uma instância computacional é dedicada a um único utilizador que tenha acesso à raiz, e pode terminalizar através do Jupyter/JupyterLab/RStudio. A instância computacional terá um único utilizador a iniciar sessão e todas as ações utilizarão a identidade desse utilizador para o Azure RBAC e a atribuição de execuções de experiências. O acesso ao SSH é controlado através de um mecanismo chave público/privado.
 
 Estas ações podem ser controladas pela Azure RBAC:
 * *Microsoft.MachineLearningServices/workspaces/computes/read*
@@ -236,62 +236,8 @@ Estas ações podem ser controladas pela Azure RBAC:
 * *Microsoft.MachineLearningServices/workspaces/computes/stop/action*
 * *Microsoft.MachineLearningServices/workspaces/computes/restart/action*
 
-
-## <a name="access-the-terminal-window"></a>Aceda à janela do terminal
-
-Abra a janela terminal da sua instância de computação de qualquer forma:
-
-* RStudio: Selecione o **separador Terminal** em cima à esquerda.
-* Jupyter Lab: Selecione o **azulejo terminal** sob o **outro** título no separador Launcher.
-* Jupyter: Selecione **Novo Terminal de>** no topo direito no separador Ficheiros.
-* SSH para a máquina, se ativar o acesso ao SSH quando a instância de computação foi criada.
-
-Utilize a janela do terminal para instalar pacotes e criar núcleos adicionais.
-
-## <a name="install-packages"></a>Instalar pacotes
-
-Pode instalar pacotes diretamente no Jupyter Notebook ou no RStudio:
-
-* RStudio Utilize o **separador Pacotes** no canto inferior direito ou o **separador Consola** na parte superior esquerda.  
-* Python: Adicione código de instalação e execute numa célula Jupyter Notebook.
-
-Ou pode instalar a partir de uma janela do terminal. Instale pacotes Python no ambiente **Python 3.6 - AzureML.**  Instale as embalagens R no ambiente **R.**
-
-> [!NOTE]
-> Para a gestão de pacotes dentro de um caderno, utilize funções mágicas **%pip** ou **%conda** para instalar automaticamente pacotes no **núcleo atualmente em funcionamento**, em vez de **!pip** ou **!conda,** que se refere a todas as embalagens (incluindo pacotes fora do núcleo atualmente em funcionamento)
-
-## <a name="add-new-kernels"></a>Adicione novos núcleos
-
-> [!WARNING]
->  Ao personalizar a instância computacional, certifique-se de que não apaga o ambiente **conda azureml_py36** ou o núcleo **Python 3.6 - AzureML.** Isto é necessário para a funcionalidade Jupyter/JupyterLab
-
-Para adicionar um novo núcleo Jupyter à instância computacional:
-
-1. Crie um novo terminal a partir de Jupyter, JupyterLab ou a partir de painéis de cadernos ou SSH no caso do cálculo
-2. Utilize a janela do terminal para criar um novo ambiente.  Por exemplo, o código abaixo `newenv` cria:
-
-    ```shell
-    conda create --name newenv
-    ```
-
-3. Ative o ambiente.  Por exemplo, depois de `newenv` criar:
-
-    ```shell
-    conda activate newenv
-    ```
-
-4. Instale o pacote pip e ipykernel para o novo ambiente e crie um núcleo para esse conda env
-
-    ```shell
-    conda install pip
-    conda install ipykernel
-    python -m ipykernel install --user --name newenv --display-name "Python (newenv)"
-    ```
-
-Qualquer um dos [Jupyter Kernels disponíveis](https://github.com/jupyter/jupyter/wiki/Jupyter-kernels) pode ser instalado.
-
-
-
 ## <a name="next-steps"></a>Passos seguintes
 
+* [Aceda ao terminal de instância computacional](how-to-access-terminal.md)
+* [Criar e gerir ficheiros](how-to-manage-files.md)
 * [Submeter uma corrida de formação](how-to-set-up-training-targets.md)

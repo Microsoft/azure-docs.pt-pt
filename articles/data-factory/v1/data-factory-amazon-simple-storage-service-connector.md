@@ -1,23 +1,18 @@
 ---
 title: Mover dados do Serviço de Armazenamento Simples da Amazon utilizando a Data Factory
 description: Saiba como mover dados do Amazon Simple Storage Service (S3) utilizando a Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.assetid: 636d3179-eba8-4841-bcb4-3563f6822a26
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: b23be9901df7ca435f412d9f49e1a7ad88382ade
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6d254a535b1db53478772b481bd029a8c4db6f3c
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84711923"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100361351"
 ---
 # <a name="move-data-from-amazon-simple-storage-service-by-using-azure-data-factory"></a>Mover dados do Serviço de Armazenamento Simples da Amazon utilizando a Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que está a utilizar:"]
@@ -44,7 +39,7 @@ Pode criar um pipeline com uma atividade de cópia que move dados de uma fonte A
 
 A forma mais fácil de criar um oleoduto é utilizar o **Copy Wizard**. Para uma rápida passagem, consulte [Tutorial: Crie um oleoduto utilizando o Copy Wizard](data-factory-copy-data-wizard-tutorial.md).
 
-Também pode utilizar as seguintes ferramentas para criar um pipeline: **Visual Studio**, **Azure PowerShell,** **Azure Resource Manager,** **.NET API**e **REST API**. Para obter instruções passo a passo para criar um oleoduto com uma atividade de cópia, consulte o tutorial de atividade da [Cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+Também pode utilizar as seguintes ferramentas para criar um pipeline: **Visual Studio**, **Azure PowerShell,** **Azure Resource Manager,** **.NET API** e **REST API**. Para obter instruções passo a passo para criar um oleoduto com uma atividade de cópia, consulte o tutorial de atividade da [Cópia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 Quer utilize ferramentas ou APIs, executa os seguintes passos para criar um pipeline que transfere dados de uma loja de dados de origem para uma loja de dados de lavatórios:
 
@@ -64,8 +59,8 @@ Um serviço ligado liga uma loja de dados a uma fábrica de dados. Cria um servi
 
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
-| accessKeyID |Identificação da chave de acesso secreta. |string |Sim |
-| SecretAccessKey |A chave de acesso secreto em si. |Cadeia secreta encriptada |Sim |
+| accessKeyID |Identificação da chave de acesso secreta. |string |Yes |
+| SecretAccessKey |A chave de acesso secreto em si. |Cadeia secreta encriptada |Yes |
 
 >[!NOTE]
 >Este conector requer chaves de acesso para conta IAM para copiar dados do Amazon S3. [A Credencial de Segurança Temporária](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html) não é apoiada.
@@ -93,12 +88,12 @@ Secções como estrutura, disponibilidade e política são semelhantes para todo
 
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
-| baldeName |O nome do balde S3. |Cadeia |Sim |
-| key |A chave do objeto S3. |Cadeia |Não |
-| prefixo |Prefixo para a tecla de objeto S3. São selecionados objetos cujas teclas começam com este prefixo. Só se aplica quando a chave estiver vazia. |Cadeia |Não |
-| versão |A versão do objeto S3, se a versão S3 estiver ativada. |Cadeia |Não |
-| formato | Os seguintes tipos de formato são suportados: **TextFormat,** **JsonFormat,** **AvroFormat,** **OrcFormat,** **ParquetFormat**. Desa um destes valores, o **tipo** de propriedade em formato. Para mais informações, consulte o [formato Texto,](data-factory-supported-file-and-compression-formats.md#text-format) [formato JSON,](data-factory-supported-file-and-compression-formats.md#json-format) [formato Avro,](data-factory-supported-file-and-compression-formats.md#avro-format) [formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format)e secções [de formato Parquet.](data-factory-supported-file-and-compression-formats.md#parquet-format) <br><br> Se pretender copiar ficheiros como-está entre lojas baseadas em ficheiros (cópia binária), salte a secção de formato nas definições de conjunto de dados de entrada e saída. | |Não |
-| compressão | Especifique o tipo e o nível de compressão para os dados. Os tipos suportados são: **GZip,** **Deflate,** **BZip2**e **ZipDeflate**. Os níveis suportados são: **Ideal** e **Mais rápido.** Para obter mais informações, consulte [os formatos de arquivo e compressão na Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). | |Não |
+| baldeName |O nome do balde S3. |String |Yes |
+| key |A chave do objeto S3. |String |No |
+| prefixo |Prefixo para a tecla de objeto S3. São selecionados objetos cujas teclas começam com este prefixo. Só se aplica quando a chave estiver vazia. |String |No |
+| versão |A versão do objeto S3, se a versão S3 estiver ativada. |String |No |
+| formato | Os seguintes tipos de formato são suportados: **TextFormat,** **JsonFormat,** **AvroFormat,** **OrcFormat,** **ParquetFormat**. Desa um destes valores, o **tipo** de propriedade em formato. Para mais informações, consulte o [formato Texto,](data-factory-supported-file-and-compression-formats.md#text-format) [formato JSON,](data-factory-supported-file-and-compression-formats.md#json-format) [formato Avro,](data-factory-supported-file-and-compression-formats.md#avro-format) [formato Orc](data-factory-supported-file-and-compression-formats.md#orc-format)e secções [de formato Parquet.](data-factory-supported-file-and-compression-formats.md#parquet-format) <br><br> Se pretender copiar ficheiros como-está entre lojas baseadas em ficheiros (cópia binária), salte a secção de formato nas definições de conjunto de dados de entrada e saída. | |No |
+| compressão | Especifique o tipo e o nível de compressão para os dados. Os tipos suportados são: **GZip,** **Deflate,** **BZip2** e **ZipDeflate**. Os níveis suportados são: **Ideal** e **Mais rápido.** Para obter mais informações, consulte [os formatos de arquivo e compressão na Azure Data Factory](data-factory-supported-file-and-compression-formats.md#compression-support). | |No |
 
 
 > [!NOTE]
@@ -174,7 +169,7 @@ Para obter uma lista completa de secções e propriedades disponíveis para defi
 
 | Propriedade | Descrição | Valores permitidos | Necessário |
 | --- | --- | --- | --- |
-| recursivo |Especifica se deve listar novamente os objetos S3 sob o diretório. |verdadeiro/falso |Não |
+| recursivo |Especifica se deve listar novamente os objetos S3 sob o diretório. |verdadeiro/falso |No |
 
 ## <a name="json-example-copy-data-from-amazon-s3-to-azure-blob-storage"></a>Exemplo JSON: Copiar dados do Amazon S3 para o armazenamento Azure Blob
 Esta amostra mostra como copiar dados do Amazon S3 para um armazenamento Azure Blob. No entanto, os dados podem ser copiados diretamente para [qualquer um dos lavatórios que são suportados](data-factory-data-movement-activities.md#supported-data-stores-and-formats) através da atividade de cópia na Data Factory.

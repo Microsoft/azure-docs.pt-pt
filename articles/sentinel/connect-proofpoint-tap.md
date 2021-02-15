@@ -1,5 +1,5 @@
 ---
-title: Ligar dados da Proteção de Ataques Direcionados (TAP) ao Azure Sentinel Microsoft Docs
+title: Conecte os dados de Proteção de Ataque direcionados para o ponto de prova (TAP) ao Azure Sentinel| Microsoft Docs
 description: Saiba como ligar os dados de Proteção de Ataques Direcionados para o Ponto de Prova (TAP) ao Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
-ms.openlocfilehash: df4292a40335e58c64b8ebc50ffb6ac1ceee8836
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 86018bafaa42eac01e5dccf8da1d290b64e2475c
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87059894"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100092983"
 ---
 # <a name="connect-your-proofpoint-tap-to-azure-sentinel-with-azure-function"></a>Ligue o seu Ponto de Revisão TAP ao Azure Sentinel com a Função Azure
 
 > [!IMPORTANT]
 > O conector de dados proofpoint TAP em Azure Sentinel encontra-se atualmente em pré-visualização pública.
-> Esta funcionalidade é fornecida sem um contrato de nível de serviço, e não é recomendado para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Esta funcionalidade é fornecida sem um contrato de nível de serviço, e não é recomendado para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 O conector de proteção de ataque direcionado proofpoint (TAP) permite-lhe ligar facilmente todos os registos da solução de segurança [Proofpoint TAP](https://www.proofpoint.com/us/products/advanced-threat-protection/targeted-attack-protection) com o Azure Sentinel, para visualizar dashboards, criar alertas personalizados e melhorar a investigação. A integração entre o Proofpoint TAP e o Azure Sentinel faz uso das Funções Azure para retirar dados de registo utilizando a API REST.
 
@@ -48,7 +48,7 @@ Após a criação de uma ligação bem sucedida, os dados aparecem no Log Analyt
 
 ## <a name="validate-connectivity"></a>Validar conectividade
 
-Pode demorar mais de 20 minutos até que os seus registos comecem a aparecer no Log Analytics.
+Pode demorar até que os seus registos comecem a aparecer no Log Analytics.
 
 ## <a name="next-steps"></a>Passos seguintes
 

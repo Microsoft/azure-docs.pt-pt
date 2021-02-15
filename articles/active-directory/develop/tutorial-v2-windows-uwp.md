@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/13/2019
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40
-ms.openlocfilehash: 4c4158fe9c976ca214409ef4c0c9833c610ee34c
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 6383f63d2118d8618f07bf3cb6cd08a0b16140f3
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99584335"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100102653"
 ---
 # <a name="tutorial-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Tutorial: Ligue para a Microsoft Graph API a partir de uma aplicação Universal Windows Platform (UWP)
 
@@ -345,7 +345,7 @@ private async Task DisplayMessageAsync(string message)
 
 Agora, registe a sua candidatura:
 
-1. Inscreva-se no <a href="https://portal.azure.com/" target="_blank">portal <span class="docon docon-navigate-external x-hidden-focus"></span> Azure</a>.
+1. Inicie sessão no <a href="https://portal.azure.com/" target="_blank">portal do Azure</a>.
 1. Se tiver acesso a vários inquilinos, utilize o filtro **de subscrição Diretório +** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o inquilino no qual pretende registar uma candidatura.
 1. Procure e selecione **Azure Active Directory**.
 1. Em **Gestão**, selecione **registos de aplicações**  >  **Novo registo**.
@@ -356,8 +356,8 @@ Agora, registe a sua candidatura:
 
 Configure a autenticação para a sua aplicação:
 
-1. De volta ao <a href="https://portal.azure.com/" target="_blank">portal <span class="docon docon-navigate-external x-hidden-focus"></span> Azure</a>, em **Manage**, selecione **Autenticação** Adicione uma  >  **plataforma** e, em seguida, selecione **aplicações móveis e desktop**.
-1. Na secção **URIs de redirecionamento,** verifique **https://login.microsoftonline.com/common/oauth2/nativeclient** .
+1. De volta ao <a href="https://portal.azure.com/" target="_blank">portal Azure</a>, em **Manage**, selecione **Autenticação** Adicione uma  >  **plataforma** e, em seguida, selecione **aplicações móveis e desktop**.
+1. Na secção **URIs de redirecionamento,** insira `https://login.microsoftonline.com/common/oauth2/nativeclient` .
 1. Selecione **Configurar**.
 
 Configure permissões API para a sua aplicação:

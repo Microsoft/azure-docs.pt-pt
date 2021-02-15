@@ -1,23 +1,19 @@
 ---
 title: Processar conjuntos de dados em larga escala utilizando a Data Factory e o Batch
 description: Descreve como processar grandes quantidades de dados num oleoduto Azure Data Factory utilizando a capacidade de processamento paralelo do Azure Batch.
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
-manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 365de79db450eda897621ccde3b92478ed93ecc3
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: c59e164d67a665a5e99cb5045b3b0cf38e33dc87
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96496165"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100364278"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Processar conjuntos de dados em larga escala utilizando a Data Factory e o Batch
 > [!NOTE]
@@ -122,7 +118,7 @@ Crie uma piscina de lote com pelo menos dois nós computacional.
 
    f. Selecione **OK** para criar a piscina.
 
-#### <a name="azure-storage-explorer"></a>Explorador do Storage do Azure
+#### <a name="azure-storage-explorer"></a>Explorador de Armazenamento do Azure
 Utiliza [o Azure Storage Explorer 6](https://azurestorageexplorer.codeplex.com/) ou [o CloudXplorer](https://clumsyleaf.com/products/cloudxplorer) (do Software DesajeitadoLeaf) para inspecionar e alterar os dados nos seus projetos de Armazenamento. Também pode inspecionar e alterar os dados nos registos das suas aplicações hospedadas na nuvem.
 
 1. Crie um contentor chamado **mycontainer** com acesso privado (sem acesso anónimo).
@@ -193,7 +189,7 @@ O método tem alguns componentes-chave que precisa de compreender:
 
    exemplo, Selecione **OK** para criar o projeto.
 
-1. Selecione **ferramentas**  >  **NuGet Package Manager** Package Manager  >  **Consola**.
+1. Selecione **Tools** (Ferramentas)  > **NuGet Package Manager** (Gestor de Pacotes NuGet)  > **Package Manager Console** (Consola do Gestor de Pacotes).
 
 1. Na consola Gestor de Pacotes, execute o seguinte comando para importar Microsoft.Azure.Management.DataFactories:
 
@@ -660,7 +656,7 @@ Neste passo, cria conjuntos de dados para representar dados de entrada e saída.
     }
     ```
 
-    Você cria um oleoduto mais tarde nesta passagem com a hora de início 2015-11-16T00:00:00Z e o tempo final 2015-11-16T05:00:00Z. Está programado para produzir dados de hora em hora, por isso existem cinco fatias de entrada/saída (entre as 00:00:00 e as **00** \> **05:00:00).**
+    Você cria um oleoduto mais tarde nesta passagem com a hora de início 2015-11-16T00:00:00Z e o tempo final 2015-11-16T05:00:00Z. Está programado para produzir dados de hora em hora, por isso existem cinco fatias de entrada/saída (entre as 00:00:00 e as  \> **05:00:00).**
 
     A **frequência** **e** intervalo para o conjunto de dados de entrada são definidos para **Hora** e **1**, o que significa que a fatia de entrada está disponível a cada hora.
 
@@ -668,21 +664,21 @@ Neste passo, cria conjuntos de dados para representar dados de entrada e saída.
 
     | **Fatia** | **Hora de início**          |
     |-----------|-------------------------|
-    | 1         | 2015-11-16T **00** 00:00:00 |
+    | 1         | 2015-11-16T00:00:00 |
     | 2         | 2015-11-16T **01**:00:00 |
-    | 3         | 2015-11-16T **02** 02:00:00 |
-    | 4         | 2015-11-16T **03** 03:00:00 |
-    | 5         | 2015-11-16T **04** 04:00:00 |
+    | 3         | 2015-11-16T02:00:00 |
+    | 4         | 2015-11-16T03:00:00 |
+    | 5         | 2015-11-16T04:00:00 |
 
     A **pastaApapa** é calculada utilizando a parte do ano, mês, dia e hora da parte inicial da fatia **(SliceStart).** Aqui está como uma pasta de entrada é mapeada para uma fatia.
 
     | **Fatia** | **Hora de início**          | **Pasta de entrada**  |
     |-----------|-------------------------|-------------------|
-    | 1         | 2015-11-16T **00** 00:00:00 | 2015-11-16-00 **00** |
-    | 2         | 2015-11-16T **01**:00:00 | 2015-11-16-01 **01** |
-    | 3         | 2015-11-16T **02** 02:00:00 | 2015-11-16-02 **02** |
-    | 4         | 2015-11-16T **03** 03:00:00 | 2015-11-16-03 **03** |
-    | 5         | 2015-11-16T **04** 04:00:00 | 2015-11-16-04 **04** |
+    | 1         | 2015-11-16T00:00:00 | 2015-11-16-00 |
+    | 2         | 2015-11-16T **01**:00:00 | 2015-11-16-01 |
+    | 3         | 2015-11-16T02:00:00 | 2015-11-16-02 |
+    | 4         | 2015-11-16T03:00:00 | 2015-11-16-03 |
+    | 5         | 2015-11-16T04:00:00 | 2015-11-16-04 |
 
 1. Selecione **Implementar** na barra de ferramentas para criar e implementar a tabela **InputDataset.**
 
@@ -725,11 +721,11 @@ Neste passo, cria-se outro conjunto de dados do tipo AzureBlob para representar 
 
     | **Fatia** | **Hora de início**          | **Ficheiro de saída**       |
     |-----------|-------------------------|-----------------------|
-    | 1         | 2015-11-16T **00** 00:00:00 | 2015-11-16-00.txt **** |
+    | 1         | 2015-11-16T00:00:00 | 2015-11-16-00.txt **** |
     | 2         | 2015-11-16T **01**:00:00 | 2015-11-16-01.txt **** |
-    | 3         | 2015-11-16T **02** 02:00:00 | 2015-11-16-02.txt **** |
-    | 4         | 2015-11-16T **03** 03:00:00 | 2015-11-16-03.txt **** |
-    | 5         | 2015-11-16T **04** 04:00:00 | 2015-11-16-04.txt **** |
+    | 3         | 2015-11-16T02:00:00 | 2015-11-16-02.txt **** |
+    | 4         | 2015-11-16T03:00:00 | 2015-11-16-03.txt **** |
+    | 5         | 2015-11-16T04:00:00 | 2015-11-16-04.txt **** |
 
     Lembre-se que todos os ficheiros de uma pasta de entrada (por exemplo, 2015-11-16-00) fazem parte de uma fatia com a hora de início 2015-11-16-00. Quando esta fatia é processada, a atividade personalizada verifica-se através de cada ficheiro e produz uma linha no ficheiro de saída com o número de ocorrências do termo de pesquisa "Microsoft". Se houver três ficheiros na pasta 2015-11-16-00, existem três linhas no ficheiro de saída 2015-11-16-00.txt.
 
@@ -868,7 +864,7 @@ Neste passo, testa o pipeline deixando cair ficheiros nas pastas de entrada. Com
 #### <a name="data-factory-and-batch-integration"></a>Integração da Fábrica de Dados e lote
 O serviço Data Factory cria um trabalho em Batch com o nome `adf-poolname:job-xxx` .
 
-![Trabalhos em lote](media/data-factory-data-processing-using-batch/data-factory-batch-jobs.png)
+![Tarefas de lote](media/data-factory-data-processing-using-batch/data-factory-batch-jobs.png)
 
 Uma tarefa no trabalho é criada para cada atividade executada de uma fatia. Se 10 fatias estiverem prontas para serem processadas, 10 tarefas são criadas no trabalho. Você pode ter mais de uma fatia correndo em paralelo se você tiver múltiplos nós computacional na piscina. Se o número máximo de tarefas por nó de computação for definido para maior do que uma, mais de uma fatia pode ser executada no mesmo cálculo.
 

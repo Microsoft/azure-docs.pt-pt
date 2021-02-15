@@ -1,5 +1,5 @@
 ---
-title: Ligue os dados padrão de endpoint de nuvem preta de carbono VMware ao Azure Sentinel/ Microsoft Docs
+title: Ligue os dados padrão de endpoint de nuvem preta de carbono VMware ao Azure Sentinel| Microsoft Docs
 description: Saiba como ligar os dados padrão de endpoint de nuvem preta de carbono VMware ao Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
-ms.openlocfilehash: e13b251c9bd95a5b52d63d8ea1bbf265c9c46fd8
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 2c26931db617109c36c19b73bd3ec9263f4b40cc
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96023879"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100096451"
 ---
 # <a name="connect-your-vmware-carbon-black-cloud-endpoint-standard-to-azure-sentinel-with-azure-function"></a>Ligue o seu VMware Carbon Black Cloud Endpoint Standard ao Azure Sentinel com a função Azure
 
@@ -44,10 +44,10 @@ As Funções Azure podem integrar e puxar eventos e troncos diretamente do VMwar
 
 ## <a name="find-your-data"></a>Encontre os seus dados
 
-Após a criação de uma ligação bem sucedida, os dados aparecem no Log Analytics sob as **tabelas CarbonBlackAuditLogs_CL**, **CarbonBlackNotifications_CL** e ****CarbonBlackEvents_CL*********************
+Após a criação de uma ligação bem sucedida, os dados aparecem no Log Analytics sob as **tabelas CarbonBlackAuditLogs_CL**, **CarbonBlackNotifications_CL** e ****CarbonBlackEvents_CL****
 
 ## <a name="validate-connectivity"></a>Validar conectividade
-Pode demorar mais de 20 minutos até que os seus registos comecem a aparecer no Log Analytics. 
+Pode demorar até que os seus registos comecem a aparecer no Log Analytics. 
 
 
 ## <a name="next-steps"></a>Passos seguintes

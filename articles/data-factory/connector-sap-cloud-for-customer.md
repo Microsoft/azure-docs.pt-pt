@@ -1,23 +1,18 @@
 ---
 title: Copiar dados de/para nuvem SAP para cliente
 description: Saiba como copiar dados da SAP Cloud para o Cliente para lojas de dados de sumidouros suportados (ou) de lojas de dados de origem suportadas para SAP Cloud para Cliente utilizando a Data Factory.
-services: data-factory
-documentationcenter: ''
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/02/2021
-ms.openlocfilehash: 9578b87e16f418a7923cd71aa0638fa4e9279cfd
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 4590129b8d0d7a63ef4291a023ea4d980c89368c
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99430887"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100386650"
 ---
 # <a name="copy-data-from-sap-cloud-for-customer-c4c-using-azure-data-factory"></a>Copiar dados da NUVEM SAP para Cliente (C4C) utilizando a Azure Data Factory
 
@@ -51,11 +46,11 @@ As seguintes propriedades são suportadas para o serviço SAP Cloud para o clien
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo deve ser definida para: **SapCloudForCustomer**. | Sim |
-| url | O URL do serviço SAP C4C OData. | Sim |
-| nome de utilizador | Especifique o nome de utilizador para ligar ao SAP C4C. | Sim |
-| palavra-passe | Especifique a palavra-passe para a conta de utilizador especificada para o nome de utilizador. Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Sim |
-| connectVia | O [tempo de execução de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Se não for especificado, utiliza o tempo de execução de integração Azure predefinido. | Não |
+| tipo | A propriedade tipo deve ser definida para: **SapCloudForCustomer**. | Yes |
+| url | O URL do serviço SAP C4C OData. | Yes |
+| nome de utilizador | Especifique o nome de utilizador para ligar ao SAP C4C. | Yes |
+| palavra-passe | Especifique a palavra-passe para a conta de utilizador especificada para o nome de utilizador. Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Yes |
+| connectVia | O [tempo de execução de integração](concepts-integration-runtime.md) a ser utilizado para ligar à loja de dados. Se não for especificado, utiliza o tempo de execução de integração Azure predefinido. | No |
 
 **Exemplo:**
 
@@ -88,8 +83,8 @@ Para copiar dados da SAP Cloud para Cliente, defina a propriedade tipo do conjun
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo do conjunto de dados deve ser definida para: **SapCloudForCustomerResource** |Sim |
-| caminho | Especificar o caminho da entidade SAP C4C OData. |Sim |
+| tipo | A propriedade tipo do conjunto de dados deve ser definida para: **SapCloudForCustomerResource** |Yes |
+| caminho | Especificar o caminho da entidade SAP C4C OData. |Yes |
 
 **Exemplo:**
 
@@ -120,9 +115,9 @@ Para copiar dados da SAP Cloud para Cliente, deteta o tipo de origem na atividad
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo deve ser definida para: **SapCloudForCustomerSource**  | Sim |
-| consulta | Especifique a consulta personalizada OData para ler dados. | Não |
-| httpRequestTimeout | O tempo limite (o valor **TimeSpan)** para o pedido HTTP obter uma resposta. Este valor é o tempo limite para obter uma resposta, não o tempo limite para ler dados de resposta. Se não for especificado, o valor predefinido é **00:30:00** (30 minutos). | Não |
+| tipo | A propriedade tipo deve ser definida para: **SapCloudForCustomerSource**  | Yes |
+| consulta | Especifique a consulta personalizada OData para ler dados. | No |
+| httpRequestTimeout | O tempo limite (o valor **TimeSpan)** para o pedido HTTP obter uma resposta. Este valor é o tempo limite para obter uma resposta, não o tempo limite para ler dados de resposta. Se não for especificado, o valor predefinido é **00:30:00** (30 minutos). | No |
 
 Consulta de amostra para obter dados para um dia específico: `"query": "$filter=CreatedOn ge datetimeoffset'2017-07-31T10:02:06.4202620Z' and CreatedOn le datetimeoffset'2017-08-01T10:02:06.4202620Z'"`
 
@@ -164,7 +159,7 @@ Para copiar dados para SAP Cloud para Cliente, desaperte o tipo de pia na ativid
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo deve ser definida para: **SapCloudForCustomerSink**  | Sim |
+| tipo | A propriedade tipo deve ser definida para: **SapCloudForCustomerSink**  | Yes |
 | escrever Comportamento | O comportamento de escrita da operação. Pode ser "Inserir", "Atualizar". | N.º Predefinitivo "Inserir". |
 | escreverBatchSize | O tamanho do lote da operação de escrita. O tamanho do lote para obter o melhor desempenho pode ser diferente para diferentes tabelas ou servidores. | N.º Padrão 10. |
 

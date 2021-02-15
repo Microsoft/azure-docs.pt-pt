@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/22/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: 7d38ee1782987afce703fbd8b4203186bbcbb505
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: da53d6bad790e6b204fa2a2b045e7bfdd83e0cc9
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98754484"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100102534"
 ---
 # <a name="quickstart-protect-an-aspnet-core-web-api-with-microsoft-identity-platform"></a>Quickstart: Proteja uma API web core ASP.NET com plataforma de identidade microsoft
 
@@ -35,7 +35,7 @@ Neste quickstart, você descarrega uma amostra de código API web ASP.NET e rev�
 >
 > Em primeiro lugar, registe a API web no seu inquilino AZure AD e adicione um âmbito seguindo estes passos:
 >
-> 1. Inscreva-se no <a href="https://portal.azure.com/" target="_blank">portal <span class="docon docon-navigate-external x-hidden-focus"></span> Azure</a>.
+> 1. Inicie sessão no <a href="https://portal.azure.com/" target="_blank">portal do Azure</a>.
 > 1. Se tiver acesso a vários inquilinos, utilize o filtro **de subscrição Diretório +** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o inquilino no qual pretende registar uma candidatura.
 > 1. Procure e selecione **Azure Active Directory**.
 > 1. Em **Gestão**, selecione **registos de aplicações**  >  **Novo registo**.
@@ -98,7 +98,7 @@ O `AddAuthentication()` método configura o serviço para adicionar a autentica�
 
 A linha que contém `.AddMicrosoftIdentityWebApi` adiciona a autorização da plataforma de identidade da Microsoft à sua API web. Em seguida, é configurado para validar fichas de acesso emitidas pela plataforma de identidade da Microsoft com base nas informações `AzureAD` na secção doappsettings.js *no* ficheiro de configuração:
 
-| *appsettings.jsna* chave | Descrição                                                                                                                                                          |
+| *appsettings.jsna* chave | Description                                                                                                                                                          |
 |------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `ClientId`             | **Identificação da aplicação (cliente)** da aplicação registada no portal Azure.                                                                                       |
 | `Instance`             | Serviço de ficha de segurança (STS) para o utilizador autenticar. Este valor é tipicamente `https://login.microsoftonline.com/` , indicando a nuvem pública Azure. |
@@ -158,7 +158,7 @@ namespace webapi.Controllers
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 O repositório GitHub que contém esta amostra de código API web core ASP.NET inclui instruções e mais amostras de código que mostram como:
 

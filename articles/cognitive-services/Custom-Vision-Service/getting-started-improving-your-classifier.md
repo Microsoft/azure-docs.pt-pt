@@ -1,28 +1,28 @@
 ---
-title: Melhorar o seu classificador - Serviço de Visão Personalizada
+title: Melhorar o seu modelo - Serviço de Visão Personalizada
 titleSuffix: Azure Cognitive Services
-description: Neste artigo você vai aprender como a quantidade, qualidade e variedade de dados podem melhorar a qualidade do seu classificador no serviço De Visão Personalizada.
+description: Neste artigo você vai aprender como a quantidade, qualidade e variedade de dados podem melhorar a qualidade do seu modelo no serviço De Visão Personalizada.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
-ms.date: 03/21/2019
+ms.date: 02/09/2021
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: a77d3d5c1225fdd85e27db20cdae23e0c77a5e28
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 328bfe57c675d49aa951388e2808fcecfe8da8b5
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91271363"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100096536"
 ---
-# <a name="how-to-improve-your-classifier"></a>Como melhorar o seu classificador
+# <a name="how-to-improve-your-custom-vision-model"></a>Como melhorar o seu modelo de Visão Personalizada
 
-Neste guia vai aprender a melhorar a qualidade do seu classificador de Serviço de Visão Personalizada. A qualidade do seu classificador depende da quantidade, qualidade e variedade dos dados rotulados que fornece e quão equilibrado é o conjunto de dados. Um bom classificador tem um conjunto de dados de formação equilibrado que é representativo do que será submetido ao classificador. O processo de construção de tal classificador é iterativo; é comum fazer algumas rondas de treino para alcançar os resultados esperados.
+Neste guia, aprenderá a melhorar a qualidade do seu modelo de Serviço de Visão Personalizada. A qualidade do seu [detetor](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/get-started-build-detector) de [classificador](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) ou objeto depende da quantidade, qualidade e variedade dos dados rotulados que fornece e do equilíbrio do conjunto de dados. Um bom modelo tem um conjunto de dados de formação equilibrado que é representativo do que lhe será submetido. O processo de construção de tal modelo é iterativo; é comum fazer algumas rondas de treino para alcançar os resultados esperados.
 
-O seguinte é um padrão geral para ajudá-lo a construir um classificador mais preciso:
+O seguinte é um padrão geral para ajudá-lo a treinar um modelo mais preciso:
 
 1. Treino de primeira ronda
 1. Adicione mais imagens e equilibre dados; retreinar
@@ -32,15 +32,15 @@ O seguinte é um padrão geral para ajudá-lo a construir um classificador mais 
 
 ## <a name="prevent-overfitting"></a>Evitar a sobremontagem
 
-Às vezes, um classificador aprenderá a fazer previsões com base em características arbitrárias que as suas imagens têm em comum. Por exemplo, se estiver a criar um classificador para maçãs vs. citrinos, e tiver usado imagens de maçãs nas mãos e de citrinos em pratos brancos, o classificador pode dar uma importância indevida às mãos vs. pratos, em vez de maçãs vs. citrinos.
+Por vezes, um modelo aprende a fazer previsões com base em características arbitrárias que as suas imagens têm em comum. Por exemplo, se estiver a criar um classificador para maçãs vs. citrinos, e tiver usado imagens de maçãs nas mãos e de citrinos em pratos brancos, o classificador pode dar uma importância indevida às mãos vs. pratos, em vez de maçãs vs. citrinos.
 
 ![Imagem de classificação inesperada](./media/getting-started-improving-your-classifier/unexpected.png)
 
-Para corrigir este problema, utilize as seguintes orientações sobre o treino com imagens mais variadas: forneça imagens com diferentes ângulos, fundos, tamanho do objeto, grupos e outras variações.
+Para corrigir este problema, forneça imagens com diferentes ângulos, fundos, tamanho do objeto, grupos e outras variações. As seguintes secções expandem-se sobre estes conceitos.
 
 ## <a name="data-quantity"></a>Quantidade de dados
 
-O número de imagens de treino é o fator mais importante. Recomendamos a utilização de pelo menos 50 imagens por etiqueta como ponto de partida. Com menos imagens, existe um maior risco de sobremontagem, e embora os seus números de desempenho possam sugerir boa qualidade, o seu modelo pode lutar com dados do mundo real. 
+O número de imagens de treino é o fator mais importante para o seu conjunto de dados. Recomendamos a utilização de pelo menos 50 imagens por etiqueta como ponto de partida. Com menos imagens, existe um maior risco de sobremontagem, e embora os seus números de desempenho possam sugerir boa qualidade, o seu modelo pode lutar com dados do mundo real. 
 
 ## <a name="data-balance"></a>Saldo de dados
 
@@ -48,11 +48,11 @@ Também é importante considerar as quantidades relativas dos seus dados de trei
 
 ## <a name="data-variety"></a>Variedade de dados
 
-Certifique-se de que utiliza imagens representativas do que será submetido ao classificado durante a utilização normal. Caso contrário, o seu classificador poderia aprender a fazer previsões com base em características arbitrárias que as suas imagens têm em comum. Por exemplo, se estiver a criar um classificador para maçãs vs. citrinos, e tiver usado imagens de maçãs nas mãos e de citrinos em pratos brancos, o classificador pode dar uma importância indevida às mãos vs. pratos, em vez de maçãs vs. citrinos.
+Certifique-se de que utiliza imagens representativas do que será submetido ao classificado durante a utilização normal. Caso contrário, o seu modelo poderia aprender a fazer previsões com base em características arbitrárias que as suas imagens têm em comum. Por exemplo, se estiver a criar um classificador para maçãs vs. citrinos, e tiver usado imagens de maçãs nas mãos e de citrinos em pratos brancos, o classificador pode dar uma importância indevida às mãos vs. pratos, em vez de maçãs vs. citrinos.
 
 ![Imagem de classificação inesperada](./media/getting-started-improving-your-classifier/unexpected.png)
 
-Para corrigir este problema, inclua uma variedade de imagens para garantir que o seu classificador pode generalizar bem. Abaixo estão algumas formas de tornar o seu conjunto de treino mais diversificado:
+Para corrigir este problema, inclua uma variedade de imagens para garantir que o seu modelo pode generalizar bem. Abaixo estão algumas formas de tornar o seu conjunto de treino mais diversificado:
 
 * __Antecedentes:__ Forneça imagens do seu objeto em frente a diferentes origens. As fotos em contextos naturais são melhores do que as fotos em frente a fundos neutros, uma vez que fornecem mais informações para o classificador.
 
@@ -74,30 +74,39 @@ Para corrigir este problema, inclua uma variedade de imagens para garantir que o
 
     ![Imagem de amostras de estilo](./media/getting-started-improving-your-classifier/style.png)
 
-## <a name="negative-images"></a>Imagens negativas
+## <a name="negative-images-classifiers-only"></a>Imagens negativas (apenas classificados)
 
-Em algum momento do seu projeto, poderá ter de adicionar _amostras negativas_ para ajudar a tornar o seu classificador mais preciso. As amostras negativas são aquelas que não correspondem a nenhuma das outras etiquetas. Ao fazer o upload destas imagens, aplique-lhes a etiqueta **negativa** especial.
+Se estiver a utilizar um classificador de imagem, poderá ter de adicionar _amostras negativas_ para ajudar a tornar o seu classificador mais preciso. Amostras negativas são imagens que não correspondem a nenhuma das outras etiquetas. Ao fazer o upload destas imagens, aplique-lhes a etiqueta **negativa** especial.
+
+Os detetores de objetos lidam automaticamente com amostras negativas, porque quaisquer áreas de imagem fora das caixas de delimitação desenhadas são consideradas negativas.
 
 > [!NOTE]
 > O Serviço de Visão Personalizada suporta algum manuseamento automático de imagens negativas. Por exemplo, se estiver a construir um classificador de uva vs banana e apresentar uma imagem de um sapato para previsão, o classificador deve marcar essa imagem como perto de 0% tanto para a uva como para a banana.
 > 
 > Por outro lado, nos casos em que as imagens negativas são apenas uma variação das imagens utilizadas no treino, é provável que o modelo classifique as imagens negativas como uma classe rotulada devido às grandes semelhanças. Por exemplo, se você tem um classificador de laranja vs toranja, e você se alimenta em uma imagem de uma clementina, ele pode marcar a clementina como uma laranja porque muitas características da clementina se assemelham às de laranjas. Se as suas imagens negativas forem desta natureza, recomendamos que crie uma ou mais etiquetas adicionais (como **Outras)** e rotule as imagens negativas com esta etiqueta durante o treino para permitir que o modelo se distinga melhor entre estas classes.
 
+## <a name="consider-occlusion-and-truncation-object-detectors-only"></a>Considere a oclusão e a truncação (apenas detetores de objetos)
+
+Se quiser que o detetor de objetos detete objetos truncados (o objeto é parcialmente cortado da imagem) ou objetos obstruídos (o objeto está parcialmente bloqueado por outro objeto na imagem), terá de incluir imagens de treino que cubram esses casos.
+
+> [!NOTE]
+> A questão dos objetos que estão a ser obstruídos por outros objetos não deve ser confundida com **o Sobreposto Threshold**, um parâmetro para o desempenho do modelo de classificação. O slider **Sobreposto Threshold** no [website Da Visão Personalizada](https://customvision.ai) trata do quanto uma caixa de delimitação prevista deve sobrepor-se à verdadeira caixa de delimitação para ser considerada correta.
+
 ## <a name="use-prediction-images-for-further-training"></a>Use imagens de previsão para mais treino
 
-Quando utiliza ou testa o classificador de imagem submetendo imagens ao ponto final de previsão, o serviço Custom Vision armazena essas imagens. Em seguida, pode usá-los para melhorar o modelo.
+Quando utiliza ou testa o modelo submetendo imagens ao ponto final de previsão, o serviço Custom Vision armazena essas imagens. Em seguida, pode usá-los para melhorar o modelo.
 
-1. Para visualizar as imagens submetidas ao classificador, abra a [página web da Visão Personalizada,](https://customvision.ai)vá ao seu projeto e selecione o separador __Previsões.__ A vista padrão mostra imagens da iteração atual. Pode utilizar o menu de entrega de __iteração__ para visualizar as imagens submetidas durante as iterações anteriores.
+1. Para visualizar as imagens submetidas ao modelo, abra a [página web da Visão Personalizada,](https://customvision.ai)vá ao seu projeto e selecione o __separador Previsões.__ A vista padrão mostra imagens da iteração atual. Pode utilizar o menu de entrega de __iteração__ para visualizar as imagens submetidas durante as iterações anteriores.
 
     ![screenshot do separador previsões, com imagens à vista](./media/getting-started-improving-your-classifier/predictions.png)
 
-2. Pairar sobre uma imagem para ver as etiquetas que foram previstas pelo classificador. As imagens são classificadas de modo a que as que podem trazer mais melhorias ao classificador estejam listadas no topo. Para utilizar um método de triagem diferente, faça uma seleção na secção __'Classificar'.__ 
+2. Paire sobre uma imagem para ver as etiquetas que foram previstas pelo modelo. As imagens são classificadas de modo a que as que podem trazer mais melhorias ao modelo estejam listadas no topo. Para utilizar um método de triagem diferente, faça uma seleção na secção __'Classificar'.__ 
 
     Para adicionar uma imagem aos dados de treino existentes, selecione a imagem, desfaça a(s) etiquetas corretas e clique em __Guardar e fechar__. A imagem será removida das __Previsões__ e adicionada ao conjunto de imagens de treino. Pode vê-lo selecionando o separador __Imagens de Treino.__
 
     ![Imagem da página de marcação](./media/getting-started-improving-your-classifier/tag.png)
 
-3. Em seguida, utilize o botão __Train__ para voltar a treinar o classificador.
+3. Em seguida, utilize o botão __Train__ para voltar a treinar o modelo.
 
 ## <a name="visually-inspect-predictions"></a>Fiscalize visualmente as previsões
 
@@ -109,7 +118,7 @@ Por vezes, uma inspeção visual pode identificar padrões que pode então corri
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste guia, aprendeu várias técnicas para tornar o seu modelo de classificação de imagem personalizado mais preciso. Em seguida, aprenda a testar as imagens programáticamente submetendo-as à API de Previsão.
+Neste guia, aprendeu várias técnicas para tornar o seu modelo de classificação de imagem personalizado ou modelo de detetor de objetos mais preciso. Em seguida, aprenda a testar as imagens programáticamente submetendo-as à API de Previsão.
 
 > [!div class="nextstepaction"]
 > [Utilizar a API de predição](use-prediction-api.md)

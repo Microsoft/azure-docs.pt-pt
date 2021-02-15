@@ -1,5 +1,5 @@
 ---
-title: Veja e pesque a sua recente atividade de inscrição a partir da página My Sign-ins - Azure Ative Directory / Microsoft Docs
+title: Veja e pesque a sua recente atividade de inscrição a partir da página My Sign-ins - Azure Ative Directory | Microsoft Docs
 description: Detalhes sobre como visualizar e pesquisar a sua recente atividade de acesso a partir da página My's Ins do portal My Account.
 services: active-directory
 author: curtand
@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 08/03/2020
+ms.date: 01/19/2021
 ms.author: curtand
-ms.openlocfilehash: a002254995e42fc586b707e3cb373dac66e678ee
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 1062c8dfe416af2d39063bf71f39d52e151e28d3
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94834154"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100096077"
 ---
 # <a name="view-and-search-your-recent-sign-in-activity-from-the-my-sign-ins-page"></a>Veja e pesque a sua atividade de inscrição recente a partir da página My's
 
@@ -25,6 +25,12 @@ Pode ver todo o seu trabalho recente ou atividade de inscrição na conta escola
 - Se alguém está a tentar adivinhar a tua senha.
 - Se um agressor se inscreveu com sucesso na sua conta e a partir de que local.
 - Que aplicações o agressor tentou aceder.
+
+>[!Note]
+> Se vir um erro ao iniciar sessão com uma conta pessoal da Microsoft, ainda pode iniciar sessão utilizando o nome de domínio da sua organização (como contoso.com) ou o **ID** do Inquilino da sua organização a partir de um dos seguintes URLs:
+>
+>   - https://myaccount.microsoft.com?tenantId=*your_domain_name*
+>   - https://myaccount.microsoft.com?tenant=*your_tenant_ID*
 
 ## <a name="view-your-recent-sign-in-activity"></a>Ver a sua atividade de início de sessão recente
 

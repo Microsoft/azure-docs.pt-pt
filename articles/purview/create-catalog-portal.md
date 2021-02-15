@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: quickstart
 ms.date: 10/23/2020
-ms.openlocfilehash: dea881acc4cec90c4a8ad6169d94734f24d5b759
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 82b72567a0db4dc9dbff9128402d0ee9f40f3512
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880038"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100094156"
 ---
 # <a name="quickstart-create-an-azure-purview-account-in-the-azure-portal"></a>Quickstart: Criar uma conta Azure Purview no portal Azure
 
@@ -116,6 +116,9 @@ Se necessário, siga estes passos para configurar a sua subscrição para permit
 
    :::image type="content" source="./media/create-catalog-portal/add-purview-instance.png" alt-text="Screenshot mostrando como criar uma conta Azure Purview no portal Azure.":::
 
+    > [!Note] 
+    > O Azure Purview não suporta mover a sua conta através das regiões. Pode obter mais informações sobre isso na [página de serviços suportados pela Azure.](https://docs.microsoft.com/azure/azure-resource-manager/management/region-move-support)
+
 1. No separador **Básico,** faça o seguinte:
     1. Selecione um **grupo de recursos**.
     1. Insira um **nome de conta Purview** para o seu catálogo. Espaços e símbolos não são permitidos.
@@ -171,7 +174,7 @@ Se já não precisar desta conta Azure Purview, elimine-a com os seguintes passo
 
 2. Selecione a conta Azure Purview que criou no início deste arranque rápido. Selecione **Eliminar**, insira o nome da conta e, em seguida, selecione **Delete**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste arranque rápido, aprendeu a criar uma conta Azure Purview.
 

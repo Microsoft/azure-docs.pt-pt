@@ -385,6 +385,8 @@
           href: azure-stack-edge-return-device.md
         - name: Substituir dispositivo
           href: azure-stack-edge-replace-device.md
+        - name: Migrar para dispositivo GPU
+          href: azure-stack-edge-migrate-fpga-gpu.md
     - name: Notas de versão
       items:
         - name: 2101 - Corrente

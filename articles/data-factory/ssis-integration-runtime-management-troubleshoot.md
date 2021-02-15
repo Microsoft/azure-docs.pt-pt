@@ -1,22 +1,19 @@
 ---
 title: Resolução de problemas SSIS Integração Gestão de tempo de execução
 description: Este artigo fornece orientações de resolução de problemas para questões de gestão do Tempo de Execução da Integração SSIS (SSIS IR)
-services: data-factory
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 author: chinadragon0515
 ms.author: dashe
 ms.reviewer: sawinark
-manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 07/08/2019
-ms.openlocfilehash: 34fd595a03f67201b303c94764668bf86a6c244b
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: 917bcce641cfd5178f868e4338354edb78062ab8
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98796901"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100361851"
 ---
 # <a name="troubleshoot-ssis-integration-runtime-management-in-azure-data-factory"></a>Resolução de problemas SSIS Integração Gestão de tempo de execução na Azure Data Factory
 
@@ -24,7 +21,7 @@ ms.locfileid: "98796901"
 
 Este artigo fornece orientações de resolução de problemas para problemas de gestão em Azure-SQL Server Integration Services (SSIS) Integration Runtime (IR), também conhecido como SSIS IR.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Se encontrar algum problema durante o provisionamento ou desprovisionamento do SSIS IR, verá uma mensagem de erro no portal Microsoft Azure Data Factory ou um erro devolvido de um cmdlet PowerShell. O erro aparece sempre no formato de um código de erro com uma mensagem de erro detalhada.
 

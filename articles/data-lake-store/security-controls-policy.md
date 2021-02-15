@@ -1,18 +1,18 @@
 ---
 title: Controlos de conformidade regulamentar da política Azure para a Azure Data Lake Storage Gen1
 description: Lista os controlos de conformidade regulamentar da política Azure disponíveis para a Azure Data Lake Storage Gen1. Estas definições políticas incorporadas fornecem abordagens comuns para gerir o cumprimento dos seus recursos Azure.
-ms.date: 02/04/2021
+ms.date: 02/09/2021
 ms.topic: sample
 author: normesta
 ms.author: normesta
 ms.service: data-lake-store
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 743e5014f590b902162bfe201688d02f7f919280
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: 0989cc7df5826a9e8629f286e69a8e509a084cee
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99561971"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100093913"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-data-lake-storage-gen1"></a>Controlos de conformidade regulamentar da política Azure para a Azure Data Lake Storage Gen1
 

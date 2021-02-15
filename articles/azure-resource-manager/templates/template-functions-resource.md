@@ -2,13 +2,13 @@
 title: Funções do modelo - recursos
 description: Descreve as funções a utilizar num modelo de Gestor de Recursos Azure (modelo ARM) para recuperar valores sobre recursos.
 ms.topic: conceptual
-ms.date: 01/04/2021
-ms.openlocfilehash: f16e8e06bf5deb2b66af7758f2944fe256cfa268
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.date: 02/10/2021
+ms.openlocfilehash: da85308e7d214f198b29b40bc380a4d33947c865
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97861418"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100364567"
 ---
 # <a name="resource-functions-for-arm-templates"></a>Funções de recursos para modelos ARM
 
@@ -37,7 +37,7 @@ Devolve o ID de recurso para um [recurso de extensão](../management/extension-r
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
 | resourceId |Yes |string |O ID de recurso para o recurso a que o recurso de extensão é aplicado. |
 | resourceType |Yes |string |Tipo de recurso, incluindo espaço de nome do fornecedor de recursos. |
@@ -179,7 +179,7 @@ A sintaxe para esta função varia em função do nome das operações da lista.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
 | recursoName ou identificador de recursos |Yes |string |Identificador único para o recurso. |
 | apiVersion |Yes |string |Versão API do estado de execução de recursos. Tipicamente, no formato, **yyy-mm-dd**. |
@@ -204,6 +204,7 @@ As possíveis utilizações da lista* são apresentadas na tabela seguinte.
 | Microsoft.ApiManagement/service/identityProviders | [listSecrets](/rest/api/apimanagement/2019-12-01/identityprovider/listsecrets) |
 | Microsoft.ApiManagement/service/namedValues | [listValue](/rest/api/apimanagement/2019-12-01/namedvalue/listvalue) |
 | Microsoft.ApiManagement/service/openidConnectProviders | [listSecrets](/rest/api/apimanagement/2019-12-01/openidconnectprovider/listsecrets) |
+| Microsoft.ApiManagement/service/subscrições | [listSecrets](/rest/api/apimanagement/2019-12-01/subscription/listsecrets) |
 | Microsoft.AppConfiguration/configurationStores | [ListKeys](/rest/api/appconfiguration/configurationstores/listkeys) |
 | Microsoft.AppPlatform/primavera | [listTestKeys](/rest/api/azurespringcloud/services/listtestkeys) |
 | Microsoft.Automation/automation | [listKeys](/rest/api/automation/keys/listbyautomationaccount) |
@@ -246,7 +247,7 @@ As possíveis utilizações da lista* são apresentadas na tabela seguinte.
 | Microsoft.DevTestLab/labs/virtualMachines | [ListApplicableSchedules](/rest/api/dtl/virtualmachines/listapplicableschedules) |
 | Microsoft.DocumentDB/base de dadosAcontas | [listConnectionStrings](/rest/api/cosmos-db-resource-provider/2020-06-01-preview/databaseaccounts/listconnectionstrings) |
 | Microsoft.DocumentDB/base de dadosAcontas | [listKeys](/rest/api/cosmos-db-resource-provider/2020-06-01-preview/databaseaccounts/listkeys) |
-| Microsoft.DocumentDB/base de dadosAconsse/notebookS | [listConnectionInfo](/rest/api/cosmos-db-resource-provider/2020-04-01/notebookworkspaces/listconnectioninfo) |
+| Microsoft.DocumentDB/base de dadosAconsse/notebookS | [listConnectionInfo](/rest/api/cosmos-db-resource-provider/2020-06-01/notebookworkspaces/listconnectioninfo) |
 | Microsoft.DomainRegistration | [listDomainRecommendations](/rest/api/appservice/domains/listrecommendations) |
 | Microsoft.DomainRegistration/topLevelDomains | [listAgreements](/rest/api/appservice/topleveldomains/listagreements) |
 | Microsoft.EventGrid/domínios | [listKeys](/rest/api/eventgrid/version2020-06-01/domains/listsharedaccesskeys) |
@@ -438,7 +439,7 @@ Determina se um tipo de recurso suporta zonas para uma região.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
 | providerNamespace | Yes | string | O espaço de nome do fornecedor de recursos para o tipo de recurso para verificar o suporte da zona. |
 | resourceType | Yes | string | O tipo de recurso para verificar o suporte da zona. |
@@ -547,7 +548,7 @@ Devolve informações sobre um fornecedor de recursos e os seus tipos de recurso
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
 | providerNamespace |Yes |string |Espaço de nome do fornecedor |
 | resourceType |No |string |O tipo de recurso dentro do espaço de nome especificado. |
@@ -635,7 +636,7 @@ Devolve um objeto que representa o estado de execução de um recurso.
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
 | recursoName ou identificador de recursos |Yes |string |Nome ou identificador único de um recurso. Ao fazer referência a um recurso no modelo atual, forneça apenas o nome do recurso como parâmetro. Quando se refere a um recurso previamente implantado ou quando o nome do recurso for ambíguo, forneça o ID do recurso. |
 | apiVersion |No |string |Versão API do recurso especificado. **Este parâmetro é necessário quando o recurso não é aprovisionado dentro do mesmo modelo.** Tipicamente, no formato, **yyy-mm-dd**. Para versões API válidas para o seu recurso, consulte [a referência do modelo](/azure/templates/). |
@@ -1107,7 +1108,7 @@ Devolve o identificador único de um recurso. Utilize esta função quando o nom
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
 | subscriptionId |No |cadeia (no formato GUID) |O valor predefinido é a subscrição atual. Especifique este valor quando necessitar de recuperar um recurso noutra subscrição. Apenas forneça este valor ao implementar no âmbito de um grupo de recursos ou subscrição. |
 | resourceGroupName |No |string |O valor predefinido é o grupo de recursos corrente. Especifique este valor quando necessitar de recuperar um recurso noutro grupo de recursos. Apenas forneça este valor ao implementar no âmbito de um grupo de recursos. |
@@ -1410,7 +1411,7 @@ Devolve o identificador único para um recurso implantado ao nível da subscriç
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
 | subscriptionId |No |cadeia (em formato GUID) |O valor predefinido é a subscrição atual. Especifique este valor quando necessitar de recuperar um recurso noutra subscrição. |
 | resourceType |Yes |string |Tipo de recurso, incluindo espaço de nome do fornecedor de recursos. |
@@ -1542,7 +1543,7 @@ Devolve o identificador único para um recurso implantado ao nível do inquilino
 
 ### <a name="parameters"></a>Parâmetros
 
-| Parâmetro | Necessário | Tipo | Descrição |
+| Parâmetro | Necessário | Tipo | Description |
 |:--- |:--- |:--- |:--- |
 | resourceType |Yes |string |Tipo de recurso, incluindo espaço de nome do fornecedor de recursos. |
 | recursoName1 |Yes |string |Nome do recurso. |

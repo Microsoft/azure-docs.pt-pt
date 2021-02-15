@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configurar smartsheet para fornecimento automático de utilizadores com Diretório Ativo Azure Microsoft Docs'
+title: 'Tutorial: Configurar smartsheet para fornecimento automático de utilizadores com Azure Ative Directory | Microsoft Docs'
 description: Saiba como configurar o Azure Ative Directory para provisão automática e desa provisionar contas de utilizadores ao Smartsheet.
 services: active-directory
 author: zchia
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/07/2019
 ms.author: jeedes
-ms.openlocfilehash: aa4e8c2baaaa0c8ccc9bcdda595f040fac72682f
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: e9ee994564e175d3c41cfd5ce415ead8c67df353
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96181448"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100103571"
 ---
 # <a name="tutorial-configure-smartsheet-for-automatic-user-provisioning"></a>Tutorial: Configurar smartsheet para fornecimento automático de utilizadores
 
@@ -137,22 +137,20 @@ Esta secção guia-o através dos passos para configurar o serviço de fornecime
 
 9. Reveja os atributos do utilizador que são sincronizados de AD AD a Smartsheet na secção **De Mapeamento de Atributos.** Os atributos selecionados como propriedades **de correspondência** são utilizados para combinar as contas do utilizador no Smartsheet para operações de atualização. Selecione o botão **Guardar** para escoar quaisquer alterações.
 
-   |Atributo|Tipo|
-   |---|---|
+   |Atributo|Tipo|Suportado para filtragem|
+   |---|---|---|
+   |userName|String|&check;|
    |active|Booleano|
    |título|String|
-   |userName|String|
    |name.givenName|String|
    |name.familyName|String|
    |phoneNumbers[type eq "work"].value|String|
    |phoneNumbers[type eq "mobile"].value|String|
    |números de telefone[tipo eq "fax"].valor|String|
+   |emails[type eq "work"].value|String|
    |externalId|String|
-   |papéis[eq primário "True"].display|String|
-   |papéis[eq primário "Verdadeiro"].tipo|String|
-   |roles[primary eq "True"].value|String|
    |funções|String|
-   urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:division|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:costCenter|String|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|String|
@@ -188,6 +186,7 @@ Depois de configurar o aprovisionamento, utilize os seguintes recursos para moni
 ## <a name="change-log"></a>Change log
 
 * 06/16/2020 - Apoio adicional aos atributos de extensão da empresa "Cost Center", "Division", "Manager" e "Department" para os utilizadores.
+* 02/10/2021 - Suporte adicional para atributos fundamentais "emails[tipo eq "work"]" para os utilizadores.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

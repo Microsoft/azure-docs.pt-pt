@@ -1,22 +1,18 @@
 ---
 title: Copiar dados do AWS Marketplace
 description: Saiba como copiar dados do Amazon Marketplace Web Service para lojas de dados de sumidouros suportados utilizando uma atividade de cópia num pipeline da Azure Data Factory.
-services: data-factory
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.author: jingwang
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.custom: seo-lt-2019
 ms.date: 08/01/2018
-ms.openlocfilehash: 4620ef5b6a72afbe86b0ace33328a769eab31e5e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c25bdac0b52af425557464f17350fb8a46244f2f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81418274"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100364363"
 ---
 # <a name="copy-data-from-amazon-marketplace-web-service-using-azure-data-factory"></a>Copiar dados do Amazon Marketplace Web Service usando a Azure Data Factory
 
@@ -47,16 +43,16 @@ As seguintes propriedades são suportadas para o serviço ligado ao Amazon Marke
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo deve ser definida para: **AmazonMWS** | Sim |
-| endpoint | O ponto final do servidor Amazon MWS(isto é, mws.amazonservices.com)  | Sim |
-| marketplaceID | O ID do Amazon Marketplace de onde pretende obter dados. Para obter dados de vários IDs do Marketplace, separe-os com uma vírgula ( `,` ). (isto é, A2EUQ1WTGCTBG2)  | Sim |
-| sellerID | A identificação do vendedor da Amazon.  | Sim |
-| mwsAuthToken | O símbolo de autenticação amazon MWS. Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Sim |
-| accessKeyId | O ID da chave de acesso usado para aceder aos dados.  | Sim |
-| SecretKey | A chave secreta usada para aceder aos dados. Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Sim |
-| useEncryptedEndpoints | Especifica se os pontos finais de origem de dados são encriptados usando HTTPS. O valor predefinido é true.  | Não |
-| useHostVerification | Especifica se deve exigir que o nome do anfitrião no certificado do servidor corresponda ao nome de anfitrião do servidor ao ligar o TLS. O valor predefinido é true.  | Não |
-| usePeerVerificação | Especifica se deve verificar a identidade do servidor ao ligar o TLS. O valor predefinido é true.  | Não |
+| tipo | A propriedade tipo deve ser definida para: **AmazonMWS** | Yes |
+| endpoint | O ponto final do servidor Amazon MWS(isto é, mws.amazonservices.com)  | Yes |
+| marketplaceID | O ID do Amazon Marketplace de onde pretende obter dados. Para obter dados de vários IDs do Marketplace, separe-os com uma vírgula ( `,` ). (isto é, A2EUQ1WTGCTBG2)  | Yes |
+| sellerID | A identificação do vendedor da Amazon.  | Yes |
+| mwsAuthToken | O símbolo de autenticação amazon MWS. Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Yes |
+| accessKeyId | O ID da chave de acesso usado para aceder aos dados.  | Yes |
+| SecretKey | A chave secreta usada para aceder aos dados. Marque este campo como um SecureString para armazená-lo de forma segura na Data Factory, ou [fazer referência a um segredo armazenado no Cofre da Chave Azure](store-credentials-in-key-vault.md). | Yes |
+| useEncryptedEndpoints | Especifica se os pontos finais de origem de dados são encriptados usando HTTPS. O valor predefinido é true.  | No |
+| useHostVerification | Especifica se deve exigir que o nome do anfitrião no certificado do servidor corresponda ao nome de anfitrião do servidor ao ligar o TLS. O valor predefinido é true.  | No |
+| usePeerVerificação | Especifica se deve verificar a identidade do servidor ao ligar o TLS. O valor predefinido é true.  | No |
 
 **Exemplo:**
 
@@ -91,7 +87,7 @@ Para copiar dados do Amazon Marketplace Web Service, defina a propriedade tipo d
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo do conjunto de dados deve ser definida para: **AmazonMWSObject** | Sim |
+| tipo | A propriedade tipo do conjunto de dados deve ser definida para: **AmazonMWSObject** | Yes |
 | tableName | O nome da mesa. | Não (se for especificada "consulta" na fonte de atividade) |
 
 **Exemplo**
@@ -122,7 +118,7 @@ Para copiar dados do Amazon Marketplace Web Service, decreva o tipo de origem na
 
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
-| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **AmazonMWSSource** | Sim |
+| tipo | A propriedade tipo da fonte de atividade de cópia deve ser definida para: **AmazonMWSSource** | Yes |
 | consulta | Utilize a consulta SQL personalizada para ler dados. Por exemplo: `"SELECT * FROM Orders where  Amazon_Order_Id = 'xx'"`. | Não (se for especificado "tableName" no conjunto de dados) |
 
 **Exemplo:**
