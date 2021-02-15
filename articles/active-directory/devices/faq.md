@@ -1,5 +1,5 @@
 ---
-title: Azure Ative Directory gestão de dispositivos FAQ / Microsoft Docs
+title: Azure Ative Directory gestão de dispositivos FAQ | Microsoft Docs
 description: Azure Ative Directory gestão de dispositivos FAQ.
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73946eea846b06b28d0a0f017ea1317c8cc7326d
-ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
+ms.openlocfilehash: 550481b9153d8fe8745d2a745fe6b6f00d09cdb1
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98165149"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100365825"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Ative Directory gestão de dispositivos FAQ
 
@@ -299,6 +299,11 @@ As alterações da UPN são suportadas com a atualização do Windows 10 2004. O
 - Para dispositivos registados no Windows 10 AZure AD, vá a **Definições**  >  **Contas**  >  **Access Work ou School**. Selecione a sua conta e **selecione Desligar**. O registo do dispositivo é por perfil do utilizador no Windows 10.
 - Para iOS e Android, pode utilizar o registo de **dispositivos de definição de configurações** da aplicação Microsoft Authenticator  >   e selecionar o **dispositivo Unregister**.
 - Para o macOS, pode utilizar a aplicação Microsoft Intune Company Portal para desativar o dispositivo da gestão e remover qualquer registo. 
+
+Para dispositivos Windows 10, este processo pode ser automatizado com a [ferramenta de remoção workplace Join (WPJ)](https://download.microsoft.com/download/8/e/f/8ef13ae0-6aa8-48a2-8697-5b1711134730/WPJCleanUp.zip)
+
+> [!NOTE]
+> Esta ferramenta remove todas as contas SSO do dispositivo. Após esta operação, todas as aplicações perderão o estado SSO, e o dispositivo será desenrolado a partir de ferramentas de gestão (MDM) e não registado a partir da nuvem. Da próxima vez que uma aplicação tentar entrar, os utilizadores serão convidados a adicionar novamente a conta.
 
 ---
 ### <a name="q-how-can-i-block-users-from-adding-additional-work-accounts-azure-ad-registered-on-my-corporate-windows-10-devices"></a>P: Como posso impedir os utilizadores de adicionarem contas de trabalho adicionais (Azure AD registadas) nos meus dispositivos corporativos do Windows 10?

@@ -2,13 +2,13 @@
 title: Recuperação de geo-desastres - Azure Event Hubs| Microsoft Docs
 description: Como utilizar as regiões geográficas para falhar e realizar a recuperação de desastres nos Hubs de Eventos do Azure
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 4470b55973f53c924caba8665199d261fe63a8fc
-ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
+ms.date: 02/10/2021
+ms.openlocfilehash: 2fd13ac98e80aa67a2a3150e8406a0b0b1b08d13
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99222887"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100390679"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Hubs de Eventos Azure - Recuperação de geo-desastres 
 
@@ -75,24 +75,27 @@ A seguinte secção é uma visão geral do processo de failover, e explica como 
 Primeiro cria-se ou usa-se um espaço de nome primário existente, e um novo espaço de nome secundário, em seguida, emparelha os dois. Este emparelhamento dá-lhe um pseudónimo que pode usar para ligar. Porque usas um pseudónimo, não tens de mudar as cordas de ligação. Apenas novos espaços de nome podem ser adicionados ao seu emparelhamento failover. 
 
 1. Crie o espaço de nome primário.
-1. Crie o espaço de nome secundário na subscrição e o grupo de recursos que tem o espaço de nome primário. Este passo é opcional. Pode criar o espaço de nome secundário enquanto cria o emparelhamento no passo seguinte. 
+1. Crie o espaço de nome secundário na subscrição e no grupo de recursos que tem o espaço de nome primário, mas numa região diferente. Este passo é opcional. Pode criar o espaço de nome secundário enquanto cria o emparelhamento no passo seguinte. 
 1. No portal Azure, navegue para o seu espaço de nome principal.
 1. Selecione **Geo-recuperação** no menu esquerdo e selecione Iniciar o **emparelhamento** na barra de ferramentas. 
 
     :::image type="content" source="./media/event-hubs-geo-dr/primary-namspace-initiate-pairing-button.png" alt-text="Iniciar o emparelhamento a partir do espaço de nome primário":::    
-1. Na página **de emparelhamento Iniciar,** selecione um espaço de nome secundário existente ou crie um na subscrição e no grupo de recursos que tem o espaço de nome primário. Em seguida, selecione **Criar**. No exemplo seguinte, é selecionado um espaço de nome secundário existente. 
+1. Na página **de emparelhamento Iniciar,** siga estes passos:
+    1. Selecione um espaço de nome secundário existente ou crie um na subscrição e no grupo de recursos que tem o espaço de nome primário. Neste exemplo, é selecionado um espaço de nome existente.  
+    1. Para **Alias, insira** um pseudónimo para o emparelhamento geo-dr. 
+    1. Em seguida, selecione **Criar**. 
 
     :::image type="content" source="./media/event-hubs-geo-dr/initiate-pairing-page.png" alt-text="Selecione o espaço de nome secundário":::        
-1. Agora, quando selecionar **Geo-recuperação** para o espaço de nome primário, deve ver a página **de Alias Geo-DR** que se parece com a seguinte imagem:
+1. Devia ver a página do **Geo-DR Alias.** Também pode navegar para esta página a partir do espaço de nome primário selecionando **Geo-recuperação** no menu esquerdo.
 
     :::image type="content" source="./media/event-hubs-geo-dr/geo-dr-alias-page.png" alt-text="Página de pseudónimos Geo-DR":::    
+1. Na página **De Alias Geo-DR,** selecione políticas de **acesso partilhado** no menu esquerdo para aceder à cadeia de ligação primária para o pseudónimo. Utilize esta cadeia de ligação em vez de utilizar diretamente a cadeia de ligação ao espaço de nome primário/secundário. 
 1. Nesta página **geral,** pode fazer as seguintes ações: 
     1. Quebre o emparelhamento entre espaços de nome primário e secundário. **Selecione Break pairing** na barra de ferramentas. 
     1. Falha manual no espaço de nome secundário. Selecione **Failover** na barra de ferramentas. 
     
         > [!WARNING]
         > Falhando por cima irá ativar o espaço de nome secundário e remover o espaço de nome primário do emparelhamento Geo-Disaster Recuperação. Crie outro espaço de nome para ter um novo par de recuperação de geo-desastres. 
-1. Na página **De Alias Geo-DR,** selecione políticas de **acesso partilhado** para aceder à cadeia de ligação primária para o pseudónimo. Utilize esta cadeia de ligação em vez de utilizar diretamente a cadeia de ligação ao espaço de nome primário/secundário. 
 
 Por último, deve adicionar alguma monitorização para detetar se é necessário um failover. Na maioria dos casos, o serviço é uma parte de um grande ecossistema, pelo que as falhas automáticas raramente são possíveis, uma vez que muitas vezes as falhas devem ser realizadas em sincronização com o subsistema ou infraestrutura restantes.
 
@@ -133,9 +136,9 @@ Note as seguintes considerações a ter em conta:
 
 1. Por design, a recuperação de geo-desastres do Event Hubs não replica dados, pelo que não é possível reutilizar o valor de compensação antigo do seu centro de eventos primário no seu centro de eventos secundário. Recomendamos reiniciar o recetor do evento com um dos seguintes métodos:
 
-- *EventPosition.FromStart()* - Se desejar ler todos os dados no seu centro de eventos secundário.
-- *EventPosition.FromEnd()* - Se desejar ler todos os novos dados a partir do momento da ligação ao seu centro de eventos secundário.
-- *EventPosition.FromEnqueuedTime (dataTime)* - Se desejar ler todos os dados recebidos no seu centro de eventos secundários a partir de uma determinada data e hora.
+   - *EventPosition.FromStart()* - Se desejar ler todos os dados no seu centro de eventos secundário.
+   - *EventPosition.FromEnd()* - Se desejar ler todos os novos dados a partir do momento da ligação ao seu centro de eventos secundário.
+   - *EventPosition.FromEnqueuedTime (dataTime)* - Se desejar ler todos os dados recebidos no seu centro de eventos secundários a partir de uma determinada data e hora.
 
 2. No seu planeamento de falhas, também deve considerar o fator tempo. Por exemplo, se perder conectividade por mais de 15 a 20 minutos, poderá decidir iniciar a falha. 
  
@@ -153,6 +156,8 @@ O Event Hubs Standard SKU suporta [Zonas de Disponibilidade,](../availability-zo
 > O suporte de Zonas de Disponibilidade para Azure Event Hubs Standard só está disponível nas [regiões de Azure](../availability-zones/az-region.md) onde existem zonas de disponibilidade.
 
 Pode ativar zonas de disponibilidade apenas em novos espaços de nome, utilizando o portal Azure. Os Centros de Eventos não apoiam a migração de espaços de nome existentes. Não pode desativar a redundância da zona depois de o permitir no seu espaço de nome.
+
+Quando utiliza zonas de disponibilidade, tanto os metadados como os dados (eventos) são replicados em centros de dados na zona de disponibilidade. 
 
 ![3][]
 

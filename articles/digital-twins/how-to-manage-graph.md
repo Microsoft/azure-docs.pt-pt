@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 11/03/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 037e7fd13f55a0f5de939197f71324221392bd55
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: bc548d4cc728611387b36451d563be6ca0e21530
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98601077"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388197"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>Gerir um gráfico de gémeos digitais usando relacionamentos
 
@@ -115,6 +115,21 @@ Utilizando os métodos acima referidos para listar relações de saída e entrad
 Pode agora chamar esta função no seu método principal como este: 
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="UseFetchAndPrint":::
+
+## <a name="update-relationships"></a>Atualizar relações
+
+As relações são atualizadas usando o `UpdateRelationship` método. 
+
+>[!NOTE]
+>Este método é para atualizar as **propriedades** de uma relação. Se precisar de alterar a origem gémea ou a gémea-alvo da relação, terá de [apagar a relação](#delete-relationships) e recriar [uma](#create-relationships) usando os novos gémeos.
+
+Os parâmetros necessários para a chamada do cliente são o ID do gémeo de origem (o gémeo de onde a relação é originária), o ID da relação a atualizar, e um documento [JSON Patch](http://jsonpatch.com/) contendo as propriedades e novos valores que gostaria de atualizar.
+
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="UpdateRelationshipMethod":::
+
+Aqui está um exemplo de uma chamada para este método, passando num documento JSON Patch com a informação para atualizar uma propriedade.
+
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="UseUpdateRelationship":::
 
 ## <a name="delete-relationships"></a>Eliminar relações
 

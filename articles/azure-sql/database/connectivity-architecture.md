@@ -12,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: sstein, vanto
 ms.date: 01/25/2021
-ms.openlocfilehash: 07303e3eea7e63f7c153db771168b8a741183362
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: cea561140d87333d35d223d062509c29febad5aa
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576503"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100520583"
 ---
 # <a name="azure-sql-database-and-azure-synapse-analytics-connectivity-architecture"></a>Arquitetura de conetividade da Base de Dados SQL do Azure e do Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -80,7 +80,7 @@ Os pormenores sobre a forma como o tráfego deve ser migrado para novos Gateways
 | Austrália Central 2   | 20.36.113.0, 20.36.112.6 |
 | Leste da Austrália       | 13.75.149.87, 40.79.161.1, 13.70.112.9 |
 | Sudeste da Austrália | 191.239.192.109, 13.73.109.251, 13.77.48.10 |
-| Sul do Brasil         | 104.41.11.5, 191.233.200.14, 191.234.144.16, 191.234.152.3 |
+| Sul do Brasil         | 191.233.200.14, 191.234.144.16, 191.234.152.3 |
 | Canadá Central       | 40.85.224.249, 52.246.152.0, 20.38.144.1 |
 | Leste do Canadá          | 40.86.226.166, 52.242.30.154, 40.69.105.9 , 40.69.105.10 |
 | E.U.A. Central           | 13.67.215.62, 52.182.137.15, 23.99.160.139, 104.208.16.96, 104.208.21.1, 13.89.169.20 |
@@ -88,8 +88,8 @@ Os pormenores sobre a forma como o tráfego deve ser migrado para novos Gateways
 | China Leste 2         | 40.73.82.1         |
 | Norte da China          | 139.219.15.17      |
 | China Norte 2        | 40.73.50.0         |
-| Ásia Leste            | 191.234.2.139, 52.175.33.150, 13.75.32.4, 13.75.32.14 |
-| E.U.A. Leste              | 40.121.158.30, 40.79.153.12, 191.238.6.43, 40.78.225.32 |
+| Ásia Leste            | 52.175.33.150, 13.75.32.4, 13.75.32.14 |
+| E.U.A. Leste              | 40.121.158.30, 40.79.153.12, 40.78.225.32 |
 | E.U.A. Leste 2            | 40.79.84.180, 52.177.185.181, 52.167.104.0, 191.239.224.107, 104.208.150.3 |
 | França Central       | 40.79.137.0, 40.79.129.1, 40.79.137.8, 40.79.145.12 |
 | Sul de França         | 40.79.177.0, 40.79.177.10 ,40.79.177.12 |
@@ -99,18 +99,18 @@ Os pormenores sobre a forma como o tráfego deve ser migrado para novos Gateways
 | Índia Central        | 104.211.96.159, 104.211.86.30 , 104.211.86.31 |
 | Índia do Sul          | 104.211.224.146    |
 | Oeste da Índia           | 104.211.160.80, 104.211.144.4 |
-| Leste do Japão           | 13.78.61.196, 40.79.184.8, 13.78.106.224, 191.237.240.43, 40.79.192.5 |
-| Oeste do Japão           | 104.214.148.156, 40.74.100.192, 191.238.68.11, 40.74.97.10 |
+| Leste do Japão           | 13.78.61.196, 40.79.184.8, 13.78.106.224, 40.79.192.5 |
+| Oeste do Japão           | 104.214.148.156, 40.74.100.192, 40.74.97.10 |
 | Coreia do Sul Central        | 52.231.32.42, 52.231.17.22 ,52.231.17.23 |
 | Sul da Coreia do Sul          | 52.231.200.86      |
 | E.U.A. Centro-Norte     | 23.96.178.199, 23.98.55.75, 52.162.104.33 |
-| Europa do Norte         | 40.113.93.91, 191.235.193.75, 52.138.224.1, 13.74.104.113 |
+| Europa do Norte         | 40.113.93.91, 52.138.224.1, 13.74.104.113 |
 | Leste da Noruega          | 51.120.96.0        |
 | Oeste da Noruega          | 51.120.216.0       |
 | Norte da África do Sul   | 102.133.152.0, 102.133.120.2       |
 | Oeste da África do Sul    | 102.133.24.0       |
-| E.U.A. Centro-Sul     | 13.66.62.124, 23.98.162.75, 104.214.16.32, 20.45.121.1, 20.49.88.1   |
-| Ásia Sudeste      | 104.43.15.0, 23.100.117.95, 40.78.232.3   |
+| E.U.A. Centro-Sul     | 13.66.62.124, 104.214.16.32, 20.45.121.1, 20.49.88.1   |
+| Ásia Sudeste      | 104.43.15.0, 40.78.232.3   |
 | Suíça Norte    | 51.107.56.0, 51.107.57.0 |
 | Suíça Oeste     | 51.107.152.0, 51.107.153.0 |
 | Centro dos Emirados Árabes Unidos          | 20.37.72.64        |
@@ -118,8 +118,8 @@ Os pormenores sobre a forma como o tráfego deve ser migrado para novos Gateways
 | Sul do Reino Unido             | 51.140.184.11, 51.105.64.0 |
 | Oeste do Reino Unido              | 51.141.8.11        |
 | E.U.A. Centro-Oeste      | 13.78.145.25, 13.78.248.43        |
-| Europa Ocidental          | 40.68.37.158, 191.237.232.75, 104.40.168.105, 52.236.184.163  |
-| E.U.A. Oeste              | 104.42.238.205, 23.99.34.75, 13.86.216.196   |
+| Europa Ocidental          | 40.68.37.158, 104.40.168.105, 52.236.184.163  |
+| E.U.A. Oeste              | 104.42.238.205, 13.86.216.196   |
 | E.U.A. Oeste 2            | 13.66.226.202, 40.78.240.8, 40.78.248.10  |
 |                      |                    |
 

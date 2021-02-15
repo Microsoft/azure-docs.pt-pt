@@ -7,18 +7,18 @@ ms.subservice: azure-arc-data
 author: TheJY
 ms.author: jeanyd
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 02/11/2021
 ms.topic: how-to
-ms.openlocfilehash: ecc2e98d4c6c58e11b2bdc86b623f31d828cabc0
-ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
+ms.openlocfilehash: b88b36ba8ec1d2d612adbbf19a6cf1e91fbb2cfd
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98985925"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100377759"
 ---
 # <a name="azure-arc-enabled-postgresql-hyperscale-server-group-placement"></a>Azure Arc habilitado colocação do grupo de servidores de hiperescala postgreSQL
 
-Neste artigo estamos a dar um exemplo para ilustrar como os casos postgreSQL de Azure Arc ativados pelo grupo de servidores de hiperescala postgresQL são colocados nos nós físicos do cluster Kubernetes que os acolhe. 
+Neste artigo, estamos a tomar um exemplo para ilustrar como os casos postgreSQL de Azure Arc ativados pelo grupo de servidores de hiperescala postgreSQL são colocados nos nós físicos do cluster Kubernetes que os acolhe. 
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
@@ -28,13 +28,13 @@ Neste exemplo, estamos a usar um cluster Azure Kubernetes Service (AKS) que tem 
 
 :::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/1_cluster_portal.png" alt-text="Aglomerado de 4 nó AKS no portal Azure":::
 
-Listar os nóns físicos do cluster Kubernetes executando o comando:
+Lista os nós físicos do aglomerado de Kubernetes. Execute o comando:
 
 ```console
 kubectl get nodes
 ```
 
-O que mostra os quatro nóns físicos dentro do aglomerado de Kubernetes:
+`kubectl` retorna quatro nóns físicos dentro do cluster Kubernetes:
 
 ```output
 NAME                                STATUS   ROLES   AGE   VERSION
@@ -55,7 +55,7 @@ Listar as cápsulas com o comando:
 ```console
 kubectl get pods -n arc3
 ```
-Que produz a seguinte saída:
+`kubectl` devoluções:
 
 ```output
 NAME                 READY   STATUS    RESTARTS   AGE
@@ -64,7 +64,7 @@ postgres01c-0         3/3     Running   0          9h
 postgres01w-0         3/3     Running   0          9h
 postgres01w-1         3/3     Running   0          9h
 ```
-Cada uma dessas cápsulas acolhe um caso Pós-SQL. Juntos formam o grupo de servidores pós-escala pós-escala do Arco Azure:
+Cada uma dessas cápsulas acolhe um caso Pós-SQL. Juntos, as cápsulas formam o grupo de servidores pós-escala pós-SQL ativados:
 
 ```output
 Pod name        Role in the server group
@@ -80,7 +80,7 @@ Vamos ver como Kubernetes coloca as cápsulas do grupo de servidores. Descreva c
 kubectl describe pod postgres01c-0 -n arc3
 ```
 
-Que produz a seguinte saída:
+`kubectl` devoluções:
 
 ```output
 Name:         postgres01c-0
@@ -104,7 +104,7 @@ E note também, na descrição das cápsulas, os nomes dos recipientes que cada 
 kubectl describe pod postgres01w-1 -n arc3
 ```
 
-Que produz a seguinte saída:
+`kubectl` devoluções:
 
 ```output
 …
@@ -131,7 +131,7 @@ A arquitetura parece:
 
 :::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/3_pod_placement.png" alt-text="3 cápsulas cada colocada em nós separados":::
 
-Significa que, neste ponto, cada instância PostgreSQL que constitui o grupo de servidores de hiperescala pós-escala do Arco Azure ativado é hospedado em hospedeiros físicos específicos dentro do recipiente Kubernetes. Esta é a melhor configuração para ajudar a obter o maior desempenho do Azure Arc ativado o grupo de servidores pós-escala PostgreSQL, uma vez que cada função (coordenador e trabalhadores) utiliza os recursos de cada nó físico. Esses recursos não são partilhados entre vários papéis postgreSQL.
+Significa que, neste ponto, cada instância PostgreSQL que constitui o grupo de servidores de hiperescala pós-escala do Arco Azure ativado é hospedado em hospedeiros físicos específicos dentro do recipiente Kubernetes. Esta configuração proporciona o maior desempenho fora do grupo de servidores pós-escala pós-escala do Arco Azure, uma vez que cada função (coordenador e trabalhador) utiliza os recursos de cada nó físico. Esses recursos não são partilhados entre vários papéis postgreSQL.
 
 ## <a name="scale-out-azure-arc-enabled-postgresql-hyperscale"></a>Dimensionar O Arco Azure ativado a hiperescala pós-SQL
 
@@ -217,19 +217,19 @@ Utilizando os mesmos comandos acima; vemos o que cada nó físico está hospedad
 
 |Outros nomes de cápsulas\* |Utilização|Kubernetes nódoa física que hospeda as cápsulas
 |----|----|----
-|bootstrapper-jh48b|Este é um serviço que trata de pedidos de entrada para criar, editar e eliminar recursos personalizados, tais como instâncias geridas pela SQL, grupos de servidores de hiperescala postgresQL e controladores de dados|aks-agentpool-42715708-vmss00003
+|bootstrapper-jh48b|Um serviço que trata de pedidos de entrada para criar, editar e eliminar recursos personalizados, tais como instâncias geridas pela SQL, grupos de servidores de hiperescala postgresQL e controladores de dados|aks-agentpool-42715708-vmss00003
 |controlo-gwmbs||aks-agentpool-42715708-vmss00002
-|controldb-0|Esta é a loja de dados do controlador que é usada para armazenar configuração e estado para o controlador de dados.|aks-agentpool-42715708-vmss000001
-|controlwd-zzjp7|Este é o serviço de "cão de guarda" do controlador que mantém um olho na disponibilidade do controlador de dados.|aks-agentpool-42715708-vmss000000
-|logsdb-0|Esta é uma instância de Pesquisa Elástica que é usada para armazenar todos os registos recolhidos em todas as cápsulas de serviços de dados do Arco. Elasticsearch, recebe dados do `Fluentbit` recipiente de cada vagem|aks-agentpool-42715708-vmss00003
-|logsui-5fzv5|Este é um caso kibana que se senta em cima da base de dados de Pesquisa Elástica para apresentar um GUI de análise de registo.|aks-agentpool-42715708-vmss00003
-|métricasdb-0|Este é um caso do InfluxDB que é usado para armazenar todas as métricas recolhidas em todas as cápsulas de serviços de dados arc. InfluxDB, recebe dados do `Telegraf` recipiente de cada cápsula|aks-agentpool-42715708-vmss000000
-|métricas-47d47|Este é um daemonset implantado em todos os nós Kubernetes no cluster para recolher métricas de nível de nó sobre os nós.|aks-agentpool-42715708-vmss00002
-|métricas-864kj|Este é um daemonset implantado em todos os nós Kubernetes no cluster para recolher métricas de nível de nó sobre os nós.|aks-agentpool-42715708-vmss000001
-|metricsdc-l8jkf|Este é um daemonset implantado em todos os nós Kubernetes no cluster para recolher métricas de nível de nó sobre os nós.|aks-agentpool-42715708-vmss00003
-|metricsdc-nxm4l|Este é um daemonset implantado em todos os nós Kubernetes no cluster para recolher métricas de nível de nó sobre os nós.|aks-agentpool-42715708-vmss000000
-|metricsui-4fb7l|Este é um caso grafana que se senta em cima da base de dados do InfluxDB para apresentar um painel de monitorização GUI.|aks-agentpool-42715708-vmss00003
-|mgmtproxy-4qppp|Esta é uma camada de procuração de aplicação web que fica em frente aos casos de Grafana e Kibana.|aks-agentpool-42715708-vmss00002
+|controldb-0|A loja de dados do controlador que é usada para armazenar a configuração e o estado para o controlador de dados.|aks-agentpool-42715708-vmss000001
+|controlwd-zzjp7|O serviço de "cão de guarda" do controlador que mantém um olho na disponibilidade do controlador de dados.|aks-agentpool-42715708-vmss000000
+|logsdb-0|Uma instância de Pesquisa Elástica que é usada para armazenar todos os registos recolhidos em todas as cápsulas de serviços de dados do Arco. Elasticsearch, recebe dados do `Fluentbit` recipiente de cada vagem|aks-agentpool-42715708-vmss00003
+|logsui-5fzv5|Um exemplo de Kibana que se encontra no topo da base de dados de Pesquisa Elástica para apresentar um GUI de análise de registo.|aks-agentpool-42715708-vmss00003
+|métricasdb-0|Um caso InfluxDB que é usado para armazenar todas as métricas recolhidas em todas as cápsulas de serviços de dados do Arco. InfluxDB, recebe dados do `Telegraf` recipiente de cada cápsula|aks-agentpool-42715708-vmss000000
+|métricas-47d47|Um conjunto de daemon implantado em todos os nós Kubernetes no cluster para recolher métricas de nível de nó sobre os nós.|aks-agentpool-42715708-vmss00002
+|métricas-864kj|Um conjunto de daemon implantado em todos os nós Kubernetes no cluster para recolher métricas de nível de nó sobre os nós.|aks-agentpool-42715708-vmss000001
+|metricsdc-l8jkf|Um conjunto de daemon implantado em todos os nós Kubernetes no cluster para recolher métricas de nível de nó sobre os nós.|aks-agentpool-42715708-vmss00003
+|metricsdc-nxm4l|Um conjunto de daemon implantado em todos os nós Kubernetes no cluster para recolher métricas de nível de nó sobre os nós.|aks-agentpool-42715708-vmss000000
+|metricsui-4fb7l|Um caso Grafana que se encontra no topo da base de dados do InfluxDB para apresentar um painel de monitorização GUI.|aks-agentpool-42715708-vmss00003
+|mgmtproxy-4qppp|Uma camada de procuração de aplicação web que fica em frente aos casos de Grafana e Kibana.|aks-agentpool-42715708-vmss00002
 
 > \* O sufixo nos nomes das cápsulas variará em outras implementações. Além disso, estamos aqui apenas listando as cápsulas hospedadas dentro do espaço de nome Kubernetes do Controlador de Dados do Arco Azure.
 
@@ -237,7 +237,7 @@ A arquitetura parece:
 
 :::image type="content" source="media/migrate-postgresql-data-into-postgresql-hyperscale-server-group/5_full_list_of_pods.png" alt-text="Todas as cápsulas no espaço de nome em vários nós":::
 
-Isto significa que os nós coordenadores (Pod 1) do Azure Arc ativado pelo grupo de servidores Postgres Hyperscale partilham os mesmos recursos físicos que o terceiro nó de trabalhador (Pod 4) do grupo de servidores. Isso é aceitável, uma vez que o nó coordenador está normalmente a utilizar muito poucos recursos em comparação com o que um nó do Trabalhador pode estar a usar. A partir daí, poderá inferir que deve escolher cuidadosamente:
+Como descrito acima, os nós coordenadores (Pod 1) do Azure Arc ativado o grupo de servidores Postgres Hyperscale partilham os mesmos recursos físicos que o terceiro nó de trabalhador (Pod 4) do grupo de servidores. Isso é aceitável porque o nó coordenador normalmente utiliza muito poucos recursos em comparação com o que um nó de trabalhador pode estar a usar. Por esta razão, cuidadosamente escolheu:
 - o tamanho do cluster Kubernetes e as características de cada um dos seus nós físicos (memória, vCore)
 - o número de nós físicos dentro do cluster Kubernetes
 - as aplicações ou cargas de trabalho que hospeda no cluster Kubernetes.

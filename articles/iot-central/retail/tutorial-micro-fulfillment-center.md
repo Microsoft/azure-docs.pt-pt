@@ -7,16 +7,22 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.date: 01/09/2020
-ms.openlocfilehash: 938d5e96667db6de4a45134cbec2396d45bac9d6
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: ab4d609b1638b47ad73b6f1143adee2870577305
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99832135"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100390475"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-micro-fulfillment-center-application-template"></a>Tutorial: Implementar e caminhar através de um modelo de aplicação do centro de micro-realização
 
-Neste tutorial, você usa o modelo de aplicação do centro de micro-cumprimento Azure IoT Central para construir uma solução de retalho. Aprende-se como implementar o modelo, o que está incluído nele e o que pode querer fazer a seguir.
+Neste tutorial, você usa o modelo de aplicação do centro de micro-cumprimento Azure IoT Central para construir uma solução de retalho.
+
+Neste tutorial, aprende-se:
+
+> [!div class="checklist"]
+> * Como implementar o modelo de aplicação
+> * Como usar o modelo de aplicação
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Para completar esta série tutorial, precisa de uma subscrição do Azure. Pode opcionalmente usar um teste gratuito de 7 dias. Se não tiver uma subscrição do Azure, pode criar uma na página de inscrição do [Azure](https://aka.ms/createazuresubscription).

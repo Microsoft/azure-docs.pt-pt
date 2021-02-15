@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 01/13/2021
 ms.author: pafarley
-ms.openlocfilehash: 31ca65099d645b7fdfee70275515f0a864cd905f
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.openlocfilehash: dbe0b5ac207b361a9584603bbe2d59abd5e5ca4e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100007402"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100390407"
 ---
 # <a name="whats-new-in-computer-vision"></a>Novidades na Visão Computacional
 
@@ -26,7 +26,7 @@ Saiba o que há de novo no serviço. Estes itens podem ser notas de lançamento,
 ### <a name="read-api-v32-public-preview-with-ocr-support-for-73-languages"></a>Leia API v3.2 Visualização pública com suporte OCR para 73 línguas
 A pré-visualização pública da API v3.2 da Computer Vision, disponível como serviço de nuvem e contentor Docker, inclui estas atualizações:
 * [OCR para 73 línguas,](./language-support.md#optical-character-recognition-ocr) incluindo línguas chinesas simplificadas e tradicionais, japonesas, coreanas e latinas.
-* Ordem de leitura natural para a saída da linha de texto.
+* Ordem de leitura natural para a produção da linha de texto (apenas línguas latinas)
 * Classificação do estilo de caligrafia para linhas de texto juntamente com uma pontuação de confiança (apenas línguas latinas).
 * Extrair texto apenas para páginas selecionadas para um documento de várias páginas.
 * Disponível como [recipiente distrosiável](./computer-vision-how-to-install-containers.md?tabs=version-3-2) para implantação no local.

@@ -6,18 +6,18 @@ metadata:
   description: O Machine Learning Studio (clássico) é uma ferramenta de arrastar e largar que pode utilizar para criar, testar e implementar soluções de análise preditiva.
   services: machine-learning
   ms.service: machine-learning
-  ms.subservice: studio
+  ms.subservice: studio-classic
   ms.topic: landing-page
   ms.collection: collection
   ms.author: peterlu
   author: peterclu
   ms.date: 03/05/2020
-  ms.openlocfilehash: 246196268191d49227f9a46f48bf3c8e1175e33a
-  ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
-  ms.translationtype: HT
+  ms.openlocfilehash: 27be00a986b27f4203e2cbfce568603aa7880802
+  ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+  ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 01/11/2021
-  ms.locfileid: "98071685"
+  ms.lasthandoff: 02/14/2021
+  ms.locfileid: "100520345"
 landingContent:
 - title: Introdução ao Studio (clássico)
   linkLists:

@@ -4,12 +4,12 @@ description: Neste quickstart, você usa o JavaScript para criar um grupo de ges
 ms.date: 02/05/2021
 ms.topic: quickstart
 ms.custom: devx-track-js
-ms.openlocfilehash: 25fd93e51c1b49519bb315aab28cdfc44a2a0c58
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: 99a2ed406d4837f6fc346e68b3b400003feed38c
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99593981"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100099154"
 ---
 # <a name="quickstart-create-a-management-group-with-javascript"></a>Quickstart: Criar um grupo de gestão com JavaScript
 
@@ -29,7 +29,7 @@ O primeiro grupo de gestão criado no diretório pode demorar até 15 minutos pa
 
 ## <a name="application-setup"></a>Configuração da aplicação
 
-Para permitir que o JavaScript questione o Azure Resource Graph, o ambiente deve ser configurado. Esta configuração funciona onde o JavaScript pode ser utilizado, incluindo [a bash no Windows 10](/windows/wsl/install-win10).
+Para permitir que o JavaScript gere grupos de gestão, o ambiente deve ser configurado. Esta configuração funciona onde o JavaScript pode ser utilizado, incluindo [a bash no Windows 10](/windows/wsl/install-win10).
 
 1. Crie um novo projeto de Node.js executando o seguinte comando.
 

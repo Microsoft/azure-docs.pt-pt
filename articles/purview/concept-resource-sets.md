@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 02/03/2021
-ms.openlocfilehash: e4b48729f13ec0234a7a711032a2db34e55a8bd1
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 39a1400bfe642672ba276686851d4f0edebbeb00
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99539472"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100387857"
 ---
 # <a name="understanding-resource-sets"></a>Compreender os conjuntos de recursos
 
@@ -86,19 +86,19 @@ Quando o Azure Purview combina um grupo de ativos num conjunto de recursos, tent
 
 ### <a name="example-1"></a>Exemplo 1
 
-Nome qualificado: https://myblob.blob.core.windows.net/sample-data/name-of-spark-output/{SparkPartitions}
+Nome qualificado: `https://myblob.blob.core.windows.net/sample-data/name-of-spark-output/{SparkPartitions}`
 
 Nome do visor: "nome da saída de faísca"
 
 ### <a name="example-2"></a>Exemplo 2
 
-Nome qualificado: https://myblob.blob.core.windows.net/my-partitioned-data/{Year}-{Month}-{Day}/{N}-{N}-{N}-{N}/{GUID}
+Nome qualificado: `https://myblob.blob.core.windows.net/my-partitioned-data/{Year}-{Month}-{Day}/{N}-{N}-{N}-{N}/{GUID}`
 
 Nome do visor: "os meus dados divididos"
 
 ### <a name="example-3"></a>Exemplo 3
 
-Nome qualificado: https://myblob.blob.core.windows.net/sample-data/data{N}.csv
+Nome qualificado: `https://myblob.blob.core.windows.net/sample-data/data{N}.csv`
 
 Nome do visor: "dados"
 

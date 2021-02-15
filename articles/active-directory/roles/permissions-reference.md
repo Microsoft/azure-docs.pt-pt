@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb8533f4ca714402482c666c520c1d0bd745e8cf
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 509eae7acf0dd9f6b8ae80befb7423422f778710
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/14/2021
-ms.locfileid: "100363275"
+ms.locfileid: "100518832"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Administrator role permissions in Azure Active Directory (Permissões de cargos de administrador no Azure Active Directory)
 
@@ -83,11 +83,11 @@ A [função de administrador de autenticação privilegiada](#privileged-authent
 
 A [função de administrador de política de autenticação](#authentication-policy-administrator) tem permissões para definir a política de método de autenticação do arrendatário que determina quais os métodos que cada utilizador pode registar e utilizar.
 
-| Função | Gerir os métodos de auth do utilizador | Gerir por utilizador MFA | Gerir as definições de MFA | Gerir a política do método auth | Gerir a política de proteção de senhas |  
+| Função | Gerir os métodos de auth do utilizador | Gerir por utilizador MFA | Gerir as definições de MFA | Gerir a política do método auth | Gerir a política de proteção de senhas |
 | ---- | ---- | ---- | ---- | ---- | ---- | 
 | Administrador de autenticação | Sim para alguns utilizadores (ver acima) | Sim para alguns utilizadores (ver acima) | No | No | No | 
-| Administrador de autenticação privilegiada| Sim para todos os utilizadores | Sim para todos os utilizadores  |No | No  |No | 
-| Administrador de política de autenticação | No  |No | Yes | Yes | Yes | 
+| Administrador de autenticação privilegiada| Sim para todos os utilizadores | Sim para todos os utilizadores | No | No | No | 
+| Administrador de política de autenticação | No |No | Yes | Yes | Yes | 
 
 > [!IMPORTANT]
 > Os utilizadores com esta função podem alterar credenciais para pessoas que possam ter acesso a informações sensíveis ou privadas ou configuração crítica dentro e fora do Azure Ative Directory. Alterar as credenciais de um utilizador pode significar a capacidade de assumir a identidade e permissões desse utilizador. Por exemplo:
@@ -107,11 +107,11 @@ Os utilizadores com esta função podem configurar a política de métodos de au
 
 As funções [de administrador de autenticação](#authentication-administrator) autenticação e [de administrador de autenticação privilegiada](#privileged-authentication-administrator) têm permissão para gerir métodos de autenticação registados nos utilizadores e podem forçar o re-registo e a autenticação de vários fatores para todos os utilizadores. 
 
-| Função | Gerir os métodos de auth do utilizador | Gerir por utilizador MFA | Gerir as definições de MFA | Gerir a política do método auth | Gerir a política de proteção de senhas |  
+| Função | Gerir os métodos de auth do utilizador | Gerir por utilizador MFA | Gerir as definições de MFA | Gerir a política do método auth | Gerir a política de proteção de senhas |
 | ---- | ---- | ---- | ---- | ---- | ---- | 
 | Administrador de autenticação | Sim para alguns utilizadores (ver acima) | Sim para alguns utilizadores (ver acima) | No | No | No | 
-| Administrador de autenticação privilegiada| Sim para todos os utilizadores | Sim para todos os utilizadores  |No | No  |No | 
-| Administrador de política de autenticação | No  |No | Yes | Yes | Yes | 
+| Administrador de autenticação privilegiada| Sim para todos os utilizadores | Sim para todos os utilizadores | No | No | No | 
+| Administrador de política de autenticação | No | No | Yes | Yes | Yes | 
 
 > [!IMPORTANT]
 > Esta função não é atualmente capaz de gerir as definições de MFA no antigo portal de gestão de MFA.
@@ -293,7 +293,7 @@ Esta função foi anteriormente denominada "Administrador de Password" no [porta
 
 ### <a name="hybrid-identity-administrator"></a>[Administrador de Identidade Híbrida](#hybrid-identity-administrator-permissions)
 
-Os utilizadores desta função podem criar, gerir e implementar a configuração de configuração de provisionamento de AD a AZure AD usando Cloud Provisioning, bem como gerir as definições da federação. Os utilizadores também podem resolver problemas e monitorizar registos utilizando esta função.  
+Os utilizadores desta função podem criar, gerir e implementar a configuração de configuração de provisionamento de AD a AZure AD usando Cloud Provisioning, bem como gerir as definições da federação. Os utilizadores também podem resolver problemas e monitorizar registos utilizando esta função.
 
 ### <a name="insights-administrator"></a>[Administrador de Insights](#insights-administrator-permissions)
 Os utilizadores desta função podem aceder a todo o conjunto de capacidades administrativas na [aplicação M365 Insights](https://go.microsoft.com/fwlink/?linkid=2129521). Esta função tem a capacidade de ler informações de diretórios, monitorizar a saúde do serviço, bilhetes de suporte de ficheiros e aceder aos aspetos de definições de administração do Insights.
@@ -336,10 +336,10 @@ Os utilizadores com a função de Utilizador de Comércio Moderno normalmente t�
 
 **Quando é atribuída a função de Utilizador do Comércio Moderno?**
 
-* **A compra de self-service no Microsoft 365 admin center** – A compra de self-service dá aos utilizadores a oportunidade de experimentar novos produtos comprando ou inscrevendo-se por conta própria. Estes produtos são geridos no centro de administração. Os utilizadores que fazem uma compra de self-service são atribuídos a um papel no sistema de comércio, e o papel de Utilizador do Comércio Moderno para que possam gerir as suas compras no centro de administração. Os administradores podem bloquear as compras de self-service (para Power BI, Power Apps, Power automat) através [do PowerShell](/microsoft-365/commerce/subscriptions/allowselfservicepurchase-powershell). Para obter mais informações, veja [Self-service purchase FAQ](/microsoft-365/commerce/subscriptions/self-service-purchase-faq) (FAQ da compra personalizada).  
-* **Compras no mercado comercial da Microsoft**  – Semelhante à compra de self-service, quando um utilizador compra um produto ou serviço ao Microsoft AppSource ou ao Azure Marketplace, a função de Utilizador de Comércio Moderno é atribuída se não tiver o papel de administrador global ou administrador de faturação. Em alguns casos, os utilizadores podem estar impedidos de fazer estas compras. Para mais informações, consulte [o mercado comercial da Microsoft.](../../marketplace/marketplace-faq-publisher-guide.md#what-could-block-a-customer-from-completing-a-purchase)
-* **Propostas da Microsoft**  – Uma proposta é uma oferta formal da Microsoft para a sua organização comprar produtos e serviços da Microsoft. Quando a pessoa que está a aceitar a proposta não tem um papel de administrador global ou administrador de faturação no Ad AD Azure, é-lhes atribuído um papel específico do comércio para completar a proposta e o papel de Utilizador do Comércio Moderno para aceder ao centro de administração. Quando acedem ao centro de administração, só podem usar funcionalidades que são autorizadas pelo seu papel específico do comércio.
-* **Funções específicas do comércio** – Alguns utilizadores têm funções específicas do comércio. Se um utilizador não for um administrador global ou de faturação, obtém o papel de Utilizador do Comércio Moderno para que possa aceder ao centro de administração.  
+* **A compra de self-service no Microsoft 365 admin center** – A compra de self-service dá aos utilizadores a oportunidade de experimentar novos produtos comprando ou inscrevendo-se por conta própria. Estes produtos são geridos no centro de administração. Os utilizadores que fazem uma compra de self-service são atribuídos a um papel no sistema de comércio, e o papel de Utilizador do Comércio Moderno para que possam gerir as suas compras no centro de administração. Os administradores podem bloquear as compras de self-service (para Power BI, Power Apps, Power automat) através [do PowerShell](/microsoft-365/commerce/subscriptions/allowselfservicepurchase-powershell). Para obter mais informações, veja [Self-service purchase FAQ](/microsoft-365/commerce/subscriptions/self-service-purchase-faq) (FAQ da compra personalizada).
+* **Compras no mercado comercial da Microsoft** – Semelhante à compra de self-service, quando um utilizador compra um produto ou serviço ao Microsoft AppSource ou ao Azure Marketplace, a função de Utilizador de Comércio Moderno é atribuída se não tiver o papel de administrador global ou administrador de faturação. Em alguns casos, os utilizadores podem estar impedidos de fazer estas compras. Para mais informações, consulte [o mercado comercial da Microsoft.](../../marketplace/marketplace-faq-publisher-guide.md#what-could-block-a-customer-from-completing-a-purchase)
+* **Propostas da Microsoft** – Uma proposta é uma oferta formal da Microsoft para a sua organização comprar produtos e serviços da Microsoft. Quando a pessoa que está a aceitar a proposta não tem um papel de administrador global ou administrador de faturação no Ad AD Azure, é-lhes atribuído um papel específico do comércio para completar a proposta e o papel de Utilizador do Comércio Moderno para aceder ao centro de administração. Quando acedem ao centro de administração, só podem usar funcionalidades que são autorizadas pelo seu papel específico do comércio.
+* **Funções específicas do comércio** – Alguns utilizadores têm funções específicas do comércio. Se um utilizador não for um administrador global ou de faturação, obtém o papel de Utilizador do Comércio Moderno para que possa aceder ao centro de administração.
 
 Se a função de Utilizador do Comércio Moderno não for atribuído a um utilizador, perde o acesso ao centro de administração microsoft 365. Se eles estavam a gerir quaisquer produtos, para si ou para a sua organização, eles não serão capazes de geri-los. Isto pode incluir a atribuição de licenças, alteração de métodos de pagamento, pagamento de contas ou outras tarefas para a gestão de subscrições.
 
@@ -389,11 +389,11 @@ A [função de administrador de autenticação](#authentication-administrator) t
 
 A [função de administrador de política de autenticação](#authentication-policy-administrator) tem permissões para definir a política de método de autenticação do arrendatário que determina quais os métodos que cada utilizador pode registar e utilizar.
 
-| Função | Gerir os métodos de auth do utilizador | Gerir por utilizador MFA | Gerir as definições de MFA | Gerir a política do método auth | Gerir a política de proteção de senhas |  
+| Função | Gerir os métodos de auth do utilizador | Gerir por utilizador MFA | Gerir as definições de MFA | Gerir a política do método auth | Gerir a política de proteção de senhas |
 | ---- | ---- | ---- | ---- | ---- | ---- | 
 | Administrador de autenticação | Sim para alguns utilizadores (ver acima) | Sim para alguns utilizadores (ver acima) | No | No | No | 
-| Administrador de autenticação privilegiada| Sim para todos os utilizadores | Sim para todos os utilizadores  |No | No  |No | 
-| Administrador de política de autenticação | No  |No | Yes | Yes | Yes | 
+| Administrador de autenticação privilegiada| Sim para todos os utilizadores | Sim para todos os utilizadores | No | No | No | 
+| Administrador de política de autenticação | No | No | Yes | Yes | Yes | 
 
 > [!IMPORTANT]
 > Os utilizadores com esta função podem alterar credenciais para pessoas que possam ter acesso a informações sensíveis ou privadas ou configuração crítica dentro e fora do Azure Ative Directory. Alterar as credenciais de um utilizador pode significar a capacidade de assumir a identidade e permissões desse utilizador. Por exemplo:
@@ -992,7 +992,7 @@ Pode ler & escrever informações básicas de diretório. Para a concessão de a
 > | --- | --- |
 > | microsoft.diretório/grupos/appRoleAssignments/update | Atualizar a propriedade grupos.appRoleAssignments em Azure Ative Directory. |
 > | microsoft.diretório/grupos/assignLicense | Gerir licenças em grupos no Azure Ative Directory. |
-> | microsoft.diretório/grupos/básico/atualização | Atualizar propriedades básicas em grupos no Azure Ative Directory.  |
+> | microsoft.diretório/grupos/básico/atualização | Atualizar propriedades básicas em grupos no Azure Ative Directory. |
 > | microsoft.diretório/grupos/classificação/atualização | Atualizar a propriedade de classificação do grupo no Azure Ative Directory. |
 > | microsoft.diretório/grupos/criar | Criar grupos no Diretório Ativo Azure. |
 > | microsoft.diretório/grupos/grupoType/atualização | Atualizar a propriedade do grupoType de um grupo no Azure Ative Directory. |
@@ -1183,69 +1183,69 @@ Pode ler tudo o que um Administrador Global pode, mas não editar nada.
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
 > | --- | --- |
-> | microsoft.commerce.billing/allEntities/read    | Leia todos os aspetos da faturação. |
-> | microsoft.diretório/administrativoSSunits/básico/ler    | Leia propriedades básicas em unidades administrativas no Diretório Ativo Azure. |
-> | microsoft.diretório/administrativoSIns/membros/ler    | Leia a propriedade administrativeUnnits.members no Azure Ative Directory. |
-> | microsoft.diretório/aplicações/básico/ler    | Leia propriedades básicas em aplicações no Diretório Ativo Azure. |
-> | microsoft.diretório/aplicações/proprietários/ler    | Leia aplicações.propriedade dos proprietários em Azure Ative Directory. |
-> | microsoft.diretório/aplicações/políticas/ler    | Leia aplicações.políticas propriedade em Azure Ative Directory. |
+> | microsoft.commerce.billing/allEntities/read | Leia todos os aspetos da faturação. |
+> | microsoft.diretório/administrativoSSunits/básico/ler | Leia propriedades básicas em unidades administrativas no Diretório Ativo Azure. |
+> | microsoft.diretório/administrativoSIns/membros/ler | Leia a propriedade administrativeUnnits.members no Azure Ative Directory. |
+> | microsoft.diretório/aplicações/básico/ler | Leia propriedades básicas em aplicações no Diretório Ativo Azure. |
+> | microsoft.diretório/aplicações/proprietários/ler | Leia aplicações.propriedade dos proprietários em Azure Ative Directory. |
+> | microsoft.diretório/aplicações/políticas/ler | Leia aplicações.políticas propriedade em Azure Ative Directory. |
 > | microsoft.diretório/bitlockerKeys/chave/ler | Leia os objetos e propriedades dos chaves bitlocker (incluindo a chave de recuperação) no Diretório Ativo Azure. |
-> | microsoft.diretório/contactos/básico/ler    | Leia propriedades básicas em contactos no Diretório Ativo Azure. |
-> | microsoft.diretório/contactos/memberOf/read    | Ler contactos.memberOf propriedade no Azure Ative Directory. |
-> | microsoft.diretório/contratos/básico/ler    | Leia propriedades básicas em contratos no Azure Ative Directory. |
-> | microsoft.diretório/dispositivos/básico/ler    | Leia propriedades básicas em dispositivos no Diretório Ativo Azure. |
-> | microsoft.diretório/dispositivos/memberOf/read    | Leia dispositivos.memberOf propriedade no Diretório Ativo Azure. |
-> | microsoft.diretório/dispositivos/registadosSowners/read    | Leia dispositivos.registre propriedade proprietário em Azure Ative Directory. |
-> | microsoft.diretório/dispositivos/registros/ler    | Leia dispositivos.registre a propriedade dos Ussers no Diretório Ativo Azure. |
-> | microsoft.diretório/directórioRoles/básico/ler    | Leia propriedades básicas no directórioRoles no Diretório Azure Ative. |
-> | microsoft.diretório/directórioRoles/elegíveisMembers/read    | Leia a propriedade do diretório.elegível Em Azure Ative Directory. |
-> | microsoft.diretório/directórioRoles/membros/ler    | Leia a propriedade do diretório.members no Azure Ative Directory. |
-> | microsoft.diretório/domínios/básico/ler    | Leia propriedades básicas em domínios no Diretório Ativo Azure. |
+> | microsoft.diretório/contactos/básico/ler | Leia propriedades básicas em contactos no Diretório Ativo Azure. |
+> | microsoft.diretório/contactos/memberOf/read | Ler contactos.memberOf propriedade no Azure Ative Directory. |
+> | microsoft.diretório/contratos/básico/ler | Leia propriedades básicas em contratos no Azure Ative Directory. |
+> | microsoft.diretório/dispositivos/básico/ler | Leia propriedades básicas em dispositivos no Diretório Ativo Azure. |
+> | microsoft.diretório/dispositivos/memberOf/read | Leia dispositivos.memberOf propriedade no Diretório Ativo Azure. |
+> | microsoft.diretório/dispositivos/registadosSowners/read | Leia dispositivos.registre propriedade proprietário em Azure Ative Directory. |
+> | microsoft.diretório/dispositivos/registros/ler | Leia dispositivos.registre a propriedade dos Ussers no Diretório Ativo Azure. |
+> | microsoft.diretório/directórioRoles/básico/ler | Leia propriedades básicas no directórioRoles no Diretório Azure Ative. |
+> | microsoft.diretório/directórioRoles/elegíveisMembers/read | Leia a propriedade do diretório.elegível Em Azure Ative Directory. |
+> | microsoft.diretório/directórioRoles/membros/ler | Leia a propriedade do diretório.members no Azure Ative Directory. |
+> | microsoft.diretório/domínios/básico/ler | Leia propriedades básicas em domínios no Diretório Ativo Azure. |
 > | microsoft.diretório/direitoManagement/allProperties/read | Leia todos os imóveis na gestão de direitos Azure AD. |
-> | microsoft.diretório/grupos/appRoleAssignments/read    | Ler propriedade grupos.appRoleAssignments em Azure Ative Directory. |
-> | microsoft.diretório/grupos/básico/ler    | Leia propriedades básicas em grupos no Diretório Ativo Azure. |
-> | microsoft.diretório/grupos/hiddenMembers/read    | Ler propriedade de grupos.hiddenMembers em Azure Ative Directory. |
-> | microsoft.diretório/grupos/memberOf/read    | Ler grupos.memberOf propriedade em Azure Ative Directory. |
-> | microsoft.diretório/grupos/membros/ler    | Leia a propriedade grupos.members no Azure Ative Directory. |
-> | microsoft.diretório/grupos/proprietários/ler    | Leia a propriedade grupos.proprietários em Azure Ative Directory. |
-> | microsoft.diretório/grupos/definições/ler    | Leia a propriedade grupos.settings no Azure Ative Directory. |
-> | microsoft.diretório/grupoSettings/basic/read    | Leia propriedades básicas em grupoSettings no Azure Ative Directory. |
-> | microsoft.diretório/grupoSettingTemplates/básico/ler    | Leia propriedades básicas em grupoSettingTemplates no Azure Ative Directory. |
-> | microsoft.diretório/oAuth2PermissionGrants/basic/read    | Leia propriedades básicas em oAuth2PermissionGrants em Azure Ative Directory. |
-> | microsoft.diretório/organização/básico/ler    | Leia propriedades básicas sobre organização no Azure Ative Directory. |
-> | microsoft.diretório/organização/trustedCAsForPasslessAuth/read    | Leia a propriedade do Site Azure Ative. |
-> | microsoft.diretório/políticas/standard/read    | Leia as políticas padrão no Diretório Ativo Azure. |
+> | microsoft.diretório/grupos/appRoleAssignments/read | Ler propriedade grupos.appRoleAssignments em Azure Ative Directory. |
+> | microsoft.diretório/grupos/básico/ler | Leia propriedades básicas em grupos no Diretório Ativo Azure. |
+> | microsoft.diretório/grupos/hiddenMembers/read | Ler propriedade de grupos.hiddenMembers em Azure Ative Directory. |
+> | microsoft.diretório/grupos/memberOf/read | Ler grupos.memberOf propriedade em Azure Ative Directory. |
+> | microsoft.diretório/grupos/membros/ler | Leia a propriedade grupos.members no Azure Ative Directory. |
+> | microsoft.diretório/grupos/proprietários/ler | Leia a propriedade grupos.proprietários em Azure Ative Directory. |
+> | microsoft.diretório/grupos/definições/ler | Leia a propriedade grupos.settings no Azure Ative Directory. |
+> | microsoft.diretório/grupoSettings/basic/read | Leia propriedades básicas em grupoSettings no Azure Ative Directory. |
+> | microsoft.diretório/grupoSettingTemplates/básico/ler | Leia propriedades básicas em grupoSettingTemplates no Azure Ative Directory. |
+> | microsoft.diretório/oAuth2PermissionGrants/basic/read | Leia propriedades básicas em oAuth2PermissionGrants em Azure Ative Directory. |
+> | microsoft.diretório/organização/básico/ler | Leia propriedades básicas sobre organização no Azure Ative Directory. |
+> | microsoft.diretório/organização/trustedCAsForPasslessAuth/read | Leia a propriedade do Site Azure Ative. |
+> | microsoft.diretório/políticas/standard/read | Leia as políticas padrão no Diretório Ativo Azure. |
 > | microsoft.diretório/provisioningLogs/allProperties/read | Leia todas as propriedades dos registos de provisionamento. |
-> | microsoft.diretório/papelAssinhas/básico/ler    | Leia propriedades básicas sobre funçõesAssinsignments no Azure Ative Directory. |
-> | microsoft.diretório/roleDefinitions/basic/read    | Leia propriedades básicas sobre funDefinitions no Azure Ative Directory. |
-> | microsoft.diretório/serviçoPrincipals/appRoleAssignedTo/read    | Leia o serviçoPrincipals.appRoleAssignedTo propriedade em Azure Ative Directory. |
-> | microsoft.diretório/serviçoPrincipals/appRoleAssignments/read    | Leia o serviçoPrincipals.appRoleAssignments propriedade em Azure Ative Directory. |
-> | microsoft.diretório/serviçoPrincipals/básico/ler    | Leia propriedades básicas em serviçoPrincipals em Azure Ative Directory. |
-> | microsoft.diretório/serviçoPrincipals/memberOf/read    | Ler serviçoPrincipals.memberOf propriedade em Azure Ative Directory. |
-> | microsoft.diretório/serviçoPrincipals/oAuth2PermissionGrants/basic/read    | Leia o serviçoPrincipals.oAuth2PermissionGrants propriedade em Azure Ative Directory. |
-> | microsoft.diretório/serviçoPrincipals/ownedObjects/read    | Ler serviçoPrincipals.ownedObjects propriedade em Azure Ative Directory. |
-> | microsoft.diretório/serviçoPrincipals/proprietários/ler    | Ler serviçoPrincipals.proprietários propriedade em Azure Ative Directory. |
-> | microsoft.diretório/serviçoPrincipals/políticas/ler    | Ler serviçoPrincipals.policies propriedade em Azure Ative Directory. |
-> | microsoft.diretório/signInReports/allProperties/read    | Leia todas as propriedades (incluindo propriedades privilegiadas) no signInReports in Azure Ative Directory. |
-> | microsoft.diretório/subscritoSkus/básico/ler    | Leia propriedades básicas em SubscriçãoSkus em Azure Ative Directory. |
-> | microsoft.diretório/utilizadores/appRoleAssignments/read    | Leia a propriedade users.appRoleAssignments em Azure Ative Directory. |
-> | microsoft.diretório/utilizadores/básico/ler    | Leia propriedades básicas nos utilizadores no Azure Ative Directory. |
-> | microsoft.directy/users/directReports/read    | Leia a propriedade users.directReports em Azure Ative Directory. |
-> | microsoft.diretório/utilizadores/manager/read    | Leia a propriedade users.manager no Azure Ative Directory. |
-> | microsoft.diretório/utilizadores/membroOf/read    | Leia utilizadores.membroSDes propriedade em Azure Ative Directory. |
-> | microsoft.diretório/utilizadores/oAuth2PermissionGrants/basic/read    | Leia a propriedade users.oAuth2PermissionGrants em Azure Ative Directory. |
-> | microsoft.diretório/utilizadores/propriedadeDevices/ler    | Leia a propriedade de utilizadores.propriedadeDevices em Azure Ative Directory. |
-> | microsoft.diretório/utilizadores/ownedObjects/read    | Leia a propriedade usumente utilizadores.ownjects em Azure Ative Directory. |
-> | microsoft.diretório/utilizadores/registradoDevices/read    | Leia utilizadores.registradoDevices propriedade em Azure Ative Directory. |
-> | microsoft.diretório/utilizadores/strongAuthentication/read    | Leia propriedades de autenticação forte como informações credenciais de MFA. |
-> | microsoft.office365.exchange/allEntities/read    | Leia todos os aspetos do Exchange Online. |
-> | microsoft.office365.messageCenter/messages/read    | Leia as mensagens no microsoft.office365.messageCenter. |
-> | microsoft.office365.messageCenter/securityMessages/read    | Leia segurançaSessages em microsoft.office365.messageCenter. |
+> | microsoft.diretório/papelAssinhas/básico/ler | Leia propriedades básicas sobre funçõesAssinsignments no Azure Ative Directory. |
+> | microsoft.diretório/roleDefinitions/basic/read | Leia propriedades básicas sobre funDefinitions no Azure Ative Directory. |
+> | microsoft.diretório/serviçoPrincipals/appRoleAssignedTo/read | Leia o serviçoPrincipals.appRoleAssignedTo propriedade em Azure Ative Directory. |
+> | microsoft.diretório/serviçoPrincipals/appRoleAssignments/read | Leia o serviçoPrincipals.appRoleAssignments propriedade em Azure Ative Directory. |
+> | microsoft.diretório/serviçoPrincipals/básico/ler | Leia propriedades básicas em serviçoPrincipals em Azure Ative Directory. |
+> | microsoft.diretório/serviçoPrincipals/memberOf/read | Ler serviçoPrincipals.memberOf propriedade em Azure Ative Directory. |
+> | microsoft.diretório/serviçoPrincipals/oAuth2PermissionGrants/basic/read | Leia o serviçoPrincipals.oAuth2PermissionGrants propriedade em Azure Ative Directory. |
+> | microsoft.diretório/serviçoPrincipals/ownedObjects/read | Ler serviçoPrincipals.ownedObjects propriedade em Azure Ative Directory. |
+> | microsoft.diretório/serviçoPrincipals/proprietários/ler | Ler serviçoPrincipals.proprietários propriedade em Azure Ative Directory. |
+> | microsoft.diretório/serviçoPrincipals/políticas/ler | Ler serviçoPrincipals.policies propriedade em Azure Ative Directory. |
+> | microsoft.diretório/signInReports/allProperties/read | Leia todas as propriedades (incluindo propriedades privilegiadas) no signInReports in Azure Ative Directory. |
+> | microsoft.diretório/subscritoSkus/básico/ler | Leia propriedades básicas em SubscriçãoSkus em Azure Ative Directory. |
+> | microsoft.diretório/utilizadores/appRoleAssignments/read | Leia a propriedade users.appRoleAssignments em Azure Ative Directory. |
+> | microsoft.diretório/utilizadores/básico/ler | Leia propriedades básicas nos utilizadores no Azure Ative Directory. |
+> | microsoft.directy/users/directReports/read | Leia a propriedade users.directReports em Azure Ative Directory. |
+> | microsoft.diretório/utilizadores/manager/read | Leia a propriedade users.manager no Azure Ative Directory. |
+> | microsoft.diretório/utilizadores/membroOf/read | Leia utilizadores.membroSDes propriedade em Azure Ative Directory. |
+> | microsoft.diretório/utilizadores/oAuth2PermissionGrants/basic/read | Leia a propriedade users.oAuth2PermissionGrants em Azure Ative Directory. |
+> | microsoft.diretório/utilizadores/propriedadeDevices/ler | Leia a propriedade de utilizadores.propriedadeDevices em Azure Ative Directory. |
+> | microsoft.diretório/utilizadores/ownedObjects/read | Leia a propriedade usumente utilizadores.ownjects em Azure Ative Directory. |
+> | microsoft.diretório/utilizadores/registradoDevices/read | Leia utilizadores.registradoDevices propriedade em Azure Ative Directory. |
+> | microsoft.diretório/utilizadores/strongAuthentication/read | Leia propriedades de autenticação forte como informações credenciais de MFA. |
+> | microsoft.office365.exchange/allEntities/read | Leia todos os aspetos do Exchange Online. |
+> | microsoft.office365.messageCenter/messages/read | Leia as mensagens no microsoft.office365.messageCenter. |
+> | microsoft.office365.messageCenter/securityMessages/read | Leia segurançaSessages em microsoft.office365.messageCenter. |
 > | microsoft.office365.network/performance/allProperties/read | Leia as páginas de desempenho da rede no Microsoft 365 Admin Center. |
-> | microsoft.office365.protectionCenter/allEntities/read    | Leia todos os aspetos do Centro de Proteção do Office 365. |
-> | microsoft.office365.securityComplianceCenter/allEntities/read    | Leia todas as propriedades standard em microsoft.office365.securityComplianceCenter. |
-> | microsoft.office365.usageReports/allEntities/read    | Leia os relatórios de utilização do Office 365. |
-> | microsoft.office365.webPortal/allEntities/standard/read    | Leia as propriedades padrão em todos os recursos em microsoft.office365.webPortal. |
+> | microsoft.office365.protectionCenter/allEntities/read | Leia todos os aspetos do Centro de Proteção do Office 365. |
+> | microsoft.office365.securityComplianceCenter/allEntities/read | Leia todas as propriedades standard em microsoft.office365.securityComplianceCenter. |
+> | microsoft.office365.usageReports/allEntities/read | Leia os relatórios de utilização do Office 365. |
+> | microsoft.office365.webPortal/allEntities/standard/read | Leia as propriedades padrão em todos os recursos em microsoft.office365.webPortal. |
 
 ### <a name="groups-administrator-permissions"></a>Permissões de administrador de grupos
 
@@ -1313,8 +1313,8 @@ Pode gerir o fornecimento de nuvem AD a Azure e as configurações da federaçã
 > | --- | --- |
 > | microsoft.azure.serviceHealth/allEntities/allTasks | Ler e configurar Azure Service Health. |
 > | microsoft.azure.supportTickets/allEntities/allTasks | Crie e gere os bilhetes de apoio da Azure para serviços de nível de diretório. |
-> | microsoft.diretório/aplicações/audiência/atualização  | Atualizar aplicações.propriedade audiência em Azure Ative Directory. |
-> | microsoft.diretório/aplicações/autenticação/atualização | Atualizar aplicações.autenticação propriedade no Diretório Ativo Azure.  |
+> | microsoft.diretório/aplicações/audiência/atualização | Atualizar aplicações.propriedade audiência em Azure Ative Directory. |
+> | microsoft.diretório/aplicações/autenticação/atualização | Atualizar aplicações.autenticação propriedade no Diretório Ativo Azure. |
 > | microsoft.diretório/aplicações/básico/atualização | Atualizar propriedades básicas em aplicações no Azure Ative Directory. |
 > | microsoft.diretório/aplicações/criar | Criar aplicações no Diretório Ativo Azure. |
 > | microsoft.diretório/aplicações/credenciais/atualização | Atualizar aplicações.credenciais propriedade em Azure Ative Directory. |
@@ -1491,7 +1491,7 @@ Pode gerir as localizações da rede e rever insights de design de rede empresar
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
 > | --- | --- |
-> | microsoft.office365.network/performance/allProperties/read | Leia as páginas de desempenho da rede no M365 Admin Center.  |
+> | microsoft.office365.network/performance/allProperties/read | Leia as páginas de desempenho da rede no M365 Admin Center. |
 > | microsoft.office365.network/locations/allProperties/allTasks | Leia e configuure as propriedades da rede para cada local. |
 
 ### <a name="office-apps-administrator-permissions"></a>Permissões de administrador de aplicações de escritório
@@ -1896,7 +1896,7 @@ Pode gerir todos os aspetos do produto Skype for Business.
 > | microsoft.office365.serviceHealth/allEntities/allTasks | Leia e configuure a Microsoft 365 Service Health. |
 > | microsoft.office365.skypeForBusiness/allEntities/allTasks | Gerir todos os aspetos do Skype para business online. |
 > | microsoft.office365.supportTickets/allEntities/allTasks | Criar e gerir os bilhetes de apoio do Office 365. |
-> | microsoft.office365.usageReports/allEntities/read    | Leia os relatórios de utilização do Office 365. |
+> | microsoft.office365.usageReports/allEntities/read | Leia os relatórios de utilização do Office 365. |
 > | microsoft.office365.webPortal/allEntities/basic/read | Leia propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
 
 ### <a name="teams-administrator-permissions"></a>Permissões de Administrador de Equipas
@@ -2144,7 +2144,7 @@ Aderir ao dispositivo | Preterido | [Documentação de papéis precotados](permi
 Gestores de Dispositivos | Preterido | [Documentação de papéis precotados](permissions-reference.md#deprecated-roles)
 Utilizadores de Dispositivos | Preterido | [Documentação de papéis precotados](permissions-reference.md#deprecated-roles)
 Contas de Sincronização do Diretório | Não mostrado porque não deve ser usado | [Documentação de Contas de Sincronização do Diretório](permissions-reference.md#directory-synchronization-accounts)
-Utilizador Convidado | Não mostrado porque não pode ser usado  | ND
+Utilizador Convidado | Não mostrado porque não pode ser usado | ND
 Suporte de Nível 1 do Parceiro | Não mostrado porque não deve ser usado | [Documentação de suporte do Parceiro Tier1](permissions-reference.md#partner-tier1-support)
 Suporte parceiro tier 2 | Não mostrado porque não deve ser usado | [Documentação de suporte de parceiro Tier2](permissions-reference.md#partner-tier2-support)
 Utilizador restrito de hóspedes | Não mostrado porque não pode ser usado | ND

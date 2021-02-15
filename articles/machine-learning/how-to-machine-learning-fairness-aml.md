@@ -11,12 +11,12 @@ ms.reviewer: luquinta
 ms.date: 11/16/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, responsible-ml
-ms.openlocfilehash: ee589aed2b8f3c53d21c1f762a5d2027f3762649
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 322b036fee840db58ed610795155af6c9e1320cc
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222773"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100366983"
 ---
 # <a name="use-azure-machine-learning-with-the-fairlearn-open-source-package-to-assess-the-fairness-of-ml-models-preview"></a>Utilize a Azure Machine Learning com o pacote fairlearn open-source para avaliar a equidade dos modelos ML (pré-visualização)
 
@@ -214,10 +214,15 @@ O exemplo a seguir mostra como utilizar o pacote de equidade. Vamos enviar insig
     1. Selecione **Experiências** no painel esquerdo para ver uma lista de experiências que executou no Azure Machine Learning.
     1. Selecione uma experiência particular para ver todas as corridas nessa experiência.
     1. Selecione uma execução e, em seguida, o **separador Fairness** para o painel de visualização de explicação.
+    1. Uma vez que aterre no **separador Fairness,** clique num **id** de equidade do menu à direita.
+    1. Configure o seu painel selecionando o seu atributo sensível, métrica de desempenho e métrica de interesse de equidade para aterrar na página de avaliação da equidade.
+    1. Tipo de gráfico de um para outro para observar tanto os danos de **atribuição** como a qualidade dos danos **de serviço.**
 
 
-    [![Painel de Justiça](./media/how-to-machine-learning-fairness-aml/dashboard.png)](./media/how-to-machine-learning-fairness-aml/dashboard.png#lightbox)
+
+    [![Repartição do Painel de Justiça](./media/how-to-machine-learning-fairness-aml/dashboard-1.png)](./media/how-to-machine-learning-fairness-aml/dashboard-1.png#lightbox)
     
+    [![Justo Dashboard Qualidade de Serviço](./media/how-to-machine-learning-fairness-aml/dashboard-2.png)](./media/how-to-machine-learning-fairness-aml/dashboard-2.png#lightbox)
     * **Painel de modelos**
     1. Se registou o seu modelo original seguindo os passos anteriores, pode selecionar **Modelos** no painel esquerdo para o visualizar.
     1. Selecione um modelo e, em seguida, o **separador Fairness** para visualizar o painel de visualização de explicação.

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com Nova Relíquia por Conta Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com Nova Relíquia por Conta | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e a New Relic by Account.
 services: active-directory
 author: jeevansd
@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/16/2020
+ms.date: 02/02/2021
 ms.author: jeedes
-ms.openlocfilehash: 2a7d191af78da417d0ee2ade12b1576912643b6c
-ms.sourcegitcommit: 42922af070f7edf3639a79b1a60565d90bb801c0
+ms.openlocfilehash: cd438609a4ba2c3eb025226c98eec79fd855c075
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97827466"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100390292"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-new-relic-by-account"></a>Tutorial: Azure Ative Directory integração única (SSO) com Nova Relíquia por Conta
 
@@ -25,8 +25,6 @@ Neste tutorial, você vai aprender a integrar Nova Relíquia por Conta com Azure
 * Controlo em Azure AD que tem acesso a Nova Relíquia por Conta.
 * Permitir que os seus utilizadores sejam automaticamente inscritos na Nova Relíquia por Conta com as suas contas AD Azure.
 * Gerencie as suas contas numa localização central - o portal Azure.
-
-Para saber mais sobre a integração da aplicação SaaS com a Azure AD, consulte o que é o acesso à [aplicação e o único sign-on com o Azure Ative Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -41,24 +39,22 @@ Neste tutorial, você configura e testa Azure AD SSO em um ambiente de teste.
 
 * Nova Relíquia por Conta suporta **SSO** iniciado sp
 
-* Uma vez configurado a Nova Relíquia por Conta, pode impor controlos de sessão, que protegem a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. Os controlos de sessão estendem-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
-
-## <a name="adding-new-relic-by-account-from-the-gallery"></a>Adicionar nova relíquia por conta da galeria
+## <a name="add-new-relic-by-account-from-the-gallery"></a>Adicione nova relíquia por conta da galeria
 
 Para configurar a integração de Nova Relíquia por Conta no AZure AD, é necessário adicionar Nova Relíquia por Conta da galeria à sua lista de aplicações geridas pelo SaaS.
 
-1. Inscreva-se no [portal Azure](https://portal.azure.com) usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
+1. Inscreva-se no portal Azure usando uma conta de trabalho ou escola, ou uma conta pessoal da Microsoft.
 1. No painel de navegação à esquerda, selecione o serviço **Azure Ative Directory.**
 1. Navegue para **aplicações empresariais** e, em seguida, selecione **Todas as Aplicações**.
 1. Para adicionar nova aplicação, selecione **Nova aplicação**.
 1. Na secção Adicionar a partir da secção **da galeria,** digite **Nova Relíquia por Conta** na caixa de pesquisa.
 1. Selecione **Nova Relíquia por Conta** a partir do painel de resultados e adicione a aplicação. Aguarde alguns segundos enquanto a aplicação é adicionada ao seu inquilino.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-new-relic-by-account"></a>Configurar e testar Azure AD único sinal de inscrição para Nova Relíquia por Conta
+## <a name="configure-and-test-azure-ad-sso-for-new-relic-by-account"></a>Configurar e testar Azure AD SSO para nova relíquia por conta
 
 Configure e teste Azure AD SSO com Nova Relíquia por Conta usando um utilizador de teste chamado **B.Simon**. Para que o SSO funcione, é necessário estabelecer uma relação de ligação entre um utilizador Azure AD e o utilizador relacionado em Nova Relíquia por Conta.
 
-Para configurar e testar o Azure AD SSO com Nova Relíquia por Conta, complete os seguintes blocos de construção:
+Para configurar e testar a Azure AD SSO com Nova Relíquia por Conta, execute os seguintes passos:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - para permitir que os seus utilizadores utilizem esta funcionalidade.
     * Crie um utilizador de **[teste AD Azure](#create-an-azure-ad-test-user)** - para testar um único sinal de Azure com B.Simon.
@@ -71,18 +67,19 @@ Para configurar e testar o Azure AD SSO com Nova Relíquia por Conta, complete o
 
 Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
-1. No [portal Azure,](https://portal.azure.com/)na página de integração da aplicação **New Relic by Account,** encontre a secção **Gerir** e selecione um único sinal de **sação**.
+1. No portal Azure, na página de integração da aplicação **New Relic by Account,** encontre a secção **Gerir** e selecione **um único sinal de sação**.
 1. Na página de método **de inscrição** única, selecione **SAML**.
-1. No **set-on único com** a página SAML, clique no ícone edit/pen para **Configuração SAML Básica** para editar as definições.
+1. No **set-on único com** a página SAML, clique no ícone de lápis para **configuração SAML Básica** para editar as definições.
 
    ![Editar Configuração BÁSICA SAML](common/edit-urls.png)
+   
 1. Na secção **de Configuração Básica SAML,** execute os seguintes passos:
 
-    a. Na caixa de texto **URL, digite** um URL utilizando o seguinte padrão:
+    a. Na caixa de texto **URL, digite** o URL utilizando o seguinte padrão:
 
     `https://rpm.newrelic.com:443/accounts/{acc_id}/sso/saml/finalize` - Substitua-se `acc_id` pela sua própria Conta ID de Nova Relíquia por Conta.
 
-    b. Na caixa de texto **identifier (Entity ID),** digite um URL: `rpm.newrelic.com`
+    b. Na caixa de texto **identifier (Entity ID),** digite o URL: `rpm.newrelic.com`
 
 1. Na **configuração single Sign-On com** a página SAML, na secção **Certificado de Assinatura SAML,** clique em **Baixar** para descarregar o **Certificado (Base64)** das opções dadas de acordo com o seu requisito e guardá-lo no seu computador.
 
@@ -91,12 +88,6 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 1. Na secção **Configurar Nova Relíquia por Conta,** copie os URL(s) apropriados de acordo com o seu requisito.
 
     ![URLs de configuração de cópia](common/copy-configuration-urls.png)
-
-    a. URL de Inicio de Sessão
-
-    b. Identificador Azure Ad
-
-    c. Logout URL
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um utilizador de teste AZure AD
 
@@ -117,15 +108,9 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de candidaturas, selecione **Nova Relíquia por Conta**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
-
-   ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
-
 1. **Selecione Adicionar utilizador,** em seguida, selecione **Utilizadores e grupos** no diálogo **'Adicionar Atribuição'.**
-
-    ![O link do utilizador adicionar](common/add-assign-user.png)
-
 1. No diálogo **de Utilizadores e grupos,** selecione **B.Simon** da lista de Utilizadores e, em seguida, clique no botão **Select** na parte inferior do ecrã.
-1. Se estiver à espera de qualquer valor de função na afirmação SAML, no diálogo **'Fun's Select,** selecione a função adequada para o utilizador da lista e, em seguida, clique no botão **Selecione** na parte inferior do ecrã.
+1. Se estiver à espera que uma função seja atribuída aos utilizadores, pode selecioná-la a partir do Dropdown de **função** Select. Se não tiver sido configurada qualquer função para esta aplicação, vê a função "Acesso Predefinido" selecionada.
 1. No diálogo **'Adicionar Atribuição',** clique no botão **'Atribuir'.**
 
 ## <a name="configure-new-relic-by-account-sso"></a>Configure nova relíquia por conta SSO
@@ -134,15 +119,15 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 2. No menu em cima, clique em **Definições de Conta**.
    
-    ![A screenshot mostra a página Welcome com as definições de Conta selecionadas.](./media/new-relic-tutorial/ic797036.png "Definições de conta")
+    ![A screenshot mostra a página Welcome com as definições de Conta selecionadas.](./media/new-relic-tutorial/settings.png "Definições de conta")
 
 3. Clique no separador **Segurança e autenticação** e, em seguida, clique **no sinal único no** separador.
    
-    ![Único sign-on](./media/new-relic-tutorial/ic797037.png "Início de Sessão Único")
+    ![Único sign-on](./media/new-relic-tutorial/single-sign-on-tab.png "Início de Sessão Único")
 
 4. Na página de diálogo SAML, execute os seguintes passos:
    
-    ![SAML](./media/new-relic-tutorial/ic797038.png "SAML")
+    ![SAML](./media/new-relic-tutorial/save.png "SAML")
    
     a. Clique **em Escolher Ficheiro** para fazer o upload do certificado de Diretório Azure Ative descarregado.
 
@@ -158,15 +143,15 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 2. No menu em cima, clique em **Definições de Conta**.
    
-    ![A screenshot mostra as definições de conta selecionadas na página Welcome.](./media/new-relic-tutorial/ic797040.png "Definições de conta")
+    ![A screenshot mostra as definições de conta selecionadas na página Welcome.](./media/new-relic-tutorial/account.png "Definições de conta")
 
 3. No painel **conta** no lado esquerdo, clique em **Resumo** e, em seguida, clique em **Adicionar utilizador**.
    
-    ![A screenshot mostra o painel resumo onde pode selecionar Adicionar utilizador.](./media/new-relic-tutorial/ic797041.png "Definições de conta")
+    ![A screenshot mostra o painel resumo onde pode selecionar Adicionar utilizador.](./media/new-relic-tutorial/add.png "Definições de conta")
 
 4. No diálogo dos **utilizadores Ativos,** execute os seguintes passos:
    
-    ![Utilizadores Ativos](./media/new-relic-tutorial/ic797042.png "Utilizadores Ativos")
+    ![Utilizadores Ativos](./media/new-relic-tutorial/user.png "Utilizadores Ativos")
    
     a. Na caixa de texto **do Email,** digite o endereço de e-mail de um utilizador válido do Azure Ative Directory que pretende.
 
@@ -179,18 +164,14 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 ## <a name="test-sso"></a>Teste SSO 
 
-Nesta secção, testa a configuração de inscrição única AZure AD utilizando o Painel de Acesso.
+Nesta secção, testa a configuração de um único sinal de inscrição Azure AD com as seguintes opções. 
 
-Quando clicar na Nova Relíquia por Conta no Painel de Acesso, deverá ser automaticamente inscrito na Nova Relíquia por Conta para a qual configura sSO. Para obter mais informações sobre o Painel de Acesso, consulte [Introdução ao Painel de Acesso.](../user-help/my-apps-portal-end-user-access.md)
+* Clique em **Testar esta aplicação** no portal Azure. Isto irá redirecionar para Nova Relíquia por URL de início de Sessão de Sessão, onde pode iniciar o fluxo de login. 
 
-## <a name="additional-resources"></a>Recursos adicionais
+* Vá diretamente para A Nova Relíquia por Conta URL de inscrição e inicie o fluxo de login a partir daí.
 
-- [ Lista de tutoriais sobre como integrar aplicações saas com diretório ativo Azure ](./tutorial-list.md)
+* Pode utilizar as minhas apps do Microsoft. Quando clicar na Nova Relíquia por Conta nas Minhas Apps, este será redirecionado para Nova Relíquia por URL de inscrição na conta. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
-- [O que é o acesso à aplicação e um único acesso ao Azure Ative Directory? ](../manage-apps/what-is-single-sign-on.md)
+## <a name="next-steps"></a>Passos seguintes
 
-- [O que é o acesso condicional no Azure Active Directory?](../conditional-access/overview.md)
-
-- [Experimente nova relíquia por conta com Azure AD](https://aad.portal.azure.com/)
-
-- [O que é o controlo de sessão no Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
+Uma vez configurado Nova Relíquia por Conta, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

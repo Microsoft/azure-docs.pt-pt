@@ -1,21 +1,17 @@
 ---
 title: Monitor de integração tempo de execução na Azure Data Factory
 description: Saiba como monitorizar diferentes tipos de tempo de integração na Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/11/2020
 author: dcstwh
 ms.author: weetok
-manager: anandsub
-ms.openlocfilehash: fa71dc1e6b3a09827f2ad3d9f714622da5a36222
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: a52fad39e19bdf2edf110990c8f0e392ec5803ce
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96862450"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100377504"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Monitorizar um runtime de integração no Azure Data Factory
 
@@ -52,7 +48,7 @@ A tabela a seguir fornece descrições das propriedades devolvidas pelo cmdlet p
 | Localização | Localização do tempo de funcionamento da integração do Azure. Para obter detalhes sobre a localização de um tempo de execução da integração Azure, consulte [Introdução ao tempo de execução da integração.](concepts-integration-runtime.md) |
 | DataFactoryName | Nome da fábrica de dados a que pertence o tempo de integração do Azure. | 
 | ResourceGroupName | Nome do grupo de recursos a que pertence a fábrica de dados.  |
-| Descrição | Descrição do tempo de execução da integração.  |
+| Description | Descrição do tempo de execução da integração.  |
 
 ### <a name="status"></a>Estado
 
@@ -103,7 +99,7 @@ A tabela a seguir fornece os estatutos possíveis de um nó de tempo de execuç�
 | ------ | ------------------ | 
 | Online | O nó está ligado ao serviço Data Factory. |
 | Offline | O nó está desligado. |
-| Modernização | O nó está a ser atualizado automaticamente. |
+| Atualizar | O nó está a ser atualizado automaticamente. |
 | Limitado | Devido a um problema de conectividade. Pode ser devido à emissão da porta HTTP 8060, problema de conectividade do autocarro de serviço ou um problema de sincronização de credenciais. |
 | Inativa | O nó está numa configuração diferente da configuração de outros nós maioritários. |
 
@@ -175,7 +171,7 @@ Get-AzDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $A
 
 O quadro seguinte fornece descrições das propriedades devolvidas pelo cmdlet acima para um Azure-SSIS IR.
 
-| Propriedade/Estado              | Descrição                  |
+| Propriedade/Estado              | Description                  |
 | ---------------------------- | ---------------------------- |
 | Criar Tempo                   | O tempo UTC quando o seu Azure-SSIS IR foi criado. |
 | Nós                        | Os nós atribuídos/disponíveis do seu Azure-SSIS IR com estatutos específicos do nó (início/disponível/reciclagem/indisponível) e erros acccionáveis. |
@@ -196,14 +192,14 @@ O quadro seguinte fornece descrições das propriedades devolvidas pelo cmdlet a
 | Tipo                         | O tipo de IR (Gerido/Auto-hospedado) do seu Azure-SSIS IR. |
 | ResourceGroupName            | O nome do seu Grupo de Recursos Azure, no qual foram criados os seus ADF e Azure-SSIS IR. |
 | DataFactoryName              | O nome da sua ADF. |
-| Nome                         | O nome do seu Azure-SSIS IR. |
-| Descrição                  | A descrição do seu Azure-SSIS IR. |
+| Name                         | O nome do seu Azure-SSIS IR. |
+| Description                  | A descrição do seu Azure-SSIS IR. |
   
 #### <a name="status-per-azure-ssis-ir-node"></a>Estado (por nó IR Azure-SSIS)
 
 O quadro a seguir fornece os estatutos possíveis de um nó IR Azure-SSIS:
 
-| Estado específico do nó | Descrição |
+| Estado específico do nó | Description |
 | -------------------- | ----------- | 
 | A iniciar             | Este nó está a ser preparado. |
 | Disponível            | Este nó está pronto para implementar/executar pacotes SSIS. |
@@ -214,7 +210,7 @@ O quadro a seguir fornece os estatutos possíveis de um nó IR Azure-SSIS:
 
 O quadro seguinte fornece possíveis estatutos globais de um Azure-SSIS IR. O estatuto geral, por sua vez, depende dos estatutos combinados de todos os nós que pertencem ao Azure-SSIS IR. 
 
-| Estado geral | Descrição | 
+| Estado geral | Description | 
 | -------------- | ----------- | 
 | Initial (Inicial)        | Os nós do seu Azure-SSIS IR não foram atribuídos/preparados. | 
 | A iniciar       | Os nós do seu Azure-SSIS IR estão a ser atribuídos/preparados e a faturação já começou. |

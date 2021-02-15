@@ -3,14 +3,16 @@ title: Problemas de resolução da Azure Automation Hybrid Runbook Worker proble
 description: Este artigo diz como resolver problemas e resolver problemas que surgem com os Trabalhadores híbridos da Azure Automation.
 services: automation
 ms.subservice: ''
-ms.date: 11/25/2019
+author: mgoedtel
+ms.author: magoedte
+ms.date: 02/11/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: 7f034f5043c3cb88ec705b42b06887c5ba56bd6d
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: af432d9c6323bd2328eb8dd84d8572a8a5ae05a7
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99055336"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388010"
 ---
 # <a name="troubleshoot-hybrid-runbook-worker-issues"></a>Resolver problemas da Função de Trabalho de Runbook Híbrida
 
@@ -26,9 +28,7 @@ O Trabalhador de Runbook Híbrido depende de um agente para comunicar com a sua 
 
 A execução do runbook falha e recebe a seguinte mensagem de erro:
 
-```error
-"The job action 'Activate' cannot be run, because the process stopped unexpectedly. The job action was attempted three times."
-```
+`The job action 'Activate' cannot be run, because the process stopped unexpectedly. The job action was attempted three times.`
 
 O seu livro de corridas é suspenso pouco depois de tentar executar três vezes. Existem condições que podem interromper o livro de execução de completar. A mensagem de erro relacionada pode não incluir nenhuma informação adicional.
 
@@ -56,13 +56,12 @@ Verifique o registo **de eventos microsoft-SMA** para obter um evento correspond
 
 O Trabalhador De Runbook Híbrido recebe o evento 15011, indicando que um resultado de consulta não é válido. O seguinte erro aparece quando o trabalhador tenta abrir uma ligação com o [servidor SignalR](/aspnet/core/signalr/introduction).
 
-```error
-[AccountId={c7d22bd3-47b2-4144-bf88-97940102f6ca}]
+`[AccountId={c7d22bd3-47b2-4144-bf88-97940102f6ca}]
 [Uri=https://cc-jobruntimedata-prod-su1.azure-automation.net/notifications/hub][Exception=System.TimeoutException: Transport timed out trying to connect
    at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
    at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
    at JobRuntimeData.NotificationsClient.JobRuntimeDataServiceSignalRClient.<Start>d__45.MoveNext()
-```
+`
 
 #### <a name="cause"></a>Causa
 
@@ -96,14 +95,13 @@ Ligue a máquina de trabalho e, em seguida, rereregister-la com a Azure Automati
 
 Um runbook em execução num Trabalhador de Runbook Híbrido falha com a seguinte mensagem de erro:
 
-```error
-Connect-AzAccount : No certificate was found in the certificate store with thumbprint 0000000000000000000000000000000000000000
-At line:3 char:1
-+ Connect-AzAccount -ServicePrincipal -Tenant $Conn.TenantID -Appl ...
-+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    + CategoryInfo          : CloseError: (:) [Connect-AzAccount], ArgumentException
-    + FullyQualifiedErrorId : Microsoft.Azure.Commands.Profile.ConnectAzAccountCommand
-```
+`Connect-AzAccount : No certificate was found in the certificate store with thumbprint 0000000000000000000000000000000000000000`  
+`At line:3 char:1`  
+`+ Connect-AzAccount -ServicePrincipal -Tenant $Conn.TenantID -Appl ...`  
+`+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~`  
+`    + CategoryInfo          : CloseError: (:) [Connect-AzAccount],ArgumentException`  
+`    + FullyQualifiedErrorId : Microsoft.Azure.Commands.Profile.ConnectAzAccountCommand`
+
 #### <a name="cause"></a>Causa
 
 Este erro ocorre quando se tenta utilizar uma [conta Run As](../automation-security-overview.md#run-as-accounts) num livro de contas que funciona num Trabalhador de Runbook Híbrido onde o certificado de conta Run As não está presente. Os Trabalhadores híbridos runbook não têm o certificado localmente por padrão. A conta Run As requer que este ativo funcione corretamente.
@@ -118,9 +116,7 @@ Se o seu Trabalhador De Runbook Híbrido for um VM Azure, pode utilizar [a auten
 
 A fase inicial de registo do trabalhador falha e recebe o seguinte erro (403):
 
-```error
-"Forbidden: You don't have permission to access / on this server."
-```
+`Forbidden: You don't have permission to access / on this server.`
 
 #### <a name="cause"></a>Causa
 
@@ -139,6 +135,37 @@ Para verificar se a chave de iD ou espaço de trabalho do agente foi mal escrita
 O seu espaço de trabalho e a sua conta de Automação Log Analytics devem estar numa região ligada. Para obter uma lista de regiões apoiadas, consulte [mapeamentos de espaço de trabalho Azure Automation e Log Analytics](../how-to/region-mappings.md).
 
 Também pode ser necessário atualizar a data ou o fuso horário do seu computador. Se selecionar um intervalo de tempo personalizado, certifique-se de que o alcance está no UTC, que pode diferir do seu fuso horário local.
+
+### <a name="scenario-set-azstorageblobcontent-fails-on-a-hybrid-runbook-worker"></a><a name="set-azstorageblobcontent-execution-fails"></a>Cenário: Set-AzStorageBlobContent falha num trabalhador híbrido 
+
+#### <a name="issue"></a>Problema
+
+O runbook falha quando tenta `Set-AzStorageBlobContent` executar, e recebe a seguinte mensagem de erro:
+
+`Set-AzStorageBlobContent : Failed to open file xxxxxxxxxxxxxxxx: Illegal characters in path`
+
+#### <a name="cause"></a>Causa
+
+ Este erro é causado pelo comportamento do nome do ficheiro longo das chamadas a `[System.IO.Path]::GetFullPath()` que adiciona caminhos da UNC.
+
+#### <a name="resolution"></a>Resolução
+
+Como solução alternativa, pode criar um ficheiro de configuração com `OrchestratorSandbox.exe.config` o seguinte conteúdo:
+
+```azurecli
+<configuration>
+  <runtime>
+    <AppContextSwitchOverrides value="Switch.System.IO.UseLegacyPathHandling=false" />
+  </runtime>
+</configuration>
+```
+
+Coloque este ficheiro na mesma pasta que o ficheiro executável `OrchestratorSandbox.exe` . Por exemplo,
+
+`%ProgramFiles%\Microsoft Monitoring Agent\Agent\AzureAutomation\7.3.702.0\HybridAgent`
+
+>[!Note]
+> Se atualizar o agente, este ficheiro config será eliminado e terá de ser recriado.
 
 ## <a name="linux"></a>Linux
 
@@ -192,7 +219,7 @@ Se o agente não estiver em funcionamento, executar o seguinte comando para inic
 
 Se vir a mensagem de erro `The specified class does not exist..` em **/var/opt/microsoft/omsconfig/omsconfig.log**, o agente Log Analytics do Linux tem de ser atualizado. Executar o seguinte comando para reinstalar o agente.
 
-```bash
+```Bash
 wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <WorkspaceID> -s <WorkspaceKey>
 ```
 
@@ -267,8 +294,7 @@ A sua máquina híbrida runbook worker está a funcionar, mas não vê dados de 
 
 A seguinte consulta de exemplo mostra as máquinas num espaço de trabalho e o seu último batimento cardíaco:
 
-```loganalytics
-// Last heartbeat of each computer
+```kusto
 Heartbeat
 | summarize arg_max(TimeGenerated, *) by Computer
 ```
@@ -295,9 +321,7 @@ Start-Service -Name HealthService
 
 Recebe a seguinte mensagem quando tenta adicionar um Trabalhador De Runbook Híbrido utilizando o `Add-HybridRunbookWorker` cmdlet:
 
-```error
-Machine is already registered
-```
+`Machine is already registered`
 
 #### <a name="cause"></a>Causa
 
@@ -315,15 +339,11 @@ Para resolver este problema, retire a seguinte chave de registo, `HealthService`
 
 Recebe a seguinte mensagem quando tenta adicionar um Trabalhador De Runbook Híbrido utilizando o `sudo python /opt/microsoft/omsconfig/.../onboarding.py --register` script python:
 
-```error
-Unable to register, an existing worker was found. Please deregister any existing worker and try again.
-```
+`Unable to register, an existing worker was found. Please deregister any existing worker and try again.`
 
 Além disso, tentar desregistar um Trabalhador De Runbook Híbrido utilizando o `sudo python /opt/microsoft/omsconfig/.../onboarding.py --deregister` script python:
 
-```error
-Failed to deregister worker. [response_status=404]
-```
+`Failed to deregister worker. [response_status=404]`
 
 #### <a name="cause"></a>Causa
 

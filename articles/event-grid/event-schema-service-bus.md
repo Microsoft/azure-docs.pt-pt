@@ -2,150 +2,19 @@
 title: Azure Service Bus como fonte de grade de eventos
 description: Descreve as propriedades que são fornecidas para eventos de Service Bus com Azure Event Grid
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: 34c6990c4e6e87304c457a5b2ca6459c404c8d9a
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.date: 02/12/2021
+ms.openlocfilehash: d3e14788d49697a1f86624bbe8d6d0ec2eb072c8
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97008117"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100363252"
 ---
 # <a name="azure-service-bus-as-an-event-grid-source"></a>Azure Service Bus como fonte de grade de eventos
 
 Este artigo fornece as propriedades e esquema para eventos de Service Bus. Para uma introdução aos esquemas de eventos, consulte [o esquema do evento Azure Event Grid](event-schema.md).
 
-## <a name="event-grid-event-schema"></a>Esquema de eventos do Event Grid
-
-### <a name="available-event-types"></a>Tipos de eventos disponíveis
-
-A Service Bus emite os seguintes tipos de eventos:
-
-| Tipo de evento | Descrição |
-| ---------- | ----------- |
-| Microsoft.ServiceBus.ActiveMessagesAvailableWithNoListeners | Levantado quando há mensagens ativas numa fila ou subscrição e não há recetores a ouvir. |
-| Microsoft.ServiceBus.DeadletterMessAvailableWithNoListener | Levantado quando há mensagens ativas numa fila de cartas mortas e sem ouvintes ativos. |
-| Microsoft.ServiceBus.ActiveMessagesAvailablePeriodicNotifications | Angariado periodicamente se houver mensagens ativas numa fila ou subscrição, mesmo que existam ouvintes ativos nessa fila ou subscrição específica. |
-| Microsoft.ServiceBus.DeadletterMessagens DisponíveisNotificações | Levantado periodicamente se houver mensagens na entidade Deadletter de uma Fila ou Subscrição, mesmo que existam ouvintes ativos na entidade Deadletter dessa fila ou subscrição específica. | 
-
-### <a name="example-event"></a>Exemplo evento
-
-#### <a name="active-messages-available-with-no-listeners"></a>Mensagens ativas disponíveis sem ouvintes
-
-O exemplo a seguir mostra o esquema de mensagens ativas sem evento de ouvintes:
-
-```json
-[{
-  "topic": "/subscriptions/{subscription-id}/resourcegroups/{your-rg}/providers/Microsoft.ServiceBus/namespaces/{your-service-bus-namespace}",
-  "subject": "topics/{your-service-bus-topic}/subscriptions/{your-service-bus-subscription}",
-  "eventType": "Microsoft.ServiceBus.ActiveMessagesAvailableWithNoListeners",
-  "eventTime": "2018-02-14T05:12:53.4133526Z",
-  "id": "dede87b0-3656-419c-acaf-70c95ddc60f5",
-  "data": {
-    "namespaceName": "YOUR SERVICE BUS NAMESPACE WILL SHOW HERE",
-    "requestUri": "https://{your-service-bus-namespace}.servicebus.windows.net/{your-topic}/subscriptions/{your-service-bus-subscription}/messages/head",
-    "entityType": "subscriber",
-    "queueName": "QUEUE NAME IF QUEUE",
-    "topicName": "TOPIC NAME IF TOPIC",
-    "subscriptionName": "SUBSCRIPTION NAME"
-  },
-  "dataVersion": "1",
-  "metadataVersion": "1"
-}]
-```
-
-#### <a name="deadletter-messages-available-with-no-listener"></a>Mensagens Deadletter disponíveis sem ouvinte
-
-O esquema para um evento de fila de cartas mortas é semelhante:
-
-```json
-[{
-  "topic": "/subscriptions/{subscription-id}/resourcegroups/{your-rg}/providers/Microsoft.ServiceBus/namespaces/{your-service-bus-namespace}",
-  "subject": "topics/{your-service-bus-topic}/subscriptions/{your-service-bus-subscription}",
-  "eventType": "Microsoft.ServiceBus.DeadletterMessagesAvailableWithNoListener",
-  "eventTime": "2018-02-14T05:12:53.4133526Z",
-  "id": "dede87b0-3656-419c-acaf-70c95ddc60f5",
-  "data": {
-    "namespaceName": "YOUR SERVICE BUS NAMESPACE WILL SHOW HERE",
-    "requestUri": "https://{your-service-bus-namespace}.servicebus.windows.net/{your-topic}/subscriptions/{your-service-bus-subscription}/$deadletterqueue/messages/head",
-    "entityType": "subscriber",
-    "queueName": "QUEUE NAME IF QUEUE",
-    "topicName": "TOPIC NAME IF TOPIC",
-    "subscriptionName": "SUBSCRIPTION NAME"
-  },
-  "dataVersion": "1",
-  "metadataVersion": "1"
-}]
-```
-
-#### <a name="active-messages-available-periodic-notifications"></a>Mensagens Ativas Disponíveis Notificações Periódicas
-
-```json
-[{
-  "topic": "/subscriptions/<subscription id>/resourcegroups/DemoGroup/providers/Microsoft.ServiceBus/namespaces/<YOUR SERVICE BUS NAMESPACE WILL SHOW HERE>",
-  "subject": "topics/<service bus topic>/subscriptions/<service bus subscription>",
-  "eventType": "Microsoft.ServiceBus.ActiveMessagesAvailablePeriodicNotifications",
-  "eventTime": "2018-02-14T05:12:53.4133526Z",
-  "id": "dede87b0-3656-419c-acaf-70c95ddc60f5",
-  "data": {
-    "namespaceName": "YOUR SERVICE BUS NAMESPACE WILL SHOW HERE",
-    "requestUri": "https://YOUR-SERVICE-BUS-NAMESPACE-WILL-SHOW-HERE.servicebus.windows.net/TOPIC-NAME/subscriptions/SUBSCRIPTIONNAME/$deadletterqueue/messages/head",
-    "entityType": "subscriber",
-    "queueName": "QUEUE NAME IF QUEUE",
-    "topicName": "TOPIC NAME IF TOPIC",
-    "subscriptionName": "SUBSCRIPTION NAME"
-  },
-  "dataVersion": "1",
-  "metadataVersion": "1"
-}]
-```
-
-#### <a name="deadletter-messages-available-periodic-notifications"></a>Mensagens Deadletter Disponíveis Notificações Periódicas
-
-```json
-[{
-  "topic": "/subscriptions/<subscription id>/resourcegroups/DemoGroup/providers/Microsoft.ServiceBus/namespaces/<YOUR SERVICE BUS NAMESPACE WILL SHOW HERE>",
-  "subject": "topics/<service bus topic>/subscriptions/<service bus subscription>",
-  "eventType": "Microsoft.ServiceBus.DeadletterMessagesAvailablePeriodicNotifications",
-  "eventTime": "2018-02-14T05:12:53.4133526Z",
-  "id": "dede87b0-3656-419c-acaf-70c95ddc60f5",
-  "data": {
-    "namespaceName": "YOUR SERVICE BUS NAMESPACE WILL SHOW HERE",
-    "requestUri": "https://YOUR-SERVICE-BUS-NAMESPACE-WILL-SHOW-HERE.servicebus.windows.net/TOPIC-NAME/subscriptions/SUBSCRIPTIONNAME/$deadletterqueue/messages/head",
-    "entityType": "subscriber",
-    "queueName": "QUEUE NAME IF QUEUE",
-    "topicName": "TOPIC NAME IF TOPIC",
-    "subscriptionName": "SUBSCRIPTION NAME"
-  },
-  "dataVersion": "1",
-  "metadataVersion": "1"
-}]
-```
-
-### <a name="event-properties"></a>Propriedades do evento
-
-Um evento tem os seguintes dados de alto nível:
-
-| Propriedade | Tipo | Descrição |
-| -------- | ---- | ----------- |
-| tópico | string | Caminho completo de recursos para a fonte do evento. Este campo não é escrito. O Event Grid fornece este valor. |
-| subject | string | Caminho definido pelo publicador para o assunto do evento. |
-| eventType | string | Um dos tipos de eventos registados para esta origem de evento. |
-| eventTime | string | O tempo que o evento é gerado com base no tempo UTC do fornecedor. |
-| ID | string | Identificador único para o evento. |
-| dados | objeto | Dados do evento de armazenamento de bolhas. |
-| dataVersion | string | A versão do esquema do objeto de dados. O publicador define a versão do esquema. |
-| metadataVersion | string | A versão do esquema dos metadados do evento. O Event Grid define o esquema das propriedades de nível superior. O Event Grid fornece este valor. |
-
-O objeto de dados tem as seguintes propriedades:
-
-| Propriedade | Tipo | Descrição |
-| -------- | ---- | ----------- |
-| nomespaceName | string | O espaço de nome do Service Bus em que o recurso existe. |
-| requestUri | string | O URI para a fila ou subscrição específica que emite o evento. |
-| entityType | string | O tipo de entidade de Service Bus que emite eventos (fila ou subscrição). |
-| nome de fila | string | A fila com mensagens ativas se subscrever uma fila. Valor nula se utilizar tópicos/subscrições. |
-| temaName | string | O tópico a subscrição do Service Bus com mensagens ativas pertence. Valor nula se utilizar uma fila. |
-| subscriptionName | string | A assinatura do Service Bus com mensagens ativas. Valor nula se utilizar uma fila. |
+[!INCLUDE [event-grid-service-bus.md](../../includes/event-grid-service-bus.md)]
 
 ## <a name="tutorials-and-how-tos"></a>Tutorials and how-tos (Tutoriais e procedimentos)
 |Título  |Descrição  |

@@ -6,18 +6,18 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/07/2020
+ms.date: 02/10/2021
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 40003db9c3bd2c736f9cedd73b8b7a31a77f625f
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: d63a31eae57d09f1658f5f19c1518cb0648fa4e8
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96854585"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100373759"
 ---
-# <a name="use-the-azure-portal-to-assign-an-azure-role-for-access-to-blob-and-queue-data"></a>Utilize o portal Azure para atribuir uma função Azure para acesso a dados de bolhas e filas
+# <a name="use-the-azure-portal-to-assign-an-azure-role-for-access-to-blob-and-queue-data"></a>Utilizar o portal do Azure para atribuir uma função do Azure para aceder a dados de blobs e filas
 
 O Azure Ative Directory (Azure AD) autoriza os direitos de acesso a recursos seguros através do [controlo de acesso baseado em funções da Azure (Azure RBAC)](../../role-based-access-control/overview.md). O Azure Storage define um conjunto de funções incorporadas do Azure que englobam conjuntos comuns de permissões usadas para aceder a dados de bolhas ou filas.
 
@@ -43,10 +43,12 @@ Depois de ter determinado o âmbito adequado para uma atribuição de funções,
 
 As seguintes secções descrevem cada um destes passos com mais detalhes.
 
-> [!NOTE]
+> [!IMPORTANT]
 > Quando cria uma conta de Armazenamento Azure, não lhe são atribuídas automaticamente permissões de acesso aos dados através do Azure AD. Deve atribuir-se explicitamente um papel Azure para o Azure Storage. Pode atribuí-lo ao nível da sua subscrição, grupo de recursos, conta de armazenamento ou contentor ou fila.
 >
 > Antes de atribuir uma função para o acesso aos dados, poderá aceder aos dados na sua conta de armazenamento através do portal Azure, uma vez que o portal Azure também pode utilizar a chave de conta para o acesso aos dados. Para mais informações, consulte [Escolha como autorizar o acesso aos dados blob no portal Azure.](../blobs/authorize-data-operations-portal.md)
+>
+> Se a conta de armazenamento estiver bloqueada com um bloqueio de leitura do Azure Resource Manager, então o bloqueio impede a atribuição de funções Azure RBAC que são procuradas na conta de armazenamento ou num recipiente de dados (recipiente blob ou fila).
 
 ### <a name="assign-an-azure-built-in-role"></a>Atribuir um papel embutido Azure
 

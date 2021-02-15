@@ -1,25 +1,19 @@
 ---
 title: Executar pacote SSIS com atividade de procedimento armazenado - Azure
 description: Este artigo descreve como executar um pacote SQL Server Integration Services (SSIS) num oleoduto Azure Data Factory utilizando a Atividade de Procedimento Armazenado.
-services: data-factory
-documentationcenter: ''
 author: swinarko
-manager: anandsub
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 07/09/2020
 ms.author: sawinark
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 6cb3bf53db14c6c01290abea7a5c48c332a07632
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 6260606fe56d4dfc6bac93e04e726b5fd3298777
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92634883"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100391512"
 ---
 # <a name="run-an-ssis-package-with-the-stored-procedure-activity-in-azure-data-factory"></a>Run an SSIS package with the Stored Procedure activity in Azure Data Factory (Executar um pacote do SSIS com a atividade Procedimento Armazenado no Azure Data Factory)
 
@@ -41,12 +35,12 @@ Nesta secção, utiliza uI da Data Factory para criar um oleoduto data factory c
 ### <a name="create-a-data-factory"></a>Criar uma fábrica de dados
 O primeiro passo é criar uma fábrica de dados utilizando o portal Azure. 
 
-1. Abra o browser **Microsoft Edge** ou **Google Chrome** . Atualmente, a IU do Data Factory é suportada apenas nos browsers Microsoft Edge e Google Chrome.
+1. Abra o browser **Microsoft Edge** ou **Google Chrome**. Atualmente, a IU do Data Factory é suportada apenas nos browsers Microsoft Edge e Google Chrome.
 2. Navegue até ao [portal Azure.](https://portal.azure.com) 
-3. Clique em **Novo** no menu da esquerda, clique em **Dados + Análise** e, em seguida, em **Data Factory** . 
+3. Clique em **Novo** no menu da esquerda, clique em **Dados + Análise** e, em seguida, em **Data Factory**. 
    
    ![Novo -> DataFactory](./media/how-to-invoke-ssis-package-stored-procedure-activity/new-azure-data-factory-menu.png)
-2. Na página **Nova fábrica de dados** , introduza **ADFTutorialDataFactory** no **nome** . 
+2. Na página **Nova fábrica de dados**, introduza **ADFTutorialDataFactory** no **nome**. 
       
      ![Página Nova fábrica de dados](./media/how-to-invoke-ssis-package-stored-procedure-activity/new-azure-data-factory.png)
  
@@ -54,20 +48,20 @@ O primeiro passo é criar uma fábrica de dados utilizando o portal Azure.
   
      ![Nome não disponível - erro](./media/how-to-invoke-ssis-package-stored-procedure-activity/name-not-available-error.png)
 3. Selecione a sua subscrição do **Azure** na qual pretende criar a fábrica de dados. 
-4. No **Grupo de Recursos** , siga um destes passos:
+4. No **Grupo de Recursos**, siga um destes passos:
      
    - Selecione **Utilizar existente** e selecione um grupo de recursos já existente na lista pendente. 
    - Selecione **Criar novo** e introduza o nome de um grupo de recursos.   
          
      Para saber mais sobre os grupos de recursos, veja [Utilizar grupos de recursos para gerir os recursos do Azure](../azure-resource-manager/management/overview.md).  
-4. Selecione **V2** para a **versão** .
+4. Selecione **V2** para a **versão**.
 5. Selecione a **localização** da fábrica de dados. Só aparecem na lista pendente as localizações que o Data Factory suporta. Os arquivos de dados (Armazenamento do Azure, Base de Dados SQL do Azure, etc.) e as computações (HDInsight, etc.) utilizados pela fábrica de dados podem estar noutras localizações.
-6. Selecione **Afixar ao dashboard** .     
-7. Clique em **Criar** .
-8. No painel de instrumentos, vê-se o seguinte azulejo com estado: **Implantação da fábrica de dados** . 
+6. Selecione **Afixar ao dashboard**.     
+7. Clique em **Criar**.
+8. No painel de instrumentos, vê-se o seguinte azulejo com estado: **Implantação da fábrica de dados**. 
 
      ![Mosaico “implementar a fábrica de dados”](media//how-to-invoke-ssis-package-stored-procedure-activity/deploying-data-factory.png)
-9. Depois de concluída a criação, vai ver a página **Data Factory** , conforme mostrado na imagem.
+9. Depois de concluída a criação, vai ver a página **Data Factory**, conforme mostrado na imagem.
    
      ![Home page da fábrica de dados](./media/how-to-invoke-ssis-package-stored-procedure-activity/data-factory-home-page.png)
 10. Clique no mosaico **Criar e Monitorizar** para iniciar a aplicação de interface de utilizador (IU) do Azure Data Factory num separador à parte. 
@@ -75,21 +69,21 @@ O primeiro passo é criar uma fábrica de dados utilizando o portal Azure.
 ### <a name="create-a-pipeline-with-stored-procedure-activity"></a>Criar um oleoduto com atividade de procedimento armazenado
 Neste passo, você usa a UI data factory para criar um oleoduto. Adicione uma atividade de procedimento armazenada ao gasoduto e configuure-a para executar a embalagem SSIS utilizando o procedimento sp_executesql armazenado. 
 
-1. Na página get start, clique em **Criar pipeline** : 
+1. Na página get start, clique em **Criar pipeline**: 
 
     ![Página Introdução](./media/how-to-invoke-ssis-package-stored-procedure-activity/get-started-page.png)
 2. Na caixa de **ferramentas Atividades,** expanda a atividade do **Procedimento Armazenado** **Geral** e drag-drop para a superfície do designer de gasodutos. 
 
     ![Atividade do procedimento armazenado de arrasto e queda](./media/how-to-invoke-ssis-package-stored-procedure-activity/drag-drop-sproc-activity.png)
-3. Na janela de propriedades para a atividade de procedimento armazenado, mude para o separador **Conta SQL** e clique **em + Novo** . Cria uma ligação à base de dados na Base de Dados Azure SQL que acolhe o Catálogo SSIS (base de dados SSIDB). 
+3. Na janela de propriedades para a atividade de procedimento armazenado, mude para o separador **Conta SQL** e clique **em + Novo**. Cria uma ligação à base de dados na Base de Dados Azure SQL que acolhe o Catálogo SSIS (base de dados SSIDB). 
    
     ![Botão Novo serviço ligado](./media/how-to-invoke-ssis-package-stored-procedure-activity/new-linked-service-button.png)
-4. Na janela **Novo Serviço Ligado** , siga os passos abaixo: 
+4. Na janela **Novo Serviço Ligado**, siga os passos abaixo: 
 
-    1. Selecione **Azure SQL Database** for **Type** .
+    1. Selecione **Azure SQL Database** for **Type**.
     2. Selecione o tempo de execução de integração Azure **padrão** para ligar à Base de Dados Azure SQL que acolhe a `SSISDB` base de dados.
     3. Selecione a Base de Dados Azure SQL que acolhe a base de dados SSISDB para o campo **de nomes do Servidor.**
-    4. Selecione **SSISDB** para **o nome da base de dados** .
+    4. Selecione **SSISDB** para **o nome da base de dados**.
     5. Para **o nome de utilizador,** insira o nome do utilizador que tem acesso à base de dados.
     6. Para **palavra-passe,** introduza a palavra-passe do utilizador. 
     7. Teste a ligação à base de dados clicando no botão **de ligação de teste.**
@@ -98,11 +92,11 @@ Neste passo, você usa a UI data factory para criar um oleoduto. Adicione uma at
         ![Screenshot que mostra o processo de adicionar um novo serviço ligado.](./media/how-to-invoke-ssis-package-stored-procedure-activity/azure-sql-database-linked-service-settings.png)
 5. Na janela propriedades, mude para o **separador Procedimento Armazenado** a partir do separador **Conta SQL** e faça os seguintes passos: 
 
-    1. Selecione **Editar** . 
+    1. Selecione **Editar**. 
     2. Para o campo **de nome do procedimento armazenado,** introduza `sp_executesql` . 
     3. Clique **+ Novo** na secção de **parâmetros de procedimento armazenado.** 
-    4. Para **o nome** do parâmetro, **insira stmt** . 
-    5. Para **o tipo** de parâmetro, **introduza a corda** . 
+    4. Para **o nome** do parâmetro, **insira stmt**. 
+    5. Para **o tipo** de parâmetro, **introduza a corda**. 
     6. Para **o valor** do parâmetro, insira a seguinte consulta SQL:
 
         Na consulta SQL, especifique os valores certos para os **folder_name,** **project_name** e **package_name** parâmetros. 
@@ -112,7 +106,7 @@ Neste passo, você usa a UI data factory para criar um oleoduto. Adicione uma at
         ```
 
         ![Serviço ligado da Base de Dados SQL do Azure](./media/how-to-invoke-ssis-package-stored-procedure-activity/stored-procedure-settings.png)
-6. Para validar a configuração do pipeline, clique em **Validar** na barra de ferramentas. Para fechar o **Relatório de Validação do Pipeline** , clique em **>>** .
+6. Para validar a configuração do pipeline, clique em **Validar** na barra de ferramentas. Para fechar o **Relatório de Validação do Pipeline**, clique em **>>**.
 
     ![Validar o pipeline](./media/how-to-invoke-ssis-package-stored-procedure-activity/validate-pipeline.png)
 7. Publique o pipeline na Data Factory clicando no botão **Publicar Tudo.** 
@@ -122,16 +116,16 @@ Neste passo, você usa a UI data factory para criar um oleoduto. Adicione uma at
 ### <a name="run-and-monitor-the-pipeline"></a>Executar e monitorizar o gasoduto
 Nesta secção, desencadeia-se uma conduta e depois monitoriza-a. 
 
-1. Para ativar uma corrida de gasoduto, clique em **Trigger** na barra de ferramentas e clique em **Trigger agora** . 
+1. Para ativar uma corrida de gasoduto, clique em **Trigger** na barra de ferramentas e clique em **Trigger agora**. 
 
     ![Acionar agora](media/how-to-invoke-ssis-package-stored-procedure-activity/trigger-now.png)
 
-2. Na janela **Executar Pipeline** , selecione **Concluir** . 
-3. Mude para o separador **Monitorizar** , no lado esquerdo. Vê o gasoduto a funcionar e o seu estado juntamente com outras informações (como o tempo de início de funcionação). Para atualizar a vista, clique em **Atualizar** .
+2. Na janela **Executar Pipeline**, selecione **Concluir**. 
+3. Mude para o separador **Monitorizar**, no lado esquerdo. Vê o gasoduto a funcionar e o seu estado juntamente com outras informações (como o tempo de início de funcionação). Para atualizar a vista, clique em **Atualizar**.
 
     ![Execuções de pipeline](./media/how-to-invoke-ssis-package-stored-procedure-activity/pipeline-runs.png)
 
-3. Clique na ligação **Ver Execuções de Atividades** , na coluna **Ações** . Vê-se apenas uma atividade a decorrer, uma vez que o gasoduto tem apenas uma atividade (atividade de procedimento armazenado).
+3. Clique na ligação **Ver Execuções de Atividades**, na coluna **Ações**. Vê-se apenas uma atividade a decorrer, uma vez que o gasoduto tem apenas uma atividade (atividade de procedimento armazenado).
 
     ![Execuções de atividade](./media/how-to-invoke-ssis-package-stored-procedure-activity/activity-runs.png)
 
@@ -193,8 +187,8 @@ Tenha em atenção os seguintes pontos:
     ```
     The specified Data Factory name 'ADFv2QuickStartDataFactory' is already in use. Data Factory names must be globally unique.
     ```
-* Para criar instâncias do Data Factory, a conta de utilizador que utiliza para iniciar sessão no Azure tem de ser um membro das funções **contribuidor** ou **proprietário** , ou um **administrador** da subscrição do Azure.
-* Para obter uma lista de regiões do Azure em que o Data Factory está atualmente disponível, selecione as regiões que lhe interessam na página seguinte e, em seguida, expanda **Analytics** para localizar **Data Factory** : [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). Os arquivos de dados (Armazenamento do Azure, Base de Dados SQL do Azure, etc.) e as computações (HDInsight, etc.) utilizados pela fábrica de dados podem estar noutras regiões.
+* Para criar instâncias do Data Factory, a conta de utilizador que utiliza para iniciar sessão no Azure tem de ser um membro das funções **contribuidor** ou **proprietário**, ou um **administrador** da subscrição do Azure.
+* Para obter uma lista de regiões do Azure em que o Data Factory está atualmente disponível, selecione as regiões que lhe interessam na página seguinte e, em seguida, expanda **Analytics** para localizar **Data Factory**: [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/). Os arquivos de dados (Armazenamento do Azure, Base de Dados SQL do Azure, etc.) e as computações (HDInsight, etc.) utilizados pela fábrica de dados podem estar noutras regiões.
 
 ### <a name="create-an-azure-sql-database-linked-service"></a>Criar um serviço ligado da Base de Dados SQL do Azure
 Crie um serviço ligado para ligar a sua base de dados que hospeda o catálogo SSIS à sua fábrica de dados. A Data Factory utiliza informações neste serviço ligado para ligar à base de dados SSISDB e executa um procedimento armazenado para executar um pacote SSIS. 
@@ -218,7 +212,7 @@ Crie um serviço ligado para ligar a sua base de dados que hospeda o catálogo S
 
 2. No **Azure PowerShell,** mude para a pasta **C:\ADF\RunSSISPackage.**
 
-3. Executar o **set-AzDataFactoryV2LinkedService** para criar o serviço ligado: **AzureSqlDatabaseLinkedService** . 
+3. Executar o **set-AzDataFactoryV2LinkedService** para criar o serviço ligado: **AzureSqlDatabaseLinkedService**. 
 
     ```powershell
     Set-AzDataFactoryV2LinkedService -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -Name "AzureSqlDatabaseLinkedService" -File ".\AzureSqlDatabaseLinkedService.json"
@@ -259,7 +253,7 @@ Neste passo, cria-se um oleoduto com uma atividade de procedimento armazenado. A
     }
     ```
 
-2. Para criar o oleoduto: **RunSSISPackagePipeline** , executar o **cmdlet Set-AzDataFactoryV2Pipeline.**
+2. Para criar o oleoduto: **RunSSISPackagePipeline**, executar o **cmdlet Set-AzDataFactoryV2Pipeline.**
 
     ```powershell
     $DFPipeLine = Set-AzDataFactoryV2Pipeline -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -Name "RunSSISPackagePipeline" -DefinitionFile ".\RunSSISPackagePipeline.json"

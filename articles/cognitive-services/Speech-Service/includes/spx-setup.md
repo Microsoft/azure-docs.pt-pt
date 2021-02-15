@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: d94b83dd658193069f24202b978d32389eb82ac1
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 1eae40437e06bfb150e202db1f3bb4125baeaa97
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99580445"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100514968"
 ---
 ## <a name="download-and-install"></a>Transferir e instalar
 
@@ -39,6 +39,16 @@ Se você des output para um ficheiro, um editor de texto como o Notepad ou um na
 
 #### <a name="linux-install"></a>[Instalação Linux](#tab/linuxinstall)
 
+As seguintes distribuições linux são suportadas para arquiteturas x64 usando o Discurso CLI:
+
+* CentOS 7/8
+* Debian 9/10 
+* Red Hat Enterprise Linux (RHEL) 7/8
+* Ubuntu 16.04/18.04/20.04
+
+> [!NOTE]
+> Arquiteturas adicionais são apoiadas pelo Discurso SDK (não o Discurso CLI). Para mais informações, consulte [Sobre o SDK de discurso.](../speech-sdk.md)
+
 Siga estes passos para instalar o CLI da fala no Linux num CPU x64:
 
 1. Instalar [.NET Core 3.1](/dotnet/core/install/linux).
@@ -49,7 +59,7 @@ Siga estes passos para instalar o CLI da fala no Linux num CPU x64:
 Escreva `spx` para ver ajuda para o CLI do discurso.
 
 > [!NOTE]
-> Como alternativa ao NuGet, pode baixar as binários no [arquivo zip,](https://aka.ms/speech/spx-zips.zip)extrair `spx-netcore-30-linux-x64` para um novo `~/spx` diretório, `sudo chmod +r+x spx` digitar no binário e adicionar o `~/spx` caminho à variável do seu sistema PATH.
+> Como alternativa ao NuGet, pode baixar as binários no [arquivo zip,](https://aka.ms/speech/spx-zips.zip)extrair `spx-netcore-30-linux-x64.zip` para um novo `~/spx` diretório, `sudo chmod +r+x spx` digitar no binário e adicionar o `~/spx` caminho à variável do seu sistema PATH.
 
 
 #### <a name="docker-install-windows-linux-macos"></a>[Instalação do Docker (Windows, Linux, macOS)](#tab/dockerinstall)
@@ -107,7 +117,7 @@ Para utilizar o `spx` comando instalado num recipiente, insira sempre o comando 
 Por exemplo, no Windows, este comando define a sua chave:
 
 ```console
-docker run -it -v c:\spx-data:/data --rm msftspeech/spx config @key --set SUBSCRIPTION-KEY
+docker run -it -v c:\spx-data:/data --rm msftspeech/spx config --set @key SUBSCRIPTION-KEY
 ```
 
 Para uma interação mais alargada com a ferramenta da linha de comando, pode iniciar um recipiente com uma casca de pancada interativa adicionando um parâmetro de ponto de entrada.
@@ -160,8 +170,8 @@ Para começar a utilizar o CLI do Discurso, tem de introduzir a tecla de subscri
 Assim que tiver a chave de subscrição e o identificador da região (ex. `eastus`, `westus` executar os seguintes comandos.
 
 ```console
-spx config @key --set SUBSCRIPTION-KEY
-spx config @region --set REGION
+spx config --set @key SUBSCRIPTION-KEY
+spx config --set @region REGION
 ```
 
 A autenticação por subscrição está agora armazenada para futuros pedidos SPX. Se precisar de remover qualquer um destes valores armazenados, corra `spx config @region --clear` ou `spx config @key --clear` .
