@@ -1,5 +1,5 @@
 ---
-title: Ligue os dados do CYBERArk EPV ao Azure Sentinel. Microsoft Docs
+title: Ligue os dados do CYBERArk EPV ao Azure Sentinel| Microsoft Docs
 description: Saiba como utilizar o conector de dados CyberArk Enterprise Password Vault (EPV) para puxar os seus registos para o Azure Sentinel. Veja os dados do CYBERArk EPV nos livros, crie alertas e melhore a investigação.
 services: sentinel
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/25/2020
 ms.author: yelevin
-ms.openlocfilehash: c375595951eb760d5341db424c5572719b97046a
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: aa57963ce369e4c8f84f4aae5f99fe343181ff6b
+ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93103133"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100530506"
 ---
 # <a name="connect-cyberark-enterprise-password-vault-epv-to-azure-sentinel"></a>Ligue o Cofre de Passwords da Empresa CyberArk (EPV) a Azure Sentinel
 
@@ -36,9 +36,9 @@ O conector CyberArk Syslog permite-lhe ligar facilmente todos os seus registos d
 
 Os registos DE EPV cyberArk são enviados do Cofre para um servidor de reencaminhamento de log baseado em Linux (executando rsyslog ou syslog-ng) com o agente Log Analytics instalado nele, que exporta os registos para Azure Sentinel. Se não tiver um servidor de reencaminhamento de registos, consulte [estas instruções](connect-cef-agent.md) para pôr uma a funcionar.
 
-1. No portal Azure Sentinel, clique nos **conectores de dados,** selecione **CyberArk Enterprise Password Vault (EPV) Events (EPV) e,** em seguida, **Abra a página do conector** .
+1. No portal Azure Sentinel, clique nos **conectores de dados,** selecione **CyberArk Enterprise Password Vault (EPV) Events (EPV) e,** em seguida, **Abra a página do conector**.
 
-1. Siga as instruções do CyberArk EPV para configurar o envio de dados de syslog para o servidor de reencaminhamento de registos.
+1. Siga as [instruções do CyberArk EPV](https://docs.cyberark.com/Product-Doc/OnlineHelp/PAS/Latest/en/Content/PASIMP/DV-Integrating-with-SIEM-Applications.htm) para configurar o envio de dados de syslog para o servidor de reencaminhamento de registos.
 
 1. Valide a sua ligação e verifique a ingestão de dados utilizando [estas instruções](connect-cef-verify.md). Pode demorar até que os seus registos comecem a aparecer no Log Analytics.
 

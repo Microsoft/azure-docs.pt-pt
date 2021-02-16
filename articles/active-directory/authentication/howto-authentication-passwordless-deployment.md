@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a786907c5c954aa45de266b6d92dd47867a8445d
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 24d04c148e8a96e3b1d72c5301f6226df6d9a569
+ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96743620"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100530353"
 ---
 # <a name="plan-a-passwordless-authentication-deployment-in-azure-active-directory"></a>Planeie uma implementação de autenticação sem palavras-passe no Azure Ative Directory
 
@@ -51,7 +51,7 @@ A Microsoft oferece três opções de autenticação sem palavras-passe que cobr
 
 Os métodos de autenticação sem palavras-passe da Microsoft permitem diferentes cenários. Considere as suas necessidades organizacionais, pré-requisitos e as capacidades de cada método de autenticação para selecionar a sua estratégia de autenticação sem palavras-passe. Recomendamos que todas as organizações que utilizam dispositivos Windows 10 utilizem o Windows Hello para o Negócio. Em seguida, adicione o sent in do telefone (com a aplicação Microsoft Authenticator) ou as teclas de segurança para cenários adicionais.
 
-| Cenário | Autenticação do telefone | Chaves de segurança | Windows Hello para empresas |
+| Scenario | Autenticação do telefone | Chaves de segurança | Windows Hello para empresas |
 | --- | --- | --- | --- |
 | **Sinal de computador em**: <br> Do dispositivo designado Windows 10 | **Não** | **Sim** <br> Com biométrico, PIN | **Sim**<br>com reconhecimento biométrico e ou PIN |
 | **Sinal de computador em**: <br> A partir do dispositivo partilhado do Windows 10 | **Não** | **Sim** <br> Com biométrico, PIN  | **Não** |
@@ -93,7 +93,7 @@ Considere as necessidades do seu negócio e os casos de utilização para cada m
 
 O quadro seguinte descreve os casos de utilização a implementar durante este projeto.
 
-| Área | Description |
+| Área | Descrição |
 | --- | --- |
 | **Acesso** | O sing-in sem palavra-passe está disponível a partir de um dispositivo corporativo ou pessoal dentro ou fora da rede corporativa. |
 | **Auditoria** | Os dados de utilização estão disponíveis para os administradores auditar em tempo real. <br> Os dados de utilização são descarregados em sistemas corporativos pelo menos a cada 29 dias, ou a ferramenta SIEM é usada. |
@@ -150,7 +150,7 @@ Existem três tipos de implementações de entrada sem palavra-passe disponívei
 -    Aplicativos web Azure Ative Directory em um navegador suportado
 -    Azure Ative Directory juntou-se a dispositivos Windows 10
 -    O Diretório Ativo Híbrido Azure juntou-se a dispositivos Windows 10 (pré-visualização)
-     -    Fornece acesso tanto à nuvem como aos recursos das instalações. Para obter mais informações sobre o acesso aos recursos no local, consulte [sSO para recursos no local utilizando chaves FIDOP2](./howto-authentication-passwordless-security-key-on-premises.md)
+     -    Fornece acesso tanto à nuvem como aos recursos das instalações. Para obter mais informações sobre o acesso aos recursos no local, consulte [sSO para recursos no local utilizando chaves FIDO2](./howto-authentication-passwordless-security-key-on-premises.md)
 
 Tem de ativar **as teclas de segurança FIDO2 compatíveis.** A Microsoft anunciou [parcerias-chave com os principais fornecedores fido2.](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Microsoft-passwordless-partnership-leads-to-innovation-and-great/ba-p/566493)
 
@@ -243,7 +243,7 @@ Em cada fase da sua implantação, à medida que testa cenários e adoção, cer
 
 Seguem-se os casos de teste de amostra para autenticação sem palavras-passe com a aplicação Microsoft Authenticator:
 
-| Cenário | Resultados esperados |
+| Scenario | Resultados esperados |
 | --- | --- |
 | O utilizador pode registar a aplicação Microsoft Authenticator | O utilizador pode registar-se a partir de aka.ms/mysecurityinfo |
 | O utilizador pode ativar o registo do telefone | Sinal de telefone configurado para conta de trabalho |
@@ -257,7 +257,7 @@ Seguem-se os casos de teste de amostra para autenticação sem palavra-passe com
 
 **Entrada FIDO sem palavras-passe para Azure Ative Directory Juntou-se a dispositivos Windows 10**
 
-| Cenário | Resultados esperados |
+| Scenario | Resultados esperados |
 | --- | --- |
 | O utilizador pode registar o dispositivo FIDO2 (1809) | O utilizador pode registar o dispositivo FIDO2 utilizando as Definições > Contas > assinar nas opções > Chave de Segurança |
 | O utilizador pode reiniciar o dispositivo FIDO2 (1809) | O utilizador pode redefinir o dispositivo FIDO2 utilizando o software do fabricante |
@@ -268,7 +268,7 @@ Seguem-se os casos de teste de amostra para autenticação sem palavra-passe com
 
 **FiDO sem palavras-passe in para aplicações web AZure AD**
 
-| Cenário | Resultados esperados |
+| Scenario | Resultados esperados |
 | --- | --- |
 | O utilizador pode registar o dispositivo FIDO2 em aka.ms/mysecurityinfo utilizando o Microsoft Edge | O registo deve ter sucesso |
 | O utilizador pode registar o dispositivo FIDO2 no aka.ms/mysecurityinfo utilizando o Firefox | O registo deve ter sucesso |
@@ -292,11 +292,11 @@ Siga os passos alinhados com o método escolhido abaixo.
 
 ### <a name="required-administrative-roles"></a>Funções administrativas necessárias
 
-| Papel de Azure AD | Description |
+| Papel de Azure AD | Descrição |
 | --- | --- |
 | Administrador Global|Papel menos privilegiado capaz de implementar experiência de registo combinado. |
 | Administrador de Autenticação | Papel menos privilegiado capaz de implementar e gerir métodos de autenticação. |
-| Utilizador | Papel menos privilegiado para configurar a aplicação Authenticator no dispositivo ou para inscrever o dispositivo chave de segurança para web ou início de sismo do Windows 10. |
+| User | Papel menos privilegiado para configurar a aplicação Authenticator no dispositivo ou para inscrever o dispositivo chave de segurança para web ou início de sismo do Windows 10. |
 
 ### <a name="deploy-phone-sign-in-with-the-microsoft-authenticator-app"></a>Implementar o sôs-in telefónico com a aplicação Microsoft Authenticator
 
@@ -308,7 +308,7 @@ Siga os passos do artigo, Ative o [sinal da chave de segurança sem palavras-pas
 
 ### <a name="troubleshoot-phone-sign-in"></a>Sessão de resolução de problemas de sessão telefónica
 
-| Cenário | Solução |
+| Scenario | Solução |
 | --- | --- |
 | O utilizador não pode efetuar o registo combinado. | Certifique-se de que o [registo combinado](concept-registration-mfa-sspr-combined.md) está ativado. |
 | O utilizador não pode ativar a aplicação de autenticação de inscrição no telefone. | Certifique-se de que o utilizador está em possibilidade de implantação. |
@@ -316,7 +316,7 @@ Siga os passos do artigo, Ative o [sinal da chave de segurança sem palavras-pas
 
 ### <a name="troubleshoot-security-key-sign-in"></a>Sessão de segurança de resolução de problemas de lançamento
 
-| Cenário | Solução |
+| Scenario | Solução |
 | --- | --- |
 | O utilizador não pode efetuar o registo combinado. | Certifique-se de que o [registo combinado](concept-registration-mfa-sspr-combined.md) está ativado. |
 | O utilizador não pode adicionar uma chave de segurança nas suas [definições de segurança](https://aka.ms/mysecurityinfo). | Certifique-se de que [as chaves de segurança](howto-authentication-passwordless-security-key.md) estão ativadas. |

@@ -6,12 +6,12 @@ ms.author: jakras
 ms.date: 02/21/2020
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 321d73c78d0192dcb7a303f4aa70a4ff0f18ecea
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: 79f3f93338d15562dcc37857d63bc8b2d7e96b05
+ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99593710"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100530557"
 ---
 # <a name="remote-rendering-sessions"></a>Sessões do Remote Rendering
 
@@ -39,9 +39,9 @@ Cada sessão passa por várias fases.
 
 ### <a name="session-startup"></a>Arranque de sessão
 
-Quando pede à ARR para [criar uma nova sessão,](../how-tos/session-rest-api.md#create-a-session)a primeira coisa que faz é devolver uma sessão [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier). Este UUID permite-lhe consultar informações sobre a sessão. A UUID e algumas informações básicas sobre a sessão são persistidos durante 30 dias, para que possa consultar essa informação mesmo depois de a sessão ter sido interrompida. Neste momento, o estado da **sessão** será reportado como **Start .**
+Quando pede à ARR para [criar uma nova sessão,](../how-tos/session-rest-api.md)a primeira coisa que faz é devolver uma sessão [UUID](https://en.wikipedia.org/wiki/Universally_unique_identifier). Este UUID permite-lhe consultar informações sobre a sessão. A UUID e algumas informações básicas sobre a sessão são persistidos durante 30 dias, para que possa consultar essa informação mesmo depois de a sessão ter sido interrompida. Neste momento, o estado da **sessão** será reportado como **Start .**
 
-Em seguida, a Azure Remote Rendering tenta encontrar um servidor que possa hospedar a sua sessão. Há dois parâmetros para esta busca. Em primeiro lugar, só reservará servidores na sua [região.](../reference/regions.md) Isto porque a latência da rede em todas as regiões pode ser demasiado elevada para garantir uma experiência decente. O segundo fator é o *tamanho* desejado que especificou. Em cada região, há um número limitado de servidores que podem cumprir o pedido de tamanho [*Standard*](../reference/vm-sizes.md) ou [*Premium.*](../reference/vm-sizes.md) Consequentemente, se todos os servidores do tamanho solicitado estiverem atualmente a ser utilizados na sua região, a criação de sessão falhará. A razão do fracasso [pode ser questionada.](../how-tos/session-rest-api.md#get-sessions-properties)
+Em seguida, a Azure Remote Rendering tenta encontrar um servidor que possa hospedar a sua sessão. Há dois parâmetros para esta busca. Em primeiro lugar, só reservará servidores na sua [região.](../reference/regions.md) Isto porque a latência da rede em todas as regiões pode ser demasiado elevada para garantir uma experiência decente. O segundo fator é o *tamanho* desejado que especificou. Em cada região, há um número limitado de servidores que podem cumprir o pedido de tamanho [*Standard*](../reference/vm-sizes.md) ou [*Premium.*](../reference/vm-sizes.md) Consequentemente, se todos os servidores do tamanho solicitado estiverem atualmente a ser utilizados na sua região, a criação de sessão falhará. A razão do fracasso [pode ser questionada.](../how-tos/session-rest-api.md)
 
 > [!IMPORTANT]
 > Se solicitar um tamanho de servidor *Standard* e o pedido falhar devido à elevada procura, isso não implica que solicitar um servidor *Premium* também falhe. Portanto, se for uma opção para si, pode tentar recorrer ao tamanho do servidor *Premium.*
@@ -77,7 +77,7 @@ Em todos os casos, não será cobrado mais uma vez que uma sessão seja interrom
 
 #### <a name="extend-a-sessions-lease-time"></a>Prolongar o tempo de arrendamento de uma sessão
 
-Você pode [estender o tempo](../how-tos/session-rest-api.md#modify-and-query-session-properties) de arrendamento de uma sessão ativa, se se verificar que você precisa mais tempo.
+Você pode [estender o tempo](../how-tos/session-rest-api.md) de arrendamento de uma sessão ativa, se se verificar que você precisa mais tempo.
 
 ## <a name="example-code"></a>Código de exemplo
 

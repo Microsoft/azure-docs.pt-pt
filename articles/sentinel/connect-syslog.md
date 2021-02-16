@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
-ms.openlocfilehash: 35c8c2aa31887feb294b04b8a88bbe5478659e5e
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: f249a95551916311fab51ebef72b55d9a4343c0b
+ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807908"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100530523"
 ---
 # <a name="collect-data-from-linux-based-sources-using-syslog"></a>Recolher dados de fontes baseadas em Linux utilizando o Syslog
 
@@ -67,17 +67,17 @@ Para obter mais informações, consulte [fontes de dados do Syslog no Azure Moni
 
 ### <a name="configure-the-log-analytics-agent"></a>Configure o agente Log Analytics
 
-1. Na parte inferior da lâmina do conector Syslog, clique na configuração de **configuração avançada do espaço de trabalho >** ligação.
+1. Na parte inferior da lâmina do conector Syslog, clique na **configuração** do seu espaço de trabalho >ligação.
 
-1. Na lâmina **de definições avançadas,** selecione **Data**  >  **Syslog**. Em seguida, adicione as instalações para o conector recolher.
+1. Na lâmina de **configuração dos agentes,** selecione o separador **Syslog.** Em seguida, adicione as instalações para o conector recolher. **Selecione Adicionar instalações** e escolha entre a lista de instalações.
     
     - Adicione as instalações que o seu aparelho de syslog inclui nos seus cabeçalhos de madeira. 
     
     - Se pretender utilizar a deteção de login anómala SSH com os dados que recolhe, adicione **auth** e **authpriv**. Consulte a [seguinte secção](#configure-the-syslog-connector-for-anomalous-ssh-login-detection) para mais detalhes.
 
-1. Quando adicionar todas as instalações que pretende monitorizar e ajustar quaisquer opções de gravidade para cada uma, selecione a caixa de verificação **Aplicar abaixo da configuração para as minhas máquinas**.
+1. Quando tiver adicionado todas as instalações que pretende monitorizar, verifique se as caixas de verificação de todas as severidades desejadas estão marcadas.
 
-1. Selecione **Guardar**. 
+1. Selecione **Aplicar**. 
 
 1. No seu VM ou aparelho, certifique-se de que está a enviar as instalações que especificou.
 
@@ -88,7 +88,6 @@ Para obter mais informações, consulte [fontes de dados do Syslog no Azure Moni
 > [!NOTE]
 > **Usando a mesma máquina para encaminhar mensagens simples de Syslog *e* CEF**
 >
->
 > Pode utilizar a máquina de [reencaminhamento cef](connect-cef-agent.md) existente para recolher e encaminhar registos de fontes simples do Syslog. No entanto, deve executar os seguintes passos para evitar o envio de eventos em ambos os formatos para Azure Sentinel, pois isso resultará na duplicação de eventos.
 >
 >    Tendo já configurado [a recolha de dados a partir das suas fontes CEF,](connect-common-event-format.md)e tendo configurado o agente Log Analytics como acima:
@@ -97,7 +96,6 @@ Para obter mais informações, consulte [fontes de dados do Syslog no Azure Moni
 >
 > 1. Tem de executar o seguinte comando nessas máquinas para desativar a sincronização do agente com a configuração Syslog em Azure Sentinel. Isto garante que a alteração de configuração efetuada no passo anterior não seja substituída.<br>
 > `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/OMS_MetaConfigHelper.py --disable'`
-
 
 ### <a name="configure-the-syslog-connector-for-anomalous-ssh-login-detection"></a>Configure o conector Syslog para deteção anómala de login SSH
 
@@ -113,10 +111,7 @@ O Azure Sentinel pode aplicar machine learning (ML) aos dados do syslog para ide
  
 Esta deteção requer uma configuração específica do conector de dados Syslog: 
 
-1. Para o passo 5 no procedimento anterior, certifique-se de que tanto **a auth** como **authpriv** são selecionados como instalações para monitorizar. Mantenha as definições predefinidos para as opções de gravidade, de modo a que todas sejam selecionadas. Por exemplo:
-    
-    > [!div class="mx-imgBorder"]
-    > ![Instalações necessárias para deteção anómala de login SSH](./media/connect-syslog/facilities-ssh-detection.png)
+1. Para o passo 2 sob [configuração do agente Log Analytics](#configure-the-log-analytics-agent) acima, certifique-se de que tanto **auth** como **authpriv** são selecionados como instalações para monitorizar, e que todas as severidades são selecionadas. 
 
 2. Permitir a recolha de informações syslog. Em seguida, navegue até **Azure Sentinel - Logs**, e copie e cole a seguinte consulta:
     

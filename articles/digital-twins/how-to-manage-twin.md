@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 4e8ba291f32456bf2b8432620d1f9ea313629c9d
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 46c41a4868c80bf9ba1c2c6d4a8286c3a8f47c3d
+ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98600506"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100530438"
 ---
 # <a name="manage-digital-twins"></a>Gerir duplos digitais
 
@@ -86,7 +86,7 @@ Pode aceder aos detalhes de qualquer gémeo digital chamando o `GetDigitalTwin()
 
 Esta chamada devolve dados gémeos como um tipo de objeto fortemente digitado, como `BasicDigitalTwin` . `BasicDigitalTwin` é uma classe de ajudante de serialização incluída com o SDK, que irá devolver os metadados e propriedades gémeos principais na forma pré-parsed. Aqui está um exemplo de como usar isto para ver detalhes gémeos:
 
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs" id="GetTwin":::
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs" id="GetTwin" highlight="2":::
 
 Apenas as propriedades que foram definidas pelo menos uma vez são devolvidas quando se recupera um gémeo com o `GetDigitalTwin()` método.
 
@@ -130,7 +130,7 @@ O resultado de chamar `object result = await client.GetDigitalTwinAsync("my-moon
 As propriedades definidas do gémeo digital são devolvidas como propriedades de alto nível no twin digital. Os metadados ou informações do sistema que não fazem parte da definição DTDL são devolvidos com um `$` prefixo. As propriedades dos metadados incluem:
 * A identificação do gémeo digital neste exemplo de Azure Digital Twins, como `$dtId` .
 * `$etag`, um campo HTTP padrão atribuído pelo servidor web.
-* Outras propriedades numa `$metadata` secção. Estas incluem:
+* Outras propriedades numa `$metadata` secção. Incluem-se:
     - O DTMI do modelo do gémeo digital.
     - Estado de sincronização para cada propriedade escrita. Isto é mais útil para dispositivos, onde é possível que o serviço e o dispositivo tenham estatutos divergentes (por exemplo, quando um dispositivo está offline). Atualmente, esta propriedade aplica-se apenas a dispositivos físicos ligados ao IoT Hub. Com os dados na secção de metadados, é possível compreender o estado total de uma propriedade, bem como os últimos timetamps modificados. Para obter mais informações sobre o estado de sincronização, consulte [este tutorial do IoT Hub](../iot-hub/tutorial-device-twins.md) sobre o estado do dispositivo sincronizado.
     - Metadados específicos do serviço, como do IoT Hub ou da Azure Digital Twins. 
@@ -208,9 +208,9 @@ As duas chamadas que modificam *o Twin1* são executadas uma após a outra e as 
 
 Pode eliminar gémeos utilizando o `DeleteDigitalTwin()` método. No entanto, só se pode apagar um gémeo quando não tem mais relacionamentos. Então, apaguem primeiro as relações de entrada e saída do gémeo.
 
-Aqui está um exemplo do código para apagar gémeos e suas relações:
+Aqui está um exemplo do código para apagar gémeos e suas relações. A `DeleteDigitalTwin` chamada SDK é destacada para clarificar onde se enquadra no contexto de exemplo mais amplo.
 
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs" id="DeleteTwin":::
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs" id="DeleteTwin" highlight="7":::
 
 ### <a name="delete-all-digital-twins"></a>Apagar todos os gémeos digitais
 

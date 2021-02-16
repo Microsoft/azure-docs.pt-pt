@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 09/11/2020
+ms.date: 02/05/2021
 ms.author: juliako
-ms.openlocfilehash: 06f5e19718445f44dd2302faf280f083cce0774f
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 12d23ec471329bd4e0ecb502750198e946e58872
+ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98783806"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100530234"
 ---
 # <a name="what-is-azure-media-services-video-indexer"></a>O que é o Video Indexer dos Serviços de Multimédia do Azure?
 
@@ -84,7 +84,7 @@ A lista a seguir mostra as informações que pode obter dos seus vídeos utiliza
 * **Enumeração do orador**: Mapas e compreende qual orador falou quais as palavras e quando. Dezasseis altifalantes podem ser detetados num único ficheiro áudio.
 * **Estatísticas dos oradores**: Fornece estatísticas para os rácios de fala dos oradores.
 * **Textual content moderation** (Moderação de conteúdo textual): deteta texto explícito na transcrição de áudio.
-* **Efeitos áudio**: Identifica efeitos áudio como palmas das mãos, fala e silêncio.
+* **Efeitos áudio** (pré-visualização pública): Deteta os seguintes efeitos áudio nos segmentos de não-fala do conteúdo: Tiro, Vidro estilhaçado, Alarme, Sirene, Explosão, Casca de Cão, Gritos, Risos, Reações de Multidão (aplausos, palmas e vaiados) e Silêncio. Nota: o conjunto completo de eventos só está disponível na escolha de 'Advanced Audio Analysis' na pré-sintonia de upload, caso contrário apenas estará disponível 'Silence' e 'Crowd reaction'.
 * **Deteção de emoções**: Identifica emoções baseadas na fala (o que está a ser dito) e na tonalidade da voz (como está a ser dito). A emoção pode ser alegria, tristeza, raiva ou medo.
 * **Translation** (Tradução): cria traduções da transcrição de áudio para 54 idiomas diferentes.
 
@@ -131,7 +131,7 @@ A lista que se segue mostra os navegadores suportados que pode utilizar para o w
 - Chrome para Android, versão: 87
 - Firefox para Android, versão: 83
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Está pronto para começar a utilizar o Video Indexer. Para obter mais informações, veja os seguintes artigos:
 

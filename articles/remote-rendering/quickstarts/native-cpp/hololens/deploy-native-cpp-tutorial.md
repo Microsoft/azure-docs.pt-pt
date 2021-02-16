@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 06/08/2020
 ms.topic: quickstart
-ms.openlocfilehash: b469f0cae1e356c47bfe60af99c4fa2e73eab78d
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: b340a180927b3df9ad51295383b09b03dbbb2d98
+ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99594032"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100530591"
 ---
 # <a name="quickstart-deploy-native-c-sample-to-hololens"></a>Quickstart: Implementar a amostra nativa C++ para hololens
 
@@ -81,7 +81,7 @@ Uma vez que as credenciais de conta são codificadas no código fonte do tutoria
 Especificamente, alterar os seguintes valores:
 * `init.AccountId`, `init.AccountKey` e para usar os `init.AccountDomain` dados da sua conta. Consulte o parágrafo sobre como [obter informações sobre contas](../../../how-tos/create-an-account.md#retrieve-the-account-information).
 * Especificar onde criar a sessão de renderização remota modificando a parte da cadeia da região `init.RemoteRenderingDomain` para outras regiões que `westus2` não, por exemplo `"westeurope.mixedreality.azure.com"` .
-* Além disso, `m_sessionOverride` pode ser alterado para um ID de sessão existente. As sessões podem ser criadas fora desta amostra, por exemplo, utilizando [o script PowerShell](../../../samples/powershell-example-scripts.md#script-renderingsessionps1) ou utilizando diretamente a [Sessão REST API.](../../../how-tos/session-rest-api.md#create-a-session)
+* Além disso, `m_sessionOverride` pode ser alterado para um ID de sessão existente. As sessões podem ser criadas fora desta amostra, por exemplo, utilizando [o script PowerShell](../../../samples/powershell-example-scripts.md#script-renderingsessionps1) ou utilizando diretamente a [Sessão REST API.](../../../how-tos/session-rest-api.md)
 Recomenda-se a criação de uma sessão fora da amostra quando a amostra deve ser executada várias vezes. Se nenhuma sessão for transmitida, a amostra criará uma nova sessão em cada startup, que poderá demorar vários minutos.
 
 Agora a aplicação pode ser compilada.

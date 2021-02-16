@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 11/16/2020
 ms.author: juliako
-ms.openlocfilehash: bf48f873127a12c3cabb28da33d34cedcda2793b
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 2ac7c3c2149ce43c860c7726381733ef377de8d3
+ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94831571"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100530744"
 ---
 # <a name="examine-the-video-indexer-output"></a>Examinar a saída do Indexador de Vídeo
 
@@ -104,7 +104,7 @@ Esta secção mostra o resumo dos insights.
 |rostos/animadosCharacters|Pode conter zero ou mais rostos. Para obter informações mais detalhadas, consulte [rostos/animaçãoCharacters](#facesanimatedcharacters).|
 |keywords|Pode conter zero ou mais palavras-chave. Para obter informações mais [detalhadas, consulte as palavras-chave](#keywords).|
 |sentimentos|Pode conter zero ou mais sentimentos. Para obter informações mais [detalhadas, consulte os sentimentos.](#sentiments)|
-|áudioSessos| Pode conter zero ou mais efeitos áudio. Para obter informações mais [detalhadas, consulte audioEffects](#audioeffects).|
+|áudioSessos| Pode conter zero ou mais efeitos áudio. Para obter informações mais [detalhadas, consulte audioEffects](#audioeffects-public-preview).|
 |rótulos| Pode conter zero ou mais etiquetas. Para obter mais informações [detalhadas, consulte as etiquetas.](#labels)|
 |marcas| Pode conter zero ou mais marcas. Para obter informações mais detalhadas, consulte [as marcas.](#brands)|
 |estatísticas | Para obter informações mais detalhadas, consulte [as estatísticas.](#statistics)|
@@ -181,7 +181,7 @@ Um rosto pode ter uma identificação, um nome, uma miniatura, outros metadados,
 |rótulos|A visão dos [rótulos.](#labels)|
 |tiros|A [perspicácia](#shots) dos tiros.|
 |marcas|A perceção das [marcas.](#brands)|
-|áudioSessos|O [audioEffects](#audioeffects) insights.|
+|áudioSessos|O [audioEffects](#audioeffects-public-preview) insights.|
 |sentimentos|Os [sentimentos introspeção.](#sentiments)|
 |visualContentModeration|A visão [visualContentModeration.](#visualcontentmoderation)|
 |textualContentModeration|A [visão textualContentModeration.](#textualcontentmoderation)|
@@ -590,26 +590,28 @@ Nomes de marcas de negócios e produtos detetados no discurso para transcrição
 |OradorLongestMonolog|O maior monótono do orador. Se o altifalante tiver silêncios dentro do monótono, está incluído. O silêncio no início e no fim do monóloga é removido.| 
 |SpeakerTalkToListenRatio|O cálculo baseia-se no tempo gasto no monótono do orador (sem o silêncio no meio) dividido pelo tempo total do vídeo. O tempo é arredondado para o terceiro ponto decimal.|
 
-#### <a name="audioeffects"></a>áudioSessos
+#### <a name="audioeffects-public-preview"></a>audioEffects (pré-visualização pública)
 
-|Nome|Descrição|
+|Nome|Descrição
 |---|---|
-|ID|A identificação do efeito áudio.|
-|tipo|O tipo de efeito áudio (por exemplo, Palmas, Discurso, Silêncio).|
-|casos|Uma lista de intervalos de tempo onde este efeito áudio apareceu.|
+|ID|O ID do efeito áudio|
+|tipo|O tipo de efeito áudio|
+|casos|Uma lista de intervalos de tempo onde este efeito áudio apareceu. Cada caso tem um campo de confiança.|
 
 ```json
 "audioEffects": [
 {
     "id": 0,
-    "type": "Clapping",
+    "type": "Siren",
     "instances": [
     {
+       "confidence": 0.87,
         "start": "00:00:00",
         "end": "00:00:03"
     },
     {
-        "start": "00:01:13",
+       "confidence": 0.87,
+       "start": "00:01:13",
         "end": "00:01:21"
     }
     ]

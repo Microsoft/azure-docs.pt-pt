@@ -10,12 +10,12 @@ ms.subservice: azure-sentinel
 ms.topic: quickstart
 ms.date: 10/14/2020
 ms.custom: references_regions
-ms.openlocfilehash: 7cb8cb4d99ca8a63195eba21d82814fcd7820f5c
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 5e4785ebd403e48c4de284f196b3233c7d7434a8
+ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807772"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100530574"
 ---
 # <a name="quickstart-on-board-azure-sentinel"></a>Quickstart: A bordo Azure Sentinel
 
@@ -47,7 +47,7 @@ Depois de ligar as suas fontes de dados, escolha entre uma galeria de livros cri
 
     | Geografia do espaço de trabalho | Geografia de dados gerada por Azure Sentinel |
     | --- | --- |
-    | Estados Unidos da América<br>Índia<br>Brasil<br>África<br>Coreia | Estados Unidos da América |
+    | Estados Unidos da América<br>Índia<br>Brasil<br>África<br>Coreia<br>Emirados Árabes Unidos | Estados Unidos da América |
     | Europa<br>França<br>Suíça | Europa |
     | Austrália | Austrália |
     | Reino Unido | Reino Unido |

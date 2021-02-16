@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/17/2021
 ms.author: yelevin
-ms.openlocfilehash: 0583846fcd847e92a6f001dae828d31d9d11cb00
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.openlocfilehash: b10c47a31bf1be10c278d4d9e0dce633bc7bff6c
+ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98567923"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100530642"
 ---
 # <a name="connect-your-juniper-srx-firewall-to-azure-sentinel"></a>Ligue a sua firewall Juniper SRX ao Azure Sentinel
 
@@ -53,7 +53,7 @@ Configure o Juniper SRX para encaminhar mensagens Syslog para o seu espaço de t
 
     1. Configure os registos a recolher
 
-        - Selecione as instalações e as severidades na configuração de configurações avançadas do espaço de trabalho
+        - Selecione as instalações e as severidades na configuração dos agentes do espaço de trabalho.
 
     1. Configure e ligue o Zimbro SRX
 
