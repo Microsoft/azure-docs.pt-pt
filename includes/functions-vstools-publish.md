@@ -8,22 +8,22 @@ ms.topic: include
 ms.date: 09/30/2020
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: e4231f5c4e947f29a72e581cf461ff737c1a0c82
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 5b537b88052ce4042e346732f3dc63aaec6621cc
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97956577"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100529673"
 ---
-1. No **Explorador de Soluções**, clique com o botão direito do rato no projeto e selecione **Publicar**.
+1. No **Solution Explorer,** clique com o botão direito no projeto e selecione **Publicar** e no **Target**, selecione **Azure** em **seguida, Next**.
 
-1. No **Target**, selecione **Azure** :::image type="content" source="media/functions-vstools-publish/functions-visual-studio-publish-profile-step-1.png" alt-text="Select Azure target":::
+1. Para o **alvo específico**, escolha **Azure Function App (Windows)**, que cria uma aplicação de função que funciona no Windows.
 
-1. No **alvo específico**, selecione **Azure Function App (Windows)**
+1. Em **Instância de Função,** escolha **Criar uma nova função Azure...** 
 
-    :::image type="content" source="media/functions-vstools-publish/functions-visual-studio-publish-profile-step-2.png" alt-text="Selecione app de função Azure":::
+    :::image type="content" source="media/functions-vstools-publish/functions-visual-studio-publish-new-resource.png" alt-text="Criar uma nova instância de aplicação de funções":::
 
-1. Em **Instância de Função,** selecione **Criar uma nova Função Azure...** e, em seguida, utilizar os valores especificados no seguinte quadro:
+1. Criar um novo exemplo utilizando os valores especificados no quadro seguinte:
 
     | Definição      | Valor  | Descrição                                |
     | ------------ |  ------- | -------------------------------------------------- |
@@ -36,8 +36,9 @@ ms.locfileid: "97956577"
 
     ![Caixa de diálogo Criar App Service](./media/functions-vstools-publish/functions-visual-studio-publish.png)
 
-1. Selecione **Criar** para criar uma aplicação de função e seus recursos relacionados em Azure. 
-1. No **caso funções,** certifique-se de que **o Run a partir do ficheiro de embalagem** é verificado. A sua aplicação de função é implementada utilizando [o zip deploy](../articles/azure-functions/functions-deployment-technologies.md#zip-deploy) com o modo [Run-From-Package](../articles/azure-functions/run-functions-from-deployment-package.md) ativado. Este é o método de implementação recomendado para o seu projeto de funções, uma vez que resulta num melhor desempenho. 
+1. Selecione **Criar** para criar uma aplicação de função e seus recursos relacionados em Azure. O estado de criação de recursos é mostrado na parte inferior esquerda da janela. 
+
+1. No **caso de Funções,** certifique-se de que **o Run a partir do ficheiro de embalagem** é verificado. A sua aplicação de função é implementada utilizando [o zip deploy](../articles/azure-functions/functions-deployment-technologies.md#zip-deploy) com o modo [Run-From-Package](../articles/azure-functions/run-functions-from-deployment-package.md) ativado. Este é o método de implementação recomendado para o seu projeto de funções, uma vez que resulta num melhor desempenho. 
 
     :::image type="content" source="media/functions-vstools-publish/functions-visual-studio-publish-profile-step-4.png" alt-text="Terminar a criação de perfil":::
 

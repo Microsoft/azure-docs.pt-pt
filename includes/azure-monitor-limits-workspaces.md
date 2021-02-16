@@ -8,19 +8,19 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: 86c5c6fff06f43bf66427ba1935852fcf97a71c6
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 1f461c4870b398a49387472c49d45b90929405c7
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96356215"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100529696"
 ---
 **Volume e retenção de recolha de dados** 
 
 | Escalão de serviço | Limite por dia | Retenção de dados | Comentário |
 |:---|:---|:---|:---|
 | Nível atual de preços por GB<br>(introduzido abril de 2018) | Sem limite | 30 - 730 dias | A retenção de dados para além de 31 dias está disponível para custos adicionais. Saiba mais sobre os preços do Azure Monitor. |
-| Legacy Free Tiers<br>(introduzido abril de 2016) | 500 MB | 7 dias | Quando o seu espaço de trabalho atinge o limite de 500 MB por dia, a ingestão de dados para e retoma no início do dia seguinte. Os dias são baseados no fuso horário UTC. Note que os dados recolhidos pelo Azure Security Center não estão incluídos neste limite de 500 MB por dia e continuarão a ser recolhidos acima deste limite.  |
+| Legacy Free Tiers<br>(introduzido abril de 2016) | 500 MB | 7 dias | Quando o seu espaço de trabalho atinge o limite de 500 MB por dia, a ingestão de dados para e retoma no início do dia seguinte. Os dias são baseados no fuso horário UTC. Note que os dados recolhidos pelo Azure Security Center não estão incluídos neste limite de 500 MB por dia e continuarão a ser recolhidos acima deste limite.  |
 | Legacy Autónomo Por NÍVEL GB<br>(introduzido abril de 2016) | Sem limite | 30 a 730 dias | A retenção de dados para além de 31 dias está disponível para custos adicionais. Saiba mais sobre os preços do Azure Monitor. |
 | Legado por nó (OMS)<br>(introduzido abril de 2016) | Sem limite | 30 a 730 dias | A retenção de dados para além de 31 dias está disponível para custos adicionais. Saiba mais sobre os preços do Azure Monitor. |
 | Nível padrão legado | Sem limite | 30 dias  | A retenção não pode ser ajustada |
@@ -56,13 +56,19 @@ ms.locfileid: "96356215"
 | Tempo máximo de funcionamento da consulta | 10 minutos | Consulte [timeouts](https://dev.loganalytics.io/documentation/Using-the-API/Timeouts) para mais detalhes.  |
 | Taxa máxima de pedido | 200 pedidos por 30 segundos por utilizador AD Azure ou endereço IP do cliente | Consulte [os limites da taxa](https://dev.loganalytics.io/documentation/Using-the-API/Limits) para mais detalhes. |
 
+**Conector de Registos do Azure Monitor**
+| Categoria | Limite | Comentários |
+|:---|:---|:---|
+| Número máximo de registos | 500 000 | |
+| Tempo limite de consulta máxima | 110 segundos | |
+| Gráficos | | A visualização na página de Logs e no conector está a utilizar diferentes bibliotecas de gráficos e algumas funcionalidades não estão disponíveis no conector atualmente. |
+
 **Limites gerais do espaço de trabalho**
 
 | Categoria | Limite | Comentários |
 |:---|:---|:---|
 | Colunas máximas numa tabela         | 500 | |
 | Caracteres máximos para nome de coluna | 500 | |
-| Exportação de dados | Não disponível atualmente | Utilize a Azure Function ou a Logic App para agregar e exportar dados. | 
 
 **<a name="data-ingestion-volume-rate">Taxa de volume de ingestão de dados</a>**
 
