@@ -5,12 +5,12 @@ ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
 ms.date: 11/17/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 3e99b156d220b4c24a368886b1c0ca0813ffdc51
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 58e31cfa42faabbfab217a451e14d33f2cf45863
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98674138"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100554815"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript guia de desenvolvedores
 
@@ -20,7 +20,7 @@ Como um Express.js, Node.js ou javaScript developer, se você é novo em Azure F
 
 | Introdução | Conceitos| Aprendizagem guiada |
 | -- | -- | -- | 
-| <ul><li>[Node.js função usando Código de Estúdio Visual](./create-first-function-vs-code-node.md)</li><li>[Node.js função com o terminal/comando](./create-first-function-cli-node.md)</li></ul> | <ul><li>[Guia para programadores](functions-reference.md)</li><li>[Opções de alojamento](functions-scale.md)</li><li>[Funções TypeScript](#typescript)</li><li>[&nbsp;Considerações de desempenho](functions-best-practices.md)</li></ul> | <ul><li>[Criar aplicações sem servidor](/learn/paths/create-serverless-applications/)</li><li>[Refactor Node.js e APIs express a APIs sem servidor](/learn/modules/shift-nodejs-express-apis-serverless/)</li></ul> |
+| <ul><li>[Node.js função usando Código de Estúdio Visual](./create-first-function-vs-code-node.md)</li><li>[Node.js função com o terminal/comando](./create-first-function-cli-node.md)</li><li>[Node.js função utilizando o portal Azure](functions-create-function-app-portal.md)</li></ul> | <ul><li>[Guia para programadores](functions-reference.md)</li><li>[Opções de alojamento](functions-scale.md)</li><li>[Funções TypeScript](#typescript)</li><li>[&nbsp;Considerações de desempenho](functions-best-practices.md)</li></ul> | <ul><li>[Criar aplicações sem servidor](/learn/paths/create-serverless-applications/)</li><li>[Refactor Node.js e APIs express a APIs sem servidor](/learn/modules/shift-nodejs-express-apis-serverless/)</li></ul> |
 
 ## <a name="javascript-function-basics"></a>Básicos de função JavaScript
 
@@ -201,7 +201,7 @@ module.exports = (context) => {
 
 O contexto passado para a sua função expõe uma `executionContext` propriedade, que é um objeto com as seguintes propriedades:
 
-| Nome da propriedade  | Tipo  | Description |
+| Nome da propriedade  | Tipo  | Descrição |
 |---------|---------|---------|
 | `invocationId` | String | Fornece um identificador único para a invocação de funções específicas. |
 | `functionName` | String | Fornece o nome da função de execução |

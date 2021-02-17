@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/17/2021
 ms.author: yelevin
-ms.openlocfilehash: 152fee2e4e72cee6a7bc1c768c0a8ca7b031ec39
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 1efd91d92bac1bc1f39d82aaa0cc71daa0275f8e
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878923"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570535"
 ---
 # <a name="connect-your-salesforce-service-cloud-to-azure-sentinel"></a>Ligue a sua Nuvem de Serviço Salesforce ao Azure Sentinel
 
@@ -35,7 +35,7 @@ Este artigo explica como ligar a sua solução Salesforce Service Cloud ao Azure
 
 - Deve ter lido e escrito permissão no espaço de trabalho do Azure Sentinel.
 
-- Deve ter lido permissões para partilhar chaves para o espaço de trabalho. [Saiba mais sobre as teclas do espaço de trabalho.](../azure-monitor/platform/log-analytics-agent.md#workspace-id-and-key)
+- Deve ter lido permissões para partilhar chaves para o espaço de trabalho. [Saiba mais sobre as teclas do espaço de trabalho.](../azure-monitor/agents/log-analytics-agent.md#workspace-id-and-key)
 
 - Deve ter lido e escrito permissões para as Funções Azure para criar uma App de Função. [Saiba mais sobre as Funções Azure](../azure-functions/index.yml).
 
@@ -61,7 +61,7 @@ Consulte o separador **passos seguintes** na página do conector para obter algu
 
 Pode demorar até que os seus registos comecem a aparecer no Log Analytics.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste documento, aprendeu a ligar a Salesforce Service Cloud ao Azure Sentinel. Para saber mais sobre Azure Sentinel, consulte os seguintes artigos:
 

@@ -7,12 +7,12 @@ ms.topic: overview
 ms.custom: devx-track-dotnet
 ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: 910de9efbd132fb98a0c4bd596867800f65f5ad5
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: c65bc7e92d925f819a48fd8ab9a8160bc3eb72e3
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150955"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579312"
 ---
 # <a name="azure-signalr-service-faq"></a>Azure SignalR Service FAQ
 
@@ -44,7 +44,7 @@ Pode [verificar o código de origem.](https://github.com/Azure/azure-signalr/blo
 
 ## <a name="can-i-configure-the-transports-available-in-azure-signalr-service-on-the-server-side-with-aspnet-core-signalr-for-example-can-i-disable-websocket-transport"></a>Posso configurar os transportes disponíveis no Serviço Azure SignalR do lado do servidor com ASP.NET Core SignalR? Por exemplo, posso desativar o transporte WebSocket?
 
-Não.
+N.º
 
 O Serviço Azure SignalR fornece os três transportes que ASP.NET o Core SignalR suporta por padrão. Não é configurável. O Serviço Azure SignalR tratará de ligações e transportes para todas as ligações do cliente.
 
@@ -54,7 +54,7 @@ Pode configurar os transportes do lado do cliente, conforme documentado na [conf
 
 Pode encontrar detalhes sobre a cálculo destas métricas em [Mensagens e ligações no Serviço Azure SignalR](signalr-concept-messages-and-connections.md).
 
-No painel geral dos recursos do Serviço Azure SignalR, já escolhemos o tipo de agregação apropriado para si. Se for ao painel de métricas, pode levar o tipo de agregação a [Mensagens e ligações no Serviço Azure SignalR](../azure-monitor/platform/metrics-supported.md#microsoftsignalrservicesignalr) como referência.
+No painel geral dos recursos do Serviço Azure SignalR, já escolhemos o tipo de agregação apropriado para si. Se for ao painel de métricas, pode levar o tipo de agregação a [Mensagens e ligações no Serviço Azure SignalR](../azure-monitor/essentials/metrics-supported.md#microsoftsignalrservicesignalr) como referência.
 
 ## <a name="what-is-the-meaning-of-the-default-serverless-and-classic-service-modes-how-can-i-choose"></a>Qual é o significado dos `Default` `Serverless` modos de `Classic` serviço e dos modos de serviço? Como posso escolher?
 

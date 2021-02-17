@@ -11,12 +11,12 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 09/22/2020
-  ms.openlocfilehash: b1c22d790246be8f2a7adb6176ea436f760c15fb
-  ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+  ms.openlocfilehash: fcd078212e92f030593445b843497a88327c49b8
+  ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 02/14/2021
-  ms.locfileid: "100518118"
+  ms.lasthandoff: 02/17/2021
+  ms.locfileid: "100578155"
 landingContent:
 - title: Sobre a Imagem Digitalizada
   linkLists:
@@ -112,6 +112,8 @@ landingContent:
   linkLists:
   - linkListType: get-started
     links:
+    - text: Visão geral da análise espacial
+      url: intro-to-spatial-analysis-public-preview.md
     - text: Instalar e executar o contentor
       url: spatial-analysis-container.md
     - text: Configurar operações
@@ -146,6 +148,18 @@ landingContent:
       url: quickstarts-sdk/client-library.md?pivots=programming-language-javascript
     - text: Utilizar o SDK do Go
       url: quickstarts-sdk/client-library.md?pivots=programming-language-go
+- title: Utilização responsável da IA
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Nota de transparência para análise espacial
+      url: /legal/cognitive-services/computer-vision/transparency-note-spatial-analysis?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext
+  - linkListType: concept
+    links:
+    - text: Utilização responsável na implementação de IA
+      url: /legal/cognitive-services/computer-vision/responsible-use-deployment?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext
+    - text: Dados, privacidade e segurança
+      url: /legal/cognitive-services/computer-vision/compliance-privacy-security-2?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext
 - title: Referência
   linkLists:
   - linkListType: reference

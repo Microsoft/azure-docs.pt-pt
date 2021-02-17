@@ -8,12 +8,12 @@ ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: df4bd0ae0884feae8bd21e33f4d27b6ceb207337
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 843e11e7f2df404a6bf1866da7b383ee9d1097de
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98234006"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574780"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Perguntas frequentes de configuração e gestão para aplicações web em Azure
 
@@ -292,7 +292,7 @@ A forma mais rápida de encontrar a versão do Microsoft .NET que está instalad
 
 ## <a name="why-isnt-autoscale-working-as-expected"></a>Porque é que a Autoscale não está a funcionar como esperado?
 
-Se o Azure Autoscale não tiver escalado ou dimensionado a instância da aplicação web como esperava, poderá estar a deparar-se com um cenário em que optamos intencionalmente por não escalar para evitar um loop infinito devido a "bater palmas". Isto geralmente acontece quando não há uma margem adequada entre os limiares de escala e escala. Para aprender a evitar "bater palmas" e ler sobre outras melhores práticas da Autoscale, consulte as [melhores práticas da Autoscale](../azure-monitor/platform/autoscale-best-practices.md#autoscale-best-practices).
+Se o Azure Autoscale não tiver escalado ou dimensionado a instância da aplicação web como esperava, poderá estar a deparar-se com um cenário em que optamos intencionalmente por não escalar para evitar um loop infinito devido a "bater palmas". Isto geralmente acontece quando não há uma margem adequada entre os limiares de escala e escala. Para aprender a evitar "bater palmas" e ler sobre outras melhores práticas da Autoscale, consulte as [melhores práticas da Autoscale](../azure-monitor/autoscale/autoscale-best-practices.md#autoscale-best-practices).
 
 ## <a name="why-does-autoscale-sometimes-scale-only-partially"></a>Por que a Autoscale às vezes escala apenas parcialmente?
 

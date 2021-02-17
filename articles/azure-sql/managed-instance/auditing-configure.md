@@ -13,12 +13,12 @@ author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 05/26/2020
-ms.openlocfilehash: 31a1169ca6c2194b8d5564e5d0df50116dd25084
-ms.sourcegitcommit: 4bee52a3601b226cfc4e6eac71c1cb3b4b0eafe2
+ms.openlocfilehash: ae0d9696d869b2a260de643482a9f86c34bcc824
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94505670"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100575463"
 ---
 # <a name="get-started-with-azure-sql-managed-instance-auditing"></a>Começar com a auditoria da Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -32,7 +32,7 @@ ms.locfileid: "94505670"
 
 A secção seguinte descreve a configuração da auditoria no seu caso gerido.
 
-1. Aceda ao [portal do Azure](https://portal.azure.com).
+1. Aceda ao [Portal do Azure](https://portal.azure.com).
 2. Crie um **recipiente** de armazenamento Azure onde os registos de auditoria são armazenados.
 
    1. Navegue para a conta de armazenamento Azure onde pretende guardar os seus registos de auditoria.
@@ -79,11 +79,11 @@ A secção seguinte descreve a configuração da auditoria no seu caso gerido.
 
         - Configure o SAS da seguinte forma:
 
-          - **Serviços permitidos** : Blob
+          - **Serviços permitidos**: Blob
 
           - **Data de** início : para evitar problemas relacionados com fuso horário, use a data de ontem
 
-          - **Data de fim** : escolha a data em que este token SAS expira
+          - **Data de fim**: escolha a data em que este token SAS expira
 
             > [!NOTE]
             > Renove o token após o termo para evitar falhas de auditoria.
@@ -223,7 +223,7 @@ Para consumir dados de registos de auditoria de Event Hubs, terá de configurar 
 
 Se os registos de auditoria forem escritos para os registos do Azure Monitor, estes estão disponíveis no espaço de trabalho do Log Analytics, onde pode executar pesquisas avançadas nos dados da auditoria. Como ponto de partida, navegue para o espaço de trabalho Log Analytics. Na secção **Geral,** clique em **Registos** e introduza uma consulta simples, como: `search "SQLSecurityAuditEvents"` para ver os registos de auditoria.  
 
-Os registos do Azure Monitor dão-lhe informações operacionais em tempo real utilizando painéis de pesquisa integrados e dashboards personalizados para analisar facilmente milhões de registos em todas as suas cargas de trabalho e servidores. Para obter informações úteis adicionais sobre o Azure Monitor regista linguagem e comandos de pesquisa, consulte a referência de pesquisa de registos do [Azure Monitor](../../azure-monitor/log-query/log-query-overview.md).
+Os registos do Azure Monitor dão-lhe informações operacionais em tempo real utilizando painéis de pesquisa integrados e dashboards personalizados para analisar facilmente milhões de registos em todas as suas cargas de trabalho e servidores. Para obter informações úteis adicionais sobre o Azure Monitor regista linguagem e comandos de pesquisa, consulte a referência de pesquisa de registos do [Azure Monitor](../../azure-monitor/logs/log-query-overview.md).
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/22/2019
 ms.author: rolyon
-ms.openlocfilehash: c6736bb2642ff08d0aa3cda536ef1599324efded
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fcba9cad208c2ac170f91cc06a6db22e271f2a70
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85362024"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100559320"
 ---
 # <a name="tutorial-grant-a-user-access-to-azure-resources-using-the-azure-portal"></a>Tutorial: Conceder acesso a um utilizador aos recursos do Azure através do portal Azure
 
@@ -58,7 +58,7 @@ Inicie sessão no portal do Azure em https://portal.azure.com.
 
 ## <a name="grant-access"></a>Conceder acesso
 
-No Azure RBAC, para dar acesso, cria-se uma tarefa de papel.
+No Azure RBAC, para conceder acesso, atribui-se um papel de Azure.
 
 1. Na lista de grupos de **recursos,** clique no novo grupo de recursos **rbac-resource.**
 
@@ -82,7 +82,7 @@ No Azure RBAC, para dar acesso, cria-se uma tarefa de papel.
 
 1. Na lista **Selecionar**, selecione-se a si mesmo ou outro utilizador.
 
-1. Clique em **Guardar** para criar a atribuição de função.
+1. Clique em **Guardar** para atribuir a função.
 
    Após alguns momentos, o utilizador é atribuído ao papel de Contribuinte de Máquina Virtual no âmbito do grupo de recursos rbac-resource.
 
@@ -90,7 +90,7 @@ No Azure RBAC, para dar acesso, cria-se uma tarefa de papel.
 
 ## <a name="remove-access"></a>Remover o acesso
 
-No Azure RBAC, para remover o acesso, remove-se uma atribuição de funções.
+No RBAC do Azure, para remover o acesso, remova a atribuição de função.
 
 1. Na lista de atribuições de funções, adicione uma marca de verificação ao lado do utilizador com a função De Contribuinte de Máquina Virtual.
 

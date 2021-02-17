@@ -4,12 +4,12 @@ description: Recomendações para garantir imagens e segredos para instâncias d
 ms.topic: article
 ms.date: 01/10/2020
 ms.custom: ''
-ms.openlocfilehash: 898bdf77bf4b6636e78f5d735fc8650da4fde2b8
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: cbceeea24501bc9815cb07e1b0a054914ba8e964
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148659"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579269"
 ---
 # <a name="security-considerations-for-azure-container-instances"></a>Considerações de segurança para instâncias de contentores Azure
 
@@ -115,9 +115,9 @@ Por exemplo, a ferramenta parceira [Aqua](https://azuremarketplace.microsoft.com
 
 Como em qualquer ambiente de TI, deve monitorizar consistentemente a atividade e o acesso do utilizador ao seu ecossistema de contentores para identificar rapidamente qualquer atividade suspeita ou maliciosa. A Azure fornece soluções de monitorização de contentores, incluindo:
 
-* [O Azure Monitor para contentores](../azure-monitor/insights/container-insights-overview.md) monitoriza o desempenho das suas cargas de trabalho implantadas em ambientes Kubernetes alojados no Serviço Azure Kubernetes (AKS). O Azure Monitor para recipientes dá-lhe visibilidade de desempenho recolhendo métricas de memória e processador de controladores, nós e recipientes disponíveis em Kubernetes através da API métricas. 
+* [O Azure Monitor para contentores](../azure-monitor/containers/container-insights-overview.md) monitoriza o desempenho das suas cargas de trabalho implantadas em ambientes Kubernetes alojados no Serviço Azure Kubernetes (AKS). O Azure Monitor para recipientes dá-lhe visibilidade de desempenho recolhendo métricas de memória e processador de controladores, nós e recipientes disponíveis em Kubernetes através da API métricas. 
 
-* A [solução de monitorização do contentor Azure](../azure-monitor/insights/containers.md) ajuda-o a visualizar e a gerir outros anfitriões de contentores Docker e Windows num único local. Por exemplo:
+* A [solução de monitorização do contentor Azure](../azure-monitor/containers/containers.md) ajuda-o a visualizar e a gerir outros anfitriões de contentores Docker e Windows num único local. Por exemplo:
 
   * Consulte informações detalhadas de auditoria que mostram comandos utilizados com contentores. 
   * Recipientes de resolução de problemas visualizando e pesquisando registos centralizados sem ter que ver remotamente anfitriões do Docker ou do Windows.  
@@ -139,7 +139,7 @@ Monitorize a sua atividade de recursos, como ficheiros, rede e outros recursos a
 Mantenha um rasto de auditoria preciso de acesso administrativo ao seu ecossistema de contentores, incluindo o seu cluster Kubernetes, registo de contentores e imagens de contentores. Estes registos podem ser necessários para fins de auditoria e serão úteis como provas forenses após qualquer incidente de segurança. As soluções Azure incluem:
 
 * [Integração do Serviço Azure Kubernetes com o Azure Security Center](../security-center/defender-for-kubernetes-introduction.md) para monitorizar a configuração de segurança do ambiente de cluster e gerar recomendações de segurança
-* [Solução de monitorização do contentor Azure](../azure-monitor/insights/containers.md)
+* [Solução de monitorização do contentor Azure](../azure-monitor/containers/containers.md)
 * Registos de recursos para [instâncias de contentores Azure](container-instances-log-analytics.md) e [registo de contentores Azure](../container-registry/container-registry-diagnostics-audit-logs.md)
 
 ## <a name="next-steps"></a>Passos seguintes

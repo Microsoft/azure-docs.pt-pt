@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/02/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: e8915e1c15972341befd176b412925f4e87c94f6
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: fadbed5607c7ebdd61a42ae054f431840c529d69
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201455"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100573074"
 ---
 # <a name="azure-policy-security-baseline-for-azure-security-benchmark"></a>Linha de segurança da política Azure para referência de segurança Azure
 
@@ -31,9 +31,9 @@ A Azure Policy utiliza o termo _Propriedade_ em vez de _Responsabilidade_. Para 
 
 **Orientação**: A Política azul usa registos de atividade, que são automaticamente habilitados, para incluir fonte de evento, data, utilizador, timetamp, endereços de origem, endereços de destino e outros elementos úteis.
 
-* [Como recolher registos e métricas da plataforma com o Azure Monitor](../../../azure-monitor/platform/diagnostic-settings.md)
+* [Como recolher registos e métricas da plataforma com o Azure Monitor](../../../azure-monitor/essentials/diagnostic-settings.md)
 
-* [Compreenda o registo e diferentes tipos de registo em Azure](../../../azure-monitor/platform/platform-logs-overview.md)
+* [Compreenda o registo e diferentes tipos de registo em Azure](../../../azure-monitor/essentials/platform-logs-overview.md)
 
 
 **Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
@@ -89,7 +89,7 @@ Também pode ativar uma solução Just-In-Time / Just-Enough-Access utilizando f
 
 **Orientação**: Utilize o Monitor Azure com registos de atividade para criar alertas para quando as alterações ocorrem na Política Azure.
 
-* [Como criar alertas para eventos de registo de atividades do Azure](../../../azure-monitor/platform/alerts-activity-log.md)
+* [Como criar alertas para eventos de registo de atividades do Azure](../../../azure-monitor/alerts/alerts-activity-log.md)
 
 
 **Monitorização do Centro de Segurança do Azure**: Não disponível atualmente

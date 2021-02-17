@@ -3,12 +3,12 @@ title: Experiências de gestão entre inquilinos
 description: A gestão de recursos delegados Azure permite uma experiência de gestão de inquilinos cruzados.
 ms.date: 02/08/2021
 ms.topic: conceptual
-ms.openlocfilehash: b76723c9ea94581561f5bdb04ea1fd8335da77b7
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 97b28409a7f180ffbf4f8766ee281710d6226019
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99981090"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100573086"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiências de gestão entre inquilinos
 
@@ -100,7 +100,7 @@ A maioria das tarefas e serviços podem ser realizados em recursos delegados ent
 - [Análise de registos](../../azure-monitor/platform/service-providers.md): Os dados de consulta de espaços de trabalho remotos em vários inquilinos (note que as contas de automação utilizadas para aceder a dados de espaços de trabalho em inquilinos de clientes devem ser criadas no mesmo inquilino)
 - [Criar, ver e gerir alertas de registo de atividades](../../azure-monitor/platform/alerts-activity-log.md) nos inquilinos dos clientes
 - Crie alertas em inquilinos de clientes que desencadeiem a automação, como os runbooks da Azure Automation ou as Funções Azure, no inquilino gerente através de webhooks
-- Criar [definições de diagnóstico](../..//azure-monitor/platform/diagnostic-settings.md) nos inquilinos dos clientes para enviar registos de recursos para espaços de trabalho no inquilino gerente
+- Criar [definições de diagnóstico](../..//azure-monitor/essentials/diagnostic-settings.md) nos inquilinos dos clientes para enviar registos de recursos para espaços de trabalho no inquilino gerente
 - Para cargas de trabalho SAP, [monitorize as métricas da SAP Solutions com uma visão agregada entre os inquilinos do cliente](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/using-azure-lighthouse-and-azure-monitor-for-sap-solutions-to/ba-p/1537293)
 
 [Rede Azure:](../../networking/networking-overview.md)

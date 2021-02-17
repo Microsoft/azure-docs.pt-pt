@@ -8,16 +8,16 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 10/14/2020
 ms.author: apimpm
-ms.openlocfilehash: 064ac21e01239f7be3ddca9e48089ce880c6af58
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: df0018e323bc0c5725c9752b25b77612f035c196
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93380437"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100582501"
 ---
 # <a name="reference-api-management-resource-log-schema"></a>Referência: Esquema de registo de recursos da API Management
 
-Este artigo fornece uma referência de esquema para o registo de recursos da Azure API Management GatewayLogs. As entradas de registo também incluem campos no [esquema comum de nível superior.](../azure-monitor/platform/resource-logs-schema.md#top-level-common-schema)
+Este artigo fornece uma referência de esquema para o registo de recursos da Azure API Management GatewayLogs. As entradas de registo também incluem campos no [esquema comum de nível superior.](../azure-monitor/essentials/resource-logs-schema.md#top-level-common-schema)
 
 Para permitir a recolha do registo de recursos na Gestão da API, consulte [as APIs publicadas no Monitor](api-management-howto-use-azure-monitor.md#resource-logs).
 
@@ -25,7 +25,7 @@ Para permitir a recolha do registo de recursos na Gestão da API, consulte [as A
 
 As seguintes propriedades são registadas para cada pedido de API.
 
-| Propriedade  | Tipo | Descrição |
+| Propriedade  | Tipo | Description |
 | ------------- | ------------- | ------------- |
 | método | string | Método HTTP do pedido a receber |
 | url | string | URL do pedido a receber |
@@ -49,5 +49,5 @@ As seguintes propriedades são registadas para cada pedido de API.
 ## <a name="next-steps"></a>Passos seguintes
 
 * Para obter informações sobre a monitorização de APIs na Gestão de API, consulte [as APIs publicadas no Monitor](api-management-howto-use-azure-monitor.md)
-* Saiba mais sobre [esquemas comuns e específicos de serviço para registos de recursos Azure](../azure-monitor/platform/resource-logs-schema.md)
+* Saiba mais sobre [esquemas comuns e específicos de serviço para registos de recursos Azure](../azure-monitor/essentials/resource-logs-schema.md)
 

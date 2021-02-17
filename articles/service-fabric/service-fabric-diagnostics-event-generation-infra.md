@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: 033b4967d3da382057c2651457f7792e760d8bc3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f9db0df9370197190c11b740f1fd1af3fb69f19c
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86247620"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100581421"
 ---
 # <a name="monitoring-the-cluster"></a>Monitorização do cluster
 
@@ -20,7 +20,7 @@ A Service Fabric expõe vários eventos estruturados da plataforma, como [evento
 
 No Windows, os eventos de Service Fabric estão disponíveis a partir de um único fornecedor de ETW com um conjunto de `logLevelKeywordFilters` relevantes usados para escolher entre canais operacionais e de dados & mensagens - esta é a forma como separamos os eventos de Tecido de Serviço de saída para serem filtrados conforme necessário.
 
-* **Operacional** Operações de alto nível realizadas pela Service Fabric e pelo cluster, incluindo eventos para um nó que está a chegar, uma nova aplicação a ser implementada, ou um rollback de upgrade, etc. Consulte aqui a [here](service-fabric-diagnostics-event-generation-operational.md)lista completa dos eventos.  
+* **Operacional** Operações de alto nível realizadas pela Service Fabric e pelo cluster, incluindo eventos para um nó que está a chegar, uma nova aplicação a ser implementada, ou um rollback de upgrade, etc. Consulte aqui a [](service-fabric-diagnostics-event-generation-operational.md)lista completa dos eventos.  
 
 * **Operacional - detalhado**  
 Relatórios de saúde e decisões de equilíbrio de carga.
@@ -81,7 +81,7 @@ Para obter uma lista de contadores de desempenho a cobrar ao utilizar o Tecido d
 Aqui estão duas formas comuns de configurar a recolha de dados de desempenho para o seu cluster:
 
 * **Usando um agente**  
-Esta é a forma preferida de recolher o desempenho de uma máquina, uma vez que os agentes geralmente têm uma lista de possíveis métricas de desempenho que podem ser recolhidas, e é um processo relativamente fácil de escolher as métricas que pretende recolher ou alterar. O The Read about the Azure Monitor oferece registos Azure Monitor na integração de registos do Service Fabric's [Azure Monitor](service-fabric-diagnostics-event-analysis-oms.md) e [configura o agente Log Analytics](../azure-monitor/platform/agent-windows.md) para saber mais sobre o agente Log Analytics, que é um desses agentes de monitorização que é capaz de recolher dados de desempenho para VMs de cluster e contentores implantados.
+Esta é a forma preferida de recolher o desempenho de uma máquina, uma vez que os agentes geralmente têm uma lista de possíveis métricas de desempenho que podem ser recolhidas, e é um processo relativamente fácil de escolher as métricas que pretende recolher ou alterar. O The Read about the Azure Monitor oferece registos Azure Monitor na integração de registos do Service Fabric's [Azure Monitor](service-fabric-diagnostics-event-analysis-oms.md) e [configura o agente Log Analytics](../azure-monitor/agents/agent-windows.md) para saber mais sobre o agente Log Analytics, que é um desses agentes de monitorização que é capaz de recolher dados de desempenho para VMs de cluster e contentores implantados.
 
 * **Contadores de desempenho para armazenamento de mesa Azure**  
 Também pode enviar métricas de desempenho para o mesmo armazenamento de mesa que os eventos. Isto requer alterar a configuração Azure Diagnostics para recolher os contadores de desempenho apropriados dos VMs no seu cluster, e permitir-lhe recolher estatísticas de estivadores se estiver a implantar quaisquer contentores. Leia sobre a configuração [dos contadores de desempenho em WAD](service-fabric-diagnostics-event-aggregation-wad.md) in Service Fabric para configurar a coleção de contadores de desempenho.

@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2020
 ms.author: kumud
-ms.openlocfilehash: 54228ac0aa582d15509fbf967728364841e52453
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: d591194f09e85c3e34ed4b904249df994a14bff5
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98220580"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100558589"
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>Adicionar, alterar ou eliminar uma sub-rede de rede virtual
 
 Saiba como adicionar, alterar ou eliminar uma sub-rede de rede virtual. Todos os recursos do Azure implementados numa rede virtual são implementados numa sub-rede dentro dessa rede virtual. Se é novo em redes virtuais, pode saber mais sobre elas na [visão geral](virtual-networks-overview.md) da rede Virtual ou completando um [quickstart](quick-create-portal.md). Para saber mais sobre a gestão de uma rede virtual, consulte [Criar, alterar ou eliminar uma rede virtual.](manage-virtual-network.md)
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Se não tiver uma, crie uma conta Azure com uma subscrição ativa. [Crie uma conta gratuita.](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) Em seguida, complete uma destas tarefas antes de iniciar etapas em qualquer secção deste artigo: 
 
@@ -81,7 +81,7 @@ A conta a que insinou ou se liga ao Azure deve ser atribuída à [função de co
     | Definições | Descrição |
     | --- | --- |
     | **Intervalo de endereços** | Se não forem utilizados recursos dentro da sub-rede, pode alterar o intervalo de endereços. Se existirem recursos na sub-rede, deve mover os recursos para outra sub-rede ou eliminá-los primeiro da sub-rede. Os passos que toma para mover ou eliminar um recurso variam consoante o recurso. Para aprender a mover ou apagar recursos que estão em sub-redes, leia a documentação para cada um desses tipos de recursos. Consulte os constrangimentos para **o intervalo de endereços** no passo 4 de [Adicionar uma sub-rede](#add-a-subnet). |
-    | **Utilizadores** | Pode controlar o acesso à sub-rede utilizando funções incorporadas ou as suas próprias funções personalizadas. Para saber mais sobre a atribuição de funções e utilizadores para aceder à sub-rede, consulte [Adicionar uma atribuição de funções](../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-a-role-assignment). |
+    | **Utilizadores** | Pode controlar o acesso à sub-rede utilizando funções incorporadas ou as suas próprias funções personalizadas. Para saber mais sobre a atribuição de funções e utilizadores para aceder à sub-rede, consulte [as funções De Atribuição Azure](../role-based-access-control/role-assignments-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). |
     | **Grupo de segurança de rede** e **Tabela de rota** | Ver passo 4 de [Adicionar uma sub-rede](#add-a-subnet). |
     | **Pontos finais de serviço** | <p>Consulte os pontos finais de serviço no passo 4 de [Adicionar uma sub-rede](#add-a-subnet). Ao ativar um ponto final de serviço para uma sub-rede existente, certifique-se de que não existem tarefas críticas em qualquer recurso da sub-rede. Os pontos finais de serviço trocam as rotas em todas as interfaces de rede da sub-rede. Os pontos finais de serviço passam de utilizar a rota predefinitiva com o prefixo de endereço *0.0.0.0/0* e o próximo tipo de *internet* hop, para utilizar uma nova rota com os prefixos de endereço do serviço e um próximo tipo de lúpulo de *VirtualNetworkServiceEndpoint*.</p><p>Durante o comutador, podem ser encerradas quaisquer ligações TCP abertas. O ponto final do serviço não é ativado até que os fluxos de tráfego para o serviço para todas as interfaces de rede sejam atualizados com a nova rota. Para saber mais sobre o encaminhamento, consulte [o encaminhamento de tráfego de rede virtual](virtual-networks-udr-overview.md).</p> |
     | **Delegação de sub-rede** | Consulte os pontos finais de serviço no passo 4 de [Adicionar uma sub-rede](#add-a-subnet). A delegação da sub-rede pode ser modificada para zero ou múltiplas delegações habilitadas para o mesmo. Se um recurso para um serviço já estiver implantado na sub-rede, a delegação da sub-rede não pode ser adicionada ou removida até que todos os recursos para o serviço sejam removidos. Para delegar um serviço diferente, selecione o serviço a que pretende delegar na lista **de Serviços.** |

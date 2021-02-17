@@ -7,14 +7,14 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: rolyon
-ms.date: 02/01/2021
+ms.date: 02/15/2021
 ms.custom: generated
-ms.openlocfilehash: 72a8f2eb93a9c12510b093e29c7b8fc6867cb2eb
-ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
+ms.openlocfilehash: ba38955666b296a0f8f0e9ab0aac9183277fb4ac
+ms.sourcegitcommit: b513b0becf878eb9a1554c26da53aa48d580bb22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99809392"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100535149"
 ---
 # <a name="azure-resource-provider-operations"></a>Operações de fornecedor de recursos Azure
 
@@ -159,7 +159,6 @@ Clique no nome do fornecedor de recursos na tabela seguinte para ver a lista de 
 | **Intune** |
 | [Microsoft.Intune](#microsoftintune) |
 | **Outro** |
-| [Microsoft.BingMaps](#microsoftbingmaps) |
 | [Microsoft.DesktopVirtualization](#microsoftdesktopvirtualization) |
 | [Microsoft.DigitalTwins](#microsoftdigitaltwins) |
 | [Microsoft.ServicesHub](#microsoftserviceshub) |
@@ -199,17 +198,17 @@ Serviço Azure: núcleo
 > | Microsoft.Marketplace/privateStores/delete | Elimina a PrivateStore. |
 > | Microsoft.Marketplace/privateStores/ofertas/ação | Atualizações oferecem na PrivateStore. |
 > | Microsoft.Marketplace/privateStores/read | Lê lojas privadas. |
-> | Microsoft.Marketplace/privateStores/notificações/ler | Lê notificações de loja privada |
+> | Microsoft.Marketplace/privateStores/requestApprovals/action | Atualizar aprovações de pedidos |
+> | Microsoft.Marketplace/privateStores/adminRequestApprovals/read | Leia todos os detalhes da aprovação do pedido, apenas administradores |
+> | Microsoft.Marketplace/privateStores/adminRequestApprovals/write | Administração atualizar o pedido com decisão sobre o pedido |
 > | Microsoft.Marketplace/privateStores/offers/write | Cria oferta na PrivateStore. |
 > | Microsoft.Marketplace/privateStores/ofertas/delete | Elimina oferta da PrivateStore. |
 > | Microsoft.Marketplace/privateStores/offers/read | Lê ofertas da PrivateStore. |
-> | Microsoft.Marketplace/privateStores/offers/requestApprovals/action | Atualizar aprovações de pedidos |
-> | Microsoft.Marketplace/privateStores/offers/notifications/action | Notificação de atualização |
-> | Microsoft.Marketplace/privateStores/offers/adminRequestApprovals/action | Administração atualizar o pedido com decisão sobre o pedido |
-> | Microsoft.Marketplace/privateStores/offers/adminRequestApprovals/read | Leia todos os detalhes da aprovação do pedido, apenas administradores |
-> | Microsoft.Marketplace/privateStores/offers/requestApprovals/read | Ler aprovações de pedidos |
-> | Microsoft.Marketplace/privateStores/offers/requestApprovals/write | Criar aprovação de pedidos |
-> | Microsoft.Marketplace/privateStores/offers/requestApprovals/delete | Eliminar aprovação de pedido |
+> | Microsoft.Marketplace/privateStores/consultaNotificationsState/read | Leia as notificações detalhes do estado, apenas administradores |
+> | Microsoft.Marketplace/privateStores/requestApprovals/read | Ler aprovações de pedidos |
+> | Microsoft.Marketplace/privateStores/requestApprovals/write | Criar aprovação de pedidos |
+> | Microsoft.Marketplace/privateStores/RequestApprovals/offer/recogniseNotification/write | Reconheça uma notificação, apenas administradores |
+> | Microsoft.Marketplace/privateStores/RequestApprovals/retirPlan/write | Retirar um plano das notificações da oferta |
 
 ### <a name="microsoftmarketplaceapps"></a>Microsoft.MarketplaceApps
 
@@ -694,6 +693,19 @@ Serviço Azure: [Rede de Entrega de Conteúdos](../cdn/index.yml)
 > | Microsoft.Cdn/operationresults/profileresults/CheckResourceUsage/action |  |
 > | Microsoft.Cdn/operationresults/profileresults/GenerateSsoUri/action |  |
 > | Microsoft.Cdn/operationresults/profileresults/GetSupportedOptimingTypes/action |  |
+> | Microsoft.Cdn/operationresults/profileresults/afdendpointresults/read |  |
+> | Microsoft.Cdn/operationresults/profileresults/afdendpointresults/write |  |
+> | Microsoft.Cdn/operationresults/profileresults/afdendpointresults/delete |  |
+> | Microsoft.Cdn/operationresults/profileresults/afdendpointresults/Purga/ação |  |
+> | Microsoft.Cdn/operationresults/profileresults/afdendpointresults/Usages/action |  |
+> | Microsoft.Cdn/operationresults/profileresults/afdendpointresults/ValidateCustomDomain/action |  |
+> | Microsoft.Cdn/operationresults/profileresults/afdendpointresults/routeresults/read |  |
+> | Microsoft.Cdn/operationresults/profileresults/afdendpointresults/routeresults/write |  |
+> | Microsoft.Cdn/operationresults/profileresults/afdendpointresults/routeresults/delete |  |
+> | Microsoft.Cdn/operationresults/profileresults/customdomainresults/read |  |
+> | Microsoft.Cdn/operationresults/profileresults/customdomainresults/write |  |
+> | Microsoft.Cdn/operationresults/profileresults/customdomainresults/delete |  |
+> | Microsoft.Cdn/operationresults/profileresults/customdomainresults/RefreshValidationToken/action |  |
 > | Microsoft.Cdn/operationresults/profileresults/endpointresults/read |  |
 > | Microsoft.Cdn/operationresults/profileresults/endpointresults/write |  |
 > | Microsoft.Cdn/operationresults/profileresults/endpointresults/delete |  |
@@ -714,6 +726,27 @@ Serviço Azure: [Rede de Entrega de Conteúdos](../cdn/index.yml)
 > | Microsoft.Cdn/operationresults/profileresults/endpointresults/originresults/read |  |
 > | Microsoft.Cdn/operationresults/profileresults/endpointresults/originresults/write |  |
 > | Microsoft.Cdn/operationresults/profileresults/endpointresults/originresults/delete |  |
+> | Microsoft.Cdn/operationresults/profileresults/origingroupresults/read |  |
+> | Microsoft.Cdn/operationresults/profileresults/origingroupresults/write |  |
+> | Microsoft.Cdn/operationresults/profileresults/origingroupresults/delete |  |
+> | Microsoft.Cdn/operationresults/profileresults/origingroupresults/Usages/action |  |
+> | Microsoft.Cdn/operationresults/profileresults/origingroupresults/originresults/originresults/read |  |
+> | Microsoft.Cdn/operationresults/profileresults/origingroupresults/originresults/write |  |
+> | Microsoft.Cdn/operationresults/profileresults/origingroupresults/originresults/delete |  |
+> | Microsoft.Cdn/operationresults/profileresults/rulesetresults/read |  |
+> | Microsoft.Cdn/operationresults/profileresults/rulesetresults/write |  |
+> | Microsoft.Cdn/operationresults/profileresults/rulesetresults/delete |  |
+> | Microsoft.Cdn/operationresults/profileresults/rulesetresults/Usages/action |  |
+> | Microsoft.Cdn/operationresults/profileresults/rulesetresults/ruleresults/read |  |
+> | Microsoft.Cdn/operationresults/profileresults/rulesetresults/ruleresults/write |  |
+> | Microsoft.Cdn/operationresults/profileresults/rulesetresults/ruleresults/delete |  |
+> | Microsoft.Cdn/operationresults/profileresults/secretresults/read |  |
+> | Microsoft.Cdn/operationresults/profileresults/secretresults/write |  |
+> | Microsoft.Cdn/operationresults/profileresults/secretresults/delete |  |
+> | Microsoft.Cdn/operationresults/profileresults/secretresults/ValidateSecret/action |  |
+> | Microsoft.Cdn/operationresults/profileresults/securitypoliciesresults/read |  |
+> | Microsoft.Cdn/operationresults/profileresults/securitypoliciesresults/write |  |
+> | Microsoft.Cdn/operationresults/profileresults/securitypoliciesresults/delete |  |
 > | Microsoft.Cdn/operations/read |  |
 > | Microsoft.Cdn/perfis/ler |  |
 > | Microsoft.Cdn/perfis/escrever |  |
@@ -721,6 +754,19 @@ Serviço Azure: [Rede de Entrega de Conteúdos](../cdn/index.yml)
 > | Microsoft.Cdn/profiles/CheckResourceUsage/action |  |
 > | Microsoft.Cdn/profiles/GenerateSsoUri/action |  |
 > | Microsoft.Cdn/profiles/GetSupportedOptimingTypes/action |  |
+> | Microsoft.Cdn/profiles/afdendpoints/read |  |
+> | Microsoft.Cdn/profiles/afdendpoints/write |  |
+> | Microsoft.Cdn/profiles/afdendpoints/delete |  |
+> | Microsoft.Cdn/profiles/afdendpoints/Purga/ação |  |
+> | Microsoft.Cdn/profiles/afdendpoints/Usages/action |  |
+> | Microsoft.Cdn/profiles/afdendpoints/ValidateCustomDomain/action |  |
+> | Microsoft.Cdn/profiles/afdendpoints/routes/read |  |
+> | Microsoft.Cdn/profiles/afdendpoints/routes/write |  |
+> | Microsoft.Cdn/profiles/afdendpoints/routes/delete |  |
+> | Microsoft.Cdn/profiles/customdomains/read |  |
+> | Microsoft.Cdn/profiles/customdomains/write |  |
+> | Microsoft.Cdn/profiles/customdomains/delete |  |
+> | Microsoft.Cdn/profiles/customdomains/RefreshValidationToken/action |  |
 > | Microsoft.Cdn/profiles/endpoints/read |  |
 > | Microsoft.Cdn/profiles/endpoints/write |  |
 > | Microsoft.Cdn/profiles/endpoints/delete |  |
@@ -741,6 +787,27 @@ Serviço Azure: [Rede de Entrega de Conteúdos](../cdn/index.yml)
 > | Microsoft.Cdn/profiles/endpoints/origins/read |  |
 > | Microsoft.Cdn/profiles/endpoints/origins/write |  |
 > | Microsoft.Cdn/profiles/endpoints/origins/delete |  |
+> | Microsoft.Cdn/profiles/origingroups/read |  |
+> | Microsoft.Cdn/profiles/origingroups/write |  |
+> | Microsoft.Cdn/profiles/origingroups/delete |  |
+> | Microsoft.Cdn/profiles/origingroups/Usages/action |  |
+> | Microsoft.Cdn/profiles/origingroups/origins/read |  |
+> | Microsoft.Cdn/profiles/origingroups/origins/write |  |
+> | Microsoft.Cdn/profiles/origingroups/origins/delete |  |
+> | Microsoft.Cdn/profiles/rulesets/read |  |
+> | Microsoft.Cdn/profiles/rulesets/write |  |
+> | Microsoft.Cdn/profiles/rulesets/delete |  |
+> | Microsoft.Cdn/profiles/rulesets/Usages/action |  |
+> | Microsoft.Cdn/profiles/rulesets/rules/read |  |
+> | Microsoft.Cdn/profiles/rulesets/rules/write |  |
+> | Microsoft.Cdn/profiles/rulesets/rules/delete |  |
+> | Microsoft.Cdn/perfis/segredos/ler |  |
+> | Microsoft.Cdn/profiles/secrets/write |  |
+> | Microsoft.Cdn/profiles/secrets/delete |  |
+> | Microsoft.Cdn/profiles/secrets/ValidateSecret/action |  |
+> | Microsoft.Cdn/profiles/securitypolicies/read |  |
+> | Microsoft.Cdn/profiles/securitypolicies/write |  |
+> | Microsoft.Cdn/profiles/securitypolicies/delete |  |
 
 ### <a name="microsoftclassicnetwork"></a>Microsoft.ClassicNetwork
 
@@ -1548,6 +1615,9 @@ Serviço Azure: [Ficheiros Azure NetApp](../azure-netapp-files/index.yml)
 > | Microsoft.NetApp/netAppAccounts/snapshotPolicies/Volumes/ação | Listar volumes ligados à política de instantâneos |
 > | Microsoft.NetApp/netAppAccounts/snapshotPolicies/ListVolumes/ação | Listar volumes ligados à política de instantâneos |
 > | Microsoft.NetApp/netAppAccounts/vaults/read | Lê um recurso de cofre. |
+> | Microsoft.NetApp/netAppAccounts/volumeGroups/read | Lê um recurso de grupo de volume. |
+> | Microsoft.NetApp/netAppAccounts/volumeGroups/write | Escreve um recurso de grupo de volume. |
+> | Microsoft.NetApp/netAppAccounts/volumeGroups/delete | Elimina um recurso de grupo de volume. |
 > | Microsoft.NetApp/Operations/read | Lê os recursos de operação. |
 
 ### <a name="microsoftstorage"></a>Microsoft.Storage
@@ -2116,6 +2186,10 @@ Serviço Azure: [Media Services](../media-services/index.yml)
 > | Microsoft.Media/mediaservices/transforms/jobs/delete | Apagar qualquer trabalho |
 > | Microsoft.Media/mediaservices/transforms/jobs/cancelJob/action | Cancelar Emprego |
 > | Microsoft.Media/operations/read | Obter Operações disponíveis |
+> | Microsoft.Media/videoAnalyzers/ler | Leia uma Conta de Analisador de Vídeo |
+> | Microsoft.Media/videoAnalyzers/write | Escreva uma conta de analisador de vídeo |
+> | Microsoft.Media/videoAnalyzers/delete | Excluir uma conta de analisador de vídeo |
+> | Microsoft.Media/videoAnalyzers/syncStorageKeys/ação | Sincronia as chaves de armazenamento de uma conta de armazenamento anexada |
 
 ### <a name="microsoftsearch"></a>Microsoft.Search
 
@@ -3352,6 +3426,7 @@ Serviço Azure: [Data Factory](../data-factory/index.yml)
 > | Microsoft.DataFactory/fábricas/privateEndpointConnectionProxies/valide/action | Valide um Proxy de ligação de ponto final privado. |
 > | Microsoft.DataFactory/fábricas/privateEndpointConnectionProxies/operationresults/read | Leia os resultados da criação de um Proxy de Ligação de Pontos Finais Privados. |
 > | Microsoft.DataFactory/fábricas/privateEndpointConnectionProxies/operationstatuses/read | Leia o estado de criação de um Proxy de Ligação de Pontos De Terminais Privados. |
+> | Microsoft.DataFactory/fábricas/queryFeaturesValue/read | Lê valores de características de controlo de exposição para uma lista de funcionalidades. |
 > | Microsoft.DataFactory/fábricas/consultaspipelineruns/read | Lê o resultado do pipeline de consulta. |
 > | Microsoft.DataFactory/fábricas/querytriggerruns/read | Lê o resultado do trigger runs. |
 > | Microsoft.DataFactory/fábricas/sandboxpipelineruns/read | Obtém a informação de depurg para o Pipeline. |
@@ -3984,6 +4059,8 @@ Serviço Azure: [Azure SQL Database](../azure-sql/database/index.yml), [Azure SQ
 > | Microsoft.Sql/locations/longTermRetentionManagedInstances/longTermRetentionDatabases/longTermRetentionDatabases/longTermRetentionManagedInstanceBackups/deletes/deletes | Elimina uma cópia de segurança LTR para uma base de dados de casos geridos |
 > | Microsoft.Sql/locations/longTermRetentionManagedInstances/longTermRetentionManagedInstanceBackups/read | Devolve uma lista de cópias de segurança LTR de instância gerida para uma instância gerida específica |
 > | Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionBackups/read | Lista as cópias de segurança de retenção a longo prazo para cada base de dados de um servidor |
+> | Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/copy/action | Copie uma cópia de retenção de longo prazo |
+> | Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/update/action | Atualizar uma cópia de segurança de retenção a longo prazo |
 > | Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/read | Lista as cópias de segurança de retenção a longo prazo para uma base de dados |
 > | Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/delete | Elimina uma cópia de segurança de retenção a longo prazo |
 > | Microsoft.Sql/locations/managedDatabaseRestoreAzureAsyncOperation/completeRestore/action | Conclui operação de restauro de base de dados gerida |
@@ -4143,6 +4220,8 @@ Serviço Azure: [Azure SQL Database](../azure-sql/database/index.yml), [Azure SQ
 > | Microsoft.Sql/servidores/communicationLinks/read | Devolva a lista de links de comunicação de um servidor especificado. |
 > | Microsoft.Sql/servidores/communicationLinks/write | Criar ou atualizar uma ligação de comunicação do servidor. |
 > | Microsoft.Sql/servidores/communicationLinks/delete | Elimina uma ligação de comunicação do servidor existente. |
+> | Microsoft.Sql/servidores/conexãoPolicies/read | Devolva a lista das políticas de ligação do servidor de um servidor especificado. |
+> | Microsoft.Sql/servidores/conexãoPolicies/write | Criar ou atualizar uma política de ligação do servidor. |
 > | Microsoft.Sql/servidores/bases de dados/leitura | Devolva a lista de bases de dados ou obtenha as propriedades para a base de dados especificada. |
 > | Microsoft.Sql/servidores/bases de dados/escrever | Cria uma base de dados com os parâmetros especificados ou atualiza as propriedades ou tags para a base de dados especificada. |
 > | Microsoft.Sql/servidores/bases de dados/eliminar | Elimina uma base de dados existente. |
@@ -4207,7 +4286,6 @@ Serviço Azure: [Azure SQL Database](../azure-sql/database/index.yml), [Azure SQ
 > | Microsoft.Sql/servidores/bases de dados/recomendadoSensitivityLabels/read | Listar rótulos de sensibilidade de uma determinada base de dados |
 > | Microsoft.Sql/servidores/bases de dados/recomendadoSensibilidadeLabels/escrita | Etiquetas de sensibilidade recomendadas para atualização de lote |
 > | Microsoft.Sql/servidores/bases de dados/replicationLinks/read | Devolva a lista de links de replicação ou obtenha as propriedades para as ligações de replicação especificadas. |
-> | Microsoft.Sql/servidores/bases de dados/replicationLinks/delete | Terminar a relação de replicação com força e com potencial perda de dados |
 > | Microsoft.Sql/servidores/bases de dados/replicationLinks/failover/action | Falha após sincronizar todas as alterações a partir do primário, tornando esta base de dados na relação de replicação\u0027s primária e tornando o primário remoto em um secundário |
 > | Microsoft.Sql/servidores/bases de dados/replicationLinks/forceFailoverAllowDataLoss/ação | Falha imediatamente com potencial perda de dados, tornando esta base de dados na relação de replicação\u0027s primária e tornando o primário remoto em um secundário |
 > | Microsoft.Sql/servidores/bases de dados/replicationLinks/updateReplicationMode/ação | Atualizar o modo de replicação para ligação ao modo sincronizado ou assíncronos |
@@ -4706,6 +4784,9 @@ Serviço Azure: [Power BI Incorporado](/azure/power-bi-embedded/)
 > | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.PowerBIDedicated/register/action | Registra fornecedor de recursos dedicados Power BI. |
+> | Microsoft.PowerBIDedicated/autoScaleVCores/read | Recupera as informações do power bi auto scale V-Core específico. |
+> | Microsoft.PowerBIDedicated/autoScaleVCores/write | Cria ou atualiza o Power BI Auto Scale V-Core especificado. |
+> | Microsoft.PowerBIDedicated/autoScaleVCores/delete | Elimina o Power BI Auto Scale V-Core. |
 > | Microsoft.PowerBIDedicated/capacities/read | Recupera a informação da capacidade de POWER BI especificada. |
 > | Microsoft.PowerBIDedicated/capacities/write | Cria ou atualiza a capacidade de Power BI especificada. |
 > | Microsoft.PowerBIDedicated/capacities/delete | Elimina a capacidade power bi. |
@@ -4796,7 +4877,7 @@ Serviço Azure: [Stream Analytics](../stream-analytics/index.yml)
 
 ### <a name="microsoftsynapse"></a>Microsoft.Synapse
 
-Serviço Azure: [Synapse Analytics](../synapse-analytics/index.yml)
+Serviço Azure: [Azure Synapse Analytics](../synapse-analytics/index.yml)
 
 > [!div class="mx-tableFixed"]
 > | Ação | Descrição |
@@ -4804,6 +4885,36 @@ Serviço Azure: [Synapse Analytics](../synapse-analytics/index.yml)
 > | Microsoft.Synapse/checkNameAvailability/action | Verifica a disponibilidade do nome workspace. |
 > | Microsoft.Synapse/register/action | Regista o Azure Synapse Analytics (Provedor de Recursos) e permite a criação de espaços de trabalho. |
 > | Microsoft.Synapse/unregister/action | Desregista o Azure Synapse Analytics (workspaces) Resource Provider e desativa a criação de espaços de trabalho. |
+> | Microsoft.Synapse/locations/operationResults/read | Leia qualquer resultado de operação Async. |
+> | Microsoft.Synapse/locations/operationStatuses/read | Leia qualquer estado de operação assínc. |
+> | Microsoft.Synapse/operations/read | Leia as operações disponíveis do Fornecedor de Recursos Azure Synapse Analytics. |
+> | Microsoft.Synapse/privateLinkHubs/write | Crie quaisquer PrivateLinkHubs. |
+> | Microsoft.Synapse/privateLinkHubs/read | Leia qualquer PrivateLinkHubs. |
+> | Microsoft.Synapse/privateLinkHubs/delete | Apague o PrivateLinkHubs. |
+> | Microsoft.Synapse/privateLinkHubs/privateEndpointConnections/write | Criar ou atualizar a ligação de ponto final privado para privateLinkHub |
+> | Microsoft.Synapse/privateLinkHubs/privateEndpointConnections/read | Leia qualquer ligação de ponto final privado para PrivateLinkHub |
+> | Microsoft.Synapse/privateLinkHubs/privateEndpointConnections/delete | Eliminar ligação de ponto final privado para privateLinkHub |
+> | Microsoft.Synapse/privateLinkHubs/privateLinkResources/read | Obtenha uma lista de Recursos de Ligação Privada |
+> | Microsoft.Synapse/resourceGroups/operationStatuses/read | Leia qualquer estado de operação assínc. |
+> | Microsoft.Synapse/workspaces/replaceAllIpFirewallRules/action | Substitui todas as regras de Firewall Ip para o espaço de trabalho. |
+> | Microsoft.Synapse/workspaces/write | Criar ou Atualizar quaisquer espaços de trabalho. |
+> | Microsoft.Synapse/workspaces/read | Leia quaisquer espaços de trabalho. |
+> | Microsoft.Synapse/workspaces/delete | Elimine quaisquer espaços de trabalho. |
+> | Microsoft.Synapse/workspaces/checkDefaultStorageAccountStatus/action | Verifica o estado da conta de armazenamento predefinido. |
+> | Microsoft.Synapse/workspaces/administradores/write | Definir administrador de diretório ativo no espaço de trabalho |
+> | Microsoft.Synapse/workspaces/administradores/read | Obtenha administrador de diretório ativo do espaço de trabalho |
+> | Microsoft.Synapse/workspaces/administradores/delete | Eliminar administrador de diretório ativo do espaço de trabalho |
+> | Microsoft.Synapse/workspaces/auditingSettings/write | Criar ou atualizar as definições de auditoria do servidor SQL. |
+> | Microsoft.Synapse/workspaces/auditingSettings/read | Leia as definições de auditoria do servidor SQL predefinido. |
+> | Microsoft.Synapse/workspaces/auditingSettings/operationResults/read | Definições de auditoria de servidor sql |
+> | Microsoft.Synapse/workspaces/bigDataPools/write | Criar ou atualizar quaisquer piscinas Spark. |
+> | Microsoft.Synapse/workspaces/bigDataPools/read | Leia as piscinas de Faíscas. |
+> | Microsoft.Synapse/workspaces/bigDataPools/delete | Apague todas as piscinas Spark. |
+> | Microsoft.Synapse/workspaces/extendedAuditingSettings/write | Criar ou atualizar as definições de auditoria alargada do servidor SQL. |
+> | Microsoft.Synapse/workspaces/extendedAuditingSettings/read | Leia as definições de auditoria estendidas do servidor SQL predefinido. |
+> | Microsoft.Synapse/workspaces/firewallRules/write | Criar ou atualizar qualquer Regra de Firewall IP. |
+> | Microsoft.Synapse/workspaces/firewallRules/read | Ler regra de firewall ip |
+> | Microsoft.Synapse/workspaces/firewallRules/delete | Elimine qualquer regra de firewall IP. |
 > | Microsoft.Synapse/workspaces/integrationRuntimes/read | Obtenha qualquer tempo de integração. |
 > | Microsoft.Synapse/workspaces/integrationruntimes/write | Criar ou atualizar quaisquer tempos de execução de integração. |
 > | Microsoft.Synapse/workspaces/integrationRuntimes/delete | Eliminar qualquer tempo de execução de integração |
@@ -4823,24 +4934,32 @@ Serviço Azure: [Synapse Analytics](../synapse-analytics/index.yml)
 > | Microsoft.Synapse/workspaces/integrationRuntimes/disableInteractiveQuery/action | Desativar consulta interativa em qualquer tempo de execução de integração |
 > | Microsoft.Synapse/workspaces/integrationRuntimes/refreshObjectMetadata/action | Atualizar metadados de objeto em qualquer tempo de execução de intergração |
 > | Microsoft.Synapse/workspaces/integrationRuntimes/getObjectMetadata/action | Obtenha metadados de objeto em qualquer tempo de execução de intergração |
-> | Microsoft.Synapse/workspaces/managedIdentitySqlControlSettings/write | Atualizar Definições de controlo SQL de identidade gerida no espaço de trabalho |
-> | Microsoft.Synapse/workspaces/managedIdentitySqlControlSettings/read | Obtenha definições de controlo SQL de identidade gerida |
-> | Microsoft.Synapse/workspaces/scopePools/write | Criar ou atualizar quaisquer piscinas de Âmbito. |
-> | Microsoft.Synapse/workspaces/scopePools/read | Leia todas as piscinas scope. |
-> | Microsoft.Synapse/workspaces/scopePools/delete | Elimine quaisquer piscinas Scope. |
-> | Microsoft.Synapse/operations/read | Leia as operações disponíveis do Fornecedor de Recursos Azure Synapse Analytics. |
 > | Microsoft.Synapse/workspaces/integrationRuntimes/nodes/read | Obtenha qualquer nó de tempo de execução de integração. |
 > | Microsoft.Synapse/workspaces/integrationRuntimes/nodes/delete | Elimine qualquer nó de tempo de execução de integração. |
 > | Microsoft.Synapse/workspaces/integrationRuntimes/nosdes/write | Reme a qualquer nó de tempo de execução de integração. |
 > | Microsoft.Synapse/workspaces/integrationRuntimes/nodes/ipAddress/action | Obter endereço ip de tempo de integração |
-> | Microsoft.Synapse/workspaces/firewallRules/write | Criar ou atualizar qualquer Regra de Firewall IP. |
-> | Microsoft.Synapse/workspaces/firewallRules/read | Ler regra de firewall ip |
-> | Microsoft.Synapse/workspaces/firewallRules/delete | Elimine qualquer regra de firewall IP. |
-> | Microsoft.Synapse/workspaces/replaceAllIpFirewallRules/action | Substitui todas as regras de Firewall Ip para o espaço de trabalho. |
-> | Microsoft.Synapse/workspaces/write | Criar ou Atualizar quaisquer espaços de trabalho. |
-> | Microsoft.Synapse/workspaces/read | Leia quaisquer espaços de trabalho. |
-> | Microsoft.Synapse/workspaces/delete | Elimine quaisquer espaços de trabalho. |
-> | Microsoft.Synapse/workspaces/checkDefaultStorageAccountStatus/action | Verifica o estado da conta de armazenamento predefinido. |
+> | Microsoft.Synapse/workspaces/keys/write | Criar ou atualizar chaves do espaço de trabalho |
+> | Microsoft.Synapse/workspaces/keys/read | Leia qualquer definição de chave do espaço de trabalho. |
+> | Microsoft.Synapse/workspaces/keys/delete | Elimine qualquer chave de espaço de trabalho. |
+> | Microsoft.Synapse/workspaces/bibliotecas/ler | Ler artefactos da biblioteca |
+> | Microsoft.Synapse/workspaces/managedIdentitySqlControlSettings/write | Atualizar Definições de controlo SQL de identidade gerida no espaço de trabalho |
+> | Microsoft.Synapse/workspaces/managedIdentitySqlControlSettings/read | Obtenha definições de controlo SQL de identidade gerida |
+> | Microsoft.Synapse/workspaces/operationResults/read | Leia qualquer resultado de operação Async. |
+> | Microsoft.Synapse/workspaces/operationStatuses/read | Leia qualquer estado de operação assínc. |
+> | Microsoft.Synapse/workspaces/privateEndpointConnections/write | Criar ou atualizar a ligação de pontos de final privados |
+> | Microsoft.Synapse/workspaces/privateEndpointConnections/read | Leia qualquer ligação de ponto final privado |
+> | Microsoft.Synapse/workspaces/privateEndpointConnections/delete | Eliminar ligação de ponto final privado |
+> | Microsoft.Synapse/workspaces/privateLinkResources/read | Obtenha uma lista de Recursos de Ligação Privada |
+> | Microsoft.Synapse/workspaces/recoverableSqlpools/read | Obtém piscinas de análise SQL recuperáveis, que são os recursos que representam geo backups de SQL Analytics Pools |
+> | Microsoft.Synapse/workspaces/restorableDroppedSqlPools/read | Obtém uma piscina sql apagada que pode ser restaurada |
+> | Microsoft.Synapse/workspaces/scopePools/write | Criar ou atualizar quaisquer piscinas de Âmbito. |
+> | Microsoft.Synapse/workspaces/scopePools/read | Leia todas as piscinas scope. |
+> | Microsoft.Synapse/workspaces/scopePools/delete | Elimine quaisquer piscinas Scope. |
+> | Microsoft.Synapse/workspaces/securityAlertPolicies/write | Criar ou atualizar políticas de alerta de segurança do servidor SQL. |
+> | Microsoft.Synapse/workspaces/securityAlertPolicies/read | Leia as políticas de alerta de segurança do servidor SQL predefinidas. |
+> | Microsoft.Synapse/workspaces/sqlAdministrators/write | Definir administrador de diretório ativo no espaço de trabalho |
+> | Microsoft.Synapse/workspaces/sqlAdministrators/read | Obtenha administrador de diretório ativo do espaço de trabalho |
+> | Microsoft.Synapse/workspaces/sqlAdministrators/delete | Eliminar administrador de diretório ativo do espaço de trabalho |
 > | Microsoft.Synapse/workspaces/sqlPools/write | Criar ou atualizar quaisquer piscinas SQL Analytics. |
 > | Microsoft.Synapse/workspaces/sqlPools/read | Leia as piscinas SQL Analytics. |
 > | Microsoft.Synapse/workspaces/sqlPools/delete | Elimine quaisquer piscinas SQL Analytics. |
@@ -4848,114 +4967,76 @@ Serviço Azure: [Synapse Analytics](../synapse-analytics/index.yml)
 > | Microsoft.Synapse/workspaces/sqlPools/currículo/ação | Retomar quaisquer piscinas SQL Analytics. |
 > | Microsoft.Synapse/workspaces/sqlPools/restorePoints/action | Crie uma piscina SQL Analytics Restore Point. |
 > | Microsoft.Synapse/workspaces/sqlPools/move/action | Mude o nome de quaisquer piscinas SQL Analytics. |
-> | Microsoft.Synapse/workspaces/sqlPools/dataWarehouseQueries/read | Leia qualquer dúvida sobre piscinas SQL Analytics. |
-> | Microsoft.Synapse/workspaces/sqlPools/geoBackupPolicies/read | Leia qualquer m2 Analytics pool Geo Backup Policies. |
-> | Microsoft.Synapse/workspaces/sqlPools/dataWarehouseUserActividades/ler | Leia qualquer piscina SQL Analytics Atividades do utilizador. |
-> | Microsoft.Synapse/workspaces/sqlPools/restorePoints/read | Leia qualquer piscina SQL Analytics Restore Points. |
-> | Microsoft.Synapse/workspaces/sqlPools/restorePoints/delete | Elimina um ponto de restauro. |
-> | Microsoft.Synapse/workspaces/sqlPools/dataWarehouseQueries/dataWarehouseQuerySteps/read | Leia qualquer sql Analytics que questione passos. |
-> | Microsoft.Synapse/workspaces/sqlPools/maintenanceWindows/read | Leia qualquer janela de manutenção da piscina SQL Analytics. |
-> | Microsoft.Synapse/workspaces/sqlPools/maintenanceWindows/write | Leia qualquer janela de manutenção da piscina SQL Analytics. |
-> | Microsoft.Synapse/workspaces/sqlPools/maintenanceWindowOptions/read | Leia as opções da janela de manutenção da piscina SQL Analytics. |
-> | Microsoft.Synapse/workspaces/sqlPools/replicationLinks/read | Leia quaisquer links de replicação da piscina SQL Analytics. |
-> | Microsoft.Synapse/workspaces/sqlPools/transparentDataEncryption/read | Leia qualquer conjunto DE ANÁLISE SQL Configuração de encriptação de dados transparente. |
-> | Microsoft.Synapse/workspaces/sqlPools/transparentDataEncryption/write | Criar ou atualizar qualquer sql Analytics pool Configuração de encriptação de dados transparente. |
-> | Microsoft.Synapse/workspaces/sqlPools/transparentDataEncryption/operationResults/read | Leia qualquer grupo DE SQL Analytics Resultados de configuração de configuração de encriptação de dados transparentes. |
 > | Microsoft.Synapse/workspaces/sqlPools/auditingSettings/read | Leia as definições de auditoria de qualquer piscina SQL Analytics. |
 > | Microsoft.Synapse/workspaces/sqlPools/auditingSettings/write | Criar ou atualizar quaisquer Definições de Auditoria de Piscinas SQL Analytics. |
-> | Microsoft.Synapse/workspaces/sqlPools/operations/read | Leia qualquer piscina SQL Analytics Operations. |
-> | Microsoft.Synapse/workspaces/sqlPools/usages/read | Leia qualquer piscina SQL Analytics Uses. |
+> | Microsoft.Synapse/workspaces/sqlPools/auditRecords/read | Obtenha registos de auditoria de blob de piscina sql |
+> | Microsoft.Synapse/workspaces/sqlPools/columns/read | Devolva uma lista de colunas para uma piscina SQL Analytics |
+> | Microsoft.Synapse/workspaces/sqlPools/connectionPolicies/read | Leia as políticas de conexão do pool SQL Analytics. |
 > | Microsoft.Synapse/workspaces/sqlPools/currentSensitivityLabels/read | Leia qualquer piscina SQL Analytics Etiquetas de sensibilidade corrente. |
 > | Microsoft.Synapse/workspaces/sqlPools/currentSensitivityLabels/write | Etiquetas de sensibilidade de corrente de atualização de lote |
+> | Microsoft.Synapse/workspaces/sqlPools/dataMaskingPolicies/read | Devolva a lista de políticas de mascaramento de dados do pool SQL Analytics. |
+> | Microsoft.Synapse/workspaces/sqlPools/dataMaskingPolicies/write | Cria ou atualiza uma política de mascaramento de dados do pool SQL Analytics |
+> | Microsoft.Synapse/workspaces/sqlPools/dataMaskingPolicies/rules/read | Obtém uma lista das regras de mascaramento de dados do pool SQL Analytics. |
+> | Microsoft.Synapse/workspaces/sqlPools/dataMaskingPolicies/rules/write | Cria ou atualiza uma regra de mascaramento de dados do pool SQL Analytics. |
+> | Microsoft.Synapse/workspaces/sqlPools/dataWarehouseQueries/read | Leia qualquer dúvida sobre piscinas SQL Analytics. |
+> | Microsoft.Synapse/workspaces/sqlPools/dataWarehouseQueries/dataWarehouseQuerySteps/read | Leia qualquer sql Analytics que questione passos. |
+> | Microsoft.Synapse/workspaces/sqlPools/dataWarehouseQueries/Steps/read | Leia qualquer sql Analytics que questione passos. |
+> | Microsoft.Synapse/workspaces/sqlPools/dataWarehouseUserActividades/ler | Leia qualquer piscina SQL Analytics Atividades do utilizador. |
+> | Microsoft.Synapse/workspaces/sqlPools/extendedAuditingSettings/read | Leia qualquer piscina SQL Analytics Definições de Auditoria Alargadas. |
+> | Microsoft.Synapse/workspaces/sqlPools/extendedAuditingSettings/write | Criar ou atualizar qualquer piscina SQL Analytics Definições de Auditoria Alargadas. |
+> | Microsoft.Synapse/workspaces/sqlPools/extensions/read | Obtenha extensão da Piscina DE Análise SQL |
+> | Microsoft.Synapse/workspaces/sqlPools/extensions/write | Alterar a extensão para um dado SQL Analytics Pool |
+> | Microsoft.Synapse/workspaces/sqlPools/geoBackupPolicies/read | Leia qualquer m2 Analytics pool Geo Backup Policies. |
+> | Microsoft.Synapse/workspaces/sqlPools/maintenanceWindowOptions/read | Leia as opções da janela de manutenção da piscina SQL Analytics. |
+> | Microsoft.Synapse/workspaces/sqlPools/maintenanceWindows/read | Leia qualquer janela de manutenção da piscina SQL Analytics. |
+> | Microsoft.Synapse/workspaces/sqlPools/maintenanceWindows/write | Leia qualquer janela de manutenção da piscina SQL Analytics. |
+> | Microsoft.Synapse/workspaces/sqlPools/metadadosSync/write | Criar ou atualizar SQL Analytics pool Metadata Sync Config |
+> | Microsoft.Synapse/workspaces/sqlPools/metadadosSync/read | Leia o pool SQL Analytics Metadata Sync Config |
+> | Microsoft.Synapse/workspaces/sqlPools/operationResults/read | Leia qualquer resultado de operação Async. |
+> | Microsoft.Synapse/workspaces/sqlPools/operations/read | Leia qualquer piscina SQL Analytics Operations. |
+> | Microsoft.Synapse/workspaces/sqlPools/operationStatuses/read | Leia qualquer resultado de operação Async. |
 > | Microsoft.Synapse/workspaces/sqlPools/recommendedSensitivityLabels/read | Leia qualquer piscina SQL Analytics Rótulos de sensibilidade recomendados. |
 > | Microsoft.Synapse/workspaces/sqlPools/recommendedSensitivityLabels/write | Etiquetas de sensibilidade recomendadas para atualização de lote |
+> | Microsoft.Synapse/workspaces/sqlPools/replicationLinks/read | Leia quaisquer links de replicação da piscina SQL Analytics. |
+> | Microsoft.Synapse/workspaces/sqlPools/restorePoints/read | Leia qualquer piscina SQL Analytics Restore Points. |
+> | Microsoft.Synapse/workspaces/sqlPools/restorePoints/delete | Elimina um ponto de restauro. |
 > | Microsoft.Synapse/workspaces/sqlPools/schemas/read | Leia qualquer schemas de piscina SQL Analytics. |
 > | Microsoft.Synapse/workspaces/sqlPools/schemas/tables/read | Leia qualquer mesa de schema da piscina SQL Analytics. |
 > | Microsoft.Synapse/workspaces/sqlPools/schemas/tables/columns/read | Leia qualquer piscina SQL Analytics Schema Table Columns. |
-> | Microsoft.Synapse/workspaces/sqlPools/connectionPolicies/read | Leia as políticas de conexão do pool SQL Analytics. |
-> | Microsoft.Synapse/workspaces/sqlPools/vulnerabilidadeAssessments/read | Leia qualquer avaliação de vulnerabilidade da piscina SQL Analytics. |
-> | Microsoft.Synapse/workspaces/sqlPools/vulnerabilidadeAssessments/write | Cria ou atualiza a avaliação da vulnerabilidade da piscina Sql |
-> | Microsoft.Synapse/workspaces/sqlPools/vulnerabilidadeAssessments/delete | Elimine qualquer avaliação de vulnerabilidade da piscina SQL Analytics. |
-> | Microsoft.Synapse/workspaces/sqlPools/vulnerabilidadeAssessments/scans/read | Leia qualquer sql Analytics Vulnerabilit Assessment Scan Records. |
-> | Microsoft.Synapse/workspaces/sqlPools/vulnerabilidadeAssessments/scans/initiateScan/action | Inicie qualquer sql Analytics Vulnerabilit Assessment Scan Records. |
-> | Microsoft.Synapse/workspaces/sqlPools/vulnerabilidadeAssessments/scans/export/action | Exporte qualquer sql Analytics Vulnerabilit Assessment Scan Records. |
-> | Microsoft.Synapse/workspaces/sqlPools/securityAlertPolicies/read | Leia todas as políticas de deteção de ameaças da piscina Sql Analytics. |
-> | Microsoft.Synapse/workspaces/sqlPools/securityAlertPolicies/write | Criar ou atualizar quaisquer políticas de deteção de ameaças de piscina SQL Analytics. |
 > | Microsoft.Synapse/workspaces/sqlPools/schemas/tables/columns/sensibilidadeLabels/read | Obtém o rótulo de sensibilidade de uma determinada coluna. |
 > | Microsoft.Synapse/workspaces/sqlPools/schemas/tabelas/colunas/sensibilidadeLabels/enable/action | Ativar quaisquer etiquetas de sensibilidade ao pool SQL Analytics. |
 > | Microsoft.Synapse/workspaces/sqlPools/schemas/tabelas/colunas/sensibilidadeLabels/disable/action | Desative quaisquer etiquetas de sensibilidade à piscina SQL Analytics. |
 > | Microsoft.Synapse/workspaces/sqlPools/schemas/tables/columns/sensibilidadeLabels/write | Criar ou atualizar quaisquer etiquetas de sensibilidade ao pool SQL Analytics. |
 > | Microsoft.Synapse/workspaces/sqlPools/schemas/tabelas/colunas/sensibilidadeLabels/delete | Elimine quaisquer etiquetas de sensibilidade ao pool SQL Analytics. |
+> | Microsoft.Synapse/workspaces/sqlPools/securityAlertPolicies/read | Leia todas as políticas de deteção de ameaças da piscina Sql Analytics. |
+> | Microsoft.Synapse/workspaces/sqlPools/securityAlertPolicies/write | Criar ou atualizar quaisquer políticas de deteção de ameaças de piscina SQL Analytics. |
+> | Microsoft.Synapse/workspaces/sqlPools/sensibilidadeLabels/read | Obtém o rótulo de sensibilidade de uma determinada coluna. |
+> | Microsoft.Synapse/workspaces/sqlPools/transparentDataEncryption/read | Leia qualquer conjunto DE ANÁLISE SQL Configuração de encriptação de dados transparente. |
+> | Microsoft.Synapse/workspaces/sqlPools/transparentDataEncryption/write | Criar ou atualizar qualquer sql Analytics pool Configuração de encriptação de dados transparente. |
+> | Microsoft.Synapse/workspaces/sqlPools/transparentDataEncryption/operationResults/read | Leia qualquer grupo DE SQL Analytics Resultados de configuração de configuração de encriptação de dados transparentes. |
+> | Microsoft.Synapse/workspaces/sqlPools/usages/read | Leia qualquer piscina SQL Analytics Uses. |
+> | Microsoft.Synapse/workspaces/sqlPools/vulnerabilidadeAssessments/read | Leia qualquer avaliação de vulnerabilidade da piscina SQL Analytics. |
+> | Microsoft.Synapse/workspaces/sqlPools/vulnerabilidadeAssessments/write | Cria ou atualiza a avaliação da vulnerabilidade da piscina Sql |
+> | Microsoft.Synapse/workspaces/sqlPools/vulnerabilidadeAssessments/delete | Elimine qualquer avaliação de vulnerabilidade da piscina SQL Analytics. |
 > | Microsoft.Synapse/workspaces/sqlPools/vulnerabilidadeAssessments/rules/baselines/read | Obtenha uma linha de base de avaliação de vulnerabilidade de piscina SQL Analytics. |
 > | Microsoft.Synapse/workspaces/sqlPools/vulnerabilidadeAssessments/rules/baselines/write | Criar ou atualizar qualquer base de base de avaliação de vulnerabilidade de piscina SQL Analytics. |
 > | Microsoft.Synapse/workspaces/sqlPools/vulnerabilidadeAssessments/rules/baselines/delete | Elimine qualquer base de base de avaliação da vulnerabilidade da piscina SQL Analytics. |
-> | Microsoft.Synapse/workspaces/operationStatuses/read | Leia qualquer estado de operação assínc. |
-> | Microsoft.Synapse/workspaces/operationResults/read | Leia qualquer resultado de operação Async. |
-> | Microsoft.Synapse/workspaces/sqlPools/operationResults/read | Leia qualquer resultado de operação Async. |
-> | Microsoft.Synapse/workspaces/bigDataPools/write | Criar ou atualizar quaisquer piscinas Spark. |
-> | Microsoft.Synapse/workspaces/bigDataPools/read | Leia as piscinas de Faíscas. |
-> | Microsoft.Synapse/workspaces/bigDataPools/delete | Apague todas as piscinas Spark. |
-> | Microsoft.Synapse/workspaces/sqlPools/metadadosSync/write | Criar ou atualizar SQL Analytics pool Metadata Sync Config |
-> | Microsoft.Synapse/workspaces/sqlPools/metadadosSync/read | Leia o pool SQL Analytics Metadata Sync Config |
-> | Microsoft.Synapse/workspaces/recoverableSqlpools/read | Obtém piscinas de análise SQL recuperáveis, que são os recursos que representam geo backups de SQL Analytics Pools |
-> | Microsoft.Synapse/workspaces/administradores/write | Definir administrador de diretório ativo no espaço de trabalho |
-> | Microsoft.Synapse/workspaces/administradores/read | Obtenha administrador de diretório ativo do espaço de trabalho |
-> | Microsoft.Synapse/workspaces/administradores/delete | Eliminar administrador de diretório ativo do espaço de trabalho |
-> | Microsoft.Synapse/workspaces/privateEndpointConnections/write | Criar ou atualizar a ligação de pontos de final privados |
-> | Microsoft.Synapse/workspaces/privateEndpointConnections/read | Leia qualquer ligação de ponto final privado |
-> | Microsoft.Synapse/workspaces/privateEndpointConnections/delete | Eliminar ligação de ponto final privado |
-> | Microsoft.Synapse/workspaces/privateLinkResources/read | Obtenha uma lista de Recursos de Ligação Privada |
-> | Microsoft.Synapse/workspaces/sqlPools/extensions/read | Obtenha extensão da Piscina DE Análise SQL |
-> | Microsoft.Synapse/workspaces/sqlPools/extensions/write | Alterar a extensão para um dado SQL Analytics Pool |
-> | Microsoft.Synapse/privateLinkHubs/write | Crie quaisquer PrivateLinkHubs. |
-> | Microsoft.Synapse/privateLinkHubs/read | Leia qualquer PrivateLinkHubs. |
-> | Microsoft.Synapse/privateLinkHubs/delete | Apague o PrivateLinkHubs. |
-> | Microsoft.Synapse/locations/operationStatuses/read | Leia qualquer estado de operação assínc. |
-> | Microsoft.Synapse/locations/operationResults/read | Leia qualquer resultado de operação Async. |
-> | Microsoft.Synapse/privateLinkHubs/privateLinkResources/read | Obtenha uma lista de Recursos de Ligação Privada |
-> | Microsoft.Synapse/privateLinkHubs/privateEndpointConnections/write | Criar ou atualizar a ligação de ponto final privado para privateLinkHub |
-> | Microsoft.Synapse/privateLinkHubs/privateEndpointConnections/read | Leia qualquer ligação de ponto final privado para PrivateLinkHub |
-> | Microsoft.Synapse/privateLinkHubs/privateEndpointConnections/delete | Eliminar ligação de ponto final privado para privateLinkHub |
-> | Microsoft.Synapse/workspaces/sqlPools/operationStatuses/read | Leia qualquer resultado de operação Async. |
-> | Microsoft.Synapse/workspaces/keys/write | Criar ou atualizar chaves do espaço de trabalho |
-> | Microsoft.Synapse/workspaces/keys/read | Leia qualquer definição de chave do espaço de trabalho. |
-> | Microsoft.Synapse/workspaces/keys/delete | Elimine qualquer chave de espaço de trabalho. |
-> | Microsoft.Synapse/workspaces/bibliotecas/ler | Ler artefactos da biblioteca |
+> | Microsoft.Synapse/workspaces/sqlPools/vulnerabilidadeAssessments/scans/read | Leia qualquer sql Analytics Vulnerabilit Assessment Scan Records. |
+> | Microsoft.Synapse/workspaces/sqlPools/vulnerabilidadeAssessments/scans/initiateScan/action | Inicie qualquer sql Analytics Vulnerabilit Assessment Scan Records. |
+> | Microsoft.Synapse/workspaces/sqlPools/vulnerabilidadeAssessments/scans/export/action | Exporte qualquer sql Analytics Vulnerabilit Assessment Scan Records. |
 > | Microsoft.Synapse/workspaces/sqlPools/workloadGroups/read | Lista os grupos de carga de trabalho para uma piscina SQL selecionada. |
 > | Microsoft.Synapse/workspaces/sqlPools/workloadGroups/write | Define as propriedades para um grupo de carga de trabalho específico. |
 > | Microsoft.Synapse/workspaces/sqlPools/workloadGroups/delete | Deixa cair um grupo específico de carga de trabalho. |
+> | Microsoft.Synapse/workspaces/sqlPools/workloadGroups/operationStatuses/read | Sql Analytics Pool estado de funcionamento do grupo de trabalho |
 > | Microsoft.Synapse/workspaces/sqlPools/workloadGroups/workloadClassifiers/read | Lista os classificadores de carga de trabalho para um Pool de Análise SQL selecionado. |
 > | Microsoft.Synapse/workspaces/sqlPools/workloadGroups/workloadClassifiers/write | Define as propriedades para um classificador de carga de trabalho específico. |
 > | Microsoft.Synapse/workspaces/sqlPools/workloadGroups/workloadClassifiers/delete | Deixa cair um classificador de carga de trabalho específico. |
-> | Microsoft.Synapse/workspaces/sqlPools/extendedAuditingSettings/read | Leia qualquer piscina SQL Analytics Definições de Auditoria Alargadas. |
-> | Microsoft.Synapse/workspaces/sqlPools/extendedAuditingSettings/write | Criar ou atualizar qualquer piscina SQL Analytics Definições de Auditoria Alargadas. |
-> | Microsoft.Synapse/workspaces/sqlPools/dataMaskingPolicies/read | Devolva a lista de políticas de mascaramento de dados do pool SQL Analytics. |
-> | Microsoft.Synapse/workspaces/sqlPools/dataMaskingPolicies/write | Cria ou atualiza uma política de mascaramento de dados do pool SQL Analytics |
-> | Microsoft.Synapse/workspaces/sqlPools/dataMaskingPolicies/rules/read | Obtém uma lista das regras de mascaramento de dados do pool SQL Analytics. |
-> | Microsoft.Synapse/workspaces/sqlPools/dataMaskingPolicies/rules/write | Cria ou atualiza uma regra de mascaramento de dados do pool SQL Analytics. |
-> | Microsoft.Synapse/workspaces/sqlPools/columns/read | Devolva uma lista de colunas para uma piscina SQL Analytics |
-> | Microsoft.Synapse/workspaces/sqlPools/sensibilidadeLabels/read | Obtém o rótulo de sensibilidade de uma determinada coluna. |
-> | Microsoft.Synapse/workspaces/sqlPools/auditRecords/read | Obtenha registos de auditoria de blob de piscina sql |
-> | Microsoft.Synapse/resourceGroups/operationStatuses/read | Leia qualquer estado de operação assínc. |
-> | Microsoft.Synapse/workspaces/extendedAuditingSettings/write | Criar ou atualizar as definições de auditoria alargada do servidor SQL. |
-> | Microsoft.Synapse/workspaces/extendedAuditingSettings/read | Leia as definições de auditoria estendidas do servidor SQL predefinido. |
-> | Microsoft.Synapse/workspaces/auditingSettings/write | Criar ou atualizar as definições de auditoria do servidor SQL. |
-> | Microsoft.Synapse/workspaces/auditingSettings/read | Leia as definições de auditoria do servidor SQL predefinido. |
-> | Microsoft.Synapse/workspaces/securityAlertPolicies/write | Criar ou atualizar políticas de alerta de segurança do servidor SQL. |
-> | Microsoft.Synapse/workspaces/securityAlertPolicies/read | Leia as políticas de alerta de segurança do servidor SQL predefinidas. |
+> | Microsoft.Synapse/workspaces/sqlPools/workloadGroups/workloadClassifiers/operationResults/read | SQL Analytics Pool resultado de funcionamento do classificador |
+> | Microsoft.Synapse/workspaces/sqlPools/workloadGroups/workloadClassifiers/operationStatuses/read | SQL Analytics Pool classificando o estado de funcionamento do funcionamento |
+> | Microsoft.Synapse/workspaces/sqlUsages/read | Obtém limites de utilização disponíveis para piscinas SQL Analytics |
 > | Microsoft.Synapse/workspaces/vulnerabilidadeAssessments/write | Criar ou atualizar relatório de vulnerabilidade do servidor SQL. |
 > | Microsoft.Synapse/workspaces/vulnerabilidadeAssessments/read | Leia o relatório padrão de vulnerabilidade do servidor SQL. |
 > | Microsoft.Synapse/workspaces/vulnerabilidadeAssessments/delete | Apague o relatório de assement de vulnerabilidade do servidor SQL. |
-> | Microsoft.Synapse/workspaces/restorableDroppedSqlPools/read | Obtém uma piscina sql apagada que pode ser restaurada |
-> | Microsoft.Synapse/workspaces/sqlPools/dataWarehouseQueries/Steps/read | Leia qualquer sql Analytics que questione passos. |
-> | Microsoft.Synapse/workspaces/sqlPools/workloadGroups/operationStatuses/read | Sql Analytics Pool estado de funcionamento do grupo de trabalho |
-> | Microsoft.Synapse/workspaces/sqlPools/workloadGroups/workloadClassifiers/operationStatuses/read | SQL Analytics Pool classificando o estado de funcionamento do funcionamento |
-> | Microsoft.Synapse/workspaces/sqlPools/workloadGroups/workloadClassifiers/operationResults/read | SQL Analytics Pool resultado de funcionamento do classificador |
-> | Microsoft.Synapse/workspaces/sqlUsages/read | Obtém limites de utilização disponíveis para piscinas SQL Analytics |
-> | Microsoft.Synapse/workspaces/auditingSettings/operationResults/read | Definições de auditoria de servidor sql |
-> | Microsoft.Synapse/workspaces/sqlAdministrators/write | Definir administrador de diretório ativo no espaço de trabalho |
-> | Microsoft.Synapse/workspaces/sqlAdministrators/read | Obtenha administrador de diretório ativo do espaço de trabalho |
-> | Microsoft.Synapse/workspaces/sqlAdministrators/delete | Eliminar administrador de diretório ativo do espaço de trabalho |
 
 ## <a name="blockchain"></a>Blockchain
 
@@ -6000,6 +6081,11 @@ Serviço Azure: [Âncoras Espaciais Azure](../spatial-anchors/index.yml)
 > | Microsoft.MixedReality/register/action | Regista uma subscrição para o fornecedor de recursos de Realidade Mista. |
 > | Microsoft.MixedReality/unregister/action | Não registra uma subscrição para o fornecedor de recursos de Realidade Mista. |
 > | Microsoft.MixedReality/locations/checknameavailability/read | Verificações de disponibilidade de nomes |
+> | Microsoft.MixedReality/ObjectAnchorsAccounts/delete | Eliminar uma conta de âncoras de objetos |
+> | Microsoft.MixedReality/ObjectAnchorsAccounts/listkeys/action | Listar as chaves de uma conta 'Âncoras de Objecto' |
+> | Microsoft.MixedReality/ObjectAnchorsAccounts/read | Leia as propriedades de uma conta de Âncoras de Objeto |
+> | Microsoft.MixedReality/ObjectAnchorsAccounts/regeneratekeys/action | Regenerar as chaves de uma conta de Âncoras de Objetos |
+> | Microsoft.MixedReality/ObjectAnchorsAccounts/write | Atualizar as propriedades de uma conta De Âncoras de Objeto |
 > | Microsoft.MixedReality/ObjectUnderstandingAccounts/delete | Eliminar uma conta de compreensão de objetos |
 > | Microsoft.MixedReality/ObjectUnderstandingAccounts/listkeys/action | Listar as chaves de uma conta de Compreensão de Objetos |
 > | Microsoft.MixedReality/ObjectUnderstandingAccounts/read | Leia as propriedades de uma conta de Compreensão de Objetos |
@@ -6021,6 +6107,8 @@ Serviço Azure: [Âncoras Espaciais Azure](../spatial-anchors/index.yml)
 > | Microsoft.MixedReality/spatialAnchorsAccounts/providers/Microsoft.Insights/diagnosticSettings/write | Cria ou atualiza a definição de diagnóstico para Microsoft.MixedReality/spatialAnchorsAccounts |
 > | Microsoft.MixedReality/spatialAnchorsAccounts/providers/Microsoft.Insights/metricDefinitions/read | Obtém as métricas disponíveis para Microsoft.MixedReality/spatialAnchorsAccounts |
 > | **DataAction** | **Descrição** |
+> | Microsoft.MixedReality/ObjectAnchorsAccounts/ingest/ação | Criar modelo Ingerição Job |
+> | Microsoft.MixedReality/ObjectAnchorsAccounts/ingest/read | Obtenha o modelo DeIngion Job Status |
 > | Microsoft.MixedReality/ObjectUnderstandingAccounts/ingest/action | Criar trabalho de ingestão de modelos |
 > | Microsoft.MixedReality/ObjectUnderstandingAccounts/ingest/read | Obtenha o modelo DeIngion Job Status |
 > | Microsoft.MixedReality/RemoteRenderingAccounts/convert/action | Iniciar a conversão de ativos |
@@ -6052,7 +6140,7 @@ Serviço Azure: [API Management](../api-management/index.yml)
 > | Microsoft.ApiManagement/unregister/action | Subscrição de não registo para o fornecedor de recursos Microsoft.ApiManagement |
 > | Microsoft.ApiManagement/checkNameAvailability/read | Verifica se o nome de serviço fornecido está disponível |
 > | Microsoft.ApiManagement/deletedservices/read | Obtenha serviços de gestão de API eliminados que podem ser restaurados dentro do período de eliminação suave |
-> | Microsoft.ApiManagement/deletedservices/delete | Eliminar Serviço de Gestão da API sem a opção de restaurá-lo |
+> | Microsoft.ApiManagement/locations/deletedservices/delete | Eliminar Serviço de Gestão da API sem a opção de restaurá-lo |
 > | Microsoft.ApiManagement/operations/read | Leia todas as operações da API disponíveis para o recurso Microsoft.ApiManagement |
 > | Microsoft.ApiManagement/reports/read | Obtenha relatórios agregados por períodos de tempo, região geográfica, desenvolvedores, produtos, APIs, operações, subscrição e byRequest. |
 > | Microsoft.ApiManagement/service/write | Criar ou atualizar a instância do Serviço de Gestão de API |
@@ -7530,6 +7618,7 @@ Serviço Azure: [Azure Migrate](../migrate/migrate-services-overview.md)
 > | Microsoft.Migrate/assessmentprojects/vmwarecollectors/delete | Elimina o coletor VMware |
 > | Microsoft.Migrar/localizações/checknameavailability/action | Verifica a disponibilidade do nome de recurso para a subscrição dada no local dado |
 > | Microsoft.Migrar/localizações/avaliaçõesOpções/leitura | Obtém as opções de avaliação que estão disponíveis no local dado |
+> | Microsoft.Migrar/localizações/rmsOperationResults/read | Obtém o estado da operação baseada em localização de subscrição |
 > | Microsoft.Migrate/migrateprojects/read | Obtém as propriedades do projeto migratório |
 > | Microsoft.Migrate/migrateprojects/write | Cria um novo projeto migratório ou atualiza um projeto migratório existente |
 > | Microsoft.Migrate/migrateprojects/delete | Elimina um projeto migratório |
@@ -7570,6 +7659,7 @@ Serviço Azure: [Azure Migrate](../migrate/migrate-services-overview.md)
 > | Microsoft.Migrate/moveCollections/moveResources/write | Cria ou atualiza um recurso de movimento |
 > | Microsoft.Migrate/moveCollections/moveResources/delete | Elimina um recurso de movimento da coleção move |
 > | Microsoft.Migrate/moveCollections/operations/read | Obtém o estado da operação |
+> | Microsoft.Migrate/moveCollections/requiredFor/read | Obtém os recursos que utilizarão o recurso passado em parâmetro de consulta |
 > | Microsoft.Migrate/moveCollections/Dependências/leitura não resolvidas | Obtém uma lista de dependências não resolvidas na coleção de movimentos |
 > | Microsoft.Migrar/Operações/ler | Lista operações disponíveis no fornecedor de recursos Microsoft.Migrate |
 > | Microsoft.Migrate/projects/read | Obtém as propriedades de um projeto |
@@ -9438,11 +9528,15 @@ Serviço Azure: [Azure Resource Manager](../azure-resource-manager/index.yml)
 > | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.Features/register/action | Regista a característica de uma subscrição. |
+> | Microsoft.Features/featureProviders/subscriçãoFesistrations/read | Obtém o registo de funcionalidades de uma subscrição num determinado fornecedor de recursos. |
+> | Microsoft.Features/featureProviders/subscriptionFeatureRegistrations/write | Adiciona o registo de funcionalidades de uma subscrição num determinado fornecedor de recursos. |
+> | Microsoft.Features/featureProviders/subscriçãoFesistrations/delete | Elimina o registo de funcionalidades de uma subscrição num determinado fornecedor de recursos. |
 > | Microsoft.Features/features/read | Obtém as características de uma subscrição. |
 > | Microsoft.Features/operations/read | Fica com a lista de operações. |
 > | Microsoft.Features/providers/features/read | Obtém a funcionalidade de uma subscrição num determinado fornecedor de recursos. |
 > | Microsoft.Features/providers/features/register/action | Regista a funcionalidade de subscrição num determinado fornecedor de recursos. |
 > | Microsoft.Features/providers/features/unregister/action | Desagrega a funcionalidade de uma subscrição num determinado fornecedor de recursos. |
+> | Microsoft.Features/subscriçãoFeatureRegistrations/read | Obtém o registo de funcionalidades de uma subscrição. |
 
 ### <a name="microsoftguestconfiguration"></a>Microsoft.GuestConfiguration
 
@@ -9905,76 +9999,78 @@ Serviço Azure: [Recuperação do Local](../site-recovery/index.yml)
 > | Ação | Descrição |
 > | --- | --- |
 > | Microsoft.RecoveryServices/register/action | Inscrição para fornecedor de recursos dado |
-> | microsoft.recoveryservices/Locations/backupCrossRegionRestore/action | Trigger Cross região restaurada. |
-> | microsoft.recoveryservices/Locations/backupCrrJob/action | Obtenha cross region Restore Job Details in the secondary region for Recovery Services Vault. |
-> | microsoft.recoveryservices/Locations/backupCrrJobs/action | Lista Região Cruzada Restaurar Empregos na região secundária para o Cofre de Serviços de Recuperação. |
-> | microsoft.recoveryservices/Locations/backupPreValidateProtection/action |  |
-> | microsoft.recoveryservices/Locations/backupStatus/action | Verifique o estado de backup para cofres de serviços de recuperação |
-> | microsoft.recoveryservices/Locations/backupValidateFeatures/action | Validar funcionalidades |
+> | Microsoft.RecoveryServices/Locations/backupCrossRegionRestore/action | Trigger Cross região restaurada. |
+> | Microsoft.RecoveryServices/Locations/backupCrrJob/action | Obtenha cross region Restore Job Details in the secondary region for Recovery Services Vault. |
+> | Microsoft.RecoveryServices/Locations/backupCrrJobs/action | Lista Região Cruzada Restaurar Empregos na região secundária para o Cofre de Serviços de Recuperação. |
+> | Microsoft.RecoveryServices/Locations/backupPreValidateProtection/action |  |
+> | Microsoft.RecoveryServices/Locations/backupStatus/action | Verifique o estado de backup para cofres de serviços de recuperação |
+> | Microsoft.RecoveryServices/Locations/backupValidateFeatures/action | Validar funcionalidades |
 > | Microsoft.RecoveryServices/locations/allocateStamp/action | Alocarmps é uma operação interna utilizada pelo serviço |
 > | Microsoft.RecoveryServices/locations/checkNameAvailability/action | Verifique disponibilidade de nome de recursos é uma API para verificar se o nome do recurso está disponível |
 > | Microsoft.RecoveryServices/locations/alocedStamp/read | GetAllocatedStamp é uma operação interna utilizada pelo serviço |
-> | microsoft.recoveryservices/Locations/backupAadProperties/read | Obtenha propriedades AAD para autenticação na terceira região para Restauro da Região Transversal. |
-> | microsoft.recoveryservices/Locations/backupCrrOperationResults/read | Devolve o resultado da operação CRR para o cofre dos serviços de recuperação. |
-> | microsoft.recoveryservices/Locations/backupCrrOperationsStatus/read | Devolve o estado da operação CRR para o cofre dos serviços de recuperação. |
-> | microsoft.recoveryservices/Locations/backupProtectedItem/write | Criar um item protegido de reserva |
-> | microsoft.recoveryservices/Locations/backupProtectedItems/read | Devolve a lista de todos os Itens Protegidos. |
+> | Microsoft.RecoveryServices/Locations/backupAadProperties/read | Obtenha propriedades AAD para autenticação na terceira região para Restauro da Região Transversal. |
+> | Microsoft.RecoveryServices/Locations/backupCrrOperationResults/read | Devolve o resultado da operação CRR para o cofre dos serviços de recuperação. |
+> | Microsoft.RecoveryServices/Locations/backupCrrOperationsStatus/read | Devolve o estado da operação CRR para o cofre dos serviços de recuperação. |
+> | Microsoft.RecoveryServices/Locations/backupProtectedItem/write | Criar um item protegido de reserva |
+> | Microsoft.RecoveryServices/Locations/backupProtectedItems/read | Devolve a lista de todos os Itens Protegidos. |
 > | Microsoft.RecoveryServices/locations/operationStatus/read | Obtém o Estado da Operação para uma determinada Operação |
 > | Microsoft.RecoveryServices/operations/read | Operação devolve a lista de Operações para um Fornecedor de Recursos |
-> | microsoft.recoveryservices/Vaults/backupJobsExport/action | Empregos de Exportação |
-> | microsoft.recoveryservices/Vaults/backupSecurityPIN/action | Devolve informações pin de segurança para cofre de serviços de recuperação. |
-> | microsoft.recoveryservices/Vaults/backupValidateOperação/ação | Validar operação em item protegido |
+> | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Empregos de Exportação |
+> | Microsoft.RecoveryServices/Vaults/backupSecurityPIN/action | Devolve informações pin de segurança para cofre de serviços de recuperação. |
+> | Microsoft.RecoveryServices/Vaults/backupValidateOperação/ação | Validar operação em item protegido |
 > | Microsoft.RecoveryServices/Vaults/write | Criar operação Vault cria um recurso Azure do tipo 'cofre' |
 > | Microsoft.RecoveryServices/Vaults/read | A operação Get Vault obtém um objeto que representa o recurso Azure do tipo 'cofre' |
 > | Microsoft.RecoveryServices/Vaults/delete | A operação Delete Vault elimina o recurso Azure especificado do tipo 'cofre' |
-> | microsoft.recoveryservices/Vaults/backupconfig/read | Configuração de devoluções para cofre de serviços de recuperação. |
-> | microsoft.recoveryservices/Vaults/backupconfig/write | Atualizações Configuração para Cofre de Serviços de Recuperação. |
-> | microsoft.recoveryservices/Vaults/backupEncryptionConfigs/read | Obtém a configuração de encriptação de recursos de backup. |
-> | microsoft.recoveryservices/Vaults/backupEncryptionConfigs/write | Atualiza configuração de encriptação de recursos de backup |
-> | microsoft.recoveryservices/Vaults/backupEngines/read | Devolve todos os servidores de gestão de backup registados com cofre. |
-> | microsoft.recoveryservices/Vaults/backupFabrics/refreshContainers/action | Refresca a lista de contentores |
-> | microsoft.recoveryservices/Vaults/backupFabrics/backupProtectionInt/delete | Excluir uma intenção de proteção de reserva |
-> | microsoft.recoveryservices/Vaults/backupFabrics/backupProtectionInt/read | Obtenha uma intenção de proteção de reserva |
-> | microsoft.recoveryservices/Vaults/backupFabrics/backupProtectionInt/write | Criar uma intenção de proteção de reserva |
-> | microsoft.recoveryservices/Vaults/backupFabrics/operationResults/read | Devolução do estado da operação |
-> | microsoft.recoveryservices/Vaults/backupFabrics/operationsStatus/read | Devolução do estado da operação |
-> | microsoft.recoveryservices/Vaults/backupFabrics/protectableContainers/read | Obtenha todos os recipientes protegidos |
-> | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/delete | Elimina o Contentor registado |
-> | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/inquire/action | Faça um inquérito sobre cargas de trabalho dentro de um contentor |
-> | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/read | Devoluções de todos os contentores registados |
-> | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/write | Cria um recipiente registado |
-> | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/items/read | Obtenha todos os itens em um recipiente |
-> | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/operationResults/read | Obtém o resultado da operação realizada no Recipiente de Proteção. |
-> | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/operationsStatus/read | Obtém o estado da operação efetua no Recipiente de Proteção. |
-> | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/backup/action | Executa cópia de segurança para artigo protegido. |
-> | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/delete | Elimina artigo protegido |
-> | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/read | Devolve detalhes do objeto do Item Protegido |
-> | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/write | Criar um item protegido de reserva |
-> | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/operationResults/read | Obtém Resultado da operação realizada em itens protegidos. |
-> | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/operationsStatus/read | Devolve o estado da operação realizada em Itens Protegidos. |
-> | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/accessToken/action | Obter AccessToken para Restauro da Região Cruzada. |
-> | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/provisionInstantItemRecovery/action | Provisão de recuperação instantânea de artigos para artigos protegidos |
-> | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/read | Obtenha pontos de recuperação para itens protegidos. |
-> | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/restore/action | Restaurar pontos de recuperação para itens protegidos. |
-> | microsoft.recoveryservices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/revokeInstantItemRecovery/action | Revogar a recuperação instantânea do item para artigo protegido |
-> | microsoft.recoveryservices/Vaults/backupJobs/cancel/action | Cancelar o Trabalho |
-> | microsoft.recoveryservices/Vaults/backupJobs/read | Devolve todos os objetos de trabalho |
-> | microsoft.recoveryservices/Vaults/backupJobs/operationResults/read | Devolve o Resultado da Operação De Trabalho. |
-> | microsoft.recoveryservices/Vaults/backupJobs/operationsStatus/read | Devolve o estado da Operação De Trabalho. |
-> | microsoft.recoveryservices/Vaults/backupOperationResults/read | Retorna resultado da operação de backup para o cofre dos serviços de recuperação. |
-> | microsoft.recoveryservices/Vaults/backupOperations/read | Devolve o estado da operação de backup para o cofre dos serviços de recuperação. |
-> | microsoft.recoveryservices/Vaults/backupPolicies/delete | Eliminar uma Política de Proteção |
-> | microsoft.recoveryservices/Vaults/backupPolicies/read | Devolve todas as Políticas de Proteção |
-> | microsoft.recoveryservices/Vaults/backupPolicies/write | Cria Política de Proteção |
-> | microsoft.recoveryservices/Vaults/backupPolicies/operationResults/read | Obtenha resultados da operação política. |
-> | microsoft.recoveryservices/Vaults/backupPolicies/operations/read | Obter Estado de Operação Política. |
-> | microsoft.recoveryservices/Vaults/backupProtectableItems/read | Lista de devoluções de todos os Itens Protegidos. |
-> | microsoft.recoveryservices/Vaults/backupProtectedItems/read | Devolve a lista de todos os Itens Protegidos. |
-> | microsoft.recoveryservices/Vaults/backupProtectionContainers/read | Devolve todos os contentores pertencentes à subscrição |
-> | microsoft.recoveryservices/Vaults/backupProtectionIntents/read | Listar todas as intenções de proteção de reserva |
-> | microsoft.recoveryservices/Vaults/backupstorageconfig/read | Retorna a configuração de armazenamento para cofre de serviços de recuperação. |
-> | microsoft.recoveryservices/Vaults/backupstorageconfig/write | Atualiza a configuração do armazenamento para o cofre de serviços de recuperação. |
-> | microsoft.recoveryservices/Vaults/backupUsageSummaries/read | Retorna resumos para itens protegidos e servidores protegidos para um Serviço de Recuperação . |
+> | Microsoft.RecoveryServices/Vaults/backupconfig/read | Configuração de devoluções para cofre de serviços de recuperação. |
+> | Microsoft.RecoveryServices/Vaults/backupconfig/write | Atualizações Configuração para Cofre de Serviços de Recuperação. |
+> | Microsoft.RecoveryServices/Vaults/backupEncryptionConfigs/read | Obtém a configuração de encriptação de recursos de backup. |
+> | Microsoft.RecoveryServices/Vaults/backupEncryptionConfigs/write | Atualiza configuração de encriptação de recursos de backup |
+> | Microsoft.RecoveryServices/Vaults/backupEngines/read | Devolve todos os servidores de gestão de backup registados com cofre. |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/refreshContainers/action | Refresca a lista de contentores |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionInt/delete | Excluir uma intenção de proteção de reserva |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionInt/read | Obtenha uma intenção de proteção de reserva |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionInt/write | Criar uma intenção de proteção de reserva |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/operationResults/read | Devolução do estado da operação |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/operationsStatus/read | Devolução do estado da operação |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectableContainers/read | Obtenha todos os recipientes protegidos |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/delete | Elimina o Contentor registado |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/inquire/action | Faça um inquérito sobre cargas de trabalho dentro de um contentor |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/read | Devoluções de todos os contentores registados |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/write | Cria um recipiente registado |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/items/read | Obtenha todos os itens em um recipiente |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/operationResults/read | Obtém o resultado da operação realizada no Recipiente de Proteção. |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/operationsStatus/read | Obtém o estado da operação efetua no Recipiente de Proteção. |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/backup/action | Executa cópia de segurança para artigo protegido. |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/delete | Elimina artigo protegido |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/read | Devolve detalhes do objeto do Item Protegido |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPointsRecommendedForMove/action | Obtenha pontos de recuperação recomendados para passar para outro nível |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/write | Criar um item protegido de reserva |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/operationResults/read | Obtém Resultado da operação realizada em itens protegidos. |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/operationsStatus/read | Devolve o estado da operação realizada em Itens Protegidos. |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/accessToken/action | Obter AccessToken para Restauro da Região Cruzada. |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/move/action | Mover ponto de recuperação para outro nível |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/provisionInstantItemRecovery/action | Provisão de recuperação instantânea de artigos para artigos protegidos |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/read | Obtenha pontos de recuperação para itens protegidos. |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/restore/action | Restaurar pontos de recuperação para itens protegidos. |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/revokeInstantItemRecovery/action | Revogar a recuperação instantânea do item para artigo protegido |
+> | Microsoft.RecoveryServices/Vaults/backupJobs/cancel/action | Cancelar o Trabalho |
+> | Microsoft.RecoveryServices/Vaults/backupJobs/read | Devolve todos os objetos de trabalho |
+> | Microsoft.RecoveryServices/Vaults/backupJobs/operationResults/read | Devolve o Resultado da Operação De Trabalho. |
+> | Microsoft.RecoveryServices/Vaults/backupJobs/operationsStatus/read | Devolve o estado da Operação De Trabalho. |
+> | Microsoft.RecoveryServices/Vaults/backupOperationResults/read | Retorna resultado da operação de backup para o cofre dos serviços de recuperação. |
+> | Microsoft.RecoveryServices/Vaults/backupOperations/read | Devolve o estado da operação de backup para o cofre dos serviços de recuperação. |
+> | Microsoft.RecoveryServices/Vaults/backupPolicies/delete | Eliminar uma Política de Proteção |
+> | Microsoft.RecoveryServices/Vaults/backupPolicies/read | Devolve todas as Políticas de Proteção |
+> | Microsoft.RecoveryServices/Vaults/backupPolicies/write | Cria Política de Proteção |
+> | Microsoft.RecoveryServices/Vaults/backupPolicies/operationResults/read | Obtenha resultados da operação política. |
+> | Microsoft.RecoveryServices/Vaults/backupPolicies/operations/read | Obter Estado de Operação Política. |
+> | Microsoft.RecoveryServices/Vaults/backupProtectableItems/read | Lista de devoluções de todos os Itens Protegidos. |
+> | Microsoft.RecoveryServices/Vaults/backupProtectedItems/read | Devolve a lista de todos os Itens Protegidos. |
+> | Microsoft.RecoveryServices/Vaults/backupProtectionContainers/read | Devolve todos os contentores pertencentes à subscrição |
+> | Microsoft.RecoveryServices/Vaults/backupProtectionIntints/read | Listar todas as intenções de proteção de reserva |
+> | Microsoft.RecoveryServices/Vaults/backupstorageconfig/read | Retorna a configuração de armazenamento para cofre de serviços de recuperação. |
+> | Microsoft.RecoveryServices/Vaults/backupstorageconfig/write | Atualiza a configuração do armazenamento para o cofre de serviços de recuperação. |
+> | Microsoft.RecoveryServices/Vaults/backupUsageSummaries/read | Retorna resumos para itens protegidos e servidores protegidos para um Serviço de Recuperação . |
 > | Microsoft.RecoveryServices/Vaults/certificates/write | A operação 'Certificado de Recurso de actualização' atualiza o certificado de credencial de recurso/cofre. |
 > | Microsoft.RecoveryServices/Vaults/extendedInformation/read | A operação Get Extended Info obtém informações estendidas de um objeto que representa o recurso Azure do tipo ?cofre? |
 > | Microsoft.RecoveryServices/Vaults/extendedInformation/write | A operação Get Extended Info obtém informações estendidas de um objeto que representa o recurso Azure do tipo ?cofre? |
@@ -9983,14 +10079,14 @@ Serviço Azure: [Recuperação do Local](../site-recovery/index.yml)
 > | Microsoft.RecoveryServices/Vaults/monitoringAlerts/write | Resolve o alerta. |
 > | Microsoft.RecoveryServices/Vaults/monitoringConfigurations/read | Obtém a configuração de notificação do cofre dos serviços de recuperação. |
 > | Microsoft.RecoveryServices/Vaults/monitoringConfigurations/write | Configura notificações de e-mail para cofre de serviços de recuperação. |
-> | microsoft.recoveryservices/Vaults/privateEndpointConnectionProxies/delete | Aguarde alguns minutos e tente a operação novamente. Se o problema persistir, contacte o Suporte da Microsoft. |
-> | microsoft.recoveryservices/Vaults/privateEndpointConnectionProxies/read | Obtenha todos os recipientes protegidos |
-> | microsoft.recoveryservices/Vaults/privateEndpointConnectionProxies/valide/action | Obtenha todos os recipientes protegidos |
-> | microsoft.recoveryservices/Vaults/privateEndpointConnectionProxies/write | Obtenha todos os recipientes protegidos |
-> | microsoft.recoveryservices/Vaults/privateEndpointConnectionProxies/operationsStatus/read | Obtenha todos os recipientes protegidos |
-> | microsoft.recoveryservices/Vaults/privateEndpointConnections/delete | Apagar pedidos de Endpoint Privado. Esta chamada é feita pela Administração De reserva. |
-> | microsoft.recoveryservices/Vaults/privateEndpointConnections/write | Aprovar ou rejeitar pedidos de endpoint privado. Esta chamada é feita pela Administração De reserva. |
-> | microsoft.recoveryservices/Vaults/privateEndpointConnections/operationsStatus/read | Devolve o estado de funcionamento para uma ligação de ponto final privado. |
+> | Microsoft.RecoveryServices/Vaults/privateEndpointConnectionProxies/delete | Aguarde alguns minutos e tente a operação novamente. Se o problema persistir, contacte o Suporte da Microsoft. |
+> | Microsoft.RecoveryServices/Vaults/privateEndpointConnectionProxies/read | Obtenha todos os recipientes protegidos |
+> | Microsoft.RecoveryServices/Vaults/privateEndpointConnectionProxies/valide/action | Obtenha todos os recipientes protegidos |
+> | Microsoft.RecoveryServices/Vaults/privateEndpointConnectionProxies/write | Obtenha todos os recipientes protegidos |
+> | Microsoft.RecoveryServices/Vaults/privateEndpointConnectionProxies/operationsStatus/read | Obtenha todos os recipientes protegidos |
+> | Microsoft.RecoveryServices/Vaults/privateEndpointConnections/delete | Apagar pedidos de Endpoint Privado. Esta chamada é feita pela Administração De reserva. |
+> | Microsoft.RecoveryServices/Vaults/privateEndpointConnections/write | Aprovar ou rejeitar pedidos de endpoint privado. Esta chamada é feita pela Administração De reserva. |
+> | Microsoft.RecoveryServices/Vaults/privateEndpointConnections/operationsStatus/read | Devolve o estado de funcionamento para uma ligação de ponto final privado. |
 > | Microsoft.RecoveryServices/Vaults/registeredIdentities/write | A operação do Contentor do Serviço de Registo pode ser utilizada para registar um contentor com o Serviço de Recuperação. |
 > | Microsoft.RecoveryServices/Vaults/registeredIdentities/read | A operação Get Containers pode ser utilizada obter os contentores registados para um recurso. |
 > | Microsoft.RecoveryServices/Vaults/registeredIdentities/delete | A operação do contentor não registador pode ser utilizada para não registar um contentor. |
@@ -10103,6 +10199,7 @@ Serviço Azure: [Recuperação do Local](../site-recovery/index.yml)
 > | Microsoft.RecoveryServices/vaults/replicationStorageClassificationMappings/read | Leia quaisquer mapeamentos de classificação de armazenamento |
 > | Microsoft.RecoveryServices/vaults/replicationStorageClassifications/read | Leia quaisquer classificações de armazenamento |
 > | Microsoft.RecoveryServices/vaults/replicationSupportedOperatingSystems/read | Ler qualquer  |
+> | Microsoft.RecoveryServices/vaults/replicationSupportedRegionMappings/read | Ler qualquer  |
 > | Microsoft.RecoveryServices/vaults/replicationSages/read | Leia quaisquer utilizações de replicação de abóbada |
 > | Microsoft.RecoveryServices/vaults/replicationVaultHealth/read | Leia qualquer saúde de replicação de abóbada |
 > | Microsoft.RecoveryServices/vaults/replicationVaultHealth/refresh/action | Refresh Vault Health |
@@ -10110,7 +10207,7 @@ Serviço Azure: [Recuperação do Local](../site-recovery/index.yml)
 > | Microsoft.RecoveryServices/vaults/replicationVaultSettings/read | Ler qualquer  |
 > | Microsoft.RecoveryServices/vaults/replicationVaultSettings/write | Criar ou atualizar qualquer  |
 > | Microsoft.RecoveryServices/vaults/replicationvCenters/read | Leia quaisquer vCenters |
-> | microsoft.recoveryservices/Vaults/usages/read | Devolve detalhes de utilização para um Cofre de Serviços de Recuperação. |
+> | Microsoft.RecoveryServices/Vaults/usages/read | Devolve detalhes de utilização para um Cofre de Serviços de Recuperação. |
 > | Microsoft.RecoveryServices/vaults/usages/read | Leia quaisquer utilizações de cofre |
 > | Microsoft.RecoveryServices/Vaults/vaultTokens/read | A operação Vault Token pode ser usada para obter o Vault Token para operações de backend de nível de cofre. |
 
@@ -10251,24 +10348,7 @@ Serviço Azure: Microsoft Monitoring Insights
 > | Microsoft.Intune/diagnosticsettings/delete | Apagar uma definição de diagnóstico |
 > | Microsoft.Intune/diagnosticsettingscategories/read | Ler uma categoria de definição de diagnóstico |
 
-## <a name="other"></a>Outro
-
-### <a name="microsoftbingmaps"></a>Microsoft.BingMaps
-
-Serviço Azure: [Bing Maps](/BingMaps/)
-
-> [!div class="mx-tableFixed"]
-> | Ação | Descrição |
-> | --- | --- |
-> | Microsoft.BingMaps/updateCommunicationPreference/action | Atualiza as preferências de comunicação para o proprietário da Microsoft.BingMaps |
-> | Microsoft.BingMaps/listCommunicationPreference/action | Obtém as preferências de comunicação para o proprietário da Microsoft.BingMaps |
-> | Microsoft.BingMaps/mapApis/Read | Obtém o recurso para Microsoft.BingMaps/mapApis |
-> | Microsoft.BingMaps/mapApis/Write | Atualiza o recurso para Microsoft.BingMaps/mapApis |
-> | Microsoft.BingMaps/mapApis/Delete | Elimina o recurso para Microsoft.BingMaps/mapApis |
-> | Microsoft.BingMaps/mapApis/regenerateKey/action | Chaves regeneradoras para Microsoft.BingMaps/mapApis |
-> | Microsoft.BingMaps/mapApis/listSecrets/action | Listar os segredos para Microsoft.BingMaps/mapApis |
-> | Microsoft.BingMaps/mapApis/listUsageMetrics/action | Listar as métricas para Microsoft.BingMaps/mapApis |
-> | Microsoft.BingMaps/Operations/read | Listar as operações para Microsoft.BingMaps |
+## <a name="other"></a>Outros
 
 ### <a name="microsoftdesktopvirtualization"></a>Microsoft.DesktopVirtualization
 

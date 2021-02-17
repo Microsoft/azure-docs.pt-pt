@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Criar pacote de acesso - Gestão de direitos AZure AD
-description: Tutorial passo a passo para como criar o seu primeiro pacote de acesso na gestão de direitos do Azure Ative Directory.
+title: Tutorial - Gerir o acesso aos recursos na gestão de direitos da Ad Azure
+description: Tutorial passo a passo para como criar o seu primeiro pacote de acesso utilizando o portal Azure na gestão de direitos do Azure Ative Directory.
 services: active-directory
 documentationCenter: ''
 author: ajburnle
@@ -16,14 +16,14 @@ ms.date: 09/30/2020
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2625b1e0ccc4c3129f412eff144f47d9dc97b961
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 1adbc653c8b698cb7b439b54b0a77d2b8cd4042a
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98937890"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100547405"
 ---
-# <a name="tutorial-create-your-first-access-package-in-azure-ad-entitlement-management"></a>Tutorial: Crie o seu primeiro pacote de acesso na gestão de direitos Azure AD
+# <a name="tutorial-manage-access-to-resources-in-azure-ad-entitlement-management"></a>Tutorial: Gerir o acesso aos recursos na gestão de direitos da AD Azure
 
 Gerir o acesso a todos os recursos de que os colaboradores precisam, como grupos, aplicações e sites, é uma função importante para as organizações. Pretende-se conceder aos colaboradores o nível de acesso adequado de que precisam para serem produtivos e remover o seu acesso quando já não é necessário.
 
@@ -41,8 +41,6 @@ Neste tutorial, ficará a saber como:
 Para uma demonstração passo a passo do processo de implementação da gestão de direitos do Azure Ative Directory, incluindo a criação do seu primeiro pacote de acesso, veja o seguinte vídeo:
 
 >[!VIDEO https://www.youtube.com/embed/zaaKvaaYwI4]
-
-Também pode criar um pacote de acesso programáticamente utilizando o Microsoft Graph. Para um tutorial que mostre como criar um pacote de acesso programáticamente, consulte [a API de gestão de direitos.](/graph/tutorial-access-package-api?view=graph-rest-beta)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -267,7 +265,7 @@ Neste passo, remove as alterações que esou e elimina o pacote de acesso **à C
 
 1. Eliminar o grupo **de recursos de Marketing.**
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Avance para o próximo artigo para conhecer os passos comuns do cenário na gestão de direitos.
 > [!div class="nextstepaction"]

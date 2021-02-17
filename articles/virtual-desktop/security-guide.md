@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: a106455ea9d7b7a64fecd7c4255c294d0bd62db8
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: cfc980fdabdb9c6e7085088db12754243f133d89
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97562621"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100581397"
 ---
 # <a name="security-best-practices"></a>Melhores práticas de segurança
 
@@ -29,16 +29,16 @@ Aqui estão as necessidades de segurança pelas quais é responsável na sua imp
 
 | Necessidade de segurança | O cliente é responsável por isto? |
 |---------------|:-------------------------:|
-|Identidade|Sim|
-|Dispositivos de utilizador (mobile e PC)|Sim|
-|Segurança de aplicativos|Sim|
-|Sessão anfitrião OS|Sim|
-|Configuração de implementação|Sim|
-|Controlos de rede|Sim|
-|Plano de controlo de virtualização|Não|
-|Anfitriões físicos|Não|
-|Rede física|Não|
-|Datacenter físico|Não|
+|Identidade|Yes|
+|Dispositivos de utilizador (mobile e PC)|Yes|
+|Segurança de aplicativos|Yes|
+|Sessão anfitrião OS|Yes|
+|Configuração de implementação|Yes|
+|Controlos de rede|Yes|
+|Plano de controlo de virtualização|No|
+|Anfitriões físicos|No|
+|Rede física|No|
+|Datacenter físico|No|
 
 As necessidades de segurança que o cliente não é responsável são tratadas pela Microsoft.
 
@@ -80,10 +80,10 @@ Ativar [o Acesso Condicional](../active-directory/conditional-access/overview.md
 
 Ativar a recolha de registos de auditoria permite-lhe visualizar a atividade de utilizador e administração relacionada com o Windows Virtual Desktop. Alguns exemplos de registos de auditoria chave são:
 
--   [Registo de atividades Azure](../azure-monitor/platform/activity-log.md)
+-   [Registo de Atividades do Azure](../azure-monitor/essentials/activity-log.md)
 -   [Registo de atividade do diretório ativo Azure](../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md)
 -   [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)
--   [Anfitriões de sessão](../azure-monitor/platform/agent-windows.md)
+-   [Anfitriões de sessão](../azure-monitor/agents/agent-windows.md)
 -   [Registo de diagnóstico virtual do Windows Desktop](../virtual-desktop/diagnostics-log-analytics.md)
 -   [Troncos de cofre de chaves](../key-vault/general/logging.md)
 

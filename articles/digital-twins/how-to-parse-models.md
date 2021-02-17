@@ -8,12 +8,12 @@ ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy21q3
-ms.openlocfilehash: 44cee2b47ae8f96e2852dfdb5aefe73a7af67ed6
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 155566a125485fda326f9f5e02d4aead0ffe30e3
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98731339"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100560750"
 ---
 # <a name="parse-and-validate-models-with-the-dtdl-parser-library"></a>Parse e valide modelos com a biblioteca de parser DTDL
 
@@ -84,7 +84,7 @@ O código que se segue mostra um exemplo de como usar a biblioteca parser para r
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/parseModels.cs":::
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Assim que terminar de escrever os seus modelos, veja como os fazer upload (e fazer outras operações de gestão) com as APIs digitalTwinsModels:
-* [*Como fazer: Gerir modelos personalizados*](how-to-manage-model.md)
+* [*Como fazer: Gerir os modelos DTDL*](how-to-manage-model.md)

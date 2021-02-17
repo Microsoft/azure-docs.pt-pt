@@ -8,12 +8,12 @@ ms.date: 01/20/2021
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
-ms.openlocfilehash: 542b1ed96025f6bd40cd4da766b434dde3569c25
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 9f8de6ed4f0312a342526fb2ba5d100dfd9ec91f
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98663779"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100582613"
 ---
 # <a name="what-is-azure-analysis-services"></a>O que é o Azure Analysis Services?
 
@@ -79,7 +79,7 @@ O Azure Analysis Services é suportado em várias regiões em todo o mundo. A di
 
 ### <a name="americas"></a>Américas
 
-|Região  | Planos suportados | Réplicas de consulta (Apenas planos standard) |
+|Region  | Planos suportados | Réplicas de consulta (Apenas planos standard) |
 |---------|---------|:---------:|
 |Sul do Brasil     |    B1, B2, S0, S1, S2, S4, D1     |     1    |
 |Canadá Central    |     B1, B2, S0, S1, S2, S4, D1    |     1    |
@@ -101,7 +101,7 @@ O Azure Analysis Services é suportado em várias regiões em todo o mundo. A di
 
 ### <a name="europe"></a>Europe
 
-|Região  | Planos suportados | Réplicas de consulta (Apenas planos standard) |
+|Region  | Planos suportados | Réplicas de consulta (Apenas planos standard) |
 |---------|---------|:---------:|
 |Europa do Norte     |    B1, B2, S0, S1, S2, S4, D1      |    7     |
 |Europa do Norte     |    S8v2, S9v2      |    3     |
@@ -111,11 +111,11 @@ O Azure Analysis Services é suportado em várias regiões em todo o mundo. A di
 
 ### <a name="asia-pacific"></a>Ásia-Pacífico 
 
-|Região  | Planos suportados | Réplicas de consulta (Apenas planos standard) |
+|Region  | Planos suportados | Réplicas de consulta (Apenas planos standard) |
 |---------|---------|:---------:|
 |Leste da Austrália     |    B1, B2, S0, S1, S2, S4     |    3     |
 |Leste da Austrália     |    S8v2, S9v2    |    1     |
-|Sudeste da Austrália     | B1, B2, S0, S1, S2, S4, D1       |    1     |
+|Austrália Sudeste     | B1, B2, S0, S1, S2, S4, D1       |    1     |
 |Leste do Japão     |   B1, B2, S0, S1, S2, S4, D1       |    1     |
 |Leste do Japão     |    S8v2, S9v2    |    1     |
 |Sudeste Asiático     |     B1, B2, S0, S1, S2, S4, D1     |   1      |
@@ -187,7 +187,7 @@ O Analysis Services utiliza a [autorização baseada em funções](/analysis-ser
   
 Os utilizadores finais não administrativos que consultam dados têm acesso através das funções de base de dados. Uma função de base de dados é criada como um objeto separado na base de dados e aplica-se apenas à base de dados na qual essa função é criada. As funções de base de dados são definidas pelas permissões (de base de dados) de Administrador, Leitura e Leitura e Processo. As contas de utilizadores e grupos são adicionadas através do SQL Server Management Studio ou PowerShell.
 
-### <a name="row-level-security"></a>Segurança ao nível da linha
+### <a name="row-level-security"></a>Row-level security
 
 Os modelos em tabela em todos os modelos de compatibilidade suportam a segurança ao nível da linha. A segurança ao nível da linha é configurada no modelo através de expressões DAX que definem as linhas numa tabela e as linhas nas direções de uma tabela relacionada que um utilizador pode consultar. Os filtros de linhas que utilizem expressões DAX são definidos para as permissões de Leitura e Leitura e Processo. 
 
@@ -238,7 +238,7 @@ As ferramentas modernas de exploração e visualização de dados, como o Power 
 
 ## <a name="monitoring-and-diagnostics"></a>Monitorização e diagnóstico
 
-Os Serviços de Análise Azure estão integrados com as métricas do Azure Monitor, fornecendo um vasto número de métricas específicas de recursos para ajudá-lo a monitorizar o desempenho e a saúde dos seus servidores. Para saber mais, consulte as [métricas do servidor de Monitorização](analysis-services-monitor.md). Registar métricas com [registos de plataformas de recursos](../azure-monitor/platform/platform-logs-overview.md). Monitorize e envie registos para [o Azure Storage,](https://azure.microsoft.com/services/storage/)transmita-os para [Azure Event Hubs,](https://azure.microsoft.com/services/event-hubs/)e exporte-os para [registos do Azure Monitor](https://azure.microsoft.com/services/log-analytics/), um serviço de [Azure](https://www.microsoft.com/cloud-platform/operations-management-suite). Para saber mais, veja [Configurar o registo de diagnósticos](analysis-services-logging.md).
+Os Serviços de Análise Azure estão integrados com as métricas do Azure Monitor, fornecendo um vasto número de métricas específicas de recursos para ajudá-lo a monitorizar o desempenho e a saúde dos seus servidores. Para saber mais, consulte as [métricas do servidor de Monitorização](analysis-services-monitor.md). Registar métricas com [registos de plataformas de recursos](../azure-monitor/essentials/platform-logs-overview.md). Monitorize e envie registos para [o Azure Storage,](https://azure.microsoft.com/services/storage/)transmita-os para [Azure Event Hubs,](https://azure.microsoft.com/services/event-hubs/)e exporte-os para [registos do Azure Monitor](https://azure.microsoft.com/services/log-analytics/), um serviço de [Azure](https://www.microsoft.com/cloud-platform/operations-management-suite). Para saber mais, veja [Configurar o registo de diagnósticos](analysis-services-logging.md).
 
 O Azure Analysis Services também suporta a utilização de [Vistas de Gestão Dinâmica (DMVs)](/analysis-services/instances/use-dynamic-management-views-dmvs-to-monitor-analysis-services). Com base na sintaxe do SQL, os conjuntos de linhas de esquema de interface dos DMVs devolvem metadados e informações de monitorização sobre a instância do servidor.
 

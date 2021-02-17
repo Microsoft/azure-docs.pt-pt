@@ -1,17 +1,17 @@
 ---
-title: Impacto de utilização de insights de aplicação Azure Docs da Microsoft
+title: Azure Application Insights Use Impact | Docs da Microsoft
 description: Analise como diferentes propriedades podem ter impacto nas taxas de conversão para partes das suas apps.
 ms.topic: conceptual
 author: NumberByColors
 ms.author: daviste
 ms.date: 01/08/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 7393c36099795bbc989ae4b690100284d53f08e5
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 51f938743d8da3c9a1dea546320662701e2b88c8
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92678393"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100583523"
 ---
 # <a name="impact-analysis-with-application-insights"></a>Análise de impacto com Insights de Aplicação
 
@@ -39,7 +39,7 @@ Para começar a responder a perguntas com a ferramenta Impact, escolha uma vista
 ![Screenshot que mostra onde escolher uma vista inicial da página, evento personalizado ou pedido.](./media/usage-impact/0002-dropdown.png)
 
 1. Selecione uma vista de página a partir do dropdown da vista para **a página.**
-2. Deixe a **análise de como** a sua queda na seleção padrão de **Duração** (Neste contexto **A duração** é um pseudónimo para **o tempo de carregamento da página** .)
+2. Deixe a **análise de como** a sua queda na seleção padrão de **Duração** (Neste contexto **A duração** é um pseudónimo para **o tempo de carregamento da página**.)
 3. Para os **impactos do uso do** dropdown, selecione um evento personalizado. Este evento deve corresponder a um elemento UI na vista de página selecionada no passo 1.
 
 ![Screenshot dos resultados](./media/usage-impact/0003-results.png)
@@ -65,16 +65,16 @@ Sob o capot, a ferramenta Impact baseia-se no [coeficiente de correlação Pears
 
 A desagregação básica de como funciona a Análise de Impacto é a seguinte:
 
-Deixe _A_ = a vista/evento personalizado da página principal/pedido que selecione no primeiro dropdown. ( **Para a vista da página).**
+Deixe _A_ = a vista/evento personalizado da página principal/pedido que selecione no primeiro dropdown. (**Para a vista da página).**
 
-Deixe _B_ = a vista de página secundária/evento personalizado que seleciona **(impacta a utilização de** ).
+Deixe _B_ = a vista de página secundária/evento personalizado que seleciona **(impacta a utilização de**).
 
-Impact olha para uma amostra de todas as sessões de utilizadores na faixa de tempo selecionada. Para cada sessão, procura cada ocorrência de _A_ .
+Impact olha para uma amostra de todas as sessões de utilizadores na faixa de tempo selecionada. Para cada sessão, procura cada ocorrência de _A_.
 
 As sessões são então divididas em dois tipos diferentes de _subsesões_ com base numa de duas condições:
 
-- Uma subsessão convertida consiste numa sessão que termina com um evento _B_ e engloba todos os eventos _A_ que ocorrem antes de _B_ .
-- Uma subsessão não convertida ocorre quando todas as _A's_ ocorrem sem um terminal _B_ .
+- Uma subsessão convertida consiste numa sessão que termina com um evento _B_ e engloba todos os eventos _A_ que ocorrem antes de _B_.
+- Uma subsessão não convertida ocorre quando todas as _A's_ ocorrem sem um terminal _B_.
 
 A forma como o Impacto é calculado varia em termos de base no facto de estarmos a analisar por métrica ou por dimensão. Para as métricas todos os _A's_ numa subsessão são mediados. Considerando que, para as dimensões, o valor de cada _A_ contribui em _1/N_ para o valor atribuído a _B_ onde _N_ é o número de _A's_ na subsessão.
 
@@ -84,7 +84,7 @@ A forma como o Impacto é calculado varia em termos de base no facto de estarmos
 - Se já envia eventos personalizados ou vistas de página, explore as ferramentas de Utilização para saber como os utilizadores usam o seu serviço.
     - [Funis](usage-funnels.md)
     - [Retenção](usage-retention.md)
-    - [Fluxos do Utilizador](usage-flows.md)
-    - [Livros](../platform/workbooks-overview.md)
+    - [Fluxos de Utilizador](usage-flows.md)
+    - [Livros](../visualize/workbooks-overview.md)
     - [Adicionar contexto de utilizador](usage-send-user-context.md)
 

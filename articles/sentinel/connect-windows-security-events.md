@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/16/2020
 ms.author: yelevin
-ms.openlocfilehash: 226d5a46482d6611fdecf214d040fc27af9ac586
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: bc75ee64174957ad6486146b4da6f8a66a2120e5
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98632051"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570554"
 ---
 # <a name="connect-windows-security-events"></a>Ligar aos eventos de segurança do Windows 
 
@@ -56,7 +56,7 @@ Para recolher os seus eventos de segurança windows em Azure Sentinel:
 
 1. Verifique se tem as permissões apropriadas, tal como descritas na secção **Pré-Requisitos** na página do conector.
 
-1. Descarregue e instale o [agente Log Analytics](../azure-monitor/platform/log-analytics-agent.md) (também conhecido como Agente de Monitorização da Microsoft ou MMA) nas máquinas para as quais pretende transmitir eventos de segurança para o Azure Sentinel.
+1. Descarregue e instale o [agente Log Analytics](../azure-monitor/agents/log-analytics-agent.md) (também conhecido como Agente de Monitorização da Microsoft ou MMA) nas máquinas para as quais pretende transmitir eventos de segurança para o Azure Sentinel.
 
     Para máquinas virtuais Azure:
     
@@ -73,9 +73,9 @@ Para recolher os seus eventos de segurança windows em Azure Sentinel:
     >
     > Para permitir que os sistemas Windows sem a necessária conectividade de internet ainda transmitam eventos para o Azure Sentinel, descarregue e instale o **OMS Gateway** numa máquina separada, utilizando o link no direito inferior, para funcionar como um proxy.  Ainda terá de instalar o agente Log Analytics em cada sistema Windows cujos eventos pretende recolher.
     >
-    > Para obter mais informações sobre este cenário, consulte a documentação do [ **gateway Log Analytics**](../azure-monitor/platform/gateway.md).
+    > Para obter mais informações sobre este cenário, consulte a documentação do [ **gateway Log Analytics**](../azure-monitor/agents/gateway.md).
 
-    Para obter opções de instalação adicionais e mais detalhes, consulte a documentação do [ **agente Log Analytics**](../azure-monitor/platform/agent-windows.md).
+    Para obter opções de instalação adicionais e mais detalhes, consulte a documentação do [ **agente Log Analytics**](../azure-monitor/agents/agent-windows.md).
 
 1. Selecione qual o conjunto de eventos[(All, Common ou Minimal)](#event-sets)que pretende transmitir.
 

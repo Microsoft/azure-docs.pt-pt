@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/20/2021
 ms.author: b-juche
-ms.openlocfilehash: 4a4fff18d21ccb0c729ecb1f79df17225c8086bc
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: ed03e20f7a1a24d1a38e023b958959fdc6fdc326
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98632678"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579350"
 ---
 # <a name="requirements-and-considerations-for-using-cross-region-replication"></a>Requisitos e considerações para a utilização da replicação entre regiões 
 
@@ -29,7 +29,7 @@ Note os seguintes requisitos e considerações sobre a utilização da funcional
 
 * A funcionalidade de replicação entre regiões está atualmente em visualização pública. Tem de submeter um pedido de lista de espera para aceder à funcionalidade através da [página de submissão da lista de espera de replicação da Azure NetApp Files](https://aka.ms/anfcrrpreviewsignup). Aguarde um e-mail oficial de confirmação da equipa do Azure NetApp Files antes de utilizar a funcionalidade de replicação entre regiões.
 * A replicação do Azure NetApp Files só está disponível em certos pares de regiões fixas. Consulte [os pares da região apoiada.](cross-region-replication-introduction.md#supported-region-pairs) 
-* Os volumes SMB são suportados juntamente com volumes NFS. A replicação de volumes SMB requer uma ligação ative directory nas contas NetApp de origem e destino. A ligação AD de destino deve ter acesso aos servidores DNS ou controladores de domínio ADDS que estejam acessíveis a partir da sub-rede delegada na região de destino. Para obter mais informações, consulte [requisitos para ligações de Diretório Ativo](azure-netapp-files-create-volumes-smb.md#requirements-for-active-directory-connections). 
+* Os volumes SMB são suportados juntamente com volumes NFS. A replicação de volumes SMB requer uma ligação ative directory nas contas NetApp de origem e destino. A ligação AD de destino deve ter acesso aos servidores DNS ou controladores de domínio ADDS que estejam acessíveis a partir da sub-rede delegada na região de destino. Para obter mais informações, consulte [requisitos para ligações de Diretório Ativo](create-active-directory-connections.md#requirements-for-active-directory-connections). 
 * A conta de destino deve ser numa região diferente da região de volume de origem. Também pode selecionar uma conta NetApp existente numa região diferente.  
 * O volume de destino de replicação é lido apenas até que você [falhe na região de destino](cross-region-replication-manage-disaster-recovery.md#fail-over-to-destination-volume) para ativar o volume de destino para ler e escrever. 
 * A replicação do Azure NetApp Files não suporta atualmente várias subscrições; todas as replicações devem ser efetuadas numa única subscrição.

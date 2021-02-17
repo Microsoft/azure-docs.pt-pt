@@ -3,12 +3,12 @@ title: Use definições de diagnóstico para cofres de serviços de recuperaçã
 description: Este artigo descreve como usar os antigos e novos eventos de diagnóstico para Azure Backup.
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: 3d10053bae5148f33dba6d1207a81bdb16c37577
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: b2130f06e17dd2b5cf8461d4e58342ee41c14f96
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96002890"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100575416"
 ---
 # <a name="use-diagnostics-settings-for-recovery-services-vaults"></a>Use definições de diagnóstico para cofres de serviços de recuperação
 
@@ -37,7 +37,7 @@ Os dados para estes eventos podem ser enviados para uma conta de armazenamento, 
 
 ## <a name="use-diagnostics-settings-with-log-analytics"></a>Use definições de diagnóstico com Log Analytics
 
-Agora pode utilizar o Azure Backup para enviar dados de diagnóstico de cofre para tabelas dedicadas do Log Analytics para cópias de segurança. Estas tabelas são chamadas [tabelas específicas de recursos.](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace)
+Agora pode utilizar o Azure Backup para enviar dados de diagnóstico de cofre para tabelas dedicadas do Log Analytics para cópias de segurança. Estas tabelas são chamadas [tabelas específicas de recursos.](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace)
 
 Para enviar os dados de diagnóstico do seu cofre para registar analítica:
 

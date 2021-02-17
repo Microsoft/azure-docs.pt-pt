@@ -4,7 +4,7 @@ description: Mapa do identificador para gerir o licenciamento do Azure Ative Dir
 services: active-directory
 keywords: Planos de serviço de licenciamento do Azure Ative Directory
 documentationcenter: ''
-author: Nicholak-MS
+author: daveba
 manager: mtillman
 editor: ''
 ms.service: active-directory
@@ -12,16 +12,16 @@ ms.subservice: enterprise-users
 ms.topic: reference
 ms.workload: identity
 ms.date: 12/02/2020
-ms.author: Nicholak-MS
+ms.author: daveba
 ms.reviewer: Nicholak-MS
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8469a82545648ff8ddc11a0937c5902d99ee2259
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 9201341631b58da1290da38e100812cc98a5bf5f
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100365689"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100547898"
 ---
 # <a name="product-names-and-service-plan-identifiers-for-licensing"></a>Nomes de produtos e identificadores de plano de serviço para licenciamento
 

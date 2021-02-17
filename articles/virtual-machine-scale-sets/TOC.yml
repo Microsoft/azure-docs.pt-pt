@@ -344,7 +344,7 @@
               href: ../virtual-machines/windows/dedicated-hosts-powershell.md
             - name: Portal
               href: ../virtual-machines/dedicated-hosts-portal.md
-        - name: Utilizar a instância do Spot
+        - name: Máquinas virtuais Azure Spot
           href: use-spot.md
     - name: Gerir
       items:
