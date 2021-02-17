@@ -1,17 +1,17 @@
 ---
 title: Induzir o caos nos clusters de tecido de serviço
 description: Utilização de APIs do Serviço de Injeção de Falhas e Análise de Cluster para gerir o Caos no cluster.
-author: motanv
+author: georgewallace
 ms.topic: conceptual
 ms.date: 02/05/2018
-ms.author: motanv
+ms.author: gwallace
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 34ec43593d50e359f09059cd3d51522df62cf567
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 727e0c8a738258434036652dd3df1f686f7433bb
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98789656"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546385"
 ---
 # <a name="induce-controlled-chaos-in-service-fabric-clusters"></a>Induzir o caos controlado nos clusters de tecido de serviço
 Sistemas distribuídos em larga escala, como infraestruturas em nuvem, são inerentemente pouco fiáveis. O Azure Service Fabric permite que os desenvolvedores escrevam serviços distribuídos fiáveis em cima de uma infraestrutura pouco fiável. Para escrever serviços robustos distribuídos em cima de uma infraestrutura pouco fiável, os desenvolvedores precisam de ser capazes de testar a estabilidade dos seus serviços enquanto a infraestrutura subjacente não confiável está a passar por transições complicadas do Estado devido a falhas.

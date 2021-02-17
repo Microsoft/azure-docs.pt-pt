@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 02/09/2021
 ms.author: dech
 ms.custom: references_regions
-ms.openlocfilehash: b8ce745a0a0db96e7f6b9e3a0140d46364246e4a
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: fd7f663ee5b6ceb49e6f1a393fc30919d5b245e9
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100379612"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100547830"
 ---
 # <a name="enable-notebooks-for-azure-cosmos-db-accounts-preview"></a>Ativar cadernos para contas DB do Azure Cosmos (pré-visualização)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -95,15 +95,15 @@ Os cadernos incorporados para a Azure Cosmos DB estão atualmente disponíveis e
 - Alemanha Centro-Oeste
 - Oeste do Japão
 - Sul da Coreia do Sul
-- Central Norte
+- E.U.A. Centro-Norte
 - Europa do Norte
-- Central Sul nos
+- E.U.A. Centro-Sul
 - Sudeste Asiático
 - Suíça Norte
 - Centro dos Emirados Árabes Unidos
 - Sul do Reino Unido
 - Oeste do Reino Unido
-- Central Ocidental nos
+- E.U.A. Centro-Oeste
 - Europa Ocidental
 - Oeste da Índia
 - E.U.A. Oeste 2

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 10/15/2020
 ms.author: erhopf
-ms.openlocfilehash: cf8223e9b2a235e61876fb44afd9ad05fafdb6b8
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 6f29fa55389e181eaabf1d6e7c51e0862702c63e
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96188447"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100552144"
 ---
 Este guia mostra como instalar o [SDK de discurso](~/articles/cognitive-services/speech-service/speech-sdk.md) para C# .NET Core. Se só quer que o nome do pacote seja iniciado por conta própria, corra `Install-Package Microsoft.CognitiveServices.Speech` na consola NuGet.
 
@@ -28,6 +28,7 @@ Este guia mostra como instalar o [SDK de discurso](~/articles/cognitive-services
 
 Este início rápido requer:
 
+* No Windows, precisa do [Microsoft Visual C++ Redistributable para Visual Studio 2019](https://support.microsoft.com/en-us/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0) para a sua plataforma. A instalação desta situação pela primeira vez pode exigir um reinício.
 * [SDK .NET Core](https://dotnet.microsoft.com/download)
 * [Estúdio Visual 2017](https://visualstudio.microsoft.com/downloads/) ou mais tarde
 

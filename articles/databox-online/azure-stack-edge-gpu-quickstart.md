@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 01/27/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to quickly deploy Azure Stack Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 642ab348cd2bb5cd2cedd2b481b0d06fb6c4b425
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 4f3ecb6c9aa4ec200cd1a53b82d7c81a2c8d4dcd
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98953942"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546793"
 ---
 # <a name="quickstart-get-started-with-azure-stack-edge-pro-with-gpu"></a>Quickstart: Começa com o Azure Stack Edge Pro com GPU 
 
@@ -64,7 +64,7 @@ Antes de partir, certifique-se de que estão em vigor os seguintes pré-requisit
 10. **Configure os certificados**: Se alterar o nome do dispositivo e/ou o domínio DNS, então deve gerar certificados ou adicionar certificados para ativar o dispositivo. 
 
     - Para testar cargas de trabalho não produtivos, utilize [a opção De obter certificados](azure-stack-edge-gpu-deploy-configure-certificates.md#generate-device-certificates). 
-    - Se trouxer os seus próprios certificados, incluindo a(s) cadeia de assinaturas, [adicione certificados](azure-stack-edge-gpu-deploy-configure-certificates.md#bring-your-own-certificates) em formato apropriado. Certifique-se de carregar a corrente de assinatura primeiro. Consulte [Criar certificados](azure-stack-edge-j-series-create-certificates-tool.md) e [carregar certificados através da UI local.](azure-stack-edge-gpu-deploy-configure-certificates.md#bring-your-own-certificates)
+    - Se trouxer os seus próprios certificados, incluindo a(s) cadeia de assinaturas, [adicione certificados](azure-stack-edge-gpu-deploy-configure-certificates.md#bring-your-own-certificates) em formato apropriado. Certifique-se de carregar a corrente de assinatura primeiro. Consulte [Criar certificados](azure-stack-edge-gpu-create-certificates-tool.md) e [carregar certificados através da UI local.](azure-stack-edge-gpu-deploy-configure-certificates.md#bring-your-own-certificates)
 
 11. **Ativar**: Para obter a chave de ativação 
 
@@ -73,7 +73,7 @@ Antes de partir, certifique-se de que estão em vigor os seguintes pré-requisit
 
 12. **Configure computação**: No portal Azure, vá ao **Overview > Dispositivo**. Verifique se o dispositivo está **online.** No painel esquerdo, vá ao **Edge compute > Começar > computação Configure Edge > Compute**. Forneça um serviço IoT Hub existente ou novo e aguarde cerca de 20 minutos para que o cálculo se configuure. Ver mais informações sobre [tutorial: Conigure compute no dispositivo GPU Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-configure-compute.md)
 
-Está pronto para implementar cargas de trabalho computacional no seu dispositivo [via IoT Edge,](azure-stack-edge-gpu-deploy-sample-module-marketplace.md) [via `kubectl` ](azure-stack-edge-gpu-create-kubernetes-cluster.md) ou [via Azure Arc ativado kubernetes](azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md)! Se tiver algum problema durante a configuração, aceda a [problemas de dispositivos de resolução de problemas,]() [questões de encomenda,](azure-stack-edge-gpu-troubleshoot.md) [problemas de certificados](azure-stack-edge-j-series-certificate-troubleshooting.md)ou problemas com Kubernetes. 
+Está pronto para implementar cargas de trabalho computacional no seu dispositivo [via IoT Edge,](azure-stack-edge-gpu-deploy-sample-module-marketplace.md) [via `kubectl` ](azure-stack-edge-gpu-create-kubernetes-cluster.md) ou [via Azure Arc ativado kubernetes](azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md)! Se tiver algum problema durante a configuração, aceda a [problemas de dispositivos de resolução de problemas,]() [questões de encomenda,](azure-stack-edge-gpu-troubleshoot.md) [problemas de certificados](azure-stack-edge-gpu-certificate-troubleshooting.md)ou problemas com Kubernetes. 
 
 ## <a name="next-steps"></a>Passos seguintes
 

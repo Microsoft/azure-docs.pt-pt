@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 10/08/2020
 ms.author: rolyon
-ms.openlocfilehash: ad906e3665c6ffc354cf6292c2559d1184037594
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: deee42c46c9b08bb265c972695b9319413d4fcb1
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91856160"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100555917"
 ---
 # <a name="understand-scope-for-azure-rbac"></a>Compreender o âmbito para o Azure RBAC
 
@@ -32,7 +32,7 @@ Os grupos de gestão são um nível de âmbito acima das subscrições, mas os g
 
 ## <a name="scope-format"></a>Formato de âmbito
 
-Se adicionar atribuições de funções utilizando a linha de comando, terá de especificar o âmbito. Para ferramentas de linha de comando, o âmbito é uma cadeia potencialmente longa que identifica o âmbito exato da atribuição de funções. No portal Azure, este âmbito é tipicamente listado como o *ID de recurso*.
+Se atribuir funções utilizando a linha de comando, terá de especificar o âmbito. Para ferramentas de linha de comando, o âmbito é uma cadeia potencialmente longa que identifica o âmbito exato da atribuição de funções. No portal Azure, este âmbito é tipicamente listado como o *ID de recurso*.
 
 O âmbito consiste numa série de identificadores separados pelo carácter do corte (/). Pode pensar nesta cadeia como expressando a seguinte hierarquia, onde o texto sem espaços reservados `{}` () são identificadores fixos:
 
@@ -122,6 +122,6 @@ Os grupos de gestão são um nível superior às subscrições e têm o âmbito 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Passos para adicionar uma atribuição de função](role-assignments-steps.md)
+- [Passos para atribuir um papel de Azure](role-assignments-steps.md)
 - [Resource providers for Azure services](../azure-resource-manager/management/azure-services-resource-providers.md) (Fornecedor de recursos para serviços do Azure)
 - [O que são os grupos de gestão do Azure?](../governance/management-groups/overview.md)

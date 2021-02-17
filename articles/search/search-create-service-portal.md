@@ -7,23 +7,21 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 01/23/2021
-ms.openlocfilehash: 57867cc4fb539b07fc1e4117f6e956078c41e2c6
-ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.date: 02/15/2021
+ms.openlocfilehash: 3be043af7b057c47f360ce36db6bb7c3afd80638
+ms.sourcegitcommit: b513b0becf878eb9a1554c26da53aa48d580bb22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2021
-ms.locfileid: "98746701"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100535353"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>Quickstart: Criar um serviço Azure Cognitive Search no portal
 
 [A Azure Cognitive Search](search-what-is-azure-search.md) é um recurso Azure usado para adicionar uma experiência completa de pesquisa de texto a aplicações personalizadas. Pode integrá-lo facilmente com outros serviços Azure que fornecem dados ou processamento adicional, com aplicações em servidores de rede ou com software em execução em outras plataformas de nuvem.
 
-Neste artigo, aprenda a criar um serviço de pesquisa no [portal Azure.](https://portal.azure.com/)
+Pode criar um serviço de pesquisa utilizando o [portal Azure,](https://portal.azure.com/)coberto neste artigo. Também pode utilizar [a Azure PowerShell](search-manage-powershell.md), [Azure CLI,](/cli/azure/search)ou um modelo de [serviço Azure Resource Manager](https://azure.microsoft.com/resources/templates/101-azure-search-create/).
 
 [![GIF animado](./media/search-create-service-portal/AnimatedGif-AzureSearch-small.gif)](./media/search-create-service-portal/AnimatedGif-AzureSearch.gif#lightbox)
-
-Prefere o PowerShell? Utilize o [modelo de serviço](https://azure.microsoft.com/resources/templates/101-azure-search-create/) do Azure Resource Manager. Para obter ajuda para começar, consulte [Gerir a Pesquisa Cognitiva Azure com PowerShell](search-manage-powershell.md).
 
 ## <a name="before-you-start"></a>Antes de começar
 
@@ -92,7 +90,7 @@ A Azure Cognitive Search está disponível na maioria das regiões. A lista de r
 >
 > A dupla encriptação só está disponível em certas regiões. Para obter mais informações, consulte [a dupla encriptação.](search-security-overview.md#double-encryption)
 
-### <a name="requirements"></a>Requirements
+### <a name="requirements"></a>Requisitos
 
  Se estiver a utilizar o enriquecimento de IA, crie o seu serviço de pesquisa na mesma região que os Serviços Cognitivos. *A co-localização da Azure Cognitive Search and Cognitive Services na mesma região é um requisito para o enriquecimento de IA.*
 
@@ -136,9 +134,9 @@ Não são necessários pontos finais e chave para tarefas baseadas no portal. O 
 
 Depois de o serviço ser aprovisionado, pode dimensioná-lo para satisfazer as suas necessidades. Se escolheu o nível Standard para o seu serviço de Pesquisa Cognitiva Azure, pode escalar o seu serviço em duas dimensões: réplicas e divisórias. Se tiver escolhido o escalão Básico, apenas pode adicionar réplicas. Se tiver aprovisionado o serviço gratuito, o dimensionamento não está disponível.
 
-**_Partições_* _ permita que o seu serviço armazene e procure mais documentos.
+As ***partições*** permitem ao serviço armazenar e pesquisar mais documentos.
 
-_*_As réplicas_*_ permitem que o seu serviço lide com uma carga mais elevada de consultas de pesquisa.
+As ***réplicas*** permitem ao serviço processar uma carga maior de consultas de pesquisa.
 
 A adição de recursos aumenta a sua fatura mensal. A [calculadora de preços](https://azure.microsoft.com/pricing/calculator/) pode ajudá-lo a compreender as ramificações de faturação da adição de recursos. Lembre-se de que pode ajustar os recursos com base na carga. Por exemplo, pode aumentar os recursos para criar um índice inicial completo e, em seguida, reduzir recursos mais tarde para um nível mais adequado para a indexação incremental.
 
@@ -146,7 +144,7 @@ A adição de recursos aumenta a sua fatura mensal. A [calculadora de preços](h
 > Um serviço tem de ter [2 réplicas para SLA só de leitura e 3 réplicas para SLA de leitura/escrita](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
 1. Aceda à página do serviço de pesquisa no portal do Azure.
-2. No painel de navegação à esquerda, selecione _ *Definições** > **Escala**.
+2. No painel de navegação à esquerda, selecione **Escala de Definições**  >  .
 3. Utilize a barra de deslize para adicionar recursos de qualquer tipo.
 
 :::image type="content" source="media/search-create-service-portal/settings-scale.png" alt-text="Adicione capacidade através de réplicas e divisórias" border="false":::
@@ -171,7 +169,7 @@ Embora a maioria dos clientes utilize apenas um serviço, a redundância de serv
 
 Não é necessário um segundo serviço para elevada disponibilidade. A elevada disponibilidade para consultas é alcançada ao utilizar 2 ou mais réplicas no mesmo serviço. As atualizações de réplicas são sequenciais, o que significa que pelo menos uma está operacional quando uma atualização de serviço é lançada. Para obter mais informações sobre o tempo de paragem, consulte [Os Contratos de Nível de Serviço](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Depois de prestar um serviço, pode continuar no portal para criar o seu primeiro índice.
 

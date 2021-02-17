@@ -3,14 +3,14 @@ title: Criar um livro de bordo Python 3 (pré-visualização) em Azure Automatio
 description: Este artigo ensina-o a criar, testar e publicar um simples livro de bordo Python 3 (pré-visualização).
 services: automation
 ms.subservice: process-automation
-ms.date: 12/22/2020
+ms.date: 02/16/2021
 ms.topic: tutorial
-ms.openlocfilehash: e03eba29d634fafa9302441b17ca3a6bf6598556
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: c19f7e177d51a3de75e7d7ae2b83442e23efd243
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100104982"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546147"
 ---
 # <a name="tutorial-create-a-python-3-runbook-preview"></a>Tutorial: Criar um livro de bordo Python 3 (pré-visualização)
 
@@ -39,7 +39,7 @@ Para concluir este tutorial, precisa do seguinte:
    * Se tiver ambos Python 2 e Python 3 instalados e quiser executar ambos os tipos de livros, então precisa configurar as seguintes variáveis ambientais:
 
      * Python 2 - Criar uma nova variável ambiental chamada `PYTHON_2_PATH` e especificar a pasta de instalação. Por exemplo, se a pasta de instalação for `C:\Python27` , então este caminho tem de ser adicionado à variável.
-     
+
      * Python 3 - Criar uma nova variável ambiental chamada `PYTHON_3_PATH` e especificar a pasta de instalação. Por exemplo, se a pasta de instalação for `C:\Python3` , então este caminho tem de ser adicionado à variável.
 
 ## <a name="create-a-new-runbook"></a>Criar um novo livro de bordo
@@ -128,23 +128,17 @@ Para isso, o script tem de autenticar utilizando as credenciais da sua conta Dem
 
 2. Adicione o seguinte código para autenticar ao Azure:
 
-   ```python
-   import os
-   from azure.mgmt.compute import ComputeManagementClient
-   import azure.mgmt.resource 
-   import automationassets 
-   
-   def get_automation_runas_credential(runas_connection): 
+    ```python
     from OpenSSL import crypto 
     import binascii 
     from msrestazure import azure_active_directory 
     import adal 
-    
+
     # Get the Azure Automation RunAs service principal certificate 
     cert = automationassets.get_automation_certificate("AzureRunAsCertificate") 
     pks12_cert = crypto.load_pkcs12(cert) 
     pem_pkey = crypto.dump_privatekey(crypto.FILETYPE_PEM,pks12_cert.get_privatekey()) 
-
+    
     # Get run as connection information for the Azure Automation service principal 
     application_id = runas_connection["ApplicationId"] 
     thumbprint = runas_connection["CertificateThumbprint"] 
@@ -155,17 +149,13 @@ Para isso, o script tem de autenticar utilizando as credenciais da sua conta Dem
     authority_url = ("https://login.microsoftonline.com/"+tenant_id) 
     context = adal.AuthenticationContext(authority_url) 
     return azure_active_directory.AdalAuthentication( 
-        lambda: context.acquire_token_with_client_certificate( 
-                resource, 
-                application_id, 
-                pem_pkey, 
-                thumbprint) 
+      lambda: context.acquire_token_with_client_certificate( 
+          resource, 
+          application_id, 
+          pem_pkey, 
+          thumbprint) 
     ) 
-    
-   # Authenticate to Azure using the Azure Automation RunAs service principal 
-   runas_connection = automationassets.get_automation_connection("AzureRunAsConnection") 
-   azure_credential = get_automation_runas_credential(runas_connection) 
-   ```
+    ```
 
 ## <a name="add-code-to-create-python-compute-client-and-start-the-vm"></a>Adicione código para criar o cliente Python Compute e inicie o VM
 

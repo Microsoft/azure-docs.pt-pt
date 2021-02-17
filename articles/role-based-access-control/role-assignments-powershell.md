@@ -1,22 +1,22 @@
 ---
-title: Adicione ou remova atribuições de funções Azure usando Azure PowerShell - Azure RBAC
+title: Atribuir funções Azure usando Azure PowerShell - Azure RBAC
 description: Saiba como conceder acesso aos recursos Azure para utilizadores, grupos, principais serviços ou identidades geridas utilizando o controlo de acesso baseado em funções Azure PowerShell e Azure (Azure RBAC).
 services: active-directory
 author: rolyon
-manager: mtillman
+manager: daveba
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 11/25/2020
+ms.date: 02/15/2021
 ms.author: rolyon
-ms.openlocfilehash: 3bb09133ba6991554072b4bf68b5306c78f868a7
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: 00f663b90f34f3b557329692f844bbbc1bf3207d
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97964291"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100556805"
 ---
-# <a name="add-or-remove-azure-role-assignments-using-azure-powershell"></a>Utilizar o Azure PowerShell para adicionar ou remover atribuições de funções do Azure
+# <a name="assign-azure-roles-using-azure-powershell"></a>Atribuir funções Azure usando Azure PowerShell
 
 [!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control/definition-grant.md)] Este artigo descreve como atribuir funções usando a Azure PowerShell.
 
@@ -24,19 +24,19 @@ ms.locfileid: "97964291"
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para adicionar ou remover atribuições de funções, você deve ter:
+Para atribuir funções, deve ter:
 
-- `Microsoft.Authorization/roleAssignments/write` e `Microsoft.Authorization/roleAssignments/delete` permissões, tais como [Administrador de Acesso ao Utilizador](built-in-roles.md#user-access-administrator) ou [Proprietário](built-in-roles.md#owner)
+- `Microsoft.Authorization/roleAssignments/write` permissões, tais como [Administrador de Acesso ao Utilizador](built-in-roles.md#user-access-administrator) ou [Proprietário](built-in-roles.md#owner)
 - [PowerShell em Azure Cloud Shell](../cloud-shell/overview.md) ou [Azure PowerShell](/powershell/azure/install-az-ps)
 - A conta que utiliza para executar o comando PowerShell deve ter a permissão do Microsoft `Directory.Read.All` Graph.
 
-## <a name="steps-to-add-a-role-assignment"></a>Passos para adicionar uma atribuição de função
+## <a name="steps-to-assign-an-azure-role"></a>Passos para atribuir um papel de Azure
 
-No Azure RBAC, para conceder acesso, adiciona-se uma atribuição de papéis. Uma atribuição de função é composta por três elementos: principal de segurança, definição de função e âmbito. Para adicionar uma tarefa de papel, siga estes passos.
+Atribuir uma função consiste em três elementos: principal de segurança, definição de função e âmbito.
 
 ### <a name="step-1-determine-who-needs-access"></a>Passo 1: Determinar quem precisa de acesso
 
-Pode atribuir uma função a um utilizador, grupo, principal de serviço ou identidade gerida. Para adicionar uma atribuição de funções, pode ser necessário especificar o ID único do objeto. O ID tem o formato: `11111111-1111-1111-1111-111111111111` . Pode obter o ID usando o portal Azure ou Azure PowerShell.
+Pode atribuir uma função a um utilizador, grupo, principal de serviço ou identidade gerida. Para atribuir uma função, pode ser necessário especificar o ID único do objeto. O ID tem o formato: `11111111-1111-1111-1111-111111111111` . Pode obter o ID usando o portal Azure ou Azure PowerShell.
 
 **Utilizador**
 
@@ -74,7 +74,7 @@ Get-AzADServicePrincipal -SearchString <principalName>
 (Get-AzADServicePrincipal -DisplayName <principalName>).id
 ```
     
-### <a name="step-2-find-the-appropriate-role"></a>Passo 2: Encontrar o papel adequado
+### <a name="step-2-select-the-appropriate-role"></a>Passo 2: Selecione a função adequada
 
 As permissões são agrupadas em papéis. Pode selecionar a partir de uma lista de várias [funções incorporadas do Azure](built-in-roles.md) ou pode usar as suas próprias funções personalizadas. É uma boa prática conceder acesso com o menor privilégio que for necessário, por isso evite atribuir um papel mais amplo.
 
@@ -128,9 +128,9 @@ Para o âmbito do grupo de gestão, você precisa do nome do grupo de gestão. P
 Get-AzManagementGroup
 ```
     
-### <a name="step-4-add-role-assignment"></a>Passo 4: Adicionar atribuição de função
+### <a name="step-4-assign-role"></a>Passo 4: Atribuir função
 
-Para adicionar uma atribuição de funções, use o comando [New-AzRoleAssignment.](/powershell/module/az.resources/new-azroleassignment) Dependendo do âmbito, o comando tem normalmente um dos seguintes formatos.
+Para atribuir um papel, use o comando [new-AzRoleAssignment.](/powershell/module/az.resources/new-azroleassignment) Dependendo do âmbito, o comando tem normalmente um dos seguintes formatos.
 
 **Âmbito do recurso**
 
@@ -190,9 +190,9 @@ New-AzRoleAssignment -ObjectId <objectId> `
 -Scope /providers/Microsoft.Management/managementGroups/<groupName>
 ``` 
     
-## <a name="add-role-assignment-examples"></a>Adicionar exemplos de atribuição de funções
+## <a name="assign-role-examples"></a>Atribuir exemplos de funções
 
-#### <a name="add-role-assignment-for-all-blob-containers-in-a-storage-account-resource-scope"></a>Adicionar atribuição de funções para todos os recipientes blob num âmbito de recursos de conta de armazenamento
+#### <a name="assign-a-role-for-all-blob-containers-in-a-storage-account-resource-scope"></a>Atribuir uma função para todos os recipientes blob num âmbito de recursos de conta de armazenamento
 
 Atribui a função [de Contribuinte de Dados Blob de Armazenamento](built-in-roles.md#storage-blob-data-contributor) a um titular de serviço com iD *55555555-5555-55555-555555555555555555555555555* numa área de recursos para uma conta de armazenamento denominada *armazenamento12345*.
 
@@ -212,7 +212,7 @@ ObjectType         : ServicePrincipal
 CanDelegate        : False
 ```
 
-#### <a name="add-role-assignment-for-a-specific-blob-container-resource-scope"></a>Adicionar atribuição de funções para um âmbito específico de recurso de recipiente de bolhas
+#### <a name="assign-a-role-for-a-specific-blob-container-resource-scope"></a>Atribuir uma função para um âmbito específico de recurso de recipiente de bolhas
 
 Atribui a função [de contribuinte de dados blob de armazenamento](built-in-roles.md#storage-blob-data-contributor) a um titular de serviço com o ID do objeto *5555555-5555-5555-555555555555555555555555555,* numa mira de recurso para um recipiente de bolhas denominado *blob-container-01*.
 
@@ -233,9 +233,9 @@ ObjectType         : ServicePrincipal
 CanDelegate        : False
 ```
 
-#### <a name="add-role-assignment-for-a-group-in-a-specific-virtual-network-resource-scope"></a>Adicionar atribuição de função para um grupo num âmbito específico de recursos de rede virtual
+#### <a name="assign-a-role-for-a-group-in-a-specific-virtual-network-resource-scope"></a>Atribuir um papel para um grupo num âmbito específico de recursos de rede virtual
 
-Atribui o papel [de Contribuinte de Máquina Virtual](built-in-roles.md#virtual-machine-contributor) ao grupo *Pharma Sales Admins* com ID aaaa-aaaaa-aaaaa-aaaaa 
+Atribui o papel [de Contribuinte de Máquina Virtual](built-in-roles.md#virtual-machine-contributor) ao grupo *Pharma Sales Admins* com ID aaaaaaa-aaaaa-aaaaa-aaaaa 
 
 ```azurepowershell
 PS C:\> New-AzRoleAssignment -ObjectId aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa `
@@ -258,7 +258,7 @@ ObjectType         : Group
 CanDelegate        : False
 ```
 
-#### <a name="add-a-role-assignment-for-a-user-at-a-resource-group-scope"></a>Adicione uma atribuição de função para um utilizador num âmbito de grupo de recursos
+#### <a name="assign-a-role-for-a-user-at-a-resource-group-scope"></a>Atribuir uma função para um utilizador num âmbito de grupo de recursos
 
 Atribui o papel [de Contribuinte de Máquina Virtual](built-in-roles.md#virtual-machine-contributor) ao utilizador *\@ patlong contoso.com* no âmbito do grupo de recursos de vendas de *pharma.*
 
@@ -297,7 +297,7 @@ ObjectType         : User
 CanDelegate        : False
 ```
 
-#### <a name="add-role-assignment-for-a-user-using-the-unique-role-id-at-a-resource-group-scope"></a>Adicionar atribuição de funções para um utilizador que usa o ID de função único num âmbito de grupo de recursos
+#### <a name="assign-a-role-for-a-user-using-the-unique-role-id-at-a-resource-group-scope"></a>Atribuir uma função para um utilizador que usa o ID de função único num âmbito de grupo de recursos
 
 Há um par de vezes em que um nome pode mudar, por exemplo:
 
@@ -324,7 +324,7 @@ ObjectType         : User
 CanDelegate        : False
 ```
 
-#### <a name="add-role-assignment-for-an-application-at-a-resource-group-scope"></a>Adicionar atribuição de função para uma aplicação no âmbito de um grupo de recursos
+#### <a name="assign-a-role-for-an-application-at-a-resource-group-scope"></a>Atribuir uma função para uma aplicação num âmbito de grupo de recursos
 
 Atribui a função [de Contribuinte de Máquina Virtual](built-in-roles.md#virtual-machine-contributor) a uma aplicação com o objeto principal de serviço ID 77777777-7777-7777-77777-777777777777777777 no âmbito do grupo de recursos de vendas de *pharma.*
 
@@ -344,7 +344,7 @@ ObjectType         : ServicePrincipal
 CanDelegate        : False
 ```
 
-#### <a name="add-role-assignment-for-a-user-at-a-subscription-scope"></a>Adicionar atribuição de funções para um utilizador num âmbito de subscrição
+#### <a name="assign-a-role-for-a-user-at-a-subscription-scope"></a>Atribuir uma função para um utilizador num âmbito de subscrição
 
 Atribui o papel [de Leitor](built-in-roles.md#reader) ao *utilizador annm \@ example.com* num âmbito de subscrição.
 
@@ -364,7 +364,7 @@ ObjectType         : ServicePrincipal
 CanDelegate        : False
 ```
 
-#### <a name="add-role-assignment-for-a-user-at-a-management-group-scope"></a>Adicionar atribuição de funções para um utilizador num âmbito de grupo de gestão
+#### <a name="assign-a-role-for-a-user-at-a-management-group-scope"></a>Atribuir uma função para um utilizador no âmbito de um grupo de gestão
 
 Atribui o papel [de Leitor de Faturação](built-in-roles.md#billing-reader) ao *utilizador alain \@ example.com* num âmbito de grupo de gestão.
 
@@ -383,36 +383,6 @@ ObjectId           : 44444444-4444-4444-4444-444444444444
 ObjectType         : User
 CanDelegate        : False
 ```
-
-## <a name="remove-a-role-assignment"></a>Remover uma atribuição de função
-
-No Azure RBAC, para remover o acesso, remove-se uma atribuição de funções utilizando [o Remove-AzRoleAssignment](/powershell/module/az.resources/remove-azroleassignment).
-
-O exemplo a seguir remove a atribuição de função [de contribuinte de máquina virtual](built-in-roles.md#virtual-machine-contributor) do utilizador *\@ patlong contoso.com* no grupo de recursos de vendas de *pharma:*
-
-```azurepowershell
-PS C:\> Remove-AzRoleAssignment -SignInName patlong@contoso.com `
--RoleDefinitionName "Virtual Machine Contributor" `
--ResourceGroupName pharma-sales
-```
-
-Remove o papel de [Leitor](built-in-roles.md#reader) do grupo *Ann Mack Team* com iD 22222222-2222-2222-2222-2222-222222222222 num âmbito de subscrição.
-
-```azurepowershell
-PS C:\> Remove-AzRoleAssignment -ObjectId 22222222-2222-2222-2222-222222222222 `
--RoleDefinitionName "Reader" `
--Scope "/subscriptions/00000000-0000-0000-0000-000000000000"
-```
-
-Remove o papel de [Leitor de Faturação](built-in-roles.md#billing-reader) do *alain \@ example.com* utilizador no âmbito do grupo de gestão.
-
-```azurepowershell
-PS C:\> Remove-AzRoleAssignment -SignInName alain@example.com `
--RoleDefinitionName "Billing Reader" `
--Scope "/providers/Microsoft.Management/managementGroups/marketing-group"
-```
-
-Se receber a mensagem de erro: "As informações fornecidas não mapeiam para uma atribuição de funções", certifique-se de que também especifica os `-Scope` parâmetros ou `-ResourceGroupName` parâmetros. Para mais informações, consulte [Troubleshoot Azure RBAC](troubleshooting.md#role-assignments-with-identity-not-found).
 
 ## <a name="next-steps"></a>Passos seguintes
 

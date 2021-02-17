@@ -4,18 +4,18 @@ description: Desencadeie e-mails, notificações, telefones urLs (webhooks) ou a
 author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
-ms.date: 5/31/2019
+ms.date: 09/22/2020
 ms.subservice: alerts
-ms.openlocfilehash: a913bc0ae01507cb26c1650d63918a8319eeacf4
-ms.sourcegitcommit: 697638c20ceaf51ec4ebd8f929c719c1e630f06f
+ms.openlocfilehash: 0f81dd14988b069931bddf5f5636cb1bab426641
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97857431"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100544873"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Alertas de registo no Monitor Azure
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Os alertas de registo são um dos tipos de alerta que são suportados em [Alertas Azure](./alerts-overview.md). Os alertas de registo permitem que os utilizadores utilizem uma consulta [log Analytics](../log-query/log-analytics-tutorial.md) para avaliar os registos de recursos em cada frequência definida e disparem um alerta com base nos resultados. As regras podem desencadear uma ou mais ações utilizando [grupos de ação.](./action-groups.md)
 
@@ -51,7 +51,7 @@ A consulta [Log Analytics](../log-query/log-analytics-tutorial.md) usada para av
 - Múltiplos recursos utilizando [consulta de recursos cruzados.](../log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights) 
  
 > [!IMPORTANT]
-> As consultas de alerta têm constrangimentos para garantir o melhor desempenho e a relevância dos resultados. [Saiba mais aqui.](./alerts-log-query.md)
+> As consultas de alerta têm constrangimentos para garantir o melhor desempenho e a relevância dos resultados. [Saiba mais aqui](./alerts-log-query.md).
 
 > [!IMPORTANT]
 > A consulta centrada em recursos e [os recursos cruzados](../log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights) só são suportadas utilizando a atual API de Regras Desconsecção. Se utilizar o legado [Log Analytics Alert API,](api-alerts.md)terá de mudar. [Saiba mais sobre a mudança](./alerts-log-api-switch.md)
@@ -64,7 +64,7 @@ Tal como na análise de registos, o intervalo de tempo limita os dados de consul
 
 Por exemplo, uma consulta digitaliza 60 minutos, quando o intervalo de tempo é de 60 minutos, mesmo que o texto contenha **há pouco(1d)**. O intervalo de tempo e a filtragem do tempo de consulta precisam de coincidir. No caso do exemplo, alterar o intervalo de tempo de consulta **de**  /  **Override** period para um dia, funcionaria como esperado.
 
-### <a name="measure"></a>Medida
+### <a name="measure"></a>Medir
 
 Os alertas de registo transformam o registo em valores numéricos que podem ser avaliados. Pode medir duas coisas diferentes:
 

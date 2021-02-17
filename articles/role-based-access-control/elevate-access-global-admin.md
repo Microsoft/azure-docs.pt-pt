@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 06/09/2020
 ms.author: rolyon
-ms.openlocfilehash: 850d50bc9e427ff559782d587d74b33089332a8d
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 30c7e6b1412373cf3bfe1c511206aa4b916bf1ee
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99091668"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100557502"
 ---
 # <a name="elevate-access-to-manage-all-azure-subscriptions-and-management-groups"></a>Elevate access to manage all Azure subscriptions and management groups (Elevar o acesso para gerir todas as subscrições e grupos de gestão do Azure)
 
@@ -80,7 +80,7 @@ Siga estes passos para elevar o acesso a um Administrador Global utilizando o po
 
 1. Faça as alterações necessárias para fazer no acesso elevado.
 
-    Para obter informações sobre a atribuição de funções, consulte [adicionar ou remover atribuições de funções Azure utilizando o portal Azure](role-assignments-portal.md). Se estiver a utilizar a Gestão de Identidade Privilegiada, consulte [os recursos do Discover Azure para gerir](../active-directory/privileged-identity-management/pim-resource-roles-discover-resources.md) ou atribuir [funções de recursos da Azure.](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md)
+    Para obter informações sobre a atribuição de funções, consulte [as funções De Atribuição Azure utilizando o portal Azure](role-assignments-portal.md). Se estiver a utilizar a Gestão de Identidade Privilegiada, consulte [os recursos do Discover Azure para gerir](../active-directory/privileged-identity-management/pim-resource-roles-discover-resources.md) ou atribuir [funções de recursos da Azure.](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md)
 
 1. Execute os passos na secção seguinte para remover o seu acesso elevado.
 
@@ -149,7 +149,7 @@ Para remover a atribuição de função do Administrador de Acesso ao Utilizador
 
 Utilize os seguintes passos básicos para elevar o acesso a um Administrador Global utilizando o Azure CLI.
 
-1. Utilize o comando [de repouso az](/cli/azure/reference-index?view=azure-cli-latest#az-rest) para ligar para o `elevateAccess` ponto final, o que lhe confere a função de Administrador de Acesso ao Utilizador no âmbito raiz `/` ().
+1. Utilize o comando [de repouso az](/cli/azure/reference-index#az_rest) para ligar para o `elevateAccess` ponto final, o que lhe confere a função de Administrador de Acesso ao Utilizador no âmbito raiz `/` ().
 
     ```azurecli
     az rest --method post --url "/providers/Microsoft.Authorization/elevateAccess?api-version=2016-07-01"
@@ -157,7 +157,7 @@ Utilize os seguintes passos básicos para elevar o acesso a um Administrador Glo
 
 1. Faça as alterações necessárias para fazer no acesso elevado.
 
-    Para obter informações sobre a atribuição de funções, consulte [adicionar ou remover atribuições de funções Azure utilizando o CLI Azure](role-assignments-cli.md).
+    Para obter informações sobre a atribuição de funções, consulte [as funções De Atribuição Azure utilizando o CLI Azure](role-assignments-cli.md).
 
 1. Execute os passos numa secção posterior para remover o seu acesso elevado.
 
@@ -213,7 +213,7 @@ Utilize os seguintes passos básicos para elevar o acesso a um Administrador Glo
 
 1. Faça as alterações necessárias para fazer no acesso elevado.
 
-    Para obter informações sobre a atribuição de funções, consulte [Adicionar ou remover atribuições de funções Azure utilizando a API REST](role-assignments-rest.md).
+    Para obter informações sobre a atribuição de funções, consulte [as funções De Atribuição Azure utilizando a API REST](role-assignments-rest.md).
 
 1. Execute os passos numa secção posterior para remover o seu acesso elevado.
 
@@ -330,4 +330,4 @@ Quando `elevateAccess` ligar, crie uma atribuição de função para si mesmo, p
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Compreender as diferentes funções](rbac-and-directory-admin-roles.md)
-- [Utilizar a API REST para adicionar ou remover atribuições de funções do Azure](role-assignments-rest.md)
+- [Atribuir funções Azure utilizando a API REST](role-assignments-rest.md)

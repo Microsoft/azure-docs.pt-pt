@@ -55,13 +55,13 @@
           href: role-assignments-list-cli.md
         - name: API REST
           href: role-assignments-list-rest.md
-    - name: Adicionar ou remover atribuições de função
+    - name: Atribuir funções
       items:
-        - name: Passos para adicionar uma atribuição de função
+        - name: Passos para atribuir um papel
           href: role-assignments-steps.md
         - name: Portal
           items:
-            - name: Adicionar ou remover atribuições de função
+            - name: Atribuir funções
               href: role-assignments-portal.md
             - name: Administrador de subscrição
               href: role-assignments-portal-subscription-admin.md
@@ -78,6 +78,8 @@
         - name: Modelo ARM
           displayName: Resource Manager
           href: role-assignments-template.md
+    - name: Remover atribuições de funções
+      href: role-assignments-remove.md
     - name: Listar atribuições de negação
       items:
         - name: Descrição geral

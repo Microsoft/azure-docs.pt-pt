@@ -9,6 +9,7 @@
 - name: Guias de procedimentos
   items:
     - name: Gerir unidades da Instância Bare-metal no Azure
+      displayName: 'Azure CLI, az baremetalinstance, az baremetalinstance restart'
       href: baremetal-infrastructure-portal.md
 - name: Referência
   items:

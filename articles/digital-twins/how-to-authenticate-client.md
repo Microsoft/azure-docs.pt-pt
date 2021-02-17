@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/7/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: eba3958ae5dd307b80b04371d3659a129d5acf89
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: 5a7cfec6acb4cd8735c039f5eab30bac4ccf55b0
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98797870"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100556148"
 ---
 # <a name="write-client-app-authentication-code"></a>Escreva código de autenticação de aplicativos de cliente
 
@@ -112,10 +112,10 @@ Além disso, para utilizar a autenticação em função, lembre-se de:
 
 Se os cenários de autenticação acima referidos não cobrirem as necessidades da sua aplicação, poderá explorar outros tipos de autenticação oferecidas na plataforma de identidade da [**Microsoft.**](../active-directory/develop/v2-overview.md#getting-started) A documentação desta plataforma abrange cenários de autenticação adicional, organizados por tipo de aplicação.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Leia mais sobre como funciona a segurança em Azure Digital Twins:
 * [*Conceitos: Segurança para soluções Azure Digital Twins*](concepts-security.md)
 
-Ou, agora que a autenticação está configurada, passe a criar modelos no seu caso:
-* [*Como fazer: Gerir modelos personalizados*](how-to-manage-model.md)
+Ou, agora que a autenticação está configurada, passe para a criação e gestão de modelos no seu caso:
+* [*Como fazer: Gerir os modelos DTDL*](how-to-manage-model.md)

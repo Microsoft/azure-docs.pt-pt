@@ -11,12 +11,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviwer: vanto
 ms.date: 01/15/2021
-ms.openlocfilehash: 51431bf0da9145e1b61da708942b675e4c3eea78
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 664733f3d4c4e4bf17440db0323580c5d2c8c2ce
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98733828"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100555667"
 ---
 # <a name="configure-azure-attestation-for-your-azure-sql-logical-server"></a>Configure Azure Attestation para o seu servidor lógico Azure SQL
 
@@ -36,7 +36,7 @@ Para utilizar o Azure Attestation para atestar enclaves Intel SGX utilizados par
 > [!NOTE]
 > A configuração do atestado é da responsabilidade do administrador da atestado. Ver [Papéis e responsabilidades ao configurar enclaves EGX e atestado](always-encrypted-enclaves-plan.md#roles-and-responsibilities-when-configuring-sgx-enclaves-and-attestation).
 
-## <a name="requirements"></a>Requirements
+## <a name="requirements"></a>Requisitos
 
 O servidor lógico Azure SQL e o fornecedor de atestado devem pertencer ao mesmo inquilino do Azure Ative Directory. Interações entre inquilinos não são apoiadas. 
 
@@ -114,7 +114,7 @@ Durante o fluxo de trabalho do atestado, o servidor lógico Azure SQL que conté
 
 ### <a name="use-azure-portal-to-assign-permission"></a>Use o portal Azure para atribuir permissão
 
-Para atribuir a identidade de um servidor Azure SQL à função Attestation Reader para um fornecedor de atestado, siga as instruções gerais em [Adicionar ou remova as atribuições de funções Azure utilizando o portal Azure](../../role-based-access-control/role-assignments-portal.md). Quando estiver no painel de atribuição de **funções Add:**
+Para atribuir a identidade de um servidor Azure SQL à função Attestation Reader para um provedor de atestado, siga as instruções gerais nas [funções De Atribuição Azure utilizando o portal Azure](../../role-based-access-control/role-assignments-portal.md). Quando estiver no painel de atribuição de **funções Add:**
 
 1. No **drop-down role,** selecione o papel **Attestation Reader.**
 1. No campo **Selecione,** insira o nome do seu servidor Azure SQL para o procurar.
@@ -143,12 +143,12 @@ $attestationResourceGroupName = "<attestation provider resource group name>"
 New-AzRoleAssignment -ObjectId $server.Identity.PrincipalId -RoleDefinitionName "Attestation Reader" -ResourceGroupName $attestationResourceGroupName
 ```
 
-Para obter mais informações, consulte [Adicionar ou remover atribuições de funções Azure utilizando a Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md#add-role-assignment-examples).
+Para obter mais informações, consulte [atribuir as funções Azure utilizando a Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md#assign-role-examples).
 
 ## <a name="next-steps"></a>Passos Seguintes
 
 - [Gerir chaves através do Always Encrypted com enclaves protegidos](/sql/relational-databases/security/encryption/always-encrypted-enclaves-manage-keys)
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 - [Tutorial: Começar com Sempre Encriptado com enclaves seguros na Base de Dados Azure SQL](always-encrypted-enclaves-getting-started.md)

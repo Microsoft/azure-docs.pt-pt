@@ -1,14 +1,14 @@
 ---
 title: Remover o acesso a uma delegação
 description: Saiba como remover o acesso aos recursos que tinham sido delegados a um prestador de serviços para o Farol de Azure.
-ms.date: 12/03/2020
+ms.date: 02/16/2021
 ms.topic: how-to
-ms.openlocfilehash: 7218c8829c9b2500e8311fbb3d5e9ff4eb986529
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: c53b678ba6e37ece1bcaf2860abceb9eea980532
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98791361"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100555784"
 ---
 # <a name="remove-access-to-a-delegation"></a>Remover o acesso a uma delegação
 
@@ -21,7 +21,7 @@ A remoção de uma delegação pode ser feita por um utilizador, quer no arrenda
 
 ## <a name="customers"></a>Clientes
 
-Os utilizadores do inquilino do cliente que tenham a [função de Proprietário incorporado](../../role-based-access-control/built-in-roles.md#owner) para uma subscrição podem remover o acesso do prestador de serviços a essa subscrição (ou a grupos de recursos nessa subscrição). Para tal, um utilizador no arrendatário do cliente pode ir à página de [prestadores](view-manage-service-providers.md#add-or-remove-service-provider-offers) de serviços do portal Azure, encontrar a oferta no prestador de **serviços que oferece** ecrã e selecionar o ícone do caixote do lixo na fila para essa oferta.
+Os utilizadores do arrendatário do cliente que tenham um papel com a `Microsoft.Authorization/roleAssignments/write` permissão, como o [Proprietário,](../../role-based-access-control/built-in-roles.md#owner)podem remover o acesso do prestador de serviços a essa subscrição (ou a grupos de recursos nessa subscrição). Para tal, o utilizador pode ir à página de [prestadores](view-manage-service-providers.md#add-or-remove-service-provider-offers) de serviços do portal Azure, encontrar a oferta no **bloco de serviços que oferece** ecrã e selecionar o ícone do caixote do lixo na fila para essa oferta.
 
 Após confirmação da supressão, nenhum utilizadores no arrendatário do prestador de serviços poderá aceder aos recursos que tinham sido previamente delegados.
 

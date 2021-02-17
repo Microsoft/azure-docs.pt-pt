@@ -1,5 +1,5 @@
 ---
-title: Tutorial para transferir dados para conta de armazenamento com Azure Stack Edge Pro GPU Microsoft Docs
+title: Tutorial para transferir dados para conta de armazenamento com Azure Stack Edge Pro GPU| Microsoft Docs
 description: Saiba como adicionar e conectar-se às contas de armazenamento local e edge no dispositivo GPU Azure Stack Edge Pro.
 services: databox
 author: alkohli
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/31/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to add and connect to storage accounts on Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: c24970b30e522d593a491194dbbabb0421ad7f4b
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: b346cf37a8275b1783e94e0f51859b8c87eb9b67
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96185566"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546827"
 ---
 # <a name="tutorial-transfer-data-via-storage-accounts-with-azure-stack-edge-pro-gpu"></a>Tutorial: Transferir dados através de contas de armazenamento com Azure Stack Edge Pro GPU 
 
@@ -24,7 +24,7 @@ Este tutorial descreve como adicionar e ligar às contas de armazenamento no seu
 
 Este procedimento pode demorar cerca de 30 minutos a ser concluído.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Adicionar uma conta de armazenamento
@@ -137,9 +137,9 @@ Cada um destes passos é descrito nas seguintes secções.
 
 O acesso ao armazenamento blob sobre HTTPS requer um certificado SSL para o dispositivo. Também irá enviar este certificado para o seu dispositivo Azure Stack Edge Pro como ficheiro *.pfx* com uma chave privada anexada ao mesmo. Para obter mais informações sobre como criar (apenas para fins de teste e dev) e fazer o upload destes certificados para o seu dispositivo Azure Stack Edge Pro, aceda a:
 
-- [Crie o certificado de ponta final blob](azure-stack-edge-j-series-manage-certificates.md#create-certificates-optional).
-- [Faça o upload do certificado de ponto final blob](azure-stack-edge-j-series-manage-certificates.md#upload-certificates).
-- [Certificados de importação no cliente que acede ao dispositivo.](azure-stack-edge-j-series-manage-certificates.md#import-certificates-on-the-client-accessing-the-device)
+- [Crie o certificado de ponta final blob](azure-stack-edge-gpu-manage-certificates.md#create-certificates-optional).
+- [Faça o upload do certificado de ponto final blob](azure-stack-edge-gpu-manage-certificates.md#upload-certificates).
+- [Certificados de importação no cliente que acede ao dispositivo.](azure-stack-edge-gpu-manage-certificates.md#import-certificates-on-the-client-accessing-the-device)
 
 ### <a name="import-certificate"></a>Importar o certificado
 

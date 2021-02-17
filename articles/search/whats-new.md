@@ -8,12 +8,12 @@ ms.service: cognitive-search
 ms.topic: overview
 ms.date: 02/09/2021
 ms.custom: references_regions
-ms.openlocfilehash: 13cb22c178be29af71b57d0f50fdbd0e95718069
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 2b6685952aee1c8600321070794f001e0881604b
+ms.sourcegitcommit: b513b0becf878eb9a1554c26da53aa48d580bb22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100104608"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100535217"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Novidades na Pesquisa Cognitiva Azure
 
@@ -21,14 +21,14 @@ Saiba o que há de novo no serviço. Marque esta página para manter-se atualiza
 
 ## <a name="february-2021"></a>Fevereiro de 2021
 
-|Recurso&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Description | Disponibilidade  |
+|Recurso&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Descrição | Disponibilidade  |
 |------------------------------|---------------|---------------|
 | [Documentos de reset (pré-visualização)](search-howto-run-reset-indexers.md) |  Reprocessa documentos de pesquisa selecionados individualmente em cargas de trabalho indexantes. | [Pesquisa REST API 2020-06-30-Preview](/rest/api/searchservice/index-preview) |
 | [Zonas de Disponibilidade](search-performance-optimization.md#availability-zones)| Os serviços de pesquisa com duas ou mais réplicas em determinadas regiões, conforme listado [neste artigo,](search-performance-optimization.md#availability-zones)ganham resiliência por terem réplicas em dois ou locais físicos distintos.  | A região e a data de criação do serviço de pesquisa determinam a disponibilidade. Consulte o documento de afinação de desempenho para mais detalhes. |
 
 ## <a name="january-2021"></a>Janeiro de 2021
 
-|Recurso&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Description | Disponibilidade  |
+|Recurso&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Descrição | Disponibilidade  |
 |------------------------------|-------------|---------------|
 | [Acelerador de soluções para Azure Cognitive Search e QnA Maker](https://github.com/Azure-Samples/search-qna-maker-accelerator) | Retira perguntas e respostas do documento e sugere as respostas mais relevantes. Uma aplicação de demonstração ao vivo pode ser encontrada em [https://aka.ms/qnaWithAzureSearchDemo](https://aka.ms/qnaWithAzureSearchDemo) .  | Projeto de código aberto (sem SLA) |
 
@@ -77,7 +77,7 @@ Saiba o que há de novo no serviço. Marque esta página para manter-se atualiza
 |Novembro | [Habilidade de tradução de texto](cognitive-search-skill-text-translation.md) | Uma habilidade cognitiva usada durante a indexação que avalia e traduz texto. Geralmente disponível.|
 |Novembro | [Modelos de BI de potência](https://github.com/Azure-Samples/cognitive-search-templates/blob/master/README.md) | Modelo para visualizar conteúdo na loja de conhecimento |
 |Novembro | [Azure Data Lake Storage Gen2 (pré-visualização)](search-howto-index-azure-data-lake-storage.md), [Cosmos DB Gremlin API (pré-visualização)](search-howto-index-cosmosdb.md)e [Cosmos DB Cassandra API (pré-visualização)](search-howto-index-cosmosdb.md) | Novas fontes de dados indexantes na pré-visualização pública. |
-|Julho | [Apoio à nuvem do governo Azure](../azure-government/compare-azure-government-global-azure.md#azure-cognitive-search) | Geralmente disponível.|
+|Julho | [Apoio à nuvem do governo Azure](https://azure.microsoft.com/global-infrastructure/services/?regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&products=search) | Geralmente disponível.|
 
 <a name="new-service-name"></a>
 

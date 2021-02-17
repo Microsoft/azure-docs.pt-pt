@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 12/16/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ca023af0666899ae94d5bf82fc6f0736d5a8efa5
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 6b0bdc5a5b58c205d888c8892a4333225a9b316f
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97614273"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100557146"
 ---
 # <a name="tutorial-create-user-flows-in-azure-active-directory-b2c"></a>Tutorial: Criar fluxos de utilizadores no Azure Ative Directory B2C
 
@@ -33,7 +33,7 @@ Este tutorial mostra-lhe como criar alguns fluxos recomendados de utilizador uti
 Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 > [!IMPORTANT]
-> Mudamos a forma como referenciamos as versões de fluxo de utilizadores. Anteriormente, oferecemos versões V1 (prontas para produção) e versões V1.1 e V2 (pré-visualização). Agora, consolidamos os fluxos de utilizador nas versões **Recomendado** (pré-visualização da próxima geração) e **Standard** (geralmente disponível). Todos os fluxos de pré-visualização de V1.1 e V2 estão em vias de depreciação até 1 de agosto de **2021**. Para mais informações, consulte [as versões de fluxo do utilizador em Azure AD B2C](user-flow-versions.md).
+> Mudámos a forma como fazemos referência às versões de fluxos de utilizador. Anteriormente, disponibilizávamos versões V1 (prontas para produção) e versões V1.1 e V2 (pré-visualização). Agora, consolidamos os fluxos de utilizador nas versões **Recomendado** (pré-visualização da próxima geração) e **Standard** (geralmente disponível). Todos os fluxos de pré-visualização de V1.1 e V2 estão em vias de depreciação até 1 de agosto de **2021**. Para mais informações, consulte [as versões de fluxo do utilizador em Azure AD B2C](user-flow-versions.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -133,7 +133,7 @@ Neste artigo, aprendeu a:
 > * Criar um fluxo de utilizador de edição de perfil
 > * Criar um fluxo de utilizador de redefinição de palavra-passe
 
-Em seguida, saiba adicionar fornecedores de identidade às suas aplicações para permitir o sismo do utilizador com fornecedores como Azure AD, Amazon, Facebook, GitHub, LinkedIn, Microsoft ou Twitter.
+Em seguida, aprenda a usar o Azure AD B2C para iniciar sôm e inscrever os utilizadores numa aplicação. Siga a ASP.NET aplicação web abaixo, ou navegue para outra aplicação na tabela de conteúdos sob **utilizadores autenticados**.
 
 > [!div class="nextstepaction"]
-> [Adicione fornecedores de identidade às suas aplicações >](tutorial-add-identity-providers.md)
+> [Tutorial: Ativar a autenticação numa aplicação web utilizando o Azure AD B2C >](tutorial-web-app-dotnet.md)

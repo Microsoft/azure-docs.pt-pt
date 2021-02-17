@@ -17,12 +17,12 @@ ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: c9815355b26a9c14c02110e4bb5fff4f998d2105
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 7efaaf9cbfdb13c80ce653c99d05da451c2b8968
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97032037"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100547320"
 ---
 # <a name="what-is-azure-ad-entitlement-management"></a>O que é a gestão de direitos do Azure AD?
 
@@ -167,12 +167,13 @@ Para obter mais informações sobre licenças, consulte [atribuir ou remover lic
 
 Aqui estão alguns cenários de licença de exemplo para ajudá-lo a determinar o número de licenças que deve ter.
 
-| Cenário | Cálculo | Número de licenças |
+| Scenario | Cálculo | Número de licenças |
 | --- | --- | --- |
 | Um Administrador Global do Woodgrove Bank cria catálogos iniciais e delega tarefas administrativas a outros 6 utilizadores. Uma das políticas especifica que **todos os colaboradores** (2.000 colaboradores) podem solicitar um conjunto específico de pacotes de acesso. 150 funcionários pedem os pacotes de acesso. | 2.000 funcionários que **podem** solicitar os pacotes de acesso | 2.000 |
 | Um Administrador Global do Woodgrove Bank cria catálogos iniciais e delega tarefas administrativas a outros 6 utilizadores. Uma das políticas especifica que **todos os colaboradores** (2.000 colaboradores) podem solicitar um conjunto específico de pacotes de acesso. Outra política especifica que alguns utilizadores de **Utilizadores do parceiro Contoso** (convidados) podem solicitar os mesmos pacotes de acesso sujeitos a aprovação. Contoso tem 30.000 utilizadores. 150 colaboradores solicitam o acesso aos pacotes de acesso e 10.500 utilizadores da Contoso solicitam acesso. | 2.000 colaboradores + 500 utilizadores convidados de Contoso que excedem o rácio 1:5 (10.500 - (2.000 * 5)) | 2.500 |
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Tutorial: Crie o seu primeiro pacote de acesso](entitlement-management-access-package-first.md)
+- Se estiver interessado em utilizar o portal Azure para gerir o acesso aos recursos, consulte [Tutorial: Gerir o acesso aos recursos - portal Azure](entitlement-management-access-package-first.md).
+- se estiver interessado em usar o Microsoft Graph para gerir o acesso aos recursos, consulte [Tutorial: gerir o acesso aos recursos - Microsoft Graph](/graph/tutorial-access-package-api?toc=/azure/active-directory/governance/toc.json&bc=/azure/active-directory/governance/breadcrumb/toc.json)
 - [Cenários comuns](entitlement-management-scenarios.md)
