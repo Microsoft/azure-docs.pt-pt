@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
 ms.date: 08/25/2020
-ms.openlocfilehash: 71b9c96c1855180106f7dfa9a31f0ee8b06ceb67
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: 3c8b9444344e5bae414145e2b3367c265114a423
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97347868"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100586848"
 ---
 # <a name="use-azure-table-storage-to-manage-commercial-marketplace-leads"></a>Use o armazenamento da Mesa Azure para gerir os leads de marketplace comercial
 
@@ -146,7 +146,7 @@ O exemplo cria um fluxo que envia automaticamente uma notificação por e-mail q
     ![Janela de condição, se sim, envie um e-mail](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-condition-if-yes-send-email.png)
 
     >[!NOTE]
-    >Para utilizar um fornecedor de e-mail diferente, procure e selecione **Enviar por email** o artigo 200. As instruções mostram como configurar utilizando o Office 365 Outlook, mas as instruções são semelhantes para um fornecedor de e-mail diferente.
+    >Para utilizar um fornecedor de e-mail diferente, procure e selecione **Enviar por email** o artigo Enviar por email o artigo Enviar por email o artigo 200. As instruções mostram como configurar utilizando o Office 365 Outlook, mas as instruções são semelhantes para um fornecedor de e-mail diferente.
 
 1. Na janela Do Office 365 Outlook, forneça informações sobre as seguintes caixas:
 
@@ -203,3 +203,7 @@ Para se certificar de que está ligado com sucesso a um destino de chumbo, selec
 >Tem de configurar o resto da oferta e publicá-la antes de poder receber pistas para a oferta.
 
 Quando os cabos são gerados, a Microsoft envia leva à tabela Azure. Se configurar um fluxo, será também enviado um e-mail para o endereço de e-mail configurado.
+
+## <a name="next-steps"></a>Passos seguintes
+
+- [FaQ de gestão de chumbo e resolução de problemas](../lead-management-faq.md)

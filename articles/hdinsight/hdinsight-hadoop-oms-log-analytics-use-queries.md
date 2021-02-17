@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/02/2019
-ms.openlocfilehash: f9213f36ec33939c3df3b56d21822aa3b6a17c03
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 360a9730025dc24eda93868903fcd356c37d06ef
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98945614"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100576328"
 ---
 # <a name="query-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>Registos do Monitor de Consulta Azure para monitorizar clusters HDInsight
 
@@ -122,9 +122,9 @@ O primeiro passo para criar um alerta é chegar a uma consulta com base na qual 
 
     ![HDInsight Azure Monitor alerta eliminar edição](media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-edit-alert.png)
 
-Para obter mais informações, consulte [Criar, ver e gerir alertas métricos utilizando o Azure Monitor](../azure-monitor/platform/alerts-metric.md).
+Para obter mais informações, consulte [Criar, ver e gerir alertas métricos utilizando o Azure Monitor](../azure-monitor/alerts/alerts-metric.md).
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
-* [Introdução às consultas de registos no Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
-* [Crie vistas personalizadas utilizando o View Designer no Azure Monitor](../azure-monitor/platform/view-designer.md)
+* [Introdução às consultas de registos no Azure Monitor](../azure-monitor/logs/get-started-queries.md)
+* [Crie vistas personalizadas utilizando o View Designer no Azure Monitor](../azure-monitor/visualize/view-designer.md)

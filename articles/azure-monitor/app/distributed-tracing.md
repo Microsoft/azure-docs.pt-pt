@@ -1,5 +1,5 @@
 ---
-title: Rastreio distribuído em Azure Application Insights / Microsoft Docs
+title: Rastreio distribuído em Azure Application Insights | Microsoft Docs
 description: Fornece informações sobre o suporte da Microsoft para rastreios distribuídos através da nossa parceria no projeto OpenCensus
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
@@ -7,12 +7,12 @@ author: nikmd23
 ms.author: nimolnar
 ms.date: 09/17/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 2ee41fc9066aa4cf4775d4998b7e809e45519512
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: a47b41a8b7f4e18be58c32c97cf279b9229f26da
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96904317"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579508"
 ---
 # <a name="what-is-distributed-tracing"></a>O que é Rastreio Distribuído?
 
@@ -37,7 +37,7 @@ Os agentes de Insights de Aplicação e/ou SDKs para .NET, .NET Core, Java, Node
 * [.NET](asp-net.md)
 * [.NET Core](asp-net-core.md)
 * [Java](./java-in-process-agent.md)
-* [Node.js](../learn/nodejs-quick-start.md)
+* [Node.js](../app/nodejs-quick-start.md)
 * [JavaScript](./javascript.md)
 * [Python](opencensus-python.md)
 
@@ -57,5 +57,5 @@ O site OpenCensus mantém documentação de referência da API para [Python](htt
 
 * [Guia de utilização do OpenCensus Python](https://opencensus.io/api/python/trace/usage.html)
 * [Mapa de aplicação](./app-map.md)
-* [Monitorização de desempenho de ponta a ponta](../learn/tutorial-performance.md)
+* [Monitorização de desempenho de ponta a ponta](../app/tutorial-performance.md)
 

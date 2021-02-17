@@ -1,5 +1,5 @@
 ---
-title: Configurar métricas e registos de nuvem para a Azure API Management auto-hospedado gateway / Microsoft Docs
+title: Configurar métricas e registos de nuvem para a Azure API Management auto-hospedada gateway | Microsoft Docs
 description: Saiba como configurar métricas de nuvem e registos para a Azure API Management porta de entrada auto-hospedada
 services: api-management
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 04/30/2020
 ms.author: apimpm
-ms.openlocfilehash: 3bbfd167e89ae1b5f9b7de1df5fd1cb72c720cb6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c420c62e6f8f09a2b29398590cdb4ad410e5d296
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86254538"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574052"
 ---
 # <a name="configure-cloud-metrics-and-logs-for-azure-api-management-self-hosted-gateway"></a>Configurar métricas e registos de nuvem para a Azure API Management porta de entrada auto-hospedada
 
@@ -30,7 +30,7 @@ Por padrão, o gateway auto-hospedado emite uma série de métricas através do 
 
 A funcionalidade pode ser ativada ou desativada utilizando a `telemetry.metrics.cloud` chave no ConfigMap da implementação do gateway. Abaixo está uma desagregação das configurações disponíveis:
 
-| Campo  | Predefinição | Descrição |
+| Campo  | Predefinição | Description |
 | ------------- | ------------- | ------------- |
 | telemetria.metrics.cloud  | `true` | Permite fazer login através do Azure Monitor. O valor pode `true` `false` ser, . . |
 
@@ -49,7 +49,7 @@ Aqui está uma configuração de amostra:
 
 O gateway auto-hospedado emite atualmente as seguintes métricas através do Azure Monitor:
 
-| Métrica  | Descrição |
+| Metric  | Descrição |
 | ------------- | ------------- |
 | Pedidos  | Número de pedidos de API no período |
 | Duração dos pedidos de gateway | Número de milissegundos a partir do momento em que o gateway recebeu o pedido até ao momento em que a resposta é enviada integralmente |
@@ -59,7 +59,7 @@ O gateway auto-hospedado emite atualmente as seguintes métricas através do Azu
 
 O gateway auto-hospedado atualmente não envia [registos de diagnóstico](./api-management-howto-use-azure-monitor.md#activity-logs) para a nuvem. No entanto, é possível [configurar e persistir registos localmente](how-to-configure-local-metrics-logs.md) onde o gateway auto-hospedado é implantado. 
 
-Se um gateway for implantado no [Serviço Azure Kubernetes,](https://azure.microsoft.com/services/kubernetes-service/)pode ativar [o Azure Monitor para que os contentores](../azure-monitor/insights/container-insights-overview.md) recolham troncos dos seus contentores e os vejam no Log Analytics. 
+Se um gateway for implantado no [Serviço Azure Kubernetes,](https://azure.microsoft.com/services/kubernetes-service/)pode ativar [o Azure Monitor para que os contentores](../azure-monitor/containers/container-insights-overview.md) recolham troncos dos seus contentores e os vejam no Log Analytics. 
 
 
 ## <a name="next-steps"></a>Passos seguintes

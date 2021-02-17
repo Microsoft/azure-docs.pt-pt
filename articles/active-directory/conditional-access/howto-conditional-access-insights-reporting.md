@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c2364eae0d04da8f8e6fe38ae80db7adb8666ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae802038626a1fbf8d533800a0b8eb43c4565e8c
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89049422"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574182"
 ---
 # <a name="conditional-access-insights-and-reporting"></a>Informações e relatórios de acesso condicional
 
@@ -43,7 +43,7 @@ Os utilizadores também precisam de uma das seguintes funções de espaço de tr
 
 Se não tiver integrado registos AD do Azure com registos do Azure Monitor, terá de dar os seguintes passos antes de o livro carregar:  
 
-1. [Criar um espaço de trabalho log analytics no Azure Monitor](../../azure-monitor/learn/quick-create-workspace.md).
+1. [Criar um espaço de trabalho log analytics no Azure Monitor](../../azure-monitor/logs/quick-create-workspace.md).
 1. [Integre os registos AD do Azure com os registos do Monitor Azure](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md).
 
 ## <a name="how-it-works"></a>Como funciona 
@@ -51,7 +51,7 @@ Se não tiver integrado registos AD do Azure com registos do Azure Monitor, ter�
 Para aceder aos insights e relatórios:  
 
 1. Inicie sessão no **portal do Azure**.
-1. Navegue para **Azure Ative**  >  **Directy Security**  >  **Conditional Access**Insights e  >  **reportagens**.
+1. Navegue para **Azure Ative**  >  **Directy Security**  >  **Conditional Access** Insights e  >  **reportagens**.
 
 ### <a name="get-started-select-parameters"></a>Começar: Selecione parâmetros 
 
@@ -105,7 +105,7 @@ Também pode investigar as entradas de um utilizador específico, procurando ins
 Para configurar uma política de acesso condicional no modo apenas de relatório:
 
 1. Inscreva-se no **portal Azure** como administrador de acesso condicional, administrador de segurança ou administrador global.
-1. Navegue pelo Acesso Condicional de Segurança **do Diretório Ativo Azure**  >  **Security**  >  **Conditional Access**.
+1. Navegue pelo Acesso Condicional de Segurança **do Diretório Ativo Azure**  >    >  .
 1. Selecione uma política existente ou crie uma nova política.
 1. No **modo "Ativar"** o alternância para o modo **apenas de relatório.**
 1. Selecione **Guardar**
@@ -120,7 +120,7 @@ Para configurar uma política de acesso condicional no modo apenas de relatório
 Para aceder ao livro, precisa das permissões adequadas do AD Azure, bem como das permissões do espaço de trabalho log Analytics. Para testar se tem as permissões adequadas do espaço de trabalho executando uma consulta de análise de registo de amostras:
 
 1. Inicie sessão no **portal do Azure**.
-1. Navegue por Registos **de Diretório Ativo Azure**  >  **Logs**.
+1. Navegue por Registos **de Diretório Ativo Azure**  >  .
 1. Digite `SigninLogs` na caixa de consulta e selecione **Executar**.
 1. Se a consulta não devolver quaisquer resultados, o seu espaço de trabalho pode não ter sido configurado corretamente. 
 

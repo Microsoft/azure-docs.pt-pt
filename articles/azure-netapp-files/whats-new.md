@@ -1,5 +1,5 @@
 ---
-title: Novidades nos Ficheiros Azure NetApp Microsoft Docs
+title: Novidades em Azure NetApp Files | Microsoft Docs
 description: Fornece um resumo sobre as mais recentes novidades e melhorias dos Ficheiros Azure NetApp.
 services: azure-netapp-files
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 12/04/2020
 ms.author: b-juche
-ms.openlocfilehash: bba3dce2a2a18888cb88f4cf8b33cd48d6a4cd69
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: b40bbd6c470302b78b78744307805021a3649376
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97631164"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100571031"
 ---
 # <a name="whats-new-in-azure-netapp-files"></a>Novidades nos ficheiros Azure NetApp
 
@@ -99,7 +99,7 @@ Os Ficheiros Azure NetApp são atualizados regularmente. Este artigo fornece um 
 
 ## <a name="may-2020"></a>Maio de 2020
 
-* [Utilizadores de política de backup](azure-netapp-files-create-volumes-smb.md#create-an-active-directory-connection) (Pré-visualização)
+* [Utilizadores de política de backup](create-active-directory-connections.md) (Pré-visualização)
 
     O Azure NetApp Files permite-lhe incluir contas adicionais que requerem privilégios elevados à conta de computador criada para utilização com ficheiros Azure NetApp. As contas especificadas serão autorizadas a alterar as permissões NTFS ao nível do ficheiro ou da pasta. Por exemplo, pode especificar uma conta de serviço não privilegiada utilizada para a migração de dados para uma partilha de ficheiros SMB em Ficheiros Azure NetApp. A funcionalidade de utilizadores de política de backup está atualmente em pré-visualização.
 

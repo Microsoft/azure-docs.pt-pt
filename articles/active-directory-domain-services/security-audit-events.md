@@ -1,5 +1,5 @@
 ---
-title: Permitir auditorias de segurança para serviços de domínio Azure AD Microsoft Docs
+title: Permitir auditorias de segurança para serviços de domínio Azure AD | Microsoft Docs
 description: Saiba como permitir que as auditorias de segurança centralizem o registo de eventos para análise e alertas nos Serviços de Domínio AD Azure
 services: active-directory-ds
 author: justinha
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: justinha
-ms.openlocfilehash: 13bdc8797af8facaa73d3e43ecfbe504a6bd1dc2
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: caf46850b3d8d6946225575b8a9a732a90847482
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96618880"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574149"
 ---
 # <a name="enable-security-audits-for-azure-active-directory-domain-services"></a>Permitir auditorias de segurança para serviços de domínio de diretório ativo Azure
 
@@ -36,11 +36,11 @@ A tabela seguinte descreve cenários para cada tipo de recurso de destino.
 > [!IMPORTANT]
 > Tem de criar o recurso-alvo antes de ativar as auditorias de segurança da Azure AD DS. Pode criar estes recursos utilizando o portal Azure PowerShell ou o Azure CLI.
 
-| Recurso-alvo | Cenário |
+| Recurso-alvo | Scenario |
 |:---|:---|
 |Storage do Azure| Este alvo deve ser utilizado quando a sua necessidade principal é armazenar eventos de auditoria de segurança para fins de arquivo. Outros alvos podem ser usados para fins de arquivo, no entanto esses alvos fornecem capacidades para além da necessidade primária de arquivamento. <br /><br />Antes de ativar eventos de auditoria de segurança Azure AD DS, primeiro [Crie uma conta de Armazenamento Azure](../storage/common/storage-account-create.md).|
-|Hubs de Eventos do Azure| Este alvo deve ser utilizado quando a sua necessidade principal é partilhar eventos de auditoria de segurança com software adicional, como software de análise de dados ou informações de segurança & software de gestão de eventos (SIEM).<br /><br />Antes de ativar eventos de auditoria de segurança Azure AD DS, [Crie um centro de eventos usando o portal Azure](../event-hubs/event-hubs-create.md)|
-|Espaço de trabalho Azure Log Analytics| Este alvo deve ser utilizado quando a sua necessidade principal é analisar e rever diretamente auditorias seguras do portal Azure.<br /><br />Antes de ativar eventos de auditoria de segurança Azure AD DS, [Crie um espaço de trabalho Log Analytics no portal Azure.](../azure-monitor/learn/quick-create-workspace.md)|
+|Azure Event Hubs| Este alvo deve ser utilizado quando a sua necessidade principal é partilhar eventos de auditoria de segurança com software adicional, como software de análise de dados ou informações de segurança & software de gestão de eventos (SIEM).<br /><br />Antes de ativar eventos de auditoria de segurança Azure AD DS, [Crie um centro de eventos usando o portal Azure](../event-hubs/event-hubs-create.md)|
+|Espaço de trabalho Azure Log Analytics| Este alvo deve ser utilizado quando a sua necessidade principal é analisar e rever diretamente auditorias seguras do portal Azure.<br /><br />Antes de ativar eventos de auditoria de segurança Azure AD DS, [Crie um espaço de trabalho Log Analytics no portal Azure.](../azure-monitor/logs/quick-create-workspace.md)|
 
 ## <a name="enable-security-audit-events-using-the-azure-portal"></a>Permitir eventos de auditoria de segurança utilizando o portal Azure
 
@@ -100,7 +100,7 @@ Para ativar eventos de auditoria de segurança Azure AD DS utilizando a Azure Po
         > [!IMPORTANT]
         > Certifique-se de que define a regra de autorização no espaço de nome do centro de eventos e não no próprio centro de eventos.
 
-    * **Espaços de**  -  trabalho Azure Log Analytic [Criar um espaço de trabalho Log Analytics com Azure PowerShell](../azure-monitor/platform/powershell-workspace-configuration.md).
+    * **Espaços de**  -  trabalho Azure Log Analytic [Criar um espaço de trabalho Log Analytics com Azure PowerShell](../azure-monitor/logs/powershell-workspace-configuration.md).
 
 1. Obtenha o ID de recurso para o seu domínio gerido Azure AD DS utilizando o cmdlet [Get-AzResource.](/powershell/module/Az.Resources/Get-AzResource) Criar uma variável chamada *$aadds. ResourceId* para manter o valor:
 
@@ -141,9 +141,9 @@ Para ativar eventos de auditoria de segurança Azure AD DS utilizando a Azure Po
 Log Espaços de trabalho analíticos permite-lhe ver e analisar os eventos de auditoria de segurança usando o Azure Monitor e a linguagem de consulta Kusto. Esta linguagem de consulta é projetada para uso apenas de leitura que possui capacidades analíticas de poder com uma sintaxe fácil de ler. Para obter mais informações para começar com as línguas de consulta de Kusto, consulte os seguintes artigos:
 
 * [Documentação do Azure Monitor](../azure-monitor/index.yml)
-* [Começa com o Log Analytics no Azure Monitor](../azure-monitor/log-query/log-analytics-tutorial.md)
-* [Introdução às consultas de registos no Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
-* [Criar e partilhar dashboards dos dados do Log Analytics](../azure-monitor/learn/tutorial-logs-dashboards.md)
+* [Começa com o Log Analytics no Azure Monitor](../azure-monitor/logs/log-analytics-tutorial.md)
+* [Introdução às consultas de registos no Azure Monitor](../azure-monitor/logs/get-started-queries.md)
+* [Criar e partilhar dashboards dos dados do Log Analytics](../azure-monitor/visualize/tutorial-logs-dashboards.md)
 
 As seguintes consultas de amostra podem ser usadas para começar a analisar eventos de auditoria de segurança a partir de Azure AD DS.
 
@@ -180,7 +180,7 @@ AADDomainServicesAccountLogon
 
 ### <a name="sample-query-4"></a>Consulta de amostra 4
 
-Ver eventos de entrada de conta há sete dias para a conta nomeada utilizador que tentou assinar usando uma senha má *(0xC000006a):*
+Ver eventos de inscrição de conta há sete dias para a conta nomeada utilizador que tentou iniciar sposição através de uma má senha *(0xC0000006a*):
 
 ```Kusto
 AADDomainServicesAccountLogon
@@ -191,7 +191,7 @@ AADDomainServicesAccountLogon
 
 ### <a name="sample-query-5"></a>Consulta de amostra 5
 
-Ver eventos de inscrição de conta há sete dias para a conta nomeada utilizador que tentou entrar enquanto a conta estava bloqueada *(0xC0000234):*
+Ver eventos de inscrição de conta há sete dias para a conta nomeada utilizador que tentou iniciar sposição enquanto a conta estava bloqueada *(0xC0000234*):
 
 ```Kusto
 AADDomainServicesAccountLogon

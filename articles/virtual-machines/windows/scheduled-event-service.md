@@ -7,12 +7,12 @@ ms.subservice: monitoring
 ms.date: 08/20/2019
 ms.author: sarn
 ms.topic: how-to
-ms.openlocfilehash: e3e44019d09927ff700e74b713a1b02136fedbc1
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: a5e280fb562bf9bb36d0d729e5f494bd23776ec7
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98702275"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570125"
 ---
 # <a name="monitor-scheduled-events-for-your-azure-vms"></a>Monitorar eventos agendados para os seus VMs Azure
 
@@ -25,7 +25,7 @@ Neste artigo, mostraremos como você pode usar eventos programados para ser noti
 
 Eventos Agendados estão disponíveis como parte do Serviço de [Metadados Azure Instance,](instance-metadata-service.md)que está disponível em todas as máquinas virtuais Azure. Os clientes podem escrever automatização para consultar o ponto final das suas máquinas virtuais para encontrar notificações de manutenção programadas e realizar mitigações, como salvar o estado e tirar a máquina virtual da rotação. Recomendamos a automatização de edifícios para registar os Eventos Agendados para que possa ter um registo de auditoria de eventos de manutenção da Azure. 
 
-Neste artigo, vamos acompanhá-lo como capturar eventos programados de manutenção para registar analítica. Em seguida, vamos desencadear algumas ações básicas de notificação, como o envio de um e-mail para a sua equipa e obter uma visão histórica de todos os eventos que afetaram as suas máquinas virtuais. Para a agregação e automatização do evento utilizaremos [o Log Analytics,](../../azure-monitor/learn/quick-create-workspace.md)mas pode utilizar qualquer solução de monitorização para recolher estes registos e desencadear a automatização.
+Neste artigo, vamos acompanhá-lo como capturar eventos programados de manutenção para registar analítica. Em seguida, vamos desencadear algumas ações básicas de notificação, como o envio de um e-mail para a sua equipa e obter uma visão histórica de todos os eventos que afetaram as suas máquinas virtuais. Para a agregação e automatização do evento utilizaremos [o Log Analytics,](../../azure-monitor/logs/quick-create-workspace.md)mas pode utilizar qualquer solução de monitorização para recolher estes registos e desencadear a automatização.
 
 ![Diagrama mostrando o ciclo de vida do evento](./media/notifications/events.png)
 
@@ -35,7 +35,7 @@ Para este exemplo, terá de criar uma [máquina virtual do Windows num Conjunto 
 
 Não apague o grupo de recursos no final do tutorial.
 
-Também terá de [criar um espaço de trabalho Log Analytics](../../azure-monitor/learn/quick-create-workspace.md) que iremos utilizar para agregar informações dos VMs no conjunto de disponibilidade.
+Também terá de [criar um espaço de trabalho Log Analytics](../../azure-monitor/logs/quick-create-workspace.md) que iremos utilizar para agregar informações dos VMs no conjunto de disponibilidade.
 
 ## <a name="set-up-the-environment"></a>Configurar o ambiente
 
@@ -132,7 +132,7 @@ Isto instalará o [agente microsoft monitor na](../extensions/oms-windows.md) su
 ## <a name="creating-an-alert-rule-with-azure-monitor"></a>Criar uma regra de alerta com o Azure Monitor 
 
 
-Uma vez que os eventos são empurrados para Log Analytics, você pode executar a seguinte [consulta](../../azure-monitor/log-query/log-analytics-tutorial.md) para procurar o horário Eventos.
+Uma vez que os eventos são empurrados para Log Analytics, você pode executar a seguinte [consulta](../../azure-monitor/logs/log-analytics-tutorial.md) para procurar o horário Eventos.
 
 1. No topo da página, selecione **Logs** e cole o seguinte na caixa de texto:
 
@@ -172,6 +172,6 @@ Uma vez que os eventos são empurrados para Log Analytics, você pode executar a
 Para gerir as suas regras de alerta, vá ao grupo de recursos, selecione **Alertas** do menu esquerdo e, em seguida, **selecione Gerir as regras** de alerta a partir do topo da página.
 
      
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais, consulte a página [de serviço de eventos agendados](https://github.com/microsoft/AzureScheduledEventsService) no GitHub.

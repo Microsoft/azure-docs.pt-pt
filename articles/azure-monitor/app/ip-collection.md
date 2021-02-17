@@ -4,12 +4,12 @@ description: Compreender como os endereços IP e geolocalização são tratados 
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 3a8969d5d0df2fdacf78815c6f47c7c6bfa73a37
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 91b3aa07720e39aa8aeeceb9c35e38205e7d7c76
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100521922"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100584071"
 ---
 # <a name="geolocation-and-ip-address-handling"></a>Geolocalização e tratamento de endereços IP
 
@@ -30,7 +30,7 @@ Este comportamento é por design para ajudar a evitar a recolha desnecessária d
 
 Enquanto o padrão é não recolher endereços IP. Ainda oferecemos a flexibilidade para anular este comportamento. No entanto, recomendamos verificar se a recolha não infringe quaisquer requisitos de conformidade ou regulamentos locais. 
 
-Para saber mais sobre o tratamento de dados pessoais em Application Insights, consulte a [orientação para dados pessoais.](../platform/personal-data-mgmt.md)
+Para saber mais sobre o tratamento de dados pessoais em Application Insights, consulte a [orientação para dados pessoais.](../logs/personal-data-mgmt.md)
 
 ## <a name="storing-ip-address-data"></a>Armazenar dados de endereços IP
 
@@ -245,6 +245,6 @@ Se os testes realizados a partir de local, e o valor para `customDimensions_clie
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-* Saiba mais sobre [a recolha de dados pessoais](../platform/personal-data-mgmt.md) no Application Insights.
+* Saiba mais sobre [a recolha de dados pessoais](../logs/personal-data-mgmt.md) no Application Insights.
 
 * Saiba mais sobre como funciona a [recolha de endereços IP](https://apmtips.com/posts/2016-07-05-client-ip-address/) no Application Insights. (Este artigo é uma publicação de blogue externa mais antiga escrita por um dos nossos engenheiros. Antecede o comportamento predefinido atual em que o endereço IP é registado como `0.0.0.0` , mas vai em maior profundidade na mecânica do incorporado `ClientIpHeaderTelemetryInitializer` .)

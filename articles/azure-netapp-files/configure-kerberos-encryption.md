@@ -1,5 +1,5 @@
 ---
-title: Configure encriptação NFSv4.1 Kerberos para ficheiros Azure NetApp / Microsoft Docs
+title: Configure encriptação NFSv4.1 Kerberos para ficheiros Azure NetApp | Microsoft Docs
 description: Descreve como configurar a encriptação NFSv4.1 Kerberos para ficheiros Azure NetApp e o impacto no desempenho.
 services: azure-netapp-files
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 11/09/2020
 ms.author: b-juche
-ms.openlocfilehash: 69168060cbce4a904c53d7f79895e909c8c42e01
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: b7e40eb936a6151f0f31c34c5a8030153a87f08c
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97935228"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100571102"
 ---
-# <a name="configure-nfsv41-kerberos-encryption-for-azure-netapp-files"></a>Configure encriptação NFSv4.1 Kerberos para ficheiros Azure NetApp
+# <a name="configure-nfsv41-kerberos-encryption-for-azure-netapp-files"></a>Configurar a encriptação NFSv4.1 Kerberos para o Azure NetApp Files
 
 O Azure NetApp Files suporta a encriptação do cliente NFS nos modos Kerberos (krb5, krb5i e krb5p) com encriptação AES-256. Este artigo descreve as configurações necessárias para a utilização de um volume NFSv4.1 com encriptação Kerberos.
 
@@ -57,7 +57,7 @@ Os seguintes requisitos aplicam-se à encriptação do cliente NFSv4.1:
 
 ## <a name="configure-the-azure-portal"></a>Configure o portal Azure 
 
-1.  Siga as instruções na [Criar uma ligação ative diretoria](azure-netapp-files-create-volumes-smb.md#create-an-active-directory-connection).  
+1.  Siga as instruções na [Criar uma ligação ative diretoria](create-active-directory-connections.md).  
 
     Kerberos requer que crie pelo menos uma conta de máquina no Ative Directory. A informação de conta que fornece é utilizada para criar as contas tanto para os volumes *SMB* como para os volumes Kerberos da NFSv4.1. Esta conta é criada automaticamente durante a criação de volume.
 
@@ -175,5 +175,5 @@ Impacto de desempenho do krb5p:
 * [Problemas de resolução NFSv4.1 Problemas de volume Kerberos](troubleshoot-nfsv41-kerberos-volumes.md)
 * [PERGUNTAS Frequentes Sobre Ficheiros Azure NetApp](azure-netapp-files-faqs.md)
 * [Criar um volume NFS para o Azure NetApp Files](azure-netapp-files-create-volumes.md)
-* [Criar uma ligação ative directy](azure-netapp-files-create-volumes-smb.md#create-an-active-directory-connection)
+* [Criar uma ligação ative directy](create-active-directory-connections.md)
 * [Configurar um cliente NFS para o Azure NetApp Files](configure-nfs-clients.md) 

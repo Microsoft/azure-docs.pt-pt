@@ -7,12 +7,12 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 04/30/2018
-ms.openlocfilehash: 486f12c29c473d46e3aff73abe747f8aa5a2ef8d
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: c728654e868bcb8213e6a4039fa1e2e169b0078c
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100380411"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100576390"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Monitorize e gere os oleodutos da Azure Data Factory utilizando o portal Azure e o PowerShell
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ Este artigo descreve como monitorizar, gerir e depurar os seus oleodutos utiliza
 > A aplicação de gestão de & de monitorização proporciona um melhor suporte para monitorizar e gerir os seus oleodutos de dados e resolver problemas. Para obter mais informações sobre a utilização da aplicação, consulte [monitor e gere os oleodutos data factory utilizando a aplicação de Monitorização e Gestão.](data-factory-monitor-manage-app.md) 
 
 > [!IMPORTANT]
-> A versão 1 da Azure Data Factory utiliza agora a nova [infraestrutura de alerta Azure Monitor](../../azure-monitor/platform/alerts-metric.md). A antiga infraestrutura de alerta está deprecada. Como resultado, os seus alertas existentes configurados para a versão 1 fábricas de dados já não funcionam. Os alertas existentes para as fábricas de dados V1 não são migrados automaticamente. Tens de recriar estes alertas sobre a nova infraestrutura de alerta. Faça login no portal Azure e selecione **Monitor** para criar novos alertas em métricas (como corridas falhadas ou corridas bem sucedidas) para a sua versão 1 fábricas de dados.
+> A versão 1 da Azure Data Factory utiliza agora a nova [infraestrutura de alerta Azure Monitor](../../azure-monitor/alerts/alerts-metric.md). A antiga infraestrutura de alerta está deprecada. Como resultado, os seus alertas existentes configurados para a versão 1 fábricas de dados já não funcionam. Os alertas existentes para as fábricas de dados V1 não são migrados automaticamente. Tens de recriar estes alertas sobre a nova infraestrutura de alerta. Faça login no portal Azure e selecione **Monitor** para criar novos alertas em métricas (como corridas falhadas ou corridas bem sucedidas) para a sua versão 1 fábricas de dados.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 

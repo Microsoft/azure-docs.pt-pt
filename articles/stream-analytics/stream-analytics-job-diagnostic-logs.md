@@ -7,12 +7,12 @@ ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.custom: contperf-fy21q1
 ms.date: 06/18/2020
-ms.openlocfilehash: 56c7ad49fc9af3ca4f30aa5309623c31e9db7385
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 93d881419c4854b8e46608e150b55072267e0347
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98011123"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574414"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-resource-logs"></a>Resolução de problemas Azure Stream Analytics usando registos de recursos
 
@@ -24,9 +24,9 @@ Ocasionalmente, o processamento dos trabalhos do Azure Stream Analytics para ine
 
 Stream Analytics oferece dois tipos de registos:
 
-* [Registos de atividade (sempre ligados),](../azure-monitor/platform/platform-logs-overview.md) que dão informações sobre operações realizadas em trabalhos.
+* [Registos de atividade (sempre ligados),](../azure-monitor/essentials/platform-logs-overview.md) que dão informações sobre operações realizadas em trabalhos.
 
-* [Registos de recursos](../azure-monitor/platform/platform-logs-overview.md) (configuráveis), que fornecem insights mais ricos sobre tudo o que acontece com um trabalho. Os registos de recursos começam quando o trabalho é criado e terminam quando o trabalho é eliminado. Cobrem eventos quando o trabalho é atualizado e enquanto está a decorrer.
+* [Registos de recursos](../azure-monitor/essentials/platform-logs-overview.md) (configuráveis), que fornecem insights mais ricos sobre tudo o que acontece com um trabalho. Os registos de recursos começam quando o trabalho é criado e terminam quando o trabalho é eliminado. Cobrem eventos quando o trabalho é atualizado e enquanto está a decorrer.
 
 > [!NOTE]
 > Você pode usar serviços como Azure Storage, Azure Event Hubs e Azure Monitor registros para analisar dados não-conformantes. É cobrado com base no modelo de preços desses serviços.
@@ -140,7 +140,7 @@ Mensagem| Mensagem de registo.
 Tipo | Tipo de mensagem. Mapas para a categorização interna de erros. Por exemplo, **JobValidationError** ou **BlobOutputAdapterInitializationFailure**.
 ID de Correlação | GUID que identifica exclusivamente a execução do trabalho. Todas as entradas de registo de execução a partir do momento em que o trabalho começa até que o trabalho pare têm o mesmo valor **de ID de correlação.**
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Erros de dados do Stream Analytics](./data-errors.md)
 * [Referência linguística de consulta de stream analytics](/stream-analytics-query/stream-analytics-query-language-reference)

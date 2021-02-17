@@ -1,5 +1,5 @@
 ---
-title: Visualize os seus dados utilizando os livros de trabalho do Azure Monitor em Azure Sentinel Microsoft Docs
+title: Visualize os seus dados utilizando os livros de trabalho do Monitor Azure em Azure Sentinel | Microsoft Docs
 description: Utilize este tutorial para aprender a visualizar os seus dados utilizando livros de trabalho em Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/04/2020
 ms.author: yelevin
-ms.openlocfilehash: 63a9a6dc9f052c01a7440f616f0baeaab083ad73
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3a07670e3348f74fb5c6eaec57f5e9da627e8c09
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91843078"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100586721"
 ---
 # <a name="tutorial-visualize-and-monitor-your-data"></a>Tutorial: Visualizar e monitorizar os seus dados
 
 
 
-Uma vez que tenha [conectado as suas fontes](quickstart-onboard.md)de dados ao   Azure Sentinel, pode visualizar e monitorizar os dados utilizando a adoção do Azure Sentinel dos Livros de Trabalho do Monitor Azure, que proporciona versatilidade na criação de dashboards personalizados. Embora os livros de trabalho sejam apresentados de forma diferente no Azure Sentinel, pode ser útil para você ver como [criar relatórios interativos com os livros de trabalho do Monitor Azure](../azure-monitor/platform/workbooks-overview.md). O Azure Sentinel permite-lhe criar livros de trabalho personalizados através dos seus dados, e também vem com modelos de livros incorporados para lhe permitir obter rapidamente informações sobre os seus dados assim que ligar uma fonte de dados.
+Uma vez que tenha [conectado as suas fontes](quickstart-onboard.md) de dados ao Azure Sentinel, pode visualizar e monitorizar os dados utilizando a adoção do Azure Sentinel dos Livros de Trabalho do Monitor Azure, que proporciona versatilidade na criação de dashboards personalizados. Embora os livros de trabalho sejam apresentados de forma diferente no Azure Sentinel, pode ser útil para você ver como [criar relatórios interativos com os livros de trabalho do Monitor Azure](../azure-monitor/visualize/workbooks-overview.md). O Azure Sentinel permite-lhe criar livros de trabalho personalizados através dos seus dados, e também vem com modelos de livros incorporados para lhe permitir obter rapidamente informações sobre os seus dados assim que ligar uma fonte de dados.
 
 
 Este tutorial ajuda-o a visualizar os seus dados no Azure Sentinel.
@@ -46,13 +46,13 @@ Este tutorial ajuda-o a visualizar os seus dados no Azure Sentinel.
   ![ir para livros de trabalho](./media/tutorial-monitor-data/access-workbooks.png)
 1. Clique **no modelo de ver** para ver o modelo preenchido com os seus dados.
   
-1. Para editar o livro, **selecione Guardar**e, em seguida, selecione o local onde pretende guardar o ficheiro JSON para o modelo. 
+1. Para editar o livro, **selecione Guardar** e, em seguida, selecione o local onde pretende guardar o ficheiro JSON para o modelo. 
 
    > [!NOTE]
    > Isto cria um recurso Azure baseado no modelo relevante e guarda o ficheiro JSON do livro e não os dados.
 
 
-1. Selecione **Ver livro guardado**. Em seguida, clique no botão **Editar** na parte superior. Pode agora editar o livro e personalizá-lo de acordo com as suas necessidades. Para obter mais informações sobre como personalizar o livro, consulte como [criar relatórios interativos com os livros de trabalho do Monitor Azure.](../azure-monitor/platform/workbooks-overview.md)
+1. Selecione **Ver livro guardado**. Em seguida, clique no botão **Editar** na parte superior. Agora, pode editar o livro e personalizá-lo de acordo com as suas necessidades. Para obter mais informações sobre como personalizar o livro, consulte como [criar relatórios interativos com os livros de trabalho do Monitor Azure.](../azure-monitor/visualize/workbooks-overview.md)
 ![ver livros](./media/tutorial-monitor-data/workbook-graph.png)
 1. Depois de fazer as alterações, pode guardar o livro. 
 
@@ -64,7 +64,7 @@ Este tutorial ajuda-o a visualizar os seus dados no Azure Sentinel.
 1. Vá a **Livros de Trabalho** e, em seguida, selecione Adicionar livro de **trabalho** para criar um novo livro de trabalho do zero.
   ![Screenshot que mostra o novo ecrã do livro.](./media/tutorial-monitor-data/create-workbook.png)
 
-1. Para editar o livro, **selecione Editar**e, em seguida, adicione texto, consultas e parâmetros, se necessário. Para obter mais informações sobre como personalizar o livro, consulte como [criar relatórios interativos com os livros de trabalho do Monitor Azure.](../azure-monitor/platform/workbooks-overview.md) 
+1. Para editar o livro, **selecione Editar** e, em seguida, adicione texto, consultas e parâmetros, se necessário. Para obter mais informações sobre como personalizar o livro, consulte como [criar relatórios interativos com os livros de trabalho do Monitor Azure.](../azure-monitor/visualize/workbooks-overview.md) 
 
 1. Ao construir uma consulta, certifique-se de que a fonte de **dados** está definida para **Logs** e **o tipo de recurso** está definido para Log **Analytics**, e, em seguida, escolha o(s) espaço de trabalho relevante. 
 

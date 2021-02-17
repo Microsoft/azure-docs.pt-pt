@@ -10,12 +10,12 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 zone_pivot_groups: client-operating-system-macos-and-linux-windows-powershell
-ms.openlocfilehash: f319f912520a69a0c68f89a3d4178f63cc45ca1f
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: d7c611f1cdb5e3294e38f87c0534003813e50388
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97356553"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100575684"
 ---
 # <a name="upload-metrics-to-azure-monitor"></a>Carregar métricas para o Monitor Azure
 
@@ -126,7 +126,7 @@ Para carregar métricas para o seu arco Azure habilitado a sql gerido instância
    >[!NOTE]
    >Aguarde pelo menos 30 minutos após a criação de casos de dados ativados pelo Arco Azure para o primeiro upload.
    >
-   >Certifique-se de que `upload` as métricas imediatamente a `export` seguir, uma vez que o Azure Monitor só aceita métricas durante os últimos 30 minutos. [Saiba mais](../../azure-monitor/platform/metrics-store-custom-rest-api.md#troubleshooting).
+   >Certifique-se de que `upload` as métricas imediatamente a `export` seguir, uma vez que o Azure Monitor só aceita métricas durante os últimos 30 minutos. [Saiba mais](../../azure-monitor/essentials/metrics-store-custom-rest-api.md#troubleshooting).
 
 
 Se vir algum erro que indique "Falha na obter métricas" durante a exportação, verifique se a recolha de dados está definida `true` para executar o seguinte comando:
@@ -199,7 +199,7 @@ Criar, ler, atualizar e eliminar (CRUD) operações em Azure Arc os serviços de
 
 Durante a pré-visualização, este processo acontece todas as noites. A orientação geral é fazer o upload do uso apenas uma vez por dia. Quando as informações de utilização são exportadas e carregadas várias vezes no mesmo período de 24 horas, apenas o inventário de recursos é atualizado no portal Azure, mas não no uso do recurso.
 
-Para carregar métricas, o monitor Azure só aceita os últimos 30 minutos de dados[(Saiba mais).](../../azure-monitor/platform/metrics-store-custom-rest-api.md#troubleshooting) A orientação para o upload das métricas é carregar as métricas imediatamente após a criação do ficheiro de exportação para que possa ver todo o conjunto de dados no portal Azure. Por exemplo, se exportasse as métricas às 14:00 e executasse o comando de upload às 14:50. Uma vez que o Azure Monitor só aceita dados durante os últimos 30 minutos, poderá não ver quaisquer dados no portal. 
+Para carregar métricas, o monitor Azure só aceita os últimos 30 minutos de dados[(Saiba mais).](../../azure-monitor/essentials/metrics-store-custom-rest-api.md#troubleshooting) A orientação para o upload das métricas é carregar as métricas imediatamente após a criação do ficheiro de exportação para que possa ver todo o conjunto de dados no portal Azure. Por exemplo, se exportasse as métricas às 14:00 e executasse o comando de upload às 14:50. Uma vez que o Azure Monitor só aceita dados durante os últimos 30 minutos, poderá não ver quaisquer dados no portal. 
 
 ## <a name="next-steps"></a>Passos seguintes
 

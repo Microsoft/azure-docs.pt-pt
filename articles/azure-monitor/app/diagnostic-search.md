@@ -1,20 +1,20 @@
 ---
-title: Utilização de Pesquisa em Insights de Aplicações Azure ! Microsoft Docs
+title: Utilizando pesquisas em Azure Application Insights | Microsoft Docs
 description: Pesse e filtre a telemetria crua enviada pela sua aplicação web.
 ms.topic: conceptual
 ms.date: 07/30/2019
-ms.openlocfilehash: f87a972b417bf6074de1c10b7a54bd2416f88daa
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: f7c2229a2e497fb052db79d61fcfeff140897798
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96187022"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579552"
 ---
 # <a name="using-search-in-application-insights"></a>Utilização de Pesquisa em Insights de Aplicações
 
 A pesquisa é uma funcionalidade de [Application Insights](./app-insights-overview.md) que utiliza para encontrar e explorar itens de telemetria individuais, tais como visualizações de páginas, exceções ou pedidos web. E pode ver vestígios de registo e eventos que codificou.
 
-(Para consultas mais complexas sobre os seus dados, utilize [a Analytics](../log-query/log-analytics-tutorial.md).)
+(Para consultas mais complexas sobre os seus dados, utilize [a Analytics](../logs/log-analytics-tutorial.md).)
 
 ## <a name="where-do-you-see-search"></a>Onde vê o Search?
 
@@ -81,7 +81,7 @@ Para encontrar todos os itens com o mesmo valor de propriedade, escreva-o na bar
 ## <a name="search-the-data"></a>Pesquisar os dados
 
 > [!NOTE]
-> Para escrever consultas mais complexas, abra [**Os Registos (Analytics)**](../log-query/log-analytics-tutorial.md) a partir do topo da lâmina de busca.
+> Para escrever consultas mais complexas, abra [**Os Registos (Analytics)**](../logs/log-analytics-tutorial.md) a partir do topo da lâmina de busca.
 >
 
 Pode pesquisar por termos em qualquer um dos valores da propriedade. Isto é útil se tiver escrito [eventos personalizados](./api-custom-events-metrics.md) com valores de propriedade.
@@ -145,7 +145,7 @@ Não registamos automaticamente os dados do POST, mas pode utilizar [chamadas tr
 
 ## <a name="next-steps"></a><a name="add"></a>Passos seguintes
 
-* [Escreva consultas complexas em Analytics](../log-query/log-analytics-tutorial.md)
+* [Escreva consultas complexas em Analytics](../logs/log-analytics-tutorial.md)
 * [Enviar registos e telemetria personalizada para Insights de Aplicação](./asp-net-trace-logs.md)
 * [Configurar testes de disponibilidade e capacidade de resposta](./monitor-web-app-availability.md)
 * [Resolução de problemas](../faq.md)

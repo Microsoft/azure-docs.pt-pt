@@ -1,17 +1,17 @@
 ---
-title: Solução de Dados de Fio no Monitor Azure Microsoft Docs
+title: Solução de dados de fio em Azure Monitor | Microsoft Docs
 description: Os dados de fio são dados consolidados de rede e desempenho de computadores com agentes do Log Analytics. Os dados de rede são combinados com os seus dados de registo para ajudá-lo a correlacionar os dados.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/29/2020
-ms.openlocfilehash: 06698ad3ab2ceb76278e23bc1ac0002b9c2284f9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 563104a82da3b6b2263fce46792cf4f627c8f6ad
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91445775"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100572347"
 ---
 # <a name="wire-data-20-preview-solution-in-azure-monitor"></a>Solução de Dados de Fio 2.0 (Pré-visualização) no Monitor Azure
 
@@ -22,14 +22,14 @@ Os dados de fio são dados consolidados de rede e desempenho recolhidos a partir
 Além do agente Log Analytics, a solução Wire Data utiliza agentes de dependência da Microsoft que instala em computadores na sua infraestrutura de TI. Os Agentes de Dependência monitorizam os dados de rede enviados para e a partir dos seus computadores para níveis de rede 2-3 no [modelo OSI](https://en.wikipedia.org/wiki/OSI_model), incluindo os vários protocolos e portas utilizados. Os dados são então enviados para o Azure Monitor utilizando agentes.  
 
 >[!NOTE]
->A solução Dados de Fio foi substituída pela [solução Mapa de Serviço.](service-map.md)  Ambos utilizam o agente Log Analytics e o agente De dependência para recolher dados de ligação à rede no Azure Monitor. 
+>A solução Dados de Fio foi substituída pela [solução Mapa de Serviço.](../vm/service-map.md)  Ambos utilizam o agente Log Analytics e o agente De dependência para recolher dados de ligação à rede no Azure Monitor. 
 > 
 >Os clientes existentes que utilizam a solução Wire Data podem continuar a usá-la. Publicaremos orientações para uma linha temporal de migração para a mudança para o Mapa de Serviços.
 >
->Os novos clientes devem instalar a [solução De Mapa](service-map.md) de Serviço ou [monitor Azure para VMs](vminsights-overview.md).  O conjunto de dados do Mapa de Serviço é comparável aos dados de fio.  O Azure Monitor para VMs inclui o conjunto de dados do Mapa de Serviço com dados de desempenho adicionais e funcionalidades para análise. 
+>Os novos clientes devem instalar a [solução De Mapa](../vm/service-map.md) de Serviço ou [monitor Azure para VMs](../vm/vminsights-overview.md).  O conjunto de dados do Mapa de Serviço é comparável aos dados de fio.  O Azure Monitor para VMs inclui o conjunto de dados do Mapa de Serviço com dados de desempenho adicionais e funcionalidades para análise. 
 
 
-Por predefinição, o Azure Monitor regista dados de CPU, memória, disco e dados de desempenho da rede a partir de contadores incorporados no Windows e Linux, bem como outros contadores de desempenho que pode especificar. A recolha de redes e outros dados é realizada em tempo real para cada agente, incluindo sub-redes e protocolos ao nível das aplicações que estão a ser utilizados pelo computador.  O Wire Data analisa os dados de rede ao nível das aplicações e não na camada de transporte de TCP. A solução não procura ACKs nem SYNs individuais. Após a conclusão do handshake, é considerada uma ligação em direto e marcada como Ligada. Esta ligação permanece ativa enquanto ambos os lados aceitarem que o socket esteja aberto e que os dados possam circular entre ambos. Uma vez que ambos os lados fecham a ligação, está marcado como Desligado.  Desta forma, contabiliza apenas a largura de banda dos pacotes concluídos com êxito, não reporta os reenvios nem os pacotes com falhas.
+Por predefinição, o Azure Monitor regista dados de CPU, memória, disco e dados de desempenho da rede a partir de contadores incorporados no Windows e Linux, bem como outros contadores de desempenho que pode especificar. A recolha de redes e outros dados é realizada em tempo real para cada agente, incluindo sub-redes e protocolos ao nível das aplicações que estão a ser utilizados pelo computador.  O Wire Data analisa os dados de rede ao nível das aplicações e não na camada de transporte de TCP.  A solução não procura ACKs nem SYNs individuais.  Após a conclusão do handshake, é considerada uma ligação em direto e marcada como Ligada. Esta ligação permanece ativa enquanto ambos os lados aceitarem que o socket esteja aberto e que os dados possam circular entre ambos.  Uma vez que ambos os lados fecham a ligação, está marcado como Desligado.  Desta forma, contabiliza apenas a largura de banda dos pacotes concluídos com êxito, não reporta os reenvios nem os pacotes com falhas.
 
 Se tiver utilizado o [sFlow](http://www.sflow.org/) ou outro software com o [protocolo NetFlow da Cisco](https://www.cisco.com/c/en/us/products/collateral/ios-nx-os-software/ios-netflow/prod_white_paper0900aecd80406232.html), as estatísticas e os dados apresentados dos dados por fio terão um aspeto familiar.
 
@@ -56,10 +56,10 @@ O Wire Data obtém os dados através do Agente de Dependência da Microsoft. O A
 
 | **Origem ligada** | **Suportado** | **Descrição** |
 | --- | --- | --- |
-| Agentes do Windows | Sim | O Wire Data analisa e recolhe dados de computadores de agentes do Windows. <br><br> Além do [agente Log Analytics para windows,](../platform/agent-windows.md)os agentes do Windows requerem o agente Microsoft Dependency. Veja os [sistemas operativos suportados](vminsights-enable-overview.md#supported-operating-systems) para obter uma lista completa das versões do sistema operativo. |
-| Agentes do Linux | Sim | O Wire Data analisa e recolhe dados de computadores de agentes Linux.<br><br> Além do [agente Log Analytics para o Linux,](../learn/quick-collect-linux-computer.md)os agentes Linux requerem o agente da Microsoft Dependency. Veja os [sistemas operativos suportados](vminsights-enable-overview.md#supported-operating-systems) para obter uma lista completa das versões do sistema operativo. |
-| Grupo de gestão do System Center Operations Manager | Sim | O Wire Data analisa e recolhe dados dos agentes do Windows e Linux num [grupo de gestão do System Center Operations Manager](../platform/om-agents.md) ligado. <br><br> É necessária uma ligação direta do computador do Gestor de Operações do Centro de Sistema ao Monitor Azure. |
-| Conta de armazenamento do Azure | Não | O Wire Data recolhe dados dos computadores de agentes, pelo que não existem dados para o mesmo recolher do Armazenamento do Microsoft Azure. |
+| Agentes do Windows | Yes | O Wire Data analisa e recolhe dados de computadores de agentes do Windows. <br><br> Além do [agente Log Analytics para windows,](../agents/agent-windows.md)os agentes do Windows requerem o agente Microsoft Dependency. Veja os [sistemas operativos suportados](../vm/vminsights-enable-overview.md#supported-operating-systems) para obter uma lista completa das versões do sistema operativo. |
+| Agentes do Linux | Yes | O Wire Data analisa e recolhe dados de computadores de agentes Linux.<br><br> Além do [agente Log Analytics para o Linux,](../vm/quick-collect-linux-computer.md)os agentes Linux requerem o agente da Microsoft Dependency. Veja os [sistemas operativos suportados](../vm/vminsights-enable-overview.md#supported-operating-systems) para obter uma lista completa das versões do sistema operativo. |
+| Grupo de gestão do System Center Operations Manager | Yes | O Wire Data analisa e recolhe dados dos agentes do Windows e Linux num [grupo de gestão do System Center Operations Manager](../agents/om-agents.md) ligado. <br><br> É necessária uma ligação direta do computador do Gestor de Operações do Centro de Sistema ao Monitor Azure. |
+| Conta de armazenamento do Azure | No | O Wire Data recolhe dados dos computadores de agentes, pelo que não existem dados para o mesmo recolher do Armazenamento do Microsoft Azure. |
 
 No Windows, o Microsoft Monitoring Agent (MMA) é utilizado tanto pelo Gestor de Operações do System Center como pelo Azure Monitor para recolher e enviar dados. Dependendo do contexto, o agente é chamado de Agente de Operações do Centro de Sistema, Agente De Registo, MMA ou Agente Direto. System Center Operations Manager e Azure Monitor fornecem versões ligeiramente diferentes do MMA. Estas versões podem reportar-se ao Gestor de Operações do Centro de Sistema, ao Azure Monitor ou a ambas.
 
@@ -167,7 +167,7 @@ As secções seguintes listam os sistemas operativos suportados para o agente de
 
 Execute os seguintes passos para configurar a solução Wire Data para as áreas de trabalho.
 
-1. Ativar a solução Activity Log Analytics a partir do [Mercado Azure](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WireData2OMS?tab=Overview) ou utilizando o processo descrito em [soluções de monitorização adicionar a partir da Galeria de Soluções.](./solutions.md)
+1. Ativar a solução Activity Log Analytics a partir do [Mercado Azure](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WireData2OMS?tab=Overview) ou utilizando o processo descrito em [soluções de monitorização adicionar a partir da Galeria de Soluções.](../insights/solutions.md)
 2. Instale o agente Desadependição em cada computador onde pretende obter dados. O agente da Dependência pode monitorizar as ligações com vizinhos imediatos, por isso pode não precisar de um agente em todos os computadores.
 
 > [!NOTE]
@@ -182,7 +182,7 @@ O agente Dependency está instalado em computadores que executam o Windows atrav
 
 Utilize os seguintes passos para instalar o agente Dependency em cada computador que executa o Windows:
 
-1. Instale o agente Log Analytics seguindo os passos na [Recolha de dados dos computadores Windows alojados no seu ambiente](../platform/agent-windows.md).
+1. Instale o agente Log Analytics seguindo os passos na [Recolha de dados dos computadores Windows alojados no seu ambiente](../agents/agent-windows.md).
 2. Descarregue o agente de dependência do Windows utilizando o link na secção anterior e, em seguida, execute-o utilizando o seguinte comando: `InstallDependencyAgent-Windows.exe`
 3. Siga o assistente para instalar o agente.
 4. Se o agente de dependência não arrancar, verifique se os registos são informativo de erro. Para agentes do Windows, o diretório do registo é %Programfiles%\Microsoft Dependency Agent\logs.
@@ -208,8 +208,8 @@ O agente De dependência é instalado em computadores Linux através do InstallD
 
 Utilize os seguintes passos para instalar o agente Desadependição em cada computador Linux:
 
-1. Instale o agente Log Analytics seguindo os passos na [Recolha de dados dos computadores Linux alojados no seu ambiente](../learn/quick-collect-linux-computer.md#obtain-workspace-id-and-key).
-2. Descarregue o agente linux dependency usando o link na secção anterior e, em seguida, instale-o como raiz utilizando o seguinte comando: sh InstallDependencyAgent-Linux64.bin
+1. Instale o agente Log Analytics seguindo os passos na [Recolha de dados dos computadores Linux alojados no seu ambiente](../vm/quick-collect-linux-computer.md#obtain-workspace-id-and-key).
+2. Descarregue o agente de dependência Linux utilizando o link na secção anterior e instale-o como raiz utilizando o seguinte comando: sh InstallDependencyAgent-Linux64.bin
 3. Se o agente de dependência não arrancar, verifique se os registos são informativo de erro. Para agentes do Linux, o diretório do registo é: /var/opt/microsoft/dependency-agent/log.
 
 Para ver uma lista de sinalizadores de instalação, execute o programa de instalação com o sinalizador `-help` da seguinte forma.
@@ -333,7 +333,7 @@ rpm -e dependency-agent dependency-agent-connector
 
 ## <a name="management-packs"></a>Pacotes de gestão
 
-Quando o Wire Data é ativado numa área de trabalho do Log Analytics, é enviado um pacote de gestão de 300 KB para todos os servidores Windows nessa área de trabalho. Se estiver a utilizar agentes do System Center Operations Manager num [grupo de gestão ligado](../platform/om-agents.md), o pacote de gestão do Dependency Monitor será implementado a partir do System Center Operations Manager. Se os agentes estiverem diretamente ligados, o Azure Monitor entrega o pacote de gestão.
+Quando o Wire Data é ativado numa área de trabalho do Log Analytics, é enviado um pacote de gestão de 300 KB para todos os servidores Windows nessa área de trabalho. Se estiver a utilizar agentes do System Center Operations Manager num [grupo de gestão ligado](../agents/om-agents.md), o pacote de gestão do Dependency Monitor será implementado a partir do System Center Operations Manager. Se os agentes estiverem diretamente ligados, o Azure Monitor entrega o pacote de gestão.
 
 O pacote de gestão é designado Microsoft.IntelligencePacks.ApplicationDependencyMonitor. O mesmo é escrito em: %Programfiles%\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs. A origem de dados que o pacote de gestão utiliza é: %Program files%\Microsoft Monitoring Agent\Agent\Health Service State\Resources&lt;AutoGeneratedID&gt;\Microsoft.EnterpriseManagement.Advisor.ApplicationDependencyMonitorDataSource.dll.
 
@@ -343,7 +343,7 @@ Utilize as seguintes informações para instalar e configurar a solução.
 
 - A solução Wire Data adquire dados de computadores com o Windows Server 2012 R2, Windows 8.1 e sistemas operativos posteriores.
 - Os computadores dos quais pretende adquirir dados por fio precisam do Microsoft .NET Framework 4.0 ou posterior.
-- Adicione a solução De Dados de Fio ao seu espaço de trabalho Log Analytics utilizando o processo descrito nas [soluções de monitorização Add da Galeria de Soluções](solutions.md). Não há nenhuma configuração adicional.
+- Adicione a solução De Dados de Fio ao seu espaço de trabalho Log Analytics utilizando o processo descrito nas [soluções de monitorização Add da Galeria de Soluções](../insights/solutions.md). Não há nenhuma configuração adicional.
 - Se pretender ver os dados por fio de uma solução específica, terá de ter a solução já adicionada à sua área de trabalho.
 
 Depois de instalar os agentes e a solução, o mosaico Wire Data 2.0 é apresentado na área de trabalho.
@@ -416,5 +416,5 @@ Os dados por fio recolhem metadados sobre o tráfego de rede com os agentes que 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Registos de pesquisa](../log-query/log-query-overview.md) para ver registos detalhados da pesquisa dos dados por fio.
+- [Registos de pesquisa](../logs/log-query-overview.md) para ver registos detalhados da pesquisa dos dados por fio.
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/12/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: 454d44eecd4eaa6d5c1f50edbd7edb1024ace041
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 0593d2b675da533035a70c66784812543909c9db
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99256886"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574189"
 ---
 # <a name="understand-how-provisioning-integrates-with-azure-monitor-logs"></a>Entenda como o provisionamento se integra com os registos do Azure Monitor
 
@@ -24,7 +24,7 @@ O provisionamento integra-se com os registos do Azure Monitor e com o Log Analyt
 
 ## <a name="enabling-provisioning-logs"></a>Habilitação de registos de provisionamento
 
-Já deve estar familiarizado com a monitorização do Azure e com o Log Analytics. Caso contrário, salte para saber sobre eles e volte a aprender sobre registos de fornecimento de aplicações. Para saber mais sobre a monitorização do Azure, consulte [a visão geral do Azure Monitor](../../azure-monitor/overview.md). Para saber mais sobre os registos do Azure Monitor e o Log Analytics, consulte [a visão geral das consultas de registo no Azure Monitor](../../azure-monitor/log-query/log-query-overview.md).
+Já deve estar familiarizado com a monitorização do Azure e com o Log Analytics. Caso contrário, salte para saber sobre eles e volte a aprender sobre registos de fornecimento de aplicações. Para saber mais sobre a monitorização do Azure, consulte [a visão geral do Azure Monitor](../../azure-monitor/overview.md). Para saber mais sobre os registos do Azure Monitor e o Log Analytics, consulte [a visão geral das consultas de registo no Azure Monitor](../../azure-monitor/logs/log-query-overview.md).
 
 Uma vez configurado a monitorização do Azure, pode ativar registos para o provisionamento de aplicações. A opção está localizada na página **de definições de Diagnóstico.**
 
@@ -47,7 +47,7 @@ O fluxo de dados subjacente que o Provisioning envia aos espectadores de registo
 
 ## <a name="azure-monitor-workbooks"></a>Livros do Azure Monitor
 
-Os livros de trabalho do Azure Monitor fornecem uma tela flexível para análise de dados. Também prevêem a criação de ricos relatórios visuais dentro do portal Azure. Para saber mais, consulte [a visão geral dos livros de trabalho do Monitor Azure.](../../azure-monitor/platform/workbooks-overview.md)
+Os livros de trabalho do Azure Monitor fornecem uma tela flexível para análise de dados. Também prevêem a criação de ricos relatórios visuais dentro do portal Azure. Para saber mais, consulte [a visão geral dos livros de trabalho do Monitor Azure.](../../azure-monitor/visualize/workbooks-overview.md)
 
 O fornecimento de aplicações vem com um conjunto de livros pré-construídos. Pode encontrá-los na página de Livros de Trabalho. Para visualizar os dados, terá de garantir que todos os filtros (timeRange, jobID, appName) são preenchidos. Também terá de se certificar de que aprovisionou uma aplicação, caso contrário não haverá dados nos registos.
 
@@ -57,7 +57,7 @@ O fornecimento de aplicações vem com um conjunto de livros pré-construídos. 
 
 ## <a name="custom-queries"></a>Consultas personalizadas
 
-Pode criar consultas personalizadas e mostrar os dados nos dashboards Azure. Para saber como, consulte [Criar e partilhar dashboards de dados do Log Analytics](../../azure-monitor/log-query/get-started-queries.md). Além disso, certifique-se de verificar a [visão geral das consultas de registo no Azure Monitor](../../azure-monitor/log-query/log-query-overview.md).
+Pode criar consultas personalizadas e mostrar os dados nos dashboards Azure. Para saber como, consulte [Criar e partilhar dashboards de dados do Log Analytics](../../azure-monitor/logs/get-started-queries.md). Além disso, certifique-se de verificar a [visão geral das consultas de registo no Azure Monitor](../../azure-monitor/logs/log-query-overview.md).
 
 Aqui estão algumas amostras para começar com o provisionamento de aplicações.
 
@@ -96,7 +96,7 @@ AADProvisioningLogs
 
 O Azure Monitor permite-lhe configurar alertas personalizados para que possa ser notificado sobre eventos-chave relacionados com provisionamento. Por exemplo, é melhor receber um alerta sobre picos em falhas. Ou talvez picos em desativas ou eliminações. Outro exemplo de onde pode querer ser alertado é a falta de qualquer provisionamento, o que indica que algo está errado.
 
-Para saber mais sobre alertas, consulte [Responder a eventos com alertas do Monitor Azure.](../../azure-monitor/learn/tutorial-response.md)
+Para saber mais sobre alertas, consulte [Responder a eventos com alertas do Monitor Azure.](../../azure-monitor/alerts/tutorial-response.md)
 
 Alerta quando há um pico de falhas. Substitua o trabalhoID pelo trabalhoID para a sua aplicação.
 
@@ -118,7 +118,7 @@ Estamos a tomar uma abordagem de código aberto e baseado na comunidade para apl
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Análise de registo](../reports-monitoring/howto-analyze-activity-logs-log-analytics.md)
-- [Começar com consultas em registos do Azure Monitor](../../azure-monitor/log-query/get-started-queries.md)
-- [Criar e gerir grupos de alerta no portal Azure](../../azure-monitor/platform/action-groups.md)
+- [Começar com consultas em registos do Azure Monitor](../../azure-monitor/logs/get-started-queries.md)
+- [Criar e gerir grupos de alerta no portal Azure](../../azure-monitor/alerts/action-groups.md)
 - [Instale e utilize as vistas de análise de registo para o Azure Ative Directory](../reports-monitoring/howto-install-use-log-analytics-views.md)
 - [Provisionamento de registos API](/graph/api/resources/provisioningobjectsummary?preserve-view=true&view=graph-rest-beta.md)

@@ -1,16 +1,16 @@
 ---
-title: Registos DNS do Azure Datacenter utilizados pela Azure Automation Microsoft Docs
+title: Registos DNSS do Azure Datacenter utilizados pela Azure Automation | Microsoft Docs
 description: Este artigo fornece os registos DNS exigidos pela Azure Automation ao restringir a comunicação a uma região específica do Azure que alberga essa conta Automation.
 services: automation
 ms.subservice: process-automation
 ms.date: 11/25/2020
 ms.topic: conceptual
-ms.openlocfilehash: b4b8f48afc75c0a96937575bdad5bb884d0cb4d8
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 8630afa7410aad81a7a3c61540fc74702fc6481c
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183724"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100575988"
 ---
 # <a name="dns-records-for-azure-regions-used-by-azure-automation"></a>Registos dns para regiões Azure utilizadas pela Azure Automation
 
@@ -21,7 +21,7 @@ O serviço [Azure Automation](../automation-intro.md) utiliza uma série de regi
 * Webhooks
 
 >[!NOTE]
->O registo do Trabalhador de Runbook Híbrido Linux falhará com os novos registos, a menos que seja a versão 1.6.10.2 ou superior. Tem de fazer upgrade para uma versão mais recente do agente Log Analytics para o [Linux,](../../azure-monitor/platform/agent-linux.md) para que a máquina receba uma versão atualizada da função do trabalhador e utilize estes novos registos. As máquinas existentes continuarão a funcionar sem qualquer problema.  
+>O registo do Trabalhador de Runbook Híbrido Linux falhará com os novos registos, a menos que seja a versão 1.6.10.2 ou superior. Tem de fazer upgrade para uma versão mais recente do agente Log Analytics para o [Linux,](../../azure-monitor/agents/agent-linux.md) para que a máquina receba uma versão atualizada da função do trabalhador e utilize estes novos registos. As máquinas existentes continuarão a funcionar sem qualquer problema.  
 
 ## <a name="dns-records-per-region"></a>Registos dns por região
 

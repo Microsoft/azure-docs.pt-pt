@@ -1,17 +1,17 @@
 ---
-title: Otimize o seu ambiente de Diretório Ativo com o Azure Monitor ; Microsoft Docs
+title: Otimize o seu ambiente de Diretório Ativo com | do Azure Monitor Microsoft Docs
 description: Pode utilizar a solução Ative Directory Health Check para avaliar o risco e a saúde dos seus ambientes num intervalo regular.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/10/2019
-ms.openlocfilehash: 3c86b21c5e0533ab6a1a3c64dc601eb8bb573547
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 069f70d27bd7e721be2bf82f6ef64ce9c531ab8e
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87318101"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100577559"
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-azure-monitor"></a>Optimize your Active Directory environment with the Active Directory Health Check solution in Azure Monitor (Otimizar o ambiente do Active Directory com a solução Verificação de Estado de Funcionamento do Active Directory no Azure Monitor)
 
@@ -46,9 +46,9 @@ Depois de ter adicionado a solução e de ter sido concluída uma verificação,
 
 Para efetuar a verificação de saúde contra os seus controladores de domínio que são membros do domínio a avaliar, cada controlador de domínio nesse domínio requer um agente e conectividade ao Azure Monitor utilizando um dos seguintes métodos suportados:
 
-1. Instale o [agente Log Analytics para](../platform/agent-windows.md) o Windows se o controlador de domínio ainda não estiver monitorizado pelo System Center 2016 - Gestor de Operações ou Gestor de Operações 2012 R2.
+1. Instale o [agente Log Analytics para](../agents/agent-windows.md) o Windows se o controlador de domínio ainda não estiver monitorizado pelo System Center 2016 - Gestor de Operações ou Gestor de Operações 2012 R2.
 2. Se for monitorizado com o System Center 2016 - Gestor de Operações ou Gestor de Operações 2012 R2 e o grupo de gestão não estiver integrado com o Azure Monitor, o controlador de domínio pode ser multi-acotado com o Azure Monitor para recolher dados e encaminhar para o serviço e ainda ser monitorizado pelo Gestor de Operações.  
-3. Caso contrário, se o seu grupo de gestão de Gestor de Operações estiver integrado no serviço, tem de adicionar os controladores de domínio para recolha de dados pelo serviço seguindo os passos em [adicionar computadores geridos por agentes](../platform/om-agents.md#connecting-operations-manager-to-azure-monitor) depois de ativar a solução no seu espaço de trabalho.  
+3. Caso contrário, se o seu grupo de gestão de Gestor de Operações estiver integrado no serviço, tem de adicionar os controladores de domínio para recolha de dados pelo serviço seguindo os passos em [adicionar computadores geridos por agentes](../agents/om-agents.md#connecting-operations-manager-to-azure-monitor) depois de ativar a solução no seu espaço de trabalho.  
 
 O agente do seu controlador de domínio que reporta a um grupo de gestão de Gestores de Operações, recolhe dados, encaminha para o seu servidor de gestão atribuído e, em seguida, é enviado diretamente de um servidor de gestão para o Azure Monitor.  Os dados não são escritos nas bases de dados do Gestor de Operações.  
 
@@ -215,5 +215,5 @@ Os resultados podem então ser exportados para o Excel para posterior revisão.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Utilize [consultas de registo do Azure Monitor](../log-query/log-query-overview.md) para aprender a analisar dados e recomendações detalhadas do AD Health Check.
+Utilize [consultas de registo do Azure Monitor](../logs/log-query-overview.md) para aprender a analisar dados e recomendações detalhadas do AD Health Check.
 

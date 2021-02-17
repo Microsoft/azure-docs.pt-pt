@@ -1,5 +1,5 @@
 ---
-title: Utilize livros de trabalho do Monitor Azure com serviços de domínio Azure AD / Microsoft Docs
+title: Utilize livros de trabalho do Monitor Azure com os serviços de domínio Azure AD | Microsoft Docs
 description: Saiba como usar os livros de trabalho do Monitor Azure para rever as auditorias de segurança e compreender problemas num domínio gerido por Serviços de Domínio do Diretório Ativo Azure.
 author: justinha
 manager: daveba
@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: justinha
-ms.openlocfilehash: 3067388265fb69b916fe0e179cb896401b7c2dc4
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 9a126fe4676f340fb45677382a3aeeed79291f0b
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96618166"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574217"
 ---
 # <a name="review-security-audit-events-in-azure-active-directory-domain-services-using-azure-monitor-workbooks"></a>Rever eventos de auditoria de segurança em Azure Ative Directory Domain Services usando livros de trabalho do Azure Monitor
 
@@ -22,7 +22,7 @@ Para ajudá-lo a compreender o estado do seu domínio gerido Azure Ative Directo
 
 Este artigo mostra-lhe como usar os Livros de Trabalho do Monitor Azure para rever eventos de auditoria de segurança em Azure AD DS.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Para completar este artigo, precisa dos seguintes recursos e privilégios:
 
@@ -46,7 +46,7 @@ Azure AD DS inclui os seguintes dois modelos de livro:
 * Relatório geral de segurança
 * Relatório de atividade da conta
 
-Para obter mais informações sobre como editar e gerir livros, consulte [a visão geral dos livros de trabalho do Azure Monitor](../azure-monitor/platform/workbooks-overview.md).
+Para obter mais informações sobre como editar e gerir livros, consulte [a visão geral dos livros de trabalho do Azure Monitor](../azure-monitor/visualize/workbooks-overview.md).
 
 ## <a name="use-the-security-overview-report-workbook"></a>Use o livro de relatório de relatório de segurança
 

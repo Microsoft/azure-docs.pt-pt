@@ -6,12 +6,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 01/24/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: d11b12ba37d543ec21985c52c4ffb3399bfc56d1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d1076239938988119d8a9838d0e060d70a22082
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87323524"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100583374"
 ---
 # <a name="users-sessions-and-events-analysis-in-application-insights"></a>Utilizadores, sessões e análise de eventos em Insights de Aplicações
 
@@ -41,10 +41,10 @@ Explore diferentes grupos de utilizadores ajustando as opções de consulta no t
 * Quem usou: Escolha eventos personalizados e vistas de página.
 * Durante: Escolha um intervalo de tempo.
 * Por: Escolha como baldear os dados, seja por um período de tempo ou por outra propriedade, como navegador ou cidade.
-* Split By: Escolha um imóvel para dividir ou segmentar os dados. 
-* Adicionar Filtros: Limitar a consulta a determinados utilizadores, sessões ou eventos com base nas suas propriedades, como navegador ou cidade. 
- 
-## <a name="saving-and-sharing-reports"></a>Guardar e partilhar relatórios 
+* Split By: Escolha um imóvel para dividir ou segmentar os dados. 
+* Adicionar Filtros: Limitar a consulta a determinados utilizadores, sessões ou eventos com base nas suas propriedades, como navegador ou cidade. 
+ 
+## <a name="saving-and-sharing-reports"></a>Guardar e partilhar relatórios 
 Pode guardar relatórios dos Utilizadores, privados apenas para si na secção My Reports, ou partilhados com todos os outros com acesso a este recurso De Insights de Aplicação na secção Relatórios Partilhados.
 
 Para partilhar um link para um relatório de Utilizadores, Sessões ou Eventos; clique em **Partilhar** na barra de ferramentas e, em seguida, copiar o link.
@@ -62,6 +62,6 @@ A secção **Meet, os seus utilizadores,** mostra informações sobre cinco util
     - [Funis](usage-funnels.md)
     - [Retenção](usage-retention.md)
     - [Fluxos de Utilizador](usage-flows.md)
-    - [Livros](../platform/workbooks-overview.md)
+    - [Livros](../visualize/workbooks-overview.md)
     - [Adicionar contexto de utilizador](usage-send-user-context.md)
 

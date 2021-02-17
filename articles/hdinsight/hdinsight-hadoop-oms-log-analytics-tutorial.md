@@ -5,18 +5,18 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020, devx-track-azurecli, devx-track-azurepowershell
 ms.date: 05/13/2020
-ms.openlocfilehash: 5f849248021de3c17b69517d214f6f3fd6e4ee3a
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: b81a2021cabefd9587d448aa236e7e87bc254741
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98945629"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590818"
 ---
 # <a name="use-azure-monitor-logs-to-monitor-hdinsight-clusters"></a>Use Azure Monitor logs to monitor HDInsight clusters (Utilizar registos do Azure Monitor para monitorizar clusters do HDInsight)
 
 Saiba como ativar os registos do Azure Monitor para monitorizar as operações de cluster Hadoop em HDInsight. E como adicionar uma solução de monitorização HDInsight.
 
-[Os registos do Azure Monitor](../azure-monitor/log-query/log-query-overview.md) são um serviço Azure Monitor que monitoriza os seus ambientes de nuvem e no local. A monitorização é para manter a sua disponibilidade e desempenho. Recolhe dados gerados por recursos na sua nuvem, ambientes no local e de outras ferramentas de monitorização. Os dados são usados para fornecer análises em várias fontes.
+[Os registos do Azure Monitor](../azure-monitor/logs/log-query-overview.md) são um serviço Azure Monitor que monitoriza os seus ambientes de nuvem e no local. A monitorização é para manter a sua disponibilidade e desempenho. Recolhe dados gerados por recursos na sua nuvem, ambientes no local e de outras ferramentas de monitorização. Os dados são usados para fornecer análises em várias fontes.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -24,7 +24,7 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma área de trabalho do Log Analytics. Pode pensar neste espaço de trabalho como um ambiente único de registos do Azure Monitor com o seu próprio repositório de dados, fontes de dados e soluções. Para obter as instruções, consulte [Criar um espaço de trabalho log analytics](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace).
+* Uma área de trabalho do Log Analytics. Pode pensar neste espaço de trabalho como um ambiente único de registos do Azure Monitor com o seu próprio repositório de dados, fontes de dados e soluções. Para obter as instruções, consulte [Criar um espaço de trabalho log analytics](../azure-monitor/vm/quick-collect-azurevm.md#create-a-workspace).
 
 * Um cluster do Azure HDInsight. Atualmente, pode utilizar registos do Azure Monitor com os seguintes tipos de cluster HDInsight:
 
@@ -144,7 +144,7 @@ Como o cluster é um aglomerado novo, o relatório não mostra nenhuma atividade
 
 ## <a name="configuring-performance-counters"></a>Configurar balcões de desempenho
 
-O monitor Azure suporta a recolha e análise de métricas de desempenho para os nós do seu cluster. Para obter mais informações, consulte [fontes de dados de desempenho do Linux no Azure Monitor](../azure-monitor/platform/data-sources-performance-counters.md#linux-performance-counters).
+O monitor Azure suporta a recolha e análise de métricas de desempenho para os nós do seu cluster. Para obter mais informações, consulte [fontes de dados de desempenho do Linux no Azure Monitor](../azure-monitor/agents/data-sources-performance-counters.md#linux-performance-counters).
 
 ## <a name="cluster-auditing"></a>Auditoria de cluster
 
@@ -155,7 +155,7 @@ Auditoria de cluster de suporte HDInsight com registos Azure Monitor, importando
 * `log_ambari_audit_CL` - esta tabela fornece registos de auditoria de Ambari.
 * `log_ranger_audti_CL` - esta tabela fornece registos de auditoria da Apache Ranger em aglomerados ESP.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Registos do Monitor de Consulta Azure para monitorizar clusters HDInsight](hdinsight-hadoop-oms-log-analytics-use-queries.md)
 * [Como monitorizar a disponibilidade do cluster com os registos Apache Ambari e Azure Monitor](./hdinsight-cluster-availability.md)

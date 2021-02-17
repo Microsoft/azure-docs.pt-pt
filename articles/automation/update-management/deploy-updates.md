@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 12/09/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1b5ced7038f692046d1ce4ba2f4599cae3962510
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: fb81d38b066e1abb54664225daa6840d895e9ace
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98632466"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100575885"
 ---
 # <a name="how-to-deploy-updates-and-review-results"></a>Como implementar atualizações e rever resultados
 
@@ -59,7 +59,7 @@ Para agendar uma nova implementação de atualização, execute os seguintes pas
     > [!NOTE]
     > Esta opção não está disponível se selecionar um servidor Azure VM ou Arc ativado. A máquina é automaticamente direcionada para a implantação programada.
 
-6. Nas **Máquinas para atualizar a** região, selecione uma pesquisa guardada, um grupo importado ou escolha **Máquinas** do menu suspenso e selecione máquinas individuais. Com esta opção, pode ver a prontidão do agente Log Analytics para cada máquina. Para conhecer os diferentes métodos de criação de grupos informáticos nos registos do Monitor Azure, consulte [grupos de computador nos registos do Azure Monitor](../../azure-monitor/platform/computer-groups.md). Pode incluir até um máximo de 1000 máquinas numa atualização programada.
+6. Nas **Máquinas para atualizar a** região, selecione uma pesquisa guardada, um grupo importado ou escolha **Máquinas** do menu suspenso e selecione máquinas individuais. Com esta opção, pode ver a prontidão do agente Log Analytics para cada máquina. Para conhecer os diferentes métodos de criação de grupos informáticos nos registos do Monitor Azure, consulte [grupos de computador nos registos do Azure Monitor](../../azure-monitor/logs/computer-groups.md). Pode incluir até um máximo de 1000 máquinas numa atualização programada.
 
     > [!NOTE]
     > Esta opção não está disponível se selecionar um servidor Azure VM ou Arc ativado. A máquina é automaticamente direcionada para a implantação programada.

@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: wanl
-ms.openlocfilehash: 5ad40ca051677ced0c6d8b5c35e8563272ff598f
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 5650ff0e039d1e9211b8d0013726e101efdfab78
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183979"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100572262"
 ---
 # <a name="resource-logs-for-azure-signalr-service"></a>Registos de recursos para o Serviço Azure SignalR
 
@@ -20,8 +20,8 @@ Este tutorial discute quais são os registos de recursos do Serviço Azure Signa
 ## <a name="prerequisites"></a>Pré-requisitos
 Para ativar registos de recursos, precisará de um lugar para armazenar os seus dados de registo. Este tutorial utiliza a Azure Storage e Log Analytics.
 
-* [Armazenamento Azure](../azure-monitor/platform/resource-logs.md#send-to-azure-storage) - Retém registos de recursos para auditoria de política, análise estática ou backup.
-* [Log Analytics](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace) - Uma ferramenta flexível de pesquisa de registos e análise que permite a análise de troncos crus gerados por um recurso Azure.
+* [Armazenamento Azure](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage) - Retém registos de recursos para auditoria de política, análise estática ou backup.
+* [Log Analytics](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace) - Uma ferramenta flexível de pesquisa de registos e análise que permite a análise de troncos crus gerados por um recurso Azure.
 
 ## <a name="set-up-resource-logs-for-an-azure-signalr-service"></a>Configurar registos de recursos para um serviço Azure SignalR
 
@@ -50,7 +50,7 @@ Os registos de recursos são desativadas por predefinição. Para ativar registo
 
 As novas definições fazem efeito em cerca de 10 minutos. Depois disso, os registos aparecem no alvo de arquivo configurado, no painel de **registos de diagnóstico.**
 
-Para obter mais informações sobre a configuração dos diagnósticos, consulte a [visão geral dos registos de recursos do Azure](../azure-monitor/platform/platform-logs-overview.md).
+Para obter mais informações sobre a configuração dos diagnósticos, consulte a [visão geral dos registos de recursos do Azure](../azure-monitor/essentials/platform-logs-overview.md).
 
 ### <a name="resource-logs-categories"></a>Categorias de registos de recursos
 
@@ -122,7 +122,7 @@ Para ver registos de recursos, siga estes passos:
 
     ![Item do menu Log Analytics](./media/signalr-tutorial-diagnostic-logs/log-analytics-menu-item.png)
 
-2. Introduza `SignalRServiceDiagnosticLogs` e selecione o intervalo de tempo para consultar registos de recursos. Para consultas avançadas, consulte [Começar com Log Analytics no Azure Monitor](../azure-monitor/log-query/log-analytics-tutorial.md)
+2. Introduza `SignalRServiceDiagnosticLogs` e selecione o intervalo de tempo para consultar registos de recursos. Para consultas avançadas, consulte [Começar com Log Analytics no Azure Monitor](../azure-monitor/logs/log-analytics-tutorial.md)
 
     ![Início de consulta no Log Analytics](./media/signalr-tutorial-diagnostic-logs/query-log-in-log-analytics.png)
 
@@ -134,7 +134,7 @@ TimeGenerated | Hora do evento de registo
 Coleção | Coleção do evento de registo. Os valores permitidos são: `Connection` e `Authorization``Throttling`
 OperationName | Nome da operação do evento
 Localização | Localização do seu Serviço Azure SignalR
-Nível | Nível de evento de registo
+Level | Nível de evento de registo
 CallerIpAddress | Endereço IP do seu servidor/cliente
 Mensagem | Mensagem detalhada do evento de log
 IDUtilizador | Identidade do utilizador

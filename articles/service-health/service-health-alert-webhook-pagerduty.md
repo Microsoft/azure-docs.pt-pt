@@ -3,12 +3,12 @@ title: Enviar alertas de saúde do serviço Azure com PagerDuty
 description: Receba notificações personalizadas sobre eventos de saúde de serviço para o seu pagerDuty.
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.openlocfilehash: 5c70af2ad2ded919cda0b174705d1d3245eac627
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7ae5141f33ebf4ec6e32029625af3a199a04d67b
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87091543"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100594537"
 ---
 # <a name="send-azure-service-health-alerts-with-pagerduty-using-webhooks"></a>Envie alertas de saúde do serviço Azure com pagerDuty usando webhooks
 
@@ -69,7 +69,7 @@ Este artigo mostra-lhe como configurar notificações de saúde do serviço Azur
 1. **Selecione Guardar** quando for feito para atualizar o grupo de ação.
 
 ## <a name="testing-your-webhook-integration-via-an-http-post-request"></a>Testar a sua integração webhook através de um pedido HTTP POST
-1. Crie a carga útil de saúde do serviço que pretende enviar. Você pode encontrar um serviço de exemplo webhook payload em [Webhooks para alertas de registo de atividade Azure](../azure-monitor/platform/activity-log-alerts-webhook.md).
+1. Crie a carga útil de saúde do serviço que pretende enviar. Você pode encontrar um serviço de exemplo webhook payload em [Webhooks para alertas de registo de atividade Azure](../azure-monitor/alerts/activity-log-alerts-webhook.md).
 
 1. Crie um pedido HTTP POST da seguinte forma:
 
@@ -86,6 +86,6 @@ Este artigo mostra-lhe como configurar notificações de saúde do serviço Azur
 
 ## <a name="next-steps"></a>Passos seguintes
 - Saiba como [configurar notificações webhook para os sistemas de gestão de problemas existentes](service-health-alert-webhook-guide.md).
-- Reveja o [esquema de alerta de registo de atividade webhook](../azure-monitor/platform/activity-log-alerts-webhook.md). 
+- Reveja o [esquema de alerta de registo de atividade webhook](../azure-monitor/alerts/activity-log-alerts-webhook.md). 
 - Saiba mais sobre [as notificações de saúde do serviço.](./service-notifications.md)
-- Saiba mais sobre [grupos de ação.](../azure-monitor/platform/action-groups.md)
+- Saiba mais sobre [grupos de ação.](../azure-monitor/alerts/action-groups.md)

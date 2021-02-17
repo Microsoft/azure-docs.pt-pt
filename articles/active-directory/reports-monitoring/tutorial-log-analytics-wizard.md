@@ -1,5 +1,5 @@
 ---
-title: Configure o assistente de análise de registo em Azure AD / Microsoft Docs
+title: Configure o assistente de análise de registo em Azure AD | Microsoft Docs
 description: Aprenda a configurar a análise de registos.
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MarkusVi
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2bdf3a763dc71eb842496775b6cc91b8ca39b4b3
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: ca84fa57cb3a26337038275d1b7491154915c90e
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96343846"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574376"
 ---
 # <a name="tutorial-configure-the-log-analytics-wizard"></a>Tutorial: Configurar o assistente de análise de registo
 
@@ -41,7 +41,7 @@ Neste tutorial, ficará a saber como:
 
 Familiarize-se com estes artigos:
 
-- [Tutorial: Recolher e analisar registos de recursos a partir de um recurso Azure](../../azure-monitor/learn/tutorial-resource-logs.md)
+- [Tutorial: Recolher e analisar registos de recursos a partir de um recurso Azure](../../azure-monitor/essentials/tutorial-resource-logs.md)
 
 - [Como integrar registos de atividades com Log Analytics](./howto-integrate-activity-logs-with-log-analytics.md)
 
@@ -49,7 +49,7 @@ Familiarize-se com estes artigos:
 
 - [Referência rápida de KQL](/azure/data-explorer/kql-quick-reference)
 
-- [Livros de trabalho do Monitor Azure](../../azure-monitor/platform/workbooks-overview.md)
+- [Livros de trabalho do Monitor Azure](../../azure-monitor/visualize/workbooks-overview.md)
 
 
 

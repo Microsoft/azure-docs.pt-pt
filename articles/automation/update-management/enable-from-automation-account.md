@@ -6,12 +6,12 @@ ms.subservice: update-management
 ms.date: 11/09/2020
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 06a29cd07a870e7553d599b5f719943acb259c2a
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 089d5d70d8ad8060455e5c1bee45e0bee4a12fae
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99054928"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100575840"
 ---
 # <a name="enable-update-management-from-an-automation-account"></a>Ativar a Gestão de Atualizações a partir de uma conta de Automatização
 
@@ -24,7 +24,8 @@ Este artigo descreve como pode utilizar a sua conta Dempaça para ativar a funci
 
 * Subscrição do Azure. Se ainda não tiver um, pode [ativar os benefícios do seu assinante MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou inscrever-se numa [conta gratuita.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * [Conta de automatização](../automation-security-overview.md) para gerir máquinas.
-* Uma [máquina virtual Azure](../../virtual-machines/windows/quick-create-portal.md), ou VM ou servidor registado com servidores ativados pelo Arc. Os VMs ou servidores não-Azure precisam de ter o [agente Log Analytics](../../azure-monitor/platform/log-analytics-agent.md) para Windows ou Linux instalado e reportar no espaço de trabalho ligado à Gestão de Atualização da conta de Automação. Recomendamos a instalação do agente Log Analytics para Windows ou Linux ligando primeiro a sua máquina aos [servidores ativados do Azure Arc](../../azure-arc/servers/overview.md), e depois utilizar a Política Azure para atribuir o agente Deploy Log Analytics às [máquinas de *Aríaco Linux* ou *Windows* Azure Arc incorporadas.](../../governance/policy/samples/built-in-policies.md#monitoring) Em alternativa, se planeia monitorizar as máquinas com O Monitor Azure para VMs, em vez disso, utilize o Enable Azure Monitor para a iniciativa [VMs.](../../governance/policy/samples/built-in-initiatives.md#monitoring)
+* Uma [máquina virtual Azure](../../virtual-machines/windows/quick-create-portal.md), ou VM ou servidor registado com servidores ativados pelo Arc. Os VMs ou servidores não-Azure precisam de ter o [agente Log Analytics](../../azure-monitor/agents/log-analytics-agent.md) para Windows ou Linux instalado e reportar no espaço de trabalho ligado à Gestão de Atualização da conta de Automação. Recomendamos a instalação do agente Log Analytics para Windows ou Linux ligando primeiro a sua máquina aos [servidores ativados do Azure Arc](../../azure-arc/servers/overview.md), e depois utilizar a Política Azure para atribuir o agente Deploy Log Analytics às [máquinas de *Aríaco Linux* ou *Windows* Azure Arc incorporadas.](../../governance/policy/samples/built-in-policies.md#monitoring) Em alternativa, se planeia monitorizar as máquinas com O Monitor Azure para VMs, em vez disso, utilize o Enable Azure Monitor para a iniciativa [VMs.](../../governance/policy/samples/built-in-initiatives.md#monitoring)
+
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
@@ -54,7 +55,7 @@ Para máquinas ou servidores alojados fora do Azure, incluindo os registados com
 
 1. A partir da sua conta Demômes, selecione **A gestão de Atualização** sob **gestão de Atualização.**
 
-2. **Selecione Adicionar máquina não-Azure**. Esta ação abre uma nova janela do navegador com [instruções para instalar e configurar o agente Log Analytics para o Windows para](../../azure-monitor/platform/log-analytics-agent.md) que a máquina possa começar a reportar à Gestão de Atualização. Se está a habilitar uma máquina que é atualmente gerida pelo Diretor de Operações, não é necessário um novo agente. A informação do espaço de trabalho é adicionada à configuração dos agentes.
+2. **Selecione Adicionar máquina não-Azure**. Esta ação abre uma nova janela do navegador com [instruções para instalar e configurar o agente Log Analytics para o Windows para](../../azure-monitor/agents/log-analytics-agent.md) que a máquina possa começar a reportar à Gestão de Atualização. Se está a habilitar uma máquina que é atualmente gerida pelo Diretor de Operações, não é necessário um novo agente. A informação do espaço de trabalho é adicionada à configuração dos agentes.
 
 ## <a name="enable-machines-in-the-workspace"></a>Ativar máquinas no espaço de trabalho
 

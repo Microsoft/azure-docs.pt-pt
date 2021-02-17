@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: srrengar
-ms.openlocfilehash: fe31c6fdca3651bfe56e798b30d50c9f047c680b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6a98a833baefa9b1c2d1ebd9ff8147206c2106bf
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86258637"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570207"
 ---
 # <a name="service-fabric-linux-cluster-events-in-syslog"></a>Eventos de cluster de tecido de serviço Linux em Syslog
 
@@ -87,7 +87,7 @@ Aqui estão as alterações para chamar
 ```
 
 ## <a name="azure-monitor-logs-integration"></a>Integração de registos do Monitor Azure
-Pode ler estes eventos Syslog numa ferramenta de monitorização, como registos do Azure Monitor. Pode criar um espaço de trabalho Log Analytics utilizando o Mercado Azure utilizando estas [instruções]. (.. /azure-monitor/learn/quick-create-workspace.md) Também é necessário adicionar o agente Log Analytics ao seu cluster para recolher e enviar estes dados para o espaço de trabalho. Este é o mesmo agente usado para recolher contadores de desempenho. 
+Pode ler estes eventos Syslog numa ferramenta de monitorização, como registos do Azure Monitor. Pode criar um espaço de trabalho Log Analytics utilizando o Mercado Azure utilizando estas [instruções]. (.. /azure-monitor/logs/quick-create-workspace.md) Também precisa adicionar o agente Log Analytics ao seu cluster para recolher e enviar estes dados para o espaço de trabalho. Este é o mesmo agente usado para recolher contadores de desempenho. 
 
 1. Navegue até a `Advanced Settings` lâmina
 
@@ -113,6 +113,6 @@ O exemplo acima é de um evento NodeDown. Pode ver a lista completa de eventos [
 
 ## <a name="next-steps"></a>Passos seguintes
 * [Coloque o agente Log Analytics](service-fabric-diagnostics-oms-agent.md) nos seus nós para recolher contadores de desempenho e recolher estatísticas e registos de estivadores para os seus contentores
-* Familiarize-se com as funcionalidades [de pesquisa e consulta](../azure-monitor/log-query/log-query-overview.md) de registo oferecidas como parte dos registos do Azure Monitor
-* [Use o View Designer para criar vistas personalizadas em registos do Monitor Azure](../azure-monitor/platform/view-designer.md)
-* Referência para como a [Azure Monitor regista a integração com o Syslog](../azure-monitor/platform/data-sources-syslog.md).
+* Familiarize-se com as funcionalidades [de pesquisa e consulta](../azure-monitor/logs/log-query-overview.md) de registo oferecidas como parte dos registos do Azure Monitor
+* [Use o View Designer para criar vistas personalizadas em registos do Monitor Azure](../azure-monitor/visualize/view-designer.md)
+* Referência para como a [Azure Monitor regista a integração com o Syslog](../azure-monitor/agents/data-sources-syslog.md).

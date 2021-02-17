@@ -4,12 +4,12 @@ description: Gestão de Desempenho de Aplicações e controlo da utilização da
 ms.topic: overview
 ms.date: 06/03/2019
 ms.custom: mvc
-ms.openlocfilehash: f00eea37c43fba10e0a89498dd81366630852db7
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ac6b6f2b47df0bce9ae164c83df54adfdf00b184
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91371387"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100575710"
 ---
 # <a name="what-is-application-insights"></a>O que é o Application Insights?
 Application Insights, uma funcionalidade do [Azure Monitor,](../overview.md)é um serviço extensível de Gestão de Desempenho de Aplicações (APM) para desenvolvedores e profissionais de DevOps. Use-o para monitorizar as suas aplicações ao vivo. Irá detetar automaticamente anomalias de desempenho e inclui poderosas ferramentas de análise para ajudá-lo a diagnosticar problemas e a entender o que os utilizadores realmente fazem com a sua aplicação.  Foi concebido para o ajudar a melhorar continuamente o desempenho e a usabilidade. Funciona para apps em uma grande variedade de plataformas, incluindo .NET, Node.js, Java e Python hospedados no local, híbridos ou qualquer nuvem pública. Integra-se com o seu processo de DevOps e tem pontos de ligação a diversas outras ferramentas de programação. Pode monitorizar e analisar a telemetria de aplicações móveis ao integrar com o Visual Studio App Center.
@@ -23,7 +23,7 @@ Pode instrumentar não só a aplicação do serviço Web, mas também qualquer c
 
 Além disso, pode extrair telemetria dos ambientes anfitriões, como contadores de desempenho, diagnósticos do Azure ou registos do Docker. Também pode configurar testes Web que enviem periodicamente pedidos sintéticos para o serviço Web.
 
-Todos estes fluxos de telemetria estão integrados no Azure Monitor. No portal Azure, pode aplicar ferramentas analíticas e de pesquisa poderosas aos dados brutos.
+Todos estes fluxos de telemetria estão integrados no Azure Monitor. No portal do Azure, pode aplicar avançadas ferramentas de análise e pesquisa aos dados não processados.
 
 ### <a name="whats-the-overhead"></a>Qual é o contra?
 O impacto no desempenho da sua aplicação é pequeno. As chamadas de controlo não são limitativas, são colocadas em lotes e enviadas em threads separados.
@@ -49,15 +49,15 @@ Existem muitas formas para explorar os seus dados. Veja estes artigos:
 
 |  |  |
 | --- | --- |
-| [**Deteção inteligente e alertas manuais**](./proactive-diagnostics.md)<br/>Configurar alertas automáticos que se adaptem aos padrões normais de telemetria e gatilho da sua aplicação quando há algo fora do padrão habitual. Também pode [definir alertas](../platform/alerts-log.md) em níveis específicos de métricas personalizadas ou padrão. |![Exemplo de alerta](./media/app-insights-overview/alerts-tn.png) |
+| [**Deteção inteligente e alertas manuais**](./proactive-diagnostics.md)<br/>Configurar alertas automáticos que se adaptem aos padrões normais de telemetria e gatilho da sua aplicação quando há algo fora do padrão habitual. Também pode [definir alertas](../alerts/alerts-log.md) em níveis específicos de métricas personalizadas ou padrão. |![Exemplo de alerta](./media/app-insights-overview/alerts-tn.png) |
 | [**Mapa de aplicação**](./app-map.md)<br/>Explore os componentes da sua aplicação, com métricas-chave e alertas. |![Mapa da aplicação](./media/app-insights-overview/appmap-tn.png)  |
 | [**Gerador de perfis**](./profiler.md)<br/>Verifique os perfis de execução de amostras de pedidos. |![A captura do ecrã mostra perfis de execução de pedidos amostrados.](./media/app-insights-overview/profiler.png) |
 | [**Análise de utilização**](./usage-overview.md)<br/>Analise a retenção e a segmentação do utilizador.|![Ferramenta de retenção](./media/app-insights-overview/retention.png) |
 | [**Diagnostic search for instance data**](./diagnostic-search.md) (Pesquisa de diagnósticos para dados de instâncias)<br/>Procure e filtre eventos como pedidos, exceções, chamadas de dependências, rastreios de registo e visualizações de página.  |![Pesquisar telemetria](./media/app-insights-overview/search-tn.png) |
-| [**Metrics Explorer for aggregated data**](../platform/metrics-charts.md) (Explorador de Métricas para dados agregados)<br/>Explore, filtre e segmente dados agregados, como taxas de pedidos, falhas e exceções, tempos de resposta e tempos de carregamento de páginas. |![Métricas](./media/app-insights-overview/metrics-tn.png) |
+| [**Metrics Explorer for aggregated data**](../essentials/metrics-charts.md) (Explorador de Métricas para dados agregados)<br/>Explore, filtre e segmente dados agregados, como taxas de pedidos, falhas e exceções, tempos de resposta e tempos de carregamento de páginas. |![Métricas](./media/app-insights-overview/metrics-tn.png) |
 | [**Dashboards**](./overview-dashboard.md)<br/>Combine dados de vários recursos e partilhe-os com outras pessoas. Ideais para aplicações com vários componentes e para visualização contínua na sala de equipa. |![Exemplo de dashboards](./media/app-insights-overview/dashboard-tn.png) |
 | [**Live Metrics Stream**](./live-stream.md)<br/>Quando implementa uma compilação nova, veja estes indicadores de desempenho em tempo quase real, para ter a certeza de que está tudo a funcionar conforme esperado. |![Exemplo de métricas em direto](./media/app-insights-overview/live-metrics-tn.png) |
-| [**Análise**](../log-query/log-query-overview.md)<br/>Responda a perguntas difíceis sobre o desempenho e a utilização da sua aplicação através desta poderosa linguagem de consultas. |![Exemplo de análise](./media/app-insights-overview/analytics-tn.png) |
+| [**Análise**](../logs/log-query-overview.md)<br/>Responda a perguntas difíceis sobre o desempenho e a utilização da sua aplicação através desta poderosa linguagem de consultas. |![Exemplo de análise](./media/app-insights-overview/analytics-tn.png) |
 | [**Visual Studio**](./visual-studio.md)<br/>Veja os dados de desempenho no código. Aceda ao código a partir dos rastreios de pilha.|![Screenshot mostra Detalhes de Exceção no Estúdio Visual e um exemplo de ir codificar a partir de traços de pilha.](./media/app-insights-overview/visual-studio-tn.png) |
 | [**Debugger snapshot**](./snapshot-debugger.md)<br/>Depure instantâneos de amostra de operações em tempo real, com valores de parâmetro.|![Visual Studio](./media/app-insights-overview/snapshot.png) |
 | [**Power BI**](./export-power-bi.md)<br/>Integre métricas de utilização com outras métricas de business intelligence.| ![Power BI](./media/app-insights-overview/power-bi.png)|
@@ -66,7 +66,7 @@ Existem muitas formas para explorar os seus dados. Veja estes artigos:
 
 ## <a name="how-do-i-use-application-insights"></a>Como posso utilizar o Application Insights?
 
-### <a name="monitor"></a>Monitorizar
+### <a name="monitor"></a>Monitor
 Instale o Application Insights na sua aplicação, configure [testes Web de disponibilidade](./monitor-web-app-availability.md) e:
 
 * Confira o painel de [aplicações](./overview-dashboard.md) padrão para a sua sala de equipa para manter um olho na carga, capacidade de resposta e no desempenho das suas dependências, cargas de página e chamadas AJAX.
@@ -105,7 +105,7 @@ Existem várias formas de começar. Comece com a que funcionar melhor para si. P
   * [Python](./opencensus-python.md)
   * [Outras plataformas](./platforms.md)
 * **[Instrumente as suas páginas web](./javascript.md)** para visualização de página, AJAX e outras telemetria do lado do cliente.
-* **[Analise a utilização da aplicação móvel](../learn/mobile-center-quickstart.md)** ao integrar com o Centro de Aplicações do Visual Studio.
+* **[Analise a utilização da aplicação móvel](../app/mobile-center-quickstart.md)** ao integrar com o Centro de Aplicações do Visual Studio.
 * **[Testes de disponibilidade](./monitor-web-app-availability.md)** - envie um ping ao seu Web site regularmente a partir dos nossos servidores.
 
 ## <a name="next-steps"></a>Passos seguintes
@@ -137,12 +137,12 @@ Introdução no momento de programação com:
 
 <!--Link references-->
 
-[android]: ../learn/mobile-center-quickstart.md
+[android]: ../app/mobile-center-quickstart.md
 [azure]: ../../insights-perf-analytics.md
 [client]: ./javascript.md
 [desktop]: ./windows-desktop.md
 [greenbrown]: ./asp-net.md
-[ios]: ../learn/mobile-center-quickstart.md
+[ios]: ../app/mobile-center-quickstart.md
 [java]: ./java-get-started.md
 [knowUsers]: app-insights-web-track-usage.md
 [platforms]: ./platforms.md

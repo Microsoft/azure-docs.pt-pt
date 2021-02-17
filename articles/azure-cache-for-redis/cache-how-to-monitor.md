@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
-ms.openlocfilehash: ea99c34f03cd74185840767605c17ee6c65eb701
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 0ff11c9601fb55e27d8780185d77c177e9d9201b
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100389710"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100584633"
 ---
 # <a name="monitor-azure-cache-for-redis"></a>Monitor Azure Cache para Redis
 
@@ -52,13 +52,13 @@ Para ver as métricas do Redis e criar gráficos personalizados utilizando o Azu
 
 ![No painel de navegação à esquerda dos contoso55, a Métrica é uma opção em Monitorização e destaca-se. Nas Métricas há uma lista de métricas. São selecionados os acessos de cache e as falhas da Cache.](./media/cache-how-to-monitor/redis-cache-monitor.png)
 
-Para obter mais informações sobre o trabalho com as métricas utilizando o Azure Monitor, consulte [a visão geral das métricas no Microsoft Azure](../azure-monitor/platform/data-platform.md).
+Para obter mais informações sobre o trabalho com as métricas utilizando o Azure Monitor, consulte [a visão geral das métricas no Microsoft Azure](../azure-monitor/data-platform.md).
 
 <a name="how-to-view-metrics-and-customize-chart"></a>
 <a name="enable-cache-diagnostics"></a>
 ## <a name="export-cache-metrics"></a>Métricas de cache de exportação
 
-Por predefinição, as métricas de cache no Azure Monitor são [armazenadas durante 30 dias](../azure-monitor/platform/data-platform-metrics.md) e depois eliminadas. Para persistir as suas métricas de cache por mais de 30 dias, pode [designar uma conta de armazenamento](../azure-monitor/platform/resource-logs.md#send-to-azure-storage) e especificar uma política de **retenção (dias)** para as suas métricas de cache. 
+Por predefinição, as métricas de cache no Azure Monitor são [armazenadas durante 30 dias](../azure-monitor/essentials/data-platform-metrics.md) e depois eliminadas. Para persistir as suas métricas de cache por mais de 30 dias, pode [designar uma conta de armazenamento](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage) e especificar uma política de **retenção (dias)** para as suas métricas de cache. 
 
 Para configurar uma conta de armazenamento para as suas métricas de cache:
 
@@ -74,10 +74,10 @@ Para configurar uma conta de armazenamento para as suas métricas de cache:
 ![Diagnósticos de Redis](./media/cache-how-to-monitor/redis-cache-diagnostics.png)
 
 >[!NOTE]
->Além de arquivar as suas métricas de cache para armazenamento, também pode [transmiti-las para um hub de Eventos ou enviá-las para registos do Azure Monitor](../azure-monitor/platform/rest-api-walkthrough.md#retrieve-metric-values).
+>Além de arquivar as suas métricas de cache para armazenamento, também pode [transmiti-las para um hub de Eventos ou enviá-las para registos do Azure Monitor](../azure-monitor/essentials/rest-api-walkthrough.md#retrieve-metric-values).
 >
 
-Para aceder às suas métricas, pode vê-las no portal Azure, como descrito anteriormente neste artigo, e também pode acessá-las utilizando a API de [Métricas do Monitor Azure.](../azure-monitor/platform/stream-monitoring-data-event-hubs.md)
+Para aceder às suas métricas, pode vê-las no portal Azure, como descrito anteriormente neste artigo, e também pode acessá-las utilizando a API de [Métricas do Monitor Azure.](../azure-monitor/essentials/stream-monitoring-data-event-hubs.md)
 
 > [!NOTE]
 > Se alterar as contas de armazenamento, os dados na conta de armazenamento previamente configurada permanecem disponíveis para download, mas não são apresentados no portal Azure.  
@@ -129,7 +129,7 @@ Para configurar as regras de alerta para o seu cache, clique nas **regras de ale
 
 ![Monitorização](./media/cache-how-to-monitor/redis-cache-monitoring.png)
 
-Para obter mais informações sobre configuração e utilização de Alertas, consulte [a visão geral dos alertas.](../azure-monitor/platform/alerts-classic-portal.md)
+Para obter mais informações sobre configuração e utilização de Alertas, consulte [a visão geral dos alertas.](../azure-monitor/alerts/alerts-classic-portal.md)
 
 ## <a name="activity-logs"></a>Registos de Atividade
 Os registos de atividade fornecem informações sobre as operações que foram realizadas na sua Cache Azure para instâncias Redis. Anteriormente era conhecido como "registos de auditoria" ou "registos operacionais". Utilizando registos de atividade, pode determinar o "o quê, quem e quando" para quaisquer operações de escrita (PUT, POST, DELETE) tomadas na sua Cache Azure para instâncias Redis. 
@@ -140,4 +140,4 @@ Os registos de atividade fornecem informações sobre as operações que foram r
 
 Para ver os registos de atividade para o seu cache, clique em **registos** de atividade a partir do **menu Recursos.**
 
-Para obter mais informações sobre os registos de atividades, consulte [a visão geral do Registo de Atividades Azure](../azure-monitor/platform/platform-logs-overview.md).
+Para obter mais informações sobre os registos de atividades, consulte [a visão geral do Registo de Atividades Azure](../azure-monitor/essentials/platform-logs-overview.md).

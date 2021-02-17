@@ -5,16 +5,16 @@ services: automation
 ms.subservice: update-management
 ms.date: 07/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: a2226f55c829afa4316a92888d16f6dc68e1f931
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 2e94191e80d39e28d7ff0ffc9aa22b522fda68c1
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183605"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100576037"
 ---
 # <a name="migrate-azure-monitor-logs-update-deployments-to-azure-portal"></a>Migrar Azure Monitor regista atualização de implementações para o portal Azure
 
-O portal Da Suite de Gestão de Operações (OMS) está a ser [depreciado.](../azure-monitor/platform/oms-portal-transition.md) Todas as funcionalidades que estavam disponíveis no portal OMS para Gestão de Atualização estão disponíveis no portal Azure, através dos registos do Azure Monitor. Este artigo fornece a informação necessária para migrar para o portal Azure.
+O portal Da Suite de Gestão de Operações (OMS) está a ser [depreciado.](../azure-monitor/logs/oms-portal-transition.md) Todas as funcionalidades que estavam disponíveis no portal OMS para Gestão de Atualização estão disponíveis no portal Azure, através dos registos do Azure Monitor. Este artigo fornece a informação necessária para migrar para o portal Azure.
 
 ## <a name="key-information"></a>Informações-chave
 
@@ -41,7 +41,7 @@ O portal Da Suite de Gestão de Operações (OMS) está a ser [depreciado.](../a
 
 ## <a name="recreate-existing-deployments"></a>Recriar as implementações existentes
 
-Todas as implementações de atualização criadas no portal OMS têm uma [pesquisa guardada](../azure-monitor/platform/computer-groups.md) também conhecida como um grupo de computador, com o mesmo nome que a implementação da atualização que existe. A pesquisa guardada contém a lista de máquinas que estavam programadas na implementação da atualização.
+Todas as implementações de atualização criadas no portal OMS têm uma [pesquisa guardada](../azure-monitor/logs/computer-groups.md) também conhecida como um grupo de computador, com o mesmo nome que a implementação da atualização que existe. A pesquisa guardada contém a lista de máquinas que estavam programadas na implementação da atualização.
 
 :::image type="content" source="media/migrate-oms-update-deployments/oms-deployment.png" alt-text="Screenshot da página 'Actualização' com os campos Nome e Servidores destacados.":::
 
@@ -59,10 +59,10 @@ Para utilizar esta pesquisa guardada existente, siga estes passos:
     | --- | --- |
     |Nome |O nome exclusivo para identificar a implementação de atualizações. |
     |Sistema Operativo| Selecione **Linux** ou **Windows**.|
-    |Máquinas a atualizar |Selecione uma pesquisa guardada, grupo importado ou escolha a Máquina a partir do dropdown e selecione máquinas individuais. Se escolher **Máquinas**, a preparação da máquina é mostrada na coluna **ATUALIZAÇÃO DE PREPARAÇÃO DO AGENTE**.</br> Para conhecer os diferentes métodos de criação de grupos informáticos em registos do Monitor Azure, consulte [grupos de computador em registos do Monitor Azure](../azure-monitor/platform/computer-groups.md) |
+    |Máquinas a atualizar |Selecione uma pesquisa guardada, grupo importado ou escolha a Máquina a partir do dropdown e selecione máquinas individuais. Se escolher **Máquinas**, a preparação da máquina é mostrada na coluna **ATUALIZAÇÃO DE PREPARAÇÃO DO AGENTE**.</br> Para conhecer os diferentes métodos de criação de grupos informáticos em registos do Monitor Azure, consulte [grupos de computador em registos do Monitor Azure](../azure-monitor/logs/computer-groups.md) |
     |Classificações de atualizações|Selecione todas as classificações de atualização que necessita. O CentOS não suporta isto fora da caixa.|
     |Atualizações para excluir|Introduza as atualizações para excluir. Para windows, introduza o artigo KB sem o prefixo **KB.** Para Linux, introduza o nome do pacote ou use um caractere wildcard.  |
-    |Definições de agenda|Selecione a hora de partida e, em seguida, selecione **uma vez** ou **recorrente** para a recorrência. | 
+    |Definições da agenda|Selecione a hora de partida e, em seguida, selecione **uma vez** ou **recorrente** para a recorrência. | 
     | Janela de manutenção |Número de minutos definidos para atualizações. O valor não pode ser inferior a 30 minutos ou mais de 6 horas. |
     | Reiniciar o controlo| Determina como as reinicializações devem ser tratadas.</br>As opções disponíveis são:</br>Reiniciar se for preciso (Predefinição)</br>Reiniciar sempre</br>Nunca reiniciar</br>Reiniciar apenas - não irá instalar atualizações|
 

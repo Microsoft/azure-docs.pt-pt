@@ -4,12 +4,12 @@ description: Monitorize o desempenho de um site sem o reimplementar. Funciona co
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 53dbcc341fdd4bc194d34d40cdd2a975df496376
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 79e14c171adde89c43c5ea82a60db39133157293
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186308"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100576441"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>Aplicações web de instrumentos em tempo de execução com App Insights Codeless Attach
 
@@ -93,7 +93,7 @@ Estes são alguns passos que pode executar para confirmar que a sua instalação
 
 - Confirme que o ficheiro applicationInsights.config está presente no diretório de aplicações-alvo e contém o seu ikey.
 
-- Se suspeitar que os dados estão em falta, pode fazer uma consulta no [Analytics](../log-query/log-analytics-tutorial.md) para listar todas as funções em nuvem que estão atualmente a enviar telemetria.
+- Se suspeitar que os dados estão em falta, pode fazer uma consulta no [Analytics](../logs/log-analytics-tutorial.md) para listar todas as funções em nuvem que estão atualmente a enviar telemetria.
   ```Kusto
   union * | summarize count() by cloud_RoleName, cloud_RoleInstance
   ```
@@ -320,9 +320,9 @@ Para aplicações já instrumentadas no momento da compilação:
 
 Ver a telemetria:
 
-* [Explore as métricas](../platform/metrics-charts.md) para monitorizar o desempenho e a utilização
+* [Explore as métricas](../essentials/metrics-charts.md) para monitorizar o desempenho e a utilização
 * [Pesquise eventos e registos][diagnostic] para diagnosticar problemas
-* [Análise](../log-query/log-query-overview.md) para obter mais informações avançadas consultas
+* [Análise](../logs/log-query-overview.md) para obter mais informações avançadas consultas
 
 Adicionar mais telemetria:
 

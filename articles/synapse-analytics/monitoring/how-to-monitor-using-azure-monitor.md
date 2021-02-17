@@ -9,12 +9,12 @@ ms.subservice: monitoring
 ms.date: 11/30/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: eb74137e515bff7a432367e75b4208490b1243c0
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 33cd19f7bb1881b17f1ca9080a9634162014808a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98681392"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574294"
 ---
 # <a name="use-azure-monitor-with-your-azure-synapse-analytics-workspace"></a>Use o Azure Monitor com o seu espaço de trabalho Azure Synapse Analytics
 
@@ -28,7 +28,7 @@ Para mais informações, consulte [a visão geral do Azure Monitor](../../azure-
 
 Com o Monitor, pode ganhar visibilidade no desempenho e saúde das suas cargas de trabalho Azure. O tipo mais importante de dados do Monitor é a métrica, que também é chamada de contador de desempenho. As métricas são emitidas pela maioria dos recursos Azure. O Monitor fornece várias formas de configurar e consumir estas métricas para monitorização e resolução de problemas.
 
-Para aceder a estas métricas, preencha as instruções na [plataforma de dados Azure Monitor](../../azure-monitor/platform/data-platform.md).
+Para aceder a estas métricas, preencha as instruções na [plataforma de dados Azure Monitor](../../azure-monitor/data-platform.md).
 
 ### <a name="workspace-level-metrics"></a>Métricas de nível de espaço de trabalho
 
@@ -171,7 +171,7 @@ Crie ou adicione configurações de diagnóstico para o seu espaço de trabalho,
 1. Dê um nome à sua definição, selecione **Enviar para registar análises** e, em seguida, selecione um espaço de trabalho no **log analytics**.
 
     > [!NOTE]
-    > Como uma tabela de registoS Azure não pode ter mais de 500 colunas, **recomendamos vivamente** que selecione _o modo Específico de Recursos_. Para obter mais informações, consulte [Log Analytics As limitações conhecidas.](../../azure-monitor/platform/resource-logs.md#column-limit-in-azurediagnostics)
+    > Como uma tabela de registoS Azure não pode ter mais de 500 colunas, **recomendamos vivamente** que selecione _o modo Específico de Recursos_. Para obter mais informações, consulte [Log Analytics As limitações conhecidas.](../../azure-monitor/essentials/resource-logs.md#column-limit-in-azurediagnostics)
 
 1. Selecione **Guardar**.
 

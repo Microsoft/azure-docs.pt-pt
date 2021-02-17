@@ -1,17 +1,17 @@
 ---
-title: Solução Azure Key Vault no Azure Monitor Microsoft Docs
+title: Solução Azure Key Vault em Azure Monitor | Microsoft Docs
 description: Pode utilizar a solução Azure Key Vault no Azure Monitor para rever os registos do Cofre de Chaves Azure.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/27/2019
-ms.openlocfilehash: 71eb49c84b8ab92c9ba2ad8e05e8d74054bd4ee7
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: f9b265ba8970d9f065cc13cff1e5faeb466ac570
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91938836"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100577483"
 ---
 # <a name="azure-key-vault-analytics-solution-in-azure-monitor"></a>Solução Azure Key Vault Analytics no Azure Monitor
 
@@ -104,7 +104,7 @@ A solução Azure Key Vault analisa registos que têm um tipo de **KeyVaults** q
 | `Type` |*AzureDiagnostics* |
 | `SourceSystem` |*Azure* |
 | `CallerIpAddress` |Endereço IP do cliente que fez o pedido |
-| `Category` | *Evento de Auditoria* |
+| `Category` | *AuditEvent* |
 | `CorrelationId` |Um GUID opcional que o cliente pode passar para correlacionar os registos do lado do cliente com os registos do lado do serviço (Cofre de Chaves). |
 | `DurationMs` |Tempo necessário para o processamento do pedido de API REST, em milissegundos. Desta vez não inclui a latência da rede, por isso o tempo que medir do lado do cliente pode não corresponder desta vez. |
 | `httpStatusCode_d` |Código de estado HTTP devolvido pelo pedido (por exemplo, *200*) |
@@ -149,5 +149,5 @@ Os dados recolhidos antes da alteração não são visíveis na nova solução. 
 [!INCLUDE [log-analytics-troubleshoot-azure-diagnostics](../../../includes/log-analytics-troubleshoot-azure-diagnostics.md)]
 
 ## <a name="next-steps"></a>Passos seguintes
-* Utilize [consultas de log no Azure Monitor](../log-query/log-query-overview.md) para ver dados detalhados do Cofre da Chave Azure.
+* Utilize [consultas de log no Azure Monitor](../logs/log-query-overview.md) para ver dados detalhados do Cofre da Chave Azure.
 

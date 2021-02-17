@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/22/2017
 ms.author: ningk
-ms.openlocfilehash: fde0afcd37cd464b0b87e5ccd257d4a7a684eeb0
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 9fafa9bd014a44fdd0098ef2364375c3f9672bea
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96021593"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100571069"
 ---
 # <a name="deploy-azure-log-analytics-nozzle-for-cloud-foundry-system-monitoring"></a>Implementar o Azure Log Analytics Nozzle para monitorização do sistema Cloud Foundry
 
@@ -191,9 +191,9 @@ O *"Cloud Foundry.omsview"* é uma versão de pré-visualização do modelo de v
 
 ### <a name="2-create-alert-rules"></a>2. Criar regras de alerta
 
-Pode [criar os alertas](../azure-monitor/platform/alerts-overview.md)e personalizar as consultas e valores limiares conforme necessário. São recomendados os seguintes alertas:
+Pode [criar os alertas](../azure-monitor/alerts/alerts-overview.md)e personalizar as consultas e valores limiares conforme necessário. São recomendados os seguintes alertas:
 
-| Consulta de pesquisa                                                                  | Gerar alerta com base em | Descrição                                                                       |
+| Consulta de pesquisa                                                                  | Gerar alerta com base em | Description                                                                       |
 | ----------------------------------------------------------------------------- | ----------------------- | --------------------------------------------------------------------------------- |
 | Type=CF_ValueMetric_CL Origin_s=bbs Name_s="Domain.cf-apps"                   | Número de resultados < 1   | **bbs. Domain.cf-apps** indicam se o domínio das aplicações de cf está atualizado. Isto significa que os pedidos de aplicações CF do Cloud Controller são sincronizados para bbs. LRPsDesired (AIs desejado por Diego) para execução. Nenhum dado recebido significa que o domínio das aplicações de cf não está atualizado na janela de tempo especificada. |
 | Type=CF_ValueMetric_CL Origin_s=rep Name_s=UnhealthyCell Value_d>1            | Número de resultados > 0   | Para as células Diego, 0 significa saudável, e 1 significa insalubre. Desafie o alerta se várias células Diego não saudáveis forem detetadas na janela de tempo especificada. |

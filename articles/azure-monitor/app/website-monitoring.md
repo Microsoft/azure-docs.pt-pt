@@ -4,12 +4,12 @@ description: Neste quickstart, aprenda a configurar a monitorização do site do
 ms.topic: quickstart
 ms.date: 08/19/2020
 ms.custom: mvc
-ms.openlocfilehash: 959beeac004c71fb4593740d3c1685771638e40c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0a30fb12e93058690fbd7611ae64fc0a7dd96f64
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88611335"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100583447"
 ---
 # <a name="quickstart-start-monitoring-your-website-with-azure-monitor-application-insights"></a>Quickstart: Comece a monitorizar o seu website com insights de aplicação do Monitor Azure
 
@@ -27,7 +27,7 @@ Com o Azure Monitor Application Insights, pode monitorizar facilmente o seu site
 O Application Insights pode recolher dados de telemetria a partir de qualquer aplicação ligada à Internet que esteja a funcionar no local ou na nuvem. Utilize os seguintes passos para visualizar estes dados:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com/).
-1. Selecione **Criar um recurso**  >  **Ferramentas de Gestão**de  >  **Informações Insights**de aplicação .
+1. Selecione **Criar um recurso**  >  **Ferramentas de Gestão** de  >  **Informações Insights** de aplicação .
 
    > [!NOTE]
    >Se esta for a sua primeira vez a criar um recurso Application Insights, consulte [Criar um recurso 'Insights de Aplicação'.](./create-new-resource.md)
@@ -60,7 +60,7 @@ O Application Insights pode recolher dados de telemetria a partir de qualquer ap
 
 ## <a name="configure-application-insights-sdk"></a>Configurar a aplicação Insights SDK
 
-1. Selecione **Overview**  >  **Overview Essentials**e, em seguida, copie a Chave de Instrumentação da sua **aplicação**.
+1. Selecione   >  **Overview Essentials** e, em seguida, copie a Chave de Instrumentação da sua **aplicação**.
 
    ![Formulário de recurso novo do Application Insights](media/website-monitoring/instrumentation-key-001.png)
 
@@ -110,7 +110,7 @@ O Application Insights pode recolher dados de telemetria a partir de qualquer ap
 
    ![Gráfico de análise de pedidos de utilizador durante um período de tempo](./media/website-monitoring/analytics-query.png)
 
-1. Volte à página **Descrição geral**. Sob o cabeçalho **Investigar,** selecione **Browser**e, em seguida, selecione **Performance**.  Métricas relacionadas com o desempenho do seu site aparecem. Existe uma visão correspondente para analisar falhas e exceções no seu website. Pode selecionar **amostras** para aceder [aos dados de transação de ponta a ponta.](./transaction-diagnostics.md)
+1. Volte à página **Descrição geral**. Sob o cabeçalho **Investigar,** selecione **Browser** e, em seguida, selecione **Performance**.  Métricas relacionadas com o desempenho do seu site aparecem. Existe uma visão correspondente para analisar falhas e exceções no seu website. Pode selecionar **amostras** para aceder [aos dados de transação de ponta a ponta.](./transaction-diagnostics.md)
 
    ![Gráficos de métricas de servidor](./media/website-monitoring/browser-performance.png)
 
@@ -124,18 +124,18 @@ O Application Insights pode recolher dados de telemetria a partir de qualquer ap
 
 Para obter configurações mais avançadas para monitorizar websites, consulte a [referência API do JavaScript SDK](./javascript.md).
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se planeia continuar a trabalhar com quickstarts ou tutoriais adicionais, não limpe os recursos criados neste arranque rápido. Caso contrário, utilize os seguintes passos para eliminar todos os recursos criados por este quickstart no portal Azure.
 
 > [!NOTE]
 > Se utilizar um grupo de recursos existente, as seguintes instruções não funcionarão. Em vez disso, pode simplesmente eliminar o recurso Individual Application Insights. Tenha em mente que, quando elimina um grupo de recursos, todos os recursos que são membros desse grupo também são eliminados.
 
-1. No menu esquerdo no portal Azure, selecione **grupos de Recursos**e, em seguida, selecione **myResourceGroup** ou o nome do seu grupo de recursos temporários.
+1. No menu esquerdo no portal Azure, selecione **grupos de Recursos** e, em seguida, selecione **myResourceGroup** ou o nome do seu grupo de recursos temporários.
 1. Na sua página de grupo de recursos, selecione **Delete**, insira o **myResourceGroup** na caixa de texto e, em seguida, selecione **Delete**.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
-> [Encontrar e diagnosticar problemas de desempenho](../log-query/log-query-overview.md)
+> [Encontrar e diagnosticar problemas de desempenho](../logs/log-query-overview.md)
 

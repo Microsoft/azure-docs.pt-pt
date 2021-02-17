@@ -13,26 +13,26 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/02/2020
 ms.author: inhenkel
-ms.openlocfilehash: 35b0d9c2937024341be6183ac1438b7c4500d6ef
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: cd8c6ca67a1e475279cba8ccc3f4cb8cc7412d66
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98954991"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590774"
 ---
 # <a name="monitor-media-services-metrics-and-diagnostic-logs-with-azure-monitor"></a>Monitorize métricas de Serviços de Mídia e registos de diagnóstico com o Azure Monitor
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-[O Azure Monitor](../../azure-monitor/overview.md) permite monitorizar métricas e registos de diagnóstico que o ajudam a entender como as suas aplicações estão a funcionar. Todos os dados recolhidos pelo Azure Monitor enquadram-se num de dois tipos fundamentais: métricas e registos. Pode monitorizar os registos de diagnóstico dos Serviços de Comunicação Social e criar alertas e notificações para as métricas e registos recolhidos. Pode visualizar e analisar os dados das métricas utilizando o [explorador métrica.](../../azure-monitor/platform/metrics-getting-started.md) Pode enviar registos para [o Azure Storage,](https://azure.microsoft.com/services/storage/)transmiti-los para [Azure Event Hubs,](https://azure.microsoft.com/services/event-hubs/)exportá-los para [Log Analytics](https://azure.microsoft.com/services/log-analytics/)ou utilizar serviços de terceiros.
+[O Azure Monitor](../../azure-monitor/overview.md) permite monitorizar métricas e registos de diagnóstico que o ajudam a entender como as suas aplicações estão a funcionar. Todos os dados recolhidos pelo Azure Monitor enquadram-se num de dois tipos fundamentais: métricas e registos. Pode monitorizar os registos de diagnóstico dos Serviços de Comunicação Social e criar alertas e notificações para as métricas e registos recolhidos. Pode visualizar e analisar os dados das métricas utilizando o [explorador métrica.](../../azure-monitor/essentials/metrics-getting-started.md) Pode enviar registos para [o Azure Storage,](https://azure.microsoft.com/services/storage/)transmiti-los para [Azure Event Hubs,](https://azure.microsoft.com/services/event-hubs/)exportá-los para [Log Analytics](https://azure.microsoft.com/services/log-analytics/)ou utilizar serviços de terceiros.
 
-Para obter uma visão geral detalhada, consulte [as métricas do Monitor Azure](../../azure-monitor/platform/data-platform.md) e [os registos de diagnóstico do Monitor Azure](../../azure-monitor/platform/platform-logs-overview.md).
+Para obter uma visão geral detalhada, consulte [as métricas do Monitor Azure](../../azure-monitor/data-platform.md) e [os registos de diagnóstico do Monitor Azure](../../azure-monitor/essentials/platform-logs-overview.md).
 
 Este tópico discute registos de diagnóstico de serviços de [mídia](#media-services-metrics) [apoiados.](#media-services-diagnostic-logs)
 
 ## <a name="media-services-metrics"></a>Métricas de Serviços de Mídia
 
-As métricas são recolhidas a intervalos regulares, quer o valor mude ou não. São úteis para alertar porque podem ser amostrados com frequência, e um alerta pode ser disparado rapidamente com uma lógica relativamente simples. Para obter informações sobre como criar alertas métricos, consulte [Criar, ver e gerir alertas métricos utilizando o Azure Monitor](../../azure-monitor/platform/alerts-metric.md).
+As métricas são recolhidas a intervalos regulares, quer o valor mude ou não. São úteis para alertar porque podem ser amostrados com frequência, e um alerta pode ser disparado rapidamente com uma lógica relativamente simples. Para obter informações sobre como criar alertas métricos, consulte [Criar, ver e gerir alertas métricos utilizando o Azure Monitor](../../azure-monitor/alerts/alerts-metric.md).
 
 Os Serviços de Comunicação Social apoiam métricas de monitorização dos seguintes recursos:
 
@@ -89,7 +89,7 @@ Ver [Como monitorizar as métricas dos Serviços de Comunicação](media-service
 
 ## <a name="media-services-diagnostic-logs"></a>Registos de diagnóstico dos Serviços de Comunicação Social
 
-Os registos de diagnóstico fornecem dados ricos e frequentes sobre o funcionamento de um recurso Azure. Para mais informações, consulte [Como recolher e consumir dados de registo dos seus recursos Azure.](../../azure-monitor/platform/platform-logs-overview.md)
+Os registos de diagnóstico fornecem dados ricos e frequentes sobre o funcionamento de um recurso Azure. Para mais informações, consulte [Como recolher e consumir dados de registo dos seus recursos Azure.](../../azure-monitor/essentials/platform-logs-overview.md)
 
 Os Serviços de Comunicação Social suportam os seguintes registos de diagnóstico:
 
@@ -116,7 +116,7 @@ Ver [como monitorizar os registos de diagnóstico do Media Service](media-servic
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Como recolher e consumir dados de registo dos seus recursos Azure](../../azure-monitor/platform/platform-logs-overview.md)
-* [Criar, ver e gerir alertas de métricas com o Azure Monitor](../../azure-monitor/platform/alerts-metric.md)
+* [Como recolher e consumir dados de registo dos seus recursos Azure](../../azure-monitor/essentials/platform-logs-overview.md)
+* [Criar, ver e gerir alertas de métricas com o Azure Monitor](../../azure-monitor/alerts/alerts-metric.md)
 * [Como monitorizar as métricas dos Serviços de Comunicação Social](media-services-metrics-howto.md)
 * [Como monitorizar registos de diagnóstico do Media Service](media-services-diagnostic-logs-howto.md)

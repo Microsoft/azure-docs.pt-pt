@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 537847d84b417814bddb16cf5b961bdb221af488
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 44faaa6f05a325c2c64040938a1c9d0eb3e864e7
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98740453"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574163"
 ---
 # <a name="manage-administrative-units-in-azure-active-directory"></a>Gerir unidades administrativas em Azure Ative Directory
 
@@ -38,7 +38,7 @@ Para um controlo administrativo mais granular no Azure Ative Directory (Azure AD
     ![Screenshot mostrando o link "Grant admin consent for Graph explorer".](./media/admin-units-manage/select-graph-explorer.png)
 
 
-1. Utilize a versão de pré-visualização do Azure AD PowerShell.
+1. Use [a ad powershell Azure](https://www.powershellgallery.com/packages/AzureAD/).
 
 ## <a name="add-an-administrative-unit"></a>Adicionar uma unidade administrativa
 
@@ -58,7 +58,7 @@ Pode adicionar uma unidade administrativa utilizando o portal Azure ou o PowerSh
 
 ### <a name="use-powershell"></a>Utilizar o PowerShell
 
-Instale a Azure AD PowerShell (pré-visualização) antes de tentar executar os seguintes comandos:
+Instale [a Azure AD PowerShell](https://www.powershellgallery.com/packages/AzureAD/) antes de tentar executar os seguintes comandos:
 
 ```powershell
 Connect-AzureAD
@@ -100,7 +100,7 @@ Remove-AzureADMSAdministrativeUnit -ObjectId $delau.ObjectId
 
 Pode modificar os valores que estão incluídos em aspas, conforme necessário para o ambiente específico.
 
-### <a name="use-the-graph-api"></a>Utilize a API do Gráfico
+### <a name="use-the-graph-api"></a>Utilizar o Graph API
 
 ```http
 HTTP request
@@ -109,7 +109,7 @@ Request body
 {}
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Gerir utilizadores numa unidade administrativa](admin-units-add-manage-users.md)
 * [Gerir grupos numa unidade administrativa](admin-units-add-manage-groups.md)
