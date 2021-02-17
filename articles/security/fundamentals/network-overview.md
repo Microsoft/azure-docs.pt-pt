@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: 17d48b6093d88a926569d5cfe84475fc0c306a0d
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 4fb4981925593a22ed65df9d3ed0da5f45062f23
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98874388"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100578930"
 ---
 # <a name="azure-network-security-overview"></a>Descrição geral da segurança de rede do Azure
 
@@ -395,7 +395,7 @@ Saiba mais:
 
 Registar-se a nível de rede é uma função-chave para qualquer cenário de segurança da rede. Em Azure, pode registar informações obtidas para os NSGs para obter informações de registo de nível de rede. Com o registo do NSG, obtém informações a partir de:
 
-* [Registos de atividade](../../azure-monitor/platform/platform-logs-overview.md). Utilize estes registos para visualizar todas as operações submetidas às suas subscrições Azure. Estes registos são ativados por padrão e podem ser utilizados dentro do portal Azure. Eram anteriormente conhecidos como registos de auditoria ou de funcionamento.
+* [Registos de atividade](../../azure-monitor/essentials/platform-logs-overview.md). Utilize estes registos para visualizar todas as operações submetidas às suas subscrições Azure. Estes registos são ativados por padrão e podem ser utilizados dentro do portal Azure. Eram anteriormente conhecidos como registos de auditoria ou de funcionamento.
 * Registos de eventos. Estes registos fornecem informações sobre as regras da NSG aplicadas.
 * Registos de contadores. Estes registos permitem-lhe saber quantas vezes cada regra NSG foi aplicada para negar ou permitir o tráfego.
 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 11/9/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: d988617fcaf7479c7bb3356e6ef6f87824ed23a7
-ms.sourcegitcommit: 9706bee6962f673f14c2dc9366fde59012549649
+ms.openlocfilehash: c600ced8896a3847b80d854c9e230310cca4c98d
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94616659"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100588589"
 ---
 # <a name="troubleshooting-azure-digital-twins-diagnostics-logging"></a>Resolução de problemas Azure Digital Twins: Registo de diagnósticos
 
@@ -36,7 +36,7 @@ Ligue as definições de diagnóstico para começar a recolher registos na sua i
 
 3. Na página que se segue, preencha os seguintes valores:
      * **Nome de definição de** diagnóstico : Dê um nome às definições de diagnóstico.
-     * **Detalhes da categoria** : Escolha quais as operações que pretende monitorizar e verifique as caixas para permitir diagnósticos para essas operações. As operações que as definições de diagnóstico podem reportar são:
+     * **Detalhes da categoria**: Escolha quais as operações que pretende monitorizar e verifique as caixas para permitir diagnósticos para essas operações. As operações que as definições de diagnóstico podem reportar são:
         - DigitalTwinsOperação
         - EventRoutesOperação
         - ModelosOperação
@@ -44,7 +44,7 @@ Ligue as definições de diagnóstico para começar a recolher registos na sua i
         - AllMetrics
         
         Para obter mais detalhes sobre estas categorias e as informações que contêm, consulte a secção [*de categorias de Registo*](#log-categories) abaixo.
-     * **Detalhes do destino** : Escolha para onde pretende enviar os registos. Pode selecionar qualquer combinação das três opções:
+     * **Detalhes do destino**: Escolha para onde pretende enviar os registos. Pode selecionar qualquer combinação das três opções:
         - Enviar para o Log Analytics
         - Arquivar numa conta de armazenamento
         - Transmitir em fluxo para um hub de eventos
@@ -57,7 +57,7 @@ Ligue as definições de diagnóstico para começar a recolher registos na sua i
 
 As novas definições fazem efeito em cerca de 10 minutos. Depois disso, os registos aparecem no alvo configurado de volta na página **de definições de Diagnóstico,** para o seu exemplo. 
 
-Para obter informações mais detalhadas sobre as definições de diagnóstico e as suas opções de configuração, pode visitar [*Criar configurações de diagnóstico para enviar registos e métricas da plataforma para diferentes destinos.*](../azure-monitor/platform/diagnostic-settings.md)
+Para obter informações mais detalhadas sobre as definições de diagnóstico e as suas opções de configuração, pode visitar [*Criar configurações de diagnóstico para enviar registos e métricas da plataforma para diferentes destinos.*](../azure-monitor/essentials/diagnostic-settings.md)
 
 ## <a name="log-categories"></a>Categorias de registo
 
@@ -255,10 +255,10 @@ Aqui está como consultar os registos, por exemplo.
     - O separador *Consultas* contém as consultas de exemplo que pode carregar no editor.
     - O *separador Filtro* permite-lhe personalizar uma visão filtrada dos dados que a consulta devolve.
 
-Para obter informações mais detalhadas sobre consultas de registo e como escrevê-las, pode visitar a [*Visão Geral das consultas de registo no Azure Monitor*](../azure-monitor/log-query/log-query-overview.md).
+Para obter informações mais detalhadas sobre consultas de registo e como escrevê-las, pode visitar a [*Visão Geral das consultas de registo no Azure Monitor*](../azure-monitor/logs/log-query-overview.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para obter mais informações sobre a configuração de diagnósticos, consulte [*recolher e consumir dados de registo dos seus recursos Azure.*](../azure-monitor/platform/platform-logs-overview.md)
+* Para obter mais informações sobre a configuração de diagnósticos, consulte [*recolher e consumir dados de registo dos seus recursos Azure.*](../azure-monitor/essentials/platform-logs-overview.md)
 * Para obter informações sobre as métricas Azure Digital Twins, consulte [*resolução de problemas: Ver métricas com O Monitor Azure*](troubleshoot-metrics.md).
 * Para ver como ativar alertas para as suas métricas, consulte [*Resolução de Problemas: Configurar alertas*](troubleshoot-alerts.md).

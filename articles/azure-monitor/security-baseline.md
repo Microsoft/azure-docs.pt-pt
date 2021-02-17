@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: da3386692d2d02015c0d3f59c88ae78a6c84b9ab
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: d6ffeeb1470fbe51885c81f30ab8b96c4e27d707
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98203104"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100586983"
 ---
 # <a name="azure-security-baseline-for-azure-monitor"></a>Linha de segurança Azure para O Monitor Azure
 
@@ -34,9 +34,9 @@ As regras de rede virtual permitem ao Azure Monitor apenas aceitar comunicaçõe
 
 Utilize o gateway Do Log Analytics para enviar dados para um espaço de trabalho do Log Analytics no Azure Monitor em nome dos computadores que não conseguem ligar-se diretamente à internet impedindo a necessidade de computadores serem ligados à internet. 
 
-- [Como configurar o Link Privado para o Azure Monitor](platform/private-link-security.md)
+- [Como configurar o Link Privado para o Azure Monitor](logs/private-link-security.md)
 
-- [Conecte computadores sem acesso à Internet utilizando o gateway Log Analytics no Azure Monitor](platform/gateway.md)
+- [Conecte computadores sem acesso à Internet utilizando o gateway Log Analytics no Azure Monitor](agents/gateway.md)
 
 **Monitorização do Centro de Segurança do Azure**: Não aplicável
 
@@ -48,9 +48,9 @@ Utilize o gateway Do Log Analytics para enviar dados para um espaço de trabalho
 
 Ao utilizar o Azure Monitor com Private Link, obtém acesso ao registo de rede, como "Dados processados pelo Ponto Final Privado (IN/OUT)".
 
-- [Requisitos de rede para agentes do Monitor Azure](platform/log-analytics-agent.md#network-requirements)
+- [Requisitos de rede para agentes do Monitor Azure](agents/log-analytics-agent.md#network-requirements)
 
-- [Conecte computadores sem acesso à Internet utilizando o gateway Log Analytics no Azure Monitor](platform/gateway.md)
+- [Conecte computadores sem acesso à Internet utilizando o gateway Log Analytics no Azure Monitor](agents/gateway.md)
 
 - [Como ativar os registos de fluxo do grupo de segurança da rede](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
@@ -76,9 +76,9 @@ Ao utilizar o Azure Monitor com Private Link, obtém acesso ao registo de rede, 
 
 **Orientação**: O Azure Monitor faz parte dos serviços centrais do Azure e não pode ser implantado como um serviço separadamente. Os componentes do Azure Monitor, incluindo o Agente monitor Azure, e a Application Insights SDK podem ser implantados com os seus recursos, o que pode afetar a postura de segurança desses recursos.
 
-- [Requisitos de rede para agentes do Monitor Azure](platform/log-analytics-agent.md#network-requirements)
+- [Requisitos de rede para agentes do Monitor Azure](agents/log-analytics-agent.md#network-requirements)
 
-- [Conecte computadores sem acesso à Internet utilizando o gateway Log Analytics no Azure Monitor](platform/gateway.md) 
+- [Conecte computadores sem acesso à Internet utilizando o gateway Log Analytics no Azure Monitor](agents/gateway.md) 
 
 - [Ver a começar com a Application Insights](./app/app-insights-overview.md#get-started)
 
@@ -92,9 +92,9 @@ Ao utilizar o Azure Monitor com Private Link, obtém acesso ao registo de rede, 
 
 **Orientação**: Utilize o Registo de Atividades Azure para monitorizar as configurações dos recursos e detetar alterações nos recursos da sua rede relacionadas com o Azure Monitor. Crie alertas dentro do Azure Monitor que irão desencadear quando ocorrerem alterações a esses recursos críticos da rede.
 
-- [Como visualizar e recuperar eventos de Registo de Atividades Azure](./platform/activity-log.md#view-the-activity-log)
+- [Como visualizar e recuperar eventos de Registo de Atividades Azure](./essentials/activity-log.md#view-the-activity-log)
 
-- [Como criar alertas no Azure Monitor](platform/alerts-activity-log.md)
+- [Como criar alertas no Azure Monitor](alerts/alerts-activity-log.md)
 
 **Monitorização do Centro de Segurança do Azure**: Não aplicável
 
@@ -110,9 +110,9 @@ Ao utilizar o Azure Monitor com Private Link, obtém acesso ao registo de rede, 
 
 Em alternativa, pode ativar e a bordo dados para Azure Sentinel ou um SIEM de terceiros.
 
-- [Como recolher registos e métricas da plataforma com o Azure Monitor](platform/diagnostic-settings.md)
+- [Como recolher registos e métricas da plataforma com o Azure Monitor](essentials/diagnostic-settings.md)
 
-- [Como recolher registos internos de anfitriões da Azure Virtual Machine com o Azure Monitor](learn/quick-collect-azurevm.md)
+- [Como recolher registos internos de anfitriões da Azure Virtual Machine com o Azure Monitor](vm/quick-collect-azurevm.md)
 
 - [Como embarcar Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -126,9 +126,9 @@ Em alternativa, pode ativar e a bordo dados para Azure Sentinel ou um SIEM de te
 
 **Orientação**: O Monitor azul utiliza registos de atividade, o Registo de Atividades é automaticamente ativado e regista operações tomadas nos recursos do Azure Monitor, tais como: quem iniciou a operação, quando ocorreu a operação, o estado da operação e outras informações úteis de auditoria. 
 
-- [Como recolher registos e métricas da plataforma com o Azure Monitor](platform/diagnostic-settings.md)
+- [Como recolher registos e métricas da plataforma com o Azure Monitor](essentials/diagnostic-settings.md)
 
-- [Compreenda o registo e diferentes tipos de registo em Azure](platform/platform-logs-overview.md)
+- [Compreenda o registo e diferentes tipos de registo em Azure](essentials/platform-logs-overview.md)
 
 **Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
@@ -138,7 +138,7 @@ Em alternativa, pode ativar e a bordo dados para Azure Sentinel ou um SIEM de te
 
 **Orientação**: No Azure Monitor, desa um ponto final no seu período de retenção do espaço de trabalho Log Analytics de acordo com os regulamentos de conformidade da sua organização. Utilize contas de armazenamento Azure para qualquer armazenamento a longo prazo/arquivo dos seus registos.
 
-- [Alterar o período de retenção de dados em Log Analytics](platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Alterar o período de retenção de dados em Log Analytics](logs/manage-cost-storage.md#change-the-data-retention-period)
 
 - [Como configurar a política de retenção para os registos de conta de armazenamento Azure](../storage/common/storage-monitor-storage-account.md#configure-logging)
 
@@ -154,9 +154,9 @@ Em alternativa, pode ativar e a bordo dados para Azure Sentinel ou um SIEM de te
 
 - [Como embarcar Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Começando com consultas log analytics](./log-query/log-analytics-tutorial.md)
+- [Começando com consultas log analytics](./logs/log-analytics-tutorial.md)
 
-- [Como realizar consultas personalizadas no Azure Monitor](log-query/get-started-queries.md)
+- [Como realizar consultas personalizadas no Azure Monitor](logs/get-started-queries.md)
 
 **Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
@@ -170,7 +170,7 @@ Em alternativa, pode ativar e a bordo dados para Azure Sentinel ou um SIEM de te
 
 - [Como gerir alertas no Centro de Segurança Azure](../security-center/security-center-managing-and-responding-alerts.md)
 
-- [Como alertar nos dados de registos de registos](learn/tutorial-response.md)
+- [Como alertar nos dados de registo de registo de registos de registos](alerts/tutorial-response.md)
 
 **Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
@@ -316,7 +316,7 @@ Também pode ativar um Just-In-Time / Just-Enough-Access utilizando funções pr
 
 - [Como criar e usar tags](../azure-resource-manager/management/tag-resources.md)
 
-- [Gerir o acesso a dados de registo e áreas de trabalho no Azure Monitor](platform/manage-access.md)
+- [Gerir o acesso a dados de registo e áreas de trabalho no Azure Monitor](logs/manage-access.md)
 
 **Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
@@ -342,7 +342,7 @@ Também pode ativar um Just-In-Time / Just-Enough-Access utilizando funções pr
 
 Os Insights de Aplicação e o Log Analytics continuam a permitir que os dados TLS 1.1 e TLS 1.0 sejam ingeridos. Os dados podem ser restringidos ao TLS 1.2 configurando do lado do cliente.
 
-- [Como enviar dados de forma segura usando tLS 1.2](platform/data-security.md#sending-data-securely-using-tls-12)
+- [Como enviar dados de forma segura usando tLS 1.2](logs/data-security.md#sending-data-securely-using-tls-12)
 
 **Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
@@ -363,7 +363,7 @@ Para a plataforma subjacente, gerida pela Microsoft, a Microsoft trata todos os 
 
 **Orientação**: Utilize o controlo de acesso baseado em funções Azure (Azure RBAC) para gerir o acesso ao Azure Monitor.
 
-- [Funções, permissões e segurança no Azure Monitor](platform/roles-permissions-security.md)
+- [Funções, permissões e segurança no Azure Monitor](/roles-permissions-security.md)
 
 - [Como configurar o Azure RBAC](../role-based-access-control/role-assignments-portal.md)
 
@@ -375,9 +375,9 @@ Para a plataforma subjacente, gerida pela Microsoft, a Microsoft trata todos os 
 
 **Orientação**: O Azure Monitor garante que todos os dados e consultas guardadas são encriptados em repouso utilizando as teclas geridas pela Microsoft (MMK). O Azure Monitor também fornece uma opção de encriptação utilizando a sua própria chave que é armazenada no seu Cofre de Chave Azure e acedida por armazenamento utilizando a autenticação de identidade gerida atribuída pelo sistema. Esta chave gerida pelo cliente (CMK) pode estar protegida por software ou hardware-HSM.
 
-- [Chaves geridas pelo cliente Azure Monitor](platform/customer-managed-keys.md)
+- [Chaves geridas pelo cliente Azure Monitor](logs/customer-managed-keys.md)
 
-- [Log Analytics segurança de dados](platform/data-security.md)
+- [Log Analytics segurança de dados](logs/data-security.md)
 
 - [Recolha, retenção e armazenamento de dados no Application Insights](app/data-retention-privacy.md)
 
@@ -391,7 +391,7 @@ Para a plataforma subjacente, gerida pela Microsoft, a Microsoft trata todos os 
 
 **Orientação**: Utilize o Monitor Azure com o Registo de Atividades Azure para criar alertas para quando ocorrerem alterações no Monitor Azure e recursos conexos.
 
-- [Como criar alertas para eventos de Registo de Atividades Azure](platform/alerts-activity-log.md)
+- [Como criar alertas para eventos de Registo de Atividades Azure](alerts/alerts-activity-log.md)
 
 **Monitorização do Centro de Segurança do Azure**: Sim
 
@@ -423,7 +423,7 @@ Para a plataforma subjacente, gerida pela Microsoft, a Microsoft trata todos os 
 
 - [Compreender Azure RBAC](../role-based-access-control/overview.md)
 
-- [Funções, permissões e segurança no Azure Monitor](platform/roles-permissions-security.md)
+- [Funções, permissões e segurança no Azure Monitor](/roles-permissions-security.md)
 
 **Monitorização do Centro de Segurança do Azure**: Não aplicável
 
@@ -479,7 +479,7 @@ Utilize o Azure Resource Graph para consultar e detetar recursos dentro das subs
 
 **Orientação**: Conciliar o inventário regularmente e garantir que os recursos relacionados com o Azure Monitor não autorizados sejam eliminados da subscrição em tempo útil.  
 
-- [Excluir espaço de trabalho Azure Log Analytics](platform/delete-workspace.md)
+- [Excluir espaço de trabalho Azure Log Analytics](logs/delete-workspace.md)
 
 **Monitorização do Centro de Segurança do Azure**: Sim
 
@@ -647,7 +647,7 @@ Utilize a deteção de ameaças do Azure Security Center para detetar malware en
 
 **Orientação**: Utilize o Gestor de Recursos Azure para exportar o Monitor Azure e recursos relacionados num modelo javaScript Object Notation (JSON) que pode ser usado como cópia de segurança para o Monitor Azure e configurações relacionadas.  Utilize a Azure Automation para executar automaticamente os scripts de reserva. 
 
-- [Gerir o espaço de trabalho do Log Analytics utilizando modelos de Gestor de Recursos Azure](./samples/resource-manager-workspace.md)
+- [Gerir o espaço de trabalho do Log Analytics utilizando modelos de Gestor de Recursos Azure](./logs/resource-manager-workspace.md)
 
 - [Exportação única e multi-recursos para um modelo no portal Azure](../azure-resource-manager/templates/export-template-portal.md)
 
@@ -661,7 +661,7 @@ Utilize a deteção de ameaças do Azure Security Center para detetar malware en
 
 **Orientação**: Utilize o Gestor de Recursos Azure para exportar o Monitor Azure e recursos relacionados num modelo javaScript Object Notation (JSON) que pode ser usado como cópia de segurança para o Monitor Azure e configurações relacionadas.  Chaves geridas pelo cliente de backup dentro do Cofre de Chaves Azure se os recursos relacionados com o Azure Monitor estiverem a usar chaves geridas pelo cliente, 
 
-- [Gerir o espaço de trabalho do Log Analytics utilizando modelos de Gestor de Recursos Azure](./samples/resource-manager-workspace.md)
+- [Gerir o espaço de trabalho do Log Analytics utilizando modelos de Gestor de Recursos Azure](./logs/resource-manager-workspace.md)
 
 - [Exportação única e multi-recursos para um modelo no portal Azure](../azure-resource-manager/templates/export-template-portal.md)
 
@@ -675,7 +675,7 @@ Utilize a deteção de ameaças do Azure Security Center para detetar malware en
 
 **Orientação**: Certifique-se de que a restauração é executada periodicamente utilizando ficheiros de modelos apoiados pelo Azure Resource Manager.  Teste de restauração de chaves geridas pelo cliente.
 
-- [Gerir o espaço de trabalho do Log Analytics utilizando modelos de Gestor de Recursos Azure](./samples/resource-manager-workspace.md)
+- [Gerir o espaço de trabalho do Log Analytics utilizando modelos de Gestor de Recursos Azure](./logs/resource-manager-workspace.md)
 
 - [Como restaurar chaves chave do cofre em Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
 

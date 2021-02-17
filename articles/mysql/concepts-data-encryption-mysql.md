@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: f9b9681b08f5864dc34bbf1c35dc6919129c24cb
-ms.sourcegitcommit: 84e3db454ad2bccf529dabba518558bd28e2a4e6
+ms.openlocfilehash: 4c8f4b490c46ed8061201ba6362999f0e426ecb7
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96518809"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100596325"
 ---
 # <a name="azure-database-for-mysql-data-encryption-with-a-customer-managed-key"></a>Base de Dados Azure para encriptação de dados MySQL com uma chave gerida pelo cliente
 
@@ -97,7 +97,7 @@ Quando configurar a encriptação de dados com uma chave gerida pelo cliente no 
 
 * Se criarmos um servidor Point In Time Restore para a sua Base de Dados Azure para o MySQL, que tem encriptação de dados ativada, o servidor recém-criado estará em estado *inacessível.* Pode corrigi-lo através do [portal Azure](howto-data-encryption-portal.md#using-data-encryption-for-restore-or-replica-servers) ou [do CLI.](howto-data-encryption-cli.md#using-data-encryption-for-restore-or-replica-servers)
 * Se criarmos uma réplica de leitura para a sua Base de Dados Azure para o MySQL, que tem encriptação de dados ativada, o servidor de réplica estará em estado *inacessível.* Pode corrigi-lo através do [portal Azure](howto-data-encryption-portal.md#using-data-encryption-for-restore-or-replica-servers) ou [do CLI.](howto-data-encryption-cli.md#using-data-encryption-for-restore-or-replica-servers)
-* Se eliminar o KeyVault, a Base de Dados Azure para o MySQL não poderá aceder à chave e deslocar-se-á para o estado *inacessível.* Recupere o [Cofre de Chaves](../key-vault/general/key-vault-recovery.md) e revalida a encriptação de dados para disponibilizar o servidor . *Available*
+* Se eliminar o KeyVault, a Base de Dados Azure para o MySQL não poderá aceder à chave e deslocar-se-á para o estado *inacessível.* Recupere o [Cofre de Chaves](../key-vault/general/key-vault-recovery.md) e revalida a encriptação de dados para disponibilizar o servidor . 
 * Se eliminarmos a chave do KeyVault, a Base de Dados Azure para o MySQL não poderá aceder à chave e mudar-se-á para o estado *inacessível.* Recupere a [Chave](../key-vault/general/key-vault-recovery.md) e revalida a encriptação de dados para tornar o servidor *disponível*.
 * Se a chave armazenada no Azure KeyVault expirar, a chave tornar-se-á inválida e a Base de Dados Azure para o MySQL transitará para o estado *inacessível.* Prolongue a data de validade da chave utilizando [o CLI](/cli/azure/keyvault/key#az-keyvault-key-set-attributes) e, em seguida, revalidar a encriptação de dados para tornar o servidor *disponível*.
 
@@ -118,7 +118,7 @@ Para monitorizar o estado da base de dados e para permitir alertar para a perda 
 * [Azure Resource Health](../service-health/resource-health-overview.md): Uma base de dados inacessível que perdeu o acesso à chave do cliente mostra como "Inacessível" depois de ter sido negada a primeira ligação à base de dados.
 * [Registo de atividade](../service-health/alerts-activity-log-service-notifications-portal.md): Quando o acesso à chave do cliente no Cofre chave gerido pelo cliente falha, as entradas são adicionadas ao registo de atividade. Pode restabelecer o acesso o mais rapidamente possível, se criar alertas para estes eventos.
 
-* [Grupos de ação](../azure-monitor/platform/action-groups.md): Defina estes grupos para enviar notificações e alertas com base nas suas preferências.
+* [Grupos de ação](../azure-monitor/alerts/action-groups.md): Defina estes grupos para enviar notificações e alertas com base nas suas preferências.
 
 ## <a name="restore-and-replicate-with-a-customers-managed-key-in-key-vault"></a>Restaurar e replicar com a chave gerida por um cliente no Cofre chave
 

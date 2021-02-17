@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: b38d86402f418e5c2b484bb9101e2b4cc3575d6e
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 692b52e8ea6a88a119ca98985864cb9e1daa14c3
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98196627"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595756"
 ---
 # <a name="azure-security-baseline-for-azure-private-link"></a>Linha de base de segurança Azure para Azure Private Link
 
@@ -28,9 +28,9 @@ Esta linha de base de segurança aplica orientações do [Azure Security Benchma
 
 Crie alertas dentro do Azure Monitor que irão desencadear quando ocorrerem alterações nos recursos críticos.
 
-- [Como visualizar e recuperar eventos de Registo de Atividades Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [Como visualizar e recuperar eventos de Registo de Atividades Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Como criar alertas no Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+- [Como criar alertas no Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
@@ -50,7 +50,7 @@ Além disso, ative e a bordo dados para Azure Sentinel ou um SIEM de terceiros, 
 
 - [Como embarcar Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Como recolher registos e métricas da plataforma com o Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
+- [Como recolher registos e métricas da plataforma com o Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
 - [Registo e monitorização de Private Link](private-link-overview.md#logging-and-monitoring)
 
@@ -66,9 +66,9 @@ Além disso, ative e a bordo dados para Azure Sentinel ou um SIEM de terceiros, 
 
 **Orientação**: Ativar os registos de atividade do Azure Monitor, que registam operações tomadas em recursos de Ligação Privada, tais como, quem iniciou a operação, quando ocorreu a operação, o estado da operação e outras informações úteis de auditoria. 
 
-- [Como recolher registos e métricas da plataforma com o Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
+- [Como recolher registos e métricas da plataforma com o Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
-- [Ver e recuperar eventos de log de atividades do Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [Ver e recuperar eventos de log de atividades do Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
 - [Registo e Monitorização de Ligação Privada](private-link-overview.md#logging-and-monitoring)
 
@@ -80,7 +80,7 @@ Além disso, ative e a bordo dados para Azure Sentinel ou um SIEM de terceiros, 
 
 **Orientação**: Para registos relacionados com o Link Privado, deslote o período de retenção do espaço de trabalho Log Analytics de acordo com os regulamentos de conformidade da sua organização dentro do Azure Monitor. Utilize contas de armazenamento Azure para qualquer armazenamento de registos a longo prazo/arquivo.
 
-- [Alterar o período de retenção de dados em Log Analytics](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Alterar o período de retenção de dados em Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 - [Como configurar a política de retenção para os registos de conta de armazenamento Azure](../storage/common/storage-monitor-storage-account.md#configure-logging)
 
@@ -96,9 +96,9 @@ Outra opção é ativar e a bordo dados para Azure Sentinel ou um SIEM de tercei
 
 - [Como embarcar Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Compreender log analytics workspace](../azure-monitor/log-query/log-analytics-tutorial.md)
+- [Compreender log analytics workspace](../azure-monitor/logs/log-analytics-tutorial.md)
 
-- [Como realizar consultas personalizadas no Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
+- [Como realizar consultas personalizadas no Azure Monitor](../azure-monitor/logs/get-started-queries.md)
 
 **Monitorização do Centro de Segurança do Azure**: Não aplicável
 
@@ -114,7 +114,7 @@ Ativar e a bordo dados para Azure Sentinel ou um SIEM de terceiros com base nos 
 
 - [Como gerir alertas no Centro de Segurança Azure](../security-center/security-center-managing-and-responding-alerts.md)
 
-- [Como alertar nos dados de registos de registos](../azure-monitor/learn/tutorial-response.md)
+- [Como alertar nos dados de registo de registo de registos de registos](../azure-monitor/alerts/tutorial-response.md)
 
 **Monitorização do Centro de Segurança do Azure**: Sim
 
@@ -192,7 +192,7 @@ Além disso, ative o Just-In-Time / Just-Enough-Access utilizando o Azure Ative 
 
 - [Como integrar os Registos de Atividades do Azure no Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-- [Como configurar grupos de ação para alerta e notificação personalizados](../azure-monitor/platform/action-groups.md)
+- [Como configurar grupos de ação para alerta e notificação personalizados](../azure-monitor/alerts/action-groups.md)
 
 **Monitorização do Centro de Segurança do Azure**: Sim
 
@@ -318,7 +318,7 @@ Torne o seu serviço privado para consumo a partir das suas outras Redes Virtuai
 
 - [Registo de diagnóstico para um grupo de segurança de rede](private-link-overview.md#logging-and-monitoring)
 
-- [Como criar alertas para eventos de Registo de Atividades Azure](../azure-monitor/platform/alerts-activity-log.md)
+- [Como criar alertas para eventos de Registo de Atividades Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 

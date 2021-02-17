@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: a4f3e0bbd282fb1253e206e71c2eb1667773248e
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: b734c4cdec022f2bf43ee7123b06331f67c10390
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99834090"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570846"
 ---
 # <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>Tutorial: Monitorizar a comunicação de rede entre duas máquinas virtuais com o portal do Azure
 
@@ -137,7 +137,7 @@ Os alertas são criados por regras de alerta no Azure Monitor e podem executar a
 2. Clique em **Selecionar destino** e, em seguida, selecione os recursos que pretende alcançar. Selecione **Subscrição** e defina o **Tipo de recurso** para filtrar o Monitor de Ligação que pretende utilizar.
 
     ![ecrã de alerta com o destino selecionado](./media/connection-monitor/set-alert-rule.png)
-1. Assim que tiver selecionado um recurso de destino, selecione **Adicionar critérios**. O Observador de Rede tem [métricas nas quais pode criar alertas](../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported). Defina os **Sinais disponíveis** para as métricas ProbesFailedPercent e AverageRoundtripMs:
+1. Assim que tiver selecionado um recurso de destino, selecione **Adicionar critérios**. O Observador de Rede tem [métricas nas quais pode criar alertas](../azure-monitor/alerts/alerts-metric-near-real-time.md#metrics-and-dimensions-supported). Defina os **Sinais disponíveis** para as métricas ProbesFailedPercent e AverageRoundtripMs:
 
     ![página de alerta com sinais selecionados](./media/connection-monitor/set-alert-signals.png)
 1. Preencha os detalhes do alerta, como o nome da regra de alerta, a descrição e a gravidade. Também pode adicionar um grupo de ação ao alerta para automatizar e personalizar a resposta de alerta.

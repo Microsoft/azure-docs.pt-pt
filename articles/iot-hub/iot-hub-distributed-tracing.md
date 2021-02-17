@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - fasttrack-edit
 - iot
-ms.openlocfilehash: f8d37cf8f23de1d0535c7a9ff4a95ac217eddf74
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: adcbf4efc4dfaa7701c18440531327949640cb53
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452386"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100581988"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>Trace Azure IoT mensagens dispositivo-nuvem com rastreio distribuído (pré-visualização)
 
@@ -252,7 +252,7 @@ Para atualizar a configuração de amostragem de rastreio distribuída para vár
 | Nome do elemento | Necessário | Tipo | Descrição |
 |-----------------|----------|---------|-----------------------------------------------------|
 | `sampling_mode` | Sim | Número inteiro | Dois valores de modo são atualmente suportados para ligar e desligar a amostragem. `1` está ligado e, `2` está desligado. |
-| `sampling_rate` | Sim | Número inteiro | Este valor é uma percentagem. Apenas `0` `100` são permitidos valores de (inclusive) são permitidos.  |
+| `sampling_rate` | Yes | Número inteiro | Este valor é uma percentagem. Apenas `0` `100` são permitidos valores de (inclusive) são permitidos.  |
 
 ## <a name="query-and-visualize"></a>Consulta e visualização
 
@@ -260,7 +260,7 @@ Para ver todos os vestígios registados por um Hub IoT, consulte a loja de regis
 
 ### <a name="query-using-log-analytics"></a>Consulta usando Log Analytics
 
-Se tiver configurado [o Log Analytics com registos de recursos,](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)questione-o procurando registos na `DistributedTracing` categoria. Por exemplo, esta consulta mostra todos os vestígios registados:
+Se tiver configurado [o Log Analytics com registos de recursos,](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage)questione-o procurando registos na `DistributedTracing` categoria. Por exemplo, esta consulta mostra todos os vestígios registados:
 
 ```Kusto
 // All distributed traces 
@@ -272,7 +272,7 @@ AzureDiagnostics
 
 Registos de exemplo como mostrado por Log Analytics:
 
-| TimeGenerated | OperationName | Categoria | Nível | CorrelationId | DurationMs | Propriedades |
+| TimeGenerated | OperationName | Categoria | Level | CorrelationId | DurationMs | Propriedades |
 |--------------------------|---------------|--------------------|---------------|---------------------------------------------------------|------------|------------------------------------------------------------------------------------------------------------------------------------------|
 | 2018-02-22T03:28:28.633Z | DiagnósticoIotHubD2C | Tracagem distribuída | Informativo | 00-8cd869a412459a25f5b4f313123344-0144d2590aacd909-01 |  | {"deviceId":"AZ3166","messageSize":"96","callerLocalTimeUtc":"2018-02-22T03:27:28.633Z","calleeLocalTimeUtc":"2018-02-22T03:27:28.687Z"} |
 | 2018-02-22T03:28:38.633Z | DiagnósticoIoTHubIngress | Tracagem distribuída | Informativo | 00-8cd869a412459a25f5b4f31312344-349810a9bbd28730-01 | 20 | {"isRoutingEnabled":"falso", "parentSpanId":"0144d2590aacd909"} |

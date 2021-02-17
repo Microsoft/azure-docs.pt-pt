@@ -3,12 +3,12 @@ title: Detalhes da estrutura de atribuição de políticas
 description: Descreve a definição de atribuição de políticas utilizada pela Azure Policy para relacionar definições de políticas e parâmetros com recursos para avaliação.
 ms.date: 01/29/2021
 ms.topic: conceptual
-ms.openlocfilehash: 1151c931863e1139b76c34ced12c4e2842f83cc6
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 625314a8b83a4d0cc76eae51eae8d357e39d2a6a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/17/2021
-ms.locfileid: "100558453"
+ms.locfileid: "100581963"
 ---
 # <a name="azure-policy-assignment-structure"></a>Estrutura de atribuição do Azure Policy
 
@@ -63,14 +63,14 @@ Utiliza o nome e **a descrição** **do displayName** para identificar a atribui
 
 ## <a name="enforcement-mode"></a>Modo de Execução
 
-A **propriedade EnforcementMode** proporciona aos clientes a capacidade de testar o resultado de uma política sobre os recursos existentes sem iniciar o efeito de política ou desencadear entradas no registo de [Atividades Azure](../../../azure-monitor/platform/platform-logs-overview.md). Este cenário é comumente referido como "E Se" e alinha-se com práticas de implementação seguras. **o controlo do modo de aplicação** é diferente do efeito [de desativado,](./effects.md#disabled) uma vez que esse efeito impede que a avaliação dos recursos aconteça.
+A **propriedade EnforcementMode** proporciona aos clientes a capacidade de testar o resultado de uma política sobre os recursos existentes sem iniciar o efeito de política ou desencadear entradas no registo de [Atividades Azure](../../../azure-monitor/essentials/platform-logs-overview.md). Este cenário é comumente referido como "E Se" e alinha-se com práticas de implementação seguras. **o controlo do modo de aplicação** é diferente do efeito [de desativado,](./effects.md#disabled) uma vez que esse efeito impede que a avaliação dos recursos aconteça.
 
 Esta propriedade tem os seguintes valores:
 
-|Modo |Valor JSON |Tipo |Remediar manualmente |Entrada de registo de atividade |Descrição |
+|Modo |Valor JSON |Tipo |Remediar manualmente |Entrada de registo de atividade |Description |
 |-|-|-|-|-|-|
-|Ativado |Predefinição |string |Sim |Sim |O efeito da política é aplicado durante a criação ou atualização de recursos. |
-|Desativado |DoNotEnforce |string |Sim |Não | O efeito da política não é aplicado durante a criação ou atualização de recursos. |
+|Ativado |Predefinição |string |Yes |Yes |O efeito da política é aplicado durante a criação ou atualização de recursos. |
+|Desativado |DoNotEnforce |string |Yes |No | O efeito da política não é aplicado durante a criação ou atualização de recursos. |
 
 Se **o número de execução Não** for especificado numa definição de política ou iniciativa, o valor _Padrão_ é utilizado. [As tarefas de reparação](../how-to/remediate-resources.md) podem ser iniciadas para implementar as [políticasifNotExists,](./effects.md#deployifnotexists) mesmo quando **a aplicação doMode** está definida para _DoNotEnforce_.
 

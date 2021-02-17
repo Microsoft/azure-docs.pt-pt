@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/6/2020
-ms.openlocfilehash: 0b00db8e89afda8682ddedccfec7e5a6147b7125
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: efabb3de69e96ec1a8955b2691af20a36fbabfe4
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94534981"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595945"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mysql"></a>Registos de consultas lentas na Base de Dados do Azure para MySQL
 Na Base de Dados Azure para o MySQL, o registo de consulta lenta está disponível para os utilizadores. O acesso ao registo de transações não é suportado. O registo de consulta lenta pode ser usado para identificar estrangulamentos de desempenho para a resolução de problemas.
@@ -26,9 +26,9 @@ Por predefinição, o registo de consulta lenta é desativado. Para a capacitá-
 Outros parâmetros que pode ajustar incluem:
 
 - **long_query_time:** se uma consulta demorar mais do que long_query_time (em segundos) essa consulta é registada. A predefinição é de 10 segundos.
-- **log_slow_admin_statements** : se a ON incluir declarações administrativas como ALTER_TABLE e ANALYZE_TABLE nas declarações escritas à slow_query_log.
-- **log_queries_not_using_indexes** : determina se as consultas que não utilizam índices são registadas no slow_query_log
-- **log_throttle_queries_not_using_indexes** : Este parâmetro limita o número de consultas não indexados que podem ser escritas para o registo de consulta lenta. Este parâmetro entra em vigor quando log_queries_not_using_indexes está definido para ON.
+- **log_slow_admin_statements**: se a ON incluir declarações administrativas como ALTER_TABLE e ANALYZE_TABLE nas declarações escritas à slow_query_log.
+- **log_queries_not_using_indexes**: determina se as consultas que não utilizam índices são registadas no slow_query_log
+- **log_throttle_queries_not_using_indexes**: Este parâmetro limita o número de consultas não indexados que podem ser escritas para o registo de consulta lenta. Este parâmetro entra em vigor quando log_queries_not_using_indexes está definido para ON.
 - **log_output:** se "File", permite que o registo de consulta lenta seja escrito tanto para o armazenamento do servidor local como para os Registos de Diagnóstico do Monitor Azure. Se for “Nenhum”, o registo de consultas lentas só será escrito nos Registos de Diagnósticos do Azure Monitor. 
 
 > [!IMPORTANT]
@@ -53,7 +53,7 @@ Os troncos são rodados a cada 24 horas ou 7 GB, o que vier primeiro.
 > A retenção de registos acima não se aplica aos registos que são canalizados utilizando registos de diagnóstico do Monitor Azure. Pode alterar o período de retenção para os sumidouros de dados a que são emitidos (ex. Armazenamento Azure).
 
 ## <a name="diagnostic-logs"></a>Registos de diagnósticos
-A Base de Dados Azure para o MySQL está integrada com registos de diagnóstico do Monitor Azure. Uma vez que tenha ativado registos de consulta lenta no seu servidor MySQL, pode optar por esemitir os registos do Azure Monitor, Dos Centros de Eventos ou do Azure Storage. Para saber mais sobre como ativar registos de diagnóstico, consulte a secção da documentação dos [registos](../azure-monitor/platform/platform-logs-overview.md)de diagnóstico .
+A Base de Dados Azure para o MySQL está integrada com registos de diagnóstico do Monitor Azure. Uma vez que tenha ativado registos de consulta lenta no seu servidor MySQL, pode optar por esemitir os registos do Azure Monitor, Dos Centros de Eventos ou do Azure Storage. Para saber mais sobre como ativar registos de diagnóstico, consulte a secção da documentação dos [registos](../azure-monitor/essentials/platform-logs-overview.md)de diagnóstico .
 
 A tabela seguinte descreve o que está em cada registo. Dependendo do método de saída, os campos incluídos e a ordem em que aparecem podem variar.
 

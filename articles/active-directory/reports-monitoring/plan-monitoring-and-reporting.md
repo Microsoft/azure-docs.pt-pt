@@ -12,12 +12,12 @@ ms.date: 11/13/2018
 ms.author: baselden
 ms.reviewer: plenzke
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 094ecd88c8b493d44b756d03d700b43cbcba1ee9
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 683367251c220abe36660d61463bce9e5a0c52f9
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92362404"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100577756"
 ---
 # <a name="plan-an-azure-active-directory-reporting-and-monitoring-deployment"></a>Planear um Azure Ative Directory reportando e monitorizando a implementação
 
@@ -47,7 +47,7 @@ Com a monitorização AD AZure, pode encaminhar os registos para:
 * um centro de eventos Azure onde pode integrar-se com as suas ferramentas SIEM existentes, como Splunk, Sumologic ou QRadar.
 
 > [!NOTE]
-Recentemente começamos a usar os registos do Azure Monitor em vez de Log Analytics. Os dados de registo ainda são armazenados num espaço de trabalho do Log Analytics e ainda são recolhidos e analisados pelo mesmo serviço Log Analytics. Estamos a atualizar a terminologia para melhor refletir o papel dos [registos no Azure Monitor.](../../azure-monitor/platform/data-platform.md) Consulte [as alterações da terminologia do Azure Monitor](../../azure-monitor/terminology.md) para mais detalhes.
+Recentemente começamos a usar os registos do Azure Monitor em vez de Log Analytics. Os dados de registo ainda são armazenados num espaço de trabalho do Log Analytics e ainda são recolhidos e analisados pelo mesmo serviço Log Analytics. Estamos a atualizar a terminologia para melhor refletir o papel dos [registos no Azure Monitor.](../../azure-monitor/data-platform.md) Consulte [as alterações da terminologia do Azure Monitor](../../azure-monitor/terminology.md) para mais detalhes.
 
 [Saiba mais sobre as políticas de retenção de relatórios.](./reference-reports-data-retention.md)
 
@@ -99,7 +99,7 @@ O reporte e monitorização são usados para satisfazer os requisitos do seu neg
 * É bom ter de atender às necessidades do negócio
 * Não aplicável
 
-|Área |Descrição |
+|Área |Description |
 |-|-|
 |Retenção| **Retenção de registos superiores a 30 dias**. Devido a requisitos legais ou empresariais, é necessário armazenar registos de auditoria e assinar em registos de Azure AD por mais de 30 dias. |
 |Análise| **Os registos têm de ser pesmáveis.** Os registos armazenados devem ser pescêjáveis com ferramentas analíticas. |
@@ -121,7 +121,7 @@ Saiba como [encaminhar dados para a sua conta de armazenamento](./quickstart-azu
 
 #### <a name="send-logs-to-azure-monitor-logs"></a>Enviar registos para registos do Monitor Azure
 
-[Os registos do Azure Monitor](../../azure-monitor/log-query/log-query-overview.md) consolidam dados de monitorização de diferentes fontes. Também fornece um motor de linguagem e análise de consulta que lhe dá informações sobre o funcionamento das suas aplicações e a utilização de recursos. Ao enviar registos de atividade azure AD para registos do Azure Monitor, pode rapidamente recuperar, monitorizar e alertar sobre os dados recolhidos. Utilize este método quando não tiver uma solução SIEM existente para a qual pretende enviar os seus dados diretamente, mas queira consultas e análises. Uma vez que os seus dados estão nos registos do Azure Monitor, pode enviá-lo para o centro de eventos e daí para um SIEM, se assim o desejar.
+[Os registos do Azure Monitor](../../azure-monitor/logs/log-query-overview.md) consolidam dados de monitorização de diferentes fontes. Também fornece um motor de linguagem e análise de consulta que lhe dá informações sobre o funcionamento das suas aplicações e a utilização de recursos. Ao enviar registos de atividade azure AD para registos do Azure Monitor, pode rapidamente recuperar, monitorizar e alertar sobre os dados recolhidos. Utilize este método quando não tiver uma solução SIEM existente para a qual pretende enviar os seus dados diretamente, mas queira consultas e análises. Uma vez que os seus dados estão nos registos do Azure Monitor, pode enviá-lo para o centro de eventos e daí para um SIEM, se assim o desejar.
 
 Saiba como [enviar dados para os registos do Azure Monitor](./howto-integrate-activity-logs-with-log-analytics.md).
 

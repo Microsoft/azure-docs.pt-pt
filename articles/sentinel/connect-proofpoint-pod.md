@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/17/2021
 ms.author: yelevin
-ms.openlocfilehash: bdc9cbf942b88af93befa34f73eb3a90469cfcef
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 73a9d9c7ab321aebd615922e5d4395c0318e809c
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98873506"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100580445"
 ---
 # <a name="connect-your-proofpoint-on-demand-email-security-pod-solution-to-azure-sentinel"></a>Ligue o seu ponto de verificação à segurança de e-mail (POD) à Azure Sentinel
 
@@ -35,7 +35,7 @@ Este artigo explica como ligar o seu ponto de prova a pedido Enviar por email o 
 
 - Deve ter lido e escrito permissão no espaço de trabalho do Azure Sentinel.
 
-- Deve ter lido permissões para partilhar chaves para o espaço de trabalho. [Saiba mais sobre as teclas do espaço de trabalho.](../azure-monitor/platform/log-analytics-agent.md#workspace-id-and-key)
+- Deve ter lido permissões para partilhar chaves para o espaço de trabalho. [Saiba mais sobre as teclas do espaço de trabalho.](../azure-monitor/agents/log-analytics-agent.md#workspace-id-and-key)
 
 - Deve ter lido e escrito permissões para as Funções Azure para criar uma App de Função. [Saiba mais sobre as Funções Azure](../azure-functions/index.yml).
 
@@ -63,7 +63,7 @@ Consulte o separador **passos seguintes** na página do conector para obter algu
 
 Pode demorar até que os seus registos comecem a aparecer no Log Analytics.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste documento, aprendeu a ligar o Proofpoint On Demand Email Security ao Azure Sentinel. Para saber mais sobre Azure Sentinel, consulte os seguintes artigos:
 

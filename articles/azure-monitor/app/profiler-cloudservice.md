@@ -7,12 +7,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 75927534bf62fa4733bb552906ffa7e3a6e76286
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 5eb6680bba44872821a2f0d094d31d0ad994f8a0
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98935609"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100589576"
 ---
 # <a name="profile-live-azure-cloud-services-with-application-insights"></a>Perfil ao vivo Serviços em Nuvem Azure com Insights de Aplicações
 
@@ -38,7 +38,7 @@ O Profiler Application Insights está instalado com a extensão Azure Diagnostic
 
 1. Configure a extensão Azure Diagnostics para permitir o Profiler:
 
-    a. Localize o ficheiro [Azure](../platform/diagnostics-extension-overview.md) *Diagnostics.wadcfgx* para a sua função de candidatura, como mostrado aqui:  
+    a. Localize o ficheiro [Azure](../agents/diagnostics-extension-overview.md) *Diagnostics.wadcfgx* para a sua função de candidatura, como mostrado aqui:  
 
       ![Localização do ficheiro config de diagnóstico](./media/profiler-cloudservice/cloudservice-solutionexplorer.png)  
 
@@ -69,7 +69,7 @@ O Profiler Application Insights está instalado com a extensão Azure Diagnostic
 
 1. Implemente o seu serviço com a nova configuração de Diagnóstico e o Application Insights Profiler está configurado para executar no seu serviço.
  
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Gere tráfego para a sua aplicação (por exemplo, lance um [teste de disponibilidade).](monitor-web-app-availability.md) Em seguida, aguarde 10 a 15 minutos para que os vestígios comecem a ser enviados para a instância De Insights de Aplicação.
 * Consulte [os vestígios do Profiler](profiler-overview.md?toc=/azure/azure-monitor/toc.json) no portal Azure.

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 01/22/2021
 ms.topic: conceptual
-ms.openlocfilehash: 0ef821634669739ff5aed58e4404d7c21b8d8222
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: e2371f3de8ed73250bca6639e6c749811c5559ad
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896634"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100572610"
 ---
 # <a name="change-tracking-and-inventory-overview"></a>Alterar rastreio e visão geral do inventário
 
@@ -34,9 +34,9 @@ O Change Tracking and Inventory utiliza [o Azure Security Center File Integrity 
 
 Ativar todas as funcionalidades incluídas no Change Tracking e No inventário pode causar custos adicionais. Antes de prosseguir, [reveja os preços da Automação](https://azure.microsoft.com/pricing/details/automation/) e os preços do Monitor [Azure.](https://azure.microsoft.com/pricing/details/monitor/)
 
-O Change Tracking and Inventory encaminha os dados para os Registos do Monitor Azure, e estes dados recolhidos são armazenados num espaço de trabalho do Log Analytics. A função Desídua de Ficheiros (FIM) só está disponível quando **o Azure Defender para servidores** estiver ativado. Consulte o Azure Security Center [Pricing](../../security-center/security-center-pricing.md) para saber mais. O FIM envia dados para o mesmo espaço de trabalho do Log Analytics que o criado para armazenar dados a partir de Change Tracking e Inventory. Recomendamos que monitorize o seu espaço de trabalho linked Log Analytics para acompanhar a sua utilização exata. Para obter mais informações sobre a análise da utilização dos dados do Azure Monitor Logs, consulte [Gerir a utilização e o custo.](../../azure-monitor/platform/manage-cost-storage.md)
+O Change Tracking and Inventory encaminha os dados para os Registos do Monitor Azure, e estes dados recolhidos são armazenados num espaço de trabalho do Log Analytics. A função Desídua de Ficheiros (FIM) só está disponível quando **o Azure Defender para servidores** estiver ativado. Consulte o Azure Security Center [Pricing](../../security-center/security-center-pricing.md) para saber mais. O FIM envia dados para o mesmo espaço de trabalho do Log Analytics que o criado para armazenar dados a partir de Change Tracking e Inventory. Recomendamos que monitorize o seu espaço de trabalho linked Log Analytics para acompanhar a sua utilização exata. Para obter mais informações sobre a análise da utilização dos dados do Azure Monitor Logs, consulte [Gerir a utilização e o custo.](../../azure-monitor/logs/manage-cost-storage.md)
 
-As máquinas ligadas ao espaço de trabalho Log Analytics utilizam o [agente Log Analytics](../../azure-monitor/platform/log-analytics-agent.md) para recolher dados sobre alterações a software instalado, serviços microsoft, registo do Windows e ficheiros e daemons Linux em servidores monitorizados. Quando os dados estão disponíveis, o agente envia-os para os Registos do Monitor Azure para processamento. O Azure Monitor Logs aplica lógica aos dados recebidos, regista-os e disponibiliza-os para análise.
+As máquinas ligadas ao espaço de trabalho Log Analytics utilizam o [agente Log Analytics](../../azure-monitor/agents/log-analytics-agent.md) para recolher dados sobre alterações a software instalado, serviços microsoft, registo do Windows e ficheiros e daemons Linux em servidores monitorizados. Quando os dados estão disponíveis, o agente envia-os para os Registos do Monitor Azure para processamento. O Azure Monitor Logs aplica lógica aos dados recebidos, regista-os e disponibiliza-os para análise.
 
 > [!NOTE]
 > Alterar o Tracking and Inventory requer a ligação de um espaço de trabalho log Analytics à sua conta de Automação. Para obter uma lista definitiva de regiões apoiadas, consulte [os mapeamentos do Espaço de Trabalho Azure.](../how-to/region-mappings.md) Os mapeamentos da região não afetam a capacidade de gerir VMs numa região separada da sua conta de Automação.
@@ -48,7 +48,7 @@ Alterar Rastreio e Inventário não suporta ou tem as seguintes limitações:
 - Recursão para rastreio do registo do Windows
 - Sistemas de ficheiros de rede
 - Diferentes métodos de instalação
-- **_.exe_* ficheiros armazenados no Windows
+- ***.exe** ficheiros armazenados no Windows
 - A coluna e os valores **do Tamanho do Ficheiro Max** não são bem-utados na implementação atual.
 - Se tentar recolher mais de 2500 ficheiros num ciclo de recolha de 30 minutos, o desempenho do Change Tracking e do Inventário poderá ser degradado.
 - Se o tráfego da rede for elevado, os registos de alteração podem demorar até seis horas a ser exibidos.
@@ -58,7 +58,7 @@ Alterar Rastreio e Inventário não suporta ou tem as seguintes limitações:
 
 ## <a name="supported-operating-systems"></a>Sistemas operativos suportados
 
-O Change Tracking and Inventory é suportado em todos os sistemas operativos que satisfaçam os requisitos do agente Log Analytics. Consulte [os sistemas operativos suportados](../../azure-monitor/platform/agents-overview.md#supported-operating-systems) para uma lista das versões do sistema operativo Windows e Linux que são atualmente suportadas pelo agente Log Analytics.
+O Change Tracking and Inventory é suportado em todos os sistemas operativos que satisfaçam os requisitos do agente Log Analytics. Consulte [os sistemas operativos suportados](../../azure-monitor/agents/agents-overview.md#supported-operating-systems) para uma lista das versões do sistema operativo Windows e Linux que são atualmente suportadas pelo agente Log Analytics.
 
 Para compreender os requisitos do cliente para tLS 1.2, consulte [a aplicação TLS 1.2 para a Azure Automation](../automation-managing-data.md#tls-12-enforcement-for-azure-automation).
 
@@ -159,7 +159,7 @@ A tabela a seguir mostra os limites de produto rastreado por máquina para Chang
 |Serviços|250|
 |Daemons|250|
 
-O uso médio de dados do Log Analytics para uma máquina que utiliza o Change Tracking and Inventory é de aproximadamente 40 MB por mês, dependendo do seu ambiente. Com a funcionalidade de Utilização e Custos Estimados do espaço de trabalho Log Analytics, pode ver os dados ingeridos por Change Tracking e Inventory num gráfico de utilização. Utilize esta visão de dados para avaliar o uso dos seus dados e determinar como isso afeta a sua conta. Consulte [Compreender os seus custos de utilização e estimativa](../../azure-monitor/platform/manage-cost-storage.md#understand-your-usage-and-estimate-costs).
+O uso médio de dados do Log Analytics para uma máquina que utiliza o Change Tracking and Inventory é de aproximadamente 40 MB por mês, dependendo do seu ambiente. Com a funcionalidade de Utilização e Custos Estimados do espaço de trabalho Log Analytics, pode ver os dados ingeridos por Change Tracking e Inventory num gráfico de utilização. Utilize esta visão de dados para avaliar o uso dos seus dados e determinar como isso afeta a sua conta. Consulte [Compreender os seus custos de utilização e estimativa](../../azure-monitor/logs/manage-cost-storage.md#understand-your-usage-and-estimate-costs).
 
 ### <a name="microsoft-service-data"></a>Dados do serviço da Microsoft
 
@@ -176,7 +176,7 @@ Para otimizar o desempenho, o agente Log Analytics apenas rastreia as alteraçõ
 
 Uma capacidade chave do Change Tracking and Inventory está a alertar para as alterações ao estado de configuração do seu ambiente híbrido. Muitas ações úteis estão disponíveis para desencadear em resposta a alertas. Por exemplo, ações em funções Azure, livros de automação, webhooks e similares. Alertar sobre as alterações ao ficheiro **c:\windows\system32\drivers\etc\hosts** para uma máquina é uma boa aplicação de alertas para os dados de Change Tracking e Inventory. Há muitos mais cenários para alertar também, incluindo os cenários de consulta definidos na tabela seguinte.
 
-|Consulta  |Descrição  |
+|Consulta  |Description  |
 |---------|---------|
 |ConfiguraçãoChange <br>&#124; onde ConfigChangeType == "Ficheiros" e FileSystemPath contém " c: \\ sistema de \\ janelas32 \\ controladores \\ "|Útil para rastrear alterações em ficheiros críticos do sistema.|
 |ConfiguraçãoChange <br>&#124; onde FieldsChanged contém "FileContentChecksum" e FileSystemPath == "c: \\ \\ windows system32 \\ drivers etc \\ \\ hosts"|Útil para rastrear modificações em ficheiros de configuração de chaves.|
@@ -187,7 +187,7 @@ Uma capacidade chave do Change Tracking and Inventory está a alertar para as al
 |ConfiguraçãoChange <br>&#124; onde o RegistryKey == @"HKEY_LOCAL_MACHINE \\ SOFTWARE Microsoft Windows \\ \\ \\ CurrentVersion \\ QualityCompat"| Útil para rastrear alterações em chaves antivírus cruciais.|
 |ConfiguraçãoChange <br>&#124; onde o RegistryKey contém @"HKEY_LOCAL_MACHINE \\ SYSTEM \\ CurrentControlSet \\ Services \\ SharedAccess \\ Parameters \\ FirewallPolicy"| Útil para rastrear alterações nas definições de firewall.|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para ativar a partir de uma conta de Automação, consulte [Ativar o Tracking e o Inventário de Mudança a partir de uma conta de Automação.](enable-from-automation-account.md)
 

@@ -1,19 +1,19 @@
 ---
 title: Crie um aglomerado privado Azure Red Hat OpenShift 4
 description: Saiba como criar um cluster privado Azure Red Hat OpenShift com openshift 4
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.topic: article
 ms.date: 03/12/2020
 author: sakthi-vetrivel
 ms.author: suvetriv
 keywords: aro, openshift, az aro, chapéu vermelho, cli
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 6daeb617e7d1922427fe1889b41512a61c5067cf
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 633b8e6b0d9694119b5371f921af90c524936926
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98740929"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100633619"
 ---
 # <a name="create-an-azure-red-hat-openshift-4-private-cluster"></a>Crie um aglomerado privado Azure Red Hat OpenShift 4
 
@@ -256,7 +256,7 @@ Faça login no servidor API do cluster OpenShift utilizando o seguinte comando. 
 oc login $apiServer -u kubeadmin -p <kubeadmin password>
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, foi implantado um cluster Azure Red Hat OpenShift com openshift 4. Aprendeu a:
 

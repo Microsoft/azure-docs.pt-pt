@@ -1,5 +1,5 @@
 ---
-title: Métricas de monitorização e registos na Porta frontal do Azure. Microsoft Docs
+title: Métricas de monitorização e troncos na Porta frontal de Azure| Microsoft Docs
 description: Este artigo descreve as diferentes métricas e registos de acesso que a Porta Frontal Azure suporta
 services: frontdoor
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/23/2020
 ms.author: yuajia
-ms.openlocfilehash: cd99be40700ab1c34176f2bf7497e4debf5cd424
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: d1f3e59cc88ea9cb30e7eacbd26591e08d71be61
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96483802"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100575249"
 ---
 # <a name="monitoring-metrics-and-logs-in-azure-front-door"></a>Métricas de monitorização e troncos na Porta frontal de Azure
 
@@ -29,7 +29,7 @@ Ao utilizar a Porta Frontal Azure, pode monitorizar os recursos das seguintes fo
 
 As métricas são uma característica de certos recursos Azure que permitem visualizar contadores de desempenho no portal. Estão disponíveis as métricas da Porta frontal:
 
-| Metric | Nome de exibição métrica | Unidade | Dimensões | Descrição |
+| Metric | Nome de exibição métrica | Unidade | Dimensões | Description |
 | --- | --- | --- | --- | --- |
 | PedidoCount | Número de Pedidos | de palavras | HttpStatus</br>Grupo HttpStatus</br>Região do Cliente</br>ClientCountry | O número de pedidos de clientes servidos pela Porta da Frente.  |
 | Solicitação | Tamanho do pedido | Bytes | HttpStatus</br>Grupo HttpStatus</br>Região do Cliente</br>ClientCountry | O número de bytes enviados como pedidos de clientes para a Porta da Frente. |
@@ -52,14 +52,14 @@ Aceda aos registos de atividades na porta da frente ou em todos os registos dos 
 1. Selecione a sua instância da Porta da Frente.
 2. Selecione **registo de atividades**.
 
-    :::image type="content" source="./media/front-door-diagnostics/activity-log.png" alt-text="Diário de atividades":::
+    :::image type="content" source="./media/front-door-diagnostics/activity-log.png" alt-text="Registo de atividades":::
 
 3. Escolha um âmbito de filtragem e, em seguida, **selecione Aplicar**.
 
 ## <a name="diagnostic-logs"></a><a name="diagnostic-logging"></a>Registos de diagnóstico
 Os registos de diagnóstico fornecem informações ricas sobre operações e erros que são importantes para a auditoria e resolução de problemas. Os registos de diagnóstico diferem dos registos de atividade.
 
-Os registos de atividade fornecem informações sobre as operações es feitas sobre os recursos da Azure. Os registos de diagnóstico fornecem informações sobre as operações que o seu recurso fez. Para obter mais informações, consulte [os registos de diagnóstico do Azure Monitor](../azure-monitor/platform/platform-logs-overview.md).
+Os registos de atividade fornecem informações sobre as operações es feitas sobre os recursos da Azure. Os registos de diagnóstico fornecem informações sobre as operações que o seu recurso fez. Para obter mais informações, consulte [os registos de diagnóstico do Azure Monitor](../azure-monitor/essentials/platform-logs-overview.md).
 
 :::image type="content" source="./media/front-door-diagnostics/diagnostic-log.png" alt-text="Registos de diagnóstico":::
 
