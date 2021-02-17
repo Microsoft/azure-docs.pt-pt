@@ -3,12 +3,12 @@ title: Detalhes da estrutura de atribuição de políticas
 description: Descreve a definição de atribuição de políticas utilizada pela Azure Policy para relacionar definições de políticas e parâmetros com recursos para avaliação.
 ms.date: 01/29/2021
 ms.topic: conceptual
-ms.openlocfilehash: 12acbe368c9ccd6fa5654d3394e0fecb286984bf
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 1151c931863e1139b76c34ced12c4e2842f83cc6
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99219571"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100558453"
 ---
 # <a name="azure-policy-assignment-structure"></a>Estrutura de atribuição do Azure Policy
 
@@ -67,10 +67,10 @@ A **propriedade EnforcementMode** proporciona aos clientes a capacidade de testa
 
 Esta propriedade tem os seguintes valores:
 
-|Modo |Valor JSON |Tipo |Remediar manualmente |Entrada de registo de atividade |Description |
+|Modo |Valor JSON |Tipo |Remediar manualmente |Entrada de registo de atividade |Descrição |
 |-|-|-|-|-|-|
-|Ativado |Predefinição |string |Yes |Yes |O efeito da política é aplicado durante a criação ou atualização de recursos. |
-|Desativado |DoNotEnforce |string |Yes |No | O efeito da política não é aplicado durante a criação ou atualização de recursos. |
+|Ativado |Predefinição |string |Sim |Sim |O efeito da política é aplicado durante a criação ou atualização de recursos. |
+|Desativado |DoNotEnforce |string |Sim |Não | O efeito da política não é aplicado durante a criação ou atualização de recursos. |
 
 Se **o número de execução Não** for especificado numa definição de política ou iniciativa, o valor _Padrão_ é utilizado. [As tarefas de reparação](../how-to/remediate-resources.md) podem ser iniciadas para implementar as [políticasifNotExists,](./effects.md#deployifnotexists) mesmo quando **a aplicação doMode** está definida para _DoNotEnforce_.
 
@@ -98,7 +98,7 @@ Para definir uma mensagem personalizada que descreva por que um recurso não est
 ]
 ```
 
-Se a atribuição for para uma iniciativa, podem ser configuradas diferentes mensagens para cada definição de política na iniciativa. As mensagens utilizam o `policyDefinitionReferenceId` valor configurado na definição de iniciativa. Para mais detalhes, consulte [as propriedades de definições de propriedade.](./initiative-definition-structure.md#policy-definition-properties)
+Se a atribuição for para uma iniciativa, podem ser configuradas diferentes mensagens para cada definição de política na iniciativa. As mensagens utilizam o `policyDefinitionReferenceId` valor configurado na definição de iniciativa. Para mais detalhes, consulte [as propriedades de definições de política.](./initiative-definition-structure.md#policy-definition-properties)
 
 ```json
 "nonComplianceMessages": [

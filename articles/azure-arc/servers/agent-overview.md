@@ -1,14 +1,14 @@
 ---
 title: Visão geral do agente Windows da máquina conectada
 description: Este artigo fornece uma visão detalhada do agente de servidores ativado Azure Arc disponível, que suporta a monitorização de máquinas virtuais hospedadas em ambientes híbridos.
-ms.date: 02/03/2021
+ms.date: 02/16/2021
 ms.topic: conceptual
-ms.openlocfilehash: ed77ee00510fedaf42226081fcf11c4753b8a63a
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: 82562bf3b1f8392e56a53ba0f968a76b050e7b13
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99626313"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100558503"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Visão geral do agente de servidores ativado pelo Azure Arc
 
@@ -32,6 +32,30 @@ O pacote de agente da máquina conectada Azure contém vários componentes lógi
     * As atribuições são eliminadas após 14 dias e não são transferidas para a máquina após o período de 14 dias.
 
 * O agente de extensão gere extensões VM, incluindo instalação, desinstalação e atualização. As extensões são descarregadas a partir do Azure e copiadas para a `%SystemDrive%\%ProgramFiles%\AzureConnectedMachineAgent\ExtensionService\downloads` pasta no Windows, e para o Linux. `/opt/GC_Ext/downloads` No Windows, a extensão é instalada para o seguinte caminho `%SystemDrive%\Packages\Plugins\<extension>` , e no Linux a extensão é instalada para `/var/lib/waagent/<extension>` .
+
+## <a name="instance-metadata"></a>Metadados de exemplo
+
+As informações sobre os metadados sobre a máquina conectada são recolhidas após o agente 'Máquina Conectada' registar-se com servidores ativados pelo Arc. Especificamente:
+
+* Nome, tipo e versão do sistema operativo
+* Nome do computador
+* Nome de domínio totalmente qualificado do computador (FQDN)
+* Versão do agente da máquina conectada
+* Diretório Ativo e Nome de domínio totalmente qualificado (FQDN)
+* UUID (ID BIO)
+* Batimento cardíaco do agente da máquina conectado
+* Versão do agente da máquina conectada
+* Chave pública para a identidade gerida
+* Estado de conformidade com a política e detalhes (se utilizar as políticas de configuração do hóspede da Azure Policy)
+
+As seguintes informações de metadados são solicitadas pelo agente à Azure:
+
+* Localização de recursos (região)
+* ID de máquina virtual
+* Etiquetas
+* Certificado de identidade gerido Azure Ative
+* Atribuições de política de configuração de hóspedes
+* Pedidos de extensão - instale, atualize e elimine.
 
 ## <a name="download-agents"></a>Agentes de descarregamento
 
@@ -100,7 +124,7 @@ Etiquetas de serviço:
 
 URLs:
 
-| Recursos do agente | Description |
+| Recursos do agente | Descrição |
 |---------|---------|
 |`management.azure.com`|Azure Resource Manager|
 |`login.windows.net`|Azure Active Directory|
@@ -112,7 +136,7 @@ URLs:
 
 Os agentes de pré-visualização (versão 0.11 e inferior) também requerem acesso aos seguintes URLs:
 
-| Recursos do agente | Description |
+| Recursos do agente | Descrição |
 |---------|---------|
 |`agentserviceapi.azure-automation.net`|Configuração de Convidado|
 |`*-agentservice-prod-1.azure-automation.net`|Configuração de Convidado|
@@ -176,7 +200,7 @@ Após a instalação do agente 'Máquina Conectada' para o Windows, aplicam-se a
 
 * As seguintes pastas de instalação são criadas durante a instalação.
 
-    |Pasta |Description |
+    |Pasta |Descrição |
     |-------|------------|
     |%ProgramFiles%\AzureConnectedMachineAgent |Caminho de instalação predefinido que contenha os ficheiros de suporte do agente.|
     |%ProgramData%\AzureConnectedMachineAgent |Contém os ficheiros de configuração do agente.|
@@ -188,7 +212,7 @@ Após a instalação do agente 'Máquina Conectada' para o Windows, aplicam-se a
 
 * Os seguintes serviços Windows são criados na máquina-alvo durante a instalação do agente.
 
-    |Nome do serviço |Nome a apresentar |Nome do processo |Description |
+    |Nome do serviço |Nome a apresentar |Nome do processo |Descrição |
     |-------------|-------------|-------------|------------|
     |osds |Serviço de Metadados de Caso Híbrido Azure |osds |Este serviço implementa o serviço de metadados Azure Instance (IMDS) para gerir a ligação ao Azure e a identidade Azure da máquina conectada.|
     |GCArcService |Serviço de Arco de Configuração de Hóspedes |gc_service |Monitoriza a configuração estatal desejada da máquina.|
@@ -196,14 +220,14 @@ Após a instalação do agente 'Máquina Conectada' para o Windows, aplicam-se a
 
 * As seguintes variáveis ambientais são criadas durante a instalação do agente.
 
-    |Name |Valor predefinido |Description |
+    |Name |Valor predefinido |Descrição |
     |-----|--------------|------------|
     |IDENTITY_ENDPOINT |http://localhost:40342/metadata/identity/oauth2/token ||
     |IMDS_ENDPOINT |http://localhost:40342 ||
 
 * Existem vários ficheiros de registo disponíveis para resolução de problemas. São descritos na tabela seguinte.
 
-    |Registo |Description |
+    |Registo |Descrição |
     |----|------------|
     |%ProgramData%\AzureConnectedMachineAgent\Log\himds.log |Regista detalhes do serviço e interação dos agentes (HIMDS) com o Azure.|
     |%ProgramData%\AzureConnectedMachineAgent\Log\azcmagent.log |Contém a saída dos comandos da ferramenta azcmagent, quando o argumento verboso (v) é utilizado.|
@@ -228,7 +252,7 @@ Após a instalação do agente 'Máquina Conectada' para o Linux, aplicam-se as 
 
 * As seguintes pastas de instalação são criadas durante a instalação.
 
-    |Pasta |Description |
+    |Pasta |Descrição |
     |-------|------------|
     |/var/opt/azcmagent/ |Caminho de instalação predefinido que contenha os ficheiros de suporte do agente.|
     |/opt/azcmagent/ |
@@ -240,7 +264,7 @@ Após a instalação do agente 'Máquina Conectada' para o Linux, aplicam-se as 
 
 * Os seguintes daemons são criados na máquina-alvo durante a instalação do agente.
 
-    |Nome do serviço |Nome a apresentar |Nome do processo |Description |
+    |Nome do serviço |Nome a apresentar |Nome do processo |Descrição |
     |-------------|-------------|-------------|------------|
     |himdsd.service |Serviço de agente de máquinas conectado Azure |osds |Este serviço implementa o serviço de metadados Azure Instance (IMDS) para gerir a ligação ao Azure e a identidade Azure da máquina conectada.|
     |gcad.servce |Serviço GC Arc |gc_linux_service |Monitoriza a configuração estatal desejada da máquina. |
@@ -248,7 +272,7 @@ Após a instalação do agente 'Máquina Conectada' para o Linux, aplicam-se as 
 
 * Existem vários ficheiros de registo disponíveis para resolução de problemas. São descritos na tabela seguinte.
 
-    |Registo |Description |
+    |Registo |Descrição |
     |----|------------|
     |/var/opt/azcmagent/log/himds.log |Regista detalhes do serviço e interação dos agentes (HIMDS) com o Azure.|
     |/var/opt/azcmagent/log/azcmagent.log |Contém a saída dos comandos da ferramenta azcmagent, quando o argumento verboso (v) é utilizado.|
@@ -259,7 +283,7 @@ Após a instalação do agente 'Máquina Conectada' para o Linux, aplicam-se as 
 
 * As seguintes variáveis ambientais são criadas durante a instalação do agente. Estas variáveis estão definidas em `/lib/systemd/system.conf.d/azcmagent.conf` .
 
-    |Name |Valor predefinido |Description |
+    |Name |Valor predefinido |Descrição |
     |-----|--------------|------------|
     |IDENTITY_ENDPOINT |http://localhost:40342/metadata/identity/oauth2/token ||
     |IMDS_ENDPOINT |http://localhost:40342 ||

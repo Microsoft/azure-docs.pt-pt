@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 5c7ecfeace88f613d6f15606382bdbb3117a0cce
-ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
+ms.openlocfilehash: eb59bb43d493609ae408a402eaea2dcc9c6fab29
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100526646"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100548782"
 ---
 # <a name="deploy-a-cloud-service-extended-support-using-arm-templates"></a>Implementar um Serviço de Nuvem (suporte alargado) utilizando modelos ARM
 
@@ -134,7 +134,7 @@ Este tutorial explica como criar uma implementação de Cloud Service (suporte a
     ```
  
 
-4. Adicione a referência do cofre chave na  `OsProfile`   secção do modelo ARM. O Key Vault é utilizado para armazenar certificados associados aos Serviços Cloud (suporte alargado). Adicione os certificados ao Key Vault e, em seguida, faça referência às impressões digitais do certificado no ficheiro de Configuração de Serviço (.cscfg). Também precisa de ativar o Key Vault para obter permissões apropriadas para que o recurso Cloud Services (suporte alargado) possa obter o certificado armazenado como segredos do Key Vault. Para obter mais informações, consulte [a utilização de certificados com serviços cloud (suporte alargado)](certificates-and-key-vault.md).
+4. Adicione a referência do cofre chave na  `OsProfile`   secção do modelo ARM. O Key Vault é utilizado para armazenar certificados associados aos Serviços Cloud (suporte alargado). Adicione os certificados ao Key Vault e, em seguida, faça referência às impressões digitais do certificado no ficheiro de Configuração de Serviço (.cscfg). Também precisa de ativar o Key Vault para obter permissões apropriadas para que o recurso Cloud Services (suporte alargado) possa obter o certificado armazenado como segredos do Key Vault. O Cofre-Chave deve estar localizado na mesma região e subscrição que o serviço de nuvem e ter um nome único. Para obter mais informações, consulte [a utilização de certificados com serviços cloud (suporte alargado)](certificates-and-key-vault.md).
      
     ```json
     "osProfile": { 

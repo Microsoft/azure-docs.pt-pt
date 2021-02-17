@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 05/06/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 7d00c40a021bbe087d906fd6d9b767188a7b169a
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: 1d90e83405cf9c560f644277a04012571e1a5a9d
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97964346"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100556913"
 ---
 # <a name="list-azure-role-assignments-using-the-rest-api"></a>ListE Azure atribui funções utilizando a API REST
 
@@ -54,7 +54,7 @@ No Azure RBAC, para listar o acesso, lista as atribuições de funções. Para l
 1. Substitua *{filter}* pela condição que pretende aplicar para filtrar a lista de atribuição de funções.
 
     > [!div class="mx-tableFixed"]
-    > | Filtro | Description |
+    > | Filtro | Descrição |
     > | --- | --- |
     > | `$filter=atScope()` | Lista atribuições de funções apenas para o âmbito especificado, não incluindo as atribuições de funções em subscópios. |
     > | `$filter=assignedTo('{objectId}')` | Lista atribuições de funções para um utilizador especificado ou principal de serviço.<br/>Se o utilizador for membro de um grupo que tem uma atribuição de funções, essa atribuição de funções também está listada. Este filtro é transitório para grupos, o que significa que se o utilizador é membro de um grupo e esse grupo é membro de outro grupo que tem uma atribuição de papel, essa atribuição de funções também está listada.<br/>Este filtro só aceita um ID de objeto para um utilizador ou um principal de serviço. Não se pode passar uma identificação de objeto para um grupo. |
@@ -92,5 +92,5 @@ O seguinte mostra um exemplo da saída:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Utilizar a API REST para adicionar ou remover atribuições de funções do Azure](role-assignments-rest.md)
+- [Atribuir funções Azure utilizando a API REST](role-assignments-rest.md)
 - [Referência à API REST do Azure](/rest/api/azure/)

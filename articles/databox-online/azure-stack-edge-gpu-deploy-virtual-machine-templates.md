@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 01/25/2021
 ms.author: alkohli
-ms.openlocfilehash: 66d537b79819aecab4ce88a56ed465679363f421
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 9a347d57de540ed31c862f618be7c8a98b685348
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98805208"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546929"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-templates"></a>Implemente VMs no seu dispositivo GPU Azure Stack Edge Pro através de modelos
 
@@ -149,7 +149,7 @@ Num ambiente típico, o seu DNS seria configurado para que todas as contas de ar
 
 ### <a name="optional-install-certificates"></a>(Opcional) Instalar certificados
 
-Ignore este passo se se ligar através do Storage Explorer utilizando *http*. Se estiver a utilizar *https,* terá de instalar certificados apropriados no Explorador de Armazenamento. Neste caso, instale o certificado de ponta final blob. Para mais informações, consulte como criar e carregar certificados em [Obter certificados.](azure-stack-edge-j-series-manage-certificates.md) 
+Ignore este passo se se ligar através do Storage Explorer utilizando *http*. Se estiver a utilizar *https,* terá de instalar certificados apropriados no Explorador de Armazenamento. Neste caso, instale o certificado de ponta final blob. Para mais informações, consulte como criar e carregar certificados em [Obter certificados.](azure-stack-edge-gpu-manage-certificates.md) 
 
 ### <a name="create-and-upload-a-vhd"></a>Criar e carregar um VHD
 
@@ -588,6 +588,6 @@ Siga estes passos para ligar a um Linux VM.
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Cmdlets do Gestor de Recursos Azure](/powershell/module/azurerm.resources/?view=azurermps-6.13.0&preserve-view=true)

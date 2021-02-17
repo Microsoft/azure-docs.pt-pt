@@ -15,12 +15,12 @@ ms.date: 11/10/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1, devx-track-azurecli
-ms.openlocfilehash: e30af9522d7c8fa81c4d93e11d252aefc4426586
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: d77468619fcd67887273b2fbd452b37add1e19b0
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96184268"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100555884"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Resolução de problemas Azure RBAC
 
@@ -51,7 +51,7 @@ $ras.Count
 
 ## <a name="problems-with-azure-role-assignments"></a>Problemas com atribuições de funções da Azure
 
-- Se não conseguir adicionar uma atribuição de funções no portal Azure on **Access control (IAM)** porque a opção de atribuição de funções **Add**  >  **Add** está desativada ou porque obtém o erro de permissões "O cliente com identificação de objeto não tem autorização para realizar ação", verifique se está atualmente assinado com um utilizador que lhe é atribuída uma função que tem a `Microsoft.Authorization/roleAssignments/write` permissão como [Proprietário](built-in-roles.md#owner) ou Administrador de Acesso ao [Utilizador](built-in-roles.md#user-access-administrator) no âmbito em que está a tentar atribuir a função.
+- Se não conseguir atribuir uma função no portal Azure no **controlo do acesso (IAM)** porque a opção de atribuição de funções **Add**  >  **Add** está desativada ou porque obtém o erro de permissões "O cliente com identificação de objeto não tem autorização para realizar ação", verifique se está atualmente assinado com um utilizador que lhe é atribuída uma função que tem a `Microsoft.Authorization/roleAssignments/write` permissão como [Proprietário](built-in-roles.md#owner) ou Administrador de Acesso ao [Utilizador](built-in-roles.md#user-access-administrator) no âmbito em que está a tentar atribuir a função.
 - Se estiver a usar um diretor de serviço para atribuir funções, poderá obter o erro "Privilégios insuficientes para completar a operação". Por exemplo, digamos que tem um principal de serviço que foi atribuído à função de Proprietário e que tenta criar a seguinte atribuição de funções como diretor de serviço usando Azure CLI:
 
     ```azurecli
@@ -63,7 +63,7 @@ $ras.Count
 
     Há duas formas de resolver este erro. A primeira forma é atribuir o papel de Leitores de [Diretório](../active-directory/roles/permissions-reference.md#directory-readers) ao diretor de serviço para que possa ler dados no diretório.
 
-    A segunda forma de resolver este erro é criar a atribuição de funções utilizando o `--assignee-object-id` parâmetro em vez de `--assignee` . Ao utilizar `--assignee-object-id` , o Azure CLI saltará a procura Azure AD. Terá de obter o ID do objeto do utilizador, grupo ou aplicação a que pretende atribuir a função. Para obter mais informações, consulte [Adicionar ou remover atribuições de funções Azure utilizando O Azure CLI](role-assignments-cli.md#add-role-assignment-for-a-new-service-principal-at-a-resource-group-scope).
+    A segunda forma de resolver este erro é criar a atribuição de funções utilizando o `--assignee-object-id` parâmetro em vez de `--assignee` . Ao utilizar `--assignee-object-id` , o Azure CLI saltará a procura Azure AD. Terá de obter o ID do objeto do utilizador, grupo ou aplicação a que pretende atribuir a função. Para obter mais informações, consulte [atribuir funções Azure utilizando O Azure CLI](role-assignments-cli.md#assign-a-role-for-a-new-service-principal-at-a-resource-group-scope).
 
     ```azurecli
     az role assignment create --assignee-object-id 11111111-1111-1111-1111-111111111111  --role "Contributor" --scope "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}"
@@ -151,7 +151,7 @@ Da mesma forma, se enumerar esta tarefa de função usando o Azure CLI, poderá 
 }
 ```
 
-Não é um problema deixar estas atribuições de papéis onde o diretor de segurança foi apagado. Se quiser, pode remover estas atribuições de funções usando passos semelhantes a outras atribuições de funções. Para obter informações sobre como remover atribuições de funções, consulte [o portal Azure,](role-assignments-portal.md#remove-a-role-assignment) [Azure PowerShell](role-assignments-powershell.md#remove-a-role-assignment)ou [Azure CLI](role-assignments-cli.md#remove-a-role-assignment)
+Não é um problema deixar estas atribuições de papéis onde o diretor de segurança foi apagado. Se quiser, pode remover estas atribuições de funções usando passos semelhantes a outras atribuições de funções. Para obter informações sobre como remover atribuições de funções, consulte [atribuições de funções Remove Azure](role-assignments-remove.md).
 
 No PowerShell, se tentar remover as atribuições de funções utilizando o iD do objeto e o nome de definição de função, e mais do que uma atribuição de funções corresponde aos seus parâmetros, receberá a mensagem de erro: "As informações fornecidas não mapeiam para uma atribuição de funções". A seguinte saída mostra um exemplo da mensagem de erro:
 
@@ -174,7 +174,7 @@ PS C:\> Remove-AzRoleAssignment -ObjectId 33333333-3333-3333-3333-333333333333 -
 
 ## <a name="role-assignment-changes-are-not-being-detected"></a>As alterações na atribuição de funções não estão a ser detetadas
 
-O Azure Resource Manager às vezes caches configurações e dados para melhorar o desempenho. Quando adiciona ou remove atribui funções, pode levar até 30 minutos para que as alterações produzam efeitos. Se estiver a utilizar o portal Azure, Azure PowerShell ou Azure CLI, pode forçar uma atualização das alterações de atribuição de funções ao iniciar e iniciar sessão. Se estiver a fazer alterações na atribuição de funções com chamadas de API REST, pode forçar uma atualização refrescando o seu token de acesso.
+O Azure Resource Manager às vezes caches configurações e dados para melhorar o desempenho. Quando atribui funções ou remove atribui funções, pode levar até 30 minutos para que as alterações produzam efeitos. Se estiver a utilizar o portal Azure, Azure PowerShell ou Azure CLI, pode forçar uma atualização das alterações de atribuição de funções ao iniciar e iniciar sessão. Se estiver a fazer alterações na atribuição de funções com chamadas de API REST, pode forçar uma atualização refrescando o seu token de acesso.
 
 Se for adicionado ou remover uma atribuição de funções no âmbito do grupo de gestão e a função `DataActions` tiver, o acesso no plano de dados pode não ser atualizado durante várias horas. Isto aplica-se apenas ao âmbito do grupo de gestão e ao plano de dados.
 
@@ -249,5 +249,5 @@ Um leitor pode clicar no separador **funcionalidades** da Plataforma e, em segui
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Resolução de problemas para utilizadores convidados](role-assignments-external-users.md#troubleshoot)
-- [Adicionar ou remover atribuições de funções do Azure com o portal do Azure](role-assignments-portal.md)
+- [Atribuir funções Azure usando o portal Azure](role-assignments-portal.md)
 - [Ver registos de atividade para alterações do RBAC do Azure](change-history-report.md)

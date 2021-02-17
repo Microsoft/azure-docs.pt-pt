@@ -11,12 +11,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 01/12/2021
-ms.openlocfilehash: 8db0f5fa39c7f489db0e30e98ee2684c74eee7e8
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: 8e78fc5bd49aaf2b31fdc83ced132e2a39ca83d5
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98180035"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100558889"
 ---
 # <a name="publish-your-active-trained-app-to-a-staging-or-production-endpoint"></a>Publique a sua app ativa e treinada para um ponto final de encenação ou produção
 
@@ -57,7 +57,6 @@ Por exemplo, para uma app criada no [www.luis.ai](https://www.luis.ai)– se cri
 Depois de selecionar a ranhura, configurar as definições de publicação para:
 
 * Análise de sentimentos
-* [Correção ortográfica](luis-tutorial-bing-spellcheck.md)
 * Escorva da fala
 
 Depois de publicar, estas definições estão disponíveis para revisão a partir da página de definições de **'Publicar'** da secção **Manage.** Pode alterar as definições com cada publicação. Se cancelar uma publicação, quaisquer alterações que tenha feito durante a publicação também serão canceladas.
@@ -79,37 +78,6 @@ Não tem de fornecer uma chave text Analytics e não existe qualquer taxa de fat
 Os dados do sentimento são uma pontuação entre 1 e 0 indicando o sentimento positivo (mais próximo de 1) ou negativo (mais próximo de 0) dos dados. O rótulo de sentimento de `positive` , e é por cultura `neutral` `negative` apoiada. Atualmente, apenas o inglês suporta rótulos de sentimento.
 
 Para obter mais informações sobre a resposta do ponto final da JSON com a análise do sentimento, consulte [a análise do Sentimento](luis-reference-prebuilt-sentiment.md)
-
-## <a name="spelling-correction"></a>Correção ortográfica
-
-A API de previsão V3 suporta agora a API Bing Spellcheck. Pode adicionar verificação ortográfica à sua aplicação, incluindo a chave do seu recurso de pesquisa Bing no cabeçalho dos seus pedidos. Pode utilizar um recurso Bing existente se já possuir um, ou [criar um novo](https://portal.azure.com/#create/Microsoft.BingSearch) para utilizar esta funcionalidade. 
-
-|Chave do cabeçalho|Valor do cabeçalho|
-|--|--|
-|`mkt-bing-spell-check-key`|Chaves encontradas em **Keys e Lâmina Endpoint** do seu recurso|
-
-Exemplo de previsão de saída para uma consulta mal ortoleta:
-
-```json
-{
-  "query": "bouk me a fliht to kayro",
-  "prediction": {
-    "alteredQuery": "book me a flight to cairo",
-    "topIntent": "book a flight",
-    "intents": {
-      "book a flight": {
-        "score": 0.9480589
-      }
-      "None": {
-        "score": 0.0332136229
-      }
-    },
-    "entities": {}
-  }
-}
-```
-
-As correções à ortografia são feitas antes da previsão da expressão do utilizador LUIS. Pode ver qualquer alteração à expressão original, incluindo a ortografia, na resposta.
 
 ## <a name="speech-priming"></a>Escorva da fala
 

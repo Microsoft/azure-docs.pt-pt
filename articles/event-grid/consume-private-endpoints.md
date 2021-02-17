@@ -3,12 +3,12 @@ title: Entregar eventos usando o serviço de link privado
 description: Este artigo descreve como trabalhar em torno da limitação de não ser capaz de entregar eventos usando o serviço de ligação privada.
 ms.topic: how-to
 ms.date: 02/12/2021
-ms.openlocfilehash: ad6f500830383f60e0350a297d2650bfbeae2f6f
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 4343740ea6c34c9ae282723b79007f7035785b04
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100418035"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100548624"
 ---
 # <a name="deliver-events-using-private-link-service"></a>Entregar eventos usando o serviço de link privado
 Atualmente, não é possível entregar eventos usando [pontos finais privados.](../private-link/private-endpoint-overview.md) Ou seja, não há suporte se tiver requisitos rigorosos de isolamento de rede onde o tráfego de eventos entregues não deve sair do espaço IP privado. 
@@ -19,7 +19,7 @@ No entanto, se os seus requisitos exigirem uma forma segura de enviar eventos us
 Em seguida, pode utilizar um link privado configurado em Funções Azure ou o seu webhook implantado na sua rede virtual para puxar eventos. Consulte a amostra: [Ligue-se a pontos finais privados com funções Azure](/samples/azure-samples/azure-functions-private-endpoints/connect-to-private-endpoints-with-azure-functions/).
 
 
-:::image type="content" source="./media/consume-private-endpoints/deliver-private-link-service.png" alt-text="Entregar através do serviço de link privado":::
+:::image type="content" source="./media/consume-private-endpoints/deliver-private-link-service.svg" alt-text="Entregar através do serviço de link privado":::
 
 
 Nesta configuração, o tráfego passa pelo IP/internet público, desde a Grade de Eventos até Centros de Eventos, Service Bus ou Azure Storage, mas o canal pode ser encriptado e é utilizada uma identidade gerida da Grade de Eventos. Se configurar as suas Funções Azure ou webhook implantados na sua rede virtual para utilizar um Event Hubs, Service Bus ou Azure Storage via link privado, essa secção do tráfego permanecerá, evidentemente, dentro do Azure.

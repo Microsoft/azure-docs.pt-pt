@@ -10,18 +10,18 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 8eca6297a704e1ef478c09baf227cf622d6890bb
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 12951f25feb6f3710b8d35fbc682caeeb480e788
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94953156"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100555614"
 ---
 # <a name="tutorial-grant-access-to-a-nodejs-web-api-from-a-desktop-app-using-azure-active-directory-b2c"></a>Tutorial: Conceder acesso a uma API Web Node.js a partir de uma aplicação de ambiente de trabalho com o Azure Active Directory B2C
 
 Este tutorial mostra-lhe como chamar uma API web Node.js protegida pelo Azure Ative Directory B2C (Azure AD B2C) de uma aplicação de desktop da Windows Presentation Foundation (WPF), também protegida pelo Azure AD B2C.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Adicionar uma aplicação de API Web
@@ -164,4 +164,4 @@ Neste tutorial, ficou a saber como:
 > * Atualizar a amostra para usar a aplicação
 
 > [!div class="nextstepaction"]
-> [Tutorial: Adicione fornecedores de identidade às suas aplicações no Azure Ative Directory B2C](tutorial-add-identity-providers.md)
+> [Adicione fornecedores de identidade às suas aplicações no Azure Ative Directory B2C](add-identity-provider.md)

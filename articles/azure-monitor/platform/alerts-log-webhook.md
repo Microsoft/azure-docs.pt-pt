@@ -5,14 +5,14 @@ author: yanivlavi
 ms.author: yalavi
 services: monitoring
 ms.topic: conceptual
-ms.date: 06/25/2019
+ms.date: 09/22/2020
 ms.subservice: alerts
-ms.openlocfilehash: 97c3ead4dbdf0608c6b7cd1be6a9edf242ecd2b5
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 0ab254ac64cb2234c45f24b56e212ab835dbad1f
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97510768"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100545008"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Ações de webhook para regras de alerta de registo
 
@@ -41,9 +41,9 @@ Propriedades de ação webhook padrão e os seus nomes de parâmetros JSON perso
 | *LinkToFilteredSearchResultsUI* |#linktofilteredsearchresultsui |Link para o portal Analytics que devolve os registos da consulta filtrada por dimensões combinações de valor que criaram o alerta. |
 | *LinkToFilteredSearchResultsAPI* |#linktofilteredsearchresultsapi |Link para a API Analytics que devolve os registos da consulta filtrada por dimensões combinações de valor que criaram o alerta. |
 | *ResultadosContam* |#searchresultcount |Número de registos nos resultados da pesquisa. |
-| *Tempo de fim do intervalo de pesquisa* |#searchintervalendtimeutc |Fim do tempo para a consulta em UTC, com o formato mm/dd/yy HH:mm:ss AM/PM. |
+| *Tempo de fim do intervalo de pesquisa* |#searchintervalendtimeutc |Fim do tempo para a consulta em UTC, com o formato mm/dd/yyyy HH:mm:ss AM/PM. |
 | *Intervalo de pesquisa* |#searchinterval |Janela de tempo para a regra de alerta, com o formato HH:mm:ss. |
-| *Intervalo de pesquisa Início de Tempo* |#searchintervalstarttimeutc |Hora de início para a consulta em UTC, com o formato mm/dd/yy HH:mm:ss AM/PM. 
+| *Intervalo de pesquisa Início de Tempo* |#searchintervalstarttimeutc |Hora de início para a consulta em UTC, com o formato mm/dd/yyyy HH:mm:ss AM/PM. 
 | *SearchQuery* |#searchquery |Consulta de pesquisa de registo utilizada pela regra de alerta. |
 | *SearchResults* |"IncludeSearchResults": verdadeiro|Os registos devolvidos pela consulta como uma tabela JSON, limitados aos primeiros 1.000 registos. "IncludeSearchResults": o verdadeiro é adicionado numa definição personalizada de webhook JSON como uma propriedade de alto nível. |
 | *Dimensões* |"IncluirDimensionais": verdadeiro|As combinações de valor de dimensões que desencadearam o alerta como secção JSON. "IncludeDimensions": o verdadeiro é adicionado numa definição personalizada de webhook JSON como uma propriedade de alto nível. |

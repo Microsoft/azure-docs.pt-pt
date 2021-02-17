@@ -7,20 +7,19 @@ author: mrcarter8
 ms.author: mcarter
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/11/2020
-ms.openlocfilehash: 67fa53e565de70d3da0b90e36a968b68d54d667f
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.date: 02/16/2021
+ms.openlocfilehash: 98a516e76d5e4f5c225873b934949759d7fcba8d
+ms.sourcegitcommit: b513b0becf878eb9a1554c26da53aa48d580bb22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99573250"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100535336"
 ---
 # <a name="configure-ip-firewall-for-azure-cognitive-search"></a>Configure firewall IP para pesquisa cognitiva Azure
 
 A Azure Cognitive Search suporta regras IP para suporte a firewall de entrada. Este modelo fornece uma camada adicional de segurança para o seu serviço de pesquisa semelhante às regras IP que encontrará num grupo de segurança de rede virtual Azure. Com estas regras de IP, pode configurar o seu serviço de pesquisa para ser acessível apenas a partir de um conjunto aprovado de máquinas e/ou serviços na nuvem. O acesso aos dados armazenados no seu serviço de pesquisa a partir destes conjuntos de máquinas e serviços aprovados ainda exigirá que o chamador apresente um token de autorização válido.
 
-> [!Important]
-> As regras IP do seu serviço de Pesquisa Cognitiva Azure podem ser configuradas utilizando o portal Azure ou a [versão API Management REST 2020-03-13](/rest/api/searchmanagement/).
+Pode definir as regras de IP no portal Azure, conforme descrito neste artigo. Em alternativa, pode utilizar a [versão API Management REST 2020-03-13](/rest/api/searchmanagement/), [Azure PowerShell](/powershell/module/az.search)ou [Azure CLI](/cli/azure/search).
 
 ## <a name="configure-an-ip-firewall-using-the-azure-portal"></a><a id="configure-ip-policy"></a> Configure uma firewall IP utilizando o portal Azure
 

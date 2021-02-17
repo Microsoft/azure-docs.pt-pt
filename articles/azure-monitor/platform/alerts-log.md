@@ -1,21 +1,21 @@
 ---
-title: Criar, ver e gerir alertas de registo Usando o Azure Monitor Microsoft Docs
+title: Criar, visualizar e gerir alertas de registo Usando o Monitor Azure | Microsoft Docs
 description: Use o Azure Monitor para criar, visualizar e gerir as regras de alerta de registo
 author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 09/22/2020
 ms.subservice: alerts
-ms.openlocfilehash: 950482a96604165a8f1ff20cab9e3eafe1224c90
-ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+ms.openlocfilehash: 9f50a08930ba2556c27c79a90261497dc00dcca3
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98029003"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100548340"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Criar, visualizar e gerir alertas de registo usando o Azure Monitor
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Os alertas de registo permitem que os utilizadores utilizem uma consulta [log Analytics](../log-query/log-analytics-tutorial.md) para avaliar os registos de recursos em cada frequência definida e disparem um alerta com base nos resultados. As regras podem desencadear uma ou mais ações utilizando [grupos de ação.](./action-groups.md) [Saiba mais sobre funcionalidade e terminologia de alertas de registo.](alerts-unified-log.md)
 

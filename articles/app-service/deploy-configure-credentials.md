@@ -2,28 +2,26 @@
 title: Configurar as credenciais de implementação
 description: Saiba que tipos de credenciais de implementação estão no Azure App Service e como configurá-las e usá-las.
 ms.topic: article
-ms.date: 08/14/2019
+ms.date: 02/11/2021
 ms.reviewer: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: e5793d21f27128162095e2d86e13006c5b6e7b7c
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: 2a53ecb1b3411561da50f7dbf3be79f9d70b42bc
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97007998"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100560429"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Configure credenciais de implementação para o Azure App Service
-[O Azure App Service](./overview.md) suporta dois tipos de credenciais para [a implantação local](deploy-local-git.md) de Git e [implantação ftp/S](deploy-ftp.md). Estas credenciais não são as mesmas que as suas credenciais de subscrição Azure.
+Para garantir a implementação de aplicações a partir de um computador local, [o Azure App Service](./overview.md) suporta dois tipos de credenciais para a [implementação local](deploy-local-git.md) do Git e para a [implementação ftp/S](deploy-ftp.md). Estas credenciais não são as mesmas que as suas credenciais de subscrição Azure.
 
 [!INCLUDE [app-service-deploy-credentials](../../includes/app-service-deploy-credentials.md)]
 
-## <a name="configure-user-level-credentials"></a><a name="userscope"></a>Configure credenciais de nível de utilizador
+## <a name="configure-user-scope-credentials"></a><a name="userscope"></a>Configure credenciais de alcance do utilizador
 
-Pode configurar as suas credenciais de nível de utilizador na página de [recursos](../azure-resource-manager/management/manage-resources-portal.md#manage-resources)de qualquer aplicação. Independentemente da aplicação que configura estas credenciais, aplica-se a todas as aplicações e a todas as subscrições da sua conta Azure. 
+# <a name="azure-cli"></a>[CLI do Azure](#tab/cli)
 
-### <a name="in-the-cloud-shell"></a>Na Casca de Nuvem
-
-Para configurar o utilizador de implementação no [Cloud Shell,](https://shell.azure.com)executar o comando [de conjunto de utilizadores de implementação az webapp.](/cli/azure/webapp/deployment/user#az-webapp-deployment-user-set) Substitua \<username> e por um nome de utilizador de \<password> implementação e senha. 
+Executar o comando [de conjunto de utilizadores de implementação az webapp.](/cli/azure/webapp/deployment/user#az-webapp-deployment-user-set) Substitua \<username> e por um nome de utilizador de \<password> implementação e senha. 
 
 - O nome de utilizador deve ser único dentro do Azure, e para os pushes git locais, não deve conter o símbolo '@'. 
 - A palavra-passe deve ter pelo menos oito caracteres, com dois dos seguintes três elementos: letras, números e símbolos. 
@@ -32,21 +30,23 @@ Para configurar o utilizador de implementação no [Cloud Shell,](https://shell.
 az webapp deployment user set --user-name <username> --password <password>
 ```
 
-A saída JSON mostra a palavra-passe como `null` . Se obtiver o erro `'Conflict'. Details: 409`, altere o nome de utilizador. Se obtiver o `'Bad Request'. Details: 400` erro, utilize uma palavra-passe mais forte. 
+A saída JSON mostra a palavra-passe como `null` .
 
-### <a name="in-the-portal"></a>No portal
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/powershell)
 
-No portal Azure, deve ter pelo menos uma aplicação antes de poder aceder à página de credenciais de implementação. Para configurar as suas credenciais ao nível do utilizador:
+Não é possível configurar as credenciais de alcance do utilizador com a Azure PowerShell. Utilize um método diferente, ou considere [a utilização de credenciais de âmbito de aplicação](#appscope). 
 
-1. No [portal Azure](https://portal.azure.com), a partir do menu esquerdo, selecione **App Services**  >  **\<any_app>**  >  **Deployment center**  >  **FTP**  >  **Dashboard**.
+# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
+
+Pode configurar as suas credenciais de alcance de utilizador na página de [recursos](../azure-resource-manager/management/manage-resources-portal.md#manage-resources)de qualquer aplicação. Independentemente da aplicação que configura estas credenciais, aplica-se a todas as aplicações para todas as subscrições da sua conta Azure. 
+
+No [portal Azure,](https://portal.azure.com)tem de ter pelo menos uma aplicação antes de poder aceder à página de credenciais de implementação. Para configurar as suas credenciais de âmbito de utilizador:
+
+1. A partir do menu esquerdo da sua aplicação, selecione credenciais ftps **do centro de implantação**> ou  >   **credenciais Locais Git/FTPS**.
 
     ![Mostra como pode selecionar o dashboard FTP a partir do centro de implementação em Azure App Services.](./media/app-service-deployment-credentials/access-no-git.png)
 
-    Ou, se já configurar a implementação do Git, selecione Serviços de **Aplicações**  >  **&lt; any_app>**  >  **Centro de Implementação**  >  **FTP/Credenciais**.
-
-    ![Mostra como pode selecionar o dashboard FTP a partir do centro de implementação em Azure App Services para a sua configuração de implementação do Git.](./media/app-service-deployment-credentials/access-with-git.png)
-
-2. Selecione **Credenciais de Utilizador,** configure o nome de utilizador e a palavra-passe e, em seguida, selecione **Guardar Credenciais**.
+2. Desloque-se até ao **âmbito do Utilizador,** configuure o **nome de utilizador** e a **palavra-passe** e, em seguida, selecione **Guardar**.
 
 Uma vez definidas as suas credenciais de implementação, pode encontrar o nome de utilizador da implementação *do Git* na **página** geral da sua aplicação,
 
@@ -55,24 +55,79 @@ Uma vez definidas as suas credenciais de implementação, pode encontrar o nome 
 Se a implementação do Git estiver configurada, a página mostra um **nome de utilizador Git/deployment**; caso contrário, um nome **de utilizador FTP/implementação**.
 
 > [!NOTE]
-> O Azure não mostra a sua senha de implementação ao nível do utilizador. Se esquecer a palavra-passe, pode redefinir as suas credenciais seguindo os passos desta secção.
+> O Azure não mostra a sua senha de implementação de âmbito de utilizador. Se esquecer a palavra-passe, pode redefinir as suas credenciais seguindo os passos desta secção.
 >
 > 
 
-## <a name="use-user-level-credentials-with-ftpftps"></a>Utilize credenciais ao nível do utilizador com FTP/FTPS
+-----
 
-Autenticação num ponto final FTP/FTPS utilizando credenciais de nível de utilizador requer um nome de utilizador no seguinte formato: `<app-name>\<user-name>`
+## <a name="use-user-scope-credentials-with-ftpftps"></a>Utilize credenciais de alcance do utilizador com FTP/FTPS
 
-Uma vez que as credenciais ao nível do utilizador estão ligadas ao utilizador e não a um recurso específico, o nome de utilizador deve estar neste formato para direcionar a ação de entrada para o ponto final da aplicação certa.
+A autenticação num ponto final FTP/FTPS utilizando credenciais de alcance do utilizador requer um nome de utilizador no seguinte formato: `<app-name>\<user-name>`
 
-## <a name="get-and-reset-app-level-credentials"></a><a name="appscope"></a>Obtenha e reinicie credenciais de nível de aplicativo
-Para obter as credenciais de nível de aplicação:
+Uma vez que as credenciais de alcance do utilizador estão ligadas ao utilizador e não a um recurso específico, o nome de utilizador deve estar neste formato para direcionar a ação de entrada para o ponto final da aplicação certa.
 
-1. No [portal Azure](https://portal.azure.com), a partir do menu esquerdo, selecione Serviços de **Aplicações**  >  **&lt; any_app>**  >  **Centro de Implementação**  >  **FTP/Credenciais**.
+## <a name="get-application-scope-credentials"></a><a name="appscope"></a>Obtenha credenciais de aplicação-âmbito
 
-2. Selecione **Credenciais de Aplicação** e selecione o link **Copy** para copiar o nome de utilizador ou palavra-passe.
+# <a name="azure-cli"></a>[CLI do Azure](#tab/cli)
 
-Para redefinir as credenciais de nível de aplicação, selecione **'Repor credenciais'** no mesmo diálogo.
+Obtenha as credenciais de aplicação-âmbito usando o comando [de perfis de lista de publicação de listas de publicação da webapp az.](/cli/azure/webapp/deployment#az_webapp_deployment_list_publishing_profiles) Por exemplo:
+
+```azurecli-interactive
+az webapp deployment list-publishing-profiles --resource-group <group-name> --name <app-name>
+```
+
+Para [a implementação local do Git](deploy-local-git.md), também pode utilizar o comando de [credenciais de publicação de listas de publicação de webapp az](/cli/azure/webapp/deployment#az_webapp_deployment_list_publishing_credentials) para obter um URI remoto Git para a sua aplicação, com as credenciais de âmbito de aplicação já incorporadas. Por exemplo:
+
+```azurecli-interactive
+az webapp deployment list-publishing-credentials --resource-group <group-name> --name <app-name> --query scmUri
+```
+
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/powershell)
+
+Obtenha as credenciais de âmbito de aplicação usando o comando [Get-AzWebAppPublishingProfile.](/powershell/module/az.websites/get-azwebapppublishingprofile) Por exemplo:
+
+```azurepowershell-interactive
+Get-AzWebAppPublishingProfile -ResourceGroupName <group-name> -Name <app-name>
+```
+
+# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
+
+1. A partir do menu esquerdo da sua aplicação, selecione credenciais FTPS **do centro de implantação** ou  >   **credenciais Locais Git/FTPS**.
+
+    ![Mostra como pode selecionar o dashboard FTP a partir do centro de implementação em Azure App Services.](./media/app-service-deployment-credentials/access-no-git.png)
+
+2. Na secção **de âmbito de aplicação,** selecione o link **Copiar** para copiar o nome de utilizador ou palavra-passe.
+
+-----
+
+## <a name="reset-application-scope-credentials"></a>Redefinir credenciais de âmbito de aplicação
+
+# <a name="azure-cli"></a>[CLI do Azure](#tab/cli)
+
+Redefinir as credenciais de âmbito de aplicação utilizando o comando [de ação de invocação de recursos az:](/cli/azure/resource#az_resource_invoke_action)
+
+```azurecli-interactive
+az resource invoke-action --action newpassword --resource-group <group-name> --name <app-name> --resource-type Microsoft.Web/sites
+```
+
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/powershell)
+
+Redefinir as credenciais de âmbito de aplicação utilizando o comando [Invoke-AzResourceAction:](/powershell/module/az.resources/invoke-azresourceaction)
+
+```azurepowershell-interactive
+Invoke-AzResourceAction -ResourceGroupName <group-name> -ResourceType Microsoft.Web/sites -ResourceName <app-name> -Action newpassword
+```
+
+# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
+
+1. A partir do menu esquerdo da sua aplicação, selecione credenciais FTPS **do centro de implantação** ou  >   **credenciais Locais Git/FTPS**.
+
+    ![Mostra como pode selecionar o dashboard FTP a partir do centro de implementação em Azure App Services.](./media/app-service-deployment-credentials/access-no-git.png)
+
+2. Na secção **de âmbito de aplicação,** selecione **Reset**.
+
+-----
 
 ## <a name="disable-basic-authentication"></a>Desativar a autenticação básica
 
@@ -82,7 +137,7 @@ Algumas organizações precisam de cumprir os requisitos de segurança e prefere
 
 Para desativar o acesso FTP ao site, executar o seguinte comando CLI. Substitua os espaços reservados pelo seu grupo de recursos e nome do local. 
 
-```bash
+```azurecli-interactive
 az resource update --resource-group <resource-group> --name ftp --namespace Microsoft.Web --resource-type basicPublishingCredentialsPolicies --parent sites/<site-name> --set properties.allow=false
 ```
 
@@ -92,7 +147,7 @@ Para confirmar que o acesso FTP está bloqueado, pode tentar autenticar usando u
 
 Para desativar o acesso básico à porta WebDeploy e ao site SCM, executar o seguinte comando CLI. Substitua os espaços reservados pelo seu grupo de recursos e nome do local. 
 
-```bash
+```azurecli-interactive
 az resource update --resource-group <resource-group> --name scm --namespace Microsoft.Web --resource-type basicPublishingCredentialsPolicies --parent sites/<site-name> --set properties.allow=false
 ```
 

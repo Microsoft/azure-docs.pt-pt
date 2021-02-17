@@ -2,19 +2,19 @@
 author: alkohli
 ms.service: storsimple
 ms.topic: include
-ms.date: 10/26/2018
+ms.date: 02/09/2021
 ms.author: alkohli
-ms.openlocfilehash: 2abfa29671bd804ee75194ef621fe07f06c015e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 400c5f0b2281679c3ec913e94643ffec6082d9e6
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67184312"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100552899"
 ---
 #### <a name="to-create-a-volume"></a>Para criar um volume
-1. A partir da lista tabular de dispositivos no painel **Dispositivos**, selecione o seu dispositivo. Clique em **+ Adicionar volume**.
+1. A partir da lista tabular de dispositivos no painel **Dispositivos**, selecione o seu dispositivo. Clique em **+ Adicionar volume**.<!--Note to reviewer. No screen updates. Had to rename screens to be able to correct a formatting error.-->
 
-    ![Adicionar um novo volume](./media/storsimple-8000-create-volume-u2/step5createvol1.png)
+    ![Adicionar um novo volume](./media/storsimple-8000-create-volume-u2/create-volume-01.png)
 
 2. No painel **Adicionar um volume**:
    
@@ -35,10 +35,10 @@ ms.locfileid: "67184312"
        Pode aprovisionar volumes localmente afixados até 8,5 TB ou volumes em camadas até 200 TB no dispositivo 8100. No dispositivo 8600 maior, pode aprovisionar volumes localmente afixados até 22,5 TB ou volumes em camadas até 500 TB. Como é preciso espaço local no dispositivo para alojar o conjunto de trabalho de volumes em camadas, a criação de volumes localmente afixados tem impacto no espaço disponível para o aprovisionamento de volumes em camadas. Por conseguinte, se criar um volume afixado localmente, é reduzido o espaço disponível para criação de volumes em camadas. Do mesmo modo, se for criado um volume em camadas, o espaço disponível para a criação de volumes localmente afixados é reduzido.
       
        Se aprovisionar um volume localmente afixado de 8,5 TB (tamanho máximo admissível) no dispositivo 8100, terá esgotado todo o espaço local disponível no dispositivo. Não pode criar nenhum volume escalonado a partir desse ponto, uma vez que não há espaço local no dispositivo para alojar o conjunto de trabalho do volume escalonado. Os volumes em camadas existentes também afetam o espaço disponível. Por exemplo, se tiver um dispositivo 8100 que já tem volumes em camadas de, aproximadamente, 106 TB, está disponível apenas um espaço de 4 TB para volumes afixados localmente.
-
+ 
       1. No campo **Anfitriões ligados**, clique na seta. 
 
-         ![Anfitriões ligados](./media/storsimple-8000-create-volume-u2/step5createvol2.png)
+         ![Anfitriões ligados](./media/storsimple-8000-create-volume-u2/create-volume-02.png)
 
       1. No painel **Anfitriões ligados**, escolha um ACR existente ou adicione um novo ACR efetuando os seguintes passos:
 
@@ -47,7 +47,7 @@ ms.locfileid: "67184312"
 
       1. Clique em **Criar**. É criado um volume com as definições especificadas.
 
-         ![Clique em Criar](./media/storsimple-8000-create-volume-u2/step5createvol3.png)
+         ![Clique em Criar](./media/storsimple-8000-create-volume-u2/create-volume-03.png)
 
          > [!NOTE]
          > Tenha em atenção que o volume que criou aqui não está protegido. Terá de criar e associar políticas de cópia de segurança a este volume para efetuar cópias de segurança agendadas. 

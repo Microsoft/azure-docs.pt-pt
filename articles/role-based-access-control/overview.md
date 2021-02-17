@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 09/30/2020
 ms.author: rolyon
 ms.custom: contperf-fy21q1, azuread-video-2020
-ms.openlocfilehash: a39ae904bb1dd36c3d3e19e8f51ff24e8d975f9b
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 5bf9b79621ae1cd2c73f2e3ce18b0780bcdd2a71
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033923"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100559330"
 ---
 # <a name="what-is-azure-role-based-access-control-azure-rbac"></a>O que é o controlo de acesso baseado em funções do Azure (Azure RBAC)?
 
@@ -27,7 +27,7 @@ Este vídeo fornece uma visão geral rápida do Azure RBAC.
 
 >[!VIDEO https://www.youtube.com/embed/Dzhm-garKBM]
 
-## <a name="what-can-i-do-with-azure-rbac"></a>O que posso fazer com Azure RBAC?
+## <a name="what-can-i-do-with-azure-rbac"></a>O que posso fazer com o RBAC do Azure?
 
 Aqui estão alguns exemplos do que pode fazer com a Azure RBAC:
 
@@ -38,7 +38,7 @@ Aqui estão alguns exemplos do que pode fazer com a Azure RBAC:
 
 ## <a name="how-azure-rbac-works"></a>Como funciona o Azure RBAC
 
-A forma como controla o acesso aos recursos usando o Azure RBAC é criar atribuições de papéis. Este é um conceito chave para entender – é como as permissões são aplicadas. Uma atribuição de função é composta por três elementos: principal de segurança, definição de função e âmbito.
+A forma como controla o acesso aos recursos usando o Azure RBAC é atribuir funções Azure. Este é um conceito chave para entender – é como as permissões são aplicadas. Uma atribuição de função é composta por três elementos: principal de segurança, definição de função e âmbito.
 
 ### <a name="security-principal"></a>Principal de segurança
 
@@ -80,9 +80,9 @@ O diagrama seguinte mostra um exemplo de uma atribuição de função. Neste exe
 
 ![Atribuição de função para controlar o acesso](./media/overview/rbac-overview.png)
 
-Pode criar atribuições de funções no portal do Azure, CLI do Azure, Azure PowerShell, SDKs do Azure ou APIs REST.
+Pode atribuir funções utilizando o portal Azure CLI, Azure PowerShell, Azure SDKs ou REST APIs.
 
-Para obter mais informações, consulte [Passos para adicionar uma atribuição de funções](role-assignments-steps.md).
+Para obter mais informações, consulte [Passos para atribuir um papel de Azure](role-assignments-steps.md).
 
 ## <a name="multiple-role-assignments"></a>Atribuições múltiplas de papéis
 
@@ -122,6 +122,6 @@ Seguem-se os passos de alto nível que o Azure RBAC utiliza para determinar se t
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Adicionar ou remover atribuições de funções do Azure com o portal do Azure](role-assignments-portal.md)
+- [Atribuir funções Azure usando o portal Azure](role-assignments-portal.md)
 - [Compreender as diferentes funções](rbac-and-directory-admin-roles.md)
 - [Cloud Adopt Framework: Gestão do acesso a recursos em Azure](/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management)

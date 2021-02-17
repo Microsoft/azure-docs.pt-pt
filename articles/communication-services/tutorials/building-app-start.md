@@ -8,12 +8,12 @@ ms.author: nmurav
 ms.date: 01/03/2012
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: db59a9e7693190582736b9460658f629f4f1e555
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 4655a20ddd419993f5a73ec54420abec96d32a62
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100369633"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546181"
 ---
 # <a name="tutorial-prepare-a-web-app-for-azure-communication-services-nodejs"></a>Tutorial: Preparar uma aplicação web para serviços de comunicação Azure (Node.js)
 
@@ -262,6 +262,7 @@ html {
     font-family: sans-serif;
   }
 ```
+Não se esqueça de guardar! O ficheiro não-salvo é indicado por pontos brancos ao lado de nomes de ficheiros no ficheiro Explorer.
 
  :::image type="content" source="./media/step-one-pic-14.png" alt-text="App.js ficheiro com código JS":::
 

@@ -8,10 +8,12 @@
       href: whats-new.md
 - name: Guias de Início Rápido
   items:
-    - name: Criar e consultar base de conhecimento no portal QnA Maker
-      href: Quickstarts/create-publish-knowledge-base.md
-    - name: Criar e consultar base de conhecimentos utilizando bibliotecas de clientes ou REST API
-      href: Quickstarts/quickstart-sdk.md
+    - name: Criar e Consultar a Base de Conhecimentos
+      items:
+        - name: Portal do Criador de FAQ
+          href: Quickstarts/create-publish-knowledge-base.md
+        - name: Bibliotecas de clientes ou REST API
+          href: Quickstarts/quickstart-sdk.md
     - name: Consultar uma base de conhecimento com APIs REST
       href: Quickstarts/get-answer-from-knowledge-base-using-url-tool.md
 - name: Tutoriais

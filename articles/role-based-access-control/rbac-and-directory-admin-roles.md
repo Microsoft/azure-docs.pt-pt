@@ -15,12 +15,12 @@ ms.date: 01/04/2021
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: 0b43f30c25767a135b98b756d61ed2535e1fbd22
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: daab07a72f61cfdf4f39cae03a1c61bd18f37a8f
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99092205"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100557440"
 ---
 # <a name="classic-subscription-administrator-roles-azure-roles-and-azure-ad-roles"></a>Funções clássicas de administrador de subscrição, funções de Azure e Azure AD
 
@@ -91,7 +91,7 @@ Ao clicar no **separador 'Funções',** verá a lista de funções incorporadas 
 
 ![Funções incorporadas no portal do Azure](./media/rbac-and-directory-admin-roles/roles-list.png)
 
-Para obter mais informações, veja [Utilizar o portal do Azure para adicionar ou remover atribuições de funções do Azure](role-assignments-portal.md).
+Para obter mais informações, consulte [as funções De Atribuição Azure utilizando o portal Azure](role-assignments-portal.md).
 
 ## <a name="azure-ad-roles"></a>Funções do Azure AD
 
@@ -129,5 +129,5 @@ Vários funções de AD Azure abrangem Azure AD e Microsoft 365, tais como as fu
 ## <a name="next-steps"></a>Passos seguintes
 
 - [O que é o controlo de acesso baseado em funções do Azure (Azure RBAC)?](overview.md)
-- [Permissões da função de administrador no Azure Active Directory](../active-directory/roles/permissions-reference.md)
+- [Administrator role permissions in Azure Active Directory](../active-directory/roles/permissions-reference.md) (Permissões de cargos de administrador no Azure Active Directory)
 - [Administradores de subscrição clássicos do Azure](classic-administrators.md)

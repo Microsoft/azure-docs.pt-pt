@@ -15,19 +15,19 @@ ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: b459f44308827308c28687db3c3fc33df470ea8d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ab64765fc4e329c8edbf7a4db813113d20d476b3
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84790194"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100557519"
 ---
 # <a name="create-or-update-azure-custom-roles-using-the-rest-api"></a>Criar ou atualizar funções personalizadas Azure usando a API REST
 
 > [!IMPORTANT]
 > A adição de um grupo de gestão `AssignableScopes` está atualmente em pré-visualização.
 > Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
-> Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Se os [papéis incorporados do Azure](built-in-roles.md) não corresponderem às necessidades específicas da sua organização, pode criar os seus próprios papéis personalizados. Este artigo descreve como listar, criar, atualizar ou eliminar funções personalizadas usando a API REST.
 
@@ -44,7 +44,7 @@ Para listar todas as funções personalizadas num diretório, utilize as [Defini
 1. Substitua *{filter}* pelo tipo de função.
 
     > [!div class="mx-tableFixed"]
-    > | Filtrar | Descrição |
+    > | Filtro | Descrição |
     > | --- | --- |
     > | `$filter=type+eq+'CustomRole'` | Filtro baseado no tipo CustomRole |
 
@@ -71,7 +71,7 @@ Para listar funções personalizadas num âmbito, utilize as [Definições de Fu
 1. Substitua *{filter}* pelo tipo de função.
 
     > [!div class="mx-tableFixed"]
-    > | Filtrar | Descrição |
+    > | Filtro | Descrição |
     > | --- | --- |
     > | `$filter=type+eq+'CustomRole'` | Filtro baseado no tipo CustomRole |
 
@@ -98,7 +98,7 @@ Para obter informações sobre um papel personalizado pelo seu nome de exibiçã
 1. Substitua *{filter}* pelo nome de visualização para a função.
 
     > [!div class="mx-tableFixed"]
-    > | Filtrar | Descrição |
+    > | Filtro | Descrição |
     > | --- | --- |
     > | `$filter=roleName+eq+'{roleDisplayName}'` | Utilize a forma codificada url do nome exato do visor da função. Por exemplo, `$filter=roleName+eq+'Virtual%20Machine%20Contributor'` |
 
@@ -341,5 +341,5 @@ Para eliminar uma função personalizada, utilize as [Definições de Função -
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Funções personalizadas do Azure](custom-roles.md)
-- [Utilizar a API REST para adicionar ou remover atribuições de funções do Azure](role-assignments-rest.md)
+- [Atribuir funções Azure utilizando a API REST](role-assignments-rest.md)
 - [Referência à API REST do Azure](/rest/api/azure/)

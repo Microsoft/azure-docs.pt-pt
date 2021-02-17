@@ -1,25 +1,29 @@
 ---
-title: Adicione atribuições de funções Azure usando modelos de Gestor de Recursos Azure - Azure RBAC
+title: Atribuir funções Azure usando modelos de Gestor de Recursos Azure - Azure RBAC
 description: Saiba como conceder acesso aos recursos Azure para utilizadores, grupos, principais serviços ou identidades geridas utilizando modelos de Gestor de Recursos Azure e controlo de acesso baseado em funções Azure (Azure RBAC).
 services: active-directory
 documentationcenter: ''
 author: rolyon
-manager: mtillman
+manager: daveba
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
 ms.date: 01/21/2021
 ms.author: rolyon
-ms.openlocfilehash: 023aa086cdafc3ab1459c2f748b2181575c14191
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 65b4ec369085e44cdffb0550e9eeaef0196cd35a
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98675341"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100556028"
 ---
-# <a name="add-azure-role-assignments-using-azure-resource-manager-templates"></a>Adicione atribuições de funções Azure usando modelos de Gestor de Recursos Azure
+# <a name="assign-azure-roles-using-azure-resource-manager-templates"></a>Atribuir funções Azure usando modelos de Gestor de Recursos Azure
 
 [!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control/definition-grant.md)] Além de utilizar o Azure PowerShell ou o Azure CLI, pode atribuir funções utilizando [modelos do Gestor de Recursos Azure](../azure-resource-manager/templates/template-syntax.md). Os modelos podem ser úteis se precisar de mobilizar recursos de forma consistente e repetida. Este artigo descreve como atribuir funções usando modelos.
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+[!INCLUDE [Azure role assignment prerequisites](../../includes/role-based-access-control/prerequisites-role-assignments.md)]
 
 ## <a name="get-object-ids"></a>Obtenha iDs de objeto
 
@@ -37,7 +41,7 @@ $objectid = (Get-AzADUser -DisplayName "{name}").id
 objectid=$(az ad user show --id "{email}" --query objectId --output tsv)
 ```
 
-### <a name="group"></a>Grupo
+### <a name="group"></a>Group
 
 Para obter o ID de um grupo, você pode usar os comandos de grupo [get-AzADGroup](/powershell/module/az.resources/get-azadgroup) ou [az ad show.](/cli/azure/ad/group#az-ad-group-show)
 
@@ -73,13 +77,13 @@ $objectid = (Get-AzADServicePrincipal -DisplayName "{name}").id
 objectid=$(az ad sp list --display-name "{name}" --query [].objectId --output tsv)
 ```
 
-## <a name="add-a-role-assignment"></a>Adicionar uma atribuição de função
+## <a name="assign-an-azure-role"></a>Atribuir um papel Azure
 
-No Azure RBAC, para conceder acesso, adiciona-se uma atribuição de papéis.
+No Azure RBAC, para dar acesso, atribui-se um papel.
 
 ### <a name="resource-group-scope-without-parameters"></a>Âmbito do grupo de recursos (sem parâmetros)
 
-O modelo a seguir mostra uma forma básica de adicionar uma atribuição de função. Alguns valores são especificados dentro do modelo. O modelo a seguir demonstra:
+O modelo a seguir mostra uma forma básica de atribuir um papel. Alguns valores são especificados dentro do modelo. O modelo a seguir demonstra:
 
 -  Como atribuir a função [Reader](built-in-roles.md#reader) a um utilizador, grupo ou aplicação num âmbito de grupo de recursos
 
@@ -206,7 +210,7 @@ az deployment sub create --location centralus --template-file rbac-test.json --p
 
 ### <a name="resource-scope"></a>Âmbito do recurso
 
-Se precisar de adicionar uma atribuição de função ao nível de um recurso, desaprote a `scope` propriedade na atribuição de funções para o nome do recurso.
+Se precisar de atribuir uma função ao nível de um recurso, desaprote a `scope` propriedade na atribuição de funções para o nome do recurso.
 
 O modelo a seguir demonstra:
 
@@ -369,15 +373,6 @@ az deployment group create --resource-group ExampleGroup2 --template-file rbac-t
 O seguinte mostra um exemplo da atribuição de funções do Contribuinte a um novo diretor de serviço de identidade gerido após a implementação do modelo.
 
 ![Atribuição de funções para um novo diretor de serviço de identidade gerido](./media/role-assignments-template/role-assignment-template-msi.png)
-
-## <a name="remove-a-role-assignment"></a>Remover uma atribuição de função
-
-No Azure RBAC, para remover o acesso a um recurso Azure, você remove a atribuição de funções. Não há uma maneira de remover uma tarefa de função usando um modelo. Para remover uma atribuição de funções, deve utilizar outras ferramentas tais como:
-
-- [Portal do Azure](role-assignments-portal.md#remove-a-role-assignment)
-- [Azure PowerShell](role-assignments-powershell.md#remove-a-role-assignment)
-- [CLI do Azure](role-assignments-cli.md#remove-a-role-assignment)
-- [API REST](role-assignments-rest.md#remove-a-role-assignment)
 
 ## <a name="next-steps"></a>Passos seguintes
 

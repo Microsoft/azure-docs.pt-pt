@@ -10,6 +10,9 @@
     - name: Hub virtual seguro - modelo ARM
       displayName: Resource Manager
       href: quick-secure-virtual-hub.md
+    - name: Implementar firewall com política - modelo ARM
+      displayName: Resource Manager
+      href: quick-firewall-policy.md
 - name: Tutoriais
   items:
     - name: Proteger o seu hub virtual - portal

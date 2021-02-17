@@ -5,15 +5,15 @@ author: ginamr
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 11/23/2020
+ms.date: 02/17/2021
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 736cf488efbdc095823a1fa603f191442d907de3
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: f01f5faf68821fe9f85657c74111efdbb02bd204
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "96004471"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100559928"
 ---
 # <a name="st_distance-azure-cosmos-db"></a>ST_DISTANCE (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -55,7 +55,7 @@ WHERE ST_DISTANCE(f.location, {'type': 'Point', 'coordinates':[31.9, -4.8]}) < 3
 
 ## <a name="remarks"></a>Observações
 
-Esta função do sistema beneficiará de um [índice geoespacial.](index-policy.md#spatial-indexes)
+Esta função do sistema beneficiará de um [índice geoespacial,](index-policy.md#spatial-indexes) exceto em consultas com agregados.
 
 ## <a name="next-steps"></a>Passos seguintes
 

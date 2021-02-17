@@ -1,14 +1,14 @@
 ---
-title: Configure a monitorização da GPU com o Azure Monitor para contentores Microsoft Docs
+title: Configure a monitorização da GPU com o Monitor Azure para contentores | Microsoft Docs
 description: Este artigo descreve como pode configurar os aglomerados kubernetes de monitorização com gPIA e GPU da AMD ativados com Azure Monitor para contentores.
 ms.topic: conceptual
 ms.date: 03/27/2020
 ms.openlocfilehash: e391117ab57211aa5d178d11c27b934b4ccd37f8
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905592"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100561637"
 ---
 # <a name="configure-gpu-monitoring-with-azure-monitor-for-containers"></a>Configure a monitorização da GPU com o Monitor Azure para contentores
 

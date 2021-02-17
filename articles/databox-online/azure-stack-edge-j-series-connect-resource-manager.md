@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 01/25/2021
 ms.author: alkohli
-ms.openlocfilehash: 54aad90cf86f1a20d76f04f3a829f29c47023558
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: ebadfc889eb648b734747e5a2a45662e82aab643
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98805790"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546810"
 ---
 # <a name="connect-to-azure-resource-manager-on-your-azure-stack-edge-pro-device"></a>Ligue ao Gestor de Recursos Azure no seu dispositivo Azure Stack Edge Pro
 
@@ -93,9 +93,9 @@ Para se ligar ao Azure Resource Manager, terá de criar ou obter certificados de
 
 Apenas para o teste e uso de desenvolvimento, pode utilizar o Windows PowerShell para criar certificados no seu sistema local. Ao criar os certificados para o cliente, siga estas orientações:
 
-1. Primeiro precisa de criar um certificado de raiz para a cadeia de assinaturas. Para obter mais informações, consulte os passos para [criar certificados de cadeia de assinatura.](azure-stack-edge-j-series-manage-certificates.md#create-signing-chain-certificate)
+1. Primeiro precisa de criar um certificado de raiz para a cadeia de assinaturas. Para obter mais informações, consulte os passos para [criar certificados de cadeia de assinatura.](azure-stack-edge-gpu-manage-certificates.md#create-signing-chain-certificate)
 
-2. Em seguida, pode criar os certificados de ponto final para o blob e O Gestor de Recursos Azure. Pode obter estes pontos finais da página **dispositivo** na UI web local. Consulte os passos para [criar certificados de ponto final.](azure-stack-edge-j-series-manage-certificates.md#create-signed-endpoint-certificates)
+2. Em seguida, pode criar os certificados de ponto final para o blob e O Gestor de Recursos Azure. Pode obter estes pontos finais da página **dispositivo** na UI web local. Consulte os passos para [criar certificados de ponto final.](azure-stack-edge-gpu-manage-certificates.md#create-signed-endpoint-certificates)
 
 3. Para todos estes certificados, certifique-se de que o nome do sujeito e o nome alternativo do sujeito estão em conformidade com as seguintes orientações:
 
@@ -105,26 +105,26 @@ Apenas para o teste e uso de desenvolvimento, pode utilizar o Windows PowerShell
     |Armazenamento de blobs|`*.blob.<Device name>.<Dns Domain>`|`*.blob.< Device name>.<Dns Domain>`|`*.blob.mydevice1.microsoftdatabox.com` |
     |Certificado único multi-SAN para ambos os pontos finais|`<Device name>.<dnsdomain>`|`login.<Device name>.<Dns Domain>`<br>`management.<Device name>.<Dns Domain>`<br>`*.blob.<Device name>.<Dns Domain>`|`mydevice1.microsoftdatabox.com` |
 
-Para obter mais informações sobre certificados, aceda a como [Gerir certificados.](azure-stack-edge-j-series-manage-certificates.md)
+Para obter mais informações sobre certificados, aceda a como [Gerir certificados.](azure-stack-edge-gpu-manage-certificates.md)
 
 ### <a name="upload-certificates-on-the-device"></a>Carregar certificados no dispositivo
 
 Os certificados que criou no passo anterior estarão na loja Personal do seu cliente. Estes certificados precisam de ser exportados no seu cliente para ficheiros de formato apropriados que podem ser depois enviados para o seu dispositivo.
 
-1. O certificado raiz deve ser exportado como um ficheiro de formato DER com *.cer* extensão de ficheiro. Para obter etapas detalhadas, consulte [os certificados de exportação como um ficheiro de formato .cer](azure-stack-edge-j-series-manage-certificates.md#export-certificates-as-der-format).
+1. O certificado raiz deve ser exportado como um ficheiro de formato DER com *.cer* extensão de ficheiro. Para obter etapas detalhadas, consulte [os certificados de exportação como um ficheiro de formato .cer](azure-stack-edge-gpu-manage-certificates.md#export-certificates-as-der-format).
 
-2. Os certificados de ponto final devem ser exportados como *ficheiros .pfx* com chaves privadas. Para etapas detalhadas, consulte [os certificados de exportação como ficheiro .pfx com chaves privadas](azure-stack-edge-j-series-manage-certificates.md#export-certificates-as-pfx-format-with-private-key).
+2. Os certificados de ponto final devem ser exportados como *ficheiros .pfx* com chaves privadas. Para etapas detalhadas, consulte [os certificados de exportação como ficheiro .pfx com chaves privadas](azure-stack-edge-gpu-manage-certificates.md#export-certificates-as-pfx-format-with-private-key).
 
-3. Os certificados raiz e ponto final são então carregados no dispositivo utilizando a opção **de certificado +Adicionar** na página **certificados** na UI web local. Para fazer o upload dos certificados, siga os passos nos [certificados upload](azure-stack-edge-j-series-manage-certificates.md#upload-certificates).
+3. Os certificados raiz e ponto final são então carregados no dispositivo utilizando a opção **de certificado +Adicionar** na página **certificados** na UI web local. Para fazer o upload dos certificados, siga os passos nos [certificados upload](azure-stack-edge-gpu-manage-certificates.md#upload-certificates).
 
 
 ### <a name="import-certificates-on-the-client-running-azure-powershell"></a>Certificados de importação no cliente que executa a Azure PowerShell
 
 O cliente windows onde irá invocar as APIs do Gestor de Recursos Azure precisa de estabelecer confiança com o dispositivo. Para o efeito, os certificados que criou no passo anterior devem ser importados no seu cliente Windows para a loja de certificados apropriada.
 
-1. O certificado de raiz que exportou como formato DER com *.cer* extensão deve agora ser importado nas Autoridades de Certificados de Raiz Fidedignas no seu sistema de clientes. Para obter etapas detalhadas, consulte [os certificados de importação na loja Trusted Root Certificate Authorities.](azure-stack-edge-j-series-manage-certificates.md#import-certificates-as-der-format)
+1. O certificado de raiz que exportou como formato DER com *.cer* extensão deve agora ser importado nas Autoridades de Certificados de Raiz Fidedignas no seu sistema de clientes. Para obter etapas detalhadas, consulte [os certificados de importação na loja Trusted Root Certificate Authorities.](azure-stack-edge-gpu-manage-certificates.md#import-certificates-as-der-format)
 
-2. Os certificados de ponto final que exportou como *.pfx* devem ser exportados como *.cer*. Esta *.cer* é então importada na loja **de certificados pessoais** no seu sistema. Para obter etapas detalhadas, consulte [certificados de importação em loja pessoal.](azure-stack-edge-j-series-manage-certificates.md#import-certificates-as-der-format)
+2. Os certificados de ponto final que exportou como *.pfx* devem ser exportados como *.cer*. Esta *.cer* é então importada na loja **de certificados pessoais** no seu sistema. Para obter etapas detalhadas, consulte [certificados de importação em loja pessoal.](azure-stack-edge-gpu-manage-certificates.md#import-certificates-as-der-format)
 
 ## <a name="step-3-install-powershell-on-the-client"></a>Passo 3: Instalar PowerShell no cliente 
 
@@ -458,6 +458,6 @@ ExtendedProperties : {}
 ```
 Mudou agora para o ambiente pretendido.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Coloque VMs no seu dispositivo Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md).

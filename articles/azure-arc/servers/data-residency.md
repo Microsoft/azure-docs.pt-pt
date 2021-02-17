@@ -2,14 +2,14 @@
 title: Residência dos dados
 description: Residência de dados e informações sobre servidores ativados do Azure Arc.
 ms.topic: reference
-ms.date: 10/08/2020
+ms.date: 02/16/2021
 ms.custom: references_regions
-ms.openlocfilehash: c5ece96acc3ee07ba2896279888363c7d52d737e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d4764772473bbf2e5aafe2607a9462c9a6a15203
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91856454"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100559511"
 ---
 # <a name="azure-arc-enabled-servers-data-residency"></a>Servidores habilitados Azure Arc: Residência de dados
 
@@ -23,10 +23,16 @@ Os servidores ativados Azure Arc armazenam as definições de [configuração de
 
 São também recolhidas informações sobre metadados sobre a máquina conectada. Especificamente:
 
-* Nome e versão do sistema operativo
+* Nome, tipo e versão do sistema operativo
 * Nome do computador
 * Nome de domínio totalmente qualificado do computador (FQDN)
 * Versão do agente da máquina conectada
+* Diretório Ativo e Nome de domínio totalmente qualificado (FQDN)
+* UUID (ID BIO)
+* Batimento cardíaco do agente da máquina conectado
+* Versão do agente da máquina conectada
+* Chave pública para a identidade gerida
+* Estado de conformidade com a política e detalhes (se utilizar as políticas de configuração do hóspede da Azure Policy)
 
 Os servidores ativados pelo Arco permitem especificar a região onde os seus dados serão armazenados. A Microsoft pode replicar-se noutras regiões para a resiliência dos dados, mas a Microsoft não replica ou move dados para fora da geografia. Estes dados são armazenados na região onde o recurso da máquina Azure Arc está configurado. Por exemplo, se a máquina estiver registada com a Arc na região leste dos EUA, estes dados são armazenados na região dos EUA.
 

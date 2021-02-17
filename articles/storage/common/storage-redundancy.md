@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 01/19/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 598673bca5b893236cfd38a7fa220ff25ee9dd7e
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 78958dc0f95d2bc7a9e393ac2e769a97f7e92efa
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100388520"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100556449"
 ---
 # <a name="azure-storage-redundancy"></a>Redundância do Armazenamento do Azure
 
@@ -179,10 +179,10 @@ A tabela a seguir indica se os seus dados são duráveis e disponíveis num dete
 
 | Cenário de paralisação | LRS | ZRS | GRS/RA-GRS | GZRS/RA-GZRS |
 |:-|:-|:-|:-|:-|
-| Um nó dentro de um centro de dados torna-se indisponível | Yes | Yes | Yes | Yes |
-| Um centro de dados inteiro (zonal ou não-zonal) torna-se indisponível | No | Yes | Sim<sup>1</sup> | Yes |
-| Uma paralisação em toda a região ocorre na região primária | No | No | Sim<sup>1</sup> | Sim<sup>1</sup> |
-| Leia o acesso à região secundária disponível se a região primária ficar indisponível | No | No | Sim (com RA-GRS) | Sim (com RA-GZRS) |
+| Um nó dentro de um centro de dados torna-se indisponível | Sim | Sim | Sim | Sim |
+| Um centro de dados inteiro (zonal ou não-zonal) torna-se indisponível | Não | Sim | Sim<sup>1</sup> | Sim |
+| Uma paralisação em toda a região ocorre na região primária | Não | Não | Sim<sup>1</sup> | Sim<sup>1</sup> |
+| Leia o acesso à região secundária disponível se a região primária ficar indisponível | Não | Não | Sim (com RA-GRS) | Sim (com RA-GZRS) |
 
 <sup>1</sup> O failover da conta é necessário para restaurar a disponibilidade de escrita se a região primária ficar indisponível. Para obter mais informações, consulte [a recuperação de desastres e a falha da conta de armazenamento.](storage-disaster-recovery-guidance.md)
 
@@ -200,7 +200,7 @@ O quadro seguinte mostra quais as opções de despedimento suportadas por cada t
 
 | LRS | ZRS | GRS/RA-GRS | GZRS/RA-GZRS |
 |:-|:-|:-|:-|
-| Fins gerais v2<br /> Fins gerais v1<br /> Armazenamento de blob de bloco<br /> Armazenamento de blobs<br /> Armazenamento de ficheiros | Fins gerais v2<br /> Armazenamento de blob de bloco<br /> Armazenamento de ficheiros | Fins gerais v2<br /> Fins gerais v1<br /> Armazenamento de blobs | Fins gerais v2 |
+| Fins gerais v2<br /> Fins gerais v1<br /> BlockBlobStorage<br /> BlobStorage<br /> Arquitorage de arquivos | Fins gerais v2<br /> BlockBlobStorage<br /> Arquitorage de arquivos | Fins gerais v2<br /> Fins gerais v1<br /> BlobStorage | Fins gerais v2 |
 
 Todos os dados relativos a todas as contas de armazenamento são copiados de acordo com a opção de despedimento para a conta de armazenamento. Objetos que incluem bolhas de blocos, bolhas de apêndice, bolhas de página, filas, tabelas e ficheiros são copiados. Os dados em todos os níveis, incluindo o nível de arquivo, são copiados. Para obter mais informações sobre os níveis de blob, consulte [o armazenamento Azure Blob: níveis de acesso quentes, frescos e de arquivo](../blobs/storage-blob-storage-tiers.md).
 
