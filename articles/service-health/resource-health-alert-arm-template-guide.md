@@ -3,18 +3,18 @@ title: Modelo para criar alertas de saúde de recursos
 description: Crie alertas programáticamente que o notifiquem quando os seus recursos Azure ficarem indisponíveis.
 ms.topic: conceptual
 ms.date: 9/4/2018
-ms.openlocfilehash: 3859bb0ce2497b1c1f547c3750e53745ef6d6f28
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4f1cbe1e2d2c185906feb4ccba380cb31df864f5
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91537434"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100588201"
 ---
 # <a name="configure-resource-health-alerts-using-resource-manager-templates"></a>Configurar alertas de estado de funcionamento dos recursos com os modelos do Resource Manager
 
 Este artigo irá mostrar-lhe como criar alertas de registo de atividade de saúde de recursos programáticamente usando modelos de Gestor de Recursos Azure e Azure PowerShell.
 
-A Azure Resource Health mantém-no informado sobre o estado de saúde atual e histórico dos seus recursos Azure. Os alertas de Saúde do Recurso Azure podem notificá-lo em quase tempo real quando estes recursos têm uma mudança no seu estado de saúde. Criar alertas de Saúde de Recursos permite programaticamente que os utilizadores criem e personalizem alertas a granel.
+A Azure Resource Health mantém-no informado sobre o estado de saúde atual e histórico dos seus recursos Azure. Os alertas do Azure Resource Health podem notificá-lo quase em tempo real quando estes recursos sofrem uma alteração no estado de funcionamento. Criar alertas de Saúde de Recursos permite programaticamente que os utilizadores criem e personalizem alertas a granel.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -23,7 +23,7 @@ A Azure Resource Health mantém-no informado sobre o estado de saúde atual e hi
 Para seguir as instruções desta página, terá de configurar algumas coisas com antecedência:
 
 1. É necessário instalar o [módulo Azure PowerShell](/powershell/azure/install-az-ps)
-2. Precisa [criar ou reutilizar um Grupo de Ação](../azure-monitor/platform/action-groups.md) configurado para notificá-lo
+2. Precisa [criar ou reutilizar um Grupo de Ação](../azure-monitor/alerts/action-groups.md) configurado para notificá-lo
 
 ## <a name="instructions"></a>Instruções
 1. Utilizando o PowerShell, faça login no Azure usando a sua conta e selecione a subscrição com a quais pretende interagir
@@ -452,4 +452,4 @@ Saiba mais sobre a Saúde dos Recursos:
 
 Criar alertas de saúde de serviço:
 -  [Alertas de configuração para a saúde do serviço](./alerts-activity-log-service-notifications-portal.md) 
--  [Esquema de evento de registo de atividade azure](../azure-monitor/platform/activity-log-schema.md)
+-  [Esquema de evento de registo de atividade azure](../azure-monitor/essentials/activity-log-schema.md)

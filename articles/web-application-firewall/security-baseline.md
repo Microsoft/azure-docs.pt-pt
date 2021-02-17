@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: b50ab8cae91aab56be287f517fa6e6a0b25db8e1
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: d1f0b0b36c8f0ed5ede7b5c3113207ae3cce10fd
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807874"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100581249"
 ---
 # <a name="azure-security-baseline-for-azure-web-application-firewall"></a>Linha de segurança Azure para firewall de aplicação web Azure
 
@@ -111,9 +111,9 @@ Escolha a Azure PowerShell ou Azure CLI para procurar ou executar ações em rec
 
 **Orientação**: Utilize o Registo de Atividade do Azure para monitorizar as configurações de recursos de rede e detete alterações para as definições de rede e recursos relacionados com as suas implementações de Firewall de Aplicação Web Azure (WAF). Crie alertas dentro do Azure Monitor que irão desencadear quando ocorrerem alterações nas definições ou recursos críticos da rede.
 
-- [Como visualizar e recuperar eventos de Registo de Atividades Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [Como visualizar e recuperar eventos de Registo de Atividades Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Como criar alertas no Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+- [Como criar alertas no Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitorização do Centro de Segurança do Azure**: Não aplicável
 
@@ -153,9 +153,9 @@ Azure Sentinel tem um livro de Azure WAF incorporado, que fornece uma visão ger
 
 - [Visão geral do registo](ag/ag-overview.md#logging)
 
-- [Visão geral da consulta de registo do Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
+- [Visão geral da consulta de registo do Azure Monitor](../azure-monitor/logs/log-query-overview.md)
 
-- [Visão geral dos registos da Plataforma Azure](../azure-monitor/platform/platform-logs-overview.md)
+- [Visão geral dos registos da Plataforma Azure](../azure-monitor/essentials/platform-logs-overview.md)
 
 **Monitorização do Centro de Segurança do Azure**: Não aplicável
 
@@ -192,9 +192,9 @@ Azure Sentinel tem um livro de eventos de firewall incorporado, que fornece uma 
 
 **Orientação**: Ativar as definições de diagnóstico do Registo de Atividades Azure, bem como as definições de diagnóstico para o seu Azure WAF, e enviar os registos para um espaço de trabalho do Log Analytics. Realize consultas no Log Analytics para pesquisar termos, identificar tendências, analisar padrões e fornecer muitos outros insights com base nos dados recolhidos. Crie alertas para atividades anómalas com base em métricas WAF. Por exemplo, se o número bloqueado de pedidos superiores a 'X', faça 'Y'.
 
-- [Como ativar as definições de diagnóstico para registo de atividades Azure](../azure-monitor/platform/activity-log.md)
+- [Como ativar as definições de diagnóstico para registo de atividades Azure](../azure-monitor/essentials/activity-log.md)
 
-- [Como criar alertas dentro do Azure](../azure-monitor/learn/tutorial-response.md)
+- [Como criar alertas dentro do Azure](../azure-monitor/alerts/tutorial-response.md)
 
 **Monitorização do Centro de Segurança do Azure**: Não aplicável
 

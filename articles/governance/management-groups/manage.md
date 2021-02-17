@@ -3,12 +3,12 @@ title: Como trabalhar com os seus grupos de gestão - Azure Governance
 description: Saiba como ver, manter, atualizar e eliminar a hierarquia do seu grupo de gestão.
 ms.date: 01/15/2021
 ms.topic: conceptual
-ms.openlocfilehash: 33c7da1d7484056eb1bb2fd4b00d892137ed2b64
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 05e78d66c29e500842d14a6eeb563c4569ecf0bd
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98787373"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100596487"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Gerir os seus recursos com grupos de gestão
 
@@ -357,7 +357,7 @@ az account management-group update --name 'Contoso' --parent ContosoIT
 
 ## <a name="audit-management-groups-using-activity-logs"></a>Auditar os grupos de gestão que utilizam registos de atividades
 
-Os grupos de gestão são suportados no [Registo de Atividades do Azure](../../azure-monitor/platform/platform-logs-overview.md). Você pode consultar todos os eventos que ocorrem a um grupo de gestão no mesmo local central que outros recursos Azure. Por exemplo, pode ver todas as alterações de Atribuições de Funções ou de Atribuição de Política feitas a um grupo de gestão específico.
+Os grupos de gestão são suportados no [Registo de Atividades do Azure](../../azure-monitor/essentials/platform-logs-overview.md). Você pode consultar todos os eventos que ocorrem a um grupo de gestão no mesmo local central que outros recursos Azure. Por exemplo, pode ver todas as alterações de Atribuições de Funções ou de Atribuição de Política feitas a um grupo de gestão específico.
 
 :::image type="content" source="./media/al-mg.png" alt-text="Screenshot de Registos de Atividade e operações relacionadas com o grupo de gestão selecionado." border="false":::
 
@@ -381,7 +381,7 @@ O mesmo percurso de âmbito é utilizado quando se recupera uma definição de p
 GET https://management.azure.com/providers/Microsoft.Management/managementgroups/MyManagementGroup/providers/Microsoft.Authorization/policyDefinitions/ResourceNaming?api-version=2019-09-01
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre os grupos de gestão, veja:
 

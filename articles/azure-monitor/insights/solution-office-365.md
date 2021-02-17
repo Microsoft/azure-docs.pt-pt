@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2020
-ms.openlocfilehash: bde1c503d0aaaff1afcee67a26245d5021c43bb4
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: d031b64b36bd7ff91c64960642cfbf00fb1682ab
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807755"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100587302"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Solução de gestão do Office 365 em Azure (Pré-visualização)
 
@@ -118,7 +118,7 @@ A solução de gestão do Office 365 permite-lhe monitorizar o ambiente do Seu O
 - Monitorize as atividades do administrador para acompanhar as alterações de configuração ou operações de alto privilégio.
 - Detete e investigue comportamentos indesejados do utilizador, que podem ser personalizados para as suas necessidades organizacionais.
 - Demonstrar auditoria e conformidade. Por exemplo, pode monitorizar as operações de acesso a ficheiros em ficheiros confidenciais, o que pode ajudá-lo com o processo de auditoria e conformidade.
-- Realize a resolução de problemas operacionais utilizando consultas de [registo](../log-query/log-query-overview.md) em cima dos dados de atividade do Office 365 da sua organização.
+- Realize a resolução de problemas operacionais utilizando consultas de [registo](../logs/log-query-overview.md) em cima dos dados de atividade do Office 365 da sua organização.
 
 
 ## <a name="uninstall"></a>Desinstalar
@@ -473,6 +473,6 @@ A tabela seguinte fornece consultas de registo de amostras para registos de atua
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Utilize [consultas de registo no Azure Monitor](../log-query/log-query-overview.md) para ver dados de atualização detalhados.
-* [Crie os seus próprios dashboards](../learn/tutorial-logs-dashboards.md) para exibir as suas consultas de pesquisa favoritas do Office 365.
-* [Criar alertas](../platform/alerts-overview.md) para ser notificado proativamente de importantes atividades do Office 365.  
+* Utilize [consultas de registo no Azure Monitor](../logs/log-query-overview.md) para ver dados de atualização detalhados.
+* [Crie os seus próprios dashboards](../visualize/tutorial-logs-dashboards.md) para exibir as suas consultas de pesquisa favoritas do Office 365.
+* [Criar alertas](../alerts/alerts-overview.md) para ser notificado proativamente de importantes atividades do Office 365.  

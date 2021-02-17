@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Monitor Azure Spring Cloud recursos usando alertas e grupos de ação Microsoft Docs'
+title: 'Tutorial: Monitor Azure Spring Cloud recursos usando alertas e grupos de ação | Microsoft Docs'
 description: Aprenda a usar alertas de Nuvem de primavera.
 author: MikeDodaro
 ms.author: barbkess
@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 12/29/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: c706f38dabbe21e5bafb096bf406e70af0855aa3
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 59791b72272ccd721a61da88d13b973119cef5d6
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92089983"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100596138"
 ---
 # <a name="tutorial-how-to-monitor-spring-cloud-resources-using-alerts-and-action-groups"></a>Tutorial: Como monitorizar os recursos da Cloud da primavera usando alertas e grupos de ação
 
@@ -84,11 +84,11 @@ Os passos anteriores criaram um **Grupo de Ação** que utiliza o e-mail. També
 
    ![Screenshot Portal nova regra de alerta 3](media/alerts-action-groups/alerts-3-2.png)
 
-1. Clique em **Done** (Concluído).
+1. Clique em **Concluído**.
 
    Para obter mais informações sobre as condições disponíveis para monitorizar, consulte [as opções do portal do Utilizador](spring-cloud-concept-metrics.md#user-metrics-options).
 
-1. Em **AÇÕES**, clique **em Selecionar grupo de ação**. A partir do painel **de ações** selecione o **Grupo de Ação**previamente definido .
+1. Em **AÇÕES**, clique **em Selecionar grupo de ação**. A partir do painel **de ações** selecione o **Grupo de Ação** previamente definido .
 
    ![Screenshot Portal nova regra de alerta 4](media/alerts-action-groups/alerts-3-3.png) 
 
@@ -113,7 +113,7 @@ Uma regra também pode ser criada usando a página **Métricas:**
 Neste tutorial aprendeu a configurar alertas e grupos de ação para uma aplicação Azure Spring Cloud. Para saber mais sobre grupos de ação, consulte:
 
 > [!div class="nextstepaction"]
-> [Criar e gerir grupos de ações no portal do Azure](../azure-monitor/platform/action-groups.md)
+> [Criar e gerir grupos de ações no portal do Azure](../azure-monitor/alerts/action-groups.md)
 
 > [!div class="nextstepaction"]
-> [Comportamento de alerta de SMS em grupos de ação](../azure-monitor/platform/alerts-sms-behavior.md)
+> [Comportamento de alerta de SMS em grupos de ação](../azure-monitor/alerts/alerts-sms-behavior.md)

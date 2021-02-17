@@ -1,5 +1,5 @@
 ---
-title: Gerir os dados dos utilizadores no Azure Security Center Microsoft Docs
+title: Gerir os dados dos utilizadores no Azure Security Center | Microsoft Docs
 description: Saiba como gerir os dados do utilizador no Azure Security Center. A gestão dos dados dos utilizadores inclui a capacidade de aceder, eliminar ou exportar dados.
 services: security-center
 documentationcenter: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/23/2018
 ms.author: memildin
-ms.openlocfilehash: 4e270185550fac5a06d800d74d5fcd751aceb25d
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 5b5c78ffec736f29a481aa95426ff663199613b3
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342234"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595646"
 ---
 # <a name="manage-user-data-in-azure-security-center"></a>Manage user data in Azure Security Center (Gerir dados de utilizadores no Centro de Segurança do Azure)
 Este artigo fornece informações sobre como pode gerir os dados do utilizador no Azure Security Center. A gestão dos dados dos utilizadores inclui a capacidade de aceder, eliminar ou exportar dados.
@@ -97,4 +97,4 @@ Um utilizador do Security Center pode optar por não optar por eliminar os seus 
 [Os dados de alerta](security-center-managing-and-responding-alerts.md) são considerados dados de segurança e são conservados por um período de dois anos.
 
 ## <a name="auditing-and-reporting"></a>Auditoria e reporte
-Os registos de auditoria do contacto de segurança, just-in-time e atualizações de alerta são mantidos em [Registos de Atividade Azure](../azure-monitor/platform/platform-logs-overview.md).
+Os registos de auditoria do contacto de segurança, just-in-time e atualizações de alerta são mantidos em [Registos de Atividade Azure](../azure-monitor/essentials/platform-logs-overview.md).

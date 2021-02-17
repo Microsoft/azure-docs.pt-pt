@@ -6,12 +6,12 @@ author: MS-jgol
 ms.author: jgol
 ms.date: 05/31/2020
 ms.reviewer: mbullwin
-ms.openlocfilehash: fe57174f1b090cbaa2196930f5ddd252074f1978
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 0dda015d820d81fdd13eced384f97362e2ee3339
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99526454"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100587564"
 ---
 # <a name="what-is-auto-instrumentation-or-codeless-attach---azure-monitor-application-insights"></a>O que é auto-instrumentação ou anexação codeless - Azure Monitor Application Insights?
 
@@ -89,5 +89,5 @@ O versátil agente autónomo java trabalha em qualquer ambiente, não há necess
 
 * [Visão geral de insights de aplicação](./app-insights-overview.md)
 * [Mapa de aplicação](./app-map.md)
-* [Monitorização de desempenho de ponta a ponta](../learn/tutorial-performance.md)
+* [Monitorização de desempenho de ponta a ponta](../app/tutorial-performance.md)
 

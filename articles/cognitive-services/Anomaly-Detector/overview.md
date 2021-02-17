@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: overview
-ms.date: 01/05/2021
+ms.date: 02/16/2021
 ms.author: mbullwin
 keywords: deteção de anomalias, aprendizagem automática, algoritmos
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 425c6cab4a4a5e1329e2d38f49c5058ec8ffc5b9
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: ad3bd1eed6e5e7efb783c4a40958e16c3ca23691
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97901373"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100572078"
 ---
 # <a name="what-is-the-anomaly-detector-api"></a>O que é a API do Detetor de Anomalias?
 
@@ -53,13 +53,13 @@ Para aprender a chamar a API do Detetor de Anomalias, experimente este [Caderno.
 Para executar o Caderno, complete os seguintes passos:
 
 1. Obtenha uma chave de subscrição de API de Detetor de Anomalias válida e um ponto final da API. A secção abaixo tem instruções para se inscrever.
-1. Inscreva-se e clique em Clone, no canto superior direito.
-1. Descos verifique a opção "público" na caixa de diálogo antes de concluir a operação do clone, caso contrário o seu caderno, incluindo quaisquer teclas de subscrição, será público.
-1. Clique **em Executar em cálculo gratuito**
+1. Inscreva-se e selecione Clone, no canto superior direito.
+1. Desmarque a opção "público" na caixa de diálogo antes de concluir a operação do clone, caso contrário o seu caderno, incluindo quaisquer teclas de subscrição, será público.
+1. Selecione **Executar em cálculo gratuito**
 1. Selecione um dos cadernos.
 1. Adicione a sua chave de subscrição de API do Detetor de Anomalias válida à `subscription_key` variável.
 1. Mude a `endpoint` variável para o seu ponto final. Por exemplo: `https://westus2.api.cognitive.microsoft.com/anomalydetector/v1.0/timeseries/last/detect`
-1. Na barra de menu superior, clique em **Cell** e, em seguida, **Run All**.
+1. Na barra de menu superior, selecione **Cell,** em seguida, **Executar Tudo**.
 
 ## <a name="workflow"></a>Fluxo de trabalho
 
@@ -89,7 +89,7 @@ Pode ler o [serviço de deteção de anomalias de séries de tempo na Microsoft]
 
 ### <a name="is-the-anomaly-detector-service-zone-resilient"></a>A zona de serviço do Detetor de Anomalias é resistente?
 
-Yes. O serviço de detetor de anomalias é resistente à zona por defeito.
+Sim. O serviço de detetor de anomalias é resistente à zona por defeito.
 
 ### <a name="how-do-i-configure-the-anomaly-detector-service-to-be-zone-resilient"></a>Como posso configurar o serviço de detetor de anomalias para ser resistente à zona?
 

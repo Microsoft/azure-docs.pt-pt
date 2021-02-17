@@ -16,12 +16,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: e3c64155053517205ab006673bb8f400325ad3c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c4c1c247d8fb248c5e6d548dd04af1c3d08a4e76
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86219968"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100588326"
 ---
 # <a name="notification-hubs-templates"></a>Modelos de Centros de Notificação
 
@@ -108,7 +108,6 @@ O modelo para a previsão de um dia com temperaturas Celsius é o seguinte:
 
 A mensagem enviada para o Centro de Notificação contém todas as seguintes propriedades:
 
-```html
 <table border="1">
 
 <tr><td>day1_image</td><td>day2_image</td><td>day3_image</td><td>day4_image</td><td>day5_image</td></tr>
@@ -117,7 +116,6 @@ A mensagem enviada para o Centro de Notificação contém todas as seguintes pro
 
 <tr><td>day1_tempF</td><td>day2_tempF</td><td>day3_tempF</td><td>day4_tempF</td><td>day5_tempF</td></tr>
 </table><br/>
-```
 
 Ao utilizar este padrão, o backend apenas envia uma única mensagem sem ter de armazenar opções específicas de personalização para os utilizadores da aplicação. A seguinte imagem ilustra este cenário:
 
@@ -139,7 +137,7 @@ A tabela a seguir mostra o idioma permitido nos modelos:
 | $(prop, n)       | Como acima, mas o texto é explicitamente cortado em n caracteres, por exemplo $(título, 20) clips o conteúdo da propriedade título em 20 caracteres. |
 | . (adereço, n)       | Como acima, mas o texto é sufixado com três pontos à medida que é cortado. O tamanho total da corda cortada e do sufixo não excede os caracteres n. . (título, 20) com uma propriedade de entrada de "This is the title line" resulta em **This is the title...** |
 | %(prop)          | Semelhante a $(nome), exceto que a saída é codificada URI. |
-| #(prop)          | Usado em modelos JSON (por exemplo, para modelos iOS e Android).<br><br>Esta função funciona exatamente da mesma forma que o $(prop) previamente especificado, exceto quando usado em modelos JSON (por exemplo, modelos apple). Neste caso, se esta função não estiver rodeada de "{'}" (por exemplo, 'myJsonProperty' : '#(nome)'), e avaliar um número em formato Javascript, por exemplo, regexp: (0&#124;(&#91;1-9&#93;&#91;0-9&#93;*)(&#91;\. 0-9&#93;+).)(&#91;0-9&#93;e&#124;E) (+&#124;-)?&#91;0-9&#93;+)?, então a saída JSON é um número.<br><br>Por exemplo, 'badge: '#(nome)' torna-se 'badge' : 40 (e não '40'). |
+| #(prop)          | Usado em modelos JSON (por exemplo, para modelos iOS e Android).<br><br>Esta função funciona exatamente da mesma forma que $ $(prop) previamente especificado, exceto quando usado em modelos JSON (por exemplo, modelos apple). Neste caso, se esta função não estiver rodeada de "{'}" (por exemplo, 'myJsonProperty' : '#(nome)'), e avaliar um número em formato Javascript, por exemplo, regexp: (0&#124;(&#91;1-9&#93;&#91;0-9&#93;*)(&#91;\. 0-9&#93;+).)(&#91;0-9&#93;e&#124;E) (+&#124;-)?&#91;0-9&#93;+)?, então a saída JSON é um número.<br><br>Por exemplo, 'badge: '#(nome)' torna-se 'badge' : 40 (e não '40'). |
 | 'texto' ou "texto" | Um literal. Os literais contêm texto arbitrário incluído em cotações simples ou duplas. |
 | expr1 + expr2    | O operador de concatenação junta duas expressões numa única corda. |
 

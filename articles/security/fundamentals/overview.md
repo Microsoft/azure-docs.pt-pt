@@ -1,5 +1,5 @@
 ---
-title: Introdução à segurança Azure / Microsoft Docs
+title: Introdução à segurança Azure | Microsoft Docs
 description: Apresente-se à Azure Security, aos seus vários serviços e ao funcionamento da leitura desta visão geral.
 services: security
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2019
 ms.author: TomSh
-ms.openlocfilehash: 749c32091ed10d5bb39d7b67c8b737e002fc9909
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 56965310c818f8d9089ab244641bdc562428a337
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94693737"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100580458"
 ---
 # <a name="introduction-to-azure-security"></a>Introdução à segurança do Azure
 ## <a name="overview"></a>Descrição Geral
@@ -81,12 +81,12 @@ O Application Insights cria gráficos e tabelas que lhe mostram, por exemplo, qu
 Se houver falhas, falhas ou problemas de desempenho, pode pesquisar em detalhe os dados da telemetria para diagnosticar a causa. E o serviço envia-lhe e-mails se houver alguma alteração na disponibilidade e desempenho da sua app. A Application Insight torna-se assim uma valiosa ferramenta de segurança porque ajuda com a disponibilidade na tríade de confidencialidade, integridade e segurança de disponibilidade.
 
 ### <a name="azure-monitor"></a>Azure Monitor
-[O Azure Monitor](/azure/monitoring-and-diagnostics/) oferece visualização, consulta, encaminhamento, alerta, escala automática e automação em dados tanto da infraestrutura Azure[(Log de Atividade)](../../azure-monitor/platform/platform-logs-overview.md)como de cada recurso Azure individual[(Registos de Diagnóstico).](../../azure-monitor/platform/platform-logs-overview.md) Pode utilizar o Azure Monitor para alertá-lo sobre eventos relacionados com segurança que são gerados em registos Azure.
+[O Azure Monitor](/azure/monitoring-and-diagnostics/) oferece visualização, consulta, encaminhamento, alerta, escala automática e automação em dados tanto da infraestrutura Azure[(Log de Atividade)](../../azure-monitor/essentials/platform-logs-overview.md)como de cada recurso Azure individual[(Registos de Diagnóstico).](../../azure-monitor/essentials/platform-logs-overview.md) Pode utilizar o Azure Monitor para alertá-lo sobre eventos relacionados com segurança que são gerados em registos Azure.
 
 ### <a name="azure-monitor-logs"></a>Registos do Azure Monitor
 [Registos do Azure Monitor](https://azure.microsoft.com/documentation/services/log-analytics/) – Fornece uma solução de gestão de TI tanto para as infraestruturas baseadas em nuvem no local como para as infraestruturas baseadas em nuvem de terceiros (como a AWS) para além dos recursos da Azure. Os dados do Azure Monitor podem ser encaminhados diretamente para os registos do Azure Monitor para que possa ver métricas e registos para todo o seu ambiente num só local.
 
-Os registos do Azure Monitor podem ser uma ferramenta útil na análise forense e outras análises de segurança, uma vez que a ferramenta permite pesquisar rapidamente através de grandes quantidades de entradas relacionadas com segurança com uma abordagem de consulta flexível. Além disso, os registos de firewall e proxy no local [podem ser exportados para Azure e disponibilizados para análise utilizando registos do Azure Monitor.](../../azure-monitor/platform/agent-windows.md)
+Os registos do Azure Monitor podem ser uma ferramenta útil na análise forense e outras análises de segurança, uma vez que a ferramenta permite pesquisar rapidamente através de grandes quantidades de entradas relacionadas com segurança com uma abordagem de consulta flexível. Além disso, os registos de firewall e proxy no local [podem ser exportados para Azure e disponibilizados para análise utilizando registos do Azure Monitor.](../../azure-monitor/agents/agent-windows.md)
 
 ### <a name="azure-advisor"></a>Assistente do Azure
 [O Azure Advisor](../../advisor/index.yml) é um consultor de nuvem personalizado que o ajuda a otimizar as suas implementações do Azure. Analisa a configuração do recurso e a telemetria de utilização. Em seguida, recomenda soluções para ajudar a melhorar o [desempenho,](../../advisor/advisor-performance-recommendations.md) [segurança](../../advisor/advisor-security-recommendations.md)e [alta disponibilidade](../../advisor/advisor-high-availability-recommendations.md) dos seus recursos, enquanto procura oportunidades para reduzir o seu gasto global [do Azure.](../../advisor/advisor-cost-recommendations.md) O Azure Advisor fornece recomendações de segurança, que podem melhorar significativamente a sua postura de segurança global para as soluções que implementa no Azure. Estas recomendações são retiradas da análise de segurança realizada pelo [Azure Security Center.](../../security-center/security-center-introduction.md)
@@ -101,7 +101,7 @@ A secção fornece informações adicionais sobre as principais funcionalidades 
 ### <a name="web-application-vulnerability-scanning"></a>Digitalização da vulnerabilidade da Aplicação Web
 Uma das formas mais fáceis de começar com testes para vulnerabilidades na sua [aplicação de Serviço de Aplicações](../../app-service/overview.md) é usar a integração com a [Tinfoil Security](https://azure.microsoft.com/blog/web-vulnerability-scanning-for-azure-app-service-powered-by-tinfoil-security/) para realizar uma pesquisa de vulnerabilidade de um clique na sua aplicação. Pode ver os resultados dos testes num relatório fácil de entender e aprender a corrigir cada vulnerabilidade com instruções passo a passo.
 
-### <a name="penetration-testing"></a>Testes de penetração
+### <a name="penetration-testing"></a>Testes de Penetração
 Se preferir realizar os seus próprios testes de penetração ou pretender utilizar outra suíte ou fornecedor de scanners, deve seguir o processo de aprovação do teste de [penetração do Azure](./pen-testing.md) e obter aprovação prévia para realizar os testes de penetração pretendidos.
 
 ### <a name="web-application-firewall"></a>Firewall de aplicação web
@@ -155,7 +155,7 @@ A encriptação em trânsito é um mecanismo de proteção dos dados quando são
 
 -   Encriptação do lado do cliente, para encriptar os dados antes de serem transferidos para o armazenamento e para desencriptar os dados após a sua transferência para fora do armazenamento.
 
-### <a name="encryption-at-rest"></a>Encriptação inativa
+### <a name="encryption-at-rest"></a>Encriptação de dados inativos
 Para muitas organizações, a encriptação de dados em repouso é um passo obrigatório para a privacidade dos dados, conformidade e soberania de dados. Existem três funcionalidades de segurança de armazenamento Azure que fornecem encriptação de dados que estão "em repouso":
 
 -   [A Encriptação do Serviço de Armazenamento](../../storage/common/storage-service-encryption.md) permite-lhe solicitar que o serviço de armazenamento criptografe automaticamente os dados ao escrevê-lo para o Azure Storage.

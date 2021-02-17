@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2020
 ms.author: allensu
-ms.openlocfilehash: 59359cdd3e3c035d4cb6789295d41bb3908019bb
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 7a456057bc088264cefb91be9f3e5069b29474a1
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98785825"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100596808"
 ---
 # <a name="azure-monitor-logs-for-azure-standard-load-balancer"></a>Registos do Monitor Azure para O Equilibrador de Carga Padrão Azure
 
@@ -63,7 +63,7 @@ O registo de atividades é ativado automaticamente para todos os recursos do Res
      5. Na lista de drop-down do nome da política do centro de **eventos Select,** selecione o nome.
      6. Selecione **OK**.
 
-   * **Enviar para Log Analytics**. Você precisará já ter um espaço de trabalho de analítica de log criado e configurado para este processo. Para criar um espaço de trabalho Log Analytics, consulte [Criar um espaço de trabalho Log Analytics no portal Azure.](../azure-monitor/learn/quick-create-workspace.md)
+   * **Enviar para Log Analytics**. Você precisará já ter um espaço de trabalho de analítica de log criado e configurado para este processo. Para criar um espaço de trabalho Log Analytics, consulte [Criar um espaço de trabalho Log Analytics no portal Azure.](../azure-monitor/logs/quick-create-workspace.md)
      1. Selecione a caixa de verificação **Enviar para o Log Analytics**.
      2. Na lista de drop-down de **Subscrição,** selecione a subscrição onde está o seu espaço de trabalho Log Analytics.
      3. Na lista de drop-down **do Log Analytics Workspace,** selecione o espaço de trabalho.
@@ -100,10 +100,10 @@ Se estiver a exportar para armazenamento, ligue-se à sua conta de armazenamento
 > Se estiver familiarizado com o Visual Studio e com conceitos básicos de mudança de valores para constantes e variáveis em C#, pode utilizar as [ferramentas de conversor](https://github.com/Azure-Samples/networking-dotnet-log-converter) de registos disponíveis no GitHub.
 
 ## <a name="stream-to-an-event-hub"></a>Transmitir em fluxo para um hub de eventos
-Quando a informação de diagnóstico é transmitida para um centro de eventos, pode usá-la para análise centralizada de registos numa ferramenta SIEM parceira com integração do Azure Monitor. Para obter mais informações, consulte [os dados de monitorização do Stream Azure para um centro de eventos.](../azure-monitor/platform/stream-monitoring-data-event-hubs.md#partner-tools-with-azure-monitor-integration)
+Quando a informação de diagnóstico é transmitida para um centro de eventos, pode usá-la para análise centralizada de registos numa ferramenta SIEM parceira com integração do Azure Monitor. Para obter mais informações, consulte [os dados de monitorização do Stream Azure para um centro de eventos.](../azure-monitor/essentials/stream-monitoring-data-event-hubs.md#partner-tools-with-azure-monitor-integration)
 
 ## <a name="send-to-log-analytics"></a>Enviar para o Log Analytics
-Pode enviar informações de diagnóstico para recursos em Azure diretamente para um espaço de trabalho Log Analytics. Nesse espaço de trabalho, você pode executar consultas complexas contra a informação para resolução de problemas e análise. Para obter mais informações, consulte [os registos de recursos do Azure num espaço de trabalho do Log Analytics no Azure Monitor](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace).
+Pode enviar informações de diagnóstico para recursos em Azure diretamente para um espaço de trabalho Log Analytics. Nesse espaço de trabalho, você pode executar consultas complexas contra a informação para resolução de problemas e análise. Para obter mais informações, consulte [os registos de recursos do Azure num espaço de trabalho do Log Analytics no Azure Monitor](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace).
 
 ## <a name="limitations"></a>Limitações
 A funcionalidade de exportação de métricas para registos para o Balanceador de Carga Azure tem as seguintes limitações:
@@ -111,6 +111,6 @@ A funcionalidade de exportação de métricas para registos para o Balanceador d
 * A dimensionalidade das métricas não é preservada. Por exemplo, com métricas como **DipAvailability** (estado da sonda de saúde), não será capaz de dividir ou visualizar por um endereço IP de back-end.
 * As métricas para portas SNAT usadas e portas SNAT alocadas não estão atualmente disponíveis para exportação como troncos.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Reveja as métricas disponíveis para o seu balanceador de carga](./load-balancer-standard-diagnostics.md)
 * [Criar e testar consultas seguindo as instruções do Monitor Azure](../azure-monitor/log-query/log-query-overview.md)

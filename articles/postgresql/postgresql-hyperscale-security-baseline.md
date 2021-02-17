@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/04/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: ead666cecbc3208fe103aa740578ca36339c3e30
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 19935037e98bbc7ce9c4152b034b664d802a8f3a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99804976"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100588268"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-postgresql---hyperscale-citus"></a>Linha de base de segurança Azure para Azure Database for PostgreSQL - Hyperscale (Citus)
 
@@ -60,7 +60,7 @@ Para obter mais informações, consulte [a visão geral da Azure Security Baseli
 
 Além disso, ingere troncos via Azure Monitor para agregar dados de segurança gerados pela Hyperscale (Citus). Dentro do Azure Monitor, utilize o log analytics workspace(s) para consultar e realizar análises, e use contas de armazenamento para armazenamento de longo prazo/arquivo. Em alternativa, pode ativar e a bordo dados para Azure Sentinel ou um terceiro Security Incident and Event Management (SIEM). 
 
-- [Como ativar definições de diagnóstico para registo de atividades azure](../azure-monitor/platform/activity-log.md)
+- [Como ativar definições de diagnóstico para registo de atividades azure](../azure-monitor/essentials/activity-log.md)
 
 - [Métricas em Hiperescala (Citus)](./concepts-hyperscale-monitoring.md)
 
@@ -80,7 +80,7 @@ Além disso, ingere troncos via Azure Monitor para agregar dados de segurança g
 
 - [Métricas em Hiperescala (Citus)](./concepts-hyperscale-monitoring.md)
 
-- [Como ativar definições de diagnóstico para registo de atividades azure](../azure-monitor/platform/activity-log.md)
+- [Como ativar definições de diagnóstico para registo de atividades azure](../azure-monitor/essentials/activity-log.md)
 
 - [Como embarcar Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -92,9 +92,9 @@ Além disso, ingere troncos via Azure Monitor para agregar dados de segurança g
 
 **Orientação**: Dentro do Monitor Azure, para o espaço de trabalho Log Analytics que está a ser utilizado para manter os seus registos de Hiperescala (Citus), desagure o período de retenção de acordo com as normas de conformidade da sua organização. Utilize contas de armazenamento Azure para armazenamento a longo prazo/arquivo.
 
-- [Como definir parâmetros de retenção de registos para log analytics workspaces](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Como definir parâmetros de retenção de registos para log analytics workspaces](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
-- [Armazenar registos de recursos numa conta de armazenamento Azure](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)
+- [Armazenar registos de recursos numa conta de armazenamento Azure](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage)
 
 **Monitorização do Centro de Segurança do Azure**: Não aplicável
 
@@ -106,9 +106,9 @@ Além disso, ingere troncos via Azure Monitor para agregar dados de segurança g
 
 - [Como embarcar Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Para mais informações sobre o Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)
+- [Para mais informações sobre o Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md)
 
-- [Como realizar consultas personalizadas no Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
+- [Como realizar consultas personalizadas no Azure Monitor](../azure-monitor/logs/get-started-queries.md)
 
 **Monitorização do Centro de Segurança do Azure**: Não aplicável
 
@@ -122,7 +122,7 @@ A bordo do seu espaço de trabalho Log Analytics para Azure Sentinel, uma vez qu
 
 - [Métricas em Hiperescala (Citus)](./howto-hyperscale-alert-on-metric.md)
 
-- [Como configurar definições de diagnóstico para o registo de atividades azure](../azure-monitor/platform/activity-log.md)
+- [Como configurar definições de diagnóstico para o registo de atividades azure](../azure-monitor/essentials/activity-log.md)
 
 - [Como embarcar Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -379,7 +379,7 @@ Pelo menos uma vez por dia, a Base de Dados Azure para a Hiperescala Pós-SQL (C
 
 **Orientação**: Utilize o Monitor Azure com o Registo de Atividades Azure para criar alertas para quando ocorrerem alterações em casos de produção de Hiperescala (Citus) e outros recursos críticos ou relacionados.
 
-- [Como criar alertas para eventos de Registo de Atividades Azure](../azure-monitor/platform/alerts-activity-log.md)
+- [Como criar alertas para eventos de Registo de Atividades Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitorização do Centro de Segurança do Azure**: Sim
 

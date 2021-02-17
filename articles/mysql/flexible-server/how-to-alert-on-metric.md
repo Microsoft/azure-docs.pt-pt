@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: mysql
 ms.topic: how-to
 ms.date: 9/21/2020
-ms.openlocfilehash: 4a099a9850289a046435b4e1763d7f54a702c0d0
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 632aae766e6fd1328dc6e0135a88a942d7ad0910
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545094"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595787"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mysql---flexible-server"></a>Utilize o portal Azure para configurar alertas em métricas para a base de dados Azure para MySQL - Servidor Flexível 
 
@@ -28,25 +28,25 @@ Pode configurar um alerta para fazer as seguintes ações quando ativa:
 * Chamar um webhook
 
 Pode configurar e obter informações sobre as regras de alerta utilizando:
-* [Portal do Azure](../../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
-* [CLI do Azure](../../azure-monitor/platform/alerts-metric.md#with-azure-cli)
+* [Portal do Azure](../../azure-monitor/alerts/alerts-metric.md#create-with-azure-portal)
+* [CLI do Azure](../../azure-monitor/alerts/alerts-metric.md#with-azure-cli)
 * [API REST do Azure Monitor](/rest/api/monitor/metricalerts)
 
-## <a name="create-an-alert-rule-on-a-metric-from-the-azure-portal"></a>Criar uma regra de alerta sobre uma métrica a partir do portal Azure
+## <a name="create-an-alert-rule-on-a-metric-from-the-azure-portal"></a>Criar uma regra de alerta numa métrica no portal do Azure
 1. No [portal Azure,](https://portal.azure.com/)selecione a Base de Dados Azure para o servidor flexível MySQL que pretende monitorizar.
-2. Na secção **de monitorização** da barra lateral, selecione **Alertas** .
-3. Selecione **+ Nova regra de alerta** .
+2. Na secção **de monitorização** da barra lateral, selecione **Alertas**.
+3. Selecione **+ Nova regra de alerta**.
 4. A página **Criar regra** é apresentada. Preencha as informações necessárias:
 5. Dentro da secção **Condição,** escolha **a condição de seleção.**
 6. Verá uma lista de sinais suportados, selecione a métrica em que pretende criar um alerta. Por exemplo, selecione "Storage percent".
 7. Verá um gráfico para a métrica nas últimas seis horas. Utilize o período de entrega do **gráfico** para selecionar para ver um histórico mais longo para a métrica.
 8. Selecione o tipo **Threshold** (ex. "Estático" ou "Dinâmico"), **Operador** (ex. "Maior do que"), e **tipo de agregação** (ex. média). Isto determinará a lógica que a regra de alerta métrico irá avaliar.
     - Se estiver a utilizar um limiar **estático,** continue a definir um **valor limiar** (ex. 85 por cento). O gráfico métrico pode ajudar a determinar o que pode ser um limiar razoável.
-    - Se estiver a utilizar um limiar **Dinâmico,** continue a definir a **sensibilidade Threshold** . O gráfico métrico apresentará os limiares calculados com base em dados recentes. [Saiba mais sobre o tipo de condições e opções de sensibilidade dos Limiares Dinâmicos](../../azure-monitor/platform/alerts-dynamic-thresholds.md).
+    - Se estiver a utilizar um limiar **Dinâmico,** continue a definir a **sensibilidade Threshold**. O gráfico métrico apresentará os limiares calculados com base em dados recentes. [Saiba mais sobre o tipo de condições e opções de sensibilidade dos Limiares Dinâmicos](../../azure-monitor/alerts/alerts-dynamic-thresholds.md).
 9. Refinar a condição ajustando o intervalo **de granularidade de agregação (Período)** sobre o qual os pontos de dados são agrupados utilizando a função do tipo de agregação (ex. "30 minutos"), e **Frequência** (ex "A cada 15 minutos").
-10. Clique em **Done** (Concluído).
+10. Clique em **Concluído**.
 11. Adicione um grupo de ação. Um grupo de ação é uma coleção de preferências de notificação definidas pelo proprietário de uma subscrição Azure. Dentro da secção **Grupos de Ação,** escolha **Selecionar grupo de ação** para selecionar um grupo de ação já existente para anexar à regra de alerta.
-12. Também pode criar um novo grupo de ação para receber notificações no alerta. Consulte para [criar e gerir o grupo de ação](../../azure-monitor/platform/action-groups.md) para obter mais informações.
+12. Também pode criar um novo grupo de ação para receber notificações no alerta. Consulte para [criar e gerir o grupo de ação](../../azure-monitor/alerts/action-groups.md) para obter mais informações.
 13. Para criar um novo grupo de ação, escolha **+ Criar grupo de ação.** Preencha o formulário "Criar grupo de ação" com uma **Subscrição,** **grupo de recursos,** **nome de grupo de ação** e nome de **exibição.**
 14. Configure **notificações** para grupo de ação.
     
@@ -57,7 +57,7 @@ Pode configurar e obter informações sobre as regras de alerta utilizando:
 
     <!--:::image type="content" source="./media/howto-alert-on-metric/10-action-group-type.png" alt-text="Action group":::-->
     
-15. Preencha **os detalhes da regra de alerta** como o nome da regra de **alerta** , **Descrição** , **Guarde a regra de alerta para o grupo de recursos** e a **Severidade** .
+15. Preencha **os detalhes da regra de alerta** como o nome da regra de **alerta**, **Descrição**, **Guarde a regra de alerta para o grupo de recursos** e a **Severidade**.
 
     <!--:::image type="content" source="./media/howto-alert-on-metric/11-name-description-severity.png" alt-text="Action group":::-->
 
@@ -72,6 +72,6 @@ Uma vez criado um alerta, pode selecioná-lo e fazer as seguintes ações:
 
 
 ## <a name="next-steps"></a>Passos seguintes
-- Saiba mais sobre [a definição de alerta em métricas](../../azure-monitor/platform/alerts-metric.md).
+- Saiba mais sobre [a definição de alerta em métricas](../../azure-monitor/alerts/alerts-metric.md).
 - Saiba mais sobre as métricas disponíveis [na Base de Dados Azure para o MySQL Flexible Server](./concepts-monitoring.md).
-- [Compreender a forma como os alertas de métrica funcionam no Azure Monitor](../../azure-monitor/platform/alerts-metric-overview.md)
+- [Compreender a forma como os alertas de métrica funcionam no Azure Monitor](../../azure-monitor/alerts/alerts-metric-overview.md)

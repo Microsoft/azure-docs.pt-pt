@@ -9,12 +9,12 @@ ms.subservice: faq
 ms.date: 06/30/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 8170cfcbbf200c6ba5030aff5716f46b537d8c97
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 3bc259f9ee6cb1e6fd927af82a1740403d3ae7d8
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96016714"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100587958"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>FAQ dos conjuntos de dimensionamento de máquinas virtuais do Azure
 
@@ -71,15 +71,15 @@ Sim! Para obter mais informações, consulte a [zona definida na escala doc](./v
 
 ### <a name="what-are-best-practices-for-azure-autoscale"></a>Quais são as melhores práticas para a Azure Autoscale?
 
-Para obter as melhores práticas para a Autoscale, consulte [as melhores práticas para máquinas virtuais auto-calibradoras.](../azure-monitor/platform/autoscale-best-practices.md)
+Para obter as melhores práticas para a Autoscale, consulte [as melhores práticas para máquinas virtuais auto-calibradoras.](../azure-monitor/autoscale/autoscale-best-practices.md)
 
 ### <a name="where-do-i-find-metric-names-for-autoscaling-that-uses-host-based-metrics"></a>Onde encontro nomes métricos para autoscaling que usam métricas baseadas em hospedeiros?
 
-Para obter nomes métricos para autoscaling que utilize métricas baseadas no hospedeiro, consulte [métricas suportadas com monitor Azure](../azure-monitor/platform/metrics-supported.md).
+Para obter nomes métricos para autoscaling que utilize métricas baseadas no hospedeiro, consulte [métricas suportadas com monitor Azure](../azure-monitor/essentials/metrics-supported.md).
 
 ### <a name="are-there-any-examples-of-autoscaling-based-on-an-azure-service-bus-topic-and-queue-length"></a>Existem exemplos de autoscalagem baseados num tópico de autocarro da Azure Service Bus e no comprimento da fila?
 
-Sim. Por exemplo, a autoscalagem com base num tópico de autocarro de serviço Azure e comprimento de fila, consulte [métricas comuns de autoescalação do Azure Monitor](../azure-monitor/platform/autoscale-common-metrics.md).
+Sim. Por exemplo, a autoscalagem com base num tópico de autocarro de serviço Azure e comprimento de fila, consulte [métricas comuns de autoescalação do Azure Monitor](../azure-monitor/autoscale/autoscale-common-metrics.md).
 
 Para uma fila de autocarros de serviço, use o seguinte JSON:
 
@@ -104,9 +104,9 @@ Substitua os valores de exemplo pelo seu recurso Uniform Resource Identifiers (U
 
 Pode criar uma definição de escala automática num VM para utilizar métricas de nível de hospedeiro ou métricas baseadas em SO.
 
-Para obter uma lista de métricas suportadas, consulte [as métricas comuns de autoescalação do Monitor Azure](../azure-monitor/platform/autoscale-common-metrics.md)Monitor.
+Para obter uma lista de métricas suportadas, consulte [as métricas comuns de autoescalação do Monitor Azure](../azure-monitor/autoscale/autoscale-common-metrics.md)Monitor.
 
-Para obter uma amostra completa para conjuntos de escala de máquina virtual, consulte [a configuração de autoescalação avançada utilizando modelos de Gestor de Recursos para conjuntos de escala de máquina virtual](../azure-monitor/platform/autoscale-virtual-machine-scale-sets.md).
+Para obter uma amostra completa para conjuntos de escala de máquina virtual, consulte [a configuração de autoescalação avançada utilizando modelos de Gestor de Recursos para conjuntos de escala de máquina virtual](../azure-monitor/autoscale/autoscale-virtual-machine-scale-sets.md).
 
 A amostra utiliza a métrica de CPU de nível de hospedeiro e uma métrica de contagem de mensagens.
 
@@ -114,13 +114,13 @@ A amostra utiliza a métrica de CPU de nível de hospedeiro e uma métrica de co
 
 ### <a name="how-do-i-set-alert-rules-on-a-virtual-machine-scale-set"></a>Como posso definir regras de alerta num conjunto de escala de máquina virtual?
 
-Pode criar alertas em métricas para conjuntos de escala de máquinas virtuais via PowerShell ou Azure CLI. Para obter mais informações, consulte [as amostras de arranque rápido do Azure Monitor PowerShell](../azure-monitor/samples/powershell-samples.md#create-metric-alerts) e [as amostras de arranque rápido do Azure Monitor CLI](../azure-monitor/samples/cli-samples.md#work-with-alerts).
+Pode criar alertas em métricas para conjuntos de escala de máquinas virtuais via PowerShell ou Azure CLI. Para obter mais informações, consulte [as amostras de arranque rápido do Azure Monitor PowerShell](../azure-monitor/powershell-samples.md#create-metric-alerts) e [as amostras de arranque rápido do Azure Monitor CLI](../azure-monitor/cli-samples.md#work-with-alerts).
 
 O TargetResourceId do conjunto de escala de máquina virtual é assim:
 
 /subscrições/yoursubscriptionid/resourceGroups/yourresourcegroup/providers/Microsoft.Compute/virtualMachineScaleSets/yourvmssname
 
-Pode escolher qualquer contador de desempenho VM como métrica para definir um alerta. Para obter mais informações, consulte [as métricas de Sistema de Segurança convidado para as métricas do Windows VMs](../azure-monitor/platform/autoscale-common-metrics.md#guest-os-metrics-for-resource-manager-based-windows-vms) e [do Os Convidados para Os VMs Linux](../azure-monitor/platform/autoscale-common-metrics.md#guest-os-metrics-linux-vms) no artigo [de métricas comuns do Monitor Azure.](../azure-monitor/platform/autoscale-common-metrics.md)
+Pode escolher qualquer contador de desempenho VM como métrica para definir um alerta. Para obter mais informações, consulte [as métricas de Sistema de Segurança convidado para as métricas do Windows VMs](../azure-monitor/autoscale/autoscale-common-metrics.md#guest-os-metrics-for-resource-manager-based-windows-vms) e [do Os Convidados para Os VMs Linux](../azure-monitor/autoscale/autoscale-common-metrics.md#guest-os-metrics-linux-vms) no artigo [de métricas comuns do Monitor Azure.](../azure-monitor/autoscale/autoscale-common-metrics.md)
 
 ### <a name="how-do-i-set-up-autoscale-on-a-virtual-machine-scale-set-by-using-powershell"></a>Como posso configurar uma escala de máquina virtual definida utilizando o PowerShell?
 
@@ -129,7 +129,7 @@ Para configurar automaticamente uma escala de máquina virtual definida utilizan
 
 ### <a name="if-i-have-stopped-deallocated-a-vm-is-that-vm-started-as-part-of-an-autoscale-operation"></a>Se eu tiver parado (deallocated) um VM, será que a VM começou como parte de uma operação de autoescalação?
 
-Não. Se as regras de autoescala requerem instâncias VM adicionais como parte de um conjunto de escala, é criada uma nova instância VM. As instâncias VM que são interrompidas (deallocated) não são iniciadas como parte de um evento de autoescala. No entanto, os VMs parados (deallocated) podem ser eliminados como parte de um evento de escala automática que escala no número de casos, da mesma forma que qualquer instância VM pode ser eliminada com base na ordem de identificação de instância VM.
+N.º Se as regras de autoescala requerem instâncias VM adicionais como parte de um conjunto de escala, é criada uma nova instância VM. As instâncias VM que são interrompidas (deallocated) não são iniciadas como parte de um evento de autoescala. No entanto, os VMs parados (deallocated) podem ser eliminados como parte de um evento de escala automática que escala no número de casos, da mesma forma que qualquer instância VM pode ser eliminada com base na ordem de identificação de instância VM.
 
 
 
@@ -224,9 +224,9 @@ Pode fornecer chaves públicas SSH em texto simples quando criar um Linux VM:
 }
 ```
 
-nome do elemento linuxConfiguration | Necessário | Tipo | Descrição
+nome do elemento linuxConfiguration | Necessário | Tipo | Description
 --- | --- | --- | ---
-ssh | Não | Coleção | Especifica a configuração da chave SSH para um Sistema Operativo Linux
+ssh | No | Coleção | Especifica a configuração da chave SSH para um Sistema Operativo Linux
 caminho | Sim | String | Especifica o caminho do ficheiro Linux onde as chaves ou certificado SSH devem ser localizados
 keyData | Sim | String | Especifica uma chave pública SSH codificada de base64
 

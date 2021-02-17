@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: e47dfeab7466faf9a60b161b05d8b3bf39ebdb6a
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: cf4e02f925e0c8c4024137589c0c9c4074c0aa11
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98203308"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100596758"
 ---
 # <a name="azure-security-baseline-for-logic-apps"></a>Linha de base de segurança Azure para Apps Lógicas
 
@@ -216,9 +216,9 @@ Pode utilizar o Azure PowerShell ou o Azure CLI para procurar ou executar açõe
 
 **Orientação**: Utilize o registo de Atividade Azure para monitorizar as configurações de recursos de rede e detetar alterações para recursos de rede relacionados com as suas instâncias de Apps Lógicas Azure. Crie alertas dentro do Azure Monitor que irão desencadear quando ocorrerem alterações nos recursos críticos da rede.
 
-- [Como visualizar e recuperar eventos de Registo de Atividades Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [Como visualizar e recuperar eventos de Registo de Atividades Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Como criar alertas no Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+- [Como criar alertas no Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitorização do Centro de Segurança do Azure**: Não aplicável
 
@@ -242,7 +242,7 @@ Pode utilizar o Azure PowerShell ou o Azure CLI para procurar ou executar açõe
 
 Em alternativa, pode ativar e a bordo dados para Azure Sentinel ou um SIEM de terceiros. 
 
-- [Como ativar definições de diagnóstico para registo de atividades azure](../azure-monitor/platform/activity-log.md)
+- [Como ativar definições de diagnóstico para registo de atividades azure](../azure-monitor/essentials/activity-log.md)
 
 - [Como configurar registos do Azure Monitor e recolher dados de diagnóstico para apps Azure Logic](monitor-logic-apps-log-analytics.md)
 
@@ -258,7 +258,7 @@ Em alternativa, pode ativar e a bordo dados para Azure Sentinel ou um SIEM de te
 
 Em alternativa, pode ativar e a bordo dados para Azure Sentinel ou um SIEM de terceiros. 
 
-- [Como ativar definições de diagnóstico para registo de atividades azure](../azure-monitor/platform/activity-log.md)
+- [Como ativar definições de diagnóstico para registo de atividades azure](../azure-monitor/essentials/activity-log.md)
 
 - [Como configurar registos do Azure Monitor e recolher dados de diagnóstico para apps Azure Logic](monitor-logic-apps-log-analytics.md)
 
@@ -284,7 +284,7 @@ No Azure Monitor, detenha o período de retenção de registos para registos ass
 
 - [Como monitorizar o estado de execução, rever o histórico do gatilho e configurar alertas para a Azure Logic Apps](monitor-logic-apps.md)
 
-- [Como definir parâmetros de retenção de registos](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Como definir parâmetros de retenção de registos](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Monitorização do Centro de Segurança do Azure**: Sim
 
@@ -300,9 +300,9 @@ Em alternativa, pode ativar e a bordo dados para Azure Sentinel ou um SIEM de te
 
 - [Como configurar registos do Azure Monitor e recolher dados de diagnóstico para apps Azure Logic](monitor-logic-apps-log-analytics.md)
 
-- [Como ativar definições de diagnóstico para registo de atividades azure](../azure-monitor/platform/activity-log.md)
+- [Como ativar definições de diagnóstico para registo de atividades azure](../azure-monitor/essentials/activity-log.md)
 
-- [Como recolher e analisar registos de atividades do Azure no Log Analytics no Azure Monitor](../azure-monitor/platform/activity-log.md)
+- [Como recolher e analisar registos de atividades do Azure no Log Analytics no Azure Monitor](../azure-monitor/essentials/activity-log.md)
 
 - [Como embarcar Azure Sentinel](../sentinel/quickstart-onboard.md) 
 
@@ -320,7 +320,7 @@ Em alternativa, pode ativar e a bordo dados para a Azure Sentinel.
 
 - [Como gerir alertas no Centro de Segurança Azure](../security-center/security-center-managing-and-responding-alerts.md)
 
-- [Como alertar nos dados de registos de registos](../azure-monitor/learn/tutorial-response.md)
+- [Como alertar nos dados de registo de registo de registos de registos](../azure-monitor/alerts/tutorial-response.md)
 
 **Monitorização do Centro de Segurança do Azure**: Sim
 
@@ -685,7 +685,7 @@ Quando criar um ambiente de serviço de integração (ISE) para hospedar as suas
 
 **Orientação**: Utilize o Monitor Azure com o registo de atividade Azure para criar alertas para quando as alterações ocorrem nas Apps Azure Logic, bem como outros recursos críticos ou relacionados.
 
-- [Como criar alertas para eventos de Registo de Atividades Azure](../azure-monitor/platform/alerts-activity-log.md)
+- [Como criar alertas para eventos de Registo de Atividades Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitorização do Centro de Segurança do Azure**: Sim
 

@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: tagore
-ms.openlocfilehash: 7ed2a672f0f7149240e799b5529a7a3a6836a702
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 004a84cd98381af027c554a7ef40e27e69ec6dbc
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499310"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100587924"
 ---
 # <a name="migrate-your-iaas-resources-to-azure-resource-manager-by-march-1-2023"></a>Migrar os seus recursos IaaS para o Azure Resource Manager até 1 de março de 2023 
 
@@ -30,7 +30,7 @@ Os VMs criados utilizando o modelo de implementação clássico seguirão a [Pol
 - No dia 1 de março de 2023, as subscrições que não forem migradas para o Azure Resource Manager serão informadas sobre os prazos para a eliminação de quaisquer VMs restantes (clássicos).  
 
 Esta aposentadoria *não* afeta os seguintes serviços e funcionalidades da Azure: 
-- Cloud Services do Azure 
+- [Azure Cloud Services (clássico)](https://docs.microsoft.com/azure/cloud-services/cloud-services-choose-me)
 - Contas de armazenamento *não* utilizadas por VMs (clássico) 
 - Redes virtuais *não* utilizadas por VMs (clássico) 
 - Outros recursos clássicos
@@ -49,9 +49,9 @@ Comece a planear a sua migração para o Azure Resource Manager, hoje.
 
 1. Recomendamos iniciar o planeamento utilizando a [ferramenta de migração de suporte](./migration-classic-resource-manager-overview.md) da plataforma para migrar os seus VMs existentes com três passos fáceis: validar, preparar e comprometer-se. A ferramenta foi concebida para migrar os seus VMs dentro do mínimo para nenhum tempo de inatividade. 
 
-   1. O primeiro passo, validado, não tem impacto na sua implantação existente e fornece uma lista de todos os cenários não apoiados para a migração. 
-   1. Procure a [lista de soluções alternativas](./migration-classic-resource-manager-overview.md#unsupported-features-and-configurations) para corrigir o seu destacamento e prepare-a para a migração. 
-   1. Idealmente, depois de todos os erros de validação serem corrigidos, não deverá encontrar quaisquer problemas durante os passos de preparação e de empenhamento. Após o compromisso ser bem sucedido, a sua implementação é migrada para o Azure Resource Manager e pode ser gerida através de novas APIs expostas pelo Azure Resource Manager. 
+   - O primeiro passo, validado, não tem impacto na sua implantação existente e fornece uma lista de todos os cenários não apoiados para a migração. 
+   - Procure a [lista de soluções alternativas](./migration-classic-resource-manager-overview.md#unsupported-features-and-configurations) para corrigir o seu destacamento e prepare-a para a migração. 
+   - Idealmente, depois de todos os erros de validação serem corrigidos, não deverá encontrar quaisquer problemas durante os passos de preparação e de empenhamento. Após o compromisso ser bem sucedido, a sua implementação é migrada para o Azure Resource Manager e pode ser gerida através de novas APIs expostas pelo Azure Resource Manager. 
 
    Se a ferramenta de migração não for adequada para a sua migração, pode explorar [outras ofertas de computação](/azure/architecture/guide/technology-choices/compute-decision-tree) para a migração. Porque há muitas ofertas de cálculo Azure, e são diferentes umas das outras, não podemos fornecer um caminho de migração apoiado pela plataforma para eles.  
 
@@ -65,6 +65,6 @@ Comece a planear a sua migração para o Azure Resource Manager, hoje.
 
 - [Apoio à Migração Azure](https://ms.portal.azure.com/#create/Microsoft.Support/Parameters/{"pesId":"6f16735c-b0ae-b275-ad3a-03479cfa1396","supportTopicId":"1135e3d0-20e2-aec5-4ef0-55fd3dae2d58"}): Equipa de apoio dedicada à assistência técnica durante a migração.
 
-- [Microsoft Fast Track](https://www.microsoft.com/fasttrack): Fast track pode ajudar clientes elegíveis a planear & execução desta migração. [Nomeie-se.](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fprograms%2Fazure-fasttrack%2F%23nomination&data=02%7C01%7CTanmay.Gore%40microsoft.com%7C3e75bbf3617944ec663a08d85c058340%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637360526032558561&sdata=CxWTVQQPVWNwEqDZKktXzNV74pX91uyJ8dY8YecIgGc%3D&reserved=0)  
+- [Microsoft Fast Track](https://www.microsoft.com/fasttrack): Fast track pode ajudar clientes elegíveis a planear & execução desta migração. [Nomeie-se](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fprograms%2Fazure-fasttrack%2F%23nomination&data=02%7C01%7CTanmay.Gore%40microsoft.com%7C3e75bbf3617944ec663a08d85c058340%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637360526032558561&sdata=CxWTVQQPVWNwEqDZKktXzNV74pX91uyJ8dY8YecIgGc%3D&reserved=0) para o Programa de Migração de DC.  
 
 - Se a sua empresa/organização tiver uma parceria com a Microsoft ou trabalhar com representantes da Microsoft (como arquitetos de solução em nuvem (CSAs) ou gestores técnicos de contas (TAMs)), trabalhe com eles para obter recursos adicionais para a migração.

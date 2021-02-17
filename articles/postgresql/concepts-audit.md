@@ -6,12 +6,12 @@ ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/28/2020
-ms.openlocfilehash: 615297a4bf47d80c9313f011b90d343b7ae680e3
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 33fa6420f52cae9c869cc75a04ea82de0ec48262
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488049"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100596296"
 ---
 # <a name="audit-logging-in-azure-database-for-postgresql---single-server"></a>Registo de auditoria na Base de Dados Azure para PostgreSQL - Servidor Único
 
@@ -21,7 +21,7 @@ O registo de auditoria das atividades de base de dados na Base de Dados Azure pa
 > pgAudit está em pré-visualização na Base de Dados Azure para PostgreSQL.
 > A extensão só pode ser ativada nos servidores Otimizados para Fins Gerais e Memória.
 
-Se quiser registos ao nível de recursos do Azure para operações como a escala de cálculo e armazenamento, consulte o Registo de [Atividades Azure](../azure-monitor/platform/platform-logs-overview.md).
+Se quiser registos ao nível de recursos do Azure para operações como a escala de cálculo e armazenamento, consulte o Registo de [Atividades Azure](../azure-monitor/essentials/platform-logs-overview.md).
 
 ## <a name="usage-considerations"></a>Considerações de utilização
 Por predefinição, as instruções de registo pgAudit são emitidas juntamente com as instruções de registo regulares através da função de registo padrão do Postgres. Na Base de Dados do Azure para PostgreSQL, estes ficheiros .log podem ser transferidos através do portal do Azure ou da CLI. O armazenamento máximo para a recolha de ficheiros é de 1 GB, e cada ficheiro está disponível por um máximo de sete dias (o padrão é de três dias). Este serviço é uma opção de armazenamento de curto prazo.
@@ -88,9 +88,9 @@ Para começar rapidamente, ajuste `pgaudit.log` para , e abra seus `WRITE` regis
 ## <a name="viewing-audit-logs"></a>Visualização de registos de auditoria
 Se estiver a utilizar ficheiros .log, os seus registos de auditoria serão incluídos no mesmo ficheiro que os registos de erro do PostgreSQL. Pode descarregar ficheiros de registo a partir do [portal](howto-configure-server-logs-in-portal.md) Azure ou [CLI](howto-configure-server-logs-using-cli.md). 
 
-Se estiver a utilizar o registo de recursos Azure, a forma como acede aos registos depende do ponto final que escolher. Para o Azure Storage, consulte o artigo da [conta de armazenamento de registos.](../azure-monitor/platform/resource-logs.md#send-to-azure-storage) Para Os Centros de Eventos, consulte o [artigo de registos Azure.](../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs)
+Se estiver a utilizar o registo de recursos Azure, a forma como acede aos registos depende do ponto final que escolher. Para o Azure Storage, consulte o artigo da [conta de armazenamento de registos.](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage) Para Os Centros de Eventos, consulte o [artigo de registos Azure.](../azure-monitor/essentials/resource-logs.md#send-to-azure-event-hubs)
 
-Para registos do Monitor Azure, os registos são enviados para o espaço de trabalho selecionado. Os registos Postgres utilizam o modo de recolha **AzureDiagnostics,** para que possam ser consultados a partir da tabela AzureDiagnostics. Os campos na tabela são descritos abaixo. Saiba mais sobre consulta e alerta na visão geral dos Registos do [Monitor Azure.](../azure-monitor/log-query/log-query-overview.md)
+Para registos do Monitor Azure, os registos são enviados para o espaço de trabalho selecionado. Os registos Postgres utilizam o modo de recolha **AzureDiagnostics,** para que possam ser consultados a partir da tabela AzureDiagnostics. Os campos na tabela são descritos abaixo. Saiba mais sobre consulta e alerta na visão geral dos Registos do [Monitor Azure.](../azure-monitor/logs/log-query-overview.md)
 
 Podes usar esta consulta para começar. Pode configurar alertas com base em consultas.
 

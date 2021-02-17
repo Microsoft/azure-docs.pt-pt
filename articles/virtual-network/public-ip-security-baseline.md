@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: cba362004e764ffbbc734fb06c8898f380ffdf88
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: b26a020b9b4b1641d67a4f5ca55908b8d37f31e4
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99806923"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100596494"
 ---
 # <a name="azure-security-baseline-for-azure-public-ip"></a>Linha de segurança Azure para Azure Public IP
 
@@ -52,7 +52,7 @@ O IP público fornece ferramentas para monitorizar, diagnosticar, visualizar mé
 
 Em vez disso, pode ativar e a bordo dados para Azure Sentinel ou um SIEM de terceiros.
 
-- [Como recolher registos e métricas da plataforma com o Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
+- [Como recolher registos e métricas da plataforma com o Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
 - [Como embarcar Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -64,7 +64,7 @@ Em vez disso, pode ativar e a bordo dados para Azure Sentinel ou um SIEM de terc
 
 **Orientação**: Utilize o Registo de Atividades Azure para monitorizar as configurações e detetar alterações para as suas instâncias ip públicas. Para além do plano de controlo (por exemplo, portal Azure), o próprio IP público não gera registos de auditoria. O IP público fornece ferramentas para monitorizar, diagnosticar, visualizar métricas e ativar ou desativar registos de recursos numa rede virtual Azure.
 
-- [Como visualizar e recuperar eventos de Registo de Atividades Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [Como visualizar e recuperar eventos de Registo de Atividades Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
 **Monitorização do Centro de Segurança do Azure**: Sim
 
@@ -74,7 +74,7 @@ Em vez disso, pode ativar e a bordo dados para Azure Sentinel ou um SIEM de terc
 
 **Orientação**: Utilize o Azure Monitor para definir o período de retenção de registos para os espaços de trabalho do Log Analytics associados a instâncias IP públicas de acordo com as obrigações de conformidade da sua organização.
 
-- [Como definir parâmetros de retenção de registos](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Como definir parâmetros de retenção de registos](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Monitorização do Centro de Segurança do Azure**: Não aplicável
 
@@ -88,7 +88,7 @@ Utilize o Registo de Atividades Azure para monitorizar as configurações e dete
 
 O próprio IP público não gera registos relacionados com o tráfego de rede que não seja no plano de controlo (por exemplo, portal Azure).
 
-- [Como visualizar e recuperar eventos de Registo de Atividades Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [Como visualizar e recuperar eventos de Registo de Atividades Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
 **Monitorização do Centro de Segurança do Azure**: Não aplicável
 

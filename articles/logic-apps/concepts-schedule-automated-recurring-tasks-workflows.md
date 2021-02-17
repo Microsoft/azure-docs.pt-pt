@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: conceptual
-ms.date: 01/07/2021
-ms.openlocfilehash: fd0a779ec5ac5537dd3e3ed6a82cf818b42cff15
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.date: 02/16/2021
+ms.openlocfilehash: e9fbafa9f3c33d10496e84f61e1f2b97f6328d3b
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98018797"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100581804"
 ---
 # <a name="schedule-and-run-recurring-automated-tasks-processes-and-workflows-with-azure-logic-apps"></a>Agendar e executar tarefas, processos e fluxos de trabalho automatizados com o Azure Logic Apps
 
@@ -90,8 +90,8 @@ Aqui estão alguns padrões que mostram como pode controlar a recorrência com a
 | Hora de início | Periodicidade sem agenda | Recorrência com horário (apenas gatilho de recorrência) |
 |------------|-----------------------------|----------------------------------------------------|
 | {nenhum} | Executa a primeira carga de trabalho instantaneamente. <p>Executa cargas de trabalho futuras com base no último tempo de execução. | Executa a primeira carga de trabalho instantaneamente. <p>Executa cargas de trabalho futuras com base no calendário especificado. |
-| Hora de início no passado | **Trigger de recorrência:** Calcula os tempos de execução com base na hora de início especificada e descarta os tempos de execução passados. Executa a primeira carga de trabalho no próximo tempo de execução futuro. <p>Executa cargas de trabalho futuras com base em cálculos do último tempo de execução. <p><p>**Desacionar** o gatilho da janela: Calcula os tempos de funcionamento com base na hora de início especificada e honra os tempos de execução passados. <p>Executa cargas de trabalho futuras com base em cálculos a partir da hora de início especificada. <p><p>Para mais explicações, consulte o exemplo que se segue a esta tabela. | Executa a primeira carga de trabalho *o mais cedo* do que a hora de início, com base no horário calculado a partir da hora de início. <p>Executa cargas de trabalho futuras com base no calendário especificado. <p>**Nota:** Se especificar uma recorrência com um horário, mas não especificar horas ou minutos para o horário, a Logic Apps calcula os tempos de execução futuros utilizando as horas ou minutos, respectivamente, a partir do primeiro tempo de execução. |
-| Hora de início agora ou no futuro | Executa a primeira carga de trabalho na hora de início especificada. <p>Executa cargas de trabalho futuras com base em cálculos do último tempo de execução. | Executa a primeira carga de trabalho *o mais cedo* do que a hora de início, com base no horário calculado a partir da hora de início. <p>Executa cargas de trabalho futuras com base no calendário especificado. <p>**Nota:** Se especificar uma recorrência com um horário, mas não especificar horas ou minutos para o horário, a Logic Apps calcula os tempos de execução futuros utilizando as horas ou minutos, respectivamente, a partir do primeiro tempo de execução. |
+| Hora de início no passado | **Trigger de recorrência:** Calcula os tempos de execução com base na hora de início especificada e descarta os tempos de execução passados. <p><p>Executa a primeira carga de trabalho no próximo tempo de execução futuro. <p><p>Executa cargas de trabalho futuras com base no último tempo de execução. <p><p>**Desacionar** o gatilho da janela: Calcula os tempos de funcionamento com base na hora de início especificada e honra os tempos de execução passados. <p><p>Executa cargas de trabalho futuras com base na hora de início especificada. <p><p>Para mais explicações, consulte o exemplo que se segue a esta tabela. | Executa a primeira carga de trabalho *o mais cedo* do que a hora de início, com base no horário calculado a partir da hora de início. <p><p>Executa cargas de trabalho futuras com base no calendário especificado. <p><p>**Nota:** Se especificar uma recorrência com um horário, mas não especificar horas ou minutos para o horário, a Logic Apps calcula os tempos de execução futuros utilizando as horas ou minutos, respectivamente, a partir do primeiro tempo de execução. |
+| Hora de início agora ou no futuro | Executa a primeira carga de trabalho na hora de início especificada. <p><p>**Trigger de recorrência:** Executa cargas de trabalho futuras com base no último tempo de execução. <p><p>**Gatilho da janela deslizante:** Executa cargas de trabalho futuras com base na hora de início especificada. | Executa a primeira carga de trabalho *o mais cedo* do que a hora de início, com base no horário calculado a partir da hora de início. <p><p>Executa cargas de trabalho futuras com base no calendário especificado. <p>**Nota:** Se especificar uma recorrência com um horário, mas não especificar horas ou minutos para o horário, a Logic Apps calcula os tempos de execução futuros utilizando as horas ou minutos, respectivamente, a partir do primeiro tempo de execução. |
 ||||
 
 *Exemplo para hora de início e recorrência passadas, mas sem horário*
@@ -152,7 +152,7 @@ Se estas aplicações lógicas usam a zona DO TEMPO CENTRAL UTC-6:00 (US & Canad
 
   * #1 de aplicações lógicas
 
-    | Date | Tempo (local) | Tempo (UTC) | Notas |
+    | Data | Tempo (local) | Tempo (UTC) | Notas |
     |------|--------------|------------|-------|
     | 03/09/2019 | 1:30:00 | 7:30:00 | UTC antes do dia em que a DST faz efeito. |
     | 03/10/2019 | 1:30:00 | 7:30:00 | UTC é o mesmo porque dst não fez efeito. |
@@ -161,7 +161,7 @@ Se estas aplicações lógicas usam a zona DO TEMPO CENTRAL UTC-6:00 (US & Canad
 
   * #2 de aplicações lógicas
 
-    | Date | Tempo (local) | Tempo (UTC) | Notas |
+    | Data | Tempo (local) | Tempo (UTC) | Notas |
     |------|--------------|------------|-------|
     | 03/09/2019 | 2:30:00 | 8:30:00 | UTC antes do dia em que a DST faz efeito. |
     | 03/10/2019 | 3:30:00 AM* | 8:30:00 | A DST já está em vigor, por isso a hora local avançou uma hora porque o fuso horário UTC-6:00 muda para UTC-5:00. Para mais informações, consulte [Triggers que começam entre as 2:00 e as 3:00 da manhã.](#dst-window) |
@@ -174,7 +174,7 @@ Se estas aplicações lógicas usam a zona DO TEMPO CENTRAL UTC-6:00 (US & Canad
 
   * #1 de aplicações lógicas
 
-    | Date | Tempo (local) | Tempo (UTC) | Notas |
+    | Data | Tempo (local) | Tempo (UTC) | Notas |
     |------|--------------|------------|-------|
     | 11/02/2019 | 1:30:00 | 6:30:00 ||
     | 11/03/2019 | 1:30:00 | 6:30:00 ||
@@ -183,7 +183,7 @@ Se estas aplicações lógicas usam a zona DO TEMPO CENTRAL UTC-6:00 (US & Canad
 
   * #2 de aplicações lógicas
 
-    | Date | Tempo (local) | Tempo (UTC) | Notas |
+    | Data | Tempo (local) | Tempo (UTC) | Notas |
     |------|--------------|------------|-------|
     | 11/02/2019 | 2:30:00 | 7:30:00 ||
     | 11/03/2019 | 2:30:00 | 8:30:00 ||
@@ -231,7 +231,7 @@ Aqui estão várias recorrências de exemplo que pode configurar para os gatilho
 | Recorrência | Corra a cada hora por um dia por mês | 1 | Mensal | {ver nota} | {indisponível} | 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 | {ver nota} | Se não especificar uma data e hora de início, este programa utiliza a data e hora da criação. Para controlar as atas para o horário de recorrência, especifique as atas da hora, uma hora de início ou use o tempo de criação. Por exemplo, se a hora de início ou criação for 8:25 AM, este horário é às 8:25, 9:25 AM, 10:25 AM, e assim por diante. |
 |||||||||
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Criar, programar e executar tarefas e fluxos de trabalho recorrentes com o gatilho de Recorrência](../connectors/connectors-native-recurrence.md)
 * [Criar, programar e executar tarefas e fluxos de trabalho recorrentes com o gatilho da janela deslizante](../connectors/connectors-native-sliding-window.md)

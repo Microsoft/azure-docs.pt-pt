@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/21/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: e085c5c2dbb608692ff7e766744743d3f640387b
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: ef0f308c3ea2986301b0247111ef96bb133b57f4
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98633210"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100571933"
 ---
 # <a name="azure-security-baseline-for-event-grid"></a>Linha de base de segurança Azure para a Grade de Eventos
 
@@ -163,9 +163,9 @@ Você também pode usar definições de política incorporadas relacionadas com 
 
 **Orientação**: Utilize o Registo de Atividades Azure para monitorizar as configurações de recursos de rede e detetar alterações nos recursos de rede relacionados com a Grelha de Eventos Azure. Crie alertas dentro do Azure Monitor que irão desencadear quando ocorrerem alterações nos recursos críticos da rede.
 
-- [Como visualizar e recuperar eventos de Registo de Atividades Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [Como visualizar e recuperar eventos de Registo de Atividades Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Como criar alertas no Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+- [Como criar alertas no Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitorização do Centro de Segurança Azure:** Não aplicável
 
@@ -209,7 +209,7 @@ Você também pode usar definições de política incorporadas relacionadas com 
 
 **Orientação**: No Azure Monitor, detenva o período de retenção de registos para os espaços de trabalho do Log Analytics associados aos recursos da rede de eventos Azure de acordo com os regulamentos de conformidade da sua organização.
 
-- [Como definir parâmetros de retenção de registos](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Como definir parâmetros de retenção de registos](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Monitorização do Centro de Segurança Azure:** Não aplicável
 
@@ -227,9 +227,9 @@ Em alternativa, pode ativar e a bordo dados para Azure Sentinel ou um SIEM de te
 
 - [Como embarcar Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Começando com consultas log analytics](../azure-monitor/log-query/log-analytics-tutorial.md)
+- [Começando com consultas log analytics](../azure-monitor/logs/log-analytics-tutorial.md)
 
-- [Como realizar consultas personalizadas no Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
+- [Como realizar consultas personalizadas no Azure Monitor](../azure-monitor/logs/get-started-queries.md)
 
 **Monitorização do Centro de Segurança Azure:** Não aplicável
 
@@ -249,7 +249,7 @@ Além disso, pode embarcar no seu espaço de trabalho Log Analytics para Azure S
 
 - [Detalhes do esquema de registo de diagnóstico de Grade de Eventos](diagnostic-logs.md)
 
-- [Criar, visualizar e gerir alertas de registo usando o Azure Monitor](../azure-monitor/platform/alerts-log.md)
+- [Criar, visualizar e gerir alertas de registo usando o Azure Monitor](../azure-monitor/alerts/alerts-log.md)
 
 - [Como embarcar Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -513,7 +513,7 @@ Para a plataforma subjacente, que é gerida pela Microsoft, a Microsoft trata to
 
 **Orientação**: Utilize o Monitor Azure com o registo de atividade azure para criar alertas para quando ocorrerem alterações em casos de produção de recursos da Grelha de Eventos Azure e outros recursos críticos ou relacionados.
 
-- [Como criar alertas para eventos de Registo de Atividades Azure](../azure-monitor/platform/alerts-activity-log.md)
+- [Como criar alertas para eventos de Registo de Atividades Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitorização do Centro de Segurança Azure:** Não aplicável
 

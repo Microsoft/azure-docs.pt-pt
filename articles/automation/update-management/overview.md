@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 01/22/2021
 ms.topic: conceptual
-ms.openlocfilehash: 6e312d354a25113a764bca5e9492909d22af9873
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.openlocfilehash: 8c25e54143f0a0815a523bb923b7a7442de2a3d2
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100007742"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100587864"
 ---
 # <a name="update-management-overview"></a>Descrição geral da Gestão de Atualizações
 
@@ -30,7 +30,7 @@ Antes de implementar a Gestão de Atualização e de ativar as suas máquinas pa
 
 As máquinas que são geridas pela Update Management dependem do seguinte para realizar avaliações e implementar atualizações:
 
-* [Log Analytics agente](../../azure-monitor/platform/log-analytics-agent.md) para Windows ou Linux
+* [Log Analytics agente](../../azure-monitor/agents/log-analytics-agent.md) para Windows ou Linux
 * Configuração de Estado Pretendido do PowerShell (DSC) para Linux
 * Automation Hybrid Runbook Worker (instalado automaticamente quando ativa a Gestão de Atualização na máquina)
 * Microsoft Update ou [Serviços de Atualização do Servidor do Windows](/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus) (WSUS) para máquinas Windows
@@ -53,7 +53,7 @@ A Atualização A Gestão informa como a máquina está atualizada com base na f
 
 Pode implementar e instalar atualizações de software em máquinas que exijam as atualizações criando uma implementação programada. As atualizações classificadas como opcionais não estão incluídas no âmbito de implementação das máquinas Windows. Apenas as atualizações necessárias estão incluídas no âmbito de implementação.
 
-A implementação programada define quais as máquinas-alvo que recebem as atualizações aplicáveis. Fá-lo especificando explicitamente determinadas máquinas ou selecionando um [grupo de computador](../../azure-monitor/platform/computer-groups.md) que se baseia em pesquisas de registo de um conjunto específico de máquinas (ou numa consulta [Azure](query-logs.md) que seleciona dinâmicamente VMs Azure com base em critérios especificados). Estes grupos diferem da [configuração](../../azure-monitor/insights/solution-targeting.md)de âmbito , que é usada para controlar a segmentagem das máquinas que recebem a configuração para ativar a Gestão de Atualização. Isto impede-os de executar e reportar a conformidade da atualização e instalar as atualizações necessárias aprovadas.
+A implementação programada define quais as máquinas-alvo que recebem as atualizações aplicáveis. Fá-lo especificando explicitamente determinadas máquinas ou selecionando um [grupo de computador](../../azure-monitor/logs/computer-groups.md) que se baseia em pesquisas de registo de um conjunto específico de máquinas (ou numa consulta [Azure](query-logs.md) que seleciona dinâmicamente VMs Azure com base em critérios especificados). Estes grupos diferem da [configuração](../../azure-monitor/insights/solution-targeting.md)de âmbito , que é usada para controlar a segmentagem das máquinas que recebem a configuração para ativar a Gestão de Atualização. Isto impede-os de executar e reportar a conformidade da atualização e instalar as atualizações necessárias aprovadas.
 
 Ao definir uma implementação, também especifica um calendário para aprovar e definir um período de tempo durante o qual as atualizações podem ser instaladas. Este período chama-se janela de manutenção. Uma extensão de 20 minutos da janela de manutenção está reservada para reinicializações, assumindo que uma é necessária e selecionou a opção de reinicialização apropriada. Se a remendação demorar mais do que o esperado e houver menos de 20 minutos na janela de manutenção, não ocorrerá um reboot.
 
@@ -82,7 +82,7 @@ A tabela que se segue lista os sistemas operativos suportados para avaliações 
 |Ubuntu 14.04 LTS, 16.04 LTS e 18.04 LTS (x64)      |Os agentes linux requerem acesso a um repositório de atualização.         |
 
 > [!NOTE]
-> Os conjuntos de escala de máquina virtual Azure podem ser geridos através da Gestão de Atualização. A Atualização Gestão trabalha nos próprios casos e não na imagem base. Terá de agendar as atualizações de forma incremental, para que nem todas as instâncias VM sejam atualizadas de uma só vez. Pode adicionar nós para conjuntos de balanças de máquinas virtuais seguindo os passos sob [Adicionar uma máquina não-Azure para alterar o tracking e o inventário](../automation-tutorial-installed-software.md#add-a-non-azure-machine-to-change-tracking-and-inventory).
+> A Atualização A Gestão não suporta automatizar com segurança a gestão de atualizações em todas as instâncias num conjunto de escala de máquina virtual Azure. [As atualizações automáticas de imagens de SO](../../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) são o método recomendado para gerir atualizações de imagem do SO no seu conjunto de escala.
 
 ### <a name="unsupported-operating-systems"></a>Sistemas operativos não suportados
 
@@ -107,7 +107,7 @@ Requisitos de software:
 
 Os agentes do Windows devem ser configurados para comunicar com um servidor WSUS, ou necessitam de acesso ao Microsoft Update. Para máquinas híbridas, recomendamos a instalação do agente Log Analytics para windows ligando primeiro a sua máquina aos [servidores ativados do Azure Arc](../../azure-arc/servers/overview.md), e depois utilizar a Azure Policy para atribuir o agente Deploy Log Analytics às [máquinas incorporadas do Windows Azure Arc.](../../governance/policy/samples/built-in-policies.md#monitoring) Em alternativa, se planeia monitorizar as máquinas com O Monitor Azure para VMs, em vez disso, utilize o Enable Azure Monitor para a iniciativa [VMs.](../../governance/policy/samples/built-in-initiatives.md#monitoring)
 
-Pode utilizar a Gestão de Atualização com o Gestor de Configuração do Ponto Final do Microsoft. Para saber mais sobre cenários de integração, consulte [integrar a gestão de atualização com o Gestor de Configuração de Pontos finais do Windows](mecmintegration.md). O [agente Log Analytics para Windows](../../azure-monitor/platform/agent-windows.md) é necessário para servidores Windows geridos por sites no ambiente de Gestor de Configuração.
+Pode utilizar a Gestão de Atualização com o Gestor de Configuração do Ponto Final do Microsoft. Para saber mais sobre cenários de integração, consulte [integrar a gestão de atualização com o Gestor de Configuração de Pontos finais do Windows](mecmintegration.md). O [agente Log Analytics para Windows](../../azure-monitor/agents/agent-windows.md) é necessário para servidores Windows geridos por sites no ambiente de Gestor de Configuração.
 
 Por predefinição, os VMs do Windows que são implantados a partir do Azure Marketplace estão definidos para receber atualizações automáticas do Windows Update Service. Este comportamento não muda quando adiciona VMs do Windows ao seu espaço de trabalho. Se não gerir ativamente as atualizações utilizando a Gestão de Atualização, o comportamento padrão (para aplicar automaticamente atualizações) aplica-se.
 
@@ -147,7 +147,7 @@ Pode adicionar a máquina Do Windows a um grupo de trabalhadores híbridos híbr
 
 ### <a name="management-packs"></a>Pacotes de gestão
 
-Se o seu grupo de gestão de Gestor de Operações estiver [ligado a um espaço de trabalho Log Analytics,](../../azure-monitor/platform/om-agents.md)os seguintes pacotes de gestão são instalados no Gestor de Operações. Estes pacotes de gestão também são instalados para a Gestão de Atualizações em máquinas Windows conectadas diretamente. Não precisa de configurar nem de gerir estes pacotes de gestão.
+Se o seu grupo de gestão de Gestor de Operações estiver [ligado a um espaço de trabalho Log Analytics,](../../azure-monitor/agents/om-agents.md)os seguintes pacotes de gestão são instalados no Gestor de Operações. Estes pacotes de gestão também são instalados para a Gestão de Atualizações em máquinas Windows conectadas diretamente. Não precisa de configurar nem de gerir estes pacotes de gestão.
 
 * Pacote de Informações de Avaliação de Atualização do Microsoft System Center Advisor (Microsoft.IntelligencePacks.UpdateAssessment)
 * Microsoft.IntelligencePack.UpdateAssessment.Configuration (Microsoft.IntelligencePack.UpdateAssessment.Configuration)
@@ -156,7 +156,7 @@ Se o seu grupo de gestão de Gestor de Operações estiver [ligado a um espaço 
 > [!NOTE]
 > Se tiver um grupo de gestão 1807 ou 2019 ligado a um espaço de trabalho log Analytics com agentes configurados no grupo de gestão para recolher dados de registo, precisa de anular o parâmetro `IsAutoRegistrationEnabled` e defini-lo para True na regra **Microsoft.IntelligencePacks.AzureAutomation.HybridAgent.Init.**
 
-Para obter mais informações sobre atualizações de pacotes de gestão, consulte [os registos do Connect Operations Manager para o Azure Monitor](../../azure-monitor/platform/om-agents.md).
+Para obter mais informações sobre atualizações de pacotes de gestão, consulte [os registos do Connect Operations Manager para o Azure Monitor](../../azure-monitor/agents/om-agents.md).
 
 > [!NOTE]
 > Para a Gestão de Atualizações para gerir totalmente as máquinas com o agente Log Analytics, tem de atualizar o agente Log Analytics para windows ou o agente Log Analytics para o Linux. Para saber como atualizar o agente, consulte [como atualizar um agente do Gestor de Operações.](/system-center/scom/deploy-upgrade-agents) Em ambientes que utilizam o Gestor de Operações, deve estar a executar o Gestor de Operações do Centro de Sistema 2012 R2 UR 14 ou mais tarde.
@@ -169,9 +169,9 @@ A tabela a seguir descreve as fontes ligadas que a Atualização de Gestão supo
 
 | Origem ligada | Suportado | Description |
 | --- | --- | --- |
-| Agentes do Windows |Sim |A Atualização Management recolhe informações sobre atualizações do sistema a partir de agentes do Windows e inicia a instalação das atualizações necessárias. |
-| Agentes do Linux |Sim |Update Management recolhe informações sobre atualizações do sistema de agentes linux e, em seguida, inicia a instalação de atualizações necessárias em distribuições suportadas. |
-| Grupo de gestão do Operations Manager |Sim |A Update Management recolhe informações sobre atualizações do sistema de agentes de um grupo de gestão conectado.<br/><br/>Não é necessária uma ligação direta do agente do Gestor de Operações aos registos do Monitor Azure. Os dados são reencaminhados do grupo de gestão para o espaço de trabalho Log Analytics. |
+| Agentes do Windows |Yes |A Atualização Management recolhe informações sobre atualizações do sistema a partir de agentes do Windows e inicia a instalação das atualizações necessárias. |
+| Agentes do Linux |Yes |Update Management recolhe informações sobre atualizações do sistema de agentes linux e, em seguida, inicia a instalação de atualizações necessárias em distribuições suportadas. |
+| Grupo de gestão do Operations Manager |Yes |A Update Management recolhe informações sobre atualizações do sistema de agentes de um grupo de gestão conectado.<br/><br/>Não é necessária uma ligação direta do agente do Gestor de Operações aos registos do Monitor Azure. Os dados são reencaminhados do grupo de gestão para o espaço de trabalho Log Analytics. |
 
 ### <a name="collection-frequency"></a>Frequência da recolha
 
@@ -181,7 +181,7 @@ A Atualização Gestão verifica máquinas geridas para dados utilizando as segu
 
 * Cada máquina Linux - Update Management faz uma varredura a cada hora.
 
-A utilização média de dados por registos do Azure Monitor para uma máquina que utiliza a Atualização é de aproximadamente 25 MB por mês. Este valor é apenas uma aproximação e está sujeito a alterações, dependendo do seu ambiente. Recomendamos que monitorize o seu ambiente para acompanhar a sua utilização exata. Para obter mais informações sobre a análise da utilização dos dados do Azure Monitor Logs, consulte [Gerir a utilização e o custo.](../../azure-monitor/platform/manage-cost-storage.md)
+A utilização média de dados por registos do Azure Monitor para uma máquina que utiliza a Atualização é de aproximadamente 25 MB por mês. Este valor é apenas uma aproximação e está sujeito a alterações, dependendo do seu ambiente. Recomendamos que monitorize o seu ambiente para acompanhar a sua utilização exata. Para obter mais informações sobre a análise da utilização dos dados do Azure Monitor Logs, consulte [Gerir a utilização e o custo.](../../azure-monitor/logs/manage-cost-storage.md)
 
 ## <a name="network-planning"></a><a name="ports"></a>Planeamento da rede
 
@@ -193,7 +193,7 @@ Para máquinas Red Hat Linux, consulte [os IPs para os servidores de entrega de 
 
 Para obter mais informações sobre as portas necessárias para o Trabalhador de Runbook Híbrido, consulte [os endereços de Gestão de Atualização para Trabalhador de Runbook Híbrido](../automation-hybrid-runbook-worker.md#update-management-addresses-for-hybrid-runbook-worker).
 
-Se as suas políticas de segurança informática não permitirem que as máquinas da rede se conectem à internet, pode configurar um [gateway Log Analytics](../../azure-monitor/platform/gateway.md) e, em seguida, configurar a máquina para ligar através do gateway para Azure Automation e Azure Monitor.
+Se as suas políticas de segurança informática não permitirem que as máquinas da rede se conectem à internet, pode configurar um [gateway Log Analytics](../../azure-monitor/agents/gateway.md) e, em seguida, configurar a máquina para ligar através do gateway para Azure Automation e Azure Monitor.
 
 ## <a name="update-classifications"></a>Classificações de atualizações
 
