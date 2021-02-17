@@ -1,17 +1,17 @@
 ---
-title: Crie um alerta de registo com o modelo do Gestor de Recursos Azure ! Microsoft Docs
+title: Crie um alerta de registo com o modelo do Gestor de Recursos Azure | Microsoft Docs
 description: Saiba como usar um modelo de Gestor de Recursos para criar um alerta de registo
 author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
-ms.date: 08/26/2020
+ms.date: 09/22/2020
 ms.subservice: alerts
-ms.openlocfilehash: 74f067e6fb820b4fd7dcefd0777c342b72c2bbea
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: 253751aad28d22f203852148e14605ad459faa47
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97704253"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100544888"
 ---
 # <a name="create-a-log-alert-with-a-resource-manager-template"></a>Criar um alerta de registo com um modelo do Resource Manager
 

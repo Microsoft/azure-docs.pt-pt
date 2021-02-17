@@ -1,5 +1,5 @@
 ---
-title: Como usar twilio para voz e SMS (Java) Microsoft Docs
+title: Como usar twilio para voz e SMS (Java) | Microsoft Docs
 description: Saiba como fazer uma chamada telefónica e envie uma mensagem SMS com o serviço API Twilio em Azure. Amostras de código escritas em Java.
 services: ''
 documentationcenter: java
@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 11/25/2014
 ms.author: gwallace
 ms.custom: devx-track-java
-ms.openlocfilehash: 5e44ae3280d3ca0f8d5052be10d0955ba342352f
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: e7ff925534a9cab6523097f84a8ae199e9cb83eb
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97652879"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100548731"
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-java"></a>Como usar twilio para capacidades de voz e SMS em Java
 Este guia demonstra como executar tarefas de programação comuns com o serviço Twilio API em Azure. Os cenários abrangidos incluem fazer uma chamada telefónica e enviar uma mensagem do Serviço de Mensagens Curtas (SMS). Para obter mais informações sobre Twilio e utilizando voz e SMS nas suas aplicações, consulte a secção [Etapas Seguintes.](#NextSteps)
@@ -76,7 +76,7 @@ Quando se inscreve numa conta Twilio, receberá uma identificação de conta e u
 
 ## <a name="create-a-java-application"></a><a id="create_app"></a>Criar uma Aplicação Java
 1. Obtenha o Jar Twilio e adicione-o ao seu caminho de construção java e ao seu conjunto de implementação WAR. Em [https://github.com/twilio/twilio-java][twilio_java] , você pode baixar as fontes GitHub e criar o seu próprio JAR, ou baixar um JAR pré-construído (com ou sem dependências).
-2. Certifique-se de que a loja de **cacerts** da JDK contém o certificado Equifax Secure Certificate Authority com impressão digital MD5 67:CB:9D:C0:13:24:8A:82:9B:B2:17:1E:D1:1B:EC:D4 (o número de série é 35:: DE:F4:CF e a impressão digital SHA1 é D2:32:09:AD:23:D3:14:23:21:74:0D:7F:9D:62:13:97:86:63:3A). Este é o certificado da Autoridade de Certificados (CA) para o [https://api.twilio.com][twilio_api_service] serviço, que é chamado quando utiliza Twilio APIs. Para obter informações sobre a garantia de que a loja de **cacerts** da JDK contém o certificado de CA correto, consulte [adicionar um certificado à Loja de Certificados Java CA][add_ca_cert].
+2. Certifique-se de que a loja de **cacerts** da JDK contém o certificado Equifax Secure Certificate Authority com impressão digital MD5 67:CB:9D:C0:13:24:8A:82:9B:B2:17:1E:D1:1B:EC:D4 (o número de série é 35:: DE:F4:CF e a impressão digital SHA1 é D2:32:09:AD:23:D3:14:23:21:74:0D:7F:9D:62:13:97:86:63:3A). Este é o certificado da Autoridade de Certificados (CA) para o [https://api.twilio.com][twilio_api_service] serviço, que é chamado quando utiliza Twilio APIs.
 
 Instruções detalhadas para a utilização da biblioteca de clientes Twilio para Java estão disponíveis em [Como Fazer uma Chamada Telefónica Usando twilio numa aplicação java em Azure][howto_phonecall_java].
 
@@ -217,7 +217,6 @@ Agora que aprendeu o básico do serviço Twilio, siga estes links para saber mai
 
 [twilio_java]: https://github.com/twilio/twilio-java
 [twilio_api_service]: https://api.twilio.com
-[add_ca_cert]: /azure/developer/java/sdk/java-sdk-add-certificate-ca-store
 [howto_phonecall_java]: partner-twilio-java-phone-call-example.md
 [misc_role_config_settings]: /previous-versions/azure/hh690945(v=azure.100)
 [twimlet_message_url]: https://twimlets.com/message

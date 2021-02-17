@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: sudbalas
-ms.openlocfilehash: f82c7060f703aff6c19f0082454779b8fea1ba76
-ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
+ms.openlocfilehash: 552aad3e3b41bcfd55d1b57a53d8dff2080a6210
+ms.sourcegitcommit: b513b0becf878eb9a1554c26da53aa48d580bb22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100526260"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100534707"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Acesso seguro a um cofre de chaves
 
@@ -182,13 +182,13 @@ Precisamos de autorizar as seguintes operações para as nossas funções:
 
 A tabela seguinte resume as permissões de acesso para as nossas funções e aplicação.
 
-| Função | Permissões do plano de gestão | Permissões de plano de dados - políticas de acesso a cofres | Permissões de plano de dados -Azure RBAC (pré-visualização)  |
+| Função | Permissões do plano de gestão | Permissões de plano de dados - políticas de acesso a cofres | Permissões de plano de dados -Azure RBAC  |
 | --- | --- | --- | --- |
-| Equipa de segurança | [Contribuidor do Cofre Chave](../../role-based-access-control/built-in-roles.md#key-vault-contributor) | Certificados: todas as operações <br> Chaves: todas as operações <br> Segredos: todas as operações | [Administrador do cofre chave (pré-visualização)](../../role-based-access-control/built-in-roles.md#key-vault-administrator-preview) |
+| Equipa de segurança | [Contribuidor do Cofre Chave](../../role-based-access-control/built-in-roles.md#key-vault-contributor) | Certificados: todas as operações <br> Chaves: todas as operações <br> Segredos: todas as operações | [Administrador do Cofre-Chave](../../role-based-access-control/built-in-roles.md#key-vault-administrator) |
 | Desenvolvedores e &nbsp; operadores | Permissão de implantação do Cofre de Chaves<br><br> **Nota:** Esta permissão permite que os VM implantados tragam segredos de um cofre de chaves. | Nenhum | Nenhum |
-| Auditores | Nenhum | Certificados: lista <br> Chaves: listar<br>Segredos: listar<br><br> **Nota:** Esta permissão permite que os auditores inspecionem atributos (tags, datas de ativação, datas de validade) para obter chaves e segredos não emitidos nos registos. | [Key Vault Reader (pré-visualização)](../../role-based-access-control/built-in-roles.md#key-vault-reader-preview) |
-| Conta de Armazenamento do Azure | Nenhum | Chaves: obter, listar, embrulharKey, desembrulhar aKey <br> | [Utilizador de encriptação de serviço crypto de cofre chave](../../role-based-access-control/built-in-roles.md#key-vault-crypto-service-encryption-user-preview) |
-| Aplicação | Nenhum | Segredos: obter, lista <br> Certificados: obter, lista | [Key Vault Reader (pré-visualização)](../../role-based-access-control/built-in-roles.md#key-vault-reader-preview), [Key Vault Secret User (pré-visualização)](../../role-based-access-control/built-in-roles.md#key-vault-secrets-user-preview) |
+| Auditores | Nenhum | Certificados: lista <br> Chaves: listar<br>Segredos: listar<br><br> **Nota:** Esta permissão permite que os auditores inspecionem atributos (tags, datas de ativação, datas de validade) para obter chaves e segredos não emitidos nos registos. | [Leitor de cofre de chaves](../../role-based-access-control/built-in-roles.md#key-vault-reader) |
+| Conta de Armazenamento do Azure | Nenhum | Chaves: obter, listar, embrulharKey, desembrulhar aKey <br> | [Utilizador de encriptação de serviço crypto de cofre chave](../../role-based-access-control/built-in-roles.md#key-vault-crypto-service-encryption-user) |
+| Aplicação | Nenhum | Segredos: obter, lista <br> Certificados: obter, lista | [Key Vault Reader](../../role-based-access-control/built-in-roles.md#key-vault-reader), [Key Vault Secret User](../../role-based-access-control/built-in-roles.md#key-vault-secrets-user) |
 
 As três funções da equipa precisam de acesso a outros recursos, juntamente com permissões do Key Vault. Para implementar VMs (ou a funcionalidade de Aplicações Web do Azure App Service), os desenvolvedores e operadores precisam de implementar o acesso. Os auditores precisam de ler o acesso à conta de armazenamento onde os registos do Cofre de Chaves estão armazenados.
 

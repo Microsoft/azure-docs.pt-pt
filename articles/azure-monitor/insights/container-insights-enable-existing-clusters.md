@@ -1,15 +1,15 @@
 ---
-title: Monitorar um cluster do Serviço Azure Kubernetes (AKS) implantado Microsoft Docs
+title: Monitorize um cluster do Serviço Azure Kubernetes (AKS) implantado | Microsoft Docs
 description: Saiba como permitir a monitorização de um cluster Azure Kubernetes Service (AKS) com o Azure Monitor para contentores já implantados na sua subscrição.
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.custom: devx-track-terraform, devx-track-azurecli
 ms.openlocfilehash: 547c22e4d82aa728009a2fdb42f2c3b481b7a625
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97695661"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100561647"
 ---
 # <a name="enable-monitoring-of-azure-kubernetes-service-aks-cluster-already-deployed"></a>Permitir a monitorização do cluster do Serviço Azure Kubernetes (AKS) já implantado
 

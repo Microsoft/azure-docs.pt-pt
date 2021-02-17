@@ -4,12 +4,12 @@ description: Monitorização do desempenho da aplicação para serviços de apli
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js, devx-track-dotnet
-ms.openlocfilehash: cd203c64695a9a61a93409a96f6a92b9acf9fe70
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 55682215a990643111d5813db437b1f1e4612868
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100365230"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100547242"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Monitorizar o desempenho do Serviço de Aplicações do Azure
 
@@ -61,11 +61,11 @@ Existem duas formas de permitir a monitorização de aplicações para os Servi�
         
 | Dados | Coleção Básica ASP.NET | coleção recomendada ASP.NET |
 | --- | --- | --- |
-| Adiciona tendências de utilização da CPU, memória e E/S |Yes |Yes |
-| Recolhe tendências de utilização e permite a correlação dos resultados de disponibilidade para transações | Yes |Yes |
-| Recolhe exceções sem processamento pelo processo anfitrião | Yes |Yes |
-| Melhora a precisão das métricas de APM sob carga, quando é utilizada a amostragem | Yes |Yes |
-| Correlaciona os microsserviços entre limites de pedidos/dependências | Não (apenas capacidades APM de instância única) |Yes |
+| Adiciona tendências de utilização da CPU, memória e E/S |Sim |Sim |
+| Recolhe tendências de utilização e permite a correlação dos resultados de disponibilidade para transações | Sim |Sim |
+| Recolhe exceções sem processamento pelo processo anfitrião | Sim |Sim |
+| Melhora a precisão das métricas de APM sob carga, quando é utilizada a amostragem | Sim |Sim |
+| Correlaciona os microsserviços entre limites de pedidos/dependências | Não (apenas capacidades APM de instância única) |Sim |
 
 3. Para configurar configurações como amostragem, que poderia controlar previamente através do ficheiro applicationinsights.config pode agora interagir com essas mesmas definições através de definições de Aplicação com um prefixo correspondente. 
 
@@ -76,7 +76,7 @@ Existem duas formas de permitir a monitorização de aplicações para os Servi�
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/netcore)
 
 > [!IMPORTANT]
-> As seguintes versões de ASP.NET Core são suportadas: ASP.NET Core 2.1, 3.1 e 5.0. As versões 2.0, 2.2 e 3.0 já não foram apoiadas. Por favor, atualize para uma [versão suportada](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) de .NET Core para que a auto-instrumentação funcione.
+> As seguintes versões de ASP.NET Core são suportadas: ASP.NET Core 2.1 e 3.1. As versões 2.0, 2.2 e 3.0 já não foram apoiadas. Por favor, atualize para uma [versão suportada](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) de .NET Core para que a auto-instrumentação funcione.
 
 O quadro completo de ASP.NET, as aplicações baseadas em Base e Linux não são atualmente **suportadas** com monitorização baseada em agentes/extensões. ([A instrumentação manual](./asp-net-core.md) via código funcionará em todos os cenários anteriores.)
 

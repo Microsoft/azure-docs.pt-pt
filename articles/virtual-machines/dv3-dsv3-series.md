@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: jushiman
-ms.openlocfilehash: 215f907edb01cc35ffa4e9bb683964f8eda11d94
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 8faf86037bc5c2be4ab83adcbcd7e992840d329a
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99089330"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100557780"
 ---
 # <a name="dv3-and-dsv3-series"></a>Séries Dv3 e Dsv3
 
@@ -34,7 +34,7 @@ Os VMs da série Dv3 apresentam Tecnologia ® Hyper-Threading Intel.
 [Migração Ao Vivo](maintenance-and-updates.md): Suportado<br>
 [Atualizações de preservação da memória](maintenance-and-updates.md): Suportado<br>
 [Suporte de geração VM](generation-2.md): Geração 1<br>
-[Rede Acelerada](../virtual-network/create-vm-accelerated-networking-cli.md): Suportado<br>
+[Rede Acelerada](../virtual-network/create-vm-accelerated-networking-cli.md): Suportado *(Requer um mínimo de 4 vCPU*)<br>
 [Discos EFÉMEROS :](ephemeral-os-disks.md)Não Suportados <br>
 <br>
 
@@ -60,7 +60,7 @@ Os VMs da série Dsv3 apresentam Tecnologia intel® Hyper-Threading.
 [Migração Ao Vivo](maintenance-and-updates.md): Suportado<br>
 [Atualizações de preservação da memória](maintenance-and-updates.md): Suportado<br>
 [Suporte de geração VM](generation-2.md): Geração 1 e 2<br>
-[Rede Acelerada](../virtual-network/create-vm-accelerated-networking-cli.md): Suportado<br>
+[Rede Acelerada](../virtual-network/create-vm-accelerated-networking-cli.md): Suportado *(Requer um mínimo de 4 vCPU*)<br>
 [Discos EFÉMEROS](ephemeral-os-disks.md): Suportados <br>
 <br>
 

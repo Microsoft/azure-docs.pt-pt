@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 06/30/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt
-ms.openlocfilehash: 8243619bc7a32c5fa86b6e108d954674b54394e5
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: 0408341eff483de71d76a24a933ece4cbdc2b947
+ms.sourcegitcommit: b513b0becf878eb9a1554c26da53aa48d580bb22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97913736"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100535285"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-in-the-azure-portal"></a>Início Rápido: Criar um conjunto de dimensionamento de máquinas virtuais no Portal do Azure
 
@@ -57,7 +57,7 @@ Em primeiro lugar, crie um Balanceador de Carga Padrão público utilizando o po
 Pode implementar um conjunto de dimensionamento com uma imagem do Windows Server ou uma imagem do Linux, como RHEL, CentOS, Ubuntu ou SLES.
 
 1. Escala de tipo **definida** na caixa de pesquisa. Nos resultados, no **Marketplace,** selecione **conjuntos de escala de máquina virtual**. Selecione **Criar** na página **de conjuntos de escala de máquina virtual,** que abrirá a página **de conjunto de escala de máquina virtual.** 
-1. No separador **Noções básicas**, em **Detalhes do projeto**, certifique-se de que está selecionada a subscrição correta e, em seguida, selecione **Criar novo** no grupo de recursos. Digite *myVMSSResourceGroup* para o nome e, em seguida, selecione **OK** . 
+1. No **separador Basics,** nos **detalhes do Projeto,** certifique-se de que a subscrição correta é selecionada e selecione *myVMSSResourceGroup* da lista de grupos de recursos. 
 1. Digite *o myScaleSet* como o nome do seu conjunto de escala.
 1. Na **Região,** selecione uma região próxima da sua área.
 1. Selecione uma imagem de mercado para **imagem**. Neste exemplo, escolhemos *o Ubuntu Server 18.04 LTS*.

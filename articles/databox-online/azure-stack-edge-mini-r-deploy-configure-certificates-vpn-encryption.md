@@ -1,5 +1,5 @@
 ---
-title: Tutorial para configurar certificados para dispositivo Azure Stack Edge Mini R no portal Azure / Microsoft Docs
+title: Tutorial para configurar certificados para dispositivo Azure Stack Edge Mini R no portal Azure | Microsoft Docs
 description: Tutorial para implantar O Azure Stack Edge Mini R instrui-o a configurar certificados no seu dispositivo físico.
 services: databox
 author: alkohli
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 10/21/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure certificates for Azure Stack Edge Mini R  so I can use it to transfer data to Azure.
-ms.openlocfilehash: 1e81ab61b04f9cca6aff57de1736eac25a871c97
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: c3a09242b895234c96c64d9e23449d980e47e387
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96468980"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546742"
 ---
 # <a name="tutorial-configure-certificates-vpn-encryption-for-your-azure-stack-edge-mini-r"></a>Tutorial: Configure certificados, VPN, encriptação para o seu Azure Stack Edge Mini R
 
@@ -38,10 +38,10 @@ Antes de configurar e configurar o seu dispositivo Azure Stack Edge Mini R, cert
 * Instalou o dispositivo físico conforme detalhado na [Instalação Azure Stack Edge Mini R](azure-stack-edge-mini-r-deploy-install.md).
 
 * Se pretender trazer os seus próprios certificados:
-    - Deve ter os seus certificados prontos no formato apropriado, incluindo o certificado de cadeia de assinatura. Para mais detalhes sobre o certificado, aceda a [Gerir certificados](azure-stack-edge-j-series-manage-certificates.md)
+    - Deve ter os seus certificados prontos no formato apropriado, incluindo o certificado de cadeia de assinatura. Para mais detalhes sobre o certificado, aceda a [Gerir certificados](azure-stack-edge-gpu-manage-certificates.md)
 
     - Se o seu dispositivo for implantado no Azure Government ou no Azure Government Secret ou na Azure Government top secret cloud e não for implantado na nuvem pública do Azure, é necessário um certificado de cadeia de assinatura antes de poder ativar o seu dispositivo. 
-    Para mais informações sobre o certificado, aceda a [Certificados de Gestão](azure-stack-edge-j-series-manage-certificates.md).
+    Para mais informações sobre o certificado, aceda a [Certificados de Gestão](azure-stack-edge-gpu-manage-certificates.md).
 
 
 ## <a name="configure-certificates-for-device"></a>Certificados de configuração para dispositivo

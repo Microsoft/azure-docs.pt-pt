@@ -1,18 +1,18 @@
 ---
-title: Unificar vários recursos de aplicação do Monitor Azure Microsoft Docs
+title: Unificar vários recursos de insights de aplicação do monitor Azure | Microsoft Docs
 description: Este artigo fornece detalhes sobre como usar uma função em Registos monitores Azure para consultar vários recursos de Insights de Aplicação e visualizar esses dados.
 author: bwren
 ms.author: bwren
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/02/2020
-ms.openlocfilehash: 360578a36b92711c55b1fc65befa1b3df7927aad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 09/22/2020
+ms.openlocfilehash: 54a026bfe9dfba121799d850ca0c81485bf63874
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91330898"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100545671"
 ---
 # <a name="unify-multiple-azure-monitor-application-insights-resources"></a>Unificar vários recursos de insights de aplicação do monitor Azure 
 Este artigo descreve como consultar e visualizar todos os dados de registo de insights de aplicação num só local, mesmo quando estão em diferentes subscrições do Azure, como substituto da depreciação do Conector de Insights de Aplicação. O número de recursos de Application Insights que pode incluir numa única consulta está limitado a 100.

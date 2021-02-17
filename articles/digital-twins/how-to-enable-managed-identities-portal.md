@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 1/21/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 1d54ecdac739bbc5a072426f5bf73f71ab394159
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 5c216661e45e5ed34a95e8a56002f3ad175b089a
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100418123"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100545921"
 ---
 # <a name="enable-a-managed-identity-for-routing-azure-digital-twins-events-preview-azure-portal"></a>Ativar uma identidade gerida para encaminhamento de eventos Azure Digital Twins (pré-visualização): Portal Azure
 
@@ -101,9 +101,10 @@ Para atribuir um papel à identidade, comece por abrir o [portal Azure](https://
     :::image type="content" source="media/how-to-enable-managed-identities/add-role-assignment-1.png" alt-text="Screenshot do portal Azure mostrando a página de Controlo de Acesso (IAM) para um centro de eventos. O botão + Adicionar é realçado." lightbox="media/how-to-enable-managed-identities/add-role-assignment-1.png":::
 
 1. Na seguinte página **de atribuição de funções adicionar,** preencha os valores:
-    * **Função**: Selecione o papel desejado do menu suspenso
-    * **Atribuir acesso a**: Escolha **utilizador, grupo ou principal de serviço**
-    * **Selecione**: Aqui, você irá selecionar a identidade gerida da sua instância Azure Digital Twins que está a ser atribuída ao papel. O nome da identidade gerida corresponde ao nome do caso, por isso procure o nome da sua instância Azure Digital Twins. Quando selecionar o resultado, a identidade, por exemplo, aparecerá na secção **de membros Selecionados.**
+    * **Função**: Selecione a função desejada no menu suspenso.
+    * **Atribua acesso a:** Sob **o Sistema atribuído identidade gerida**, selecione Digital **Twins**.
+    * **Subscrição**: selecione a sua subscrição. Isto irá mostrar todas as identidades geridas pela Azure Digital Twins dentro da subscrição selecionada.
+    * **Selecione**: Aqui, você irá selecionar a identidade gerida da sua instância Azure Digital Twins que está a ser atribuída ao papel. O nome da identidade gerida corresponde ao nome do caso, por isso escolha o nome da sua instância Azure Digital Twins. Quando a selecionar, a identidade, por exemplo, aparecerá na secção de **membros Selecionados** na parte inferior do painel.
 
     :::row:::
         :::column:::

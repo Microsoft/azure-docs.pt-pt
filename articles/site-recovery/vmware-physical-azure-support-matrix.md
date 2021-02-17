@@ -3,12 +3,12 @@ title: Matriz de suporte para vMware/recuperação de desastres físicos na recu
 description: Resume o suporte para a recuperação de desastres de VMware VMs e servidor físico para Azure usando a Recuperação do Site Azure.
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: f684f57ed1acb5c48694196b4e19de809c98dc9f
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: aecc7ccb6e633fc9c27b254f98931d682fa3d21b
+ms.sourcegitcommit: b513b0becf878eb9a1554c26da53aa48d580bb22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100102262"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100534686"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matriz de suporte para recuperação de desastres de VMware VMs e servidores físicos para Azure
 
@@ -189,10 +189,10 @@ Adicione o disco em VM replicado | Não suportado.<br/> Desative a replicação 
 Equipa NIC de rede de anfitriões | Suportado para VMware VMs. <br/><br/>Não suportado para a replicação da máquina física.
 Rede de anfitriões VLAN | Sim.
 Rede de anfitriões IPv4 | Sim.
-Rede de anfitriões IPv6 | N.º
-Rede de hóspedes/servidor NIC Teaming | N.º
+Rede de anfitriões IPv6 | Não.
+Rede de hóspedes/servidor NIC Teaming | Não.
 Rede de hóspedes/servidores IPv4 | Sim.
-Rede de hóspedes/servidores IPv6 | N.º
+Rede de hóspedes/servidores IPv6 | Não.
 IP estático de rede de hóspedes/servidor (Windows) | Sim.
 IP estático de rede de hóspedes/servidor (Linux) | Sim. <br/><br/>Os VMs estão configurados para usar o DHCP no failback.
 Rede de hóspedes/servidores múltiplos NICs | Sim.
@@ -328,6 +328,17 @@ Máximo de alterações a dados por dia suportadas por um Servidor de Processos 
 - Estes são números médios, que pressupõem uma sobreposição de 30 por cento de E/S.
 - O Site Recovery é capaz de processar um débito superior com base no rácio de sobreposição, em tamanhos de escrita maiores e no comportamento real de E/S da carga de trabalho.
 - Estes números pressupõem um atraso típico de aproximadamente cinco minutos. Ou seja, depois de os dados serem carregados, são processados e é criado um ponto de recuperação ao fim de cinco minutos.
+
+## <a name="storage-account-limits"></a>Limites da conta de armazenamento
+
+À medida que a agitação média nos discos aumenta, o número de discos que uma conta de armazenamento pode suportar diminui. O quadro abaixo pode ser utilizado como guia para tomar decisões sobre o número de contas de armazenamento que precisam de ser a provisionadas.
+ 
+**Tipo de conta de armazenamento**    |    **Churn = 4 MBps por disco**    |    **Churn = 8 MBps por disco**
+---    |    ---    |    ---
+Conta de armazenamento V1    |    600 discos    |    300 discos
+Conta de armazenamento V2    |    1500 discos    |    750 discos
+
+Por favor, note que os limites acima são aplicáveis apenas aos cenários híbridos dr.
 
 ## <a name="vault-tasks"></a>Tarefas de abóbada
 

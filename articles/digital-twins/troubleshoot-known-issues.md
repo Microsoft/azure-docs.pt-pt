@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.service: digital-twins
 ms.date: 07/14/2020
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 118b869cb97a7dd3ce65566a994a27d2a65a7402
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 49c790ae92537ab72fb9848ed4e57e222ef11d79
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98184939"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100545688"
 ---
 # <a name="known-issues-in-azure-digital-twins"></a>Temas conhecidos em Azure Digital Twins
 
@@ -30,8 +30,6 @@ Este artigo fornece informações sobre questões conhecidas associadas à Azure
 ## <a name="missing-role-assignment-after-scripted-setup"></a>Atribuição de função em falta após configuração escrita
 
 **Descrição da emissão:** Alguns utilizadores podem experimentar problemas com a parte de atribuição de funções de [*Como-a- Configurar um caso e autenticação (scripted)*](how-to-set-up-instance-scripted.md). O script não indica falha, mas a função *Azure Digital Twins Data Owner* não é atribuída com sucesso ao utilizador, e este problema terá impacto na capacidade de criar outros recursos ao longo da estrada.
-
-[!INCLUDE [digital-twins-role-rename-note.md](../../includes/digital-twins-role-rename-note.md)]
 
 | Isto afeta-me? | Causa | Resolução |
 | --- | --- | --- |

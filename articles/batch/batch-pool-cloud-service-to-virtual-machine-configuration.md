@@ -2,13 +2,13 @@
 title: Migrar a configuração da piscina do Lote de Cloud Services para Máquinas Virtuais
 description: Saiba como atualizar a configuração da piscina para a configuração mais recente e recomendada
 ms.topic: how-to
-ms.date: 1/6/2021
-ms.openlocfilehash: 417738be2c69101129079b8ff3a3d80634f9f99c
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.date: 2/16/2021
+ms.openlocfilehash: 9cbcf3864526bd8f8132f3b0f729e2d728e07bb8
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98731504"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546045"
 ---
 # <a name="migrate-batch-pool-configuration-from-cloud-services-to-virtual-machines"></a>Migrar a configuração da piscina do Lote de Cloud Services para Máquinas Virtuais
 
@@ -37,7 +37,20 @@ O seguinte deve ser considerado na atualização da configuração da piscina:
 
 - O arranque de piscinas e nó e os tempos de eliminação podem diferir ligeiramente entre piscinas 'cloudServiceConfiguration' e piscinas 'virtualMachineConfiguration'.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="azure-data-factory-custom-activity-pools"></a>Piscinas de atividade personalizada azure Data Factory
+
+As piscinas Azure Batch podem ser usadas para executar atividades personalizadas da Data Factory. Quaisquer piscinas de 'cloudServiceConfiguration' utilizadas para executar atividades personalizadas terão de ser eliminadas e novas piscinas 'virtualMachineConfiguration' criadas.
+
+- As condutas devem ser pausadas antes de eliminar/recriar para garantir que não serão interrompidas execuções.
+- O mesmo id de piscina pode ser usado para evitar alterações na configuração do serviço ligado.
+- Retomar os oleodutos quando novas piscinas tiverem sido criadas.
+
+Para mais informações sobre a utilização do Azure Batch para executar atividades personalizadas da Data Factory:
+
+- [Serviço ligado a Azure Batch](../data-factory/compute-linked-services.md#azure-batch-linked-service)
+- [Atividades personalizadas num oleoduto da Data Factory](../data-factory/transform-data-using-dotnet-custom-activity.md)
+
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [as configurações da piscina.](nodes-and-pools.md#configurations)
 - Saiba mais sobre [as melhores práticas da piscina.](best-practices.md#pools)

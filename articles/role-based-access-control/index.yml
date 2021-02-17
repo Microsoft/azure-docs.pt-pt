@@ -11,13 +11,13 @@ metadata:
   ms.collection: na
   author: rolyon
   ms.author: rolyon
-  ms.date: 04/30/2020
-  ms.openlocfilehash: dea645e61009e84e8781d9439626ecd0ef818c28
-  ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
-  ms.translationtype: HT
+  ms.date: 02/15/2021
+  ms.openlocfilehash: c4bc7c34c2985b07e6ae72a2debec9e83e1578b8
+  ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+  ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 11/17/2020
-  ms.locfileid: "94657504"
+  ms.lasthandoff: 02/17/2021
+  ms.locfileid: "100557239"
 landingContent:
 - title: Acerca do RBAC do Azure
   linkLists:
@@ -35,7 +35,7 @@ landingContent:
   linkLists:
   - linkListType: quickstart
     links:
-    - text: Ver o acesso de um utilizador
+    - text: Verificar o acesso de um utilizador
       url: check-access.md
   - linkListType: tutorial
     links:
@@ -47,14 +47,14 @@ landingContent:
     links:
     - text: Proteger os seus recursos do Azure com o RBAC do Azure
       url: /learn/modules/secure-azure-resources-with-rbac/
-- title: Gerir o acesso
+- title: Atribuir funções
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: Portal
       url: role-assignments-portal.md
-    - text: Portal - utilizadores convidados
-      url: role-assignments-external-users.md
+    - text: Portal - Administrador de subscrição
+      url: role-assignments-portal-subscription-admin.md
     - text: PowerShell
       url: role-assignments-powershell.md
     - text: CLI do Azure

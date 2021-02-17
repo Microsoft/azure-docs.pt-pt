@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
 ms.custom: devx-track-python
-ms.openlocfilehash: b4455f21ae7243ab7a15e8d746d6674289f9fdb5
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 56e92a698446bd417c74820d6da662ad9ee55c77
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94953025"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100555674"
 ---
 # <a name="tutorial-enable-authentication-in-a-python-web-application-with-azure-ad-b2c"></a>Tutorial: Ativar a autenticação numa aplicação web Python com Azure AD B2C
 
@@ -185,4 +185,4 @@ Neste tutorial, você configura uma aplicação web Python Flask para trabalhar 
 Em seguida, saiba como personalizar o UI das páginas de fluxo do utilizador apresentadas aos seus utilizadores por Azure AD B2C:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Personalize a interface das experiências do utilizador em Azure AD B2C >](tutorial-customize-ui.md)
+> [Personalize a interface das experiências do utilizador em Azure AD B2C >](customize-ui.md)

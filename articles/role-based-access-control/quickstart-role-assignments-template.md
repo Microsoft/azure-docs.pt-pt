@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Adicione uma atribuição de função Azure usando um modelo de Gestor de Recursos Azure - Azure RBAC'
+title: 'Quickstart: Atribua um papel Azure usando um modelo de Gestor de Recursos Azure - Azure RBAC'
 description: Saiba como conceder acesso aos recursos Azure para um utilizador no âmbito do grupo de recursos utilizando modelos de Gestor de Recursos Azure e controlo de acesso baseado em funções Azure (Azure RBAC).
 services: role-based-access-control,azure-resource-manager
 author: rolyon
@@ -8,16 +8,16 @@ ms.service: role-based-access-control
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.workload: identity
-ms.date: 05/21/2020
+ms.date: 02/15/2021
 ms.author: rolyon
-ms.openlocfilehash: 622f37fa4fda20fdc854edf5cd7c192b4113c4e3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6e8f194cd85a3c381bdabf206777a99dce3c29b6
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88690447"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100559265"
 ---
-# <a name="quickstart-add-an-azure-role-assignment-using-an-arm-template"></a>Quickstart: Adicione uma atribuição de função Azure usando um modelo ARM
+# <a name="quickstart-assign-an-azure-role-using-an-arm-template"></a>Quickstart: Atribua um papel Azure usando um modelo ARM
 
 [O controlo de acesso baseado em funções Azure (Azure RBAC)](overview.md) é a forma como gere o acesso aos recursos do Azure. Neste arranque rápido, cria-se um grupo de recursos e concede-se a um utilizador acesso para criar e gerir máquinas virtuais no grupo de recursos. Este quickstart utiliza um modelo de Gestor de Recursos Azure (modelo ARM) para garantir o acesso.
 
@@ -29,11 +29,11 @@ Se o seu ambiente cumpre os pré-requisitos e se está familiarizado com a utili
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para adicionar atribuições de funções, você deve ter:
+Para atribuir funções de Azure e remover atribuições de funções, você deve ter:
 
 - Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 - `Microsoft.Authorization/roleAssignments/write` e `Microsoft.Authorization/roleAssignments/delete` permissões, tais como [Administrador de Acesso ao Utilizador](built-in-roles.md#user-access-administrator) ou [Proprietário](built-in-roles.md#owner)
-- Para adicionar uma atribuição de funções, deve especificar três elementos: principal de segurança, definição de função e âmbito. Para este arranque rápido, o principal de segurança é você ou outro utilizador no seu diretório, a definição de função é [Virtual Machine Contributor](built-in-roles.md#virtual-machine-contributor), e o âmbito é um grupo de recursos que especifica.
+- Para atribuir uma função, deve especificar três elementos: principal de segurança, definição de função e âmbito. Para este arranque rápido, o principal de segurança é você ou outro utilizador no seu diretório, a definição de função é [Virtual Machine Contributor](built-in-roles.md#virtual-machine-contributor), e o âmbito é um grupo de recursos que especifica.
 
 ## <a name="review-the-template"></a>Rever o modelo
 
@@ -116,7 +116,7 @@ O recurso definido no modelo é:
 
    ![Nova atribuição de função](./media/quickstart-role-assignments-template/role-assignment-portal.png)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Para remover a atribuição de funções e o grupo de recursos que criou, siga estes passos.
 

@@ -14,18 +14,18 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 09/23/2019
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 09/23/2019
-ms.openlocfilehash: b871775bc7a6d795e86147ae9cffa27bdd2f3348
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 07600b1fe0cb7420989fbbfbe55c2f1a4197d2fc
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76263766"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100548255"
 ---
 # <a name="notification-hubs-security"></a>Segurança dos Centros de Notificação
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Este tópico descreve o modelo de segurança dos Hubs de Notificação Azure.
 
@@ -36,7 +36,7 @@ O Notification Hubs implementa um sistema de segurança ao nível da entidade ch
 Ao criar um hub, são criadas automaticamente duas regras: uma com direitos **de escuta** (que a aplicação do cliente utiliza) e outra com **todos os** direitos (que o backend da app utiliza):
 
 - **DefaultListenSharedAccessSignature:** concessões **Ouvir** apenas permissão.
-- **DefaultFulFullSharedAccessSignature**: grants **Ouvir,** **Gerir**e **Enviar** permissões. Esta política deve ser utilizada apenas no seu backend de aplicações. Não o utilize em aplicações de clientes; usar uma política apenas **Ouvir** o acesso. Para criar uma nova política de acesso personalizado com um novo token SAS, consulte [os tokens SAS para políticas](#sas-tokens-for-access-policies) de acesso mais tarde neste artigo.
+- **DefaultFulFullSharedAccessSignature**: grants **Ouvir,** **Gerir** e **Enviar** permissões. Esta política deve ser utilizada apenas no seu backend de aplicações. Não o utilize em aplicações de clientes; usar uma política apenas **Ouvir** o acesso. Para criar uma nova política de acesso personalizado com um novo token SAS, consulte [os tokens SAS para políticas](#sas-tokens-for-access-policies) de acesso mais tarde neste artigo.
 
 Ao realizar a gestão de registo a partir de aplicações de clientes, se as informações enviadas através de notificações não forem sensíveis (por exemplo, atualizações meteorológicas), uma forma comum de aceder a um Hub de Notificação é dar o valor-chave da regra Apenas aceder à aplicação do cliente e dar o valor chave da regra acesso total ao backend da app.
 
@@ -46,7 +46,7 @@ A chave com o acesso **Listen** permite que uma aplicação do cliente se regist
 
 ## <a name="security-claims"></a>Reclamações de segurança
 
-À semelhança de outras entidades, as operações do Centro de Notificação são permitidas para três pedidos de segurança: **Ouvir,** **Enviar**e **Gerir**.
+À semelhança de outras entidades, as operações do Centro de Notificação são permitidas para três pedidos de segurança: **Ouvir,** **Enviar** e **Gerir**.
 
 | Afirmação   | Descrição                                          | Operações permitidas |
 | ------- | ---------------------------------------------------- | ------------------ |

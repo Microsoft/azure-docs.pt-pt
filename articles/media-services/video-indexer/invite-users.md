@@ -3,19 +3,19 @@ title: Convidar utilizadores para Video Indexer - Azure
 titleSuffix: Azure Media Services
 description: Este artigo mostra como convidar os utilizadores para o Video Indexer.
 services: media-services
-author: ReutAmior
+author: Juliako
 manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: quickstart
-ms.date: 10/01/2019
+ms.date: 02/03/2021
 ms.author: juliako
-ms.openlocfilehash: 4023f8584e7b901a19906235d98982abbbfbaaf8
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 7d3415ffad4820d8651841398ec6d47352869ce2
+ms.sourcegitcommit: b513b0becf878eb9a1554c26da53aa48d580bb22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92364150"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100534784"
 ---
 # <a name="quickstart-invite-users-to-video-indexer"></a>Quickstart: Convidar os utilizadores para o Video Indexer
 
@@ -29,26 +29,33 @@ Para colaborar com os seus colegas, pode convidá-los para a sua conta de Indexe
 1. Inicie sessão no site do [Video Indexer](https://www.videoindexer.ai/). Certifique-se de que está ligado a uma conta de administração.
 1. Se você é o administrador, você vê o botão **de conta Partilhar** no canto superior direito. Clique no botão e pode convidar os utilizadores. 
 
-   ![Convidar novos utilizadores](./media/invite-users/share-account.png)
-1. Adicione os endereços de e-mail das pessoas que pretende adicionar à sua conta de Indexer de Vídeo:
+    :::image type="content" source="./media/invite-users/share-account.png" alt-text="Partilhe a sua conta":::
+1. Na **conta Partilhar esta conta com outros diálogos,** insira um endereço de e-mail de uma pessoa que deseja convidar para a sua conta de Indexer de Vídeo:
 
-    ![Convidar os utilizadores para esta conta](./media/invite-users/invite-to-account.png)
-        
-    >[!NOTE]
-    > Todos os utilizadores que convidar terão lido e escrito permissão para todos os vídeos da sua conta.
-1. Os utilizadores que convidou receberão um e-mail com um link e poderão aceder à conta assim que clicarem no link **'Join Video Indexer':**
+    :::image type="content" source="./media/invite-users/share-account-others.png" alt-text="Convidar os utilizadores para esta conta":::  
+1. Depois de premir **Convite,** a pessoa será adicionada à lista de convites pendentes. <br/>Pode escolher entre duas opções para cada convidado que ainda não tenha adere à conta: **remova** o convite ou **copie URL** do convite.
 
-    ![Confirmação](./media/invite-users/invite-msg.png)
+    :::image type="content" source="./media/invite-users/invites-pending.png" alt-text="Convites pendentes":::  
+1. Assim que o convidado entrar na conta, verá três opções para escolher. Duas opções para funções: **contribuinte** (padrão) ou **proprietário**. De, pode optar por remover o convite premindo **Remove**.
 
-    O utilizador deve clicar no link para se juntar para ter acesso à conta. 
+    :::image type="content" source="./media/invite-users/joined-invitee-options.png" alt-text="Convidado associado":::  
 
-## <a name="removing-existing-users"></a>Remoção dos utilizadores existentes
+    Os utilizadores não recebem uma notificação após a remoção. Uma vez removidos, os utilizadores não serão autorizados a iniciar sessão.
 
-Se quiser remover utilizadores que tenham acesso à sua conta, pode clicar no sinal **X** ao lado do seu nome:
+## <a name="manage-roles-invite-more-users"></a>Gerir funções, convidar mais utilizadores
 
-![Remover utilizadores](./media/invite-users/remove-users.png)
+Além de elevar a **conta partilhar esta conta com outros diálogos** clicando na conta **Share** (como descrito acima), pode fazê-lo a partir de **Definições**.
 
-Os utilizadores não recebem uma notificação após a remoção. Uma vez removidos, os utilizadores não serão autorizados a iniciar sessão.
+1. Prima o **botão Definições** na conta aberta. 
+
+    :::image type="content" source="./media/invite-users/settings.png" alt-text="Definições da conta":::  
+1. Clique no botão **'Gerir funções'.**
+1. Para convidar outro utilizador, clique em **Convidar mais pessoas para esta conta.**
+
+    :::image type="content" source="./media/invite-users/invite-more-people.png" alt-text="Convidar mais utilizadores":::  
+1. Assim que pressionar **convidar mais pessoas para esta conta,** aparece o diálogo de convite
+ 
+    :::image type="content" source="./media/invite-users/share-account-others.png" alt-text="Convidar os utilizadores para esta conta":::  
 
 ## <a name="next-steps"></a>Passos seguintes
 
