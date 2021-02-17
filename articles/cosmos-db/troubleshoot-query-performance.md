@@ -4,16 +4,16 @@ description: Saiba como identificar, diagnosticar e resolver problemas Azure Cos
 author: timsander1
 ms.service: cosmos-db
 ms.topic: troubleshooting
-ms.date: 02/02/2021
+ms.date: 02/16/2021
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: 6875fc53a651b89fcfe88d3217ff86bd21204f6c
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 6701a580cbe7790dcce2cbbcc46889f9dff00107
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99524314"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100559975"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Resolver problemas de consultas ao utilizar o Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -213,6 +213,12 @@ Seguem-se algumas funções comuns do sistema que não utilizam o índice e deve
 | Superior/Inferior                         | Em vez de utilizar a função do sistema para normalizar os dados para comparações, normalize o invólucro após a inserção. Uma consulta como ```SELECT * FROM c WHERE UPPER(c.name) = 'BOB'``` se ```SELECT * FROM c WHERE c.name = 'BOB'``` torna. |
 | GetCurrentDateTime/GetCurrentTimestamp/GetCurrentTicks | Calcular o tempo atual antes da execução de consulta e usar o valor da cadeia na `WHERE` cláusula. |
 | Funções matemáticas (não agregados) | Se precisar de calcular um valor frequentemente na sua consulta, considere armazenar o valor como um imóvel no seu documento JSON. |
+
+Estas funções do sistema podem utilizar índices, exceto quando utilizados em consultas com agregados:
+
+| **Função do sistema**                     | **Ideias para otimização**             |
+| --------------------------------------- |------------------------------------------------------------ |
+| Funções do sistema espacial                        | Armazenar o resultado da consulta numa vista materializada em tempo real |
 
 Quando usado na cláusula, as `SELECT` funções ineficientes do sistema não afetarão a forma como as consultas podem usar índices.
 

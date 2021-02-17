@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/25/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: c7f7f162355b919c395dd0ee6d03b2bc5526e3da
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 69355b58e36f435b5b5dbe94af72d55d9806b156
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96936697"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100557173"
 ---
 # <a name="tutorial-for-extending-azure-ad-b2c-to-protect-on-premises-applications-using-strata"></a>Tutorial para alargar a Azure AD B2C para proteger aplicações no local utilizando estratos
 
@@ -85,7 +85,7 @@ Para obter o software que utilizará para integrar a sua aplicação de legado n
 
 2. **Criar um fluxo de utilizador**: Crie um fluxo de utilizador de [inscrição e de entrada](./tutorial-create-user-flows.md).
 
-3. **Adicione um IdP**: Escolha inscrever-se no seu utilizador com uma conta local ou com um [IdP](./tutorial-add-identity-providers.md)social ou empresarial.
+3. **Adicione um IdP**: Escolha inscrever-se no seu utilizador com uma conta local ou com um [IdP](./add-identity-provider.md)social ou empresarial.
 
 4. **Definir atributos do utilizador**: Defina os atributos a recolher durante a inscrição.
 

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 10/14/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Mini R  so I can use it to transfer data to Azure.
-ms.openlocfilehash: ee3805d128a7b6d122f93e692291db1a387cfcf5
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: e9f4d4f4ad27081bb105cdb1698438837fc2fe02
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96468878"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546674"
 ---
 # <a name="tutorial-configure-the-device-settings-for-azure-stack-edge-mini-r"></a>Tutorial: Configurar as definições do dispositivo para Azure Stack Edge Mini R
 
@@ -85,7 +85,7 @@ Siga estes passos para configurar as definições relacionadas com o dispositivo
         ![Página 2 do UI "Update Server" local](./media/azure-stack-edge-mini-r-deploy-set-up-device-update-time/update-server-2.png)
 
         > [!NOTE] 
-        > Se um servidor separado do Windows Update estiver configurado e optar por ligar mais *de https* (em vez de *http),* são necessários certificados de cadeia de assinatura necessários para se ligar ao servidor de atualização. Para obter informações sobre como criar e carregar certificados, vá a [Gerir certificados.](azure-stack-edge-j-series-manage-certificates.md) Para trabalhar num modo desligado, como o nível do dispositivo Azure Stack Edge para o Modular Data Center, ative a opção WSUS. Durante a ativação, o dispositivo procura atualizações e se o servidor não estiver configurado, a ativação falhará. 
+        > Se um servidor separado do Windows Update estiver configurado e optar por ligar mais *de https* (em vez de *http),* são necessários certificados de cadeia de assinatura necessários para se ligar ao servidor de atualização. Para obter informações sobre como criar e carregar certificados, vá a [Gerir certificados.](azure-stack-edge-gpu-manage-certificates.md) Para trabalhar num modo desligado, como o nível do dispositivo Azure Stack Edge para o Modular Data Center, ative a opção WSUS. Durante a ativação, o dispositivo procura atualizações e se o servidor não estiver configurado, a ativação falhará. 
 
 2. Selecione **Aplicar**.
 3. Depois de configurar o servidor de atualização, selecione **Seguinte: Hora**.

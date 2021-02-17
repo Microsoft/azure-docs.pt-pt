@@ -4,12 +4,12 @@ description: Este artigo fornece informações sobre como adicionar um ponto fin
 ms.topic: article
 ms.date: 02/12/2021
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 6b168bbdc69f2d18a724084d9de694fa83d23dda
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 2e00c9429ab3e39f95bc5ce6df072a99e4f02b86
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100516146"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100559570"
 ---
 # <a name="allow-access-to-azure-service-bus-namespace-from-specific-virtual-networks"></a>Permitir o acesso ao espaço de nomes do Azure Service Bus a partir de redes virtuais específicas
 A integração do Service Bus com [os pontos finais de serviço da Rede Virtual (VNet)][vnet-sep] permite o acesso seguro às capacidades de mensagens a partir de cargas de trabalho, como máquinas virtuais, que estão ligadas a redes virtuais, com o caminho de tráfego da rede a ser assegurado em ambas as extremidades.
@@ -18,15 +18,16 @@ Uma vez configurado para ser ligado a pelo menos um ponto final de serviço de s
 
 O resultado é uma relação privada e isolada entre as cargas de trabalho ligadas à sub-rede e o respetivo espaço de nomes do Service Bus, apesar do endereço de rede observável do ponto final do serviço de mensagens estar numa gama pública de IP.
 
->[!WARNING]
-> Implementar a integração de Redes Virtuais pode impedir que outros serviços da Azure interajam com o Service Bus. Como exceção, pode permitir o acesso aos recursos do Service Bus a partir de certos serviços fidedignos, mesmo quando os pontos finais do serviço de rede estão ativados. Para obter uma lista de serviços fidedignos, consulte [serviços Fidedignos.](#trusted-microsoft-services)
->
-> Os seguintes serviços da Microsoft são obrigados a estar numa rede virtual
-> - Serviço de Aplicações do Azure
-> - Funções do Azure
+Implementar a integração de Redes Virtuais pode impedir que outros serviços da Azure interajam com o Service Bus. Como exceção, pode permitir o acesso aos recursos do Service Bus a partir de certos serviços fidedignos, mesmo quando os pontos finais do serviço de rede estão ativados. Para obter uma lista de serviços fidedignos, consulte [serviços Fidedignos.](#trusted-microsoft-services)
+
+Os seguintes serviços da Microsoft são obrigados a estar numa rede virtual
+- Serviço de Aplicações do Azure
+- Funções do Azure
+
+As Redes Virtuais são suportadas apenas em espaços de nomes de serviços de serviço de [nível Premium.](service-bus-premium-messaging.md) Ao utilizar pontos finais de serviço VNet com Service Bus, não deve ativar estes pontos finais em aplicações que misturem espaços de nomes standard e premium Tier Service Bus. Porque o nível padrão não suporta VNets. O ponto final é restrito apenas aos espaços de nome de nível Premium.
 
 > [!IMPORTANT]
-> As Redes Virtuais são suportadas apenas em espaços de nomes de serviços de serviço de [nível Premium.](service-bus-premium-messaging.md) Ao utilizar pontos finais de serviço VNet com Service Bus, não deve ativar estes pontos finais em aplicações que misturem espaços de nomes standard e premium Tier Service Bus. Porque o nível padrão não suporta VNets. O ponto final é restrito apenas aos espaços de nome de nível Premium.
+> Especifique pelo menos uma regra de IP ou rede virtual para o espaço de nomes para permitir o tráfego apenas a partir dos endereços IP especificados ou sub-rede de uma rede virtual. Se não houver regras de IP e rede virtual, o espaço de nomes pode ser acedido através da internet pública (utilizando a chave de acesso).  
 
 ## <a name="advanced-security-scenarios-enabled-by-vnet-integration"></a>Cenários avançados de segurança habilitados pela integração do VNet 
 
@@ -57,9 +58,6 @@ Esta secção mostra-lhe como usar o portal Azure para adicionar um ponto final 
     > [!NOTE]
     > Você vê o **separador Networking** apenas para espaços de nome **premium.**  
     
-    >[!WARNING]
-    > Se selecionar a opção **redes selecionadas** e não adicionar pelo menos uma regra de firewall IP ou uma rede virtual nesta página, o espaço de nome pode ser acedido através da internet pública (utilizando a chave de acesso).
-
     :::image type="content" source="./media/service-bus-ip-filtering/default-networking-page.png" alt-text="Página de rede - padrão" lightbox="./media/service-bus-ip-filtering/default-networking-page.png":::
     
     Se selecionar a opção **Todas as redes,** o seu espaço de nomes service bus aceita ligações a partir de qualquer endereço IP. Esta predefinição é equivalente a uma regra que aceita o intervalo de endereços IP 0.0.0.0/0. 
@@ -69,6 +67,9 @@ Esta secção mostra-lhe como usar o portal Azure para adicionar um ponto final 
 1. Na secção **Rede Virtual** da página, selecione **+Adicionar a rede virtual existente.** 
 
     ![adicionar rede virtual existente](./media/service-endpoints/add-vnet-menu.png)
+
+    >[!WARNING]
+    > Se selecionar a opção **redes selecionadas** e não adicionar pelo menos uma regra de firewall IP ou uma rede virtual nesta página, o espaço de nome pode ser acedido através da internet pública (utilizando a chave de acesso).
 3. Selecione a rede virtual a partir da lista de redes virtuais e, em seguida, escolha a **sub-rede**. Tem de ativar o ponto final de serviço antes de adicionar a rede virtual à lista. Se o ponto final de serviço não estiver ativado, o portal irá solicitar-lhe para o ativar.
    
    ![selecionar sub-redes](./media/service-endpoints/select-subnet.png)

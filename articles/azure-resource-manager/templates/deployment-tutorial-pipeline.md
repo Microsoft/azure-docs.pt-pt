@@ -1,15 +1,15 @@
 ---
 title: Integração contínua com os Pipelines do Azure
 description: Aprenda a construir, testar e implementar continuamente modelos de Gestor de Recursos Azure (modelos ARM).
-ms.date: 08/24/2020
+ms.date: 02/16/2021
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: e7e2cda0524e4d754fbf879c046fee2d43c44cb3
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: d367da33d6b9997d77606e9a77a961808d66ff99
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98701716"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100560899"
 ---
 # <a name="tutorial-continuous-integration-of-arm-templates-with-azure-pipelines"></a>Tutorial: Integração contínua de modelos ARM com Pipelines Azure
 
@@ -83,8 +83,8 @@ A pasta _CreateWebApp_ é a pasta onde o modelo é armazenado. O `pwd` comando m
 
 Em vez de criar os modelos, pode descarregar os modelos e guardá-los para a pasta _CreateWebApp._
 
-* O modelo principal: https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/azuredeploy.json
-* O modelo ligado: https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/linkedStorageAccount.json
+* O modelo principal: https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/pipeline/azuredeploy.json
+* O modelo ligado: https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/pipeline/linkedStorageAccount.json
 
 Tanto o nome da pasta como os nomes dos ficheiros são utilizados como estão na calha. Se alterar estes nomes, tem de atualizar os nomes utilizados no oleoduto.
 
@@ -105,7 +105,7 @@ O _azuredeploy.js_ foi adicionado ao repositório local. Em seguida, faça o upl
 
     Pode receber um aviso sobre a LF. Pode ignorar o aviso. **principal** é o ramo principal.  Normalmente cria-se um ramo para cada atualização. Para simplificar o tutorial, usa-se diretamente o ramo principal.
 
-1. Navegue pelo seu repositório GitHub a partir de um browser. A URL `https://github.com/[YourAccountName]/[YourGitHubRepository]` é. Verá a pasta _CreateWebApp_ e os três ficheiros dentro da pasta.
+1. Navegue pelo seu repositório GitHub a partir de um browser. A URL `https://github.com/[YourAccountName]/[YourGitHubRepository]` é. Verá a pasta _CreateWebApp_ e os dois ficheiros dentro da pasta.
 1. Selecione _linkedStorageAccount.js_ para abrir o modelo.
 1. Selecione o botão **Raw.** A URL começa `https://raw.githubusercontent.com` com.
 1. Faça uma cópia do URL. Você precisa fornecer este valor quando configurar o oleoduto mais tarde no tutorial.
@@ -134,7 +134,7 @@ Crie uma ligação de serviço que seja usada para implantar projetos para a Azu
 
 1. Selecione **as definições** do Projeto a partir da parte inferior do menu esquerdo.
 1. Selecione **ligações de serviço** em **Pipelines**.
-1. Selecione **nova ligação de serviço**, selecione **Azure Resource Manager** e, em seguida, selecione **Seguinte**.
+1. Selecione **Criar a ligação de Serviço**, selecione **Azure Resource Manager** e, em seguida, selecione **Seguinte**.
 1. Selecione **o principal do serviço** e, em seguida, selecione **Seguinte**.
 1. Introduza os seguintes valores:
 
@@ -155,7 +155,7 @@ Até agora, completou as seguintes tarefas.  Se saltar as secções anteriores p
 Para criar um oleoduto com um passo para implementar um modelo:
 
 1. Selecione **Pipelines** do menu esquerdo.
-1. Selecione **Novo oleoduto**.
+1. Selecione **Criar o oleoduto**.
 1. No separador **Connect** (Ligar), selecione **GitHub**. Se solicitado, insira as suas credenciais GitHub e siga as instruções. Se vir o ecrã a seguir, selecione **Apenas selecione repositórios** e verifique se o seu repositório está na lista antes de selecionar **Aprovar & instalar**.
 
     ![Azure Resource Manager Azure DevOps Azure Pipelines apenas seleciona repositórios](./media/deployment-tutorial-pipeline/azure-resource-manager-devops-pipelines-only-select-repositories.png)
@@ -240,7 +240,7 @@ Quando os recursos do Azure já não forem necessários, limpe os recursos imple
 
 Também pode querer eliminar o repositório GitHub e o projeto Azure DevOps.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Parabéns, terminou este tutorial de implementação de modelos do Gestor de Recursos. Informe-nos se tiver algum comentário e sugestões na secção de comentários. Obrigado!
 Está pronto para saltar para conceitos mais avançados sobre modelos. O próximo tutorial vai para mais detalhes sobre o uso de documentação de referência do modelo para ajudar a definir recursos para implementar.

@@ -19,8 +19,18 @@
       href: tutorial-end-to-end.md
 - name: Conceitos
   items:
-    - name: Modelos personalizados
+    - name: Modelos DTDL
       href: concepts-models.md
+    - name: Ontologies
+      items:
+        - name: O que é uma ontologia?
+          href: concepts-ontologies.md
+        - name: Adoção de práticas padrão da indústria
+          href: concepts-ontologies-adopt.md
+        - name: Conversão de ontologies
+          href: concepts-ontologies-convert.md
+        - name: Extensão de ontologies
+          href: concepts-ontologies-extend.md
     - name: Digital Twins e o grafo duplo
       href: concepts-twins-graph.md
     - name: Linguagem da consulta
@@ -65,10 +75,8 @@
           href: how-to-move-regions.md
     - name: Conceber modelos
       items:
-        - name: Gerir modelos personalizados
+        - name: Gerir modelos DTDL
           href: how-to-manage-model.md
-        - name: Integrar modelos padrão da indústria
-          href: how-to-integrate-models.md
         - name: Analisar e validar modelos
           href: how-to-parse-models.md
         - name: Adicionar etiquetas
@@ -247,8 +255,14 @@
           href: /samples/azure-samples/digital-twins-samples/digital-twins-samples/
         - name: Explorador do Azure Digital Twins (exemplo)
           href: /samples/azure-samples/digital-twins-explorer/digital-twins-explorer/
-        - name: Validador DTDL (exemplo)
+        - name: Validador DTDL (amostra)
           href: /samples/azure-samples/dtdl-validator/dtdl-validator/
+        - name: Uploader de modelo (amostra)
+          href: 'https://github.com/Azure/opendigitaltwins-building-tools/tree/master/ModelUploader'
+        - name: Visualizador modelo (amostra)
+          href: 'https://github.com/Azure/opendigitaltwins-building-tools/tree/master/AdtModelVisualizer'
+        - name: Conversor OWL2DTDL
+          href: 'https://github.com/Azure/opendigitaltwins-building-tools/tree/master/OWL2DTDL'
         - name: Exemplo de integração do DPS e do Hub IoT
           href: /samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/
         - name: Amostra de integração com o SignalR

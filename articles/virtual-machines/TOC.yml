@@ -262,7 +262,7 @@
           href: dedicated-hosts-portal.md
         - name: PowerShell
           href: ./windows/dedicated-hosts-powershell.md
-    - name: Máquinas virtuais spot
+    - name: Máquinas virtuais Azure Spot
       displayName: 'pre-empt, preempt, spot'
       items:
         - name: Descrição geral
@@ -1143,6 +1143,8 @@
       href: ./linux/static-dns-name-resolution-for-linux-on-azure.md
 - name: Segurança
   items:
+    - name: Descrição geral
+      href: ../security/fundamentals/virtual-machines-overview.md?context=/azure/virtual-machines/context/context
     - name: Centro de Segurança Azure
       href: ../security-center/security-center-introduction.md
     - name: Linhas de base de segurança
