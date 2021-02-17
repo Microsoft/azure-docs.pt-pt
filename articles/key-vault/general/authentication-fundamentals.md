@@ -7,12 +7,12 @@ ms.date: 09/25/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: 6de0fc52ae265a47ca7f52d46e5f44b74c1277aa
-ms.sourcegitcommit: 5b93010b69895f146b5afd637a42f17d780c165b
+ms.openlocfilehash: a75ecac20c553f697585648c5654d375b85e5183
+ms.sourcegitcommit: b513b0becf878eb9a1554c26da53aa48d580bb22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96530923"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100535200"
 ---
 # <a name="key-vault-authentication-fundamentals"></a>Princípios Fundamentais da Autenticação do Key Vault
 
@@ -24,7 +24,7 @@ Como administrador, pode controlar rigorosamente quais os utilizadores e aplica�
 
 Este documento pressupõe que está familiarizado com os seguintes conceitos. Se não estiver familiarizado com nenhum destes conceitos, siga os links de ajuda antes de prosseguir.
 
-* Ligação Azure [link](../../active-directory/fundamentals/active-directory-whatis.md) Ative Directory
+* Ligação Azure [](../../active-directory/fundamentals/active-directory-whatis.md) Ative Directory
 * Ligação dos diretores de [segurança](./authentication.md#app-identity-and-security-principals)
 
 ## <a name="key-vault-configuration-steps-summary"></a>Resumo dos passos de configuração do cofre da chave
@@ -120,7 +120,7 @@ As atribuições de funções key Vault são um conjunto de atribuições de fun
 Para saber mais sobre o Azure RBAC para Key Vault, consulte os seguintes documentos:
 
 * Azure RBAC para [ligação](./secure-your-key-vault.md#management-plane-and-azure-rbac) key vault
-* Azure RBAC para funções [link](../../role-based-access-control/built-in-roles.md#key-vault-administrator-preview) de cofre chave (pré-visualização)
+* Azure RBAC para [ligação](../../role-based-access-control/built-in-roles.md#key-vault-administrator) de funções key Vault
 
 ## <a name="configure-key-vault-firewall"></a>Configure firewall de cofre de chave
 

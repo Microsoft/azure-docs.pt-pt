@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 08ab71375171d4bb4167c725bc7118bec2e1ebfa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: da85abdff3d1022659f2d4e83fd14c5ae6003fc9
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91372029"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546062"
 ---
 # <a name="machine-learning-features"></a>Características de aprendizagem automática
 
@@ -160,11 +160,9 @@ Endereço de envio (entidade aprendida com máquinas)
 
 ### <a name="required-feature-using-prebuilt-entities"></a>Recurso necessário usando entidades pré-construídas
 
-A cidade, o estado e o país/região são geralmente um conjunto fechado de listas, o que significa que não mudam muito com o tempo. Estas entidades podem ter as características recomendadas relevantes e essas funcionalidades podem ser marcadas conforme necessário. Isso significa que todo o endereço de envio não é devolvido se as entidades que têm características necessárias não forem encontradas.
+Entidades pré-construídas como cidade, estado e país/região são geralmente um conjunto fechado de listas, o que significa que não mudam muito com o tempo. Estas entidades podem ter as características recomendadas relevantes e essas funcionalidades podem ser marcadas conforme necessário. No entanto, a `isRequired` bandeira está apenas relacionada com a entidade a que é atribuída e não afeta a hierarquia. Se a função de sub-entidade pré-construída não for encontrada, isso não afetará a deteção e a devolução da entidade-mãe.
 
-E se a cidade, o estado, ou o país/região estiverem na expressão, mas estão num local ou são calígas que o LUIS não espera? Se quiser fornecer algum pós-processamento para ajudar a resolver a entidade, devido a uma pontuação de baixa confiança da LUIS, não marque a funcionalidade conforme necessário.
-
-Outro exemplo de uma característica necessária para o endereço de envio é fazer do número de rua um número [pré-construído](luis-reference-prebuilt-entities.md) necessário. Isto permite que um utilizador introduza "1 Microsoft Way" ou "One Microsoft Way". Ambos resolvem o numeral "1" para a sub-entidade de número de rua.
+Como exemplo de uma funcionalidade necessária, considere que pretende detetar endereços. Pode considerar fazer de um número de rua um requisito. Isto permitiria que um utilizador entrasse em "1 Microsoft Way" ou "One Microsoft Way", e ambos resolveriam o numeral "1" para a sub-entidade do número de rua. Consulte o artigo [de entidade pré-incorporada ](luis-reference-prebuilt-entities.md) para mais informações.
 
 ### <a name="required-feature-using-list-entities"></a>Recurso necessário usando entidades de lista
 
@@ -226,7 +224,7 @@ Depois de criar a entidade de aprendizagem automática, precisa adicionar palavr
 
 Para o exemplo de reserva de bilhetes, Marque o exemplo de declarações na intenção com a `TicketBooking` entidade e quaisquer subentências no texto.
 
-:::image type="content" source="media/luis-concept-features/intent-example-utterances-machine-learning-entity.png" alt-text="Esquema de entidade de bilhética":::
+:::image type="content" source="media/luis-concept-features/intent-example-utterances-machine-learning-entity.png" alt-text="Palavras de exemplo de rótulo":::
 
 ### <a name="example-pizza-ordering-app"></a>Exemplo: app de encomenda de pizza
 
@@ -234,13 +232,13 @@ Para um segundo exemplo, considere uma aplicação para um restaurante de pizza,
 
 A entidade de aprendizagem automática neste exemplo é mais complexa com subentidades aninhadas, listas de frases, entidades pré-construídas e entidades personalizadas.
 
-:::image type="content" source="media/luis-concept-features/pizza-order-entity.png" alt-text="Esquema de entidade de bilhética":::
+:::image type="content" source="media/luis-concept-features/pizza-order-entity.png" alt-text="Esquema de entidade de encomenda de pizza":::
 
 Este exemplo utiliza funcionalidades ao nível da subinidade e criança do nível da subinidade. Qual o nível que obtém o tipo de lista de frases ou modelo como recurso é uma parte importante do design da sua entidade.
 
 Embora as subentidades possam ter muitas listas de frases como funcionalidades que ajudam a detetar a entidade, cada subinidade tem apenas um modelo como recurso. Nesta [aplicação de pizzas,](https://github.com/Azure/pizza_luis_bot/blob/master/CognitiveModels/MicrosoftPizza.json)estes modelos são principalmente listas.
 
-:::image type="content" source="media/luis-concept-features/intent-example-utterances-machine-learning-entity-pizza.png" alt-text="Esquema de entidade de bilhética":::
+:::image type="content" source="media/luis-concept-features/intent-example-utterances-machine-learning-entity-pizza.png" alt-text="Ordem da pizza com frases de exemplo rotuladas":::
 
 As expressões de exemplo corretamente rotuladas mostram de forma a mostrar como as entidades estão aninhadas. 
 

@@ -1,6 +1,6 @@
 ---
-title: Utilize o CLI para implantar VMs Azure Spot
-description: Saiba como usar o CLI para implantar VMs Azure Spot para economizar custos.
+title: Utilize o CLI para implantar máquinas virtuais Azure Spot
+description: Saiba como usar o CLI para implementar máquinas virtuais Azure Spot para economizar custos.
 author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure-services
@@ -8,27 +8,27 @@ ms.topic: how-to
 ms.date: 06/26/2020
 ms.author: cynthn
 ms.reviewer: jagaveer
-ms.openlocfilehash: 71e0f2e87fc71deef0bdc4dd48425cdc9dd99dc8
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: abb29c0826e38af0bbbc1b59e41234acdaaca0f9
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98200775"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100554773"
 ---
-# <a name="deploy-spot-vms-using-the-azure-cli"></a>Implementar VMs spot utilizando o CLI Azure
+# <a name="deploy-azure-spot-virtual-machines-using-the-azure-cli"></a>Implementar máquinas virtuais Azure Spot utilizando o Azure CLI
 
-A utilização de [VMs Azure Spot](../spot-vms.md) permite-lhe tirar partido da nossa capacidade não utilizada com uma poupança significativa de custos. Em qualquer momento em que a Azure precise da capacidade de volta, a infraestrutura Azure irá despejar os VM spot. Por isso, os VM spot são ótimos para cargas de trabalho que podem lidar com interrupções como trabalhos de processamento de lotes, ambientes dev/teste, grandes cargas de trabalho de computação, e muito mais.
+A utilização de [Máquinas Virtuais Azure Spot](../spot-vms.md) permite-lhe tirar partido da nossa capacidade não utilizada com uma economia de custos significativa. Em qualquer momento em que a Azure precise da capacidade de volta, a infraestrutura Azure irá despejar máquinas virtuais Azure Spot. Portanto, as máquinas virtuais Azure Spot são ótimas para cargas de trabalho que podem lidar com interrupções como trabalhos de processamento de lotes, ambientes dev/teste, grandes cargas de trabalho de computação, e muito mais.
 
-Os preços dos VM spot são variáveis, com base na região e no SKU. Para obter mais informações, consulte os preços em VM para [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) e [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). 
+Os preços das máquinas virtuais Azure Spot são variáveis, com base na região e no SKU. Para obter mais informações, consulte os preços em VM para [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) e [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/). 
 
-Tem a opção de definir um preço máximo que está disposto a pagar, por hora, pelo VM. O preço máximo de um Spot VM pode ser definido em dólares americanos (USD), usando até 5 casas decimais. Por exemplo, o valor `0.98765` seria um preço máximo de $0.98765 USD por hora. Se definir o preço `-1` máximo, o VM não será despejado com base no preço. O preço para o VM será o preço atual para o Spot ou o preço para um VM padrão, que sempre é menor, desde que haja capacidade e quota disponível. Para obter mais informações sobre a fixação do preço máximo, consulte [Spot VMs - Preços](../spot-vms.md#pricing).
+Tem a opção de definir um preço máximo que está disposto a pagar, por hora, pelo VM. O preço máximo de uma Máquina Virtual Azure Spot pode ser definido em dólares americanos (USD), usando até 5 casas decimais. Por exemplo, o valor `0.98765` seria um preço máximo de $0.98765 USD por hora. Se definir o preço `-1` máximo, o VM não será despejado com base no preço. O preço do VM será o preço atual para a Máquina Virtual Azure Spot ou o preço de um VM padrão, que sempre é menor, desde que haja capacidade e quota disponível. Para obter mais informações sobre a fixação do preço máximo, consulte [máquinas virtuais Azure Spot - Preços](../spot-vms.md#pricing).
 
-O processo de criação de um VM com spot utilizando o CLI Azure é o mesmo que detalhado no [artigo de arranque rápido](./quick-create-cli.md). Basta adicionar o parâmetro "--prioridade Spot", definir o `--eviction-policy` Deallocate (este é o padrão) ou `Delete` , e fornecer um preço máximo ou `-1` . 
+O processo de criação de uma Máquina Virtual Azure Spot utilizando o Azure CLI é o mesmo que detalhado no [artigo de arranque rápido](./quick-create-cli.md). Basta adicionar o parâmetro "--prioridade Spot", definir o `--eviction-policy` Deallocate (este é o padrão) ou `Delete` , e fornecer um preço máximo ou `-1` . 
 
 
 ## <a name="install-azure-cli"></a>Instalar a CLI do Azure
 
-Para criar VMs spot, tem de executar a versão Azure CLI 2.0.74 ou posterior. Execute **az --version** para descobrir a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli). 
+Para criar máquinas virtuais Azure Spot, tem de executar a versão Azure CLI 2.0.74 ou posterior. Execute **az --version** para descobrir a versão. Se precisar de instalar ou atualizar, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli). 
 
 Inicie sessão no Azure com [início de sessão](/cli/azure/reference-index#az-login).
 
@@ -36,9 +36,9 @@ Inicie sessão no Azure com [início de sessão](/cli/azure/reference-index#az-l
 az login
 ```
 
-## <a name="create-a-spot-vm"></a>Criar um Spot VM
+## <a name="create-an-azure-spot-virtual-machine"></a>Criar uma máquina virtual Azure Spot
 
-Este exemplo mostra como implementar um Linux Spot VM que não será despejado com base no preço. A política de despejo está definida para negociar o VM, para que possa ser reiniciada mais tarde. Se pretender eliminar o VM e o disco subjacente quando o VM for despejado, desajuste `--eviction-policy` para `Delete` .
+Este exemplo mostra como implementar uma Máquina Virtual Linux Azure Spot que não será despejada com base no preço. A política de despejo está definida para negociar o VM, para que possa ser reiniciada mais tarde. Se pretender eliminar o VM e o disco subjacente quando o VM for despejado, desajuste `--eviction-policy` para `Delete` .
 
 ```azurecli
 az group create -n mySpotGroup -l eastus
@@ -66,7 +66,7 @@ az vm list \
 
 ## <a name="simulate-an-eviction"></a>Simular um despejo
 
-Você pode [simular um despejo](/rest/api/compute/virtualmachines/simulateeviction) de um Spot VM, para testar quão bem a sua aplicação irá remexer para um despejo súbito. 
+Você pode [simular um despejo](/rest/api/compute/virtualmachines/simulateeviction) de uma Máquina Virtual Azure Spot, para testar quão bem a sua aplicação irá remexe para um despejo súbito. 
 
 Substitua as seguintes informações: 
 
@@ -81,8 +81,8 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 
 **Próximos passos**
 
-Também pode criar um Spot VM utilizando [a Azure PowerShell,](../windows/spot-powershell.md) [portal](../spot-portal.md)ou um [modelo](spot-template.md).
+Também pode criar uma máquina virtual Azure Spot utilizando [a Azure PowerShell,](../windows/spot-powershell.md) [portal](../spot-portal.md)ou um [modelo](spot-template.md).
 
-Consultar as informações atuais sobre preços usando a [AZure preços de retalho API](/rest/api/cost-management/retail-prices/azure-retail-prices) para obter informações sobre preços no Spot. O `meterName` e vai conter `skuName` `Spot` ambos.
+Consultar informações sobre preços correntes utilizando os preços de [retalho Azure API](/rest/api/cost-management/retail-prices/azure-retail-prices) para obter informações sobre a Máquina Virtual Azure Spot. O `meterName` e vai conter `skuName` `Spot` ambos.
 
 Se encontrar um erro, consulte [códigos de erro](../error-codes-spot.md).

@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 10/15/2020
 ms.author: erhopf
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: f63c97fd23d56ff508de8d5953eefac6b15ae1aa
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 1a9faf24c5a82b815b40afe15769480b69074dc9
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96188454"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100552601"
 ---
 Este guia mostra como instalar o [SDK de voz](~/articles/cognitive-services/speech-service/speech-sdk.md) para .NET Framework (Windows). Se só quer que o nome do pacote seja iniciado por conta própria, corra `Install-Package Microsoft.CognitiveServices.Speech` na consola NuGet.
 
@@ -26,6 +26,7 @@ Este guia mostra como instalar o [SDK de voz](~/articles/cognitive-services/spee
 
 Este início rápido requer:
 
+* No Windows, precisa do [Microsoft Visual C++ Redistributable para Visual Studio 2019](https://support.microsoft.com/en-us/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0) para a sua plataforma. A instalação desta situação pela primeira vez pode exigir um reinício.
 * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
 
 ## <a name="create-a-visual-studio-project-and-install-the-speech-sdk"></a>Crie um projeto de Estúdio Visual e instale o Speech SDK

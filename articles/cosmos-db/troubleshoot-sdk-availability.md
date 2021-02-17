@@ -3,17 +3,17 @@ title: Diagnosticar e resolver problemas da disponibilidade de Azure Cosmos SDKs
 description: Saiba tudo sobre o comportamento de disponibilidade do Azure Cosmos SDK ao operar em ambientes multi-regionais.
 author: ealsur
 ms.service: cosmos-db
-ms.date: 10/20/2020
+ms.date: 02/16/2021
 ms.author: maquaran
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: b1c2377ba26b4ca64f5028fb1a51ca4e64f6a67c
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 34c6e7ad8473f02f2772c84ea63aee2a41b97306
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097894"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100559698"
 ---
 # <a name="diagnose-and-troubleshoot-the-availability-of-azure-cosmos-sdks-in-multiregional-environments"></a>Diagnosticar e resolver problemas da disponibilidade de Azure Cosmos SDKs em ambientes multi-regionais
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -51,7 +51,7 @@ Nestes casos, o cliente que utiliza o Azure Cosmos SDK expõe registos e inclui 
 
 * *O pedidoDiagnosticsString* propriedade sobre respostas em .NET V2 SDK.
 * A propriedade *Diagnostics* sobre respostas e exceções em .NET V3 SDK.
-* O método *getDiagnostics()* sobre respostas e exceções em Java V4 SDK.
+* O método *getDiagnostics()* nas respostas e exceções no SDK Java V4.
 
 Ao determinar a próxima região por ordem de preferência, o cliente SDK utilizará a lista da região de conta, priorizando as regiões preferenciais (se houver).
 
@@ -83,9 +83,9 @@ Ao utilizar a [consistência da sessão,](consistency-levels.md#guarantees-assoc
 
 ## <a name="transient-connectivity-issues-on-tcp-protocol"></a>Problemas de conectividade transitórios no protocolo TCP
 
-Em cenários em que o cliente Azure Cosmos SDK está configurado para utilizar o protocolo TCP, para um dado pedido, pode haver situações em que as condições da rede estão temporariamente a afetar a comunicação com um determinado ponto final. Estas condições temporárias de rede podem surgir como intervalos de tempo TCP. O cliente tentará novamente o pedido localmente no mesmo ponto final por alguns segundos.
+Em cenários em que o cliente Azure Cosmos SDK está configurado para utilizar o protocolo TCP, para um dado pedido, pode haver situações em que as condições da rede estão temporariamente a afetar a comunicação com um determinado ponto final. Estas condições temporárias de rede podem surgir como intervalos de tempo TCP e erros de serviço indisponíveis (HTTP 503). O cliente tentará novamente o pedido localmente no mesmo ponto final durante alguns segundos antes de sair do erro.
 
-Se o utilizador tiver configurado uma lista de regiões preferenciais com mais de uma região e a conta Azure Cosmos for várias regiões de escrita ou uma única região de escrita e a operação for um pedido de leitura, o cliente tentará novamente essa operação única na região seguinte a partir da lista de preferências.
+Se o utilizador tiver configurado uma lista de regiões preferenciais com mais de uma região e a conta Azure Cosmos for várias regiões de escrita ou uma única região de escrita e a operação for um pedido de leitura, o cliente detetará a falha local, e tentará novamente essa operação na região seguinte a partir da lista de preferências.
 
 ## <a name="next-steps"></a>Passos seguintes
 

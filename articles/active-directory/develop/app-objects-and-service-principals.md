@@ -1,5 +1,5 @@
 ---
-title: Apps & os diretores de serviços em Azure AD ! Rio Azure
+title: Apps & diretores de serviços em Azure AD | Rio Azure
 titleSuffix: Microsoft identity platform
 description: Conheça a relação entre os objetos principais de aplicação e serviço no Azure Ative Directory.
 author: rwike77
@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 07/22/2020
+ms.date: 02/15/2021
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: sureshja
-ms.openlocfilehash: a18e3cb65b2ef70a04ca1d7e74dd9d5f42e3a933
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 0345362e0e5bce9912a247fc90dee63943a1cb3b
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97355771"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100557842"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Objetos do principal de serviço e aplicação no Azure Active Directory
 
@@ -27,9 +27,9 @@ Este artigo descreve o registo de pedidos, objetos de aplicação e diretores de
 ## <a name="application-registration"></a>Registo da aplicação
 Para delegar funções de Gestão de Identidade e Acesso à Azure AD, deve ser registado um pedido junto de um [inquilino](developer-glossary.md#tenant)da AD Azure. Quando regista a sua candidatura com Azure AD, está a criar uma configuração de identidade para a sua aplicação que lhe permite integrar-se com a Azure AD. Quando regista uma aplicação no [portal Azure,][AZURE-Portal]você escolhe se é um único inquilino (apenas acessível no seu inquilino) ou multi-inquilino (acessível em outros inquilinos) e pode configurar opcionalmente um URI redirecionador (para onde o token de acesso é enviado).
 
-:::image type="content" source="media/app-objects-and-service-principals/app-registration.png" alt-text="Screenshot do portal Azure Registrar um painel de aplicação":::
+Para obter instruções passo a passo sobre o registo de uma aplicação, consulte o arranque rápido do registo da [aplicação](quickstart-register-app.md).
 
-Quando tiver concluído o registo da aplicação, tem uma instância globalmente única da app (o objeto da aplicação) que vive dentro do seu inquilino ou diretório.  Você também tem um ID globalmente único para a sua aplicação (a app ou iD do cliente).  No portal, pode então adicionar segredos ou certificados e âmbitos para fazer a sua app funcionar, personalizar a marca da sua app no diálogo de inscrição, e muito mais.
+Quando tiver concluído o registo da aplicação, tem uma instância globalmente única da aplicação (o objeto de [aplicação)](#application-object)que vive dentro do seu inquilino ou diretório.  Você também tem um ID globalmente único para a sua aplicação (a app ou iD do cliente).  No portal, pode então adicionar segredos ou certificados e âmbitos para fazer a sua app funcionar, personalizar a marca da sua app no diálogo de inscrição, e muito mais.
 
 Se registar uma aplicação no portal, um objeto de aplicação e um objeto principal de serviço são automaticamente criados no seu inquilino de casa.  Se registar/criar uma aplicação utilizando as APIs do Gráfico microsoft, criar o objeto principal de serviço é um passo separado.
 

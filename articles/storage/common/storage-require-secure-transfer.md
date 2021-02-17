@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 22e012c36f5c2c6f195a7e3b21afe9001a4cad0d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a0a942daae6b106bce928f8214e92c0c6294203d
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89077964"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100555720"
 ---
 # <a name="require-secure-transfer-to-ensure-secure-connections"></a>Requerer transferência segura para garantir ligações seguras
 
@@ -57,7 +57,7 @@ Para exigir transferência segura programáticamente, desloque a propriedade _en
 * [API REST](/rest/api/storagerp/storageaccounts)
 * [PowerShell](/powershell/module/az.storage/set-azstorageaccount)
 * [CLI](/cli/azure/storage/account)
-* [Nodejs](https://www.npmjs.com/package/azure-arm-storage/)
+* [Nodejs](https://www.npmjs.com/package/@azure/arm-storage/)
 * [SDK do .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage)
 * [Python SDK](https://pypi.org/project/azure-mgmt-storage)
 * [SDK Ruby](https://rubygems.org/gems/azure_mgmt_storage)

@@ -1,20 +1,20 @@
 ---
-title: Versões em Gestão API Azure / Microsoft Docs
+title: Versões em Azure API Management | Microsoft Docs
 description: Conheça o conceito de versões na Azure API Management.
 services: api-management
 documentationcenter: ''
 author: johndowns
 ms.service: api-management
 ms.topic: article
-ms.date: 06/12/2020
+ms.date: 02/10/2021
 ms.author: jodowns
 ms.custom: fasttrack-new
-ms.openlocfilehash: 578bb511175d88a1507af9520265a1acd068b27c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9dc44b4b898603df88d1bdd8c36ddfb6449335ac
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87098001"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100547201"
 ---
 # <a name="versions-in-azure-api-management"></a>Versões em Gestão API Azure
 
@@ -64,9 +64,13 @@ Se adicionar uma versão a uma API não versão, uma `Original` versão será cr
 
 ## <a name="how-versions-are-represented"></a>Como as versões são representadas
 
-A Azure API Management mantém um recurso chamado conjunto de *versão*, que representa um conjunto de versões para uma única API lógica. Quando utiliza o portal Azure para gerir versões não vê o conjunto de versões, mas se interagir com o seu serviço de Gestão API utilizando modelos PowerShell, Resource Manager ou a API do Gestor de Recursos Azure, pode visualizar e gerir diretamente os conjuntos de versões. Um conjunto de versão contém o nome de exibição da API versão, bem como o [esquema de versão utilizado](#versioning-schemes) para direcionar pedidos para versões especificadas.
+A Azure API Management mantém um recurso chamado conjunto de *versão*, que representa um conjunto de versões para uma única API lógica. Um conjunto de versão contém o nome de exibição da API versão e o [esquema de versão utilizado](#versioning-schemes) para direcionar pedidos para versões especificadas.
 
-Cada versão de uma API é mantida como o seu próprio recurso API, que é então associado a um conjunto de versão. Um conjunto de versão pode conter APIs com operações ou políticas muito diferentes, o que reflete o facto de que você pode fazer alterações significativas entre versões da sua API.
+Cada versão de uma API é mantida como o seu próprio recurso API, que é então associado a um conjunto de versão. Um conjunto de versão pode conter APIs com diferentes operações ou políticas. Pode fazer alterações significativas entre versões num conjunto.
+
+O portal Azure cria conjuntos de versão para si. Pode modificar o nome e a descrição de uma versão definida no portal Azure.
+
+Pode visualizar e gerir conjuntos de versões diretamente utilizando [Azure CLI,](/cli/azure/apim/api/versionset) [Azure PowerShell,](/powershell/module/az.apimanagement/#api-management) [Resource Manager,](/azure/templates/microsoft.apimanagement/service/apiversionsets)ou a [API do Gestor de Recursos Azure](/rest/api/apimanagement/2020-06-01-preview/apiversionset).
 
 ### <a name="migrating-a-non-versioned-api-to-a-versioned-api"></a>Migrar uma API não ver versão para uma API versão
 

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/01/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1ed0ca069f29413083356a3147d4b97f1b6ed981
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: dd21c1dca0dd54331780ba98f9c53d5b99d6b4e9
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99525200"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100557229"
 ---
 # <a name="set-up-phone-sign-up-and-sign-in-for-user-flows-preview"></a>Configurar a inscrição no telefone e iniciar sômposições para os fluxos do utilizador (pré-visualização)
 
@@ -142,5 +142,5 @@ Depois de ter ativado a inscrição no telefone e o insejo de sômis e o pedido 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Adicionar fornecedores de identidade externos](tutorial-add-identity-providers.md)
+- [Adicionar fornecedores de identidade externos](add-identity-provider.md)
 - [Criar um fluxo de utilizador](tutorial-create-user-flows.md)

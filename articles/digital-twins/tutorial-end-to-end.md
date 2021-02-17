@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 5ef06f2db487a3e6d897e26758da840f37c3ecaf
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: cff40385edc89c0f6d2d105d089b66c046b0c04b
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99575810"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100545943"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>Tutorial: Construir uma solução de ponta a ponta
 
@@ -124,8 +124,6 @@ De volta à janela do Estúdio Visual onde está aberto o projeto _**AdtE2ESampl
 ### <a name="assign-permissions-to-the-function-app"></a>Atribuir permissões à aplicação de função
 
 Para permitir que a aplicação de função aceda a Azure Digital Twins, o próximo passo é configurar uma configuração de uma aplicação, atribuir à app uma identidade AD AD gerida pelo sistema, e dar a esta identidade o papel *de Proprietário de Dados Azure Digital Twins* na instância Azure Digital Twins. Esta função é necessária para qualquer utilizador ou função que pretenda realizar muitas atividades de data plane no caso. Pode ler mais sobre segurança e atribuições de papéis em [*Soluções Concepts: Security for Azure Digital Twins.*](concepts-security.md)
-
-[!INCLUDE [digital-twins-role-rename-note.md](../../includes/digital-twins-role-rename-note.md)]
 
 No Azure Cloud Shell, utilize o seguinte comando para definir uma definição de aplicação que a sua aplicação de função utilizará para fazer referência à sua instância Azure Digital Twins. Preencha os espaços reservados com os detalhes dos seus recursos (lembre-se que o url de exemplo de Azure Digital Twins é o seu nome de anfitrião precedido por *https://).*
 

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 03/03/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 4147adb004947c22ec39349f408d794bca160ef5
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: ffa52805a5e2680d534b2b24a210465cb3fc7cac
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99582184"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100557871"
 ---
 # <a name="authentication-flows-and-application-scenarios"></a>Fluxos de autenticação e cenários de aplicação
 
@@ -109,7 +109,7 @@ Para ajudar a proteger uma aplicação web que assina num utilizador:
 
 - Se desenvolver em .NET, utilize ASP.NET ou ASP.NET Core com o middleware openID connect ASP.NET. Proteger um recurso envolve validar o token de segurança, que é feito pelas [extensões IdentityModel para bibliotecas .NET](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) e não MSAL.
 
-- Se se desenvolver em Node.js, use [Passport.js](https://github.com/AzureAD/passport-azure-ad).
+- Se se desenvolver em Node.js, utilize [o nó MSAL](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node) ou [Passport.js](https://github.com/AzureAD/passport-azure-ad).
 
 Para obter mais informações, consulte [a aplicação Web que assina nos utilizadores.](scenario-web-app-sign-user-overview.md)
 
@@ -279,17 +279,18 @@ Os cenários que envolvem a aquisição de fichas também mapeiam para os fluxos
 
 As bibliotecas de autenticação da Microsoft suportam várias plataformas:
 
-- JavaScript
-- .NET Framework
 - .NET Core
+- .NET Framework
+- Java
+- JavaScript
+- macOS
+- Android nativo
+- IOS nativo
+- Node.js
+- Python
 - Windows 10/UWP
 - Xamarin.iOS
 - Xamarin.Android
-- IOS nativo
-- macOS
-- Android nativo
-- Java
-- Python
 
 Também pode usar vários idiomas para construir as suas aplicações.
 
@@ -302,12 +303,12 @@ Na coluna do Windows da tabela seguinte, cada vez que é mencionado .NET Core, o
 |--|--|--|--|--|--|--|
 | [Aplicação de página única](scenario-spa-overview.md) <br/>[![App Auth de uma página única](media/scenarios/spa-app-auth.svg)](scenario-spa-overview.md) | ![MSAL.js](media/sample-v2-code/small_logo_js.png)<br/>MSAL.js | ![MSAL.js](media/sample-v2-code/small_logo_js.png)<br/>MSAL.js | ![MSAL.js](media/sample-v2-code/small_logo_js.png)<br/>MSAL.js | ![MSAL.js](media/sample-v2-code/small_logo_js.png) MSAL.js | ![MSAL.js](media/sample-v2-code/small_logo_js.png)<br/>MSAL.js
 | [Aplicação de página única](scenario-spa-overview.md) <br/>[![App de uma página única implícita](media/scenarios/spa-app.svg)](scenario-spa-overview.md) | ![MSAL.js](media/sample-v2-code/small_logo_js.png)<br/>MSAL.js | ![MSAL.js](media/sample-v2-code/small_logo_js.png)<br/>MSAL.js | ![MSAL.js](media/sample-v2-code/small_logo_js.png)<br/>MSAL.js | ![MSAL.js](media/sample-v2-code/small_logo_js.png) MSAL.js | ![MSAL.js](media/sample-v2-code/small_logo_js.png)<br/>MSAL.js
-| [Aplicação web que inicia a sessão de utilizadores](scenario-web-app-sign-user-overview.md) <br/>[![Aplicação web que assina utilizadores](media/scenarios/scenario-webapp-signs-in-users.svg)](scenario-web-app-sign-user-overview.md) | ![ASP.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core | ![ASP.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core | ![ASP.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core
-| [Aplicação Web que chama as APIs Web](scenario-web-app-call-api-overview.md) <br/> <br/>[![Aplicação Web que chama as APIs Web](media/scenarios/web-app.svg)](scenario-web-app-call-api-overview.md) | ![ASP.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png) <br/>MSAL Java<br/>![Pitão MSAL](media/sample-v2-code/small_logo_python.png)<br/>Balão + MSAL Python| ![ASP.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![Pitão MSAL](media/sample-v2-code/small_logo_python.png)<br/>Balão + MSAL Python| ![ASP.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/> ![Pitão MSAL](media/sample-v2-code/small_logo_python.png)<br/>Balão + MSAL Python
-| [Aplicação de ambiente de trabalho que chama APIs Web](scenario-desktop-overview.md) <br/> <br/>[ ![ Aplicativo de desktop que chama APIs](media/scenarios/desktop-app.svg)](scenario-desktop-overview.md) ![ web Fluxo de código do dispositivo](media/scenarios/device-code-flow-app.svg) | ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/> ![Pitão MSAL](media/sample-v2-code/small_logo_python.png)<br/>Pitão MSAL| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![Pitão MSAL](media/sample-v2-code/small_logo_python.png)<br/>Pitão MSAL| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![Pitão MSAL](media/sample-v2-code/small_logo_python.png)<br/>Pitão MSAL <br/> ![iOS / Objetivo C ou rápido](media/sample-v2-code/small_logo_iOS.png) MSAL.objc |
+| [Aplicação web que inicia a sessão de utilizadores](scenario-web-app-sign-user-overview.md) <br/>[![Aplicação web que assina utilizadores](media/scenarios/scenario-webapp-signs-in-users.svg)](scenario-web-app-sign-user-overview.md) | ![ASP.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core ![Nó MSAL](media/sample-v2-code/small-logo-nodejs.png) <br/>Nó MSAL<br/>| ![ASP.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core ![Nó MSAL](media/sample-v2-code/small-logo-nodejs.png) <br/>Nó MSAL<br/>| ![ASP.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core ![Nó MSAL](media/sample-v2-code/small-logo-nodejs.png) <br/>Nó MSAL<br/>
+| [Aplicação Web que chama as APIs Web](scenario-web-app-call-api-overview.md) <br/> <br/>[![Aplicação Web que chama as APIs Web](media/scenarios/web-app.svg)](scenario-web-app-call-api-overview.md) | ![ASP.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png) <br/>MSAL Java<br/>![Pitão MSAL](media/sample-v2-code/small_logo_python.png)<br/>Balão + MSAL Python ![Nó MSAL](media/sample-v2-code/small-logo-nodejs.png) <br/>Nó MSAL<br/>| ![ASP.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![Pitão MSAL](media/sample-v2-code/small_logo_python.png)<br/>Balão + MSAL Python ![Nó MSAL](media/sample-v2-code/small-logo-nodejs.png) <br/>Nó MSAL<br/>| ![ASP.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/> ![Pitão MSAL](media/sample-v2-code/small_logo_python.png)<br/>Balão + MSAL Python ![Nó MSAL](media/sample-v2-code/small-logo-nodejs.png) <br/>Nó MSAL<br/>
+| [Aplicação de ambiente de trabalho que chama APIs Web](scenario-desktop-overview.md) <br/> <br/>[ ![ Aplicativo de desktop que chama APIs](media/scenarios/desktop-app.svg)](scenario-desktop-overview.md) ![ web Fluxo de código do dispositivo](media/scenarios/device-code-flow-app.svg) | ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/> ![Pitão MSAL](media/sample-v2-code/small_logo_python.png)<br/>Pitão MSAL ![Nó MSAL](media/sample-v2-code/small-logo-nodejs.png) <br/>Nó MSAL<br/>| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![Pitão MSAL](media/sample-v2-code/small_logo_python.png)<br/>Pitão MSAL ![Nó MSAL](media/sample-v2-code/small-logo-nodejs.png) <br/>Nó MSAL<br/>| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![Pitão MSAL](media/sample-v2-code/small_logo_python.png)<br/>Pitão MSAL <br/> ![Nó MSAL](media/sample-v2-code/small-logo-nodejs.png) <br/>Nó MSAL<br/> ![iOS / Objetivo C ou rápido](media/sample-v2-code/small_logo_iOS.png) MSAL.objc |
 | [Aplicação móvel que chama as APIs Web](scenario-mobile-overview.md) <br/> [![Aplicação móvel que chama as APIs Web](media/scenarios/mobile-app.svg)](scenario-mobile-overview.md) | ![UWP](media/sample-v2-code/small_logo_windows.png) MSAL.NET ![Xamarin](media/sample-v2-code/small_logo_xamarin.png) MSAL.NET | | | ![iOS / Objetivo C ou rápido](media/sample-v2-code/small_logo_iOS.png) MSAL.objc | ![Android](media/sample-v2-code/small_logo_Android.png) O MSAL. Android
-| [Aplicações daemon](scenario-daemon-overview.md) <br/> [![Aplicações daemon](media/scenarios/daemon-app.svg)](scenario-daemon-overview.md) | ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![Pitão MSAL](media/sample-v2-code/small_logo_python.png)<br/>Pitão MSAL| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png) MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![Pitão MSAL](media/sample-v2-code/small_logo_python.png)<br/>Pitão MSAL| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![Pitão MSAL](media/sample-v2-code/small_logo_python.png)<br/>Pitão MSAL
-| [API Web que chama APIs Web](scenario-web-api-call-api-overview.md) <br/><br/> [![API Web que chama APIs Web](media/scenarios/web-api.svg)](scenario-web-api-call-api-overview.md) | ![ASP.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![Pitão MSAL](media/sample-v2-code/small_logo_python.png)<br/>Pitão MSAL| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![Pitão MSAL](media/sample-v2-code/small_logo_python.png)<br/>Pitão MSAL| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![Pitão MSAL](media/sample-v2-code/small_logo_python.png)<br/>Pitão MSAL
+| [Aplicações daemon](scenario-daemon-overview.md) <br/> [![Aplicações daemon](media/scenarios/daemon-app.svg)](scenario-daemon-overview.md) | ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![Pitão MSAL](media/sample-v2-code/small_logo_python.png)<br/>Pitão MSAL ![Nó MSAL](media/sample-v2-code/small-logo-nodejs.png) <br/>Nó MSAL<br/>| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png) MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![Pitão MSAL](media/sample-v2-code/small_logo_python.png)<br/>Pitão MSAL ![Nó MSAL](media/sample-v2-code/small-logo-nodejs.png) <br/>Nó MSAL<br/>| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![Pitão MSAL](media/sample-v2-code/small_logo_python.png)<br/>Pitão MSAL ![Nó MSAL](media/sample-v2-code/small-logo-nodejs.png) <br/>Nó MSAL<br/>
+| [API Web que chama APIs Web](scenario-web-api-call-api-overview.md) <br/><br/> [![API Web que chama APIs Web](media/scenarios/web-api.svg)](scenario-web-api-call-api-overview.md) | ![ASP.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![Pitão MSAL](media/sample-v2-code/small_logo_python.png)<br/>Pitão MSAL ![Nó MSAL](media/sample-v2-code/small-logo-nodejs.png) <br/>Nó MSAL<br/>| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![Pitão MSAL](media/sample-v2-code/small_logo_python.png)<br/>Pitão MSAL ![Nó MSAL](media/sample-v2-code/small-logo-nodejs.png) <br/>Nó MSAL<br/>| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![Pitão MSAL](media/sample-v2-code/small_logo_python.png)<br/>Pitão MSAL ![Nó MSAL](media/sample-v2-code/small-logo-nodejs.png) <br/>Nó MSAL<br/>
 
 Para obter mais informações, consulte [as bibliotecas de autenticação da plataforma de identidade da Microsoft.](reference-v2-libraries.md)
 

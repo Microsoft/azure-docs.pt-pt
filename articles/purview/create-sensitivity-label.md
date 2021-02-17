@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 01/19/2021
-ms.openlocfilehash: b376883ab7d8ef0ffd57a271e74862b684788ebd
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 70aaa528fc86c9e543267b68b5b4cf157ec2dc65
+ms.sourcegitcommit: b513b0becf878eb9a1554c26da53aa48d580bb22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98630281"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100535268"
 ---
 # <a name="automatically-label-your-data-in-azure-purview"></a>Rotular automaticamente os seus dados em Azure Purview
 
@@ -41,17 +41,17 @@ As etiquetas de sensibilidade no Azure Purview podem ser utilizadas para aplicar
 Para obter mais informações, consulte:
 
 - [Conheça as etiquetas de sensibilidade](/microsoft-365/compliance/sensitivity-labels) na documentação da Microsoft 365
-- [O que são regras de autolibulação?](#what-are-autolabeling-rules)
+- [O que são regras de rotulagem automática?](#what-are-auto-labeling-rules)
 - [Tipos de dados suportados para etiquetas de sensibilidade em Azure Purview](#supported-data-types-for-sensitivity-labels-in-azure-purview)
 - [Rotulagem para colunas de base de dados SQL](#labeling-for-sql-database-columns)
 
-#### <a name="what-are-autolabeling-rules"></a>O que são regras de autolibulação?
+#### <a name="what-are-auto-labeling-rules"></a>O que são regras de rotulagem automática?
 
 Os seus dados estão em constante crescimento e mudança. Rastrear os dados atualmente não rotulados e tomar medidas para aplicar etiquetas manualmente não só é complicado, como também é uma dor de cabeça desnecessária. 
 
-As regras de autolibmento são condições que especifica, indicando quando deve ser aplicada uma determinada etiqueta. Quando estas condições são satisfeitas, o rótulo é automaticamente atribuído aos dados, retendo etiquetas de sensibilidade consistentes nos seus dados, em escala.
+As regras de rotulagem automática são condições que especifica, indicando quando deve ser aplicada uma determinada etiqueta. Quando estas condições são satisfeitas, o rótulo é automaticamente atribuído aos dados, retendo etiquetas de sensibilidade consistentes nos seus dados, em escala.
 
-Quando criar as suas etiquetas, certifique-se de definir regras de autolibulação para [ficheiros](#define-autolabeling-rules-for-files) e [colunas de base de dados](#define-autolabeling-rules-for-database-columns) para aplicar automaticamente as suas etiquetas com cada verificação de dados. 
+Quando criar as suas etiquetas, certifique-se de definir regras de rotulagem automática para ambos os [ficheiros](#define-auto-labeling-rules-for-files) e [colunas de base de dados](#define-auto-labeling-rules-for-database-columns) para aplicar automaticamente as suas etiquetas com cada digitalização de dados. 
 
 Depois de digitalizar os seus dados em Purview, pode ver as etiquetas automaticamente aplicadas nos relatórios do Catálogo e Insight de Purview.
 #### <a name="supported-data-types-for-sensitivity-labels-in-azure-purview"></a>Tipos de dados suportados para etiquetas de sensibilidade em Azure Purview
@@ -123,10 +123,10 @@ Uma vez que estenda a rotulagem aos ativos em Azure Purview, pode selecionar as 
 
 1. Siga o resto das indicações no assistente para as definições da etiqueta. 
 
-    Especificamente, defina regras de autolibulação para ficheiros e colunas de bases de dados:
+    Especificamente, defina regras de rotulagem automática para ficheiros e colunas de bases de dados:
 
-    - [Definir regras de autolibulação para ficheiros](#define-autolabeling-rules-for-files)
-    - [Definir regras de autolibulação para colunas de base de dados](#define-autolabeling-rules-for-database-columns)
+    - [Definir regras de rotulagem automática para ficheiros](#define-auto-labeling-rules-for-files)
+    - [Definir regras de rotulagem automática para colunas de bases de dados](#define-auto-labeling-rules-for-database-columns)
 
     Para obter mais informações sobre as opções de assistente, consulte [o que as etiquetas de sensibilidade podem fazer](/microsoft-365/compliance/sensitivity-labels#what-sensitivity-labels-can-do) na documentação da Microsoft 365.
 
@@ -156,21 +156,21 @@ Continue [digitalizando os seus dados para aplicar as etiquetas automaticamente,
 - [Ver rótulos em ativos](#view-labels-on-assets)
 - [Ver relatórios insight para as classificações e rótulos de sensibilidade](#view-insight-reports-for-the-classifications-and-sensitivity-labels)
 
-#### <a name="define-autolabeling-rules-for-files"></a>Definir regras de autolibulação para ficheiros
+#### <a name="define-auto-labeling-rules-for-files"></a>Definir regras de rotulagem automática para ficheiros
 
-Defina regras de autolibmento de ficheiros no assistente quando criar ou editar a sua etiqueta. 
+Defina regras de rotulagem automática para ficheiros no assistente quando criar ou editar a sua etiqueta. 
 
 Na página **de rotulagem automática para aplicações do Office,** permita **a rotulagem automática das aplicações do Office e,** em seguida, defina as condições em que deseja que o seu rótulo seja automaticamente aplicado aos seus dados.
 
 Por exemplo:
 
-:::image type="content" source="media/create-sensitivity-label/create-auto-labeling-rules-files-small.png" alt-text="Defina regras de autolibulação de ficheiros no Microsoft 365 Security and Compliance Center" lightbox="media/create-sensitivity-label/create-auto-labeling-rules-files.png":::
+:::image type="content" source="media/create-sensitivity-label/create-auto-labeling-rules-files-small.png" alt-text="Defina regras de rotulagem automática para ficheiros no Microsoft 365 Security and Compliance Center" lightbox="media/create-sensitivity-label/create-auto-labeling-rules-files.png":::
  
 Para obter mais informações, consulte [Aplicar automaticamente uma etiqueta de sensibilidade aos dados](/microsoft-365/compliance/apply-sensitivity-label-automatically#how-to-configure-auto-labeling-for-office-apps) na documentação da Microsoft 365. 
 
-#### <a name="define-autolabeling-rules-for-database-columns"></a>Definir regras de autolibulação para colunas de base de dados
+#### <a name="define-auto-labeling-rules-for-database-columns"></a>Definir regras de rotulagem automática para colunas de bases de dados
 
-Defina regras de autolibmento para colunas de base de dados no assistente quando criar ou editar a sua etiqueta. 
+Defina regras de rotulagem automática para colunas de base de dados no assistente quando criar ou editar a sua etiqueta. 
 
 Sob a opção **Azure Purview ativos (pré-visualização):**
 
@@ -180,11 +180,11 @@ Sob a opção **Azure Purview ativos (pré-visualização):**
 
 Por exemplo:
         
-:::image type="content" source="media/create-sensitivity-label/create-auto-labeling-rules-db-columns-small.png" alt-text="Defina regras de autolibulação para colunas SQL no Microsoft 365 Security and Compliance Center" lightbox="media/create-sensitivity-label/create-auto-labeling-rules-db-columns.png":::
+:::image type="content" source="media/create-sensitivity-label/create-auto-labeling-rules-db-columns-small.png" alt-text="Definir regras de rotulagem automática para colunas SQL no Microsoft 365 Security and Compliance Center" lightbox="media/create-sensitivity-label/create-auto-labeling-rules-db-columns.png":::
 
 ## <a name="scan-your-data-to-apply-labels-automatically"></a>Digitalize os seus dados para aplicar etiquetas automaticamente
 
-Digitalize os seus dados em Azure Purview para aplicar automaticamente as etiquetas que criou, com base nas regras de autolibulação que definiu. 
+Digitalize os seus dados em Azure Purview para aplicar automaticamente as etiquetas que criou, com base nas regras de rotulagem automática que definiu. 
 
 Para obter mais informações sobre como configurar digitalizações em vários ativos em Azure Purview, consulte:
 
@@ -197,7 +197,7 @@ Para obter mais informações sobre como configurar digitalizações em vários 
 
 ## <a name="view-labels-on-assets"></a>Ver rótulos em ativos
 
-Depois de definir as regras de autollização das suas etiquetas no Microsoft 365 e digitalizou os seus dados em Azure Purview, as etiquetas são automaticamente aplicadas aos seus ativos. 
+Depois de definir as regras de rotulagem automática das suas etiquetas no Microsoft 365 e digitalizar os seus dados em Azure Purview, as etiquetas são automaticamente aplicadas aos seus ativos. 
 
 **Para visualizar as etiquetas aplicadas aos seus ativos no Catálogo Azure Purview:**
 

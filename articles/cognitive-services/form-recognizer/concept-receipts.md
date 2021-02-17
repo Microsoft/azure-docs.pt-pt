@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: c1ae52b2b92c5c8d5a1a98632e19d3140672d6ea
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 565ba3f7cd02a5ca8a3a858dc29a8fa6c7df16c1
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99585046"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546011"
 ---
 # <a name="form-recognizer-prebuilt-receipt-model"></a>Modelo de recibo pré-construído do Reconhecimento de Formulário
 
@@ -38,7 +38,7 @@ O serviço de Receção pré-construído extrai o conteúdo dos recibos de venda
 
 ### <a name="fields-extracted"></a>Campos extraídos
 
-|Nome| Tipo | Description | Texto | Valor (saída padronizada) |
+|Nome| Tipo | Descrição | Texto | Valor (saída padronizada) |
 |:-----|:----|:----|:----| :----|
 | Tipo de Recibo | string | Tipo de recibo de venda | Itemizado |  |
 | Nome mercante | string | Nome do comerciante que emite o recibo | Contoso |  |
@@ -115,7 +115,12 @@ Quando o campo **de status** tiver o valor **bem sucedido,** a resposta JSON inc
 
 ### <a name="sample-json-output"></a>Amostra de saída JSON
 
-Veja o seguinte exemplo de uma resposta JSON bem sucedida: O nó "readResults" contém todo o texto reconhecido. O texto é organizado por página, depois por linha, depois por palavras individuais. O nó "documentResults" contém os valores específicos do cartão de visita que o modelo descobriu. É aqui que encontrará pares de chaves/valor úteis como o primeiro nome, apelido, nome da empresa e muito mais.
+
+A resposta à operação Get Analyze Receipt Result será a representação estruturada do recibo com todas as informações extraídas.  Consulte aqui um [ficheiro de recibo de amostra](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/contoso-allinone.jpg) e a sua saída de recibo de [amostra](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/receipt-result.json)de saída estruturada .
+
+Veja o seguinte exemplo de uma resposta JSON bem sucedida:
+* O `"readResults"` nó contém todo o texto reconhecido. O texto é organizado por página, depois por linha, depois por palavras individuais. 
+* O `"documentResults"` nó contém os valores específicos do cartão de visita que o modelo descobriu. É aqui que encontrará pares de chaves/valor úteis como o primeiro nome, apelido, nome da empresa e muito mais.
 
 ```json
 { 

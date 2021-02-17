@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: fc370de11ca429d760ac0440d2bd6ec81044b263
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: e6a4098d0b3da30448f5dd23a709b13ffebae032
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100390152"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100554906"
 ---
 # <a name="eav4-and-easv4-series"></a>Séries Eav4 e Easv4
 
@@ -26,7 +26,7 @@ A série Eav4 e a série Easv4 utilizam o processador EPYC<sup>TM</sup> 7452 da 
 [Migração Ao Vivo](maintenance-and-updates.md): Suportado<br>
 [Atualizações de preservação da memória](maintenance-and-updates.md): Suportado<br>
 [Suporte de geração VM](generation-2.md): Gerações 1 e 2<br>
-[Rede Acelerada](../virtual-network/create-vm-accelerated-networking-cli.md): Suportado<br>
+[Rede Acelerada](../virtual-network/create-vm-accelerated-networking-cli.md): Suportado *(Requer um mínimo de 4 vCPU*)<br>
 [Discos EFÉMEROS](ephemeral-os-disks.md): Suportados <br>
 <br>
 
@@ -52,7 +52,7 @@ Os tamanhos da série Eav4 são baseados no processador AMD EPYC<sup>TM</sup> 74
 [Migração Ao Vivo](maintenance-and-updates.md): Suportado<br>
 [Atualizações de preservação da memória](maintenance-and-updates.md): Suportado<br>
 [Suporte de geração VM](generation-2.md): Gerações 1 e 2<br>
-[Rede Acelerada](../virtual-network/create-vm-accelerated-networking-cli.md): Suportado<br>
+[Rede Acelerada](../virtual-network/create-vm-accelerated-networking-cli.md): Suportado *(Requer um mínimo de 4 vCPU*)<br>
 [Discos EFÉMEROS](ephemeral-os-disks.md): Suportados <br>
 <br>
 

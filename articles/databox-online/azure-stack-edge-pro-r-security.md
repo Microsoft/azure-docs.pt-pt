@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 10/14/2020
 ms.author: alkohli
-ms.openlocfilehash: 891885dce52ee57fa163bb71b427591156091651
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 922ef24bff7d6e60a3ba3b91113003f8206b8177
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100362871"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100548646"
 ---
 # <a name="security-and-data-protection-for-azure-stack-edge-pro-r-and-azure-stack-edge-mini-r"></a>Segurança e proteção de dados para Azure Stack Edge Pro R e Azure Stack Edge Mini R
 
@@ -77,7 +77,7 @@ Pode:
 
 ### <a name="establish-trust-with-the-device-via-certificates"></a>Estabelecer confiança com o dispositivo através de certificados
 
-O dispositivo robusto Azure Stack Edge permite-lhe trazer os seus próprios certificados e instalá-los para serem utilizados para todos os pontos finais públicos. Para mais informações, aceda ao [Upload do seu certificado.](azure-stack-edge-j-series-manage-certificates.md#upload-certificates) Para obter uma lista de todos os certificados que podem ser instalados no seu dispositivo, aceda a [Obter certificados no seu dispositivo](azure-stack-edge-j-series-manage-certificates.md).
+O dispositivo robusto Azure Stack Edge permite-lhe trazer os seus próprios certificados e instalá-los para serem utilizados para todos os pontos finais públicos. Para mais informações, aceda ao [Upload do seu certificado.](azure-stack-edge-gpu-manage-certificates.md#upload-certificates) Para obter uma lista de todos os certificados que podem ser instalados no seu dispositivo, aceda a [Obter certificados no seu dispositivo](azure-stack-edge-gpu-manage-certificates.md).
 
 - Quando configurar o cálculo no seu dispositivo, é criado um dispositivo IoT e um dispositivo IoT Edge. Estes dispositivos são automaticamente atribuídos chaves de acesso simétrico. Como uma boa prática de segurança, estas chaves são rodadas regularmente através do serviço IoT Hub.
 

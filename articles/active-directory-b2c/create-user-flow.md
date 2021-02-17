@@ -10,24 +10,24 @@ ms.topic: tutorial
 ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 418446e0d465b606b8d580297cebd73c466d4841
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 9bd436b972dfb1549232831b1f07c3726ff459dd
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97109017"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100556502"
 ---
 # <a name="create-a-user-flow-in-azure-active-directory-b2c"></a>Criar um fluxo de utilizador em Azure Ative Directory B2C
 
 Pode criar fluxos de utilizadores de [diferentes](user-flow-overview.md) tipos no seu inquilino Azure Ative Directory B2C (Azure AD B2C) e usá-los nas suas aplicações conforme necessário. Os fluxos dos utilizadores podem ser reutilizados através das aplicações.
 
 > [!IMPORTANT]
-> Mudamos a forma como referenciamos as versões de fluxo de utilizadores. Anteriormente, oferecemos versões V1 (prontas para produção) e versões V1.1 e V2 (pré-visualização). Agora, consolidamos os fluxos de utilizador nas versões **Recomendado** (pré-visualização da próxima geração) e **Standard** (geralmente disponível). Todos os fluxos de pré-visualização de V1.1 e V2 estão em vias de depreciação até 1 de agosto de **2021**. Para mais informações, consulte [as versões de fluxo do utilizador em Azure AD B2C](user-flow-versions.md).
+> Mudámos a forma como fazemos referência às versões de fluxos de utilizador. Anteriormente, disponibilizávamos versões V1 (prontas para produção) e versões V1.1 e V2 (pré-visualização). Agora, consolidamos os fluxos de utilizador nas versões **Recomendado** (pré-visualização da próxima geração) e **Standard** (geralmente disponível). Todos os fluxos de pré-visualização de V1.1 e V2 estão em vias de depreciação até 1 de agosto de **2021**. Para mais informações, consulte [as versões de fluxo do utilizador em Azure AD B2C](user-flow-versions.md).
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 - **Registe a aplicação** que pretende utilizar para testar o novo fluxo de utilizador. Por exemplo, consulte o [Tutorial: Registe uma aplicação web em Azure AD B2C](tutorial-register-applications.md).
-- **Adicione fornecedores de identidade externos** se quiser ativar o acesso do utilizador a fornecedores como Azure AD, Amazon, Facebook, GitHub, LinkedIn, Microsoft ou Twitter. Por exemplo, consulte [Tutorial: Adicione fornecedores de identidade às suas aplicações em Azure AD B2C](tutorial-add-identity-providers.md).
+- **Adicione fornecedores de identidade externos** se quiser ativar o acesso do utilizador a fornecedores como Azure AD, Amazon, Facebook, GitHub, LinkedIn, Microsoft ou Twitter. Consulte [os fornecedores de identidade adicionar às suas aplicações em Azure AD B2C](add-identity-provider.md).
 - **Configure o fornecedor local de identidade** da conta para especificar os tipos de identidade (e-mail, nome de utilizador, número de telefone) que pretende apoiar para contas locais no seu inquilino. Em seguida, pode escolher entre estes tipos de identidade suportados quando criar fluxos de utilizador individuais. Quando um utilizador completa o fluxo do utilizador, é criada uma conta local no seu diretório Azure AD B2C, e o seu fornecedor de identidade de **conta Local** autentica as informações do utilizador. Configure o fornecedor local de identidade de conta do seu inquilino com estes passos:
 
    1. Inicie sessão no [portal do Azure](https://portal.azure.com/). 
@@ -66,7 +66,7 @@ Pode criar fluxos de utilizadores de [diferentes](user-flow-overview.md) tipos n
 
    - **Conta local.** Se pretender permitir que os utilizadores criem contas locais no seu inquilino Azure AD B2C, selecione o tipo de identificador que pretende que utilize (por exemplo, e-mail, ID do utilizador ou telefone). Apenas os tipos de identidade configurados nas definições [do fornecedor de identidade de conta local](#before-you-begin) estão listados.
 
-   - **Prestadores de identidade social.** Se pretender permitir o acesso ao utilizador com fornecedores de [identidade social,](tutorial-add-identity-providers.md)como a Azure AD, Amazon, Facebook, GitHub, LinkedIn, Microsoft ou Twitter, selecione os fornecedores da lista.
+   - **Prestadores de identidade social.** Se pretender permitir o acesso ao utilizador com fornecedores de [identidade social,](add-identity-provider.md)como a Azure AD, Amazon, Facebook, GitHub, LinkedIn, Microsoft ou Twitter, selecione os fornecedores da lista.
 
 9. Para **atributos e reclamações do Utilizador,** escolha as reclamações e atributos que pretende recolher e enviar do utilizador durante a inscrição. Selecione **Mostrar mais**. Selecione os atributos e reclamações e, em seguida, selecione **OK**.
 

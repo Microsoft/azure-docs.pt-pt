@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/15/2020
 ms.author: trbye
-ms.openlocfilehash: d50d4c554f47629f6e04adf957e02f8ffcc48fe5
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: df7c24fefcc6cda8f02a6575dea911e48d200a90
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96509487"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100551962"
 ---
 Este guia mostra como instalar o [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) para Python. Se só quer que o nome do pacote seja iniciado por conta própria, `pip install azure-cognitiveservices-speech` corra.
 
@@ -23,6 +23,8 @@ Este guia mostra como instalar o [Speech SDK](~/articles/cognitive-services/spee
   - Linux; ver a lista de [distribuições apoiadas do Linux e arquiteturas-alvo.](~/articles/cognitive-services/speech-service/speech-sdk.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
+
+- No Windows, precisa do [Microsoft Visual C++ Redistributable para Visual Studio 2019](https://support.microsoft.com/en-us/topic/the-latest-supported-visual-c-downloads-2647da03-1eea-4433-9aff-95f26a218cc0) para a sua plataforma. A instalação desta situação pela primeira vez pode exigir um reinício.
 
 - As plataformas de Linux suportadas exigirão a instalação de certas bibliotecas `libssl` (para suporte de camadas de tomadas seguras e `libasound2` para suporte sonoro). Consulte a sua distribuição abaixo para obter os comandos necessários para instalar as versões corretas destas bibliotecas.
 
@@ -74,7 +76,7 @@ import azure.cognitiveservices.speech as speechsdk
 1. Descarregue e instale a versão mais recente suportada do [Python](https://www.python.org/downloads/) para a sua plataforma, de 3.5 a 3.8.
    - Os utilizadores do Windows certifiquem-se de selecionar "Adicionar Python ao seu PATH" durante o processo de instalação.
 1. Transfira e instale o [Visual Studio Code](https://code.visualstudio.com/Download).
-1. Abra o Código do Estúdio Visual e instale a extensão Python. Selecione **File**  >  **extensões de preferências** de  >  **ficheiros** no menu. Procure **por Python** e clique **em Instalar.**
+1. Abra o Código do Estúdio Visual e instale a extensão Python. Selecione   >  **extensões de preferências** de  >  **ficheiros** no menu. Procure **por Python** e clique **em Instalar.**
 
    ![Instalar a extensão do Python](~/articles/cognitive-services/speech-service/media/sdk/qs-python-vscode-python-extension.png)
 

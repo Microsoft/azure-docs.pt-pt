@@ -9,19 +9,19 @@ ms.author: mikben
 ms.date: 09/29/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 779fa577b25bd4f2aa92aa8b8cc1244a58bdf1ae
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 883be25716d94130984baef5e7a1eab80888a2b9
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126195"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100558471"
 ---
 # <a name="pricing-scenarios"></a>Cenários de preços
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
 
-Os preços dos Serviços de Comunicação Azure baseiam-se geralmente num modelo de pagamento.
+Os preços dos Serviços de Comunicação Azure baseiam-se geralmente num modelo de pagamento. Os preços dos seguintes exemplos são para fins ilustrativos e podem não refletir os preços mais recentes do Azure.
 
 ## <a name="voicevideo-calling-and-screen-sharing"></a>Chamada de voz/vídeo e partilha de ecrã
 
@@ -48,9 +48,32 @@ A Alice fez uma chamada em grupo com os colegas, Bob e Charlie. Alice e Bob usar
 
 **Custo total da chamada do grupo**: $0,48 + $0,172 = $0,652
 
+### <a name="pricing-example-a-user-of-the-communication-services-js-client-library-joins-a-scheduled-microsoft-teams-meeting"></a>Exemplo de preços: Um utilizador da biblioteca de clientes JS dos Serviços de Comunicação junta-se a uma reunião agendada da Microsoft Teams
+
+A Alice está a encontrar-se com o paciente, Bob. Alice juntar-se-á à visita da aplicação Teams Desktop. Bob receberá um link para se juntar ao site do prestador de cuidados de saúde, que se conecta à reunião usando a biblioteca de clientes JS dos Serviços de Comunicação. Bob usará o seu telemóvel para entrar na reunião usando um navegador web (iPhone com Safari). O chat estará disponível durante a visita virtual. 
+
+- A chamada dura um total de 30 minutos.
+- Alice e Bob participam de toda a ligação. Alice liga o vídeo cinco minutos depois da chamada começar e partilha o ecrã durante 13 minutos. O Bob tem o vídeo dele ligado para toda a chamada.
+- Alice envia cinco mensagens, Bob responde com três mensagens.
+
+
+**Cálculos de custos**
+
+- 1 participante (Bob) x 30 minutos x $0,004 por participante por minuto = $0,12 [tanto o vídeo como o áudio são cobrados à mesma taxa]
+- 1 participante (Alice) x 30 minutos x $0,000 por participante por minuto = $0,0*. 
+- 1 participante (Bob) x 3 mensagens de chat x $0,0008 = $0,0024.
+- 1 participante (Alice) x 5 mensagens de chat x $0,000 = $0,0*. 
+
+*A participação da Alice está coberta pela licença das equipas. A sua fatura Azure mostrará as minutos e mensagens de chat que os utilizadores das Equipas tinham com os Utilizadores dos Serviços de Comunicação para sua conveniência, mas esses minutos e mensagens originárias do cliente das Equipas não custarão.
+
+**Custo total da visita:** 
+- Utilização do utilizador através da biblioteca de clientes JS dos Serviços de Comunicação: $0,12 + $0,0024 = $0,1224
+- Adesão do utilizador à aplicação de ambiente de trabalho teams: $0 (coberto pela licença das equipas) 
+
+
 ## <a name="chat"></a>Chat
 
-Com os Serviços de Comunicação pode melhorar a sua aplicação com a capacidade de enviar e receber mensagens de chat entre 2 ou mais utilizadores. As bibliotecas de clientes chat estão disponíveis para JavaScript, .NET, Python e Java. Consulte [esta página para saber mais sobre bibliotecas de clientes](./sdk-options.md)
+Com os Serviços de Comunicação pode melhorar a sua aplicação com a capacidade de enviar e receber mensagens de chat entre dois ou mais utilizadores. As bibliotecas de clientes chat estão disponíveis para JavaScript, .NET, Python e Java. Consulte [esta página para saber mais sobre bibliotecas de clientes](./sdk-options.md)
 
 ### <a name="price"></a>Preço
 
@@ -58,7 +81,7 @@ Cobram-lhe $0.0008 por cada mensagem de chat enviada.
 
 ### <a name="pricing-example-chat-between-two-users"></a>Exemplo de preços: Conversa entre dois utilizadores 
 
-Geeta inicia um chat thread com Emily para partilhar uma atualização e envia 5 mensagens. A conversa dura 10 minutos onde Geeta e Emily enviam mais 15 mensagens cada.
+Geeta inicia um chat thread com Emily para partilhar uma atualização e envia 5 mensagens. A conversa dura 10 minutos. Geeta e Emily enviam mais 15 mensagens cada.
 
 **Cálculos de custos** 
 - Número de mensagens enviadas (5 + 15 + 15) x $0,0008 = $0,028

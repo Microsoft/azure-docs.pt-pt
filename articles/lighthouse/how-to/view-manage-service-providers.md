@@ -1,51 +1,45 @@
 ---
 title: Ver e gerir fornecedores de serviços
 description: Os clientes podem utilizar a página de prestadores de serviços no portal Azure para visualizar informações sobre prestadores de serviços, ofertas de prestadores de serviços e recursos delegados.
-ms.date: 12/16/2020
+ms.date: 02/16/2021
 ms.topic: how-to
-ms.openlocfilehash: 5ee897503c997ab10fdb489f7921c9d2d001e472
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: f6ee5fb154d75ff715acf99c5184cd1652ccdb80
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97617209"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100555580"
 ---
 # <a name="view-and-manage-service-providers"></a>Ver e gerir fornecedores de serviços
 
-A página **de prestadores de serviços** no [portal Azure](https://portal.azure.com) dá aos clientes controlo e visibilidade para os seus prestadores de serviços que utilizam [o Farol Azure.](../overview.md) Os clientes podem ver detalhes sobre os prestadores de serviços, delegar recursos específicos, fazer compras para novas ofertas de prestadores de serviços, remover o acesso do prestador de serviços, e muito mais.
+A página **de prestadores de serviços** no [portal Azure](https://portal.azure.com) dá aos clientes controlo e visibilidade para os seus prestadores de serviços que utilizam [o Farol Azure.](../overview.md) Os clientes podem ver detalhes sobre os prestadores de serviços, delegar recursos específicos, procurar novas ofertas, remover o acesso do prestador de serviços, e muito mais.
 
-> [!TIP]
-> Enquanto nos referimos a prestadores de serviços e clientes aqui, [as empresas que gerem vários inquilinos](../concepts/enterprise.md) podem usar o mesmo processo para consolidar a sua experiência de gestão.
-
-Para aceder à página **dos prestadores de serviços** no portal Azure, o cliente pode selecionar **Todos os serviços,** em seguida, procurar **por fornecedores de Serviços** e selecioná-lo. Também podem encontrá-lo entrando em "Prestadores de Serviços" ou "Farol Azure" na caixa de pesquisa perto do topo do portal Azure.
+Para ver a página **dos prestadores de serviços** no portal Azure, selecione **Todos os serviços,** em seguida, procure **por fornecedores de Serviços** e selecione-o. Também pode encontrar esta página inserindo "Prestadores de Serviços" ou "Farol Azure" na caixa de pesquisa perto do topo do portal Azure.
 
 > [!NOTE]
 > Para visualizar a página dos prestadores de **serviços,** um utilizador no arrendatário do cliente deve ter a [função de Leitor incorporada](../../role-based-access-control/built-in-roles.md#reader) (ou outra função incorporada que inclua o acesso ao Reader).
 >
-> Para adicionar ou atualizar ofertas, delegar recursos e remover ofertas, o utilizador deve ter o [proprietário papel incorporado](../../role-based-access-control/built-in-roles.md#owner) para a subscrição.
+> Para adicionar ou atualizar ofertas, delegar recursos e remover ofertas, o utilizador deve ter uma função com a `Microsoft.Authorization/roleAssignments/write` permissão, como [o Proprietário.](../../role-based-access-control/built-in-roles.md#owner)
 
-Tenha em mente que a página **dos prestadores de serviços apenas** mostra informações sobre os prestadores de serviços que têm acesso às subscrições ou grupos de recursos do cliente através do Farol de Azure. Se um cliente trabalhar com fornecedores de serviços adicionais que não usam o Farol Azure para aceder aos recursos do cliente, a informação sobre esses prestadores de serviços não é mostrada aqui.
-
-> [!TIP]
-> Os prestadores de serviços podem ver informações sobre os seus clientes navegando para **os meus clientes** no portal Azure. Para mais informações, consulte [Ver e gerir clientes e recursos delegados.](view-manage-customers.md)
+Tenha em mente que a página **dos prestadores de serviços apenas** mostra informações sobre os prestadores de serviços que têm acesso às subscrições ou grupos de recursos do cliente através do Farol de Azure. Se um cliente trabalhar com fornecedores de serviços adicionais que não usam o Farol Azure, você não verá informações sobre esses prestadores de serviços aqui.
 
 ## <a name="view-service-provider-details"></a>Ver detalhes do prestador de serviços
 
-Para ver detalhes sobre os prestadores de serviços, o cliente pode selecionar ofertas de prestadores de **serviços** no lado esquerdo da página dos prestadores de **serviços.**
+Para ver detalhes sobre os atuais prestadores de serviços que utilizam o Farol Azure para trabalhar no inquilino do cliente, selecione ofertas de prestadores de **serviços** no lado esquerdo da página dos prestadores de **serviços.**
 
-Para cada oferta de prestador de serviços, o cliente verá o nome do prestador de serviços e a oferta que lhe está associada, juntamente com o nome que o cliente inseriu durante o processo de embarque.
+Para cada oferta, verá o nome do prestador de serviços e a oferta associada. Pode selecionar uma oferta para visualizar uma descrição e outros detalhes, incluindo as atribuições de funções que o prestador de serviços foi concedido.
 
-Na coluna **Delegações,** o cliente vê quantas subscrições e/ou grupos de recursos foram delegados ao prestador de serviços para essa oferta. O prestador de serviços poderá aceder e gerir estas subscrições e/ou grupos de recursos de acordo com os níveis de acesso especificados na oferta.
+Na coluna **Delegações,** pode ver quantas subscrições e/ou grupos de recursos foram delegados ao prestador de serviços para essa oferta. O prestador de serviços poderá aceder e gerir estas subscrições e/ou grupos de recursos de acordo com os níveis de acesso especificados na oferta.
 
 ## <a name="add-or-remove-service-provider-offers"></a>Adicionar ou remover ofertas de prestadores de serviços
 
-Um cliente pode adicionar uma nova oferta de prestador de serviços da página de ofertas do prestador de **serviços,** selecionando **a oferta Add.** O prestador de serviços deve ter publicado uma oferta para este cliente. O cliente pode então selecionar essa oferta a partir do ecrã **de ofertas privadas** e, em seguida, selecionar **Criar**.
+Para adicionar uma nova oferta de prestador de serviços na página de ofertas do prestador de **serviços,** selecione **Adicionar oferta.** Selecione **Ofertas Privadas** para visualizar ofertas que um prestador de serviços publicou para este cliente. Pode então selecionar essa oferta a partir do ecrã de **ofertas privadas** e, em seguida, selecione **Configurar + subscrever**.
 
-Se o cliente quiser remover uma oferta de prestador de serviços, pode fazê-lo a qualquer momento selecionando o ícone do caixote do lixo na fila para essa oferta. Após confirmar a supressão, este prestador de serviços deixará de ter acesso aos recursos do cliente que anteriormente estavam delegados para essa oferta.
+Pode remover uma oferta de prestador de serviços a qualquer momento, selecionando o ícone do caixote do lixo na fila para essa oferta. Após confirmação da supressão, aquele prestador de serviços deixará de ter acesso aos recursos anteriormente delegados para essa oferta.
 
 ## <a name="delegate-resources"></a>Delegar recursos
 
-Antes que um prestador de serviços possa aceder e gerir os recursos de um cliente, deve ser delegado. Se um cliente aceitar uma oferta mas ainda não tiver delegado quaisquer recursos, verá uma nota no topo da secção de ofertas de **serviços.** Isto permite ao cliente saber que precisa de tomar medidas antes que o prestador de serviços possa aceder a qualquer um dos recursos do cliente.
+Antes de um prestador de serviços poder aceder e gerir os recursos de um cliente, uma ou mais subscrições específicas e/ou grupos de recursos devem ser delegados. Se um cliente aceitar uma oferta mas ainda não tiver delegado quaisquer recursos, verá uma nota no topo da secção de ofertas de **serviços.** Isto permite ao cliente saber que precisa de tomar medidas antes que o prestador de serviços possa aceder a qualquer um dos recursos do cliente.
 
 Para delegar subscrições ou grupos de recursos:
 
@@ -57,11 +51,11 @@ Para delegar subscrições ou grupos de recursos:
 
 ## <a name="update-service-provider-offers"></a>Ofertas de prestadores de serviços de atualização
 
-Depois de um cliente ter adicionado uma oferta, um prestador de serviços poderá publicar uma versão atualizada da mesma oferta ao Azure Marketplace. Por exemplo, podem querer adicionar uma nova definição de papel. Se uma nova versão da oferta tiver sido publicada, a página de ofertas do **prestador de serviços** mostrará um ícone de "atualização" na linha para essa oferta. O cliente pode selecionar este ícone para ver as diferenças entre a versão atual da oferta e a nova.
+Depois de um cliente ter adicionado uma oferta, um prestador de serviços poderá publicar uma versão atualizada da mesma oferta ao Azure Marketplace. Por exemplo, podem querer adicionar uma nova definição de papel. Se uma nova versão da oferta tiver sido publicada, a página de ofertas do **prestador de serviços** mostrará um ícone de "atualização" na linha para essa oferta. Selecione este ícone para ver as diferenças entre a versão atual da oferta e a nova.
 
  ![Ícone de oferta de atualização](../media/update-offer.jpg)
 
-Depois de rever as alterações, o cliente pode optar por atualizar para a nova versão. Assim que o fizerem, as autorizações e outras definições especificadas na nova versão aplicar-se-ão a quaisquer subscrições e/ou grupos de recursos que tenham sido delegados para essa oferta.
+Depois de rever as alterações, o cliente pode optar por atualizar para a nova versão. As autorizações e outras definições especificadas na nova versão aplicar-se-ão então a quaisquer subscrições e/ou grupos de recursos que tenham sido delegados para essa oferta.
 
 ## <a name="view-delegations"></a>Ver delegações
 
@@ -87,3 +81,5 @@ Para obter mais informações sobre como atribuir uma política e ver os resulta
 - Saiba mais sobre [o Farol Azure.](../overview.md)
 - Saiba como auditar a [atividade do prestador de serviços.](view-service-provider-activity.md)
 - Saiba como os prestadores de serviços podem [ver e gerir clientes](view-manage-customers.md) na página **dos meus clientes** no portal Azure.
+- Saiba como [as empresas que gerem vários inquilinos](../concepts/enterprise.md) podem usar o Farol Azure para consolidar a sua experiência de gestão.
+

@@ -6,12 +6,12 @@ ms.author: nimag
 ms.date: 08/11/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: f3d6023ffd3043bc57727fc39f077dd0ce7eccb8
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: e878aa00261d446d049f5a7b3c68b14bc2fe8a4e
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98024256"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100548507"
 ---
 Neste arranque rápido, você vai aprender como iniciar uma chamada usando a biblioteca de clientes Azure Communication Services Call para JavaScript.
 
@@ -60,7 +60,7 @@ Crie um ficheiro no diretório de raiz do seu projeto chamado **client.js** para
 
 ```javascript
 import { CallClient, CallAgent } from "@azure/communication-calling";
-import { AzureCommunicationUserCredential } from '@azure/communication-common';
+import { AzureCommunicationTokenCredential } from '@azure/communication-common';
 
 let call;
 let callAgent;
@@ -77,17 +77,17 @@ As seguintes classes e interfaces lidam com algumas das principais característi
 | ---------------------------------| ------------------------------------------------------------------------------------------------------------------------------------------- |
 | CallClient                       | O CallClient é o principal ponto de entrada para a biblioteca do cliente Call.                                                                       |
 | Callagent                        | O CallAgent é usado para iniciar e gerir chamadas.                                                                                            |
-| AzureCommunicationUserCredential | A classe AzureCommunicationUserCredential implementa a interface CommunicationUserCredential que é usada para instantaneaizar o CallAgent. |
+| AzureCommunicationTokenCredential | A classe AzureCommunicationTokenCredential implementa a interface CommunicationTokenCredential que é usada para instantaneaizar o CallAgent. |
 
 
 ## <a name="authenticate-the-client"></a>Autenticar o cliente
 
-Tem de ser substituído `<USER_ACCESS_TOKEN>` por um token de acesso válido do utilizador para o seu recurso. Consulte a documentação do [token de acesso ao utilizador](../../access-tokens.md) se ainda não tiver um token disponível. Utilizando o `CallClient` , inicialize um `CallAgent` caso com um que nos `CommunicationUserCredential` permitirá fazer e receber chamadas. Adicione o seguinte código à **client.js:**
+Tem de ser substituído `<USER_ACCESS_TOKEN>` por um token de acesso válido do utilizador para o seu recurso. Consulte a documentação do [token de acesso ao utilizador](../../access-tokens.md) se ainda não tiver um token disponível. Utilizando o `CallClient` , inicialize um `CallAgent` caso com um que nos `CommunicationTokenCredential` permitirá fazer e receber chamadas. Adicione o seguinte código à **client.js:**
 
 ```javascript
 async function init() {
     const callClient = new CallClient();
-    const tokenCredential = new AzureCommunicationUserCredential("<USER ACCESS TOKEN>");
+    const tokenCredential = new AzureCommunicationTokenCredential("<USER ACCESS TOKEN>");
     callAgent = await callClient.createCallAgent(tokenCredential);
     callButton.disabled = false;
 }

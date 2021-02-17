@@ -1,6 +1,6 @@
 ---
-title: Use um modelo para implementar VMs Azure Spot
-description: Aprenda a usar um modelo para implementar VMs spot para economizar custos.
+title: Use um modelo para implementar máquinas virtuais Azure Azure Spot
+description: Aprenda a usar um modelo para implementar máquinas virtuais Azure Spot para economizar custos.
 author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure-services
@@ -8,25 +8,25 @@ ms.topic: how-to
 ms.date: 03/25/2020
 ms.author: cynthn
 ms.reviewer: jagaveer
-ms.openlocfilehash: 0cf6fc1b37064ef6193f35334711dcc5b8d01088
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 44134e73f2e654d7bfdb9119942a5c3982859c7a
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98200792"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100557751"
 ---
-# <a name="deploy-spot-vms-using-a-resource-manager-template"></a>Implementar VMs spot usando um modelo de gestor de recursos
+# <a name="deploy-azure-spot-virtual-machines-using-a-resource-manager-template"></a>Implementar máquinas virtuais de spot Azure usando um modelo de gestor de recursos
 
-A utilização [de VMs spot](../spot-vms.md) permite-lhe tirar partido da nossa capacidade não utilizada com uma poupança significativa de custos. Em qualquer momento em que a Azure precise da capacidade de volta, a infraestrutura Azure irá despejar os VM spot. Por isso, os VM spot são ótimos para cargas de trabalho que podem lidar com interrupções como trabalhos de processamento de lotes, ambientes dev/teste, grandes cargas de trabalho de computação, e muito mais.
+A utilização de [Máquinas Virtuais Azure Spot](../spot-vms.md) permite-lhe tirar partido da nossa capacidade não utilizada com uma economia de custos significativa. Em qualquer momento em que a Azure precise da capacidade de volta, a infraestrutura Azure irá despejar máquinas virtuais Azure Spot. Portanto, as máquinas virtuais Azure Spot são ótimas para cargas de trabalho que podem lidar com interrupções como trabalhos de processamento de lotes, ambientes dev/teste, grandes cargas de trabalho de computação, e muito mais.
 
-Os preços dos VM spot são variáveis, com base na região e no SKU. Para obter mais informações, consulte os preços em VM para [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) e [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/).
+Os preços das máquinas virtuais Azure Spot são variáveis, com base na região e no SKU. Para obter mais informações, consulte os preços em VM para [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) e [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/).
 
-Tem a opção de definir um preço máximo que está disposto a pagar, por hora, pelo VM. O preço máximo de um Spot VM pode ser definido em dólares americanos (USD), usando até 5 casas decimais. Por exemplo, o valor `0.98765` seria um preço máximo de $0.98765 USD por hora. Se definir o preço `-1` máximo, o VM não será despejado com base no preço. O preço para o VM será o preço atual para o Spot ou o preço para um VM padrão, que sempre é menor, desde que haja capacidade e quota disponível. Para obter mais informações sobre a fixação do preço máximo, consulte [Spot VMs - Preços](../spot-vms.md#pricing).
+Tem a opção de definir um preço máximo que está disposto a pagar, por hora, pelo VM. O preço máximo de uma Máquina Virtual Azure Spot pode ser definido em dólares americanos (USD), usando até 5 casas decimais. Por exemplo, o valor `0.98765` seria um preço máximo de $0.98765 USD por hora. Se definir o preço `-1` máximo, o VM não será despejado com base no preço. O preço do VM será o preço atual para máquinas virtuais Azure Spot ou o preço de um VM padrão, que sempre é menor, desde que haja capacidade e quota disponível. Para obter mais informações sobre a fixação do preço máximo, consulte [máquinas virtuais Azure Spot - Preços](../spot-vms.md#pricing).
 
 
 ## <a name="use-a-template"></a>Utilizar um modelo
 
-Para implementações de modelos spot, use `"apiVersion": "2019-03-01"` ou mais tarde. Adicione o `priority` , e propriedades para o seu `evictionPolicy` `billingProfile` modelo:
+Para implementações, utilização ou posterior utilização do modelo do modelo da máquina virtual Azure `"apiVersion": "2019-03-01"` Spot. Adicione o `priority` , e propriedades para o seu `evictionPolicy` `billingProfile` modelo:
 
 ```json
 "priority": "Spot",
@@ -36,7 +36,7 @@ Para implementações de modelos spot, use `"apiVersion": "2019-03-01"` ou mais 
 }
 ```
 
-Aqui está um modelo de amostra com as propriedades adicionadas para um Spot VM. Substitua os nomes dos recursos pelos seus próprios e `<password>` por uma palavra-passe para a conta de administrador local na VM.
+Aqui está um modelo de amostra com as propriedades adicionadas para uma Máquina Virtual Azure Spot. Substitua os nomes dos recursos pelos seus próprios e `<password>` por uma palavra-passe para a conta de administrador local na VM.
 
 ```json
 {
@@ -175,7 +175,7 @@ Aqui está um modelo de amostra com as propriedades adicionadas para um Spot VM.
 
 ## <a name="simulate-an-eviction"></a>Simular um despejo
 
-Você pode [simular um despejo](/rest/api/compute/virtualmachines/simulateeviction) de um Spot VM, para testar quão bem a sua aplicação irá remexer para um despejo súbito. 
+Você pode [simular um despejo](/rest/api/compute/virtualmachines/simulateeviction) de uma Máquina Virtual Azure Spot, para testar quão bem a sua aplicação irá remexe para um despejo súbito. 
 
 Substitua as seguintes informações: 
 
@@ -190,8 +190,8 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Também pode criar um Spot VM utilizando [a Azure PowerShell](../windows/spot-powershell.md) ou o [Azure CLI](spot-cli.md).
+Também pode criar uma máquina virtual Azure Spot utilizando [a Azure PowerShell](../windows/spot-powershell.md) ou o [Azure CLI](spot-cli.md).
 
-Consultar as informações atuais sobre preços usando a [AZure preços de retalho API](/rest/api/cost-management/retail-prices/azure-retail-prices) para obter informações sobre preços no Spot. O `meterName` e vai conter `skuName` `Spot` ambos.
+Consultar informações sobre preços correntes utilizando os preços de [retalho Azure API](/rest/api/cost-management/retail-prices/azure-retail-prices) para obter informações sobre os preços da Máquina Virtual Azure Spot. O `meterName` e vai conter `skuName` `Spot` ambos.
 
 Se encontrar um erro, consulte [códigos de erro](../error-codes-spot.md).

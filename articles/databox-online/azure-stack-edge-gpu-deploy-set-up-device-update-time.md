@@ -1,5 +1,5 @@
 ---
-title: Tutorial para ligar, configurar, ativar o dispositivo Azure Stack Edge Pro com GPU no portal Azure / Microsoft Docs
+title: Tutorial para ligar, configurar, ativar o dispositivo Azure Stack Edge Pro com GPU no portal Azure | Microsoft Docs
 description: Tutorial para implementar Azure Stack Edge Pro GPU instrui-o a ligar, configurar e ativar o seu dispositivo físico.
 services: databox
 author: alkohli
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: dd4078d414048d858c46f6757daa0a87a698eaab
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: ceaa16ee2a54886cde45f37ea90ed617abafffc1
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91976084"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546912"
 ---
 # <a name="tutorial-configure-the-device-settings-for-azure-stack-edge-pro-with-gpu"></a>Tutorial: Configurar as definições do dispositivo para Azure Stack Edge Pro com GPU
 
@@ -82,7 +82,7 @@ Siga estes passos para configurar as definições relacionadas com o dispositivo
         ![Página 2 do UI "Update Server" local](./media/azure-stack-edge-gpu-deploy-set-up-device-update-time/update-3.png)
 
         > [!NOTE] 
-        > Se um servidor separado do Windows Update estiver configurado e optar por ligar mais *de https* (em vez de *http),* são necessários certificados de cadeia de assinatura necessários para se ligar ao servidor de atualização. Para obter informações sobre como criar e carregar certificados, vá a [Gerir certificados.](azure-stack-edge-j-series-manage-certificates.md) 
+        > Se um servidor separado do Windows Update estiver configurado e optar por ligar mais *de https* (em vez de *http),* são necessários certificados de cadeia de assinatura necessários para se ligar ao servidor de atualização. Para obter informações sobre como criar e carregar certificados, vá a [Gerir certificados.](azure-stack-edge-gpu-manage-certificates.md) 
 
 2. Selecione **Aplicar**.
 3. Depois de configurar o servidor de atualização, selecione **Seguinte: Hora**.
