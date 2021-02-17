@@ -1,5 +1,5 @@
 ---
-title: Azure Notification Hubs Frequentemente Perguntas (PERGUNTAS) Microsoft Docs
+title: Azure Notification Hubs Frequentemente Perguntas (FAQs) | Microsoft Docs
 description: Perguntas frequentes sobre a conceção e implementação de soluções nos Hubs de Notificação Azure.
 services: notification-hubs
 documentationcenter: mobile
@@ -11,16 +11,16 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 11/13/2019
+ms.date: 02/12/2021
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 11/13/2019
-ms.openlocfilehash: 9d476b1db645ed1f91b62fcf11464f7077a8fb3c
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: e34fbdca51e7680a80c768e49bae891cb56dfa9d
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491431"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546453"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Notificações push com a Azure Notification Hubs: Perguntas frequentes
 
@@ -34,16 +34,16 @@ O Azure Notification Hubs tem dois níveis de recursos: centros e espaços de no
 
 Os mais recentes detalhes sobre preços podem ser encontrados na página de preços dos [Centros de Notificação.] Os Centros de Notificação são faturados ao nível do espaço de nome. (Para a definição de um espaço de nome, consulte "Qual é a estrutura de recursos dos Centros de Notificação?") Os Centros de Notificação oferecem três níveis:
 
-* **Grátis** : Este nível é um bom ponto de partida para explorar as capacidades de pressão. Não é recomendado para aplicações de produção. Obtém 500 dispositivos e 1 milhão de pushs incluídos por espaço de identificação por mês, sem garantia de acordo de nível de serviço (SLA).
-* **Básico** : Este nível (ou o nível Standard) é recomendado para aplicações de produção mais pequenas. Obtém-se 200.000 dispositivos e 10 milhões de pushs incluídos por espaço de identificação por mês como base.
-* **Standard** : Este nível é recomendado para aplicações de produção médias a grandes. Obtém-se 10 milhões de dispositivos e 10 milhões de impulsos incluídos por espaço de identificação por mês como base. Inclui telemetria rica (dados adicionais sobre o estado do impulso fornecido).
+* **Grátis**: Este nível é um bom ponto de partida para explorar as capacidades de pressão. Não é recomendado para aplicações de produção. Obtém 500 dispositivos e 1 milhão de pushs incluídos por espaço de identificação por mês, sem garantia de acordo de nível de serviço (SLA).
+* **Básico**: Este nível (ou o nível Standard) é recomendado para aplicações de produção mais pequenas. Obtém-se 200.000 dispositivos e 10 milhões de pushs incluídos por espaço de identificação por mês como base.
+* **Standard**: Este nível é recomendado para aplicações de produção médias a grandes. Obtém-se 10 milhões de dispositivos e 10 milhões de impulsos incluídos por espaço de identificação por mês como base. Inclui telemetria rica (dados adicionais sobre o estado do impulso fornecido).
 
 Características de nível padrão:
 
-* **Telemetria rica** : Pode utilizar os Centros de Notificação por Telemetria de Mensagens para acompanhar quaisquer pedidos de pressão e feedback do sistema de notificação da plataforma para depurar.
-* **Multi-arrendamento** : Pode trabalhar com credenciais do Sistema de Notificação de Plataforma num nível de espaço de nome. Esta opção permite-lhe dividir facilmente os inquilinos em centros dentro do mesmo espaço de nome.
-* **Push agendado** : Pode agendar notificações a serem enviadas a qualquer momento.
-* **Operações a granel** : Permite registos A funcionalidade de exportação/importação, tal como descrito no documento [de exportação/importação de registos.]
+* **Telemetria rica**: Pode utilizar os Centros de Notificação por Telemetria de Mensagens para acompanhar quaisquer pedidos de pressão e feedback do sistema de notificação da plataforma para depurar.
+* **Multi-arrendamento**: Pode trabalhar com credenciais do Sistema de Notificação de Plataforma num nível de espaço de nome. Esta opção permite-lhe dividir facilmente os inquilinos em centros dentro do mesmo espaço de nome.
+* **Push agendado**: Pode agendar notificações a serem enviadas a qualquer momento.
+* **Operações a granel**: Permite registos A funcionalidade de exportação/importação, tal como descrito no documento [de exportação/importação de registos.]
 
 ### <a name="what-is-the-notification-hubs-sla"></a>O que é o Centro de Notificação SLA?
 
@@ -102,6 +102,10 @@ O PNS não garante qualquer SLA para a entrega de notificações. No entanto, a 
 ### <a name="is-there-any-latency-guarantee"></a>Há alguma garantia de latência?
 
 Devido à natureza das notificações push (são entregues por um PNS externo e específico da plataforma), não existe garantia de latência. Normalmente, a maioria das notificações push são entregues dentro de poucos minutos.
+
+### <a name="where-does-azure-notification-hubs-store-data"></a>Onde é que o Azure Notification Hubs armazena dados?
+
+A Azure Notification Hubs armazena dados de registo de clientes na região selecionada pelo cliente. Os Centros de Notificação fornecem cobertura de recuperação de desastres de metadados (o nome dos Centros de Notificação, a cadeia de ligação e outras informações críticas). Para todas as regiões, com exceção do Brasil Sul e Sudeste Asiático, o backup de metadados é hospedado numa região diferente (geralmente a região emparelhada Azure). Para as regiões do Sul e do Sudeste Asiático do Brasil, os backups são armazenados na mesma região para acomodar os requisitos de residência de dados para estas regiões.
 
 ### <a name="what-do-i-need-to-consider-when-designing-a-solution-with-namespaces-and-notification-hubs"></a>O que devo considerar ao desenhar uma solução com espaços de nome e centros de notificação?
 
@@ -176,7 +180,7 @@ O Azure Notification Hubs encripta todos os dados do cliente em repouso, com exc
 
 ### <a name="is-there-audit-log-capability"></a>Existe capacidade de registo de auditoria?
 
-Yes. Todas as operações de gestão de Centros de Notificação atualizam o Registo de Atividades do Azure ao qual está exposto no [portal Azure]. O Azure Activity Log oferece informações sobre as operações realizadas sobre os recursos nas suas subscrições. Utilizando o Registo de Atividades, pode determinar o quê, quem e quando para quaisquer operações de escrita (PUT, POST, DELETE) feitas para os recursos na sua subscrição. Também pode compreender o estado das operações e outras propriedades relevantes. No entanto. o Registo de Atividades não inclui a operação de leitura (GET).
+Sim. Todas as operações de gestão de Centros de Notificação atualizam o Registo de Atividades do Azure ao qual está exposto no [portal Azure]. O Azure Activity Log oferece informações sobre as operações realizadas sobre os recursos nas suas subscrições. Utilizando o Registo de Atividades, pode determinar o quê, quem e quando para quaisquer operações de escrita (PUT, POST, DELETE) feitas para os recursos na sua subscrição. Também pode compreender o estado das operações e outras propriedades relevantes. No entanto. o Registo de Atividades não inclui a operação de leitura (GET).
 
 ## <a name="monitoring-and-troubleshooting"></a>Monitorizar e resolver problemas
 

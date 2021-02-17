@@ -1,5 +1,5 @@
 ---
-title: Como fazer uma chamada de Twilio (Java) Microsoft Docs
+title: Como fazer uma ligação de Twilio (Java) | Microsoft Docs
 description: Aprenda a fazer uma chamada telefónica a partir de uma página web usando Twilio numa aplicação Java no Azure.
 services: ''
 documentationcenter: java
@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 11/25/2014
 ms.author: gwallace
 ms.custom: devx-track-java
-ms.openlocfilehash: cad25990d0ba7e27f4a90adc587f0c8a0a2c551a
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: fdaa2eeef58599cbff8dbf7daa34f9a30f31b9cb
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95521075"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100548765"
 ---
 # <a name="how-to-make-a-phone-call-using-twilio-in-a-java-application-on-azure"></a>Como fazer uma chamada telefónica usando twilio em uma aplicação java em Azure
 O exemplo que se segue mostra como pode usar o Twilio para fazer uma chamada a partir de uma página web hospedada em Azure. A aplicação resultante irá solicitar ao utilizador valores de chamada telefónica, como mostrado na imagem seguinte.
@@ -32,7 +32,7 @@ Terá de fazer o seguinte para utilizar o código neste tópico:
    O código deste tópico foi escrito usando o JAR TwilioJava-3.3.8-com-dependências pré-construído.
 3. Adicione o JAR ao seu caminho de construção java.
 4. Se estiver a utilizar o Eclipse para criar esta aplicação Java, inclua o Jar Twilio no seu ficheiro de implementação de aplicações (WAR) utilizando a função de montagem de implementação do Eclipse. Se não estiver a utilizar o Eclipse para criar esta aplicação Java, certifique-se de que o Twilio JAR está incluído no mesmo papel Azure que a sua aplicação Java, e adicionado ao caminho de classe da sua aplicação.
-5. Certifique-se de que o seu teclas de cacerts contém o certificado Equifax Secure Certificate Authority com impressão digital MD5 67:CB:9D:C0:13:24:8A:82:9B:B2:17:1E:D1:1B:EC:D4 (o número de série é 35:DE:DE:DE:DE:DE:DE:DE:DE:DE:DE:DE:DE:DE:DE:DE:DE:B2:17:1E:D1:1B:EC:D4 (o número de série é 35:DE:DE:DE:DE:DE:DE:DE:DE:2:17:1E:D1:1B:EC:D4 (o número de série é 35:DE:DE:DE:DE:DE:DE:DE:DE:DE:DE:DE:DE:DE:DE:DE:DE:DE:DE:DE:DE:DE:DE:DE:DE:DE:DE:DE:DE F4:CF e a impressão digital SHA1 é D2:32:09:AD:23:D3:14:23:21:74:4:0D:7F:9D:62:13:97:86:63:3A). Este é o certificado da Autoridade de Certificados (CA) para o [https://api.twilio.com][twilio_api_service] serviço, que é chamado quando utiliza Twilio APIs. Para obter informações sobre a adição deste certificado CA à loja de cacert da JDK, consulte [adicionar um certificado à Loja de Certificados Java CA.][add_ca_cert]
+5. Certifique-se de que o seu teclas de cacerts contém o certificado Equifax Secure Certificate Authority com impressão digital MD5 67:CB:9D:C0:13:24:8A:82:9B:B2:17:1E:D1:1B:EC:D4 (o número de série é 35:DE:B2:17:1E:D1:1B:EC:D4 (o número de série é 35:DE:2:17:1E:D1:1B:EC:D4 (o número de série é 35:DE:DE F4:CF e a impressão digital SHA1 é D2:32:09:AD:23:D3:14:23:21:74:4:0D:7F:9D:62:13:97:86:63:3A). Este é o certificado da Autoridade de Certificados (CA) para o [https://api.twilio.com][twilio_api_service] serviço, que é chamado quando utiliza Twilio APIs.
 
 Além disso, a familiaridade com as informações na [Criação de uma Aplicação Hello World Utilizando o Kit de Ferramentas Azure para Eclipse][azure_java_eclipse_hello_world], ou com outras técnicas para hospedar aplicações Java em Azure se não estiver a utilizar o Eclipse, é altamente recomendada.
 
@@ -172,7 +172,7 @@ Além de fazer a chamada, makecall.jsp exibe o ponto final Twilio, versão API e
 ## <a name="run-the-application"></a>Executar a aplicação
 Seguem-se os passos de alto nível para executar a sua aplicação; detalhes para estes passos podem ser encontrados na [Criação de uma aplicação Hello World Usando o Kit de Ferramentas Azure para Eclipse][azure_java_eclipse_hello_world].
 
-1. Exporte o seu TwilioCloud **approot** WAR para a pasta Azure. 
+1. Exporte o seu TwilioCloud  WAR para a pasta Azure. 
 2. Modifique **o startup.cmd** para desapertar o seu TwilioCloud WAR.
 3. Compile a sua aplicação para o emulador computacional.
 4. Inicie a sua implantação no emulador computacional.
@@ -193,7 +193,6 @@ Para obter informações adicionais sobre Twilio, [https://www.twilio.com/docs][
 
 ## <a name="see-also"></a>Consulte também
 * [Como usar twilio para capacidades de voz e SMS em Java][howto_twilio_voice_sms_java]
-* [Adicionar um Certificado à Loja de Certificados Java CA][add_ca_cert]
 
 [twilio_pricing]: https://www.twilio.com/pricing
 [try_twilio]: https://www.twilio.com/try-twilio
@@ -203,7 +202,6 @@ Para obter informações adicionais sobre Twilio, [https://www.twilio.com/docs][
 [twimlet_message_url]: https://twimlets.com/message
 [twiml]: https://www.twilio.com/docs/api/twiml
 [twilio_api_service]: https://api.twilio.com
-[add_ca_cert]: /azure/developer/java/sdk/java-sdk-add-certificate-ca-store
 [azure_java_eclipse_hello_world]: /java/azure/eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app
 [howto_twilio_voice_sms_java]: partner-twilio-java-how-to-use-voice-sms.md
 [howto_blob_storage_java]: https://www.windowsazure.com/develop/java/how-to-guides/blob-storage/

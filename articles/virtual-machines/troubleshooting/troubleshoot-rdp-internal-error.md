@@ -1,6 +1,6 @@
 ---
-title: Ocorre um erro interno quando se faz uma ligação RDP às Máquinas Virtuais Azure Microsoft Docs
-description: Saiba como resolver os erros internos do RDP no Microsoft Azure.! Microsoft Docs
+title: Ocorre um erro interno quando se faz uma ligação RDP às Máquinas Virtuais Azure | Microsoft Docs
+description: Saiba como resolver os erros internos do RDP no Microsoft Azure.| Microsoft Docs
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/22/2018
 ms.author: genli
-ms.openlocfilehash: d4736515d8e011ce1e72c51ecb3ce1cfd2e1e1cd
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 5c8bd335832a950385f88f13dc31eb7f6159f831
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978531"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100548136"
 ---
 #  <a name="an-internal-error-occurs-when-you-try-to-connect-to-an-azure-vm-through-remote-desktop"></a>An internal error occurs when you try to connect to an Azure VM through Remote Desktop (Um erro interno ocorre quando se tenta ligar a uma VM do Azure através do Ambiente de Trabalho Remoto)
 
@@ -120,8 +120,8 @@ Para começar, ligue-se à [Consola em Série e abra uma instância PowerShell](
 2. Se não conseguir renovar o certificado utilizando este método, tente renovar remotamente o certificado auto-assinado RDP:
 
     1. De um VM em funcionamento que tem conectividade com o VM que está a passar por problemas, digite **mmc** na caixa **Run** para abrir a Consola de Gestão da Microsoft.
-    2. No menu **Ficheiro,** **selecione Adicionar/Remover Snap-in,** selecione **Certificados**e, em seguida, selecione **Adicionar**.
-    3. Selecione **contas de Computador**, selecione Outro **Computador**e, em seguida, adicione o endereço IP do VM problemático.
+    2. No menu **Ficheiro,** **selecione Adicionar/Remover Snap-in,** selecione **Certificados** e, em seguida, selecione **Adicionar**.
+    3. Selecione **contas de Computador**, selecione Outro **Computador** e, em seguida, adicione o endereço IP do VM problemático.
     4. Aceda à pasta **Remote Desktop\Certificates,** clique com o botão direito no certificado e, em seguida, e selecione **Delete**.
     5. Numa instância PowerShell a partir da Consola em Série, reinicie o serviço de Configuração de Ambiente de Trabalho Remoto:
 
@@ -134,7 +134,7 @@ Para começar, ligue-se à [Consola em Série e abra uma instância PowerShell](
 3. Reinicie a permissão para a pasta MachineKeys.
 
     ```powershell
-    remove-module psreadline icacls
+    remove-module psreadline 
 
     md c:\temp
 

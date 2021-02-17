@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 05/28/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: fef192ab273a0e53958cda315932f91b427a5d7d
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 3a044faf5546a22c997b8358d8809e240d563ac9
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97108388"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100556815"
 ---
 # <a name="technical-and-feature-overview-of-azure-active-directory-b2c"></a>Visão geral técnica e de características do Azure Ative Directory B2C
 
@@ -79,7 +79,7 @@ Na página de inscrição ou inscrição, o Azure AD B2C apresenta uma lista de 
 
 ![Exemplo de acesso móvel com uma conta social (Facebook)](media/technical-overview/external-idp.png)
 
-Para ver como adicionar fornecedores de identidade no Azure AD B2C, consulte [Tutorial: Adicione fornecedores de identidade às suas aplicações no Azure Ative Directory B2C](tutorial-add-identity-providers.md).
+Para ver como adicionar fornecedores de identidade no Azure AD B2C, consulte [adicionar fornecedores de identidade às suas aplicações no Azure Ative Directory B2C](add-identity-provider.md).
 
 ## <a name="identity-experiences-user-flows-or-custom-policies"></a>Experiências de identidade: fluxos de utilizador ou políticas personalizadas
 

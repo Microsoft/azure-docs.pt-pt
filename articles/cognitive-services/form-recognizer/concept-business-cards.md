@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 4cd762d6c264d95ecb1bd0f3f4c3a4d96eb5a57d
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: c2543f74b90205a36d3f5b4481beca35c779f77e
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99585097"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546028"
 ---
 # <a name="form-recognizer-prebuilt-business-cards-model"></a>Modelo de cartões de visita pré-construídos do Reconhecimento de Formulários 
 
@@ -31,7 +31,7 @@ A API do Cartão de Visita pré-construído extrai campos-chave dos cartões de 
 
 ### <a name="fields-extracted"></a>Campos extraídos:
 
-|Nome| Tipo | Description | Texto | 
+|Nome| Tipo | Descrição | Texto | 
 |:-----|:----|:----|:----|
 | Nomes de contacto | matriz de objetos | Nome de contacto extraído do cartão de visita | [{ "Primeiro Nome": "John", "LastName": "Doe" }] |
 | FirstName | string | Primeiro (dado) nome de contacto | "João" | 
@@ -76,7 +76,11 @@ Quando o campo **de status** tiver o valor **bem sucedido,** a resposta JSON inc
 
 ### <a name="sample-json-output"></a>Amostra de saída JSON
 
-Veja o seguinte exemplo de uma resposta JSON bem sucedida: O nó "readResults" contém todo o texto reconhecido. O texto é organizado por página, depois por linha, depois por palavras individuais. O nó "documentResults" contém os valores específicos do cartão de visita que o modelo descobriu. É aqui que encontrará informações úteis de contacto como o primeiro nome, apelido, nome da empresa e muito mais.
+A resposta à operação Get Analyze Cartão De visita Resulte será a representação estruturada do cartão de visita com toda a informação extraída.  Consulte aqui um [ficheiro de cartão de visita de amostra](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/business-card-english.jpg) e a sua saída de [cartão de visita](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/curl/form-recognizer/business-card-result.json)de amostra de saída estruturada .
+
+Veja o seguinte exemplo de uma resposta JSON bem sucedida:
+* O `"readResults"` nó contém todo o texto reconhecido. O texto é organizado por página, depois por linha, depois por palavras individuais. 
+* O `"documentResults"` nó contém os valores específicos do cartão de visita que o modelo descobriu. É aqui que encontrará informações úteis de contacto como o primeiro nome, apelido, nome da empresa e muito mais.
 
 ```json
 {

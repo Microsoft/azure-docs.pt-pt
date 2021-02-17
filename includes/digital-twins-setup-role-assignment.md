@@ -5,18 +5,16 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 7/17/2020
 ms.author: baanders
-ms.openlocfilehash: cbcaf4b4ad1b6c00f8c452582b986b6ee3b2806e
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a905bb3b4effb0381facfbfaa37c8ea412b81287
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92478872"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100552497"
 ---
 A Azure Digital Twins usa [o Azure Ative Directory (Azure AD)](../articles/active-directory/fundamentals/active-directory-whatis.md) para controlo de acesso baseado em funções (RBAC). Isto significa que antes de um utilizador poder fazer chamadas de avião de dados para a sua instância Azure Digital Twins, esse utilizador precisa de ser atribuído a uma função com permissões apropriadas para o mesmo.
 
 Para a Azure Digital Twins, este papel é _**Azure Digital Twins Data Owner**_. Pode ler mais sobre papéis e segurança em [*Soluções Concepts: Security for Azure Digital Twins.*](../articles/digital-twins/concepts-security.md)
-
-[!INCLUDE [digital-twins-role-rename-note.md](digital-twins-role-rename-note.md)]
 
 Esta secção irá mostrar-lhe como criar uma atribuição de papel para um utilizador na sua instância Azure Digital Twins, utilizando o e-mail desse utilizador no inquilino AZure AD na sua subscrição Azure. Dependendo do seu papel na sua organização, você pode configurar esta permissão para si mesmo, ou instalá-la em nome de outra pessoa que estará gerindo o exemplo de Azure Digital Twins.
 

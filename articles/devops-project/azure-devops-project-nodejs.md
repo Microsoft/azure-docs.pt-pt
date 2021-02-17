@@ -3,22 +3,19 @@ title: Criar um pipeline CI/CD para um PWA com GatsbyJS e Azure DevOps Starter
 description: Aprenda a criar uma aplicação web progressiva NodeJS (PWA) usando GatsbyJS e a experiência simplificada de criação Azure DevOps Starter.
 ms.prod: devops
 ms.technology: devops-cicd
-services: vsts
 documentationcenter: vs-devops-build
-author: arob98
-manager: angrobe
+author: mijacobs
+ms.author: mijacobs
 ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 03/24/2020
-ms.author: angrobe
 ms.custom: mvc, devx-track-js
-ms.openlocfilehash: 6cffa6065f0e1cefc31223553a42a7a78c1dbea8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d6d8a10dffa3801fe343b3b479265fac5612b021
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91856216"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100556564"
 ---
 # <a name="create-a-cicd-pipeline-in-azure-pipelines-for-nodejs-with-azure-devops-starter"></a>Criar um gasoduto CI/CD em Pipelines Azure para Node.js com arranque Azure DevOps
 
@@ -37,7 +34,7 @@ DevOps Starter cria um gasoduto CI/CD em Pipelines Azure. Pode criar uma nova or
 
    ![Criar um recurso Azure no portal Azure](_img/azure-devops-project-nodejs/create-azure-resource.png)
 
-1. Na caixa de pesquisa, escreva **DevOps Starter**e, em seguida, selecione. Clique em **Adicionar** para criar um novo.
+1. Na caixa de pesquisa, escreva **DevOps Starter** e, em seguida, selecione. Clique em **Adicionar** para criar um novo.
 
     ![O painel de arranque de DevOps](_img/azure-devops-starter-aks/search-devops-starter.png)
 
@@ -73,7 +70,7 @@ DevOps Starter cria um gasoduto CI/CD em Pipelines Azure. Pode criar uma nova or
 
     ![Painel de Azure DevOps](_img/azure-devops-project-nodejs/devops-projects-dashboard.png) 
 
-1. A partir do seu projeto Azure DevOps, você pode convidar os membros da equipa a colaborar e estabelecer um conselho Kanban para começar a rastrear o seu trabalho. Para mais informações, consulte [aqui.](/azure/devops/user-guide/what-is-azure-devops?view=azure-devops)
+1. A partir do seu projeto Azure DevOps, você pode convidar os membros da equipa a colaborar e estabelecer um conselho Kanban para começar a rastrear o seu trabalho. Para mais informações, consulte [aqui.](/azure/devops/user-guide/what-is-azure-devops)
 
 ![Visão geral de Azure DevOps](_img/azure-devops-project-nodejs/azure-devops-overview.png)
 
@@ -163,9 +160,9 @@ DevOps Starter cria um repositório de git em Azure Repos ou GitHub. Este exempl
 
 1. No lado esquerdo do navegador, vá para o ficheiro **views/index.pug.**
 
-1. **Selecione Editar**e, em seguida, faça uma alteração na posição h2.  Por exemplo, insira **Começar imediatamente com o Azure DevOps Starter** ou fazer outra alteração.
+1. **Selecione Editar** e, em seguida, faça uma alteração na posição h2.  Por exemplo, insira **Começar imediatamente com o Azure DevOps Starter** ou fazer outra alteração.
 
-1. **Selecione Cometer**e, em seguida, guarde as suas alterações.
+1. **Selecione Cometer** e, em seguida, guarde as suas alterações.
 
 1. No seu navegador, vá ao painel de arranque do DevOps.   
 Deve agora ver uma construção em progresso. As alterações efetuadas são automaticamente construídas e implementadas através de um gasoduto CI/CD.
@@ -195,4 +192,4 @@ Pode eliminar o Azure App Service e outros recursos relacionados que criou quand
 Quando configurar o seu processo CI/CD, os gasodutos de construção e libertação são automaticamente criados. Pode alterar estes oleodutos de construção e libertação para atender às necessidades da sua equipa. Para saber mais sobre o oleoduto CI/CD, consulte:
 
 > [!div class="nextstepaction"]
-> [Personalizar o processo de CD](/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
+> [Personalizar o processo de CD](/azure/devops/pipelines/release/define-multistage-release-process)

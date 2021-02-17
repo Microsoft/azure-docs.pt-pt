@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 11/30/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 4c758dca9f6020fd948ad8c3a8cdf014306e8ae7
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: b61636d6048f63ae962d4f755a29c02e6785d5e1
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96344019"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100557538"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Administradores de subscrição clássicos do Azure
 
@@ -38,7 +38,7 @@ Este artigo descreve como adicionar ou alterar as funções de administrador de 
 
     Co-Administrators só podem ser atribuídos no âmbito da subscrição.
 
-1. Clique em **Controlo de acesso (IAM)** .
+1. Clique em **Controlo de acesso (IAM)**.
 
 1. Clique no separador **Administradores Clássicos.**
 
@@ -71,7 +71,7 @@ Os utilizadores convidados que tenham sido designados Co-Administrator papel pod
 
 Seria de esperar que o utilizador B conseguisse tudo. A razão para esta diferença é que a conta Microsoft é adicionada à subscrição como utilizador convidado em vez de um utilizador membro. Os utilizadores convidados têm diferentes permissões por defeito em Azure AD em comparação com os utilizadores membros. Por exemplo, os utilizadores de membros podem ler outros utilizadores em AZure AD e os utilizadores convidados não podem. Os utilizadores membros podem registar novos principais serviços em Azure AD e os utilizadores convidados não podem.
 
-Se um utilizador convidado precisar de ser capaz de executar estas tarefas, uma solução possível é atribuir as funções específicas de Azure AD que o utilizador convidado necessita. Por exemplo, no cenário anterior, poderia atribuir o papel de [Leitores](../active-directory/roles/permissions-reference.md#directory-readers) de Diretório para ler outros utilizadores e atribuir o papel [de Desenvolvedor de Aplicações](../active-directory/roles/permissions-reference.md#application-developer) para poder criar diretores de serviço. Para obter mais informações sobre os utilizadores de membros e convidados e as suas permissões, consulte [quais são as permissões padrão do utilizador no Azure Ative Directory?](../active-directory/fundamentals/users-default-permissions.md) Para obter mais informações sobre a concessão de acesso aos utilizadores [convidados, consulte adicionar ou remover atribuições de funções Azure para utilizadores externos de hóspedes utilizando o portal Azure](role-assignments-external-users.md).
+Se um utilizador convidado precisar de ser capaz de executar estas tarefas, uma solução possível é atribuir as funções específicas de Azure AD que o utilizador convidado necessita. Por exemplo, no cenário anterior, poderia atribuir o papel de [Leitores](../active-directory/roles/permissions-reference.md#directory-readers) de Diretório para ler outros utilizadores e atribuir o papel [de Desenvolvedor de Aplicações](../active-directory/roles/permissions-reference.md#application-developer) para poder criar diretores de serviço. Para obter mais informações sobre os utilizadores de membros e convidados e as suas permissões, consulte [quais são as permissões padrão do utilizador no Azure Ative Directory?](../active-directory/fundamentals/users-default-permissions.md) Para obter mais informações sobre a concessão de acesso aos utilizadores convidados, consulte [as funções De Atribuir Azure a utilizadores convidados externos utilizando o portal Azure](role-assignments-external-users.md).
 
 Note que os [papéis incorporados do Azure](../role-based-access-control/built-in-roles.md) são diferentes dos papéis da [AD Azure](../active-directory/roles/permissions-reference.md). Os papéis incorporados não dão acesso ao Azure AD. Para mais informações, consulte [Compreender os diferentes papéis.](../role-based-access-control/rbac-and-directory-admin-roles.md)
 
@@ -83,7 +83,7 @@ Para obter informações que comparem utilizadores de membros e utilizadores [co
 
 1. Abra [Subscrições](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) e selecione uma subscrição.
 
-1. Clique em **Controlo de acesso (IAM)** .
+1. Clique em **Controlo de acesso (IAM)**.
 
 1. Clique no separador **Administradores Clássicos.**
 
@@ -151,5 +151,5 @@ Siga estes passos para ver o Administrador de Conta.
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Compreender as diferentes funções](../role-based-access-control/rbac-and-directory-admin-roles.md)
-* [Adicionar ou remover atribuições de funções do Azure com o portal do Azure](../role-based-access-control/role-assignments-portal.md)
+* [Atribuir funções Azure usando o portal Azure](../role-based-access-control/role-assignments-portal.md)
 * [Adicionar ou alterar administradores de subscrição do Azure](../cost-management-billing/manage/add-change-subscription-administrator.md)

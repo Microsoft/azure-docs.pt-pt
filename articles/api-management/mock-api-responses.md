@@ -1,18 +1,18 @@
 ---
-title: Tutorial - Respostas da API ridículas em Gestão da API - Portal Azure / Microsoft Docs
+title: Tutorial - Respostas de API ridículas em Gestão API - Portal Azure | Microsoft Docs
 description: Neste tutorial, você usa a API Management para definir uma política em uma API para que ele retorne uma resposta ridicularizada se o backend não estiver disponível para enviar respostas reais.
 author: vladvino
 ms.service: api-management
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 09/30/2020
+ms.date: 02/09/2021
 ms.author: apimpm
-ms.openlocfilehash: 231ce9d946a2fb6650f25d90aaa423d1c95fb106
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 75727d139242e1b537505d2ed907ae20fc5479f8
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930718"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100547275"
 ---
 # <a name="tutorial-mock-api-responses"></a>Tutorial: Respostas da API falsas
 
@@ -53,11 +53,13 @@ Os passos nesta secção mostram como criar uma API em branco sem back-end.
 1. Certifique-se de que **o Managed** é selecionado em **Gateways**.
 1. Selecione **Criar**.
 
-    :::image type="content" source="media/mock-api-responses/03-mock-api-responses-01-create-test-api.png" alt-text="Resposta da API ridicularizada":::
+    :::image type="content" source="media/mock-api-responses/03-mock-api-responses-01-create-test-api.png" alt-text="Criar API em branco":::
 
 ## <a name="add-an-operation-to-the-test-api"></a>Adicionar uma operação à API de teste
 
 Uma API expõe uma ou mais operações. Nesta secção, adicione uma operação à API em branco que criou. Chamar a operação depois de concluir os passos nesta secção produz um erro. Não terá erros depois de completar os passos mais tarde na secção [De zombaria de resposta Ativa.](#enable-response-mocking)
+
+### <a name="portal"></a>[Portal](#tab/azure-portal)
 
 1. Selecione a API que criou no passo anterior.
 1. Selecione **+ Adicionar Operação**.
@@ -71,13 +73,13 @@ Uma API expõe uma ou mais operações. Nesta secção, adicione uma operação 
     | **Descrição**     |                                   |  Descrição opcional da operação, utilizada para fornecer documentação no portal do desenvolvedor aos desenvolvedores que utilizam esta API.                                                    |
     
 1. Selecione o separador **Respostas,** localizado nos campos URL, Nome do Visor e Descrição. Introduza as definições neste separador para definir códigos de estado de resposta, tipos de conteúdo, exemplos e esquemas.
-1. **Selecione + Adicionar resposta**e selecione **200 OK** da lista.
+1. **Selecione + Adicionar resposta** e selecione **200 OK** da lista.
 1. No cabeçalho **Representações** à direita, selecione **+ Adicionar representação**.
 1. Introduza *a aplicação/json* na caixa de pesquisa e selecione o tipo de conteúdo **de aplicação/json.**
 1. Na caixa de texto **Exemplo**, introduza `{ "sampleField" : "test" }`.
 1. Selecione **Guardar**.
 
-:::image type="content" source="media/mock-api-responses/03-mock-api-responses-02-add-operation.png" alt-text="Resposta da API ridicularizada" border="false":::
+:::image type="content" source="media/mock-api-responses/03-mock-api-responses-02-add-operation.png" alt-text="Adicionar operação API" border="false":::
 
 Embora não sejam necessárias para este exemplo, as definições adicionais para uma operação API podem ser configuradas em outros separadores, incluindo:
 
@@ -87,6 +89,39 @@ Embora não sejam necessárias para este exemplo, as definições adicionais par
 |**Query**     |  Adicione parâmetros de consulta. Além de fornecer um nome e descrição, pode fornecer valores que são atribuídos a um parâmetro de consulta. Um dos valores pode ser marcado como predefinição (opcional).        |
 |**Pedir**     |  Defina tipos de conteúdo de pedido, exemplos e esquemas.       |
 
+### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
+Para começar a usar O Azure CLI:
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+Para adicionar uma operação à API de teste, executar a [operação az apim api criar](/cli/azure/apim/api/operation#az_apim_api_operation_create) comando:
+
+```azurecli
+az apim api operation create --resource-group apim-hello-word-resource-group \
+    --display-name "Test call" --api-id test-api --method GET \
+    --url-template /test --service-name apim-hello-world 
+```
+
+Executar o comando [da lista de operações da az apim api](/cli/azure/apim/api/operation#az_apim_api_operation_list) para ver todas as suas operações para uma API:
+
+```azurecli
+az apim api operation list --resource-group apim-hello-word-resource-group \
+    --api-id test-api --service-name apim-hello-world --output table
+```
+
+Para remover uma operação, utilize a [operação az apim api eliminar](/cli/azure/apim/api/operation#az_apim_api_operation_delete) o comando. Obtenha a identificação da operação do comando anterior.
+
+```azurecli
+az apim api operation delete --resource-group apim-hello-word-resource-group \
+    --api-id test-api --operation-id 00000000000000000000000000000000 \
+    --service-name apim-hello-world
+```
+
+Guarde esta operação para utilização no resto deste artigo.
+
+---
+
 ## <a name="enable-response-mocking"></a>Ativar a simulação de respostas
 
 1. Selecione a API criada na [Criar uma API de teste.](#create-a-test-api)
@@ -94,15 +129,15 @@ Embora não sejam necessárias para este exemplo, as definições adicionais par
 1. Na janela à direita, certifique-se de que o separador **Design** está selecionado.
 1. Na janela **de processamento de entrada,** selecione **+ Adicionar a política**.
 
-    :::image type="content" source="media/mock-api-responses/03-mock-api-responses-03-enable-mocking.png" alt-text="Resposta da API ridicularizada" border="false":::
+    :::image type="content" source="media/mock-api-responses/03-mock-api-responses-03-enable-mocking.png" alt-text="Adicionar política de processamento" border="false":::
 
 1. **Selecione Respostas falsas** da galeria.
 
-    :::image type="content" source="media/mock-api-responses/mock-responses-policy-tile.png" alt-text="Resposta da API ridicularizada" border="false":::
+    :::image type="content" source="media/mock-api-responses/mock-responses-policy-tile.png" alt-text="Mosaico da política de simulação de respostas" border="false":::
 
 1. Na caixa de texto **Respostas da Gestão de API**, escreva **200 OK, application/json**. Esta seleção indica que a API deve devolver o exemplo de resposta que definiu na secção anterior.
 
-    :::image type="content" source="media/mock-api-responses/mock-api-responses-set-mocking.png" alt-text="Resposta da API ridicularizada":::
+    :::image type="content" source="media/mock-api-responses/mock-api-responses-set-mocking.png" alt-text="Definir resposta de zombaria":::
 
 1. Selecione **Guardar**.
 
@@ -115,11 +150,11 @@ Embora não sejam necessárias para este exemplo, as definições adicionais par
 1. Selecione o separador **Teste**.
 1. Certifique-se de que a API **Chamada de teste** está selecionada. Selecione **Enviar** para efetuar uma chamada de teste.
 
-   :::image type="content" source="media/mock-api-responses/03-mock-api-responses-04-test-mocking.png" alt-text="Resposta da API ridicularizada":::
+   :::image type="content" source="media/mock-api-responses/03-mock-api-responses-04-test-mocking.png" alt-text="Testar a API simulada":::
 
 1. A **resposta de HTTP** apresenta o JSON fornecido como um exemplo na primeira secção do tutorial.
 
-    :::image type="content" source="media/mock-api-responses/mock-api-responses-test-response.png" alt-text="Resposta da API ridicularizada":::
+    :::image type="content" source="media/mock-api-responses/mock-api-responses-test-response.png" alt-text="Resposta ridícula HTTP":::
 
 ## <a name="next-steps"></a>Passos seguintes
 

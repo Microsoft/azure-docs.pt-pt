@@ -8,12 +8,12 @@ ms.date: 01/26/2021
 ms.author: prsandhu
 ms.reviewer: cynthn
 ms.custom: fasttrack-edit, mvc, references_regions
-ms.openlocfilehash: 3916cd43a42ef273a45a9992b45d8b9f043c9364
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: 16bb173bdbe390da46f2dc105baa9bc73d25a3dc
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99226629"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100557022"
 ---
 # <a name="azure-services-that-support-availability-zones"></a>Serviços do Azure que suportam as Zonas de Disponibilidade
 
@@ -55,7 +55,7 @@ Para alcançar uma ampla continuidade de negócios em Azure, construa a sua arqu
 | E.U.A. Leste            | Europa do Norte         |                     | Leste da Austrália |
 | E.U.A. Leste 2          | Sul do Reino Unido             |                     |                |
 | Centro-Sul dos EUA | Europa Ocidental          |                     |                |
-| Eua Gov Virginia* |                      |                     |                |
+| US Gov - Virginia    |                      |                     |                |
 | Oeste DOS EUA 2        |                      |                     |                |
 
 

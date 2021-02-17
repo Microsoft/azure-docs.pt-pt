@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 02/15/2021
-ms.openlocfilehash: 3be043af7b057c47f360ce36db6bb7c3afd80638
-ms.sourcegitcommit: b513b0becf878eb9a1554c26da53aa48d580bb22
+ms.openlocfilehash: 7149233782815deebebde53767a3c654ac2321bb
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/16/2021
-ms.locfileid: "100535353"
+ms.locfileid: "100547762"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>Quickstart: Criar um serviço Azure Cognitive Search no portal
 
@@ -83,22 +83,19 @@ Requisitos do nome do serviço:
 
 ## <a name="choose-a-location"></a>Escolha uma localização
 
-A Azure Cognitive Search está disponível na maioria das regiões. A lista de regiões apoiadas pode ser encontrada na [página de preços.](https://azure.microsoft.com/pricing/details/search/)
+A Azure Cognitive Search está disponível na maioria das regiões, conforme documentado na [página de preços.](https://azure.microsoft.com/pricing/details/search/)
 
-> [!Note]
-> A Índia Central e os Emirados Árabes Unidos estão atualmente indisponíveis para novos serviços. Para serviços já nessas regiões, pode escalar sem restrições, e o seu serviço é totalmente suportado naquela região. As restrições são temporárias e limitam-se apenas a novos serviços. Retiraremos esta nota quando as restrições deixarem de ser aplicadas.
->
-> A dupla encriptação só está disponível em certas regiões. Para obter mais informações, consulte [a dupla encriptação.](search-security-overview.md#double-encryption)
+Geralmente, se estiver a utilizar vários serviços Azure, escolha uma região que também esteja hospedando os seus dados ou serviço de aplicação. Ao fazê-lo, minimiza ou anula os encargos de largura de banda para os dados de saída (não há encargos para os dados de saída quando os serviços estão na mesma região).
 
-### <a name="requirements"></a>Requisitos
+Os clientes com requisitos de continuidade e recuperação de desastres (BCDR) devem criar os seus serviços em [pares regionais.](../best-practices-availability-paired-regions.md#azure-regional-pairs) Por exemplo, se estiver a operar na América do Norte, poderá escolher os EUA e o Oeste dos EUA, ou o Norte Central DOS EUA e o Centro Sul dos EUA, para cada serviço.
 
- Se estiver a utilizar o enriquecimento de IA, crie o seu serviço de pesquisa na mesma região que os Serviços Cognitivos. *A co-localização da Azure Cognitive Search and Cognitive Services na mesma região é um requisito para o enriquecimento de IA.*
+As seguintes características só estão disponíveis em determinadas regiões:
 
- Os clientes com requisitos de continuidade e recuperação de desastres (BCDR) devem criar os seus serviços em [pares regionais.](../best-practices-availability-paired-regions.md#azure-regional-pairs) Por exemplo, se estiver a operar na América do Norte, poderá escolher os EUA e o Oeste dos EUA, ou o Norte Central DOS EUA e o Centro Sul dos EUA, para cada serviço.
+* O enriquecimento de IA requer que os Serviços Cognitivos estejam na mesma região que a Pesquisa Cognitiva Azure. Escolha primeiro a [região para Serviços Cognitivos](https://azure.microsoft.com/pricing/details/cognitive-services/) (a lista é menor), e depois escolha a mesma região para o serviço de pesquisa.
 
-### <a name="recommendations"></a>Recomendações
+* A dupla encriptação só está disponível em certas regiões. Para mais informações, consulte [a dupla encriptação](search-security-overview.md#double-encryption)
 
-Se estiver a utilizar vários serviços Azure, escolha uma região que também esteja a hospedar os seus dados ou serviço de aplicação. Ao fazê-lo, minimiza ou anula os encargos de largura de banda para os dados de saída (não há encargos para os dados de saída quando os serviços estão na mesma região).
+* O suporte à zona de disponibilidade é oferecido em regiões específicas, em serviços criados após datas específicas. Para obter mais informações, consulte ["Zonas de Disponibilidade" em Escala para Desempenho.](search-performance-optimization.md#availability-zones)
 
 ## <a name="choose-a-pricing-tier"></a>Escolha um nível de preços
 

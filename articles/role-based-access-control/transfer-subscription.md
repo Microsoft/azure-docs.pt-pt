@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 12/10/2020
 ms.author: rolyon
-ms.openlocfilehash: 81224b5e16f3bca5da641bbb2e9c82dd59000e79
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 5a4be6052e72c27ad83b5af64f1acb3ad8d4e3be
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98185891"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100555898"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory"></a>Transfira uma subscrição do Azure para um diretório AD Azure diferente
 
@@ -26,7 +26,7 @@ Este artigo descreve os passos básicos que pode seguir para transferir uma subs
 > [!NOTE]
 > Para as subscrições Azure Cloud Solution Providers (CSP), a alteração do diretório AZure AD para a subscrição não é suportada.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Transferir uma subscrição do Azure para um diretório AD Azure diferente é um processo complexo que deve ser cuidadosamente planeado e executado. Muitos serviços da Azure exigem que os princípios de segurança (identidades) operem normalmente ou mesmo gerem outros recursos da Azure. Este artigo tenta cobrir a maioria dos serviços da Azure que dependem fortemente dos princípios de segurança, mas não é abrangente.
 
@@ -307,9 +307,9 @@ Neste passo, transfere a subscrição do diretório de origem para o diretório 
     az role definition create --role-definition <role_definition>
     ```
 
-### <a name="create-role-assignments"></a>Criar atribuições de funções
+### <a name="assign-roles"></a>Atribuir funções
 
-- Utilize [a az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) para criar as atribuições de funções para utilizadores, grupos e diretores de serviço. Para obter mais informações, consulte [Adicionar ou remover atribuições de funções utilizando Azure RBAC e Azure CLI](role-assignments-cli.md).
+- Use [a az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) para atribuir funções a utilizadores, grupos e diretores de serviço. Para obter mais informações, consulte [atribuir funções Azure utilizando O Azure CLI](role-assignments-cli.md).
 
     ```azurecli
     az role assignment create --role <role_name_or_id> --assignee <assignee> --resource-group <resource_group>
@@ -325,7 +325,7 @@ Neste passo, transfere a subscrição do diretório de origem para o diretório 
     | Conjuntos de dimensionamento de máquinas virtuais | [Configure identidades geridas para recursos Azure em um conjunto de escala de máquina virtual usando Azure CLI](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vmss.md#system-assigned-managed-identity) |
     | Outros serviços | [Serviços que suportam identidades geridas para recursos da Azure](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md) |
 
-1. Use [a az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) para criar as atribuições de funções para identidades geridas atribuídas pelo sistema. Para obter mais informações, consulte [Atribuir um acesso de identidade gerido a um recurso utilizando o Azure CLI](../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md).
+1. Use [a az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) para atribuir funções a identidades geridas atribuídas pelo sistema. Para obter mais informações, consulte [Atribuir um acesso de identidade gerido a um recurso utilizando o Azure CLI](../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md).
 
     ```azurecli
     az role assignment create --assignee <objectid> --role '<role_name_or_id>' --scope <scope>
@@ -341,7 +341,7 @@ Neste passo, transfere a subscrição do diretório de origem para o diretório 
     | Conjuntos de dimensionamento de máquinas virtuais | [Configure identidades geridas para recursos Azure em um conjunto de escala de máquina virtual usando Azure CLI](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vmss.md#user-assigned-managed-identity) |
     | Outros serviços | [Serviços que suportam identidades geridas para recursos da Azure](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md)<br/>[Criar, listar ou eliminar uma identidade gerida atribuída pelo utilizador utilizando o CLI Azure](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md) |
 
-1. Utilize [a az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) para criar as atribuições de funções para identidades geridas atribuídas pelo utilizador. Para obter mais informações, consulte [Atribuir um acesso de identidade gerido a um recurso utilizando o Azure CLI](../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md).
+1. Utilize [a az designação de funções](/cli/azure/role/assignment#az_role_assignment_create) para atribuir funções a identidades geridas atribuídas pelo utilizador. Para obter mais informações, consulte [Atribuir um acesso de identidade gerido a um recurso utilizando o Azure CLI](../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md).
 
     ```azurecli
     az role assignment create --assignee <objectid> --role '<role_name_or_id>' --scope <scope>
@@ -361,7 +361,7 @@ Esta secção descreve os passos básicos para atualizar os cofres das chaves. P
 
 1. Se estiver a utilizar a Azure Data Lake Storage Gen1, atribua os ACLs apropriados. Para obter mais informações, consulte [os dados de segurança armazenados na Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-secure-data.md).
 
-1. Se estiver a utilizar a Azure Data Lake Storage Gen2, atribua os ACLs apropriados. Para obter mais informações, consulte [o controlo de acesso no Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-access-control.md).
+1. Se estiver a utilizar a Azure Data Lake Storage Gen2, atribua os ACLs apropriados. Para obter mais informações, veja [Controlo de acesso no Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-access-control.md).
 
 1. Se estiver a utilizar ficheiros Azure, atribua os ACLs apropriados.
 
@@ -369,9 +369,9 @@ Esta secção descreve os passos básicos para atualizar os cofres das chaves. P
 
 Mesmo que as atribuições de funções sejam removidas durante a transferência, os utilizadores na conta original do proprietário podem continuar a ter acesso à subscrição através de outros métodos de segurança, incluindo:
 
-- Chaves de acesso dos serviços como o Armazenamento.
+- As chaves de acesso para serviços, como o Armazenamento.
 - [Certificados de gestão](../cloud-services/cloud-services-certs-create.md) que concedem ao administrador do utilizador acesso aos recursos de subscrição.
-- Credenciais de Acesso Remoto dos serviços como máquinas virtuais do Azure.
+- As credenciais de Acesso Remoto para serviços, como as Máquinas Virtuais do Azure.
 
 Se a sua intenção é remover o acesso dos utilizadores no diretório de origem para que não tenham acesso no directório-alvo, deve considerar a rotação de quaisquer credenciais. Até que as credenciais sejam atualizadas, os utilizadores continuarão a ter acesso após a transferência.
 
