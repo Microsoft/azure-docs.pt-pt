@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/27/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 1178b0ab5af3642026fe78c7de788f354691b13a
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: ecbf07c1a85c708d4117c83bca546cd8bd6ccd2b
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98701170"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546079"
 ---
 # <a name="connect-function-apps-in-azure-for-processing-data"></a>Conecte aplicações de função em Azure para processamento de dados
 
@@ -122,8 +122,6 @@ O esqueleto de função de exemplos anteriores requer que lhe seja passado um s�
 
 Pode criar identidade gerida pelo sistema e atribuir a identidade da aplicação de função à função _**Azure Digital Twins Data Owner**_ para a sua instância Azure Digital Twins. Isto dará à aplicação de função permissão no caso de realizar atividades de data plane. Em seguida, torne o URL da instância Azure Digital Twins acessível à sua função definindo uma variável ambiental.
 
-[!INCLUDE [digital-twins-role-rename-note.md](../../includes/digital-twins-role-rename-note.md)]
-
 Utilize [a Azure Cloud Shell](https://shell.azure.com) para executar os comandos.
 
 Utilize o seguinte comando para criar a identidade gerida pelo sistema. Tome nota do campo _principalid_ na saída.
@@ -221,7 +219,7 @@ Pode ver que as definições de aplicação são atualizadas selecionando o íco
 
 :::image type="content" source="media/how-to-create-azure-function/notifications-update-web-app-settings.png" alt-text="Screenshot do portal Azure: a lista de notificações de selecionar o ícone em forma de sino na barra superior do portal. Existe uma notificação de que as definições da aplicação web foram atualizadas com sucesso.":::
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, seguiu os passos para configurar uma aplicação de função em Azure para uso com a Azure Digital Twins.
 

@@ -1,19 +1,19 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: storsimple
 author: alkohli
 ms.service: storsimple
 ms.topic: include
-ms.date: 06/08/2018
+ms.date: 02/09/2021
 ms.author: alkohli
 ms.custom: include file
-ms.openlocfilehash: 30bbd06e36ed1e03caa391165a8abc275f1899a7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 386a39d76bf47da45f07054124886e174104849e
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87102906"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100545414"
 ---
 Para apagar um recipiente de volume, é preciso
  - apagar volumes no recipiente de volume. Se o recipiente de volume tiver volumes associados, desative primeiro esses volumes. Siga os passos em [Tirar um volume offline](../articles/storsimple/storsimple-8000-manage-volumes-u2.md#take-a-volume-offline). Depois de os volumes estarem offline, pode eliminá-los. 
@@ -22,20 +22,19 @@ Para apagar um recipiente de volume, é preciso
 Quando o recipiente de volume não tiver volumes associados, políticas de backup e instantâneos em nuvem, pode eliminá-lo. Execute o seguinte procedimento para eliminar um recipiente de volume.
 
 #### <a name="to-delete-a-volume-container"></a>Para apagar um recipiente de volume
+
 1. Aceda ao seu serviço Gestor de Dispositivos do StorSimple e clique em **Dispositivos**. Selecione e clique no dispositivo e, em seguida, vá para **Configurações > Gerir > recipientes de volume**.
 
-    ![Lâmina de recipientes de volume](./media/storsimple-8000-create-volume-container/createvolumecontainer2.png)
+    ![Lâmina de recipientes de volume](./media/storsimple-8000-delete-volume-container/create-volume-container.png)
 
 2. A partir da lista tabular de recipientes de volume, selecione o recipiente de volume que pretende eliminar, clique à **direita...** e, em seguida, **selecione Delete**.
 
-    ![Eliminar recipiente de volume](./media/storsimple-8000-delete-volume-container/deletevolumecontainer1.png)
+    ![Eliminar recipiente de volume](./media/storsimple-8000-delete-volume-container/delete-volume-container-01.png)
 
 3. Se um recipiente de volume não tiver volumes associados, políticas de backup e instantâneos em nuvem, então pode ser eliminado. Quando solicitado para confirmação, reveja e selecione a caixa de verificação indicando o impacto da eliminação do recipiente de volume. Clique **em Eliminar** para eliminar o recipiente de volume.
 
-    ![Confirmar eliminação](./media/storsimple-8000-delete-volume-container/deletevolumecontainer2.png)
+    ![Confirmar eliminação](./media/storsimple-8000-delete-volume-container/delete-volume-container-02.png)
 
 A lista de recipientes de volume é atualizada para refletir o recipiente de volume eliminado.
 
-![Screenshot da página do recipiente volume. A lista tabular dos recipientes de volume já não contém o recipiente apagado.](./media/storsimple-8000-delete-volume-container/deletevolumecontainer5.png)
-
-
+![Screenshot da página do recipiente volume. A lista tabular dos recipientes de volume já não contém o recipiente apagado.](./media/storsimple-8000-delete-volume-container/delete-volume-container-05.png)

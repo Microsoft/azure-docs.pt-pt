@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: ed4b4d9c1de1e9024e8ea86d4661b42d6c68b0ae
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: f5c5d6da239d302b57bdb37e9d49116a29c1ccb4
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96460999"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100558124"
 ---
 # <a name="roles-and-requirements-for-azure-data-share"></a>Funções e condições do Azure Data Share 
 
@@ -30,7 +30,7 @@ Para partilhar ou receber dados de uma loja de dados Azure, o utilizador precisa
 
 Abaixo está um resumo das funções atribuídas à identidade gerida do recurso Data Share:
 
-|**Tipo de Loja de Dados**|**Loja de dados do fornecedor de dados**|**Data Consumer Target Data Data Data Data Store**|
+|**Tipo de Loja de Dados**|**Loja de dados do fornecedor de dados**|**Data Consumer Target Data Store**|
 |---|---|---|
 |Armazenamento de Blobs do Azure| Leitor de Dados do Armazenamento de Blobs | Contribuinte de Dados do Armazenamento de Blobs
 |Azure Data Lake Gen1 | Proprietário | Não suportado
@@ -63,7 +63,7 @@ Para criar uma atribuição de funções para a identidade gerida do recurso de 
 1. Em *Select*, digite o nome do seu recurso Azure Data Share.
 1. Clique em *Guardar*.
 
-Para saber mais sobre a atribuição de funções, consulte para [adicionar ou remover atribuições de funções Azure utilizando o portal Azure](../role-based-access-control/role-assignments-portal.md#add-a-role-assignment). Se estiver a partilhar dados utilizando APIs REST, pode criar uma atribuição de funções utilizando a API, referindo-se a [Atribuições de funções add ou remove azure usando a API REST](../role-based-access-control/role-assignments-rest.md). 
+Para saber mais sobre a atribuição de funções, consulte [as funções de Atribuição de Azure utilizando o portal Azure](../role-based-access-control/role-assignments-portal.md). Se estiver a partilhar dados utilizando APIs REST, pode criar uma atribuição de funções utilizando a API, referindo-se às [funções De Atribuição Azure utilizando a API REST](../role-based-access-control/role-assignments-rest.md). 
 
 Para fontes baseadas em SQL, um utilizador SQL precisa de ser criado a partir de um fornecedor externo na Base de Dados SQL com o mesmo nome que o recurso Azure Data Share enquanto se conecta à base de dados SQL utilizando a autenticação do Azure Ative Directory. Este utilizador tem de ser autorizado *db_datareader.* Um script de amostra juntamente com outros pré-requisitos para a partilha baseada em SQL pode ser encontrado na [Partilha da Base de Dados Azure SQL ou do tutorial Azure Synapse Analytics.](how-to-share-from-sql.md) 
 
@@ -83,7 +83,7 @@ Para criar uma atribuição de funções para a identidade gerida do recurso de 
 1. Em *Select*, digite o nome do seu recurso Azure Data Share.
 1. Clique em *Guardar*.
 
-Para saber mais sobre a atribuição de funções, consulte para [adicionar ou remover atribuições de funções Azure utilizando o portal Azure](../role-based-access-control/role-assignments-portal.md#add-a-role-assignment). Se estiver a receber dados utilizando APIs REST, pode criar uma atribuição de funções utilizando a API, referindo-se a [Add ou remover atribuições de funções Azure utilizando a API REST](../role-based-access-control/role-assignments-rest.md). 
+Para saber mais sobre a atribuição de funções, consulte [as funções de Atribuição de Azure utilizando o portal Azure](../role-based-access-control/role-assignments-portal.md). Se estiver a receber dados utilizando APIs REST, pode criar uma atribuição de funções utilizando a API, referindo-se às [funções De Atribuição Azure utilizando a API REST](../role-based-access-control/role-assignments-rest.md). 
 
 Para um alvo baseado em SQL, um utilizador SQL precisa de ser criado a partir de um fornecedor externo na Base de Dados SQL com o mesmo nome que o recurso Azure Data Share enquanto se conecta à base de dados SQL utilizando a autenticação do Azure Ative Directory. Este utilizador precisa de ser autorizado *db_datareader, db_datawriter, db_ddladmin* permissão. Um script de amostra juntamente com outros pré-requisitos para a partilha baseada em SQL pode ser encontrado na [Partilha da Base de Dados Azure SQL ou do tutorial Azure Synapse Analytics.](how-to-share-from-sql.md) 
 
@@ -107,4 +107,4 @@ Para saber mais sobre o fornecedor de recursos, consulte os [fornecedores e tipo
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre papéis no Azure - [Entenda as definições de funções](../role-based-access-control/role-definitions.md)
+- Saiba mais sobre papéis no Azure - [Compreenda as definições de funções do Azure](../role-based-access-control/role-definitions.md)
