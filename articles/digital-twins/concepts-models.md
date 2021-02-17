@@ -1,22 +1,22 @@
 ---
-title: Modelos personalizados
+title: Modelos DTDL
 titleSuffix: Azure Digital Twins
-description: Compreenda como a Azure Digital Twins utiliza modelos definidos pelo utilizador para descrever entidades no seu ambiente.
+description: Entenda como a Azure Digital Twins usa modelos personalizados para descrever entidades no seu ambiente.
 author: baanders
 ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 599bb93e747acf504a4ebf43aaea771ed5064886
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 9abf389eb7f8862440f860c53a0dbd8b10315c67
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131394"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100558146"
 ---
-# <a name="understand-twin-models-in-azure-digital-twins"></a>Compreender modelos gémeos em Azure Digital Twins
+# <a name="understand-twin-models-in-azure-digital-twins"></a>Noções básicas de modelos de um duplo digital do Azure Digital Twins
 
-Uma característica chave da Azure Digital Twins é a capacidade de definir o seu próprio vocabulário e construir o seu gráfico gémeo nos termos auto-definidos do seu negócio. Esta capacidade é fornecida através de **modelos definidos** pelo utilizador. Podes pensar nas modelos como os substantivos numa descrição do teu mundo. 
+Uma característica chave da Azure Digital Twins é a capacidade de definir o seu próprio vocabulário e construir o seu gráfico gémeo nos termos auto-definidos do seu negócio. Esta capacidade é fornecida através de **modelos** fornecidos pelo utilizador. Podes pensar nas modelos como os substantivos numa descrição do teu mundo. 
 
 Um modelo é semelhante a uma **classe** numa linguagem de programação orientada a objetos, definindo uma forma de dados para um conceito particular no seu ambiente de trabalho real. Os modelos têm nomes (como *O Ambiente* ou *O Medidor de Temperatura),* e contêm elementos como propriedades, telemetria/eventos e comandos que descrevem o que este tipo de entidade no seu ambiente pode fazer. Mais tarde, utilizará estes modelos para criar [**gémeos digitais**](concepts-twins-graph.md) que representam entidades específicas que cumprem esta descrição do tipo.
 
@@ -24,7 +24,7 @@ Os modelos Azure Digital Twins estão representados na **Linguagem de Definiçã
 
 ## <a name="digital-twin-definition-language-dtdl-for-models"></a>Linguagem de definição de gémeos digital (DTDL) para modelos
 
-Os modelos para Gémeos Digitais Azure são definidos usando a linguagem de definição de gémeos digitais (DTDL). O DTDL baseia-se no JSON-LD e é independente da linguagem de programação. O DTDL não é exclusivo da Azure Digital Twins, mas também é usado para representar dados de dispositivos em outros serviços IoT, como [ioT Plug e Play.](../iot-pnp/overview-iot-plug-and-play.md) 
+Os modelos do Azure Digital Twins são definidos com a linguagem Digital Twins Definition (DTDL). A DTDL tem como base JSON-LD e é independente de linguagens de programação. O DTDL não é exclusivo da Azure Digital Twins, mas também é usado para representar dados de dispositivos em outros serviços IoT, como [ioT Plug e Play.](../iot-pnp/overview-iot-plug-and-play.md) 
 
 Azure Digital Twins usa **a versão DTDL _2_**. Para obter mais informações sobre esta versão do DTDL, consulte a sua documentação de especificação no GitHub: [*Digital Twins Definition Language (DTDL) - versão 2*](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md). A utilização da versão DTDL _1_ com a Azure Digital Twins foi agora depreciada.
 
@@ -35,7 +35,7 @@ Azure Digital Twins usa **a versão DTDL _2_**. Para obter mais informações so
 
 ## <a name="elements-of-a-model"></a>Elementos de um modelo
 
-Dentro de uma definição de modelo, o item de código de nível superior é uma **interface**. Isto encapsula todo o modelo, e o resto do modelo é definido dentro da interface. 
+Dentro de uma definição de modelo, o item de código de nível superior é uma **interface**. Esta encapsula a totalidade do modelo, enquanto o resto deste é definido na própria interface. 
 
 Uma interface de modelo DTDL pode conter zero, um ou muitos dos seguintes campos:
 * **Propriedade** - Propriedades são campos de dados que representam o estado de uma entidade (como as propriedades em muitas linguagens de programação orientadas a objetos). As propriedades têm armazenamento de suporte e podem ser lidas a qualquer momento.
@@ -136,23 +136,31 @@ Ao desenhar modelos para refletir as entidades no seu ambiente, pode ser útil o
 
 [!INCLUDE [Azure Digital Twins: validate models info](../../includes/digital-twins-validate.md)]
 
-## <a name="integrating-with-industry-standard-models"></a>Integração com modelos padrão da indústria
+## <a name="tools-for-models"></a>Ferramentas para modelos 
 
-A utilização de modelos baseados nos padrões da indústria ou na utilização de uma representação ontrologia padrão, como RDF ou OWL, fornece um ponto de partida rico ao desenhar os seus modelos Azure Digital Twins. A utilização de modelos industriais também ajuda na normalização e partilha de informação.
+Existem várias amostras disponíveis para tornar ainda mais fácil lidar com modelos e ontotologias. Estão localizados neste repositório: [Ferramentas para linguagem de definição de gémeos digitais (DTDL)](https://github.com/Azure/opendigitaltwins-tools).
 
-Para ser utilizado com a Azure Digital Twins, um modelo deve ser representado na Linguagem de Definição de [**Gémeos Digitais (DTDL)**](concepts-models.md)baseada em JSON-LD . Portanto, para utilizar um modelo padrão da indústria, você deve primeiro convertê-lo em DTDL para que a Azure Digital Twins possa usá-lo. O modelo DTDL serve então como fonte de verdade para o modelo dentro da Azure Digital Twins.
+Esta secção descreve o atual conjunto de amostras com mais detalhes.
 
-Existem dois caminhos principais para integrar modelos padrão da indústria com DTDL, dependendo da sua situação:
-* Se ainda não criou os seus modelos, pode desenhá-los em torno **das intologias DTDL existentes** que contêm linguagem específica para a sua indústria.
-* Se já tem modelos existentes que se baseiam num padrão da indústria, terá de os converter em **DTDL** para os trazer para a Azure Digital Twins.
+### <a name="model-uploader"></a>Carregador de modelos 
 
-Para obter mais informações sobre ambos os processos, consulte [*Como integrar modelos padrão da indústria.*](how-to-integrate-models.md)
+_**Para o upload de modelos para Azure Digital Twins**_
+
+Uma vez terminada a criação, ampliação ou seleção dos seus modelos, pode enviá-los para a sua instância Azure Digital Twins para os disponibilizar para utilização na sua solução. Isto é feito usando as [APIs de Gémeos Digitais Azure,](how-to-use-apis-sdks.md)como descrito em [*Como-a: Gerir os modelos DTDL*](how-to-manage-model.md#upload-models).
+
+No entanto, se tiver muitos modelos para carregar — ou se tiverem muitas interdependências que complicariam as encomendas individuais — pode utilizar esta amostra para carregar muitos modelos ao mesmo tempo: [**Azure Digital Twins Model Uploader**](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/ModelUploader). Siga as instruções fornecidas com a amostra para configurar e utilize este projeto para carregar os modelos em seu próprio caso.
+
+### <a name="model-visualizer"></a>Visualizador de modelo 
+
+_**Para visualizar modelos**_
+
+Depois de ter enviado modelos para a sua instância Azure Digital Twins, pode ver os modelos na sua instância Azure Digital Twins, incluindo qualquer herança e relacionamentos de modelo, utilizando o [**Visualizer Modelo ADT.**](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/AdtModelVisualizer) Esta amostra está atualmente num estado de projeto. Encorajamos a comunidade de desenvolvimento de gémeos digitais a estender e contribuir para a amostra. 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Veja como gerir os modelos com as APIs digitalTwinModels:
-* [*Como fazer: Gerir modelos personalizados*](how-to-manage-model.md)
+* Saiba a criação de modelos baseados em ontologias padrão da indústria: [ *Conceitos: O que é uma ontologia?*](concepts-ontologies.md)
 
-Ou, saiba como os gémeos digitais são criados com base em modelos:
-* [*Conceitos: Gémeos digitais e o gráfico gémeo*](concepts-twins-graph.md)
+* Mergulhar mais profundamente na gestão de modelos com operações API: [ *Como fazer: Gerir modelos DTDL*](how-to-manage-model.md)
+
+* Saiba como os modelos são usados para criar gémeos digitais: [ *Conceitos: Gémeos Digitais e o gráfico gémeo*](concepts-twins-graph.md)
 

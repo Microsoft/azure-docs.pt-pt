@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 12/16/2020
 ms.author: rolyon
-ms.openlocfilehash: 1444ee3643222ceebc67298bdb580955b1432104
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: d58398c42cdc6faed758e5dba3431e0841fc0b03
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99526420"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100555557"
 ---
 # <a name="best-practices-for-azure-rbac"></a>Boas práticas para o Azure RBAC
 
@@ -30,7 +30,7 @@ O diagrama seguinte mostra um padrão sugerido para a utilização do RBAC Azure
 
 ![Azure RBAC e menos privilégio](./media/best-practices/rbac-least-privilege.png)
 
-Para obter informações sobre como adicionar atribuições de funções, consulte [adicionar ou remover atribuições de funções Azure utilizando o portal Azure](role-assignments-portal.md).
+Para obter informações sobre como atribuir funções, consulte [as funções De Atribuição Azure utilizando o portal Azure](role-assignments-portal.md).
 
 ## <a name="limit-the-number-of-subscription-owners"></a>Limitar o número de proprietários de assinaturas
 

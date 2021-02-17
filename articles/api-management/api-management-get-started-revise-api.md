@@ -8,14 +8,14 @@ author: vladvino
 ms.service: api-management
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 10/30/2020
+ms.date: 02/09/2021
 ms.author: apimpm
-ms.openlocfilehash: 3804bfb2a269c431b1a00947f5c7613566a78f49
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: acb121bb00df481c926ebed9594bf0fe1b9b17ed
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93377510"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546640"
 ---
 # <a name="tutorial-use-revisions-to-make-non-breaking-api-changes-safely"></a>Tutorial: Utilize revisões para fazer alterações de API não quebrando com segurança
 Quando a API está pronta e começa a ser utilizada pelos programadores, poderá ter de fazer alterações a essa API e ao mesmo tempo não interromper os autores de chamadas da sua API. É também útil dar a conhecer aos programadores as alterações que efetuou. 
@@ -51,7 +51,7 @@ Neste tutorial, ficará a saber como:
    :::image type="content" source="media/api-management-getstarted-revise-api/07-add-revisions-01-add-new-revision.png" alt-text="Adicionar a revisão de API":::
 
     > [!TIP]
-    > Também pode selecionar **Adicionar revisão** no menu de contexto **(...** ) da API.
+    > Também pode selecionar **Adicionar revisão** no menu de contexto **(...**) da API.
 
 5. Forneça uma descrição da nova revisão, para ajudar a lembrar para que será utilizada.
 6. Selecione **Criar,**
@@ -69,7 +69,7 @@ Neste tutorial, ficará a saber como:
     > [!TIP]
     > Utilize o seletor de revisões para alternar entre revisões em que quer trabalhar.
 1. Selecione **+ Adicionar Operação**.
-1. Defina a nova operação como **POST** , o Nome, o Nome a Apresentar e o URL da operação como **teste**.
+1. Defina a nova operação como **POST**, o Nome, o Nome a Apresentar e o URL da operação como **teste**.
 1. **Guarde** a nova operação.
 
    :::image type="content" source="media/api-management-getstarted-revise-api/07-add-revisions-02-make-changes.png" alt-text="Modificar a revisão":::
@@ -78,14 +78,71 @@ Neste tutorial, ficará a saber como:
 
 ## <a name="make-your-revision-current-and-add-a-change-log-entry"></a>Tornar a revisão atual e adicionar uma entrada de registo de alterações
 
+### <a name="portal"></a>[Portal](#tab/azure-portal)
+
 1. Selecione o separador **Revisões** no menu junto à parte superior da página.
-1. Abra o menu de contexto ( **...** ) para **Revisão 2**.
+1. Abra o menu de contexto (**...**) para **Revisão 2**.
 1. **Selecione Fazer a corrente**.
 1. Selecione o **registo 'Post to Public Change' para esta** caixa de verificação API, caso pretenda publicar notas sobre esta alteração. Forneça uma descrição para a sua mudança que os desenvolvedores vêem, por exemplo: **Testar revisões. Adicionou uma nova operação de "teste".**
 1. **Revisão 2** é agora atual.
 
     :::image type="content" source="media/api-management-getstarted-revise-api/revisions-menu.png" alt-text="Menu de revisão na janela revisões":::
 
+### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
+Para começar a usar O Azure CLI:
+
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+Utilize este procedimento para criar e atualizar um desbloqueio.
+
+1. Executar o comando [da lista az apim api](/cli/azure/apim/api#az_apim_api_list) para ver os seus IDs API:
+
+   ```azurecli
+   az apim api list --resource-group apim-hello-word-resource-group \
+       --service-name apim-hello-world --output table
+   ```
+
+   O ID da API para utilizar no comando seguinte é o `Name` valor. A revisão da API está na `ApiRevision` coluna.
+
+1. Para criar o desbloqueio, com uma nota de lançamento, executar a [versão az apim api criar](/cli/azure/apim/api/release#az_apim_api_release_create) comando:
+
+   ```azurecli
+   az apim api release create --resource-group apim-hello-word-resource-group \
+       --api-id demo-conference-api --api-revision 2 --service-name apim-hello-world \
+       --notes 'Testing revisions. Added new "test" operation.'
+   ```
+
+   A revisão que lança torna-se a revisão atual.
+
+1. Para ver as suas versões, utilize o comando [da lista de lançamentos az apim api:](/cli/azure/apim/api/release#az_apim_api_release_list)
+
+   ```azurecli
+   az apim api release list --resource-group apim-hello-word-resource-group \
+       --api-id echo-api --service-name apim-hello-world --output table
+   ```
+
+   As notas especificadas aparecem no alterlog. Pode vê-los na saída do comando anterior.
+
+1. Quando se cria uma libertação, o `--notes` parâmetro é opcional. Pode adicionar ou alterar as notas mais tarde utilizando o comando de atualização de [lançamento az apim api:](/cli/azure/apim/api/release#az_apim_api_release_update)
+
+   ```azurecli
+   az apim api release update --resource-group apim-hello-word-resource-group \
+       --api-id demo-conference-api --release-id 00000000000000000000000000000000 \
+       --service-name apim-hello-world --notes "Revised notes."
+   ```
+
+   Utilize o valor na `Name` coluna para o ID de libertação.
+
+Pode remover qualquer desbloqueio executando o comando [de eliminação az apim api:](/cli/azure/apim/api/release#az_apim_api_release_delete)
+
+```azurecli
+az apim api release delete --resource-group apim-hello-word-resource-group \
+    --api-id demo-conference-api --release-id 00000000000000000000000000000000 
+    --service-name apim-hello-world
+```
+
+---
 
 ## <a name="browse-the-developer-portal-to-see-changes-and-change-log"></a>Navegar até ao portal do programador para ver as alterações e o registo de alterações
 

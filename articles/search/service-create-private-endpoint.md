@@ -3,17 +3,17 @@ title: Criar um ponto de terminação privado para uma ligação segura
 titleSuffix: Azure Cognitive Search
 description: Crie um ponto final privado numa rede virtual para uma ligação segura a um serviço de Pesquisa Cognitiva Azure.
 manager: nitinme
-author: mrcarter8
-ms.author: mcarter
+author: markheff
+ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/19/2020
-ms.openlocfilehash: 6ee72a25fc8435159ae75ac3296742eda58617b6
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.date: 02/16/2021
+ms.openlocfilehash: 7445ac5d750ac29d3e6ce466a48e82efd1bcde40
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96779945"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100545535"
 ---
 # <a name="create-a-private-endpoint-for-a-secure-connection-to-azure-cognitive-search"></a>Criar um ponto final privado para uma ligação segura à Pesquisa Cognitiva Azure
 
@@ -21,8 +21,10 @@ Neste artigo, você usará o portal Azure para criar uma nova instância do serv
 
 Os pontos finais privados são fornecidos pela [Azure Private Link,](../private-link/private-link-overview.md)como um serviço separado. Para obter mais informações sobre os custos, consulte [a página de preços.](https://azure.microsoft.com/pricing/details/private-link/)
 
-> [!Important]
-> O suporte private Endpoint para a Pesquisa Cognitiva Azure pode ser configurado utilizando o portal Azure ou a [versão API Management REST 2020-03-13](/rest/api/searchmanagement/). Quando o ponto final de serviço é privado, algumas funcionalidades do portal são desativadas. Poderá ver e gerir informações de nível de serviço, mas o acesso do portal aos dados de índice e aos vários componentes do serviço, como as definições de índice, indexador e skillset, é restringido por razões de segurança. Como alternativa ao portal, pode utilizar a [Extensão](https://aka.ms/vscode-search) do Código VS para interagir com os vários componentes do serviço.
+Pode criar um ponto final privado no portal Azure, conforme descrito neste artigo. Em alternativa, pode utilizar a [versão API Management REST 2020-03-13](/rest/api/searchmanagement/), [Azure PowerShell](/powershell/module/az.search)ou [Azure CLI](/cli/azure/search).
+
+> [!NOTE]
+> Quando o ponto final de serviço é privado, algumas funcionalidades do portal são desativadas. Pode ver e gerir informações de nível de serviço, mas informações de índice, indexante e skillset são ocultadas por razões de segurança. Como alternativa ao portal, pode utilizar a [Extensão](https://aka.ms/vscode-search) do Código VS para interagir com os vários componentes do serviço.
 
 ## <a name="why-use-a-private-endpoint-for-secure-access"></a>Porquê usar um Ponto Final Privado para acesso seguro?
 
@@ -38,7 +40,7 @@ Os pontos finais privados do seu serviço de pesquisa permitem-lhe:
 
 Nesta secção, irá criar uma rede virtual e uma sub-rede para hospedar o VM que será utilizado para aceder ao ponto final privado do seu serviço de pesquisa.
 
-1. A partir do separador casa portal Azure, **selecione Criar uma** rede  >  virtual de rede **de**  >  **Virtual network** recursos.
+1. A partir do separador casa portal Azure, **selecione Criar uma** rede  >  virtual de rede **de**  >  recursos.
 
 1. Na **Criar rede virtual,** insira ou selecione esta informação:
 
@@ -46,8 +48,8 @@ Nesta secção, irá criar uma rede virtual e uma sub-rede para hospedar o VM qu
     | ------- | ----- |
     | Subscrição | Selecione a sua subscrição|
     | Grupo de recursos | Selecione **Criar novo,** insira *myResourceGroup,* em seguida, selecione **OK** |
-    | Nome | Insira *myVirtualNetwork* |
-    | Região | Selecione a região desejada |
+    | Name | Insira *myVirtualNetwork* |
+    | Region | Selecione a região desejada |
     |||
 
 1. Deixe as predefinições para o resto das definições. Clique **em Rever + criar** e, em seguida, **criar**
@@ -110,7 +112,7 @@ Nesta secção, irá criar um novo serviço de Pesquisa Cognitiva Azure com um P
 
 ## <a name="create-a-virtual-machine"></a>Criar uma máquina virtual
 
-1. No lado superior esquerdo do ecrã no portal Azure, selecione **Criar uma** máquina Virtual  >  **Compute de** recurso  >  **Virtual machine**.
+1. No lado superior esquerdo do ecrã no portal Azure, selecione **Criar uma** máquina Virtual  >  **Compute de** recurso  >  .
 
 1. Na **Criar uma máquina virtual - Básicos, insira** ou selecione esta informação:
 
@@ -121,7 +123,7 @@ Nesta secção, irá criar um novo serviço de Pesquisa Cognitiva Azure com um P
     | Grupo de recursos | Selecione **myResourceGroup**. Criou isto na secção anterior.  |
     | **DETALHES DE INSTÂNCIA** |  |
     | Nome da máquina virtual | *Insira o myVm*. |
-    | Região | Selecione **West US** ou qualquer região que estiver usando. |
+    | Region | Selecione **West US** ou qualquer região que estiver usando. |
     | Opções de disponibilidade | Deixar o incumprimento **Não é necessário um despedimento de infraestrutura**. |
     | Imagem | Selecione **o Centro de Dados 2019 do Windows** Server . |
     | Tamanho | Deixe o **padrão DS1 v2**. |
