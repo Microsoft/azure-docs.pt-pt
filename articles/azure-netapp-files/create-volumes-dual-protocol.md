@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 01/28/2020
 ms.author: b-juche
-ms.openlocfilehash: 725f15d72694534da1fd924b3b6ffe223722fd3d
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 0079c123f908a38cc1e4923790439f18352bf3ce
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100104472"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574627"
 ---
 # <a name="create-a-dual-protocol-nfsv3-and-smb-volume-for-azure-netapp-files"></a>Criar um volume de duplo protocolo (NFSv3 e SMB) para ficheiros Azure NetApp
 
@@ -35,7 +35,7 @@ O Azure NetApp Files suporta a criação de volumes utilizando NFSv3 (NFSv3 e NF
 
 ## <a name="considerations"></a>Considerações
 
-* Certifique-se de que cumpre os [requisitos para ligações de Diretório Ativo](azure-netapp-files-create-volumes-smb.md#requirements-for-active-directory-connections). 
+* Certifique-se de que cumpre os [requisitos para ligações de Diretório Ativo](create-active-directory-connections.md#requirements-for-active-directory-connections). 
 * Crie uma zona de procura inversa no servidor DNS e, em seguida, adicione um registo de ponteiro (PTR) da máquina hospedeira de AD nessa zona de procura inversa. Caso contrário, a criação de volume de duplo protocolo falhará.
 * Confirme que o cliente NFS está atualizado e a executar as atualizações mais recentes do sistema operativo.
 * Certifique-se de que o servidor LDAP do Ative Directory (AD) está a funcionar no AD. Pode fazê-lo instalando e configurando o papel [de Diretório Leve Ativo (AD LDS)](/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/hh831593(v=ws.11)) na máquina AD.

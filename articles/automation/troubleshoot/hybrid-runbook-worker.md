@@ -7,12 +7,12 @@ author: mgoedtel
 ms.author: magoedte
 ms.date: 02/11/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: af432d9c6323bd2328eb8dd84d8572a8a5ae05a7
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 15a18cbfc3a80bbfea0b92e5b616104dc0f593af
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100388010"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100580985"
 ---
 # <a name="troubleshoot-hybrid-runbook-worker-issues"></a>Resolver problemas da Função de Trabalho de Runbook Híbrida
 
@@ -128,7 +128,7 @@ As seguintes questões são possíveis causas:
 #### <a name="resolution"></a>Resolução
 
 ##### <a name="mistyped-workspace-id-or-key"></a>ID ou chave do espaço de trabalho mal-ajustado
-Para verificar se a chave de iD ou espaço de trabalho do agente foi mal escrita, consulte [adicionar ou remover um espaço de trabalho – agente Windows](../../azure-monitor/platform/agent-manage.md#windows-agent) para o agente Windows ou adicionar ou remover um espaço de trabalho – agente [Linux](../../azure-monitor/platform/agent-manage.md#linux-agent) para o agente Linux. Certifique-se de selecionar a cadeia completa do portal Azure e copiá-la e colá-la cuidadosamente.
+Para verificar se a chave de iD ou espaço de trabalho do agente foi mal escrita, consulte [adicionar ou remover um espaço de trabalho – agente Windows](../../azure-monitor/agents/agent-manage.md#windows-agent) para o agente Windows ou adicionar ou remover um espaço de trabalho – agente [Linux](../../azure-monitor/agents/agent-manage.md#linux-agent) para o agente Linux. Certifique-se de selecionar a cadeia completa do portal Azure e copiá-la e colá-la cuidadosamente.
 
 ##### <a name="configuration-not-downloaded"></a>Configuração não descarregada
 
@@ -169,7 +169,7 @@ Coloque este ficheiro na mesma pasta que o ficheiro executável `OrchestratorSan
 
 ## <a name="linux"></a>Linux
 
-O Trabalhador de Runbook Híbrido Linux depende do agente Log Analytics para que a [Linux](../../azure-monitor/platform/log-analytics-agent.md) comunique com a sua conta Automation para registar o trabalhador, receber trabalhos de runbook e reportar o estado. Se o registo do trabalhador falhar, eis algumas possíveis causas para o erro.
+O Trabalhador de Runbook Híbrido Linux depende do agente Log Analytics para que a [Linux](../../azure-monitor/agents/log-analytics-agent.md) comunique com a sua conta Automation para registar o trabalhador, receber trabalhos de runbook e reportar o estado. Se o registo do trabalhador falhar, eis algumas possíveis causas para o erro.
 
 ### <a name="scenario-linux-hybrid-runbook-worker-receives-prompt-for-a-password-when-signing-a-runbook"></a><a name="prompt-for-password"></a>Cenário: Linux Hybrid Runbook Worker recebe pedido de senha ao assinar um runbook
 
@@ -225,7 +225,7 @@ wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/inst
 
 ## <a name="windows"></a>Windows
 
-O Trabalhador de Runbook Híbrido do Windows depende do [agente Log Analytics para](../../azure-monitor/platform/log-analytics-agent.md) que o Windows comunique com a sua conta Automation para registar o trabalhador, receber trabalhos de runbook e reportar o estado. Se o registo do trabalhador falhar, esta secção inclui algumas razões possíveis.
+O Trabalhador de Runbook Híbrido do Windows depende do [agente Log Analytics para](../../azure-monitor/agents/log-analytics-agent.md) que o Windows comunique com a sua conta Automation para registar o trabalhador, receber trabalhos de runbook e reportar o estado. Se o registo do trabalhador falhar, esta secção inclui algumas razões possíveis.
 
 ### <a name="scenario-the-log-analytics-agent-for-windows-isnt-running"></a><a name="mma-not-running"></a>Cenário: O agente do Log Analytics para o Windows não está a funcionar
 
@@ -253,7 +253,7 @@ Este problema pode ser causado pelo seu proxy ou firewall de rede bloqueando a c
 
 #### <a name="resolution"></a>Resolução
 
-Os registos são armazenados localmente em cada trabalhador híbrido em C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes. Pode verificar se existem algum aviso ou erro nos registos de **aplicações e serviços\Microsoft-SMA\Operações** e **Registos de Aplicações e Serviços\Operations Manager.** Estes registos indicam uma conectividade ou outro tipo de problema que afeta a habilitação da função para a Azure Automation, ou um problema encontrado em operações normais. Para obter problemas adicionais de resolução de problemas com o agente Log Analytics, consulte [problemas de resolução de problemas com o agente Do Windows Log Analytics](../../azure-monitor/platform/agent-windows-troubleshoot.md).
+Os registos são armazenados localmente em cada trabalhador híbrido em C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes. Pode verificar se existem algum aviso ou erro nos registos de **aplicações e serviços\Microsoft-SMA\Operações** e **Registos de Aplicações e Serviços\Operations Manager.** Estes registos indicam uma conectividade ou outro tipo de problema que afeta a habilitação da função para a Azure Automation, ou um problema encontrado em operações normais. Para obter problemas adicionais de resolução de problemas com o agente Log Analytics, consulte [problemas de resolução de problemas com o agente Do Windows Log Analytics](../../azure-monitor/agents/agent-windows-troubleshoot.md).
 
 Os trabalhadores híbridos enviam [produção e mensagens runbook](../automation-runbook-output-and-messages.md) para a Azure Automation da mesma forma que os trabalhos de runbook que funcionam na nuvem enviam saídas e mensagens. Pode ativar os streams Verbose e Progress tal como faz para os livros de execução.
 

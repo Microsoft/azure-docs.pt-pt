@@ -3,12 +3,12 @@ title: Implementar amostra de planta de IRS 1075
 description: Implementar etapas para a amostra de planta do IRS 1075 (Rev.11-2016), incluindo detalhes do parâmetro do artefacto da planta.
 ms.date: 01/08/2021
 ms.topic: sample
-ms.openlocfilehash: f4be1b642961b9642ea9d638521653dbc33f0334
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 6df2781207c623e10daf0681865b9246be1b1f4c
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98045211"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100571921"
 ---
 # <a name="deploy-the-irs-1075-blueprint-sample"></a>Implementar a amostra de planta do IRS 1075
 
@@ -94,7 +94,7 @@ A tabela seguinte mostra uma lista dos parâmetros dos artefactos de esquema:
 |Nome do artefacto|Tipo de artefacto|Nome do parâmetro|Descrição|
 |-|-|-|-|
 |Auditoria CONTROLOS 1075 (Rev.11-2016) controla e implementa extensões VM específicas para apoiar requisitos de auditoria|Atribuição de políticas|Log Analytics workspace ID que VMs deve ser configurado para|Este é o ID (GUID) do espaço de trabalho Log Analytics para o qual os VMs devem ser configurados.|
-|Auditoria CONTROLOS 1075 (Rev.11-2016) controla e implementa extensões VM específicas para apoiar requisitos de auditoria|Atribuição de políticas|Lista de tipos de recursos que devem ter registos de diagnóstico ativados|Lista de tipos de recursos para auditar se a definição de registo de diagnóstico não estiver ativada. Os valores aceitáveis podem ser encontrados nos [esquemas de registos de diagnóstico do Azure Monitor](../../../../azure-monitor/platform/resource-logs-schema.md#service-specific-schemas).|
+|Auditoria CONTROLOS 1075 (Rev.11-2016) controla e implementa extensões VM específicas para apoiar requisitos de auditoria|Atribuição de políticas|Lista de tipos de recursos que devem ter registos de diagnóstico ativados|Lista de tipos de recursos para auditar se a definição de registo de diagnóstico não estiver ativada. Os valores aceitáveis podem ser encontrados nos [esquemas de registos de diagnóstico do Azure Monitor](../../../../azure-monitor/essentials/resource-logs-schema.md#service-specific-schemas).|
 |Auditoria CONTROLOS 1075 (Rev.11-2016) controla e implementa extensões VM específicas para apoiar requisitos de auditoria|Atribuição de políticas|Lista de utilizadores que devem ser excluídos do grupo de administradores do Windows VM|Uma lista separada de membros que deve ser excluída no grupo local de administradores. Ex: Administrador; myUser1; myUser2|
 |Auditoria CONTROLOS 1075 (Rev.11-2016) controla e implementa extensões VM específicas para apoiar requisitos de auditoria|Atribuição de políticas|Lista de utilizadores que devem ser incluídos no grupo de administradores do Windows VM|Uma lista separada de membros que deve ser incluída no grupo local de administradores. Ex: Administrador; myUser1; myUser2|
 |Implementar o agente de análise de registo para conjuntos de escalas de VM Linux (VMSS)|Atribuição de políticas|Log Analytics espaço de trabalho para conjuntos de escala de VM Linux (VMSS)|Se este espaço de trabalho estiver fora do âmbito da atribuição, deve conceder manualmente permissões de "Log Analytics Contributor" (ou similar) ao ID principal da atribuição de políticas.|

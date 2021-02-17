@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
-ms.openlocfilehash: 09651ed5c7472c12d82108fdbd450cca6e84349f
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 0efc8105295ca7f97e6f465071c31b193173c5cd
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96447090"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100588726"
 ---
 # <a name="introduction-to-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-azure-sql-database"></a>Introdução a uma app SaaS multitenante que utiliza o padrão de base de dados por inquilino com Base de Dados Azure SQL
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -40,13 +40,13 @@ A aplicação Wingtip SaaS utiliza o modelo base de dados por inquilino. Utiliza
 Depois de implementar a aplicação, explore os seguintes tutoriais que se baseiam na implementação inicial. Estes tutoriais exploram padrões saaS comuns que aproveitam as características incorporadas da BASE de Dados SQL, Azure Synapse Analytics e outros serviços Azure. Os tutoriais incluem scripts PowerShell com explicações detalhadas. As explicações simplificam a compreensão e implementação dos mesmos padrões de gestão saaS nas suas aplicações.
 
 
-| Tutorial | Descrição |
+| Tutorial | Description |
 |:--|:--|
 | [Orientação e dicas para o exemplo multitenante da app SaaS da SqL Database](saas-tenancy-wingtip-app-guidance-tips.md) | Descarregue e execute scripts PowerShell para preparar partes da aplicação. |
 |[Implementar e explorar a aplicação Wingtip SaaS](./saas-dbpertenant-get-started-deploy.md)|  Implemente e explore a aplicação Wingtip SaaS com a sua subscrição Azure. |
 |[Arrendamentos de provisão e catálogo](./saas-dbpertenant-provision-and-catalog.md)| Saiba como a aplicação se conecta aos inquilinos utilizando uma base de dados de catálogo, e como o catálogo mapeia os inquilinos aos seus dados. |
 |[Monitorizar e gerir o desempenho](./saas-dbpertenant-performance-monitoring.md)| Aprenda a utilizar as funcionalidades de monitorização da Base de Dados SQL e desemprete os alertas quando os limiares de desempenho forem ultrapassados. |
-|[Monitorizar com os registos do Azure Monitor](./saas-dbpertenant-log-analytics.md) | Aprenda a usar [registos do Azure Monitor](../../azure-monitor/log-query/log-query-overview.md) para monitorizar grandes quantidades de recursos em várias piscinas. |
+|[Monitorizar com os registos do Azure Monitor](./saas-dbpertenant-log-analytics.md) | Aprenda a usar [registos do Azure Monitor](../../azure-monitor/logs/log-query-overview.md) para monitorizar grandes quantidades de recursos em várias piscinas. |
 |[Restaurar um único inquilino](./saas-dbpertenant-restore-single-tenant.md)| Saiba como restaurar uma base de dados de inquilinos a um ponto anterior no tempo. Também aprenda a restaurar para uma base de dados paralela, que deixa a base de dados de inquilinos existente on-line. |
 |[Gerir o esquema da base de dados de inquilinos](saas-tenancy-schema-management.md)| Saiba como atualizar o esquema e atualizar os dados de referência em todas as bases de dados dos inquilinos. |
 |[Executar consultas distribuídas pelo inquilino](saas-tenancy-cross-tenant-reporting.md) | Crie uma base de dados de análise ad hoc e execute consultas distribuídas em tempo real em todos os inquilinos.  |

@@ -3,15 +3,15 @@ title: Relatórios no Monitor Azure para contentores
 description: Descreve relatórios disponíveis para analisar dados recolhidos pelo Azure Monitor para contentores.
 ms.topic: conceptual
 ms.date: 12/07/2020
-ms.openlocfilehash: 3cc2f8fb9bfaa278ce06b4a8cd6d379397b7129a
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 94709cf4a8b579447c11f91f9bc6863ab4b4fe08
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96907603"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100582308"
 ---
 # <a name="reports-in-azure-monitor-for-containers"></a>Relatórios no Monitor Azure para contentores
-Recomenda-se relatórios no Azure Monitor para contentores. [Azure workbooks](../platform/workbooks-overview.md) Este artigo descreve os diferentes relatórios que estão disponíveis e como acessá-los.
+Recomenda-se relatórios no Azure Monitor para contentores. [](../visualize/workbooks-overview.md) Este artigo descreve os diferentes relatórios que estão disponíveis e como acessá-los.
 
 ## <a name="viewing-reports"></a>Relatórios de visualização
 A partir do menu **Azure Monitor** no portal Azure, selecione **Containers**. Selecione **Insights** na secção **de Monitorização,** escolha um cluster específico e, em seguida, selecione a página **Relatórios (pré-visualização).** 
@@ -19,7 +19,7 @@ A partir do menu **Azure Monitor** no portal Azure, selecione **Containers**. Se
 [![Página de relatórios](media/container-insights-reports/reports-page.png)](media/container-insights-reports/reports-page.png#lightbox)
 
 ## <a name="create-a-custom-workbook"></a>Criar um livro personalizado
-Para criar um livro personalizado baseado em qualquer um destes livros, selecione o **dropdown dos Livros de Visualização** e, em seguida, **vá para a Galeria AKS** na parte inferior do dropdown. Consulte [os livros de trabalho do Monitor Azure](../platform/workbooks-overview.md) para obter mais informações sobre livros de trabalho e utilizando modelos de livros de trabalho.
+Para criar um livro personalizado baseado em qualquer um destes livros, selecione o **dropdown dos Livros de Visualização** e, em seguida, **vá para a Galeria AKS** na parte inferior do dropdown. Consulte [os livros de trabalho do Monitor Azure](../visualize/workbooks-overview.md) para obter mais informações sobre livros de trabalho e utilizando modelos de livros de trabalho.
 
 [![Galeria AKS](media/container-insights-reports/aks-gallery.png)](media/container-insights-reports/aks-gallery.png#lightbox)
 
@@ -78,4 +78,4 @@ Para criar um livro personalizado baseado em qualquer um destes livros, selecion
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Consulte [os livros de trabalho do Monitor Azure](../platform/workbooks-overview.md) para obter mais detalhes sobre os livros de trabalho no Azure Monitor.
+- Consulte [os livros de trabalho do Monitor Azure](../visualize/workbooks-overview.md) para obter mais detalhes sobre os livros de trabalho no Azure Monitor.

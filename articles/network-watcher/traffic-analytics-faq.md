@@ -1,5 +1,5 @@
 ---
-title: A azure traffic analytics frequentemente fez perguntas / Microsoft Docs
+title: A azure traffic analytics frequentemente fez perguntas | Microsoft Docs
 description: Obtenha respostas a algumas das perguntas mais frequentes sobre análise de tráfego.
 services: network-watcher
 documentationcenter: na
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: damendo
-ms.openlocfilehash: a5fdde954d2826f34c671552a88365f9276b89a0
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: f4d97b81bf8f11b8380f04dcbfdb72bd658805ab
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97895228"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579239"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Traffic Analytics frequentemente fez perguntas
 
@@ -122,11 +122,11 @@ Sim, estes NSGs podem estar em regiões diferentes do seu espaço de trabalho Lo
 
 ## <a name="can-multiple-nsgs-be-configured-within-a-single-workspace"></a>Vários NSGs podem ser configurados dentro de um único espaço de trabalho?
 
-Yes.
+Sim.
 
 ## <a name="can-i-use-an-existing-workspace"></a>Posso usar um espaço de trabalho existente?
 
-Yes. Se selecionar um espaço de trabalho existente, certifique-se de que foi migrado para a nova linguagem de consulta. Se não quiser atualizar o espaço de trabalho, tem de criar um novo. Para obter mais informações sobre o novo idioma de consulta, consulte [o upgrade de registos do Azure Monitor para nova pesquisa de registos](../azure-monitor/log-query/log-query-overview.md).
+Sim. Se selecionar um espaço de trabalho existente, certifique-se de que foi migrado para a nova linguagem de consulta. Se não quiser atualizar o espaço de trabalho, tem de criar um novo. Para obter mais informações sobre o novo idioma de consulta, consulte [o upgrade de registos do Azure Monitor para nova pesquisa de registos](../azure-monitor/logs/log-query-overview.md).
 
 ## <a name="can-my-azure-storage-account-be-in-one-subscription-and-my-log-analytics-workspace-be-in-a-different-subscription"></a>A minha Conta de Armazenamento Azure pode estar numa subscrição e o meu espaço de trabalho Log Analytics está numa subscrição diferente?
 
@@ -134,7 +134,7 @@ Sim, a sua conta de Armazenamento Azure pode estar numa subscrição, e o seu es
 
 ## <a name="can-i-store-raw-logs-in-a-different-subscription"></a>Posso armazenar registos crus numa subscrição diferente?
 
-Yes. Pode configurar registos de fluxo NSG para ser enviado para uma conta de armazenamento localizada numa subscrição diferente, desde que tenha os privilégios adequados, e que a conta de armazenamento esteja localizada na mesma região que o NSG. A NSG e a conta de armazenamento de destino também devem partilhar o mesmo Azure Ative Directory Tenanty.
+Sim. Pode configurar registos de fluxo NSG para ser enviado para uma conta de armazenamento localizada numa subscrição diferente, desde que tenha os privilégios adequados, e que a conta de armazenamento esteja localizada na mesma região que o NSG. A NSG e a conta de armazenamento de destino também devem partilhar o mesmo Azure Ative Directory Tenanty.
 
 ## <a name="what-if-i-cant-configure-an-nsg-for-traffic-analytics-due-to-a-not-found-error"></a>E se eu não conseguir configurar um NSG para análise de tráfego devido a um erro de "Não encontrado"?
 
@@ -142,7 +142,7 @@ Selecione uma região apoiada. Se selecionar uma região não suportada, receber
 
 ## <a name="what-if-i-am-getting-the-status-failed-to-load-under-the-nsg-flow-logs-page"></a>E se eu estiver a obter o estado, "Falhou em carregar", na página de registos de fluxo da NSG?
 
-O fornecedor Microsoft.Insights deve estar registado para que a exploração de fluxo funcione corretamente. Se não tiver a certeza se o fornecedor Microsoft.Insights está registado para a sua subscrição, substitua *xxx-xxx-xxx-xxx* no seguinte comando, e execute os seguintes comandos da PowerShell:
+O fornecedor Microsoft.Insights deve estar registado para que a exploração de fluxo funcione corretamente. Se não tiver a certeza se o fornecedor Microsoft.Insights está registado para a sua subscrição, substitua *xxxxx-xxxxx-xxxxx-xxxxx-xxxxx* no seguinte comando, e execute os seguintes comandos da PowerShell:
 
 ```powershell-interactive
 **Select-AzSubscription** -SubscriptionId xxxxx-xxxxx-xxxxxx-xxxx
@@ -262,7 +262,7 @@ A Traffic Analytics não tem suporte incorporado para alertas. No entanto, uma v
 - Pode utilizar o shortlink para Log Analytics in Traffic Analytics. 
 - Use o [esquema documentado aqui](traffic-analytics-schema.md) para escrever as suas consultas 
 - Clique em "Nova regra de alerta" para criar o alerta
-- Consulte a [documentação de alertas](../azure-monitor/platform/alerts-log.md) de registo para criar o alerta
+- Consulte a [documentação de alertas](../azure-monitor/alerts/alerts-log.md) de registo para criar o alerta
 
 ## <a name="how-do-i-check-which-vms-are-receiving-most-on-premises-traffic"></a>Como verifico quais os VMs que estão a receber mais tráfego no local?
 
@@ -403,4 +403,4 @@ A página de topologia de sub-redes virtuais contém duas secções principais:
 - Na seleção de tais nós, pode visitar todas as suas ligações, uma a uma, premindo `Shift+Left arrow` a tecla. O foco desloca-se para a Caixa de Ferramentas de **Informação** dessa ligação. Em qualquer ponto, o foco pode ser deslocado de volta para o nó pressionando `Shift+Right arrow` novamente.
 
 ## <a name="are-classic-nsgs-supported"></a>Os NSGs clássicos são suportados?
-Não, a Traffic Analytics não suporta o NSG clássico. Recomenda-se a migração dos recursos iaaS do clássico para o Azure Resource Manager, uma vez que os recursos clássicos serão [depreciados.](https://docs.microsoft.com/azure/virtual-machines/classic-vm-deprecation) Consulte este artigo para entender [como migrar.](https://docs.microsoft.com/azure/virtual-machines/migration-classic-resource-manager-overview)
+Não, a Traffic Analytics não suporta o NSG clássico. Recomenda-se a migração dos recursos iaaS do clássico para o Azure Resource Manager, uma vez que os recursos clássicos serão [depreciados.](../virtual-machines/classic-vm-deprecation.md) Consulte este artigo para entender [como migrar.](../virtual-machines/migration-classic-resource-manager-overview.md)

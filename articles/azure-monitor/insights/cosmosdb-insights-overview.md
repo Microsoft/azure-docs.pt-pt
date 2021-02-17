@@ -5,12 +5,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: 878ae21cfbe55565c4a20064d937d1447f96ce7a
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: fdf482f5afc444aff77c2ab528a4e333a0282c3d
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98209904"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100582357"
 ---
 # <a name="explore-azure-monitor-for-azure-cosmos-db"></a>Explore o Monitor Azure para Azure Cosmos DB
 
@@ -47,7 +47,7 @@ Para visualizar a utilização e desempenho das suas contas de armazenamento em 
 
     ![Screenshot do livro de visão geral da Cosmos DB](./media/cosmosdb-insights-overview/cosmos-db.png)
 
-### <a name="overview"></a>Descrição geral
+### <a name="overview"></a>Descrição Geral
 
 Em **visão geral,** a tabela apresenta métricas interativas de Azure Cosmos DB. Pode filtrar os resultados com base nas opções selecionadas nas seguintes listas de entrega:
 
@@ -125,6 +125,6 @@ Para obter orientações sobre resolução de problemas, consulte o artigo dedic
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Configure [alertas métricos](../platform/alerts-metric.md) e [notificações de saúde](../../service-health/alerts-activity-log-service-notifications-portal.md) de serviço para configurar alertas automatizados para ajudar na deteção de problemas.
+* Configure [alertas métricos](../alerts/alerts-metric.md) e [notificações de saúde](../../service-health/alerts-activity-log-service-notifications-portal.md) de serviço para configurar alertas automatizados para ajudar na deteção de problemas.
 
-* Saiba os cenários que os livros de trabalho são projetados para apoiar, como autorizar novos e personalizar relatórios existentes, e mais através da revisão [criar relatórios interativos com os livros de trabalho do Azure Monitor.](../platform/workbooks-overview.md)
+* Saiba os cenários que os livros de trabalho são projetados para apoiar, como autorizar novos e personalizar relatórios existentes, e mais através da revisão [criar relatórios interativos com os livros de trabalho do Azure Monitor.](../visualize/workbooks-overview.md)

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2021
 ms.author: terrylan
-ms.openlocfilehash: eb8332bda2105c3f83c0c1cc28fb7db4b1ca0102
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 79262b85e9591ae4b41e8467abdcbccb3804d4ec
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99549954"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590350"
 ---
 # <a name="azure-threat-protection"></a>Proteção de ameaças Azure
 
@@ -89,7 +89,7 @@ Além de fornecer serviços valiosos por si só, os registos do Azure Monitor po
 Os registos do Azure Monitor ajudam-no a compreender de forma rápida e fácil a postura de segurança geral de qualquer ambiente, tudo no contexto das Operações de TI, incluindo a avaliação da atualização de software, a avaliação antimalware e as linhas de base de configuração. Os dados de registo de segurança são facilmente acessíveis para simplificar os processos de auditoria de segurança e conformidade.
 
 ### <a name="insight-and-analytics"></a>Insight e análise
-No centro dos registos do [Monitor Azure](../../azure-monitor/log-query/log-query-overview.md) está o repositório, que é hospedado pela Azure.
+No centro dos registos do [Monitor Azure](../../azure-monitor/logs/log-query-overview.md) está o repositório, que é hospedado pela Azure.
 
 ![Diagrama de insight e analítica](./media/threat-detection/azure-threat-detection-fig4.png)
 
@@ -98,8 +98,8 @@ Recolhe dados no repositório a partir de fontes conectadas, configurando fontes
 Fontes de dados e soluções cada uma criam tipos de registo separados com o seu próprio conjunto de propriedades, mas ainda pode analisá-los em conjunto em consultas ao repositório. Pode utilizar as mesmas ferramentas e métodos para trabalhar com uma variedade de dados que são recolhidos por várias fontes.
 
 A maior parte da sua interação com os registos do Azure Monitor é através do portal Azure, que funciona em qualquer navegador e fornece-lhe acesso a configurações de configuração e múltiplas ferramentas para analisar e agir em dados recolhidos. A partir do portal, pode utilizar:
-* [Faça pesquisas](../../azure-monitor/log-query/log-query-overview.md) de registo onde constrói consultas para analisar dados recolhidos.
-* [Dashboards,](../../azure-monitor/learn/tutorial-logs-dashboards.md)que pode personalizar com vistas gráficas das suas pesquisas mais valiosas.
+* [Faça pesquisas](../../azure-monitor/logs/log-query-overview.md) de registo onde constrói consultas para analisar dados recolhidos.
+* [Dashboards,](../../azure-monitor/visualize/tutorial-logs-dashboards.md)que pode personalizar com vistas gráficas das suas pesquisas mais valiosas.
 * [Soluções](../../azure-monitor/insights/solutions.md), que fornecem ferramentas adicionais de funcionalidade e análise.
 
 As soluções adicionam funcionalidade aos registos do Monitor Azure. Eles correm principalmente na nuvem e fornecem a análise de dados recolhidos no repositório de analítica de log. As soluções também podem definir novos tipos de registo a serem recolhidos que podem ser analisados com pesquisas de registo ou utilizando uma interface adicional de utilizador que a solução fornece no painel de análise de registos.

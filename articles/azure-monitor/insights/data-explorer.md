@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 01/05/2021
 author: lgayhardt
 ms.author: lagayhar
-ms.openlocfilehash: 11e21f376ea3b5cf580d54780509529b4536718b
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 6276527230cf889b471887fdb3da70e06a2fc8d6
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98734179"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100582355"
 ---
 # <a name="azure-monitor-for-azure-data-explorer-preview"></a>Monitor Azure para Azure Data Explorer (pré-visualização)
 
@@ -160,6 +160,6 @@ Para visualizar os dados baseados em registos, terá de [ativar registos](/azure
 Atualmente, os registos de diagnóstico não funcionam retroativamente, pelo que os dados só começarão a aparecer depois de terem sido tomadas ações para o seu Azure Data Explorer. Portanto, pode levar algum tempo, variando de horas a um dia, dependendo do quão ativo é o seu cluster Azure Data Explorer.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Saiba os cenários que os livros de trabalho são projetados para apoiar, como autorizar novos e personalizar relatórios existentes, e mais através da revisão [criar relatórios interativos com os livros de trabalho do Azure Monitor.](../platform/workbooks-overview.md)
+Saiba os cenários que os livros de trabalho são projetados para apoiar, como autorizar novos e personalizar relatórios existentes, e mais através da revisão [criar relatórios interativos com os livros de trabalho do Azure Monitor.](../visualize/workbooks-overview.md)

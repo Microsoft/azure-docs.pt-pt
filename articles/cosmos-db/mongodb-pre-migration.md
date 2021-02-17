@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 ms.date: 09/01/2020
 ms.author: chrande
-ms.openlocfilehash: 337341daf0e092def639a4e8f6fc8ee0a9b57c75
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 72e89a67f2d767c8a104982dbe9eb9e47aec015a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96349423"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574654"
 ---
 # <a name="pre-migration-steps-for-data-migrations-from-mongodb-to-azure-cosmos-dbs-api-for-mongodb"></a>Etapas de pré-migração para migrações de dados de MongoDB para Azure Cosmos DB's API para MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -71,7 +71,7 @@ Este comando irá desausar um documento JSON semelhante ao seguinte:
 
 ```{  "_t": "GetRequestStatisticsResponse",  "ok": 1,  "CommandName": "find",  "RequestCharge": 10.1,  "RequestDurationInMilliSeconds": 7.2}```
 
-Também pode utilizar [as definições de diagnóstico](cosmosdb-monitor-resource-logs.md) para entender a frequência e os padrões das consultas executadas contra a Azure Cosmos DB. Os resultados dos registos de diagnóstico podem ser enviados para uma conta de armazenamento, uma instância EventHub ou [Azure Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md).  
+Também pode utilizar [as definições de diagnóstico](cosmosdb-monitor-resource-logs.md) para entender a frequência e os padrões das consultas executadas contra a Azure Cosmos DB. Os resultados dos registos de diagnóstico podem ser enviados para uma conta de armazenamento, uma instância EventHub ou [Azure Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md).  
 
 ## <a name="choose-your-partition-key"></a><a id="partitioning"></a>Escolha a sua chave de partição
 A partilha, também conhecida como Sharding, é um ponto chave de consideração antes de migrar dados. A Azure Cosmos DB utiliza divisórias totalmente geridas para aumentar a capacidade numa base de dados para satisfazer os requisitos de armazenamento e produção. Esta funcionalidade não necessita do anfitrião ou configuração de servidores de encaminhamento.   

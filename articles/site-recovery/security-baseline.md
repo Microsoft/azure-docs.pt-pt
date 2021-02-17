@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/26/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: c3e2245ae47504e058921c532ed40a220e95423d
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: bf91c0a6e533acb326fe815c3e3c1088c959a603
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98197579"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100576730"
 ---
 # <a name="azure-security-baseline-for-site-recovery"></a>Linha de base de segurança Azure para recuperação do local
 
@@ -66,9 +66,9 @@ Pode utilizar o Azure PowerShell ou o Azure CLI para procurar ou executar açõe
 
 **Orientação**: Monitorize quaisquer alterações às configurações de recursos de rede relacionadas com o serviço de Recuperação do Local utilizando Registos de Atividade Azure. Crie alertas no Azure Monitor para o notificar quando os recursos críticos da rede de recuperação do local forem alterados.
 
-- [Ver e recuperar eventos de Registo de Atividades Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [Ver e recuperar eventos de Registo de Atividades Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Criar, visualizar e gerir alertas de registo de atividades utilizando o Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+- [Criar, visualizar e gerir alertas de registo de atividades utilizando o Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitorização do Centro de Segurança do Azure**: Não aplicável
 
@@ -86,7 +86,7 @@ Utilize dados do Registo de Atividades Azure para determinar o "o quê, quem e q
 
 Ingeste os registos de recuperação do site no Azure Monitor para agregar dados de segurança gerados. Dentro do Azure Monitor, utilize espaços de trabalho do Log Analytics para consultar e realizar análises, e utilize contas de armazenamento para armazenamento a longo prazo ou arquivo. Além disso, pode ativar e a bordo dados para Azure Sentinel ou uma solução de Segurança Incidente e Gestão de Eventos (SIEM) de terceiros.
 
-- [Como ativar definições de diagnóstico para registo de atividades azure](../azure-monitor/platform/activity-log.md)
+- [Como ativar definições de diagnóstico para registo de atividades azure](../azure-monitor/essentials/activity-log.md)
 
 - [Monitorizar o Site Recovery com os Registos do Azure Monitor](monitor-log-analytics.md)
 
@@ -104,7 +104,7 @@ Utilize dados do Registo de Atividades Azure para determinar o "o quê, quem e q
 
 Ingeste os registos de recuperação do site com o Azure Monitor para agregar dados de segurança gerados. Dentro do Azure Monitor, utilize espaços de trabalho do Log Analytics para consultar e realizar análises, e utilize contas de armazenamento para armazenamento a longo prazo/arquivo. Ativar e a bordo dados para Azure Sentinel ou uma solução de Gestão de Incidentes e Eventos de Segurança de terceiros (SIEM).
 
-- [Como ativar definições de diagnóstico para registo de atividades azure](../azure-monitor/platform/activity-log.md)
+- [Como ativar definições de diagnóstico para registo de atividades azure](../azure-monitor/essentials/activity-log.md)
 
 - [Monitorizar o Site Recovery com os Registos do Azure Monitor](monitor-log-analytics.md)
 
@@ -118,7 +118,7 @@ Ingeste os registos de recuperação do site com o Azure Monitor para agregar da
 
 **Orientação**: Desconfie do período de retenção de registos para os espaços de trabalho do Log Analytics associados aos cofres dos Serviços de Recuperação Azure utilizando o Azure Monitor de acordo com os regulamentos de conformidade da sua organização. 
 
-- [Como definir parâmetros de retenção de registos](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Como definir parâmetros de retenção de registos](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Monitorização do Centro de Segurança do Azure**: Não aplicável
 
@@ -132,9 +132,9 @@ Realize consultas no Log Analytics para pesquisar termos, identificar tendência
 
 - [Monitorizar o Site Recovery](site-recovery-monitor-and-troubleshoot.md)
 
-- [Como ativar definições de diagnóstico para registo de atividades azure](../azure-monitor/platform/activity-log.md)
+- [Como ativar definições de diagnóstico para registo de atividades azure](../azure-monitor/essentials/activity-log.md)
 
-- [Como recolher e analisar registos de atividades do Azure no espaço de trabalho do Log Analytics no Azure Monitor](../azure-monitor/platform/activity-log.md)
+- [Como recolher e analisar registos de atividades do Azure no espaço de trabalho do Log Analytics no Azure Monitor](../azure-monitor/essentials/activity-log.md)
 
 **Monitorização do Centro de Segurança do Azure**: Não aplicável
 
@@ -150,7 +150,7 @@ Visualizar e consultar os resultados dos registos e configurar alertas para toma
 
 - [Como embarcar Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Criar, visualizar e gerir alertas de registo usando o Azure Monitor](../azure-monitor/platform/alerts-log.md)
+- [Criar, visualizar e gerir alertas de registo usando o Azure Monitor](../azure-monitor/alerts/alerts-log.md)
 
 **Monitorização do Centro de Segurança do Azure**: Não aplicável
 
@@ -413,7 +413,7 @@ Apenas o cliente tem acesso à chave de encriptação enquanto utiliza um cofre 
 ### <a name="49-log-and-alert-on-changes-to-critical-azure-resources"></a>4.9: Registar e alertar sobre alterações aos recursos críticos do Azure
 
 **Orientação**: Utilize o Monitor Azure com registos de atividade do Azure para criar alertas quando ocorrerem alterações para recursos críticos,. Estes recursos podem incluir casos de produção de Cofres de Serviços de Recuperação, recursos do serviço de recuperação de locais e recursos conexos.
-- [Como criar alertas para eventos de Registo de Atividades Azure](../azure-monitor/platform/alerts-activity-log.md)
+- [Como criar alertas para eventos de Registo de Atividades Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitorização do Centro de Segurança do Azure**: Não aplicável
 

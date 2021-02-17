@@ -1,17 +1,17 @@
 ---
-title: Atualizações de terminologia do Azure Monitor Microsoft Docs
+title: Atualizações de terminologia do Azure Monitor | Microsoft Docs
 description: Descreve as recentes alterações terminíries feitas nos serviços de monitorização do Azure.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2019
-ms.openlocfilehash: 819ef7e61045c0ed4205eeaf0094fec706b0b9da
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 99592544d97793f82db36e1d2cb33ba8c6af1c9c
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86498615"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100586965"
 ---
 # <a name="azure-monitor-naming-and-terminology-changes"></a>Azure Monitor nomeação e alterações de terminologia
 Recentemente foram feitas alterações significativas no Azure Monitor, com a consolidação de diferentes serviços para simplificar a monitorização dos clientes do Azure. Este artigo descreve alterações recentes de nome e terminologia na documentação do Azure Monitor.
@@ -23,12 +23,12 @@ Os "registos de diagnóstico" foram alterados para "registos de recursos" para m
 Após a consolidação de diferentes serviços no âmbito do Azure Monitor, estamos a dar o próximo passo modificando a terminologia na nossa documentação para melhor descrever o serviço Azure Monitor e os seus diferentes componentes. 
 
 ### <a name="log-analytics"></a>Log Analytics
-Os dados do registo do Azure Monitor ainda estão armazenados num espaço de trabalho do Log Analytics e ainda são recolhidos e analisados pelo mesmo serviço Log Analytics, mas estamos a alterar o termo _Log Analytics_ em muitos locais para _registos do Azure Monitor_. Este termo reflete melhor o seu papel no Azure Monitor e proporciona uma melhor consistência com [as métricas no Azure Monitor](platform/data-platform-metrics.md).
+Os dados do registo do Azure Monitor ainda estão armazenados num espaço de trabalho do Log Analytics e ainda são recolhidos e analisados pelo mesmo serviço Log Analytics, mas estamos a alterar o termo _Log Analytics_ em muitos locais para _registos do Azure Monitor_. Este termo reflete melhor o seu papel no Azure Monitor e proporciona uma melhor consistência com [as métricas no Azure Monitor](essentials/data-platform-metrics.md).
 
-O termo _"log analytics"_ aplica-se agora principalmente à página do portal Azure utilizada para escrever e executar consultas e analisar dados de registo. É o equivalente funcional do explorador de [métricas](platform/metrics-charts.md), que é a página do portal Azure usada para analisar dados métricos.
+O termo _"log analytics"_ aplica-se agora principalmente à página do portal Azure utilizada para escrever e executar consultas e analisar dados de registo. É o equivalente funcional do explorador de [métricas](essentials/metrics-charts.md), que é a página do portal Azure usada para analisar dados métricos.
 
 ### <a name="log-analytics-workspaces"></a>Áreas de trabalho do Log Analytics
-[Os espaços de trabalho](platform/manage-access.md) que possuem dados de registo no Azure Monitor ainda são referidos como espaços de trabalho log analytics. O menu **Log Analytics** no portal Azure foi renomeado para log **analytics e** é onde cria novos espaços [de trabalho](learn/quick-create-workspace.md) e configura fontes de dados. Analise os seus registos e outros dados de monitorização no **Azure Monitor** e configuure o seu espaço de trabalho em **espaços de trabalho Log Analytics**.
+[Os espaços de trabalho](logs/manage-access.md) que possuem dados de registo no Azure Monitor ainda são referidos como espaços de trabalho log analytics. O menu **Log Analytics** no portal Azure foi renomeado para log **analytics e** é onde cria novos espaços [de trabalho](logs/quick-create-workspace.md) e configura fontes de dados. Analise os seus registos e outros dados de monitorização no **Azure Monitor** e configuure o seu espaço de trabalho em **espaços de trabalho Log Analytics**.
 
 ### <a name="management-solutions"></a>Soluções de gestão
 [As soluções de gestão](insights/solutions.md) foram renomeadas para _monitorizar soluções_, o que melhor descreve a sua funcionalidade.
@@ -49,7 +49,7 @@ O Suíte de Gestão de Operações (OMS) foi uma agregação dos seguintes servi
 - Automatização do Azure
 - Azure Backup
 - Log Analytics
-- Site Recovery
+- Recuperação de sites
 
 [Foram introduzidos novos preços para estes serviços](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/), e a agregação OMS já não está disponível para novos clientes. Nenhum dos serviços que faziam parte da OMS mudou, exceto a consolidação no Azure Monitor acima descrito. 
 
@@ -59,4 +59,4 @@ O Suíte de Gestão de Operações (OMS) foi uma agregação dos seguintes servi
 ## <a name="next-steps"></a>Passos seguintes
 
 - Leia uma [visão geral do Azure Monitor](overview.md) que descreve os seus diferentes componentes e funcionalidades.
-- Conheça a [transição do portal OMS.](./platform/oms-portal-transition.md)
+- Conheça a [transição do portal OMS.](./logs/oms-portal-transition.md)

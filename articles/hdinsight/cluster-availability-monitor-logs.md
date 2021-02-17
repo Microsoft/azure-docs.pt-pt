@@ -4,12 +4,12 @@ description: Saiba como utilizar os registos do Azure Monitor para monitorizar a
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 08/12/2020
-ms.openlocfilehash: d52cb1c5f3b1dd1b23adb39f2f65d0e66968e482
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 3bc5c659d9871cb8f1d49d2a3bfde2ce03faea86
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98946951"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100571898"
 ---
 # <a name="how-to-monitor-cluster-availability-with-azure-monitor-logs-in-hdinsight"></a>Como monitorizar a disponibilidade do cluster com registos do Azure Monitor em HDInsight
 
@@ -19,7 +19,7 @@ Os clusters HDInsight incluem a integração de registos do Azure Monitor, que f
 
 Os registos do Azure Monitor permitem que os dados gerados por múltiplos recursos, tais como clusters HDInsight, sejam recolhidos e agregados num só local para obter uma experiência de monitorização unificada.
 
-Como pré-requisito, você precisará de um log analytics workspace para armazenar os dados recolhidos. Se ainda não criou um, pode seguir as instruções aqui: [Criar um espaço de trabalho log analytics](../azure-monitor/learn/quick-create-workspace.md).
+Como pré-requisito, você precisará de um log analytics workspace para armazenar os dados recolhidos. Se ainda não criou um, pode seguir as instruções aqui: [Criar um espaço de trabalho log analytics](../azure-monitor/logs/quick-create-workspace.md).
 
 ## <a name="enable-hdinsight-azure-monitor-logs-integration"></a>Permitir a integração de registos do HDInsight Azure Monitor
 
@@ -37,7 +37,7 @@ Uma vez ativada a integração do registo do Monitor Azure (isto pode demorar al
 
 Os registos listam uma série de consultas de amostra, tais como:
 
-| Nome de consulta                      | Descrição                                                               |
+| Nome de consulta                      | Description                                                               |
 |---------------------------------|---------------------------------------------------------------------------|
 | Disponibilidade de computadores hoje    | Mapear o número de computadores que enviam registos, a cada hora                     |
 | Liste batimentos cardíacos                 | Listar todos os batimentos cardíacos do computador da última hora                           |
@@ -81,7 +81,7 @@ Uma vez que esta consulta só devolve nós indisponíveis como resultados, se o 
 
 Na secção **Avaliada com base na** secção, desa estaver o **período** e a **frequência** com base na frequência com que pretende verificar se existem nós indisponíveis.
 
-Para efeitos deste alerta, deverá certificar-se de **period=frequência.** Mais informações sobre o período, frequência e outros parâmetros de alerta podem ser encontrados [aqui.](../azure-monitor/platform/alerts-unified-log.md#alert-logic-definition)
+Para efeitos deste alerta, deverá certificar-se de **period=frequência.** Mais informações sobre o período, frequência e outros parâmetros de alerta podem ser encontrados [aqui.](../azure-monitor/alerts/alerts-unified-log.md#alert-logic-definition)
 
 Selecione **Feito** quando terminar de configurar a lógica do sinal.
 
@@ -94,7 +94,7 @@ Se ainda não tiver um grupo de ação existente, clique em **Criar Novo** na se
 Isto abrirá **o Grupo de Ação Add**. Escolha um **nome de grupo action,** **nome curto,** **subscrição** e **grupo de recursos.** Na secção **Ações,** escolha um **Nome de Ação** e selecione **e-mail/SMS/Push/Voice** como o **Tipo de Ação.**
 
 > [!NOTE]
-> Existem várias outras ações que um alerta pode desencadear além de um Email/SMS/Push/Voice, como uma Função Azure, LogicApp, Webhook, ITSM e Automation Runbook. [Saiba mais.](../azure-monitor/platform/action-groups.md#action-specific-information)
+> Existem várias outras ações que um alerta pode desencadear além de um Email/SMS/Push/Voice, como uma Função Azure, LogicApp, Webhook, ITSM e Automation Runbook. [Saiba mais.](../azure-monitor/alerts/action-groups.md#action-specific-information)
 
 Isto abrirá **o Email/SMS/Push/Voice**. Escolha um **Nome** para o destinatário, **verifique** a caixa **de e-mail** e escreva um endereço de e-mail para o qual deseja que o alerta seja enviado. Selecione **OK** em  **Email/SMS/Push/Voice,** em seguida, em **Adicionar grupo de ação** para terminar a configuração do seu grupo de ação.
 
@@ -119,7 +119,7 @@ Selecionando em um agrupamento de severidade (ou **seja, Sev 1,** como acima sal
 
 ![Log Analytics workspace sev um alerta](media/cluster-availability-monitor-logs/portal-oms-alerts-sev1.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Disponibilidade do cluster - Apache Ambari](./hdinsight-cluster-availability.md)
 * [Utilize registos do Monitor Azure](hdinsight-hadoop-oms-log-analytics-tutorial.md)

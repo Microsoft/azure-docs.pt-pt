@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 8/11/2020
 ms.author: lajanuar
-ms.openlocfilehash: 021a65ba69b9d1909df4a86d92b660c0c1033a3b
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: bdfb1ac03ea6f896725d5c86cefe41021204359c
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98895463"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100582206"
 ---
 # <a name="translator-v30"></a>Tradutor v3.0
 
@@ -41,7 +41,7 @@ Os pedidos ao Microsoft Tradutor são, na maioria dos casos, tratados pelo datac
 
 Para forçar o pedido a ser tratado por uma geografia específica do Azure, altere o ponto final Global no pedido da API para o ponto final geográfico pretendido:
 
-|Descrição|Geografia azul|URL de base (ponto final geográfico)|
+|Description|Geografia azul|URL de base (ponto final geográfico)|
 |:--|:--|:--|
 |Azure|Global (não regional)|   api.cognitive.microsofttranslator.com|
 |Azure|Estados Unidos da América|   api-nam.cognitive.microsofttranslator.com|
@@ -54,7 +54,7 @@ Subscreva o Multi-serviço de Tradutor ou [Serviços Cognitivos](https://azure.m
 
 Existem três cabeçalhos que pode utilizar para autenticar a sua subscrição. Esta tabela descreve como cada um é usado:
 
-|Cabeçalhos|Descrição|
+|Cabeçalhos|Description|
 |:----|:----|
 |Ocp-Apim-Subscription-Key|*Use com a subscrição de Serviços Cognitivos se estiver a passar a sua chave secreta.*<br/>O valor é a chave secreta Azure para a sua subscrição ao Tradutor.|
 |Autorização|*Use com subscrição de Serviços Cognitivos se estiver a passar um token de autenticação.*<br/>O valor é o símbolo do Portador: `Bearer <token>` .|
@@ -67,7 +67,7 @@ A primeira opção é autenticar usando o `Ocp-Apim-Subscription-Key` cabeçalho
 
 Quando utilizar um [recurso de tradutor global,](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation)tem de incluir um cabeçalho para ligar para o Tradutor.
 
-|Cabeçalhos|Descrição|
+|Cabeçalhos|Description|
 |:-----|:----|
 |Ocp-Apim-Subscription-Key| O valor é a chave secreta Azure para a sua subscrição ao Tradutor.|
 
@@ -86,7 +86,7 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
 Quando se utiliza um [recurso de tradutor regional.](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation)
 Há dois cabeçalhos que precisa chamar ao Tradutor.
 
-|Cabeçalhos|Descrição|
+|Cabeçalhos|Description|
 |:-----|:----|
 |Ocp-Apim-Subscription-Key| O valor é a chave secreta Azure para a sua subscrição ao Tradutor.|
 |Ocp-Apim-Região de Subscrição| O valor é a região do recurso tradutor. |
@@ -108,7 +108,7 @@ Quando se utiliza o recurso multi-serviço de um Serviço Cognitivo. Isto permit
 
 Quando utilizar uma chave secreta multi-serviço, deve incluir dois cabeçalhos de autenticação com o seu pedido. Há dois cabeçalhos que precisa chamar ao Tradutor.
 
-|Cabeçalhos|Descrição|
+|Cabeçalhos|Description|
 |:-----|:----|
 |Ocp-Apim-Subscription-Key| O valor é a chave secreta Azure para o seu recurso multi-serviço.|
 |Ocp-Apim-Região de Subscrição| O valor é a região do recurso multi-serviço. |
@@ -153,7 +153,7 @@ Assim que ligar esta capacidade, deve utilizar o ponto final personalizado para 
 
 Pode encontrar o ponto final personalizado depois de criar um [recurso de tradutor](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) e permitir o acesso a partir de redes selecionadas e pontos finais privados.
 
-|Cabeçalhos|Descrição|
+|Cabeçalhos|Description|
 |:-----|:----|
 |Ocp-Apim-Subscription-Key| O valor é a chave secreta Azure para a sua subscrição ao Tradutor.|
 |Ocp-Apim-Região de Subscrição| O valor é a região do recurso tradutor. Este valor é opcional se o recurso for `global`|
@@ -188,7 +188,7 @@ Por exemplo, um cliente com uma subscrição de teste gratuito receberia o segui
 ```
 O código de erro é um número de 6 dígitos que combina o código de estado HTTP de 3 dígitos seguido de um número de 3 dígitos para categorizar ainda mais o erro. Os códigos de erro comuns são:
 
-| Código | Descrição |
+| Código | Description |
 |:----|:-----|
 | 400000| Uma das entradas de pedido não é válida.|
 | 400001| O parâmetro "âmbito" é inválido.|
@@ -230,13 +230,13 @@ O código de erro é um número de 6 dígitos que combina o código de estado HT
 | 503000| O serviço está temporariamente indisponível. Tente novamente. Se o erro persistir, reporte-o com data/hora de erro, solicite o identificador do cabeçalho de resposta X-RequestId e o identificador de cliente do cabeçalho de pedido X-ClientTraceId.|
 
 ## <a name="metrics"></a>Métricas 
-As métricas permitem visualizar a utilização do tradutor e a informação de disponibilidade no portal Azure, na secção métrica, como mostrado na imagem abaixo. Para obter mais informações, consulte [datas e métricas da plataforma.](../../../azure-monitor/platform/data-platform-metrics.md)
+As métricas permitem visualizar a utilização do tradutor e a informação de disponibilidade no portal Azure, na secção métrica, como mostrado na imagem abaixo. Para obter mais informações, consulte [datas e métricas da plataforma.](../../../azure-monitor/essentials/data-platform-metrics.md)
 
 ![Métricas do Tradutor](../media/translatormetrics.png)
 
 Esta tabela lista as métricas disponíveis com descrição de como são usadas para monitorizar as chamadas de API de tradução.
 
-| Métricas | Descrição |
+| Métricas | Description |
 |:----|:-----|
 | Total de Chamadas| Número total de chamadas da API.|
 | TotalTokenCalls| Número total de chamadas API através do serviço token usando token de autenticação.|

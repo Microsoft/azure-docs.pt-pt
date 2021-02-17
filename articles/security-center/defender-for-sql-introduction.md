@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: security-center
 ms.custom: references_regions
 manager: rkarlin
-ms.openlocfilehash: 28ec6659430cfdbc81533f05863ccb0ddc560e32
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: 5d8c5eb385baff4aac450c470fb6103e2fb315f3
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99508037"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590416"
 ---
 # <a name="introduction-to-azure-defender-for-sql"></a>Introdução ao Azure Defender para o SQL
 
@@ -43,8 +43,8 @@ O Azure Defender for SQL inclui dois planos do Azure Defender que alargam o paco
 - **O Azure Defender para servidores SQL em máquinas** alarga as proteções para os seus SqL Servers nativos do Azure para suportar totalmente ambientes híbridos e proteger servidores SQL (todas as versões suportadas) hospedados em Azure, outros ambientes em nuvem e até mesmo máquinas no local:
     - [SQL Server nas Máquinas Virtuais](https://azure.microsoft.com/services/virtual-machines/sql-server/)
     - Servidores SQL no local:
-        - [SQL Server preparado para Azure Arc (pré-visualização)](/sql/sql-server/azure-arc/overview)
-        - [SQL Server em funcionamento em máquinas Windows sem Arco Azure](../azure-monitor/platform/agent-windows.md)
+        - [SQL Server preparado para Azure Arc (pré-visualização)](https://docs.microsoft.com/sql/sql-server/azure-arc/overview)
+        - [SQL Server em funcionamento em máquinas Windows sem Arco Azure](../azure-monitor/agents/agent-windows.md)
 
 
 ## <a name="what-are-the-benefits-of-azure-defender-for-sql"></a>Quais são os benefícios do Azure Defender para a SQL?

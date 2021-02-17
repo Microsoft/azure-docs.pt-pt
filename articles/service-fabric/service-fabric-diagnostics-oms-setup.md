@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: srrengar
-ms.openlocfilehash: 691f3b7987c2591b0f6cea3f7b520c03c0ba9a9e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ba62ac80b2f8d318d0d13e81e88cc63a8d893a2b
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86258653"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570343"
 ---
 # <a name="set-up-azure-monitor-logs-for-a-cluster"></a>Configurar registos do Monitor Azure para um cluster
 
@@ -47,13 +47,13 @@ Se estiver a utilizar o Windows, continue com os seguintes passos para ligar os 
 
 ### <a name="connect-the-log-analytics-workspace-to-your-cluster"></a>Ligue o espaço de trabalho log Analytics ao seu cluster 
 
-1. O espaço de trabalho precisa de ser ligado aos dados de diagnóstico provenientes do seu cluster. Vá ao grupo de recursos em que criou a solução Service Fabric Analytics. Selecione **ServiceFabric \<nameOfWorkspace\> ** e vá para a sua página geral. A partir daí, pode alterar as definições de solução, configurações de espaço de trabalho e aceder ao espaço de trabalho Log Analytics.
+1. O espaço de trabalho precisa de ser ligado aos dados de diagnóstico provenientes do seu cluster. Vá ao grupo de recursos em que criou a solução Service Fabric Analytics. Selecione **ServiceFabric \<nameOfWorkspace\>** e vá para a sua página geral. A partir daí, pode alterar as definições de solução, configurações de espaço de trabalho e aceder ao espaço de trabalho Log Analytics.
 
 2. No menu de navegação à esquerda, em **Fontes de Dados do Espaço De Trabalho,** selecione **registos de contas de armazenamento**.
 
 3. Na página **de registos de conta de Armazenamento,** selecione **Adicionar** na parte superior para adicionar os registos do seu cluster ao espaço de trabalho.
 
-4. Selecione **a conta de Armazenamento** para adicionar a conta adequada criada no seu cluster. Se usou o nome predefinido, a conta de armazenamento é **sfdg \<resourceGroupName\> **. Também pode confirmar isso com o modelo Azure Resource Manager utilizado para implantar o seu cluster, verificando o valor utilizado para **a aplicaçãoDiagnosticsStorageAccountName**. Se o nome não aparecer, desloque-se para baixo e selecione **Carregar mais**. Selecione o nome da conta de armazenamento.
+4. Selecione **a conta de Armazenamento** para adicionar a conta adequada criada no seu cluster. Se usou o nome predefinido, a conta de armazenamento é **sfdg \<resourceGroupName\>**. Também pode confirmar isso com o modelo Azure Resource Manager utilizado para implantar o seu cluster, verificando o valor utilizado para **a aplicaçãoDiagnosticsStorageAccountName**. Se o nome não aparecer, desloque-se para baixo e selecione **Carregar mais**. Selecione o nome da conta de armazenamento.
 
 5. Especifique o Tipo de Dados. Desa parte para **eventos de tecido de serviço.**
 
@@ -119,9 +119,9 @@ Set-AzOperationalInsightsIntelligencePack -ResourceGroupName $ResourceGroup -Wor
 
 Quando terminar, siga os passos na secção anterior para ligar os registos do Monitor Azure à conta de armazenamento apropriada.
 
-Também pode adicionar outras soluções ou fazer outras modificações no seu espaço de trabalho Log Analytics utilizando o PowerShell. Para saber mais, consulte [os registos do Monitor Azure utilizando o PowerShell](../azure-monitor/platform/powershell-workspace-configuration.md).
+Também pode adicionar outras soluções ou fazer outras modificações no seu espaço de trabalho Log Analytics utilizando o PowerShell. Para saber mais, consulte [os registos do Monitor Azure utilizando o PowerShell](../azure-monitor/logs/powershell-workspace-configuration.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 * [Coloque o agente Log Analytics](service-fabric-diagnostics-oms-agent.md) nos seus nós para recolher contadores de desempenho e recolher estatísticas e registos de estivadores para os seus contentores
-* Familiarize-se com as funcionalidades [de pesquisa e consulta](../azure-monitor/log-query/log-query-overview.md) de registo oferecidas como parte dos registos do Azure Monitor
-* [Use o View Designer para criar vistas personalizadas em registos do Monitor Azure](../azure-monitor/platform/view-designer.md)
+* Familiarize-se com as funcionalidades [de pesquisa e consulta](../azure-monitor/logs/log-query-overview.md) de registo oferecidas como parte dos registos do Azure Monitor
+* [Use o View Designer para criar vistas personalizadas em registos do Monitor Azure](../azure-monitor/visualize/view-designer.md)

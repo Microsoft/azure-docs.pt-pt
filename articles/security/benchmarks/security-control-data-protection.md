@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 8e2144a61d83f6c7dece8f34232031192b51cde8
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: d36ed6a795c5fa2241ee71751053a4cb5986aaf0
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94412702"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100576829"
 ---
 # <a name="security-control-data-protection"></a>Controlo de Segurança: Proteção de Dados
 
@@ -22,7 +22,7 @@ As recomendações de proteção de dados focam-se em abordar questões relacion
 
 | Azure ID | CIS IDs | Responsabilidade |
 |--|--|--|
-| 4.1 | 13.1 | Cliente |
+| 4.1 | 13,1 | Cliente |
 
 Utilize Tags para ajudar a rastrear os recursos da Azure que armazenam ou processam informações sensíveis.
 
@@ -52,13 +52,13 @@ Aproveite uma solução de terceiros do Azure Marketplace em perímetros de rede
 
 Para a plataforma subjacente, gerida pela Microsoft, a Microsoft trata todos os conteúdos do cliente como sensíveis e protege contra a perda e exposição de dados dos clientes. Para garantir que os dados dos clientes dentro do Azure permanecem seguros, a Microsoft implementou e mantém um conjunto de controlos e capacidades robustos de proteção de dados.
 
-- [Compreender a proteção de dados do cliente em Azure](../fundamentals/protection-customer-data.md)
+- [Compreender a proteção dos dados dos clientes no Azure](../fundamentals/protection-customer-data.md)
 
 ## <a name="44-encrypt-all-sensitive-information-in-transit"></a>4.4: Criptografar todas as informações sensíveis em trânsito
 
 | Azure ID | CIS IDs | Responsabilidade |
 |--|--|--|
-| 4.4 | 14.4 | Partilhado |
+| 4.4 | 14,4 | Partilhado |
 
 Criptografe todas as informações sensíveis em trânsito. Certifique-se de que qualquer cliente que se conecte aos seus recursos Azure seja capaz de negociar TLS 1.2 ou superior.
 
@@ -70,7 +70,7 @@ Siga as recomendações do Azure Security Center para encriptação em repouso e
 
 | Azure ID | CIS IDs | Responsabilidade |
 |--|--|--|
-| 4.5 | 14.5 | Partilhado |
+| 4,5 | 14,5 | Partilhado |
 
 Quando não houver nenhuma funcionalidade disponível para o seu serviço específico no Azure, utilize uma ferramenta de descoberta ativa de terceiros para identificar todas as informações sensíveis armazenadas, processadas ou transmitidas pelos sistemas tecnológicos da organização, incluindo as localizadas no local, ou num prestador de serviços remotos, e atualize o inventário de informação sensível da organização.
 
@@ -78,11 +78,11 @@ Utilize a Proteção de Informações Azure para identificar informações sens�
 
 Utilize a Azure SQL Information Protection para ajudar na classificação e rotulagem das informações armazenadas na Base de Dados Azure SQL.
 
-- [Como implementar a Azure SQL Data Discovery](../../azure-sql/database/data-discovery-and-classification-overview.md)
+- [Como implementar a Descoberta de Dados do SQL do Azure](../../azure-sql/database/data-discovery-and-classification-overview.md)
 
 - [Como implementar a Proteção de Informação Azure](/azure/information-protection/deployment-roadmap)
 
-- [Compreender a proteção de dados do cliente em Azure](../fundamentals/protection-customer-data.md)
+- [Compreender a proteção dos dados dos clientes no Azure](../fundamentals/protection-customer-data.md)
 
 ## <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Utilizar o Azure RBAC para controlar o acesso aos recursos
 
@@ -98,23 +98,23 @@ Utilize o controlo de acesso baseado em funções (Azure RBAC) para controlar o 
 
 | Azure ID | CIS IDs | Responsabilidade |
 |--|--|--|
-| 4.7 | 14.7 | Partilhado |
+| 4.7 | 14,7 | Partilhado |
 
 Se necessário para o cumprimento dos recursos computativos, implemente uma ferramenta de terceiros, como uma solução automatizada de prevenção de perdas de dados baseada em hospedeiros, para impor controlos de acesso aos dados mesmo quando os dados são copiados de um sistema.
 
 Para a plataforma subjacente, gerida pela Microsoft, a Microsoft trata todos os conteúdos dos clientes como sensíveis e faz grandes esforços para se proteger contra a perda e exposição de dados dos clientes. Para garantir que os dados dos clientes dentro do Azure permanecem seguros, a Microsoft implementou e mantém um conjunto de controlos e capacidades robustos de proteção de dados.
 
-- [Compreender a proteção de dados do cliente em Azure](../fundamentals/protection-customer-data.md)
+- [Compreender a proteção dos dados dos clientes no Azure](../fundamentals/protection-customer-data.md)
 
 ## <a name="48-encrypt-sensitive-information-at-rest"></a>4.8: Criptografe informação sensível em repouso
 
 | Azure ID | CIS IDs | Responsabilidade |
 |--|--|--|
-| 4.8 | 14.8 | Cliente |
+| 4.8 | 14,8 | Cliente |
 
 Use a encriptação em repouso em todos os recursos Azure. A Microsoft recomenda que o Azure gere as suas chaves de encriptação, no entanto existe a opção de gerir as suas próprias chaves em alguns casos. 
 
-- [Compreenda a encriptação em repouso em Azure](../fundamentals/encryption-atrest.md)
+- [Compreender a encriptação de dados inativos no Azure](../fundamentals/encryption-atrest.md)
 
 - [Como configurar chaves de encriptação geridas pelo cliente](../../storage/common/customer-managed-keys-configure-key-vault.md)
 
@@ -122,11 +122,11 @@ Use a encriptação em repouso em todos os recursos Azure. A Microsoft recomenda
 
 | Azure ID | CIS IDs | Responsabilidade |
 |--|--|--|
-| 4,9 | 14.9 | Cliente |
+| 4,9 | 14,9 | Cliente |
 
 Utilize o Monitor Azure com o Registo de Atividades Azure para criar alertas para quando ocorrerem alterações para recursos críticos do Azure.
 
-- [Como criar alertas para eventos de Registo de Atividades Azure](../../azure-monitor/platform/alerts-activity-log.md)
+- [Como criar alertas para eventos de Registo de Atividades Azure](../../azure-monitor/alerts/alerts-activity-log.md)
 
 
 ## <a name="next-steps"></a>Passos seguintes

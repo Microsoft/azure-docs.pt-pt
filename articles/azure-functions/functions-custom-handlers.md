@@ -5,12 +5,12 @@ author: anthonychu
 ms.author: antchu
 ms.date: 12/1/2020
 ms.topic: article
-ms.openlocfilehash: f527b387afc01eb60bd582adc13a4ad3d516055b
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: dd112c74ea9f013a0e14bddd735060ddbf73c14e
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936996"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100578521"
 ---
 # <a name="azure-functions-custom-handlers"></a>Azure Functions manipuladores personalizados
 
@@ -27,7 +27,7 @@ Com manipuladores personalizados, pode utilizar [gatilhos e entradas e encaderna
 
 Começa com os manipuladores personalizados da Azure Functions com [quickstarts em Go e Rust.](create-first-function-vs-code-other.md)
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 O diagrama seguinte mostra a relação entre o anfitrião Funções e um servidor web implementado como um manipulador personalizado.
 
@@ -121,9 +121,6 @@ Para manipuladores personalizados, `FUNCTIONS_WORKER_RUNTIME` desemando `Custom`
   }
 }
 ```
-
-> [!NOTE]
-> `Custom` não pode ser reconhecido como um tempo de execução válido nos planos Linux Premium ou App Service. Se esse é o seu alvo de `FUNCTIONS_WORKER_RUNTIME` implantação, desaponte para uma corda vazia.
 
 ### <a name="function-metadata"></a>Metadados de função
 

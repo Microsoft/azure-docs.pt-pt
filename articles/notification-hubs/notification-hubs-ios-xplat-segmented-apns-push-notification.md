@@ -1,5 +1,5 @@
 ---
-title: Enviar notificações push para dispositivos iOS específicos usando hubs de notificação Azure Microsoft Docs
+title: Envie notificações push para dispositivos iOS específicos usando hubs de notificação Azure | Microsoft Docs
 description: Neste tutorial, você aprende a usar os Hubs de Notificação Azure para enviar notificações push para dispositivos iOS específicos.
 services: notification-hubs
 documentationcenter: ios
@@ -14,18 +14,18 @@ ms.date: 11/07/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: 585bdfdd7033f75e5beeba7246c8fbdd03a5e6e8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2cb979491e247a4d44b9ae9ae27c433fb3f436d1
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86530037"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579225"
 ---
 # <a name="tutorial-send-push-notifications-to-specific-ios-devices-using-azure-notification-hubs"></a>Tutorial: Enviar notificações push para dispositivos específicos do iOS usando hubs de notificação Azure
 
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Este tutorial mostra-lhe como usar os Hubs de Notificação Azure para transmitir notificações de notícias de última hora para uma aplicação iOS. Quando estiver concluído, pode inscrever-se para as categorias de notícias de última hora em que está interessado, e receber apenas notificações push para essas categorias. Este é um cenário com um padrão comum para muitas aplicações em que as notificações têm de ser enviadas para grupos de utilizadores que mostraram anteriormente interesse nas mesmas, por exemplo, leitor de RSS, aplicações para fãs de música, etc.
 
@@ -88,7 +88,7 @@ O primeiro passo é adicionar os elementos de UI ao seu storyboard existente que
     - (void)subscribeWithCategories:(NSSet*)categories completion:(void (^)(NSError *))completion;
     ```
 
-5. Adicione à Notificação a seguinte diretiva de importação:
+5. Adicione a seguinte diretiva de importação às notificações.m:
 
     ```objc
     #import <WindowsAzureMessaging/WindowsAzureMessaging.h>
@@ -125,8 +125,6 @@ O primeiro passo é adicionar os elementos de UI ao seu storyboard existente que
 
     - (void)subscribeWithCategories:(NSSet *)categories completion:(void (^)(NSError *))completion
     {
-        //[hub registerNativeWithDeviceToken:self.deviceToken tags:categories completion: completion];
-
         NSString* templateBodyAPNS = @"{\"aps\":{\"alert\":\"$(messageParam)\"}}";
 
         [hub registerTemplateWithDeviceToken:self.deviceToken name:@"simpleAPNSTemplate" 

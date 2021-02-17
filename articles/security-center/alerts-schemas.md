@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2020
 ms.author: memildin
-ms.openlocfilehash: f9b3be69ab57c0abf7523169303def899f325229
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 7778607b533a836eb5a47a12b73374c2a8299621
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789221"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590565"
 ---
 # <a name="security-alerts-schemas"></a>Esquemas de alerta de segurança
 
@@ -24,7 +24,7 @@ Se a sua subscrição tiver o Azure Defender ativado, receberá alertas de segur
 
 Pode ver estes alertas de segurança nas páginas de **Proteção** de Ameaças do Centro de Segurança Azure ou através de ferramentas externas como:
 
-- [Azure Sentinel](../sentinel/index.yml) - SIEM nativo da Nuvem da Microsoft. O Sentinel Connector recebe alertas do Azure Security Center e envia-os para o [espaço de trabalho log Analytics](../azure-monitor/learn/quick-create-workspace.md) para o Azure Sentinel.
+- [Azure Sentinel](../sentinel/index.yml) - SIEM nativo da Nuvem da Microsoft. O Sentinel Connector recebe alertas do Azure Security Center e envia-os para o [espaço de trabalho log Analytics](../azure-monitor/logs/quick-create-workspace.md) para o Azure Sentinel.
 - SIEMs de terceiros - Envie dados para [Azure Event Hubs](../event-hubs/index.yml). Em seguida, integre os seus dados do Event Hub com um SIEM de terceiros. Saiba mais em [alertas stream para uma solução SIEM, SOAR ou IT Service Management.](export-to-siem.md)
 - [A API REST](/rest/api/securitycenter/) - Se estiver a utilizar a API REST para aceder a alertas, consulte a [documentação da API alertas online](/rest/api/securitycenter/alerts).
 
@@ -152,7 +152,7 @@ Pode ver os eventos de alerta de segurança no Registo de Atividades, procurando
 |**id**|O ID de alerta totalmente qualificado|
 |**nível**|Constante, "Informacional"|
 |**operationId**|Ver correlationId|
-|**operaçãoName**|O campo de valor é constante - "Microsoft.Security/locations/alerts/activate/action", e o valor localizado será "Alert Ativado" (pode potencialmente ser localizado em par do local do utilizador)|
+|**operationName**|O campo de valor é constante - "Microsoft.Security/locations/alerts/activate/action", e o valor localizado será "Alert Ativado" (pode potencialmente ser localizado em par do local do utilizador)|
 |**nome do Grupo de Recursos**|Incluirá o nome do grupo de recursos|
 |**nome de recursoProviderName**|Os subcampos de valor e de valor localizados são constantes - "Microsoft.Security"|
 |**RecursosType**|Os subcampos de valor e de valor localizados são constantes - "Microsoft.Security/locations/alerts"|
@@ -160,7 +160,7 @@ Pode ver os eventos de alerta de segurança no Registo de Atividades, procurando
 |**estado**|Os subcampos de valor e de valor localizados são constantes - "Ative"|
 |**subStatus**|Os subcampos de valor e de Valor Localizados estão vazios|
 |**submissãoTimestamp**|O calendário utc de submissão de eventos ao Registo de Atividades|
-|**subscriçãoId**|O ID de subscrição do recurso comprometido|
+|**subscriptionId**|O ID de subscrição do recurso comprometido|
 |**propriedades**|Um saco JSON de propriedades adicionais pertencentes ao alerta. Estes podem mudar de um alerta para o outro, no entanto, os seguintes campos aparecerão em todos os alertas:<br>- gravidade: A gravidade do ataque<br>- Entidade comprometida: O nome do recurso comprometido<br>- reparaçãoSteps: Matriz de medidas de reparação a tomar<br>- intenção: a intenção da cadeia de morte do alerta. Possíveis intenções estão documentadas na [tabela Intenções](alerts-reference.md#intentions)|
 |**relacionadosTevents**|Constante - matriz vazia|
 |||
@@ -187,4 +187,4 @@ Para obter mais informações sobre as formas de aceder a alertas de segurança 
 - [Azure Sentinel](../sentinel/index.yml) - SIEM nativo da Nuvem da Microsoft
 - [Azure Event Hubs](../event-hubs/index.yml) - Serviço de ingestão de dados totalmente gerido e em tempo real da Microsoft
 - [Exportar continuamente dados do Centro de Segurança](continuous-export.md)
-- [Log Analytics workspaces](../azure-monitor/learn/quick-create-workspace.md) - Azure Monitor armazena dados de registo num espaço de trabalho Log Analytics, um recipiente que inclui informações de dados e configuração
+- [Log Analytics workspaces](../azure-monitor/logs/quick-create-workspace.md) - Azure Monitor armazena dados de registo num espaço de trabalho Log Analytics, um recipiente que inclui informações de dados e configuração

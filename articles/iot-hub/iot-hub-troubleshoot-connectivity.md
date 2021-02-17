@@ -15,12 +15,12 @@ ms.custom:
 - 'Role: Technical Support'
 - fasttrack-edit
 - iot
-ms.openlocfilehash: 81558526500f3c01e975d9a963b4a6a98ec6d753
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 8bd20e3c7207c75e87a2132fca89906885de2676
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96446409"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579257"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-disconnects-with-azure-iot-hub"></a>Monitor, diagnóstico e resolução de problemas desliga-se com O Hub IoT do Azure
 
@@ -64,7 +64,7 @@ Explore os seguintes tópicos para saber mais sobre a monitorização de eventos
 
 O hub IoT emite continuamente registos de recursos para várias categorias de operações. No entanto, para recolher estes dados de registo, é necessário criar uma definição de diagnóstico para os encaminhar para um destino onde possam ser analisados ou arquivados. Um desses destinos é o Azure Monitor Logs através de um espaço de trabalho Log Analytics[(ver preços),](https://azure.microsoft.com/pricing/details/log-analytics/)onde pode analisar os dados usando consultas kusto.
 
-A [categoria de registos de registos](monitor-iot-hub-reference.md#connections) de registos IoT Hub emite operações e erros relacionados com ligações ao dispositivo. A imagem que se segue mostra uma definição de diagnóstico para encaminhar estes registos para um espaço de trabalho log analytics:
+A [categoria de registos](monitor-iot-hub-reference.md#connections) IoT Hub emite operações e erros relacionados com ligações ao dispositivo. A imagem que se segue mostra uma definição de diagnóstico para encaminhar estes registos para um espaço de trabalho log analytics:
 
 :::image type="content" source="media/iot-hub-troubleshoot-connectivity/create-diagnostic-setting.png" alt-text="Definição recomendada para enviar registos de conectividade para log analytics espaço de trabalho.":::
 
@@ -82,7 +82,7 @@ A métrica [*dos dispositivos conectados (pré-visualização)*](monitor-iot-hub
 
 Pode utilizar regras de alerta métricas para monitorizar anomalias de desconexão do dispositivo à escala. Isto é, quando um número significativo de dispositivos se desliga inesperadamente. Quando tal ocorrência é detetada, pode olhar para os registos para ajudar a resolver o problema. Para monitorizar as desconexões e desconexões por dispositivos críticos; no entanto, deve utilizar a Grade de Eventos. O Event Grid também proporciona uma experiência mais em tempo real do que as métricas Azure.
 
-Para saber mais sobre alertas com o IoT Hub, consulte [Alertas no Monitor IoT Hub.](monitor-iot-hub.md#alerts) Para obter uma 3-0 na criação de alertas no IoT Hub, consulte o [tutorial de métricas e registos de utilização.](tutorial-use-metrics-and-diags.md) Para obter uma visão geral mais detalhada dos alertas, consulte [a visão geral dos alertas no Microsoft Azure](../azure-monitor/platform/alerts-overview.md) na documentação do Azure Monitor.
+Para saber mais sobre alertas com o IoT Hub, consulte [Alertas no Monitor IoT Hub.](monitor-iot-hub.md#alerts) Para obter uma 3-0 na criação de alertas no IoT Hub, consulte o [tutorial de métricas e registos de utilização.](tutorial-use-metrics-and-diags.md) Para obter uma visão geral mais detalhada dos alertas, consulte [a visão geral dos alertas no Microsoft Azure](../azure-monitor/alerts/alerts-overview.md) na documentação do Azure Monitor.
 
 ## <a name="azure-monitor-use-logs-to-resolve-connectivity-errors"></a>Monitor Azure: Utilize registos para resolver erros de conectividade
 

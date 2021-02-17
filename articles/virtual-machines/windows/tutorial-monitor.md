@@ -10,12 +10,12 @@ ms.workload: infrastructure
 ms.date: 09/27/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 89b33a697e818539ab6666be33fc1542c5bdcc51
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 3e7d93d7a1d0e804f340a7ce785ccc1165e93ee5
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736597"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570083"
 ---
 # <a name="tutorial-monitor-a-windows-virtual-machine-in-azure"></a>Tutorial: Monitorize uma máquina virtual do Windows em Azure
 
@@ -86,18 +86,18 @@ Para permitir a monitorização do seu Azure VM com monitor Azure para VMs:
 
 3. Na página **Insights (pré-visualização),** selecione **Tente agora**.
 
-    ![Ativar o Monitor Azure para VMs para um VM](../../azure-monitor/insights/media/vminsights-enable-single-vm/enable-vminsights-vm-portal.png)
+    ![Ativar o Monitor Azure para VMs para um VM](../../azure-monitor/vm/media/vminsights-enable-portal/enable-vminsights-vm-portal.png)
 
 4. Na página **Azure Monitor Insights Onboarding,** se tiver um espaço de trabalho log analytics existente na mesma subscrição, selecione-o na lista de drop-down.  
 
     A lista pré-seleciona o espaço de trabalho predefinido e o local onde o VM é implantado na subscrição. 
 
     >[!NOTE]
-    >Para criar um novo espaço de trabalho log Analytics para armazenar os dados de monitorização a partir do VM, consulte Criar um espaço de [trabalho Log Analytics](../../azure-monitor/learn/quick-create-workspace.md). O espaço de trabalho deve pertencer a uma das [regiões apoiadas.](../../azure-monitor/insights/vminsights-configure-workspace.md#supported-regions)
+    >Para criar um novo espaço de trabalho log Analytics para armazenar os dados de monitorização a partir do VM, consulte Criar um espaço de [trabalho Log Analytics](../../azure-monitor/logs/quick-create-workspace.md). O espaço de trabalho deve pertencer a uma das [regiões apoiadas.](../../azure-monitor/vm/vminsights-configure-workspace.md#supported-regions)
 
 Depois de ativar a monitorização, poderá ter de esperar alguns minutos antes de poder ver as métricas de desempenho do VM.
 
-![Ativar o Monitor Azure para o processamento de implementação de monitorização de VMs](../../azure-monitor/insights/media/vminsights-enable-single-vm/onboard-vminsights-vm-portal-status.png)
+![Ativar o Monitor Azure para o processamento de implementação de monitorização de VMs](../../azure-monitor/vm/media/vminsights-enable-portal/onboard-vminsights-vm-portal-status.png)
 
 ## <a name="view-vm-performance-metrics"></a>Ver métricas de desempenho em VM
 
@@ -129,7 +129,7 @@ O exemplo seguinte cria um alerta para a utilização média da CPU.
 
 6. Clique no botão **OK.**
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, configuraste e viste o desempenho do teu VM. Aprendeu a:
 

@@ -1,17 +1,17 @@
 ---
-title: Azure Application Insights / Microsoft Docs
+title: Azure Application Insights | Microsoft Docs
 description: Correlacionar os dados dos Insights de Aplicação a outros conjuntos de dados, tais como o enriquecimento de dados ou tabelas de procura, fontes de dados não-Application Insights e dados personalizados.
 ms.topic: conceptual
 author: eternovsky
 ms.author: evternov
 ms.date: 08/08/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 17de697686485d695586ffa798196efb4a34c251
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 933280b5d3b81098f18f22a72bd2c7f942869e6a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87092920"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100578322"
 ---
 # <a name="correlating-application-insights-data-with-custom-data-sources"></a>Correlacionar dados de Insights de Aplicações com fontes de dados personalizadas
 
@@ -31,19 +31,19 @@ Uma vez que o Application Insights é apoiado pela poderosa plataforma de log do
 
 Nesta secção, vamos rever como obter os seus dados nos registos do Azure Monitor.
 
-Se ainda não tiver um, provisa um novo espaço de trabalho do Log Analytics seguindo [estas instruções](../learn/quick-collect-azurevm.md) através e incluindo o passo "criar um espaço de trabalho".
+Se ainda não tiver um, provisa um novo espaço de trabalho do Log Analytics seguindo [estas instruções](../vm/quick-collect-azurevm.md) através e incluindo o passo "criar um espaço de trabalho".
 
 Para começar a enviar dados de registo para o Azure Monitor. Existem várias opções:
 
-- Para um mecanismo sincronizado, pode ligar diretamente para a [API do colecionador de dados](../platform/data-collector-api.md) ou utilizar o nosso conector Logic App – basta procurar "Azure Log Analytics" e escolher a opção "Enviar Dados":
+- Para um mecanismo sincronizado, pode ligar diretamente para a [API do colecionador de dados](../logs/data-collector-api.md) ou utilizar o nosso conector Logic App – basta procurar "Azure Log Analytics" e escolher a opção "Enviar Dados":
 
   ![Screenshot escolha e ação](./media/custom-data-correlation/01-logic-app-connector.png)  
 
-- Para uma opção assíncrono, utilize a API do Coletor de Dados para construir um gasoduto de processamento. Consulte [este artigo](../platform/create-pipeline-datacollector-api.md) para mais detalhes.
+- Para uma opção assíncrono, utilize a API do Coletor de Dados para construir um gasoduto de processamento. Consulte [este artigo](../logs/create-pipeline-datacollector-api.md) para mais detalhes.
 
 ## <a name="correlating-data"></a>Correlacionar dados
 
-O Application Insights baseia-se na plataforma de registo do Monitor Azure. Por isso, [podemos usar juntas de recursos cruzados](../log-query/cross-workspace-query.md) para correlacionar quaisquer dados que ingerimos no Azure Monitor com os nossos dados de Insights de Aplicação.
+O Application Insights baseia-se na plataforma de registo do Monitor Azure. Por isso, [podemos usar juntas de recursos cruzados](../logs/cross-workspace-query.md) para correlacionar quaisquer dados que ingerimos no Azure Monitor com os nossos dados de Insights de Aplicação.
 
 Por exemplo, podemos ingerir o nosso inventário de laboratório e localizações numa mesa chamada "LabLocations_CL" num espaço de trabalho do Log Analytics chamado "myLA". Se quiséssemos então rever os nossos pedidos rastreados na app Application Insights chamada "myAI" e correlacionar os nomes das máquinas que serviam os pedidos para as localizações destas máquinas armazenadas na tabela personalizada anteriormente mencionada, podemos executar a seguinte consulta a partir do contexto Application Insights ou Azure Monitor:
 
@@ -57,5 +57,5 @@ app('myAI').requests
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Consulte a referência [da API do Colecionador de Dados.](../platform/data-collector-api.md)
-- Para mais informações sobre [a junção de recursos cruzados.](../log-query/cross-workspace-query.md)
+- Consulte a referência [da API do Colecionador de Dados.](../logs/data-collector-api.md)
+- Para mais informações sobre [a junção de recursos cruzados.](../logs/cross-workspace-query.md)

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/25/2021
-ms.openlocfilehash: bc59c639856de6a5ce5adda1f78266eb7e4d5dd3
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: ffdafbe991d3cd78e45c4804fd6cc5377099acbc
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881236"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100589417"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Visualizar dados do Azure Monitor
 Este artigo fornece um resumo dos métodos disponíveis para visualizar os dados de registo e métrica armazenados no Azure Monitor.
@@ -19,7 +19,7 @@ Este artigo fornece um resumo dos métodos disponíveis para visualizar os dados
 Visualizações como gráficos e gráficos podem ajudá-lo a analisar os seus dados de monitorização para aprofundar questões e identificar padrões. Dependendo da ferramenta que utiliza, poderá também ter a opção de partilhar visualizações com outros utilizadores dentro e fora da sua organização.
 
 ## <a name="workbooks"></a>Livros
-Os livros de trabalho são [documentos](./platform/workbooks-overview.md) interativos que fornecem informações profundas sobre os seus dados, investigação e colaboração dentro da equipa. Exemplos específicos onde os livros são úteis são guias de resolução de problemas e autópsias de incidentes.
+Os livros de trabalho são [documentos](./visualize/workbooks-overview.md) interativos que fornecem informações profundas sobre os seus dados, investigação e colaboração dentro da equipa. Exemplos específicos onde os livros são úteis são guias de resolução de problemas e autópsias de incidentes.
 
 ![O diagrama mostra imagens de várias páginas de um livro, incluindo Análise de Visualizações de Página, Utilização e Tempo Gasto na Página.](media/visualizations/workbook.png)
 
@@ -46,9 +46,9 @@ Aqui está um vídeo sobre a criação de dashboards.
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4AslH]
 
 ### <a name="advantages"></a>Vantagens
-- Profunda integração no Azure. As visualizações podem ser fixadas a dashboards de várias páginas Azure, incluindo [Metrics Explorer,](platform/metrics-charts.md) [Log Analytics](log-query/log-analytics-overview.md)e [Application Insights](app/app-insights-overview.md).
+- Profunda integração no Azure. As visualizações podem ser fixadas a dashboards de várias páginas Azure, incluindo [Metrics Explorer,](essentials/metrics-charts.md) [Log Analytics](logs/log-analytics-overview.md)e [Application Insights](app/app-insights-overview.md).
 - Suporta métricas e registos.
-- Combine dados de várias fontes, incluindo a saída do [Metrics Explorer,](platform/metrics-charts.md) [consultas de registo,](log-query/log-query-overview.md) [mapas](app/app-map.md) e disponibilidade em [Insights de Aplicação.](app/app-insights-overview.md)
+- Combine dados de várias fontes, incluindo a saída do [Metrics Explorer,](essentials/metrics-charts.md) [consultas de registo,](logs/log-query-overview.md) [mapas](app/app-map.md) e disponibilidade em [Insights de Aplicação.](app/app-insights-overview.md)
 - Opção para dashboards pessoais ou partilhados. Integrado com [o controlo de acesso baseado em funções Azure (Azure RBAC)](../role-based-access-control/overview.md).
 - Refrescamento automático. A atualização das métricas depende do intervalo de tempo com um mínimo de cinco minutos. Os registos atualizam-se a cada hora, com uma opção de atualização manual a pedido clicando no ícone "refresh" numa determinada visualização, ou refrescando o painel completo.
 - Dashboards de métricas parametrizados com tempotamp e parâmetros personalizados.
@@ -66,7 +66,7 @@ Aqui está um vídeo sobre a criação de dashboards.
 
 
 ## <a name="power-bi"></a>Power BI
-[O Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) é particularmente útil para a criação de dashboards e relatórios centrados no negócio, bem como relatórios que analisam as tendências de KPI a longo prazo. Pode [importar os resultados de uma consulta de registo](platform/powerbi.md) num conjunto de dados Power BI para que possa tirar partido das suas funcionalidades, tais como combinar dados de diferentes fontes e partilhar relatórios na web e dispositivos móveis.
+[O Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/) é particularmente útil para a criação de dashboards e relatórios centrados no negócio, bem como relatórios que analisam as tendências de KPI a longo prazo. Pode [importar os resultados de uma consulta de registo](visualize/powerbi.md) num conjunto de dados Power BI para que possa tirar partido das suas funcionalidades, tais como combinar dados de diferentes fontes e partilhar relatórios na web e dispositivos móveis.
 
 ![Power BI](media/visualizations/power-bi.png)
 
@@ -86,7 +86,7 @@ Aqui está um vídeo sobre a criação de dashboards.
 
 
 ## <a name="grafana"></a>Grafana
-[Grafana](https://grafana.com/) é uma plataforma aberta que se destaca em dashboards operacionais. É particularmente útil para detetar e isolar e trilar incidentes operacionais. Pode adicionar [plugin de fonte de dados Grafana Azure Monitor](platform/grafana-plugin.md) à sua assinatura Azure para que ele visualize os seus dados de métricas Azure.
+[Grafana](https://grafana.com/) é uma plataforma aberta que se destaca em dashboards operacionais. É particularmente útil para detetar e isolar e trilar incidentes operacionais. Pode adicionar [plugin de fonte de dados Grafana Azure Monitor](visualize/grafana-plugin.md) à sua assinatura Azure para que ele visualize os seus dados de métricas Azure.
 
 ![A imagem mostra visualizações de Grafana.](media/visualizations/grafana.png)
 
@@ -115,9 +115,9 @@ Pode aceder aos dados em registo e dados métricos no Azure Monitor através da 
 ## <a name="azure-monitor-views"></a>Vistas do monitor Azure
 
 > [!IMPORTANT]
-> As opiniões estão em vias de ser depreciadas. Consulte [o Azure Monitor ver designer para guia de transição de livros](platform/view-designer-conversion-overview.md) de trabalho para obter orientações sobre a conversão de visualizações em livros de trabalho.
+> As opiniões estão em vias de ser depreciadas. Consulte [o Azure Monitor ver designer para guia de transição de livros](visualize/view-designer-conversion-overview.md) de trabalho para obter orientações sobre a conversão de visualizações em livros de trabalho.
 
-[As vistas no Azure Monitor](platform/view-designer.md)  permitem-lhe criar visualizações personalizadas com dados de registo. São utilizados [através da monitorização de soluções](insights/solutions.md) para apresentar os dados que recolhem.
+[As vistas no Azure Monitor](visualize/view-designer.md)  permitem-lhe criar visualizações personalizadas com dados de registo. São utilizados [através da monitorização de soluções](insights/solutions.md) para apresentar os dados que recolhem.
 
 
 ![A screenshot mostra um azulejo de solução de monitorização do contentor e a visão detalhada do Monitor Azure que se abre quando o seleciona.](media/visualizations/view.png)
@@ -126,7 +126,7 @@ Pode aceder aos dados em registo e dados métricos no Azure Monitor através da 
 - Visualizações ricas para dados de registo.
 - Vistas de exportação e importação para transferi-las para outros grupos de recursos e subscrições.
 - Integra no modelo de gestão do Azure Monitor com espaços de trabalho e soluções de monitorização.
-- [Filtros](platform/view-designer-filters.md) para parâmetros personalizados.
+- [Filtros](visualize/view-designer-filters.md) para parâmetros personalizados.
 - Interativo, suporta perfuração de vários níveis (vista que perfura para outra vista)
 
 ### <a name="limitations"></a>Limitações
@@ -137,12 +137,12 @@ Pode aceder aos dados em registo e dados métricos no Azure Monitor através da 
 - Sem suporte para consulta em vários espaços de trabalho ou aplicações application insights.
 - As consultas são limitadas no tamanho da resposta a 8MB e o tempo de execução de consulta de 110 segundos.
 
-## <a name="next-steps"></a>Próximos passos
-- Conheça os [dados recolhidos pelo Azure Monitor.](platform/data-platform.md)
+## <a name="next-steps"></a>Passos seguintes
+- Conheça os [dados recolhidos pelo Azure Monitor.](/data-platform.md)
 - Saiba mais [sobre os dashboards Azure](../azure-portal/azure-portal-dashboards.md).
-- Saiba mais [sobre o Explorador de Métricas](platform/metrics-getting-started.md)
-- Conheça [os Livros de Trabalho.](./platform/workbooks-overview.md)
-- Saiba mais sobre [os dados de registo de importação no Power BI](./platform/powerbi.md).
-- Saiba mais sobre o [plugin de fonte de dados do Grafana Azure Monitor](./platform/grafana-plugin.md).
-- Saiba mais [sobre as vistas no Azure Monitor](platform/view-designer.md).
+- Saiba mais [sobre o Explorador de Métricas](essentials/metrics-getting-started.md)
+- Conheça [os Livros de Trabalho.](./visualize/workbooks-overview.md)
+- Saiba mais sobre [os dados de registo de importação no Power BI](./visualize/powerbi.md).
+- Saiba mais sobre o [plugin de fonte de dados do Grafana Azure Monitor](./visualize/grafana-plugin.md).
+- Saiba mais [sobre as vistas no Azure Monitor](visualize/view-designer.md).
 

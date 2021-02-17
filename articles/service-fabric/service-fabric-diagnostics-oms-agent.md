@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 04/16/2018
 ms.author: srrengar
-ms.openlocfilehash: b91a8a8742a5bdc9454ebcbd8894889084a12a79
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 47017fdb5f1fbaba800e71dea21afe2c39bd91e7
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86258694"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570149"
 ---
 # <a name="performance-monitoring-with-azure-monitor-logs"></a>Monitorização de desempenho com registos do Monitor Azure
 
@@ -67,15 +67,15 @@ Você pode baixar e modificar este modelo para implementar um cluster que melhor
 
 Agora que adicionou o agente Log Analytics, dirija-se ao portal Log Analytics para escolher quais os contadores de desempenho que gostaria de recolher.
 
-1. No portal Azure, vá ao grupo de recursos em que criou a solução Service Fabric Analytics. Selecione **ServiceFabric \<nameOfLog AnalyticsWorkspace\> **.
+1. No portal Azure, vá ao grupo de recursos em que criou a solução Service Fabric Analytics. Selecione **ServiceFabric \<nameOfLog AnalyticsWorkspace\>**.
 
 2. Clique em **Log Analytics**.
 
 3. Clique **em Definições Avançadas**.
 
-4. Clique em **Dados**e, em seguida, clique em **Contadores de Desempenho Windows ou Linux**. Há uma lista de contadores predefinidos que pode escolher para ativar e também pode definir o intervalo para recolha. Também pode adicionar [contadores de desempenho adicionais](service-fabric-diagnostics-event-generation-perf.md) para recolher. O formato adequado é referenciado neste [artigo.](/windows/win32/perfctrs/specifying-a-counter-path)
+4. Clique em **Dados** e, em seguida, clique em **Contadores de Desempenho Windows ou Linux**. Há uma lista de contadores predefinidos que pode escolher para ativar e também pode definir o intervalo para recolha. Também pode adicionar [contadores de desempenho adicionais](service-fabric-diagnostics-event-generation-perf.md) para recolher. O formato adequado é referenciado neste [artigo.](/windows/win32/perfctrs/specifying-a-counter-path)
 
-5. Clique **em Guardar**e, em seguida, clique em **OK**.
+5. Clique **em Guardar** e, em seguida, clique em **OK**.
 
 6. Feche a lâmina de Definições Avançadas.
 
@@ -91,6 +91,6 @@ Agora que adicionou o agente Log Analytics, dirija-se ao portal Log Analytics pa
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Recolha [os contadores de desempenho relevantes.](service-fabric-diagnostics-event-generation-perf.md) Para configurar o agente Log Analytics para recolher contadores de desempenho específicos, [reveja as fontes de dados configuradas](../azure-monitor/platform/agent-data-sources.md#configuring-data-sources).
-* Configurar registos do Azure Monitor para criar [alertas automatizados](../azure-monitor/platform/alerts-overview.md) para ajudar na deteção e diagnóstico
+* Recolha [os contadores de desempenho relevantes.](service-fabric-diagnostics-event-generation-perf.md) Para configurar o agente Log Analytics para recolher contadores de desempenho específicos, [reveja as fontes de dados configuradas](../azure-monitor/agents/agent-data-sources.md#configuring-data-sources).
+* Configurar registos do Azure Monitor para criar [alertas automatizados](../azure-monitor/alerts/alerts-overview.md) para ajudar na deteção e diagnóstico
 * Como alternativa, pode recolher contadores de desempenho através da [extensão Azure Diagnostics e enviá-los para Application Insights](service-fabric-diagnostics-event-aggregation-wad.md#add-the-application-insights-sink-to-the-resource-manager-template)

@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/17/2020
-ms.openlocfilehash: 79e3349f009f71c5cd387a7c7265ad4904f2a40d
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 4761c1fb6d245071a02fc69677fc9cd50a972fdd
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98932131"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574595"
 ---
 # <a name="configure-outbound-network-traffic-for-azure-hdinsight-clusters-using-firewall"></a>Configure o tráfego de rede de saída para clusters Azure HDInsight usando firewall
 
@@ -165,7 +165,7 @@ Uma vez concluída a configuração de registo, se estiver a utilizar o Log Anal
 AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
 ```
 
-A integração do Azure Firewall com os registos do Azure Monitor é útil quando se inicia uma aplicação a funcionar. Especialmente quando não se sabe de todas as dependências da aplicação. Pode saber mais sobre os registos do Azure Monitor a partir de dados de [registo de análise no Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
+A integração do Azure Firewall com os registos do Azure Monitor é útil quando se inicia uma aplicação a funcionar. Especialmente quando não se sabe de todas as dependências da aplicação. Pode saber mais sobre os registos do Azure Monitor a partir de dados de [registo de análise no Azure Monitor](../azure-monitor/logs/log-query-overview.md)
 
 Para conhecer os limites de escala do Azure Firewall e solicitar aumentos, consulte [este](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-firewall-limits) documento ou consulte as [FAQs](../firewall/firewall-faq.yml).
 
@@ -175,7 +175,7 @@ Depois de ter a firewall configurada com sucesso, pode utilizar o ponto final in
 
 Para utilizar o ponto final público ( `https://CLUSTERNAME.azurehdinsight.net` ) ou ponto final ssh ( ), `CLUSTERNAME-ssh.azurehdinsight.net` certifique-se de que tem as rotas certas na tabela de rotas e regras NSG para evitar a questão do encaminhamento assimétrico [aqui](../firewall/integrate-lb.md)explicado. Especificamente neste caso, você precisa permitir o endereço IP do cliente nas regras NSG de entrada e também adicioná-lo à tabela de rota definida pelo utilizador com o próximo conjunto de lúpulo como `internet` . Se o encaminhamento não estiver corretamente configurado, verá um erro de tempo limite.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Arquitetura de rede virtual Azure HDInsight](hdinsight-virtual-network-architecture.md)
 * [Configurar aplicação virtual de rede](./network-virtual-appliance.md)

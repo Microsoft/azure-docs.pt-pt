@@ -5,12 +5,12 @@ services: automation
 ms.date: 01/25/2021
 ms.topic: troubleshooting
 ms.subservice: update-management
-ms.openlocfilehash: 2fd92d79a3322b17f528194b9d39c26bf4c93b0c
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: da7c0ea670b4c4201930ce5d0f01e7bd9d9835e9
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896262"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100581048"
 ---
 # <a name="troubleshoot-linux-update-agent-issues"></a>Resolver problemas do agente de atualização do Linux
 
@@ -62,7 +62,7 @@ O sistema operativo verifica se o Trabalhador de Runbook Híbrido está a execut
 
 ### <a name="log-analytics-agent"></a>Agente do Log Analytics
 
-Esta verificação garante a instalação do agente Log Analytics para o Linux. Para obter instruções sobre como instalá-lo, consulte [instalar o agente para o Linux](../../azure-monitor/learn/quick-collect-linux-computer.md#install-the-agent-for-linux).
+Esta verificação garante a instalação do agente Log Analytics para o Linux. Para obter instruções sobre como instalá-lo, consulte [instalar o agente para o Linux](../../azure-monitor/vm/quick-collect-linux-computer.md#install-the-agent-for-linux).
 
 ### <a name="log-analytics-agent-status"></a>Estado do agente do Log Analytics
 
@@ -177,6 +177,6 @@ Passed: TCP test for {ods.systemcenteradvisor.com} (port 443) succeeded
 
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Problemas com o trabalhador do runbook híbrido.](hybrid-runbook-worker.md)

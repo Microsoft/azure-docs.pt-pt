@@ -3,12 +3,12 @@ title: A bordo do Azure Arc ativou o servidor para O Azure Sentinel
 description: Saiba como adicionar os seus servidores Azure Arc habilitados ao Azure Sentinel e monitorize proativamente o seu estado de segurança.
 ms.date: 11/16/2020
 ms.topic: conceptual
-ms.openlocfilehash: 60018e710613a27bcb5c00f38ee90be6ff46c61d
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.openlocfilehash: 2364ba72ac5b10ec4e1f433cc6d591c3ca389ecd
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94811108"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100584738"
 ---
 # <a name="onboard-azure-arc-enabled-servers-to-azure-sentinel"></a>A bordo do Azure Arc permitiu servidores a Azure Sentinel
 
@@ -18,7 +18,7 @@ Este artigo destina-se a ajudá-lo a bordo do seu Azure Arc ativado servidor par
 
 Antes de começar, certifique-se de que cumpriu os seguintes requisitos:
 
-- Uma [área de trabalho do Log Analytics](../../azure-monitor/platform/data-platform-logs.md). Para obter mais informações sobre os espaços de trabalho do Log Analytics, consulte a conceção da sua implementação de [Registos de Monitores Azure.](../../azure-monitor/platform/design-logs-deployment.md)
+- Uma [área de trabalho do Log Analytics](../../azure-monitor/logs/data-platform-logs.md). Para obter mais informações sobre os espaços de trabalho do Log Analytics, consulte a conceção da sua implementação de [Registos de Monitores Azure.](../../azure-monitor/logs/design-logs-deployment.md)
 
 - Azure Sentinel [ativado na sua subscrição.](../../sentinel/quickstart-onboard.md)
 

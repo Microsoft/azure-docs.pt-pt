@@ -3,12 +3,12 @@ title: Colete & analisar registos de recursos
 description: Saiba como enviar registos de recursos e dados de eventos de grupos de contentores em instâncias de contentores Azure para registos do Azure Monitor
 ms.topic: article
 ms.date: 07/13/2020
-ms.openlocfilehash: b110ba46bdcf2741e5f16845f28fe8305bcee1a1
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: cfdcd1cc8e36a118c4e3c4435eaa002e4d3b1b93
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148652"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579324"
 ---
 # <a name="container-group-and-instance-logging-with-azure-monitor-logs"></a>Grupo de contentores e registo de casos com registos do Monitor Azure
 
@@ -27,7 +27,7 @@ As secções seguintes descrevem como criar um grupo de contentores ativados por
 
 Para ativar o registo nas instâncias de contentor, precisa do seguinte:
 
-* [Log Analytics espaço de trabalho](../azure-monitor/learn/quick-create-workspace.md)
+* [Log Analytics espaço de trabalho](../azure-monitor/logs/quick-create-workspace.md)
 * [CLI do Azure](/cli/azure/install-azure-cli) (ou [Cloud Shell](../cloud-shell/overview.md))
 
 ## <a name="get-log-analytics-credentials"></a>Obter credenciais do Azure Log Analytics
@@ -153,8 +153,8 @@ ContainerInstanceLog_CL
 
 Para obter mais informações sobre a consulta de registos e configurar alertas nos registos do Monitor Azure, consulte:
 
-* [Compreender pesquisas de registos em registos do Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
-* [Alertas unificados no Azure Monitor](../azure-monitor/platform/alerts-overview.md)
+* [Compreender pesquisas de registos em registos do Azure Monitor](../azure-monitor/logs/log-query-overview.md)
+* [Alertas unificados no Azure Monitor](../azure-monitor/alerts/alerts-overview.md)
 
 
 ### <a name="monitor-container-cpu-and-memory"></a>Monitorizar a CPU e a memória do contentor
