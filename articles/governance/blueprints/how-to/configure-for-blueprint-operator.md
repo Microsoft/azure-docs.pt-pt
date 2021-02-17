@@ -3,12 +3,12 @@ title: Configurar o seu ambiente para o Operador de Blueprint
 description: Aprenda a configurar o seu ambiente Azure para utilização com o papel incorporado do Operador de Plantas.
 ms.date: 02/05/2021
 ms.topic: how-to
-ms.openlocfilehash: 0e0f6680ab39481a480919af10fadc0f7103a1fb
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: b43a33f4bac92903bd07454041d11850f217d480
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99591606"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100558722"
 ---
 # <a name="configure-your-environment-for-a-blueprint-operator"></a>Configurar o seu ambiente para um Operador Blueprint
 
@@ -22,7 +22,7 @@ O primeiro passo é conceder a função de **Operador De Blueprint** à conta ou
 
 1. (Recomendado) [Criar um grupo de segurança e adicionar membros](../../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)
 
-1. [Adicione uma atribuição](../../../role-based-access-control/role-assignments-portal.md#add-a-role-assignment) de papel do **Operador Blueprint** à conta ou grupo de segurança
+1. Atribuir papel de [Azure](../../../role-based-access-control/role-assignments-portal.md) do **Operador Blueprint** à conta ou grupo de segurança
 
 ## <a name="user-assign-managed-identity"></a>Identidade gerida atribuída ao utilizador
 
@@ -32,7 +32,7 @@ Uma definição de planta pode usar identidades geridas atribuídas pelo sistema
 
 1. Conceder à identidade gerida atribuída ao utilizador quaisquer funções ou permissões exigidas pela definição de planta para o âmbito pretendido.
 
-1. [Adicione uma atribuição](../../../role-based-access-control/role-assignments-portal.md#add-a-role-assignment) de função do Operador de **Identidade Gerida** à conta ou grupo de segurança. Âmbito da atribuição de funções à nova identidade gerida atribuída pelo utilizador.
+1. [Atribua o papel de Azure](../../../role-based-access-control/role-assignments-portal.md) do Operador de **Identidade Gerida** à conta ou grupo de segurança. Âmbito da atribuição de funções à nova identidade gerida atribuída pelo utilizador.
 
 1. Como **Operador de Blueprint,** [atribua uma planta](../create-blueprint-portal.md#assign-a-blueprint) que utilize a nova identidade gerida atribuída pelo utilizador.
 

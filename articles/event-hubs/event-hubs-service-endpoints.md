@@ -3,16 +3,16 @@ title: Pontos finais do serviço de rede virtual - Azure Event Hubs | Microsoft 
 description: Este artigo fornece informações sobre como adicionar um ponto final de serviço Microsoft.EventHub a uma rede virtual.
 ms.topic: article
 ms.date: 02/12/2021
-ms.openlocfilehash: f725c4f4d94cbf7d0463ce49c1d2809444ef6f7a
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 1deef5b8bb4b883ec9c01c50a2a603d254b9caef
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100516689"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100556529"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-from-specific-virtual-networks"></a>Permitir o acesso aos espaços de nome do Azure Event Hubs a partir de redes virtuais específicas 
 
-A integração de Centros de Eventos com [Rede Virtual (VNet) Os pontos finais][vnet-sep] de serviço permitem o acesso seguro às capacidades de mensagens a partir de cargas de trabalho, como máquinas virtuais, que estão ligadas a redes virtuais, com o caminho de tráfego da rede a ser assegurado em ambas as extremidades.
+A integração de Centros de Eventos com [Rede Virtual (VNet) Os pontos finais][vnet-sep] de serviço permitem o acesso seguro às capacidades de mensagens a partir de cargas de trabalho, como máquinas virtuais, que estão ligadas a redes virtuais, com o caminho de tráfego da rede a ser assegurado em ambas as extremidades. As redes virtuais são suportadas em níveis **padrão** e **dedicados** de Centros de Eventos. Não é suportado no nível **básico.**
 
 Uma vez configurado para ficar ligado a pelo menos um ponto final de serviço de sub-rede de rede virtual, o respetivo espaço de nomes do Event Hubs já não aceita tráfego de qualquer lugar, mas sub-redes autorizadas em redes virtuais. Do ponto de vista da rede virtual, a ligação de um espaço de nomes de Event Hubs a um ponto final de serviço configura um túnel de rede isolado da sub-rede de rede virtual para o serviço de mensagens. 
 
@@ -21,8 +21,8 @@ O resultado é uma relação privada e isolada entre as cargas de trabalho ligad
 >[!WARNING]
 > Ativar redes virtuais para o seu espaço de nomes Event Hubs bloqueia por padrão os pedidos de entrada, a menos que os pedidos sejam originados de um serviço que opera a partir de redes virtuais permitidas. Os pedidos que estão bloqueados incluem os de outros serviços Azure, do portal Azure, de serviços de registo e métricas, e assim por diante. Como exceção, pode permitir o acesso aos recursos do Event Hubs a partir de determinados serviços fidedignos, mesmo quando as redes virtuais estão ativadas. Para obter uma lista de serviços fidedignos, consulte [serviços Fidedignos.](#trusted-microsoft-services)
 
-> [!NOTE]
-> As redes virtuais são suportadas em níveis **padrão** e **dedicados** de Centros de Eventos. Não é suportado no nível **básico.**
+> [!IMPORTANT]
+> Especifique pelo menos uma regra de IP ou rede virtual para o espaço de nomes para permitir o tráfego apenas a partir dos endereços IP especificados ou sub-rede de uma rede virtual. Se não houver regras de IP e rede virtual, o espaço de nomes pode ser acedido através da internet pública (utilizando a chave de acesso).  
 
 ## <a name="advanced-security-scenarios-enabled-by-vnet-integration"></a>Cenários avançados de segurança habilitados pela integração do VNet 
 
@@ -58,6 +58,9 @@ Esta secção mostra-lhe como usar o portal Azure para adicionar um ponto final 
 2. Na secção **Rede Virtual** da página, selecione **+Adicionar a rede virtual existente** _. Selecione _ *+ Criar uma nova rede virtual** se quiser criar um novo VNet. 
 
     ![adicionar rede virtual existente](./media/event-hubs-tutorial-vnet-and-firewalls/add-vnet-menu.png)
+
+    >[!WARNING]
+    > Se selecionar a opção **redes selecionadas** e não adicionar pelo menos uma regra de firewall IP ou uma rede virtual nesta página, o espaço de nome pode ser acedido através da internet pública (utilizando a chave de acesso).
 3. Selecione a rede virtual a partir da lista de redes virtuais e, em seguida, escolha a **sub-rede**. Tem de ativar o ponto final de serviço antes de adicionar a rede virtual à lista. Se o ponto final de serviço não estiver ativado, o portal irá solicitar-lhe para o ativar.
    
    ![selecionar sub-redes](./media/event-hubs-tutorial-vnet-and-firewalls/select-subnet.png)

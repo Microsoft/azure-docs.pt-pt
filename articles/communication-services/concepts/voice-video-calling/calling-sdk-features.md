@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: f949747649e351947ba65666fdb57c0beac3aa23
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 07ad53191c8212ccde5633a4068f31aa00ab69b1
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99492115"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100554724"
 ---
 # <a name="calling-client-library-overview"></a>Descrição geral da biblioteca de cliente de chamadas
 
@@ -96,9 +96,10 @@ Os Serviços de Comunicação que ligam para a biblioteca de clientes suportam a
 
 |           |Web | Android/iOS|
 |-----------|----|------------|
-|**# de fluxos de saída que podem ser enviados simultaneamente** |1 vídeo + 1 partilha de ecrã | 1 vídeo |
-|**# de fluxos de entrada que podem ser renderizados simultaneamente** |1 vídeo + 1 partilha de ecrã| 6 vídeo + 1 partilha de ecrã |
+|**# de fluxos de saída que podem ser enviados simultaneamente** |1 partilha áudio/vídeo ou 1 áudio/ecrã | 1 áudio/vídeo | 
+|**# de fluxos de entrada que podem ser renderizados simultaneamente** |1 partilha áudio/vídeo ou 1 áudio/ecrã| 6 partilha de áudio/vídeo ou 1 ecrã |
 
+Note que em cenários de grupo, um fluxo de áudio misto é usado para suportar todos os participantes de áudio.
 
 ## <a name="next-steps"></a>Passos seguintes
 
@@ -106,6 +107,6 @@ Os Serviços de Comunicação que ligam para a biblioteca de clientes suportam a
 > [Começa com a chamada](../../quickstarts/voice-video-calling/getting-started-with-calling.md)
 
 Para obter mais informações, veja os seguintes artigos:
-- Familiarize-se com fluxos de [chamadas gerais](../call-flows.md)
+- Familiarize-se com fluxos de [chamadas gerais](../call-flows.md) 
 - Saiba mais sobre [tipos de chamadas](../voice-video-calling/about-call-types.md)
 - [Planeie a sua solução PSTN](../telephony-sms/plan-solution.md)

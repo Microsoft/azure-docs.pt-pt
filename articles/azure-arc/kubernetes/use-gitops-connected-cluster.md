@@ -2,52 +2,32 @@
 title: Implementar configurações com o GitOps em clusters do Kubernetes preparados para o Azure Arc (Pré-visualização)
 services: azure-arc
 ms.service: azure-arc
-ms.date: 02/09/2021
+ms.date: 02/15/2021
 ms.topic: article
 author: mlearned
 ms.author: mlearned
 description: Utilize GitOps para configurar um aglomerado de Kubernetes (Preview)
 keywords: GitOps, Kubernetes, K8s, Azure, Arc, Azure Kubernetes Service, AKS, contentores
-ms.openlocfilehash: 072bfc8c243eb9b69e06366961019b88b67e0941
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 3cadcdf80abd997ec10aeb9521680944d455898f
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100392243"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100560176"
 ---
-# <a name="deploy-configurations-using-gitops-on-arc-enabled-kubernetes-cluster-preview"></a>Implementar configurações com o GitOps em clusters do Kubernetes preparados para o Azure Arc (Pré-visualização)
+# <a name="deploy-configurations-using-gitops-on-an-arc-enabled-kubernetes-cluster-preview"></a>Implementar configurações usando GitOps num cluster Kubernetes ativado por Arco (Pré-visualização)
 
-Em relação a Kubernetes, GitOps é a prática de declarar o estado desejado das configurações de cluster de Kubernetes (implementações, espaços de nome, etc.) num repositório de Git. Esta declaração é seguida por uma colocação baseada em sondagens e de puxar estas configurações de cluster utilizando um operador. 
-
-Este artigo cobre a configuração de fluxos de trabalho GitOps em agrupamentos de Kubernetes habilitados.
-
-A ligação entre o seu cluster e um repositório Git é criada como um `Microsoft.KubernetesConfiguration/sourceControlConfigurations` recurso de extensão no Azure Resource Manager. As `sourceControlConfiguration` propriedades dos recursos representam onde e como os recursos de Kubernetes devem fluir de Git para o seu cluster. Os `sourceControlConfiguration` dados são armazenados encriptados, em repouso numa base de dados DB da Azure Cosmos para garantir a confidencialidade dos dados.
-
-A `config-agent` corrida no seu cluster é responsável por:
-* Rastrear novos ou `sourceControlConfiguration` atualizados recursos de extensão no Arco Azure permitiu o recurso Kubernetes.
-* Implantação de um operador de fluxo para observar o repositório git para cada um `sourceControlConfiguration` .
-* Aplicando quaisquer atualizações feitas a qualquer `sourceControlConfiguration` . 
-
-Pode criar múltiplos `sourceControlConfiguration` recursos no mesmo Arco Azure que permitiu que o cluster Kubernetes alcançasse o multi-arrendamento. Limitar as implementações dentro dos respetivos espaços de nome, criando cada `sourceControlConfiguration` um com um âmbito `namespace` diferente.
-
-O repositório de Git pode conter:
-* Os manifestos de formato YAML descrevem quaisquer recursos válidos de Kubernetes, incluindo Namespaces, ConfigMaps, Deployments, DaemonSets, etc. 
-* Mapas de leme para implantação de aplicações. 
-
-Um conjunto comum de cenários inclui a definição de uma configuração de base para a sua organização, tais como papéis e encadernações comuns do Azure, agentes de monitorização ou de exploração madeireira, ou serviços em todo o cluster.
-
-O mesmo padrão pode ser usado para gerir uma maior coleção de aglomerados, que podem ser implantados em ambientes heterogéneos. Por exemplo, tem um repositório que define a configuração de base para a sua organização, que se aplica a vários clusters Kubernetes ao mesmo tempo. [A Azure Policy pode automatizar](use-azure-policy.md) a criação de um `sourceControlConfiguration` com um conjunto específico de parâmetros em todo o Arco Azure habilitado recursos Kubernetes dentro de um âmbito (subscrição ou grupo de recursos).
-
-Caminhe pelos seguintes passos para aprender a aplicar um conjunto de configurações com `cluster-admin` âmbito.
+Este artigo demonstra a aplicação de configurações num aglomerado de Kubernetes ativado pelo Arco Azure. Uma visão conceptual do mesmo pode ser encontrada [aqui.](./conceptual-configurations.md)
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Verifique se tem um aglomerado ligado a Kubernetes ativado por Azure Arc. Se precisar de um cluster ligado, consulte o arranque rápido do [cluster de kubernetes ativado por Um Arco Azure.](./connect-cluster.md)
+* Verifique se tem um aglomerado ligado a Kubernetes ativado por Azure Arc. Se precisar de um cluster ligado, consulte o arranque rápido do [cluster de kubernetes ativado por Um Arco Azure.](./connect-cluster.md)
+
+* Reveja as [Configurações e GitOps com o artigo Da Arc for Kubernetes](./conceptual-configurations.md) para entender os benefícios e arquitetura desta funcionalidade.
 
 ## <a name="create-a-configuration"></a>Criar uma configuração
 
 O [repositório de exemplo](https://github.com/Azure/arc-k8s-demo) utilizado neste artigo é estruturado em torno da persona de um operador de cluster que gostaria de fornecer alguns espaços de nome, implementar uma carga de trabalho comum, e fornecer alguma configuração específica da equipa. A utilização deste repositório cria os seguintes recursos no seu cluster:
-
 
 * **Espaços de nome:** `cluster-config` `team-a` , `team-b`
 * **Implantação:**`cluster-config/azure-vote`
@@ -249,7 +229,7 @@ Quando um `sourceControlConfiguration` é criado ou atualizado, algumas coisas a
 
 Enquanto o processo de provisionamento acontece, o `sourceControlConfiguration` irá mover-se através de algumas mudanças de estado. Monitorize o progresso com o `az k8sconfiguration show ...` comando acima:
 
-| Mudança de palco | Description |
+| Mudança de palco | Descrição |
 | ------------- | ------------- |
 | `complianceStatus`-> `Pending` | Representa os estados iniciais e em curso. |
 | `complianceStatus` -> `Installed`  | `config-agent` foi capaz de configurar com sucesso o cluster e implementar `flux` sem erros. |

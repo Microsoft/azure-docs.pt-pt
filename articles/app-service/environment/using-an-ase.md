@@ -4,15 +4,15 @@ description: Aprenda a criar, publicar e escalar aplicações num Ambiente de Se
 author: ccompy
 ms.assetid: a22450c4-9b8b-41d4-9568-c4646f4cf66b
 ms.topic: article
-ms.date: 5/10/2020
+ms.date: 9/22/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: e4653419d974db2e597111487c64682c75ffc40b
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.openlocfilehash: e8cc42500b9d8bfc507683b5cc96c7b12f95909b
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97826006"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100548459"
 ---
 # <a name="use-an-app-service-environment"></a>Utilizar um Ambiente do Serviço de Aplicações
 
@@ -201,7 +201,7 @@ Para criar um alerta contra os seus registos, siga as instruções em [Criar, ve
 * Abra a página Alertas no seu portal ASE
 * Selecione **nova regra de alerta**
 * Selecione o seu Recurso para ser o seu espaço de trabalho Log Analytics
-* Desafie a sua condição com uma pesquisa de registo personalizado para usar uma consulta como, "AppServiceEnvironmentPlatformLogs [ onde a ResultaDescription contém "começou a escalonar" ou o que quiser. Desa estale o limiar conforme apropriado. 
+* Desafie a sua condição com uma pesquisa de registo personalizado para usar uma consulta como: "AppServiceEnvironmentPlatformLogs | onde a ResultaDescription contém "começou a escalonar" ou o que quiser. Desa estale o limiar conforme apropriado. 
 * Adicione ou crie um grupo de ação conforme desejado. O grupo de ação é onde define a resposta ao alerta, como o envio de um e-mail ou uma mensagem SMS
 * Diga o seu alerta e guarde-o.
 

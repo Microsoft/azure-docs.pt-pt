@@ -12,12 +12,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 02/01/2021
 ms.author: juliako
-ms.openlocfilehash: c0d332c00635444ab4d694e46486a498b43137f2
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: a6b1fc5adba166aa15a786d3440be1eca7f0a260
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99427668"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100560517"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Notas de lançamento do Azure Media Services Video Indexer
 
@@ -67,7 +67,7 @@ Poderá inscrever-se e iniciar seduca através de um destes fornecedores: Azure 
 > [!NOTE]
 > As contas do Video Indexer ligadas ao LinkedIn e ao Facebook não estarão acessíveis a partir de 1 de março de 2021. 
 > 
-> Deve [convidar](invite-users.md) um AD AZure, Microsoft ou Google e-mail que possui para a conta do Índice de Vídeo para que ainda tenha acesso.<br/>
+> Deve [convidar](invite-users.md) um AD AZure, Microsoft ou Google e-mail que possui para a conta do Índice de Vídeo para que ainda tenha acesso. Pode adicionar um proprietário adicional de fornecedores apoiados, como descrito no [convite.](invite-users.md) <br/>
 > Em alternativa, pode criar uma conta paga e migrar os dados.
 
 ## <a name="august-2020"></a>Agosto de 2020

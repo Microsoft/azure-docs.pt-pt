@@ -1,14 +1,14 @@
 ---
 title: Atualizar uma delegação
 description: Saiba como atualizar uma delegação para um cliente previamente a bordo do Farol de Azure.
-ms.date: 12/03/2020
+ms.date: 02/16/2021
 ms.topic: how-to
-ms.openlocfilehash: eec5d1f2d34e8e3c9e0ded59cb111624b1981873
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: f0ed5222cdbac3d0e4d193941c2a6f233d15938c
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98791344"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100555771"
 ---
 # <a name="update-a-delegation"></a>Atualizar uma delegação
 
@@ -48,7 +48,7 @@ Se estiver a atualizar a oferta para ajustar apenas as autorizações e manter o
 A remoção do acesso à delegação pode ser feita por qualquer utilizador do inquilino gerente a quem foi concedido o [Papel de Registo de Registo de Serviços Geridos](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) na delegação original. Se nenhum utilizador no seu inquilino de gestão tiver esta função, pode pedir ao cliente que [remova o acesso à oferta no portal Azure.](view-manage-service-providers.md#add-or-remove-service-provider-offers)
 
 > [!TIP]
-> Se retirou a delegação anterior seguindo os passos acima e ainda não conseguiu implementar o novo modelo ARM, poderá ter de [remover completamente a definição de registo](/powershell/module/az.managedservices/remove-azmanagedservicesdefinition). Isto pode ser feito por qualquer utilizador com a função proprietário no inquilino do cliente.  
+> Se retirou a delegação anterior seguindo os passos acima e ainda não conseguiu implementar o novo modelo ARM, poderá ter de [remover completamente a definição de registo](/powershell/module/az.managedservices/remove-azmanagedservicesdefinition). Isto pode ser feito por qualquer utilizador com uma função que tenha a `Microsoft.Authorization/roleAssignments/write` permissão, como [o Proprietário,](../../role-based-access-control/built-in-roles.md#owner)no arrendatário do cliente.  
 
 ## <a name="deploy-the-arm-template"></a>Implementar o modelo do Resource Manager
 
@@ -65,7 +65,7 @@ Se quiser mudar o inquilino gerente, terá de [criar e publicar uma nova oferta 
 > [!TIP]
 > Como mencionado anteriormente, recomendamos que não utilize várias ofertas diferentes entre o mesmo cliente e o inquilino gerente. Se publicar uma nova oferta para o mesmo cliente que utiliza o mesmo inquilino gerente, certifique-se de que a oferta anterior é removida antes de o cliente aceitar a oferta mais recente.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Ver e gerir clientes](view-manage-customers.md) indo para **os meus clientes** no portal Azure.
 - Saiba como [remover o acesso a uma delegação](remove-delegation.md) que estava previamente a bordo.

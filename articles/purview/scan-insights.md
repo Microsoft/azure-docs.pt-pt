@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/20/2020
-ms.openlocfilehash: 00f72e1de230cdc68f86010b7b25d86debaa5eb5
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 7807659a30127f39bb79ad99bdb733c12eb1d25d
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96575793"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100548696"
 ---
 # <a name="scan-insights-on-your-data-in-azure-purview"></a>Digitalize informações sobre os seus dados em Azure Purview
 
@@ -37,7 +37,7 @@ Para obter mais informações, consulte [Gerir fontes de dados em Azure Purview 
 
 No Azure Purview, pode registar e digitalizar tipos de origem. Pode ver o estado da digitalização ao longo do tempo em Insights de Digitalização. Os insights dizem-lhe quantos exames falharam, conseguiram ou foram cancelados num determinado período de tempo.
 
-### <a name="view-scan-insights"></a>Ver insights de digitalização
+### <a name="view-scan-insights"></a>Ver informações das análises
 
 1. Vá ao ecrã de instância **do Azure Purview** no portal Azure e selecione a sua conta 'Purview'.
 
@@ -51,15 +51,27 @@ No Azure Purview, pode registar e digitalizar tipos de origem. Pode ver o estado
 
 1. Na área **de Insights,** :::image type="icon" source="media/scan-insights/ico-insights.png" border="false"::: selecione **Scans** para exibir o relatório de insights de verificação de **competências.**
 
-### <a name="view-high-level-kpis-to-show-count-of-scans-by-status"></a>Ver KPI's de alto nível para mostrar a contagem de digitalizações por estado
+### <a name="view-high-level-kpis-to-show-count-of-scans-by-status-and-deep-dive-into-each-scan"></a>Ver KPI's de alto nível para mostrar a contagem de digitalizações por estado e mergulho profundo em cada digitalização
  
-Os KPI's de alto nível mostram que os exames totais são executados dentro de um período. O período de tempo é incumprido no final de 30 dias. No entanto, também pode selecionar os últimos sete dias. Com base no filtro de tempo, os valores do KPI refletem a contagem de digitalizações adequadamente.
+1. Os KPI's de alto nível mostram que os exames totais são executados dentro de um período. O período de tempo é incumprido no final de 30 dias. No entanto, também pode selecionar os últimos sete dias. Com base no filtro de tempo, os valores do KPI refletem a contagem de digitalizações adequadamente.
 
 
-Com base no valor do filtro de tempo selecionado, pode ver a distribuição de digitalizações bem sucedidas, falhadas e canceladas por semana ou durante o dia no gráfico.
+1. Com base no valor do filtro de tempo selecionado, pode ver a distribuição de digitalizações bem sucedidas, falhadas e canceladas por semana ou durante o dia no gráfico.
 
-   :::image type="content" source="./media/scan-insights/scan-insights.png" alt-text="Ver Insights de digitalização":::
+1. Na parte inferior do gráfico, existe uma ligação **para ver mais** para explorar mais. O link abre a página  **'Scan Status'** dentro da experiência Scan Insights. Aqui pode ver um nome de digitalização e o número de vezes que conseguiu, falhou ou foi cancelado nos últimos 30 dias.
+
+    :::image type="content" source="./media/scan-insights/main-graph.png" alt-text="Ver Estado de digitalização ao longo do tempo":::
+
+4. Pode explorar uma digitalização específica, clicando no nome da **digitalização** que o ligará ao histórico de digitalização dentro da experiência **Sources** do Azure Purview. A partir da página de história da execução, você pode obter a identificação de execução que ajudará em mais investigação de falhas.
+
+    :::image type="content" source="./media/scan-insights/scan-status.png" alt-text="Ver detalhes da digitalização":::
+
+5. Finalmente, pode voltar à página **de Estado do Scan Insights,** seguindo as migalhas de pão no canto superior esquerdo da página de histórico de execução.
+
+    :::image type="content" source="./media/scan-insights/scan-history.png" alt-text="Veja o histórico de análises"::: 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre os relatórios de insight da Azure Purview com [a Asset Insights](./asset-insights.md)
+* Saiba mais sobre a Azure Purview **Insights** com [Data Insights](./concept-insights.md)
+
+* Saiba mais sobre a experiência **Azure** Purview's Sources com [Gerir fontes de dados](./manage-data-sources.md)

@@ -1,40 +1,35 @@
 ---
-title: Adicione ou remova atribuições de funções Azure usando a API REST - Azure RBAC
+title: Atribuir funções Azure utilizando a API REST - Azure RBAC
 description: Saiba como conceder acesso aos recursos Azure para utilizadores, grupos, principais serviços ou identidades geridas utilizando o controlo de acesso baseado em funções REST API e Azure (Azure RBAC).
 services: active-directory
 documentationcenter: na
 author: rolyon
 manager: mtillman
-editor: ''
-ms.assetid: 1f90228a-7aac-4ea7-ad82-b57d222ab128
 ms.service: role-based-access-control
 ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: how-to
-ms.date: 05/06/2020
+ms.date: 02/15/2021
 ms.author: rolyon
-ms.reviewer: bagovind
-ms.openlocfilehash: e4f230663e0eeddcf874c24e5041653f241f481c
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.openlocfilehash: d012173adb5e238282e107b832ed9c6895237e48
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97964274"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100556065"
 ---
-# <a name="add-or-remove-azure-role-assignments-using-the-rest-api"></a>Utilizar a API REST para adicionar ou remover atribuições de funções do Azure
+# <a name="assign-azure-roles-using-the-rest-api"></a>Atribuir funções Azure utilizando a API REST
 
 [!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control/definition-grant.md)] Este artigo descreve como atribuir funções usando a API REST.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para adicionar ou remover atribuições de funções, você deve ter:
+[!INCLUDE [Azure role assignment prerequisites](../../includes/role-based-access-control/prerequisites-role-assignments.md)]
 
-- `Microsoft.Authorization/roleAssignments/write` e `Microsoft.Authorization/roleAssignments/delete` permissões, tais como [Administrador de Acesso ao Utilizador](built-in-roles.md#user-access-administrator) ou [Proprietário](built-in-roles.md#owner)
+## <a name="assign-an-azure-role"></a>Atribuir um papel Azure
 
-## <a name="add-a-role-assignment"></a>Adicionar uma atribuição de função
-
-No Azure RBAC, para conceder acesso, adiciona-se uma atribuição de papéis. Para adicionar uma atribuição de funções, utilize as [Atribuições de Função - Crie](/rest/api/authorization/roleassignments/create) a API REST e especifique o principal de segurança, definição de função e âmbito. Para chamar a isto API, você deve ter acesso à `Microsoft.Authorization/roleAssignments/write` operação. Das funções incorporadas, apenas [o Proprietário](built-in-roles.md#owner) e o Administrador de Acesso ao [Utilizador](built-in-roles.md#user-access-administrator) têm acesso a esta operação.
+Para atribuir uma função, utilize as [Atribuições de Função - Crie](/rest/api/authorization/roleassignments/create) a API REST e especifique o principal de segurança, definição de função e âmbito. Para chamar a isto API, você deve ter acesso à `Microsoft.Authorization/roleAssignments/write` operação. Das funções incorporadas, apenas [o Proprietário](built-in-roles.md#owner) e o Administrador de Acesso ao [Utilizador](built-in-roles.md#user-access-administrator) têm acesso a esta operação.
 
 1. Utilize as [Definições de Função - Liste](/rest/api/authorization/roledefinitions/list) API de REST ou consulte [funções incorporadas](built-in-roles.md) para obter o identificador para a definição de função que pretende atribuir.
 
@@ -109,55 +104,6 @@ O seguinte mostra um exemplo da saída:
         "createdOn": "2020-05-06T23:55:23.7679147Z",
         "updatedOn": "2020-05-06T23:55:23.7679147Z",
         "createdBy": null,
-        "updatedBy": "{updatedByObjectId1}"
-    },
-    "id": "/subscriptions/{subscriptionId1}/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentId1}",
-    "type": "Microsoft.Authorization/roleAssignments",
-    "name": "{roleAssignmentId1}"
-}
-```
-
-## <a name="remove-a-role-assignment"></a>Remover uma atribuição de função
-
-No Azure RBAC, para remover o acesso, remove-se uma atribuição de funções. Para remover uma atribuição de funções, utilize as [Atribuições de Funções - Eliminar](/rest/api/authorization/roleassignments/delete) a API REST. Para chamar a isto API, você deve ter acesso à `Microsoft.Authorization/roleAssignments/delete` operação. Das funções incorporadas, apenas [o Proprietário](built-in-roles.md#owner) e o Administrador de Acesso ao [Utilizador](built-in-roles.md#user-access-administrator) têm acesso a esta operação.
-
-1. Obtenha o identificador de atribuição de funções (GUID). Este identificador é devolvido quando cria a atribuição de funções pela primeira vez ou pode obtê-la listando as atribuições de funções.
-
-1. Comece com o seguinte pedido:
-
-    ```http
-    DELETE https://management.azure.com/{scope}/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentId}?api-version=2015-07-01
-    ```
-
-1. Dentro do URI, substitua *{scope}* com a margem para remover a atribuição de funções.
-
-    > [!div class="mx-tableFixed"]
-    > | Âmbito | Tipo |
-    > | --- | --- |
-    > | `providers/Microsoft.Management/managementGroups/{groupId1}` | Grupo de gestão |
-    > | `subscriptions/{subscriptionId1}` | Subscrição |
-    > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1` | Grupo de recursos |
-    > | `subscriptions/{subscriptionId1}/resourceGroups/myresourcegroup1/providers/microsoft.web/sites/mysite1` | Recurso |
-
-1. Substitua *{roleAssignmentId}* pelo identificador GUID da atribuição de funções.
-
-O seguinte pedido elimina a atribuição de funções especificada no âmbito da subscrição:
-
-```http
-DELETE https://management.azure.com/subscriptions/{subscriptionId1}/providers/microsoft.authorization/roleassignments/{roleAssignmentId1}?api-version=2015-07-01
-```
-
-O seguinte mostra um exemplo da saída:
-
-```json
-{
-    "properties": {
-        "roleDefinitionId": "/subscriptions/{subscriptionId1}/providers/Microsoft.Authorization/roleDefinitions/a795c7a0-d4a2-40c1-ae25-d81f01202912",
-        "principalId": "{objectId1}",
-        "scope": "/subscriptions/{subscriptionId1}",
-        "createdOn": "2020-05-06T23:55:24.5379478Z",
-        "updatedOn": "2020-05-06T23:55:24.5379478Z",
-        "createdBy": "{createdByObjectId1}",
         "updatedBy": "{updatedByObjectId1}"
     },
     "id": "/subscriptions/{subscriptionId1}/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentId1}",

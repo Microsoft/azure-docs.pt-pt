@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: tutorial
 ms.date: 10/13/2020
 ms.author: cherylmc
-ms.openlocfilehash: a7937745e839b54d9ee7b6f056d10ff627e191d3
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 54aca389ea56594b004212c1479d5cc2568a2527
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92327336"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100560882"
 ---
 # <a name="tutorial-configure-bastion-and-connect-to-a-windows-vm-through-a-browser"></a>Tutorial: Configurar Bastião e ligar-se a um Windows VM através de um browser
 

@@ -4,12 +4,12 @@ description: Saiba mais sobre os grupos de gestão, como as permissões destes f
 ms.date: 01/22/2021
 ms.topic: overview
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: e86501527ff68319fc8d2e942e7ffa977dcecbe6
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 547f26717bfb516bbcf531af1418c812e4cbc63b
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736327"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100560206"
 ---
 # <a name="what-are-azure-management-groups"></a>O que são os grupos de gestão do Azure?
 
@@ -202,7 +202,7 @@ Os grupos de gestão são suportados no [Registo de Atividades do Azure](../../a
 
 Quando quiser consultar Grupos de Gestão fora do portal do Azure, o âmbito de destino dos grupos de gestão é semelhante a **"/ providers/Microsoft.Management/managementGroups/{yourMgID}"**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre os grupos de gestão, veja:
 

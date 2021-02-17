@@ -4,18 +4,18 @@ description: Explica como adicionar, modificar, monitorizar e eliminar volumes S
 author: alkohli
 ms.service: storsimple
 ms.topic: how-to
-ms.date: 12/08/2017
+ms.date: 12/09/2017
 ms.author: alkohli
-ms.openlocfilehash: a8fcadb8bdd4862dd95625228e3c190e5fe19a9a
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 3d649b54b544c120198963f8094764e9590e20b2
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91961685"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100547641"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-volumes-update-3-or-later"></a>Utilize o serviço StorSimple Device Manager para gerir volumes (atualização 3 ou posterior)
 
-## <a name="overview"></a>Overview (Descrição geral)
+## <a name="overview"></a>Descrição Geral
 
 Este tutorial explica como utilizar o serviço StorSimple Device Manager para criar e gerir volumes nos dispositivos da série StorSimple 8000 que executam o Update 3 e posteriormente.
 
@@ -64,7 +64,7 @@ Consulte o quadro seguinte para obter a capacidade máxima a provisionada para c
 
 A lâmina **Volumes** permite-lhe gerir os volumes de armazenamento que são a provisionados no dispositivo Microsoft Azure StorSimple para os seus iniciadores (servidores). Apresenta a lista de volumes nos dispositivos StorSimple ligados ao seu serviço.
 
- ![Página de volumes](./media/storsimple-8000-manage-volumes-u2/volumeslist.png)
+ ![Página de volumes](./media/storsimple-8000-manage-volumes-u2/volumes-list.png)
 
 Um volume consiste numa série de atributos:
 
@@ -90,7 +90,7 @@ Utilize as instruções deste tutorial para executar as seguintes tarefas:
 
 1. A partir da lista tabular de dispositivos no painel **Dispositivos**, selecione o seu dispositivo. Clique em **+ Adicionar volume**.
 
-    ![Adicionar um novo volume](./media/storsimple-8000-manage-volumes-u2/step5createvol1.png)
+    ![Adicionar um novo volume](./media/storsimple-8000-manage-volumes-u2/add-volume-01.png)
 
 2. No painel **Adicionar um volume**:
    
@@ -112,11 +112,13 @@ Utilize as instruções deste tutorial para executar as seguintes tarefas:
       
        Se aprovisionar um volume localmente afixado de 8,5 TB (tamanho máximo admissível) no dispositivo 8100, terá esgotado todo o espaço local disponível no dispositivo. Não pode criar nenhum volume escalonado a partir desse ponto, uma vez que não há espaço local no dispositivo para alojar o conjunto de trabalho do volume escalonado. Os volumes em camadas existentes também afetam o espaço disponível. Por exemplo, se tiver um dispositivo 8100 que já tem volumes em camadas de, aproximadamente, 106 TB, está disponível apenas um espaço de 4 TB para volumes afixados localmente.
 
-    6. No campo **Anfitriões ligados**, clique na seta. Na lâmina dos **anfitriões ligados,** escolha um ACR existente ou adicione um novo ACR. Se escolher um novo ACR, em seguida, forneça um **Nome** para o seu ACR, forneça o **nome qualificado iSCSI** (IQN) do seu anfitrião Windows. Se não tiver o IQN, veja Get the IQN of a Windows Server host (Obter o IQN de um anfitrião do Windows Server). Clique em **Criar**. É criado um volume com as definições especificadas.
+    6. No campo **de anfitriões ligados,** clique na seta e, em seguida, selecione cada ACR que pretende ligar. Na lâmina dos **anfitriões ligados,** escolha um ACR existente ou adicione um novo ACR. Se escolher um novo ACR, em seguida, forneça um **Nome** para o seu ACR, forneça o **nome qualificado iSCSI** (IQN) do seu anfitrião Windows. Se não tiver o IQN, veja Get the IQN of a Windows Server host (Obter o IQN de um anfitrião do Windows Server).<!--Please verify: Is new ACR capability still available? Are the labels and controls the same?--> 
 
-        ![Clique em Criar](./media/storsimple-8000-manage-volumes-u2/step5createvol3.png)
+        ![Adicione um anfitrião conectado](./media/storsimple-8000-manage-volumes-u2/add-volume-02.png)<!--New graphic. Source: add-volume-connected host-->
 
-O seu novo volume está agora pronto a ser utilizado.
+   7. Quando terminar as definições, clique em **Criar**. 
+
+      É criado um volume com as definições especificadas. O seu novo volume está pronto a ser utilizado.
 
 > [!NOTE]
 > Se criar um volume fixado localmente e, em seguida, criar outro volume fixado localmente imediatamente depois, os empregos de criação de volume funcionam sequencialmente. O primeiro emprego de criação de volume deve terminar antes do próximo trabalho de criação de volume.
@@ -133,19 +135,19 @@ Modifique um volume quando precisar de expandi-lo ou alterar os anfitriões que 
 
 1. Aceda ao seu serviço do Gestor de Dispositivos do StorSimple e clique em **Dispositivos**. A partir da listagem tabular dos dispositivos, selecione o dispositivo que tem o volume que pretende modificar. Clique **em Definições > Volumes**.
 
-    ![Vá para a lâmina volumes](./media/storsimple-8000-manage-volumes-u2/modifyvol2.png)
+    ![Vá para a lâmina volumes](./media/storsimple-8000-manage-volumes-u2/modify-volume-02.png)
 
 2. A partir da listagem tabular de volumes, selecione o volume e o clique direito para invocar o menu de contexto. **Selecione Desativar** para tirar o volume que irá modificar offline.
 
-    ![Selecione e tire o volume offline](./media/storsimple-8000-manage-volumes-u2/modifyvol4.png)
+    ![Selecione e tire o volume offline](./media/storsimple-8000-manage-volumes-u2/modify-volume-04.png)
 
 3. Na lâmina **offline Take,** reveja o impacto de tirar o volume offline e selecione a caixa de verificação correspondente. Certifique-se de que o volume correspondente no hospedeiro está offline primeiro. Para obter informações sobre como retirar um volume offline no servidor anfitrião ligado ao StorSimple, consulte instruções específicas do sistema operativo. Clique **em Tirar offline**.
 
-    ![Revisão do impacto de tirar volume offline](./media/storsimple-8000-manage-volumes-u2/modifyvol5.png)
+    ![Revisão do impacto de tirar volume offline](./media/storsimple-8000-manage-volumes-u2/modify-volume-05.png)
 
 4. Depois de o volume estar offline (como mostra o estado do volume), selecione o volume e o clique direito para invocar o menu de contexto. Selecione **Alterar volume**.
 
-    ![Selecione o volume de modificação](./media/storsimple-8000-manage-volumes-u2/modifyvol9.png)
+    ![Selecione o volume de modificação](./media/storsimple-8000-manage-volumes-u2/modify-volume-09.png)
 
 
 5. Na lâmina de **volume Modificar,** pode escoar as seguintes alterações:
@@ -155,11 +157,11 @@ Modifique um volume quando precisar de expandi-lo ou alterar os anfitriões que 
    3. Aumentar a **Capacidade Provisiiva.** A **Capacidade Provisão** só pode ser aumentada. Não é possível encolher um volume depois de criado.
    4. Em **anfitriões ligados,** pode modificar o ACR. Para modificar um ACR, o volume deve estar offline.
 
-       ![Revisão do impacto de tirar volume offline 2](./media/storsimple-8000-manage-volumes-u2/modifyvol11.png)
+       ![Revisão do impacto de tirar volume offline 2](./media/storsimple-8000-manage-volumes-u2/modify-volume-11.png)<!--Legacy screen doesn't match step. New graphic needed?-->
 
-5. Clique em **Guardar** para guardar as alterações. Quando lhe for pedida a confirmação, clique em **Sim**. O portal Azure apresentará uma mensagem de volume atualizada. Apresentará uma mensagem de sucesso quando o volume tiver sido atualizado com sucesso.
+6. Clique em **Guardar** para guardar as alterações. Quando lhe for pedida a confirmação, clique em **Sim**. O portal Azure apresentará uma mensagem de volume atualizada. Apresentará uma mensagem de sucesso quando o volume tiver sido atualizado com sucesso.
 
-    ![Revisão do impacto de tirar volume offline 3](./media/storsimple-8000-manage-volumes-u2/modifyvol5.png)
+    ![Revisão do impacto de tirar volume offline 3](./media/storsimple-8000-manage-volumes-u2/modify-volume-05.png)<!--Updated graphic. Source: modify-volume-save-->
 
 7. Se estiver a expandir um volume, complete os seguintes passos no seu computador anfitrião Windows:
    
@@ -215,11 +217,11 @@ Pode querer alterar um volume fixado localmente para um volume hierarquizado se 
 
 1. Aceda ao seu serviço do Gestor de Dispositivos do StorSimple e clique em **Dispositivos**. A partir da listagem tabular dos dispositivos, selecione o dispositivo que tem o volume que pretende modificar. Clique **em Definições > Volumes**.
 
-    ![Ir para volumes lâmina 2](./media/storsimple-8000-manage-volumes-u2/modifyvol2.png)
+    ![Ir para volumes lâmina 2](./media/storsimple-8000-manage-volumes-u2/modify-volume-02.png)
 
 3. A partir da listagem tabular de volumes, selecione o volume e o clique direito para invocar o menu de contexto. Selecione **Modificar**.
 
-    ![Selecione modificar a partir do menu de contexto](./media/storsimple-8000-manage-volumes-u2/changevoltype2.png)
+    ![Selecione modificar a partir do menu de contexto](./media/storsimple-8000-manage-volumes-u2/change-volume-type-02.png)
 
 4. Na lâmina de **volume modificar,** altere o tipo de volume selecionando o novo tipo da lista de drop-down **do tipo.**
    
@@ -227,15 +229,15 @@ Pode querer alterar um volume fixado localmente para um volume hierarquizado se 
    * Se estiver a alterar o tipo para **Tiered** e este volume for utilizado para dados de arquivo, selecione o Utilizar este volume para caixa de verificação de **dados de arquivo com menos acesso frequente.**
    * Se estiver a configurar um volume fixado localmente como hierarquizado ou _vice-versa,_ aparece a seguinte mensagem.
    
-     ![Alterar mensagem de tipo de volume](./media/storsimple-8000-manage-volumes-u2/changevoltype3.png)
+     ![Alterar mensagem de tipo de volume](./media/storsimple-8000-manage-volumes-u2/change-volume-type-03.png)
 
 7. Clique em **Guardar** para guardar as alterações. Quando solicitado para confirmação, clique em **Sim** para iniciar o processo de conversão. 
 
-    ![Guardar e confirmar](./media/storsimple-8000-manage-volumes-u2/modifyvol11.png)
+    ![Guardar e confirmar](./media/storsimple-8000-manage-volumes-u2/modify-volume-11.png)
 
 8. O portal Azure apresenta uma notificação para a criação de emprego que atualizaria o volume. Clique na notificação para monitorizar o estado da função de conversão de volume.
 
-    ![Trabalho para conversão de volume](./media/storsimple-8000-manage-volumes-u2/changevoltype5.png)
+    ![Trabalho para conversão de volume](./media/storsimple-8000-manage-volumes-u2/change-volume-type-05.png)
 
 ## <a name="take-a-volume-offline"></a>Desative o volume
 
@@ -249,15 +251,15 @@ Pode ter de desligar um volume quando estiver a planear modificar ou eliminar o 
    
     1. Aceda ao seu serviço do Gestor de Dispositivos do StorSimple e clique em **Dispositivos**. A partir da listagem tabular dos dispositivos, selecione o dispositivo que tem o volume que pretende modificar. Clique **em Definições > Volumes**.
 
-        ![Ir para volumes lâmina 3](./media/storsimple-8000-manage-volumes-u2/modifyvol2.png)
+        ![Ir para volumes lâmina 3](./media/storsimple-8000-manage-volumes-u2/modify-volume-02.png)
 
     2. A partir da listagem tabular de volumes, selecione o volume e o clique direito para invocar o menu de contexto. **Selecione Desativar** para tirar o volume que irá modificar offline.
 
-        ![Selecione e tire o volume offline](./media/storsimple-8000-manage-volumes-u2/modifyvol4.png)
+        ![Selecione e tire o volume offline](./media/storsimple-8000-manage-volumes-u2/modify-volume-04.png)
 
 3. Na lâmina **offline Take,** reveja o impacto de tirar o volume offline e selecione a caixa de verificação correspondente. Clique **em Tirar offline**. 
 
-    ![Revisão do impacto de tirar volume offline 4](./media/storsimple-8000-manage-volumes-u2/modifyvol5.png)
+    ![Revisão do impacto de tirar volume offline 4](./media/storsimple-8000-manage-volumes-u2/modify-volume-05.png)
       
       É notificado quando o volume está offline. O estado do volume também atualiza para offline.
       
@@ -277,20 +279,20 @@ Preencha os seguintes passos para eliminar um volume.
 
 1. Aceda ao seu serviço do Gestor de Dispositivos do StorSimple e clique em **Dispositivos**. A partir da listagem tabular dos dispositivos, selecione o dispositivo que tem o volume que pretende modificar. Clique **em Definições > Volumes**.
 
-    ![Ir para volumes lâmina 4](./media/storsimple-8000-manage-volumes-u2/modifyvol2.png)
+    ![Ir para volumes lâmina 4](./media/storsimple-8000-manage-volumes-u2/modify-volume-02.png)
 
 3. Verifique o estado do volume que pretende eliminar. Se o volume que pretende eliminar não estiver offline, desative-o primeiro. Siga os passos em [Tirar um volume offline](#take-a-volume-offline).
 4. Depois de o volume estar offline, selecione o volume, clique com o botão direito para invocar o menu de contexto e, em seguida, selecione **Delete**.
 
-    ![Selecione excluir do menu de contexto](./media/storsimple-8000-manage-volumes-u2/deletevol1.png)
+    ![Selecione excluir do menu de contexto](./media/storsimple-8000-manage-volumes-u2/delete-volume-01.png)
 
 5. Na lâmina **Eliminar,** reveja e selecione a caixa de verificação contra o impacto de eliminar um volume. Quando se apaga um volume, todos os dados que residem no volume perdem-se. 
 
-    ![Guardar e confirmar alterações](./media/storsimple-8000-manage-volumes-u2/deletevol2.png)
+    ![Guardar e confirmar alterações](./media/storsimple-8000-manage-volumes-u2/delete-volume-02.png)
 
 6. Após a eliminação do volume, a lista tabular de atualizações de volumes indica a eliminação.
 
-    ![Lista de volume atualizada](./media/storsimple-8000-manage-volumes-u2/deletevol3.png)
+    ![Lista de volume atualizada](./media/storsimple-8000-manage-volumes-u2/delete-volume-03.png)
    
    > [!NOTE]
    > Se eliminar um volume fixado localmente, o espaço disponível para novos volumes pode não ser atualizado imediatamente. O Serviço de Gestor de Dispositivos StorSimple atualiza periodicamente o espaço local disponível. Sugerimos que espere alguns minutos antes de tentar criar o novo volume.
@@ -313,7 +315,7 @@ Execute os seguintes passos para ativar ou desativar a monitorização para um v
 2. A partir da listagem tabular de volumes, selecione o volume e o clique direito para invocar o menu de contexto. Selecione **Modificar**.
 3. Na lâmina **de volume modificar,** para **selecionar a monitorização,** **ative** ou **desative** a monitorização para ativar ou desativar.
 
-    ![Desativar a monitorização](./media/storsimple-8000-manage-volumes-u2/monitorvol1.png) 
+    ! [Monitorização de desativação] (../media/storsimple-8000-manage-volumes-u2/monitor-volume-0 1.png) 
 
 4. Clique **em Guardar** e quando solicitado para confirmação, clique em **Sim**. O portal Azure apresenta uma notificação para atualizar o volume e, em seguida, uma mensagem de sucesso, depois de o volume ser atualizado com sucesso.
 

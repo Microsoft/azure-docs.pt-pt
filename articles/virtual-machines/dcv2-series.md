@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/20/2020
 ms.author: jushiman
-ms.openlocfilehash: fecd707d96b03eef4f093c0b256e32f11bb8a3f7
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 84987b12657a37264d3a1ca67fdc423ed8085662
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99095861"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100557901"
 ---
 # <a name="dcsv2-series"></a>Série DCsv2
 
@@ -21,15 +21,15 @@ A série DCsv2 pode ajudar a proteger a confidencialidade e integridade dos seus
 
 Os casos de uso de exemplo incluem: partilha de dados multipartidários confidenciais, deteção de fraudes, branqueamento de capitais, blockchain, análise de uso confidencial, análise de inteligência e aprendizagem de máquinas confidenciais.
 
-[Armazenamento Premium](premium-storage-performance.md): Suportado*<br>
-[Caching premium armazenamento](premium-storage-performance.md): Suportado<br>
-[Migração ao Vivo](maintenance-and-updates.md): Não Suportado<br>
-[Atualizações de preservação da memória](maintenance-and-updates.md): Não suportado<br>
-[Suporte vm geração](generation-2.md): Geração 2<br>
-[Rede Acelerada](../virtual-network/create-vm-accelerated-networking-cli.md): Suportado<br>
+[Armazenamento Premium](premium-storage-performance.md): Armazenamento Premium suportado *<br> 
+ [:](premium-storage-performance.md)Migração ao vivo suportada : Atualizações de <br> 
+ [](maintenance-and-updates.md)preservação da memória não suportadas <br> 
+ [](maintenance-and-updates.md): Suporte de geração VM não suportado <br> 
+ [](generation-2.md): Geração 2 <br> 
+ [Rede Acelerada](../virtual-network/create-vm-accelerated-networking-cli.md): Suportada (* Requer um mínimo de 4 vCPU*) <br>
 [Discos EFÉMEROS](ephemeral-os-disks.md): Suportados <br>
 
-*Exceto por Standard_DC8_v2
+*Exceto por Standard_DC8_v2 <br>
 
 | Tamanho             | vCPU | Memória: GiB | Armazenamento (SSD) temporário GiB | Discos de dados máximos | Débito máximo do armazenamento temporário e em cache: IOPS/MBps (tamanho da cache em GiB) | Max NICs / Largura de banda de rede esperada (MBps) | Memória EPC (MiB) |
 |------------------|------|-------------|------------------------|----------------|-------------------------------------------------------------------------|----------------------------------------------|---------------------|

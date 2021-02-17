@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: quickstart
-ms.date: 03/12/2020
+ms.date: 02/15/2021
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: 83cf8840ffb9d123efa88d4acc304c8af4db5bf8
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: cb4995c0c71d0bcebb3cdd8ec471a92b7820cb9d
+ms.sourcegitcommit: b513b0becf878eb9a1554c26da53aa48d580bb22
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100102466"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100535166"
 ---
 # <a name="quickstart-set-up-a-tenant"></a>Início Rápido: Configurar um inquilino
 
