@@ -1,5 +1,5 @@
 ---
-title: Guia de resolução de problemas para Azure Spring Cloud Microsoft Docs
+title: Guia de resolução de problemas para Azure Spring Cloud | Microsoft Docs
 description: Guia de resolução de problemas para Azure Spring Cloud
 author: bmitchell287
 ms.service: spring-cloud
@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 09415c47432f71310b10c86390c10e55f1ccc4b2
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 9350b5dbcedd2773e94ef9d35cfe26f97fbd97bc
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498613"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100571602"
 ---
 # <a name="troubleshoot-common-azure-spring-cloud-issues"></a>Resolução de problemas problemas comuns da Nuvem de primavera de Azure
 
@@ -66,7 +66,7 @@ Quando estiver a depurar falhas de aplicação, comece por verificar o estado de
 
 
 
-Para saber mais sobre o Azure Log Analytics, consulte [Começar com o Log Analytics no Azure Monitor.](../azure-monitor/log-query/log-analytics-tutorial.md)
+Para saber mais sobre o Azure Log Analytics, consulte [Começar com o Log Analytics no Azure Monitor.](../azure-monitor/logs/log-analytics-tutorial.md)
 
 ### <a name="my-application-experiences-high-cpu-usage-or-high-memory-usage"></a>A minha aplicação tem uma elevada utilização da CPU ou da memória
 
@@ -88,7 +88,7 @@ Para obter mais informações, consulte [métricas para Azure Spring Cloud](spri
 
 Se todas as instâncias estiverem em funcionamento, vá ao Azure Log Analytics para consultar os registos da sua aplicação e rever a sua lógica de código. Isto irá ajudá-lo a ver se algum deles pode afetar a divisória em escala. Para obter mais informações, consulte [os registos e métricas com as definições de diagnóstico](diagnostic-services.md).
 
-Para saber mais sobre o Azure Log Analytics, consulte [Começar com o Log Analytics no Azure Monitor.](../azure-monitor/log-query/log-analytics-tutorial.md) Consultar os registos utilizando o [idioma de consulta kusto](/azure/kusto/query/).
+Para saber mais sobre o Azure Log Analytics, consulte [Começar com o Log Analytics no Azure Monitor.](../azure-monitor/logs/log-analytics-tutorial.md) Consultar os registos utilizando o [idioma de consulta kusto](/azure/kusto/query/).
 
 ### <a name="checklist-for-deploying-your-spring-application-to-azure-spring-cloud"></a>Lista de verificação para implementar a sua aplicação primavera para Azure Spring Cloud
 
@@ -163,7 +163,7 @@ Se estiver a migrar uma solução baseada em Nuvem de primavera para o Azure, ce
 
 Também pode verificar os registos de clientes _do Registo de Serviço_ no Azure Log Analytics. Para obter mais informações, consulte [os registos e métricas de análise com as definições de diagnóstico](diagnostic-services.md)
 
-Para saber mais sobre o Azure Log Analytics, consulte [Começar com o Log Analytics no Azure Monitor.](../azure-monitor/log-query/log-analytics-tutorial.md) Consultar os registos utilizando o [idioma de consulta kusto](/azure/kusto/query/).
+Para saber mais sobre o Azure Log Analytics, consulte [Começar com o Log Analytics no Azure Monitor.](../azure-monitor/logs/log-analytics-tutorial.md) Consultar os registos utilizando o [idioma de consulta kusto](/azure/kusto/query/).
 
 ### <a name="i-want-to-inspect-my-applications-environment-variables"></a>Quero inspecionar as variáveis ambientais da minha aplicação
 
@@ -223,7 +223,7 @@ Verifique se a `spring-boot-actuator` dependência está ativada no seu pacote d
 </dependency>
 ```
 
-Se os registos da sua aplicação puderem ser arquivados numa conta de armazenamento, mas não enviados para o Azure Log Analytics, verifique se [configura corretamente o seu espaço de trabalho](../azure-monitor/learn/quick-create-workspace.md). Se estiver a utilizar um nível gratuito de Azure Log Analytics, note que [o nível gratuito não fornece um acordo de nível de serviço (SLA)](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_3/).
+Se os registos da sua aplicação puderem ser arquivados numa conta de armazenamento, mas não enviados para o Azure Log Analytics, verifique se [configura corretamente o seu espaço de trabalho](../azure-monitor/logs/quick-create-workspace.md). Se estiver a utilizar um nível gratuito de Azure Log Analytics, note que [o nível gratuito não fornece um acordo de nível de serviço (SLA)](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_3/).
 
 ## <a name="next-steps"></a>Passos seguintes
 

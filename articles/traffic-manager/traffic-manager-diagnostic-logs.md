@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/25/2019
 ms.author: duau
-ms.openlocfilehash: f24a4a0d982ff78ca4d6726e950825ed2c784e67
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 0c1273f4a2025658520118ed843d90b3378a129f
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98184548"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100577886"
 ---
 # <a name="enable-resource-logging-in-azure-traffic-manager"></a>Permitir a sessão de registo de recursos no Azure Traffic Manager
 
@@ -64,14 +64,14 @@ Pode executar os comandos que seguem na [Azure Cloud Shell,](https://shell.azure
 
 ## <a name="traffic-manager-log-schema"></a>Esquema de registo do gestor de tráfego
 
-Todos os registos de recursos disponíveis através do Azure Monitor partilham um esquema comum de alto nível, com flexibilidade para cada serviço emitir propriedades únicas para os seus próprios eventos. Para esquemas de registos de recursos de alto nível, consulte [serviços, esquemas e categorias de registos de recursos Azure](../azure-monitor/platform/resource-logs-schema.md).
+Todos os registos de recursos disponíveis através do Azure Monitor partilham um esquema comum de alto nível, com flexibilidade para cada serviço emitir propriedades únicas para os seus próprios eventos. Para esquemas de registos de recursos de alto nível, consulte [serviços, esquemas e categorias de registos de recursos Azure](../azure-monitor/essentials/resource-logs-schema.md).
 
 A tabela seguinte inclui esquema de registos específico do recurso de perfil do Gestor de Tráfego Azure.
 
 |Nome do Campo|Tipo de Campo|Definição|Exemplo|
 |----|----|---|---|
-|Nome de ponto final|Cadeia|O nome do ponto final do Gestor de Tráfego cujo estado de saúde está a ser registado.|*myPrimaryEndpoint*|
-|Estado|Cadeia|O estado de saúde do ponto final do Gerente de Trânsito que foi sondado. O estado pode ser **para cima** ou **para baixo**.|**Cima**|
+|Nome de ponto final|String|O nome do ponto final do Gestor de Tráfego cujo estado de saúde está a ser registado.|*myPrimaryEndpoint*|
+|Estado|String|O estado de saúde do ponto final do Gerente de Trânsito que foi sondado. O estado pode ser **para cima** ou **para baixo**.|**Cima**|
 |||||
 
 ## <a name="next-steps"></a>Passos seguintes

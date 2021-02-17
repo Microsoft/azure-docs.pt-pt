@@ -3,12 +3,12 @@ title: Aprenda Azure Policy para Kubernetes
 description: Saiba como a Azure Policy usa o Rego e o Open Policy Agent para gerir clusters que executam Kubernetes em Azure ou no local.
 ms.date: 12/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: f25b64bc28535d125c7883f16c9e747d6250ca96
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 0aaf610cd5712ee195ed2a4108cf9e5ca9c65183
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98789743"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100577099"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters"></a>Compreender o Azure Policy para clusters do Kubernetes
 
@@ -27,7 +27,7 @@ A Azure Policy for Kubernetes suporta os seguintes ambientes de cluster:
 > [!IMPORTANT]
 > Os addons para AKS Engine e Arc ativados Kubernetes estão em **pré-visualização**. A Azure Policy for Kubernetes suporta apenas piscinas de nól de Linux e definições políticas incorporadas. As definições políticas incorporadas estão na categoria **Kubernetes.** As definições de política de pré-visualização limitadas com o efeito **EnforceOPAConstraint** e **EnforceRegoPolicy** e a categoria **de Serviço Kubernetes conexa** são _depreciadas._ Em vez disso, utilize a _auditoria_ de efeitos e _negue_ com o modo Fornecedor de Recursos `Microsoft.Kubernetes.Data` .
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Para ativar e utilizar a Política Azure com o seu cluster Kubernetes, tome as seguintes ações:
 
@@ -447,7 +447,7 @@ Outras considerações:
 ## <a name="logging"></a>Registo
 
 Como controlador/contentor Kubernetes, tanto as cápsulas _de política_ azul como de _gatekeeper_ mantêm registos no cluster Kubernetes. Os registos podem ser expostos na página **Insights** do cluster Kubernetes.
-Para obter mais informações, consulte [o desempenho do seu cluster Kubernetes com o Azure Monitor para obter recipientes](../../../azure-monitor/insights/container-insights-analyze.md).
+Para obter mais informações, consulte [o desempenho do seu cluster Kubernetes com o Azure Monitor para obter recipientes](../../../azure-monitor/containers/container-insights-analyze.md).
 
 Para visualizar os registos adicionais, `kubectl` utilize:
 
@@ -544,7 +544,7 @@ A informação recolhida pelo addon não são dados pessoais. Os seguintes detal
 - Exceções/erros encontrados pelo Azure Policy Add-on durante a instalação do agente na avaliação de políticas
 - Número de definições de política gatekeeper não instaladas pelo Add-on da Política Azure
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Rever exemplos nas [amostras da Azure Policy](../samples/index.md).
 - Veja a [Estrutura de definição do Policy](definition-structure.md).

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: b4b2a3bf8c9a3a2e2ec7f1b22785a037f8dedc60
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 21ae8986761483658f5ac4254e4bb378e0bc4ba9
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98873965"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100575055"
 ---
 # <a name="azure-security-baseline-for-azure-ddos-protection-standard"></a>Linha de base de segurança Azure para Azure DDoS Protection Standard
 
@@ -26,7 +26,7 @@ Esta linha de base de segurança aplica orientações do Benchmark de [Seguranç
 
 **Orientação**: Ativar as definições de diagnóstico do Registo de Atividade do Azure e enviar os registos para um espaço de trabalho log Analytics, centro de eventos Azure ou conta de armazenamento Azure para o arquivo. Os registos de atividade fornecem informações sobre as operações que foram realizadas nos seus planos de Proteção DDoS Azure ao nível do plano de controlo. Utilizando dados de Registo de Atividades Azure, pode determinar o "o quê, quem e quando" para quaisquer operações de escrita (PUT, POST, DELETE) realizadas ao nível do plano de controlo para as suas instâncias de Proteção Azure DDoS.
 
-- [Como ativar definições de diagnóstico para registo de atividades azure](../../azure-monitor/platform/activity-log.md)
+- [Como ativar definições de diagnóstico para registo de atividades azure](../../azure-monitor/essentials/activity-log.md)
 
 **Monitorização do Centro de Segurança do Azure**: Sim
 
@@ -40,7 +40,7 @@ Ativar as definições de diagnóstico do Registo de Atividades Azure e enviar o
 
 - [Ver e configurar o registo de diagnósticos do DDoS](../../ddos-protection/diagnostic-logging.md)
 
-- [Como ativar definições de diagnóstico para registo de atividades azure](../../azure-monitor/platform/activity-log.md)
+- [Como ativar definições de diagnóstico para registo de atividades azure](../../azure-monitor/essentials/activity-log.md)
 
 **Monitorização do Centro de Segurança do Azure**: Sim
 
@@ -50,7 +50,7 @@ Ativar as definições de diagnóstico do Registo de Atividades Azure e enviar o
 
 **Orientação**: No Azure Monitor, detenva o período de retenção de registos para os espaços de trabalho do Log Analytics associados aos seus planos de Proteção Azure DDoS de acordo com os regulamentos de conformidade da sua organização.
 
-- [Como definir parâmetros de retenção de registos](../../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Como definir parâmetros de retenção de registos](../../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Monitorização do Centro de Segurança do Azure**: Não aplicável
 
@@ -62,9 +62,9 @@ Ativar as definições de diagnóstico do Registo de Atividades Azure e enviar o
 
 - [Informações sobre como aceder à telemetria, registos e análise de ataque para o serviço DDoS Protection Standard](../../ddos-protection/telemetry.md)
 
-- [Como ativar as definições de diagnóstico para registo de atividades Azure](../../azure-monitor/platform/activity-log.md)
+- [Como ativar as definições de diagnóstico para registo de atividades Azure](../../azure-monitor/essentials/activity-log.md)
 
-- [Como recolher e analisar registos de atividades do Azure no espaço de trabalho do Log Analytics no Azure Monitor](../../azure-monitor/platform/activity-log.md)
+- [Como recolher e analisar registos de atividades do Azure no espaço de trabalho do Log Analytics no Azure Monitor](../../azure-monitor/essentials/activity-log.md)
 
 **Monitorização do Centro de Segurança do Azure**: Sim
 
@@ -80,7 +80,7 @@ A bordo de um espaço de trabalho Log Analytics para Azure Sentinel, uma vez que
 
 - [Como embarcar Azure Sentinel](../../sentinel/quickstart-onboard.md)
 
-- [Criar, visualizar e gerir alertas de registo usando o Azure Monitor](../../azure-monitor/platform/alerts-log.md)
+- [Criar, visualizar e gerir alertas de registo usando o Azure Monitor](../../azure-monitor/alerts/alerts-log.md)
 
 **Monitorização do Centro de Segurança do Azure**: Não aplicável
 
@@ -276,7 +276,7 @@ Pode agilizar este processo criando definições de diagnóstico para contas de 
 
 **Orientação**: Utilize o Monitor Azure com o Registo de Atividades Azure para criar alertas para quando ocorrerem alterações nos planos de proteção do Azure DDoS, bem como outros recursos críticos ou relacionados.
 
-- [Como criar alertas para eventos de Registo de Atividades Azure](../../azure-monitor/platform/alerts-activity-log.md)
+- [Como criar alertas para eventos de Registo de Atividades Azure](../../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitorização do Centro de Segurança do Azure**: Sim
 
@@ -560,7 +560,7 @@ Selecione qualquer uma das métricas de proteção DDoS disponíveis para alert�
 
 **Responsabilidade**: Partilhada
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Consulte a [referência de segurança Azure](../benchmarks/overview.md)
 - Saiba mais sobre as [linhas de base de segurança do Azure](../benchmarks/security-baselines-overview.md)

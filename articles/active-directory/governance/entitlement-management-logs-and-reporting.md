@@ -16,12 +16,12 @@ ms.date: 12/23/2020
 ms.author: barclayn
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: af9921510ba11ab1bd7d0664b2c4c19e042864d3
-ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
+ms.openlocfilehash: 1a7f0d937d41ee42bf0fe678eb2f49e78882f881
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97746648"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100577857"
 ---
 # <a name="archive-logs-and-reporting-on-azure-ad-entitlement-management-in-azure-monitor"></a>Registos de arquivo e reportagens sobre a gestão de direitos da AD Azure no Azure Monitor
 
@@ -59,7 +59,7 @@ Os registos de auditoria da Azure AD requer que tenha o Azure Monitor numa subsc
 
 ## <a name="view-events-for-an-access-package"></a>Ver eventos para um pacote de acesso  
 
-Para visualizar eventos para um pacote de acesso, você deve ter acesso ao espaço de trabalho do monitor Azure subjacente (ver [Gerir o acesso a dados de registo e espaços de trabalho em Azure Monitor](../../azure-monitor/platform/manage-access.md#manage-access-using-azure-permissions) para obter informações) e numa das seguintes funções: 
+Para visualizar eventos para um pacote de acesso, você deve ter acesso ao espaço de trabalho do monitor Azure subjacente (ver [Gerir o acesso a dados de registo e espaços de trabalho em Azure Monitor](../../azure-monitor/logs/manage-access.md#manage-access-using-azure-permissions) para obter informações) e numa das seguintes funções: 
 
 - Administrador global  
 - Administrador de segurança  
@@ -128,7 +128,7 @@ Para definir a atribuição de funções e criar uma consulta, faça os seguinte
 
     ![Adicionar uma atribuição de função](./media/entitlement-management-logs-and-reporting/workspace-set-role-assignment.png)
 
-### <a name="install-azure-powershell-module"></a>Instalar o módulo do Azure PowerShell
+### <a name="install-azure-powershell-module"></a>Instalar módulo Azure PowerShell
 
 Assim que tiver a atribuição de funções adequada, lance o PowerShell e [instale o módulo Azure PowerShell](/powershell/azure/install-az-ps?view=azps-3.3.0) (se ainda não tiver), digitando:
 
@@ -189,4 +189,4 @@ $bResponse.Results |ft
 ```
 
 ## <a name="next-steps"></a>Passos seguintes:
-- [Criar relatórios interativos com livros do Azure Monitor](../../azure-monitor/platform/workbooks-overview.md)
+- [Criar relatórios interativos com livros do Azure Monitor](../../azure-monitor/visualize/workbooks-overview.md)

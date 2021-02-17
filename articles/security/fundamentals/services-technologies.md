@@ -1,5 +1,5 @@
 ---
-title: Serviços e Tecnologias de Segurança Azure ! Microsoft Docs
+title: Azure Security Services and Technologies | Microsoft Docs
 description: O artigo apresenta uma lista com curadoria dos serviços e tecnologias da Azure Security.
 services: security
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/29/2019
 ms.author: terrylan
-ms.openlocfilehash: 8a33e9d462f3105bfee295ac82384a38325f7c7c
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 27443eb9c04c69567b3a1374f11e8b53837040f2
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498800"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100585418"
 ---
 # <a name="security-services-and-technologies-available-on-azure"></a>Serviços de segurança e tecnologias disponíveis no Azure
 
@@ -35,7 +35,7 @@ Com o tempo, esta lista mudará e crescerá, tal como o Azure. Certifique-se de 
 |--------|--------|
 |[&nbsp;Centro de Segurança Azure &nbsp;](../../security-center/security-center-introduction.md)| Uma solução de proteção da carga de trabalho em nuvem que fornece gestão de segurança e proteção avançada de ameaças através de cargas de trabalho em nuvem híbrida.|
 |[Azure Key Vault](../../key-vault/general/overview.md)| Uma loja de segredos seguro para as palavras-passe, cordas de conexão e outras informações que precisa para manter as suas apps funcionando. |
-|[Registos do Azure Monitor](../../azure-monitor/log-query/log-query-overview.md)|Um serviço de monitorização que recolhe telemetria e outros dados, e fornece um motor de linguagem e análise de consulta para fornecer insights operacionais para as suas apps e recursos. Pode ser usado sozinho ou com outros serviços, como o Security Center. |
+|[Registos do Azure Monitor](../../azure-monitor/logs/log-query-overview.md)|Um serviço de monitorização que recolhe telemetria e outros dados, e fornece um motor de linguagem e análise de consulta para fornecer insights operacionais para as suas apps e recursos. Pode ser usado sozinho ou com outros serviços, como o Security Center. |
 |[Laboratórios Azure Dev/Test](../../devtest-labs/devtest-lab-overview.md)|Um serviço que ajuda desenvolvedores e testadores a criar rapidamente ambientes em Azure, minimizando o desperdício e controlando os custos.  |
 
 <!---|[Azure&nbsp;Disk&nbsp;Encryption](/azure/azure-security-disk-encryption-overview)| THIS WILL GO TO THE NEW OVERVIEW TOPIC MEGHAN STEWART IS WRITING|--->
@@ -71,7 +71,7 @@ Com o tempo, esta lista mudará e crescerá, tal como o Azure. Certifique-se de 
 | [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md)|Um repositório de autenticação baseado na nuvem que suporta um multi-inquilino, diretório baseado em nuvem e múltiplos serviços de gestão de identidade dentro de Azure.  |
 | [Azure Active Directory B2C](../../active-directory-b2c/overview.md)|Um serviço de gestão de identidade que permite controlar a forma como os clientes se inscrevem, se inscrevem e gerem os seus perfis ao utilizarem aplicações baseadas no Azure.   |
 | [Azure Active Directory Domain Services](../../active-directory-domain-services/overview.md)| Uma versão baseada na nuvem e gerida dos Serviços de Domínio do Diretório Ativo. |
-| [Autenticação de vários fatores Azure Ad](../../active-directory/authentication/concept-mfa-howitworks.md)| Uma disposição de segurança que emprega várias formas diferentes de autenticação e verificação antes de permitir o acesso a informações seguras. |
+| [Multi-Factor Authentication do Azure AD](../../active-directory/authentication/concept-mfa-howitworks.md)| Uma disposição de segurança que emprega várias formas diferentes de autenticação e verificação antes de permitir o acesso a informações seguras. |
 
 ## <a name="backup-and-disaster-recovery"></a>Backup e recuperação de desastres
 |Serviço|Description|
@@ -88,7 +88,7 @@ Com o tempo, esta lista mudará e crescerá, tal como o Azure. Certifique-se de 
 |[Firewall de aplicação web](../../web-application-firewall/afds/afds-overview.md) (WAF)|Uma funcionalidade do Application Gateway que fornece proteção centralizada das suas aplicações web de explorações e vulnerabilidades comuns|
 | [Balanceador de Carga do Azure](../../load-balancer/load-balancer-overview.md)|Um equilibrador de rede de aplicações TCP/UDP. |
 | [Azure ExpressRoute](../../expressroute/expressroute-introduction.md)| Uma ligação WAN dedicada entre redes no local e redes virtuais Azure. |
-| [Traffic Manager do Azure](../../traffic-manager/traffic-manager-overview.md)| Um equilibrador global de carga de DNS.|
+| [Gestor de Tráfego do Azure](../../traffic-manager/traffic-manager-overview.md)| Um equilibrador global de carga de DNS.|
 | [Procuração de aplicação Azure](../../active-directory/manage-apps/application-proxy.md)| Uma linha frontal autenticadora usada para garantir o acesso remoto para aplicações web hospedadas no local. |
 |[Azure Firewall](../../firewall/overview.md)|Um serviço de segurança de rede gerido e baseado na nuvem que protege os seus recursos da Rede Virtual Azure.|
 |[Azure DDoS Protection](../../ddos-protection/ddos-protection-overview.md)|Combinado com as melhores práticas de design de aplicações, fornece defesa contra ataques DDoS.|

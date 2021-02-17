@@ -8,12 +8,12 @@ ms.service: private-link
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: allensu
-ms.openlocfilehash: 7812d0f2e42dfed6cdd661244b77969297093a5d
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 3ed349616ae6456913c19bb073f6e9ea28e7d549
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879178"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100575127"
 ---
 # <a name="use-azure-firewall-to-inspect-traffic-destined-to-a-private-endpoint"></a>Utilize a Firewall Azure para inspecionar o tráfego destinado a um ponto final privado
 
@@ -106,7 +106,7 @@ Aplicam-se as mesmas considerações que no cenário 2 suplímos. Neste cenário
 * Uma subscrição do Azure.
 * Uma área de trabalho do Log Analytics.  
 
-Consulte, [Crie um espaço de trabalho log Analytics no portal Azure](../azure-monitor/learn/quick-create-workspace.md) para criar um espaço de trabalho se não tiver um na sua subscrição.
+Consulte, [Crie um espaço de trabalho log Analytics no portal Azure](../azure-monitor/logs/quick-create-workspace.md) para criar um espaço de trabalho se não tiver um na sua subscrição.
 
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
@@ -614,7 +614,7 @@ Quando terminar de usar os recursos, elimine o grupo de recursos e todos os recu
 
 1. Introduza **o myResourceGroup** para **type the RESOURCE GROUP NAME** e selecione **Delete**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, você explorou diferentes cenários que você pode usar para restringir o tráfego entre uma máquina virtual e um ponto final privado usando Azure Firewall. 
 

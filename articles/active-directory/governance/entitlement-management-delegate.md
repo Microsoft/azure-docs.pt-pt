@@ -16,16 +16,16 @@ ms.date: 12/23/2020
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8e6c13600cb5940351d31b54af403584cc68a5f
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 204d83b96e3cbe26759d678126d8826d0b2e492e
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100515653"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100577842"
 ---
 # <a name="delegation-and-roles-in-azure-ad-entitlement-management"></a>Delegação e funções na gestão dos direitos da AD Azure
 
-Por padrão, os administradores globais e os administradores de utilizadores podem criar e gerir todos os aspetos da gestão de direitos Azure AD. No entanto, os utilizadores destas funções podem não conhecer todas as situações em que os pacotes de acesso são necessários. Tipicamente são os utilizadores dentro dos respetivos departamentos, equipas ou projetos que sabem com quem estão a colaborar, utilizando quais os recursos e por quanto tempo. Em vez de conceder permissões sem restrições a não administradores, pode conceder aos utilizadores as menos permissões necessárias para desempenhar o seu trabalho e evitar a criação de direitos de acesso conflituosos ou inadequados.
+Por padrão, os administradores globais e os administradores de utilizadores podem criar e gerir todos os aspetos da gestão de direitos Azure AD. No entanto, os utilizadores destas funções podem não conhecer todas as situações em que os pacotes de acesso são necessários. Tipicamente são os utilizadores dentro dos respetivos departamentos, equipas ou projetos que sabem com quem estão a colaborar, usando que recursos e por quanto tempo. Em vez de conceder permissões sem restrições a não administradores, pode conceder aos utilizadores as menos permissões necessárias para fazerem o seu trabalho e evitar a criação de direitos de acesso conflituosos ou inadequados.
 
 Este vídeo fornece uma visão geral de como delegar a governação de acesso do administrador de TI a utilizadores que não são administradores.
 
@@ -37,9 +37,9 @@ Para entender como pode delegar a governação de acesso na gestão de direitos,
 
 ![Delegado de administrador de TI a gestores](./media/entitlement-management-delegate/delegate-admin-dept-managers.png)
 
-Como administradora de TI, Hana tem contactos em cada departamento-- Mamta em Marketing, Mark in Finance, e Joe in Legal, que são responsáveis pelos recursos do seu departamento e conteúdo crítico de negócios.
+Como administradora de TI, Hana tem contactos em cada departamento- Mamta em Marketing, Mark in Finance, e Joe in Legal que são responsáveis pelos recursos do seu departamento e conteúdo crítico de negócios.
 
-Com a gestão de direitos, pode delegar a governação de acesso a estes não administradores porque são eles que sabem quais os utilizadores que precisam de acesso, por quanto tempo, e a que recursos. Isto garante que as pessoas certas estão a gerir o acesso aos seus departamentos.
+Com a gestão de direitos, pode delegar a governação de acesso a estes não administradores porque são eles que sabem quais os utilizadores que precisam de acesso, por quanto tempo, e a que recursos. Delegar a não administradores garante que as pessoas certas estão a gerir o acesso aos seus departamentos.
 
 Aqui está uma maneira de Hana delegar a governação de acesso aos departamentos de marketing, finanças e jurídicos.
 
@@ -47,15 +47,13 @@ Aqui está uma maneira de Hana delegar a governação de acesso aos departamento
 
 1. Hana adiciona este grupo ao papel de criadores de catálogo.
 
-    Mamta, Mark e Joe podem agora criar catálogos para os seus departamentos, adicionar recursos que os seus departamentos precisam, e fazer mais delegação dentro do catálogo.
-
-    Note que Mamta, Mark e Joe não podem ver os catálogos um do outro.
+    Mamta, Mark e Joe podem agora criar catálogos para os seus departamentos, adicionar recursos que os seus departamentos precisam, e fazer mais delegação dentro do catálogo. Não podem ver os catálogos um do outro.
 
 1. A Mamta cria um catálogo **de Marketing,** que é um contentor de recursos.
 
 1. Mamta adiciona os recursos que o seu departamento de marketing detém a este catálogo.
 
-1. Mamta pode adicionar mais pessoas do seu departamento como proprietários de catálogos para este catálogo. Isto ajuda a partilhar as responsabilidades de gestão do catálogo.
+1. Mamta pode adicionar outras pessoas do seu departamento como proprietários de catálogos para este catálogo, o que ajuda a partilhar as responsabilidades de gestão do catálogo.
 
 1. A Mamta pode ainda delegar a criação e gestão de pacotes de acesso no catálogo de Marketing aos gestores de projetos no departamento de Marketing. Ela pode fazê-lo atribuindo-os ao papel de gestor de pacotes de acesso. Um gestor de pacotes de acesso pode criar e gerir pacotes de acesso. 
 
@@ -78,19 +76,19 @@ A gestão de direitos tem as seguintes funções específicas para a gestão de 
 
 | Papel de gestão de direitos | Description |
 | --- | --- |
-| Criador de catálogos | Criar e gerir catálogos. Tipicamente um administrador de TI que não é um administrador global, ou um proprietário de recursos para uma recolha de recursos. A pessoa que cria um catálogo torna-se automaticamente o primeiro proprietário do catálogo, e pode adicionar proprietários adicionais de catálogos. Um criador de catálogos não consegue gerir ou ver catálogos que não possuem e não pode adicionar recursos que não possuem a um catálogo. Se o criador do catálogo precisar de gerir outro catálogo ou adicionar recursos que não possuam, podem solicitar para ser coproprietário desse catálogo ou recurso. |
-| Proprietário do catálogo | Editar e gerir os catálogos existentes. Normalmente, um administrador de TI ou proprietários de recursos, ou um utilizador que o proprietário do catálogo designou. |
+| Criador de catálogos | Criar e gerir catálogos. Tipicamente um administrador de TI que não é um administrador global, ou um proprietário de recursos para uma recolha de recursos. A pessoa que cria um catálogo torna-se automaticamente a primeira proprietária do catálogo do catálogo, e pode adicionar mais proprietários de catálogos. Um criador de catálogos não consegue gerir ou ver catálogos que não possuem e não pode adicionar recursos que não possuem a um catálogo. Se o criador do catálogo precisar de gerir outro catálogo ou adicionar recursos que não possuam, podem solicitar para ser coproprietário desse catálogo ou recurso. |
+| Proprietário do catálogo | Editar e gerir os catálogos existentes. Normalmente, um administrador de TI ou proprietários de recursos, ou um utilizador que o proprietário do catálogo escolheu. |
 | Gestor de pacotes de acesso | Editar e gerir todos os pacotes de acesso existentes dentro de um catálogo. |
 | Gestor de atribuição de pacotes de acesso | Editar e gerir todas as atribuições de pacotes de acesso existentes. |
 
-Além disso, um aprovador designado e um solicitador de um pacote de acesso também têm direitos, embora não sejam funções.
+Além disso, o aprovador escolhido e um solicitador de um pacote de acesso têm direitos, embora não sejam papéis.
 
 | Direita | Description |
 | --- | --- |
 | Aprovador | Autorizados por uma política para aprovar ou negar pedidos de acesso a pacotes, embora não possam alterar as definições do pacote de acesso. |
 | Requerente | Autorizado por uma política de um pacote de acesso para solicitar esse pacote de acesso. |
 
-A tabela que se segue enumera as tarefas que as funções de gestão de direitos podem desempenhar.
+A tabela que se segue enumera as tarefas que as funções de gestão de direitos podem fazer.
 
 | Tarefa | Admin | Criador de catálogos | Proprietário do catálogo | Gestor de pacotes de acesso | Gestor de atribuição de pacotes de acesso |
 | --- | :---: | :---: | :---: | :---: | :---: |
@@ -118,7 +116,7 @@ A tabela que se segue enumera as tarefas que as funções de gestão de direitos
 
 ## <a name="required-roles-to-add-resources-to-a-catalog"></a>Funções necessárias para adicionar recursos a um catálogo
 
-Um administrador global pode adicionar ou remover qualquer grupo (grupos de segurança criados na nuvem ou grupos Microsoft 365), aplicação ou site SharePoint Online num catálogo. Um administrador do Utilizador pode adicionar ou remover qualquer grupo ou aplicação num catálogo, exceto para um grupo configurado como atribuível a uma função de diretório. Note que um administrador de utilizador pode gerir pacotes de acesso num catálogo que inclui grupos configurados como atribuíveis a uma função de diretório.
+Um administrador global pode adicionar ou remover qualquer grupo (grupos de segurança criados na nuvem ou grupos Microsoft 365), aplicação ou site SharePoint Online num catálogo. Um administrador do Utilizador pode adicionar ou remover qualquer grupo ou aplicação num catálogo, exceto para um grupo configurado como atribuível a uma função de diretório. Note que um administrador de utilizador pode gerir pacotes de acesso num catálogo que inclui grupos configurados como atribuíveis a uma função de diretório.  Para obter mais informações sobre grupos atribuíveis por funções, consulte [criar um grupo atribuível a funções no Azure Ative Directory](../roles/groups-create-eligible.md).
 
 Para um utilizador que não seja um administrador global ou um administrador do Utilizador, para adicionar grupos, aplicações ou sites SharePoint Online a um catálogo, esse utilizador deve ter *tanto* a função de diretório AD AD exigida como a função de gestão de direitos do proprietário do catálogo. A tabela que se segue lista as combinações de funções que são necessárias para adicionar recursos a um catálogo. Para remover recursos de um catálogo, você deve ter as mesmas funções.
 

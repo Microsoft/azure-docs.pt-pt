@@ -8,12 +8,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/14/2021
 ms.author: lagayhar
-ms.openlocfilehash: b2e9c267b0a3723c9ac7b3edd49e23b95741962f
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: 5ad3e1a5a4ff47fe3d5fee8b8bc79235838995b8
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98660458"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593636"
 ---
 # <a name="click-analytics-auto-collection-plugin-for-application-insights-javascript-sdk"></a>Clique no plugin de recolha automática de analíticos para insights de aplicação JavaScript SDK
 
@@ -314,5 +314,5 @@ appInsights.loadAppInsights();
 
 - Consulte o [Pacote De Repositório GitHub](https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-clickanalytics-js) e [NPM](https://www.npmjs.com/package/@microsoft/applicationinsights-clickanalytics-js) para o Plugin de Recolha Automática Click Analytics.
 - Use [análise de eventos na experiência de utilização](usage-segmentation.md) para analisar cliques de topo e corte pelas dimensões disponíveis.
-- Encontre os dados de clique no campo de conteúdo dentro do atributo CustomEvents na [Tabela De Registos.](../log-query/log-analytics-tutorial.md#write-a-query) Consulte [a App sample para](https://go.microsoft.com/fwlink/?linkid=2152871) obter orientações adicionais.
-- Construa um [Livro de Trabalho](../platform/workbooks-overview.md) para criar visualizações personalizadas de dados de clique.
+- Encontre os dados de clique no campo de conteúdo dentro do atributo CustomEvents na [Tabela De Registos.](../logs/log-analytics-tutorial.md#write-a-query) Consulte [a App sample para](https://go.microsoft.com/fwlink/?linkid=2152871) obter orientações adicionais.
+- Construa um [Livro de Trabalho](../visualize/workbooks-overview.md) para criar visualizações personalizadas de dados de clique.

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/08/2020
-ms.openlocfilehash: f2f2272363cbc26895b061fe7b6263ed2a29fbab
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: f06ed85e362f15e36e030cd11639d9d17348e938
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91993246"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100573622"
 ---
 # <a name="deploy-azure-monitor-at-scale-using-azure-policy"></a>Implementar monitor de Azure em escala usando a política Azure
 Enquanto algumas funcionalidades do Azure Monitor são configuradas uma ou um número limitado de vezes, outras devem ser repetidas para cada recurso que deseja monitorizar. Este artigo descreve métodos para usar a Política Azure para implementar o Azure Monitor em escala para garantir que a monitorização é configurada de forma consistente e precisa para todos os seus recursos Azure.
@@ -33,7 +33,7 @@ A Política Azure consiste nos objetos da tabela seguinte. Consulte [os objetos 
 | Atribuição | Uma definição ou iniciativa política não faz efeito até que seja atribuída a um âmbito. Por exemplo, atribuir uma política a um grupo de recursos para aplicá-la a todos os recursos criados nesse recurso, ou aplicá-la a uma subscrição para aplicá-la a todos os recursos dessa subscrição.  Para mais detalhes, consulte [a estrutura de atribuição da Política Azure.](../governance/policy/concepts/assignment-structure.md) |
 
 ## <a name="built-in-policy-definitions-for-azure-monitor"></a>Definições políticas incorporadas para o Azure Monitor
-A Política Azure inclui várias definições pré-construídas relacionadas com o Azure Monitor. Pode atribuir estas definições de política à subscrição existente ou usá-las como base para criar as suas próprias definições personalizadas. Para obter uma lista completa da política incorporada na categoria **Monitor,** consulte as [definições políticas incorporadas da Azure Policy para o Azure Monitor](./samples/policy-reference.md).
+A Política Azure inclui várias definições pré-construídas relacionadas com o Azure Monitor. Pode atribuir estas definições de política à subscrição existente ou usá-las como base para criar as suas próprias definições personalizadas. Para obter uma lista completa da política incorporada na categoria **Monitor,** consulte as [definições políticas incorporadas da Azure Policy para o Azure Monitor](.//policy-reference.md).
 
 Para visualizar as definições de política incorporadas relacionadas com a monitorização, execute o seguinte:
 
@@ -45,7 +45,7 @@ Para visualizar as definições de política incorporadas relacionadas com a mon
 
 
 ## <a name="diagnostic-settings"></a>Definições de diagnóstico
-[As definições](platform/diagnostic-settings.md) de diagnóstico recolhem registos de recursos e métricas de recursos Azure para vários locais, tipicamente para um espaço de trabalho Log Analytics que permite analisar os dados com consultas de [registo](log-query/log-query-overview.md) e [alertas de registo.](platform/alerts-log.md) Utilize a Política para criar automaticamente uma definição de diagnóstico cada vez que criar um recurso.
+[As definições](essentials/diagnostic-settings.md) de diagnóstico recolhem registos de recursos e métricas de recursos Azure para vários locais, tipicamente para um espaço de trabalho Log Analytics que permite analisar os dados com consultas de [registo](logs/log-query-overview.md) e [alertas de registo.](alerts/alerts-log.md) Utilize a Política para criar automaticamente uma definição de diagnóstico cada vez que criar um recurso.
 
 Cada tipo de recurso Azure tem um conjunto único de categorias que precisam de ser listadas na definição de diagnóstico. Por isso, cada tipo de recurso requer uma definição de política separada. Alguns tipos de recursos têm definições de política incorporadas que pode atribuir sem modificação. Para outros tipos de recursos, é necessário criar uma definição personalizada.
 
@@ -122,7 +122,7 @@ A iniciativa aplicar-se-á a cada máquina virtual à medida que for criada. Uma
 
 
 ## <a name="azure-monitor-for-vms"></a>Azure Monitor para VMs
-[O Azure Monitor para VMs](insights/vminsights-overview.md) é a principal ferramenta no Azure Monitor para monitorizar máquinas virtuais. Ativar o Monitor Azure para VMs instala tanto o agente Log Analytics como o agente Dependency. Em vez de executar estas tarefas manualmente, utilize a Política Azure para garantir que cada máquina virtual seja configurada à medida que a cria.
+[O Azure Monitor para VMs](vm/vminsights-overview.md) é a principal ferramenta no Azure Monitor para monitorizar máquinas virtuais. Ativar o Monitor Azure para VMs instala tanto o agente Log Analytics como o agente Dependency. Em vez de executar estas tarefas manualmente, utilize a Política Azure para garantir que cada máquina virtual seja configurada à medida que a cria.
 
 > [!NOTE]
 > O Azure Monitor for VMs inclui uma funcionalidade chamada **Azure Monitor for VMs Policy Coverage** que permite descobrir e remediar VMs não conformes no seu ambiente. Pode utilizar esta funcionalidade em vez de trabalhar diretamente com a Azure Policy para VMs Azure e para máquinas virtuais híbridas ligadas ao Arco Azure. Para conjuntos de escala de máquina virtual Azure, deve criar a atribuição utilizando a Política Azure.
@@ -139,7 +139,7 @@ O Azure Monitor para VMs inclui as seguintes iniciativas incorporadas que instal
 ### <a name="virtual-machines"></a>Máquinas virtuais
 Em vez de criar atribuições para estas iniciativas utilizando a interface Azure Policy, o Azure Monitor para VMs inclui uma funcionalidade que permite inspecionar o número de máquinas virtuais em cada âmbito para determinar se a iniciativa foi aplicada. Em seguida, pode configurar o espaço de trabalho e criar as atribuições necessárias utilizando essa interface.
 
-Para obter mais informações sobre este processo, consulte [Enable Azure Monitor para VMs utilizando a Política Azure](./insights/vminsights-enable-policy.md).
+Para obter mais informações sobre este processo, consulte [Enable Azure Monitor para VMs utilizando a Política Azure](./vm/vminsights-enable-policy.md).
 
 ![Azure Monitor para a política de VMs](media/deploy-scale/vminsights-policy.png)
 
@@ -148,7 +148,7 @@ Para utilizar a Política Azure para permitir a monitorização de conjuntos de 
 
 ![Screenshot da página de iniciativa Atribuir no portal Azure. A definição de iniciativa está definida para permitir o Monitor Azure para conjuntos de escala de máquinas virtuais.](media/deploy-scale/virtual-machine-scale-set-assign-initiative.png)
 
-Selecione o espaço de trabalho para onde os dados serão enviados. Este espaço de trabalho deve ter a solução *VMInsights* instalada como descrito em []() .
+Selecione o espaço de trabalho para onde os dados serão enviados. Este espaço de trabalho deve ter a solução *VMInsights* instalada como descrito no [espaço de trabalho Configure Log Analytics para O Azure Monitor para VMs](vm/vminsights-configure-workspace.md).
 
 ![Selecionar área de trabalho](media/deploy-scale/virtual-machine-scale-set-workspace.png)
 
@@ -181,4 +181,4 @@ Pode ter cenários em que pretende instalar o agente Log Analytics, mas não o a
 ## <a name="next-steps"></a>Passos seguintes
 
 - Leia mais sobre [a Política Azure.](../governance/policy/overview.md)
-- Leia mais sobre [as definições de diagnóstico](platform/diagnostic-settings.md).
+- Leia mais sobre [as definições de diagnóstico](essentials/diagnostic-settings.md).

@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 04/18/2019
 ms.reviewer: avverma
 ms.custom: avverma
-ms.openlocfilehash: 37602f7b9a8669ce0e8db984f7f7617cffdd431c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b172f1f7137b53e98384d92c9c709694eaf0b7e9
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87029285"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100594488"
 ---
 # <a name="vertical-autoscale-with-virtual-machine-scale-sets"></a>Autoescala vertical com conjuntos de escala de máquina virtual
 
@@ -118,7 +118,7 @@ Depois de importar os livros de execução, adicione um webhook ao runbook para 
 
 ## <a name="add-an-alert-to-your-virtual-machine-scale-set"></a>Adicione um alerta ao seu conjunto de escala de máquina virtual
 
-Abaixo está um script PowerShell que mostra como adicionar um alerta a um conjunto de escala de máquina virtual. Consulte o seguinte artigo para obter o nome da métrica para disparar o alerta em: [Azure Monitor autoscaling métricas comuns](../azure-monitor/platform/autoscale-common-metrics.md).
+Abaixo está um script PowerShell que mostra como adicionar um alerta a um conjunto de escala de máquina virtual. Consulte o seguinte artigo para obter o nome da métrica para disparar o alerta em: [Azure Monitor autoscaling métricas comuns](../azure-monitor/autoscale/autoscale-common-metrics.md).
 
 ```powershell
 $actionEmail = New-AzAlertRuleEmail -CustomEmail user@contoso.com
@@ -153,8 +153,8 @@ Add-AzMetricAlertRule  -Name  $alertName `
 
 Para obter mais informações sobre como criar alertas, consulte os seguintes artigos:
 
-* [Amostras de PowerShell monitor Azure Monitor](../azure-monitor/samples/powershell-samples.md)
-* [Amostras de CLI de plataforma cruzada Azure Monitor](../azure-monitor/samples/cli-samples.md)
+* [Amostras de PowerShell monitor Azure Monitor](../azure-monitor/powershell-samples.md)
+* [Amostras de CLI de plataforma cruzada Azure Monitor](../azure-monitor/cli-samples.md)
 
 ## <a name="summary"></a>Resumo
 

@@ -8,12 +8,12 @@ ms.author: deli
 ms.reviewer: klam, estfan, logicappspm
 ms.date: 01/11/2020
 ms.topic: article
-ms.openlocfilehash: d4bff4ee7980002d911426ed46ffef6fc28c43e9
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: a0c8286b2fb36642723ae28b8bc88e9e49f8a8fb
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920754"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100577944"
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Processar erros e exceções no Azure Logic Apps
 
@@ -27,7 +27,7 @@ Para obter a exceção mais básica e o tratamento de erros, pode utilizar uma *
 
 Aqui estão os tipos de política de relíndi:
 
-| Tipo | Descrição |
+| Tipo | Description |
 |------|-------------|
 | **Predefinição** | Esta política envia até quatro retrações em intervalos *exponencialmente crescentes,* que escalam 7,5 segundos, mas estão limitadas entre 5 e 45 segundos. |
 | **Intervalo exponencial**  | Esta política aguarda um intervalo aleatório selecionado a partir de um intervalo exponencialmente crescente antes de enviar o próximo pedido. |
@@ -69,7 +69,7 @@ Ou, pode especificar manualmente a política de repetição na `inputs` secção
 
 *Obrigatório*
 
-| Valor | Tipo | Descrição |
+| Valor | Tipo | Description |
 |-------|------|-------------|
 | <*retrip-política tipo*> | String | O tipo de política de regata que pretende utilizar: `default` `none` , , `fixed` ou `exponential` |
 | <*retrip-intervalo*> | String | O intervalo de repetição em que o valor deve utilizar [o formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). O intervalo mínimo predefinido é `PT5S` e o intervalo máximo é `PT1D` . Quando utilizar a política de intervalo exponencial, pode especificar valores mínimos e máximos diferentes. |
@@ -78,7 +78,7 @@ Ou, pode especificar manualmente a política de repetição na `inputs` secção
 
 *Opcional*
 
-| Valor | Tipo | Descrição |
+| Valor | Tipo | Description |
 |-------|------|-------------|
 | <*intervalo mínimo*> | String | Para a política de intervalo exponencial, o intervalo mais pequeno para o intervalo selecionado aleatoriamente no [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) |
 | <*intervalo máximo*> | String | Para a política de intervalo exponencial, o maior intervalo para o intervalo selecionado aleatoriamente no [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) |
@@ -362,7 +362,7 @@ Para executar diferentes padrões de tratamento de exceções, pode utilizar as 
 
 ## <a name="set-up-azure-monitor-logs"></a>Configurar registos do Monitor Azure
 
-Os padrões anteriores são uma ótima maneira de lidar com erros e exceções dentro de uma corrida, mas também pode identificar e responder a erros independentes da própria corrida. [O Azure Monitor](../azure-monitor/overview.md) fornece uma forma simples de enviar todos os eventos de fluxo de trabalho, incluindo todos os status de execução e ação, para um [espaço de trabalho Log Analytics,](../azure-monitor/platform/data-platform-logs.md) [conta de armazenamento Azure,](../storage/blobs/storage-blobs-overview.md)ou [Azure Event Hubs](../event-hubs/event-hubs-about.md).
+Os padrões anteriores são uma ótima maneira de lidar com erros e exceções dentro de uma corrida, mas também pode identificar e responder a erros independentes da própria corrida. [O Azure Monitor](../azure-monitor/overview.md) fornece uma forma simples de enviar todos os eventos de fluxo de trabalho, incluindo todos os status de execução e ação, para um [espaço de trabalho Log Analytics,](../azure-monitor/logs/data-platform-logs.md) [conta de armazenamento Azure,](../storage/blobs/storage-blobs-overview.md)ou [Azure Event Hubs](../event-hubs/event-hubs-about.md).
 
 Para avaliar os estados de execução, pode monitorizar os registos e métricas ou publicá-los em qualquer ferramenta de monitorização que prefira. Uma opção potencial é transmitir todos os eventos através de Event Hubs para [a Azure Stream Analytics.](https://azure.microsoft.com/services/stream-analytics/) No Stream Analytics, pode escrever consultas ao vivo com base em quaisquer anomalias, médias ou falhas dos registos de diagnóstico. Pode utilizar o Stream Analytics para enviar informações para outras fontes de dados, tais como filas, tópicos, SQL, Azure Cosmos DB ou Power BI.
 

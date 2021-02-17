@@ -1,5 +1,5 @@
 ---
-title: Analise os registos de atividade usando registos do Monitor Azure Microsoft Docs
+title: Analise os registos de atividade usando os registos do Monitor Azure | Microsoft Docs
 description: Saiba como analisar registos de atividade do Azure Ative Directory utilizando registos do Azure Monitor
 services: active-directory
 documentationcenter: ''
@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c4fde22b1b8d72ae8ae775c090e0da25ce0665f
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 905261058c2de0afae18cbc5572c64962bef8834
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96181174"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100580026"
 ---
 # <a name="analyze-azure-ad-activity-logs-with-azure-monitor-logs"></a>Analise os registos de atividades da AZure com registos do Monitor Azure
 
@@ -36,9 +36,9 @@ Neste artigo, aprende-se a analisar os registos de atividades Azure AD no seu es
 
 Para acompanhar, precisa:
 
-* Um espaço de trabalho Log Analytics na sua subscrição Azure. Saiba como [criar um espaço de trabalho Log Analytics.](../../azure-monitor/learn/quick-create-workspace.md)
+* Um espaço de trabalho Log Analytics na sua subscrição Azure. Saiba como [criar um espaço de trabalho Log Analytics.](../../azure-monitor/logs/quick-create-workspace.md)
 * Em primeiro lugar, complete os passos para [encaminhar os registos de atividade azure AD para o seu espaço de trabalho Log Analytics](howto-integrate-activity-logs-with-log-analytics.md).
-*  [Acesso](../../azure-monitor/platform/manage-access.md#manage-access-using-workspace-permissions) ao espaço de trabalho de análise de log analytics
+*  [Acesso](../../azure-monitor/logs/manage-access.md#manage-access-using-workspace-permissions) ao espaço de trabalho de análise de log analytics
 * As seguintes funções no Azure Ative Directory (se estiver a aceder ao Log Analytics através do portal Azure Ative Directory)
     - Administrador de Segurança
     - Leitor de Segurança
@@ -96,7 +96,7 @@ Também pode configurar alertas na sua consulta. Por exemplo, para configurar um
 
 3. Insira um nome e descrição para o alerta e escolha o nível de gravidade. Por exemplo, poderíamos defini-lo para **Informação.**
 
-4. Selecione o **Grupo de Ação** que será alertado quando o sinal ocorrer. Pode optar por notificar a sua equipa por e-mail ou mensagem de texto, ou pode automatizar a ação utilizando webhooks, funções Azure ou aplicações lógicas. Saiba mais sobre [a criação e gestão de grupos de alerta no portal Azure.](../../azure-monitor/platform/action-groups.md)
+4. Selecione o **Grupo de Ação** que será alertado quando o sinal ocorrer. Pode optar por notificar a sua equipa por e-mail ou mensagem de texto, ou pode automatizar a ação utilizando webhooks, funções Azure ou aplicações lógicas. Saiba mais sobre [a criação e gestão de grupos de alerta no portal Azure.](../../azure-monitor/alerts/action-groups.md)
 
 5. Uma vez configurado o alerta, selecione **Criar alerta** para o ativar. 
 
@@ -110,6 +110,6 @@ Os livros fornecem vários relatórios relacionados com cenários comuns envolve
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Começar com consultas em registos do Azure Monitor](../../azure-monitor/log-query/get-started-queries.md)
-* [Criar e gerir grupos de alerta no portal Azure](../../azure-monitor/platform/action-groups.md)
+* [Começar com consultas em registos do Azure Monitor](../../azure-monitor/logs/get-started-queries.md)
+* [Criar e gerir grupos de alerta no portal Azure](../../azure-monitor/alerts/action-groups.md)
 * [Instale e utilize as vistas de análise de registo para o Azure Ative Directory](howto-install-use-log-analytics-views.md)

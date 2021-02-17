@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/18/2020
 ms.author: akjosh
-ms.openlocfilehash: f75ad90a562a39f940e1006a2e4d9123eff2b47c
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 202cdc341ce31c2347552e6fbc430c679ef28d7f
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202186"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100580094"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-linux"></a>Log Analytics virtual machine extension for Linux (Extensão de máquina virtual do Log Analytics para Linux)
 
@@ -37,7 +37,7 @@ O Azure Monitor Logs fornece capacidades de monitorização, alerta e alerta de 
 
 ### <a name="operating-system"></a>Sistema operativo
 
-Para obter detalhes sobre as distribuições apoiadas do Linux, consulte o artigo [dos agentes do Azure Monitor.](../../azure-monitor/platform/agents-overview.md#supported-operating-systems)
+Para obter detalhes sobre as distribuições apoiadas do Linux, consulte o artigo [dos agentes do Azure Monitor.](../../azure-monitor/agents/agents-overview.md#supported-operating-systems)
 
 ### <a name="agent-and-vm-extension-version"></a>Versão de extensão de agente e VM
 A tabela seguinte fornece um mapeamento da versão da extensão VM do Log Analytics e do pacote de agente Log Analytics para cada lançamento. Está incluído um link para as notas de lançamento para a versão do pacote do agente Log Analytics. As notas de lançamento incluem detalhes sobre correções de bugs e novas funcionalidades disponíveis para uma determinada versão do agente.  
@@ -76,7 +76,7 @@ A extensão do Agente Desanal para o Linux requer que a máquina virtual alvo es
 
 ## <a name="extension-schema"></a>Esquema de extensão
 
-O JSON seguinte mostra o esquema para a extensão do Agente Desanal. A extensão requer o ID do espaço de trabalho e a chave do espaço de trabalho a partir do espaço de trabalho target Log Analytics; estes valores podem ser [encontrados no seu espaço de trabalho Log Analytics](../../azure-monitor/learn/quick-collect-linux-computer.md#obtain-workspace-id-and-key) no portal Azure. Uma vez que a chave do espaço de trabalho deve ser tratada como dados sensíveis, deve ser armazenada numa configuração de definição protegida. Os dados de definição protegidos por extensão Azure VM são encriptados e apenas desencriptados na máquina virtual alvo. Note que **o workspaceId** e **o workspaceKey** são sensíveis ao caso.
+O JSON seguinte mostra o esquema para a extensão do Agente Desanal. A extensão requer o ID do espaço de trabalho e a chave do espaço de trabalho a partir do espaço de trabalho target Log Analytics; estes valores podem ser [encontrados no seu espaço de trabalho Log Analytics](../../azure-monitor/vm/quick-collect-linux-computer.md#obtain-workspace-id-and-key) no portal Azure. Uma vez que a chave do espaço de trabalho deve ser tratada como dados sensíveis, deve ser armazenada numa configuração de definição protegida. Os dados de definição protegidos por extensão Azure VM são encriptados e apenas desencriptados na máquina virtual alvo. Note que **o workspaceId** e **o workspaceKey** são sensíveis ao caso.
 
 ```json
 {
@@ -221,7 +221,7 @@ A saída de execução de extensão é registada no seguinte ficheiro:
 | 53 | Esta extensão falhou devido a parâmetros de configuração em falta ou errados | Verifique a saída e os registos para obter mais informações sobre o que correu mal. Além disso, verifique a correção do ID do espaço de trabalho e verifique se a máquina está ligada à internet. |
 | 55 | Não é possível ligar-se ao serviço Azure Monitor ou pacotes necessários em falta ou o gestor de pacotes DPKG está bloqueado| Verifique se o sistema tem acesso à Internet ou se foi fornecido um proxy HTTP válido. Além disso, verifique a correção do ID do espaço de trabalho e verifique se os utilitários de caracóis e alcatrão estão instalados. |
 
-Informações adicionais sobre a resolução de problemas podem ser encontradas no [Guia de Resolução de Problemas log Analytics-Agent-for-Linux](../../azure-monitor/platform/vmext-troubleshoot.md).
+Informações adicionais sobre a resolução de problemas podem ser encontradas no [Guia de Resolução de Problemas log Analytics-Agent-for-Linux](../../azure-monitor/visualize/vmext-troubleshoot.md).
 
 ### <a name="support"></a>Suporte
 

@@ -1,19 +1,19 @@
 ---
-title: Planeamento e dimensionamento de capacidades para o tecido de serviço Azure
+title: Planeamento de capacidade e dimensionamento no Azure Service Fabric
 description: Melhores práticas para planeamento e dimensionamento de clusters e aplicações de tecido de serviço.
 author: peterpogorski
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d7d9ed8fa695c636e7aaf36fd034babb4de012d9
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 32a9c26bb9e89cf4057cc753b02ad3c006d0bae6
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98784685"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595067"
 ---
-# <a name="capacity-planning-and-scaling-for-azure-service-fabric"></a>Planeamento e dimensionamento de capacidades para o tecido de serviço Azure
+# <a name="capacity-planning-and-scaling-for-azure-service-fabric"></a>Planeamento de capacidade e dimensionamento no Azure Service Fabric
 
 Antes de criar qualquer cluster de tecido de serviço Azure ou recursos de computação em escala que acolhem o seu cluster, é importante planear a capacidade. Para obter mais informações sobre o planeamento da capacidade, consulte [o Planeamento da capacidade de cluster do Tecido de Serviço.](./service-fabric-cluster-capacity.md) Para obter mais orientações sobre as melhores práticas para a escalabilidade do cluster, consulte considerações de [escalabilidade do tecido de serviço](/azure/architecture/reference-architectures/microservices/service-fabric#scalability-considerations).
 
@@ -26,7 +26,7 @@ A utilização de escalas automáticas através de conjuntos de escala de máqui
 
 * A implementação dos modelos do Gestor de Recursos com a capacidade adequada declarada não suporta o seu caso de utilização.
      
-   Além da escala manual, pode configurar um [gasoduto de integração e entrega contínua nos Serviços Azure DevOps utilizando projetos de implementação de grupos de recursos Azure.](../azure-resource-manager/templates/add-template-to-azure-pipelines.md) Este gasoduto é normalmente desencadeado por uma aplicação lógica que utiliza métricas de desempenho da máquina virtual questionadas a partir da [API do Monitor Azure.](../azure-monitor/platform/rest-api-walkthrough.md) O pipeline efetivamente autoescala com base em todas as métricas que você deseja, ao mesmo tempo que otimiza para modelos de Gestor de Recursos.
+   Além da escala manual, pode configurar um [gasoduto de integração e entrega contínua nos Serviços Azure DevOps utilizando projetos de implementação de grupos de recursos Azure.](../azure-resource-manager/templates/add-template-to-azure-pipelines.md) Este gasoduto é normalmente desencadeado por uma aplicação lógica que utiliza métricas de desempenho da máquina virtual questionadas a partir da [API do Monitor Azure.](../azure-monitor/essentials/rest-api-walkthrough.md) O pipeline efetivamente autoescala com base em todas as métricas que você deseja, ao mesmo tempo que otimiza para modelos de Gestor de Recursos.
 * É necessário escalar horizontalmente apenas um nó de balança de máquina virtual de cada vez.
    
    Para escalar por três ou mais nós de cada vez, deverá [escalar um cluster de Tecido de Serviço adicionando um conjunto de escala de máquina virtual](virtual-machine-scale-set-scale-node-type-scale-out.md). É mais seguro escalar e escalar conjuntos de escala de máquina virtual horizontalmente, um nó de cada vez.
@@ -218,7 +218,7 @@ O outro recurso está no `nodeTypes` [recurso Microsoft.ServiceFabric/clusters](
 ]
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Crie um cluster em VMs ou computadores que executam o Windows Server: [Criação de cluster de tecido de serviço para o Windows Server](service-fabric-cluster-creation-for-windows-server.md).
 * Crie um cluster em VMs ou computadores que executam o Linux: [Crie um cluster Linux](service-fabric-cluster-creation-via-portal.md).

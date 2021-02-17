@@ -6,20 +6,20 @@ ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 01/30/2020
-ms.openlocfilehash: d1f575d9d588ccd99523c6b6d5d2ceba6369dc3d
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 5de795811923c965a1473f8d91e3fd654aeef266
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92309920"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574549"
 ---
 # <a name="view-and-create-queries-for-monitoring-and-tracking-in-azure-monitor-logs-for-azure-logic-apps"></a>Ver e criar consultas para monitorização e rastreio em registos do Azure Monitor para Apps Azure Logic
 
-Pode ver as consultas subjacentes que produzem os resultados dos registos do [Azure Monitor](../azure-monitor/log-query/log-query-overview.md) e criar consultas que filtram os resultados com base nos seus critérios específicos. Por exemplo, pode encontrar mensagens com base num número específico de controlo de intercâmbio. As consultas utilizam o [idioma de consulta Kusto,](/azure/data-explorer/kusto/query/)que pode editar se quiser ver diferentes resultados. Para obter mais informações, consulte [as consultas de registo do Azure Monitor](/azure/data-explorer/kusto/query/).
+Pode ver as consultas subjacentes que produzem os resultados dos registos do [Azure Monitor](../azure-monitor/logs/log-query-overview.md) e criar consultas que filtram os resultados com base nos seus critérios específicos. Por exemplo, pode encontrar mensagens com base num número específico de controlo de intercâmbio. As consultas utilizam o [idioma de consulta Kusto,](/azure/data-explorer/kusto/query/)que pode editar se quiser ver diferentes resultados. Para obter mais informações, consulte [as consultas de registo do Azure Monitor](/azure/data-explorer/kusto/query/).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma área de trabalho do Log Analytics. Se não tiver um espaço de trabalho log analytics, aprenda [a criar um espaço de trabalho Log Analytics](../azure-monitor/learn/quick-create-workspace.md).
+* Uma área de trabalho do Log Analytics. Se não tiver um espaço de trabalho log analytics, aprenda [a criar um espaço de trabalho Log Analytics](../azure-monitor/logs/quick-create-workspace.md).
 
 * Uma aplicação lógica que foi criada com o registo do Azure Monitor e envia essa informação para um espaço de trabalho do Log Analytics. Saiba [como configurar os registos do Azure Monitor para a sua aplicação lógica.](../logic-apps/monitor-logic-apps.md)
 
@@ -45,7 +45,7 @@ Para ver ou editar a consulta que produz os resultados no resumo do seu espaço 
 
 ## <a name="create-your-own-query"></a>Crie a sua própria consulta
 
-Para encontrar ou filtrar resultados com base em propriedades ou valores específicos, pode criar a sua própria consulta a partir de uma consulta vazia ou utilizar uma consulta existente. Para obter mais informações, consulte [Começar com consultas de registo no Azure Monitor](../azure-monitor/log-query/get-started-queries.md).
+Para encontrar ou filtrar resultados com base em propriedades ou valores específicos, pode criar a sua própria consulta a partir de uma consulta vazia ou utilizar uma consulta existente. Para obter mais informações, consulte [Começar com consultas de registo no Azure Monitor](../azure-monitor/logs/get-started-queries.md).
 
 1. No [portal Azure,](https://portal.azure.com)encontre e selecione o seu espaço de trabalho Log Analytics.
 

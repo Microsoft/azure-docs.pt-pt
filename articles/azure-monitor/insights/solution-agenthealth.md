@@ -1,23 +1,23 @@
 ---
-title: Solução de Saúde do Agente no Monitor Azure Microsoft Docs
+title: Solução de Saúde do Agente em Azure Monitor | Microsoft Docs
 description: Este artigo destina-se a ajudá-lo a entender como usar esta solução para monitorizar a saúde dos seus agentes reportando diretamente ao Log Analytics ou System Center Operations Manager.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/06/2020
-ms.openlocfilehash: 4f14f006283b7430458d67d2bd3bee787c08411d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a498c229acce9359acfb4593ec5f833000ca2c39
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87326023"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100573377"
 ---
 #  <a name="agent-health-solution-in-azure-monitor"></a>Solução de saúde do agente no Monitor Azure
 A solução Agent Health em Azure ajuda-o a compreender, para todos os agentes que reportam diretamente ao espaço de trabalho do Log Analytics no Azure Monitor ou um grupo de gestão de operações do System Center, ligado ao Azure Monitor, que não respondem e submetem dados operacionais.  Também pode controlar a quantidade de agentes que estão implementados, onde estão distribuídos geograficamente e fazer outras consultas, para estar a par da distribuição dos agentes implementados no Azure, noutros ambientes na cloud ou no local.    
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Antes de implementar esta solução, confirme que tem [atualmente agentes](../platform/agent-windows.md) do Windows a reportarem-se ao espaço de trabalho do Log Analytics ou a reportarem-se a um [grupo de gestão de Gestores de Operações](../platform/om-agents.md) integrados ao seu espaço de trabalho.
+Antes de implementar esta solução, confirme que tem [atualmente agentes](../agents/agent-windows.md) do Windows a reportarem-se ao espaço de trabalho do Log Analytics ou a reportarem-se a um [grupo de gestão de Gestores de Operações](../agents/om-agents.md) integrados ao seu espaço de trabalho.
 
 ## <a name="solution-components"></a>Componentes da solução
 Esta solução consiste nos recursos seguintes que são adicionados à sua área de trabalho e a agentes ligados diretamente ou a grupos de gestão ligados do Operations Manager.
@@ -28,7 +28,7 @@ Se o seu grupo de gestão de operações do System Center estiver ligado a um es
 * Pacote de Informações de Canal Direto de HealthAssessment do Microsoft System Center Advisor (Microsoft.IntelligencePacks.HealthAssessmentDirect)
 * Pacote de Informações de Canal de Servidor de HealthAssessment do Microsoft System Center Advisor (Microsoft.IntelligencePacks.HealthAssessmentViaServer).  
 
-Para obter mais informações sobre como são atualizados os pacotes de gestão da solução, veja [Connect Operations Manager to Log Analytics (Ligar o Operations Manager ao Log Analytics)](../platform/om-agents.md).
+Para obter mais informações sobre como são atualizados os pacotes de gestão da solução, veja [Connect Operations Manager to Log Analytics (Ligar o Operations Manager ao Log Analytics)](../agents/om-agents.md).
 
 ## <a name="configuration"></a>Configuração
 Adicione a solução Agent Health ao seu espaço de trabalho Log Analytics utilizando o processo descrito em [soluções Add](solutions.md). Não há nenhuma configuração adicional.
@@ -38,10 +38,10 @@ Adicione a solução Agent Health ao seu espaço de trabalho Log Analytics utili
 ### <a name="supported-agents"></a>Agentes suportados
 A tabela seguinte descreve as origens ligadas que são suportadas por esta solução.
 
-| Origem Ligada | Suportado | Descrição |
+| Origem Ligada | Suportado | Description |
 | --- | --- | --- |
-| Agentes do Windows | Sim | Os eventos de heartbeat são recolhidos de agentes do Windows diretos.|
-| Grupo de gestão do System Center Operations Manager | Sim | Os eventos de batimentos cardíacos são recolhidos de agentes que reportam ao grupo de gestão a cada 60 segundos e depois encaminhados para o Azure Monitor. Não é necessária uma ligação direta dos agentes do Gestor de Operações ao Azure Monitor. Os dados do evento heartbeat são reencaminhados do grupo de gestão para o espaço de trabalho Log Analytics.|
+| Agentes do Windows | Yes | Os eventos de heartbeat são recolhidos de agentes do Windows diretos.|
+| Grupo de gestão do System Center Operations Manager | Yes | Os eventos de batimentos cardíacos são recolhidos de agentes que reportam ao grupo de gestão a cada 60 segundos e depois encaminhados para o Azure Monitor. Não é necessária uma ligação direta dos agentes do Gestor de Operações ao Azure Monitor. Os dados do evento heartbeat são reencaminhados do grupo de gestão para o espaço de trabalho Log Analytics.|
 
 ## <a name="using-the-solution"></a>Utilizar a solução
 Quando adicionar a solução ao seu espaço de trabalho Log Analytics, o azulejo **do Agente Saúde** será adicionado ao seu painel de instrumentos. Esse mosaico mostra o número total de agentes e o número de agentes sem resposta nas últimas 24 horas.<br><br> ![Mosaico Solução Funcionamento de Agente no dashboard](./media/solution-agenthealth/agenthealth-solution-tile-homepage.png)
@@ -90,7 +90,7 @@ Cada agente que reporte a um servidor de gestão de Gestor de Operações enviar
 ## <a name="sample-log-searches"></a>Pesquisas de registo de exemplo
 A tabela seguinte disponibiliza pesquisas de registos de exemplo para registos que esta solução recolhe.
 
-| Consulta | Descrição |
+| Consulta | Description |
 |:---|:---|
 | Heartbeat &#124; distinct Computer |Número total de agentes |
 | Heartbeat &#124; summarize LastCall = max(TimeGenerated) by Computer &#124; where LastCall < ago(24h) |Contagem de agentes sem resposta nas últimas 24 horas |
@@ -110,5 +110,5 @@ A tabela seguinte disponibiliza pesquisas de registos de exemplo para registos q
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Saiba mais [sobre alertas no Azure Monitor](../platform/alerts-overview.md) para obter detalhes sobre a geração de alertas a partir de consultas de registo. 
+* Saiba mais [sobre alertas no Azure Monitor](../alerts/alerts-overview.md) para obter detalhes sobre a geração de alertas a partir de consultas de registo. 
 
