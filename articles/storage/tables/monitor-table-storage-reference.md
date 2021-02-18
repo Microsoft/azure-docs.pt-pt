@@ -1,5 +1,5 @@
 ---
-title: Referência de acompanhamento de dados de armazenamento de tabela Azure Microsoft Docs
+title: Referência de dados de monitorização de armazenamento de quadros Azure | Microsoft Docs
 description: Referência de registo e métricas para monitorização de dados do armazenamento da Tabela Azure.
 author: normesta
 services: azure-monitor
@@ -9,12 +9,12 @@ ms.date: 10/02/2020
 ms.author: normesta
 ms.subservice: logs
 ms.custom: monitoring
-ms.openlocfilehash: b9920956a8983a1c71c1f91cd1c19a6e84be6aee
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: ad56b6af9a9071812ad6fa581954010df3b6b5d7
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96780302"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574832"
 ---
 # <a name="azure-table-storage-monitoring-data-reference"></a>Referência de dados de monitorização de armazenamento de mesa Azure
 
@@ -36,9 +36,9 @@ O Azure Storage fornece as seguintes métricas de capacidade no Monitor Azure.
 
 #### <a name="table-storage"></a>Table Storage
 
-Esta tabela mostra [métricas de armazenamento de mesa.](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountstableservices)
+Esta tabela mostra [métricas de armazenamento de mesa.](../../azure-monitor/essentials/metrics-supported.md#microsoftstoragestorageaccountstableservices)
 
-| Métrica | Descrição |
+| Metric | Descrição |
 | ------------------- | ----------------- |
 | Capacidade de Mesa | A quantidade de armazenamento de mesa utilizada pela conta de armazenamento. <br/><br/> Unidade: Bytes <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 |
 | MesaCount   | O número de mesas na conta de armazenamento. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 |
@@ -80,4 +80,4 @@ A tabela que se segue lista as propriedades dos registos de recursos de armazena
 ## <a name="see-also"></a>Ver também
 
 - Consulte [o armazenamento da mesa Azure](monitor-table-storage.md) monitor para uma descrição da monitorização do armazenamento do Azure.
-- Consulte [os recursos de Monitor Azure com o Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md) para obter informações sobre a monitorização dos recursos do Azure.
+- Consulte [os recursos de Monitor Azure com o Azure Monitor](../../azure-monitor/essentials/monitor-azure-resource.md) para obter informações sobre a monitorização dos recursos do Azure.

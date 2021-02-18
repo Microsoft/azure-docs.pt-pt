@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 9f7a37fa2101e4a386c9c6f2338f185b3ecdc986
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: e5b42d6102737b778ea5d19cd7da3c2f64881b1b
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99052622"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100585930"
 ---
 # <a name="enable-change-tracking-and-inventory-from-a-runbook"></a>Ativar o Controlo de alterações e Inventário a partir de um runbook
 
@@ -28,7 +28,7 @@ Este método utiliza dois livros de execução:
 
 * Subscrição do Azure. Se ainda não tiver um, pode [ativar os benefícios do seu assinante MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou inscrever-se numa [conta gratuita.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * [Conta de automatização](../automation-security-overview.md) para gerir máquinas.
-* [Log Analytics espaço de trabalho](../../azure-monitor/platform/design-logs-deployment.md)
+* [Log Analytics espaço de trabalho](../../azure-monitor/logs/design-logs-deployment.md)
 * Uma [máquina virtual.](../../virtual-machines/windows/quick-create-portal.md)
 * Dois ativos de automatização, que são utilizados pelo manual **enable-AutomationSolution.** Este runbook, se já não existir na sua conta Demôm automação, é automaticamente importado pelo manual **enable-multipleSolution** durante a sua primeira execução.
     * *LASolutionSubscriptionId*: ID de assinatura de onde está localizado o espaço de trabalho Log Analytics.

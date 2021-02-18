@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 345748380479d81f1ea0df9ecf327200482a6cd7
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 58aabd52b8c5493671e0a76d0032a6d7c3081f40
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98937167"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100582036"
 ---
 # <a name="azure-security-baseline-for-azure-data-share"></a>Linha de base de segurança Azure para Azure Data Share
 
@@ -34,7 +34,7 @@ Em alternativa, pode ativar e embarcar estes dados para a Azure Sentinel ou para
 
 - [Como embarcar Azure Sentinel](../sentinel/quickstart-onboard.md) 
 
-- [Como recolher registos e métricas da plataforma com o Azure Monitor](../azure-monitor/platform/diagnostic-settings.md) 
+- [Como recolher registos e métricas da plataforma com o Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md) 
 
 - [Como começar com o Azure Monitor e a integração do SIEM de terceiros](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/) 
 
@@ -48,11 +48,11 @@ Em alternativa, pode ativar e embarcar estes dados para a Azure Sentinel ou para
 
 Ativar registos de diagnóstico para Azure Data Share, especificamente os registos de diagnóstico do MicrosoftDataShareSentShareSnapshotsLog &amp; MicrosoftDataShareReceivedShareSnapshotsLog. Estes registos permitir-lhe-ão capturar informações chave como sincronização de início de tempo, fim de tempo, estado e outros detalhes. Estes registos podem ser cruciais para mais tarde investigar incidentes de segurança e realizar exercícios forenses.
 
-- [Como recolher registos e métricas da plataforma com o Azure Monitor](../azure-monitor/platform/diagnostic-settings.md) 
+- [Como recolher registos e métricas da plataforma com o Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md) 
 
-- [Compreenda o registo e diferentes tipos de registo em Azure](../azure-monitor/platform/platform-logs-overview.md)
+- [Compreenda o registo e diferentes tipos de registo em Azure](../azure-monitor/essentials/platform-logs-overview.md)
 
-- [Como configurar definições de diagnóstico para o registo de atividades azure](../azure-monitor/platform/activity-log.md)
+- [Como configurar definições de diagnóstico para o registo de atividades azure](../azure-monitor/essentials/activity-log.md)
 
 **Monitorização do Centro de Segurança do Azure**: Não aplicável
 
@@ -62,9 +62,9 @@ Ativar registos de diagnóstico para Azure Data Share, especificamente os regist
 
 **Orientação**: Certifique-se de que quaisquer contas de armazenamento ou espaços de trabalho do Log Analytics utilizados para armazenar registos Azure Data Share tem o período de retenção de registo definido de acordo com os regulamentos de conformidade da sua organização.
 
-- [Como configurar o período de retenção do espaço de trabalho do Log Analytics](../azure-monitor/platform/manage-cost-storage.md)
+- [Como configurar o período de retenção do espaço de trabalho do Log Analytics](../azure-monitor/logs/manage-cost-storage.md)
 
-- [Armazenar registos de recursos numa conta de armazenamento Azure](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)
+- [Armazenar registos de recursos numa conta de armazenamento Azure](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage)
 
 **Monitorização do Centro de Segurança do Azure**: Não aplicável
 
@@ -78,9 +78,9 @@ Em alternativa, pode ativar e a bordo dados para Azure Sentinel ou um SIEM de te
 
 - [Como embarcar Azure Sentinel](../sentinel/quickstart-onboard.md) 
 
-- [Começando com consultas log analytics](../azure-monitor/log-query/log-analytics-tutorial.md) 
+- [Começando com consultas log analytics](../azure-monitor/logs/log-analytics-tutorial.md) 
 
-- [Como realizar consultas personalizadas no Azure Monitor](../azure-monitor/log-query/get-started-queries.md) 
+- [Como realizar consultas personalizadas no Azure Monitor](../azure-monitor/logs/get-started-queries.md) 
 
 **Monitorização do Centro de Segurança do Azure**: Não aplicável
 
@@ -94,7 +94,7 @@ Em alternativa, pode ativar e a bordo dados para Azure Sentinel ou um SIEM de te
 
 - [Como gerir alertas no Centro de Segurança Azure](../security-center/security-center-managing-and-responding-alerts.md) 
 
-- [Como alertar nos dados de registo de registo de registos de registos](../azure-monitor/learn/tutorial-response.md) 
+- [Como alertar nos dados de registo de registo de registos de registos](../azure-monitor/alerts/tutorial-response.md) 
 
 **Monitorização do Centro de Segurança do Azure**: Não aplicável
 
@@ -209,7 +209,7 @@ Pode agilizar este processo criando definições de diagnóstico para contas de 
 
 **Orientação**: Utilize o Monitor Azure com o Registo de Atividades Azure para criar alertas do Monitor Azure para quando ocorrerem alterações para recursos críticos do Azure.
 
-- [Como criar alertas para eventos de Registo de Atividades Azure](../azure-monitor/platform/alerts-activity-log.md) 
+- [Como criar alertas para eventos de Registo de Atividades Azure](../azure-monitor/alerts/alerts-activity-log.md) 
 
 **Monitorização do Centro de Segurança do Azure**: Sim
 

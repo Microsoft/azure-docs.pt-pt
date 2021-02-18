@@ -12,19 +12,19 @@ author: urosmil
 ms.author: urmilano
 ms.reviewer: sstein, bonova, MashaMSFT
 ms.date: 09/03/2020
-ms.openlocfilehash: 0f76d2079b7ed5aacbf835540ea92febd034e2d0
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 6cdd3137798e221974dadda78dd55b6ae944bc78
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92782455"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100589338"
 ---
 # <a name="monitoring-azure-sql-managed-instance-management-operations"></a>Monitorização das operações de gestão de instâncias geridas Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 A Azure SQL Managed Instance fornece monitorização das operações de [gestão](management-operations-overview.md) que utiliza para implementar novos casos geridos, atualizar propriedades de instância ou apagar casos quando já não é necessário. 
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Todas as operações de gestão podem ser categorizadas da seguinte forma:
 
@@ -37,7 +37,7 @@ A maioria das operações de gestão são [operações de longa duração.](mana
 Existem várias formas de monitorizar as operações de gestão de instâncias geridas:
 
 - [Implementações de grupos de recursos](../../azure-resource-manager/templates/deployment-history.md)
-- [Registo de atividades](../../azure-monitor/platform/activity-log.md)
+- [Registo de atividades](../../azure-monitor/essentials/activity-log.md)
 - [Operações de caso gerido API](#managed-instance-operations-api)
 
 
@@ -46,7 +46,7 @@ O quadro a seguir compara as opções de monitorização da operação de gestã
 | Opção | Retenção | Os suportes cancelam | Criar | Atualizar | Eliminar | Cancelar | Passos |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Implementações de grupos de recursos | Infinito<sup>1</sup> | Nº<sup>2</sup> | Visible | Visible | Não visível | Visible | Não visível |
-| Registo de atividades | 90 dias | Não | Visible | Visible | Visible | Visible |  Não visível |
+| Registo de atividades | 90 dias | No | Visible | Visible | Visible | Visible |  Não visível |
 | Operações de caso gerido API | 24 horas | [Sim](management-operations-cancel.md) | Visible | Visible | Visible | Visible | Visible |
 |  |  |  |  |  |  |  | |
 

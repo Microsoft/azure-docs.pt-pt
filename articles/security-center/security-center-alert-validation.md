@@ -1,5 +1,5 @@
 ---
-title: Validação de alerta no Centro de Segurança Azure / Microsoft Docs
+title: Validação de alerta no Centro de Segurança Azure | Microsoft Docs
 description: Saiba como validar que os seus alertas de segurança estão corretamente configurados no Azure Security Center
 services: security-center
 documentationcenter: na
@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/15/2020
+ms.date: 02/17/2021
 ms.author: memildin
-ms.openlocfilehash: 598c13b0434a364e73471b53c82663b94fb42f4e
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 3bdc0af2ea581954cb5edd2c7d00d286f814506c
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97560106"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100633602"
 ---
 # <a name="alert-validation-in-azure-security-center"></a>Validação de alerta no Centro de Segurança Azure
 Este documento ajuda-o a aprender como verificar se o sistema está corretamente configurado para os alertas do Centro de Segurança do Azure.
@@ -28,7 +28,7 @@ Os alertas são as notificações que o Centro de Segurança gera quando deteta 
 Para mais informações, consulte [alertas de segurança no Centro de Segurança](security-center-alerts-overview.md) e [Gestão e respondendo a alertas de segurança](security-center-managing-and-responding-alerts.md)
 
 
-## <a name="generate-sample-azure-defender-alerts"></a>Gerem alertas de Azure Defender de amostra
+## <a name="generate-sample-azure-defender-alerts"></a>Gerar alertas do Azure Defender de exemplo
 
 Se estiver a utilizar a nova experiência de alertas de pré-visualização, tal como descrito no [Manage e responder aos alertas de segurança no Azure Security Center,](security-center-managing-and-responding-alerts.md)pode criar alertas de amostra em alguns cliques da página de alertas de segurança no portal Azure.
 
@@ -36,11 +36,6 @@ Utilize alertas de amostra para:
 
 - avaliar o valor e as capacidades do Azure Defender
 - validar quaisquer configurações que tenha feito para os seus alertas de segurança (tais como integrações SIEM, automatização de fluxos de trabalho e notificações de e-mail)
-
-> [!NOTE]
-> Este procedimento requer a nova experiência de alerta (pré-visualização) disponível a partir do banner no topo da página de alertas de **Segurança.**
->
-> :::image type="content" source="media/security-center-managing-and-responding-alerts/preview-alerts-experience-banner.png" alt-text="Banner com ligação à nova experiência de alertas de pré-visualização":::
 
 Para criar alertas de amostragem:
 

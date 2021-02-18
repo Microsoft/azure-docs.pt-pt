@@ -5,12 +5,12 @@ description: Saiba como criar uma ligação RDP com os nós do Cluster Windows S
 services: container-service
 ms.topic: article
 ms.date: 06/04/2019
-ms.openlocfilehash: 4f221a98adb779d32fc5567b201699672c8b90f5
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: b55d9f838471f01b1c77b732f6a728aa99c25a74
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183282"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100591109"
 ---
 # <a name="connect-with-rdp-to-azure-kubernetes-service-aks-cluster-windows-server-nodes-for-maintenance-or-troubleshooting"></a>Ligue-se com os nós do Serviço de Azure Kubernetes (AKS) do cluster Windows Server para manutenção ou resolução de problemas
 
@@ -18,7 +18,7 @@ Durante todo o ciclo de vida do seu cluster Azure Kubernetes Service (AKS), pode
 
 Este artigo mostra-lhe como criar uma ligação RDP com um nó AKS usando os seus endereços IP privados.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Este artigo pressupõe que você tem um cluster AKS existente com um nó do Windows Server. Se precisar de um cluster AKS, consulte o artigo sobre a [criação de um cluster AKS com um recipiente Windows utilizando o Azure CLI][aks-windows-cli]. Precisa do nome de utilizador do administrador do Windows e da palavra-passe para o nó do Servidor do Windows que pretende resolver problemas. Se não os conhecer, pode repor-os seguindo [os Serviços de Ambiente de Trabalho Remoto reset ou a sua palavra-passe de administrador num VM do Windows ](../virtual-machines/troubleshooting/reset-rdp.md). Também precisa de um cliente RDP, como [o Microsoft Remote Desktop.][rdp-mac]
 
@@ -161,7 +161,7 @@ Se precisar de dados adicionais de resolução de [problemas, pode ver os regist
 [az-aks-install-cli]: /cli/azure/aks?view=azure-cli-latest#az-aks-install-cli
 [az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
 [az-vm-delete]: /cli/azure/vm#az-vm-delete
-[azure-monitor-containers]: ../azure-monitor/insights/container-insights-overview.md
+[azure-monitor-containers]: ../azure-monitor/containers/container-insights-overview.md
 [install-azure-cli]: /cli/azure/install-azure-cli
 [ssh-steps]: ssh.md
 [view-master-logs]: view-master-logs.md

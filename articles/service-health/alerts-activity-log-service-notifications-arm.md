@@ -4,12 +4,12 @@ description: Ser notificado via SMS, e-mail ou webhook quando o serviço Azure o
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 06/29/2020
-ms.openlocfilehash: 688314a2057964c66baeacbbc49736ea436f5ec5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 532fbae505e0bcaa6ab31a2e935362114537d134
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91630224"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100594948"
 ---
 # <a name="quickstart-create-activity-log-alerts-on-service-notifications-using-an-arm-template"></a>Quickstart: Criar alertas de registo de atividade nas notificações de serviço usando um modelo ARM
 
@@ -17,7 +17,7 @@ Este artigo mostra-lhe como configurar alertas de registo de atividade para noti
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-As notificações de saúde do serviço são armazenadas no registo de [atividades do Azure](../azure-monitor/platform/platform-logs-overview.md). Dado o eventual grande volume de informação armazenada no registo de atividades, existe uma interface de utilizador separada para facilitar a visualização e a configuração de alertas nas notificações de saúde do serviço.
+As notificações de saúde do serviço são armazenadas no registo de [atividades do Azure](../azure-monitor/essentials/platform-logs-overview.md). Dado o eventual grande volume de informação armazenada no registo de atividades, existe uma interface de utilizador separada para facilitar a visualização e a configuração de alertas nas notificações de saúde do serviço.
 
 Pode receber um alerta quando o Azure enviar notificações de saúde de serviço para a sua assinatura Azure. Pode configurar o alerta com base em:
 
@@ -34,7 +34,7 @@ Também pode configurar a quem o alerta deve ser enviado:
 - Selecione um grupo de ação existente.
 - Crie um novo grupo de ação (que pode ser usado para futuros alertas).
 
-Para saber mais sobre grupos de ação, veja [Criar e gerir grupos de ações](../azure-monitor/platform/action-groups.md).
+Para saber mais sobre grupos de ação, veja [Criar e gerir grupos de ações](../azure-monitor/alerts/action-groups.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -199,7 +199,7 @@ Remove-AzResourceGroup -Name my-resource-group
 - Saiba como [configurar notificações de push móvel para a Azure Service Health](https://www.microsoft.com/en-us/videoplayer/embed/RE2OtUw).
 - Saiba como [configurar notificações webhook para os sistemas de gestão de problemas existentes](service-health-alert-webhook-guide.md).
 - Saiba mais sobre [as notificações de saúde do serviço.](service-notifications.md)
-- Saiba mais sobre [a limitação da taxa de notificação.](../azure-monitor/platform/alerts-rate-limiting.md)
-- Reveja o [esquema de alerta de registo de atividade webhook](../azure-monitor/platform/activity-log-alerts-webhook.md).
-- Obtenha uma [visão geral dos alertas de registo de atividades](../azure-monitor/platform/alerts-overview.md)e aprenda a receber alertas.
-- Saiba mais sobre [grupos de ação.](../azure-monitor/platform/action-groups.md)
+- Saiba mais sobre [a limitação da taxa de notificação.](../azure-monitor/alerts/alerts-rate-limiting.md)
+- Reveja o [esquema de alerta de registo de atividade webhook](../azure-monitor/alerts/activity-log-alerts-webhook.md).
+- Obtenha uma [visão geral dos alertas de registo de atividades](../azure-monitor/alerts/alerts-overview.md)e aprenda a receber alertas.
+- Saiba mais sobre [grupos de ação.](../azure-monitor/alerts/action-groups.md)

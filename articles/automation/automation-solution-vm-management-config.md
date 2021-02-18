@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 552cac01cd492229a19bdbc297665eb7d3ccb401
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: b52b51133f059f028baf470515e886d17077af6a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96751296"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593932"
 ---
 # <a name="configure-startstop-vms-during-off-hours"></a>Configurar VMs de início/paragem durante as horas fora de horas
 
@@ -145,7 +145,7 @@ Para alterar notificações de e-mail após a implementação de VMs de início/
 
     :::image type="content" source="media/automation-solution-vm-management/change-email.png" alt-text="Screenshot da página email/SMS/Push/Voice mostrando um endereço de e-mail de exemplo atualizado.":::
 
-    Em alternativa, pode adicionar ações adicionais ao grupo de ação, para saber mais sobre grupos de ação, ver [grupos de ação](../azure-monitor/platform/action-groups.md)
+    Em alternativa, pode adicionar ações adicionais ao grupo de ação, para saber mais sobre grupos de ação, ver [grupos de ação](../azure-monitor/alerts/action-groups.md)
 
 Segue-se um e-mail de exemplo que é enviado quando a funcionalidade desliga as máquinas virtuais.
 

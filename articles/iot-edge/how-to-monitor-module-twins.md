@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 1a11d3a9a972188af4cf8f054349da98d69691a3
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: d968fb066e68fe1bb6986c63ce750c5de5c98cf9
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876163"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100633183"
 ---
 # <a name="monitor-module-twins"></a>Monitorizar módulos duplos
 
@@ -200,7 +200,7 @@ Se vir a mensagem "Uma identidade de módulo não existe para este módulo", est
 Para rever e editar um módulo twin:
 
 1. Se ainda não estiver instalado, instale a extensão de [ferramentas Azure IoT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) para código de estúdio visual.
-1. No **Explorer**, expanda o **Azure IoT Hub**e, em seguida, expanda o dispositivo com o módulo que pretende monitorizar.
+1. No **Explorer**, expanda o **Azure IoT Hub** e, em seguida, expanda o dispositivo com o módulo que pretende monitorizar.
 1. Clique com o botão direito no módulo e **selecione Editar Módulo Twin**. Um ficheiro temporário do módulo twin é descarregado para o seu computador e exibido no Código do Estúdio Visual.
 
   ![Obtenha um módulo twin para editar no Código do Estúdio Visual](./media/how-to-monitor-module-twins/edit-module-twin-vscode.png)
@@ -213,7 +213,7 @@ Se escoar alterações, selecione **Update Module Twin** acima do código no edi
 
 Para ver se o IoT Edge está em funcionamento, use o [hub az iot invocando](how-to-edgeagent-direct-method.md#ping) o método do módulo para pingar o agente IoT Edge.
 
-A estrutura [az iot hub módulo-twin](/cli/azure/ext/azure-cli-iot-ext/iot/hub/module-twin) fornece estes comandos:
+A estrutura [az iot hub módulo-twin](/cli/azure/ext/azure-iot/iot/hub/module-twin) fornece estes comandos:
 
 * **az iot hub módulo-twin show** - Mostre uma definição de módulo twin.
 * **az iot hub module-twin update** - Atualize uma definição de módulo twin.

@@ -3,12 +3,12 @@ title: Implementar amostra de planta federal de PBMM do Canadá
 description: Implementar etapas para a amostra de planta federal do Canadá PBMM, incluindo detalhes do parâmetro do artefacto da planta.
 ms.date: 02/05/2021
 ms.topic: sample
-ms.openlocfilehash: 376c6329c0c3c571364c7d5d23a21c9f8cad2e53
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: ec7b0f4bd049b8cb2ead9301ac9ddb76ae727cca
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99624999"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100594790"
 ---
 # <a name="deploy-the-canada-federal-pbmm-blueprint-samples"></a>Implementar as amostras de planta do PBMM federal do Canadá
 
@@ -93,12 +93,12 @@ A tabela seguinte mostra uma lista dos parâmetros dos artefactos de esquema:
 
 Nome do artefacto|Tipo de artefacto|Nome do parâmetro|Descrição|
 |-|-|-|-|
-|\[Pré-visualização \] : Implementar agente de análise de registo para VMs Linux |Atribuição de políticas |Log Analytics espaço de trabalho para VMs Linux |Para obter mais informações, consulte [Criar um espaço de trabalho log Analytics no portal Azure](../../../../azure-monitor/learn/quick-create-workspace.md). |
+|\[Pré-visualização \] : Implementar agente de análise de registo para VMs Linux |Atribuição de políticas |Log Analytics espaço de trabalho para VMs Linux |Para obter mais informações, consulte [Criar um espaço de trabalho log Analytics no portal Azure](../../../../azure-monitor/logs/quick-create-workspace.md). |
 |\[Pré-visualização \] : Implementar agente de análise de registo para VMs Linux |Atribuição de políticas |Opcional: Lista de imagens VM que apoiaram o Linux OS para adicionar ao âmbito |Pode ser utilizado um conjunto vazio para indicar que não há parâmetros opcionais: `[]` |
 |\[Pré-visualização \] : Implementar agente de análise de registo para VMs do Windows |Atribuição de políticas |Opcional: Lista de imagens VM que apoiaram o Windows OS para adicionar ao âmbito |Pode ser utilizado um conjunto vazio para indicar que não há parâmetros opcionais: `[]` |
-|\[Pré-visualização \] : Implementar agente de análise de registo para VMs do Windows |Atribuição de políticas |Log Analytics espaço de trabalho para VMs windows |Para obter mais informações, consulte [Criar um espaço de trabalho log Analytics no portal Azure](../../../../azure-monitor/learn/quick-create-workspace.md). |
+|\[Pré-visualização \] : Implementar agente de análise de registo para VMs do Windows |Atribuição de políticas |Log Analytics espaço de trabalho para VMs windows |Para obter mais informações, consulte [Criar um espaço de trabalho log Analytics no portal Azure](../../../../azure-monitor/logs/quick-create-workspace.md). |
 |\[Pré-visualização \] : Audit Canada Federal PBMM controla e implementa extensões específicas de VM para apoiar os requisitos de auditoria |Atribuição de políticas |Log Analytics workspace ID que VMs deve ser configurado para |Este é o ID (GUID) do espaço de trabalho Log Analytics para o qual os VMs devem ser configurados. |
-|\[Pré-visualização \] : Audit Canada Federal PBMM controla e implementa extensões específicas de VM para apoiar os requisitos de auditoria |Atribuição de políticas |Lista de tipos de recursos que devem ter registos de diagnóstico ativados |Lista de tipos de recursos para auditar se a definição de registo de diagnóstico não estiver ativada. Os valores aceitáveis podem ser encontrados nos [esquemas de registos de diagnóstico do Azure Monitor](../../../../azure-monitor/platform/resource-logs-schema.md#service-specific-schemas). |
+|\[Pré-visualização \] : Audit Canada Federal PBMM controla e implementa extensões específicas de VM para apoiar os requisitos de auditoria |Atribuição de políticas |Lista de tipos de recursos que devem ter registos de diagnóstico ativados |Lista de tipos de recursos para auditar se a definição de registo de diagnóstico não estiver ativada. Os valores aceitáveis podem ser encontrados nos [esquemas de registos de diagnóstico do Azure Monitor](../../../../azure-monitor/essentials/resource-logs-schema.md#service-specific-schemas). |
 |\[Pré-visualização \] : Audit Canada Federal PBMM controla e implementa extensões específicas de VM para apoiar os requisitos de auditoria |Atribuição de políticas |Grupo de administradores |Grupo. Exemplo: `Administrator; myUser1; myUser2` |
 |\[Pré-visualização \] : Audit Canada Federal PBMM controla e implementa extensões específicas de VM para apoiar os requisitos de auditoria |Atribuição de políticas |Lista de utilizadores que devem ser incluídos no grupo de administradores do Windows VM |Uma lista separada de membros que deve ser incluída no grupo local de administradores. Exemplo: `Administrator; myUser1; myUser2` |
 |Implementar proteção avançada de ameaças em contas de armazenamento |Atribuição de políticas |Efeito |Informações sobre os efeitos da política podem ser encontradas na [Understand Azure Policy Effects](../../../policy/concepts/effects.md). |

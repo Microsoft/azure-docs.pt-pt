@@ -9,12 +9,12 @@ ms.service: notification-hubs
 ms.reviewer: thsomasu
 ms.lastreviewed: 05/27/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 63841bd603373d0fb325bcf82511ce3fb07b4136
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 31a411cbcecab8192643f86b6b54d09ac03e7f45
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96017258"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100581713"
 ---
 # <a name="tutorial-send-push-notifications-to-android-devices-using-firebase-sdk-version-100-preview1"></a>Tutorial: Enviar notificações push para dispositivos Android usando a versão 1.0.0-preview do Firebase SDK
 
@@ -37,7 +37,7 @@ Para concluir este tutorial, tem de ter uma conta ativa do Azure. Se não tiver 
 Também precisa dos seguintes itens:
 
 - A versão mais recente do [Android Studio](https://go.microsoft.com/fwlink/?LinkId=389797) é recomendada.
-- O suporte mínimo é o nível 16 da API.
+- O suporte mínimo é o nível 19 da API.
 
 ## <a name="create-an-android-studio-project"></a>Criar um projeto Android Studio
 
@@ -162,12 +162,8 @@ O seu centro de notificação está agora configurado para trabalhar com mensage
 1. No ficheiro **build.gradle** para a aplicação, adicione as seguintes linhas na secção dependências:
 
    ```gradle
-   implementation 'com.microsoft.azure:notification-hubs-android-sdk:1.0.0-preview1@aar'
+   implementation 'com.microsoft.azure:notification-hubs-android-sdk-fcm:1.1.4'
    implementation 'androidx.appcompat:appcompat:1.0.0'
-
-   implementation 'com.google.firebase:firebase-messaging:20.1.5'
-
-   implementation 'com.android.volley:volley:1.1.1'
    ```
 
 2. Adicione o seguinte repositório após a secção de dependências:
@@ -198,18 +194,23 @@ O seu centro de notificação está agora configurado para trabalhar com mensage
    public class CustomNotificationListener implements NotificationHubListener {
 
       @override
+      public void onNotificationReceived(Context context, RemoteMessage message) {
+    
+         /* The following notification properties are available. */
+         Notification notification = message.getNotification();
+         String title = notification.getTitle();
+         String body = notification.getBody();
+         Map<String, String> data = message.getData();
+    
+         if (message != null) {
+            Log.d(TAG, "Message Notification Title: " + title);
+            Log.d(TAG, "Message Notification Body: " + message);
+         }
 
-      public void onNotificationReceived(Context context, NotificationMessage message) {
-
-      /* The following notification properties are available. */
-
-      String title = message.getTitle();
-      String message = message.getMessage();
-      Map<String, String> data = message.getData();
-
-      if (message != null) {
-         Log.d(TAG, "Message Notification Title: " + title);
-         Log.d(TAG, "Message Notification Body: " + message);
+         if (data != null) {
+             for (Map.Entry<String, String> entry : data.entrySet()) {
+                 Log.d(TAG, "key, " + entry.getKey() + " value " + entry.getValue());
+             }
          }
       }
    }
@@ -254,7 +255,7 @@ Pode enviar notificações push para o seu centro de notificações a partir do 
 
 2. Em **Plataformas,** selecione **Android**.
 
-3. Selecione **Send** (Enviar). Ainda não vai ver uma notificação no dispositivo Android porque ainda não executou a aplicação móvel no mesmo. Depois de executar a aplicação móvel, selecione novamente o botão **Enviar** para ver a mensagem de notificação.
+3. Selecione **Enviar**. Ainda não vai ver uma notificação no dispositivo Android porque ainda não executou a aplicação móvel no mesmo. Depois de executar a aplicação móvel, selecione novamente o botão **Enviar** para ver a mensagem de notificação.
 
 4. Consulte o resultado da operação na lista na parte inferior da página do portal.
 

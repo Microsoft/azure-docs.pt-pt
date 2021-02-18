@@ -6,12 +6,12 @@ author: lzchen
 ms.author: lechen
 ms.date: 10/15/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: 4abb795335bfcb2c9b335d4fb09ddc9fdb2476b4
-ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.openlocfilehash: 3b029a9cb14a81c80072847dc17d6b71f480743f
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2021
-ms.locfileid: "98746582"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100585680"
 ---
 # <a name="track-incoming-requests-with-opencensus-python"></a>Acompanhe os pedidos de entrada com o OpenCensus Python
 
@@ -172,11 +172,11 @@ O OpenCensus não tem uma extensão para o FastAPI. Para escrever o seu próprio
         uvicorn.run("example:app", host="127.0.0.1", port=5000, log_level="info")
     ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Mapeamento de Aplicações](./app-map.md)
 * [Disponibilidade](./monitor-web-app-availability.md)
 * [Pesquisa](./diagnostic-search.md)
-* [Consulta de log (Analytics)](../log-query/log-query-overview.md)
+* [Consulta de log (Analytics)](../logs/log-query-overview.md)
 * [Diagnóstico da transação](./transaction-diagnostics.md)
 

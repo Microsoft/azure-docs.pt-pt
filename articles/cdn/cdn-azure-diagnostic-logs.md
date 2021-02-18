@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 07/15/2020
 ms.author: allensu
-ms.openlocfilehash: fdb609a243656e2c75159cd2d4e70e2f965ae896
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 96e80de5b8b5ab0a046913ce40ca2d7254dd0133
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96352121"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100573216"
 ---
 # <a name="diagnostic-logs---azure-content-delivery-network"></a>Registos de diagnóstico - Rede de Entrega de Conteúdos Azure
 
@@ -78,7 +78,7 @@ Para utilizar uma conta de armazenamento para armazenar os registos, siga estes 
 Para utilizar o Log Analytics para os registos, siga estes passos:
 
 >[!NOTE] 
->É necessário um espaço de trabalho de análise de registo para completar estes passos. Consulte: **[Criar um espaço de trabalho Log Analytics no portal Azure](../azure-monitor/learn/quick-create-workspace.md)** para obter mais informações.
+>É necessário um espaço de trabalho de análise de registo para completar estes passos. Consulte: **[Criar um espaço de trabalho Log Analytics no portal Azure](../azure-monitor/logs/quick-create-workspace.md)** para obter mais informações.
     
 1. Para **o nome de definição de diagnóstico,** insira um nome para as definições de registo de diagnóstico.
 
@@ -210,7 +210,7 @@ Os registos de análise do núcleo são gerados a cada hora e os dados são reco
 |Nome do Grupo de Recursos |Nome do grupo de recursos a que pertencem os recursos da CDN.|
 |Profile Name (Nome do Perfil) |Nome do Perfil CDN|
 |Nome do ponto final |Nome do ponto final do CDN|
-|Ano|  Representação de quatro dígitos do ano, por exemplo, 2017|
+|Anual|  Representação de quatro dígitos do ano, por exemplo, 2017|
 |Mensal| Representação de dois dígitos do número do mês. 01=Janeiro ... 12=Dezembro|
 |Dia|   Representação de dois dígitos do dia do mês|
 |PT1H.jsem| Arquivo JSON real onde os dados de análise são armazenados|
@@ -251,33 +251,33 @@ Nem todas as métricas estão disponíveis de todos os fornecedores, embora tais
 
 |Metric                     | Descrição | Microsoft | Verizon | Akamai |
 |---------------------------|-------------|-----------|---------|--------|
-| PedidoCountTotal         | O número total de pedidos é atingido durante este período. | Sim | Sim |Sim |
-| PedidoCountHttpStatus2xx | Contagem de todos os pedidos que resultaram num código HTTP 2xx (por exemplo, 200, 202). | Sim | Sim |Sim |
-| PedidoCountHttpStatus3xx | Contagem de todos os pedidos que resultaram num código HTTP 3xx (por exemplo, 300, 302). | Sim | Sim |Sim |
-| PedidoCountHttpStatus4xx | Contagem de todos os pedidos que resultaram num código HTTP 4xx (por exemplo, 400, 404). | Sim | Sim |Sim |
-| PedidoCountHttpStatus5xx | Contagem de todos os pedidos que resultaram num código HTTP 5xx (por exemplo, 500,504). | Sim | Sim |Sim |
-| PedidoCountHttpStatusOthers | Contagem de todos os outros códigos HTTP (fora de 2xx-5xx). | Sim | Sim |Sim |
-| PedidoCountHttpStatus200 | Contagem de todos os pedidos que resultaram numa resposta de código 200 HTTP. | Sim | Não  |Sim |
-| PedidoCountHttpStatus206 | Contagem de todos os pedidos que resultaram numa resposta de código HTTP 206. | Sim | Não  |Sim |
-| PedidoCountHttpStatus302 | Contagem de todos os pedidos que resultaram numa resposta de código 302 HTTP. | Sim | Não  |Sim |
-| PedidoCountHttpStatus304 | Contagem de todos os pedidos que resultaram numa resposta de código 304 HTTP. | Sim | Não  |Sim |
-| PedidoCountHttpStatus404 | Contagem de todos os pedidos que resultaram numa resposta de código 404 HTTP. | Sim | Não  |Sim |
-| PedidoCountCacheHit | Contagem de todos os pedidos que resultaram num ataque cache. O ativo foi servido diretamente do POP para o cliente. | Sim | Sim | Não  |
-| PedidoCountCacheMiss | Contagem de todos os pedidos que resultaram numa falha cache. Uma falha cache significa que o ativo não foi encontrado no POP mais próximo do cliente, e foi recuperado da origem. | Sim | Sim | Não |
-| PedidoCountCacheNoCache | Conte todos os pedidos a um ativo que seja impedido de ser em cache devido a uma configuração do utilizador na borda. | Sim | Sim | Não |
-| PedidoCountCacheUncacheable | Conte de todos os pedidos a ativos que são impedidos de serem cacheed pelos cabeçalhos Cache-Control e Expira do ativo. Esta contagem indica que não deve ser em cache num POP ou pelo cliente HTTP. | Sim | Sim | Não |
-| PedidoCountCacheOthers | Contagem de todos os pedidos com estatuto de cache não coberto por acima. | Não | Sim | Não  |
-| EgressTotal | Transferência de dados de saída em GB | Sim |Sim |Sim |
-| EgressHttpStatus2xx | Transferência de dados de saída* para respostas com códigos de estado 2xx HTTP em GB. | Sim | Sim | Não  |
-| EgressHttpStatus3xx | Transferência de dados de saída para respostas com códigos de estado 3xx HTTP em GB. | Sim | Sim | Não  |
-| EgressHttpStatus4xx | Transferência de dados de saída para respostas com códigos de estado 4xx HTTP em GB. | Sim | Sim | Não  |
-| EgressHttpStatus5xx | Transferência de dados de saída para respostas com códigos de estado 5xx HTTP em GB. | Sim | Sim | Não |
-| EgressHttpStatusOthers | Transferência de dados de saída para respostas com outros códigos de estado HTTP em GB. | Sim | Sim | Não  |
-| EgressCacheHit | Transferência de dados de saída para respostas que foram entregues diretamente a partir da cache CDN nos POPs/Edges do CDN. | Sim | Sim | Não |
-| EgressCacheMiss. | Transferência de dados de saída para respostas que não foram encontradas no servidor POP mais próximo, e recuperadas do servidor de origem. | Sim | Sim | Não |
-| EgressCacheNoCache | Transferência de dados de saída para ativos que são impedidos de ser em cache devido a uma configuração do utilizador no limite. | Sim | Sim | Não |
-| EgressCacheUncache | Transferência de dados de saída para ativos que são impedidos de ser em cache pelos Cache-Control do ativo e, ou cabeçalhos expira. Indica que não deve ser em cache num POP ou pelo cliente HTTP. | Sim | Sim | Não |
-| EgressCacheOthers | Transferências de dados de saída para outros cenários de cache. | Não | Sim | Não |
+| PedidoCountTotal         | O número total de pedidos é atingido durante este período. | Yes | Yes |Yes |
+| PedidoCountHttpStatus2xx | Contagem de todos os pedidos que resultaram num código HTTP 2xx (por exemplo, 200, 202). | Yes | Yes |Yes |
+| PedidoCountHttpStatus3xx | Contagem de todos os pedidos que resultaram num código HTTP 3xx (por exemplo, 300, 302). | Yes | Yes |Yes |
+| PedidoCountHttpStatus4xx | Contagem de todos os pedidos que resultaram num código HTTP 4xx (por exemplo, 400, 404). | Yes | Yes |Yes |
+| PedidoCountHttpStatus5xx | Contagem de todos os pedidos que resultaram num código HTTP 5xx (por exemplo, 500,504). | Yes | Yes |Yes |
+| PedidoCountHttpStatusOthers | Contagem de todos os outros códigos HTTP (fora de 2xx-5xx). | Yes | Yes |Yes |
+| PedidoCountHttpStatus200 | Contagem de todos os pedidos que resultaram numa resposta de código 200 HTTP. | Yes | No  |Yes |
+| PedidoCountHttpStatus206 | Contagem de todos os pedidos que resultaram numa resposta de código HTTP 206. | Yes | No  |Yes |
+| PedidoCountHttpStatus302 | Contagem de todos os pedidos que resultaram numa resposta de código 302 HTTP. | Yes | No  |Yes |
+| PedidoCountHttpStatus304 | Contagem de todos os pedidos que resultaram numa resposta de código 304 HTTP. | Yes | No  |Yes |
+| PedidoCountHttpStatus404 | Contagem de todos os pedidos que resultaram numa resposta de código 404 HTTP. | Yes | No  |Yes |
+| PedidoCountCacheHit | Contagem de todos os pedidos que resultaram num ataque cache. O ativo foi servido diretamente do POP para o cliente. | Yes | Yes | No  |
+| PedidoCountCacheMiss | Contagem de todos os pedidos que resultaram numa falha cache. Uma falha cache significa que o ativo não foi encontrado no POP mais próximo do cliente, e foi recuperado da origem. | Yes | Yes | No |
+| PedidoCountCacheNoCache | Conte todos os pedidos a um ativo que seja impedido de ser em cache devido a uma configuração do utilizador na borda. | Yes | Yes | No |
+| PedidoCountCacheUncacheable | Conte de todos os pedidos a ativos que são impedidos de serem cacheed pelos cabeçalhos Cache-Control e Expira do ativo. Esta contagem indica que não deve ser em cache num POP ou pelo cliente HTTP. | Yes | Yes | No |
+| PedidoCountCacheOthers | Contagem de todos os pedidos com estatuto de cache não coberto por acima. | No | Yes | No  |
+| EgressTotal | Transferência de dados de saída em GB | Yes |Yes |Yes |
+| EgressHttpStatus2xx | Transferência de dados de saída* para respostas com códigos de estado 2xx HTTP em GB. | Yes | Yes | No  |
+| EgressHttpStatus3xx | Transferência de dados de saída para respostas com códigos de estado 3xx HTTP em GB. | Yes | Yes | No  |
+| EgressHttpStatus4xx | Transferência de dados de saída para respostas com códigos de estado 4xx HTTP em GB. | Yes | Yes | No  |
+| EgressHttpStatus5xx | Transferência de dados de saída para respostas com códigos de estado 5xx HTTP em GB. | Yes | Yes | No |
+| EgressHttpStatusOthers | Transferência de dados de saída para respostas com outros códigos de estado HTTP em GB. | Yes | Yes | No  |
+| EgressCacheHit | Transferência de dados de saída para respostas que foram entregues diretamente a partir da cache CDN nos POPs/Edges do CDN. | Yes | Yes | No |
+| EgressCacheMiss. | Transferência de dados de saída para respostas que não foram encontradas no servidor POP mais próximo, e recuperadas do servidor de origem. | Yes | Yes | No |
+| EgressCacheNoCache | Transferência de dados de saída para ativos que são impedidos de ser em cache devido a uma configuração do utilizador no limite. | Yes | Yes | No |
+| EgressCacheUncache | Transferência de dados de saída para ativos que são impedidos de ser em cache pelos Cache-Control do ativo e, ou cabeçalhos expira. Indica que não deve ser em cache num POP ou pelo cliente HTTP. | Yes | Yes | No |
+| EgressCacheOthers | Transferências de dados de saída para outros cenários de cache. | No | Yes | No |
 
 *Transferência de dados de saída refere-se ao tráfego entregue dos servidores CDN POP ao cliente.
 
@@ -369,7 +369,7 @@ Propriedades de exemplo:
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Registos de diagnóstico Azure](../azure-monitor/platform/platform-logs-overview.md)
+* [Registos de diagnóstico Azure](../azure-monitor/essentials/platform-logs-overview.md)
 * [Análise de núcleo via portal suplementar Azure CDN](./cdn-analyze-usage-patterns.md)
-* [Registos do Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
+* [Registos do Azure Monitor](../azure-monitor/logs/log-query-overview.md)
 * [Azure Log Analytics REST API](/rest/api/loganalytics)

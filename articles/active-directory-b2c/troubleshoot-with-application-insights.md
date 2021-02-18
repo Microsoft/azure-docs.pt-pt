@@ -12,12 +12,12 @@ ms.date: 10/16/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 33504487b6175023e18893812c533950305cb1d3
-ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.openlocfilehash: d4a68b492bad4ac091b4600c9ec81ac0de27cc05
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2021
-ms.locfileid: "98746007"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100572905"
 ---
 # <a name="collect-azure-active-directory-b2c-logs-with-application-insights"></a>Recolher registos B2C do Diretório Ativo Azure com Insights de Aplicação
 
@@ -94,14 +94,14 @@ Há um curto atraso, normalmente menos de cinco minutos, antes de poder ver novo
 
 Aqui está uma lista de consultas que pode usar para ver os registos:
 
-| Consulta | Descrição |
+| Consulta | Description |
 |---------------------|--------------------|
 `traces` | Veja todos os registos gerados por Azure AD B2C |
 `traces | where timestamp > ago(1d)` | Veja todos os registos gerados pela Azure AD B2C para o último dia
 
 As entradas podem ser longas. Exportar para CSV para um olhar mais atento.
 
-Para obter mais informações sobre consultas, consulte [a visão geral das consultas de registo no Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
+Para obter mais informações sobre consultas, consulte [a visão geral das consultas de registo no Azure Monitor](../azure-monitor/logs/log-query-overview.md).
 
 ## <a name="configure-application-insights-in-production"></a>Configure insights de aplicação na produção
 
@@ -128,7 +128,7 @@ Para melhorar o desempenho do seu ambiente de produção e uma melhor experiênc
    
 1. Faça upload e teste a sua política.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 A comunidade desenvolveu um espectador de viagem de utilizador para ajudar os desenvolvedores de identidade. Lê a partir da sua instância Application Insights e fornece uma visão bem estruturada dos eventos de viagem do utilizador. Obtém o código fonte e implanta-o na sua própria solução.
 

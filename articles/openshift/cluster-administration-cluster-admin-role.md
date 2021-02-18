@@ -1,18 +1,18 @@
 ---
-title: Papel de administrador de cluster Azure Red Hat OpenShift / Microsoft Docs
+title: Papel de administrador de cluster Azure Red Hat OpenShift | Microsoft Docs
 description: Atribuição e utilização do papel de administrador de cluster Azure Red Hat OpenShift
 services: container-service
 author: mjudeikis
 ms.author: jzim
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.topic: article
 ms.date: 09/25/2019
-ms.openlocfilehash: f8b84461cc96c64ce2f97a8b4bb69246f5a0dccc
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: f4fc57ebe39a2169ea91423b295f4bc436746b29
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92221184"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100636259"
 ---
 # <a name="azure-red-hat-openshift-customer-administrator-role"></a>Papel de administrador de cliente azure Red Hat OpenShift
 

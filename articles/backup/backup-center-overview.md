@@ -3,12 +3,12 @@ title: Visão geral do Backup Center
 description: Este artigo fornece uma visão geral do Backup Center for Azure.
 ms.topic: conceptual
 ms.date: 09/30/2020
-ms.openlocfilehash: b42fcc782eb50c061ab7617ea0ef1f3344fee4e9
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 93f9e5dc064d264e0cc111d8ddb093639307c55b
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98893614"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592024"
 ---
 # <a name="overview-of-backup-center-preview"></a>Visão geral do Backup Center (Pré-visualização)
 
@@ -18,7 +18,7 @@ Alguns dos principais benefícios do Backup Center incluem:
 
 * **Painel único de vidro para gerir backups** – O Backup Center foi concebido para funcionar bem em um ambiente Azure grande e distribuído. Você pode usar backup Center para gerir eficientemente backups abrangendo vários tipos de carga de trabalho, cofres, subscrições, regiões e inquilinos [do Farol Azure.](../lighthouse/overview.md)
 * **Gestão centrada em dados** – O Backup Center fornece vistas e filtros centrados nas fontes de dados que está a fazer (por exemplo, VMs e bases de dados). Isto permite que um proprietário de recursos ou um administrador de backup monitorize e opere cópias de segurança de itens sem precisar de se concentrar no cofre a que um item está apoiado. Uma característica chave deste design é a capacidade de filtrar visualizações por propriedades específicas de fontes de dados, tais como subscrição de fontes de dados, grupo de recursos de fonte de dados e tags de fonte de dados. Por exemplo, se a sua organização seguir uma prática de atribuir diferentes tags a VMs pertencentes a diferentes departamentos, pode usar o Backup Center para filtrar informações de backup com base nas etiquetas dos VMs subjacentes que estão a ser apoiados sem precisar de se concentrar na etiqueta do cofre.
-* **Experiências conectadas** – O Backup Center proporciona integrações nativas aos serviços Azure existentes que permitem a gestão em escala. Por exemplo, o Backup Center utiliza a experiência [Azure Policy](../governance/policy/overview.md) para o ajudar a governar as suas cópias de segurança. Também aproveita os [livros de trabalho da Azure](../azure-monitor/platform/workbooks-overview.md) e os [Registos do Monitor Azure](../azure-monitor/platform/data-platform-logs.md) para ajudá-lo a ver relatórios detalhados sobre cópias de segurança. Por isso, não precisa de aprender novos princípios para usar as funcionalidades variadas que o Backup Center oferece.
+* **Experiências conectadas** – O Backup Center proporciona integrações nativas aos serviços Azure existentes que permitem a gestão em escala. Por exemplo, o Backup Center utiliza a experiência [Azure Policy](../governance/policy/overview.md) para o ajudar a governar as suas cópias de segurança. Também aproveita os [livros de trabalho da Azure](../azure-monitor/visualize/workbooks-overview.md) e os [Registos do Monitor Azure](../azure-monitor/logs/data-platform-logs.md) para ajudá-lo a ver relatórios detalhados sobre cópias de segurança. Por isso, não precisa de aprender novos princípios para usar as funcionalidades variadas que o Backup Center oferece.
 
 ## <a name="supported-scenarios"></a>Cenários suportados
 
@@ -45,7 +45,7 @@ Veja o seguinte vídeo para entender as capacidades do Backup Center:
 
 Siga os [próximos passos](#next-steps) para entender as diferentes capacidades que o Backup Center fornece e como pode usar essas capacidades para gerir a sua propriedade de backup de forma eficiente.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Monitorizar e operar backups](backup-center-monitor-operate.md)
 * [Governe a sua propriedade de reserva](backup-center-govern-environment.md)

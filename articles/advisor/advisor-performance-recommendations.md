@@ -3,12 +3,12 @@ title: Melhorar o desempenho das aplicações da Azure com o Advisor
 description: Utilize recomendações de desempenho no Azure Advisor para melhorar a rapidez e capacidade de resposta das suas aplicações críticas ao negócio.
 ms.topic: article
 ms.date: 07/29/2020
-ms.openlocfilehash: f546527011402b9ea33321d56356d8aabe2412c1
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 69fd86226375073c71903af5704ef3a635eeaffb
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98735533"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579923"
 ---
 # <a name="improve-the-performance-of-azure-applications-by-using-azure-advisor"></a>Melhorar o desempenho das aplicações da Azure utilizando o Azure Advisor
 
@@ -88,7 +88,7 @@ Migrar o seu modelo de implementação da conta de armazenamento para o Azure Re
 O Advisor identifica quaisquer contas de armazenamento autónoma que estejam a utilizar o modelo clássico de implementação e recomenda a migração para o modelo de implementação do Gestor de Recursos.
 
 > [!NOTE]
-> Os alertas clássicos no Azure Monitor foram retirados em agosto de 2019. Recomendamos que atualize a sua conta de armazenamento clássica para usar o Gestor de Recursos para manter a funcionalidade de alerta com a nova plataforma. Para mais informações, consulte [a reforma dos alertas clássicos.](../azure-monitor/platform/monitoring-classic-retirement.md#retirement-of-classic-monitoring-and-alerting-platform)
+> Os alertas clássicos no Azure Monitor foram retirados em agosto de 2019. Recomendamos que atualize a sua conta de armazenamento clássica para usar o Gestor de Recursos para manter a funcionalidade de alerta com a nova plataforma. Para mais informações, consulte [a reforma dos alertas clássicos.](../azure-monitor/alerts/monitoring-classic-retirement.md#retirement-of-classic-monitoring-and-alerting-platform)
 
 ## <a name="design-your-storage-accounts-to-prevent-reaching-the-maximum-subscription-limit"></a>Desenhe as suas contas de armazenamento para evitar atingir o limite máximo de subscrição
 
@@ -187,7 +187,7 @@ Para saber mais sobre o equilíbrio de carga no Windows Virtual Desktop, consult
 
 2.  No painel 'Advisor', selecione o **separador Desempenho.**
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre as recomendações do Advisor, consulte:
 

@@ -3,12 +3,12 @@ title: Resolver erros comuns
 description: Aprenda a resolver problemas com a criação de definições políticas, os vários SDKs e o addon para Kubernetes.
 ms.date: 01/26/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: 0a64346188696cc7cc16d832474ec4ee6befdae2
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 6e0e4067f07266bae9c87fd4443d27314cc28c0b
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98917748"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592616"
 ---
 # <a name="troubleshoot-errors-with-using-azure-policy"></a>Erros de resolução de problemas com a utilização da Política Azure
 
@@ -87,7 +87,7 @@ Se ainda tiver algum problema com a definição de política incorporada duplica
 
 #### <a name="issue"></a>Problema
 
-Um recurso que espera que a Azure Policy atue não está a ser atuado, e não há entrada no diário de atividades do [Azure](../../../azure-monitor/platform/platform-logs-overview.md).
+Um recurso que espera que a Azure Policy atue não está a ser atuado, e não há entrada no diário de atividades do [Azure](../../../azure-monitor/essentials/platform-logs-overview.md).
 
 #### <a name="cause"></a>Causa
 
@@ -123,7 +123,7 @@ Uma atribuição de política ao âmbito do seu novo recurso ou atualizado satis
 
 #### <a name="resolution"></a>Resolução
 
-A mensagem de erro de uma atribuição de política de negação inclui a definição de política e iDs de atribuição de políticas. Se a informação de erro na mensagem for perdida, também está disponível no [registo de Atividades](../../../azure-monitor/platform/activity-log.md#view-the-activity-log). Utilize estas informações para obter mais detalhes para compreender as restrições de recursos e ajustar as propriedades de recursos no seu pedido para corresponder aos valores permitidos.
+A mensagem de erro de uma atribuição de política de negação inclui a definição de política e iDs de atribuição de políticas. Se a informação de erro na mensagem for perdida, também está disponível no [registo de Atividades](../../../azure-monitor/essentials/activity-log.md#view-the-activity-log). Utilize estas informações para obter mais detalhes para compreender as restrições de recursos e ajustar as propriedades de recursos no seu pedido para corresponder aos valores permitidos.
 
 ## <a name="template-errors"></a>Erros do modelo
 
@@ -296,7 +296,7 @@ Este erro significa que a subscrição foi determinada como problemática, e a b
 
 Para investigar e resolver este problema, [contacte a equipa de recurso.](mailto:azuredg@microsoft.com)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se o seu problema não estiver listado neste artigo ou não conseguir resolvê-lo, obtenha apoio visitando um dos seguintes canais:
 

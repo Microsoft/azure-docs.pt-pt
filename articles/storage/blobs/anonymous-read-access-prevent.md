@@ -10,12 +10,12 @@ ms.date: 12/09/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
-ms.openlocfilehash: 179e60a41a9cd6a2277959b3cd31159c796d845d
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: b0003384676f420c5ece043b1eb6120ed8ee2435
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96937292"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574903"
 ---
 # <a name="prevent-anonymous-public-read-access-to-containers-and-blobs"></a>Impedir que o público anónimo leia o acesso a contentores e bolhas
 
@@ -35,7 +35,7 @@ Para entender como a não concessão do acesso público pode afetar as aplicaç�
 
 ### <a name="monitor-anonymous-requests-with-metrics-explorer"></a>Monitorize pedidos anónimos com o Metrics Explorer
 
-Para rastrear pedidos anónimos a uma conta de armazenamento, utilize o Azure Metrics Explorer no portal Azure. Para obter mais informações sobre o Metrics Explorer, consulte [Começar com o Azure Metrics Explorer](../../azure-monitor/platform/metrics-getting-started.md).
+Para rastrear pedidos anónimos a uma conta de armazenamento, utilize o Azure Metrics Explorer no portal Azure. Para obter mais informações sobre o Metrics Explorer, consulte [Começar com o Azure Metrics Explorer](../../azure-monitor/essentials/metrics-getting-started.md).
 
 Siga estes passos para criar uma métrica que rastreie pedidos anónimos:
 
@@ -61,7 +61,7 @@ Depois de configurar a métrica, os pedidos anónimos começarão a aparecer no 
 
 :::image type="content" source="media/anonymous-read-access-prevent/metric-anonymous-blob-requests.png" alt-text="Screenshot mostrando pedidos anónimos agregados contra o armazenamento blob":::
 
-Também pode configurar uma regra de alerta para notificá-lo quando um certo número de pedidos anónimos são feitos contra a sua conta de armazenamento. Para obter mais informações, consulte [Criar, ver e gerir alertas métricos utilizando o Azure Monitor](../../azure-monitor/platform/alerts-metric.md).
+Também pode configurar uma regra de alerta para notificá-lo quando um certo número de pedidos anónimos são feitos contra a sua conta de armazenamento. Para obter mais informações, consulte [Criar, ver e gerir alertas métricos utilizando o Azure Monitor](../../azure-monitor/alerts/alerts-metric.md).
 
 ### <a name="analyze-logs-to-identify-containers-receiving-anonymous-requests"></a>Analisar registos para identificar contentores que recebem pedidos anónimos
 
@@ -69,7 +69,7 @@ Os registos de armazenamento Azure captam detalhes sobre pedidos feitos contra a
 
 Para registar pedidos na sua conta de Armazenamento Azure para avaliar pedidos anónimos, pode utilizar o registo de armazenamento Azure no Azure Monitor (pré-visualização). Para obter mais informações, consulte [monitor Azure Storage](./monitor-blob-storage.md).
 
-O registo de armazenamento Azure no Azure Monitor suporta a utilização de consultas de registo para analisar dados de registo. Para consultar registos, pode utilizar um espaço de trabalho Azure Log Analytics. Para saber mais sobre consultas de log, consulte [Tutorial: Começar com consultas de Log Analytics](../../azure-monitor/log-query/log-analytics-tutorial.md).
+O registo de armazenamento Azure no Azure Monitor suporta a utilização de consultas de registo para analisar dados de registo. Para consultar registos, pode utilizar um espaço de trabalho Azure Log Analytics. Para saber mais sobre consultas de log, consulte [Tutorial: Começar com consultas de Log Analytics](../../azure-monitor/logs/log-analytics-tutorial.md).
 
 > [!NOTE]
 > A pré-visualização do registo de armazenamento Azure no Azure Monitor é suportada apenas na nuvem pública do Azure. As nuvens governamentais não suportam o registo de madeira para o Azure Storage com o Azure Monitor.
@@ -79,7 +79,7 @@ O registo de armazenamento Azure no Azure Monitor suporta a utilização de cons
 Para registar os dados de Armazenamento Azure com o Azure Monitor e analisá-los com o Azure Log Analytics, tem primeiro de criar uma definição de diagnóstico que indique quais os tipos de pedidos e quais os serviços de armazenamento que pretende registar dados. Para criar uma definição de diagnóstico no portal Azure, siga estes passos:
 
 1. Inscreva-se no registo de [armazenamento Azure na pré-visualização do Azure Monitor](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUM0E0MFdPRFpOVTRYVklDSE1WUTcyTVAwOC4u).
-1. Crie um novo espaço de trabalho log Analytics na subscrição que contenha a sua conta de Armazenamento Azure. Depois de configurar o registo da sua conta de armazenamento, os registos estarão disponíveis no espaço de trabalho do Log Analytics. Para obter mais informações, consulte [Criar um espaço de trabalho log Analytics no portal Azure](../../azure-monitor/learn/quick-create-workspace.md).
+1. Crie um novo espaço de trabalho log Analytics na subscrição que contenha a sua conta de Armazenamento Azure. Depois de configurar o registo da sua conta de armazenamento, os registos estarão disponíveis no espaço de trabalho do Log Analytics. Para obter mais informações, consulte [Criar um espaço de trabalho log Analytics no portal Azure](../../azure-monitor/logs/quick-create-workspace.md).
 1. Navegue para a sua conta de armazenamento no portal do Azure.
 1. Na secção de Monitorização, selecione **definições de diagnóstico (pré-visualização)**.
 1. Selecione **Blob** para registar os pedidos feitos contra o armazenamento blob.
@@ -90,7 +90,7 @@ Para registar os dados de Armazenamento Azure com o Azure Monitor e analisá-los
 
     :::image type="content" source="media/anonymous-read-access-prevent/create-diagnostic-setting-logs.png" alt-text="Screenshot mostrando como criar uma definição de diagnóstico para pedidos de registo":::
 
-Depois de criar a definição de diagnóstico, os pedidos para a conta de armazenamento são subsequentemente registados de acordo com essa definição. Para obter mais informações, consulte [Criar a definição de diagnóstico para recolher registos e métricas de recursos em Azure](../../azure-monitor/platform/diagnostic-settings.md).
+Depois de criar a definição de diagnóstico, os pedidos para a conta de armazenamento são subsequentemente registados de acordo com essa definição. Para obter mais informações, consulte [Criar a definição de diagnóstico para recolher registos e métricas de recursos em Azure](../../azure-monitor/essentials/diagnostic-settings.md).
 
 Para obter uma referência dos campos disponíveis nos registos de armazenamento Azure no Azure Monitor, consulte [registos de recursos (pré-visualização)](./monitor-blob-storage-reference.md#resource-logs-preview).
 
@@ -106,7 +106,7 @@ StorageBlobLogs
 | project TimeGenerated, AccountName, AuthenticationType, Uri
 ```
 
-Também pode configurar uma regra de alerta com base nesta consulta para notificá-lo sobre pedidos anónimos. Para obter mais informações, consulte [Criar, ver e gerir alertas de registo utilizando o Azure Monitor](../../azure-monitor/platform/alerts-log.md).
+Também pode configurar uma regra de alerta com base nesta consulta para notificá-lo sobre pedidos anónimos. Para obter mais informações, consulte [Criar, ver e gerir alertas de registo utilizando o Azure Monitor](../../azure-monitor/alerts/alerts-log.md).
 
 ## <a name="remediate-anonymous-public-access"></a>Remediar o acesso público anónimo
 
@@ -290,13 +290,13 @@ A imagem a seguir mostra o erro que ocorre se tentar criar uma conta de armazena
 
 ## <a name="permissions-for-allowing-or-disallowing-public-access"></a>Permissões para permitir ou desativar o acesso do público
 
-Para definir a propriedade **AllowBlobPublicAccess** para a conta de armazenamento, um utilizador deve ter permissões para criar e gerir contas de armazenamento. As funções de controlo de acesso baseado em funções (Azure RBAC) que fornecem estas permissões incluem a **microsoft.Storage/storageAccounts/write** ou **Microsoft.Storage/storageAçãos/ \** _ ação. As funções incorporadas com esta ação incluem:
+Para definir a propriedade **AllowBlobPublicAccess** para a conta de armazenamento, um utilizador deve ter permissões para criar e gerir contas de armazenamento. As funções de controlo de acesso baseado em funções (Azure RBAC) que fornecem estas permissões incluem o **Microsoft.Storage/storageAccounts/write** ou **\* Microsoft.Storage/storageAcounts/action.** As funções incorporadas com esta ação incluem:
 
 - A função [de proprietário](../../role-based-access-control/built-in-roles.md#owner) de recursos Azure
 - O papel de [Colaborador](../../role-based-access-control/built-in-roles.md#contributor) do Gestor de Recursos Azure
 - A [função de contribuinte da conta de armazenamento](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
-Estas funções não fornecem acesso a dados numa conta de armazenamento via Azure Ative Directory (Azure AD). No entanto, incluem as chaves de acesso à conta _*Microsoft.Storage/storageAs/listkeys/action**, que dá acesso às chaves de acesso à conta. Com esta permissão, um utilizador pode utilizar as chaves de acesso à conta para aceder a todos os dados numa conta de armazenamento.
+Estas funções não fornecem acesso a dados numa conta de armazenamento via Azure Ative Directory (Azure AD). No entanto, incluem o **Microsoft.Storage/storageAccounts/listkeys/action**, que dá acesso às chaves de acesso à conta. Com esta permissão, um utilizador pode utilizar as chaves de acesso à conta para aceder a todos os dados numa conta de armazenamento.
 
 As atribuições de funções devem ser a nível da conta de armazenamento ou superior para permitir que um utilizador permita ou não permita o acesso público à conta de armazenamento. Para obter mais informações sobre o âmbito de funções, consulte [o âmbito de aplicação do Azure RBAC](../../role-based-access-control/scope-overview.md).
 

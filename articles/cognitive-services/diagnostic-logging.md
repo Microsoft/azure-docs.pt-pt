@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 06/14/2019
 ms.author: erhopf
-ms.openlocfilehash: e33e8fe6e626700790a3b62265c6889f06e0861b
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: a2005ca7b32136ff0032d27e04035c46b2e4e904
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94366609"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595359"
 ---
 # <a name="enable-diagnostic-logging-for-azure-cognitive-services"></a>Ativar o registo de diagnóstico para serviços cognitivos Azure
 
@@ -24,18 +24,18 @@ Este guia fornece instruções passo a passo para permitir o registo de diagnós
 
 Para ativar a sessão de diagnóstico, precisará de um lugar para armazenar os seus dados de registo. Este tutorial utiliza a Azure Storage e Log Analytics.
 
-* [Armazenamento Azure](../azure-monitor/platform/resource-logs.md#send-to-azure-storage) - Retém registos de diagnóstico para auditoria de política, análise estática ou backup. A conta de armazenamento não tem de estar na mesma subscrição que os registos emissores de recursos, desde que o utilizador que configura a definição tenha acesso RBAC adequado a ambas as subscrições.
-* [Log Analytics](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace) - Uma ferramenta flexível de pesquisa de registos e análise que permite a análise de troncos crus gerados por um recurso Azure.
+* [Armazenamento Azure](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage) - Retém registos de diagnóstico para auditoria de política, análise estática ou backup. A conta de armazenamento não tem de estar na mesma subscrição que os registos emissores de recursos, desde que o utilizador que configura a definição tenha acesso RBAC adequado a ambas as subscrições.
+* [Log Analytics](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace) - Uma ferramenta flexível de pesquisa de registos e análise que permite a análise de troncos crus gerados por um recurso Azure.
 
 > [!NOTE]
-> Estão disponíveis opções de configuração adicionais. Para saber mais, consulte [Recolher e consumir dados de registo dos seus recursos Azure.](../azure-monitor/platform/platform-logs-overview.md)
+> Estão disponíveis opções de configuração adicionais. Para saber mais, consulte [Recolher e consumir dados de registo dos seus recursos Azure.](../azure-monitor/essentials/platform-logs-overview.md)
 
 ## <a name="enable-diagnostic-log-collection"></a>Ativar a recolha de registos de diagnóstico  
 
 Comecemos por permitir a verificação de registos de diagnóstico utilizando o portal Azure.
 
 > [!NOTE]
-> Para ativar esta funcionalidade utilizando o PowerShell ou o Azure CLI, utilize as instruções fornecidas na [Recolha e consuma os dados de registo dos seus recursos Azure](../azure-monitor/platform/platform-logs-overview.md).
+> Para ativar esta funcionalidade utilizando o PowerShell ou o Azure CLI, utilize as instruções fornecidas na [Recolha e consuma os dados de registo dos seus recursos Azure](../azure-monitor/essentials/platform-logs-overview.md).
 
 1. Navegue para o portal do Azure. Em seguida, localize e selecione um recurso de Serviços Cognitivos. Por exemplo, a sua subscrição para bing Web Search.   
 2. Em seguida, a partir do menu de navegação à esquerda, **localize as** definições de Monitorização e selecione **As definições de Diagnóstico**. Este ecrã contém todas as definições de diagnóstico previamente criadas para este recurso.
@@ -113,9 +113,9 @@ by bin(TimeGenerated, 10s), OperationName
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para compreender como permitir o registo, bem como as métricas e categorias de registo que são suportadas pelos vários serviços Azure, leia tanto a [visão geral das métricas](../azure-monitor/platform/data-platform.md) nos artigos microsoft Azure e [Overview of Azure Diagnostic Logs.](../azure-monitor/platform/platform-logs-overview.md)
+* Para compreender como permitir o registo, bem como as métricas e categorias de registo que são suportadas pelos vários serviços Azure, leia tanto a [visão geral das métricas](../azure-monitor/data-platform.md) nos artigos microsoft Azure e [Overview of Azure Diagnostic Logs.](../azure-monitor/essentials/platform-logs-overview.md)
 * Leia estes artigos para saber sobre os centros de eventos:
   * [O que são os Hubs de Eventos do Azure?](../event-hubs/event-hubs-about.md)
   * [Introdução ao Event Hubs](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
 * Leia [As métricas de descarregamento e os registos de diagnóstico do Azure Storage](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-blobs).
-* Leia [As pesquisas de registo em registos do Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
+* Leia [As pesquisas de registo em registos do Azure Monitor](../azure-monitor/logs/log-query-overview.md).

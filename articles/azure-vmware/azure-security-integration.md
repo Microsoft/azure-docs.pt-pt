@@ -3,12 +3,12 @@ title: Proteja o seu VMS de Solução VMware Azure com integração do Centro de
 description: Proteja os VMS da Solução VMware Azure com as ferramentas de segurança nativas da Azure do painel do Centro de Segurança Azure.
 ms.topic: how-to
 ms.date: 02/12/2021
-ms.openlocfilehash: b37d09d6e8f239586a18c0fa3b1dcd7bfee98102
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 7292ea4486a61f5b0cfd8f656d2763a3ce655e79
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100516367"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100578251"
 ---
 # <a name="protect-your-azure-vmware-solution-vms-with-azure-security-center-integration"></a>Proteja o seu VMS de Solução VMware Azure com integração do Centro de Segurança Azure
 
@@ -50,7 +50,7 @@ Pode configurar o espaço de trabalho Log Analytics com o Azure Sentinel para de
 
 ## <a name="create-a-log-analytics-workspace"></a>Criar uma área de trabalho do Log Analytics
 
-Você precisará de um espaço de trabalho Log Analytics para recolher dados de várias fontes. Para obter mais informações, consulte [Criar um espaço de trabalho Log Analytics a partir do portal Azure.](../azure-monitor/learn/quick-create-workspace.md) 
+Você precisará de um espaço de trabalho Log Analytics para recolher dados de várias fontes. Para obter mais informações, consulte [Criar um espaço de trabalho Log Analytics a partir do portal Azure.](../azure-monitor/logs/quick-create-workspace.md) 
 
 ## <a name="deploy-security-center-and-configure-azure-vmware-solution-vms"></a>Implementar Centro de Segurança e configurar VMs de Solução VMware Azure
 
@@ -243,5 +243,5 @@ Pode criar consultas ou utilizar a consulta pré-definida disponível no Azure S
 Agora que cobriu como proteger os seus VMs de Solução VMware Azure, talvez queira saber:
 
 - Utilização do [painel Azure Defender](../security-center/azure-defender-dashboard.md).
-- [Deteção avançada de ataques em vários estágios em Azure Sentinel](../azure-monitor/learn/quick-create-workspace.md).
+- [Deteção avançada de ataques em vários estágios em Azure Sentinel](../azure-monitor/logs/quick-create-workspace.md).
 - [Gestão do ciclo de vida da Azure VMware Solution VMs](lifecycle-management-of-azure-vmware-solution-vms.md).

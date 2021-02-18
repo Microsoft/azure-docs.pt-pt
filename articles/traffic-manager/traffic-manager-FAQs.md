@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: duau
-ms.openlocfilehash: 17ccfeb709c530a868a75ecd87052618aaea4846
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: fa8dba12a050e42e258e4224f29e379ff53f09d8
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98184582"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100576671"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Gestor de tráfego frequentemente perguntas (FAQ)
 
@@ -347,7 +347,7 @@ O Gestor de Recursos Azure exige que todos os grupos de recursos especifiquem um
 
 O estado atual de monitorização de cada ponto final, para além do perfil geral, é apresentado no portal Azure. Esta informação também está disponível através do Traffic Monitor [REST API,](/rest/api/trafficmanager/) [PowerShell cmdlets,](/powershell/module/az.trafficmanager)e [cross-platform Azure CLI](/cli/azure/install-classic-cli).
 
-Também pode utilizar o Azure Monitor para acompanhar a saúde dos seus pontos finais e ver uma representação visual dos mesmos. Para obter mais informações sobre a utilização do Azure Monitor, consulte a [documentação de monitorização do Azure](../azure-monitor/platform/data-platform.md).
+Também pode utilizar o Azure Monitor para acompanhar a saúde dos seus pontos finais e ver uma representação visual dos mesmos. Para obter mais informações sobre a utilização do Azure Monitor, consulte a [documentação de monitorização do Azure](../azure-monitor/data-platform.md).
 
 ### <a name="can-i-monitor-https-endpoints"></a>Posso monitorizar os pontos finais do HTTPS?
 
@@ -458,7 +458,7 @@ O número de verificações de saúde do Traffic Manager que chegam ao seu ponto
 
 ### <a name="how-can-i-get-notified-if-one-of-my-endpoints-goes-down"></a>Como posso ser notificado se um dos meus pontos finais vai para baixo?
 
-Uma das métricas fornecidas pelo Traffic Manager é o estado de saúde dos pontos finais num perfil. Pode ver isto como um agregado de todos os pontos finais dentro de um perfil (por exemplo, 75% dos seus pontos finais são saudáveis), ou, a um nível por ponto final. As métricas do Traffic Manager são expostas através do Azure Monitor e pode utilizar as suas [capacidades de alerta](../azure-monitor/platform/alerts-metric.md) para receber notificações quando há uma alteração no estado de saúde do seu ponto final. Para mais detalhes, consulte [as métricas e alertas do Gestor de Tráfego.](traffic-manager-metrics-alerts.md)  
+Uma das métricas fornecidas pelo Traffic Manager é o estado de saúde dos pontos finais num perfil. Pode ver isto como um agregado de todos os pontos finais dentro de um perfil (por exemplo, 75% dos seus pontos finais são saudáveis), ou, a um nível por ponto final. As métricas do Traffic Manager são expostas através do Azure Monitor e pode utilizar as suas [capacidades de alerta](../azure-monitor/alerts/alerts-metric.md) para receber notificações quando há uma alteração no estado de saúde do seu ponto final. Para mais detalhes, consulte [as métricas e alertas do Gestor de Tráfego.](traffic-manager-metrics-alerts.md)  
 
 ## <a name="traffic-manager-nested-profiles"></a>Perfis aninhados do Gestor de Tráfego
 

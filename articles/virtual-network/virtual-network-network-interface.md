@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 1/22/2020
 ms.author: kumud
-ms.openlocfilehash: 6cf082aa33d2063982d85cf0c2fdd68d61072217
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 74e09b4798a648b6a881fb05f1128831ad5f4aff
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98216945"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100586436"
 ---
 # <a name="create-change-or-delete-a-network-interface"></a>Criar, alterar ou eliminar uma interface de rede
 
@@ -26,7 +26,7 @@ Aprenda a criar, alterar definições e elimine uma interface de rede. Uma inter
 
 Se precisar de adicionar, alterar ou remover endereços IP para uma interface de rede, consulte [os endereços IP da Gestão](virtual-network-network-interface-addresses.md). Se precisar de adicionar interfaces de rede ou remover interfaces de rede de máquinas virtuais, consulte [Adicionar ou remover interfaces](virtual-network-network-interface-vm.md)de rede .
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -90,7 +90,7 @@ Pode visualizar e alterar a maioria das definições para uma interface de rede 
    - **Propriedades:** Apresenta definições chave sobre a interface de rede, incluindo o seu endereço MAC (em branco se a interface de rede não estiver ligada a uma máquina virtual) e a subscrição em que existe.
    - **Regras de segurança eficazes:**  As regras de segurança estão listadas se a interface de rede estiver ligada a uma máquina virtual em execução, e um NSG estiver associado à interface de rede, à sub-rede a que é atribuída, ou ambos. Para saber mais sobre o que é exibido, consulte [as regras de segurança eficazes.](#view-effective-security-rules) Para saber mais sobre os NSGs, consulte [os grupos de segurança da Rede.](./network-security-groups-overview.md)
    - **Rotas eficazes:** As rotas são listadas se a interface de rede estiver ligada a uma máquina virtual em funcionamento. As rotas são uma combinação das rotas predefinidas Azure, quaisquer rotas definidas pelo utilizador, e quaisquer rotas BGP que possam existir para a sub-rede a que a interface de rede é atribuída. Para saber mais sobre o que é exibido, consulte [as rotas eficazes.](#view-effective-routes) Para saber mais sobre as rotas padrão do Azure e as rotas definidas pelo utilizador, consulte [a visão geral do encaminhamento](virtual-networks-udr-overview.md).
-Definições comuns do Gestor de Recursos Azure: Para saber mais sobre as definições comuns do Gestor de Recursos Azure, consulte [o registo de atividades,](../azure-monitor/platform/platform-logs-overview.md)o controlo de [acesso (IAM)](../role-based-access-control/overview.md), [as tags,](../azure-resource-manager/management/tag-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json) [as fechaduras](../azure-resource-manager/management/lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)e [o script de automação](../azure-resource-manager/templates/export-template-portal.md).
+Definições comuns do Gestor de Recursos Azure: Para saber mais sobre as definições comuns do Gestor de Recursos Azure, consulte [o registo de atividades,](../azure-monitor/essentials/platform-logs-overview.md)o controlo de [acesso (IAM)](../role-based-access-control/overview.md), [as tags,](../azure-resource-manager/management/tag-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json) [as fechaduras](../azure-resource-manager/management/lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)e [o script de automação](../azure-resource-manager/templates/export-template-portal.md).
 
 <a name="view-settings-commands"></a>**Comandos**
 

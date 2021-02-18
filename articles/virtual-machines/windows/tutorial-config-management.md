@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: b28d7ee5d2eeb1015695e32e5918bd94f9051050
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: a478d9c620219a768983570897715f924565a80f
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736672"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100594302"
 ---
 # <a name="tutorial-monitor-changes-and-update-a-windows-virtual-machine-in-azure"></a>Tutorial: Monitorize alterações e atualize uma máquina virtual do Windows em Azure
 
@@ -76,7 +76,7 @@ Para ativar a Gestão de Atualização para o seu VM:
 
 A validação é feita para determinar se a Gestão de Atualização está ativada para este VM. A validação inclui verificações de um espaço de trabalho Log Analytics, para uma conta de Automação ligada, e para saber se a solução está no espaço de trabalho.
 
-Utiliza um espaço de trabalho [log Analytics](../../azure-monitor/log-query/log-query-overview.md) para recolher dados gerados por funcionalidades e serviços como a Gestão de Atualizações. A área de trabalho fornece uma localização única para rever e analisar dados de várias origens.
+Utiliza um espaço de trabalho [log Analytics](../../azure-monitor/logs/log-query-overview.md) para recolher dados gerados por funcionalidades e serviços como a Gestão de Atualizações. A área de trabalho fornece uma localização única para rever e analisar dados de várias origens.
 
 Para realizar ações adicionais em VMs que requerem atualizações, pode utilizar a Azure Automation para executar runbooks contra VMs. Tais ações incluem o download ou aplicação de atualizações.
 
@@ -86,7 +86,7 @@ Na janela Gestão de **Atualização ativa,** escolha o espaço de trabalho e a 
 
 Qualquer um dos seguintes pré-requisitos que faltam durante o embarque são automaticamente adicionados:
 
-* [Log Analytics](../../azure-monitor/log-query/log-query-overview.md) espaço de trabalho
+* [Log Analytics](../../azure-monitor/logs/log-query-overview.md) espaço de trabalho
 * [Automatização](../../automation/index.yml)
 * Um [trabalhador de runbook híbrido,](../../automation/automation-hybrid-runbook-worker.md)que está habilitado no VM
 
@@ -113,7 +113,7 @@ Para agendar uma nova implementação de atualização para o VM, selecione **a 
 | **Nome** |Introduza um nome único para identificar a implementação da atualização. |
 |**Sistema operativo**| Selecione **Linux** ou **Windows**.|
 | **Grupos a atualizar** |Para os VMs alojados no Azure, defina uma consulta com base numa combinação de subscrição, grupos de recursos, localizações e tags. Esta consulta constrói um grupo dinâmico de VMs azure-hosted para incluir na sua implementação. </br></br>Para VMs não hospedados no Azure, selecione uma pesquisa guardada existente. Com esta pesquisa, pode selecionar um grupo destes VMs para incluir na implementação. </br></br> Para saber mais, consulte [Grupos Dinâmicos.](../../automation/update-management/configure-groups.md)|
-| **Máquinas a atualizar** |Selecione **Pesquisa Save**, **Grupo importado** ou **Máquinas**.<br/><br/>Se selecionar **Máquinas,** pode escolher máquinas individuais da lista de drop-down. A prontidão de cada máquina é mostrada na coluna de **PRONTIDÃO DO AGENTE DE ATUALIZAÇÃO** da tabela.</br></br> Para conhecer os diferentes métodos de criação de grupos informáticos em registos do Monitor Azure, consulte [grupos de computador em registos do Monitor Azure](../../azure-monitor/platform/computer-groups.md) |
+| **Máquinas a atualizar** |Selecione **Pesquisa Save**, **Grupo importado** ou **Máquinas**.<br/><br/>Se selecionar **Máquinas,** pode escolher máquinas individuais da lista de drop-down. A prontidão de cada máquina é mostrada na coluna de **PRONTIDÃO DO AGENTE DE ATUALIZAÇÃO** da tabela.</br></br> Para conhecer os diferentes métodos de criação de grupos informáticos em registos do Monitor Azure, consulte [grupos de computador em registos do Monitor Azure](../../azure-monitor/logs/computer-groups.md) |
 |**Classificações de atualizações**|Escolha todas as classificações de atualização necessárias.|
 |**Incluir/excluir atualizações**|Selecione esta opção para abrir o painel **Incluir/Excluir.** As atualizações a incluir e as que serão excluídas estão em separado. Para obter mais informações sobre como a inclusão é tratada, consulte [Agendar uma Atualização.](../../automation/update-management/deploy-updates.md#schedule-an-update-deployment) |
 |**Definições da agenda**|Escolha a hora de começar e selecione **uma vez** ou **recorrente**.|
@@ -199,7 +199,7 @@ O gráfico anterior mostra alterações que ocorreram ao longo do tempo. Depois 
 
 Cada linha de gráficos de barras representa um tipo de mudança de rastreável diferente. Estes tipos são daemons Linux, ficheiros, chaves de registo do Windows, software e serviços windows. O separador **Alterar** mostra os detalhes da alteração. As alterações aparecem na ordem de quando cada ocorreu, com a alteração mais recente mostrada primeiro.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, configura e reviu a Change Tracking and Update Management para o seu VM. Aprendeu a:
 

@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 3/16/2020
-ms.openlocfilehash: 73705434aef3ee438c02fbfd6502d30e7620b695
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: f5557140d77865a6d4c44316cecd512f877736e0
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95026459"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100577075"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql---hyperscale-citus"></a>Utilize o portal Azure para configurar alertas em métricas para a Base de Dados Azure para PostgreSQL - Hiperescala (Citus)
 
@@ -26,11 +26,11 @@ Pode configurar um alerta para fazer as seguintes ações quando ativa:
 * Chame um webhook.
 
 Pode configurar e obter informações sobre as regras de alerta utilizando:
-* [Portal do Azure](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
-* [CLI do Azure](../azure-monitor/platform/alerts-metric.md#with-azure-cli)
+* [Portal do Azure](../azure-monitor/alerts/alerts-metric.md#create-with-azure-portal)
+* [CLI do Azure](../azure-monitor/alerts/alerts-metric.md#with-azure-cli)
 * [API REST do Azure Monitor](/rest/api/monitor/metricalerts)
 
-## <a name="create-an-alert-rule-on-a-metric-from-the-azure-portal"></a>Criar uma regra de alerta sobre uma métrica a partir do portal Azure
+## <a name="create-an-alert-rule-on-a-metric-from-the-azure-portal"></a>Criar uma regra de alerta numa métrica no portal do Azure
 1. No [portal Azure,](https://portal.azure.com/)selecione a Base de Dados Azure para o servidor PostgreSQL que pretende monitorizar.
 
 2. Na secção **de monitorização** da barra lateral, selecione **Alertas** como mostrado:
@@ -108,6 +108,6 @@ Recomendamos a definição de alertas de espaço em cada nó em cada grupo de se
 
 A monitorização da utilização do CPU é útil para estabelecer uma linha de base para o desempenho. Por exemplo, pode notar que o uso do CPU é geralmente de cerca de 40-60%. Se o uso do CPU começar subitamente a pairar cerca de 95%, pode reconhecer uma anomalia. O uso do CPU pode refletir o crescimento orgânico, mas também pode revelar uma consulta desviada. Ao criar um alerta de CPU, deslovide uma granularidade de agregação longa para capturar aumentos prolongados e ignorar picos momentâneos.
 
-## <a name="next-steps"></a>Próximos passos
-* Saiba mais sobre [configurar webhooks em alertas](../azure-monitor/platform/alerts-webhooks.md).
-* Obtenha uma [visão geral da recolha de métricas](../azure-monitor/platform/data-platform.md) para se certificar de que o seu serviço está disponível e responsivo.
+## <a name="next-steps"></a>Passos seguintes
+* Saiba mais sobre [configurar webhooks em alertas](../azure-monitor/alerts/alerts-webhooks.md).
+* Obtenha uma [visão geral da recolha de métricas](../azure-monitor/data-platform.md) para se certificar de que o seu serviço está disponível e responsivo.

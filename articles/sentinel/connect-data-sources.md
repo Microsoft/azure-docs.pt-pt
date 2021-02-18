@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2020
 ms.author: yelevin
-ms.openlocfilehash: c3bb05af3e0a24ebb10dc98b9174cfb235ddda13
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: aeb92dce41c12ada41175964835d9c89a634a6e3
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99555921"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590262"
 ---
 # <a name="connect-data-sources"></a>Ligar a origens de dados
 
@@ -151,7 +151,7 @@ Em alternativa, pode colocar o agente manualmente num VM Azure existente, num VM
 | **Tipo de dados** | **Como ligar** | **Conector de dados?** | **Comentários** |
 |------|---------|-------------|------|
 | AWSCloudTrail | [Ligar o AWS](connect-aws.md) | &#10003; | |
-| AzureActivity | Ligar a atividade e [os registos de atividades do](../azure-monitor/platform/platform-logs-overview.md) [Azure](connect-azure-activity.md)| &#10003; | |
+| AzureActivity | Ligar a atividade e [os registos de atividades do](../azure-monitor/essentials/platform-logs-overview.md) [Azure](connect-azure-activity.md)| &#10003; | |
 | Auditorias | [Ligar ao Azure AD](connect-azure-active-directory.md)  | &#10003; | |
 | SigninLogs | [Ligar ao Azure AD](connect-azure-active-directory.md)  | &#10003; | |
 | AzureFirewall |[Diagnóstico do Azure](../firewall/firewall-diagnostics.md) | &#10003; | |
@@ -164,9 +164,9 @@ Em alternativa, pode colocar o agente manualmente num VM Azure existente, num VM
 | Firewall de aplicação web da Microsoft (WAF) - (AzureDiagnostics) |[Conecte firewall de aplicação web da Microsoft](./connect-azure-waf.md) | &#10003; | |
 | SymantecICDx_CL | [Ligar a Symantec](connect-symantec.md) | &#10003; | |
 | ThreatIntelligenceIndicator  | [Ligar às informações sobre ameaças](connect-threat-intelligence.md)  | &#10003; | |
-| VMConnection <br> ServiceMapComputer_CL<br> ServiceMapProcess_CL|  [Mapa de serviço do Monitor Azure](../azure-monitor/insights/service-map.md)<br>[Insights VM do Monitor Azure no embarque](../azure-monitor/insights/vminsights-enable-overview.md) <br> [Ativar insights VM do Monitor Azure](../azure-monitor/insights/vminsights-enable-overview.md) <br> [Utilização de embarque único em VM](../azure-monitor/insights/vminsights-enable-portal.md)<br>  [Utilização da política de embarque via](../azure-monitor/insights/vminsights-enable-policy.md)| &#10007; | Livro de insights VM  |
+| VMConnection <br> ServiceMapComputer_CL<br> ServiceMapProcess_CL|  [Mapa de serviço do Monitor Azure](../azure-monitor/vm/service-map.md)<br>[Insights VM do Monitor Azure no embarque](../azure-monitor/vm/vminsights-enable-overview.md) <br> [Ativar insights VM do Monitor Azure](../azure-monitor/vm/vminsights-enable-overview.md) <br> [Utilização de embarque único em VM](../azure-monitor/vm/vminsights-enable-portal.md)<br>  [Utilização da política de embarque via](../azure-monitor/vm/vminsights-enable-policy.md)| &#10007; | Livro de insights VM  |
 | DnsEvents | [Ligar DNS](connect-dns.md) | &#10003; | |
-| W3CIISLog | [Ligar registos IIS](../azure-monitor/platform/data-sources-iis-logs.md)  | &#10007; | |
+| W3CIISLog | [Ligar registos IIS](../azure-monitor/agents/data-sources-iis-logs.md)  | &#10007; | |
 | WireData | [Ligar dados de arame](../azure-monitor/insights/wire-data.md) | &#10007; | |
 | Parede de Fogo windows | [Ligar firewall do Windows](connect-windows-firewall.md) | &#10003; | |
 | AADIP SecurityAlert  | [Ligar ao Azure AD Identity Protection](connect-azure-ad-identity-protection.md)  | &#10003; | |
@@ -174,7 +174,7 @@ Em alternativa, pode colocar o agente manualmente num VM Azure existente, num VM
 | Segurança ASCAlert  | [Ligue alertas do Azure Defender](connect-azure-security-center.md) do Centro de Segurança Azure  | &#10003; | |
 | Segurança MCASAlert  | [Conecte a Segurança da Aplicação Microsoft Cloud](connect-cloud-app-security.md)  | &#10003; | |
 | SecurityAlert | | | |
-| Sysmon (Evento) | [Ligar Sysmon](https://azure.microsoft.com/blog/detecting-in-memory-attacks-with-sysmon-and-azure-security-center)<br> [Conecte eventos do Windows](../azure-monitor/platform/data-sources-windows-events.md) <br> [Pegue o Sysmon Parser](https://github.com/Azure/Azure-Sentinel/blob/master/Parsers/Sysmon/Sysmon-v10.42-Parser.txt)| &#10007; | A coleção Sysmon não é instalada por defeito em máquinas virtuais. Para obter mais informações sobre como instalar o Agente Sysmon, consulte [sysmon.](/sysinternals/downloads/sysmon) |
+| Sysmon (Evento) | [Ligar Sysmon](https://azure.microsoft.com/blog/detecting-in-memory-attacks-with-sysmon-and-azure-security-center)<br> [Conecte eventos do Windows](../azure-monitor/agents/data-sources-windows-events.md) <br> [Pegue o Sysmon Parser](https://github.com/Azure/Azure-Sentinel/blob/master/Parsers/Sysmon/Sysmon-v10.42-Parser.txt)| &#10007; | A coleção Sysmon não é instalada por defeito em máquinas virtuais. Para obter mais informações sobre como instalar o Agente Sysmon, consulte [sysmon.](/sysinternals/downloads/sysmon) |
 | Data de Configuração  | [Automatizar o inventário VM](../automation/change-tracking/overview.md)| &#10007; | |
 | ConfiguraçãoChange  | [Automatizar o rastreio de VM](../automation/change-tracking/overview.md) | &#10007; | |
 | F5 BIG-IP | [Ligar a F5 BIG-IP](https://devcentral.f5.com/s/articles/Integrating-the-F5-BIGIP-with-Azure-Sentinel)  | &#10007; | |
