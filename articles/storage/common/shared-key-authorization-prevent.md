@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 01/21/2021
 ms.author: tamram
 ms.reviewer: fryu
-ms.openlocfilehash: e4a5803b3d04b59316f71e50af24945efc87cb69
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 944e233fafc4cf5c8c90041e18f94d0e53b7bb46
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98677568"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100591531"
 ---
 # <a name="prevent-shared-key-authorization-for-an-azure-storage-account-preview"></a>Impedir a autorização da Chave Partilhada para uma conta de Armazenamento Azure (pré-visualização)
 
@@ -41,7 +41,7 @@ Para obter mais informações sobre a interpretação de pedidos feitos com uma 
 
 ### <a name="monitor-how-many-requests-are-authorized-with-shared-key"></a>Monitorize quantos pedidos são autorizados com Chave Partilhada
 
-Para acompanhar como estão a ser autorizados os pedidos a uma conta de armazenamento, utilize o Azure Metrics Explorer no portal Azure. Para obter mais informações sobre o Metrics Explorer, consulte [Começar com o Azure Metrics Explorer](../../azure-monitor/platform/metrics-getting-started.md).
+Para acompanhar como estão a ser autorizados os pedidos a uma conta de armazenamento, utilize o Azure Metrics Explorer no portal Azure. Para obter mais informações sobre o Metrics Explorer, consulte [Começar com o Azure Metrics Explorer](../../azure-monitor/essentials/metrics-getting-started.md).
 
 Siga estes passos para criar uma métrica que rastreie os pedidos feitos com Chave Partilhada ou SAS:
 
@@ -67,7 +67,7 @@ Depois de configurar a métrica, os pedidos para a sua conta de armazenamento co
 
 :::image type="content" source="media/shared-key-authorization-prevent/metric-shared-key-requests.png" alt-text="Screenshot mostrando pedidos agregados autorizados com Chave Partilhada":::
 
-Também pode configurar uma regra de alerta para notificá-lo quando um certo número de pedidos autorizados com Chave Partilhada são feitos contra a sua conta de armazenamento. Para obter mais informações, consulte [Criar, ver e gerir alertas métricos utilizando o Azure Monitor](../../azure-monitor/platform/alerts-metric.md).
+Também pode configurar uma regra de alerta para notificá-lo quando um certo número de pedidos autorizados com Chave Partilhada são feitos contra a sua conta de armazenamento. Para obter mais informações, consulte [Criar, ver e gerir alertas métricos utilizando o Azure Monitor](../../azure-monitor/alerts/alerts-metric.md).
 
 ### <a name="analyze-logs-to-identify-clients-that-are-authorizing-requests-with-shared-key-or-sas"></a>Analise registos para identificar clientes que estão a autorizar pedidos com Chave Partilhada ou SAS
 
@@ -75,14 +75,14 @@ Os registos de armazenamento Azure captam detalhes sobre pedidos feitos contra a
 
 Para registar pedidos na sua conta de Armazenamento Azure para avaliar como são autorizados, pode utilizar o registo de armazenamento Azure no Azure Monitor (pré-visualização). Para obter mais informações, consulte [monitor Azure Storage](../blobs/monitor-blob-storage.md).
 
-O registo de armazenamento Azure no Azure Monitor suporta a utilização de consultas de registo para analisar dados de registo. Para consultar registos, pode utilizar um espaço de trabalho Azure Log Analytics. Para saber mais sobre consultas de log, consulte [Tutorial: Começar com consultas de Log Analytics](../../azure-monitor/log-query/log-analytics-tutorial.md).
+O registo de armazenamento Azure no Azure Monitor suporta a utilização de consultas de registo para analisar dados de registo. Para consultar registos, pode utilizar um espaço de trabalho Azure Log Analytics. Para saber mais sobre consultas de log, consulte [Tutorial: Começar com consultas de Log Analytics](../../azure-monitor/logs/log-analytics-tutorial.md).
 
 #### <a name="create-a-diagnostic-setting-in-the-azure-portal"></a>Criar uma definição de diagnóstico no portal Azure
 
 Para registar os dados de Armazenamento Azure com o Azure Monitor e analisá-los com o Azure Log Analytics, tem primeiro de criar uma definição de diagnóstico que indique quais os tipos de pedidos e quais os serviços de armazenamento que pretende registar dados. Para criar uma definição de diagnóstico no portal Azure, siga estes passos:
 
 1. Inscreva-se no registo de [armazenamento Azure na pré-visualização do Azure Monitor](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUM0E0MFdPRFpOVTRYVklDSE1WUTcyTVAwOC4u).
-1. Crie um novo espaço de trabalho log Analytics na subscrição que contenha a sua conta de Armazenamento Azure ou utilize um espaço de trabalho log analytics existente. Depois de configurar o registo da sua conta de armazenamento, os registos estarão disponíveis no espaço de trabalho do Log Analytics. Para obter mais informações, consulte [Criar um espaço de trabalho log Analytics no portal Azure](../../azure-monitor/learn/quick-create-workspace.md).
+1. Crie um novo espaço de trabalho log Analytics na subscrição que contenha a sua conta de Armazenamento Azure ou utilize um espaço de trabalho log analytics existente. Depois de configurar o registo da sua conta de armazenamento, os registos estarão disponíveis no espaço de trabalho do Log Analytics. Para obter mais informações, consulte [Criar um espaço de trabalho log Analytics no portal Azure](../../azure-monitor/logs/quick-create-workspace.md).
 1. Navegue para a sua conta de armazenamento no portal do Azure.
 1. Na secção de Monitorização, selecione **definições de diagnóstico (pré-visualização)**.
 1. Selecione o serviço de Armazenamento Azure para o qual pretende registar pedidos. Por exemplo, escolha **Blob** para registar pedidos para armazenamento Blob.
@@ -95,7 +95,7 @@ Para registar os dados de Armazenamento Azure com o Azure Monitor e analisá-los
 
 Pode criar uma definição de diagnóstico para cada tipo de recurso de Armazenamento Azure na sua conta de armazenamento.
 
-Depois de criar a definição de diagnóstico, os pedidos para a conta de armazenamento são subsequentemente registados de acordo com essa definição. Para obter mais informações, consulte [Criar a definição de diagnóstico para recolher registos e métricas de recursos em Azure](../../azure-monitor/platform/diagnostic-settings.md).
+Depois de criar a definição de diagnóstico, os pedidos para a conta de armazenamento são subsequentemente registados de acordo com essa definição. Para obter mais informações, consulte [Criar a definição de diagnóstico para recolher registos e métricas de recursos em Azure](../../azure-monitor/essentials/diagnostic-settings.md).
 
 Para obter uma referência dos campos disponíveis nos registos de armazenamento Azure no Azure Monitor, consulte [registos de recursos (pré-visualização)](../blobs/monitor-blob-storage-reference.md#resource-logs-preview).
 
@@ -110,7 +110,7 @@ StorageBlobLogs
 | top 10 by count_ desc
 ```
 
-Também pode configurar uma regra de alerta com base nesta consulta para notificá-lo sobre pedidos autorizados com Chave Partilhada ou SAS. Para obter mais informações, consulte [Criar, ver e gerir alertas de registo utilizando o Azure Monitor](../../azure-monitor/platform/alerts-log.md).
+Também pode configurar uma regra de alerta com base nesta consulta para notificá-lo sobre pedidos autorizados com Chave Partilhada ou SAS. Para obter mais informações, consulte [Criar, ver e gerir alertas de registo utilizando o Azure Monitor](../../azure-monitor/alerts/alerts-log.md).
 
 ## <a name="remediate-authorization-via-shared-key"></a>Remediar a autorização via Chave Partilhada
 
@@ -193,13 +193,13 @@ resources
 
 ## <a name="permissions-for-allowing-or-disallowing-shared-key-access"></a>Permissões para permitir ou desativar o acesso à Chave Partilhada
 
-Para definir a propriedade **AllowSharedKeyAccess** para a conta de armazenamento, um utilizador deve ter permissões para criar e gerir contas de armazenamento. As funções de controlo de acesso baseado em funções (Azure RBAC) que fornecem estas permissões incluem a **microsoft.Storage/storageAccounts/write** ou **Microsoft.Storage/storageAçãos/ \** _ ação. As funções incorporadas com esta ação incluem:
+Para definir a propriedade **AllowSharedKeyAccess** para a conta de armazenamento, um utilizador deve ter permissões para criar e gerir contas de armazenamento. As funções de controlo de acesso baseado em funções (Azure RBAC) que fornecem estas permissões incluem o **Microsoft.Storage/storageAccounts/write** ou **\* Microsoft.Storage/storageAcounts/action.** As funções incorporadas com esta ação incluem:
 
 - A função [de proprietário](../../role-based-access-control/built-in-roles.md#owner) de recursos Azure
 - O papel de [Colaborador](../../role-based-access-control/built-in-roles.md#contributor) do Gestor de Recursos Azure
 - A [função de contribuinte da conta de armazenamento](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
-Estas funções não fornecem acesso a dados numa conta de armazenamento via Azure Ative Directory (Azure AD). No entanto, incluem as chaves de acesso à conta _*Microsoft.Storage/storageAs/listkeys/action**, que dá acesso às chaves de acesso à conta. Com esta permissão, um utilizador pode utilizar as chaves de acesso à conta para aceder a todos os dados numa conta de armazenamento.
+Estas funções não fornecem acesso a dados numa conta de armazenamento via Azure Ative Directory (Azure AD). No entanto, incluem o **Microsoft.Storage/storageAccounts/listkeys/action**, que dá acesso às chaves de acesso à conta. Com esta permissão, um utilizador pode utilizar as chaves de acesso à conta para aceder a todos os dados numa conta de armazenamento.
 
 As atribuições de funções devem ser a nível da conta de armazenamento ou superior para permitir que um utilizador permita ou desaprova o acesso da Chave Partilhada para a conta de armazenamento. Para obter mais informações sobre o âmbito de funções, consulte [o âmbito de aplicação do Azure RBAC](../../role-based-access-control/scope-overview.md).
 

@@ -10,12 +10,12 @@ ms.date: 2/11/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 7833656b9b9be45aa3a0f0a8aa45cd70f925ce73
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: d006168de89a2709ed607568f36cacf5f924efcb
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100379685"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653551"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de começar, certifique-se de:
@@ -120,6 +120,10 @@ let endpoint = "<ACS_RESOURCE_ENDPOINT>"
 
 `<ACS_RESOURCE_ENDPOINT>`Substitua-o pelo ponto final do seu recurso ACS.
 Substitua `<ACCESS_TOKEN>` por um token de acesso ACS válido.
+
+Este quickstart não cobre a criação de um nível de serviço para gerir fichas para a sua aplicação de chat, embora seja recomendado. Consulte a seguinte documentação para obter mais detalhes [Sobre a Arquitetura chat](../../../concepts/chat/concepts.md)
+
+Saiba mais sobre [tokens de acesso ao utilizador.](../../access-tokens.md)
 
 ## <a name="object-model"></a>Modelo de objeto 
 As seguintes classes e interfaces lidam com algumas das principais funcionalidades da biblioteca de clientes Azure Communication Services Chat para o JavaScript.

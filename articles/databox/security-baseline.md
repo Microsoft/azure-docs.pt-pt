@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 2773a76ed1166a26ebc12b97550876eaa66bad14
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 12e942e40b7fe4df6bbe8e5b4d683111a2de2a61
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98197324"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100575334"
 ---
 # <a name="azure-security-baseline-for-azure-data-box"></a>Linha de segurança Azure para Azure Data Box
 
@@ -467,7 +467,7 @@ A Azure Data Box implementa encriptação AES 256 bits para Data-at-rest.Além d
 
 **Orientação**: Utilize o Monitor Azure com o registo de atividade Azure para criar alertas para quando ocorrerem alterações na Caixa de Dados Azure, bem como outros recursos críticos ou relacionados.
 
-* [Como criar alertas para eventos de Registo de Atividades Azure](../azure-monitor/platform/alerts-activity-log.md)
+* [Como criar alertas para eventos de Registo de Atividades Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitorização do Centro de Segurança do Azure**: Sim
 

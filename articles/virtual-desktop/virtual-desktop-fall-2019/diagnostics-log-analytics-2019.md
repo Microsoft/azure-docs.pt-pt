@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 257656a29733972672570648d4317b7847fedff1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bfe8026f099c341b68a1aa1fc5e3fac425e29403
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88997681"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100578901"
 ---
 # <a name="use-log-analytics-for-the-diagnostics-feature-in-windows-virtual-desktop-classic"></a>Utilize o Log Analytics para a funcionalidade de diagnóstico no Windows Virtual Desktop (clássico)
 
@@ -32,9 +32,9 @@ Recomendamos que utilize o Log Analytics para analisar os dados de diagnóstico 
 
 ## <a name="before-you-get-started"></a>Antes de começar
 
-Antes de utilizar o Log Analytics com a função de diagnóstico, terá de [criar um espaço de trabalho.](../../azure-monitor/learn/quick-collect-windows-computer.md#create-a-workspace)
+Antes de utilizar o Log Analytics com a função de diagnóstico, terá de [criar um espaço de trabalho.](../../azure-monitor/vm/quick-collect-windows-computer.md#create-a-workspace)
 
-Depois de criar o seu espaço de trabalho, siga as instruções nos [computadores Connect Windows para o Azure Monitor](../../azure-monitor/platform/log-analytics-agent.md#workspace-id-and-key) para obter as seguintes informações:
+Depois de criar o seu espaço de trabalho, siga as instruções nos [computadores Connect Windows para o Azure Monitor](../../azure-monitor/agents/log-analytics-agent.md#workspace-id-and-key) para obter as seguintes informações:
 
 - O ID do espaço de trabalho
 - A chave primária do seu espaço de trabalho

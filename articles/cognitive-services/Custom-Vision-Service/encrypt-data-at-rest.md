@@ -9,12 +9,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: egeaney
-ms.openlocfilehash: 6c65f28c040b15aaa2ec8f3425209351e4b60486
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 822a4249b6ed054f36605d0367803da68bab090b
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100524541"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652263"
 ---
 # <a name="custom-vision-encryption-of-data-at-rest"></a>Encriptação personalizada da Visão de dados em repouso
 
@@ -24,15 +24,6 @@ O Azure Custom Vision encripta automaticamente os seus dados quando os persistia
 
 > [!IMPORTANT]
 > As chaves geridas pelo cliente só são recursos disponíveis criados depois de 11 de maio de 2020. Para utilizar CMK com Visão Personalizada, terá de criar um novo recurso De Visão Personalizada. Uma vez criado o recurso, pode utilizar o Azure Key Vault para configurar a sua identidade gerida.
-
-## <a name="regional-availability"></a>Disponibilidade regional
-
-As chaves geridas pelo cliente estão atualmente disponíveis nestas regiões:
-
-* E.U.A. Centro-Sul
-* E.U.A. Oeste 2
-* E.U.A. Leste
-* US Gov - Virginia
 
 [!INCLUDE [cognitive-services-cmk](../includes/configure-customer-managed-keys.md)]
 

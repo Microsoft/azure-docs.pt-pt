@@ -9,16 +9,16 @@ ms.author: mikben
 ms.date: 05/19/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: e7ed4ba181d3730ebbea7725451567c93433afb8
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: edbf29b103a84240299f4a9f389a8c7a90012821
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98251102"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100572067"
 ---
 # <a name="metrics-overview"></a>Métricas panorâmicas
 
-A Azure Communication Services fornece atualmente métricas para Chat e SMS. [O Azure Metrics Explorer](../../azure-monitor/platform/metrics-getting-started.md) pode ser usado para traçar os seus próprios gráficos, investigar anomalias nos seus valores métricos e compreender o tráfego da API utilizando os dados métricos que o Chat e o SMS solicitam emitir.
+A Azure Communication Services fornece atualmente métricas para Chat e SMS. [O Azure Metrics Explorer](../../azure-monitor/essentials/metrics-getting-started.md) pode ser usado para traçar os seus próprios gráficos, investigar anomalias nos seus valores métricos e compreender o tráfego da API utilizando os dados métricos que o Chat e o SMS solicitam emitir.
 
 ## <a name="where-to-find-metrics"></a>Onde encontrar métricas
 
@@ -30,7 +30,7 @@ Existem dois tipos de pedidos que estão representados nas métricas dos Serviç
 
 As métricas de pedido de Chat e SMS API contêm três dimensões que pode utilizar para filtrar os seus dados métricos. Estas dimensões podem ser agregadas em conjunto utilizando o `Count` tipo de agregação e suportam todas as séries de tempo padrão de agregação Azure, incluindo, `Sum` e `Average` `Min` `Max` .
 
-Mais informações sobre tipos de agregação suportados e agregações de séries de tempo podem ser encontradas [Características avançadas do Azure Metrics Explorer](../../azure-monitor/platform/metrics-charts.md#aggregation)
+Mais informações sobre tipos de agregação suportados e agregações de séries de tempo podem ser encontradas [Características avançadas do Azure Metrics Explorer](../../azure-monitor/essentials/metrics-charts.md#aggregation)
 
 - **Operação** - Todas as operações ou rotas que possam ser chamadas no gateway ACS Chat.
 - **Código de Estado** - A resposta do código de estado enviada após o pedido.
@@ -90,4 +90,4 @@ As seguintes operações estão disponíveis nas métricas de pedido de autentic
 
 ## <a name="next-steps"></a>Passos Seguintes
 
-- Saiba mais sobre [as Métricas da Plataforma de Dados](../../azure-monitor/platform/data-platform-metrics.md)
+- Saiba mais sobre [as Métricas da Plataforma de Dados](../../azure-monitor/essentials/data-platform-metrics.md)
