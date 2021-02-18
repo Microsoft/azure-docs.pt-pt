@@ -2,22 +2,22 @@
 title: Implementar configurações com o GitOps em clusters do Kubernetes preparados para o Azure Arc (Pré-visualização)
 services: azure-arc
 ms.service: azure-arc
-ms.date: 02/15/2021
+ms.date: 02/17/2021
 ms.topic: article
 author: mlearned
 ms.author: mlearned
 description: Utilize GitOps para configurar um aglomerado de Kubernetes (Preview)
 keywords: GitOps, Kubernetes, K8s, Azure, Arc, Azure Kubernetes Service, AKS, contentores
-ms.openlocfilehash: 3cadcdf80abd997ec10aeb9521680944d455898f
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: b30ecde0e128a955967638828dcb7bec008205ea
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100560176"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652484"
 ---
 # <a name="deploy-configurations-using-gitops-on-an-arc-enabled-kubernetes-cluster-preview"></a>Implementar configurações usando GitOps num cluster Kubernetes ativado por Arco (Pré-visualização)
 
-Este artigo demonstra a aplicação de configurações num aglomerado de Kubernetes ativado pelo Arco Azure. Uma visão conceptual do mesmo pode ser encontrada [aqui.](./conceptual-configurations.md)
+Este artigo demonstra a aplicação de configurações num aglomerado de Kubernetes ativado pelo Arco Azure. Para uma abordagem conceptual deste processo, consulte as [Configurações e GitOps - Azure Arc habilitado artigo de Kubernetes](./conceptual-configurations.md).
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -85,22 +85,22 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
   "type": "Microsoft.KubernetesConfiguration/sourceControlConfigurations"
   ```
 
-#### <a name="use-a-public-git-repo"></a>Use um repo git público
+#### <a name="use-a-public-git-repository"></a>Use um repositório de Git público
 
 | Parâmetro | Formato |
 | ------------- | ------------- |
 | `--repository-url` | http[s]://server/repo[.git] ou git://server/repo[.git]
 
-#### <a name="use-a-private-git-repo-with-ssh-and-flux-created-keys"></a>Use um repo Git privado com teclas criadas por SSH e Fluxo
+#### <a name="use-a-private-git-repository-with-ssh-and-flux-created-keys"></a>Use um repositório privado de Git com teclas SSH e Flux criadas
 
 | Parâmetro | Formato | Notas
 | ------------- | ------------- | ------------- |
 | `--repository-url` | ssh://user@server/repo[.git] ou user@server:repo [.git] | `git@` pode substituir `user@`
 
 > [!NOTE]
-> A chave pública gerada pelo Flux deve ser adicionada à conta de utilizador no seu prestador de serviços Git. Se a chave for adicionada ao repo em vez da conta de utilizador, `git@` utilize-a no lugar `user@` do URL. Salte para a configuração Aplicar a partir de uma secção [privada do repositório git](#apply-configuration-from-a-private-git-repository) para mais detalhes.
+> A chave pública gerada pelo Flux deve ser adicionada à conta de utilizador no seu prestador de serviços Git. Se a chave for adicionada ao repositório em vez da conta de utilizador, `git@` utilize-a no lugar `user@` do URL. Salte para a configuração Aplicar a partir de uma secção [privada do repositório git](#apply-configuration-from-a-private-git-repository) para mais detalhes.
 
-#### <a name="use-a-private-git-repo-with-ssh-and-user-provided-keys"></a>Use um repo Git privado com SSH e chaves fornecidas pelo utilizador
+#### <a name="use-a-private-git-repository-with-ssh-and-user-provided-keys"></a>Use um repositório privado de Git com SSH e chaves fornecidas pelo utilizador
 
 | Parâmetro | Formato | Notas |
 | ------------- | ------------- | ------------- |
@@ -109,7 +109,7 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 | `--ssh-private-key-file` | caminho completo para arquivo local | Fornecer caminho completo para o arquivo local que contém a chave de formato PEM
 
 > [!NOTE]
-> Forneça a sua própria chave privada diretamente ou num ficheiro. A chave deve estar no [formato PEM](https://aka.ms/PEMformat) e terminar com newline (\n).  A chave pública associada deve ser adicionada à conta de utilizador no seu prestador de serviços Git. Se a chave for adicionada ao repo em vez da conta do utilizador, `git@` utilize-a em vez de `user@` . Salte para a configuração Aplicar a partir de uma secção [privada do repositório git](#apply-configuration-from-a-private-git-repository) para mais detalhes.
+> Forneça a sua própria chave privada diretamente ou num ficheiro. A chave deve estar no [formato PEM](https://aka.ms/PEMformat) e terminar com newline (\n).  A chave pública associada deve ser adicionada à conta de utilizador no seu prestador de serviços Git. Se a chave for adicionada ao repositório em vez da conta de utilizador, `git@` utilize-a em vez de `user@` . Salte para a configuração Aplicar a partir de uma secção [privada do repositório git](#apply-configuration-from-a-private-git-repository) para mais detalhes.
 
 #### <a name="use-a-private-git-host-with-ssh-and-user-provided-known-hosts"></a>Use um anfitrião Git privado com SSH e anfitriões conhecidos fornecidos pelo utilizador
 
@@ -120,9 +120,9 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 | `--ssh-known-hosts-file` | caminho completo para arquivo local | Fornecer conteúdo conhecido dos anfitriões em um arquivo local |
 
 > [!NOTE]
-> Para autenticar o repo Git antes de estabelecer a ligação SSH, o operador do Fluxo mantém uma lista de anfitriões git comuns no seu ficheiro de anfitriões conhecido. Se estiver a usar um repo Git incomum ou o seu próprio hospedeiro Git, poderá ter de fornecer a chave hospedeira para garantir que o Flux possa identificar o seu repo. Pode fornecer o seu conteúdo known_hosts diretamente ou num ficheiro. Utilize as [especificações do formato de conteúdo known_hosts](https://aka.ms/KnownHostsFormat) em conjunto com um dos cenários-chave SSH acima descritos ao fornecer o seu próprio conteúdo.
+> Para autenticar o repositório git antes de estabelecer a ligação SSH, o operador do Fluxo mantém uma lista de anfitriões git comuns no seu ficheiro de anfitriões conhecido. Se estiver a utilizar um repositório git incomum ou o seu próprio anfitrião Git, poderá ter de fornecer a chave hospedeira para garantir que o Flux possa identificar o seu repo. Pode fornecer o seu conteúdo known_hosts diretamente ou num ficheiro. Utilize as [especificações do formato de conteúdo known_hosts](https://aka.ms/KnownHostsFormat) em conjunto com um dos cenários-chave SSH acima descritos ao fornecer o seu próprio conteúdo.
 
-#### <a name="use-a-private-git-repo-with-https"></a>Use um git repo privado com HTTPS
+#### <a name="use-a-private-git-repository-with-https"></a>Use um repositório privado de Git com HTTPS
 
 | Parâmetro | Formato | Notas |
 | ------------- | ------------- | ------------- |
@@ -133,7 +133,7 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 > [!NOTE]
 > HTTPS Helm auth de lançamento privado é suportado apenas com a versão 1.2.0+ do gráfico do operador Helm (padrão).
 > HTTPS Helm lança auth privada não é suportado atualmente para clusters geridos pelos Serviços Azure Kubernetes.
-> Se precisar de Fluxo para aceder ao Git repo através do seu representante, então terá de atualizar os agentes do Azure Arc com as definições de procuração. Para obter mais informações, consulte [Connect utilizando um servidor de procuração de saída.](./connect-cluster.md#connect-using-an-outbound-proxy-server)
+> Se precisar do Flux para aceder ao repositório git através do seu representante, então terá de atualizar os agentes do Azure Arc com as definições de procuração. Para obter mais informações, consulte [Connect utilizando um servidor de procuração de saída.](./connect-cluster.md#connect-using-an-outbound-proxy-server)
 
 #### <a name="additional-parameters"></a>Parâmetros adicionais
 
@@ -151,17 +151,17 @@ Personalize a configuração com os seguintes parâmetros opcionais:
 
 | Opção | Descrição |
 | ------------- | ------------- |
-| `--git-branch`  | Ramo de Git repo para usar para manifestos kubernetes. O padrão é "mestre". Os repositórios mais recentes têm o nome de root `main` branch, caso em que precisa de `--git-branch=main` definir. |
-| `--git-path`  | Caminho relativo dentro do git repo para o Flux localizar manifestos de Kubernetes. |
-| `--git-readonly` | Git repo será considerado apenas para ler; O Fluxo não vai tentar escrever-lhe. |
+| `--git-branch`  | Ramo do repositório de Git para usar para manifestos de Kubernetes. O padrão é "mestre". Os repositórios mais recentes têm o nome de root `main` branch, caso em que precisa de `--git-branch=main` definir. |
+| `--git-path`  | Caminho relativo dentro do repositório de Git para o Flux localizar manifestos de Kubernetes. |
+| `--git-readonly` | O repositório de Git será considerado apenas para leitura; O Fluxo não vai tentar escrever-lhe. |
 | `--manifest-generation`  | Se ativado, o Flux procurará .flux.yaml e executará Kustomize ou outros geradores manifestos. |
-| `--git-poll-interval`  | Período para a sondagem de Git repo para novos compromissos. O padrão é `5m` (5 minutos). |
+| `--git-poll-interval`  | Período para sondagem do repositório de Git para novos compromissos. O padrão é `5m` (5 minutos). |
 | `--sync-garbage-collection`  | Se ativado, o Flux apagará os recursos que criou, mas já não está presente no Git. |
 | `--git-label`  | Etiqueta para acompanhar o progresso da sincronização. Costumava marcar o ramo git.  A predefinição é `flux-sync`. |
 | `--git-user`  | Nome de utilizador para git cometer. |
 | `--git-email`  | E-mail para usar para git cometer. 
 
-Se não quiser que o Flux escreva para o repo e `--git-user` `--git-email` ou não esteja definido, então `--git-readonly` será automaticamente definido.
+Se não quiser que o Flux escreva para o repositório e `--git-user` `--git-email` ou não esteja definido, então `--git-readonly` será automaticamente definido.
 
 Para mais informações, consulte a [documentação do Fluxo.](https://aka.ms/FluxcdReadme)
 
@@ -229,7 +229,7 @@ Quando um `sourceControlConfiguration` é criado ou atualizado, algumas coisas a
 
 Enquanto o processo de provisionamento acontece, o `sourceControlConfiguration` irá mover-se através de algumas mudanças de estado. Monitorize o progresso com o `az k8sconfiguration show ...` comando acima:
 
-| Mudança de palco | Descrição |
+| Mudança de palco | Description |
 | ------------- | ------------- |
 | `complianceStatus`-> `Pending` | Representa os estados iniciais e em curso. |
 | `complianceStatus` -> `Installed`  | `config-agent` foi capaz de configurar com sucesso o cluster e implementar `flux` sem erros. |
@@ -237,7 +237,7 @@ Enquanto o processo de provisionamento acontece, o `sourceControlConfiguration` 
 
 ## <a name="apply-configuration-from-a-private-git-repository"></a>Aplicar a configuração de um repositório privado de Git
 
-Se estiver a usar um repo git privado, precisa configurar a chave pública SSH no seu repo. A chave pública SSH será a que o Flux gera ou a que fornece. Você pode configurar a chave pública quer no repo git específico ou no utilizador Git que tem acesso ao repo. 
+Se estiver a usar um repositório privado de Git, precisa de configurar a chave pública SSH no seu repositório. A chave pública SSH será a que o Flux gera ou a que fornece. Pode configurar a chave pública no repositório específico de Git ou no utilizador Git que tenha acesso ao repositório. 
 
 ### <a name="get-your-own-public-key"></a>Obtenha a sua própria chave pública
 
@@ -266,7 +266,7 @@ O seguinte é útil se o Flux gerar as teclas.
 
 Utilize uma das seguintes opções:
 
-* Opção 1: Adicione a chave pública à sua conta de utilizador (aplica-se a todos os repos da sua conta):  
+* Opção 1: Adicione a chave pública à sua conta de utilizador (aplica-se a todos os repositórios da sua conta):  
     1. Abra o GitHub e clique no ícone de perfil no canto superior direito da página.
     2. Clique em **Definições**.
     3. Clique nas **teclas SSH e GPG**.
@@ -275,8 +275,8 @@ Utilize uma das seguintes opções:
     6. Cole a chave pública sem citações circundantes.
     7. Clique na **tecla Add SSH**.
 
-* Opção 2: Adicione a chave pública como chave de implantação para o repo Git (aplica-se apenas a este repo):  
-    1. Abra o GitHub e navegue até ao seu repo.
+* Opção 2: Adicione a chave pública como chave de implantação do repositório Git (aplica-se apenas a este repositório):  
+    1. Abra o GitHub e navegue até ao seu repositório.
     1. Clique em **Definições**.
     1. Clique nas **teclas 'Implementar'.**
     1. Clique na **tecla De implementação de adicionar**.
@@ -349,7 +349,7 @@ Elimine uma `sourceControlConfiguration` utilização do portal Azure CLI ou Azu
 
 > [!NOTE]
 > Depois de criado um `sourceControlConfiguration` `namespace` com âmbito, os utilizadores com `edit` ligação de papel no espaço de nome podem implementar cargas de trabalho neste espaço de nome. Quando isto `sourceControlConfiguration` com o âmbito do espaço de nome é eliminado, o espaço de nome é deixado intacto e não será eliminado para evitar quebrar essas outras cargas de trabalho. Se necessário, pode eliminar este espaço de nome manualmente com `kubectl` .  
-> Quaisquer alterações ao cluster que foram o resultado de implementações do repo Git rastreado não são eliminadas quando a `sourceControlConfiguration` placa é eliminada.
+> Quaisquer alterações ao cluster que foram o resultado de implantações do repositório de Git rastreado não são eliminadas quando o `sourceControlConfiguration` é eliminado.
 
 ```azurecli
 az k8sconfiguration delete --name cluster-config --cluster-name AzureArcTest1 --resource-group AzureArcTest --cluster-type connectedClusters

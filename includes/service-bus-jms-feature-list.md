@@ -1,6 +1,6 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: service-bus-messaging
 author: axisc
 ms.service: service-bus-messaging
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 6/9/2020
 ms.author: aschhab
 ms.custom: include file
-ms.openlocfilehash: 9030080d0b8c8e032cb2992a62275efcdb04aabc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 574507fcc6a3c05919c441bd6d0ec9c573d4b6ae
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87798142"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652615"
 ---
 A tabela que se segue lista as funcionalidades do Java Message Service (JMS) que a Azure Service Bus suporta atualmente. Também mostra características que não são apoiadas.
 
@@ -34,4 +34,5 @@ A tabela que se segue lista as funcionalidades do Java Message Service (JMS) que
 | Seletores de mensagens | depende do consumidor criado | **Suportado** |
 | Atraso de entrega (mensagens programadas) | <ul> <li> JMSProducer.setDeliveryDelay(longa entregaDelay) </li> </ul>|**Suportado**|
 | Mensagem criada |<ul> <li> JMSContext.createMessage() </li> <li> JMSContext.createBytesMessage() </li> <li> JMSContext.createMapMessage() </li> <li> JMSContext.createObjectMessage (objeto serializável) </li> <li> JMSContext.createStreamMessage() </li> <li> JMSContext.createTextMessage() </li> <li> JMSContext.createTextMessage (Texto de cordas) </li> </ul>| **Suportado** |
+| Transações de entidades cruzadas |<ul> <li> Connection.createSession (verdadeiro, Session.SESSION_TRANSACTED) </li> </ul> | **Suportado** |
 | Transações distribuídas || Não suportado |

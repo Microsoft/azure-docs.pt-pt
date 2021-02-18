@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.service: azure-redhat-openshift
 ms.topic: conceptual
 ms.date: 11/23/2020
-ms.openlocfilehash: fced0cfb1836be0f90c606b9a9753dad4200670d
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: 8de819fc5444146f40a6a052cd51e6164cdfb230
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100635630"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653062"
 ---
 # <a name="azure-red-hat-openshift-support-policy"></a>Política de suporte Azure Red Hat OpenShift
 
@@ -23,7 +23,7 @@ Certas configurações para a azure Red Hat OpenShift 4 clusters podem afetar a 
 ## <a name="cluster-configuration-requirements"></a>Requisitos de configuração do cluster
 
 * Todos os operadores do Agrupamento OpenShift devem permanecer em estado de gestão. A lista de operadores de cluster pode ser devolvida em `oc get clusteroperators` funcionamento.
-* O aglomerado deve ter um mínimo de dois nós operários. Não escalone os trabalhadores do agrupamento a zero, nem tente uma paragem graciosa do cluster.
+* O aglomerado deve ter um mínimo de dois nós operários. Não tenha manchas que impeçam a programação de componentes OpenShift. Não escalone os trabalhadores do agrupamento a zero, nem tente uma paragem graciosa do cluster.
 * Não remova nem modifique os serviços prometheus e alertmanager.
 * Não remova as regras do Service Alertmanager.
 * Não remova nem modifique grupos de segurança de rede.

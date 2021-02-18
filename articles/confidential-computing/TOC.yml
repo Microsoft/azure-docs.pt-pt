@@ -38,7 +38,7 @@
     - name: Cálculo de Contentor
       expanded: true
       items:
-        - name: Contentores confidenciais (lift-and-shift)
+        - name: Contentores confidenciais
           items:
             - name: Introdução
               href: confidential-containers.md
@@ -58,7 +58,7 @@
       href: how-to-fortanix-enclave-manager.md
 - name: Referências
   items:
-    - name: Funcionalidade de Programa Auxiliar do SGX Quote
+    - name: Funcionalidade de ajudante de cotação SGX
       href: confidential-nodes-out-of-proc-attestation.md
 - name: Recursos
   items:

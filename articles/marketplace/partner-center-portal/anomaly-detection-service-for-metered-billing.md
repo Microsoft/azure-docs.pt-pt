@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: mingshen
 author: mingshen-ms
 ms.date: 06/10/2020
-ms.openlocfilehash: 909b818c60932f5b1d6071ea1ccf0ee4c76173b4
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 5ab57bcccb6f681f5c9282ef461181952ed5a679
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92280541"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653079"
 ---
 # <a name="anomaly-detection-service-for-metered-billing"></a>Serviço de deteção de anomalias da faturação limitada
 
@@ -50,32 +50,37 @@ O modelo funciona gerando intervalos de confiança retrospetiva. A previsão da 
 
 ## <a name="anomaly-detection-notification"></a>Notificação de deteção de anomalias
 
-Enviamos avisos de deteção de anomalias por e-mail semanalmente. Inclui todas as anomalias detetadas naquela semana para todos os contadores e clientes. Este e-mail é enviado para os contactos **de Engenharia** e **Apoio** fornecidos quando criou a oferta.
+Pode avaliar, gerir e reconhecer anomalias no Partner Center. Para saber como, consulte [a deteção de anomalias para faturação medido.](../anomaly-detection.md)
 
-Espera-se que investigue se as anomalias detetadas são problemas reais e, em caso afirmativo, contacte a Microsoft para reportar a utilização incorreta (consulte a secção de suporte abaixo).
+Para garantir que os seus clientes não estão sobrecarregados com o uso medido, deve investigar se anomalias detetadas são problemas reais. Em caso afirmativo, pode reconhecer o uso incorreto no Centro de Parceiros.
 
-Se confirmar que anomalias detetadas são uma utilização normal, não é necessária mais nenhuma ação por si. No entanto, se uma anomalia representar um risco financeiro potencialmente elevado, poderemos contactá-lo para confirmar o uso.  
+Recomendamos que confirme se anomalias detetadas são de uso normal. Ao fazê-lo, melhorará os dados de anomalia que lhe fornecemos. Se uma anomalia representar um risco financeiro potencialmente elevado, podemos contactá-lo para confirmar o uso.
 
 ## <a name="when-and-how-to-get-support"></a>Quando e como obter apoio
 
-Se enviou a utilização incorreta para a Microsoft e isso resultou ou resultará num subcomisse do cliente, a Microsoft não iniciará uma fatura ao cliente para utilização sub-reportada ou pagar-lhe-á por essa utilização. Terá de suportar a perda de receitas devido à comunicação de valor inferior.
+Se nos enviou uma utilização com contadores incorretos que o fez ou resultará numa sobretaxa para o cliente, não iniciaremos uma fatura ao cliente para utilização sub-reportada ou pagar-lhe-emos por esse uso. Terá de suportar a perda de receitas devido à comunicação de valor inferior.
 
-Se um dos seguintes casos se aplicar, poderá abrir um pedido de suporte para pedir um reembolso ou um ajuste da faturação para os clientes:
+Se um dos seguintes casos se aplicar, pode ajustar o valor de utilização no Partner Center, o que resultará num reembolso ou ajuste de faturação para os seus clientes:
 
-- Confirmou que uma das anomalias que encontrámos é um problema real e que o uso incorreto resultaria numa **sobrecarga** do cliente.
-- Descobre que nos enviou uma utilização incorreta e que o uso incorreto resultaria numa **sobrecarga** do cliente.
-- Você gostaria de solicitar um reembolso para o custo do uso de faturação medido do seu cliente.
+- Confirmou que uma das anomalias que encontrámos é um problema real e que o uso incorreto resultaria na sobrecarga do cliente.
+- Descobre que nos enviou uma utilização incorreta e que o uso incorreto resultaria na sobrecarga do cliente.
 
-Para submeter um bilhete:
+Para submeter um bilhete de apoio relacionado com anomalias de faturação medido:
 
-1. Vá à página de apoio. No Tell us sobre a **sua caixa de emissão,** insira "uso errado".
-2. Em tópicos de apoio, no drop-down dos resultados da pesquisa, selecione um dos seguintes:
-    - **Mercado**  >  Comercial **Faturação medido**  >  **Uso errado enviado para oferta de aplicações Azure,** ou
-    - **Mercado**  >  Comercial **Faturação medido**  >  **Uso errado enviado para oferta SaaS**
-3. No **passo seguinte**, selecione o botão de **soluções de Avaliação** a direcionar para iniciar sação no Partner Center para submeter um bilhete de apoio.
+1. Inscreva-se no [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) com a sua conta de trabalho.
+1. No menu no canto superior direito da página, selecione o ícone **De suporte.** O **painel de ajuda e apoio** aparece no lado direito da página.
+1. Para obter ajuda no mercado comercial, **selecione Commercial Marketplace**.
+   ![Ilustra o painel de apoio.](../media/support/commercial-marketplace-support-pane.png)
+1. Na caixa **de resumo de problemas,** entre no mercado comercial **> faturação medido.**
+1. Na caixa **de tipo Problema,** selecione uma das seguintes:
+    - **Marketplace Comercial > Faturação Medido > Uso errado enviado para oferta de aplicações Azure**
+    - **Marketplace Comercial > Faturação Medido > Uso errado enviado para oferta saas**
+1. No **passo seguinte**, selecione **Soluções de Revisão**.
+1. Reveja os documentos recomendados, se algum ou selecionar **Forneça detalhes de emissão** para submeter um bilhete de apoio.
 
 Para obter mais opções de suporte ao editor, consulte [Suporte para o programa de marketplace comercial no Partner Center.](../support.md)
 
-## <a name="next-step"></a>Passo seguinte
+## <a name="next-steps"></a>Passos seguintes
 
 - Conheça o [serviço de medição marketplace API.](marketplace-metering-service-apis.md)
+- [Deteção de anomalias para faturação medido](../anomaly-detection.md)

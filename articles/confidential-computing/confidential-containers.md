@@ -4,19 +4,19 @@ description: Saiba mais sobre o suporte de contentores não modificados em conte
 services: container-service
 author: agowdamsft
 ms.topic: article
-ms.date: 9/22/2020
+ms.date: 2/11/2020
 ms.author: amgowda
 ms.service: container-service
-ms.openlocfilehash: 35518a90ff3db2b951e0310970afd6d78dd25807
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: bf92e7f28d6a5804886d093671f4b7e33878f1ec
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92122208"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652683"
 ---
 # <a name="confidential-containers"></a>Contentores confidenciais
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Permitir que os desenvolvedores tragam uma **aplicação de estivador existente (nova ou existente)** e executá-la de forma segura no Serviço Azure Kubernetes (AKS) através do suporte confidencial dos nós de computação.
 
@@ -29,41 +29,24 @@ Os contentores confidenciais ajudam a proteger:
 - garantias baseadas em hardware
 - permitir executar aplicações existentes
 - criar raiz de hardware de confiança
+- remover administrador de hospedeiro, administrador Kubernetes, hipervisor do limite de confiança
 
 Um Ambiente de Execução Fidedigna (TEE) baseado em hardware é um componente importante que é usado para fornecer fortes garantias através de medições de hardware e software a partir de componentes de base de computação fidedigna (TCB). As verificações destas medições ajudam na validação do cálculo esperado e verificam qualquer adulteração das aplicações do contentor.
 
-Os contentores confidenciais suportam aplicações personalizadas desenvolvidas com **Python, Java, Node JS, etc. ou aplicações de software embaladas como NGINX, Redis Cache, MemCache,** e assim por diante, para serem executadas sem modificação em AKS.
+Os contentores confidenciais suportam aplicações personalizadas desenvolvidas com **Python, Java, Node JS, etc. ou aplicações de contentores embalados como NGINX, Redis Cache, MemCache,** etc., para serem executadas sem modificação em AKS com nós de computação confidencial.
 
-Os contentores confidenciais são o caminho mais rápido para a confidencialidade dos contentores, incluindo a proteção do contentor através da encriptação, permitindo levantar e deslocar sem alterações mínimas na sua lógica de negócio.
+Os contentores confidenciais são o caminho mais rápido para a confidencialidade dos contentores e só exigirão a reembalagem das aplicações existentes do contentor estivador e não exigirão alterações ao código de aplicação. Os contentores confidenciais são aplicações de contentores de estivadores que são embaladas para funcionar num TEE. Alguns facilitadores confidenciais de contentores também oferecem encriptação de contentores que podem ajudar a proteger o código do recipiente durante o armazenamento e transporte e enquanto montado no hospedeiro. A encriptação do recipiente permite-lhe ir mais longe e proteger o código/modelo embalado no recipiente com a sua chave de desencriptação anexada ao TEE.
 
-![A conversão confidencial do contentor](./media/confidential-containers/conf-con-deploy-process.jpg)
-
+Abaixo está o processo para contentores confidenciais do desenvolvimento para a implantação ![ O contentor confidencial como processar.](./media/confidential-containers/how-to-confidential-container.png)
 
 ## <a name="confidential-container-enablers"></a>Facilitadores confidenciais de contentores
+Para executar um recipiente de estivador existente não modificado requer um software SGX para que as chamadas de aplicação possam usar um conjunto especial de instruções de CPU disponibilizado para baixar a área de superfície do anexado e não ter dependência do Sistema de Observação do Hóspede. Uma vez embrulhados com software de execução SGX, os contentores lançam-se automaticamente nos enclaves protegidos, removendo assim o So de Hóspede, o Os anfitrião ou o Hypervisor do limite de confiança. Esta execução isolada num nó (Máquina Virtual) com encriptação de dados de memória apoiada pelo hardware reduz as áreas globais de ataque de superfície e reduz as vulnerabilidades com camadas de sistema operativo ou hipervisor.
 
-Para executar um recipiente de estivador existente, as aplicações em nós de computação confidencial requerem uma camada de abstração ou software SGX para alavancar o conjunto especial de instruções do CPU. O software SGX também permite que o código de aplicações sensíveis seja protegido e crie uma execução direta ao CPU para remover o SO convidado, o HOST OS ou o Hypervisor. Esta proteção reduz as áreas de ataque de superfície e vulnerabilidades com sistema operativo ou camadas hipervisoras.
-
-Os contentores confidenciais são totalmente suportados em AKS e ativados através de projetos Azure Partners e Open Source Software (OSS). Os desenvolvedores podem escolher fornecedores de software com base nas funcionalidades, integração nos serviços Azure e suporte de ferramentas.
+Os contentores confidenciais são totalmente suportados em AKS e ativados através de projetos Azure Partners e Open-Source Software (OSS). Os desenvolvedores podem escolher fornecedores de software com base nas funcionalidades, integração nos serviços Azure e suporte de ferramentas.
 
 ## <a name="partner-enablers"></a>Facilitadores de Parceiros
 > [!NOTE]
 > As soluções abaixo são oferecidas através da Azure Partners e podem incorrer em taxas de licenciamento. Verifique os termos do software do parceiro de forma independente. 
-
-### <a name="fortanix"></a>Fortanix
-
-[A Fortanix](https://www.fortanix.com/) oferece aos desenvolvedores uma escolha de um portal e experiência baseada em CLI para levar as suas aplicações contentorizadas e encostá-las a recipientes confidenciais capazes de SGX sem necessidade de modificar ou recompiler a aplicação. A Fortanix proporciona a flexibilidade para executar e gerir o conjunto mais amplo de aplicações, incluindo aplicações existentes, novas aplicações nativas do enclave e aplicações pré-embaladas. Os utilizadores podem começar com [o Enclave Manager](https://em.fortanix.com/) UI ou REST [APIs](https://www.fortanix.com/api/em/) para criar recipientes confidenciais seguindo o guia [Quick Start](https://support.fortanix.com/hc/en-us/articles/360049658291-Fortanix-Confidential-Container-on-Azure-Kubernetes-Service) para o Serviço Azure Kubernetes.
-
-![Processo de implantação de Fortanix](./media/confidential-containers/fortanix-confidential-containers-flow.png)
-
-### <a name="scone-scontain"></a>Scone (Scontain)
-
-[O SCONE](https://scontain.com/index.html?lang=en) suporta políticas de segurança que podem gerar certificados, chaves e segredos, e garante que só são visíveis para atestar serviços de uma aplicação. Desta forma, os serviços de uma aplicação atestam-se automaticamente através do TLS - sem a necessidade de modificar as aplicações nem o TLS. Isto é explicado com a ajuda de uma simples aplicação Flask aqui: https://sconedocs.github.io/flask_demo/  
-
-O SCONE pode converter a maioria dos binários existentes em aplicações que funcionam dentro de enclaves sem precisar de alterar a aplicação ou de recompiler essa aplicação. O SCONE também protege as línguas interpretadas como python encriptando tanto os ficheiros de dados como os ficheiros de código Python. Com a ajuda de uma política de segurança SCONE, pode-se proteger os ficheiros encriptados contra acessos, modificações e reversão não autorizados. Como "sconificar" uma aplicação python existente é explicado [aqui](https://sconedocs.github.io/sconify_image/)
-
-![Fluxo de Scontain](./media/confidential-containers/scone-workflow.png)
-
-As implementações de Scone em nós de computação confidencial com AKS são totalmente suportadas e integradas. Começa com uma aplicação de amostra aqui https://sconedocs.github.io/aks/
 
 ### <a name="anjuna"></a>Anjuna
 
@@ -73,9 +56,26 @@ Começa com uma amostra redis Cache e aplicação personalizada Python [aqui](ht
 
 ![Processo de Anjuna](./media/confidential-containers/anjuna-process-flow.png)
 
+### <a name="fortanix"></a>Fortanix
+
+[A Fortanix](https://www.fortanix.com/) oferece aos desenvolvedores uma escolha de um portal e experiência baseada em CLI para levar as suas aplicações contentorizadas e encostá-las a recipientes confidenciais capazes de SGX sem necessidade de modificar ou recompiler a aplicação. A Fortanix proporciona a flexibilidade para executar e gerir o conjunto mais amplo de aplicações, incluindo aplicações existentes, novas aplicações nativas do enclave e aplicações pré-embaladas. Os utilizadores podem começar com UI ou [REST APIs](https://www.fortanix.com/api/em/) [do Gestor de Computação Confidencial](https://em.fortanix.com/) para criar recipientes confidenciais seguindo o guia Quick [Start](https://support.fortanix.com/hc/en-us/articles/360049658291-Fortanix-Confidential-Container-on-Azure-Kubernetes-Service) para o Serviço Azure Kubernetes.
+
+![Processo de implantação de Fortanix](./media/confidential-containers/fortanix-confidential-containers-flow.png)
+
+### <a name="scone-scontain"></a>Scone (Scontain)
+
+[O SCONE](https://scontain.com/index.html?lang=en) suporta políticas de segurança que podem gerar certificados, chaves e segredos, e garante que só são visíveis para atestar serviços de uma aplicação. Desta forma, os serviços de uma aplicação atestam-se automaticamente através do TLS - sem a necessidade de modificar as aplicações nem o TLS. Isto é explicado com a ajuda de uma simples aplicação Flask aqui: https://sconedocs.github.io/flask_demo/  
+
+O SCONE pode converter a maioria dos binários existentes em aplicações que funcionam dentro de enclaves sem precisar de alterar a aplicação ou de recompiler essa aplicação. O SCONE também protege as línguas interpretadas como python **encriptando** tanto os ficheiros de dados como os ficheiros de código Python. Com a ajuda de uma política de segurança SCONE, pode-se proteger os ficheiros encriptados contra acessos, modificações e reversão não autorizados. Como "sconificar" uma aplicação python existente é explicado [aqui](https://sconedocs.github.io/sconify_image/)
+
+![Fluxo de Scontain](./media/confidential-containers/scone-workflow.png)
+
+As implementações de Scone em nós de computação confidencial com AKS são totalmente suportadas e integradas com outros serviços Azure. Começa com uma aplicação de amostra aqui https://sconedocs.github.io/aks/
+
+
 ## <a name="oss-enablers"></a>Facilitadores de OSS 
 > [!NOTE]
-> As soluções abaixo são oferecidas através de Open Source Projects e não estão diretamente afiliadas à Azure Confidential Computing (ACC) ou à Microsoft.  
+> As soluções abaixo são oferecidas através de Open-Source Projects e não estão diretamente afiliadas à Azure Confidential Computing (ACC) ou à Microsoft.  
 
 ### <a name="graphene"></a>Grafeno
 
@@ -90,14 +90,14 @@ Occlum suporta implementações AKS. Siga as instruções de implementação com
 
 
 ## <a name="confidential-containers-demo"></a>Demonstração de Contentores Confidenciais
-Veja a demonstração confidencial de cuidados de saúde com recipientes confidenciais. A amostra está disponível [aqui.](https://github.com/Azure-Samples/confidential-container-samples/blob/main/confidential-healthcare-scone-confinf-onnx/README.md) 
+Veja a demonstração confidencial de cuidados de saúde com recipientes confidenciais. A amostra está disponível [aqui.](https://docs.microsoft.com/azure/architecture/example-scenario/confidential/healthcare-inference) 
 
 > [!VIDEO https://www.youtube.com/embed/PiYCQmOh0EI]
 
 
 ## <a name="get-in-touch"></a>Entrar em contato
 
-Tem dúvidas com a sua implementação ou quer tornar-se um facilitador? Enviar um e-mail para acconaks@microsoft.com
+Tem dúvidas com a sua implementação ou quer tornar-se um facilitador? Envie um e-mail para a equipa de produtos **acconaks@microsoft.com**
 
 ## <a name="reference-links"></a>Links de referência
 

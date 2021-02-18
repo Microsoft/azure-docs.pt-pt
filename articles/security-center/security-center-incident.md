@@ -1,19 +1,19 @@
 ---
-title: Gerir incidentes de segurança no Centro de Segurança Azure Microsoft Docs
+title: Gerir incidentes de segurança no Centro de Segurança Azure | Microsoft Docs
 description: Este documento ajuda-o a usar o Azure Security Center para gerir incidentes de segurança.
 services: security-center
 author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 06/15/2020
+ms.date: 02/17/2021
 ms.author: memildin
-ms.openlocfilehash: 2b5dc30de19704b5e8950515cfa6224b4bbdbaf0
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 722a508679c74f9d62df07575ffa1006528f4398
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341351"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652111"
 ---
 # <a name="manage-security-incidents-in-azure-security-center"></a>Gerir incidentes de segurança no Centro de Segurança Azure
 
@@ -29,11 +29,19 @@ No Centro de Segurança, um incidente de segurança é uma agregação de todos 
 
 ## <a name="managing-security-incidents"></a>Gerir incidentes de segurança
 
-1. Na página geral do Centro de Segurança, selecione o azulejo alertas de **segurança.** Os incidentes e alertas estão listados. Note que os incidentes de segurança têm um ícone diferente dos alertas de segurança.
+1. Na página de alertas do Security Center, utilize o botão **de filtro Adicionar** para filtrar por nome de alerta o nome de alerta Incidente de segurança detetado em **vários recursos**. 
 
-    ![Ver incidentes de segurança](./media/security-center-managing-and-responding-alerts/security-center-manage-alerts.png)
+    :::image type="content" source="media/security-center-incident/locating-incidents.png" alt-text="Localizar os incidentes na página de alertas no Centro de Segurança Azure":::
 
-1. Para ver detalhes, selecione um incidente. A página **de incidentes** de Segurança mostra mais detalhes. 
+    A lista está agora filtrada para mostrar apenas incidentes. Note que os incidentes de segurança têm um ícone diferente dos alertas de segurança.
+
+    :::image type="content" source="media/security-center-incident/incidents-list.png" alt-text="Lista de incidentes na página de alertas no Centro de Segurança Azure":::
+
+1. Para ver detalhes de um incidente, selecione um da lista. Um painel lateral aparece com mais detalhes sobre o incidente.
+
+    :::image type="content" source="media/security-center-incident/incident-quick-peek.png" alt-text="Painel lateral mostrando detalhes do incidente":::
+
+1. Para ver mais detalhes, **selecione Ver todos os detalhes.**
 
     [![Responda a incidentes de segurança no Centro de Segurança Azure](media/security-center-incident/incident-details.png)](media/security-center-incident/incident-details.png#lightbox)
 

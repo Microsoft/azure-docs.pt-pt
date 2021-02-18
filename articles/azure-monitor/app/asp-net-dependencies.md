@@ -1,15 +1,15 @@
 ---
-title: Rastreio de Dependência em Insights de Aplicações Azure / Microsoft Docs
+title: Rastreio de dependência em Azure Application Insights | Microsoft Docs
 description: Monitorize as chamadas de dependência a partir das suas instalações ou da aplicação web microsoft Azure com Insights de Aplicação.
 ms.topic: conceptual
 ms.date: 08/26/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: df13042656aa077b30bf144aab0a47d9fc0a0662
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 05b6c29b121cbf42cf0ebe12b2879e50735db7ea
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91263934"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652008"
 ---
 # <a name="dependency-tracking-in-azure-application-insights"></a>Rastreio de dependência em Insights de Aplicação Azure 
 
@@ -109,9 +109,10 @@ Para ASP.NET aplicações, o texto de consulta SQL completo é recolhido com a a
 Além dos passos específicos da plataforma acima, **deve também optar explicitamente para permitir a recolha de comandos SQL** modificando o ficheiro applicationInsights.config com o seguinte:
 
 ```xml
-<Add Type="Microsoft.ApplicationInsights.DependencyCollector.DependencyTrackingTelemetryModule, Microsoft.AI.DependencyCollector">
-<EnableSqlCommandTextInstrumentation>true</EnableSqlCommandTextInstrumentation>
-</Add>
+<TelemetryModules>
+  <Add Type="Microsoft.ApplicationInsights.DependencyCollector.DependencyTrackingTelemetryModule, Microsoft.AI.DependencyCollector">
+    <EnableSqlCommandTextInstrumentation>true</EnableSqlCommandTextInstrumentation>
+  </Add>
 ```
 
 Nos casos acima referidos, a forma correta de validar o motor de instrumentação corretamente instalado é através da validação de que a versão SDK recolhida `DependencyTelemetry` é 'rddp'. 'rdddsd' ou 'rddf' indica que as dependências são recolhidas através de chamadas DiagnosticSource ou EventSource e, portanto, a consulta completa do SQL não será capturada.

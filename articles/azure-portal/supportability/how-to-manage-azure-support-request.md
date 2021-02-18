@@ -5,16 +5,16 @@ tags: billing
 ms.assetid: 86697fdf-3499-4cab-ab3f-10d40d3c1f70
 ms.topic: how-to
 ms.date: 12/14/2020
-ms.openlocfilehash: 8110f87401da1352309fb55615093d49981c754d
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: d6c68dd341e0794a690b41b73ecc4be954db7359
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97504819"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653854"
 ---
 # <a name="manage-an-azure-support-request"></a>Gerir um pedido de suporte do Azure
 
-Depois de [criar um pedido de apoio Azure,](how-to-create-azure-support-request.md)pode geri-lo no portal [Azure](https://portal.azure.com), que está coberto neste artigo. Também pode criar e gerir pedidos programáticamente, utilizando o [bilhete de apoio Azure REST API.](/rest/api/support)
+Depois de [criar um pedido de apoio Azure,](how-to-create-azure-support-request.md)pode geri-lo no portal [Azure](https://portal.azure.com), que está coberto neste artigo. Também pode criar e gerir pedidos programáticamente, utilizando o [bilhete de apoio Azure REST API,](/rest/api/support)ou utilizando [o Azure CLI](/cli/azure/azure-cli-support-request).
 
 ## <a name="view-support-requests"></a>Ver pedidos de suporte
 
@@ -76,7 +76,7 @@ Pode utilizar a opção de upload de ficheiros para fazer upload de ficheiros de
 
 1. Na página **Pedido de Apoio,** navegue para encontrar o seu ficheiro e, em seguida, selecione **Upload**. Repita o processo se tiver vários ficheiros.
 
-    :::image type="content" source="media/how-to-manage-azure-support-request/file-upload.png" alt-text="Carregar o ficheiro":::
+    :::image type="content" source="media/how-to-manage-azure-support-request/file-upload.png" alt-text="Ficheiro de upload":::
 
 ### <a name="file-upload-guidelines"></a>Diretrizes de upload de ficheiros
 
@@ -127,7 +127,7 @@ Se precisar de fechar um pedido de apoio, [envie uma mensagem](#send-a-message) 
 
 Se precisar de reabrir um pedido de apoio fechado, crie uma [nova mensagem](#send-a-message), que reabre automaticamente o pedido.
 
-## <a name="cancel-a-support-plan"></a>Cancelar um plano de apoio
+## <a name="cancel-a-support-plan"></a>Cancelar um plano de suporte
 
 Se precisar de cancelar um plano de apoio, consulte [cancelar um plano de apoio](../../cost-management-billing/manage/cancel-azure-subscription.md#cancel-a-support-plan).
 

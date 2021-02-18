@@ -1,14 +1,14 @@
 ---
-title: Implementar o Azure VMware Solution
-description: Passos para implementar a Solução VMware Azure utilizando o portal Azure.
+title: Criar uma nuvem privada Azure VMware Solution
+description: Passos para criar uma nuvem privada Azure VMware Solution utilizando o portal Azure.
 ms.topic: include
-ms.date: 09/28/2020
-ms.openlocfilehash: 4d0881721cd8c13d1b6c9fb3a29e4cdb6d6a753f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 02/17/2021
+ms.openlocfilehash: 983dccfaa9ea43955bfecc68bbbe432c579d51d1
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91578325"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653151"
 ---
 <!-- Used in deploy-azure-vmware-solution.md and tutorial-create-private-cloud.md -->
 
@@ -40,4 +40,4 @@ ms.locfileid: "91578325"
 
 1. Verifique se a implementação foi bem sucedida. Navegue para o grupo de recursos que criou e selecione a sua nuvem privada.  Verá o estado de **Sucesso** quando a implantação estiver concluída. 
 
-   :::image type="content" source="../media/tutorial-create-private-cloud/validate-deployment.png" alt-text="No separador Básicos, insira valores para os campos." border="true":::
+   :::image type="content" source="../media/tutorial-create-private-cloud/validate-deployment.png" alt-text="Verifique se a implementação foi bem sucedida." border="true":::

@@ -6,16 +6,16 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 04/13/2020
 ms.author: jingwang
-ms.openlocfilehash: 828794715af1e7676253714da6fdc1a487c7c107
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 00c28a9ede01a74f4ae64109d277276050047461
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100361898"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653769"
 ---
 # <a name="store-credential-in-azure-key-vault"></a>Credencial de loja em Azure Key Vault
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Pode armazenar credenciais para lojas de dados e cálculos num [Cofre de Chaves Azure](../key-vault/general/overview.md). A Azure Data Factory recupera as credenciais ao executar uma atividade que utiliza a loja/computação de dados.
 

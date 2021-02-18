@@ -5,16 +5,16 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/14/2021
+ms.date: 02/16/2021
 ms.author: alkohli
 ms.subservice: common
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: b014f81354b2f7eb2fb06de540f16b08206d583e
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: cc9431d08823bd3bfba423fcc5e9dc14d2a37faa
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98706802"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652960"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Utilizar o serviço Azure Import/Export para importar dados para a Azure Blob Storage
 
@@ -101,13 +101,13 @@ Execute os seguintes passos para preparar as unidades.
 Execute os seguintes passos para criar uma função de importação no portal Azure.
 
 1. Faça login em https://portal.azure.com/ .
-2. Aceda a **todos os serviços > armazenamento > empregos de importação/exportação.**
+2. Procura de **postos de trabalho de importação/exportação.**
 
-    ![Ir para os postos de trabalho de importação/exportação](./media/storage-import-export-data-to-blobs/import-to-blob1.png)
+    ![Pesquisa de postos de trabalho de importação/exportação](./media/storage-import-export-data-to-blobs/import-to-blob-1.png)
 
-3. Clique **em Criar Trabalho de Importação/Exportação.**
+3. Selecione **+ Novo**.
 
-    ![Clique em Criar Trabalho de Importação/Exportação](./media/storage-import-export-data-to-blobs/import-to-blob2.png)
+    ![Selecione Novo para criar um novo ](./media/storage-import-export-data-to-blobs/import-to-blob-2.png)
 
 4. No **Básico:**
 
@@ -118,7 +118,7 @@ Execute os seguintes passos para criar uma função de importação no portal Az
    * Selecione uma subscrição.
    * Insira ou selecione um grupo de recursos.
 
-     ![Criar trabalho de importação - Passo 1](./media/storage-import-export-data-to-blobs/import-to-blob3.png)
+     ![Criar trabalho de importação - Passo 1](./media/storage-import-export-data-to-blobs/import-to-blob-3.png)
 
 5. Em **detalhes de trabalho:**
 
@@ -126,7 +126,7 @@ Execute os seguintes passos para criar uma função de importação no portal Az
    * Selecione a conta de armazenamento de destino onde os dados irão residir.
    * A localização de entrega é automaticamente povoada com base na região da conta de armazenamento selecionada.
 
-   ![Criar trabalho de importação - Passo 2](./media/storage-import-export-data-to-blobs/import-to-blob4.png)
+   ![Criar trabalho de importação - Passo 2](./media/storage-import-export-data-to-blobs/import-to-blob-4.png)
 
 6. Informações **de envio em troca:**
 
@@ -137,14 +137,14 @@ Execute os seguintes passos para criar uma função de importação no portal Az
        > [!TIP]
        > Em vez de especificar um endereço de e-mail para um único utilizador, forneça um e-mail de grupo. Isto garante que recebe notificações mesmo que um administrador saia.
 
-     ![Criar trabalho de importação - Passo 3](./media/storage-import-export-data-to-blobs/import-to-blob5.png)
+     ![Criar trabalho de importação - Passo 3](./media/storage-import-export-data-to-blobs/import-to-blob-5.png)
 
 7. No **Resumo:**
 
    * Reveja as informações de trabalho fornecidas no resumo. Tome nota do nome do trabalho e do endereço de envio do datacenter Azure para enviar discos de volta a Azure. Esta informação é usada mais tarde na etiqueta de envio.
    * Clique **em OK** para criar o trabalho de importação.
 
-     ![Criar trabalho de importação - Passo 4](./media/storage-import-export-data-to-blobs/import-to-blob6.png)
+     ![Criar trabalho de importação - Passo 4](./media/storage-import-export-data-to-blobs/import-to-blob-6.png)
 
 ### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
@@ -337,7 +337,7 @@ Salte este passo e vá para o próximo passo se quiser utilizar a chave gerida p
 
 Acompanhe o trabalho até à conclusão. Uma vez concluído o trabalho, verifique se os seus dados foram enviados para a Azure. Elimine os dados no local apenas depois de ter verificado que o upload foi bem sucedido.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Ver o estado do trabalho e da unidade](storage-import-export-view-drive-status.md)
 * [Rever os requisitos de importação/exportação](storage-import-export-requirements.md)

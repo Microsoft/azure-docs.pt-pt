@@ -1,32 +1,39 @@
 ---
-title: Suporte de atestado fora de proc com intel SGX quote helper DaemonSet on Azure
+title: Suporte fora de proc atestado com o ajudante de citação Intel SGX Daemonset em Azure (pré-visualização)
 description: DaemonSet para gerar a cotação fora do processo de aplicação SGX. Este artigo explica como é fornecida a instalação de atestado fora de proc para cargas de trabalho confidenciais que correm dentro de um contentor.
 ms.service: container-service
 author: agowdamsft
 ms.topic: overview
-ms.date: 9/22/2020
+ms.date: 2/12/2021
 ms.author: amgowda
-ms.openlocfilehash: b79b3b40f3fbfe7d70550db3aaf7b365aa455e89
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 89890740b06a399bad4678ff6ddd9be09c1cda0e
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94564162"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653334"
 ---
-# <a name="platform-software-management-with-sgx-quote-helper-daemon-set"></a>Gestão de software de plataforma com conjunto de ajudante de cotação SGX
+# <a name="platform-software-management-with-sgx-quote-helper-daemon-set-preview"></a>Gestão de software de plataforma com conjunto de ajudante de cotação SGX (pré-visualização)
 
 [As aplicações enclave que](confidential-computing-enclaves.md) executam o atestado remoto requer uma COTAÇÃO gerada. Esta CITAÇÃO fornece uma prova criptográfica da identidade e do estado da aplicação, bem como do ambiente que o enclave está a executar. A geração do QUOTE requer componentes de software fidedignos que fazem parte dos Componentes de Software de Plataforma da Intel (PSW).
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
  
 A Intel suporta dois modos de atestado para executar a geração de citações:
-- **in-proc** : acolhe os componentes de software fidedignos dentro do processo de aplicação do enclave
+- **in-proc**: acolhe os componentes de software fidedignos dentro do processo de aplicação do enclave
 
-- **fora do proc** : hospeda os componentes de software fidedignos fora da aplicação do enclave.
+- **fora do proc**: hospeda os componentes de software fidedignos fora da aplicação do enclave.
  
 Aplicações SGX construídas usando Open Enclave SDK por padrão uso no modo de atestado in-proc. As aplicações baseadas em SGX permitem o out-of-proc e exigiriam um alojamento extra e exporia os componentes necessários, como o Architectural Enclave Service Manager (AESM), externo à aplicação.
 
-A utilização desta funcionalidade é **altamente recomendada** , uma vez que melhora o tempo de uptime para as suas aplicações do enclave durante as atualizações da Plataforma Intel ou atualizações do controlador DCAP.
+A utilização desta funcionalidade é **altamente recomendada**, uma vez que melhora o tempo de uptime para as suas aplicações do enclave durante as atualizações da Plataforma Intel ou atualizações do controlador DCAP.
+
+Para ativar esta funcionalidade no Cluster AKS, por favor, modifique o comando de adicionar --ativar o comando do CLI ao permitir o addon de computação confidencial. Instruções detalhadas do CLI estão [aqui:](confidential-nodes-aks-get-started.md) 
+
+```azurecli-interactive
+# Create a new AKS cluster with system node pool with Confidential Computing addon enabled and SGX Quote Helper
+az aks create -g myResourceGroup --name myAKSCluster --generate-ssh-keys --enable-addon confcom --enable-sgxquotehelper
+```
 
 ## <a name="why-and-what-are-the-benefits-of-out-of-proc"></a>Porquê e quais são os benefícios de fora-de-proc?
 

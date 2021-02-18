@@ -4,16 +4,16 @@ description: Os clientes que precisam de assistência podem usar o portal Azure 
 ms.assetid: fd6841ea-c1d5-4bb7-86bd-0c708d193b89
 ms.topic: how-to
 ms.date: 06/25/2020
-ms.openlocfilehash: 11ca7925ce1664b5586ab8ec0fb523a2d562ee80
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 71aba8f2769a75805f47d90b71a8db4eeb26a97a
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96745592"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652399"
 ---
 # <a name="create-an-azure-support-request"></a>Criar um pedido de suporte do Azure
 
-O Azure permite-lhe criar e gerir pedidos de apoio, também conhecidos como bilhetes de apoio. Pode criar e gerir pedidos no [portal Azure](https://portal.azure.com), que está abrangido por este artigo. Também pode criar e gerir pedidos programáticamente, utilizando o [bilhete de apoio Azure REST API.](/rest/api/support)
+O Azure permite-lhe criar e gerir pedidos de apoio, também conhecidos como bilhetes de apoio. Pode criar e gerir pedidos no [portal Azure](https://portal.azure.com), que está abrangido por este artigo. Também pode criar e gerir pedidos programáticamente, utilizando o [bilhete de apoio Azure REST API,](/rest/api/support)ou utilizando [o Azure CLI](/cli/azure/azure-cli-support-request).
 
 > [!NOTE]
 > O URL do portal Azure é específico da nuvem Azure onde a sua organização está implantada.
@@ -64,7 +64,7 @@ Para iniciar um pedido de apoio no contexto do recurso, está neste momento a tr
 
 Vamos acompanhá-lo através de alguns passos para recolher informações sobre o seu problema e ajudá-lo a resolvê-lo. Cada passo é descrito nas seguintes secções.
 
-### <a name="basics"></a>Noções básicas
+### <a name="basics"></a>Informações básicas
 
 O primeiro passo do processo de pedido de apoio reúne informações básicas sobre o seu problema e o seu plano de apoio.
 

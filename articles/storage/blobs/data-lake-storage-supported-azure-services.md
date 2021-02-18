@@ -5,15 +5,15 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/05/2020
+ms.date: 02/17/2021
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 0dd011d6c1ff631d537dbcadf9a77bbe6d89aa45
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 36e1a8a288e1f9b2a8d65ab966b607b594d66f4e
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100518804"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653606"
 ---
 # <a name="azure-services-that-support-azure-data-lake-storage-gen2"></a>Serviços Azure que suportam Azure Data Lake Storage Gen2
 
@@ -29,17 +29,17 @@ Esta tabela lista os serviços Azure que pode utilizar com a Azure Data Lake Sto
 |Serviço do Azure |Nível de suporte |Azure AD |Chave Partilhada| Artigos relacionados |
 |---------------|-------------------|---|---|---|
 |Azure Data Factory|Disponível em Geral|Yes|Yes|[Carregue os dados no Azure Data Lake Storage Gen2 com a Azure Data Factory](../../data-factory/load-azure-data-lake-storage-gen2.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
-|Azure Databricks|Disponível em Geral|Yes|Yes|[Utilizar com o Azure Databricks](/azure/databricks/data/data-sources/azure/azure-datalake-gen2) <br> [Quickstart: Analise os dados em Azure Data Lake Storage Gen2 utilizando Azure Databricks](data-lake-storage-quickstart-create-databricks-account.md) <br>[Tutorial: Extrair, transformar e carregar dados através do Azure Databricks](/azure/databricks/scenarios/databricks-extract-load-sql-data-warehouse) <br>[Tutorial: Acesso dados do Lago de Armazenamento De Dados Gen2 dados com Azure Databricks usando Spark](data-lake-storage-use-databricks-spark.md)|
+|Azure Databricks|Disponível em Geral|Yes|Yes|[Utilizar com o Azure Databricks](/azure/databricks/data/data-sources/azure/azure-datalake-gen2) <br> [Tutorial: Extrair, transformar e carregar dados através do Azure Databricks](/azure/databricks/scenarios/databricks-extract-load-sql-data-warehouse) <br>[Tutorial: Acesso dados do Lago de Armazenamento De Dados Gen2 dados com Azure Databricks usando Spark](data-lake-storage-use-databricks-spark.md)|
 |Hub de Eventos do Azure|Disponível em Geral|No|Yes|[Capture eventos através de Azure Event Hubs em Azure Blob Storage ou Azure Data Lake Storage](../../event-hubs/event-hubs-capture-overview.md)|
 |Azure Event Grid|Disponível em Geral|Yes|Yes|[Tutorial: Implementar o padrão de captura do lago de dados para atualizar uma tabela Delta databricks](data-lake-storage-events.md)|
 |Azure Logic Apps|Disponível em Geral|No|Yes|[Visão geral - O que é Azure Logic Apps?](../../logic-apps/logic-apps-overview.md)|
 |Azure Machine Learning|Disponível em Geral|Yes|Yes|[Dados de acesso nos serviços de armazenamento Azure](../../machine-learning/how-to-access-data.md)|
 |Azure Stream Analytics|Disponível em Geral|Yes|Yes|[Início Rápido: Criar uma tarefa do Stream Analytics com o portal do Azure](../../stream-analytics/stream-analytics-quick-create-portal.md) <br> [Egress para Azure Data Lake Gen2](../../stream-analytics/stream-analytics-define-outputs.md)|
 |Data Box|Disponível em Geral|No|Yes|[Utilize a Caixa de Dados Azure para migrar dados de uma loja HDFS no local para o Azure Storage](data-lake-storage-migrate-on-premises-hdfs-cluster.md)|
-|HDInsight |Disponível em Geral|Yes|Yes|[Utilizar o Azure Data Lake Storage Gen2 com clusters do Azure HDInsight](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)<br>[Utilização do HDFS CLI com data lake storage gen2](data-lake-storage-use-hdfs-data-lake-storage.md) <br>[Tutorial: Extrair, transformar e carregar dados utilizando a Colmeia Apache em Azure HDInsight](data-lake-storage-tutorial-extract-transform-load-hive.md)|
+|HDInsight |Disponível em Geral|Yes|Yes|[Utilizar o Azure Data Lake Storage Gen2 com clusters do Azure HDInsight](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md)<br>[Utilização do HDFS CLI com data lake storage gen2](data-lake-storage-use-hdfs-data-lake-storage.md) <br>[Tutorial: Extrair, transformar e carregar dados utilizando a Colmeia Apache em Azure HDInsight](data-lake-storage-tutorial-extract-transform-load-hive.md)|
 |IoT Hub |Disponível em Geral|Yes|Yes|[Utilize o encaminhamento de mensagens IoT Hub para enviar mensagens dispositivo-a-nuvem para diferentes pontos finais](../../iot-hub/iot-hub-devguide-messages-d2c.md)|
 |Power BI|Disponível em Geral|Yes|Yes|[Analise os dados em Data Lake Storage Gen2 usando Power BI](/power-query/connectors/datalakestorage)|
-|Azure Synapse Analytics (anteriormente SQL Data Warehouse)|Disponível em Geral|Yes|Yes|[Analisar dados numa conta de armazenamento](../../synapse-analytics/get-started-analyze-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
+|Azure Synapse Analytics (anteriormente SQL Data Warehouse)|Disponível em Geral|Yes|Yes|[Analisar dados numa conta de armazenamento](../../synapse-analytics/get-started-analyze-storage.md)|
 |O SQL Server Integration Services (SSIS)|Disponível em Geral|Yes|Yes|[Gestor de conexão Azure Storage](/sql/integration-services/connection-manager/azure-storage-connection-manager)|
 |Azure Data Explorer|Disponível em Geral|Yes|Yes|[Dados de consulta no Lago de Dados Azure usando O Explorador de Dados Azure](/azure/data-explorer/data-lake-query-data)|
 |Azure Cognitive Search|Pré-visualizar|Yes|Yes|[Indexe e pesquisa documentos da Azure Data Lake Storage Gen2 (pré-visualização)](../../search/search-howto-index-azure-data-lake-storage.md)|

@@ -991,6 +991,8 @@
           href: managed-instance/alerts-create.md
         - name: Iniciar manualmente uma ativação pós-falha na instância gerida
           href: managed-instance/user-initiated-failover.md
+        - name: Migrar base de dados usando o Serviço de Reprodução de Registos
+          href: managed-instance/log-replay-service-migrate.md
     - name: Amostras
       items:
         - name: CLI do Azure

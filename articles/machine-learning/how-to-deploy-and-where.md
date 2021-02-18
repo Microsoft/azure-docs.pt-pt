@@ -12,12 +12,12 @@ ms.date: 01/13/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, deploy, devx-track-azurecli
 adobe-target: true
-ms.openlocfilehash: da47967b719b5ce601d8049f54597c207ea732c8
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: d8c6a9cc000d307490745b923a1f1ba6c93abf53
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100372039"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652229"
 ---
 # <a name="deploy-machine-learning-models-to-azure"></a>Implementar modelos de aprendizagem automática para Azure
 
@@ -325,6 +325,14 @@ A tabela a seguir descreve os diferentes estados de serviço:
 
 > [!TIP]
 > Ao implementar, as imagens do Docker para alvos de computação são construídas e carregadas a partir do Registo de Contentores de Azure (ACR). Por predefinição, o Azure Machine Learning cria um ACR que utiliza o nível *básico* de serviço. Mudar o ACR para o seu espaço de trabalho para um nível normal ou premium pode reduzir o tempo que leva para construir e implementar imagens para os seus alvos de computação. Para mais informações, consulte [os níveis de serviço de registo de contentores Azure.](../container-registry/container-registry-skus.md)
+
+> [!NOTE]
+> Se estiver a implementar um modelo para o Serviço Azure Kubernetes (AKS), aconselhamos que adinga [o Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-enable-existing-clusters) para esse cluster. Isto irá ajudá-lo a compreender a saúde geral do cluster e o uso de recursos. Também poderá encontrar os seguintes recursos úteis:
+>
+> * [Verifique se os eventos de Saúde de Recursos impactam o seu cluster AKS](https://docs.microsoft.com/azure/aks/aks-resource-health)
+> * [Diagnóstico de Serviço Azure Kubernetes](https://docs.microsoft.com/azure/aks/concepts-diagnostics)
+>
+> Se estiver a tentar implantar um modelo num cluster pouco saudável ou sobrecarregado, espera-se que experimente problemas. Se precisar de ajuda para resolver problemas de resolução de problemas de cluster AKS contacte o Suporte AKS.
 
 ### <a name="batch-inference"></a><a id="azuremlcompute"></a> Inferência do lote
 Os alvos Azure Machine Learning Compute são criados e geridos pela Azure Machine Learning. Podem ser utilizados para a previsão de lote a partir de oleodutos Azure Machine Learning.

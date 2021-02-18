@@ -9,13 +9,13 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-zone_pivot_groups: acs-js-csharp-java-python-swift
-ms.openlocfilehash: 97b9644b3d075a0d65826cbd38747ff0e45d51a4
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+zone_pivot_groups: acs-js-csharp-java-python-swift-android
+ms.openlocfilehash: 6f4a4bc34705a67bd91bd05dca9e6786477be6d5
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100379682"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653572"
 ---
 # <a name="quickstart-add-chat-to-your-app"></a>Quickstart: Adicione chat à sua App
 
@@ -33,6 +33,10 @@ Inicie-se com os Serviços de Comunicação Azure utilizando a biblioteca de cli
 
 ::: zone pivot="programming-language-java"
 [!INCLUDE [Chat with Java client library](./includes/chat-java.md)]
+::: zone-end
+
+::: zone pivot="programming-language-android"
+[!INCLUDE [Chat with Android client library](./includes/chat-android.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-csharp"

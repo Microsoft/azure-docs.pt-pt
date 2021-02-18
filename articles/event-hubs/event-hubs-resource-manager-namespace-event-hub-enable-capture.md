@@ -1,15 +1,15 @@
 ---
-title: Criar um centro de eventos com captura ativada - Azure Event Hubs Microsoft Docs
+title: Crie um centro de eventos com a captura ativada - Azure Event Hubs | Microsoft Docs
 description: Criar um espaço de nomes de Hubs de Eventos do Azure com o hub de um evento e ativar a Captura através de um modelo do Azure Resource Manager
-ms.topic: conceptual
+ms.topic: quickstart
 ms.date: 06/23/2020
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 658defcef5c9d145d499eb72ae372d1a7edfb740
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: 17157e05e4ad123ba2bbdffa199c111df9f8912e
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97705426"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653028"
 ---
 # <a name="create-a-namespace-with-event-hub-and-enable-capture-using-a-template"></a>Criar um espaço de nomes com o hub de eventos e ativar a captura utilizando um modelo
 
@@ -420,7 +420,7 @@ Também pode configurar a Captura de Hubs de Eventos através do [portal do Azur
 Pode saber mais sobre os Hubs de Eventos ao aceder às seguintes ligações:
 
 * [Descrição geral dos Event Hubs](./event-hubs-about.md)
-* [Criar um hub de eventos](event-hubs-create.md)
+* [Criar um centro de eventos](event-hubs-create.md)
 * [FAQ dos Hubs de Eventos](event-hubs-faq.md)
 
 [Authoring Azure Resource Manager templates]: ../azure-resource-manager/templates/template-syntax.md

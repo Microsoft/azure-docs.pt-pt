@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b019c12103a0324e21ef7c06b0c7a5d7fe14e6ec
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 740201b84323f5a01ab01bb21ec458a19832e499
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96743892"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652025"
 ---
 # <a name="eliminate-bad-passwords-using-azure-active-directory-password-protection"></a>Eliminar palavras-passe más usando a Azure Ative Directory Password Protection
 
@@ -174,7 +174,7 @@ Considere o exemplo seguinte:
 O próximo passo é identificar todas as instâncias de senhas proibidas na nova senha normalizada do utilizador. Os pontos são atribuídos com base nos seguintes critérios:
 
 1. Cada palavra-passe proibida encontrada na senha de um utilizador é dada um ponto.
-1. Cada personagem único restante é dado um ponto.
+1. Cada personagem restante que não faz parte de uma senha proibida é dado um ponto.
 1. Uma palavra-passe deve ter pelo menos cinco (5) pontos a aceitar.
 
 Para os próximos dois cenários de exemplo, o Contoso está a usar a Azure AD Password Protection e tem "contoso" na sua lista de senhas proibidas sob medida. Vamos também supor que "em branco" está na lista global.

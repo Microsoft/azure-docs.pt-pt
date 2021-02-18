@@ -3,15 +3,16 @@ title: Localizações de dados para Windows Virtual Desktop - Azure
 description: Uma breve visão geral das localizações onde os dados e metadados do Windows Virtual Desktop são armazenados.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 04/30/2020
+ms.custom: references_regions
+ms.date: 02/17/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e626b7e729e394b1012848904f5ce12279c3ef24
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 12ec71a86a5df5954c14097e6a0ec5c8a5138fc5
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88010077"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652433"
 ---
 # <a name="data-and-metadata-locations-for-windows-virtual-desktop"></a>Localizações de dados e metadados para o Windows Virtual Desktop
 
@@ -26,6 +27,14 @@ O Windows Virtual Desktop está atualmente disponível para todas as localizaç�
 >[!IMPORTANT]
 >O Windows Virtual Desktop armazena informações globais de metadados como nomes de inquilinos, nomes de piscinas de anfitriões, nomes de grupos de aplicações e nomes principais de utilizadores num datacenter. Sempre que um cliente cria um objeto de serviço, deve entrar num local para o objeto de serviço. A localização em que entram determina onde os metadados do objeto serão armazenados. O cliente escolherá uma região Azure e os metadados serão armazenados na geografia relacionada. Para obter uma lista de todas as regiões azures e geografias relacionadas, consulte [geografias Azure.](https://azure.microsoft.com/global-infrastructure/geographies/)
 
-Neste momento, só apoiamos o armazenamento de metadados na geografia Azure dos Estados Unidos (EUA). Os metadados armazenados são encriptados em repouso, e os espelhos geo-redundantes são mantidos dentro da geografia. Todos os dados do cliente, tais como configurações de aplicações e dados do utilizador, residem no local que o cliente escolhe e não é gerido pelo serviço. Mais geografias ficarão disponíveis à medida que o serviço cresce.
+Atualmente apoiamos o armazenamento de metadados nas seguintes geografias:
+
+- Estados Unidos (EUA) (Geralmente disponíveis)
+- Europa (UE) (Visualização pública) 
+
+>[!NOTE]
+> Ao selecionar uma região para criar objetos de serviço de desktop virtual do Windows, verá regiões sob geografias dos EUA e da UE. Para se certificar de que entende qual a região que funcionaria melhor para a sua implantação, veja o [nosso mapa de infraestruturas globais do Azure.](https://azure.microsoft.com/global-infrastructure/geographies/#geographies)
+
+Os metadados armazenados são encriptados em repouso, e os espelhos geo-redundantes são mantidos dentro da geografia. Todos os dados do cliente, tais como configurações de aplicações e dados do utilizador, residem no local que o cliente escolhe e não é gerido pelo serviço. Mais geografias ficarão disponíveis à medida que o serviço cresce.
 
 Os metadados de serviço são replicados dentro da geografia Azure para fins de recuperação de desastres.

@@ -8,19 +8,23 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 01/27/2021
+ms.date: 02/16/2021
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: 45b52f98f9f3670f2a68c22cfe9e27a86b2a74cc
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 3205e96bca6ce13afdfe06fede1112e6ddb1ab39
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99220705"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653922"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>O que há de novo na API de Análise de Texto?
 
 A API text Analytics é atualizada numa base contínua. Para se manter atualizado com os recentes desenvolvimentos, este artigo fornece-lhe informações sobre novos lançamentos e funcionalidades.
+
+## <a name="february-2021"></a>Fevereiro de 2021
+
+* Os níveis de preços S0-S4 estão a ser retirados a 8 de março de 2021. Se tiver um recurso de Análise de Texto existente utilizando o nível de preços S0-S4, deverá atualizá-lo para utilizar o [nível de preços](how-tos/text-analytics-how-to-call-api.md#change-your-pricing-tier)Standard (S).
 
 ## <a name="january-2021"></a>Janeiro de 2021
 

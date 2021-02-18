@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 175c00440fe9723bbd389db39616f525c2b7f436
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: b2d86083077b95312415099f64a13509ed60091b
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99805483"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100582630"
 ---
 # <a name="azure-security-baseline-for-service-fabric"></a>Linha de base de segurança Azure para tecido de serviço
 
@@ -178,9 +178,9 @@ Pode utilizar a interface de linha de comando Azure PowerShell ou Azure (CLI) pa
 
 **Orientação**: Utilize o Registo de Atividades Azure para monitorizar as configurações de recursos de rede e detetar alterações para os recursos de rede relacionados com as suas implementações do Tecido de Serviço Azure. Crie alertas dentro do Azure Monitor que irão desencadear quando ocorrerem alterações nos recursos críticos da rede.
 
-* [Como visualizar e recuperar eventos de Registo de Atividades Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+* [Como visualizar e recuperar eventos de Registo de Atividades Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-* [Como criar alertas no Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+* [Como criar alertas no Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
@@ -224,7 +224,7 @@ Pode utilizar a interface de linha de comando Azure PowerShell ou Azure (CLI) pa
 
 * [Como colocar o agente Log Analytics nos seus nós](./service-fabric-diagnostics-oms-agent.md)
 
-* [Registar pesquisas de registos de analíticas](../azure-monitor/log-query/log-query-overview.md)
+* [Registar pesquisas de registos de analíticas](../azure-monitor/logs/log-query-overview.md)
 
 **Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
@@ -240,7 +240,7 @@ Pode utilizar a interface de linha de comando Azure PowerShell ou Azure (CLI) pa
 
 * [Como colocar o agente Log Analytics nos seus nós](./service-fabric-diagnostics-oms-agent.md)
 
-* [Como configurar o período de retenção do espaço de trabalho do Log Analytics](../azure-monitor/platform/manage-cost-storage.md)
+* [Como configurar o período de retenção do espaço de trabalho do Log Analytics](../azure-monitor/logs/manage-cost-storage.md)
 
 **Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
@@ -256,7 +256,7 @@ Pode utilizar a interface de linha de comando Azure PowerShell ou Azure (CLI) pa
 
 * [Como colocar o agente Log Analytics nos seus nós](./service-fabric-diagnostics-oms-agent.md)
 
-* [Como configurar o período de retenção do espaço de trabalho do Log Analytics](../azure-monitor/platform/manage-cost-storage.md)
+* [Como configurar o período de retenção do espaço de trabalho do Log Analytics](../azure-monitor/logs/manage-cost-storage.md)
 
 **Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
@@ -266,7 +266,7 @@ Pode utilizar a interface de linha de comando Azure PowerShell ou Azure (CLI) pa
 
 **Orientação**: Utilize consultas de espaço de trabalho Azure Log Analytics para consultar os registos de tecido de serviço Azure.
 
-* [Registar pesquisas de registos de analíticas](../azure-monitor/log-query/log-query-overview.md)
+* [Registar pesquisas de registos de analíticas](../azure-monitor/logs/log-query-overview.md)
 
 **Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
@@ -278,7 +278,7 @@ Pode utilizar a interface de linha de comando Azure PowerShell ou Azure (CLI) pa
 
 * [Como gerir alertas no Centro de Segurança Azure](../security-center/security-center-managing-and-responding-alerts.md)
 
-* [Como alertar nos dados de registo de registo de registos de registos](../azure-monitor/learn/tutorial-response.md)
+* [Como alertar nos dados de registo de registo de registos de registos](../azure-monitor/alerts/tutorial-response.md)
 
 **Monitorização do Centro de Segurança do Azure**: Sim
 
@@ -586,7 +586,7 @@ Para a plataforma subjacente, gerida pela Microsoft, a Microsoft trata todos os 
 
 **Orientação**: Utilize o Monitor Azure com o Registo de Atividades Azure para criar alertas para quando ocorrerem alterações para recursos críticos do Azure.
 
-* [Como criar alertas para eventos de Registo de Atividades Azure](../azure-monitor/platform/alerts-activity-log.md)
+* [Como criar alertas para eventos de Registo de Atividades Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 

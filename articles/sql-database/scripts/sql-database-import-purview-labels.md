@@ -9,13 +9,13 @@ ms.topic: sample
 author: davidtrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 02/16/2021
-ms.openlocfilehash: 71444efa606e15ac744b323aa8826828454f8149
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.date: 02/17/2021
+ms.openlocfilehash: d202a931e7af1dc212e3ab688580fd38c64dbdcb
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100643616"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653752"
 ---
 # <a name="classify-your-azure-sql-data-using-azure-purview-labels"></a>Classifique os seus dados Azure SQL usando etiquetas Azure Purview
 [!INCLUDE[appliesto-sqldb-asa](../../azure-sql/includes/appliesto-sqldb-asa.md)]
@@ -71,7 +71,7 @@ Este documento descreve como adicionar etiquetas Azure Purview na sua Base de Da
 
 6. Copie a saída do script para utilização futura.
 
-### <a name="for-azure-sql-database"></a>Para base de dados Azure SQL
+### <a name="for-azure-sql-database"></a>Para a base de dados Azure SQL
 
 ```powershell
 # Replace the values below with the relevant values for your environment
@@ -90,7 +90,7 @@ $cmdletParameters = @{
   Headers = @{
     "Content-Type" = 'application/x-www-form-urlencoded'
   }
-  Body    = "client_id=$ClientID&client_secret=$SecretID&resource=https://projectbabylon.azure.net&grant_type=client_credentials"
+  Body    = "client_id=$ClientID&client_secret=$SecretID&resource=https://purview.azure.net&grant_type=client_credentials"
 }
 
 $invokeResult = Invoke-RestMethod @cmdletParameters;
@@ -178,7 +178,7 @@ $cmdletParameters = @{
   Headers = @{
     "Content-Type" = 'application/x-www-form-urlencoded'
   }
-  Body    = "client_id=$ClientID&client_secret=$SecretID&resource=https://projectbabylon.azure.net&grant_type=client_credentials"
+  Body    = "client_id=$ClientID&client_secret=$SecretID&resource=https://purview.azure.net&grant_type=client_credentials"
 }
 
 $invokeResult = Invoke-RestMethod @cmdletParameters;

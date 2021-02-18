@@ -1,18 +1,18 @@
 ---
-title: Tutorial - Implantar o cluster vSphere em Azure
-description: Saiba como implementar um cluster vSphere em Azure usando a Solução VMware Azure
+title: Tutorial - Criar e implementar uma nuvem privada Azure VMware Solution
+description: Saiba como criar e implementar uma nuvem privada Azure VMware Solution
 ms.topic: tutorial
 ms.date: 11/19/2020
-ms.openlocfilehash: 3c8ae3673ad049153c2b9700bd7efae6c4c286ed
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: c8383e987e13e43ea9bc9ba5be196538a259aa8c
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100093952"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653142"
 ---
-# <a name="tutorial-deploy-an-azure-vmware-solution-private-cloud-in-azure"></a>Tutorial: Implementar uma nuvem privada Azure VMware Solution em Azure
+# <a name="tutorial-create-an-azure-vmware-solution-private-cloud"></a>Tutorial: Criar uma nuvem privada Azure VMware Solution
 
-A Azure VMware Solution dá-lhe a capacidade de implantar um cluster vSphere em Azure. A implantação inicial mínima é de três anfitriões. Anfitriões adicionais podem ser adicionados um de cada vez, até um máximo de 16 anfitriões por cluster. 
+Neste tutorial, você vai aprender a criar e implementar uma nuvem privada Azure VMware Solution. A implantação inicial mínima dos anfitriões é de três. Anfitriões adicionais podem ser adicionados um de cada vez, até um máximo de 16 anfitriões por cluster. 
 
 Como a Azure VMware Solution não lhe permite gerir a sua nuvem privada com o vCenter no local no lançamento, é necessária uma configuração adicional. Estes procedimentos e pré-requisitos conexos estão abrangidos por este tutorial.
 
@@ -25,13 +25,10 @@ Neste tutorial, irá aprender a:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuita.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- Direitos administrativos adequados e permissão para criar uma nuvem privada.
+- Direitos administrativos adequados e permissão para criar uma nuvem privada. Deve estar ao nível mínimo de contribuinte na subscrição.
+- Acompanhe as informações recolhidas no artigo [de planeamento](production-ready-deployment-steps.md) para implementar a Solução VMware Azure.
 - Certifique-se de que tem a rede adequada configurada como descrito no [Tutorial: Lista de verificação de rede](tutorial-network-checklist.md).
-
-## <a name="register-the-resource-provider"></a>Registar o fornecedor de recursos
-
-[!INCLUDE [register-resource-provider-steps](includes/register-resource-provider-steps.md)]
-
+- Os anfitriões foram a provisionados e o fornecedor de recursos Microsoft.AVS registou-se como descrito nos [anfitriões do Pedido e ativa o fornecedor de recursos Microsoft.AVS](enable-azure-vmware-solution.md).
 
 ## <a name="create-a-private-cloud"></a>Criar uma Cloud Privada
 
