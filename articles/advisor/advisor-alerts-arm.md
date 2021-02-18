@@ -4,12 +4,12 @@ description: Saiba como configurar um alerta para novas recomendações do Azure
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 06/29/2020
-ms.openlocfilehash: f03bf6eaf4f3045e00fc67efe6faa9f53d962089
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 7b10ad06e5397ab733987373a3bd18de981c8c97
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91629901"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590060"
 ---
 # <a name="quickstart-create-azure-advisor-alerts-on-new-recommendations-using-an-arm-template"></a>Quickstart: Crie alertas do Azure Advisor sobre novas recomendações usando um modelo ARM
 
@@ -17,7 +17,7 @@ Este artigo mostra-lhe como configurar um alerta para novas recomendações do A
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Sempre que o Azure Advisor deteta uma nova recomendação para um dos seus recursos, um evento é armazenado no [diário de atividades Azure](../azure-monitor/platform/platform-logs-overview.md). Pode configurar alertas para estes eventos do Azure Advisor utilizando uma experiência de criação de alertas específicos de recomendação. Pode selecionar uma subscrição e opcionalmente um grupo de recursos para especificar os recursos em que deseja receber alertas.
+Sempre que o Azure Advisor deteta uma nova recomendação para um dos seus recursos, um evento é armazenado no [diário de atividades Azure](../azure-monitor/essentials/platform-logs-overview.md). Pode configurar alertas para estes eventos do Azure Advisor utilizando uma experiência de criação de alertas específicos de recomendação. Pode selecionar uma subscrição e opcionalmente um grupo de recursos para especificar os recursos em que deseja receber alertas.
 
 Também pode determinar os tipos de recomendações utilizando estas propriedades:
 
@@ -30,7 +30,7 @@ Também pode configurar a ação que ocorrerá quando um alerta é desencadeado 
 - Selecionando um grupo de ação existente
 - Criação de um novo grupo de ação
 
-Para saber mais sobre grupos de ação, veja [Criar e gerir grupos de ações](../azure-monitor/platform/action-groups.md).
+Para saber mais sobre grupos de ação, veja [Criar e gerir grupos de ações](../azure-monitor/alerts/action-groups.md).
 
 > [!NOTE]
 > Atualmente, os alertas de aconselhamento só estão disponíveis para recomendações de Alta Disponibilidade, Desempenho e Custo. Recomendações de segurança não são apoiadas.
@@ -146,7 +146,7 @@ O modelo define dois recursos:
 
 ## <a name="deploy-the-template"></a>Implementar o modelo
 
-Implemente o modelo utilizando qualquer método padrão para [a implementação de um modelo ARM,](../azure-resource-manager/templates/deploy-portal.md) como os seguintes exemplos utilizando CLI e PowerShell. Substitua os valores da amostra **do Grupo de Recursos**e envie um **e-mail Para o** seu ambiente. O nome do espaço de trabalho deve ser único entre todas as subscrições do Azure.
+Implemente o modelo utilizando qualquer método padrão para [a implementação de um modelo ARM,](../azure-resource-manager/templates/deploy-portal.md) como os seguintes exemplos utilizando CLI e PowerShell. Substitua os valores da amostra **do Grupo de Recursos** e envie um **e-mail Para o** seu ambiente. O nome do espaço de trabalho deve ser único entre todas as subscrições do Azure.
 
 # <a name="cli"></a>[CLI](#tab/CLI)
 
@@ -203,5 +203,5 @@ Remove-AzResourceGroup -Name my-resource-group
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Obtenha uma [visão geral dos alertas de registo de atividades](../azure-monitor/platform/alerts-overview.md)e aprenda a receber alertas.
-- Saiba mais sobre [grupos de ação.](../azure-monitor/platform/action-groups.md)
+- Obtenha uma [visão geral dos alertas de registo de atividades](../azure-monitor/alerts/alerts-overview.md)e aprenda a receber alertas.
+- Saiba mais sobre [grupos de ação.](../azure-monitor/alerts/action-groups.md)

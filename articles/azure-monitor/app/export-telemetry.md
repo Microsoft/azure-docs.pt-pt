@@ -1,14 +1,14 @@
 ---
-title: Exportação contínua de telemetria a partir de Insights de Aplicação ; Microsoft Docs
+title: Exportação contínua de telemetria a partir de | de Insights de Aplicação Microsoft Docs
 description: Exporte dados de diagnóstico e utilização para armazenamento no Microsoft Azure, e descarregue-os a partir daí.
 ms.topic: conceptual
 ms.date: 05/26/2020
-ms.openlocfilehash: a6f636ce9fe30c666f08935d5830eb0c12e6cb5e
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 23405faeb7d2151ce0f6492c0d522e0a7f9b84a8
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97674142"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100584235"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Exportar telemetria a partir do Application Insights
 Deseja manter a sua telemetria por mais tempo do que o período padrão de retenção? Ou processá-lo de uma forma especializada? Exportação Contínua é ideal para isso. Os eventos que vê no portal Application Insights podem ser exportados para armazenamento no Microsoft Azure em formato JSON. A partir daí, pode descarregar os seus dados e escrever qualquer código necessário para os processar.  
@@ -21,7 +21,7 @@ Antes de configurar a exportação contínua, há algumas alternativas que talve
 
 * O botão Exportar no topo de uma métrica ou separador de pesquisa permite transferir tabelas e gráficos para uma folha de cálculo do Excel.
 
-* [A analytics](../log-query/log-query-overview.md) fornece uma poderosa linguagem de consulta para a telemetria. Também pode exportar resultados.
+* [A analytics](../logs/log-query-overview.md) fornece uma poderosa linguagem de consulta para a telemetria. Também pode exportar resultados.
 * Se procura explorar [os seus dados no Power BI,](./export-power-bi.md)pode fazê-lo sem utilizar a Exportação Contínua.
 * O [Acesso de Dados REST API](https://dev.applicationinsights.io/) permite-lhe aceder programaticamente à sua telemetria.
 * Também pode aceder à exportação contínua de configuração [via PowerShell](/powershell/module/az.applicationinsights/new-azapplicationinsightscontinuousexport).
@@ -203,7 +203,7 @@ Em escalas maiores, considere [hdInsight](https://azure.microsoft.com/services/h
     Edite a exportação e abra o separador destino de exportação. Deixe o mesmo armazenamento selecionado como antes e clique em OK para confirmar. A exportação vai recomeçar. Se a mudança foi nos últimos dias, não perderá dados.
 * *Posso parar a exportação?*
 
-    Yes. Clique em Disable.
+    Sim. Clique em Disable.
 
 ## <a name="code-samples"></a>Exemplos de código
 

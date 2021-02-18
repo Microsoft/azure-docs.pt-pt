@@ -4,12 +4,12 @@ description: Insira algumas linhas de código no seu dispositivo ou aplicação 
 ms.topic: conceptual
 ms.date: 05/11/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 72e79ff90422a6f055d5b883ba208555244687b3
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 881c657b25d04834d83221c738c578b8281752b7
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98927817"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593745"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API do Application Insights para métricas e eventos personalizados
 
@@ -108,7 +108,7 @@ Em Node.js projetos, pode utilizar `new applicationInsights.TelemetryClient(inst
 
 ## <a name="trackevent"></a>TrackEvent
 
-No Application Insights, um *evento personalizado* é um ponto de dados que pode exibir no [Metrics Explorer](../platform/metrics-charts.md) como uma contagem agregada, e na Pesquisa de [Diagnóstico](./diagnostic-search.md) como ocorrências individuais. (Não está relacionado com MVC ou outros "eventos" enquadramento.
+No Application Insights, um *evento personalizado* é um ponto de dados que pode exibir no [Metrics Explorer](../essentials/metrics-charts.md) como uma contagem agregada, e na Pesquisa de [Diagnóstico](./diagnostic-search.md) como ocorrências individuais. (Não está relacionado com MVC ou outros "eventos" enquadramento.
 
 Insira `TrackEvent` chamadas no seu código para contar vários eventos. Quantas vezes os utilizadores escolhem uma determinada funcionalidade, com que frequência alcançam objetivos específicos, ou talvez com que frequência cometem erros específicos.
 
@@ -146,7 +146,7 @@ telemetry.trackEvent({name: "WinGame"});
 
 ### <a name="custom-events-in-analytics"></a>Eventos personalizados em Analytics
 
-A telemetria está disponível na `customEvents` tabela no [separador Registos de Insights de Aplicação](../log-query/log-query-overview.md) ou [experiência de utilização.](usage-overview.md) Os eventos podem vir `trackEvent(..)` ou [click Analytics Auto-collection Plugin](javascript-click-analytics-plugin.md).
+A telemetria está disponível na `customEvents` tabela no [separador Registos de Insights de Aplicação](../logs/log-query-overview.md) ou [experiência de utilização.](usage-overview.md) Os eventos podem vir `trackEvent(..)` ou [click Analytics Auto-collection Plugin](javascript-click-analytics-plugin.md).
 
  
 
@@ -204,7 +204,7 @@ telemetry.trackMetric({name: "queueLength", value: 42.0});
 
 ### <a name="custom-metrics-in-analytics"></a>Métricas personalizadas em Analytics
 
-A telemetria está disponível na `customMetrics` tabela no Application Insights [Analytics](../log-query/log-query-overview.md). Cada linha representa uma chamada para a `trackMetric(..)` sua aplicação.
+A telemetria está disponível na `customMetrics` tabela no Application Insights [Analytics](../logs/log-query-overview.md). Cada linha representa uma chamada para a `trackMetric(..)` sua aplicação.
 
 * `valueSum` - Esta é a soma das medições. Para obter o valor médio, divida `valueCount` por.
 * `valueCount` - O número de medições que foram agregadas nesta `trackMetric(..)` chamada.
@@ -274,7 +274,7 @@ As durações de carga da página resultantes apresentadas no Metrics Explorer s
 
 ### <a name="page-telemetry-in-analytics"></a>Telemetria de página em Analytics
 
-No [Analytics,](../log-query/log-query-overview.md) duas tabelas mostram dados das operações do navegador:
+No [Analytics,](../logs/log-query-overview.md) duas tabelas mostram dados das operações do navegador:
 
 * A `pageViews` tabela contém dados sobre o URL e o título da página
 * A `browserTimings` tabela contém dados sobre o desempenho do cliente, como o tempo necessário para processar os dados de entrada
@@ -310,7 +310,7 @@ No entanto, a forma recomendada de enviar telemetria de pedido é quando o pedid
 
 ## <a name="operation-context"></a>Contexto de operação
 
-Pode correlacionar os itens de telemetria em conjunto associando-os ao contexto de funcionamento. O módulo padrão de rastreio de pedidos faz isso para exceções e outros eventos que são enviados enquanto um pedido HTTP está sendo processado. Em [Search](./diagnostic-search.md) and [Analytics,](../log-query/log-query-overview.md)pode facilmente encontrar quaisquer eventos associados ao pedido utilizando o seu ID de funcionamento.
+Pode correlacionar os itens de telemetria em conjunto associando-os ao contexto de funcionamento. O módulo padrão de rastreio de pedidos faz isso para exceções e outros eventos que são enviados enquanto um pedido HTTP está sendo processado. Em [Search](./diagnostic-search.md) and [Analytics,](../logs/log-query-overview.md)pode facilmente encontrar quaisquer eventos associados ao pedido utilizando o seu ID de funcionamento.
 
 Consulte [a correlação de telemetria em Insights de Aplicação](./correlation.md) para obter mais detalhes sobre a correlação.
 
@@ -348,7 +348,7 @@ Consulte [as operações personalizadas track com Application Insights .NET SDK]
 
 ### <a name="requests-in-analytics"></a>Pedidos em Analytics
 
-No [Application Insights Analytics,](../log-query/log-query-overview.md)os pedidos aparecem na `requests` tabela.
+No [Application Insights Analytics,](../logs/log-query-overview.md)os pedidos aparecem na `requests` tabela.
 
 Se [a amostragem](./sampling.md) estiver em funcionamento, a propriedade itemCount mostrará um valor superior a 1. Por exemplo, o artigoCount==10 significa que de 10 chamadas para rastrear o Request(), o processo de amostragem apenas transmitiu uma delas. Para obter uma contagem correta de pedidos e duração média segmentada por nomes de pedido, utilize código como:
 
@@ -361,7 +361,7 @@ requests
 
 Envie exceções aos Insights de Aplicação:
 
-* Para [contá-los,](../platform/metrics-charts.md)como indicação da frequência de um problema.
+* Para [contá-los,](../essentials/metrics-charts.md)como indicação da frequência de um problema.
 * Examinar [ocorrências individuais.](./diagnostic-search.md)
 
 Os relatórios incluem os vestígios da pilha.
@@ -430,7 +430,7 @@ Os SDKs apanham muitas exceções automaticamente, por isso nem sempre tens de l
 
 ### <a name="exceptions-in-analytics"></a>Exceções em Analytics
 
-No [Application Insights Analytics,](../log-query/log-query-overview.md)as exceções aparecem na `exceptions` tabela.
+No [Application Insights Analytics,](../logs/log-query-overview.md)as exceções aparecem na `exceptions` tabela.
 
 Se [a amostragem](./sampling.md) estiver em funcionamento, a `itemCount` propriedade mostra um valor superior a 1. Por exemplo, o itemCount==10 significa que de 10 chamadas para rastrear a Conceção do Rastreio(), o processo de amostragem apenas transmitiu uma delas. Para obter uma contagem correta de exceções segmentadas por tipo de exceção, utilize código como:
 
@@ -525,7 +525,7 @@ Em [Search,](./diagnostic-search.md)pode então filtrar facilmente todas as mens
 
 ### <a name="traces-in-analytics"></a>Vestígios em Analytics
 
-No [Application Insights Analytics,](../log-query/log-query-overview.md)as chamadas para TrackTrace aparecem na `traces` tabela.
+No [Application Insights Analytics,](../logs/log-query-overview.md)as chamadas para TrackTrace aparecem na `traces` tabela.
 
 Se [a amostragem](./sampling.md) estiver em funcionamento, a propriedade itemCount mostra um valor superior a 1. Por exemplo, o artigoCount==10 significa que de 10 chamadas `trackTrace()` para, o processo de amostragem apenas transmitiu uma delas. Para obter uma contagem correta de chamadas de traços, deve utilizar, portanto, código como `traces | summarize sum(itemCount)` .
 
@@ -607,7 +607,7 @@ Para desligar o módulo padrão de rastreio de dependência em C#, edite [Applic
 
 ### <a name="dependencies-in-analytics"></a>Dependências em Analytics
 
-No [Application Insights Analytics,](../log-query/log-query-overview.md)as chamadas de rastreiodependência aparecem na `dependencies` tabela.
+No [Application Insights Analytics,](../logs/log-query-overview.md)as chamadas de rastreiodependência aparecem na `dependencies` tabela.
 
 Se [a amostragem](./sampling.md) estiver em funcionamento, a propriedade itemCount mostra um valor superior a 1. Por exemplo, o artigoCount==10 significa que de 10 chamadas para rastrear a Independência(), o processo de amostragem apenas transmitiu uma delas. Para obter uma contagem correta de dependências segmentadas por componente-alvo, utilize código como:
 
@@ -695,7 +695,7 @@ Se a sua aplicação agru tiver em conta os utilizadores, também pode passar um
 appInsights.setAuthenticatedUserContext(validatedId, accountId);
 ```
 
-No [Metrics Explorer,](../platform/metrics-charts.md)pode criar um gráfico que conta os **Utilizadores, autenticados** e **as contas do Utilizador.**
+No [Metrics Explorer,](../essentials/metrics-charts.md)pode criar um gráfico que conta os **Utilizadores, autenticados** e **as contas do Utilizador.**
 
 Também pode [pesquisar](./diagnostic-search.md) pontos de dados do cliente com nomes de utilizadores e contas específicos.
 
@@ -816,7 +816,7 @@ telemetry.TrackEvent(event);
 
 ### <a name="custom-measurements-and-properties-in-analytics"></a>Medições e propriedades personalizadas em Analytics
 
-Em [Analytics,](../log-query/log-query-overview.md)as métricas e propriedades personalizadas mostram nos `customMeasurements` atributos e `customDimensions` atributos de cada registo de telemetria.
+Em [Analytics,](../logs/log-query-overview.md)as métricas e propriedades personalizadas mostram nos `customMeasurements` atributos e `customDimensions` atributos de cada registo de telemetria.
 
 Por exemplo, se adicionou uma propriedade chamada "jogo" à sua telemetria de pedido, esta consulta conta as ocorrências de diferentes valores de "jogo", e mostra a média da métrica personalizada "score":
 
@@ -1120,7 +1120,7 @@ Para determinar a duração dos dados, consulte [a retenção de dados e a priva
 
     Sim, os [dados acedem à API.](https://dev.applicationinsights.io/) Outras formas de extrair dados incluem [a exportação da Analytics para o Power BI](./export-power-bi.md) e a [exportação contínua.](./export-telemetry.md)
 
-## <a name="next-steps"></a><a name="next"></a>Próximos passos
+## <a name="next-steps"></a><a name="next"></a>Passos seguintes
 
 * [Eventos de pesquisa e registos](./diagnostic-search.md)
 * [Resolução de problemas](../faq.md)

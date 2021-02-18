@@ -10,12 +10,12 @@ ms.subservice: azure-sentinel
 ms.topic: quickstart
 ms.date: 10/14/2020
 ms.custom: references_regions
-ms.openlocfilehash: 5e4785ebd403e48c4de284f196b3233c7d7434a8
-ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
+ms.openlocfilehash: a169b93b20df14e536d8764b5fb4c889d645a1fa
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100530574"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570421"
 ---
 # <a name="quickstart-on-board-azure-sentinel"></a>Quickstart: A bordo Azure Sentinel
 
@@ -32,7 +32,7 @@ Depois de ligar as suas fontes de dados, escolha entre uma galeria de livros cri
 
 - Subscrição Ative Azure, se não tiver uma, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-- Log Analytics espaço de trabalho. Saiba como [criar um espaço de trabalho Log Analytics.](../azure-monitor/learn/quick-create-workspace.md) Para obter mais informações sobre os espaços de trabalho do Log Analytics, consulte a conceção da sua implementação de [Registos de Monitores Azure.](../azure-monitor/platform/design-logs-deployment.md)
+- Log Analytics espaço de trabalho. Saiba como [criar um espaço de trabalho Log Analytics.](../azure-monitor/logs/quick-create-workspace.md) Para obter mais informações sobre os espaços de trabalho do Log Analytics, consulte a conceção da sua implementação de [Registos de Monitores Azure.](../azure-monitor/logs/design-logs-deployment.md)
 
 - Para ativar o Azure Sentinel, precisa de permissões de colaboradores para a subscrição em que reside o espaço de trabalho Azure Sentinel. 
 - Para utilizar o Azure Sentinel, precisa de permissões de colaborador ou leitor no grupo de recursos a que pertence o espaço de trabalho.

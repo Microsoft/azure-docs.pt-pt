@@ -5,17 +5,17 @@ ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.topic: article
 ms.date: 04/30/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: ef90603e8c8cdd66d43b9f88f6d128d8a472fd8a
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 1c4cff264b63506432daf350be3557bae7234584
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150334"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100594234"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurar ambientes de teste no Serviço de Aplicações do Azure
 <a name="Overview"></a>
 
-Quando implementar a sua aplicação web, web app no Linux, back end móvel ou app API para [o Azure App Service,](./overview.md)pode utilizar uma faixa de implementação separada em vez da ranhura de produção padrão quando estiver a executar o nível de plano de aplicação **standard,** **premium**ou **isolado.** As slots de implementação são aplicações ao vivo com os seus próprios nomes de anfitrião. Os elementos de conteúdo e configurações da aplicação podem ser trocados entre duas ranhuras de implantação, incluindo a ranhura de produção. 
+Quando implementar a sua aplicação web, web app no Linux, back end móvel ou app API para [o Azure App Service,](./overview.md)pode utilizar uma faixa de implementação separada em vez da ranhura de produção padrão quando estiver a executar o nível de plano de aplicação **standard,** **premium** ou **isolado.** As slots de implementação são aplicações ao vivo com os seus próprios nomes de anfitrião. Os elementos de conteúdo e configurações da aplicação podem ser trocados entre duas ranhuras de implantação, incluindo a ranhura de produção. 
 
 A implementação da sua aplicação numa faixa horária não-produção tem os seguintes benefícios:
 
@@ -30,7 +30,7 @@ Para escalar a sua aplicação para um nível diferente, certifique-se de que o 
 <a name="Add"></a>
 
 ## <a name="add-a-slot"></a>Adicionar um bloco
-A aplicação deve estar a ser executada no nível **Standard,** **Premium**ou **Isolado** para poder ativar várias faixas de implantação.
+A aplicação deve estar a ser executada no nível **Standard,** **Premium** ou **Isolado** para poder ativar várias faixas de implantação.
 
 
 1. no [portal Azure,](https://portal.azure.com/)procure e selecione **Serviços de Aplicações** e selecione a sua aplicação. 
@@ -43,7 +43,7 @@ A aplicação deve estar a ser executada no nível **Standard,** **Premium**ou *
     ![Adicionar um novo bloco de implementação](./media/web-sites-staged-publishing/QGAddNewDeploymentSlot.png)
    
    > [!NOTE]
-   > Se a aplicação ainda não se realizar no nível **Standard,** **Premium**ou **Isolado,** recebe uma mensagem que indica os níveis suportados para permitir a publicação encenada. Neste momento, tem a opção de selecionar **Upgrade** e ir ao separador **Escala** da sua aplicação antes de continuar.
+   > Se a aplicação ainda não se realizar no nível **Standard,** **Premium** ou **Isolado,** recebe uma mensagem que indica os níveis suportados para permitir a publicação encenada. Neste momento, tem a opção de selecionar **Upgrade** e ir ao separador **Escala** da sua aplicação antes de continuar.
    > 
 
 3. Na caixa de diálogo **de ranhura,** dê um nome à ranhura e selecione se clone uma configuração de aplicação a partir de outra ranhura de implementação. **Selecione Adicionar** para continuar.
@@ -185,7 +185,7 @@ Para configurar a troca automática:
 
 1. Aceda à página de recursos da sua aplicação. Selecione **configurações de**  >  *\<desired source slot>*  >  **configuração**  >  **configuração configurações gerais**.
    
-2. Para **troca automática ativada**, selecione **On**. Em seguida, selecione a ranhura de destino desejada para **a ranhura de implementação de troca automática**e selecione **Guardar** na barra de comando. 
+2. Para **troca automática ativada**, selecione **On**. Em seguida, selecione a ranhura de destino desejada para **a ranhura de implementação de troca automática** e selecione **Guardar** na barra de comando. 
    
     ![Seleções para configurar a troca automática](./media/web-sites-staged-publishing/AutoSwap02.png)
 
@@ -222,7 +222,7 @@ Se tiver algum problema, consulte [as trocas de resolução de problemas.](#trou
 
 ## <a name="monitor-a-swap"></a>Monitorizar uma troca
 
-Se a [operação de troca](#AboutConfiguration) demorar muito tempo a ser concluída, poderá obter informações sobre a operação de troca no registo de [atividades](../azure-monitor/platform/platform-logs-overview.md).
+Se a [operação de troca](#AboutConfiguration) demorar muito tempo a ser concluída, poderá obter informações sobre a operação de troca no registo de [atividades](../azure-monitor/essentials/platform-logs-overview.md).
 
 Na página de recursos da sua aplicação no portal, no painel esquerdo, selecione **Registo de Atividade**.
 

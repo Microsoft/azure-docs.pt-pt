@@ -1,17 +1,17 @@
 ---
-title: Monitor Surface Hubs com Monitor Azure / Microsoft Docs
+title: Monitore os Hubs de Superfície com | monitor Azure Microsoft Docs
 description: Utilize a solução Surface Hub para acompanhar a saúde dos seus Surface Hubs e compreenda como estão a ser utilizados.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/16/2018
-ms.openlocfilehash: 7e3b0f92770b48ef5163846e67940efe80fb669a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e38214174fd4e3aa6859f05fd24737d9e9d1f963
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90085353"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100587225"
 ---
 # <a name="monitor-surface-hubs-with-azure-monitor-to-track-their-health"></a>Monitorize os Hubs de Superfície com monitor Azure para acompanhar a sua saúde
 
@@ -26,7 +26,7 @@ Utilize as seguintes informações para instalar e configurar a solução. Para 
 
 * Um nível [de subscrição do Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) que irá suportar o número de dispositivos que pretende monitorizar. Os preços do Log Analytics variam consoante o número de dispositivos estão matriculados e quantos dados processa. Você vai querer ter isso em consideração ao planear o lançamento do Surface Hub.
 
-Em seguida, irá adicionar um espaço de trabalho log analytics existente ou criar um novo. Instruções detalhadas para a utilização de qualquer um dos métodos estão no [Criar um espaço de trabalho Log Analytics no portal Azure](../learn/quick-create-workspace.md). Uma vez configurado o espaço de trabalho Log Analytics, existem duas formas de inscrever os seus dispositivos Surface Hub:
+Em seguida, irá adicionar um espaço de trabalho log analytics existente ou criar um novo. Instruções detalhadas para a utilização de qualquer um dos métodos estão no [Criar um espaço de trabalho Log Analytics no portal Azure](../logs/quick-create-workspace.md). Uma vez configurado o espaço de trabalho Log Analytics, existem duas formas de inscrever os seus dispositivos Surface Hub:
 
 * Automaticamente através do Intune
 * Manualmente através **de Definições** no seu dispositivo Surface Hub.
@@ -74,8 +74,8 @@ Quando clicar no azulejo do Surface Hub, a saúde do seu dispositivo é exibida.
 
    ![Painel de instrumentos do Surface Hub](./media/surface-hubs/surface-hub-dashboard.png)
 
-Pode criar [alertas](../platform/alerts-overview.md) com base em pesquisas de registos existentes ou personalizadas. Utilizando os dados que o Azure Monitor recolhe dos seus Surface Hubs, pode procurar problemas e alertar sobre as condições que define para os seus dispositivos.
+Pode criar [alertas](../alerts/alerts-overview.md) com base em pesquisas de registos existentes ou personalizadas. Utilizando os dados que o Azure Monitor recolhe dos seus Surface Hubs, pode procurar problemas e alertar sobre as condições que define para os seus dispositivos.
 
 ## <a name="next-steps"></a>Passos seguintes
-* Utilize [consultas de log no Azure Monitor](../log-query/log-query-overview.md) para visualizar dados detalhados do Surface Hub.
-* Crie [alertas](../platform/alerts-overview.md) para o notificar quando ocorrerem problemas com os seus Surface Hubs.
+* Utilize [consultas de log no Azure Monitor](../logs/log-query-overview.md) para visualizar dados detalhados do Surface Hub.
+* Crie [alertas](../alerts/alerts-overview.md) para o notificar quando ocorrerem problemas com os seus Surface Hubs.

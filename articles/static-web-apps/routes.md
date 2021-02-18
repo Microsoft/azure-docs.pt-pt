@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 0cece3f531d50356fdefb81a598109d7c067c5ed
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 39950b4d62b7dbfacba94f5ba3c5de50bbb974b3
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98805943"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653678"
 ---
 # <a name="routes-in-azure-static-web-apps-preview"></a>Rotas em Azure Static Web Apps Preview
 
@@ -77,7 +77,7 @@ Pode criar novos papéis conforme necessário na `allowedRoles` matriz. Para res
 }
 ```
 
-- Tem total controlo sobre os nomes das funções; não há uma lista principal à qual os seus papéis devem aderir.
+- Tem total controlo sobre os nomes das funções; não há nenhuma lista à qual os seus papéis devem aderir.
 - Os utilizadores individuais estão associados a funções através de [convites.](authentication-authorization.md)
 
 ## <a name="wildcards"></a>Carateres universais
@@ -314,7 +314,7 @@ Todas as respostas incluem os `content-security-policy` cabeçalhos com um valor
 
 Consulte o [artigo Quotas](quotas.md) para restrições e limitações gerais.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Autenticação e autorização de instalação](authentication-authorization.md)

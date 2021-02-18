@@ -6,12 +6,12 @@ ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/01/2020
-ms.openlocfilehash: 5dff78989eef17f95d8b8dd108baafc53a3f761a
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 1779df1c5f9baf2aa46ff809ecae9ec5e3cd7adb
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97657027"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100581556"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>Monitorize o desempenho com a Loja de Consultas
 
@@ -178,7 +178,7 @@ Query_store.staging_data_reset() devolução do vazio
 
 
 ## <a name="azure-monitor"></a>Azure Monitor
-A base de dados Azure para PostgreSQL está integrada com [as definições de diagnóstico do Monitor Azure](../azure-monitor/platform/diagnostic-settings.md). As definições de diagnóstico permitem-lhe enviar os seus registos postgres no formato JSON para [registos do Monitor Azure](../azure-monitor/log-query/log-query-overview.md) para análise e alerta, Centros de Eventos para streaming e Armazenamento Azure para arquivamento.
+A base de dados Azure para PostgreSQL está integrada com [as definições de diagnóstico do Monitor Azure](../azure-monitor/essentials/diagnostic-settings.md). As definições de diagnóstico permitem-lhe enviar os seus registos postgres no formato JSON para [registos do Monitor Azure](../azure-monitor/logs/log-query-overview.md) para análise e alerta, Centros de Eventos para streaming e Armazenamento Azure para arquivamento.
 
 >[!IMPORTANT]
 > Esta funcionalidade de diagnóstico só está disponível nos níveis de preços otimizados para fins gerais e memória.
@@ -195,7 +195,7 @@ Para ativar registos de recursos utilizando o portal Azure:
 5. Selecione os tipos de registo **QueryStoreRuntimeStatistics** e **QueryStoreWaitStatistics**.
 6. Guarde a sua configuração.
 
-Para ativar esta definição utilizando a PowerShell, CLI ou REST API, visite o [artigo de definições de diagnóstico](../azure-monitor/platform/diagnostic-settings.md).
+Para ativar esta definição utilizando a PowerShell, CLI ou REST API, visite o [artigo de definições de diagnóstico](../azure-monitor/essentials/diagnostic-settings.md).
 
 ### <a name="json-log-format"></a>Formato de log JSON
 As tabelas seguintes descrevem os campos para os dois tipos de troncos. Dependendo do ponto final de saída que escolher, os campos incluídos e a ordem em que aparecem podem variar.

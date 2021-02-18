@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/27/2020
 ms.author: errobin
-ms.openlocfilehash: 88c287c4aa87b4df41bfe6bbc1992262b21d07aa
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 190a9e431dedfb0f0fe6077e903174f253f5c773
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98232765"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100589107"
 ---
 # <a name="using-insights-to-monitor-and-configure-your-azure-load-balancer"></a>Utilização de Insights para monitorizar e configurar o seu Balanceador de Carga Azure
 
@@ -40,12 +40,12 @@ Para os Balanceadores de Carga Padrão, os recursos do seu pool backend são cod
 
 ## <a name="metrics-dashboard"></a>Dashboard de métricas
 
-A partir da lâmina insights do seu Balancer de Carga, pode selecionar métricas mais detalhadas para ver um livro de trabalho pré-configurado [do Monitor Azure](../azure-monitor/platform/workbooks-overview.md) contendo métricas métricas relevantes para aspetos específicos do seu Balanceador de Carga. Este painel mostrará o estado do Balanceador de Carga e ligará à documentação relevante no topo da página.
+A partir da lâmina insights do seu Balancer de Carga, pode selecionar métricas mais detalhadas para ver um livro de trabalho pré-configurado [do Monitor Azure](../azure-monitor/visualize/workbooks-overview.md) contendo métricas métricas relevantes para aspetos específicos do seu Balanceador de Carga. Este painel mostrará o estado do Balanceador de Carga e ligará à documentação relevante no topo da página.
 
 No início, será apresentado com o separador Visão Geral. Pode navegar através dos separadores disponíveis cada um dos quais contém visuais relevantes para um aspeto específico do seu Balancer de Carga. A orientação explícita para cada um está disponível no painel de instrumentos na parte inferior de cada separador.
 
 Os separadores do painel de instrumentos atualmente disponíveis são:
-* Descrição geral
+* Descrição Geral
 * Disponibilidade de Front-end e Back-end
 * Débito de Dados
 * Distribuição de Fluxos
@@ -53,7 +53,7 @@ Os separadores do painel de instrumentos atualmente disponíveis são:
 * Definições de Métricas 
 
 ### <a name="overview-tab"></a>Separador de visão geral
-O separador 'Vista Geral' contém uma grelha pesalhável com o estado geral da disponibilidade do caminho dos dados e do estado da sonda de saúde para cada um dos IPs frontend ligados ao seu Balanceador de Carga. Estas métricas indicam se o FRONTend IP é responsivo e as instâncias de computação no seu Backend Pool são individualmente responsivas às ligações de entrada.
+O separador 'Vista Geral' contém uma grelha pes pes pesalhável com o estado geral da disponibilidade do caminho dos dados e do estado da sonda de saúde para cada um dos IPs frontend ligados ao seu Balanceador de Carga. Estas métricas indicam se o FRONTend IP é responsivo e as instâncias de computação no seu Backend Pool são individualmente responsivas às ligações de entrada.
 
 Também pode ver o resultado geral de dados para cada FRONTend IP nesta página para ter uma ideia de se está a produzir e receber níveis de tráfego esperados. A orientação na parte inferior da página irá direcioná-lo para o separador apropriado caso veja quaisquer valores irregulares.
 
@@ -80,4 +80,4 @@ O separador Definições Métricas contém todas as informações mostradas no [
 * Reveja o painel de instrumentos e forneça feedback usando o link abaixo se houver algo que possa ser melhorado
 * [Reveja a documentação métrica para garantir que compreende como cada métrica é calculada](./load-balancer-standard-diagnostics.md#multi-dimensional-metrics)
 * [Criar monitores de ligação para o seu balanceador de carga](../network-watcher/connection-monitor.md)
-* [Crie os seus próprios livros](../azure-monitor/platform/workbooks-overview.md)de trabalho, pode inspirar-se clicando no botão de edição no seu painel de métricas detalhado
+* [Crie os seus próprios livros](../azure-monitor/visualize/workbooks-overview.md)de trabalho, pode inspirar-se clicando no botão de edição no seu painel de métricas detalhado

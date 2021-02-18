@@ -6,20 +6,20 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 582dafba40012e9ff9c59bc09adb1a0831e999f5
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: b6ce9e77421df0563810fd7f8255720c1fd2d0c0
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491227"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100591079"
 ---
 # <a name="monitoring-azure-functions-with-azure-monitor-logs"></a>Monitorização de funções de Azure com registos do monitor Azure
 
-O Azure Functions oferece uma integração com [registos monitores Azure](../azure-monitor/platform/data-platform-logs.md) para monitorizar funções. Este artigo mostra-lhe como configurar funções Azure para enviar registos gerados pelo sistema e gerados pelo utilizador para registos do Monitor Azure.
+O Azure Functions oferece uma integração com [registos monitores Azure](../azure-monitor/logs/data-platform-logs.md) para monitorizar funções. Este artigo mostra-lhe como configurar funções Azure para enviar registos gerados pelo sistema e gerados pelo utilizador para registos do Monitor Azure.
 
-O Azure Monitor Logs dá-lhe a capacidade de consolidar registos de diferentes recursos no mesmo espaço de trabalho, onde pode ser analisado com [consultas](../azure-monitor/log-query/log-query-overview.md) para recuperar, consolidar e analisar rapidamente dados recolhidos.  Pode criar e testar consultas utilizando o [Log Analytics](../azure-monitor/log-query/log-query-overview.md) no portal Azure e, em seguida, analisar diretamente os dados utilizando estas ferramentas ou guardar consultas para utilização com visualizações ou [regras](../azure-monitor/visualizations.md) [de alerta](../azure-monitor/platform/alerts-overview.md).
+O Azure Monitor Logs dá-lhe a capacidade de consolidar registos de diferentes recursos no mesmo espaço de trabalho, onde pode ser analisado com [consultas](../azure-monitor/logs/log-query-overview.md) para recuperar, consolidar e analisar rapidamente dados recolhidos.  Pode criar e testar consultas utilizando o [Log Analytics](../azure-monitor/logs/log-query-overview.md) no portal Azure e, em seguida, analisar diretamente os dados utilizando estas ferramentas ou guardar consultas para utilização com visualizações ou [regras](../azure-monitor/visualizations.md) [de alerta](../azure-monitor/alerts/alerts-overview.md).
 
-O Azure Monitor utiliza uma versão da linguagem de [consulta Kusto](/azure/kusto/query/) utilizada pelo Azure Data Explorer que é adequada para consultas simples de log, mas também inclui funcionalidades avançadas como agregações, juntas e análise inteligente. Pode aprender rapidamente a linguagem de consulta usando [várias lições.](../azure-monitor/log-query/get-started-queries.md)
+O Azure Monitor utiliza uma versão da linguagem de [consulta Kusto](/azure/kusto/query/) utilizada pelo Azure Data Explorer que é adequada para consultas simples de log, mas também inclui funcionalidades avançadas como agregações, juntas e análise inteligente. Pode aprender rapidamente a linguagem de consulta usando [várias lições.](../azure-monitor/logs/get-started-queries.md)
 
 > [!NOTE]
 > A integração com os Registos do Monitor Azure está atualmente em pré-visualização pública para aplicações de funções V2 e V3 em execução em planos de alojamento do Windows Consumption, Premium e Dedicado.
@@ -30,11 +30,11 @@ O Azure Monitor utiliza uma versão da linguagem de [consulta Kusto](/azure/kust
 
    :::image type="content" source="media/functions-monitor-log-analytics/diagnostic-settings-add.png" alt-text="Selecione definições de diagnóstico":::
 
-1. Na página de **definições de Diagnóstico,** em **detalhes de categoria** e **log** , escolha **FunctionAppLogs**.
+1. Na página de **definições de Diagnóstico,** em **detalhes de categoria** e **log**, escolha **FunctionAppLogs**.
 
    A tabela **FunctionAppLogs** contém os registos pretendidos.
 
-1. Nos **detalhes do Destino** , escolha Enviar para Registar **Análises** e, em seguida, selecione o seu espaço de trabalho Log **Analytics**. 
+1. Nos **detalhes do Destino**, escolha Enviar para Registar **Análises** e, em seguida, selecione o seu espaço de trabalho Log **Analytics**. 
 
 1. Introduza o nome de **definições de Diagnóstico** e, em seguida, selecione **Guardar**.
 
@@ -124,5 +124,5 @@ FunctionAppLogs
 ## <a name="next-steps"></a>Passos seguintes
 
 - Reveja a [visão geral das funções Azure](functions-overview.md).
-- Saiba mais sobre [os Registos do Monitor Azure](../azure-monitor/platform/data-platform-logs.md).
-- Saiba mais sobre a [língua de consulta.](../azure-monitor/log-query/get-started-queries.md)
+- Saiba mais sobre [os Registos do Monitor Azure](../azure-monitor/logs/data-platform-logs.md).
+- Saiba mais sobre a [língua de consulta.](../azure-monitor/logs/get-started-queries.md)

@@ -3,12 +3,12 @@ title: Configure a sua própria chave para encriptar os dados do Azure Event Hub
 description: Este artigo fornece informações sobre como configurar a sua própria chave para encriptar o repouso de dados do Azure Event Hubs.
 ms.topic: conceptual
 ms.date: 02/01/2021
-ms.openlocfilehash: 53622344e36e514543d547dec95caaf1b0b76a13
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: c9d1ac1c3a3387600fed80939598baafe658054b
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99430684"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595999"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal"></a>Configure as chaves geridas pelo cliente para encriptar os dados do Azure Event Hubs em repouso utilizando o portal Azure
 O Azure Event Hubs fornece encriptação de dados em repouso com a Encriptação do Serviço de Armazenamento Azure (Azure SSE). O serviço Event Hubs utiliza o Azure Storage para armazenar os dados. Todos os dados armazenados com O Azure Storage são encriptados utilizando as teclas geridas pela Microsoft. Se utilizar a sua própria chave (também designada por Bring Your Own Key (BYOK) ou tecla gerida pelo cliente), os dados ainda são encriptados utilizando a chave gerida pela Microsoft, mas além disso a chave gerida pela Microsoft será encriptada utilizando a chave gerida pelo cliente. Esta funcionalidade permite-lhe criar, rodar, desativar e revogar o acesso às chaves geridas pelo cliente que são utilizadas para encriptar as chaves geridas pela Microsoft. Ativar a função BYOK é um processo de configuração de uma única vez no seu espaço de nome.
@@ -70,7 +70,7 @@ Revogar o acesso às chaves de encriptação não vai expurgar os dados dos Cent
 Uma vez revogada a chave de encriptação, o serviço Desempaços de Eventos no espaço de nome encriptado tornar-se-á inoperável. Se o acesso à tecla estiver ativado ou a tecla eliminar for restaurada, o serviço Event Hubs escolherá a chave para que possa aceder aos dados a partir do espaço de nomes do Event Hubs encriptado.
 
 ## <a name="set-up-diagnostic-logs"></a>Configurar os registos de diagnóstico 
-A definição de registos de diagnóstico para espaços de nomes ativados byok dá-lhe as informações necessárias sobre as operações. Estes registos podem ser ativados e posteriormente transmitidos para um centro de eventos ou analisados através de análise de registos ou transmitidos para armazenamento para realizar análises personalizadas. Para saber mais sobre os registos de diagnóstico, consulte [a visão geral dos registos de diagnóstico do Azure](../azure-monitor/platform/platform-logs-overview.md).
+A definição de registos de diagnóstico para espaços de nomes ativados byok dá-lhe as informações necessárias sobre as operações. Estes registos podem ser ativados e posteriormente transmitidos para um centro de eventos ou analisados através de análise de registos ou transmitidos para armazenamento para realizar análises personalizadas. Para saber mais sobre os registos de diagnóstico, consulte [a visão geral dos registos de diagnóstico do Azure](../azure-monitor/essentials/platform-logs-overview.md).
 
 ## <a name="enable-user-logs"></a>Ativar registos de utilizadores
 Siga estes passos para ativar os registos para chaves geridas pelo cliente.

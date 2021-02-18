@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 09/30/2020
 ms.author: rolyon
 ms.custom: contperf-fy21q1, azuread-video-2020
-ms.openlocfilehash: 5bf9b79621ae1cd2c73f2e3ce18b0780bcdd2a71
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 4241e476b2f778ff63057d0491b5dc8666c7520c
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100559330"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100650869"
 ---
 # <a name="what-is-azure-role-based-access-control-azure-rbac"></a>O que é o controlo de acesso baseado em funções do Azure (Azure RBAC)?
 
@@ -86,7 +86,7 @@ Para obter mais informações, consulte [Passos para atribuir um papel de Azure]
 
 ## <a name="multiple-role-assignments"></a>Atribuições múltiplas de papéis
 
-Então, o que acontece se tiver várias atribuições de papéis sobrepostos? O Azure RBAC é um modelo aditivo, por isso as suas permissões eficazes são a soma das suas atribuições de papel. Considere o exemplo a seguir quando um utilizador recebe o papel de Contribuinte no âmbito de subscrição e a função Reader num grupo de recursos. A soma das permissões do Contribuinte e das permissões do Leitor é efetivamente a função contribuinte para o grupo de recursos. Portanto, neste caso, a atribuição de funções reader não tem impacto.
+Então, o que acontece se tiver várias atribuições de papéis sobrepostos? O Azure RBAC é um modelo aditivo, por isso as suas permissões eficazes são a soma das suas atribuições de papel. Considere o exemplo a seguir quando um utilizador recebe o papel de Contribuinte no âmbito de subscrição e a função Reader num grupo de recursos. A soma das permissões do Contribuinte e das permissões do Leitor é efetivamente a função contribuinte para a subscrição. Portanto, neste caso, a atribuição de funções reader não tem impacto.
 
 ![Atribuições múltiplas de papéis](./media/overview/rbac-multiple-roles.png)
 

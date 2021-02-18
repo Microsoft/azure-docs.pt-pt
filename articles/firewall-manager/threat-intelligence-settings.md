@@ -7,12 +7,12 @@ ms.service: firewall-manager
 ms.topic: article
 ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: a663c5f3bcf3492c4a9bc74fe93c6ed6a86137ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7ede1c917bb44dd31aa59855a0b7c83eb478700a
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90530646"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100651731"
 ---
 # <a name="azure-firewall-threat-intelligence-configuration"></a>Configuração de inteligência de ameaça Azure Firewall
 
@@ -24,21 +24,33 @@ Se configurar a filtragem baseada em informações de ameaça, as regras associa
 
 ## <a name="threat-intelligence-mode"></a>Modo de inteligência de ameaça
 
-Pode optar por registar apenas um alerta quando uma regra é ativada, ou pode escolher o modo alerta e negar.
+Pode configurar a inteligência de ameaças num dos três modos descritos na tabela seguinte. Por predefinição, a filtragem baseada em inteligência de ameaça é ativada no modo de alerta.
 
-Por predefinição, a filtragem baseada em inteligência de ameaça é ativada no modo de alerta.
+|Modo |Description  |
+|---------|---------|
+|`Off`     | A funcionalidade de inteligência de ameaça não está ativada para a sua firewall. |
+|`Alert only`     | Receberá alertas de alta confiança para o tráfego que passa pela sua firewall de ou de endereços ip maliciosos conhecidos e domínios. |
+|`Alert and deny`     | O tráfego está bloqueado e receberá alertas de alta confiança quando o tráfego for detetado tentando passar pela sua firewall de ou a partir de endereços e domínios IP maliciosos conhecidos. |
 
-## <a name="allowed-list-addresses"></a>Endereços de lista permitidos
+> [!NOTE]
+> O modo de inteligência de ameaça é herdado das políticas dos pais às políticas infantis. Uma política infantil deve ser configurada com o mesmo modo ou um modo mais rigoroso do que a política dos pais.
 
-Pode configurar uma lista de endereços IP permitidos para que a inteligência de ameaça não filtrar nenhum dos endereços, intervalos ou sub-redes que especifique.
+## <a name="allowlist-addresses"></a>Endereços allowlist
 
+A inteligência das ameaças pode desencadear falsos positivos e bloquear o tráfego que na verdade é válido. Pode configurar uma lista de endereços IP permitidos para que a inteligência de ameaça não filtrar nenhum dos endereços, intervalos ou sub-redes que especifique.  
 
+![Endereços allowlist](media/threat-intelligence-settings/allow-list.png)
+
+Pode atualizar a lista de admissões com múltiplas entradas ao mesmo tempo, carregando um ficheiro CSV. O ficheiro CSV só pode conter endereços IP e intervalos. O ficheiro não pode conter títulos.
+
+> [!NOTE]
+> Os endereços de identificação de ameaças são herdados das políticas dos pais às políticas infantis. Qualquer endereço IP ou alcance adicionado a uma política de pais também se aplicará a todas as políticas infantis.
 
 ## <a name="logs"></a>Registos
 
-O seguinte excerto de registo mostra uma regra desencadeada:
+O seguinte excerto de registo mostra uma regra desencadeada para tráfego de saída para um site malicioso:
 
-```
+```json
 {
     "category": "AzureFirewallNetworkRule",
     "time": "2018-04-16T23:45:04.8295030Z",

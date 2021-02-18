@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: ninarn, sstein
 ms.date: 12/9/2020
-ms.openlocfilehash: f50042caf21630c5054ead76825e49b820405c5b
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: c478edf95ae345d64da630400fbf63ac613b73a6
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98732699"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653640"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-databases-in-azure-sql-database"></a>Piscinas elásticas ajudam a gerir e escalar várias bases de dados na Base de Dados Azure SQL
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -90,15 +90,10 @@ Para os níveis de serviço e limites de recursos em cada modelo de compra, cons
 Os seguintes passos podem ajudá-lo a estimar se uma piscina é mais rentável do que bases de dados individuais:
 
 1. Estimar os eDTUs ou vCores necessários para a piscina da seguinte forma:
-
-Para o modelo de compra baseado em DTU:
-
-MAX (<Número total de DTU média *de DBs* X *por DB*>, <Número de utilização *DBs* X *Peak DTU simultaneamente* por DB>)
-
-Para o modelo de compra baseado em vCore:
-
-MAX (<Número total de utilização média vCore *de DBs* X *por> DB,* <Número de utilização *simultânea de DBs* X *Peak vCore por DB*>)
-
+   - Para o modelo de compra baseado em DTU:
+     - MAX (<*número total de DTU* utilização média de &times; *DTU por DB*>, <Número de utilização de *DBs* &times; *peak DTU simultaneamente* por DB>)
+   - Para o modelo de compra baseado em vCore:
+     - MAX (<*Número total de DBs* &times; *Utilização média vCore por DB*>, <número de *DBs peak* &times; *vCore utilização em simultâneo por DBs Peak vCore utilização por DB*>)
 2. Estimar o espaço de armazenamento total necessário para o pool adicionando o tamanho de dados necessário para todas as bases de dados na piscina. Para o modelo de compra DTU, determine então o tamanho da piscina eDTU que fornece esta quantidade de armazenamento.
 3. Para o modelo de compra baseado em DTU, pegue o maior das estimativas do eDTU do Passo 1 e Passo 2. Para o modelo de compra baseado em vCore, pegue a estimativa vCore do Passo 1.
 4. Consulte a [página de preços da Base de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/) e encontre o menor tamanho da piscina que é maior do que a estimativa do Passo 3.
@@ -172,7 +167,7 @@ Pode utilizar as ferramentas de [monitorização](./performance-guidance.md) e a
 
    A Daxko/CSI utiliza piscinas elásticas com Base de Dados Azure SQL para acelerar o seu ciclo de desenvolvimento e melhorar os seus serviços e desempenho ao cliente.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter informações sobre preços, consulte [os preços da piscina elástica.](https://azure.microsoft.com/pricing/details/sql-database/elastic)
 - Para escalar piscinas elásticas, veja [piscinas elásticas de escalonamento](elastic-pool-scale.md) e [escale uma piscina elástica - código de amostra](scripts/monitor-and-scale-pool-powershell.md)

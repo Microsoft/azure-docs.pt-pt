@@ -3,12 +3,12 @@ title: Documentação de orientação e melhores práticas
 description: Descubra as melhores práticas e orientação para apoiar a nuvem e a carga de trabalho no local para a nuvem
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: 7b65556d8dd9b5b12e8da25055f6e39732c83afd
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 0b3f70061be4d158ae717a97779d6ab0445f5858
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99258766"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593340"
 ---
 # <a name="backup-cloud-and-on-premises-workloads-to-cloud"></a>Nuvem de backup e cargas de trabalho no local para cloud
 
@@ -238,9 +238,9 @@ Como utilizador ou administrador de backup, deverá ser capaz de monitorizar tod
   * Identificar as principais tendências em diferentes níveis de granularidade.
 
 * Além disso
-  * Pode enviar dados (por exemplo, empregos, políticas, e assim por diante) para o espaço de trabalho **Log Analytics.** Isto permitirá que as funcionalidades dos Registos do Monitor Azure permitam a correlação de dados com outros dados de monitorização recolhidos pelo Azure Monitor, consolidar as entradas de registo de várias subscrições de Azure e inquilinos num local para análise em conjunto, utilizar consultas de registo para realizar análises complexas e obter informações profundas sobre as entradas de Log. [Saiba mais aqui](../azure-monitor/platform/activity-log.md#send-to-log-analytics-workspace).
-  * Pode enviar dados para o Event Hub para enviar entradas fora do Azure, por exemplo para um SIEM de terceiros (Informação de Segurança e Gestão de Eventos) ou outra solução de análise de registos. [Saiba mais aqui](../azure-monitor/platform/activity-log.md#send-to-azure-event-hubs).
-  * Pode enviar dados para uma conta de Armazenamento Azure se pretender reter os seus dados de registo por mais de 90 dias para auditoria, análise estática ou backup. Se precisar apenas de reter os seus eventos durante 90 dias ou menos, não precisa de configurar arquivos para uma conta de armazenamento, uma vez que os eventos de Registo de Atividade são mantidos na plataforma Azure durante 90 dias. [Saiba mais](../azure-monitor/platform/activity-log.md#send-to--azure-storage).
+  * Pode enviar dados (por exemplo, empregos, políticas, e assim por diante) para o espaço de trabalho **Log Analytics.** Isto permitirá que as funcionalidades dos Registos do Monitor Azure permitam a correlação de dados com outros dados de monitorização recolhidos pelo Azure Monitor, consolidar as entradas de registo de várias subscrições de Azure e inquilinos num local para análise em conjunto, utilizar consultas de registo para realizar análises complexas e obter informações profundas sobre as entradas de Log. [Saiba mais aqui](../azure-monitor/essentials/activity-log.md#send-to-log-analytics-workspace).
+  * Pode enviar dados para o Event Hub para enviar entradas fora do Azure, por exemplo para um SIEM de terceiros (Informação de Segurança e Gestão de Eventos) ou outra solução de análise de registos. [Saiba mais aqui](../azure-monitor/essentials/activity-log.md#send-to-azure-event-hubs).
+  * Pode enviar dados para uma conta de Armazenamento Azure se pretender reter os seus dados de registo por mais de 90 dias para auditoria, análise estática ou backup. Se precisar apenas de reter os seus eventos durante 90 dias ou menos, não precisa de configurar arquivos para uma conta de armazenamento, uma vez que os eventos de Registo de Atividade são mantidos na plataforma Azure durante 90 dias. [Saiba mais](../azure-monitor/essentials/activity-log.md#send-to--azure-storage).
 
 ### <a name="alerting"></a>Alertas
 

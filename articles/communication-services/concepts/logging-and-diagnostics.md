@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 10/15/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: c4c9808813de80beea55e083c5bd80667ae2861f
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: a1c803ed24542cbc4a2f0aaaee82ac0f57559cb9
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033124"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100591855"
 ---
 # <a name="communication-services-logs"></a>Registos de serviços de comunicação
 
@@ -30,7 +30,7 @@ As novas definições fazem efeito em cerca de dez minutos. Os registos começar
 
 :::image type="content" source="./media/diagnostic-settings.png" alt-text="Opções de Definições de Diagnóstico ACS.":::
 
-Para obter mais informações sobre a configuração dos diagnósticos, consulte a visão geral dos registos de recursos do [Azure](../../azure-monitor/platform/platform-logs-overview.md).
+Para obter mais informações sobre a configuração dos diagnósticos, consulte a visão geral dos registos de recursos do [Azure](../../azure-monitor/essentials/platform-logs-overview.md).
 
 ## <a name="resource-log-categories"></a>Categorias de registo de recursos
 
@@ -45,7 +45,7 @@ Os Serviços de Comunicação oferecem três tipos de registos que pode ativar:
 
 | Propriedade | Descrição |
 | -------- | ---------------|
-| Timestamp | A hora de tempo (UTC) de quando o log foi gerado. |
+| CarimboDeDataEHora | A hora de tempo (UTC) de quando o log foi gerado. |
 | Nome da Operação | A operação associada ao registo de registo. |
 | Versão de operação | O `api-version` produto associado à operação, se a operaçãoName foi realizada com uma API. Se não houver API que corresponda a esta operação, a versão representa a versão dessa operação no caso de as propriedades associadas à alteração da operação no futuro. |
 | Categoria | A categoria de registo do evento. Categoria é a granularidade em que pode ativar ou desativar registos num determinado recurso. As propriedades que aparecem dentro da bolha de propriedades de um evento são as mesmas dentro de uma determinada categoria de registo e tipo de recurso. |

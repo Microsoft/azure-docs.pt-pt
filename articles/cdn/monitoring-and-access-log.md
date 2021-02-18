@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 11/23/2020
 ms.author: yuajia
-ms.openlocfilehash: 43f53d1098e08a0f913e3baec2c6aaf3d65054d0
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 8a4b48586c564ee5d14a0768156b0477e2935ccf
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96501565"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100575444"
 ---
 # <a name="real-time-monitoring-metrics-and-access-logs-for-azure-cdn"></a>Monitorização, métricas e registos de acesso em tempo real para Azure CDN
 Com o Azure CDN da Microsoft, pode monitorizar os recursos das seguintes formas para ajudá-lo a resolver problemas, rastrear e depurar problemas. 
@@ -59,7 +59,7 @@ Para configurar registos Raw para o seu Azure CDN a partir do perfil da Microsof
     * **Arquivar para uma conta de armazenamento**
         * Selecione a **Subscrição** e a **Conta de Armazenamento.**
     * **Transmitir em fluxo para um hub de eventos**
-        * Selecione o espaço de nome do centro de **eventos,** **nome do hub do evento (opcional)** e nome de política do centro de **eventos**. **Subscription**
+        * Selecione o espaço de nome do centro de **eventos,** **nome do hub do evento (opcional)** e nome de política do centro de **eventos**. 
 
     :::image type="content" source="./media/cdn-raw-logs/raw-logs-02.png" alt-text="Configure o destino para as definições de registo." border="true":::
 
@@ -215,18 +215,18 @@ As Métricas são apresentadas em gráficos e acessíveis através de PowerShell
 
 O Azure CDN da Microsoft mede e envia as suas métricas em intervalos de 60 segundos. As métricas podem levar até 3 minutos para aparecer no portal. 
 
-Para obter mais informações, consulte as [métricas do Monitor Azure.](../azure-monitor/platform/data-platform-metrics.md)
+Para obter mais informações, consulte as [métricas do Monitor Azure.](../azure-monitor/essentials/data-platform-metrics.md)
 
 **Métricas suportadas pela Azure CDN da Microsoft**
 
-| Métricas  | Descrição | Dimensões |
+| Métricas  | Description | Dimensões |
 | ------------- | ------------- | ------------- |
 | Rácio bytes Hit* | A percentagem de saídas da cache CDN, calculada contra a saída total. | Ponto final |
 | PedidoCount | O número de pedidos de clientes servidos pela CDN. | Ponto final </br> País cliente. </br> Região de clientes. </br> Estado de HTTP. </br> Grupo de status HTTP. |
 | Tamanho das respostas | O número de bytes enviados como respostas da borda da CDN aos clientes. |Ponto final </br> País cliente. </br> Região de clientes. </br> Estado de HTTP. </br> Grupo de status HTTP. |
 | TotalLatency | O tempo total do pedido de cliente recebido pela CDN **até à última resposta byte enviar da CDN para o cliente**. |Ponto final </br> País cliente. </br> Região de clientes. </br> Estado de HTTP. </br> Grupo de status HTTP. |
 
-**_Bytes Hit Ration = (saída da borda - saída da origem)/saída da borda_*
+***Bytes Hit Ration = (saída da borda - saída da origem)/saída da borda**
 
 Cenários excluídos no cálculo do rácio de impacto dos bytes:
 
@@ -259,13 +259,13 @@ Cenários excluídos no cálculo do rácio de impacto dos bytes:
 
 ### <a name="alerts"></a>Alertas
 
-Pode configurar alertas no Microsoft CDN selecionando Alertas **de Monitorização**  >>  **Alerts**.
+Pode configurar alertas no Microsoft CDN selecionando Alertas **de Monitorização**  >>  .
 
 Selecione **nova regra de alerta** para as métricas listadas na secção Métricas:
 
 :::image type="content" source="./media/cdn-raw-logs/raw-logs-08.png" alt-text="Configure os alertas para o ponto final do CDN." border="true":::
 
-O alerta será carregado com base no Monitor Azure. Para obter mais informações sobre alertas, consulte [os alertas do Azure Monitor](../azure-monitor/platform/alerts-overview.md).
+O alerta será carregado com base no Monitor Azure. Para obter mais informações sobre alertas, consulte [os alertas do Azure Monitor](../azure-monitor/alerts/alerts-overview.md).
 
 ### <a name="additional-metrics"></a>Métricas Adicionais
 Pode ativar métricas adicionais usando Azure Log Analytics e troncos crus por um custo adicional.
@@ -299,4 +299,4 @@ Para obter mais informações sobre a Azure CDN e os outros serviços Azure menc
 
 * Saiba mais sobre [o Azure Monitor.](../azure-monitor/overview.md)
 
-* Configurar [o Log Analytics no Azure Monitor](../azure-monitor/log-query/log-analytics-tutorial.md).
+* Configurar [o Log Analytics no Azure Monitor](../azure-monitor/logs/log-analytics-tutorial.md).

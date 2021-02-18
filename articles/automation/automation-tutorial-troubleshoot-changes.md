@@ -1,5 +1,5 @@
 ---
-title: Alterações na resolução de problemas num Azure VM na Azure Automation Microsoft Docs
+title: Alterações na resolução de problemas num Azure VM em Azure Automation | Microsoft Docs
 description: Este artigo diz como resolver problemas alterações num VM Azure.
 services: automation
 ms.subservice: change-inventory-management
@@ -7,12 +7,12 @@ keywords: mudança, rastreio, rastreio de mudança, inventário, automação
 ms.date: 12/05/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 28c440f27dcbd4ac509adea83d5c3085488cb488
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: a223ac4296dd160bbdd904e1d3443552d4f49a23
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92204253"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100587927"
 ---
 # <a name="troubleshoot-changes-on-an-azure-vm"></a>Alterações na resolução de problemas num Azure VM
 
@@ -54,7 +54,7 @@ Primeiro, tem de ativar o Change Tracking and Inventory para este tutorial. Se j
 
     ![Ativar a mudança](./media/automation-tutorial-troubleshoot-changes/enableinventory.png)
 
-3. Escolha o espaço de trabalho [Log Analytics.](../azure-monitor/log-query/log-query-overview.md) Este espaço de trabalho recolhe dados que são gerados por funcionalidades como Change Tracking e Inventory. A área de trabalho fornece uma localização única para rever e analisar dados de várias origens.
+3. Escolha o espaço de trabalho [Log Analytics.](../azure-monitor/logs/log-query-overview.md) Este espaço de trabalho recolhe dados que são gerados por funcionalidades como Change Tracking e Inventory. A área de trabalho fornece uma localização única para rever e analisar dados de várias origens.
 
     [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -80,7 +80,7 @@ ConfigurationChange
 | where ConfigChangeType == "WindowsServices" and SvcState == "Stopped"
 ```
 
-Para saber mais sobre a execução e pesquisa de ficheiros de registo nos registos do Azure Monitor, consulte [os registos do Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
+Para saber mais sobre a execução e pesquisa de ficheiros de registo nos registos do Azure Monitor, consulte [os registos do Azure Monitor](../azure-monitor/logs/log-query-overview.md).
 
 ## <a name="configure-change-tracking"></a>Configurar o Controlo de alterações
 
@@ -172,7 +172,7 @@ Ver as alterações no portal do Azure pode ser útil, mas poder ser alertado qu
 
 1. No portal Azure, vá ao **Monitor.** 
 
-2. Selecione **Alertas** em **Serviços Partilhados**e clique **em + Nova regra de alerta**.
+2. Selecione **Alertas** em **Serviços Partilhados** e clique **em + Nova regra de alerta**.
 
 3. Clique **em Selecionar** para escolher um recurso. 
 
@@ -198,7 +198,7 @@ Ver as alterações no portal do Azure pode ser útil, mas poder ser alertado qu
 
     ![Configurar lógica de sinal](./media/automation-tutorial-troubleshoot-changes/configure-signal-logic.png)
 
-10. Selecione **Criar Novos** em **Grupos de Ação**. Um grupo de ação é um grupo de ações que podem ser utilizadas em vários alertas. As ações podem incluir, mas não estão limitadas a notificações por e-mail, runbooks, webhooks e muitas mais. Para saber mais sobre grupos de ação, veja [Criar e gerir grupos de ações](../azure-monitor/platform/action-groups.md).
+10. Selecione **Criar Novos** em **Grupos de Ação**. Um grupo de ação é um grupo de ações que podem ser utilizadas em vários alertas. As ações podem incluir, mas não estão limitadas a notificações por e-mail, runbooks, webhooks e muitas mais. Para saber mais sobre grupos de ação, veja [Criar e gerir grupos de ações](../azure-monitor/alerts/action-groups.md).
 
 11. Em **detalhes de alerta,** insira um nome e descrição para o alerta. 
 
@@ -218,7 +218,7 @@ Ver as alterações no portal do Azure pode ser útil, mas poder ser alertado qu
 
 18. Para personalizar o assunto do e-mail de alerta, **selecione Personalize Actions**. 
 
-19. Para **criar regra**, selecione **e-mail assunto**e, em seguida, escolha Criar regra de **alerta**. O alerta informa-o quando a implementação de uma atualização for concluída com êxito e que máquinas faziam parte da execução dessa implementação de atualização. A imagem a seguir é um e-mail de exemplo recebido quando o serviço W3SVC para.
+19. Para **criar regra**, selecione **e-mail assunto** e, em seguida, escolha Criar regra de **alerta**. O alerta informa-o quando a implementação de uma atualização for concluída com êxito e que máquinas faziam parte da execução dessa implementação de atualização. A imagem a seguir é um e-mail de exemplo recebido quando o serviço W3SVC para.
 
     ![A captura do ecrã mostra uma notificação de e-mail recebida quando os serviços W 3 S V C param.](./media/automation-tutorial-troubleshoot-changes/email.png)
 

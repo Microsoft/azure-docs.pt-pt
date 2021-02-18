@@ -9,16 +9,16 @@ ms.reviewer: dseven
 ms.author: cavoeg
 author: CaitlinV39
 ms.date: 02/03/2021
-ms.openlocfilehash: 8dc87ae5b296f322d9d5a4d59c0a8c9b1c50d5da
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 220618f93d23ec71ee3246e8bd68bfd724860696
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99575449"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100581975"
 ---
 # <a name="enable-diagnostic-logging-in-azure-api-for-fhir"></a>Ativar o registo de diagnóstico na API Azure para FHIR
 
-Neste artigo, você vai aprender como ativar o login de diagnóstico em AZure API para FHIR e ser capaz de rever algumas consultas de amostra para estes registos. O acesso aos registos de diagnóstico é essencial para qualquer serviço de saúde onde o cumprimento dos requisitos regulamentares (como o HIPAA) é obrigatório. A funcionalidade em Azure API para FHIR que permite registos de diagnóstico são as [**definições de Diagnóstico**](../azure-monitor/platform/diagnostic-settings.md) no portal Azure. 
+Neste artigo, você vai aprender como ativar o login de diagnóstico em AZure API para FHIR e ser capaz de rever algumas consultas de amostra para estes registos. O acesso aos registos de diagnóstico é essencial para qualquer serviço de saúde onde o cumprimento dos requisitos regulamentares (como o HIPAA) é obrigatório. A funcionalidade em Azure API para FHIR que permite registos de diagnóstico são as [**definições de Diagnóstico**](../azure-monitor/essentials/diagnostic-settings.md) no portal Azure. 
 
 ## <a name="enable-audit-logs"></a>Ativar registos de auditoria
 1. Para ativar a sessão de diagnóstico em Azure API para FHIR, selecione a sua API Azure para o serviço FHIR no portal Azure 
@@ -45,7 +45,7 @@ Neste artigo, você vai aprender como ativar o login de diagnóstico em AZure AP
 > [!Note] 
 > Pode levar até 15 minutos para os primeiros Registos mostrarem no Log Analytics.  
  
-Para obter mais informações sobre como trabalhar com registos de diagnóstico, consulte a documentação do [Registo de Recursos Azure](../azure-monitor/platform/platform-logs-overview.md)
+Para obter mais informações sobre como trabalhar com registos de diagnóstico, consulte a documentação do [Registo de Recursos Azure](../azure-monitor/essentials/platform-logs-overview.md)
 
 ## <a name="audit-log-details"></a>Detalhes do registo de auditoria
 Neste momento, a Azure API para o serviço FHIR devolve os seguintes campos no registo de auditoria: 

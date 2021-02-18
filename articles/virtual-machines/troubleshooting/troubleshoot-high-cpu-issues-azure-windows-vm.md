@@ -1,5 +1,5 @@
 ---
-title: Problemas de alto CPU para máquinas virtuais Azure Windows
+title: Resolver problemas de CPU elevada das máquinas virtuais do Windows no Azure
 description: .
 services: virtual-machines-windows, azure-resource-manager
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 9/24/2020
 ms.author: mnanda
-ms.openlocfilehash: ffac5ac4d1a8143590e1d72aaafc8a02d6ab04ca
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 124650f4570608efabba3d8002c14ad06c4782ad
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977260"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100571507"
 ---
-# <a name="troubleshoot-high-cpu-issues-for-azure-windows-virtual-machines"></a>Problemas de alto CPU para máquinas virtuais Azure Windows
+# <a name="troubleshoot-high-cpu-issues-for-azure-windows-virtual-machines"></a>Resolver problemas de CPU elevada das máquinas virtuais do Windows no Azure
 
 ## <a name="summary"></a>Resumo
 
@@ -237,7 +237,7 @@ Depois de os contadores estarem carregados, verás as tendências de linha no pe
 
   ![Definições do Monitor de Desempenho](./media/troubleshoot-high-cpu-issues-azure-windows-vm/12-performance-monitor-1.png)
 
-Cada contador terá valores **médios,** **mínimos**e **máximos.** Foco tanto nos valores **Médio** como **Máximo,** uma vez que o valor médio pode variar dependendo da duração da recolha de dados. Se a atividade de ALTA CPU foi vista durante 10 minutos enquanto a recolha global foi de 40 minutos, os valores médios serão muito mais baixos.
+Cada contador terá valores **médios,** **mínimos** e **máximos.** Foco tanto nos valores **Médio** como **Máximo,** uma vez que o valor médio pode variar dependendo da duração da recolha de dados. Se a atividade de ALTA CPU foi vista durante 10 minutos enquanto a recolha global foi de 40 minutos, os valores médios serão muito mais baixos.
 
 O gráfico de tendência anterior mostra que o **Processador Total** foi de cerca de 80% durante aproximadamente 15 minutos.
 
@@ -289,7 +289,7 @@ Depois de ativadas as definições, pode ver estes contadores **De hóspedes** n
 
   ![Espaço de nome de métricas](./media/troubleshoot-high-cpu-issues-azure-windows-vm/19-metrics-namespace.png)
 
-Para obter mais informações sobre como utilizar o monitor Azure para gerir os VMs do Azure, consulte [as máquinas virtuais do Azure monitor com o Azure Monitor](../../azure-monitor/insights/monitor-vm-azure.md).
+Para obter mais informações sobre como utilizar o monitor Azure para gerir os VMs do Azure, consulte [as máquinas virtuais do Azure monitor com o Azure Monitor](../../azure-monitor/vm/monitor-vm-azure.md).
 
 ### <a name="reactive-troubleshooting"></a>Resolução de problemas reativos
 
