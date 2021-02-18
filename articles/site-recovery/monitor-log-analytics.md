@@ -7,16 +7,16 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: raynew
-ms.openlocfilehash: e3d3ce8218030bc8ba6c59b26b7360bf2299e02a
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 308e1bcf042feb15179d32844d8c569af6166619
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499820"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100571682"
 ---
 # <a name="monitor-site-recovery-with-azure-monitor-logs"></a>Monitorizar o Site Recovery com os Registos do Azure Monitor
 
-Este artigo descreve como monitorizar as máquinas replicadas pela Azure [Site Recovery](site-recovery-overview.md), utilizando [registos do Monitor Azure](../azure-monitor/platform/data-platform-logs.md)e [Log Analytics](../azure-monitor/log-query/log-query-overview.md).
+Este artigo descreve como monitorizar as máquinas replicadas pela Azure [Site Recovery](site-recovery-overview.md), utilizando [registos do Monitor Azure](../azure-monitor/logs/data-platform-logs.md)e [Log Analytics](../azure-monitor/logs/log-query-overview.md).
 
 Os Registos do Monitor Azure fornecem uma plataforma de dados de registo que recolhe atividade e registos de recursos, juntamente com outros dados de monitorização. Nos Registos do Monitor Azure, utiliza o Log Analytics para escrever e testar consultas de registo e para analisar interativamente dados de registo. Pode visualizar e consultar os resultados dos registos e configurar alertas para tomar ações com base em dados monitorizados.
 
@@ -35,8 +35,8 @@ A utilização de Registos monitores Azure com Recuperação de Locais é suport
 Eis o que necessita:
 
 - Pelo menos uma máquina protegida num cofre dos Serviços de Recuperação.
-- Um espaço de trabalho log Analytics para armazenar registos de recuperação do site. [Saiba como](../azure-monitor/learn/quick-create-workspace.md) criar um espaço de trabalho.
-- Uma compreensão básica de como escrever, executar e analisar consultas de registo em Log Analytics. [Saiba mais](../azure-monitor/log-query/log-analytics-tutorial.md).
+- Um espaço de trabalho log Analytics para armazenar registos de recuperação do site. [Saiba como](../azure-monitor/logs/quick-create-workspace.md) criar um espaço de trabalho.
+- Uma compreensão básica de como escrever, executar e analisar consultas de registo em Log Analytics. [Saiba mais](../azure-monitor/logs/log-analytics-tutorial.md).
 
 Recomendamos que reveja [questões comuns de monitorização](monitoring-common-questions.md) antes de começar.
 
@@ -62,9 +62,9 @@ Pode capturar as informações sobre a taxa de bito de dados e a informação de
 1. Vá ao espaço de trabalho do Log Analytics e clique em **Definições Avançadas**.
 2. Clique na página **'Fontes Conectadas'** e selecione ainda **servidores do Windows**.
 3. Descarregue o Windows Agent (64 bit) no Servidor de Processos. 
-4. [Obtenha o ID e a chave do espaço de trabalho](../azure-monitor/platform/log-analytics-agent.md#workspace-id-and-key)
-5. [Configure o agente para utilizar o TLS 1.2](../azure-monitor/platform/agent-windows.md#configure-agent-to-use-tls-12)
-6. [Complete a instalação do agente](../azure-monitor/platform/agent-windows.md#install-agent-using-setup-wizard) fornecendo o ID e a chave do espaço de trabalho obtidos.
+4. [Obtenha o ID e a chave do espaço de trabalho](../azure-monitor/agents/log-analytics-agent.md#workspace-id-and-key)
+5. [Configure o agente para utilizar o TLS 1.2](../azure-monitor/agents/agent-windows.md#configure-agent-to-use-tls-12)
+6. [Complete a instalação do agente](../azure-monitor/agents/agent-windows.md#install-agent-using-setup-wizard) fornecendo o ID e a chave do espaço de trabalho obtidos.
 7. Uma vez concluída a instalação, vá ao espaço de trabalho do Log Analytics e clique em **Definições Avançadas**. Aceda à página **de Dados** e clique mais em **Contadores de Desempenho do Windows**. 
 8. Clique em **'+'** para adicionar os seguintes dois contadores com intervalo de amostra de 300 segundos:
 
@@ -76,7 +76,7 @@ Os dados da taxa de churn e upload começarão a alimentar-se no espaço de trab
 
 ## <a name="query-the-logs---examples"></a>Consultar os registos - exemplos
 
-Obtém dados de registos utilizando consultas de registo escritas com o [idioma de consulta kusto](../azure-monitor/log-query/get-started-queries.md). Esta secção fornece alguns exemplos de consultas comuns que pode utilizar para monitorização da recuperação do local.
+Obtém dados de registos utilizando consultas de registo escritas com o [idioma de consulta kusto](../azure-monitor/logs/get-started-queries.md). Esta secção fornece alguns exemplos de consultas comuns que pode utilizar para monitorização da recuperação do local.
 
 > [!NOTE]
 > Alguns dos exemplos utilizam **replicationProviderName_s** definidos para **A2A**. Isto recupera VMs Azure que são replicados para uma região secundária de Azure usando a Recuperação do Local. Nestes exemplos, pode substituir **o A2A** pelo **InMageAzureV2,** se pretender recuperar VMware VMware no local ou servidores físicos que sejam replicados para Azure utilizando a Recuperação do Site.
@@ -252,7 +252,7 @@ AzureDiagnostics 
 
 ## <a name="set-up-alerts---examples"></a>Configurar alertas - exemplos
 
-Pode configurar alertas de Recuperação do Local com base nos dados do Azure Monitor. [Saiba mais](../azure-monitor/platform/alerts-log.md#create-a-log-alert-rule-with-the-azure-portal) sobre a configuração de alertas de registo. 
+Pode configurar alertas de Recuperação do Local com base nos dados do Azure Monitor. [Saiba mais](../azure-monitor/alerts/alerts-log.md#create-a-log-alert-rule-with-the-azure-portal) sobre a configuração de alertas de registo. 
 
 > [!NOTE]
 > Alguns dos exemplos utilizam **replicationProviderName_s** definidos para **A2A**. Isto estabelece alertas para VMs Azure que são replicados para uma região secundária de Azure. Nestes exemplos, pode substituir **o A2A** pelo **InMageAzureV2** se quiser definir alertas para VMware VMware no local ou servidores físicos replicados no Azure.
