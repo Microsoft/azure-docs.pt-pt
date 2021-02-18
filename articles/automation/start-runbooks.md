@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: b5c5166785ad8c82c114fb7193cd49716536b408
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 7cc1a25fbfc4d3f063c6fc6d225c3f5c7a4b5a3c
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896601"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100572555"
 ---
 # <a name="start-a-runbook-in-azure-automation"></a>Starting a Runbook in Azure Automation (Iniciar um Runbook na Automatização do Azure)
 
@@ -22,7 +22,7 @@ A tabela que se segue ajuda-o a determinar o método para iniciar um livro de re
 | [Windows PowerShell](/powershell/module/azurerm.automation/start-azurermautomationrunbook) |<li>Chamada da linha de comando com cmdlets Windows PowerShell.<br> <li>Pode ser incluído em funcionalidade automatizada com vários passos.<br> <li>O pedido é autenticado com certificado ou o principal/principal do utilizador da OAuth.<br> <li>Fornecer valores de parâmetros simples e complexos.<br> <li>Estado de trabalho de pista.<br> <li>Cliente obrigado a suportar cmdlets PowerShell. |
 | [Azure Automation API](/rest/api/automation/) |<li>Método mais flexível, mas também mais complexo.<br> <li>Ligue de qualquer código personalizado que possa fazer pedidos HTTP.<br> <li>Pedido autenticado com certificado, ou Oauth user principal/principal de serviço.<br> <li>Fornecer valores de parâmetros simples e complexos. *Se está a chamar um livro python usando a API, a carga JSON deve ser serializada.*<br> <li>Estado de trabalho de pista. |
 | [Webhooks](automation-webhooks.md) |<li>Inicie o livro de execução a partir de um único pedido HTTP.<br> <li>Autenticado com ficha de segurança em URL.<br> <li>O cliente não pode sobrepor os valores dos parâmetros especificados quando o webhook foi criado. O runbook pode definir um único parâmetro que é preenchido com os detalhes do pedido HTTP.<br> <li>Nenhuma capacidade de rastrear o estado de trabalho através da URL webhook. |
-| [Responda ao alerta de Azure](../azure-monitor/platform/alerts-overview.md) |<li>Inicie um livro de bordo em resposta ao alerta do Azure.<br> <li>Configure webhook para runbook e link para alerta.<br> <li>Autenticado com ficha de segurança em URL. |
+| [Responda ao alerta de Azure](../azure-monitor/alerts/alerts-overview.md) |<li>Inicie um livro de bordo em resposta ao alerta do Azure.<br> <li>Configure webhook para runbook e link para alerta.<br> <li>Autenticado com ficha de segurança em URL. |
 | [Agenda](./shared-resources/schedules.md) |<li>Inicie automaticamente o runbook em horários horárias, diárias, semanais ou mensais.<br> <li>Manipular o calendário através do portal Azure, cmdlets PowerShell ou Azure API.<br> <li>Forneça valores de parâmetros a serem utilizados com o horário. |
 | [De Outro Runbook](automation-child-runbooks.md) |<li>Use um livro de bordo como atividade em outro livro de bordo.<br> <li>Útil para a funcionalidade utilizada por vários runbooks.<br> <li>Forneça valores de parâmetros para o livro de crianças e utilize a saída no livro de bordo dos pais. |
 
@@ -177,7 +177,7 @@ $params = @{"FirstName"="Joe";"LastName"="Smith";"RepeatCount"=2;"Show"=$true}
 Start-AzAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook" -ResourceGroupName "ResourceGroup01" –Parameters $params
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter detalhes sobre a gestão de runbooks, consulte [Gerir os runbooks na Azure Automation](manage-runbooks.md).
 * Para obter detalhes da PowerShell, consulte [o PowerShell Docs](/powershell/scripting/overview).

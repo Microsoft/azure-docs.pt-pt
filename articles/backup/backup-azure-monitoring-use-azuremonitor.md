@@ -4,12 +4,12 @@ description: Monitorize as cargas de trabalho de backup do Azure e crie alertas 
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: 3f5f663a2f0ed0f91cc414d352e975a2ff3b9649
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1800771bfff0afbcec8440383536734246ea8f5c
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88827159"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100580732"
 ---
 # <a name="monitor-at-scale-by-using-azure-monitor"></a>Monitorar à escala utilizando o Monitor Azure
 
@@ -56,7 +56,7 @@ Utilize um grupo de ação para especificar um canal de notificação. Para ver 
 
 Pode satisfazer todos os requisitos de alerta e monitorização apenas a partir do Log Analytics, ou pode utilizar o Log Analytics para complementar notificações incorporadas.
 
-Para obter mais informações, consulte [Criar, visualizar e gerir alertas de registo utilizando o Monitor E](../azure-monitor/platform/alerts-log.md) Criar e gerir [grupos de ação no portal Azure](../azure-monitor/platform/action-groups.md).
+Para obter mais informações, consulte [Criar, visualizar e gerir alertas de registo utilizando o Monitor E](../azure-monitor/alerts/alerts-log.md) Criar e gerir [grupos de ação no portal Azure](../azure-monitor/alerts/action-groups.md).
 
 ### <a name="sample-kusto-queries"></a>Experimente consultas kusto
 
@@ -180,7 +180,7 @@ Para identificar o registo adequado e criar um alerta:
 
 2. Selecione o nome da operação para ver os detalhes relevantes.
 3. Selecione **Nova regra de alerta** para abrir a página de regra **Criar.**
-4. Crie um alerta seguindo os passos em [Criar, ver e gerir alertas de registo de atividade utilizando o Azure Monitor](../azure-monitor/platform/alerts-activity-log.md).
+4. Crie um alerta seguindo os passos em [Criar, ver e gerir alertas de registo de atividade utilizando o Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md).
 
    ![Nova regra de alerta](media/backup-azure-monitoring-laworkspace/new-alert-rule.png)
 
@@ -193,8 +193,8 @@ Pode ver todos os alertas criados a partir de registos de atividades e espaços 
 Embora possa obter notificações através de registos de atividade, recomendamos vivamente a utilização de Log Analytics em vez de registos de atividade para monitorização em escala. Eis o porquê:
 
 - **Cenários limitados**: As notificações através de registos de atividade aplicam-se apenas às cópias de segurança Azure VM. As notificações devem ser criadas para cada cofre dos Serviços de Recuperação.
-- **Ajuste de definição**: A atividade de backup programada não se enquadra na definição mais recente de registos de atividade. Em vez disso, alinha-se com [registos de recursos.](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace) Este alinhamento causa efeitos inesperados quando os dados que fluem através do canal de registo de atividade mudam.
-- **Problemas com o canal de registo de atividades**: Nos cofres dos Serviços de Recuperação, os registos de atividade que são bombeados a partir do Azure Backup seguem um novo modelo. Infelizmente, esta mudança afeta a geração de registos de atividades no Governo de Azure, na Alemanha e na Azure China 21Vianet. Se os utilizadores destes serviços na nuvem criarem ou configurarem quaisquer alertas de registos de atividade no Azure Monitor, os alertas não são acionados. Além disso, em todas as regiões públicas do Azure, se um utilizador [recolher registos de atividade dos Serviços de Recuperação num espaço de trabalho do Log Analytics,](../azure-monitor/platform/activity-log.md)estes registos não aparecem.
+- **Ajuste de definição**: A atividade de backup programada não se enquadra na definição mais recente de registos de atividade. Em vez disso, alinha-se com [registos de recursos.](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace) Este alinhamento causa efeitos inesperados quando os dados que fluem através do canal de registo de atividade mudam.
+- **Problemas com o canal de registo de atividades**: Nos cofres dos Serviços de Recuperação, os registos de atividade que são bombeados a partir do Azure Backup seguem um novo modelo. Infelizmente, esta mudança afeta a geração de registos de atividades no Governo de Azure, na Alemanha e na Azure China 21Vianet. Se os utilizadores destes serviços na nuvem criarem ou configurarem quaisquer alertas de registos de atividade no Azure Monitor, os alertas não são acionados. Além disso, em todas as regiões públicas do Azure, se um utilizador [recolher registos de atividade dos Serviços de Recuperação num espaço de trabalho do Log Analytics,](../azure-monitor/essentials/activity-log.md)estes registos não aparecem.
 
 Utilize um espaço de trabalho Log Analytics para monitorizar e alertar à escala para todas as suas cargas de trabalho protegidas por Azure Backup.
 

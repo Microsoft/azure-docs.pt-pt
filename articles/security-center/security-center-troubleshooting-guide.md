@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 64b39dfa581b242fbb490d61b388f2bf260976ef
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 20241ad316da1c5d713617f3f371d02e2a4e6cc9
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96460419"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570828"
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Guia de Resolução de Problemas do Centro de Segurança do Azure
 
@@ -42,7 +42,7 @@ Os clientes podem partilhar feedback na descrição e relevância do alerta. Ace
 
 ## <a name="audit-log"></a>Registo de auditoria
 
-A maior parte da resolução de problemas feita no Centro de Segurança será realizada ao consultar primeiro os [Registos de Auditoria](../azure-monitor/platform/platform-logs-overview.md) quanto ao componente que falhou. Os registos de auditoria permitem-lhe determinar:
+A maior parte da resolução de problemas feita no Centro de Segurança será realizada ao consultar primeiro os [Registos de Auditoria](../azure-monitor/essentials/platform-logs-overview.md) quanto ao componente que falhou. Os registos de auditoria permitem-lhe determinar:
 
 * As operações que foram executadas
 * Quem iniciou a operação
@@ -81,14 +81,14 @@ Existem dois cenários de instalação que podem produzir resultados diferentes 
 
 O **estado da monitorização** define o motivo pelo qual o Centro de Segurança não consegue monitorizar com êxito VMs e computadores inicializados para aprovisionamento automático. A tabela seguinte mostra os valores, as descrições e os passos de resolução do **Estado de monitorização**.
 
-| Estado de monitorização | Descrição | Passos de resolução |
+| Estado de monitorização | Description | Passos de resolução |
 |---|---|---|
 | Instalação de agente pendente | A instalação do agente Log Analytics ainda está em funcionamento.  A instalação pode demorar algumas horas. | Aguarde até que a instalação automática esteja concluída. |
 | Estado de energia desligado | A VM está parada.  O agente Log Analytics só pode ser instalado num VM que está em funcionamento. | Reinicie a VM. |
 | Agente da VM do Azure inválido ou em falta | O agente Log Analytics ainda não está instalado.  Para que o Centro de Segurança instale a extensão, é necessário um agente válido da VM do Azure. | Instale, reinstale ou atualize o agente da VM do Azure na VM. |
 | O estado da VM não está pronto para instalação  | O agente Log Analytics ainda não está instalado porque o VM não está pronto para a instalação. A VM não está pronta para instalação devido a um problema do agente da VM ou do aprovisionamento da VM. | Verifique o estado da sua VM. Volte a **Máquinas Virtuais** no portal e selecione a VM para obter informações de estado. |
-|A instalação falhou – erro geral | O agente Log Analytics foi instalado, mas falhou devido a um erro. | [Instale a extensão manualmente](../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension) ou desinstale a extensão, para que o Centro de Segurança tente instalá-la novamente. |
-| A instalação falhou - o agente local já está instalado | A instalação do agente Log Analytics falhou. O Centro de Segurança identificou um agente local (Log Analytics ou Gestor de Operações do Centro de Sistema) já instalado no VM. Para evitar uma configuração de vários homing, onde o VM está a reportar a dois espaços de trabalho separados, a instalação do agente Log Analytics parou. | Existem duas formas de resolver isto: [instalar manualmente a extensão](../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension) e ligá-la à área de trabalho pretendida. Ou então definir a sua área de trabalho pretendida como a área de trabalho predefinida e ativar o aprovisionamento automático do agente.  Veja [ativar o aprovisionamento automático](security-center-enable-data-collection.md). |
+|A instalação falhou – erro geral | O agente Log Analytics foi instalado, mas falhou devido a um erro. | [Instale a extensão manualmente](../azure-monitor/vm/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension) ou desinstale a extensão, para que o Centro de Segurança tente instalá-la novamente. |
+| A instalação falhou - o agente local já está instalado | A instalação do agente Log Analytics falhou. O Centro de Segurança identificou um agente local (Log Analytics ou Gestor de Operações do Centro de Sistema) já instalado no VM. Para evitar uma configuração de vários homing, onde o VM está a reportar a dois espaços de trabalho separados, a instalação do agente Log Analytics parou. | Existem duas formas de resolver isto: [instalar manualmente a extensão](../azure-monitor/vm/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension) e ligá-la à área de trabalho pretendida. Ou então definir a sua área de trabalho pretendida como a área de trabalho predefinida e ativar o aprovisionamento automático do agente.  Veja [ativar o aprovisionamento automático](security-center-enable-data-collection.md). |
 | O agente não consegue ligar à área de trabalho | Log Analytics agente instalado mas falhou devido à conectividade da rede.  Verifique se tem acesso à Internet ou se foi configurado um proxy HTTP válido para o agente. | Veja requisitos de rede do agente de monitorização. |
 | Agente ligado a área de trabalho em falta ou desconhecida | O Centro de Segurança identificou que o agente Log Analytics instalado no VM está ligado a um espaço de trabalho ao qual não tem acesso. | Isto pode acontecer em dois casos. A área de trabalho foi eliminada e já não existe. Reinstale o agente com a área de trabalho correta ou desinstale o agente e permita que o Centro de Segurança conclua a instalação de aprovisionamento automática. O segundo caso é quando a área de trabalho faz parte de uma subscrição para a qual o Centro de Segurança não tem permissões. O Centro de Segurança requer subscrições para permitir que o Fornecedor de Recursos de Segurança da Microsoft aceda às mesmas. Para ativar, registe a subscrição no Fornecedor de Recursos de Segurança da Microsoft. Isto pode ser feito por API, PowerShell, portal ou filtrando a subscrição no dashboard **Descrição Geral** do Centro de Segurança. Veja [Fornecedores e tipos de recursos](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal) para obter mais informações. |
 | O agente não responde ou tem o ID em falta | O Centro de Segurança não consegue obter dados de segurança analisados a partir da VM, apesar de o agente estar instalado. | O agente não está a comunicar quaisquer dados, incluindo o heartbeat. O agente pode estar danificado ou algo está a bloquear o tráfego. Ou, o agente está a reportar dados, mas falta-lhe uma identificação de recurso Azure, por isso é impossível comparar os dados com o VM Azure. Para resolver problemas, consulte o [Guia de Resolução de Problemas do Agente de Análise de Registos para Linux](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md#im-not-seeing-any-linux-data-in-the-oms-portal). Para resolver problemas do Windows, Veja [Resolução de Problemas das Máquinas Virtuais Windows](../virtual-machines/extensions/oms-windows.md#troubleshoot-and-support). |
@@ -98,17 +98,17 @@ O **estado da monitorização** define o motivo pelo qual o Centro de Segurança
 
 Para os agentes se ligarem e registarem no Centro de Segurança, precisam de ter acesso aos recursos de rede, incluindo os números de porta e os URLs de domínio.
 
-* Para servidores proxy, tem de assegurar que os recursos do servidor proxy apropriados estão configurados nas definições do agente. Leia este artigo para obter mais informações sobre [como alterar as definições de proxy](../azure-monitor/platform/agent-windows.md).
+* Para servidores proxy, tem de assegurar que os recursos do servidor proxy apropriados estão configurados nas definições do agente. Leia este artigo para obter mais informações sobre [como alterar as definições de proxy](../azure-monitor/agents/agent-windows.md).
 * Para as firewalls que restringem o acesso à Internet, tem de configurar a firewall para permitir o acesso ao Log Analytics. Não é necessária nenhuma ação nas definições do agente.
 
 A tabela seguinte mostra os recursos necessários para a comunicação.
 
 | Recursos do Agente | Portas | Inspeção de HTTPS direto |
 |---|---|---|
-| *.ods.opinsights.azure.com | 443 | Sim |
-| *.oms.opinsights.azure.com | 443 | Sim |
-| *.blob.core.windows.net | 443 | Sim |
-| *.azure-automation.net | 443 | Sim |
+| *.ods.opinsights.azure.com | 443 | Yes |
+| *.oms.opinsights.azure.com | 443 | Yes |
+| *.blob.core.windows.net | 443 | Yes |
+| *.azure-automation.net | 443 | Yes |
 
 Se encontrar problemas de integração com o agente, certifique-se de que lê o artigo [How to troubleshoot Operations Management Suite onboarding issues](https://support.microsoft.com/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues) (Como resolver problemas de integração do Operations Management Suite).
 

@@ -15,12 +15,12 @@ ms.date: 02/12/2021
 ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 11/13/2019
-ms.openlocfilehash: e34fbdca51e7680a80c768e49bae891cb56dfa9d
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 0f79402956148c566bc34faa88e10895657883c2
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100546453"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100591743"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Notificações push com a Azure Notification Hubs: Perguntas frequentes
 
@@ -196,7 +196,7 @@ Também pode aceder programáticamente às métricas. Para obter mais informaç�
 
 - [Recuperar as métricas do Monitor Azure com .NET](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/). Esta amostra utiliza o nome de utilizador e a palavra-passe. Para utilizar um certificado, sobrecarregar o método FromServicePrincipal para fornecer um certificado como mostrado neste [exemplo](https://github.com/Azure/azure-libraries-for-net/blob/master/src/ResourceManagement/ResourceManager/Authentication/AzureCredentialsFactory.cs). 
 - [Obtenção de métricas e registos de atividade para um recurso](https://azure.microsoft.com/resources/samples/monitor-dotnet-query-metrics-activitylogs/)
-- [Instruções da API REST de Monitorização do Azure](../azure-monitor/platform/rest-api-walkthrough.md)
+- [Instruções da API REST de Monitorização do Azure](../azure-monitor/essentials/rest-api-walkthrough.md)
 
 > [!NOTE]
 > As notificações bem sucedidas significam simplesmente que foram entregues notificações push para os PNS externos (por exemplo, APNs para iOS e macOS ou FCM para dispositivos Android). É da responsabilidade do PNS entregar as notificações aos dispositivos-alvo. Normalmente, o PNS não expõe as métricas de entrega a terceiros.  
@@ -211,7 +211,7 @@ Também pode aceder programáticamente às métricas. Para obter mais informaç�
 [Modelo de segurança de Centros de Notificação]: /previous-versions/azure/azure-services/dn495373(v=azure.100)
 [Tutorial de push seguro de centros de notificação]: ./notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification.md
 [Resolução de problemas dos Hubs de Notificação]: ./notification-hubs-push-notification-fixer.md
-[Métricas de Centros de Notificação]: ../azure-monitor/platform/metrics-supported.md#microsoftnotificationhubsnamespacesnotificationhubs
+[Métricas de Centros de Notificação]: ../azure-monitor/essentials/metrics-supported.md#microsoftnotificationhubsnamespacesnotificationhubs
 [Registos Exportação/Importação]: ./export-modify-registrations-bulk.md
 [Portal do Azure]: https://portal.azure.com
 [complete samples]: https://github.com/Azure/azure-notificationhubs-samples

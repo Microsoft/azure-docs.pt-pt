@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 02/02/2021
 ms.author: alkohli
-ms.openlocfilehash: 171b4dbfb2a5852e270c483a28cad31f97dcb42b
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 199ec8e2f1e8eb74d971286a4fc6180eb8b72f2a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99493917"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595970"
 ---
 # <a name="enable-azure-monitor-on-your-azure-stack-edge-pro-gpu-device"></a>Ativar o Monitor Azure no seu dispositivo GPU Azure Stack Edge Pro
 
@@ -49,7 +49,7 @@ Tome os seguintes passos para criar um espaço de trabalho de análise de log. U
 
         ![Comentário + Criar para log analytics espaço de trabalho](media/azure-stack-edge-gpu-enable-azure-monitor/create-log-analytics-workspace-review-create-1.png)
 
-Para mais informações, consulte os passos detalhados na [Criação de um espaço de trabalho Log Analytics através do portal Azure.](../azure-monitor/learn/quick-create-workspace.md)
+Para mais informações, consulte os passos detalhados na [Criação de um espaço de trabalho Log Analytics através do portal Azure.](../azure-monitor/logs/quick-create-workspace.md)
 
 
 
@@ -57,7 +57,7 @@ Para mais informações, consulte os passos detalhados na [Criação de um espa�
 
 Tome os seguintes passos para permitir informações sobre o recipiente no seu espaço de trabalho. 
 
-1. Siga os passos detalhados na [solução Como adicionar a solução de Recipientes monitores Azure](../azure-monitor/insights/container-insights-hybrid-setup.md#how-to-add-the-azure-monitor-containers-solution). Utilize o seguinte ficheiro de `containerSolution.json` modelo:
+1. Siga os passos detalhados na [solução Como adicionar a solução de Recipientes monitores Azure](../azure-monitor/containers/container-insights-hybrid-setup.md#how-to-add-the-azure-monitor-containers-solution). Utilize o seguinte ficheiro de `containerSolution.json` modelo:
 
     ```yml
     {

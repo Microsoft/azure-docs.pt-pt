@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/21/2020
-ms.openlocfilehash: 5aab78ad99b80ff1d7be92bd36847b01dbc0e33b
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: d38a0ea7307584c25ddec9389feaef7518bcf925
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542223"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100591758"
 ---
 # <a name="track-database-activity-with-audit-logs-in-azure-database-for-mysql-flexible-server"></a>Acompanhe a atividade da base de dados com registos de auditoria na base de dados Azure para o MySQL Flexible Server
 
@@ -50,7 +50,7 @@ Outros parâmetros que pode ajustar para controlar o comportamento de registo de
 
 ## <a name="access-audit-logs"></a>Aceder aos registos de auditoria
 
-Os registos de auditoria são integrados com as definições de diagnóstico do Azure Monitor. Uma vez que tenha ativado os registos de auditoria no seu servidor flexível MySQL, pode emitê-los para registos do Azure Monitor, Centros de Eventos ou Armazenamento Azure. Para saber mais sobre as definições de diagnóstico, consulte a documentação dos [registos de diagnóstico](../../azure-monitor/platform/platform-logs-overview.md). Para saber mais sobre como ativar as definições de diagnóstico no portal Azure, consulte o artigo do [portal de registo de auditoria](how-to-configure-audit-logs-portal.md#set-up-diagnostics).
+Os registos de auditoria são integrados com as definições de diagnóstico do Azure Monitor. Uma vez que tenha ativado os registos de auditoria no seu servidor flexível MySQL, pode emitê-los para registos do Azure Monitor, Centros de Eventos ou Armazenamento Azure. Para saber mais sobre as definições de diagnóstico, consulte a documentação dos [registos de diagnóstico](../../azure-monitor/essentials/platform-logs-overview.md). Para saber mais sobre como ativar as definições de diagnóstico no portal Azure, consulte o artigo do [portal de registo de auditoria](how-to-configure-audit-logs-portal.md#set-up-diagnostics).
 
 As secções seguintes descrevem a saída dos registos de auditoria do MySQL com base no tipo de evento. Dependendo do método de saída, os campos incluídos e a ordem em que aparecem podem variar.
 

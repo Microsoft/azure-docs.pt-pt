@@ -6,18 +6,18 @@ ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 05/04/2020
-ms.openlocfilehash: 356353da639ab97a1a4e5483abf56050f5a236f8
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 3c3d1930234c178a56227830ef0702450ddf4a8c
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676055"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100580664"
 ---
-# <a name="monitor-run-status-review-trigger-history-and-set-up-alerts-for-azure-logic-apps"></a>Monitorize o estado de execução, reveja o histórico do gatilho e crie alertas para apps Azure Logic
+# <a name="monitor-run-status-review-trigger-history-and-set-up-alerts-for-azure-logic-apps"></a>Monitorizar o estado de execução, rever o histórico de acionadores e configurar alertas do Azure Logic Apps
 
 Depois de [criar e executar uma aplicação lógica,](../logic-apps/quickstart-create-first-logic-app-workflow.md)pode verificar o estado de execução da aplicação lógica, executar o [histórico,](#review-runs-history) [desencadear a história](#review-trigger-history)e o desempenho. Para obter notificações sobre falhas ou outros possíveis [problemas,](#add-azure-alerts)crie alertas . Por exemplo, pode criar um alerta que detete "quando mais de cinco corridas falham numa hora".
 
-Para monitorização de eventos em tempo real e depuração mais rica, confiem de diagnósticos para a sua aplicação lógica utilizando [registos do Azure Monitor](../azure-monitor/overview.md). Este serviço Azure ajuda-o a monitorizar os ambientes da nuvem e do local para que possa manter mais facilmente a sua disponibilidade e desempenho. Você pode então encontrar e ver eventos, tais como eventos de desencadeamento, eventos de execução e eventos de ação. Ao armazenar estas informações nos [registos do Azure Monitor,](../azure-monitor/platform/data-platform-logs.md)pode criar [consultas de registo](../azure-monitor/log-query/log-query-overview.md) que o ajudam a encontrar e analisar estas informações. Também pode utilizar estes dados de diagnóstico com outros serviços Azure, como o Azure Storage e o Azure Event Hubs. Para obter mais informações, consulte [as aplicações lógicas do Monitor utilizando o Azure Monitor](../logic-apps/monitor-logic-apps-log-analytics.md).
+Para monitorização de eventos em tempo real e depuração mais rica, confiem de diagnósticos para a sua aplicação lógica utilizando [registos do Azure Monitor](../azure-monitor/overview.md). Este serviço Azure ajuda-o a monitorizar os ambientes da nuvem e do local para que possa manter mais facilmente a sua disponibilidade e desempenho. Você pode então encontrar e ver eventos, tais como eventos de desencadeamento, eventos de execução e eventos de ação. Ao armazenar estas informações nos [registos do Azure Monitor,](../azure-monitor/logs/data-platform-logs.md)pode criar [consultas de registo](../azure-monitor/logs/log-query-overview.md) que o ajudam a encontrar e analisar estas informações. Também pode utilizar estes dados de diagnóstico com outros serviços Azure, como o Azure Storage e o Azure Event Hubs. Para obter mais informações, consulte [as aplicações lógicas do Monitor utilizando o Azure Monitor](../logic-apps/monitor-logic-apps-log-analytics.md).
 
 > [!NOTE]
 > Se as suas aplicações lógicas funcionarem num [ambiente de serviço de integração (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) criado para utilizar um ponto final de acesso [interno,](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access)pode ver e aceder a entradas e saídas a partir do histórico da aplicação lógica *apenas a partir de dentro da sua rede virtual.* Certifique-se de que tem conectividade de rede entre os pontos finais privados e o computador de onde pretende aceder ao histórico. Por exemplo, o seu computador cliente pode existir dentro da rede virtual do ISE ou dentro de uma rede virtual que está ligada à rede virtual do ISE, por exemplo, através de um espreitamento ou de uma rede privada virtual. Para mais informações, consulte [o acesso ao ponto final do ISE.](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access) 
@@ -30,7 +30,7 @@ Cada vez que o gatilho dispara para um item ou evento, o motor De Aplicações L
 
 1. No [portal Azure,](https://portal.azure.com)encontre e abra a sua aplicação lógica no Logic App Designer.
 
-   Para encontrar a sua aplicação lógica , na caixa de pesquisa principal do Azure, insira e, em `logic apps` seguida, selecione **Logic Apps** .
+   Para encontrar a sua aplicação lógica , na caixa de pesquisa principal do Azure, insira e, em `logic apps` seguida, selecione **Logic Apps**.
 
    ![Localizar e selecionar o serviço "Aplicações lógicas"](./media/monitor-logic-apps/find-your-logic-app.png)
 
@@ -38,25 +38,25 @@ Cada vez que o gatilho dispara para um item ou evento, o motor De Aplicações L
 
    ![Ver aplicativos lógicos associados a subscrições](./media/monitor-logic-apps/logic-apps-list-in-subscription.png)
 
-1. Selecione a sua aplicação lógica e, em seguida, selecione **Overview** .
+1. Selecione a sua aplicação lógica e, em seguida, selecione **Overview**.
 
-   No painel de visão geral, na **história de Runs** , todos os casos passados, atuais e quaisquer corridas de espera para a sua aplicação lógica aparecem. Se a lista mostrar muitas corridas e não conseguir encontrar a entrada que deseja, tente filtrar a lista.
+   No painel de visão geral, na **história de Runs**, todos os casos passados, atuais e quaisquer corridas de espera para a sua aplicação lógica aparecem. Se a lista mostrar muitas corridas e não conseguir encontrar a entrada que deseja, tente filtrar a lista.
 
    > [!TIP]
-   > Se o estado de execução não aparecer, tente refrescar a página geral selecionando **Refresh** . Nenhuma corrida acontece para um gatilho que é ignorado devido a critérios não atendidos ou não encontrar dados.
+   > Se o estado de execução não aparecer, tente refrescar a página geral selecionando **Refresh**. Nenhuma corrida acontece para um gatilho que é ignorado devido a critérios não atendidos ou não encontrar dados.
 
    ![Visão geral, executa a história e outras informações lógicas de aplicativos](./media/monitor-logic-apps/overview-pane-logic-app-details-run-history.png)
 
    Aqui estão os possíveis estados de execução:
 
-   | Estado de execução | Descrição |
+   | Estado de execução | Description |
    |------------|-------------|
    | **Abortada** | A execução parou ou não terminou devido a problemas externos, por exemplo, uma falha do sistema ou subscrição do Azure caducado. |
    | **Cancelado** | A corrida foi desencadeada e iniciada, mas recebeu um pedido de cancelamento. |
    | **Com falhas** | Pelo menos uma ação na corrida falhou. Não foram criadas ações subsequentes no fluxo de trabalho para lidar com a falha. |
-   | **Em Execução** | A corrida foi desencadeada e está em curso, mas este estatuto também pode aparecer para uma corrida que é acelerada devido a [limites](logic-apps-limits-and-config.md) de ação ou ao [atual plano de preços.](https://azure.microsoft.com/pricing/details/logic-apps/) <p><p>**Dica** : Se configurar [o registo de diagnósticos,](monitor-logic-apps-log-analytics.md)pode obter informações sobre quaisquer eventos de aceleração que ocorram. |
+   | **Em Execução** | A corrida foi desencadeada e está em curso, mas este estatuto também pode aparecer para uma corrida que é acelerada devido a [limites](logic-apps-limits-and-config.md) de ação ou ao [atual plano de preços.](https://azure.microsoft.com/pricing/details/logic-apps/) <p><p>**Dica**: Se configurar [o registo de diagnósticos,](monitor-logic-apps-log-analytics.md)pode obter informações sobre quaisquer eventos de aceleração que ocorram. |
    | **Com êxito** | A corrida conseguiu. Se alguma ação falhou, uma ação subsequente no fluxo de trabalho tratou dessa falha. |
-   | **Esgotado** | O tempo de execução foi esgotado porque a duração atual excedeu o limite de duração de execução, que é controlado pela [ **retenção**](logic-apps-limits-and-config.md#run-duration-retention-limits)do histórico run em dias de fixação . A duração de uma corrida é calculada utilizando o tempo de início da execução e o limite de duração da execução nessa hora de início. <p><p>**Nota:** Se a duração da execução também exceder o limite atual de retenção do histórico de *execução* , que também é controlado pela [ **retenção**](logic-apps-limits-and-config.md#run-duration-retention-limits)do histórico run em dias de fixação , a execução é limpa do histórico de execuções por um trabalho de limpeza diário. Quer os tempos de funcionação se esgotam ou completem, o período de retenção é sempre calculado utilizando o tempo de início da execução e o limite de retenção *atual.* Então, se reduzir o limite de duração para uma corrida de voo, o tempo de execução se esgota. No entanto, a execução permanece ou é retirada do histórico de corridas com base no facto de a duração da corrida ter excedido o limite de retenção. |
+   | **Esgotado** | O tempo de execução foi esgotado porque a duração atual excedeu o limite de duração de execução, que é controlado pela [ **retenção**](logic-apps-limits-and-config.md#run-duration-retention-limits)do histórico run em dias de fixação . A duração de uma corrida é calculada utilizando o tempo de início da execução e o limite de duração da execução nessa hora de início. <p><p>**Nota:** Se a duração da execução também exceder o limite atual de retenção do histórico de *execução*, que também é controlado pela [ **retenção**](logic-apps-limits-and-config.md#run-duration-retention-limits)do histórico run em dias de fixação , a execução é limpa do histórico de execuções por um trabalho de limpeza diário. Quer os tempos de funcionação se esgotam ou completem, o período de retenção é sempre calculado utilizando o tempo de início da execução e o limite de retenção *atual.* Então, se reduzir o limite de duração para uma corrida de voo, o tempo de execução se esgota. No entanto, a execução permanece ou é retirada do histórico de corridas com base no facto de a duração da corrida ter excedido o limite de retenção. |
    | **Em espera** | A execução não começou ou está interrompida, por exemplo, devido a uma instância de fluxo de trabalho anterior que ainda está em funcionamento. |
    |||
 
@@ -101,7 +101,7 @@ Cada aplicação lógica começa com um gatilho. O histórico do gatilho lista t
 
 1. No [portal Azure,](https://portal.azure.com)encontre e abra a sua aplicação lógica no Logic App Designer.
 
-   Para encontrar a sua aplicação lógica , na caixa de pesquisa principal do Azure, insira e, em `logic apps` seguida, selecione **Logic Apps** .
+   Para encontrar a sua aplicação lógica , na caixa de pesquisa principal do Azure, insira e, em `logic apps` seguida, selecione **Logic Apps**.
 
    ![Localizar e selecionar o serviço "Aplicações lógicas"](./media/monitor-logic-apps/find-your-logic-app.png)
 
@@ -109,9 +109,9 @@ Cada aplicação lógica começa com um gatilho. O histórico do gatilho lista t
 
    ![Ver aplicativos lógicos associados a subscrições](./media/monitor-logic-apps/logic-apps-list-in-subscription.png)
 
-1. Selecione a sua aplicação lógica e, em seguida, selecione **Overview** .
+1. Selecione a sua aplicação lógica e, em seguida, selecione **Overview**.
 
-1. No menu da sua aplicação lógica, selecione **Overview** . Na secção **Resumo,** em **Avaliação,** selecione **Ver histórico do gatilho** .
+1. No menu da sua aplicação lógica, selecione **Overview**. Na secção **Resumo,** em **Avaliação,** selecione **Ver histórico do gatilho**.
 
    ![Veja o histórico do gatilho para a sua aplicação lógica](./media/monitor-logic-apps/overview-pane-logic-app-details-trigger-history.png)
 
@@ -121,9 +121,9 @@ Cada aplicação lógica começa com um gatilho. O histórico do gatilho lista t
 
    Aqui estão os possíveis estados de tentativa de gatilho:
 
-   | Estado do acionador | Descrição |
+   | Estado do acionador | Description |
    |----------------|-------------|
-   | **Com falhas** | Ocorreu um erro. Para rever quaisquer mensagens de erro geradas por um gatilho falhado, selecione a tentativa de gatilho e escolha **Saídas** . Por exemplo, pode encontrar entradas que não são válidas. |
+   | **Com falhas** | Ocorreu um erro. Para rever quaisquer mensagens de erro geradas por um gatilho falhado, selecione a tentativa de gatilho e escolha **Saídas**. Por exemplo, pode encontrar entradas que não são válidas. |
    | **Ignorado** | O gatilho verificou o ponto final, mas não encontrou dados que satisfa por estes acordos não satisfaem os critérios especificados. |
    | **Com êxito** | O gatilho verificou o ponto final e encontrou dados disponíveis. Normalmente, um estado **de despedimento** também aparece ao lado deste estatuto. Se não, a definição do gatilho pode ter uma condição ou `SplitOn` comando que não foi cumprido. <p><p>Este estado pode aplicar-se a um gatilho manual, ao gatilho de recorrência ou ao gatilho das sondagens. Um gatilho pode ser executado com sucesso, mas a execução em si pode ainda falhar quando as ações geram erros não manipulados. |
    |||
@@ -143,13 +143,13 @@ Cada aplicação lógica começa com um gatilho. O histórico do gatilho lista t
 
 ## <a name="set-up-monitoring-alerts"></a>Configurar alertas de monitorização
 
-Para obter alertas baseados em métricas específicas ou limiares excededos para a sua aplicação lógica, crie [alertas no Azure Monitor](../azure-monitor/platform/alerts-overview.md). Saiba mais [sobre as métricas em Azure.](../azure-monitor/platform/data-platform.md) Para configurar alertas sem utilizar [o Azure Monitor,](../azure-monitor/log-query/log-query-overview.md)siga estes passos.
+Para obter alertas baseados em métricas específicas ou limiares excededos para a sua aplicação lógica, crie [alertas no Azure Monitor](../azure-monitor/alerts/alerts-overview.md). Saiba mais [sobre as métricas em Azure.](../azure-monitor/data-platform.md) Para configurar alertas sem utilizar [o Azure Monitor,](../azure-monitor/logs/log-query-overview.md)siga estes passos.
 
-1. No menu de aplicativos logic, em **Monitorização,** selecione **Alertas**  >  **Nova regra de alerta** .
+1. No menu de aplicativos logic, em **Monitorização,** selecione **Alertas**  >  **Nova regra de alerta**.
 
    ![Adicione um alerta para a sua aplicação lógica](./media/monitor-logic-apps/add-new-alert-rule.png)
 
-1. No painel **de regras Create,** em **Recurso,** selecione a sua aplicação lógica, se ainda não selecionada. Em **Condições** , **selecione Adicione** para que possa definir a condição que desencadeia o alerta.
+1. No painel **de regras Create,** em **Recurso,** selecione a sua aplicação lógica, se ainda não selecionada. Em **Condições**, **selecione Adicione** para que possa definir a condição que desencadeia o alerta.
 
    ![Adicione uma condição para a regra](./media/monitor-logic-apps/add-condition-for-rule.png)
 
@@ -163,15 +163,15 @@ Para obter alertas baseados em métricas específicas ou limiares excededos para
 
    1. No painel de informações que abre para o sinal selecionado, em **lógica de Alerta,** configurar a sua condição, por exemplo:
 
-   1. Para **o operador,** selecione **Maior ou igual a** .
+   1. Para **o operador,** selecione **Maior ou igual a**.
 
-   1. Para **o tipo de agregação,** selecione **Count** .
+   1. Para **o tipo de agregação,** selecione **Count**.
 
    1. Para **o valor limiar,** insira `1` .
 
    1. Em **Pré-visualização da Condição,** confirme que a sua condição parece correta.
 
-   1. Em **Avaliação com base em** , configurar o intervalo e a frequência para executar a regra de alerta. Para **a granularidade agregada (Período)** , selecione o período de agrupamento dos dados. Para **a frequência de avaliação,** selecione com que frequência pretende verificar a condição.
+   1. Em **Avaliação com base em**, configurar o intervalo e a frequência para executar a regra de alerta. Para **a granularidade agregada (Período)**, selecione o período de agrupamento dos dados. Para **a frequência de avaliação,** selecione com que frequência pretende verificar a condição.
 
    1. Quando estiver pronto, selecione **'Fazer'.**
 
@@ -185,7 +185,7 @@ Para obter alertas baseados em métricas específicas ou limiares excededos para
 
 1. Especifique um nome, descrição opcional e nível de gravidade para o seu alerta. Ou deixe a regra Enable após a **definição de criação** ligada ou desligue-a até estar pronto para ativar a regra.
 
-1. Quando terminar, selecione **Criar a regra de alerta** .
+1. Quando terminar, selecione **Criar a regra de alerta**.
 
 > [!TIP]
 > Para executar uma aplicação lógica a partir de um alerta, pode incluir o gatilho de [pedido](../connectors/connectors-native-reqres.md) no seu fluxo de trabalho, que lhe permite executar tarefas como estes exemplos:

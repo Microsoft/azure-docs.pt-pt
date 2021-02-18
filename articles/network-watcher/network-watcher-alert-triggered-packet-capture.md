@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 3b6cb195f44bf6c868402481480d9b10802c4d59
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 8e2af73be0fc887b132f523133159472ce1d1f98
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965682"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570980"
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>Utilize a captura de pacotes para monitorização proativa da rede com alertas e funções Azure
 
@@ -41,7 +41,7 @@ Ao utilizar o Network Watcher, alertando e funcionando dentro do ecossistema Azu
 * Um caso existente de Network Watcher. Se ainda não tiver um, [crie um exemplo de Network Watcher](network-watcher-create.md).
 * Uma máquina virtual existente na mesma região que o Network Watcher com a [extensão do Windows](../virtual-machines/extensions/network-watcher-windows.md) ou [a extensão da máquina virtual Linux.](../virtual-machines/extensions/network-watcher-linux.md)
 
-## <a name="scenario"></a>Cenário
+## <a name="scenario"></a>Scenario
 
 Neste exemplo, o seu VM está a enviar mais segmentos de TCP do que o habitual, e quer ser alertado. Os segmentos TCP são usados como exemplo aqui, mas você pode usar qualquer condição de alerta.
 
@@ -68,7 +68,7 @@ Este cenário faz o seguinte:
 
 O primeiro passo é criar uma função Azure para processar o alerta e criar uma captura de pacotes.
 
-1. No [portal Azure,](https://portal.azure.com)selecione **Criar uma** App  >  de Função **Computacional** de recursos  >  **Function App**.
+1. No [portal Azure,](https://portal.azure.com)selecione **Criar uma** App  >  de Função **Computacional** de recursos  >  .
 
     ![Criar uma aplicação de funções][1-1]
 
@@ -332,7 +332,7 @@ O exemplo a seguir é o código PowerShell que pode ser utilizado na função. E
 
     ![Copiar o URL de função][2]
 
-Se necessitar de propriedades personalizadas na carga útil do pedido webhook POST, consulte [o Configure um webhook num alerta métrico Azure](../azure-monitor/platform/alerts-webhooks.md).
+Se necessitar de propriedades personalizadas na carga útil do pedido webhook POST, consulte [o Configure um webhook num alerta métrico Azure](../azure-monitor/alerts/alerts-webhooks.md).
 
 ## <a name="configure-an-alert-on-a-vm"></a>Configure um alerta num VM
 
@@ -340,15 +340,15 @@ Os alertas podem ser configurados para notificar os indivíduos quando uma métr
 
 ### <a name="create-the-alert-rule"></a>Criar a regra de alerta
 
-Vá a uma máquina virtual existente e, em seguida, adicione uma regra de alerta. Documentação mais detalhada sobre a configuração de alertas pode ser encontrada [no Create alerts in Azure Monitor for Azure services - Azure portal](../azure-monitor/platform/alerts-classic-portal.md). Introduza os seguintes valores na lâmina de **regra de alerta** e, em seguida, selecione **OK**.
+Vá a uma máquina virtual existente e, em seguida, adicione uma regra de alerta. Documentação mais detalhada sobre a configuração de alertas pode ser encontrada [no Create alerts in Azure Monitor for Azure services - Azure portal](../azure-monitor/alerts/alerts-classic-portal.md). Introduza os seguintes valores na lâmina de **regra de alerta** e, em seguida, selecione **OK**.
 
   |**Definição** | **Valor** | **Detalhes** |
   |---|---|---|
-  |**Name**|TCP_Segments_Sent_Exceeded|O nome da regra de alerta.|
+  |**Nome**|TCP_Segments_Sent_Exceeded|O nome da regra de alerta.|
   |**Descrição**|Segmentos TCP enviados limiar ultrapassado|A descrição da regra de alerta.|
   |**Métrica**|Segmentos TCP enviados| A métrica para usar para acionar o alerta. |
   |**Condition**|Maior que| A condição a utilizar ao avaliar a métrica.|
-  |**Limiar**|100| O valor da métrica que desencadeia o alerta. Este valor deve ser definido para um valor válido para o seu ambiente.|
+  |**Limite**|100| O valor da métrica que desencadeia o alerta. Este valor deve ser definido para um valor válido para o seu ambiente.|
   |**Período**|Nos últimos cinco minutos| Determina o período em que se procura o limiar da métrica.|
   |**Webhook**|[WEBHOOK URL da aplicação de função]| O URL webhook a partir da aplicação de função que foi criado nos passos anteriores.|
 

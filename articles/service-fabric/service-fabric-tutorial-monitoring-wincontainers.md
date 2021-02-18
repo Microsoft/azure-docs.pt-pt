@@ -4,12 +4,12 @@ description: Neste tutorial, configurar registos do Azure Monitor para monitoriz
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc
-ms.openlocfilehash: cf14cce631a505a951ec4d9c0955431b9a98527e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b7689d6e259055137a8d1d3c61552790ab9f28d3
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91840681"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100588236"
 ---
 # <a name="tutorial-monitor-windows-containers-on-service-fabric-using-azure-monitor-logs"></a>Tutorial: Monitorize recipientes windows em tecido de serviço usando registos do Monitor Azure
 
@@ -210,7 +210,7 @@ Outro benefício da utilização do agente Log Analytics é a capacidade de alte
 Desta forma, é encaminhado para a área de trabalho do Log Analytics, onde pode ver as suas soluções, criar dashboards personalizados e configurar o agente do Log Analytics. 
 * Selecione **Definições Avançadas** para abrir o menu Definições Avançadas.
 * Selecione Servidores Windows **de fontes**  >  **conectadas** para verificar se tem *5 computadores Windows ligados*.
-* Selecione **Data**  >  **contadores de desempenho do Windows de dados** para procurar e adicione novos contadores de desempenho. Aqui verá uma lista de recomendações dos registos do Azure Monitor para balcões de desempenho que pode recolher, bem como a opção de procurar outros contadores. Verifique se os contadores **Processador(_Total)\% de Tempo do Processador** e **Memória(*)\MBytes Disponíveis** estão a ser recolhidos.
+* Selecione   >  **contadores de desempenho do Windows de dados** para procurar e adicione novos contadores de desempenho. Aqui verá uma lista de recomendações dos registos do Azure Monitor para balcões de desempenho que pode recolher, bem como a opção de procurar outros contadores. Verifique se os contadores **Processador(_Total)\% de Tempo do Processador** e **Memória(*)\MBytes Disponíveis** estão a ser recolhidos.
 
 **Atualize** a Solução de Monitorização de Contadores passados alguns minutos e, depois, deverá começar a receber dados de *Desempenho do Computador*. Isto ajuda a compreender de que forma é que os seus recursos estão a ser atualizados. Também pode utilizar estas métricas para tomar decisões adequadas relativamente ao dimensionamento do seu cluster ou para confirmar se um cluster está a balancear a sua carga conforme esperado.
 
@@ -230,6 +230,6 @@ Neste tutorial, ficou a saber como:
 Agora que tem uma monitorização configurada para a sua aplicação contentorizada, tente:
 
 * Configurar registos do Monitor Azure para um cluster Linux, seguindo passos semelhantes a este tutorial. Veja [este modelo](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Ubuntu-1-NodeType-Secure-OMS) para fazer alterações ao seu modelo do Resource Manager.
-* Configurar registos do Azure Monitor para [configurar alertas automatizados](../azure-monitor/platform/alerts-overview.md) para ajudar na deteção e diagnóstico.
+* Configurar registos do Azure Monitor para [configurar alertas automatizados](../azure-monitor/alerts/alerts-overview.md) para ajudar na deteção e diagnóstico.
 * Explorar a lista de [contadores de desempenho recomendados](service-fabric-diagnostics-event-generation-perf.md) do Service Fabric a configurar para os seus clusters.
-* Familiarize-se com as funcionalidades [de pesquisa e consulta](../azure-monitor/log-query/log-query-overview.md) de registo oferecidas como parte dos registos do Azure Monitor.
+* Familiarize-se com as funcionalidades [de pesquisa e consulta](../azure-monitor/logs/log-query-overview.md) de registo oferecidas como parte dos registos do Azure Monitor.

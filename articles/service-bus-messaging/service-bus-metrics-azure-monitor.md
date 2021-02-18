@@ -3,12 +3,12 @@ title: Métricas de autocarro da Azure Service em Azure Monitor| Microsoft Docs
 description: Este artigo explica como usar o Azure Monitor para monitorizar as entidades de Service Bus (filas, tópicos e subscrições).
 ms.topic: article
 ms.date: 02/12/2021
-ms.openlocfilehash: fa242b4d8c8a6ce83801667e686864f858f8a000
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 1e57def2ee7409ae62cdbe065c36e8a53a140e18
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100519104"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570579"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor"></a>Métricas de ônibus de serviço Azure em Azure Monitor
 
@@ -21,9 +21,9 @@ O Azure Monitor fornece interfaces de utilizador unificadas para monitorização
 
 ## <a name="access-metrics"></a>Métricas de acesso
 
-O Azure Monitor fornece várias formas de aceder às métricas. Pode aceder às métricas através do [portal Azure,](https://portal.azure.com)ou utilizar as APIs do Monitor Azure (REST e .NET) e analisar soluções como registos do Azure Monitor e Centros de Eventos. Para obter mais informações, consulte [métricas no Azure Monitor](../azure-monitor/platform/data-platform-metrics.md).
+O Azure Monitor fornece várias formas de aceder às métricas. Pode aceder às métricas através do [portal Azure,](https://portal.azure.com)ou utilizar as APIs do Monitor Azure (REST e .NET) e analisar soluções como registos do Azure Monitor e Centros de Eventos. Para obter mais informações, consulte [métricas no Azure Monitor](../azure-monitor/essentials/data-platform-metrics.md).
 
-As métricas são ativadas por padrão, e pode aceder aos últimos 30 dias de dados. Se precisar de manter os dados por um período mais longo, pode arquivar dados de métricas numa conta de Armazenamento Azure. Este valor está configurado em [definições de diagnóstico](../azure-monitor/platform/diagnostic-settings.md) no Azure Monitor.
+As métricas são ativadas por padrão, e pode aceder aos últimos 30 dias de dados. Se precisar de manter os dados por um período mais longo, pode arquivar dados de métricas numa conta de Armazenamento Azure. Este valor está configurado em [definições de diagnóstico](../azure-monitor/essentials/diagnostic-settings.md) no Azure Monitor.
 
 ## <a name="access-metrics-in-the-portal"></a>Métricas de acesso no portal
 
@@ -100,7 +100,7 @@ Os dois tipos seguintes de erros são classificados como erros do utilizador:
 > [!NOTE] 
 > As seguintes métricas só estão disponíveis com o nível **premium.** 
 > 
-> As métricas importantes para monitorizar eventuais interrupções para um espaço de nome de nível premium são: **utilização de CPU por espaço de nome** e tamanho de memória por espaço de **nome**. [Confiúde alertas](../azure-monitor/platform/alerts-metric.md) para estas métricas utilizando o Monitor Azure.
+> As métricas importantes para monitorizar eventuais interrupções para um espaço de nome de nível premium são: **utilização de CPU por espaço de nome** e tamanho de memória por espaço de **nome**. [Confiúde alertas](../azure-monitor/alerts/alerts-metric.md) para estas métricas utilizando o Monitor Azure.
 > 
 > A outra métrica que pode monitorizar é: **pedidos acelerados.** Não deve ser um problema, desde que o espaço de nomes permaneça dentro da sua memória, CPU, e limites de conexões intermediadas. Para mais informações, consulte [Throttling no nível Premium do Bus Da Azure Service](service-bus-throttling.md#throttling-in-azure-service-bus-premium-tier)
 

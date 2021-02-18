@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: 2f814c54aeca8a337f786beb8da1b98accbeef7e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2278b9d70e888fa546dc64da4743b2bf5b6c45e8
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87319002"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100587530"
 ---
 # <a name="azure-monitor-application-insights-agent-api-reference"></a>Referência Azure Monitor Application Insights Agent API
 
@@ -329,7 +329,7 @@ Neste exemplo;
 - **O Identificador de Máquinas** é um ID anónimo usado para identificar exclusivamente o seu servidor. Se criar um pedido de suporte, precisaremos deste ID para encontrar registos para o seu servidor.
 - **O Web Site predefinido** é parado no IIS
 - **O DemoWebApp111** foi iniciado no IIS, mas não recebeu nenhum pedido. Este relatório mostra que não há processo de execução (ProcessId: não encontrado).
-- **O DemoWebApp222** está em execução e está a ser monitorizado (Instrumentado: verdadeiro). Com base na configuração do utilizador, a Chave de Instrumentação xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx123 foi igualada para este site.
+- **O DemoWebApp222** está em execução e está a ser monitorizado (Instrumentado: verdadeiro). Com base na configuração do utilizador, a Chave de Instrumentação xxxxxx-xxxx-xxxx-xxxx-xxxx123 foi igualada para este site.
 - **O DemoWebApp333** foi instrumentalizado manualmente utilizando o SDK de Insights de Aplicação. O Monitor de Estado detetou o SDK e não monitoriza este site.
 
 
@@ -392,7 +392,7 @@ C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\Runtime
 
 Pode inspecionar o processo no computador instrumentado para ver se todos os DLLs estão carregados. Se a monitorização estiver a funcionar, devem ser carregados pelo menos 12 DLLs.
 
-Executar o `Get-ApplicationInsightsMonitoringStatus -InspectProcess` comando:
+Execute o comando `Get-ApplicationInsightsMonitoringStatus -InspectProcess`:
 
 
 ```
@@ -447,8 +447,8 @@ Também descarregará ferramentas externas para determinar se os DLLs necessári
 
 Se este processo falhar por qualquer motivo, pode executar estes comandos manualmente:
 - iisreset.exe /status
-- [handle64.exe](/sysinternals/downloads/handle) -p w3wp ! findstr /I "InstrumentationEngine AI. AplicaçõesInsights"
-- [listdlls64.exe](/sysinternals/downloads/listdlls) w3wp findstr /I "InstrumentationEngine AI ApplicationInsights"
+- [handle64.exe](/sysinternals/downloads/handle) -p w3wp | findstr /I "InstrumentationEngine AI. AplicaçõesInsights"
+- [listdlls64.exe](/sysinternals/downloads/listdlls) | w3wp findstr /I "InstrumentationEngine AI ApplicationInsights"
 
 
 #### <a name="-force"></a>-Force
@@ -637,9 +637,9 @@ Timeout Reached. Stopping...
 ## <a name="next-steps"></a>Passos seguintes
 
   Ver a telemetria:
- - [Explore métricas](../platform/metrics-charts.md) para monitorizar o desempenho e a utilização.
+ - [Explore métricas](../essentials/metrics-charts.md) para monitorizar o desempenho e a utilização.
 - [Pesquisar eventos e registos](./diagnostic-search.md) para diagnosticar problemas.
-- Use [analítica](../log-query/log-query-overview.md) para consultas mais avançadas.
+- Use [analítica](../logs/log-query-overview.md) para consultas mais avançadas.
 - [Criar painéis de instrumentos.](./overview-dashboard.md)
  
  Adicionar mais telemetria:

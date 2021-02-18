@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: kumud
-ms.openlocfilehash: 61ca4dc8cd7048df69c827e7ca657b9882900819
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: cc0028a8c7d6d15277c3789118b13b80ed4306ea
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98218914"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100596638"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Criar, alterar ou eliminar uma rede virtual
 
@@ -25,7 +25,7 @@ ms.locfileid: "98218914"
 
 Saiba como criar e eliminar uma rede virtual e alterar definições, como servidores DNS e espaços de endereço IP, para uma rede virtual existente. Se é novo em redes virtuais, pode saber mais sobre elas na [visão geral](virtual-networks-overview.md) da rede Virtual ou completando um [tutorial](quick-create-portal.md). Uma rede virtual contém sub-redes. Para aprender a criar, alterar e eliminar sub-redes, consulte [Gerir sub-redes](virtual-network-manage-subnet.md).
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Complete as seguintes tarefas antes de completar etapas em qualquer secção deste artigo:
 
@@ -87,7 +87,7 @@ Complete as seguintes tarefas antes de completar etapas em qualquer secção des
    - **Propriedades**: Exibe definições sobre a rede virtual, incluindo o ID de recursos da rede virtual e a subscrição Azure em que se encontra.
    - **Diagrama**: O diagrama proporciona uma representação visual de todos os dispositivos ligados à rede virtual. O diagrama tem algumas informações chave sobre os dispositivos. Para gerir um dispositivo nesta vista, no diagrama, selecione o dispositivo.
    - **Configurações do Azul Comum**: Para saber mais sobre as definições comuns do Azure, consulte as seguintes informações:
-     - [Registo de atividades](../azure-monitor/platform/platform-logs-overview.md)
+     - [Registo de atividades](../azure-monitor/essentials/platform-logs-overview.md)
      - [Controlo de acesso (IAM)](../role-based-access-control/overview.md)
      - [Etiquetas](../azure-resource-manager/management/tag-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
      - [Bloqueios](../azure-resource-manager/management/lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)

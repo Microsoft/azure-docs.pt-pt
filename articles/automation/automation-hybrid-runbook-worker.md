@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/22/2021
 ms.topic: conceptual
-ms.openlocfilehash: 7cf18b6b677daaf97d425c86a0cad91b3abcb225
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: c95ccb5ea1a23e8173d58bd3a18490e9b8e630e4
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896957"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100581272"
 ---
 # <a name="hybrid-runbook-worker-overview"></a>Descrição geral das Funções de Trabalho de Runbook Híbridas (Hybrid Runbook Worker overview)
 
@@ -20,12 +20,12 @@ Os runbooks na Azure Automation podem não ter acesso a recursos noutras nuvens 
 
 Existem dois tipos de Trabalhadores runbook - sistema e utilizador. A tabela a seguir descreve a diferença entre eles.
 
-|Tipo | Descrição |
+|Tipo | Description |
 |-----|-------------|
 |**Sistema** |Suporta um conjunto de livros de execução ocultos utilizados pela funcionalidade De Gestão de Atualização que são projetados para instalar atualizações especificadas pelo utilizador nas máquinas Windows e Linux.<br> Este tipo de Trabalhador de Runbook Híbrido não é membro de um grupo híbrido de trabalhadores runbook, e, portanto, não executam runbooks que visam um grupo de trabalhadores runbook. |
 |**Utilizador** |Suporta livros de execução definidos pelo utilizador destinados a funcionar diretamente na máquina Windows e Linux que são membros de um ou mais grupos de Trabalhadores runbook. |
 
-Um Trabalhador De Runbook Híbrido pode funcionar no Windows ou no sistema operativo Linux, e esta função depende do [agente Log Analytics](../azure-monitor/platform/log-analytics-agent.md) reportando a um espaço de trabalho Azure Monitor Log [Analytics](../azure-monitor/platform/design-logs-deployment.md). O espaço de trabalho não é apenas para monitorizar a máquina para o sistema operativo suportado, mas também para descarregar os componentes necessários para instalar o Trabalhador de Runbook Híbrido.
+Um Trabalhador De Runbook Híbrido pode funcionar no Windows ou no sistema operativo Linux, e esta função depende do [agente Log Analytics](../azure-monitor/agents/log-analytics-agent.md) reportando a um espaço de trabalho Azure Monitor Log [Analytics](../azure-monitor/logs/design-logs-deployment.md). O espaço de trabalho não é apenas para monitorizar a máquina para o sistema operativo suportado, mas também para descarregar os componentes necessários para instalar o Trabalhador de Runbook Híbrido.
 
 Quando a Azure Automation [Update Management](./update-management/overview.md) estiver ativada, qualquer máquina ligada ao seu espaço de trabalho Log Analytics é automaticamente configurada como um trabalhador de runbook híbrido do sistema. Para configurgê-lo como utilizador Do Windows Hybrid Runbook Worker, consulte [implementar um Trabalhador de Runbook Híbrido do Windows](automation-windows-hrw-install.md) e para o Linux, consulte implementar um Trabalhador de [Runbook Híbrido Linux](automation-linux-hrw-install.md).
 
@@ -62,7 +62,7 @@ Se utilizar um servidor proxy para comunicação entre a Azure Automation e as m
 
 ### <a name="firewall-use"></a>Uso de firewall
 
-Se utilizar uma firewall para restringir o acesso à Internet, tem de configurar a firewall para permitir o acesso. Se utilizar o gateway Log Analytics como procuração, certifique-se de que está configurado para trabalhadores híbridos runbook. Consulte a porta de [entrada do Log Analytics para trabalhadores híbridos da Automação.](../azure-monitor/platform/gateway.md)
+Se utilizar uma firewall para restringir o acesso à Internet, tem de configurar a firewall para permitir o acesso. Se utilizar o gateway Log Analytics como procuração, certifique-se de que está configurado para trabalhadores híbridos runbook. Consulte a porta de [entrada do Log Analytics para trabalhadores híbridos da Automação.](../azure-monitor/agents/gateway.md)
 
 ### <a name="service-tags"></a>Etiquetas de serviço
 
@@ -127,7 +127,7 @@ $workersList = (Get-AzAutomationHybridWorkerGroup -ResourceGroupName "<resourceG
 $workersList | export-csv -Path "<Path>\output.csv" -NoClobber -NoTypeInformation"
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para aprender a configurar os seus livros para automatizar processos no seu datacenter no local ou noutro ambiente em nuvem, consulte [runbooks Runbooks num Trabalhador de Runbook Híbrido](automation-hrw-run-runbooks.md).
 

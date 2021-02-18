@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/19/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 850171a4f1f303ef344fa5007325093c6363615b
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: ac2982b021172893e4aabe0f21c7077115684eff
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98789082"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592632"
 ---
 # <a name="azure-security-baseline-for-azure-hpc-cache"></a>Linha de segurança Azure para Azure HPC Cache
 
@@ -613,9 +613,9 @@ Implemente uma solução de terceiros a partir do Azure Marketplace para a solu�
 
 Também pode utilizar o Azure Security Center e a Azure Policy para ativar registos de recursos Azure para cache HPC e para recolher dados e registar registos. Estes registos podem ser cruciais para mais tarde investigar incidentes de segurança e realizar exercícios forenses.
 
-- [Como recolher registos e métricas da plataforma com o Azure Monitor](../azure-monitor/platform/diagnostic-settings.md) 
+- [Como recolher registos e métricas da plataforma com o Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md) 
 
-- [Compreenda o registo e diferentes tipos de registo em Azure](../azure-monitor/platform/platform-logs-overview.md) 
+- [Compreenda o registo e diferentes tipos de registo em Azure](../azure-monitor/essentials/platform-logs-overview.md) 
 
 - [Compreender a recolha de dados do Centro de Segurança Azure](../security-center/security-center-enable-data-collection.md)
 
@@ -633,7 +633,7 @@ Além disso, ative e a bordo dados para Azure Sentinel ou um SIEM de terceiros.
 
 Muitas organizações optam por usar o Azure Sentinel para dados "quentes" que são usados frequentemente e o Azure Storage para dados "frios" que são usados com menos frequência.
 
-- [Como recolher registos e métricas da plataforma com o Azure Monitor](../azure-monitor/platform/diagnostic-settings.md) 
+- [Como recolher registos e métricas da plataforma com o Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md) 
 
 - [Como embarcar Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -812,7 +812,7 @@ Utilize o controlo de acesso baseado em funções em Azure Backup, Azure Key Vau
 
 - [Visão geral das funcionalidades de segurança no Azure Backup](../backup/security-overview.md) 
 
-- [Encriptação de dados de backup usando chaves geridas pelo cliente](../backup/encryption-at-rest-with-cmk.md)  
+- [Encriptação de dados de cópias de segurança com chaves geridas pelo cliente](../backup/encryption-at-rest-with-cmk.md)  
 
 - [Como apoiar as chaves do Cofre chave em Azure](/powershell/module/az.keyvault/backup-azkeyvaultkey?preserve-view=true&view=azps-5.1.0)
 

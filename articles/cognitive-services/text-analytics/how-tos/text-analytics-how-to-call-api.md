@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/17/2020
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: 708c70a5144e4e38dd5de9524711c80ef28cd839
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 9302bde13a303dda2107900dc0c10cc180669a18
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100092133"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100650733"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Como chamar a API de Sms Analytics REST
 
@@ -37,7 +37,7 @@ Antes de utilizar a API text Analytics, terá de criar um recurso Azure com uma 
 
 ## <a name="change-your-pricing-tier"></a>Altere o seu nível de preços 
 
-Se tiver um recurso de Análise de Texto existente utilizando o nível de preços S0-S4, pode atualizá-lo para utilizar o [nível de preços](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/)Standard (S):
+Se tiver um recurso de Análise de Texto existente utilizando o nível de preços S0-S4, deverá atualizá-lo para utilizar o [nível de preços](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/)Standard (S). Os níveis de preços S0-S4 serão retirados. Para atualizar os preços do seu recurso:
 
 1. Navegue para o seu recurso Text Analytics no [portal Azure](https://portal.azure.com/).
 2. Selecione **o nível de preços** no menu de navegação à esquerda. Estará abaixo **da gestão de recursos.** 

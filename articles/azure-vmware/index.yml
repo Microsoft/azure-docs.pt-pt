@@ -9,12 +9,12 @@ metadata:
   author: dikamath
   ms.author: dikamath
   ms.date: 11/19/2020
-  ms.openlocfilehash: 98ff5a64ae3ed4c66d3a584ba2dda604a1a707b2
-  ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+  ms.openlocfilehash: f02468ca6ba3cc26d06b8caa8b8ae5b863fb51b5
+  ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 02/14/2021
-  ms.locfileid: "100381890"
+  ms.lasthandoff: 02/18/2021
+  ms.locfileid: "100651770"
 landingContent:
 - title: Acerca do Azure VMware Solution
   linkLists:
@@ -72,7 +72,7 @@ landingContent:
   linkLists:
   - linkListType: how-to-guide
     links:
-    - text: Ativar o Azure VMware Solution
+    - text: Solicite quota de anfitrião e permita a Solução VMware Azure
       url: enable-azure-vmware-solution.md
     - text: Poupar custos com uma instância reservada
       url: reserved-instance.md

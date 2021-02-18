@@ -1,17 +1,17 @@
 ---
 title: Criar ficha de acesso partilhado (SAS) para recipientes e bolhas com o Microsoft Storage Explorer
-description: Como criar um Token de Acesso Partilhado (SAS) para contentores e bolhas com o Microsoft Storage Explorer
+description: Como criar um Token de Acesso Partilhado (SAS) para contentores e bolhas com o Microsoft Storage Explorer e o portal Azure
 ms.topic: how-to
 manager: nitinme
 ms.author: lajanuar
 author: laujan
 ms.date: 02/11/2021
-ms.openlocfilehash: 49813a29009e04c81dae59a7d4da2bae411e07b2
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: 1425be4fc4e462185f9fee573dc87b04a68bfea4
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100642465"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100650750"
 ---
 # <a name="create-sas-tokens-for-document-translation"></a>Criar fichas SAS para tradução de documentos
 

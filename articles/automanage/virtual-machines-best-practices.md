@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: deanwe
-ms.openlocfilehash: 208c1ba6a0fb059640b3f8bb19bb4bc90e5eb116
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 1bcf9009a039a10017d53ca6fe9e78acec1efd55
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183656"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100581235"
 ---
 # <a name="azure-automanage-for-virtual-machines-best-practices"></a>Azure Automanage para as melhores práticas de máquinas virtuais
 
@@ -27,7 +27,7 @@ Para todos estes serviços, iremos automaticamente embarcar, configurar automati
 
 |Serviço    |Description    |Perfis Suportados<sup>1</sup>    |Preferências suportadas<sup>1</sup>    |
 |-----------|---------------|----------------------|-------------------------|
-|Monitorização de Insights VM    |O Azure Monitor for VMs monitoriza o desempenho e a saúde das suas máquinas virtuais, incluindo os seus processos de funcionamento e dependências de outros recursos. Saiba [mais.](../azure-monitor/insights/vminsights-overview.md)    |Azure VM Melhores Práticas – Produção    |No    |
+|Monitorização de Insights VM    |O Azure Monitor for VMs monitoriza o desempenho e a saúde das suas máquinas virtuais, incluindo os seus processos de funcionamento e dependências de outros recursos. Saiba [mais.](../azure-monitor/vm/vminsights-overview.md)    |Azure VM Melhores Práticas – Produção    |No    |
 |Backup    |O Azure Backup fornece cópias de segurança independentes e isoladas para que estas protejam os dados nas suas VMs contra a destruição acidental. Saiba [mais.](../backup/backup-azure-vms-introduction.md) As cargas baseiam-se no número e no tamanho dos VMs que estão a ser protegidos. Saiba [mais.](https://azure.microsoft.com/pricing/details/backup/)    |Azure VM Melhores Práticas – Produção    |Yes    |
 |Centro de Segurança do Azure    |O Azure Security Center é um sistema unificado de gestão de segurança de infraestruturas que fortalece a postura de segurança dos seus centros de dados e fornece uma proteção avançada de ameaças através das suas cargas de trabalho híbridas na nuvem. Saiba [mais.](../security-center/security-center-introduction.md)  A autogestão configurará a subscrição onde o seu VM reside na oferta de nível livre do Azure Security Center. Se a sua subscrição já estiver a bordo do Azure Security Center, então a gestão automática não a reconfigurará.    |Azure VM Melhores Práticas – Produção, Azure VM Melhores Práticas – Dev/Teste    |No    |
 |Microsoft Antimalware    |O Microsoft Antimalware for Azure é uma proteção gratuita em tempo real que ajuda a identificar e remover vírus, spyware e outros softwares maliciosos. Gera alertas quando um software malicioso ou indesejado conhecido tenta instalar-se ou funcionar nos seus sistemas Azure. Saiba [mais.](../security/fundamentals/antimalware.md) |Azure VM Melhores Práticas – Produção, Azure VM Melhores Práticas – Dev/Teste    |Yes    |
@@ -35,7 +35,7 @@ Para todos estes serviços, iremos automaticamente embarcar, configurar automati
 |Alterar o inventário de & de rastreio    |O Change Tracking and Inventory combina funções de rastreio e inventário de alterações para permitir rastrear alterações de infraestrutura de máquinas virtuais e servidores. O serviço suporta o rastreio de alterações através de serviços, software daemons, registo e ficheiros no seu ambiente para ajudá-lo a diagnosticar alterações indesejadas e aumentar alertas. O suporte ao inventário permite-lhe consultar os recursos in-guest para visibilidade em aplicações instaladas e outros itens de configuração.  Saiba [mais.](../automation/change-tracking/overview.md)    |Azure VM Melhores Práticas – Produção, Azure VM Melhores Práticas – Dev/Teste    |No    |
 |Configuração de hóspedes Azure    | A política de configuração do hóspede é utilizada para monitorizar a configuração e reportar a conformidade da máquina. O serviço de auto-produção instalará as [linhas de segurança](/windows/security/threat-protection/windows-security-baselines) do Windows utilizando a extensão de Configuração do Convidado. Saiba [mais.](../governance/policy/concepts/guest-configuration.md)    |Azure VM Melhores Práticas – Produção, Azure VM Melhores Práticas – Dev/Teste    |No    |
 |Adicionar Conta de Automatização    |A Azure Automation suporta a gestão ao longo do ciclo de vida da sua infraestrutura e aplicações. Saiba [mais.](../automation/automation-intro.md)    |Azure VM Melhores Práticas – Produção, Azure VM Melhores Práticas – Dev/Teste    |No    |
-|Área de trabalho do Log Analytics    |O Azure Monitor armazena dados de registo num espaço de trabalho log Analytics, que é um recurso Azure e um recipiente onde os dados são recolhidos, agregados e serve como uma fronteira administrativa. Saiba [mais.](../azure-monitor/platform/design-logs-deployment.md)    |Azure VM Melhores Práticas – Produção, Azure VM Melhores Práticas – Dev/Teste    |No    |
+|Área de trabalho do Log Analytics    |O Azure Monitor armazena dados de registo num espaço de trabalho log Analytics, que é um recurso Azure e um recipiente onde os dados são recolhidos, agregados e serve como uma fronteira administrativa. Saiba [mais.](../azure-monitor/logs/design-logs-deployment.md)    |Azure VM Melhores Práticas – Produção, Azure VM Melhores Práticas – Dev/Teste    |No    |
 
 
 <sup>1 Os</sup> perfis de configuração estão disponíveis quando está a ativar a auto-produção. Saiba [mais.](automanage-virtual-machines.md#configuration-profiles) Também pode ajustar as definições padrão do perfil de configuração e definir as suas preferências dentro das melhores práticas.
