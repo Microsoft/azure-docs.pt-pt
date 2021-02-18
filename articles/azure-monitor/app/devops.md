@@ -3,12 +3,12 @@ title: Monitorização do desempenho da aplicação web - Azure Application Insi
 description: Como os Insights de Aplicação se enquadram no ciclo de devOps
 ms.topic: conceptual
 ms.date: 12/21/2018
-ms.openlocfilehash: d2c3326c3f655d4bdfeaa42ac272658b251b7f82
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bc897cc0259894964e0b6164219b1e5459e824b6
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87324493"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579564"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>Diagnósticos avançados de aplicações Web e serviços com o Application Insights
 ## <a name="why-do-i-need-application-insights"></a>Por que preciso de Insights de Aplicação?
@@ -69,7 +69,7 @@ As principais categorias de dados são:
 * Eventos personalizados que você pode usar para acompanhar eventos de negócios
 * Registar vestígios usados para depurar.
 
-## <a name="case-study-real-madrid-fc"></a>Case Study: Real Madrid Football Club
+## <a name="case-study-real-madrid-fc"></a>Estudo de Caso: Real Madrid F.C.
 O serviço web do [Real Madrid Football Club](https://www.realmadrid.com/) serve cerca de 450 milhões de adeptos em todo o mundo. Os fãs acedem-no tanto através dos navegadores web como das aplicações móveis do Clube. Os fãs não podem apenas reservar bilhetes, mas também aceder a informações e vídeos sobre resultados, jogadores e próximos jogos. Podem pesquisar com filtros como números de golos marcados. Há também ligações às redes sociais. A experiência do utilizador é altamente personalizada, e é projetada como uma comunicação bidirecional para envolver os fãs.
 
 A solução [é um sistema de serviços e aplicações no Microsoft Azure.](https://www.microsoft.com/inculture/sports/real-madrid/) A escalabilidade é um requisito fundamental: o tráfego é variável e pode atingir volumes muito elevados durante e em torno dos jogos.
@@ -110,7 +110,7 @@ O Application Map descobre automaticamente a topologia da sua aplicação, coloc
 ![Mapeamento de Aplicações](./media/devops/0050.png)
 
 ## <a name="application-insights-analytics"></a>Aplicações Insights Analytics
-Com [o Analytics,](../log-query/log-query-overview.md)pode escrever consultas arbitrárias numa poderosa linguagem sql.  O diagnóstico em toda a pilha de aplicações torna-se fácil à medida que várias perspetivas se conectam e você pode fazer as perguntas certas para correlacionar o Desempenho do Serviço com as Métricas de Negócio e a Experiência do Cliente. 
+Com [o Analytics,](../logs/log-query-overview.md)pode escrever consultas arbitrárias numa poderosa linguagem sql.  O diagnóstico em toda a pilha de aplicações torna-se fácil à medida que várias perspetivas se conectam e você pode fazer as perguntas certas para correlacionar o Desempenho do Serviço com as Métricas de Negócio e a Experiência do Cliente. 
 
 Pode consultar todas as suas instâncias de telemetria e dados métricos em bruto armazenados no portal. O idioma inclui filtro, junção, agregação e outras operações. Pode calcular campos e realizar análises estatísticas. Existem visualizações tabulares e gráficas.
 

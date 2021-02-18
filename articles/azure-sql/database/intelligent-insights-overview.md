@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: wiassaf, sstein
 ms.date: 06/12/2020
-ms.openlocfilehash: 0f3dce3ca79b12b05325a1d8284dd3304653d5fa
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 61033e3eb8264c1e462faac3e4553a855a1d06c7
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96488872"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592083"
 ---
 # <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance-preview"></a>Insights Inteligentes utilizando a IA para monitorizar e resolver problemas de desempenho da base de dados (pré-visualização)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -73,10 +73,10 @@ As opções de Insights Inteligentes disponíveis são:
 
 | Opção Insights Inteligentes | Suporte à base de dados Azure SQL | Suporte de Instância Gerida do SQL do Azure |
 | :----------------------------- | ----- | ----- |
-| **Configure Insights Inteligentes** - Configurar análise de Insights Inteligentes para as suas bases de dados. | Sim | Sim |
-| **Stream insights para Azure SQL Analytics** -- Stream insights para Azure SQL Analytics. | Sim | Sim |
-| **Stream insights para Azure Event Hubs** - Stream insights para Os Centros de Eventos para mais integrações personalizadas. | Sim | Sim |
-| **Stream insights para Azure Storage** - Stream insights para Azure Storage para mais análises e arquivos a longo prazo. | Sim | Sim |
+| **Configure Insights Inteligentes** - Configurar análise de Insights Inteligentes para as suas bases de dados. | Yes | Yes |
+| **Stream insights para Azure SQL Analytics** -- Stream insights para Azure SQL Analytics. | Yes | Yes |
+| **Stream insights para Azure Event Hubs** - Stream insights para Os Centros de Eventos para mais integrações personalizadas. | Yes | Yes |
+| **Stream insights para Azure Storage** - Stream insights para Azure Storage para mais análises e arquivos a longo prazo. | Yes | Yes |
 
 > [!NOTE]
 > Insights inteligentes é uma característica de pré-visualização, não disponível nas seguintes regiões: Europa Ocidental, Norte da Europa, EUA 1 e Leste dos EUA 1.
@@ -107,7 +107,7 @@ O exemplo a seguir mostra um Intelligent Insights visualizado através do Azure 
 
 ### <a name="set-up-with-event-hubs"></a>Configurar com centros de eventos
 
-Para utilizar Insights Inteligentes com Centros de Eventos, configurar dados de registo de insights inteligentes para serem transmitidos para Centros de Eventos, ver [métricas e diagnósticos de registo](metrics-diagnostic-telemetry-logging-streaming-export-configure.md) e [stream Azure registos de diagnóstico para Centros de Eventos](../../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs).
+Para utilizar Insights Inteligentes com Centros de Eventos, configurar dados de registo de insights inteligentes para serem transmitidos para Centros de Eventos, ver [métricas e diagnósticos de registo](metrics-diagnostic-telemetry-logging-streaming-export-configure.md) e [stream Azure registos de diagnóstico para Centros de Eventos](../../azure-monitor/essentials/resource-logs.md#send-to-azure-event-hubs).
 
 Para utilizar os Centros de Eventos para configurar monitorização e alerta personalizados, consulte [o que fazer com métricas e registos de diagnóstico em Centros de Eventos](metrics-diagnostic-telemetry-logging-streaming-export-configure.md#what-to-do-with-metrics-and-resource-logs-in-event-hubs).
 

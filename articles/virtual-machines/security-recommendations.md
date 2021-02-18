@@ -10,12 +10,12 @@ ms.date: 11/13/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
 ms.reviewer: cynthn
-ms.openlocfilehash: 95ba93c4a5d71e6813c1bee144c983e1dfd8c89d
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: afb985ecbe91835369738966e39e751f06f8d796
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500330"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100571337"
 ---
 # <a name="security-recommendations-for-virtual-machines-in-azure"></a>Recomendações de segurança para máquinas virtuais em Azure
 
@@ -56,7 +56,7 @@ Para obter informações gerais sobre o Azure Security Center, veja [o que é o 
 
 | Recomendação | Comentários | Centro de Segurança |
 |-|----|--|
-| Monitorize os seus VMs. | Pode utilizar [o Azure Monitor para VMs](../azure-monitor/insights/vminsights-overview.md) para monitorizar o estado dos seus VMs Azure e conjuntos de balanças de máquinas virtuais. Problemas de desempenho com um VM podem levar a uma interrupção do serviço, o que viola o princípio de segurança da disponibilidade. | - |
+| Monitorize os seus VMs. | Pode utilizar [o Azure Monitor para VMs](../azure-monitor/vm/vminsights-overview.md) para monitorizar o estado dos seus VMs Azure e conjuntos de balanças de máquinas virtuais. Problemas de desempenho com um VM podem levar a uma interrupção do serviço, o que viola o princípio de segurança da disponibilidade. | - |
 
 ## <a name="networking"></a>Rede
 

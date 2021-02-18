@@ -9,12 +9,12 @@ ms.date: 10/02/2020
 ms.author: normesta
 ms.subservice: logs
 ms.custom: subject-monitoring
-ms.openlocfilehash: 6dd53358b67eef481948d3349afc07086ea26fcd
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: b37586f66106e33b2a8dad034a6e7c131484be73
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99584911"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100571627"
 ---
 # <a name="azure-blob-storage-monitoring-data-reference"></a>Referência de dados de monitorização de armazenamento Azure Blob
 
@@ -36,7 +36,7 @@ O Azure Storage fornece as seguintes métricas de capacidade no Monitor Azure.
 
 #### <a name="blob-storage"></a>Armazenamento de blobs
 
-Esta tabela mostra [métricas de armazenamento Blob](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountsblobservices).
+Esta tabela mostra [métricas de armazenamento Blob](../../azure-monitor/essentials/metrics-supported.md#microsoftstoragestorageaccountsblobservices).
 
 | Metric | Descrição |
 | ------------------- | ----------------- |
@@ -176,4 +176,4 @@ A tabela que se segue lista as propriedades dos registos de recursos de armazena
 ## <a name="see-also"></a>Ver também
 
 - Consulte [o Monitor Azure Storage](monitor-blob-storage.md) para obter uma descrição da monitorização do armazenamento do Azure.
-- Consulte [os recursos de Monitor Azure com o Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md) para obter informações sobre a monitorização dos recursos do Azure.
+- Consulte [os recursos de Monitor Azure com o Azure Monitor](../../azure-monitor/essentials/monitor-azure-resource.md) para obter informações sobre a monitorização dos recursos do Azure.

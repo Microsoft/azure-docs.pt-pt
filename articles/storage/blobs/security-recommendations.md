@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/13/2021
 ms.author: tamram
 ms.custom: security-recommendations
-ms.openlocfilehash: 05fdf681b7cdc3b8145a30041e261eece420e560
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 5653b59ed29495334079e932fb305fd4ba10475c
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878092"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592352"
 ---
 # <a name="security-recommendations-for-blob-storage"></a>Recomendações de segurança para armazenamento blob
 
@@ -71,9 +71,9 @@ O Azure Security Center analisa periodicamente o estado de segurança dos seus r
 | Recomendação | Comentários | Centro de Segurança |
 |-|----|--|
 | Acompanhe como os pedidos são autorizados | Habilitar o registo de armazenamento Azure para acompanhar como cada pedido feito contra o Azure Storage foi autorizado. Os registos indicam se um pedido foi feito de forma anónima, utilizando um token OAuth 2.0, utilizando a Chave Partilhada, ou utilizando uma assinatura de acesso partilhado (SAS). Para obter mais informações, consulte [o armazenamento de Azure Blob com Azure Monitor](monitor-blob-storage.md) ou [Azure Storage analytics com Monitorização Clássica.](../common/storage-analytics-logging.md) | - |
-| Configurar alertas no Azure Monitor | Configure os alertas de registo para avaliar os registos de recursos numa frequência definida e dispare um alerta com base nos resultados. Para obter mais informações, consulte [os alertas de registo no Azure Monitor](../../azure-monitor/platform/alerts-unified-log.md). | - |
+| Configurar alertas no Azure Monitor | Configure os alertas de registo para avaliar os registos de recursos numa frequência definida e dispare um alerta com base nos resultados. Para obter mais informações, consulte [os alertas de registo no Azure Monitor](../../azure-monitor/alerts/alerts-unified-log.md). | - |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Documentação de segurança do Azure](../../security/index.yml)
 - [Documentação de desenvolvimento segura.](../../security/develop/index.yml)

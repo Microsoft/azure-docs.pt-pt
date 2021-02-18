@@ -3,12 +3,12 @@ title: Configurar relatórios do Azure Backup
 description: Configure e veja relatórios para Azure Backup usando diários de log analytics e Azure
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 39d1aa17c5e92eccd34013738937e49890109561
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 78ab22bece54caa15e23021e594eaa0742505f79
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897280"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100591978"
 ---
 # <a name="configure-azure-backup-reports-preview"></a>Configure relatórios de backup do Azure (Pré-visualização)
 
@@ -18,7 +18,7 @@ Um requisito comum para os administradores de backup é obter insights sobre có
 - Auditoria de backups e restauros.
 - Identificar as principais tendências em diferentes níveis de granularidade.
 
-Hoje, a Azure Backup fornece uma solução de reporte que utiliza [registos do Azure Monitor](../azure-monitor/log-query/log-analytics-tutorial.md) e [livros de trabalho Azure](../azure-monitor/platform/workbooks-overview.md). Estes recursos ajudam-no a obter informações ricas sobre os seus backups em toda a sua propriedade de reserva. Este artigo explica como configurar e ver relatórios de Backup da Azure.
+Hoje, a Azure Backup fornece uma solução de reporte que utiliza [registos do Azure Monitor](../azure-monitor/logs/log-analytics-tutorial.md) e [livros de trabalho Azure](../azure-monitor/visualize/workbooks-overview.md). Estes recursos ajudam-no a obter informações ricas sobre os seus backups em toda a sua propriedade de reserva. Este artigo explica como configurar e ver relatórios de Backup da Azure.
 
 ## <a name="supported-scenarios"></a>Cenários suportados
 
@@ -41,9 +41,9 @@ Siga estes passos para começar a usar os relatórios.
 
 Configurar um ou mais espaços de trabalho do Log Analytics para armazenar os seus dados de relatórios de backup. A localização e subscrição onde este espaço de trabalho Log Analytics pode ser criado é independente da localização e subscrição onde os seus cofres existem.
 
-Para configurar um espaço de trabalho Log Analytics, consulte [Criar um espaço de trabalho Log Analytics no portal Azure](../azure-monitor/learn/quick-create-workspace.md).
+Para configurar um espaço de trabalho Log Analytics, consulte [Criar um espaço de trabalho Log Analytics no portal Azure](../azure-monitor/logs/quick-create-workspace.md).
 
-Por predefinição, os dados num espaço de trabalho do Log Analytics são retidos durante 30 dias. Para ver os dados para um horizonte temporal mais longo, altere o período de retenção do espaço de trabalho Log Analytics. Para alterar o período de retenção, consulte [Gerir a utilização e os custos com os registos do Monitor Azure](../azure-monitor/platform/manage-cost-storage.md).
+Por predefinição, os dados num espaço de trabalho do Log Analytics são retidos durante 30 dias. Para ver os dados para um horizonte temporal mais longo, altere o período de retenção do espaço de trabalho Log Analytics. Para alterar o período de retenção, consulte [Gerir a utilização e os custos com os registos do Monitor Azure](../azure-monitor/logs/manage-cost-storage.md).
 
 ### <a name="2-configure-diagnostics-settings-for-your-vaults"></a>2. Configurar as definições de diagnóstico para os seus cofres
 
@@ -180,6 +180,6 @@ Os widgets do relatório Backup são alimentados por consultas kusto, que funcio
 
 - Além disso, o [esquema V1](./backup-azure-diagnostics-mode-data-model.md#v1-schema-vs-v2-schema) de enviar dados de diagnóstico para uma conta de armazenamento ou um espaço de trabalho de LA também está em um caminho de depreciação. Isto significa que se tiver escrito quaisquer consultas personalizadas ou automatizações com base no esquema V1, é aconselhável atualizar estas consultas para usar o esquema V2 atualmente suportado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Saiba mais sobre monitorização e reporte com a Azure Backup](./backup-azure-monitor-alert-faq.md)

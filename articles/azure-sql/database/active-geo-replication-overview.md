@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 08/27/2020
-ms.openlocfilehash: c7a24dbe93bf0096e327804be07acc3f67d2f03b
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: 3a678f6280b5f2d0fd372e75bfbeb6eb2e9b1577
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94985761"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100634299"
 ---
 # <a name="creating-and-using-active-geo-replication---azure-sql-database"></a>Criação e utilização de geo-replicação ativa - Base de Dados Azure SQL
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -25,6 +25,9 @@ A geo-replicação ativa é uma funcionalidade de Base de Dados Azure SQL que pe
 
 > [!NOTE]
 > A geo-replicação ativa não é suportada pela Azure SQL Managed Instance. Para a falha geográfica de casos de SQL Managed Instance, utilize [grupos de falha automática](auto-failover-group-overview.md).
+
+> [!NOTE]
+> Para migrar bases de dados SQL do Azure Germany utilizando a geo-replicação ativa, consulte [a Base de Dados SQL da Migração utilizando a geo-replicação ativa](../../germany/germany-migration-databases.md#migrate-sql-database-using-active-geo-replication).
 
 A geo-replicação ativa é projetada como uma solução de continuidade de negócio que permite que a aplicação realize uma rápida recuperação de desastres de bases de dados individuais em caso de desastre regional ou de uma paragem em larga escala. Se a geo-replicação estiver ativada, a aplicação pode iniciar falhas numa base de dados secundária numa região de Azure diferente. Até quatro secundários são apoiados nas mesmas ou diferentes regiões, e os secundários também podem ser usados para consultas de acesso apenas de leitura. A falha deve ser iniciada manualmente pela aplicação ou pelo utilizador. Depois do failover, o novo primário tem um ponto final de ligação diferente.
 
@@ -293,7 +296,10 @@ Como discutido anteriormente, a geo-replicação ativa também pode ser gerida p
 | [Eliminar ligação de replicação](/rest/api/sql/replicationlinks/delete) | Elimina uma ligação de replicação de base de dados. Não é possível fazê-lo durante o fracasso. |
 |  | |
 
-## <a name="next-steps"></a>Próximos passos
+
+
+
+## <a name="next-steps"></a>Passos seguintes
 
 - Para os scripts de amostra, consulte:
   - [Configurar e efetuar a ativação pós-falha de uma base de dados através de georreplicação ativa](scripts/setup-geodr-and-failover-database-powershell.md)

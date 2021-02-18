@@ -3,20 +3,20 @@ title: Registos de diagnóstico para ligações híbridas
 description: Este artigo fornece uma visão geral de todos os registos de atividade e diagnóstico que estão disponíveis para Azure Relay.
 ms.topic: how-to
 ms.date: 06/23/2020
-ms.openlocfilehash: 980f2f7a737d3f2460c17a84c472cbf56f5eb90f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9b459750ad1445da89a8e89a10a35b878bfb64e1
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87533007"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590880"
 ---
 # <a name="enable-diagnostics-logs-for-azure-relay-hybrid-connections"></a>Ativar registos de diagnóstico para ligações híbridas Azure Relay
 Quando começar a utilizar as suas Ligações Híbridas Azure Relay, talvez queira monitorizar como e quando os seus ouvintes e remetentes são abertos e fechados, e como as suas Ligações Híbridas são criadas e as mensagens são enviadas. Este artigo fornece uma visão geral dos registos de atividade e diagnóstico fornecidos pelo serviço Azure Relay. 
 
 Pode ver dois tipos de registos para Azure Relay:
 
-- [Registos de atividades](../azure-monitor/platform/platform-logs-overview.md): Estes registos têm informações sobre operações realizadas contra o seu espaço de nome no portal Azure ou através do modelo Azure Resource Manager. Estes registos estão sempre ativados. Por exemplo: "Criar ou atualizar o espaço de nomes", "Criar ou atualizar a ligação híbrida". 
-- [Registos de diagnóstico](../azure-monitor/platform/platform-logs-overview.md): Pode configurar registos de diagnóstico para uma visão mais rica de tudo o que acontece com operações e ações que são conduzidas contra o seu espaço de nome utilizando a API, ou através da linguagem SDK.
+- [Registos de atividades](../azure-monitor/essentials/platform-logs-overview.md): Estes registos têm informações sobre operações realizadas contra o seu espaço de nome no portal Azure ou através do modelo Azure Resource Manager. Estes registos estão sempre ativados. Por exemplo: "Criar ou atualizar o espaço de nomes", "Criar ou atualizar a ligação híbrida". 
+- [Registos de diagnóstico](../azure-monitor/essentials/platform-logs-overview.md): Pode configurar registos de diagnóstico para uma visão mais rica de tudo o que acontece com operações e ações que são conduzidas contra o seu espaço de nome utilizando a API, ou através da linguagem SDK.
 
 ## <a name="view-activity-logs"></a>Ver registos de atividades
 Para visualizar registos de atividade para o seu espaço de nomes Azure Relay, mude para a página **de registo de Atividade** no portal Azure.
@@ -46,7 +46,7 @@ Para ativar registos de diagnóstico, faça os seguintes passos:
         ![Definições de diagnóstico de amostra](./media/diagnostic-logs/sample-diagnostic-settings.png)
 1. **Selecione Guarde** na barra de ferramentas para guardar as definições.
 
-As novas definições fazem efeito em cerca de 10 minutos. Os registos são apresentados no alvo de arquivo configurado, no painel de **registos de diagnóstico.** Para obter mais informações sobre a configuração das definições de diagnóstico, consulte a [visão geral dos registos de diagnósticos do Azure](../azure-monitor/platform/platform-logs-overview.md).
+As novas definições fazem efeito em cerca de 10 minutos. Os registos são apresentados no alvo de arquivo configurado, no painel de **registos de diagnóstico.** Para obter mais informações sobre a configuração das definições de diagnóstico, consulte a [visão geral dos registos de diagnósticos do Azure](../azure-monitor/essentials/platform-logs-overview.md).
 
 
 ## <a name="schema-for-hybrid-connections-events"></a>Schema para eventos de conexões híbridas
@@ -54,12 +54,12 @@ As cordas JSON do registo de eventos de ligações híbridas incluem os elemento
 
 | Nome | Descrição |
 | ------- | ------- |
-| ResourceId | Azure Resource Manager resource ID |
-| ActivityId | Identificação interna, usada para identificar a operação especificada. Pode também ser conhecido como "TrackingId" |
-| Ponto final | O endereço do recurso Relay |
-| OperationName | O tipo de operação de conexões híbridas que está sendo registado |
-| EventTimeString | O calendário utc do registo de registo |
-| Mensagem | A mensagem detalhada do evento |
+| ResourceId | Azure Resource Manager resource ID |
+| ActivityId | Identificação interna, usada para identificar a operação especificada. Pode também ser conhecido como "TrackingId" |
+| Ponto final | O endereço do recurso Relay |
+| OperationName | O tipo de operação de conexões híbridas que está sendo registado |
+| EventTimeString | O calendário utc do registo de registo |
+| Mensagem | A mensagem detalhada do evento |
 | Categoria | Categoria do evento. Atualmente, existe `HybridConnectionsEvents` apenas. 
 
 
@@ -80,19 +80,19 @@ Aqui está um evento de conexões híbridas de amostra no formato JSON.
 
 ## <a name="events-and-operations-captured-in-diagnostic-logs"></a>Eventos e operações capturados em registos de diagnóstico
 
-| Operação | Descrição | 
+| Operação | Description | 
 | --------- | ----------- | 
 | Autorizações Destruídas | A autorização falhou.|
 | InvalidSasToken | Ficha SAS inválida. | 
 | EscutaAcceptingConnection | O ouvinte está a aceitar a ligação. |
 | ListenerAcceptingConnectionTimeout | O ouvinte que aceita a ligação está esgotado. |
-| OuvinteAcceptingHttpRequestFailed | O ouvinte que aceita o pedido HTTP falhou devido a uma exceção. |
-| ListenerAcceptingRequestTimeout | O ouvinte que aceita o pedido está esgotado. |  
-| ListenerClosingFromExpiredToken | O ouvinte está a fechar porque o sinal de segurança expirou. | 
+| OuvinteAcceptingHttpRequestFailed | O ouvinte que aceita o pedido HTTP falhou devido a uma exceção. |
+| ListenerAcceptingRequestTimeout | O ouvinte que aceita o pedido está esgotado. |  
+| ListenerClosingFromExpiredToken | O ouvinte está a fechar porque o sinal de segurança expirou. | 
 | EscutarRejectedConnection | O ouvinte rejeitou a ligação. |
-| OuvinteReturningHttpResponse | O ouvinte está a devolver uma resposta HTTP. |  
+| OuvinteReturningHttpResponse | O ouvinte está a devolver uma resposta HTTP. |  
 | OuvinteReturningHttpResponseFailed | O ouvinte está a devolver uma resposta HTTP com um código de falha. | 
- ListenerSentHttpResponse | O serviço de retransmissão recebeu uma resposta HTTP do ouvinte. | 
+ ListenerSentHttpResponse | O serviço de retransmissão recebeu uma resposta HTTP do ouvinte. | 
 | OuvinteUntrosserado | O ouvinte não está registado. | 
 | OuvinteUnresponsive | O ouvinte não responde ao devolver uma resposta. | 
 | MensagensEndingToListener | A mensagem está a ser enviada ao ouvinte. |

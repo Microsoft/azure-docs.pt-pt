@@ -4,12 +4,12 @@ description: Monitorização do desempenho da aplicação para serviços de apli
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js, devx-track-dotnet
-ms.openlocfilehash: 55682215a990643111d5813db437b1f1e4612868
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 74b39219b3b18c8de0214367d141085f6dc5f674
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100547242"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574002"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Monitorizar o desempenho do Serviço de Aplicações do Azure
 
@@ -61,11 +61,11 @@ Existem duas formas de permitir a monitorização de aplicações para os Servi�
         
 | Dados | Coleção Básica ASP.NET | coleção recomendada ASP.NET |
 | --- | --- | --- |
-| Adiciona tendências de utilização da CPU, memória e E/S |Sim |Sim |
-| Recolhe tendências de utilização e permite a correlação dos resultados de disponibilidade para transações | Sim |Sim |
-| Recolhe exceções sem processamento pelo processo anfitrião | Sim |Sim |
-| Melhora a precisão das métricas de APM sob carga, quando é utilizada a amostragem | Sim |Sim |
-| Correlaciona os microsserviços entre limites de pedidos/dependências | Não (apenas capacidades APM de instância única) |Sim |
+| Adiciona tendências de utilização da CPU, memória e E/S |Yes |Yes |
+| Recolhe tendências de utilização e permite a correlação dos resultados de disponibilidade para transações | Yes |Yes |
+| Recolhe exceções sem processamento pelo processo anfitrião | Yes |Yes |
+| Melhora a precisão das métricas de APM sob carga, quando é utilizada a amostragem | Yes |Yes |
+| Correlaciona os microsserviços entre limites de pedidos/dependências | Não (apenas capacidades APM de instância única) |Yes |
 
 3. Para configurar configurações como amostragem, que poderia controlar previamente através do ficheiro applicationinsights.config pode agora interagir com essas mesmas definições através de definições de Aplicação com um prefixo correspondente. 
 
@@ -434,8 +434,8 @@ Para obter as últimas atualizações e correções de erro [consulte as notas d
 ## <a name="next-steps"></a>Passos seguintes
 * [Run the profiler on your live app](./profiler.md) (Executar o gerador de perfis na sua aplicação publicada).
 * [Funções do Azure](https://github.com/christopheranderson/azure-functions-app-insights-sample) - monitorize Funções do Azure com o Application Insights
-* [Ativar os diagnósticos do Azure](../platform/diagnostics-extension-to-application-insights.md) para serem enviados para o Application Insights.
-* [Monitorizar as métricas de estado de funcionamento de serviço](../platform/data-platform.md) para se certificar de que o serviço está disponível e a responder.
-* [Receber notificações de alertas](../platform/alerts-overview.md) sempre que ocorrem eventos operacionais ou quando as métricas ultrapassam um determinado limiar.
+* [Ativar os diagnósticos do Azure](../agents/diagnostics-extension-to-application-insights.md) para serem enviados para o Application Insights.
+* [Monitorizar as métricas de estado de funcionamento de serviço](../data-platform.md) para se certificar de que o serviço está disponível e a responder.
+* [Receber notificações de alertas](../alerts/alerts-overview.md) sempre que ocorrem eventos operacionais ou quando as métricas ultrapassam um determinado limiar.
 * Utilizar o [Application Insights para aplicações JavaScript e páginas Web](javascript.md) para obter telemetria de clientes a partir dos browsers que visitam as páginas Web.
 * [Configurar os Testes Web de disponibilidade](monitor-web-app-availability.md) para ser alertado se o seu site estiver em baixo.

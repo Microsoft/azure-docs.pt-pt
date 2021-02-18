@@ -1,5 +1,5 @@
 ---
-title: Stream Azure Ative Directy regista registos para registos do Monitor Azure Microsoft Docs
+title: Stream Azure Ative Directory regista registos de registos do Monitor Azure | Microsoft Docs
 description: Saiba como integrar os registos do Azure Ative Directory com registos do Azure Monitor
 services: active-directory
 documentationcenter: ''
@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 85e6a66f4520f12278266203211e1d1ae224c97f
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 0f328ed44252f7fb314552d6d05df9806f59d972
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96180460"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100591131"
 ---
 # <a name="integrate-azure-ad-logs-with-azure-monitor-logs"></a>Integre registos AD AD com registos do Azure Monitor
 
@@ -59,7 +59,7 @@ Para utilizar esta funcionalidade, precisa de:
 * Uma subscrição do Azure. Se não tiver uma subscrição do Azure, pode [inscrever-se para obter uma avaliação gratuita](https://azure.microsoft.com/free/).
 * Um inquilino do Azure AD.
 * Um utilizador que seja *administrador global* ou *administrador de segurança* do inquilino do Azure AD.
-* Um espaço de trabalho Log Analytics na sua subscrição Azure. Saiba como [criar um espaço de trabalho Log Analytics.](../../azure-monitor/learn/quick-create-workspace.md)
+* Um espaço de trabalho Log Analytics na sua subscrição Azure. Saiba como [criar um espaço de trabalho Log Analytics.](../../azure-monitor/logs/quick-create-workspace.md)
 
 ## <a name="licensing-requirements"></a>Requisitos de licenciamento
 
@@ -69,7 +69,7 @@ A utilização desta funcionalidade requer uma licença Azure AD Premium P1 ou P
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com). 
 
-2. Selecione as definições de diagnóstico **do diretório ativo Azure**  >  **Diagnostic settings**  ->  **Adicione a definição de diagnóstico**. Também pode selecionar Definições de **Exportação** a partir da página **'Registos** de Auditoria' ou **'Iniciar sessão'** para aceder à página de configuração de definições de diagnóstico.  
+2. Selecione as definições de diagnóstico **do diretório ativo Azure**  >    ->  **Adicione a definição de diagnóstico**. Também pode selecionar Definições de **Exportação** a partir da página **'Registos** de Auditoria' ou **'Iniciar sessão'** para aceder à página de configuração de definições de diagnóstico.  
     
 3. No menu **de definições de Diagnóstico,** selecione a caixa de verificação **do espaço de trabalho Enviar para registar análise** e, em seguida, selecione **Configure**.
 
@@ -81,7 +81,7 @@ A utilização desta funcionalidade requer uma licença Azure AD Premium P1 ou P
 
 6. Selecione **Guardar** para guardar a definição.
 
-    ![Definições de diagnósticos](./media/howto-integrate-activity-logs-with-log-analytics/Configure.png)
+    ![Definições de diagnóstico](./media/howto-integrate-activity-logs-with-log-analytics/Configure.png)
 
 7. Após cerca de 15 minutos, verifique se os eventos são transmitidos para o seu espaço de trabalho Log Analytics.
 

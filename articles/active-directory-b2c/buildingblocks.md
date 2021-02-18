@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/10/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 0170877995573bdfcb13ebc1c0387bed0893deac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a42c1d06051c283f0e911c4cd166884ddd060f45
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85201230"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100633279"
 ---
 # <a name="buildingblocks"></a>BuildingBlocks
 
@@ -78,4 +78,4 @@ O elemento **Blocos de Construção** contém os seguintes elementos que devem s
 
 - [Localização](localization.md) - Permite-lhe suportar vários idiomas. O apoio à localização nas políticas permite-lhe configurar a lista de línguas apoiadas numa política e escolher uma língua predefinida. As cordas e coleções específicas da linguagem também são suportadas.
 
-- [Controlos do Visor](display-controls.md) - Define os controlos a exibir numa página. Os controlos do ecrã têm uma funcionalidade especial e interagem com perfis técnicos de validação de back-end. Os controlos do visor estão atualmente em **pré-visualização**.
+- [Controlos do Visor](display-controls.md) - Define os controlos a exibir numa página. Os controlos do ecrã têm uma funcionalidade especial e interagem com perfis técnicos de validação de back-end. 

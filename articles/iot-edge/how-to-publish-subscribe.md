@@ -10,12 +10,12 @@ ms.date: 11/09/2020
 ms.topic: conceptual
 ms.service: iot-edge
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: 13bfd7c602389ff286a80f625829da5924a73bdf
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: e4043fd8b7c9571b62cbf65d7398754b27375efd
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98621900"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100633976"
 ---
 # <a name="publish-and-subscribe-with-azure-iot-edge"></a>Publicar e subscrever com a Azure IoT Edge
 
@@ -31,7 +31,7 @@ Pode utilizar o corretor MQTT Azure IoT Edge para publicar e subscrever mensagen
 - Um **hub IoT** de SKU ou F1, S1, S2 ou S3.
 - Tenha um **dispositivo IoT Edge com a versão 1.2 ou superior**. Uma vez que o corretor MQTT IoT Edge está atualmente em pré-visualização pública, deite as seguintes variáveis ambientais para verdade no recipiente edgeHub para permitir o corretor MQTT:
 
-   | Nome | Valor |
+   | Name | Valor |
    | - | - |
    | `experimentalFeatures__enabled` | `true` |
    | `experimentalFeatures__mqttBrokerEnabled` | `true` |
@@ -366,8 +366,8 @@ Os [SDKs de Dispositivo Azure IoT](https://github.com/Azure/azure-iot-sdks) já 
 
 O envio de dados de telemetria para o IoT Hub é semelhante à publicação de um tópico definido pelo utilizador, mas utilizando um tópico específico do IoT Hub:
 
-- Para um dispositivo, a telemetria é enviada sobre o tópico: `devices/<device_name>/messages/events`
-- Para um módulo, a telemetria é enviada sobre o tópico: `devices/<device_name>/<module_name>/messages/events`
+- Para um dispositivo, a telemetria é enviada sobre o tópico: `devices/<device_name>/messages/events/`
+- Para um módulo, a telemetria é enviada sobre o tópico: `devices/<device_name>/<module_name>/messages/events/`
 
 Além disso, crie uma rota como `FROM /messages/* INTO $upstream` enviar telemetria do corretor IoT Edge MQTT para o hub IoT. Para saber mais sobre o encaminhamento, consulte [as rotas de declarar.](module-composition.md#declare-routes)
 

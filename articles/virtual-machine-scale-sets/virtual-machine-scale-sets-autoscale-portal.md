@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 05/29/2018
 ms.reviewer: avverma
 ms.custom: avverma
-ms.openlocfilehash: ac42fe3265163a5a967524fe11063803c9ca91d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4bb4084a7ee0d9d719a88c077fa8c63803aa6934
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87080595"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100591365"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-the-azure-portal"></a>Escalar automaticamente uma escala de máquina virtual definida no portal Azure
 Quando criar um conjunto de dimensionamento, pode definir o número de instâncias de VM que quer executar. À medida que a sua aplicação exige alterações, pode aumentar ou reduzir automaticamente o número de instâncias de VM. A capacidade de dimensionamento automático permite-lhe manter-se a par da exigência do cliente ou responder às alterações de desempenho durante todo o ciclo de vida da aplicação.
@@ -46,7 +46,7 @@ Se a exigência da aplicação aumentar, a carga sobre as instâncias de VM no c
     | *Agregação do tempo*     | Define a forma como as métricas recolhidas devem ser agregadas para análise.                                                | Média        |
     | *Nome métrico*          | A métrica de desempenho para monitorizar e aplicar ações ao conjunto de dimensionamento.                                                   | Percentagem da CPU |
     | *Estatística do intervalo de agregação* | Define como as métricas recolhidas em cada vez que os grãos devem ser agregados para análise.                             | Média        |
-    | *Operador*             | Operador utilizado para comparar os dados de métrica relativamente ao limiar.                                                     | Maior do que   |
+    | *Operador*             | Operador utilizado para comparar os dados de métrica relativamente ao limiar.                                                     | Maior que   |
     | *Limiar*            | A percentagem que faz com que a regra da autoescala desencadeie uma ação.                                                 | 70             |
     | *Duration*             | A quantidade de tempo monitorizado antes dos valores de métrica e limiar serem comparados. Não inclui período de arrefecimento.                                   | 10 minutos     |
     | *Operação*            | Define se a balança definida deve escalar para cima ou para baixo quando a regra se aplica e por que incremento.                        | Aumentar por cento em |
@@ -70,7 +70,7 @@ Se a exigência da aplicação aumentar, a carga sobre as instâncias de VM no c
     
     | Parâmetro              | Explicação                                                                                                          | Valor          |
     |------------------------|----------------------------------------------------------------------------------------------------------------------|----------------|
-    | *Operador*             | Operador utilizado para comparar os dados de métrica relativamente ao limiar.                                                      | Menor do que   |
+    | *Operador*             | Operador utilizado para comparar os dados de métrica relativamente ao limiar.                                                      | Menor que   |
     | *Limiar*            | A percentagem que faz com que a regra da autoescala desencadeie uma ação.                                                 | 30             |
     | *Operação*            | Define se o conjunto de escala deve escalar para cima ou para baixo quando a regra se aplica e por que incremento                         | Diminuir por cento em |
     | *Contagem de exemplos*       | A percentagem de instâncias de VM deve ser alterada quando a regra for acionada.                                             | 20             |
@@ -121,8 +121,8 @@ Para ver como são aplicadas as suas regras de autoescala, selecione **Executar 
 
 
 ## <a name="next-steps"></a>Passos seguintes
-Neste artigo, aprendeu a utilizar regras de autoescala para escalar horizontalmente e aumentar ou diminuir o *número* de instâncias em VM no seu conjunto de escala. Também pode escalar verticalmente para aumentar ou diminuir o *tamanho*da instância VM . Para obter mais informações, consulte [autoescala vertical com conjuntos de escala de máquina virtual](virtual-machine-scale-sets-vertical-scale-reprovision.md).
+Neste artigo, aprendeu a utilizar regras de autoescala para escalar horizontalmente e aumentar ou diminuir o *número* de instâncias em VM no seu conjunto de escala. Também pode escalar verticalmente para aumentar ou diminuir o *tamanho* da instância VM . Para obter mais informações, consulte [autoescala vertical com conjuntos de escala de máquina virtual](virtual-machine-scale-sets-vertical-scale-reprovision.md).
 
 Para obter informações sobre como gerir as suas instâncias em VM, consulte [Gerir conjuntos de balanças de máquinas virtuais com Azure PowerShell](./virtual-machine-scale-sets-manage-powershell.md).
 
-Para aprender a gerar alertas quando as suas regras de autoescalação disparam, consulte [utilizar ações de autoescala para enviar notificações de alerta de email e webhook no Azure Monitor](../azure-monitor/platform/autoscale-webhook-email.md). Também pode [utilizar registos de auditoria para enviar notificações de alerta de email e webhook no Azure Monitor](../azure-monitor/platform/alerts-log-webhook.md).
+Para aprender a gerar alertas quando as suas regras de autoescalação disparam, consulte [utilizar ações de autoescala para enviar notificações de alerta de email e webhook no Azure Monitor](../azure-monitor/autoscale/autoscale-webhook-email.md). Também pode [utilizar registos de auditoria para enviar notificações de alerta de email e webhook no Azure Monitor](../azure-monitor/alerts/alerts-log-webhook.md).

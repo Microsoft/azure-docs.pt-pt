@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: trbye
-ms.openlocfilehash: 078118ec793530720a49a19046854e5ea4b7f5c4
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 3f0d191157fbabeab2b6f08a9d0a9b3bf1a35250
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100388945"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100591888"
 ---
 # <a name="evaluate-and-improve-custom-speech-accuracy"></a>Avaliar e melhorar a precisão da Voz Personalizada
 
@@ -109,12 +109,13 @@ O áudio com transcrições com rótulo humano oferece as maiores melhorias de p
 
 Considere estes detalhes:
 
-* O Custom Speech só pode capturar o contexto da palavra para reduzir erros de substituição, não erros de inserção ou eliminação.
+* O treino com áudio trará mais benefícios se o áudio também for difícil de entender para os humanos. Na maioria dos casos, deve começar a treinar usando apenas texto relacionado.
+* Se usar uma das línguas mais utilizadas, como o US-English, há boas hipóteses de não haver necessidade de treinar com dados áudio. Para tais línguas, os modelos base oferecem já resultados de reconhecimento muito bons na maioria dos cenários; É provavelmente o suficiente para treinar com texto relacionado.
+* O Custom Speech só pode capturar o contexto da palavra para reduzir erros de substituição, não inserção ou erros de eliminação.
 * Evite amostras que incluam erros de transcrição, mas inclua uma diversidade de qualidade áudio.
 * Evite frases que não estejam relacionadas com o seu domínio problemático. Frases não relacionadas podem prejudicar o seu modelo.
 * Quando a qualidade das transcrições varia, pode duplicar frases excepcionalmente boas (como excelentes transcrições que incluem frases-chave) para aumentar o seu peso.
 * O serviço Desemação utilizará automaticamente as transcrições para melhorar o reconhecimento de palavras e frases específicas do domínio, como se fossem adicionadas como texto relacionado.
-* O treino com áudio trará mais benefícios se o áudio também for difícil de entender para os humanos. Na maioria dos casos, deve começar a treinar usando apenas texto relacionado.
 * Pode levar vários dias para uma operação de treino ser concluída. Para melhorar a velocidade de formação, certifique-se de criar a sua subscrição de serviço De Discurso numa [região com o hardware dedicado](custom-speech-overview.md#set-up-your-azure-account) para a formação.
 
 > [!NOTE]

@@ -1,17 +1,17 @@
 ---
-title: Monitor Java web app performance em Linux - Azure / Microsoft Docs
+title: Monitor Java web app performance em Linux - Azure | Microsoft Docs
 description: Monitorização alargada do desempenho da aplicação do seu website Java com o plug-in CollectD para Insights de Aplicações.
 ms.topic: conceptual
 ms.date: 03/14/2019
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 5ec928a0dc3cbcde3c6dd50b1795a05b5e092bde
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 08d8deb4c7769c4f8a202050d7b5515439d691f4
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96601276"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100573855"
 ---
 # <a name="collectd-linux-performance-metrics-in-application-insights-deprecated"></a>recolhido: Métricas de desempenho do Linux em Insights de Aplicação [Deprecado]
 
@@ -133,5 +133,5 @@ Solução alternativa: Excluir dados recolhidos pelo problema Escreva plugins.
 [eclipse]: app-insights-java-eclipse.md
 [java]: java-get-started.md
 [javalogs]: java-trace-logs.md
-[metrics]: ../platform/metrics-charts.md
+[metrics]: ../essentials/metrics-charts.md
 

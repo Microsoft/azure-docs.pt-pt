@@ -4,12 +4,12 @@ description: Fornece um resumo das definições e limitações de suporte ao faz
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.custom: references_regions
-ms.openlocfilehash: 1752e6687cd4dda72ee330c489a4642ae32f8219
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.openlocfilehash: ed58bc9e2bf8757cad79c1043459ceb5b845be40
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99820777"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100633908"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matriz de suporte da cópia de segurança de uma VM do Azure
 
@@ -43,7 +43,7 @@ Faça o back up discos geridos após permitir o bloqueio do grupo de recursos | 
 Modificar a política de backup para um VM | Suportado.<br/><br/> O VM será apoiado utilizando as definições de programação e retenção em nova política. Se as definições de retenção forem estendidas, os pontos de recuperação existentes são marcados e mantidos. Se forem reduzidos, os pontos de recuperação existentes serão podados no próximo trabalho de limpeza e eventualmente eliminados.
 Cancele um trabalho de reserva| Suportado durante o processo de instantâneo.<br/><br/> Não suportado quando a foto está sendo transferida para o cofre.
 Apoiar o VM numa região ou subscrição diferente |Não suportado.<br><br>Para fazer uma cópia de segurança com sucesso, as máquinas virtuais devem estar na mesma subscrição que o cofre para cópia de segurança.
-Backups por dia (através da extensão Azure VM) | Um reforço programado por dia.<br/><br/>O serviço Azure Backup suporta até nove backups a pedido por dia, mas a Microsoft recomenda não mais do que quatro backups diários a pedido para garantir o melhor desempenho.
+Backups por dia (através da extensão Azure VM) | Um reforço programado por dia.<br/><br/>O serviço Azure Backup suporta até três backups a pedido por dia, e um backup adicional agendado.
 Backups por dia (através do agente MARS) | Três reforços programados por dia.
 Backups por dia (via DPM/MABS) | Dois reforços programados por dia.
 Backup mensal/anual| Não suportado quando se apoia com a extensão Azure VM. Apenas diariamente e semanalmente é suportado.<br/><br/> Pode definir a política para reter backups diários/semanais para o período de retenção mensal/anual.
@@ -144,7 +144,7 @@ Back up VMs que são implantados a partir do [Azure Marketplace](https://azurema
 Back up VMs que são implantados a partir de uma imagem personalizada (terceiro) |Suportado.<br/><br/> O VM deve estar a executar um sistema operativo suportado.<br/><br/> Ao recuperar ficheiros sobre o VM, só pode restaurar um SISTEMA compatível (não um SO anterior ou posterior).
 Back up VMs que são migrados para Azure| Suportado.<br/><br/> Para fazer uma proteção do VM, o agente VM tem de ser instalado na máquina migratória.
 Apoiar consistência multi-VM | O Azure Backup não fornece consistência de dados e aplicações em vários VMs.
-Backup com [Definições de Diagnóstico](../azure-monitor/platform/platform-logs-overview.md)  | Sem apoio. <br/><br/> Se a restauração do VM Azure com definições de diagnóstico for acionada utilizando a opção [Create New,](backup-azure-arm-restore-vms.md#create-a-vm) então a restauração falha.
+Backup com [Definições de Diagnóstico](../azure-monitor/essentials/platform-logs-overview.md)  | Sem apoio. <br/><br/> Se a restauração do VM Azure com definições de diagnóstico for acionada utilizando a opção [Create New,](backup-azure-arm-restore-vms.md#create-a-vm) então a restauração falha.
 Restauro de VMs fixados em zona | Suportado (para um VM que é apoiado depois de janeiro de 2019 e onde estão disponíveis [zonas de disponibilidade).](https://azure.microsoft.com/global-infrastructure/availability-zones/)<br/><br/>Atualmente, apoiamos restaurar a mesma zona que está presa em VMs. No entanto, se a zona não estiver disponível devido a uma paragem, a restauração falhará.
 GMs gen2 | Suportado <br> A Azure Backup suporta cópia de segurança e restauro de [VMs da Gen2](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/). Quando estes VMs são restaurados do ponto de recuperação, são restaurados como [VMs gen2](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/).
 Backup de VMs Azure com fechaduras | Não suportado para VMs não geridos. <br><br> Suportado para VMs geridos.

@@ -4,14 +4,14 @@ titleSuffix: Azure Kubernetes Service
 description: Visão geral de como usar o nó virtual com os Serviços Azure Kubernetes (AKS)
 services: container-service
 ms.topic: conceptual
-ms.date: 09/21/2020
+ms.date: 02/17/2021
 ms.custom: references_regions
-ms.openlocfilehash: 1e5a53c80aed90e44ba594dcff3c8ca23afc2c4f
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 3bba1155ec57db67968aec95d1d3386fc6cda006
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98684779"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100634452"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes"></a>Criar e configurar um cluster Azure Kubernetes Services (AKS) para usar nós virtuais
 
@@ -45,7 +45,6 @@ A funcionalidade Nódes Virtuais está fortemente dependente do conjunto de func
 * [Os DaemonSets](concepts-clusters-workloads.md#statefulsets-and-daemonsets) não vão implantar cápsulas nos nos acenos virtuais
 * Os nós virtuais suportam o agendamento de cápsulas Linux. Pode instalar manualmente o fornecedor [Virtual Kubelet ACI](https://github.com/virtual-kubelet/azure-aci) de fonte aberta para agendar os contentores do Windows Server para ACI.
 * Os nós virtuais requerem clusters AKS com rede CNI Azure.
-* Nós virtuais com aglomerados privados.
 * Utilizando gamas ip autorizadas do servidor API para AKS.
 * A montagem em volume dos Ficheiros Azure partilha suporte [de uso geral V1](../storage/common/storage-account-overview.md#types-of-storage-accounts). Siga as instruções para a montagem [de um volume com a partilha de Ficheiros Azure](azure-files-volume.md)
 * A utilização do IPv6 não é suportada.

@@ -3,12 +3,12 @@ title: Azure Funções Hospedagem Dedicada
 description: Conheça os benefícios de executar funções Azure num plano de hospedagem dedicado do Serviço de Aplicações.
 ms.topic: conceptual
 ms.date: 10/29/2020
-ms.openlocfilehash: 0ebf83aa919d91f161b247539ae20873242a8ed8
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 0ee32d4c4a7d33664da88b133a1f7011fc09f298
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97937697"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100591061"
 ---
 # <a name="dedicated-hosting-plans-for-azure-functions"></a>Planos de hospedagem dedicados para funções Azure
 
@@ -33,7 +33,7 @@ Mesmo com Always On ativado, o tempo de execução para funções individuais é
 
 ## <a name="scaling"></a>Dimensionamento
 
-Utilizando um plano de Serviço de Aplicações, pode escalar manualmente adicionando mais instâncias VM. Também pode ativar a autoescala, embora a autoescala seja mais lenta do que a escala elástica do plano Premium. Para obter mais informações, consulte [a contagem de instâncias de escala manual ou automática.](../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json) Também pode aumentar a escala escolhendo um plano de Serviço de Aplicações diferente. Para obter mais informações, consulte [Scale up uma aplicação em Azure](../app-service/manage-scale-up.md). 
+Utilizando um plano de Serviço de Aplicações, pode escalar manualmente adicionando mais instâncias VM. Também pode ativar a autoescala, embora a autoescala seja mais lenta do que a escala elástica do plano Premium. Para obter mais informações, consulte [a contagem de instâncias de escala manual ou automática.](../azure-monitor/autoscale/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json) Também pode aumentar a escala escolhendo um plano de Serviço de Aplicações diferente. Para obter mais informações, consulte [Scale up uma aplicação em Azure](../app-service/manage-scale-up.md). 
 
 > [!NOTE] 
 > Ao executar funções JavaScript (Node.js) num plano de Serviço de Aplicações, deve escolher um plano que tenha menos vCPUs. Para obter mais informações, consulte [Escolha os planos do Serviço de Aplicações de núcleo único.](functions-reference-node.md#choose-single-vcpu-app-service-plans) 

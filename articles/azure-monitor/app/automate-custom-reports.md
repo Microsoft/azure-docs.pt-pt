@@ -4,12 +4,12 @@ description: Automatizar relatórios personalizados diários/semanais/mensais co
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.reviewer: sdash
-ms.openlocfilehash: da465fbc899cb52fc48dbde830d3db4f3b58c68b
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 39970227fc94d3073688b23cc530462f368a6ecf
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98680455"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590045"
 ---
 # <a name="automate-custom-reports-with-azure-application-insights-data"></a>Automatizar relatórios personalizados com dados da Azure Application Insights
 
@@ -31,7 +31,7 @@ Cada empresa tem as suas necessidades únicas de reporte, tais como:
 
 Pode [consultar programáticamente](https://dev.applicationinsights.io/) os dados de Insights de Aplicação para gerar relatórios personalizados num horário. As seguintes opções podem ajudá-lo a começar rapidamente:
 
-* [Automatizar relatórios com a Power Automamate](../platform/logicapp-flow-connector.md)
+* [Automatizar relatórios com a Power Automamate](../logs/logicapp-flow-connector.md)
 * [Automatizar relatórios com apps lógicas](automate-with-logic-apps.md)
 * Utilize o modelo de [função Azure](../../azure-functions/functions-get-started.md) "Application Insights programado" no cenário de Monitorização. Esta função utiliza o SendGrid para entregar o e-mail. 
 
@@ -150,7 +150,7 @@ Estes passos só se aplicam se ainda não tiver uma conta SendGrid configurada.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Saiba mais sobre a criação [de consultas analíticas.](../log-query/get-started-queries.md)
+* Saiba mais sobre a criação [de consultas analíticas.](../logs/get-started-queries.md)
 * Saiba mais sobre [os dados programáticas de consultas de insights de aplicação](https://dev.applicationinsights.io/)
 * Saiba mais sobre o [Logic Apps](../../logic-apps/logic-apps-overview.md).
 * Saiba mais sobre [o Microsoft Power Automamate](https://ms.flow.microsoft.com).

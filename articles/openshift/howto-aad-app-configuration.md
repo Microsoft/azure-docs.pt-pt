@@ -3,15 +3,15 @@ title: Integração do Azure Ative Directory para o Azure Red Hat OpenShift
 description: Saiba como criar um grupo de segurança Azure AD e utilizador para testar aplicações no seu cluster Microsoft Azure Red Hat OpenShift.
 author: jimzim
 ms.author: jzim
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.openlocfilehash: ee8613d0300a941f80577c98be106173d5d3ced1
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: f0bf28d61d4c9ad95a485fb4b60e370c16ace16c
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92220708"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100633330"
 ---
 # <a name="azure-active-directory-integration-for-azure-red-hat-openshift"></a>Integração do Azure Ative Directory para o Azure Red Hat OpenShift
 
@@ -73,7 +73,7 @@ Se a sua organização ainda não tiver um registo de aplicações Azure Ative (
 
 1. Abra a lâmina de [registos](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview) da App e clique **em +Novo registo.**
 2. No **Registo de um** painel de candidatura, insira um nome para o seu registo de inscrição.
-3. Certifique-se de que, nos tipos de conta **suportados, as contas neste diretório organizacional apenas** são selecionadas. **Supported account types** Esta é a escolha mais segura.
+3. Certifique-se de que, nos tipos de conta **suportados, as contas neste diretório organizacional apenas** são selecionadas.  Esta é a escolha mais segura.
 4. Adicionaremos um URI de redirecionamento mais tarde assim que soubermos o URI do cluster. Clique no botão **Registar** para criar o registo de inscrição Azure AD.
 5. Na página que aparece, copie o **ID da Aplicação (cliente).** Vamos referir-nos a este valor como `APPID` no tutorial de cluster [OpenShift do Chapéu Vermelho Azure.](tutorial-create-cluster.md)
 
@@ -109,7 +109,7 @@ Para obter mais informações sobre a criação de uma nova aplicação AD Azure
 5. Expandir o **Diretório** na lista abaixo e ativar o **Diretório.ReadAll**.
 6. Clique **em Adicionar permissões** para aceitar as alterações.
 7. O painel de permissões da API deve agora mostrar tanto *o Utilizador.Read* como *o Diretório.ReadAll*. Por favor, note o aviso na coluna **requerida pelo consentimento do Administrador** junto ao *Diretório.ReadAll*.
-8. Se for o *Administrador de Subscrição Azure,* clique em **Grant a administrar o consentimento para o nome *de subscrição* ** abaixo. Se não for o *Administrador de Subscrição da Azure,* solicite o consentimento do seu administrador.
+8. Se for o *Administrador de Subscrição Azure,* clique em **Grant a administrar o consentimento para o nome *de subscrição*** abaixo. Se não for o *Administrador de Subscrição da Azure,* solicite o consentimento do seu administrador.
 
 ![Screenshot do painel de permissões da API. User.Read and Directory.ReadTodas permissões adicionadas, consentimento administrativo necessário para o Diretório.ReadAll](./media/howto-aad-app-configuration/permissions-required.png)
 

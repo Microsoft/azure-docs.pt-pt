@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: f6825fee4cfb78ab54d782cd4d942bb994bedae9
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: b484873f6c118c49712cbcd66eeb6a63d8aa05f6
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98195726"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100591551"
 ---
 # <a name="azure-security-baseline-for-azure-storage"></a>Linha de base de segurança Azure para armazenamento Azure
 
@@ -158,7 +158,7 @@ Também pode utilizar definições de política incorporadas relacionadas com a 
 
 - [Como configurar e gerir o Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
-- [Como criar alertas no Azure Monitor](../../azure-monitor/platform/alerts-activity-log.md)
+- [Como criar alertas no Azure Monitor](../../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitorização do Centro de Segurança do Azure**: Sim
 
@@ -180,7 +180,7 @@ Também pode utilizar definições de política incorporadas relacionadas com a 
 
 **Orientação**: Ingerir registos via Azure Monitor para agregar dados de segurança gerados por dispositivos de pontos finais, recursos de rede e outros sistemas de segurança. Dentro do Azure Monitor, utilize o Log Analytics Workspace(s) para consultar e realizar análises, e utilize contas de armazenamento Azure para armazenamento a longo prazo/arquivo, opcionalmente com funcionalidades de segurança, tais como armazenamento imutável e retenção forçada.
 
-- [Como recolher registos e métricas da plataforma com o Azure Monitor](../../azure-monitor/platform/diagnostic-settings.md)
+- [Como recolher registos e métricas da plataforma com o Azure Monitor](../../azure-monitor/essentials/diagnostic-settings.md)
 
 **Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
@@ -210,7 +210,7 @@ Também pode utilizar definições de política incorporadas relacionadas com a 
 
 - [Como configurar a política de retenção para os registos de conta de armazenamento Azure](./storage-monitor-storage-account.md#configure-logging)
 
-- [Alterar o período de retenção de dados em Log Analytics](../../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Alterar o período de retenção de dados em Log Analytics](../../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
@@ -238,7 +238,7 @@ Além disso, Ative a Proteção Avançada de Ameaças para a sua conta de Armaze
 
 - [Como gerir alertas no Centro de Segurança Azure](../../security-center/security-center-managing-and-responding-alerts.md)
 
-- [Como alertar nos dados de registos de registos](../../azure-monitor/learn/tutorial-response.md)
+- [Como alertar nos dados de registo de registo de registos de registos](../../azure-monitor/alerts/tutorial-response.md)
 
 - [Azure Storage analytics logging](./storage-analytics-logging.md) (Registo de análise do Armazenamento do Azure)
 
@@ -362,7 +362,7 @@ Também pode ativar um Acesso Just-In-Time / Just-Enough-Enough utilizando funç
 
 - [Compreender deteções de risco Azure AD](../../active-directory/identity-protection/overview-identity-protection.md)
 
-- [Como configurar grupos de ação para alerta e notificação personalizados](../../azure-monitor/platform/action-groups.md)
+- [Como configurar grupos de ação para alerta e notificação personalizados](../../azure-monitor/alerts/action-groups.md)
 
 **Monitorização do Centro de Segurança do Azure**: Sim
 
@@ -572,7 +572,7 @@ Além disso, utilize políticas de ponto final do serviço de rede virtual para 
 
 **Orientação**: Utilize o Monitor Azure com o Registo de Atividades Azure para criar alertas para quando ocorrerem alterações nos recursos da conta de Armazenamento. Também pode permitir que o registo de armazenamento Azure rastreie a forma como cada pedido feito contra o Azure Storage foi autorizado. Os registos indicam se um pedido foi feito de forma anónima, utilizando um token OAuth 2.0, utilizando a Chave Partilhada, ou utilizando uma assinatura de acesso partilhado (SAS). Além disso, utilize o Azure Monitor para alertar sobre o acesso anónimo às contas de Armazenamento utilizando a condição de autenticação anónima.
 
-- [Como criar alertas para eventos de Registo de Atividades Azure](../../azure-monitor/platform/alerts-activity-log.md)
+- [Como criar alertas para eventos de Registo de Atividades Azure](../../azure-monitor/alerts/alerts-activity-log.md)
 
 - [Azure Storage analytics logging](./storage-analytics-logging.md) (Registo de análise do Armazenamento do Azure)
 

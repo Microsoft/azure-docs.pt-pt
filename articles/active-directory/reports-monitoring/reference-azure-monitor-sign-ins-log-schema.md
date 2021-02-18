@@ -1,5 +1,5 @@
 ---
-title: Esquema de registo de login no Monitor Azure / Microsoft Docs
+title: Esquema de registo de login em Azure Monitor | Microsoft Docs
 description: Descreva o sinal AZURE AD no esquema de registo para utilização no Azure Monitor
 services: active-directory
 documentationcenter: ''
@@ -17,16 +17,16 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a881dee50195fe4995c77d793b4f4b75091d20b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d912707a1f41a0c3063d6f3fb67aa6914bd2d390
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89231117"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592306"
 ---
 # <a name="interpret-the-azure-ad-sign-in-logs-schema-in-azure-monitor"></a>Interprete o esquema de registos de registos AD AZure no Azure Monitor
 
-Este artigo descreve o esquema de registo de registo de registo Azure Ative (Azure AD) no Azure Monitor. A maior parte da informação relacionada com as entradas é fornecida sob o atributo *Propriedades* do `records` objeto.
+Este artigo descreve o esquema de registo Azure Ative (Azure AD) no Azure Monitor. A maior parte da informação relacionada com as entradas é fornecida sob o atributo *Propriedades* do `records` objeto.
 
 
 ```json
@@ -143,7 +143,7 @@ Este artigo descreve o esquema de registo de registo de registo Azure Ative (Azu
 
 ## <a name="field-descriptions"></a>Descrições dos campos
 
-| Nome do campo | Descrição |
+| Nome do campo | Description |
 |------------|-------------|
 | Hora | A data e a hora, na UTC. |
 | ResourceId | Este valor não é mapeado, e você pode ignorar com segurança este campo.  |
@@ -163,11 +163,11 @@ Este artigo descreve o esquema de registo de registo de registo Azure Ative (Azu
 | CallerIpAddress | O endereço IP do cliente que fez o pedido. | 
 | CorrelationId | O GUID opcional que passou pelo cliente. Este valor pode ajudar a correlacionar as operações do lado do cliente com as operações do lado do servidor, e é útil quando está a rastrear registos que abrangem os serviços. |
 | Identidade | A identidade do símbolo que foi apresentado quando fez o pedido. Pode ser uma conta de utilizador, conta do sistema ou principal serviço. |
-| Nível | Fornece o tipo de mensagem. Para auditoria, é sempre *informativo.* |
+| Level | Fornece o tipo de mensagem. Para auditoria, é sempre *informativo.* |
 | Localização | Fornece a localização da atividade de inscrição. |
 | Propriedades | Lista todas as propriedades associadas a insusitados. Para obter mais informações, consulte [a Referência API do Gráfico da Microsoft](/graph/api/resources/signin?view=graph-rest-beta). Este esquema utiliza os mesmos nomes de atributos que o recurso de inscrição, para legibilidade.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Interpretar esquema de registos de auditoria no Azure Monitor](reference-azure-monitor-audit-log-schema.md)
-* [Leia mais sobre os registos da plataforma Azure](../../azure-monitor/platform/platform-logs-overview.md)
+* [Leia mais sobre os registos da plataforma Azure](../../azure-monitor/essentials/platform-logs-overview.md)

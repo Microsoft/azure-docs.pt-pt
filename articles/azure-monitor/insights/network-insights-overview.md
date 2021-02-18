@@ -6,16 +6,16 @@ ms.topic: conceptual
 author: KumudD
 ms.author: kumud
 ms.date: 11/25/2020
-ms.openlocfilehash: 4a273170a1f3842a9a11a61d41d4150eb98eace4
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 0616d14a890cfd5dd1a486dd21670c7c58dbeebc
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98734161"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100573523"
 ---
 # <a name="azure-monitor-for-networks"></a>Azure Monitor para Redes
 
-O Azure Monitor for Networks proporciona uma visão abrangente da [saúde](../../service-health/resource-health-checks-resource-types.md) e métricas para todos os recursos de rede [implantados,](../platform/metrics-supported.md) sem necessidade de qualquer configuração. Também fornece acesso a capacidades de monitorização de rede como [Connection Monitor,](../../network-watcher/connection-monitor-overview.md) [registo de fluxos para grupos de segurança de rede (NSGs)](../../network-watcher/network-watcher-nsg-flow-logging-overview.md)e [Traffic Analytics](../../network-watcher/traffic-analytics.md). E fornece outras funcionalidades [de diagnóstico de](../../network-watcher/network-watcher-monitoring-overview.md#diagnostics) rede.
+O Azure Monitor for Networks proporciona uma visão abrangente da [saúde](../../service-health/resource-health-checks-resource-types.md) e métricas para todos os recursos de rede [implantados,](../essentials/metrics-supported.md) sem necessidade de qualquer configuração. Também fornece acesso a capacidades de monitorização de rede como [Connection Monitor,](../../network-watcher/connection-monitor-overview.md) [registo de fluxos para grupos de segurança de rede (NSGs)](../../network-watcher/network-watcher-nsg-flow-logging-overview.md)e [Traffic Analytics](../../network-watcher/traffic-analytics.md). E fornece outras funcionalidades [de diagnóstico de](../../network-watcher/network-watcher-monitoring-overview.md#diagnostics) rede.
 
 O Azure Monitor for Networks está estruturado em torno destes componentes-chave de monitorização:
 - [Saúde da rede e métricas](#networkhealth)
@@ -146,7 +146,7 @@ O intervalo de tempo depende das definições do painel de instrumentos.
 
 Pode editar o livro de trabalho que vê em qualquer painel lateral ou métrica detalhada utilizando o modo de edição. Em seguida, pode guardar as suas alterações como um novo livro.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre a monitorização da rede: [O que é O Observador de Redes Azure?](../../network-watcher/network-watcher-monitoring-overview.md)
-- Conheça os cenários que os livros de trabalho são projetados para suportar, como criar relatórios e personalizar relatórios existentes, e muito mais: [Criar relatórios interativos com livros de trabalho do Azure Monitor](../platform/workbooks-overview.md)
+- Conheça os cenários que os livros de trabalho são projetados para suportar, como criar relatórios e personalizar relatórios existentes, e muito mais: [Criar relatórios interativos com livros de trabalho do Azure Monitor](../visualize/workbooks-overview.md)

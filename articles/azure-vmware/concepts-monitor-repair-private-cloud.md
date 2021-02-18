@@ -3,13 +3,13 @@ title: Conceitos - Monitorizar e reparar a Azure VMware Solution nuvens privadas
 description: Saiba como a Azure VMware Solution monitoriza e repara servidores VMware ESXi numa nuvem privada Azure VMware Solution.
 ms.topic: conceptual
 ms.custom: contperf-fy21q2
-ms.date: 02/03/2021
-ms.openlocfilehash: 6174df429fd9b21c7f685c8ba14e6d5c0bba4c83
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.date: 02/16/2021
+ms.openlocfilehash: 59319b5598be9770e82b9676a28444648230a019
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99538963"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100633143"
 ---
 # <a name="monitor-and-repair-azure-vmware-solution-private-clouds"></a>Monitore e repare Azure VMware Solução nuvens privadas
 
@@ -17,7 +17,7 @@ A Azure VMware Solution monitoriza continuamente os servidores VMware ESXi numa 
 
 ## <a name="what-azure-vmware-solution-monitors"></a>O que a Azure VMware Solution monitoriza
 
-A Azure VMware Solution monitoriza o seguinte para as condições de falha no hospedeiro:  
+A Azure VMware Solution monitoriza as seguintes condições no anfitrião:  
 
 - Estado do processador 
 - Estado da memória 
@@ -37,9 +37,9 @@ A Azure VMware Solution monitoriza o seguinte para as condições de falha no ho
 
 ## <a name="azure-vmware-solution-host-remediation"></a>Remediar o anfitrião da Solução VMware Azure  
 
-Quando a Azure VMware Solution deteta uma degradação ou falha num nó Azure VMware Solution na nuvem privada de um inquilino, desencadeia o processo de remediação do hospedeiro. A reparação do hospedeiro envolve a substituição do nó defeituoso por um novo nó saudável.  
+Quando a Azure VMware Solution deteta uma degradação ou falha num nó de Solução VMware Azure, ativa o processo de remediação do hospedeiro. A reparação do hospedeiro envolve a substituição do nó defeituoso por um novo nó saudável.  
 
-O processo de remediação do hospedeiro começa adicionando um novo nó saudável no cluster. Em seguida, quando possível, o hospedeiro defeituoso é colocado no modo de manutenção VMware vSphere. VMware vMotion é usado para mover os VMs do hospedeiro defeituoso para outros servidores disponíveis no cluster, potencialmente permitindo a migração ao vivo zero de cargas de trabalho. Em cenários em que o hospedeiro defeituoso não pode ser colocado em modo de manutenção, o hospedeiro é removido do cluster.
+A remediação do hospedeiro começa por adicionar um novo nó saudável no cluster. Em seguida, quando possível, o hospedeiro defeituoso é colocado no modo de manutenção VMware vSphere. VMware vMotion move os VMs do hospedeiro defeituoso para outros servidores disponíveis no cluster, potencialmente permitindo zero tempo de inatividade para a migração ao vivo de cargas de trabalho. Se o hospedeiro defeituoso não puder ser colocado em modo de manutenção, o hospedeiro é removido do cluster.
 
 ## <a name="next-steps"></a>Passos seguintes
 
