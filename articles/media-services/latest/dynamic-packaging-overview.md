@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: inhenkel
-ms.openlocfilehash: ed2c5b4175745fa14864b2d360bcbf5e5237a495
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 9be00fd89234be0a8b5740af9e12811f36a47619
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897650"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101092342"
 ---
 # <a name="dynamic-packaging-in-media-services-v3"></a>Embalagem dinâmica em Media Services v3
 
@@ -328,6 +328,6 @@ Consulte a [comunidade Azure Media Services](media-services-community.md) para v
 
 Você pode abrir um bilhete de apoio navegando para [novo pedido de suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Carregar, codificar e transmitir vídeos](stream-files-tutorial-with-api.md)

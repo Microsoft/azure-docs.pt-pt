@@ -14,33 +14,31 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 75df01ff65a0910dab140942b520978cd7728775
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: f75b8055757557eadeb98a45196a116e56c5aa35
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897582"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101093447"
 ---
 # <a name="creating-filters-with-cli"></a>Criar filtros com CLI
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-Ao entregar o seu conteúdo aos clientes (streaming de eventos ao vivo ou vídeo a pedido), o seu cliente poderá necessitar de mais flexibilidade do que o descrito no ficheiro manifesto do ativo padrão. O Azure Media Services permite-lhe definir filtros de conta e filtros de ativos para o seu conteúdo. 
+Ao entregar o seu conteúdo aos clientes (streaming de eventos ao vivo ou vídeo a pedido), o seu cliente poderá necessitar de mais flexibilidade do que o descrito no ficheiro manifesto do ativo padrão. O Azure Media Services permite-lhe definir filtros de conta e filtros de ativos para o seu conteúdo.
 
 Para uma descrição detalhada desta característica e cenários onde é utilizado, consulte [Manifestos Dinâmicos](filters-dynamic-manifest-overview.md) e [Filtros.](filters-concept.md)
 
-Este tópico mostra como configurar um filtro para um ativo vídeo on-demand e usar o CLI para serviços de mídia v3 para criar [filtros de conta](/cli/azure/ams/account-filter?view=azure-cli-latest) e [filtros de ativos](/cli/azure/ams/asset-filter?view=azure-cli-latest). 
+Este tópico mostra como configurar um filtro para um ativo vídeo on-demand e usar o CLI para serviços de mídia v3 para criar [filtros de conta](/cli/azure/ams/account-filter?view=azure-cli-latest) e [filtros de ativos](/cli/azure/ams/asset-filter?view=azure-cli-latest).
 
 > [!NOTE]
 > Certifique-se de rever a [apresentaçãoTimeRange](filters-concept.md#presentationtimerange).
 
-## <a name="prerequisites"></a>Pré-requisitos 
+## <a name="prerequisites"></a>Pré-requisitos
 
-- [Criar uma conta de Serviços de Comunicação](./create-account-howto.md)Social. Lembre-se do nome do grupo de recursos e do nome da conta dos Serviços de Comunicação Social. 
+- [Criar uma conta de Serviços de Comunicação](./create-account-howto.md)Social. Lembre-se do nome do grupo de recursos e do nome da conta dos Serviços de Comunicação Social.
 
-[!INCLUDE [media-services-cli-instructions](../../../includes/media-services-cli-instructions.md)]
-
-## <a name="define-a-filter"></a>Definir um filtro 
+## <a name="define-a-filter"></a>Definir um filtro
 
 O exemplo a seguir define as condições de seleção da pista que são adicionadas ao manifesto final. Este filtro inclui quaisquer faixas de áudio que sejam EC-3 e quaisquer faixas de vídeo que tenham bitrate na gama 0-100000.
 
@@ -82,7 +80,7 @@ O exemplo a seguir define as condições de seleção da pista que são adiciona
 
 ## <a name="create-account-filters"></a>Criar filtros de conta
 
-O seguinte comando [az ams-filter](/cli/azure/ams/account-filter?view=azure-cli-latest) cria um filtro de conta com seleções de faixas de filtro que foram [definidas anteriormente](#define-a-filter). 
+O seguinte comando [az ams-filter](/cli/azure/ams/account-filter?view=azure-cli-latest) cria um filtro de conta com seleções de faixas de filtro que foram [definidas anteriormente](#define-a-filter).
 
 O comando permite-lhe passar um parâmetro opcional `--tracks` que contém JSON representando as seleções da pista.  Use @{file} para carregar JSON a partir de um ficheiro. Se estiver a utilizar o Azure CLI localmente, especifique todo o caminho do ficheiro:
 
@@ -130,8 +128,8 @@ A tabela a seguir mostra alguns exemplos de URLs com filtros:
 
 ## <a name="next-step"></a>Passo seguinte
 
-[Stream vídeos](stream-files-tutorial-with-api.md) 
+[Stream vídeos](stream-files-tutorial-with-api.md)
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 [CLI do Azure](/cli/azure/ams?view=azure-cli-latest)

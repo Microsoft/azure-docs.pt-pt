@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: d7753de473d90c45fecb20403352a594ef52dafe
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: f21c819f82051572e8a3dd01664053ade9196484
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100586298"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101095045"
 ---
 # <a name="azure-security-baseline-for-app-service"></a>Linha de base de segurança Azure para o Serviço de Aplicações
 
@@ -347,7 +347,7 @@ Monitorize os ataques contra as suas aplicações de Serviço de Aplicações ut
 
 - [Como utilizar identidades geridas para o Serviço de Aplicações e Funções Azure](overview-managed-identity.md?context=azure%2Factive-directory%2Fmanaged-identities-azure-resources%2Fcontext%2Fmsi-context&amp;tabs=dotnet)
 
-- [Adicionar ou remover atribuições de funções do Azure com o portal do Azure](../role-based-access-control/role-assignments-portal.md)
+- [Atribuir funções Azure usando o portal Azure](../role-based-access-control/role-assignments-portal.md)
 
 **Monitorização do Centro de Segurança do Azure**: Sim
 
@@ -612,9 +612,9 @@ A Microsoft gere a plataforma subjacente e trata todos os dados dos clientes com
 
 ### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4.6: Utilizar o controlo de acesso baseado em funções para controlar o acesso aos recursos
 
-**Orientação**: Utilize o controlo de acesso baseado em funções (Azure RBAC) no Azure Ative Directory (Azure AD) para controlar o acesso ao plano de controlo do Serviço de Aplicações no portal Azure.
+**Orientação**: Utilize o controlo de acesso baseado em funções (Azure RBAC) no Azure Ative Directory (Azure AD) para controlar o acesso ao avião de controlo do Serviço de Aplicações no portal Azure.
 
-- [Como configurar o RBAC no Azure](../role-based-access-control/role-assignments-portal.md)
+- [Como configurar o Azure RBAC](../role-based-access-control/role-assignments-portal.md)
 
 **Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 

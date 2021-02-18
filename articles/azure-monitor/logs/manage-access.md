@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/10/2019
-ms.openlocfilehash: 184d5c98b2b434c87e112c569ff4e8ab347344c5
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: f16e5363af7de2152a7fa73bb52219d87971a249
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100613981"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101091195"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Gerir o acesso a dados de registo e áreas de trabalho no Azure Monitor
 
@@ -120,7 +120,7 @@ As atividades seguintes também necessitam de permissões do Azure:
 
 ## <a name="manage-access-using-azure-permissions"></a>Gerir o acesso usando permissões Azure
 
-Para conceder acesso à área de trabalho do Log Analytics com permissões do Azure, siga os passos em [Utilize atribuições de funções para gerir o acesso aos recursos de subscrição do Azure](../../role-based-access-control/role-assignments-portal.md). Por exemplo, funções personalizadas, ver [funções personalizadas exemplo](#custom-role-examples)
+Para permitir o acesso ao espaço de trabalho Log Analytics utilizando permissões Azure, siga os passos para [atribuir funções Azure para gerir o acesso aos seus recursos de subscrição Azure.](../../role-based-access-control/role-assignments-portal.md) Por exemplo, funções personalizadas, ver [funções personalizadas exemplo](#custom-role-examples)
 
 A Azure tem duas funções de utilizador incorporadas para espaços de trabalho Log Analytics:
 

@@ -6,16 +6,15 @@ author: rolyon
 manager: mtillman
 ms.service: role-based-access-control
 ms.topic: how-to
-ms.custom: subject-armqs
 ms.workload: identity
 ms.date: 12/16/2020
 ms.author: rolyon
-ms.openlocfilehash: 96915fe5cc7bc7b2f88e0cbd8619c10a6433dd71
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 0626a9e36d05ac9cb51f62652dbe6f3133bbc6d7
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100557479"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101095910"
 ---
 # <a name="create-or-update-azure-custom-roles-using-an-arm-template"></a>Criar ou atualizar funções personalizadas Azure usando um modelo ARM
 

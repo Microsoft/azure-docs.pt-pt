@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: 3e4211da59193d0c48398d9f2822fd12cc217d8b
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 43aa86504d265927cb94e4333f86bb9cc9d2e2ea
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100390577"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101095559"
 ---
 # <a name="change-feed-support-in-azure-blob-storage"></a>Alterar suporte de alimentação no armazenamento de blob Azure
 
@@ -268,7 +268,7 @@ Para obter uma descrição de cada propriedade, consulte [o esquema de eventos d
 
 - Altere os registos de eventos onde `eventType` o valor tenha são registos internos do sistema e não reflita uma alteração de `Control` objetos na sua conta. Podes ignorar os registos com segurança.
 
-- Os valores no `storageDiagnonstics` saco de propriedade são apenas para uso interno e não projetados para uso pela sua aplicação. As suas aplicações não devem ter uma dependência contratual desses dados. Pode ignorar com segurança essas propriedades.
+- Os valores no `storageDiagnostics` saco de propriedade são apenas para uso interno e não projetados para uso pela sua aplicação. As suas aplicações não devem ter uma dependência contratual desses dados. Pode ignorar com segurança essas propriedades.
 
 - O tempo representado pelo segmento é **aproximado** com limites de 15 minutos. Assim, para garantir o consumo de todos os registos dentro de um determinado tempo, consuma o segmento de horas anteriores e próximas consecutivos.
 

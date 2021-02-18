@@ -9,15 +9,16 @@ ms.topic: how-to
 author: danimir
 ms.author: danil
 ms.reviewer: douglas, sstein
-ms.date: 01/26/2021
-ms.openlocfilehash: 7588ce055ce0df89a7dca87a75a38c8acccf6d46
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.date: 02/17/2021
+ms.openlocfilehash: ecd97efbf12fb149037a94749bc899169f2c5a92
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98806077"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101096518"
 ---
 # <a name="user-initiated-manual-failover-on-sql-managed-instance"></a>Ativação pós-falha manual iniciada pelo utilizador no SQL Managed Instance
+[!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 Este artigo explica como falhar manualmente um nó primário nos níveis de serviço SQL Managed Instance General Purpose (GP) e Business Critical (BC) e como falhar manualmente um nó de réplica de leitura secundária apenas no nível de serviço BC.
 
@@ -151,7 +152,7 @@ A curta perda de conectividade do seu cliente durante a execução, tipicamente 
 > - Para os casos a.C. não é possível especificar qual réplica secundária legível para iniciar a falha.
 > - A falha não será permitida até que a primeira cópia de segurança completa de uma nova base de dados seja concluída por sistemas de backup automatizados.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre a alta disponibilidade de exemplo gerido [Alta disponibilidade para Azure SQL Managed Instance](../database/high-availability-sla.md).
 - Para uma visão geral, veja [o que é Azure SQL Managed Instance?](sql-managed-instance-paas-overview.md). .

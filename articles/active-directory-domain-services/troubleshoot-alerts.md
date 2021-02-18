@@ -1,5 +1,5 @@
 ---
-title: Alertas e resoluções comuns nos Serviços de Domínio Azure AD Microsoft Docs
+title: Alertas e resoluções comuns nos serviços de domínio Azure AD | Microsoft Docs
 description: Saiba como resolver os alertas comuns gerados como parte do estado de saúde dos Serviços de Domínio do Diretório Ativo Azure
 services: active-directory-ds
 author: justinha
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 07/09/2020
 ms.author: justinha
-ms.openlocfilehash: 80011b2ae2a70ce4c540ac31897cc8be4a6580c3
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 4caf804a274956556d6e9ca396c8f08594b11a87
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96618625"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101092871"
 ---
 # <a name="known-issues-common-alerts-and-resolutions-in-azure-active-directory-domain-services"></a>Questões conhecidas: Alertas e resoluções comuns nos Serviços de Domínio do Diretório Ativo do Azure
 
@@ -162,7 +162,7 @@ Este erro é irrecuperável. Para resolver o alerta, [elimine o seu domínio ger
 
 Alguns principais de serviço gerados automaticamente são usados para gerir e criar recursos para um domínio gerido. Se as permissões de acesso a um destes principais de serviço forem alteradas, o domínio não consegue gerir corretamente os recursos. Os seguintes passos mostram-lhe como compreender e, em seguida, conceder permissões de acesso a um diretor de serviço:
 
-1. Leia sobre [o controlo de acesso baseado em funções e como conceder acesso a aplicações no portal Azure](../role-based-access-control/role-assignments-portal.md).
+1. Leia sobre [o controlo de acesso baseado em funções Azure e como conceder acesso a aplicações no portal Azure](../role-based-access-control/role-assignments-portal.md).
 2. Reveja o acesso que o diretor do serviço com o ID *abba844e-bc0e-44b0-947a-dc74e5d09022* tem e conceda o acesso que foi negado em data anterior.
 
 ## <a name="aadds112-not-enough-ip-address-in-the-managed-domain"></a>AADDS112: Não há endereço IP suficiente no domínio gerido

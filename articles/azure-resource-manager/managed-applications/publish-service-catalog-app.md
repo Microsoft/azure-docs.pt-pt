@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurecli
 ms.date: 04/14/2020
 ms.author: tomfitz
-ms.openlocfilehash: 342fa722d704933f22cec00a46d11ccc38fc6e4d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b255cafb9040f87c902fe6c094c3e0db3d461e4b
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91650651"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101093648"
 ---
 # <a name="quickstart-create-and-publish-a-managed-application-definition"></a>Quickstart: Criar e publicar uma definição da aplicação gerida
 
@@ -23,7 +23,7 @@ Para publicar uma aplicação gerida no seu catálogo de serviços, deve:
 * Defina os elementos de interface de utilizador para o portal quando implementar a aplicação gerida.
 * Crie um pacote _.zip_ que contenha os ficheiros de modelos necessários.
 * Decida que utilizador, grupo ou aplicação precisa de aceder ao grupo de recursos na subscrição do utilizador.
-* Crie a definição de aplicação gerida que aponta para o pacote _.zip_ e solicita acesso à identidade.
+* Crie a definição de aplicação gerida que aponta para o _pacote .zip_ e solicita acesso à identidade.
 
 ## <a name="create-the-arm-template"></a>Criar um modelo do ARM
 
@@ -289,10 +289,10 @@ Após a conclusão do comando, terá uma definição de aplicação gerida no se
 
 Alguns dos parâmetros utilizados no exemplo anterior são:
 
-* **grupo**de recursos : O nome do grupo de recursos onde é criada a definição de aplicação gerida.
+* **grupo** de recursos : O nome do grupo de recursos onde é criada a definição de aplicação gerida.
 * **nível de bloqueio**: O tipo de bloqueio colocado no grupo de recursos geridos. Impede o cliente de realizar operações não desejadas neste grupo. Atualmente, o único nível de bloqueio suportado é ReadOnly. Quando é especificado ReadOnly, o cliente só consegue ler os recursos presentes no grupo de recursos gerido. As entidades editoras que têm acesso ao grupo de recurso gerido estão isentos do bloqueio.
 * **authorizations**: descreve o ID de principal e o ID da definição da função utilizados para conceder permissões ao grupo de recursos gerido. É especificado com formato `<principalId>:<roleDefinitionId>`. Se for necessário mais do que um valor, especifique-os no formato `<principalId1>:<roleDefinitionId1>,<principalId2>:<roleDefinitionId2>`. Os valores são separados por uma vírgula.
-* **ficheiro de pacote URI**: A localização de um pacote _.zip_ que contém os ficheiros necessários.
+* **ficheiro de pacote URI**: A localização de um pacote _de .zip_ que contém os ficheiros necessários.
 
 ## <a name="bring-your-own-storage-for-the-managed-application-definition"></a>Traga o seu próprio armazenamento para a definição de aplicação gerida
 
@@ -401,7 +401,7 @@ Pode verificar se os ficheiros de definição de aplicação são guardados na s
 
 ## <a name="make-sure-users-can-see-your-definition"></a>Confirmar que os utilizadores podem ver a definição
 
-Tem acesso à definição de aplicação gerida, mas deve verificar se outros utilizadores na sua organização podem aceder à mesma. Conceda-lhes, pelo menos, a função de Leitor na definição. Estes podem ter herdado este nível de acesso através da subscrição ou do grupo de recursos. Para verificar quem tem acesso à definição e adicionar utilizadores ou grupos, consulte [adicionar ou remover atribuições de funções Azure utilizando o portal Azure](../../role-based-access-control/role-assignments-portal.md).
+Tem acesso à definição de aplicação gerida, mas deve verificar se outros utilizadores na sua organização podem aceder à mesma. Conceda-lhes, pelo menos, a função de Leitor na definição. Estes podem ter herdado este nível de acesso através da subscrição ou do grupo de recursos. Para verificar quem tem acesso à definição e adicionar utilizadores ou grupos, consulte [as funções De Atribuição Azure utilizando o portal Azure](../../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 

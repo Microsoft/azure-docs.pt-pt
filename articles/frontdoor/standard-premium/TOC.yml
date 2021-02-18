@@ -1,0 +1,91 @@
+- name: Documentação Padrão/Premium da Porta Da Frente (Pré-visualização)
+  href: index.yml
+- name: Descrição Geral
+  items:
+    - name: O que é Azure Front Door Standard/Premium (Preview)?
+      href: overview.md
+    - name: Comparação de nível
+      href: tier-comparison.md
+- name: Guias de Início Rápido
+  expanded: true
+  items:
+    - name: Criar um Padrão/Premium porta da frente - Portal
+      href: create-front-door-portal.md
+- name: Conceitos
+  items:
+    - name: FAQ do Front Door
+      href: faq.md
+    - name: Gestor de Pontos Finais
+      href: concept-endpoint-manager.md
+    - name: Origem
+      href: concept-origin.md
+    - name: Rota
+      href: concept-route.md
+    - name: Conjunto de regras
+      href: concept-rule-set.md
+    - name: Condições de jogo definidas por regras
+      href: concept-rule-set-match-conditions.md
+    - name: Ações definidas por regras
+      href: concept-rule-set-actions.md
+    - name: Reorientação de URL e reescrita de URL
+      href: concept-rule-set-url-redirect-and-rewrite.md
+    - name: Sondas do estado de funcionamento
+      href: concept-health-probes.md
+    - name: Private Link
+      href: concept-private-link.md
+    - name: Colocação em cache
+      href: concept-caching.md
+    - name: DDoS
+      href: concept-ddos.md
+- name: Guias de procedimentos
+  items:
+    - name: Configure Gestor de Pontos Finais
+      href: how-to-configure-endpoint-manager.md
+    - name: Configure grupos de origem
+      href: how-to-create-origin.md
+    - name: Adicionar um domínio personalizado
+      href: how-to-add-custom-domain.md
+    - name: Ativar HTTPS para um domínio personalizado
+      href: how-to-configure-https-custom-domain.md
+    - name: Associação Rota
+      href: how-to-configure-route.md
+    - name: Configure cabeçalhos de segurança com conjunto de regras
+      href: how-to-add-security-headers.md
+    - name: Purga de cache
+      href: how-to-cache-purge.md
+    - name: Compressão
+      href: how-to-compression.md
+    - name: Ativar Ligação Privada
+      href: how-to-enable-private-link.md
+    - name: Registo
+      href: how-to-logs.md
+    - name: Monitorização e alertas
+      href: how-to-monitor-metrics.md
+    - name: Relatórios
+      href: how-to-reports.md
+    - name: Resolução de problemas
+      items:
+        - name: Problemas de encaminhamento
+          href: troubleshoot-route-issues.md
+        - name: Autoridades de certificação permitidas
+          href: troubleshoot-allowed-certificate-authority.md
+        - name: Compressão
+          href: troubleshoot-compression.md
+        - name: Partilha de recursos de origem cruzada
+          href: troubleshoot-cross-origin-resources.md
+- name: Referência
+  items:
+    - name: .NET
+      href: /dotnet/api/microsoft.azure.management.cdn
+    - name: API REST
+      href: /rest/api/cdn/
+- name: Recursos
+  items:
+    - name: Mapa do Azure
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Preços
+      href: 'https://azure.microsoft.com/pricing/details/frontdoor/'
+    - name: Calculadora de preços
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Atualizações de serviço
+      href: 'https://azure.microsoft.com/updates/?product=frontdoor'

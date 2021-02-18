@@ -3,12 +3,12 @@ title: Ligue as máquinas híbridas ao Azure à escala
 description: Neste artigo, aprende-se a ligar máquinas ao Azure utilizando servidores ativados pelo Azure Arc utilizando um principal de serviço.
 ms.date: 09/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 50c6789044f76b3eb9d8b65b62ef4d8c26006af0
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 9e0d3bd2bd5ea59e39ba2ebe33418b7d43b2de9b
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100584871"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101096496"
 ---
 # <a name="connect-hybrid-machines-to-azure-at-scale"></a>Ligue as máquinas híbridas ao Azure à escala
 
@@ -67,7 +67,7 @@ Os valores das seguintes propriedades são utilizados com parâmetros passados `
 > Certifique-se de usar a propriedade principal do **serviço ApplicationId,** não a propriedade **ID.**
 >
 
-A **função de azure connected machine onboarding** contém apenas as permissões necessárias para embarcar numa máquina. Pode atribuir a permissão principal do serviço para permitir que o seu âmbito inclua um grupo de recursos ou uma subscrição. Para adicionar atribuição de funções, consulte [adicionar ou remover atribuições de funções Azure utilizando o portal Azure](../../role-based-access-control/role-assignments-portal.md) ou [adicionar ou remover atribuições de funções Azure usando Azure CLI](../../role-based-access-control/role-assignments-cli.md).
+A **função de azure connected machine onboarding** contém apenas as permissões necessárias para embarcar numa máquina. Pode atribuir a permissão principal do serviço para permitir que o seu âmbito inclua um grupo de recursos ou uma subscrição. Para adicionar a atribuição de funções, consulte [atribuir funções Azure utilizando o portal Azure](../../role-based-access-control/role-assignments-portal.md) ou [atribuir funções Azure utilizando Azure CLI](../../role-based-access-control/role-assignments-cli.md).
 
 ## <a name="install-the-agent-and-connect-to-azure"></a>Instale o agente e ligue-se ao Azure
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Criar um ambiente - Azure Time Series Insights / Microsoft Docs'
+title: 'Tutorial: Criar um ambiente - Azure Time Series Insights | Microsoft Docs'
 description: Aprenda a criar um ambiente Azure Time Series Insights que seja preenchido com dados de dispositivos simulados.
 services: time-series-insights
 author: deepakpalled
@@ -9,19 +9,19 @@ ms.service: time-series-insights
 ms.topic: tutorial
 ms.date: 10/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 982ca04237d16979d65260a040f5aed783822ac7
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: ea57a623546df99408d488da4522411f55ab0dd9
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95023229"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101094350"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-gen1-environment"></a>Tutorial: Criar um ambiente Azure Time Series Insights Gen1
 
 > [!CAUTION]
 > Este é um artigo da Gen1.
 
-Este tutorial guia-o através do processo de criação de um ambiente Azure Time Series Insights que é preenchido com dados de dispositivos simulados. Neste tutorial, vai aprender a:
+Este tutorial guia-o através do processo de criação de um ambiente Azure Time Series Insights que é preenchido com dados de dispositivos simulados. Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 >
@@ -36,7 +36,7 @@ Este tutorial guia-o através do processo de criação de um ambiente Azure Time
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* A sua conta de inscrição Azure também deve ser membro da função **Proprietário** da subscrição. Para obter mais informações, leia [Adicionar ou remover atribuições de funções Azure utilizando o portal Azure](../role-based-access-control/role-assignments-portal.md).
+* A sua conta de inscrição Azure também deve ser membro da função **Proprietário** da subscrição. Para mais informações, leia [as funções De Atribuir Azure utilizando o portal Azure](../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="review-video"></a>Rever vídeo
 
@@ -44,7 +44,7 @@ Aprenda a usar um acelerador de solução Azure IoT para gerar dados e começar 
 
 > [!VIDEO https://www.youtube.com/embed/6ehNf6AJkFo]
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 O ambiente Azure Time Series Insights é onde os dados do dispositivo são recolhidos e armazenados. Uma vez armazenados, o [Azure Time Series Insights Explorer](time-series-quickstart.md) e a [Azure Time Series Insights Query API](/rest/api/time-series-insights/gen1-query-api) podem ser utilizados para consultar e analisar os dados.
 
@@ -164,7 +164,7 @@ Nesta secção final, verifique se os dados da telemetria foram gerados e armaze
 
 1. Na página Azure Time Series Insights environment **Overview,** selecione o **URL do Explorador de Insights de Séries Tempos** para abrir o Azure Time Series Insights Explorer.
 
-   [![Azure Time Series Insights Explorer](media/tutorial-create-populate-tsi-environment/ap-view-tsi-env-explorer-url.png)](media/tutorial-create-populate-tsi-environment/ap-view-tsi-env-explorer-url.png#lightbox)
+   [![Explorador do Time Series Insights](media/tutorial-create-populate-tsi-environment/ap-view-tsi-env-explorer-url.png)](media/tutorial-create-populate-tsi-environment/ap-view-tsi-env-explorer-url.png#lightbox)
 
 1. O Azure Time Series Insights Explorer carrega e autentica utilizando a sua conta do portal Azure. Inicialmente, aparecerá a área de gráfico com a azure Time Series Insights, juntamente com os seus dados de telemetria simulados. Para filtrar um intervalo de tempo mais estreito, selecione a queda no canto superior esquerdo. Introduza um intervalo de tempo suficientemente grande para durar a duração da simulação do dispositivo. Em seguida, selecione a lupa de pesquisa.
 
@@ -178,7 +178,7 @@ Nesta secção final, verifique se os dados da telemetria foram gerados e armaze
 
    [![Azure Time Series Insights Explorer tempo range visualização filtrada e eventos](media/tutorial-create-populate-tsi-environment/tsie-view-time-range-events.png)](media/tutorial-create-populate-tsi-environment/tsie-view-time-range-events.png#lightbox)
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Este tutorial cria vários serviços Azure em execução para suportar o ambiente Azure Time Series Insights ambiente e solução de simulação de dispositivos. Para removê-los, navegue de volta para o portal Azure.
 

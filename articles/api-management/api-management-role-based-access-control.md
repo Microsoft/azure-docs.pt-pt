@@ -1,5 +1,5 @@
 ---
-title: Como utilizar Role-Based Controlo de Acesso na Gestão API da Azure ! Microsoft Docs
+title: Como utilizar o controlo de Role-Based de acesso na Azure API Management | Microsoft Docs
 description: Saiba como usar as funções incorporadas e crie funções personalizadas na Azure API Management
 services: api-management
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: faef2721b48ffab12264c585d2dec55ab9334016
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fc41d2904d5a6676f1e9e1e2d178985bef0a9aa3
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87015294"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101095549"
 ---
 # <a name="how-to-use-role-based-access-control-in-azure-api-management"></a>Como utilizar o Controlo de Acesso Baseado em Funções na Gestão de API do Azure
 
@@ -30,9 +30,9 @@ A Azure API Management conta com o controlo de acesso baseado em funções Azure
 
 A API Management oferece atualmente três funções integradas e irá adicionar mais duas funções num futuro próximo. Estas funções podem ser atribuídas em diferentes âmbitos, incluindo subscrição, grupo de recursos e instância individual de Gestão de API. Por exemplo, se atribuir a função "API Management Service Reader" a um utilizador ao nível do grupo de recursos, então o utilizador leu o acesso a todas as instâncias de Gestão de API dentro do grupo de recursos. 
 
-A tabela a seguir apresenta breves descrições das funções incorporadas. Pode atribuir estas funções utilizando o portal Azure ou outras ferramentas, incluindo Azure [PowerShell,](../role-based-access-control/role-assignments-powershell.md) [Azure CLI](../role-based-access-control/role-assignments-cli.md)e [REST API](../role-based-access-control/role-assignments-rest.md). Para obter detalhes sobre como atribuir funções incorporadas, consulte utilizar atribuições de [funções para gerir o acesso aos seus recursos de subscrição Azure](../role-based-access-control/role-assignments-portal.md).
+A tabela a seguir apresenta breves descrições das funções incorporadas. Pode atribuir estas funções utilizando o portal Azure ou outras ferramentas, incluindo Azure [PowerShell,](../role-based-access-control/role-assignments-powershell.md) [Azure CLI](../role-based-access-control/role-assignments-cli.md)e [REST API](../role-based-access-control/role-assignments-rest.md). Para obter detalhes sobre como atribuir funções incorporadas, consulte [as funções De Atribuir Azure para gerir o acesso aos seus recursos de subscrição Azure](../role-based-access-control/role-assignments-portal.md).
 
-| Função          | Ler acesso<sup>[1]</sup> | Escrever acesso<sup>[2]</sup> | Criação de serviço, eliminação, escala, VPN e configuração de domínio personalizado | Acesso ao portal da editora | Descrição
+| Função          | Ler acesso<sup>[1]</sup> | Escrever acesso<sup>[2]</sup> | Criação de serviço, eliminação, escala, VPN e configuração de domínio personalizado | Acesso ao portal da editora | Description
 | ------------- | ---- | ---- | ---- | ---- | ---- 
 | Colaborador do Serviço de Gestão da API | ✓ | ✓ | ✓ | ✓ | Super utilizador. Tem acesso total da CRUD a serviços e entidades de Gestão de API (por exemplo, APIs e políticas). Tem acesso ao portal da editora. |
 | Leitor de Serviço de Gestão da API | ✓ | | || Tem acesso apenas de leitura a serviços e entidades de Gestão da API. |
@@ -53,7 +53,7 @@ Se nenhuma das funções incorporadas atender às suas necessidades específicas
 > [!NOTE]
 > Para poder ver uma instância de Gestão da API no portal Azure, um papel personalizado deve incluir a ```Microsoft.ApiManagement/service/read``` ação.
 
-Quando se cria um papel personalizado, é mais fácil começar com um dos papéis incorporados. Editar os atributos para adicionar **Ações**, **NotActions**ou **Atribuidores**, e, em seguida, guardar as alterações como um novo papel. O exemplo a seguir começa com o papel "API Management Service Reader" e cria uma função personalizada chamada "Editor API calculadora". Pode atribuir o papel personalizado a uma API específica. Consequentemente, esta função só tem acesso a essa API. 
+Quando se cria um papel personalizado, é mais fácil começar com um dos papéis incorporados. Editar os atributos para adicionar **Ações**, **NotActions** ou **Atribuidores**, e, em seguida, guardar as alterações como um novo papel. O exemplo a seguir começa com o papel "API Management Service Reader" e cria uma função personalizada chamada "Editor API calculadora". Pode atribuir o papel personalizado a uma API específica. Consequentemente, esta função só tem acesso a essa API. 
 
 ```powershell
 $role = Get-AzRoleDefinition "API Management Service Reader Role"
@@ -81,6 +81,6 @@ O artigo de operações do [fornecedor de recursos Azure Resource Manager](../ro
 
 Para saber mais sobre Role-Based Controlo de Acesso em Azure, consulte os seguintes artigos:
   * [Get started with access management in the Azure portal (Introdução à gestão do acesso no portal do Azure)](../role-based-access-control/overview.md)
-  * [Utilize atribuições de funções para gerir o acesso aos recursos de subscrição do Azure](../role-based-access-control/role-assignments-portal.md)
+  * [Atribua funções Azure para gerir o acesso aos seus recursos de subscrição Azure](../role-based-access-control/role-assignments-portal.md)
   * [Papéis personalizados em Azure RBAC](../role-based-access-control/custom-roles.md)
   * [Operações do fornecedor de recursos do Azure Resource Manager](../role-based-access-control/resource-provider-operations.md#microsoftapimanagement)

@@ -3,12 +3,12 @@ title: Mensagens de autocarro da Azure Service - filas, tópicos e subscrições
 description: Este artigo fornece uma visão geral das entidades de mensagens Azure Service Bus (fila, tópicos e subscrições).
 ms.topic: conceptual
 ms.date: 02/16/2021
-ms.openlocfilehash: f647164ba18cb83e35b5bd174f09e07a4a9f9aa7
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: b8fb68509ad920fc6911290377f49b89ec610b58
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/18/2021
-ms.locfileid: "100652824"
+ms.locfileid: "101096337"
 ---
 # <a name="service-bus-queues-topics-and-subscriptions"></a>Filas, tópicos e subscrições do Service Bus
 A Azure Service Bus suporta um conjunto de tecnologias de middleware baseadas em nuvem e orientadas para mensagens, incluindo mensagens de mensagens fiáveis e mensagens de publicação/subscrição duradouras. Estas capacidades de mensagens intermediadas podem ser consideradas como funcionalidades de mensagens dissociadas que suportam cenários de subscrição, dissociação temporal e equilíbrio de cargas utilizando a carga de trabalho de mensagens Service Bus. A comunicação dissociada tem muitas vantagens. Por exemplo, os clientes e servidores podem conectar-se conforme necessário e fazer as suas operações de forma assíncronea.
@@ -36,6 +36,9 @@ Pode especificar dois modos diferentes em que o Service Bus recebe mensagens.
         Se a aplicação não conseguir processar a mensagem por algum motivo, pode solicitar ao serviço service Bus que **abandone** a mensagem. A Service Bus **desbloqueia** a mensagem e disponibiliza-a para ser novamente recebida, quer pelo mesmo consumidor, quer por outro consumidor concorrente. Em segundo lugar, há um **tempo limite** associado à fechadura. Se a aplicação não processar a mensagem antes do prazo de bloqueio expirar, o Service Bus desbloqueia a mensagem e disponibiliza-a para ser novamente recebida.
 
         Se a aplicação falhar depois de processar a mensagem, mas antes de solicitar ao serviço Service Bus para completar a mensagem, a Service Bus reentra a mensagem para a aplicação quando reinicia. Este processo é muitas vezes chamado **pelo menos uma vez processado.** Ou seja, cada mensagem é processada pelo menos uma vez. No entanto, em determinadas situações, a mesma mensagem pode ser reenviada. Se o seu cenário não puder tolerar o processamento duplicado, adicione lógica adicional na sua aplicação para detetar duplicados. Para obter mais informações, consulte [a deteção de Duplicado.](duplicate-detection.md) Esta funcionalidade é conhecida **como exatamente uma vez** processada.
+
+        > [!NOTE]
+        > Para obter mais informações sobre estes dois modos, consulte [as operações de liquidação](message-transfers-locks-settlement.md#settling-receive-operations).
 
 ## <a name="topics-and-subscriptions"></a>Tópicos e subscrições
 Uma fila permite o processamento de uma mensagem por um único consumidor. Em contraste com as filas, tópicos e subscrições fornecem uma forma de comunicação de um a muitos num padrão **de publicação e subscrição.** É útil para escalar para um grande número de destinatários. Cada mensagem publicada é disponibilizada a cada subscrição registada com o tema. O editor envia uma mensagem para um tópico e um ou mais subscritores recebem uma cópia da mensagem, dependendo das regras de filtro definidas nestas subscrições. As subscrições podem usar filtros adicionais para restringir as mensagens que querem receber. Os editores enviam mensagens para um tópico da mesma forma que enviam mensagens para uma fila. Mas os consumidores não recebem mensagens diretamente do tema. Em vez disso, os consumidores recebem mensagens de subscrições do tema. Uma subscrição de tópico assemelha-se a uma fila virtual que recebe cópias das mensagens que são enviadas para o tema. Os consumidores recebem mensagens de uma subscrição idêntica à forma como recebem mensagens de uma fila.

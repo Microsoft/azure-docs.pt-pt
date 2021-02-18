@@ -13,12 +13,12 @@ ms.custom:
 - 'role: System Architecture'
 ms.service: iot-hub
 services: iot-hub
-ms.openlocfilehash: a460d77a032f36505c8036bc60aa37017f630e55
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 7e72f628bf328a3b93e81c60aa65b8c2495f7f2b
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96501146"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101095257"
 ---
 # <a name="what-is-azure-iot-hub"></a>O que é o IoT Hub do Azure?
 
@@ -104,6 +104,8 @@ O Hub IoT e os SDKs de dispositivo suportam os seguintes protocolos para ligar d
 * AMQP através de WebSockets
 * MQTT
 * MQTT através de WebSockets
+
+O IoT Hub e o dispositivo SDKs suportam as convenções [Azure IoT Plug and Play](../iot-pnp/overview-iot-plug-and-play.md) para dispositivos de ligação. Os dispositivos IoT Plug e Play utilizam um modelo de dispositivo para anunciar as suas capacidades para aplicações IoT Plug e Play. O modelo do dispositivo permite aos construtores de soluções integrar dispositivos inteligentes com as suas soluções sem qualquer configuração manual.
 
 Se a solução não conseguir utilizar as bibliotecas do dispositivo, os dispositivos podem utilizar os protocolos MQTT v3.1.1, HTTPS 1.1 ou AMQP 1.0 para ligar de forma nativa ao seu hub.
 

@@ -37,10 +37,8 @@
   items:
     - name: Migrar o SQL Server
       items:
-        - name: para a Base de Dados SQL do Azure (offline)
+        - name: para a Base de Dados Azure SQL
           href: tutorial-sql-server-to-azure-sql.md
-        - name: para a Base de Dados SQL do Azure (online)
-          href: tutorial-sql-server-azure-sql-online.md
         - name: para a Instância Gerida do SQL no Azure (offline)
           href: tutorial-sql-server-to-managed-instance.md
         - name: para a Instância Gerida do SQL no Azure (online)

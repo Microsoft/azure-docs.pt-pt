@@ -11,18 +11,18 @@ ms.topic: how-to
 ms.date: 05/05/2020
 ms.author: mbaldwin
 Customer intent: As a key vault administrator, I want to move my vault to another subscription.
-ms.openlocfilehash: 23be8e667d435c2d91d32ebeac30b1e96b45a77e
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: a84627b2b426385d21ad72b85780db86e7dd5ee3
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98790296"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101096080"
 ---
 # <a name="moving-an-azure-key-vault-to-another-subscription"></a>Mover um Azure Key Vault para outra subscrição
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 > [!IMPORTANT]
 > **Mover um cofre chave para outra subscrição irá causar uma mudança de rutura no seu ambiente.**
@@ -106,9 +106,9 @@ Para atribuir políticas, consulte:
 - [Atribuir uma política de acesso utilizando o PowerShell](assign-access-policy-powershell.md)
 
 Para adicionar atribuições de funções, consulte:
-- [Adicionar atribuição de função usando o Portal](../../role-based-access-control/role-assignments-portal.md)
-- [Adicionar atribuição de função usando Azure CLI](../../role-based-access-control/role-assignments-cli.md)
-- [Adicionar atribuição de função usando PowerShell](../../role-based-access-control/role-assignments-powershell.md)
+- [Atribuir funções Azure usando o portal Azure](../../role-based-access-control/role-assignments-portal.md)
+- [Atribuir funções Azure usando Azure CLI](../../role-based-access-control/role-assignments-cli.md)
+- [Atribuir funções Azure usando PowerShell](../../role-based-access-control/role-assignments-powershell.md)
 
 
 ### <a name="update-managed-identities"></a>Atualizar identidades geridas
@@ -120,7 +120,7 @@ Se estiver a usar a identidade gerida, também terá de atualizar a identidade p
 * [Atualizar o MSI](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories)
 * [Subscrição de transferência para novo diretório](../../role-based-access-control/transfer-subscription.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [chaves, segredos e certificados](about-keys-secrets-certificates.md)
 - Para obter informações conceptuais, incluindo como interpretar registos do Key Vault, consulte a [sessão do Key Vault](logging.md)

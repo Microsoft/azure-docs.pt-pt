@@ -1,5 +1,5 @@
 ---
-title: Compreenda o suporte do Hub MQTT do Azure IoT Microsoft Docs
+title: Compreenda o suporte do Hub MQTT Azure IoT | Microsoft Docs
 description: Suporte para dispositivos que se liguem a um ponto final virado para dispositivos IoT Hub utilizando o protocolo MQTT. Inclui informações sobre suporte MQTT incorporado no dispositivo Azure IoT SDKs.
 author: robinsh
 ms.service: iot-hub
@@ -15,12 +15,12 @@ ms.custom:
 - contperf-fy21q1
 - fasttrack-edit
 - iot
-ms.openlocfilehash: d206f40380ddb60a53ec8af2802a65af94f5820d
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: df706a83c4892c15140e5d5c827a248156b66069
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97027803"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101095685"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Comunique com o seu hub IoT usando o protocolo MQTT
 
@@ -55,9 +55,9 @@ O quadro seguinte contém ligações a amostras de código para cada idioma supo
 | Linguagem | Parâmetro do protocolo MQTT | MQTT sobre o parâmetro do protocolo de tomadas web
 | --- | --- | --- |
 | [Node.js](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/simple_sample_device.js) | azure-iot-device-mqtt. Mqtt | azure-iot-device-mqtt. MqttWs |
-| [Java](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/SendReceive.java) |[IotHubClientProtocol.](/java/api/com.microsoft.azure.sdk.iot.device.iothubclientprotocol?view=azure-java-stable) MQTT | IotHubClientProtocol.MQTT_WS |
+| [Java](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/SendReceive.java) |[IotHubClientProtocol.](/java/api/com.microsoft.azure.sdk.iot.device.iothubclientprotocol?view=azure-java-stable&preserve-view=true) MQTT | IotHubClientProtocol.MQTT_WS |
 | [C](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iothub_client_sample_mqtt_dm) | [MQTT_Protocol](/azure/iot-hub/iot-c-sdk-ref/iothubtransportmqtt-h/mqtt-protocol) | [MQTT_WebSocket_Protocol](/azure/iot-hub/iot-c-sdk-ref/iothubtransportmqtt-websockets-h/mqtt-websocket-protocol) |
-| [C#](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/device/samples) | [Tipo de Transporte](/dotnet/api/microsoft.azure.devices.client.transporttype?view=azure-dotnet). Mqtt | TransportType.Mqtt recua para MQTT sobre tomadas web se MQTT falhar. Para especificar apenas O MQTT sobre as tomadas web, utilize TransportType.Mqtt_WebSocket_Only |
+| [C#](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/device/samples) | [Tipo de Transporte](/dotnet/api/microsoft.azure.devices.client.transporttype?view=azure-dotnet&preserve-view=true). Mqtt | TransportType.Mqtt recua para MQTT sobre tomadas web se MQTT falhar. Para especificar apenas O MQTT sobre as tomadas web, utilize TransportType.Mqtt_WebSocket_Only |
 | [Python](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples) | Suporta MQTT por padrão | Adicione `websockets=True` a chamada para criar o cliente |
 
 O seguinte fragmento mostra como especificar o protocolo MQTT sobre tomadas web ao utilizar o Azure IoT Node.js SDK:
@@ -81,11 +81,11 @@ De forma a garantir que uma ligação cliente/IoT Hub permanece viva, tanto o se
 
 |Linguagem  |Intervalo padrão de manter vivo  |Configurável  |
 |---------|---------|---------|
-|Node.js     |   180 segundos      |     Não    |
-|Java     |    230 segundos     |     Não    |
+|Node.js     |   180 segundos      |     No    |
+|Java     |    230 segundos     |     No    |
 |C     | 240 segundos |  [Sim](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/Iothub_sdk_options.md#mqtt-transport)   |
 |C#     | 300 segundos |  [Sim](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/iothub/device/src/Transport/Mqtt/MqttTransportSettings.cs#L89)   |
-|Python   | 60 segundos |  Não   |
+|Python   | 60 segundos |  No   |
 
 Seguindo a [especificação MQTT,](http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html#_Toc398718081)o intervalo de ping do IoT Hub é 1,5 vezes o valor de manter vivo o cliente. No entanto, o IoT Hub limita o tempo limite máximo do servidor para 29,45 minutos (1767 segundos) porque todos os serviços Azure estão ligados ao tempo limite de marcha lenta TCP, que é de 29,45 minutos. 
 
@@ -110,6 +110,8 @@ Ao fazê-lo, certifique-se de verificar os seguintes itens:
 No [repositório IoT MQTT Sample,](https://github.com/Azure-Samples/IoTMQTTSample)você encontrará um par de projetos de demonstração C/C++ mostrando como enviar mensagens de telemetria, e receber eventos com um hub IoT sem usar o Azure IoT C SDK. 
 
 Estas amostras utilizam a biblioteca Eclipse Mosquitto para enviar mensagens para o MQTT Broker implementado no hub IoT.
+
+Para aprender a adaptar as amostras para utilizar as convenções [Azure IoT Plug and Play,](../iot-pnp/overview-iot-plug-and-play.md) consulte [Tutorial - Use mQTT para desenvolver um cliente de dispositivo IoT Plug and Play](../iot-pnp/tutorial-use-mqtt.md).
 
 Este repositório contém:
 
@@ -158,7 +160,7 @@ Se um dispositivo não puder utilizar os SDKs do dispositivo, ainda pode ligar-s
 
   Para obter mais informações sobre como gerar fichas SAS, consulte a secção de dispositivos de Utilização de fichas de [segurança IoT Hub](iot-hub-devguide-security.md#use-sas-tokens-in-a-device-app).
 
-  Ao testar, também pode utilizar as [ferramentas Azure IoT de](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) plataforma cruzada para Código de Estúdio Visual ou o comando de extensão CLI [az iot hub generate-sas-token](/cli/azure/ext/azure-iot/iot/hub?view=azure-cli-latest#ext-azure-iot-az-iot-hub-generate-sas-token) para gerar rapidamente um token SAS que pode copiar e colar no seu próprio código.
+  Ao testar, também pode utilizar as [ferramentas Azure IoT de](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) plataforma cruzada para Código de Estúdio Visual ou o comando de extensão CLI [az iot hub generate-sas-token](/cli/azure/ext/azure-iot/iot/hub?view=azure-cli-latest#ext-azure-iot-az-iot-hub-generate-sas-token&preserve-view=true) para gerar rapidamente um token SAS que pode copiar e colar no seu próprio código.
 
 ### <a name="for-azure-iot-tools"></a>Para ferramentas Azure IoT
 
@@ -315,7 +317,7 @@ O IoT Hub entrega mensagens com o **Nome Tópico,** `devices/{device_id}/message
 
 Nas mensagens nuvem-dispositivo, os valores no saco de propriedade são representados como na tabela seguinte:
 
-| Valor patrimonial | Representação | Descrição |
+| Valor patrimonial | Representação | Description |
 |----|----|----|
 | `null` | `key` | Apenas a chave aparece no saco da propriedade |
 | corda vazia | `key=` | A chave seguida por um sinal igual sem valor |
@@ -355,7 +357,7 @@ Os códigos de estado possíveis são:
 
 |Estado | Descrição |
 | ----- | ----------- |
-| 200 | Success |
+| 200 | Com êxito |
 | 429 | Demasiados pedidos (estrangulado), de acordo com [o estrangulamento do IoT Hub](iot-hub-devguide-quotas-throttling.md) |
 | 5** | Erros de servidor |
 
@@ -446,7 +448,7 @@ Para saber mais sobre o protocolo MQTT, consulte a [documentação MQTT](https:/
 
 Para saber mais sobre o planeamento da sua implantação no IoT Hub, consulte:
 
-* [Catálogo de dispositivos do Azure Certified for IoT](https://catalog.azureiotsolutions.com/)
+* [Catálogo de dispositivos do Microsoft Azure Certified for IoT](https://catalog.azureiotsolutions.com/)
 * [Apoiar protocolos adicionais](iot-hub-protocol-gateway.md)
 * [Compare com centros de eventos](iot-hub-compare-event-hubs.md)
 * [Escala, HA e DR](iot-hub-scaling.md)

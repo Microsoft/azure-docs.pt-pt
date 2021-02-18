@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 12/09/2020
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy21q2, automl
-ms.openlocfilehash: c95a75ef48aa9e3db070c6c237f913fabbe893fa
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 2a07b2fc70a21dd192f74eb5260f3444e09cdca0
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100388214"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101092913"
 ---
 # <a name="evaluate-automated-machine-learning-experiment-results"></a>Avaliar resultados automatizados de experiências de aprendizagem automática
 
@@ -192,7 +192,7 @@ explained_variance|A variação explicada mede até que ponto um modelo explica 
 mean_absolute_error|Erro absoluto médio é o valor esperado do valor absoluto da diferença entre o alvo e a previsão.<br><br> **Objetivo:** Mais perto de 0, melhor <br> **Alcance:** [0, inf) <br><br> Tipos: <br>`mean_absolute_error` <br>  `normalized_mean_absolute_error`, o mean_absolute_error dividido pelo alcance dos dados. | [Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_absolute_error.html)|
 mean_absolute_percentage_error|Erro percentual absoluto médio (MAPE) é uma medida da diferença média entre um valor previsto e o valor real.<br><br> **Objetivo:** Mais perto de 0, melhor <br> **Alcance:** [0, inf) ||
 median_absolute_error|O erro absoluto mediano é a mediana de todas as diferenças absolutas entre o alvo e a previsão. Esta perda é robusta para os forasteiros.<br><br> **Objetivo:** Mais perto de 0, melhor <br> **Alcance:** [0, inf)<br><br>Tipos: <br> `median_absolute_error`<br> `normalized_median_absolute_error`: o median_absolute_error dividido pelo intervalo dos dados. |[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.median_absolute_error.html)|
-r2_score|R^2 é o coeficiente de determinação ou a redução por cento em erros quadrados em comparação com um modelo de base que produz a média. <br> <br> **Objetivo:** Mais perto de 1, melhor <br> **Alcance:** [-1, 1] <br><br> Nota: R^2 tem frequentemente a gama (-inf, 1], mas os clips ML automatizados são valores negativos para modelos muito maus para -1.|[Cálculo](https://scikit-learn.org/0.16/modules/generated/sklearn.metrics.r2_score.html)|
+r2_score|R<sup>2</sup> (coeficiente de determinação) mede a redução proporcional do erro quadrado médio (MSE) em relação à variação total dos dados observados. <br> <br> **Objetivo:** Mais perto de 1, melhor <br> **Alcance:** [-1, 1]<br><br>Nota: R<sup>2</sup> tem frequentemente o alcance (-inf, 1]. O MSE pode ser maior do que a variação observada, pelo que o R<sup>2</sup> pode ter valores negativos arbitrariamente grandes, dependendo dos dados e das previsões do modelo. Os clips automatizados de ML reportaram pontuações R<sup>2</sup> em -1, pelo que um valor de -1 para R<sup>2</sup> provavelmente significa que a verdadeira pontuação R<sup>2</sup> é inferior a -1. Considere os outros valores métricas e as propriedades dos dados ao interpretar uma pontuação R<sup>2</sup> negativa.|[Cálculo](https://scikit-learn.org/0.16/modules/generated/sklearn.metrics.r2_score.html)|
 root_mean_squared_error |Erro quadrado de raiz (RMSE) é a raiz quadrada da diferença quadrada esperada entre o alvo e a previsão. Para um estimador imparcial, o RMSE é igual ao desvio padrão.<br> <br> **Objetivo:** Mais perto de 0, melhor <br> **Alcance:** [0, inf)<br><br>Tipos:<br> `root_mean_squared_error` <br> `normalized_root_mean_squared_error`: o root_mean_squared_error dividido pelo intervalo dos dados. |[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_error.html)|
 root_mean_squared_log_error|Erro de log quadrado de raiz é a raiz quadrada do erro logarítmico quadrado esperado.<br><br>**Objetivo:** Mais perto de 0, melhor <br> **Alcance:** [0, inf) <br> <br>Tipos: <br>`root_mean_squared_log_error` <br> `normalized_root_mean_squared_log_error`: o root_mean_squared_log_error dividido pelo intervalo dos dados.  |[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|
 spearman_correlation| A correlação de Spearman é uma medida nãoparamétrica da monótona relação entre dois conjuntos de dados. Ao contrário da correlação pearson, a correlação de Spearman não assume que ambos os conjuntos de dados são normalmente distribuídos. Como outros coeficientes de correlação, Spearman varia entre -1 e 1 com 0 implicando nenhuma correlação. Correlações de -1 ou 1 implicam uma relação monótona exata. <br><br> Spearman é uma métrica de correlação de ordem de classificação, o que significa que as alterações aos valores previstos ou reais não mudarão o resultado de Spearman se não alterarem a ordem de classificação dos valores previstos ou reais.<br> <br> **Objetivo:** Mais perto de 1, melhor <br> **Alcance:** [-1, 1]|[Cálculo](https://docs.scipy.org/doc/scipy-0.16.1/reference/generated/scipy.stats.spearmanr.html)|

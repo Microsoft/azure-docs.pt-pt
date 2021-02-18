@@ -5,12 +5,12 @@ services: automation
 ms.subservice: ''
 ms.date: 01/19/2021
 ms.topic: conceptual
-ms.openlocfilehash: f9e99318c526bb935d0e035fdbf59874249390da
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: f170fc948f136f4f46634e7ae2645ed2eb357afa
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99050944"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101096470"
 ---
 # <a name="manage-an-azure-automation-run-as-account"></a>Gerir uma execução de automação Azure Como conta
 
@@ -64,10 +64,10 @@ Antes de conceder as permissões de conta Run As, tem de primeiro anotar o nome 
 
 Para obter etapas detalhadas sobre como adicionar atribuições de funções, confira os seguintes artigos dependendo do método que pretende utilizar.
 
-* [Adicione a atribuição de funções Azure do portal Azure](../role-based-access-control/role-assignments-portal.md)
-* [Adicione a atribuição de funções Azure usando Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)
-* [Adicione a atribuição de funções Azure usando o CLI Azure](../role-based-access-control/role-assignments-cli.md)
-* [Adicionar atribuição de função Azure usando a API REST](..//role-based-access-control/role-assignments-rest.md)
+* [Atribuir funções Azure usando o portal Azure](../role-based-access-control/role-assignments-portal.md)
+* [Atribuir funções Azure usando Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)
+* [Atribuir funções Azure utilizando o CLI Azure](../role-based-access-control/role-assignments-cli.md)
+* [Atribuir funções Azure utilizando a API REST](..//role-based-access-control/role-assignments-rest.md)
 
 Depois de atribuir a conta Run As à função, no seu runbook `Set-AzContext -SubscriptionId "xxxx-xxxx-xxxx-xxxx"` especificar para definir o contexto de subscrição a utilizar. Para mais informações, consulte [Set-AzContext](/powershell/module/az.accounts/set-azcontext).
 
