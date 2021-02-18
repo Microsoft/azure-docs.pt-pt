@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc, fasttrack-edit
 ms.date: 09/16/2020
 ms.author: yelevin
-ms.openlocfilehash: 369847810cdb7f7e93a13f5d410f226d3663080d
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 384c6df86b4aadb117bb31b4604fa4c2ffcda09a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96188586"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570584"
 ---
 # <a name="quickstart-get-started-with-azure-sentinel"></a>Início Rápido: Introdução ao Azure Sentinel
 
@@ -52,9 +52,9 @@ O corpo principal da página de visão geral dá uma visão de um olhar sobre o 
 
 ## <a name="use-built-in-workbooks"></a>Use livros embutidos<a name="dashboards"></a>
 
-Os livros incorporados fornecem dados integrados a partir das suas fontes de dados conectadas para permitir que mergulhe profundamente nos eventos gerados nesses serviços. Os livros incorporados incluem Azure AD, eventos de atividade do Azure e no local, que podem ser dados de Eventos Windows a partir de servidores, de alertas de primeira parte, de terceiros, incluindo registos de tráfego de firewall, Office 365, e protocolos inseguros baseados em eventos windows. Os livros são baseados em livros de trabalho do Azure Monitor para lhe proporcionar uma maior personalização e flexibilidade na conceção do seu próprio livro. Para mais informações, consulte [os Livros de Trabalho.](../azure-monitor/platform/workbooks-overview.md)
+Os livros incorporados fornecem dados integrados a partir das suas fontes de dados conectadas para permitir que mergulhe profundamente nos eventos gerados nesses serviços. Os livros incorporados incluem Azure AD, eventos de atividade do Azure e no local, que podem ser dados de Eventos Windows a partir de servidores, de alertas de primeira parte, de terceiros, incluindo registos de tráfego de firewall, Office 365, e protocolos inseguros baseados em eventos windows. Os livros são baseados em livros de trabalho do Azure Monitor para lhe proporcionar uma maior personalização e flexibilidade na conceção do seu próprio livro. Para mais informações, consulte [os Livros de Trabalho.](../azure-monitor/visualize/workbooks-overview.md)
 
-1. Em **Definições**, selecione **Livros de Trabalho**. Em **Instalar,** pode ver todo o seu livro instalado. Em **Tudo,** pode ver toda a galeria de livros embutidos que estão disponíveis para instalação. 
+1. Em **Definições**, selecione **Livros de Trabalho**. Em **Instalar,** pode ver todo o seu livro instalado. Em **Todos**, pode ver toda a galeria de livros internos que estão disponíveis para instalação. 
 2. Procure um livro específico para ver toda a lista e descrição do que cada um oferece. 
 3. Assumindo que usa a Azure AD, para se levantar e funcionar com o Azure Sentinel, recomendamos que instale pelo menos os seguintes livros:
    - **Azure AD**: Utilize ambos ou ambos os seguintes:
@@ -66,14 +66,14 @@ Os livros incorporados fornecem dados integrados a partir das suas fontes de dad
       ![Painel palo Alto](./media/qs-get-visibility/palo-alto-week-query.png)
 
 
-Pode personalizar os livros de trabalho editando o botão de edição de ![ consulta ](./media/qs-get-visibility/edit-query-button.png) principal. Pode clicar no ![ botão Log Analytics ](./media/qs-get-visibility/go-to-la-button.png) para ir ao Log Analytics para [editar a consulta lá](../azure-monitor/log-query/log-analytics-tutorial.md), e pode selecionar a elipse (...) e **selecionar Personalizar dados de azulejos**, o que lhe permite editar o filtro de tempo principal ou remover os azulejos específicos do livro.
+Pode personalizar os livros de trabalho editando o botão de edição de ![ consulta ](./media/qs-get-visibility/edit-query-button.png) principal. Pode clicar no ![ botão Log Analytics ](./media/qs-get-visibility/go-to-la-button.png) para ir ao Log Analytics para [editar a consulta lá](../azure-monitor/logs/log-analytics-tutorial.md), e pode selecionar a elipse (...) e **selecionar Personalizar dados de azulejos**, o que lhe permite editar o filtro de tempo principal ou remover os azulejos específicos do livro.
 
-Para obter mais informações sobre o trabalho com consultas, consulte [Tutorial: Dados visuais em Log Analytics](../azure-monitor/learn/tutorial-logs-dashboards.md)
+Para obter mais informações sobre o trabalho com consultas, consulte [Tutorial: Dados visuais em Log Analytics](../azure-monitor/visualize/tutorial-logs-dashboards.md)
 
 ### <a name="add-a-new-tile"></a>Adicione um novo azulejo
 
 Se quiser adicionar um novo azulejo, pode adicioná-lo a um livro existente, quer um que cria, quer um livro incorporado Azure Sentinel. 
-1. No Log Analytics, crie um azulejo utilizando as instruções encontradas no [Tutorial: Dados visuais em Log Analytics](../azure-monitor/learn/tutorial-logs-dashboards.md). 
+1. No Log Analytics, crie um azulejo utilizando as instruções encontradas no [Tutorial: Dados visuais em Log Analytics](../azure-monitor/visualize/tutorial-logs-dashboards.md). 
 2. Depois de criar o azulejo, em **Pin,** selecione o livro em que deseja que o azulejo apareça.
 
 ## <a name="create-new-workbooks"></a>Criar novos livros

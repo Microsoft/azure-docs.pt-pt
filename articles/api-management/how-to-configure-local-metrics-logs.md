@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/01/2021
 ms.author: apimpm
-ms.openlocfilehash: e34c25b2e3bfa845e258dc5d9699497d7ffcb004
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 2b66663c9ee8033bcb12bfac57964ea0eafecdac
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99526675"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100594173"
 ---
 # <a name="configure-local-metrics-and-logs-for-azure-api-management-self-hosted-gateway"></a>Configure as métricas e registos locais para a Azure API Management porta de entrada auto-hospedada
 
@@ -204,7 +204,7 @@ As saídas de gateway auto-hospedadas entram em `stdout` e `stderr` por defeito.
 kubectl logs <pod-name>
 ```
 
-Se o seu gateway auto-hospedado estiver implantado no Serviço Azure Kubernetes, pode ativar [o Azure Monitor para que os contentores](../azure-monitor/insights/container-insights-overview.md) recolham `stdout` e a partir das suas `stderr` cargas de trabalho e vejam os registos no Log Analytics. 
+Se o seu gateway auto-hospedado estiver implantado no Serviço Azure Kubernetes, pode ativar [o Azure Monitor para que os contentores](../azure-monitor/containers/container-insights-overview.md) recolham `stdout` e a partir das suas `stderr` cargas de trabalho e vejam os registos no Log Analytics. 
 
 O gateway auto-hospedado também suporta uma série de protocolos, incluindo `localsyslog` `rfc5424` , e `journal` . A tabela abaixo resume todas as opções suportadas. 
 

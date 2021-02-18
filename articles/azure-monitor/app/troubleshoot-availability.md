@@ -6,12 +6,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 11/19/2020
 ms.reviewer: sdash
-ms.openlocfilehash: 368c45433247c441631bdf79bfc9caa28a41f1b4
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 849701caf73a4fb289773c67bccaab2e0f39dbd1
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96546760"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100583732"
 ---
 # <a name="troubleshooting"></a>Resolução de problemas
 
@@ -62,7 +62,7 @@ Consulte a configuração de alertas clássicos para confirmar que o seu e-mail 
 
 ### <a name="i-did-not-receive-the-webhook-notification"></a>Não recebi a notificação do webhook?
 
-Verifique se a aplicação que recebe a notificação do webhook está disponível e processa com sucesso os pedidos do webhook. Consulte [isto](../platform/alerts-log-webhook.md) para mais informações.
+Verifique se a aplicação que recebe a notificação do webhook está disponível e processa com sucesso os pedidos do webhook. Consulte [isto](../alerts/alerts-log-webhook.md) para mais informações.
 
 ### <a name="i-am-getting--403-forbidden-errors-what-does-this-mean"></a>Estou a receber 403 erros proibidos, o que significa isto?
 
@@ -81,7 +81,7 @@ Se tiver o Application Insights configurado para a sua aplicação do lado do se
 
 ### <a name="can-i-call-code-from-my-web-test"></a>Posso chamar um código a partir do meu teste Web?
 
-Não. Os passos do teste devem estar no ficheiro .webtest. E não pode chamar outros testes Web nem utilizar ciclos. No entanto, existem vários plug-ins que poderão ser úteis.
+N.º Os passos do teste devem estar no ficheiro .webtest. E não pode chamar outros testes Web nem utilizar ciclos. No entanto, existem vários plug-ins que poderão ser úteis.
 
 
 ### <a name="is-there-a-difference-between-web-tests-and-availability-tests"></a>Existe uma diferença entre “testes Web” e “testes de disponibilidade”?
@@ -113,7 +113,7 @@ Atualmente, isto não é apoiado.
 
 ## <a name="who-receives-the-classic-alert-notifications"></a>Quem recebe as notificações de alerta (clássicas)?
 
-Esta secção aplica-se apenas a alertas clássicos e irá ajudá-lo a otimizar as suas notificações de alerta para garantir que apenas os seus destinatários pretendidos recebem notificações. Para saber mais sobre a diferença entre [alertas clássicos](../platform/alerts-classic.overview.md)e a experiência dos novos alertas consulte o artigo Visão geral dos [alertas.](../platform/alerts-overview.md) Para controlar a notificação de alerta nos novos alertas, utilize [grupos de ação](../platform/action-groups.md).
+Esta secção aplica-se apenas a alertas clássicos e irá ajudá-lo a otimizar as suas notificações de alerta para garantir que apenas os seus destinatários pretendidos recebem notificações. Para saber mais sobre a diferença entre [alertas clássicos](../alerts/alerts-classic.overview.md)e a experiência dos novos alertas consulte o artigo Visão geral dos [alertas.](../alerts/alerts-overview.md) Para controlar a notificação de alerta nos novos alertas, utilize [grupos de ação](../alerts/action-groups.md).
 
 * Recomendamos a utilização de destinatários específicos para notificações de alerta clássicas.
 
@@ -124,7 +124,7 @@ Esta secção aplica-se apenas a alertas clássicos e irá ajudá-lo a otimizar 
 > [!NOTE]
 > Se utilizar atualmente a opção caixa de **verificação a granel/grupo** e desativá-la, não poderá reverter a alteração.
 
-Utilize os novos alertas de experiência de alerta/quase em tempo real se necessitar de notificar os utilizadores com base nas suas funções. Com [grupos de ação,](../platform/action-groups.md)pode configurar notificações de e-mail para os utilizadores com qualquer uma das funções de contribuinte/proprietário/leitor (não combinados como uma única opção).
+Utilize os novos alertas de experiência de alerta/quase em tempo real se necessitar de notificar os utilizadores com base nas suas funções. Com [grupos de ação,](../alerts/action-groups.md)pode configurar notificações de e-mail para os utilizadores com qualquer uma das funções de contribuinte/proprietário/leitor (não combinados como uma única opção).
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -6,12 +6,12 @@ ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/08/2021
-ms.openlocfilehash: 0c75f9938b3bc4fa8a2e650f77a3708e91180fea
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: 3ee8d5f36977a5a9f20c7e636118ffa9f6ee0b6d
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98059226"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570997"
 ---
 # <a name="azure-cosmos-db-serverless-preview"></a>Azure Cosmos DB sem servidor (Pré-visualização)
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -64,7 +64,7 @@ Ao navegar no painel **métrica** da sua conta, encontrará um gráfico denomina
 
 :::image type="content" source="./media/serverless/request-units-consumed.png" alt-text="Gráfico mostrando as Unidades de Pedido consumidas" border="false":::
 
-Pode encontrar o mesmo gráfico quando utilizar o Azure Monitor, como descrito [aqui.](monitor-request-unit-usage.md) Note que o Azure Monitor permite configurar [alertas,](../azure-monitor/platform/alerts-metric-overview.md)que podem ser utilizados para o notificar quando o consumo da Unidade de Pedido tiver ultrapassado um determinado limiar.
+Pode encontrar o mesmo gráfico quando utilizar o Azure Monitor, como descrito [aqui.](monitor-request-unit-usage.md) Note que o Azure Monitor permite configurar [alertas,](../azure-monitor/alerts/alerts-metric-overview.md)que podem ser utilizados para o notificar quando o consumo da Unidade de Pedido tiver ultrapassado um determinado limiar.
 
 ## <a name="performance"></a><a id="performance"></a>Desempenho
 

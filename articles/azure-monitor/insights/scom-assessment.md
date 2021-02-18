@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/25/2018
-ms.openlocfilehash: 97d7d21374062462248e1b86f2bde2fef2d25331
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 685bf35bfb6d6e85d70bd1f1b446370d66a320f2
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96004913"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100573392"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Optimize your environment with the System Center Operations Manager Health Check (Preview) solution (Otimizar o ambiente com a solução Verificação de Estado de Funcionamento do System Center Operations Manager [Pré-visualização])
 
@@ -229,7 +229,7 @@ Se tiver recomendações que pretende ignorar, pode criar um ficheiro de texto q
     ```
 
     >[!NOTE]
-    > Se o seu espaço de trabalho foi atualizado para o [novo idioma de consulta log analytics,](../log-query/log-query-overview.md)então a consulta acima mudaria para o seguinte.
+    > Se o seu espaço de trabalho foi atualizado para o [novo idioma de consulta log analytics,](../logs/log-query-overview.md)então a consulta acima mudaria para o seguinte.
     >
     > `SCOMAssessmentRecommendationRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -254,7 +254,7 @@ Se tiver recomendações que pretende ignorar, pode criar um ficheiro de texto q
     ```
 
     >[!NOTE]
-    > Se o seu espaço de trabalho foi atualizado para o [novo idioma de consulta log analytics,](../log-query/log-query-overview.md)então a consulta acima mudaria para o seguinte.
+    > Se o seu espaço de trabalho foi atualizado para o [novo idioma de consulta log analytics,](../logs/log-query-overview.md)então a consulta acima mudaria para o seguinte.
     >
     > `SCOMAssessmentRecommendationRecommendation | where RecommendationResult == "Ignore" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -295,5 +295,5 @@ Se tiver recomendações que pretende ignorar, pode criar um ficheiro de texto q
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Pesquisa de registos](../log-query/log-query-overview.md) para aprender a analisar dados e recomendações detalhadas do System Center Operations Manager Health Check.
+- [Pesquisa de registos](../logs/log-query-overview.md) para aprender a analisar dados e recomendações detalhadas do System Center Operations Manager Health Check.
 

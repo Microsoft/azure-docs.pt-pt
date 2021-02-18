@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: b160f6641cced1e4ea6af1eac225d92abe26a631
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 8b9f4a5afa039a08b92d6261db68aeba68055b67
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100380275"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100577708"
 ---
 # <a name="azure-security-baseline-for-azure-app-configuration"></a>Linha de base de segurança Azure para configuração de aplicativoS Azure
 
@@ -602,9 +602,9 @@ Para obter mais informações, veja as seguintes referências:
 
 **Orientação**: Os registos de atividade, que estão automaticamente disponíveis, contêm todas as operações de escrita (PUT, POST, DELETE) para os seus recursos de Configuração de Aplicações, exceto operações de leitura (GET). Os registos de atividade podem ser utilizados para encontrar um erro na resolução de problemas ou para monitorizar como um utilizador na sua organização modificou um recurso. Para a Configuração da Aplicação, os registos de atividade só estão disponíveis no plano de controlo e são surgidos pelo Gestor de Recursos Azure (ARM). O registo de planos de dados para configuração de aplicações não é suportado pelo cliente. Os registos de recursos Azure também não estão disponíveis para serem configurados.
 
-- [Como recolher registos e métricas da plataforma com o Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
+- [Como recolher registos e métricas da plataforma com o Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
-- [Compreenda o registo e diferentes tipos de registo em Azure](../azure-monitor/platform/platform-logs-overview.md)
+- [Compreenda o registo e diferentes tipos de registo em Azure](../azure-monitor/essentials/platform-logs-overview.md)
 
 **Monitorização do Centro de Segurança do Azure**: Não aplicável
 
@@ -618,7 +618,7 @@ Certifique-se de que está a integrar os registos de atividade do Azure na sua s
 
 Além disso, ative e a bordo dados para Azure Sentinel ou um SIEM de terceiros. Muitas organizações optam por usar o Azure Sentinel para dados "quentes" que são usados frequentemente e o Azure Storage para dados "frios" que são usados com menos frequência.
 
-- [Como recolher registos e métricas da plataforma com o Azure Monitor](../azure-monitor/platform/diagnostic-settings.md) 
+- [Como recolher registos e métricas da plataforma com o Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md) 
 
 - [Como embarcar Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -632,9 +632,9 @@ Além disso, ative e a bordo dados para Azure Sentinel ou um SIEM de terceiros. 
 
 No Azure Monitor, pode definir o período de retenção do espaço de trabalho do Log Analytics de acordo com os regulamentos de conformidade da sua organização.
 
-- [Como configurar o período de retenção do espaço de trabalho do Log Analytics](../azure-monitor/platform/manage-cost-storage.md)
+- [Como configurar o período de retenção do espaço de trabalho do Log Analytics](../azure-monitor/logs/manage-cost-storage.md)
 
-- [Armazenar registos de recursos numa conta de armazenamento Azure](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)
+- [Armazenar registos de recursos numa conta de armazenamento Azure](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage)
 
 **Monitorização do Centro de Segurança do Azure**: Não aplicável
 

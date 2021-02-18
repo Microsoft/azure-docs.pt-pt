@@ -2,13 +2,13 @@
 title: Descrição geral de mensagens do Service Bus do Azure | Microsoft Docs
 description: Este artigo fornece uma visão geral de alto nível da Azure Service Bus, um corretor de mensagens de integração empresarial totalmente gerido.
 ms.topic: overview
-ms.date: 01/28/2021
-ms.openlocfilehash: 232f25ca94e9426a20755940caf284426502cfb3
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.date: 02/16/2021
+ms.openlocfilehash: 897729b9748d69ad3c6de507e800dbb3a1a3619c
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99219167"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570471"
 ---
 # <a name="what-is-azure-service-bus"></a>O que é o Azure Service Bus?
 O Microsoft Azure Service Bus é um corretor de mensagens da empresa totalmente gerido com filas de mensagens e tópicos de subscrição de publicação. O Service Bus é utilizado para dissociar aplicações e serviços entre si, proporcionando os seguintes benefícios:
@@ -118,11 +118,10 @@ O lote do lado do cliente permite que uma fila ou cliente tópico acumule um con
 Uma transação agrupo duas ou mais operações juntas num *âmbito de execução.* A Service Bus permite-lhe agrupar operações contra várias entidades de mensagens no âmbito de uma única transação. Uma entidade de mensagens pode ser uma fila, tópico ou subscrição. Para mais informações, consulte [a visão geral do processamento de transações de service bus.](service-bus-transactions.md)
 
 ### <a name="autodelete-on-idle"></a>Autodelete em marcha lenta
-
-A autodelete em marcha lenta permite especificar um intervalo de marcha lenta após o qual uma subscrição de fila ou tópico é automaticamente eliminada. A duração mínima é 5 minutos. Para mais informações, consulte a [Propriedade QueueDescription.AutoDeleteOnIdle](/dotnet/api/microsoft.servicebus.messaging.queuedescription.autodeleteonidle).
+A autodelete em marcha lenta permite especificar um intervalo de marcha lenta após o qual uma subscrição de fila ou tópico é automaticamente eliminada. A duração mínima é 5 minutos. 
 
 ### <a name="duplicate-detection"></a>Deteção de duplicados
-A função de deteção duplicada permite ao remetente reensi para reencamender a mesma mensagem novamente e para que o corretor deixe cair uma possível duplicação. A deteção duplicada baseia-se no rastreio `message-id` da propriedade de uma mensagem, o que significa que a aplicação precisa de ter o cuidado de usar o mesmo valor ao reenresesse a mensagem, que pode ser diretamente derivada de algum contexto específico da aplicação. Para obter mais informações, consulte [a deteção de Duplicado.](duplicate-detection.md)
+A função de deteção duplicada permite ao remetente reensi para reencamender a mesma mensagem novamente e para que o corretor deixe cair uma possível duplicação. Para obter mais informações, consulte [a deteção de Duplicado.](duplicate-detection.md)
 
 ### <a name="geo-disaster-recovery"></a>Recuperação após desastre geográfica
 

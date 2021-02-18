@@ -6,12 +6,12 @@ ms.author: lagayhar
 author: lgayhardt
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: 3a2765e9dcf3b0e7bf28191e6ecbb069f26c42f5
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: a823b5e2ae31e62ff6d876f0b3468953c0ed9c35
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98208527"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100587159"
 ---
 # <a name="troubleshooting-workbook-based-insights"></a>Insights baseados em livros de resolução de problemas
 
@@ -72,4 +72,4 @@ Para alterar o nome de um passo no seu livro de trabalho guardado, selecione edi
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre os cenários que os livros de trabalho são projetados para apoiar, como autorizar novos e personalizar relatórios existentes, e mais através da revisão [de relatórios de criar relatórios interativos com os livros de trabalho do Azure Monitor.](../platform/workbooks-overview.md)
+Saiba mais sobre os cenários que os livros de trabalho são projetados para apoiar, como autorizar novos e personalizar relatórios existentes, e mais através da revisão [de relatórios de criar relatórios interativos com os livros de trabalho do Azure Monitor.](../visualize/workbooks-overview.md)

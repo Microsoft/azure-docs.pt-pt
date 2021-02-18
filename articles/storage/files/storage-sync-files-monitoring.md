@@ -1,5 +1,5 @@
 ---
-title: Monitor Azure File Sync / Microsoft Docs
+title: Monitor Azure File Sync | Microsoft Docs
 description: Reveja como monitorizar a implementação do Azure File Sync utilizando o Azure Monitor, o Storage Sync Service e o Windows Server.
 author: roygara
 ms.service: storage
@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/28/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 1cc2cd1a7c5c16b1f9d1542e3f2d14dc030bb090
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: d1e51552acdd869a3f304a6d48e18e9d2aa6c782
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97586555"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100576784"
 ---
 # <a name="monitor-azure-file-sync"></a>Monitorizar o Azure File Sync
 
@@ -42,7 +42,7 @@ As métricas do Azure File Sync são ativadas por predefinição e são enviadas
 
 As seguintes métricas para Azure File Sync estão disponíveis no Azure File Sync:
 
-| Nome da métrica | Descrição |
+| Nome da métrica | Description |
 |-|-|
 | Bytes sincronizados | Tamanho dos dados transferidos (carregar e transferir).<br><br>Unidade: Bytes<br>Tipo de agregação: Soma<br>Dimensões aplicáveis: Nome do ponto final do servidor, direção de sincronização, nome do grupo de sincronização |
 | Recuperação de camadas de nuvem | Tamanho dos dados recordados.<br><br>**Nota:** Esta métrica será removida no futuro. Utilize a métrica do tamanho da recolha de camadas cloud para monitorizar o tamanho dos dados recolhidos.<br><br>Unidade: Bytes<br>Tipo de agregação: Soma<br>Dimensão aplicável: Nome do servidor |
@@ -56,7 +56,7 @@ As seguintes métricas para Azure File Sync estão disponíveis no Azure File Sy
 
 ### <a name="alerts"></a>Alertas
 
-Os alertas notificam-no proativamente quando forem encontradas condições importantes nos seus dados de monitorização. Para saber mais sobre a configuração de alertas no Azure Monitor, consulte [a visão geral dos alertas no Microsoft Azure](../../azure-monitor/platform/alerts-overview.md).
+Os alertas notificam-no proativamente quando forem encontradas condições importantes nos seus dados de monitorização. Para saber mais sobre a configuração de alertas no Azure Monitor, consulte [a visão geral dos alertas no Microsoft Azure](../../azure-monitor/alerts/alerts-overview.md).
 
 **Como criar alertas para a Azure File Sync**
 
@@ -72,7 +72,7 @@ Os alertas notificam-no proativamente quando forem encontradas condições impor
 
 A tabela a seguir enumera alguns cenários de exemplo para monitorizar e a métrica adequada a utilizar para o alerta:
 
-| Cenário | Métrica para usar para alerta |
+| Scenario | Métrica para usar para alerta |
 |-|-|
 | Saúde do ponto final do servidor mostra um erro no portal | Resultado da sessão de sincronização |
 | Os ficheiros não estão a sincronizar um servidor ou ponto final na nuvem | Ficheiros não sincronizados |
@@ -118,7 +118,7 @@ Para visualizar a saúde de um **ponto final** do servidor no portal, navegue pa
 
 - As seguintes tabelas métricas são visualizadas no portal do Serviço de Sincronização de Armazenamento:
 
-  | Nome da métrica | Descrição | Nome da lâmina |
+  | Nome da métrica | Description | Nome da lâmina |
   |-|-|-|
   | Bytes sincronizados | Tamanho dos dados transferidos (upload e download) | Grupo sincronizado, ponto final do servidor |
   | Recuperação de camadas de nuvem | Tamanho dos dados recordados | Servidores registados |
@@ -178,7 +178,7 @@ Para ver os contadores de desempenho do Azure File Sync no servidor, abra o Moni
 
 Os seguintes contadores de desempenho para Azure File Sync estão disponíveis no Monitor de Desempenho:
 
-| Objeto de desempenho\Nome do contador | Descrição |
+| Objeto de desempenho\Nome do contador | Description |
 |-|-|
 | AFS Bytes Transferido\Downloaded Bytes/sec | Número de bytes descarregados por segundo. |
 | AFS Bytes transferido\Uploaded Bytes/sec | Número de bytes carregados por segundo. |
@@ -209,7 +209,7 @@ Esta secção fornece alguns alertas de exemplo para Azure File Sync.
      - Operador: **Menos de** 
      - Tipo de agregação: **Máximo**  
      - Valor limiar: **1** 
-     - Avaliado com base em: Granularidade agregação = **24 horas** Frequência de avaliação = **A cada hora** 
+     - Avaliado com base em: Granularidade agregação = **24 horas** | Frequência de avaliação = **A cada hora** 
      - Clique **em 'Fazer'.** 
 8. Clique **em Selecionar grupo de ação** para adicionar um grupo de ação (e-mail, SMS, etc.) ao alerta, selecionando um grupo de ação existente ou criando um novo grupo de ação.
 9. Preencha os **detalhes do Alerta** como o nome da regra de **alerta,** **descrição** e **severidade**.
@@ -231,7 +231,7 @@ Esta secção fornece alguns alertas de exemplo para Azure File Sync.
      - Operador: **Maior do que** 
      - Tipo de agregação: **Média**  
      - Valor limiar: **100** 
-     - Avaliado com base em: Granularidade agregação = **5 minutos** / Frequência de avaliação = **A cada 5 minutos** 
+     - Avaliado com base em: Granularidade agregação = **5 minutos** | Frequência de avaliação = **A cada 5 minutos** 
      - Clique **em 'Fazer'.** 
 8. Clique **em Selecionar grupo de ação** para adicionar um grupo de ação (e-mail, SMS, etc.) ao alerta, selecionando um grupo de ação existente ou criando um novo grupo de ação.
 9. Preencha os **detalhes do Alerta** como o nome da regra de **alerta,** **descrição** e **severidade**.
@@ -253,7 +253,7 @@ Esta secção fornece alguns alertas de exemplo para Azure File Sync.
      - Operador: **Menos de** 
      - Tipo de agregação: **Máximo**  
      - Valor limiar (em bytes): **1** 
-     - Avaliado com base em: Granularidade agregação = **1 hora** / Frequência de avaliação = **A cada 30 minutos** 
+     - Avaliado com base em: Granularidade agregação = **1 hora** | Frequência de avaliação = **A cada 30 minutos** 
          - Note que as métricas são enviadas para o Monitor Azure a cada 15 a 20 minutos. Não desacione a **frequência de avaliação** em menos de 30 minutos (gerará falsos alertas).
      - Clique **em 'Fazer'.** 
 8. Clique **em Selecionar grupo de ação** para adicionar um grupo de ação (e-mail, SMS, etc.) ao alerta, selecionando um grupo de ação existente ou criando um novo grupo de ação.
@@ -276,7 +276,7 @@ Esta secção fornece alguns alertas de exemplo para Azure File Sync.
      - Operador: **Maior do que** 
      - Tipo de agregação: **Total**  
      - Valor limiar (in bytes): **67108864000** 
-     - Avaliado com base em: Granularidade agregação = **24 horas** Frequência de avaliação = **A cada hora** 
+     - Avaliado com base em: Granularidade agregação = **24 horas** | Frequência de avaliação = **A cada hora** 
      - Clique **em 'Fazer'.** 
 8. Clique **em Selecionar grupo de ação** para adicionar um grupo de ação (e-mail, SMS, etc.) ao alerta, selecionando um grupo de ação existente ou criando um novo grupo de ação.
 9. Preencha os **detalhes do Alerta** como o nome da regra de **alerta,** **descrição** e **severidade**.

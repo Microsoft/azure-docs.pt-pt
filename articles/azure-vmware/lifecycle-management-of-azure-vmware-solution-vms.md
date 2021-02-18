@@ -3,12 +3,12 @@ title: Gestão do ciclo de vida da Azure VMware Solution VMs
 description: Aprenda a gerir todos os aspetos do ciclo de vida dos VMS da sua Solução VMware Azure com ferramentas nativas do Microsoft Azure.
 ms.topic: conceptual
 ms.date: 02/08/2021
-ms.openlocfilehash: d8224a37e46b336ebf889fe1c075930f34f10ca4
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.openlocfilehash: 2cb9964b68769b1e784cebf62b4d336b355c68fb
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99988534"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100572205"
 ---
 # <a name="lifecycle-management-of-azure-vmware-solution-vms"></a>Gestão do ciclo de vida da Azure VMware Solution VMs
 
@@ -45,9 +45,9 @@ O diagrama seguinte mostra a arquitetura de monitorização integrada para VMs d
 Se é novo na Azure ou não conhece qualquer um dos serviços mencionados anteriormente, reveja os seguintes artigos:
 
 - [Descrição geral da autenticação da conta de Automatização](../automation/automation-security-overview.md)
-- [Projetando a sua implementação de registos de monitores Azure](../azure-monitor/platform/design-logs-deployment.md) e [monitor Azure](../azure-monitor/overview.md)
+- [Projetando a sua implementação de registos de monitores Azure](../azure-monitor/logs/design-logs-deployment.md) e [monitor Azure](../azure-monitor/overview.md)
 - [Plataformas](../security-center/security-center-planning-and-operations-guide.md) [de](../security-center/security-center-os-coverage.md) planeamento e apoio para o Centro de Segurança Azure
-- [Ativar o Monitor Azure para visão geral dos VMs](../azure-monitor/insights/vminsights-enable-overview.md)
+- [Ativar o Monitor Azure para visão geral dos VMs](../azure-monitor/vm/vminsights-enable-overview.md)
 - [O que é a Azure Arc ativado servidores?](../azure-arc/servers/overview.md) e [o que é que o Arco Azure permitiu kubernetes?](../azure-arc/kubernetes/overview.md)
 - [Descrição geral da Gestão de Atualizações](../automation/update-management/overview.md)
 
@@ -59,7 +59,7 @@ A Azure Update Management na Azure Automation gere as atualizações do sistema 
 
 1.  Antes de poder adicionar Log Analytics à Azure Update Management, primeiro tem de [criar uma conta Azure Automation](../automation/automation-create-standalone-account.md). Se preferir criar a sua conta utilizando um modelo, consulte [Criar uma conta de Automação utilizando um modelo de Gestor de Recursos Azure.](../automation/quickstart-create-automation-account-template.md)
 
-2. **Log Analytics workspace** permite a recolha de registos e a recolha do contador de desempenho usando o agente log Analytics ou extensões. Para criar o seu espaço de trabalho Log Analytics, consulte [Criar um espaço de trabalho Log Analytics no portal Azure.](../azure-monitor/learn/quick-create-workspace.md) Se preferir, também pode criar um espaço de trabalho através do [CLI,](../azure-monitor/learn/quick-create-workspace-cli.md) [PowerShell](../azure-monitor/platform/powershell-workspace-configuration.md)ou [modelo Azure Resource Manager](../azure-monitor/samples/resource-manager-workspace.md).
+2. **Log Analytics workspace** permite a recolha de registos e a recolha do contador de desempenho usando o agente log Analytics ou extensões. Para criar o seu espaço de trabalho Log Analytics, consulte [Criar um espaço de trabalho Log Analytics no portal Azure.](../azure-monitor/logs/quick-create-workspace.md) Se preferir, também pode criar um espaço de trabalho através do [CLI,](../azure-monitor/logs/quick-create-workspace-cli.md) [PowerShell](../azure-monitor/logs/powershell-workspace-configuration.md)ou [modelo Azure Resource Manager](../azure-monitor/logs/resource-manager-workspace.md).
 
 3. Para ativar a Gestão de Atualizações Azure para os seus VMs, consulte [Enable Update Management a partir de uma conta Dempaça](../automation/update-management/enable-from-automation-account.md). No processo, irá ligar o seu espaço de trabalho Log Analytics à sua conta de automação. 
  
@@ -99,22 +99,14 @@ Os VMs de Solução VMware Azure podem ser monitorizados através do agente Log 
 
 O Azure Monitor é uma solução abrangente para recolher, analisar e agir em telemetria a partir dos ambientes de nuvem e no local. Não requer nenhuma implantação. Com o Azure Monitor, pode monitorizar o desempenho do sistema operativo dos hóspedes e descobrir e mapear as dependências de aplicações para Azure VMware Solution ou VMs no local.
 
-- O Azure Monitor permite-lhe recolher dados de diferentes fontes para monitorizar e analisar. Para obter mais informações, consulte [fontes de monitorização dos dados do Azure Monitor](../azure-monitor/platform/data-sources.md).
+- O Azure Monitor permite-lhe recolher dados de diferentes fontes para monitorizar e analisar. Para obter mais informações, consulte [fontes de monitorização dos dados do Azure Monitor](../azure-monitor/agents/data-sources.md).
 
-- Recolher diferentes tipos de dados para análise, visualização e alerta. Para obter mais informações, consulte [a plataforma de dados do Azure Monitor.](../azure-monitor/platform/data-platform.md)
+- Recolher diferentes tipos de dados para análise, visualização e alerta. Para obter mais informações, consulte [a plataforma de dados do Azure Monitor.](../azure-monitor/data-platform.md)
 
-- Para configurar o Azure Monitor com o seu espaço de trabalho Log Analytics, consulte [o espaço de trabalho Configure Log Analytics para O Monitor Azure para VMs](../azure-monitor/insights/vminsights-configure-workspace.md).
+- Para configurar o Azure Monitor com o seu espaço de trabalho Log Analytics, consulte [o espaço de trabalho Configure Log Analytics para O Monitor Azure para VMs](../azure-monitor/vm/vminsights-configure-workspace.md).
 
 - Pode criar regras de alerta para identificar problemas no seu ambiente, como o uso elevado de recursos, patches em falta, espaço em disco baixo e batimentos cardíacos dos seus VMs. Também pode definir uma resposta automatizada a eventos detetados enviando um alerta para as ferramentas de Gestão de Serviços de TI (ITSM). A notificação de deteção de alerta também pode ser enviada por e-mail. Para criar tais regras, consulte:
-    - [Criar, visualizar e gerir alertas métricos utilizando o Azure Monitor](../azure-monitor/platform/alerts-metric.md).
-    - [Criar, visualizar e gerir alertas de registo utilizando o Azure Monitor](../azure-monitor/platform/alerts-log.md).
-    - [Regras de](../azure-monitor/platform/alerts-action-rules.md) ação para definir ações e notificações automatizadas.
-    - [Ligue o Azure às ferramentas ITSM utilizando o Conector de Gestão de Serviços de TI](../azure-monitor/platform/itsmc-overview.md).
-    
- ## <a name="next-steps"></a>Passos seguintes
-
-Agora que cobriu usando as ferramentas nativas da Azure para gerir os seus VMs de Solução VMware Azure durante todo o seu ciclo de vida, talvez queira saber:
-
-- [Proteger os VMs da solução Azure VMware com o Centro de Segurança Azure](azure-security-integration.md).
-- [Configuração do Servidor de Backup Azure para solução VMware Azure](set-up-backup-server-for-azure-vmware-solution.md).
-- [Integrando a Azure VMware Solution num hub e arquitetura de fala.](concepts-hub-and-spoke.md)
+    - [Criar, visualizar e gerir alertas métricos utilizando o Azure Monitor](../azure-monitor/alerts/alerts-metric.md).
+    - [Criar, visualizar e gerir alertas de registo utilizando o Azure Monitor](../azure-monitor/alerts/alerts-log.md).
+    - [Regras de](../azure-monitor/alerts/alerts-action-rules.md) ação para definir ações e notificações automatizadas.
+    - [Ligue o Azure às ferramentas ITSM utilizando o Conector de Gestão de Serviços de TI](../azure-monitor/alerts/itsmc-overview.md).

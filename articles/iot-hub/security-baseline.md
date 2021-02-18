@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/03/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 862e8f07e321975ec5b673cfe5c86de85c9d160b
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 2947faa8c7b56fdbe4cf549529b63d506b810750
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202305"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570865"
 ---
 # <a name="azure-security-baseline-for-azure-iot-hub"></a>Linha de segurança Azure para Azure IoT Hub
 
@@ -148,9 +148,9 @@ Implemente a solução de firewall à sua escolha em cada um dos limites de rede
 
 **Orientação**: Utilize o Registo de Atividades Azure para monitorizar as configurações de recursos de rede e detetar alterações nos recursos de rede relacionados com o Azure IoT Hub. Crie alertas dentro do Azure Monitor que irão desencadear quando ocorrerem alterações nos recursos críticos da rede.
 
-- [Como visualizar e recuperar eventos de Registo de Atividades Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [Como visualizar e recuperar eventos de Registo de Atividades Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Como criar alertas no Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+- [Como criar alertas no Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitorização do Centro de Segurança Azure:** Não aplicável
 
@@ -185,9 +185,9 @@ Implemente a solução de firewall à sua escolha em cada um dos limites de rede
 
 - [Configurar registos Azure IoT Hub](monitor-iot-hub-reference.md#resource-logs)
 
-- [Como recolher registos e métricas da plataforma com o Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
+- [Como recolher registos e métricas da plataforma com o Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
-- [Compreenda o registo e diferentes tipos de registo em Azure](../azure-monitor/platform/platform-logs-overview.md)
+- [Compreenda o registo e diferentes tipos de registo em Azure](../azure-monitor/essentials/platform-logs-overview.md)
 
 **Monitorização do Centro de Segurança do Azure**: Sim
 
@@ -205,7 +205,7 @@ Implemente a solução de firewall à sua escolha em cada um dos limites de rede
 
 **Orientação**: No Azure Monitor, detenva o período de retenção de registos para os espaços de trabalho do Log Analytics associados aos seus casos Azure IoT Hub de acordo com os regulamentos de conformidade da sua organização.
 
-- [Como definir parâmetros de retenção de registos](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Como definir parâmetros de retenção de registos](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Monitorização do Centro de Segurança Azure:** Não aplicável
 
@@ -220,9 +220,9 @@ Em alternativa, pode ativar e a bordo dados para Azure Sentinel ou um SIEM de te
 - [Monitor Azure IoT saúde](monitor-iot-hub.md)
 - [Como embarcar Azure Sentinel](../sentinel/quickstart-onboard.md)
   
-- [Começando com consultas log analytics](../azure-monitor/log-query/log-analytics-tutorial.md)
+- [Começando com consultas log analytics](../azure-monitor/logs/log-analytics-tutorial.md)
    
-- [ Como realizar consultas personalizadas no Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
+- [ Como realizar consultas personalizadas no Azure Monitor](../azure-monitor/logs/get-started-queries.md)
 
 **Monitorização do Centro de Segurança Azure:** Não aplicável
 
@@ -236,7 +236,7 @@ Em alternativa, pode ativar e a bordo dados para Azure Sentinel ou um SIEM de te
 - [Como embarcar Azure Sentinel](../sentinel/quickstart-onboard.md)
 - [Centro de Segurança Azure para alertas de IoT](../defender-for-iot/concept-security-alerts.md)
 
-- [Como alertar nos dados de registos de registos](../azure-monitor/learn/tutorial-response.md)
+- [Como alertar nos dados de registo de registo de registos de registos](../azure-monitor/alerts/tutorial-response.md)
 
 **Monitorização do Centro de Segurança do Azure**: Sim
 
@@ -527,7 +527,7 @@ O Azure IoT Hub fornece encriptação de dados em repouso e em trânsito, tal co
 
 **Orientação**: Utilize o Monitor Azure com o registo de atividade azure para criar alertas para quando ocorrerem alterações nas instâncias de produção do Azure IoT Hub e outros recursos críticos ou relacionados.
 
-- [Como criar alertas para eventos de Registo de Atividades Azure](../azure-monitor/platform/alerts-activity-log.md)
+- [Como criar alertas para eventos de Registo de Atividades Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitorização do Centro de Segurança Azure:** Não aplicável
 

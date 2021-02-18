@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 01/28/2021
 ms.author: allensu
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 681e4efc8a9edda896249fdc939d19b4f644f246
-ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
+ms.openlocfilehash: 34223298dbf0dad9d9214676a5190bef063a8228
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98986485"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100577033"
 ---
 # <a name="what-is-azure-private-link"></a>O que é a Ligação Privada do Azure? 
 O Azure Private Link permite-lhe aceder aos Serviços Azure PaaS (por exemplo, Azure Storage e SQL Database) e à Azure aloja serviços de propriedade do cliente/parceiro sobre um [ponto final privado](private-endpoint-overview.md) na sua rede virtual.
@@ -70,7 +70,7 @@ A Azure Private Link proporciona os seguintes benefícios:
 | Automatização do Azure  | Todas as regiões públicas<br/> Todas as regiões do Governo |  | Pré-visualizar </br> [Saiba como criar um ponto final privado para a Azure Automation.](../automation/how-to/private-link-security.md)| |
 | Azure IoT Hub | Todas as regiões públicas    |  | GA   <br/> [Aprenda a criar um ponto final privado para o Azure IoT Hub.](../iot-hub/virtual-network-support.md) |
 | Azure SignalR | LESTE DE NÓS, CENTRO-SUL DE NÓS,<br/>OESTE EUA 2, Todas as regiões da China      |  | Pré-visualizar   <br/> [Saiba como criar um ponto final privado para o Azure SignalR.](../azure-signalr/howto-private-endpoints.md)   |
-| Azure Monitor <br/>(Log Analytics & Application Insights) | Todas as regiões públicas      |  | GA   <br/> [Saiba como criar um ponto final privado para o Azure Monitor.](../azure-monitor/platform/private-link-security.md)   | 
+| Azure Monitor <br/>(Log Analytics & Application Insights) | Todas as regiões públicas      |  | GA   <br/> [Saiba como criar um ponto final privado para o Azure Monitor.](../azure-monitor/logs/private-link-security.md)   | 
 | Azure Batch | Todas as regiões públicas, exceto: Alemanha CENTRAL, Alemanha NORDESTE <br/> Todas as regiões do Governo  | | GA <br/> [Saiba como criar um ponto final privado para o Azure Batch.](../batch/private-connectivity.md) |
 |Azure Data Factory | Todas as regiões públicas<br/> Todas as regiões do Governo<br/>Todas as regiões da China    | As credenciais precisam de ser armazenadas num cofre de chaves Azure.| GA   <br/> [Saiba como criar um ponto final privado para a Azure Data Factory.](../data-factory/data-factory-private-link.md)   |
 |Managed Disks do Azure | Todas as regiões públicas<br/> Todas as regiões do Governo<br/>Todas as regiões da China    | [Clique aqui para obter limitações conhecidas](../virtual-machines/disks-enable-private-links-for-import-export-portal.md#limitations) | GA   <br/> [Saiba como criar um ponto final privado para discos geridos Azure.](../virtual-machines/disks-enable-private-links-for-import-export-portal.md)   |

@@ -9,12 +9,12 @@ ms.topic: reference
 ms.service: azure-monitor
 ms.subservice: logs
 ms.custom: monitoring
-ms.openlocfilehash: ba8a82ed1113bfb3e71560ca9a6c713602df21f2
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 95f20737b044140fe12ea939e71cd2397cb4826d
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97590652"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100576693"
 ---
 # <a name="azure-queue-storage-monitoring-data-reference"></a>Referência de dados de monitorização de armazenamento de fila Azure
 
@@ -36,9 +36,9 @@ O Azure Storage fornece as seguintes métricas de capacidade no Monitor Azure.
 
 #### <a name="queue-storage-metrics"></a>Métricas de armazenamento de fila
 
-Esta tabela mostra [métricas de armazenamento de fila.](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountsqueueservices)
+Esta tabela mostra [métricas de armazenamento de fila.](../../azure-monitor/essentials/metrics-supported.md#microsoftstoragestorageaccountsqueueservices)
 
-| Métrica | Descrição |
+| Metric | Descrição |
 | ------------------- | ----------------- |
 | **Capacidade de Fila** | A quantidade de Armazenamento de Fila utilizado pela conta de armazenamento. <br><br> Unidade: `Bytes` <br> Tipo de agregação: `Average` <br> Exemplo de valor: `1024` |
 | **Contagem de filas** | O número de filas na conta de armazenamento. <br><br> Unidade: `Count` <br> Tipo de agregação: `Average` <br> Exemplo de valor: `1024` |
@@ -80,4 +80,4 @@ A tabela que se segue lista as propriedades dos registos de recursos de armazena
 ## <a name="see-also"></a>Ver também
 
 - Consulte [o armazenamento da fila Azure](monitor-queue-storage.md) monitor para uma descrição da monitorização do armazenamento da fila Azure.
-- Consulte [os recursos de Monitor Azure com o Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md) para obter informações sobre a monitorização dos recursos do Azure.
+- Consulte [os recursos de Monitor Azure com o Azure Monitor](../../azure-monitor/essentials/monitor-azure-resource.md) para obter informações sobre a monitorização dos recursos do Azure.

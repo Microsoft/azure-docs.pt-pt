@@ -1,17 +1,17 @@
 ---
-title: Rastreio de Dependência em Azure Application Insights com OpenCensus Python Microsoft Docs
+title: Rastreio de dependência em Insights de Aplicação Azure com | De Pitão OpenCensus Microsoft Docs
 description: Monitora chamadas de dependência para as suas aplicações Python via OpenCensus Python.
 ms.topic: conceptual
 author: lzchen
 ms.author: lechen
 ms.date: 10/15/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: abfd5e104bd4854781a0d3c9d08544506279518a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a8f673295236d60ec6681bbfaee1201a4659674b
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87850088"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100585713"
 ---
 # <a name="track-dependencies-with-opencensus-python"></a>Dependências de pistas com OpenCensus Python
 
@@ -173,6 +173,6 @@ config_integration.trace_integrations(['sqlalchemy'])
 * [Mapeamento de Aplicações](./app-map.md)
 * [Disponibilidade](./monitor-web-app-availability.md)
 * [Pesquisa](./diagnostic-search.md)
-* [Consulta de log (Analytics)](../log-query/log-query-overview.md)
+* [Consulta de log (Analytics)](../logs/log-query-overview.md)
 * [Diagnóstico da transação](./transaction-diagnostics.md)
 

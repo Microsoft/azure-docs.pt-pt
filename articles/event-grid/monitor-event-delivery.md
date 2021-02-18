@@ -3,12 +3,12 @@ title: Ver métricas da grelha de eventos Azure e definir alertas
 description: Este artigo descreve como usar o portal Azure para ver métricas para tópicos e subscrições de Azure Event Grid e criar alertas sobre eles.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 518d34d39e6fbecc408fe9a44d899fe4745d60d0
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 8f8d7e15475ce74dc1af55dc7f6116d5d8b79cc8
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96008961"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100577406"
 ---
 # <a name="monitor-event-grid-message-delivery"></a>Monitorar a entrega de mensagens da grelha de eventos 
 Este artigo descreve como usar o portal para ver métricas para tópicos e subscrições de Event Grid, e criar alertas sobre eles. 
@@ -52,7 +52,7 @@ Pode criar gráficos com métricas suportadas utilizando o separador **Métricas
 
 :::image type="content" source="./media/monitor-event-delivery/topics-metrics-page.png" alt-text="Tópico - Página de métricas":::
 
-Para saber mais sobre métricas, consulte [métricas no Azure Monitor](../azure-monitor/platform/data-platform-metrics.md)
+Para saber mais sobre métricas, consulte [métricas no Azure Monitor](../azure-monitor/essentials/data-platform-metrics.md)
 
 Por exemplo, consulte o gráfico de métricas para a **métrica de Eventos Publicados.**
 
@@ -91,7 +91,7 @@ Pode criar gráficos com métricas suportadas utilizando o separador **Métricas
 
 :::image type="content" source="./media/monitor-event-delivery/system-topic-metrics-page.png" alt-text="Tópico do Sistema - Página de métricas":::
 
-Para saber mais sobre métricas, consulte [métricas no Azure Monitor](../azure-monitor/platform/data-platform-metrics.md)
+Para saber mais sobre métricas, consulte [métricas no Azure Monitor](../azure-monitor/essentials/data-platform-metrics.md)
 
 
 ## <a name="next-steps"></a>Passos seguintes

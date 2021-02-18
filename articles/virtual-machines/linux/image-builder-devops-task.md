@@ -7,12 +7,12 @@ ms.date: 01/27/2021
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: imaging
-ms.openlocfilehash: 56f1e78e0f2bbba15b50664b88bd8808731e6836
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 6090adffbab7c8c57837b62e190f90c8ffb18e3d
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807619"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100636429"
 ---
 # <a name="azure-image-builder-service-devops-task"></a>Tarefa de devOps de devops de serviço de construtor de imagem Azure
 
@@ -21,7 +21,7 @@ Este artigo mostra-lhe como usar uma tarefa Azure DevOps para injetar artefactos
 ## <a name="devops-task-versions"></a>Versões de tarefa de DevOps
 Existem duas tarefas de Construtor de Imagem Azure VM (AIB):
 
-* [Tarefa AIB 'estável',](https://marketplace.visualstudio.com/items?itemName=AzureImageBuilder.devOps-task-for-azure-image-builder)isto permite-nos colocar as últimas atualizações e funcionalidades, permitir que os clientes as testem, antes de a promovermos para a tarefa 'estável', aproximadamente 1 semana depois. 
+* [Tarefa AIB 'estável',](https://marketplace.visualstudio.com/items?itemName=AzureImageBuilder.devOps-task-for-azure-image-builder)esta é a mais recente construção estável que foi testada, e a telemetria não mostra problemas. 
 
 
 * [Tarefa AIB 'instável',](https://marketplace.visualstudio.com/items?itemName=AzureImageBuilder.devOps-task-for-azure-image-builder-canary)isto permite-nos colocar as últimas atualizações e funcionalidades, permitir que os clientes as testem, antes de a promovermos para a tarefa 'estável'. Se não houver problemas relatados, e a nossa telemetria não apresentar problemas, aproximadamente uma semana depois, promoveremos o código de tarefa para "estável". 

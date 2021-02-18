@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/16/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: ba06a0f9d520f445965329203aecd6c576666737
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: d4cd673b5029d8379a699becd7339a265c787390
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98209734"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100586402"
 ---
 # <a name="using-an-app-service-environment"></a>Usando um ambiente de serviço de aplicativo
 
@@ -143,12 +143,12 @@ Se integrar-se com o Log Analytics, pode ver os registos selecionando **Registos
 
 **Criar um alerta**
 
-Para criar um alerta contra os seus registos, siga as instruções em [Criar, ver e gerir alertas de registo utilizando o Azure Monitor](../../azure-monitor/platform/alerts-log.md). Em resumo:
+Para criar um alerta contra os seus registos, siga as instruções em [Criar, ver e gerir alertas de registo utilizando o Azure Monitor](../../azure-monitor/alerts/alerts-log.md). Em resumo:
 
 * Abra a página Alertas no seu portal ASE
 * Selecione **nova regra de alerta**
 * Selecione o seu Recurso para ser o seu espaço de trabalho Log Analytics
-* Desafie a sua condição com uma pesquisa de registo personalizado para usar uma consulta como, "AppServiceEnvironmentPlatformLogs [ onde a ResultaDescription contém "começou a escalonar" ou o que quiser. Desa estale o limiar conforme apropriado. 
+* Desafie a sua condição com uma pesquisa de registo personalizado para usar uma consulta como: "AppServiceEnvironmentPlatformLogs | onde a ResultaDescription contém "começou a escalonar" ou o que quiser. Desa estale o limiar conforme apropriado. 
 * Adicione ou crie um grupo de ação conforme desejado. O grupo de ação é onde define a resposta ao alerta, como o envio de um e-mail ou uma mensagem SMS
 * Diga o seu alerta e guarde-o.
 
@@ -206,4 +206,4 @@ Para eliminar um ASE:
 [AppDeploy]: ../deploy-local-git.md
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
 [AppGW]: ../../web-application-firewall/ag/ag-overview.md
-[logalerts]: ../../azure-monitor/platform/alerts-log.md
+[logalerts]: ../../azure-monitor/alerts/alerts-log.md

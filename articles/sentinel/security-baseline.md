@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/10/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: ba15deed98af16b9b501439082ee6c9237fe20b7
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: d95a2318d94f52352c9546aedc24d0111c5ba0a4
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807212"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100571667"
 ---
 # <a name="azure-security-baseline-for-azure-sentinel"></a>Linha de segurança Azure para Azure Sentinel
 
@@ -37,9 +37,9 @@ Esta linha de base de segurança aplica orientações da [versão 1.0 do Azure S
 
 - [Como permitir a auditoria em Azure Sentinel](resources.md)
 
-- [Como visualizar e recuperar eventos de Registo de Atividades Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [Como visualizar e recuperar eventos de Registo de Atividades Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Como criar alertas no Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+- [Como criar alertas no Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
@@ -73,7 +73,7 @@ Esta linha de base de segurança aplica orientações da [versão 1.0 do Azure S
 
 **Orientação**: No Azure Monitor, detenva o período de retenção de registos para os espaços de trabalho do Log Analytics associados aos seus espaços de trabalho Azure Sentinel de acordo com os regulamentos de conformidade da sua organização.
 
-- [Como definir parâmetros de retenção de registos](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Como definir parâmetros de retenção de registos](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Monitorização do Centro de Segurança do Azure**: Não aplicável
 
@@ -341,7 +341,7 @@ Além disso, cada livro do Sentinel é um recurso Azure, e pode atribuir funçõ
 
 **Orientação**: Os espaços de trabalho Azure Sentinel e Azure Monitor Log Analytics utilizam atualmente as chaves geridas pela Microsoft para encriptar quaisquer dados contidos em repouso. A capacidade de trazer a sua própria chave ainda não está totalmente suportada para o Sentinel, mas será num futuro próximo.
 
-- [Visão geral da chave gerida pelo cliente do Azure Monitor](../azure-monitor/platform/customer-managed-keys.md#customer-managed-key-overview)
+- [Visão geral da chave gerida pelo cliente do Azure Monitor](../azure-monitor/logs/customer-managed-keys.md#customer-managed-key-overview)
 
 - [Compreenda as chaves geridas pelo cliente em Azure Sentinel (Preview)](customer-managed-keys.md)
 

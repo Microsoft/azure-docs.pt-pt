@@ -1,5 +1,5 @@
 ---
-title: Registos de atividade do Azure Ative Directory no Azure Monitor Microsoft Docs
+title: Registos de atividade do Azure Ative Directory no Azure Monitor | Microsoft Docs
 description: Introdução aos registos de atividade do Azure Ative Directory no Azure Monitor
 services: active-directory
 documentationcenter: ''
@@ -17,12 +17,12 @@ ms.date: 04/09/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8dbf14b1816d367f864cc3a2977497b34111df3f
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 73130c906d4d9f0da51db1b666e8562570cce40f
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97586198"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100571276"
 ---
 # <a name="azure-ad-activity-logs-in-azure-monitor"></a>Registos de atividade do Azure AD no Azure Monitor
 
@@ -126,7 +126,7 @@ O quadro seguinte contém custos estimados por mês para um centro de eventos b�
 
 
 
-Para rever os custos relacionados com a gestão dos registos do Monitor Azure, consulte Gerir o [custo controlando o volume de dados e a retenção nos registos do Azure Monitor](../../azure-monitor/platform/manage-cost-storage.md).
+Para rever os custos relacionados com a gestão dos registos do Monitor Azure, consulte Gerir o [custo controlando o volume de dados e a retenção nos registos do Azure Monitor](../../azure-monitor/logs/manage-cost-storage.md).
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
@@ -180,7 +180,7 @@ Esta secção responde às perguntas mais frequentes e inclui discussões sobre 
 
 **P: Que ferramentas SIEM são atualmente suportadas?** 
 
-**R:** **A**: Atualmente, o Monitor Azure é suportado por [Splunk](./howto-integrate-activity-logs-with-splunk.md), IBM QRadar, [Sumo Logic,](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory) [ArcSight,](./howto-integrate-activity-logs-with-arcsight.md)LogRhythm e Logz.io. Para obter mais informações sobre como funcionam os conectores, veja [Stream Azure monitoring data to an event hub for consumption by an external tool](../../azure-monitor/platform/stream-monitoring-data-event-hubs.md) (Transmitir em fluxo dados de monitorização do Azure para um hub de eventos, para consumo por uma ferramenta externa).
+**R:** **A**: Atualmente, o Monitor Azure é suportado por [Splunk](./howto-integrate-activity-logs-with-splunk.md), IBM QRadar, [Sumo Logic,](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory) [ArcSight,](./howto-integrate-activity-logs-with-arcsight.md)LogRhythm e Logz.io. Para obter mais informações sobre como funcionam os conectores, veja [Stream Azure monitoring data to an event hub for consumption by an external tool](../../azure-monitor/essentials/stream-monitoring-data-event-hubs.md) (Transmitir em fluxo dados de monitorização do Azure para um hub de eventos, para consumo por uma ferramenta externa).
 
 ---
 
