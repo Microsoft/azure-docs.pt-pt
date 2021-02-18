@@ -5,12 +5,12 @@ author: grzuber
 ms.topic: article
 ms.date: 05/09/2019
 ms.author: grzuber
-ms.openlocfilehash: 983d45a7a240701fa6441d2d9edeeda16f1ed18b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 400651b240f0518a85b9deb7a7293a77a88b0861
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86256497"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100591701"
 ---
 # <a name="diagnose-common-code-package-errors-by-using-service-fabric"></a>Diagnosticar erros comuns do pacote de código usando o Tecido de Serviço
 
@@ -41,7 +41,7 @@ A Service Fabric poderá ser responsável por terminar o seu pacote de códigos 
 >[!NOTE]
 > Se o seu processo ou recipiente terminar com um código de saída diferente dos códigos da tabela seguinte, a Service Fabric não é responsável por terminá-lo.
 
-Código de saída | Descrição
+Código de saída | Description
 --------- | -----------
 7147 | Indica que o Tecido de Serviço desliga graciosamente o processo ou o recipiente enviando-lhe um sinal Ctrl+C.
 7148 | Indica que o Tecido de Serviço encerrou o processo ou o contentor. Por vezes, este código de erro indica que o processo ou o contentor não respondeu em tempo útil após o envio de um sinal Ctrl+C, e teve de ser encerrado.
@@ -58,5 +58,5 @@ Código de saída | Valor hexadecimal | Breve descrição | Causa raiz | Correç
 
 * Saiba mais sobre [o diagnóstico de outros cenários comuns.](service-fabric-diagnostics-common-scenarios.md)
 * Obtenha uma visão geral mais detalhada dos registos do Azure Monitor e do que oferecem lendo [a visão geral do Azure Monitor](../azure-monitor/overview.md).
-* Saiba mais sobre os registos do Azure Monitor [alertando](../azure-monitor/platform/alerts-overview.md) para ajuda na deteção e diagnóstico.
-* Familiarize-se com as funcionalidades de pesquisa e consulta de [registos](../azure-monitor/log-query/log-query-overview.md) oferecidas como parte dos registos do Azure Monitor.
+* Saiba mais sobre os registos do Azure Monitor [alertando](../azure-monitor/alerts/alerts-overview.md) para ajuda na deteção e diagnóstico.
+* Familiarize-se com as funcionalidades de pesquisa e consulta de [registos](../azure-monitor/logs/log-query-overview.md) oferecidas como parte dos registos do Azure Monitor.

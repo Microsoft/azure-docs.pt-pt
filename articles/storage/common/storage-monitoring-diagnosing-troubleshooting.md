@@ -9,17 +9,17 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 50d78e83bbbeb4b0252c83f9f52e94599ea6946c
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 2f68452bed69e4e174f126d259e8df6d2283e6cf
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98787965"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100585214"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Monitorizar, diagnosticar e resolver problemas do Armazenamento do Microsoft Azure
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 Diagnosticar e resolver problemas numa aplicação distribuída hospedada num ambiente em nuvem pode ser mais complexo do que em ambientes tradicionais. As aplicações podem ser implantadas numa infraestrutura PaaS ou IaaS, nas instalações, num dispositivo móvel ou em alguma combinação destes ambientes. Normalmente, o tráfego de rede da sua aplicação pode atravessar redes públicas e privadas e a sua aplicação pode utilizar várias tecnologias de armazenamento, tais como Tabelas de Armazenamento do Microsoft Azure, Blobs, Filas ou Ficheiros, além de outras lojas de dados, como bases de dados relacionais e documentos.
 
 Para gerir estas aplicações com sucesso, deve monitorizá-las proativamente e entender como diagnosticar e resolver problemas de todos os aspetos das mesmos e das suas tecnologias dependentes. Como utilizador dos serviços de Armazenamento Azure, deve monitorizar continuamente os serviços de Armazenamento que a sua aplicação utiliza para quaisquer alterações inesperadas de comportamento (por exemplo, mais lentas do que os tempos de resposta habituais), e utilizar o registo para recolher dados mais detalhados e analisar um problema em profundidade. As informações de diagnóstico que obtém tanto da monitorização como do registo registado irão ajudá-lo a determinar a causa principal do problema que a sua aplicação encontrou. Em seguida, pode resolver o problema e determinar os passos adequados que pode tomar para remediar o problema. O Azure Storage é um serviço Azure core, e constitui uma parte importante da maioria das soluções que os clientes implementam para a infraestrutura Azure. O Azure Storage inclui capacidades para simplificar problemas de monitorização, diagnóstico e resolução de problemas nas suas aplicações baseadas na nuvem.
@@ -94,7 +94,7 @@ Os "[Apêndices]" incluem informações sobre a utilização de outras ferrament
 ## <a name="monitoring-your-storage-service"></a><a name="monitoring-your-storage-service"></a>Monitorização do seu serviço de armazenamento
 Se estiver familiarizado com a monitorização de desempenho do Windows, pode pensar nas Métricas de Armazenamento como sendo um equivalente a Azure Storage dos contadores Windows Performance Monitor. Nas Métricas de Armazenamento, encontrará um conjunto abrangente de métricas (contadores na terminologia do Windows Performance Monitor) como a disponibilidade do serviço, o número total de pedidos de serviço ou a percentagem de pedidos de serviço bem sucedidos. Para obter uma lista completa das métricas disponíveis, consulte [o Esquema de Tabela de Métricas de Armazenamento Analytics](/rest/api/storageservices/Storage-Analytics-Metrics-Table-Schema). Pode especificar se deseja que o serviço de armazenamento recolha e agrega as métricas a cada hora ou a cada minuto. Para obter mais informações sobre como ativar métricas e monitorizar as suas contas de armazenamento, consulte [Ativar as métricas de armazenamento e visualizar dados de métricas](../blobs/monitor-blob-storage.md).
 
-Pode escolher quais as métricas horárias que pretende apresentar no [portal Azure](https://portal.azure.com) e configurar regras que notificam os administradores por e-mail sempre que uma métrica de hora em hora excede um determinado limiar. Para mais informações, consulte [receber notificações de alerta.](../../azure-monitor/platform/alerts-overview.md)
+Pode escolher quais as métricas horárias que pretende apresentar no [portal Azure](https://portal.azure.com) e configurar regras que notificam os administradores por e-mail sempre que uma métrica de hora em hora excede um determinado limiar. Para mais informações, consulte [receber notificações de alerta.](../../azure-monitor/alerts/alerts-overview.md)
 
 Recomendamos que reveja [o Monitor Azure para armazenamento](../../azure-monitor/insights/storage-insights-overview.md) (pré-visualização). É uma funcionalidade do Azure Monitor que oferece uma monitorização abrangente das suas contas de Armazenamento Azure, proporcionando uma visão unificada do desempenho, capacidade e disponibilidade dos seus serviços de armazenamento Azure. Não requer que você ative ou configuure nada, e você pode imediatamente ver estas métricas a partir dos gráficos interativos pré-definidos e outras visualizações incluídas.
 
@@ -528,7 +528,7 @@ Entradas de registo:
 | 07b26a5d-... |A descarregar o corpo de resposta. |
 | 07b26a5d-... |A operação foi concluída com sucesso. |
 | 07b26a5d-... |Iniciando pedido sincronizado para `https://domemaildist.blob.core.windows.net/azuremmblobcontainer` . |
-| 07b26a5d-... |StringToSign = DELETE...... x-ms-cliente-pedido-id:07b26a5d-.... x-ms-date:Tue, 03 jun 2014 10:33:12 GMT.x-ms-versão:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
+| 07b26a5d-... |StringToSign = DELETE............... x-ms-cliente-pedido-id:07b26a5d-.... x-ms-date:Tue, 03 jun 2014 10:33:12 GMT.x-ms-versão:2014-02-14./domemaildist/azuremmblobcontainer.restype:container. |
 | 07b26a5d-... |À espera de resposta. |
 | 07b26a5d-... |Resposta recebida. Código de estado = 202, ID pedido = 6ab2a4cf-..., Conteúdo-MD5 = , ETag = . |
 | 07b26a5d-... |Os cabeçalhos de resposta foram processados com sucesso, prosseguindo com o resto da operação. |
@@ -785,7 +785,7 @@ Também pode utilizar a funcionalidade Application Insights para Azure DevOps co
 
 Pode encontrar mais informações no [What is Application Insights](../../azure-monitor/app/app-insights-overview.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre a análise no Azure Storage, consulte estes recursos:
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/11/2020
 ms.author: yelevin
-ms.openlocfilehash: 9cbafa2a87db9aa59769ac759da9b56a6463874a
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.openlocfilehash: 49b267d36fb6c365cf2125912c0d27fe7d669474
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100006688"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100585290"
 ---
 # <a name="extend-azure-sentinel-across-workspaces-and-tenants"></a>Alargar o Azure Sentinel através de áreas de trabalho e inquilinos
 
@@ -35,7 +35,7 @@ Pode obter o benefício total da experiência do Azure Sentinel ao utilizar uma 
 | Propriedade de dados | Os limites da propriedade dos dados, por exemplo, por subsidiárias ou empresas afiliadas, são melhor delineados utilizando espaços de trabalho separados. |  |
 | Vários inquilinos azuis | O Azure Sentinel suporta a recolha de dados dos recursos da Microsoft e da Azure SaaS apenas dentro do seu próprio limite de inquilinos Azure Ative (Azure AD). Portanto, cada inquilino do Azure AD requer uma área de trabalho separada. |  |
 | Controlo de acesso de dados granulares | Uma organização pode precisar de permitir que diferentes grupos, dentro ou fora da organização, acedam a alguns dos dados recolhidos pelo Azure Sentinel. Por exemplo:<br><ul><li>Acesso dos proprietários de recursos aos dados relativos aos seus recursos</li><li>Acesso dos SOCs regionais ou subsidiadores aos dados relevantes para as suas partes da organização</li></ul> | Utilize [o recurso Azure RBAC](https://techcommunity.microsoft.com/t5/azure-sentinel/controlling-access-to-azure-sentinel-data-resource-rbac/ba-p/1301463) ou [nível de mesa Azure RBAC](https://techcommunity.microsoft.com/t5/azure-sentinel/table-level-rbac-in-azure-sentinel/ba-p/965043) |
-| Definições de retenção granular | Historicamente, vários espaços de trabalho eram a única forma de definir diferentes períodos de retenção para diferentes tipos de dados. Isto já não é necessário em muitos casos, graças à introdução de definições de retenção ao nível da tabela. | Utilize [definições de retenção de nível de tabela](https://techcommunity.microsoft.com/t5/azure-sentinel/new-per-data-type-retention-is-now-available-for-azure-sentinel/ba-p/917316) ou automatize a [eliminação de dados](../azure-monitor/platform/personal-data-mgmt.md#how-to-export-and-delete-private-data) |
+| Definições de retenção granular | Historicamente, vários espaços de trabalho eram a única forma de definir diferentes períodos de retenção para diferentes tipos de dados. Isto já não é necessário em muitos casos, graças à introdução de definições de retenção ao nível da tabela. | Utilize [definições de retenção de nível de tabela](https://techcommunity.microsoft.com/t5/azure-sentinel/new-per-data-type-retention-is-now-available-for-azure-sentinel/ba-p/917316) ou automatize a [eliminação de dados](../azure-monitor/logs/personal-data-mgmt.md#how-to-export-and-delete-private-data) |
 | Faturação dividida | Ao colocar espaços de trabalho em subscrições separadas, podem ser faturados a diferentes partes. | Relatório de utilização e cobrança cruzada |
 | Arquitetura legada | O uso de múltiplos espaços de trabalho pode decorrer de um design histórico que tenha em conta limitações ou boas práticas que já não são verdadeiras. Também pode ser uma escolha arbitrária de design que pode ser modificada para acomodar melhor o Azure Sentinel.<br><br>Os exemplos incluem:<br><ul><li>Utilizar um espaço de trabalho por subscrição padrão ao implementar o Centro de Segurança Azure</li><li>A necessidade de definições de controlo ou retenção de acesso granular, as soluções para as quais são relativamente novas</li></ul> | Rearquitetar áreas de trabalho |
 
@@ -81,12 +81,12 @@ Azure Sentinel suporta uma [visão de incidente de vários espaços de trabalho]
 
 ### <a name="cross-workspace-querying"></a>Consulta de espaço de trabalho transversal
 
-O Azure Sentinel suporta a consulta de [vários espaços de trabalho numa única consulta,](../azure-monitor/log-query/cross-workspace-query.md)permitindo-lhe pesquisar e correlacionar dados de vários espaços de trabalho numa única consulta. 
+O Azure Sentinel suporta a consulta de [vários espaços de trabalho numa única consulta,](../azure-monitor/logs/cross-workspace-query.md)permitindo-lhe pesquisar e correlacionar dados de vários espaços de trabalho numa única consulta. 
 
-- Utilize a [expressão espaço de trabalho](../azure-monitor/log-query/workspace-expression.md) para se referir a uma mesa num espaço de trabalho diferente. 
+- Utilize a [expressão espaço de trabalho](../azure-monitor/logs/workspace-expression.md) para se referir a uma mesa num espaço de trabalho diferente. 
 - Utilize o [operador sindical](/azure/data-explorer/kusto/query/unionoperator?pivots=azuremonitor) ao lado da expressão do espaço de trabalho para aplicar uma consulta através de tabelas em vários espaços de trabalho.
 
-Pode utilizar [funções](../azure-monitor/log-query/functions.md) guardadas para simplificar consultas de espaço de trabalho transversal. Por exemplo, se uma referência a um espaço de trabalho for longa, é possível que queira guardar a expressão `workspace("customer-A's-hard-to-remember-workspace-name").SecurityEvent` como uma função chamada `SecurityEventCustomerA` . Em seguida, pode escrever consultas como `SecurityEventCustomerA | where ...` .
+Pode utilizar [funções](../azure-monitor/logs/functions.md) guardadas para simplificar consultas de espaço de trabalho transversal. Por exemplo, se uma referência a um espaço de trabalho for longa, é possível que queira guardar a expressão `workspace("customer-A's-hard-to-remember-workspace-name").SecurityEvent` como uma função chamada `SecurityEventCustomerA` . Em seguida, pode escrever consultas como `SecurityEventCustomerA | where ...` .
 
 Uma função também pode simplificar uma união comumente usada. Por exemplo, pode guardar a seguinte expressão como uma função chamada `unionSecurityEvent` :
 

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 4/26/2019
 ms.author: steveesp
 ms.reviewer: kumud, mareat
-ms.openlocfilehash: 280b3cbef8307691b0d50c4a26f6dca18b7fb65b
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: cb128f9269895f04d1e0dad8e0c8d06c481e86c6
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98233870"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100576167"
 ---
 # <a name="virtual-machine-network-bandwidth"></a>Largura de banda de rede de máquinas virtuais
 
@@ -55,12 +55,12 @@ A transferência de dados entre pontos finais requer a criação de vários flux
 ## <a name="flow-limits-and-active-connections-recommendations"></a>Limites de fluxo e recomendações de conexões ativas
 
 Hoje, a pilha de rede Azure suporta fluxos totais de 1M (entrada de 500k e saída de 500k) para um VM. As ligações ativas totais que podem ser manuseadas por um VM em diferentes cenários são as seguintes.
-- Os VMs que pertencem ao VNET podem lidar com *_ligações ativas_* de 500 k * para todos os tamanhos VM com _*_fluxos ativos_*_ de 500k em cada sentido .  
-- VMs com aparelhos virtuais de rede (NVAs) tais como gateway, proxy, firewall podem lidar com _*_ligações ativas_*_ de 250k com 500k _ *_fluxos ativos em cada direção_** devido ao encaminhamento e nova criação adicional de fluxo na configuração de nova ligação para o próximo salto, como mostrado no diagrama acima. 
+- Os VMs que pertencem ao VNET podem lidar com **ligações ativas** de 500 k * para todos os tamanhos VM com _fluxos ativos_ de 500k _* em cada sentido **.  
+- VMs com aparelhos virtuais de rede (NVAs) tais como gateway, proxy, firewall podem manusear 250 k ***conexões ativas** _ com 500 k _ *_fluxos ativos em cada direção_** devido ao encaminhamento e nova criação adicional de fluxo na configuração de nova ligação para o próximo salto, como mostrado no diagrama acima. 
 
 Uma vez atingido este limite, as ligações adicionais são eliminadas. As taxas de estabelecimento de ligação e de terminação também podem afetar o desempenho da rede como estabelecimento de ligação e a rescisão de ações CPU com rotinas de processamento de pacotes. Recomendamos que compareça cargas de trabalho em comparação com os padrões de tráfego esperados e reduza as cargas de trabalho adequadamente para corresponder às suas necessidades de desempenho.
 
-As métricas estão disponíveis no [Azure Monitor](../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachines) para monitorizar o número de fluxos de rede e o caudal de criação nas suas instâncias VM ou VMSS.
+As métricas estão disponíveis no [Azure Monitor](../azure-monitor/essentials/metrics-supported.md#microsoftcomputevirtualmachines) para monitorizar o número de fluxos de rede e o caudal de criação nas suas instâncias VM ou VMSS.
 
 ![A screenshot mostra a página métrica do Azure Monitor com um gráfico de linha e totais para fluxos de entrada e saída.](media/virtual-machine-network-throughput/azure-monitor-flow-metrics.png)
 

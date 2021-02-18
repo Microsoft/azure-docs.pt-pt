@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 09/10/2020
-ms.openlocfilehash: 35f575410caa7a8a8ffbda35bdfa876418db8945
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: fee454073c50b9542e140576ef0629a39b8f4294
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98210380"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100573469"
 ---
 # <a name="explore-azure-monitor-for-azure-cache-for-redis"></a>Explore o Monitor Azure para Azure Cache para Redis
 
@@ -52,7 +52,7 @@ Para visualizar a utilização e desempenho das suas contas de armazenamento em 
 
 1. Selecione **Azure Cache para Redis**. Se esta opção não estiver presente, selecione **Mais**  >  **Cache Azure para Redis**.
 
-### <a name="overview"></a>Descrição geral
+### <a name="overview"></a>Descrição Geral
 
 Em **visão geral,** a tabela apresenta cache Azure interativo para métricas Redis. Pode filtrar os resultados com base nas opções selecionadas nas seguintes listas de entrega:
 
@@ -186,6 +186,6 @@ Para obter orientações sobre resolução de problemas, consulte o artigo dedic
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Configure [alertas métricos](../platform/alerts-metric.md) e [notificações de saúde](../../service-health/alerts-activity-log-service-notifications-portal.md) de serviço para configurar alertas automatizados que ajudam na deteção de problemas.
+* Configure [alertas métricos](../alerts/alerts-metric.md) e [notificações de saúde](../../service-health/alerts-activity-log-service-notifications-portal.md) de serviço para configurar alertas automatizados que ajudam na deteção de problemas.
 
-* Conheça os cenários que os livros suportam, como autor ou personalizar relatórios, e mais através da revisão [Criar relatórios interativos com os livros de trabalho do Azure Monitor.](../platform/workbooks-overview.md)
+* Conheça os cenários que os livros suportam, como autor ou personalizar relatórios, e mais através da revisão [Criar relatórios interativos com os livros de trabalho do Azure Monitor.](../visualize/workbooks-overview.md)

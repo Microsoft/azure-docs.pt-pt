@@ -1,5 +1,5 @@
 ---
-title: Ligue os dados do DNS no Azure Sentinel. Microsoft Docs
+title: Ligue os dados do DNS no Azure Sentinel| Microsoft Docs
 description: Aprenda a ligar qualquer servidor de nome de domínio (DNS) em execução no Windows ao Azure Sentinel instalando um agente na máquina DNS.
 services: sentinel
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: yelevin
-ms.openlocfilehash: 7701fc6d90fd9ebc7ec29f0ffdd7d050c58c036c
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: abecddb6f5469cb4ef463e65d6c74149bf34dca9
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94655668"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590236"
 ---
 # <a name="connect-your-domain-name-server"></a>Ligue o servidor de nome de domínio
 
@@ -43,10 +43,10 @@ O quadro que se segue descreve as fontes ligadas suportadas por esta solução:
 
 | **Origem ligada** | **Suporte** | **Descrição** |
 | --- | --- | --- |
-| [Agentes do Windows](../azure-monitor/platform/agent-windows.md) | Sim | A solução recolhe informações sobre DNS de agentes do Windows. |
-| [Agentes do Linux](../azure-monitor/learn/quick-collect-linux-computer.md) | Não | A solução não recolhe informações de DNS de agentes linux diretos. |
-| [Grupo de gestão do System Center Operations Manager](../azure-monitor/platform/om-agents.md) | Sim | A solução recolhe informações de DNS de agentes de um grupo de gestão de Gestores de Operações conectado. Não é necessária uma ligação direta do agente gestor de operações ao Azure Monitor. Os dados são reencaminhados do grupo de gestão para o espaço de trabalho Log Analytics. |
-| [Conta de armazenamento Azure](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace) | Não | O armazenamento Azure não é usado pela solução. |
+| [Agentes do Windows](../azure-monitor/agents/agent-windows.md) | Yes | A solução recolhe informações sobre DNS de agentes do Windows. |
+| [Agentes do Linux](../azure-monitor/vm/quick-collect-linux-computer.md) | No | A solução não recolhe informações de DNS de agentes linux diretos. |
+| [Grupo de gestão do System Center Operations Manager](../azure-monitor/agents/om-agents.md) | Yes | A solução recolhe informações de DNS de agentes de um grupo de gestão de Gestores de Operações conectado. Não é necessária uma ligação direta do agente gestor de operações ao Azure Monitor. Os dados são reencaminhados do grupo de gestão para o espaço de trabalho Log Analytics. |
+| [Conta de armazenamento Azure](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace) | No | O armazenamento Azure não é usado pela solução. |
 
 ### <a name="data-collection-details"></a>Detalhes da recolha de dados
 
@@ -82,7 +82,7 @@ Se as consultas de procuração não aparecerem em Azure Sentinel, siga estes pa
 4. No Azure DNS Analytics, em **Configuração,** altere qualquer uma das definições, guarde-as e, em seguida, volte a alterá-la se precisar e guarde-a novamente.
 5. Verifique a análise do Azure DNS para se certificar de que as consultas estão agora a ser apresentadas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste documento, aprendeu a ligar os aparelhos DNS no local ao Azure Sentinel. Para saber mais sobre Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [obter visibilidade nos seus dados e potenciais ameaças.](quickstart-get-visibility.md)

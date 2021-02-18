@@ -6,14 +6,14 @@ ms.service: virtual-machines-linux
 ms.subservice: extensions
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 10/14/2020
+ms.date: 02/14/2021
 ms.author: danis
-ms.openlocfilehash: 87cb4a233470fadc9cde616790aff0d5cd7b151b
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: a4fc51c8bb8a07f768da16224b9258bbdbf6d9b4
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096662"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100632939"
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>suporte cloud-init para máquinas virtuais em Azure
 Este artigo explica o suporte que existe para [configurar](https://cloudinit.readthedocs.io) uma máquina virtual (VM) ou uma escala de máquina virtual em tempo de provisionamento em Azure. Estas configurações de cloud-init são executadas na primeira bota uma vez que os recursos foram a provisionados pela Azure.  
@@ -135,6 +135,10 @@ package_upgrade: true
 packages:
   - httpd
 ```
+> [!NOTE]
+> O cloud-init tem vários tipos de [entrada,](https://cloudinit.readthedocs.io/en/latest/topics/format.html)o cloud-init utilizará a primeira linha do customData/userData para indicar como deve processar a entrada, por exemplo `#cloud-config` indica que o conteúdo deve ser processado como um config de cloud-init.
+
+
 Prima `ctrl-X` para sair do ficheiro, escreva para guardar o ficheiro e prima para confirmar o nome do ficheiro na `y` `enter` saída.
 
 O passo final é criar um VM com o [comando az vm criar.](/cli/azure/vm) 
@@ -155,7 +159,7 @@ Quando o VM foi criado, o Azure CLI mostra informações específicas para a sua
 Também pode implementar um VM ativado por nuvem, passando os [parâmetros no modelo ARM](../../azure-resource-manager/templates/deploy-cli.md#inline-parameters).
 
 ## <a name="troubleshooting-cloud-init"></a>Resolução de problemas na nuvem
-Uma vez que o VM tenha sido a provisionado, o cloud-init irá percorrer todos os módulos e scripts definidos `--custom-data` de forma a configurar o VM.  Se precisar de resolver quaisquer erros ou omissões da configuração, tem de procurar o nome do módulo `disk_setup` `runcmd` (ou, por exemplo) no registo de ini por parte da nuvem - localizado em **/var/log/cloud-init.log**.
+Uma vez que o VM tenha sido a provisionado, o cloud-init irá percorrer todos os módulos e scripts definidos `--custom-data` de forma a configurar o VM.  Se precisar de resolver quaisquer erros ou omissões da configuração, tem de procurar o nome do módulo `disk_setup` `runcmd` (ou, por exemplo) no registo de inição de nuvem - localizado em **/var/log/cloud-init.log**.
 
 > [!NOTE]
 > Nem todas as falhas do módulo resultam numa falha de configuração geral fatal. Por exemplo, utilizando o `runcmd` módulo, se o script falhar, o cloud-init continuará a reportar que o provisionamento foi bem sucedido porque o módulo desatado foi executado.

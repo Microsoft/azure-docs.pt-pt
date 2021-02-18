@@ -1,16 +1,16 @@
 ---
-title: Visão geral do Agente de Insights de Aplicação Azure / Microsoft Docs
+title: Visão geral do agente de insights de aplicação Azure | Microsoft Docs
 description: Uma visão geral do Agente de Insights de Aplicação. Monitorize o desempenho do site sem reimplantar o site. Funciona com ASP.NET aplicações web hospedadas no local, em VMs ou em Azure.
 ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 09/16/2019
-ms.openlocfilehash: f0ce969a4ab016d6a036d33a0e9bf027bb580a20
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 69f80856150e461c6edfafdf0aa89de77c4ab0fd
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186223"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100583817"
 ---
 # <a name="deploy-azure-monitor-application-insights-agent-for-on-premises-servers"></a>Implementar o Agente de Insights de Aplicação do Monitor Azure para servidores no local
 
@@ -67,7 +67,7 @@ Cada uma destas opções é descrita nas [instruções detalhadas](status-monito
   - O [get-ApplicationInsightsMonitoringStatus](./status-monitor-v2-api-reference.md#get-applicationinsightsmonitoringstatus) cmdlet pode ser utilizado para verificar se a ativação foi bem sucedida.
   - Recomendamos que utilize [métricas vivas](./live-stream.md) para determinar rapidamente se a sua aplicação está a enviar telemetria.
 
-  - Também pode utilizar [o Log Analytics](../log-query/log-analytics-tutorial.md) para listar todas as funções em nuvem que estão a enviar telemetria:
+  - Também pode utilizar [o Log Analytics](../logs/log-analytics-tutorial.md) para listar todas as funções em nuvem que estão a enviar telemetria:
       ```Kusto
       union * | summarize count() by cloud_RoleName, cloud_RoleInstance
       ```
@@ -76,9 +76,9 @@ Cada uma destas opções é descrita nas [instruções detalhadas](status-monito
 
 Ver a telemetria:
 
-* [Explore métricas](../platform/metrics-charts.md) para monitorizar o desempenho e a utilização.
+* [Explore métricas](../essentials/metrics-charts.md) para monitorizar o desempenho e a utilização.
 * [Pesquisar eventos e registos](./diagnostic-search.md) para diagnosticar problemas.
-* [Use Analytics](../log-query/log-query-overview.md) para consultas mais avançadas.
+* [Use Analytics](../logs/log-query-overview.md) para consultas mais avançadas.
 * [Criar painéis de instrumentos.](./overview-dashboard.md)
 
 Adicionar mais telemetria:

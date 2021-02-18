@@ -5,12 +5,12 @@ ms.custom: subject-cost-optimization
 ms.service: app-service
 ms.topic: how-to
 ms.date: 01/01/2021
-ms.openlocfilehash: 3df08705859678525526f8fef198826f58249d8b
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: ada4c1991a57c8252247c9617e097dc82cb3b4a9
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99573369"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593985"
 ---
 # <a name="plan-and-manage-costs-for-azure-app-service"></a>Planear e gerir os custos do Azure App Service
 
@@ -38,7 +38,7 @@ Dependendo da funcionalidade que utilizar no Serviço de Aplicações, podem ser
 - **Plano de Serviço de Aplicações**  É necessário acolher uma aplicação do Serviço de Aplicações.
 - **Nível isolado**  É necessária uma [Rede Virtual](../virtual-network/index.yml) para um ambiente de Serviço de Aplicações.
 - **Backup**  É necessária [uma conta de Armazenamento](../storage/index.yml) para fazer cópias de segurança.
-- **Registos de diagnóstico**  Pode selecionar a [conta de Armazenamento](../storage/index.yml) como opção de registo registado ou integrar-se com o [Azure Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md).
+- **Registos de diagnóstico**  Pode selecionar a [conta de Armazenamento](../storage/index.yml) como opção de registo registado ou integrar-se com o [Azure Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md).
 - **Certificados de Serviço de Aplicações**  Os certificados que comprar em Azure devem ser mantidos no [Cofre da Chave Azure](../key-vault/index.yml).
 
 Outros recursos de custos para o Serviço de Aplicações são (ver [preços do Serviço de Aplicações](https://azure.microsoft.com/pricing/details/app-service/) para mais detalhes):
@@ -114,7 +114,7 @@ As cargas de trabalho de produção vêm com a recomendação do nível de preç
 > [!NOTE]
 > **Premium V3** suporta recipientes Windows e linux. 
 
-Uma vez que escolha o nível de preços que deseja, deve minimizar as instâncias ociosas. Numa implementação de escala, você pode desperdiçar dinheiro em casos de computação subutilizada. Deve [configurar autoscaling](../azure-monitor/platform/autoscale-get-started.md), disponível no nível **Standard** e acima. Ao criar horários de escala, bem como regras de escala baseadas em métricas, você só paga pelos casos que realmente precisa em qualquer momento.
+Uma vez que escolha o nível de preços que deseja, deve minimizar as instâncias ociosas. Numa implementação de escala, você pode desperdiçar dinheiro em casos de computação subutilizada. Deve [configurar autoscaling](../azure-monitor/autoscale/autoscale-get-started.md), disponível no nível **Standard** e acima. Ao criar horários de escala, bem como regras de escala baseadas em métricas, você só paga pelos casos que realmente precisa em qualquer momento.
 
 ### <a name="azure-reservations"></a>Reservas do Azure
 

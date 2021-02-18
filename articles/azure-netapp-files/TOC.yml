@@ -77,6 +77,8 @@
       href: manage-manual-qos-capacity-pool.md
     - name: Delegar uma sub-rede para os Azure NetApp Files
       href: azure-netapp-files-delegate-subnet.md
+    - name: Criar e gerir ligações ative directy
+      href: create-active-directory-connections.md
     - name: Criar e gerir um volume NFS
       items:
         - name: Criar um volume NFS

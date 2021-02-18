@@ -3,16 +3,16 @@ title: Implemente uma aplicação Java com Open Liberty/WebSphere Liberty num cl
 description: Implemente uma aplicação Java com Open Liberty/WebSphere Liberty num cluster Azure Red Hat OpenShift 4.
 author: jiangma
 ms.author: jiangma
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.topic: conceptual
 ms.date: 10/30/2020
 keywords: java, jacarta, javaee, microprofile, open-liberty, websphere-liberty, aro, openshift, red hat
-ms.openlocfilehash: 0c17c911d1eefe646785314a26b6a9b1e964ca67
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: acb448a9662daa58b5d2ff42861e238e23586b33
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96493951"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100633891"
 ---
 # <a name="deploy-a-java-application-with-open-libertywebsphere-liberty-on-an-azure-red-hat-openshift-4-cluster"></a>Implemente uma aplicação Java com Open Liberty/WebSphere Liberty num cluster Azure Red Hat OpenShift 4
 
@@ -97,7 +97,7 @@ Depois de criar e ligar ao cluster, instale o Operador da Liberdade Aberta.  A p
 1. Inscreva-se na consola web OpenShift a partir do seu navegador utilizando as `kubeadmin` credenciais.
 2. Navegue para **o Operador**  >  **OperadorHub** e procure o **Operador de Liberdade Aberta.**
 3. Selecione **o Operador da Liberdade Aberta** a partir dos resultados da pesquisa.
-4. Selecione **Install** (Instalar).
+4. Selecione **Instalar**.
 5. Na subscrição popup **Criar Operador,** verifique **todos os espaços de nomes no cluster (predefinido)** para modo de **instalação,** **beta** para o Canal **de Atualização** e Estratégia **Automática** de **Aprovação**:
 
    ![criar subscrição de operador para operador de liberdade aberta](./media/howto-deploy-java-liberty-app/install-operator.png)
@@ -234,7 +234,7 @@ Como utilizamos o Operador da Liberdade Aberta para gerir aplicações liberty, 
 
 1. Inscreva-se na consola web OpenShift a partir do seu navegador utilizando as credenciais do utilizador Azure AD.
 1. Expandir **o Lar**, Selecione **Projetos**  >  **open-liberty-demo**.
-1. Navegue **Operators** para  >  **operadores instalados.**
+1. Navegue para  >  **operadores instalados.**
 1. No meio da página, selecione **Open Liberty Operator**.
 1. No meio da página, selecione **Open Liberty Application**.  A navegação de itens na interface do utilizador espelha a hierarquia real de contenção das tecnologias em uso.
    <!-- Diagram source https://github.com/Azure-Samples/open-liberty-on-aro/blob/master/diagrams/aro-java-containment.vsdx -->

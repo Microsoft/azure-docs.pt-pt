@@ -6,12 +6,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/28/2020
-ms.openlocfilehash: 4c6d8fabbd236a2653fff8168ad73c0b45f09d64
-ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+ms.openlocfilehash: 4970cacb0995678bdad87f14ba971b8fb88ffa09
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98027847"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593648"
 ---
 # <a name="react-plugin-for-application-insights-javascript-sdk"></a>Reagir plugin para Informações JavaScript SDK
 
@@ -77,7 +77,7 @@ export default withAITracking(reactPlugin, MyComponent);
 
 ## <a name="configuration"></a>Configuração
 
-| Name    | Predefinição | Descrição                                                                                                    |
+| Name    | Predefinição | Description                                                                                                    |
 |---------|---------|----------------------------------------------------------------------------------------------------------------|
 | histórico | nulo    | Reagir na história do router. Para obter mais informações, consulte a documentação do [pacote do revesidor de reagem](https://reactrouter.com/web/api/history). Para aprender a aceder ao objeto histórico fora dos componentes, consulte o [Re-router FAQ](https://github.com/ReactTraining/react-router/blob/master/FAQ.md#how-do-i-access-the-history-object-outside-of-components)    |
 
@@ -226,4 +226,4 @@ Confira a [demonstração de Informação de Aplicação](https://github.com/Azu
 ## <a name="next-steps"></a>Passos seguintes
 
 - Para saber mais sobre o JavaScript SDK, consulte a [documentação SDK javaScript da aplicação.](javascript.md)
-- Para saber mais sobre a linguagem de consulta de Kusto e consultando dados em Log Analytics, consulte a [visão geral](../../azure-monitor/log-query/log-query-overview.md)da consulta de log .
+- Para saber mais sobre a linguagem de consulta de Kusto e consultando dados em Log Analytics, consulte a [visão geral](../../azure-monitor/logs/log-query-overview.md)da consulta de log .
