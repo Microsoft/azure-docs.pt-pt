@@ -12,14 +12,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/30/2020
+ms.date: 02/17/2021
 ms.author: memildin
-ms.openlocfilehash: d3ed064547b1202aa562fffdfde85a28cbe8514e
-ms.sourcegitcommit: 31d242b611a2887e0af1fc501a7d808c933a6bf6
+ms.openlocfilehash: 5e39093e0472705111907e72b70446db53770012
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97809552"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100634498"
 ---
 # <a name="quickstart-set-up-azure-security-center"></a>Quickstart: Criar o Centro de Segurança Azure
 
@@ -42,7 +42,7 @@ Para ativar o Azure Defender numa subscrição, deve ser-lhe atribuída a funç�
 
 ## <a name="enable-security-center-on-your-azure-subscription"></a>Ativar o Centro de Segurança na sua assinatura Azure
 
-1. Inicie sessão no [portal do Azure](https://azure.microsoft.com/features/azure-portal/).
+1. Inicie sessão no [Portal do Azure](https://azure.microsoft.com/features/azure-portal/).
 
 1. A partir do menu do portal, selecione **Security Center**. 
 
@@ -88,7 +88,7 @@ Para permitir o provisionamento automático do agente Log Analytics:
 
 1. A partir do menu do Centro de Segurança, **selecione definições de preços &**.
 1. Selecione a subscrição relevante.
-1. Na página de **recolha de dados,** desa **essa adir** automático ao **On**.
+1. Na página **de provisionamento automático,** para o **agente Log Analytics para VMs Azure** definir o estado para **On**.
 1. Selecione **Guardar**.
 
     :::image type="content" source="./media/security-center-enable-data-collection/enable-automatic-provisioning.png" alt-text="Habilitação automática do agente Log Analytics":::

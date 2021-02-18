@@ -5,15 +5,15 @@ author: memildin
 manager: rkarlin
 services: security-center
 ms.author: memildin
-ms.date: 09/10/2020
+ms.date: 02/17/2021
 ms.service: security-center
 ms.topic: how-to
-ms.openlocfilehash: 12cc2de6cd1a8e9ddf40b358c94b720b8b2cf594
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 646495597565bbb033ac3adaa15f3754f33e8fd6
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98920448"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100634175"
 ---
 # <a name="suppress-alerts-from-azure-defender"></a>Alertas de Supressão do Azure Defender
 
@@ -60,9 +60,7 @@ Para criar uma regra diretamente no portal Azure:
 
 1. Na página de alertas de segurança do Centro de Segurança:
 
-    - Localize o alerta específico que não quer ver mais, e a partir do menu de elipses (...) para o alerta, **selecione Criar regra de supressão**:
-
-        [![**Criar regra de supressão** opção](media/alerts-suppression-rules/auto-dismiss-future-option.png)](media/alerts-suppression-rules/auto-dismiss-future-option.png#lightbox)
+    - Selecione o alerta específico que não quer ver mais e, a partir do painel de detalhes, **selecione Tome medidas**.
 
     - Ou, selecione o link das **regras** de supressão no topo da página e a partir da página de regras de supressão selecione **Criar nova regra de supressão**:
 
@@ -85,9 +83,9 @@ Para criar uma regra diretamente no portal Azure:
 1. Salve a regra. 
 
 
-## <a name="edit-a-suppression-rules"></a>Editar regras de supressão
+## <a name="edit-a-suppression-rule"></a>Editar uma regra de supressão
 
-Para editar as regras que criou, use a página de regras de supressão.
+Para editar uma regra que criou, use a página de regras de supressão.
 
 1. A partir da página de alertas de segurança do Security Center, selecione o link das regras de **supressão** no topo da página.
 1. A página de regras de supressão abre com todas as regras para as subscrições selecionadas.
@@ -106,20 +104,6 @@ Para eliminar uma ou mais regras que criou, utilize a página de regras de supre
 1. Para eliminar uma única regra, abra o menu de elipses (...) para a regra e selecione **Delete**.
 1. Para eliminar várias regras, selecione as caixas de verificação para que as regras sejam eliminadas e selecione **Eliminar**.
     ![Excluir uma ou mais regras de supressão](media/alerts-suppression-rules/delete-multiple-alerts.png)
-
-## <a name="view-suppressed-alerts"></a>Ver alertas suprimidos
-
-Os alertas que correspondam às suas regras de supressão ativadas ainda serão gerados, mas o seu estado será definido para **ser rejeitado**. Pode ver o estado no portal Azure ou no entanto acede aos alertas de segurança do Seu Centro de Segurança. 
-
-> [!TIP]
-> [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/) não vai criar incidentes para alertas reprimidos. Para outros SIEMs, pode filtrar alertas suprimidos utilizando o estado dos alertas ('dispensado').
-
-Utilize o filtro do Centro de Segurança para visualizar alertas que tenham sido rejeitados pelas suas regras.
-
-* A partir da página de alertas de segurança do Centro de Segurança, abra as opções do filtro e selecione **'Rejeitar'.**  
-
-   [![Visualização de alertas dispensados](media/alerts-suppression-rules/view-dismissed-alerts.png)](media/alerts-suppression-rules/view-dismissed-alerts.png#lightbox)
-
 
 ## <a name="create-and-manage-suppression-rules-with-the-api"></a>Criar e gerir regras de supressão com a API
 
@@ -142,7 +126,7 @@ Os métodos HTTP relevantes para as regras de supressão na API REST são:
 Para obter todos os detalhes e exemplos de utilização, consulte a documentação da [API.](/rest/api/securitycenter/) 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Este artigo descreveu as regras de supressão no Azure Security Center que automaticamente descartam alertas indesejados.
 

@@ -1,5 +1,5 @@
 ---
-title: Azure VMs HA para SAP NW no Windows com Ficheiros Azure NetApp (SMB)/ Microsoft Docs
+title: Azure VMs HA para SAP NW no Windows com Ficheiros Azure NetApp (SMB)| Microsoft Docs
 description: Alta disponibilidade para SAP NetWeaver em VMs Azure no Windows com Ficheiros Azure NetApp (SMB) para aplicações SAP
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/12/2020
 ms.author: radeltch
-ms.openlocfilehash: 90b0ab4fdabd40e803d1f85a640e4cb387e40c44
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: b04dacfdedded417e2557d1568e01bc9fa8f5745
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94958953"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590123"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-windows-with-azure-netapp-filessmb-for-sap-applications"></a>Alta disponibilidade para SAP NetWeaver em VMs Azure no Windows com Ficheiros Azure NetApp (SMB) para aplicações SAP
 
@@ -81,10 +81,10 @@ Leia primeiro as seguintes notas e artigos SAP:
 * [Azure Virtual Machines arquitetura de alta disponibilidade e cenários para SAP NetWeaver](./sap-high-availability-architecture-scenarios.md)
 * [Adicione a porta da sonda na configuração do cluster ASCS](sap-high-availability-installation-wsfc-file-share.md)
 * [Instalação de uma (A)ScS Instance num cluster de falha](https://www.sap.com/documents/2017/07/f453332f-c97c-0010-82c7-eda71af511fa.html)
-* [Criar um volume SMB para o Azure NetApp Files](../../../azure-netapp-files/azure-netapp-files-create-volumes-smb.md#requirements-for-active-directory-connections)
+* [Criar um volume SMB para o Azure NetApp Files](../../../azure-netapp-files/create-active-directory-connections.md#requirements-for-active-directory-connections)
 * [Aplicações NETApp SAP no Microsoft Azure utilizando ficheiros Azure NetApp][anf-sap-applications-azure]
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 A SAP desenvolveu uma nova abordagem, e uma alternativa aos discos partilhados do cluster, para agrupar uma instância SAP ASCS/SCS num cluster de falha do Windows. Em vez de usar discos partilhados de cluster, pode-se usar uma partilha de ficheiros SMB para implementar ficheiros de anfitriões globais SAP. O Azure NetApp Files suporta o SMBv3 (juntamente com o NFS) com a NTFS ACL utilizando o Ative Directory. O Azure NetApp Files está automaticamente altamente disponível (uma vez que é um serviço PaaS). Estas funcionalidades tornam a Azure NetApp Files uma ótima opção para hospedar a partilha de ficheiros SMB para a SAP global.  
 Tanto os [Serviços de Domínio Azure Ative (AD)](../../../active-directory-domain-services/overview.md) como [os Serviços de Domínio do Diretório Ativo (DS AD)](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) são suportados. Pode utilizar controladores de domínio ative diretório existentes com ficheiros Azure NetApp. Os controladores de domínio podem estar em Azure como máquinas virtuais, ou nas instalações via ExpressRoute ou S2S VPN. Neste artigo, usaremos o controlador de domínio num VM Azure.  
@@ -114,9 +114,9 @@ Execute os seguintes passos, como preparação para a utilização de Ficheiros 
 4. Os recursos do Azure NetApp Files devem residir na sub-rede delegada. Siga as instruções em [Delegado uma sub-rede para ficheiros Azure NetApp](../../../azure-netapp-files/azure-netapp-files-delegate-subnet.md) para criar sub-rede delegada.  
 
    > [!IMPORTANT]
-   > É necessário criar ligações ative diretoria antes de criar um volume SMB. Reveja os [requisitos para ligações de Diretório Ativo](../../../azure-netapp-files/azure-netapp-files-create-volumes-smb.md#requirements-for-active-directory-connections).  
+   > É necessário criar ligações ative diretoria antes de criar um volume SMB. Reveja os [requisitos para ligações de Diretório Ativo](../../../azure-netapp-files/create-active-directory-connections.md#requirements-for-active-directory-connections).  
 
-5. Criar ligação ative directy, conforme descrito na [Criar uma ligação ative directory](../../../azure-netapp-files/azure-netapp-files-create-volumes-smb.md#create-an-active-directory-connection)  
+5. Criar ligação ative directy, conforme descrito na [Criar uma ligação ative directory](../../../azure-netapp-files/create-active-directory-connections.md#create-an-active-directory-connection)  
 6. Criar SMB Azure NetApp Ficheiros SMB volume SMB, seguindo as instruções em [Adicionar um volume SMB](../../../azure-netapp-files/azure-netapp-files-create-volumes-smb.md#add-an-smb-volume)  
 7. Monte o volume SMB na sua Máquina Virtual Windows.
 
@@ -144,7 +144,7 @@ Precisa do seguinte software da SAP:
 
 ### <a name="install-an-ascsscs-instance-on-the-first-ascsscs-cluster-node"></a>Instale uma instância ASCS/SCS no primeiro nó de cluster ASCS/SCS
 
-1. Instale uma instância SAP ASCS/SCS no primeiro nó de cluster. Inicie a ferramenta de instalação SAP **Product** SWPM e, em seguida, navegue para:  >  **DBMS** > Instalação > Servidor de Aplicação ABAP (ou Java) > High-Availability Sistema > instância ASCS/SCS > primeiro nó de cluster.  
+1. Instale uma instância SAP ASCS/SCS no primeiro nó de cluster. Inicie a ferramenta de instalação SAP SWPM e, em seguida, navegue para:  >  **DBMS** > Instalação > Servidor de Aplicação ABAP (ou Java) > High-Availability Sistema > instância ASCS/SCS > primeiro nó de cluster.  
 
 2. Selecione **o Cluster de Partilha de Ficheiros** como a Configuração de partilha de cluster em SWPM.  
 3. Quando solicitado no passo OS Parâmetros de Cluster do Sistema SAP , **insira** o nome de anfitrião para a partilha de ficheiros Azure NetApp que já criou como **Nome do Anfitrião da Partilha de Ficheiros**.  Neste exemplo, o nome de anfitrião da SMB é **anfsmb-9562**. 

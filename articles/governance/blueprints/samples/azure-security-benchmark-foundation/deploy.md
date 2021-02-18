@@ -3,12 +3,12 @@ title: Implementar amostra de projeto da Fundação de Benchmark de Segurança A
 description: Implementar etapas para a amostra de projeto da Azure Security Benchmark Foundation, incluindo detalhes do parâmetro do artefacto da planta.
 ms.date: 02/12/2020
 ms.topic: sample
-ms.openlocfilehash: e1a5e011f5b53d35971fa43613914c0a43549600
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 84c157d696dc8ababe1f252136672ea600e604af
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100421975"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100633959"
 ---
 # <a name="deploy-the-azure-security-benchmark-foundation-blueprint-sample"></a>Implementar a amostra de projeto da Fundação de Referência de Segurança Azure
 
@@ -132,10 +132,8 @@ A tabela a seguir fornece uma lista dos parâmetros da planta:
 |Modelo de fala de rede virtual Azure|Modelo do Resource Manager|Nomes de endereços de sub-rede (opcional)|Matriz de nomes de sub-redes para implantar na rede virtual falada; por exemplo, "subnet1", "subnet2"|
 |Modelo de fala de rede virtual Azure|Modelo do Resource Manager|Prefixos de endereço de sub-rede (opcional)|Matriz de prefixos de endereço IP para sub-redes opcionais para a rede virtual falada; por exemplo, "10.0.7.0/24","10.0.8.0/24"|
 |Modelo de fala de rede virtual Azure|Modelo do Resource Manager|Implementar falou|Insira 'verdadeiro' ou 'falso' para especificar se a atribuição implementa os componentes falados da arquitetura|
-|Grupo de recursos do Observador de Rede|Grupo de recursos|Nome do grupo de recursos|Bloqueado - Usa o nome do grupo de recursos do Network Watcher|
-|Grupo de recursos do Observador de Rede|Grupo de recursos|Localização do grupo de recursos|Bloqueado - Usa a localização do hub|
-|Modelo de observador de rede Azure|Modelo do Resource Manager|Localização do Observador de Rede|Localização para o recurso Network Watcher|
-|Modelo de observador de rede Azure|Modelo do Resource Manager|Localização do grupo de recursos do Observador de Rede|Localização do grupo de recursos Network Watcher|
+|Modelo de observador de rede Azure|Modelo do Resource Manager|Localização do Observador de Rede|Se o Network Watcher já estiver ativado, este valor de parâmetro **deve** corresponder à localização do grupo de recursos do Observador de Rede existente.|
+|Modelo de observador de rede Azure|Modelo do Resource Manager|Localização do grupo de recursos do Observador de Rede|Se o Network Watcher já estiver ativado, este valor de parâmetro **deve** corresponder ao nome do grupo de recursos do Observador de Rede existente.|
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake
-ms.date: 11/13/2019
-ms.openlocfilehash: 51cf4a4d3aa3cb4654b141a98064460a7152fcec
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.date: 02/16/2021
+ms.openlocfilehash: f1761851f91e6d0c0aadb3315dbb7980a00bba5b
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737460"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100633823"
 ---
 # <a name="azure-hybrid-benefit---azure-sql-database--sql-managed-instance"></a>Azure Hybrid Benefit - Azure SQL Database & SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -85,16 +85,16 @@ O Benefício Híbrido Azure para o SQL Server difere da mobilidade de licenças 
 
 #### <a name="what-are-the-specific-rights-of-the-azure-hybrid-benefit-for-sql-server"></a>Quais são os direitos específicos do Benefício Híbrido Azure para o SQL Server?
 
-Os clientes da SQL Database têm os seguintes direitos associados ao Azure Hybrid Benefit para o SQL Server:
+Os clientes SQL Database e SQL Managed Instance têm os seguintes direitos associados ao Azure Hybrid Benefit para o SQL Server:
 
 |Pegada de licença|O que é que o Azure Hybrid Benefit for SQL Server te dá?|
 |---|---|
 |SQL Server Enterprise Edition clientes centrais com SA|<li>Pode pagar taxa base em Hyperscale, General Purpose, ou Business Critical SKU</li><br><li>1 núcleo no local = 4 núcleos em Hiperscale SKU</li><br><li>1 núcleo no local = 4 núcleos no SKU de Finalidade Geral</li><br><li>1 núcleo nas instalações = 1 núcleo no Business Critical SKU</li>|
-|Sql Server Standard Edition clientes centrais com SA|<li>Pode pagar taxa base apenas em Hiperscale e SKU de Finalidade Geral</li><br><li>1 núcleo nas instalações = 1 núcleo em Hiperscale SKU</li><br><li>1 núcleo nas instalações = 1 núcleo no SKU de Finalidade Geral</li>|
+|Sql Server Standard Edition clientes centrais com SA|<li>Pode pagar taxa base em Hyperscale, General Purpose, ou Business Critical SKU</li><br><li>1 núcleo nas instalações = 1 núcleo em Hiperscale SKU</li><br><li>1 núcleo nas instalações = 1 núcleo no SKU de Finalidade Geral</li><br><li>4 núcleos nas instalações = 1 núcleo no Business Critical SKU</li>|
 |||
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter ajuda na escolha de uma opção de implementação Azure SQL, consulte [Escolha a opção de implementação certa em Azure SQL](azure-sql-iaas-vs-paas-what-is-overview.md).
 - Para uma comparação das funcionalidades SQL Database e SQL Managed Instance, consulte a [Base de Dados SQL & as funcionalidades sql Managed Instance](database/features-comparison.md).

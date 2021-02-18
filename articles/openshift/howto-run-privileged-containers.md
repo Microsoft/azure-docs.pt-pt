@@ -1,18 +1,18 @@
 ---
-title: Executar contentores privilegiados num aglomerado Azure Red Hat OpenShift Microsoft Docs
+title: Executar recipientes privilegiados em um cluster Azure Red Hat OpenShift | Microsoft Docs
 description: Executar recipientes privilegiados para monitorizar a segurança e a conformidade.
 author: makdaam
 ms.author: b-lejaku
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.topic: conceptual
 ms.date: 12/05/2019
 keywords: aro, openshift, aquasec, twistlock, chapéu vermelho
-ms.openlocfilehash: 914b29410a0f30e5c3d3a893c2e278ecbb83b648
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 77e75232b7f9d23f1d07931cc7dc231174e1312d
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92218872"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100633567"
 ---
 # <a name="run-privileged-containers-in-an-azure-red-hat-openshift-cluster"></a>Executar contentores privilegiados num cluster do Azure Red Hat OpenShift
 

@@ -8,12 +8,12 @@ ms.technology: devops-cicd
 ms.topic: tutorial
 ms.date: 03/24/2020
 author: mlearned
-ms.openlocfilehash: af61254643e9f072995bceed1b6ecf8ecc29e5f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ccf28f5431a92f71b1c18e609639d0abf309c06
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91855457"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590859"
 ---
 # <a name="deploy-aspnet-core-apps-to-azure-kubernetes-service-with-azure-devops-starter"></a>Implementar aplicativos core ASP.NET para o serviço Azure Kubernetes com Azure DevOps Starter
 
@@ -24,9 +24,9 @@ DevOps Starter também:
 * Cria automaticamente recursos Azure, como o Serviço Azure Kubernetes (AKS).
 * Cria e configura um gasoduto de libertação em Azure DevOps que cria um gasoduto de construção e libertação para CI/CD.
 * Cria um recurso Azure Application Insights para monitorização.
-* Permite ao [Monitor Azure para os contentores](../azure-monitor/insights/container-insights-overview.md) monitorizar o desempenho das cargas de trabalho dos contentores no cluster AKS
+* Permite ao [Monitor Azure para os contentores](../azure-monitor/containers/container-insights-overview.md) monitorizar o desempenho das cargas de trabalho dos contentores no cluster AKS
 
-Neste tutorial, irá:
+Neste tutorial, vai:
 
 > [!div class="checklist"]
 > * Utilize o DevOps Starter para implementar uma aplicação core ASP.NET para AKS
@@ -47,15 +47,15 @@ DevOps Starter cria um gasoduto CI/CD em Pipelines Azure. Pode criar uma nova or
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
-1. Na caixa de pesquisa, escreva **DevOps Starter**e, em seguida, selecione. Clique em **Adicionar** para criar um novo.
+1. Na caixa de pesquisa, escreva **DevOps Starter** e, em seguida, selecione. Clique em **Adicionar** para criar um novo.
 
     ![O painel de arranque de DevOps](_img/azure-devops-starter-aks/search-devops-starter.png)
 
-1. Selecione **.NET**e, em seguida, selecione **Seguinte**.
+1. Selecione **.NET** e, em seguida, selecione **Seguinte**.
 
 1. Em **Escolha uma estrutura de aplicação,** selecione ASP.NET **Core** e, em seguida, selecione **Seguinte**.
 
-1. Selecione **o Serviço Kubernetes**e, em seguida, selecione **Next**. 
+1. Selecione **o Serviço Kubernetes** e, em seguida, selecione **Next**. 
 
 ## <a name="configure-azure-devops-and-an-azure-subscription"></a>Configurar Azure DevOps e uma subscrição da Azure
 
@@ -99,7 +99,7 @@ O DevOps Starter configura automaticamente um pipeline CI/CD na sua organizaçã
 
 1. Na parte superior do pipeline de compilação, selecione o nome do pipeline de compilação.
 
-1. Mude o nome do seu pipeline de construção para algo mais descritivo, **selecione Save & fila**e, em seguida, selecione **Guardar**.
+1. Mude o nome do seu pipeline de construção para algo mais descritivo, **selecione Save & fila** e, em seguida, selecione **Guardar**.
 
 1. No nome do pipeline de compilação, selecione **Histórico**. Este painel apresenta um rasto de auditoria das suas recentes alterações para a construção. O Azure DevOps regista quaisquer alterações feitas ao pipeline de construção, e permite comparar versões.
 
@@ -111,7 +111,7 @@ O DevOps Starter configura automaticamente um pipeline CI/CD na sua organizaçã
 
 O DevOps Starter cria e configura automaticamente os passos necessários para implementar da sua organização Azure DevOps para a sua subscrição Azure. Estes passos incluem configurar uma ligação de serviço Azure para autenticar Azure DevOps para a sua subscrição Azure. A automatização também cria um gasoduto de libertação, que fornece o CD ao Azure. Para saber mais sobre o oleoduto de lançamento, faça o seguinte:
 
-1. Selecione **Construir e Soltar**e, em seguida, selecione **Versões**.  O DevOps Starter cria um oleoduto de libertação para gerir as implementações para o Azure.
+1. Selecione **Construir e Soltar** e, em seguida, selecione **Versões**.  O DevOps Starter cria um oleoduto de libertação para gerir as implementações para o Azure.
 
 1. Selecione a elipse (...) ao lado do seu pipeline de lançamento e, em seguida, **selecione Editar**. O pipeline de lançamento contém um *pipeline*, que define o processo de lançamento.
 
@@ -134,13 +134,13 @@ O DevOps Starter cria e configura automaticamente os passos necessários para im
 
 Está agora pronto para colaborar com uma equipa na sua aplicação, utilizando um processo ci/CD que implementa automaticamente o seu último trabalho no seu website. Cada mudança para o git repo inicia uma construção em Azure DevOps, e um oleoduto de CD executa uma implantação para Azure. Siga o procedimento nesta secção ou use outra técnica para comprometer alterações no seu repo. Por exemplo, pode clonar o repo Git na sua ferramenta preferida ou IDE e, em seguida, empurrar alterações para este repo.
 
-1. No menu Azure DevOps, selecione **Code**  >  **Code Files**e, em seguida, vá para o seu repo.
+1. No menu Azure DevOps, selecione   >  **Code Files** e, em seguida, vá para o seu repo.
 
 1. Vá ao *diretório Views\Home,* selecione a elipse (...) ao lado do ficheiro *Index.cshtml* e, em seguida, selecione **Editar**.
 
 1. Faça uma alteração no ficheiro, como por exemplo adicionar algum texto dentro de uma das tags de div. 
 
-1. No topo direito, **selecione Commit**e, em seguida, selecione **Comprometa-se** novamente para empurrar a sua mudança. Após alguns momentos, uma construção começa em Azure DevOps e um lançamento executa para implementar as alterações. Monitorize o estado de construção no painel de partidas de DevOps ou no navegador com a sua organização Azure DevOps.
+1. No topo direito, **selecione Commit** e, em seguida, selecione **Comprometa-se** novamente para empurrar a sua mudança. Após alguns momentos, uma construção começa em Azure DevOps e um lançamento executa para implementar as alterações. Monitorize o estado de construção no painel de partidas de DevOps ou no navegador com a sua organização Azure DevOps.
 
 1. Depois de concluída a versão, refresque a sua aplicação para verificar as suas alterações.
 
