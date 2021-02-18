@@ -13,12 +13,12 @@ ms.date: 01/04/2021
 ms.author: damendo
 ms.reviewer: vinigam
 ms.custom: references_regions
-ms.openlocfilehash: 42536480a72e8d2160064a82eee7bac11c17746c
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 87dacd28223fd88866edb90266aa76fd3cdf86cf
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100585527"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101095360"
 ---
 # <a name="traffic-analytics"></a>Análise de Tráfego
 
@@ -71,33 +71,34 @@ Pode utilizar análises de tráfego para NSGs em qualquer uma das seguintes regi
       E.U.A. Central  
       China Leste 2  
       China Norte 2  
+      Ásia Leste       
    :::column-end:::
    :::column span="":::
-      Ásia Leste  
       E.U.A. Leste  
       E.U.A. Leste 2  
       Leste DOS EUA 2  
       França Central  
-      Leste do Japão  
+      Alemanha Centro-Oeste Japão Leste  
       Oeste do Japão  
       Coreia do Sul Central  
       Sul da Coreia do Sul  
       E.U.A. Centro-Norte  
+      Europa do Norte    
    :::column-end:::
    :::column span="":::
-      Europa do Norte  
       Norte da África do Sul  
       E.U.A. Centro-Sul  
       Sul da Índia  
       Sudeste Asiático  
       Suíça Norte  
       Suíça Oeste  
+      Uae Norte  
       Sul do Reino Unido  
-      Oeste do Reino Unido  
+      Oeste do Reino Unido   
       USGov Arizona  
+      USGov Texas
    :::column-end:::
    :::column span="":::
-      USGov Texas  
       USGov Virginia  
       USNat Leste  
       USNat Oeste  
@@ -143,14 +144,15 @@ O espaço de trabalho Log Analytics deve existir nas seguintes regiões:
       Suíça Norte  
       Suíça Oeste  
       Centro dos Emirados Árabes Unidos  
+      Uae Norte  
       Sul do Reino Unido  
-      Oeste do Reino Unido  
+      Oeste do Reino Unido   
       USGov Arizona  
       USGov Virginia  
-      USNat Leste  
-      USNat Oeste  
+      USNat Leste   
    :::column-end:::
    :::column span="":::
+      USNat Oeste   
       USSec Leste  
       USSec West  
       E.U.A. Centro-Oeste  

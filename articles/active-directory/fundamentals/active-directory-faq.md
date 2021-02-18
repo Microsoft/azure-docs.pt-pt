@@ -1,5 +1,5 @@
 ---
-title: Perguntas frequentes (FAQ) - Azure Ative Directory Microsoft Docs
+title: Perguntas frequentes (FAQ) - Azure Ative Directory | Microsoft Docs
 description: Perguntas e respostas comuns sobre O Diretório Ativo Azure e Azure, gestão de passwords e acesso a aplicações.
 services: active-directory
 author: ajburnle
@@ -13,12 +13,12 @@ ms.date: 11/12/2018
 ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a8fcb14ac397791822c3a9065275dbfb2b3b7dd
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: a3b9f76eba9697d6ad47ecf8dc51689538923f88
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96860427"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101094475"
 ---
 # <a name="frequently-asked-questions-about-azure-active-directory"></a>Perguntas frequentes sobre O Diretório Ativo Azure
 O Azure Active Directory (Azure AD) é uma solução identidade como um Serviço (IDaaS) completa que abrange todos os aspetos relativos à identidade, gestão de acesso e segurança.
@@ -32,7 +32,7 @@ Para obter mais informações, consulte [What is Azure Active Directory? (O que 
 **R:** Para aceder ao portal do Azure, cada utilizador precisa de permissões com uma subscrição do Azure. Se não tiver uma subscrição paga do Microsoft 365 ou AD Azure, terá de ativar uma [conta Azure](https://azure.microsoft.com/free/
 ) gratuita ou uma subscrição paga.
 
-Para obter mais informações, veja:
+Para obter mais informações, consulte:
 
 * [Como as subscrições do Azure estão associadas ao Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
 
@@ -51,7 +51,7 @@ A Azure AD pagou serviços como Enterprise Mobility + Security complementam outr
 
 **A:** Por predefinição, a pessoa que se inscreve para uma subscrição Azure é atribuída a função proprietário para recursos Azure. Um Proprietário pode usar uma conta Microsoft ou uma conta de trabalho ou escola a partir do diretório a que a subscrição do Azure está associada.  Esta função está autorizada a gerir serviços no portal do Azure.
 
-Se outros precisarem de iniciar sessão e aceder aos serviços utilizando a mesma subscrição, pode [atribuir-lhes](../../role-based-access-control/built-in-roles.md)a função incorporada adequada . Para obter informações adicionais, consulte [Adicionar ou remover atribuições de funções Azure utilizando o portal Azure](../../role-based-access-control/role-assignments-portal.md).
+Se outros precisarem de iniciar sessão e aceder aos serviços utilizando a mesma subscrição, pode [atribuir-lhes](../../role-based-access-control/built-in-roles.md)a função incorporada adequada . Para obter informações adicionais, consulte [as funções De Atribuição Azure utilizando o portal Azure](../../role-based-access-control/role-assignments-portal.md).
 
 Por padrão, a pessoa que se inscreve para uma subscrição Azure é atribuída a função de Administrador Global para o diretório. O Administrador Global tem acesso a todas as funcionalidades do diretório AZure. A Azure AD tem um conjunto diferente de funções de administrador para gerir as características relacionadas com o diretório e identidade. Estes administradores terão acesso a várias funcionalidades no portal Azure. A função do administrador determina o que podem fazer, como criar ou editar utilizadores, atribuir funções administrativas a outros, redefinir palavras-passe do utilizador, gerir licenças de utilizador ou gerir domínios.  Para obter informações adicionais sobre os administradores de diretórios Adu da Azure e as suas funções, consulte [atribuir um utilizador às funções de administrador em Azure Ative Directory](active-directory-users-assign-role-azure-portal.md) e atribuir [funções de administrador em Azure Ative Directory](../roles/permissions-reference.md).
 
@@ -60,7 +60,7 @@ Adicionalmente, a Azure AD pagou serviços como Enterprise Mobility + Security c
 ---
 **P: Existe um relatório que mostra quando as minhas licenças de utilizador do Azure AD expiram?**
 
-**A:** Não.  Esta configuração não está disponível no momento.
+**A:** Rio Lol  Esta configuração não está disponível no momento.
 
 ---
 
@@ -160,7 +160,7 @@ Para obter a lista completa das aplicações previamente integradas, consulte [A
 
 **R:** Com o Azure AD Premium, pode adicionar e configurar qualquer aplicação que desejar. Dependendo das capacidades da sua aplicação e das suas preferências, pode configurar sSO e provisões automatizadas.  
 
-Para obter mais informações, veja:
+Para obter mais informações, consulte:
 
 * [Configurar o início de sessão único em aplicações que não fazem parte da galeria de aplicações do Azure Active Directory](../manage-apps/configure-saml-single-sign-on.md)
 * [Utilizar o SCIM para ativar o aprovisionamento automático de utilizadores e grupos do Azure Active Directory a aplicações](../app-provisioning/use-scim-to-provision-users-and-groups.md)
@@ -182,7 +182,7 @@ Para obter mais informações, consulte [experiências do utilizador final para 
 
 **R:** O Azure AD suporta vários protocolos normalizados para a autenticação e autorização, tais como SAML 2.0, OpenID Connect, OAuth 2.0 e WS-Federation. O Azure AD também suporta cofres de palavras-passe e as capacidades de início de sessão automatizado para aplicações que apenas suportam autenticação baseada em formulários.  
 
-Para obter mais informações, veja:
+Para obter mais informações, consulte:
 
 * [Cenários de autenticação do Azure AD](../develop/authentication-vs-authorization.md)
 * [Protocolos de autenticação de diretório ativo](/previous-versions/azure/dn151124(v=azure.100))
@@ -212,4 +212,4 @@ Para obter mais informações, consulte [automatizar o fornecimento e desprovisi
 ---
 **P: Posso configurar uma ligação LDAP segura ao Azure AD?**
 
-**A:**  Não. A Azure AD não suporta diretamente o protocolo de Protocolo de Acesso ao Diretório Leve (LDAP) nem o LDAP Seguro. No entanto, é possível permitir a instância dos Serviços de Domínio AZure AD (Azure AD DS) no seu inquilino AZure AD com grupos de segurança de rede devidamente configurados através do Azure Networking para alcançar a conectividade LDAP. Para obter mais informações, consulte [Configure secure LDAP para um domínio gerido por Serviços de Domínio do Diretório Ativo Azure](../../active-directory-domain-services/tutorial-configure-ldaps.md)
+**A:**  Rio Lol A Azure AD não suporta diretamente o protocolo de Protocolo de Acesso ao Diretório Leve (LDAP) nem o LDAP Seguro. No entanto, é possível permitir a instância dos Serviços de Domínio AZure AD (Azure AD DS) no seu inquilino AZure AD com grupos de segurança de rede devidamente configurados através do Azure Networking para alcançar a conectividade LDAP. Para obter mais informações, consulte [Configure secure LDAP para um domínio gerido por Serviços de Domínio do Diretório Ativo Azure](../../active-directory-domain-services/tutorial-configure-ldaps.md)

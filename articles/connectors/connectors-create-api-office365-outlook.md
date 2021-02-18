@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: article
 ms.date: 11/13/2020
 tags: connectors
-ms.openlocfilehash: 790879894c3b268fcd55aafc96507319b29fe1e5
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 87a9c8a38ede7008d658068329c8c72e7e3c4117
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99055081"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101095469"
 ---
 # <a name="manage-email-contacts-and-calendars-in-office-365-outlook-by-using-azure-logic-apps"></a>Gerir e-mails, contactos e calendários no Outlook do Office 365 com o Azure Logic Apps
 
@@ -98,7 +98,7 @@ Se tentar ligar o Outlook utilizando uma conta diferente da que está atualmente
 
   1. No menu do grupo de recursos da sua aplicação lógica, selecione **Access control (IAM)**. Criar a outra conta com a **função Contribuinte.** 
   
-     Para obter mais informações, veja [Utilizar o portal do Azure para adicionar ou remover atribuições de funções do Azure](../role-based-access-control/role-assignments-portal.md).
+     Para obter mais informações, consulte [as funções De Atribuição Azure utilizando o portal Azure](../role-based-access-control/role-assignments-portal.md).
 
   1. Depois de configurar esta função, inscreva-se no portal Azure com a conta que agora tem permissões de Contribuinte. Agora pode utilizar esta conta para criar a ligação ao Outlook.
 

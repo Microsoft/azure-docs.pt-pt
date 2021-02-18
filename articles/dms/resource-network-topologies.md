@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: reference
 ms.date: 01/08/2020
-ms.openlocfilehash: ae036b7d893eb268ea55026054bf364dad0b610e
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 0799e8c76bc5d3969943d766aa83de40659a236a
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94961554"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101093326"
 ---
 # <a name="network-topologies-for-azure-sql-managed-instance-migrations-using-azure-database-migration-service"></a>Topologias de rede para migrações de instância gerida Azure SQL utilizando o Serviço de Migração da Base de Dados Azure
 
@@ -83,11 +83,12 @@ Utilize esta topologia da rede se o seu ambiente necessitar de um ou mais dos se
 
 | **NOME**                  | **PORTO**                                              | **PROTOCOLO** | **FONTE** | **DESTINO**           | **AÇÃO** | **Razão para a regra**                                                                                                                                                                              |
 |---------------------------|-------------------------------------------------------|--------------|------------|---------------------------|------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| gestão                | 443,9354                                              | TCP          | Qualquer        | Qualquer                       | Permitir      | Comunicação de avião de gestão através do armazenamento de blob Service Bus e Azure. <br/>(Se o espreitamento da Microsoft estiver ativado, poderá não precisar desta regra.)                                                             |
-| Diagnóstico               | 12000                                                 | TCP          | Qualquer        | Qualquer                       | Permitir      | O DMS utiliza esta regra para recolher informações de diagnóstico para efeitos de resolução de problemas.                                                                                                                      |
+| ServiceBus                | 443, ServiceTag: ServiceBus                           | TCP          | Qualquer        | Qualquer                       | Permitir      | Comunicação de avião de gestão através do Service Bus. <br/>(Se o espreitamento da Microsoft estiver ativado, poderá não precisar desta regra.)                                                             |
+| Armazenamento                   | 443, ServiceTag: Armazenamento                              | TCP          | Qualquer        | Qualquer                       | Permitir      | Avião de gestão usando o armazenamento de bolhas Azure. <br/>(Se o espreitamento da Microsoft estiver ativado, poderá não precisar desta regra.)                                                             |
+| Diagnóstico               | 443, ServiceTag: AzureMonitor                         | TCP          | Qualquer        | Qualquer                       | Permitir      | O DMS utiliza esta regra para recolher informações de diagnóstico para efeitos de resolução de problemas. <br/>(Se o espreitamento da Microsoft estiver ativado, poderá não precisar desta regra.)                                                  |
 | Servidor SQL Source         | 1433 (ou porta IP TCP que o SQL Server está a ouvir) | TCP          | Qualquer        | Espaço de endereços no local | Permitir      | Conectividade de fonte de servidor SQL a partir de DMS <br/>(Se tiver conectividade site-to-site, pode não precisar desta regra.)                                                                                       |
 | Sql Server nomeou exemplo | 1434                                                  | UDP          | Qualquer        | Espaço de endereços no local | Permitir      | SQL Server nomeado conectividade de fonte de exemplo do DMS <br/>(Se tiver conectividade site-to-site, pode não precisar desta regra.)                                                                        |
-| Participação do SMB                 | 445                                                   | TCP          | Qualquer        | Espaço de endereços no local | Permitir      | Partilha de rede SMB para DMS para armazenar ficheiros de backup de bases de dados para migrações para Azure SQL Database MI e SQL Servers em Azure VM <br/>(Se tiver conectividade site-to-site, pode não precisar desta regra). |
+| Participação do SMB                 | 445 (se o cenário se adoeis)                             | TCP          | Qualquer        | Espaço de endereços no local | Permitir      | Partilha de rede SMB para DMS para armazenar ficheiros de backup de bases de dados para migrações para Azure SQL Database MI e SQL Servers em Azure VM <br/>(Se tiver conectividade site-to-site, pode não precisar desta regra). |
 | DMS_subnet                | Qualquer                                                   | Qualquer          | Qualquer        | DMS_Subnet                | Permitir      |                                                                                                                                                                                                  |
 
 ## <a name="see-also"></a>Ver também

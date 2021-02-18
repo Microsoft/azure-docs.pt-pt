@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: how-to
 ms.date: 10/19/2020
 ms.author: banders
-ms.openlocfilehash: aaa94f66f1b0441e025013369b3b674d799d4847
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
-ms.translationtype: HT
+ms.openlocfilehash: 0c5ecb61b5b34864aa89c1f0e760e96c383a269f
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92203267"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101091477"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-to-your-mpa-account"></a>Obter a propriedade da faturação das subscrições do Azure da conta MPA
 
@@ -174,4 +174,4 @@ Se precisar de ajuda, [contacte o suporte](https://portal.azure.com/?#blade/Micr
 ## <a name="next-steps"></a>Passos seguintes
 
 * A propriedade da faturação das subscrições do Azure é transferida para si. Controle os custos destas subscrições no [portal do Azure.](https://portal.azure.com)
-* Trabalhe com o cliente para obter acesso às subscrições do Azure transferidas. [Utilize o portal do Azure para adicionar ou remover atribuições de funções](../../role-based-access-control/role-assignments-portal.md).
+* Trabalhe com o cliente para obter acesso às subscrições do Azure transferidas. [Atribua funções Azure utilizando o portal Azure](../../role-based-access-control/role-assignments-portal.md).

@@ -1,5 +1,5 @@
 ---
-title: Garantir aplicações PaaS utilizando o Azure Storage / Microsoft Docs
+title: Garantir aplicações PaaS utilizando | de armazenamento Azure Microsoft Docs
 description: Saiba mais sobre as melhores práticas de segurança do Azure Storage para garantir as suas aplicações web e móveis PaaS.
 services: security
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
 ms.author: tomsh
-ms.openlocfilehash: 082408f357e97a2ed2153d43dbea459ff09ba704
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 12cce0eac3827046ae9171f3dd5696ae5905c802
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94693192"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101093977"
 ---
 # <a name="best-practices-for-securing-paas-web-and-mobile-applications-using-azure-storage"></a>Melhores práticas para garantir aplicações web e móveis PaaS usando O Azure Storage
 Neste artigo, discutimos uma coleção de boas práticas de segurança do Azure Storage para garantir as suas aplicações web e móveis de plataforma como serviço (PaaS). Estas boas práticas derivam da nossa experiência com o Azure e das experiências de clientes como você.
@@ -64,7 +64,7 @@ As organizações que não impõem o controlo do acesso aos dados utilizando cap
 
 Para saber mais sobre a Azure RBAC consulte:
 
-- [Adicionar ou remover atribuições de funções do Azure com o portal do Azure](../../role-based-access-control/role-assignments-portal.md)
+- [Atribuir funções Azure usando o portal Azure](../../role-based-access-control/role-assignments-portal.md)
 - [Funções incorporadas do Azure](../../role-based-access-control/built-in-roles.md)
 - [Guia de segurança de Armazenamento do Azure](../../storage/blobs/security-recommendations.md) 
 

@@ -3,12 +3,12 @@ title: Criar programáticamente dashboards Azure
 description: Utilize um dashboard no portal Azure como modelo para criar programáticamente dashboards Azure. Inclui referência JSON.
 ms.topic: how-to
 ms.date: 12/4/2020
-ms.openlocfilehash: e69d3f3cea0ff63f94e797047eb10b9583678b1b
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: bd56dc1c729c5aa7a77e79aa3af3366166fdcfea
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96745813"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101095168"
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Criar programáticamente dashboards Azure
 
@@ -46,7 +46,7 @@ Depois de configurar o painel de instrumentos, o próximo passo é publicar o pa
 
 ![partilhando um dashboard](./media/azure-portal-dashboards-create-programmatically/share-command.png)
 
-A seleção **do Share** leva-o a escolher a subscrição e o grupo de recursos para onde publicar. Deve ter acesso ao grupo de subscrição e recursos que escolher. Para obter mais informações, veja [Utilizar o portal do Azure para adicionar ou remover atribuições de funções do Azure](../role-based-access-control/role-assignments-portal.md).
+A seleção **do Share** leva-o a escolher a subscrição e o grupo de recursos para onde publicar. Deve ter acesso ao grupo de subscrição e recursos que escolher. Para obter mais informações, consulte [as funções De Atribuição Azure utilizando o portal Azure](../role-based-access-control/role-assignments-portal.md).
 
 ![fazer alterações na partilha e no acesso](./media/azure-portal-dashboards-create-programmatically/sharing-and-access.png)
 

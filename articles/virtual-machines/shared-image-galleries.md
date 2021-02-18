@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 10/14/2020
 ms.author: akjosh
 ms.reviewer: cynthn
-ms.openlocfilehash: 3022e9c694d70359a90e71ecd1232e9274f92f10
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: baba35bd29ec6708aca77bd9c6d74401a365014a
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98730327"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101091897"
 ---
 # <a name="shared-image-galleries-overview"></a>Visão geral das Galerias de Imagem Partilhadas
 
@@ -24,7 +24,7 @@ O Shared Image Gallery é um serviço que ajuda a criar a estrutura e a organiza
 - Versão e agrupamento de imagens para uma gestão mais fácil.
 - Imagens altamente disponíveis com contas de Armazenamento Redundante (ZRS) em regiões que suportam Zonas de Disponibilidade. O ZRS oferece uma melhor resiliência contra falhas zonais.
 - Suporte de armazenamento premium (Premium_LRS).
-- Partilha entre subscrições, e até entre inquilinos do Ative Directory (AD), utilizando o RBAC.
+- Partilha entre subscrições, e até mesmo entre inquilinos do Ative Directory (AD), utilizando o Azure RBAC.
 - Escalar as suas implementações com réplicas de imagem em cada região.
 
 Utilizando uma Galeria de Imagens Partilhadas, pode partilhar as suas imagens com diferentes utilizadores, diretores de serviço ou grupos de AD dentro da sua organização. As imagens partilhadas podem ser replicadas em várias regiões, para uma escala mais rápida das suas implementações.
@@ -146,14 +146,14 @@ As regiões para ver uma imagem partilhada são replicadas para serem atualizada
 
 ## <a name="access"></a>Access
 
-Como a Galeria de Imagens Partilhada, Definição de Imagem e Versão Image são todos recursos, podem ser partilhados usando os controlos Azure RBAC nativos incorporados. Utilizando o RBAC, pode partilhar estes recursos com outros utilizadores, diretores de serviços e grupos. Pode até partilhar o acesso a indivíduos fora do inquilino onde foram criados. Uma vez que um utilizador tenha acesso à versão Imagem Partilhada, pode implementar um VM ou um Conjunto de Escala de Máquina Virtual.  Aqui está a matriz de partilha que ajuda a entender a que o utilizador tem acesso:
+Como a Galeria de Imagens Partilhada, Definição de Imagem e Versão Image são todos recursos, podem ser partilhados usando os controlos Azure RBAC nativos incorporados. Utilizando o Azure RBAC, pode partilhar estes recursos com outros utilizadores, diretores de serviços e grupos. Pode até partilhar o acesso a indivíduos fora do inquilino onde foram criados. Uma vez que um utilizador tenha acesso à versão Imagem Partilhada, pode implementar um VM ou um Conjunto de Escala de Máquina Virtual.  Aqui está a matriz de partilha que ajuda a entender a que o utilizador tem acesso:
 
 | Partilhado com o Utilizador     | Galeria de Imagens Partilhada | Definição da Imagem | Versão da imagem |
 |----------------------|----------------------|--------------|----------------------|
-| Galeria de Imagens Partilhada | Sim                  | Sim          | Sim                  |
-| Definição da Imagem     | Não                   | Sim          | Sim                  |
+| Galeria de Imagens Partilhada | Yes                  | Yes          | Yes                  |
+| Definição da Imagem     | No                   | Yes          | Yes                  |
 
-Recomendamos a partilha ao nível da Galeria para obter a melhor experiência. Não recomendamos a partilha de versões de imagem individuais. Para obter mais informações sobre o RBAC, consulte [Gerir o acesso aos recursos do Azure utilizando o RBAC.](../role-based-access-control/role-assignments-portal.md)
+Recomendamos a partilha ao nível da Galeria para obter a melhor experiência. Não recomendamos a partilha de versões de imagem individuais. Para obter mais informações sobre o Azure RBAC, consulte [as funções De Atribuição Azure](../role-based-access-control/role-assignments-portal.md).
 
 As imagens também podem ser partilhadas, em escala, mesmo através de inquilinos usando um registo de app multi-inquilino. Para obter mais informações sobre a partilha de imagens entre os inquilinos, consulte "Partilhar imagens VM da galeria através dos inquilinos da Azure" utilizando o [Azure CLI](./linux/share-images-across-tenants.md) ou [o PowerShell](./windows/share-images-across-tenants.md).
 
@@ -170,12 +170,12 @@ Por exemplo, digamos que tem uma imagem de um disco oss de 127 GB, que ocupa ape
 Uma vez criado, pode fazer algumas alterações nos recursos da galeria de imagens. Estes limitam-se a:
  
 Galeria de imagens partilhada:
-- Descrição
+- Description
 
 Definição de imagem:
 - VCPUs recomendados
 - Memória recomendada
-- Descrição
+- Description
 - Data de fim de vida
 
 Versão de imagem:
@@ -203,7 +203,7 @@ Pode criar o recurso Image Gallery partilhado utilizando modelos. Existem vário
 - [Criar uma Versão de Imagem num Shared Image Gallery](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
 - [Criar uma VM a partir de uma Versão de Imagem](https://azure.microsoft.com/resources/templates/101-vm-from-sig/)
 
-## <a name="frequently-asked-questions"></a>Perguntas frequentes 
+## <a name="frequently-asked-questions"></a>Perguntas mais frequentes 
 
 * [Como posso listar todos os recursos da Galeria de Imagem Partilhada através de subscrições?](#how-can-i-list-all-the-shared-image-gallery-resources-across-subscriptions) 
 * [Posso mover a minha imagem existente para a galeria de imagens partilhada?](#can-i-move-my-existing-image-to-the-shared-image-gallery)
@@ -241,7 +241,7 @@ Para obter mais informações, consulte **Gerir os recursos** da galeria utiliza
 
 ### <a name="can-i-move-my-existing-image-to-the-shared-image-gallery"></a>Posso mover a minha imagem existente para a galeria de imagens partilhada?
  
-Yes. Existem 3 cenários baseados nos tipos de imagens que pode ter.
+Sim. Existem 3 cenários baseados nos tipos de imagens que pode ter.
 
  Cenário 1: Se tiver uma imagem gerida, então pode criar uma definição de imagem e versão de imagem a partir dela. Para obter mais informações, consulte **Migrar de uma imagem gerida para uma versão de imagem** utilizando o [Azure CLI](image-version-managed-image-cli.md) ou [PowerShell](image-version-managed-image-powershell.md).
 
@@ -322,7 +322,7 @@ Se tiver problemas com a realização de quaisquer operações nos recursos da g
 
 Além disso, pode publicar e marcar a sua pergunta `azure-virtual-machines-images` no Q&[A](/answers/topics/azure-virtual-machines-images.html).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Saiba como implementar imagens partilhadas utilizando o [Azure CLI](shared-images-cli.md) ou [o PowerShell](shared-images-powershell.md).
 

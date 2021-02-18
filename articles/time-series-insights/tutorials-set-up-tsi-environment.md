@@ -10,18 +10,18 @@ services: time-series-insights
 ms.topic: tutorial
 ms.date: 01/19/2021
 ms.custom: seodec18
-ms.openlocfilehash: 912dbf48254a8d68b9bf76db04734fd791a3edb9
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 56f4cb49f42936e7b9f64c2546b94c99d16bac79
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98677058"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101092104"
 ---
 # <a name="tutorial-set-up-an-azure-time-series-insights-gen2-environment"></a>Tutorial: Criar um ambiente Azure Time Series Insights Gen2
 
 Este tutorial guia-o através do processo de criação de um ambiente Azure Time Series Insights Gen2 *pay-as-you-go* (PAYG).
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 >
@@ -38,7 +38,7 @@ Inscreva-se para uma [subscrição gratuita do Azure](https://azure.microsoft.co
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* No mínimo, deve ter o **papel de Contribuinte** para a subscrição do Azure. Para obter mais informações, leia [Adicionar ou remover atribuições de funções Azure utilizando o portal Azure](../role-based-access-control/role-assignments-portal.md).
+* No mínimo, deve ter o **papel de Contribuinte** para a subscrição do Azure. Para mais informações, leia [as funções De Atribuir Azure utilizando o portal Azure](../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="create-a-device-simulation"></a>Criar uma simulação de dispositivos
 
@@ -91,8 +91,8 @@ Esta secção descreve como criar um ambiente Azure Time Series Insights Gen2 e 
     | **Grupo de recursos** | Selecione um grupo de recursos existente ou crie um novo grupo de recursos para o recurso ambiente Azure Time Series Insights Gen2. Um grupo de recursos é um contentor de recursos do Azure. Uma boa prática é utilizar o mesmo grupo de recursos que os outros recursos IoT que são criados pelo simulador do dispositivo. |
     | **Localização** | Selecione uma região de data center para o seu ambiente Azure Time Series Insights Gen2. Para evitar latência adicional, o melhor é criar o seu ambiente Azure Time Series Insights Gen2 na mesma região que o seu hub IoT criado pelo simulador de dispositivos. |
     | **Escalão de serviço** |  Selecione **Gen2(L1)**. Este é o SKU para o produto Azure Time Series Insights Gen2. |
-    | **Nome de propriedade de ID série de tempo** | Insira um nome de uma propriedade que contenha valores que identifiquem exclusivamente as suas instâncias de séries horárias. O valor que introduz na caixa **de nomes da Propriedade** como ID da Série De Tempo não pode ser alterado mais tarde. Para este tutorial,*_insira * iothub-connection-device-id_* _. Para saber mais sobre o ID da Série De Tempo, incluindo o ID composto da Série De Tempo, leia [as melhores práticas para escolher um ID da Série De Tempo](./how-to-select-tsid.md). |
-    | _ *Nome da conta de armazenamento** | Insira um nome globalmente único para uma nova conta de armazenamento.|
+    | **Nome de propriedade de ID série de tempo** | Insira um nome de uma propriedade que contenha valores que identifiquem exclusivamente as suas instâncias de séries horárias. O valor que introduz na caixa **de nomes da Propriedade** como ID da Série De Tempo não pode ser alterado mais tarde. Para este tutorial, insira **_id iothub-connection-connection-device_**. Para saber mais sobre o ID da Série De Tempo, incluindo o ID composto da Série De Tempo, leia [as melhores práticas para escolher um ID da Série De Tempo](./how-to-select-tsid.md). |
+    | **Nome da conta de armazenamento** | Insira um nome globalmente único para uma nova conta de armazenamento.|
     | **Tipo de conta de armazenamento** | Selecione o tipo de armazenamento para uma nova conta de armazenamento. Recomendamos armazenamentoV2|
     | **Replicação da conta de armazenamento** | Selecione o tipo de armazenamento para uma nova conta de armazenamento. Com base na sua seleção de localização, pode escolher entre LRS, GRS e ZRS. Para este tutorial, pode selecionar LRS|
     | **Espaço de nomes hierárquico** |Esta opção é selecionável, uma vez que selecione o tipo de armazenamento para ser StorageV2. Por predefinição, está desativado. Para este tutorial, pode deixá-lo no seu estado de *desativação* padrão|
@@ -288,7 +288,7 @@ Nesta secção, aplica-se um modelo para estruturar os seus dados. Para completa
         | --- | --- |
         | **Hierarquias** | Selecione **hierarquia de localização** |
         | **País** | Entrar **nos EUA** |
-        | **Cidade** | Entrar em **Seattle** |
+        | **City** | Entrar em **Seattle** |
         | **Edifício** | Entrar **na agulha do espaço** |
 
     1. Selecione **Guardar**.
@@ -304,7 +304,7 @@ Nesta secção, aplica-se um modelo para estruturar os seus dados. Para completa
     | **Descrição** | **Insira a instância para o elevador 2** |
     | **Hierarquias** | Selecione **hierarquia de localização** |
     | **País** | Entrar **nos EUA** |
-    | **Cidade** | Entrar em **Seattle** |
+    | **City** | Entrar em **Seattle** |
     | **Edifício** | Insira **o Centro de Ciência do Pacífico** |
 
     **Para elevador 3:**
@@ -316,7 +316,7 @@ Nesta secção, aplica-se um modelo para estruturar os seus dados. Para completa
     | **Descrição** | **Insira a instância para o elevador 3** |
     | **Hierarquias** | Selecione **hierarquia de localização** |
     | **País** | Entrar **nos EUA** |
-    | **Cidade** | Entra em **Nova Iorque** |
+    | **City** | Entra em **Nova Iorque** |
     | **Edifício** | Entrar no **Empire State Building** |
 
     [![Ver as instâncias atualizadas.](media/v2-update-provision/iot-solution-accelerator-instances.png)](media/v2-update-provision/iot-solution-accelerator-instances.png#lightbox)

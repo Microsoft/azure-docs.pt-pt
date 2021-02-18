@@ -5,12 +5,12 @@ author: mumian
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: e2274a551542b06996941b49e7d047baf3e8b3ca
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 12d704b0a3d92aa0585fb120f969000def282396
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92894037"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101092192"
 ---
 # <a name="manage-azure-resources-by-using-the-azure-portal"></a>Gerir os recursos do Azure utilizando o portal Azure
 
@@ -29,7 +29,7 @@ Depois de ter criado um modelo de Gestor de Recursos, pode utilizar o portal Azu
 
 ## <a name="open-resources"></a>Recursos abertos
 
-Os recursos Azure são organizados pelos serviços Azure e por grupos de recursos. Os seguintes procedimentos mostram como abrir uma conta de armazenamento chamada **mystorage0207** . A máquina virtual reside num grupo de recursos chamado **mystorage0207rg.**
+Os recursos Azure são organizados pelos serviços Azure e por grupos de recursos. Os seguintes procedimentos mostram como abrir uma conta de armazenamento chamada **mystorage0207**. A máquina virtual reside num grupo de recursos chamado **mystorage0207rg.**
 
 Para abrir um recurso pelo tipo de serviço:
 
@@ -63,17 +63,17 @@ A imagem mostra as opções de gestão de uma máquina virtual Azure. Pode execu
 ## <a name="delete-resources"></a>Eliminar recursos
 
 1. Abra o recurso no portal. Para os passos, consulte [os recursos abertos.](#open-resources)
-2. Selecione **Eliminar** . A imagem que se segue mostra as opções de gestão de uma máquina virtual.
+2. Selecione **Eliminar**. A imagem que se segue mostra as opções de gestão de uma máquina virtual.
 
     ![eliminar recurso azul](./media/manage-resources-portal/manage-azure-resources-portal-delete-resource.png)
-3. Digite o nome do recurso para confirmar a eliminação e, em seguida, **selecione Delete** .
+3. Digite o nome do recurso para confirmar a eliminação e, em seguida, **selecione Delete**.
 
 Para obter mais informações sobre como o Azure Resource Manager ordena a supressão de recursos, consulte a eliminação do [grupo de recursos Azure Resource Manager](delete-resource-group.md).
 
 ## <a name="move-resources"></a>Mover recursos
 
 1. Abra o recurso no portal. Para os passos, consulte [os recursos abertos.](#open-resources)
-2. Selecione **Move** . A imagem que se segue mostra as opções de gestão de uma conta de armazenamento.
+2. Selecione **Move**. A imagem que se segue mostra as opções de gestão de uma conta de armazenamento.
 
     ![mover recurso azul](./media/manage-resources-portal/manage-azure-resources-portal-move-resource.png)
 3. Selecione **Mover-se para outro grupo de recursos** ou mude para outra **subscrição** dependendo das suas necessidades.
@@ -85,7 +85,7 @@ Para obter mais informações, consulte [Mover recursos para um novo grupo de re
 O bloqueio impede que outros utilizadores da sua organização apaguem ou modifiquem acidentalmente recursos críticos, tais como subscrição do Azure, grupo de recursos ou recursos. 
 
 1. Abra o recurso no portal. Para os passos, consulte [os recursos abertos.](#open-resources)
-2. Selecione **Fechaduras** . A imagem que se segue mostra as opções de gestão de uma conta de armazenamento.
+2. Selecione **Fechaduras**. A imagem que se segue mostra as opções de gestão de uma conta de armazenamento.
 
     ![bloquear recurso azul](./media/manage-resources-portal/manage-azure-resources-portal-lock-resource.png)
 3. **Selecione Adicionar** e, em seguida, especifique as propriedades do bloqueio.
@@ -97,10 +97,10 @@ Para obter mais informações, consulte [Bloquear recursos com o Azure Resource 
 A marcação ajuda a organizar logicamente o seu grupo de recursos e recursos. 
 
 1. Abra o recurso no portal. Para os passos, consulte [os recursos abertos.](#open-resources)
-2. Selecione **Etiquetas** . A imagem que se segue mostra as opções de gestão de uma conta de armazenamento.
+2. Selecione **Etiquetas**. A imagem que se segue mostra as opções de gestão de uma conta de armazenamento.
 
     ![recurso de marca azul](./media/manage-resources-portal/manage-azure-resources-portal-tag-resource.png)
-3. Especifique as propriedades da etiqueta e, em seguida, **selecione Guardar** .
+3. Especifique as propriedades da etiqueta e, em seguida, **selecione Guardar**.
 
 Para obter informações, consulte [a utilização de tags para organizar os seus recursos Azure.](tag-resources.md#portal)
 
@@ -114,7 +114,7 @@ Pode selecionar o ícone do pino no canto superior direito dos gráficos para fi
 
 ## <a name="manage-access-to-resources"></a>Gerir o acesso aos recursos
 
-[O controlo de acesso baseado em funções (Azure RBAC)](../../role-based-access-control/overview.md) é a forma como gere o acesso aos recursos em Azure. Para obter mais informações, veja [Utilizar o portal do Azure para adicionar ou remover atribuições de funções do Azure](../../role-based-access-control/role-assignments-portal.md).
+[O controlo de acesso baseado em funções (Azure RBAC)](../../role-based-access-control/overview.md) é a forma como gere o acesso aos recursos em Azure. Para obter mais informações, consulte [as funções De Atribuição Azure utilizando o portal Azure](../../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 

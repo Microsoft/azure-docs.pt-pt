@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 05/19/2020
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 74530b861b4dc7a35fa8b192ecc0e79ce5fa59c2
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 898f568d285c3b4b4360ea4dda8c63a1e0f13a42
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92742994"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101091784"
 ---
 # <a name="connect-with-managed-identity-to-azure-database-for-mysql"></a>Ligar à Base de Dados do Azure para MySQL com a Identidade Gerida
 
@@ -31,7 +31,7 @@ Saiba como:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Se não estiver familiarizado com a funcionalidade das identidades geridas para os recursos do Azure, veja esta [descrição geral](../../articles/active-directory/managed-identities-azure-resources/overview.md). Se não tiver uma conta do Azure, [inscreva-se numa conta gratuita](https://azure.microsoft.com/free/) antes de continuar.
-- Para fazer a criação de recursos e gestão de funções necessárias, a sua conta necessita de permissões "Owner" no âmbito apropriado (a sua subscrição ou grupo de recursos). Se precisar de assistência com a atribuição de funções, consulte [o Use Azure role-based access control (Azure RBAC) para gerir o acesso aos seus recursos de subscrição Azure](../../articles/role-based-access-control/role-assignments-portal.md).
+- Para fazer a criação de recursos e gestão de funções necessárias, a sua conta necessita de permissões "Owner" no âmbito apropriado (a sua subscrição ou grupo de recursos). Se precisar de assistência com a atribuição de funções, consulte [as funções de Assign Azure para gerir o acesso aos seus recursos de subscrição Azure](../../articles/role-based-access-control/role-assignments-portal.md).
 - Precisa de um Azure VM (por exemplo, executando Ubuntu Linux) que gostaria de usar para aceder à sua base de dados usando identidade gerida
 - Precisa de uma base de dados Azure para o servidor de base de dados MySQL que tenha [a autenticação AD AD](howto-configure-sign-in-azure-ad-authentication.md) configurada
 - Para seguir o exemplo C#, primeiro preencha o guia como [ligar usando C#](connect-csharp.md)

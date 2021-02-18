@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 02/11/2021
 ms.author: lajanuar
-ms.openlocfilehash: 9535c1aa044fdce529d83c2e46a1b585e8e5f056
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 0f5f0714235ee23624b3a199eac744155d2bbdd1
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100370055"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101093390"
 ---
 # <a name="deploy-the-sample-labeling-tool"></a>Implementar a ferramenta de etiquetagem de exemplo
 
@@ -69,19 +69,8 @@ Siga estes passos para criar um novo recurso utilizando o portal Azure:
    > ![Selecione Docker](./media/quickstarts/select-docker.png)
 
 6. Agora vamos configurar o seu contentor Docker. Todos os campos são necessários, salvo indicação em contrário:
-
-    # <a name="v20"></a>[v2.0](#tab/v2-0)
-
-* Opções - Selecione **Um Único Recipiente**
-* Fonte de imagem - Selecione **Registo Privado** 
-* URL do servidor - Desemiste isto para `https://mcr.microsoft.com`
-* Nome de utilizador (Opcional) - Crie um nome de utilizador. 
-* Palavra-passe (Opcional) - Crie uma senha segura de que se lembrará.
-* Imagem e etiqueta - Desemiste isto para `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest`
-* Implementação Contínua - Desave-o **se** pretender receber atualizações automáticas quando a equipa de desenvolvimento esprodução de alterações na ferramenta de rotulagem da amostra.
-* Comando de arranque - Desemalte isto para `./run.sh eula=accept`
-
-    # <a name="v21-preview"></a>[pré-visualização v2.1](#tab/v2-1) 
+<!-- markdownlint-disable MD025 -->
+# <a name="v21-preview"></a>[pré-visualização v2.1](#tab/v2-1)
 
 * Opções - Selecione **Um Único Recipiente**
 * Fonte de imagem - Selecione **Registo Privado** 
@@ -92,7 +81,18 @@ Siga estes passos para criar um novo recurso utilizando o portal Azure:
 * Implementação Contínua - Desave-o **se** pretender receber atualizações automáticas quando a equipa de desenvolvimento esprodução de alterações na ferramenta de rotulagem da amostra.
 * Comando de arranque - Desemalte isto para `./run.sh eula=accept`
 
-    ---
+# <a name="v20"></a>[v2.0](#tab/v2-0)  
+
+* Opções - Selecione **Um Único Recipiente**
+* Fonte de imagem - Selecione **Registo Privado** 
+* URL do servidor - Desemiste isto para `https://mcr.microsoft.com`
+* Nome de utilizador (Opcional) - Crie um nome de utilizador. 
+* Palavra-passe (Opcional) - Crie uma senha segura de que se lembrará.
+* Imagem e etiqueta - Desemiste isto para `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest`
+* Implementação Contínua - Desave-o **se** pretender receber atualizações automáticas quando a equipa de desenvolvimento esprodução de alterações na ferramenta de rotulagem da amostra.
+* Comando de arranque - Desemalte isto para `./run.sh eula=accept`
+
+ ---
 
    > [!div class="mx-imgBorder"]
    > ![Configure Docker](./media/quickstarts/configure-docker.png)
@@ -104,7 +104,7 @@ Siga estes passos para criar um novo recurso utilizando o portal Azure:
 
 > [!IMPORTANT]
 > Poderá ser necessário ativar o TLS para a sua aplicação web para a visualizar no seu `https` endereço. Siga as instruções em [Ativar um ponto final TLS](../../container-instances/container-instances-container-group-ssl.md) para configurar um recipiente de sidecar do que ativar o TLS/SSL para a sua aplicação web.
-
+<!-- markdownlint-disable MD001 -->
 ### <a name="azure-cli"></a>CLI do Azure
 
 Como alternativa à utilização do portal Azure, pode criar um recurso utilizando o Azure CLI. Antes de continuar, terá de instalar o [Azure CLI](/cli/azure/install-azure-cli). Pode saltar este passo se já estiver a trabalhar com o Azure CLI. 
@@ -113,12 +113,32 @@ Há algumas coisas que precisa saber sobre este comando:
 
 * `DNS_NAME_LABEL=aci-demo-$RANDOM` gera um nome DNS aleatório. 
 * Esta amostra pressupõe que tem um grupo de recursos que pode usar para criar um recurso. Substitua `<resource_group_name>` por um grupo de recursos válido associado à sua subscrição. 
-* Terá de especificar onde pretende criar o recurso. `<region name>`Substitua-a pela região desejada para a aplicação web. 
+* Terá de especificar onde pretende criar o recurso. `<region name>`Substitua-a pela região desejada para a aplicação web.
 * Este comando aceita automaticamente a EULA.
 
 A partir do Azure CLI, executar este comando para criar um recurso de aplicação web para a ferramenta de rotulagem da amostra:
 
+<!-- markdownlint-disable MD024 -->
+# <a name="v21-preview"></a>[pré-visualização v2.1](#tab/v2-1)
+
+```azurecli
+DNS_NAME_LABEL=aci-demo-$RANDOM
+
+az container create \
+  --resource-group <resource_group_name> \
+  --name <name> \
+  --image mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-preview \
+  --ports 3000 \
+  --dns-name-label $DNS_NAME_LABEL \
+  --location <region name> \
+  --cpu 2 \
+  --memory 8 \
+  --command-line "./run.sh eula=accept"
+
+```
+
 # <a name="v20"></a>[v2.0](#tab/v2-0)
+
 
 ```azurecli
 DNS_NAME_LABEL=aci-demo-$RANDOM
@@ -133,24 +153,8 @@ az container create \
   --cpu 2 \
   --memory 8 \
   --command-line "./run.sh eula=accept"
-`
+``` 
 
-# [v2.1 preview](#tab/v2-1) 
-   
-```azurecli
-DNS_NAME_LABEL=aci-demo-$RANDOM
-
-az container create \
-  --resource-group <resource_group_name> \
-  --name <name> \
-  --image mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-preview \
-  --ports 3000 \
-  --dns-name-label $DNS_NAME_LABEL \
-  --location <region name> \
-  --cpu 2 \
-  --memory 8 \
-  --command-line "./run.sh eula=accept"
-```
 
 ---
 

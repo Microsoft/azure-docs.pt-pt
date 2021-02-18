@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: mingshen
 author: mingshen-ms
 ms.date: 06/10/2020
-ms.openlocfilehash: 5ab57bcccb6f681f5c9282ef461181952ed5a679
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: ac3e07c67ca82c2960de1c4341a714b33751bfc1
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/18/2021
-ms.locfileid: "100653079"
+ms.locfileid: "101092405"
 ---
 # <a name="anomaly-detection-service-for-metered-billing"></a>Serviço de deteção de anomalias da faturação limitada
 
@@ -50,7 +50,7 @@ O modelo funciona gerando intervalos de confiança retrospetiva. A previsão da 
 
 ## <a name="anomaly-detection-notification"></a>Notificação de deteção de anomalias
 
-Pode avaliar, gerir e reconhecer anomalias no Partner Center. Para saber como, consulte [a deteção de anomalias para faturação medido.](../anomaly-detection.md)
+Pode avaliar, gerir e reconhecer anomalias no Partner Center. Para saber como, consulte [Gerir anomalias de faturação medidos no Partner Center](../anomaly-detection.md).
 
 Para garantir que os seus clientes não estão sobrecarregados com o uso medido, deve investigar se anomalias detetadas são problemas reais. Em caso afirmativo, pode reconhecer o uso incorreto no Centro de Parceiros.
 
@@ -83,4 +83,4 @@ Para obter mais opções de suporte ao editor, consulte [Suporte para o programa
 ## <a name="next-steps"></a>Passos seguintes
 
 - Conheça o [serviço de medição marketplace API.](marketplace-metering-service-apis.md)
-- [Deteção de anomalias para faturação medido](../anomaly-detection.md)
+- [Gerir anomalias de faturação medidos no Partner Center](../anomaly-detection.md)

@@ -1,14 +1,14 @@
 ---
 title: Implementar amostra de projeto da Fundação de Benchmark de Segurança Azure
 description: Implementar etapas para a amostra de projeto da Azure Security Benchmark Foundation, incluindo detalhes do parâmetro do artefacto da planta.
-ms.date: 02/12/2020
+ms.date: 02/17/2020
 ms.topic: sample
-ms.openlocfilehash: 84c157d696dc8ababe1f252136672ea600e604af
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: aaaabc8767c6d80548a26d64d8557587180fb6f3
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100633959"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101095293"
 ---
 # <a name="deploy-the-azure-security-benchmark-foundation-blueprint-sample"></a>Implementar a amostra de projeto da Fundação de Referência de Segurança Azure
 
@@ -92,6 +92,9 @@ Uma vez publicada com **sucesso** a cópia da amostra de plantas, pode ser atrib
      - **Nome do Observador de Rede**: Nome do recurso Network Watcher
      - **Nome do grupo de recursos do Network Watcher**: Nome para o grupo de recursos Do Observador de Rede
      - **Ativar a proteção DDoS**: Introduza 'verdadeiro' ou 'falso' para especificar se a Proteção DDoS está ou não ativada na rede virtual
+     
+    > [!NOTE] 
+    > Se o Network Watcher já estiver ativado, recomenda-se que utilize o grupo de recursos do Observador de Rede existente. Também deve fornecer a localização do grupo de recursos do Observador de Rede existente para a localização do **grupo de recursos do observador de imagens do** parâmetro do artefacto .
 
    - Parâmetros dos artefactos
 
@@ -132,8 +135,14 @@ A tabela a seguir fornece uma lista dos parâmetros da planta:
 |Modelo de fala de rede virtual Azure|Modelo do Resource Manager|Nomes de endereços de sub-rede (opcional)|Matriz de nomes de sub-redes para implantar na rede virtual falada; por exemplo, "subnet1", "subnet2"|
 |Modelo de fala de rede virtual Azure|Modelo do Resource Manager|Prefixos de endereço de sub-rede (opcional)|Matriz de prefixos de endereço IP para sub-redes opcionais para a rede virtual falada; por exemplo, "10.0.7.0/24","10.0.8.0/24"|
 |Modelo de fala de rede virtual Azure|Modelo do Resource Manager|Implementar falou|Insira 'verdadeiro' ou 'falso' para especificar se a atribuição implementa os componentes falados da arquitetura|
-|Modelo de observador de rede Azure|Modelo do Resource Manager|Localização do Observador de Rede|Se o Network Watcher já estiver ativado, este valor de parâmetro **deve** corresponder à localização do grupo de recursos do Observador de Rede existente.|
+|Modelo de observador de rede Azure|Modelo do Resource Manager|Localização do Observador de Rede|Localização para o recurso Network Watcher|
 |Modelo de observador de rede Azure|Modelo do Resource Manager|Localização do grupo de recursos do Observador de Rede|Se o Network Watcher já estiver ativado, este valor de parâmetro **deve** corresponder ao nome do grupo de recursos do Observador de Rede existente.|
+
+## <a name="troubleshooting"></a>Resolução de problemas
+
+Se encontrar o `The resource group 'NetworkWatcherRG' failed to deploy due to the
+following error: Invalid resource group location '{location}'. The Resource group already exists in
+location '{location}'.` erro, verifique se o nome do **grupo de recursos do Network Watcher** especifica o nome do grupo de recursos do Observador de Rede existente e que a localização do grupo de recursos do Observador de **rede** de artefactos especifica a localização do grupo de recursos do Observador de Rede existente.
 
 ## <a name="next-steps"></a>Passos seguintes
 

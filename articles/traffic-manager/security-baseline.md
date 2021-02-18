@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: bc121b3f5aadad1e68315acac5daade5337b701b
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: f8f9da1b9c0b2df4e353b90538d52d9cb9b9e241
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100580357"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101093920"
 ---
 # <a name="azure-security-baseline-for-azure-traffic-manager"></a>Linha de segurança Azure para Azure Traffic Manager
 
@@ -114,7 +114,7 @@ Em alternativa, pode ativar e a bordo dados para a Azure Sentinel.
 
 No Gestor de Recursos, os pontos finais de qualquer subscrição podem ser adicionados ao Gestor de Tráfego, desde que a pessoa que configura o perfil do Gestor de Tráfego tenha lido o acesso ao ponto final.
 
-- [Adicionar ou remover atribuições de funções do Azure com o portal do Azure](../role-based-access-control/role-assignments-portal.md)
+- [Atribuir funções Azure usando o portal Azure](../role-based-access-control/role-assignments-portal.md)
 
 - [Como obter um papel de diretório em Azure AD com PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
@@ -272,7 +272,7 @@ No Gestor de Recursos, os pontos finais de qualquer subscrição podem ser adici
 
 O Azure Traffic Manager tem uma função Azure predefinida chamada "Colaboradora do Gestor de Tráfego", que pode ser atribuída aos utilizadores.
 
-- [Adicionar ou remover atribuições de funções do Azure com o portal do Azure](../role-based-access-control/role-assignments-portal.md)
+- [Atribuir funções Azure usando o portal Azure](../role-based-access-control/role-assignments-portal.md)
 
 - [Papel de contribuinte do Gestor de Tráfego](../role-based-access-control/built-in-roles.md#traffic-manager-contributor)
 

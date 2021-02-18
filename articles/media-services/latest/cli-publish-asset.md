@@ -15,12 +15,12 @@ ms.workload: na
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: c283c39f1ea90275c42de1481a9cb9006f2b2c5f
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 4ba5efe66e033966705072bfdf96422731fab082
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897093"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101091863"
 ---
 # <a name="cli-example-publish-an-asset"></a>Exemplo da CLI: publicar um elemento
 
@@ -32,12 +32,10 @@ O script da CLI do Azure neste artigo mostra como criar um Localizador de Transm
 
 [Criar uma conta de Serviços de Comunicação](./create-account-howto.md)Social.
 
-[!INCLUDE [media-services-cli-instructions.md](../../../includes/media-services-cli-instructions.md)]
-
 ## <a name="example-script"></a>Script de exemplo
 
 [!code-azurecli-interactive[main](../../../cli_scripts/media-services/publish-asset/Publish-Asset.sh "Publish an asset")]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Visão geral dos Serviços de Mídia](media-services-overview.md)

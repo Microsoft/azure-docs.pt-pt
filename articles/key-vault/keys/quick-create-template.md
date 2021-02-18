@@ -1,5 +1,5 @@
 ---
-title: Azure Quickstart - Criar um cofre de chaves Azure e uma chave utilizando o modelo do Gestor de Recursos Azure / Microsoft Docs
+title: Azure Quickstart - Crie um cofre de chaves Azure e uma chave utilizando o modelo Azure Resource Manager | Microsoft Docs
 description: Quickstart mostrando como criar cofres-chave Azure e adicionar chave aos cofres utilizando o modelo Azure Resource Manager (modelo ARM).
 services: key-vault
 author: sebansal
@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc,subject-armqs
 ms.date: 10/14/2020
 ms.author: sebansal
-ms.openlocfilehash: 566ddae3893a5499ddefe0ccd1ade8caff4567c2
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: d68ec580f25bfd5f9c1a994efc15abd8835ac8a5
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97934990"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101093511"
 ---
 # <a name="quickstart-create-an-azure-key-vault-and-a-key-by-using-arm-template-preview"></a>Quickstart: Criar um cofre de chave Azure e uma chave utilizando o modelo ARM (Pré-visualização)
 
@@ -26,7 +26,7 @@ ms.locfileid: "97934990"
 Para completar este artigo:
 
 - Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
-- O utilizador teria de ter a função de bult-in rbac atribuída, por exemplo. contribuinte. [Saiba mais aqui](../../role-based-access-control/role-assignments-portal.md)
+- O utilizador teria de ter uma função incorporada Azure atribuída, por exemplo. contribuinte. [Saiba mais aqui](../../role-based-access-control/role-assignments-portal.md)
 - O modelo precisa do ID de objeto de utilizador do Azure AD para configurar permissões. O procedimento a seguir obtém o ID do objeto (GUID).
 
     1. Executar o seguinte comando Azure PowerShell ou Azure CLI selecione **Experimente-o** e, em seguida, cole o script no painel de conchas. Para colar o script, clique com o botão direito da casca e, em seguida, **selecione Pasta**.

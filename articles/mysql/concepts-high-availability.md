@@ -1,17 +1,17 @@
 ---
 title: Alta disponibilidade - Base de Dados Azure para MySQL
 description: Este artigo fornece informações sobre alta disponibilidade na Base de Dados Azure para o MySQL
-author: mksuni
-ms.author: sumuth
+author: savjani
+ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 7/7/2020
-ms.openlocfilehash: b301946ce818559510b4e401b1f0aaf7c235d5a3
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: 74d6981c0465a1960e920313c1f960f0d781692b
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93242301"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101092968"
 ---
 # <a name="high-availability-in-azure-database-for-mysql"></a>Alta disponibilidade em Base de Dados Azure para MySQL
 A Base de Dados Azure para o serviço MySQL proporciona um elevado nível de disponibilidade garantido com o contrato de nível de serviço (SLA) apoiado financeiramente de [99,99% de tempo de 99,99%.](https://azure.microsoft.com/support/legal/sla/mysql) A Azure Database for MySQL fornece alta disponibilidade durante eventos planeados, como operação de computação em escala initada pelo utilizador, e também quando ocorrem eventos não planeados, tais como hardware, software ou falhas de rede subjacentes. A Azure Database for MySQL pode recuperar rapidamente da maioria das circunstâncias críticas, garantindo praticamente nenhum tempo de inação ao utilizar este serviço.
@@ -22,9 +22,9 @@ A Azure Database for MySQL é adequada para executar bases de dados críticas da
 
 | **Componente** | **Descrição**|
 | ------------ | ----------- |
-| <b>Servidor de base de dados MySQL | A Azure Database for MySQL fornece segurança, isolamento, salvaguardas de recursos e capacidade de reinício rápido para servidores de bases de dados. Estas capacidades facilitam operações como a operação de recuperação de servidores de escala e de base de dados após uma paragem em segundos. <br/> As modificações de dados no servidor da base de dados ocorrem normalmente no contexto de uma transação de base de dados. Todas as alterações na base de dados são registadas sincronizadamente sob a forma de registos de escrita antecipada (ib_log) no Azure Storage – que está anexado ao servidor de base de dados. Durante o processo [de verificação](https://dev.mysql.com/doc/refman/5.7/en/innodb-checkpoints.html) da base de dados, as páginas de dados da memória do servidor de base de dados também são lavadas para o armazenamento. |
-| <b>Armazenamento remoto | Todos os ficheiros de dados físicos e ficheiros de registo do MySQL são armazenados no Azure Storage, que é projetado para armazenar três cópias de dados dentro de uma região para garantir a redundância, disponibilidade e fiabilidade dos dados. A camada de armazenamento também é independente do servidor de base de dados. Pode ser desligado de um servidor de base de dados falhado e religado a um novo servidor de base de dados em poucos segundos. Além disso, o Azure Storage monitoriza continuamente quaisquer falhas de armazenamento. Se for detetada uma corrupção de bloco, é automaticamente corrigida através da instantânea nova cópia de armazenamento. |
-| <b>Porta de entrada | O Gateway funciona como um representante de base de dados, encaminha todas as ligações do cliente para o servidor de base de dados. |
+| <b>Servidor de base de dados MySQL | A Azure Database for MySQL fornece segurança, isolamento, salvaguardas de recursos e capacidade de reinício rápido para servidores de bases de dados. Estas capacidades facilitam operações como a operação de recuperação de servidores de escala e de base de dados após uma paragem em 60-120 segundos, dependendo da atividade transacional na base de dados. <br/> As modificações de dados no servidor da base de dados ocorrem normalmente no contexto de uma transação de base de dados. Todas as alterações na base de dados são registadas sincronizadamente sob a forma de registos de escrita antecipada (ib_log) no Azure Storage – que está anexado ao servidor de base de dados. Durante o processo [de verificação](https://dev.mysql.com/doc/refman/5.7/en/innodb-checkpoints.html) da base de dados, as páginas de dados da memória do servidor de base de dados também são lavadas para o armazenamento. |
+| <b>Armazenamento remoto | Todos os ficheiros de dados físicos e ficheiros de registo do MySQL são armazenados no Azure Storage, que é projetado para armazenar três cópias de dados dentro de uma região para garantir a redundância, disponibilidade e fiabilidade dos dados. A camada de armazenamento também é independente do servidor de base de dados. Pode ser desligado de um servidor de base de dados falhado e religado a um novo servidor de base de dados dentro de 60 segundos. Além disso, o Azure Storage monitoriza continuamente quaisquer falhas de armazenamento. Se for detetada uma corrupção de bloco, é automaticamente corrigida através da instantânea nova cópia de armazenamento. |
+| <b>Gateway | O Gateway funciona como um representante de base de dados, encaminha todas as ligações do cliente para o servidor de base de dados. |
 
 ## <a name="planned-downtime-mitigation"></a>Mitigação prevista para o tempo de inatividade
 A Azure Database for MySQL é projetado para fornecer alta disponibilidade durante as operações planeadas de inatividade. 
@@ -38,15 +38,15 @@ Aqui estão alguns cenários de manutenção planeados:
 | <b>Escala de cálculo para cima/para baixo | Quando o utilizador executa a operação de escala de cálculo para cima/para baixo, um novo servidor de base de dados é a provisionado utilizando a configuração de computação em escala. No antigo servidor de bases de dados, os pontos de verificação ativos são autorizados a completar, as ligações do cliente são drenadas, quaisquer transações não comprometidas são canceladas e, em seguida, é desligado. O armazenamento é então desligado do antigo servidor de base de dados e anexado ao novo servidor de base de dados. Quando a aplicação do cliente retrição a ligação, ou tenta fazer uma nova ligação, o Gateway direciona o pedido de ligação para o novo servidor de base de dados.|
 | <b>Armazenamento de escalonamento | O escalonamento do armazenamento é uma operação online e não interrompe o servidor de base de dados.|
 | <b>Nova implementação de software (Azure) | As novas funcionalidades de lançamento ou correções de bugs acontecem automaticamente como parte da manutenção planeada do serviço. Para mais informações, consulte a [documentação,](concepts-monitoring.md#planned-maintenance-notification)e verifique também o seu [portal.](https://aka.ms/servicehealthpm)|
-| <b>Upgrades de versão menores | A Azure Database for MySQL remenda automaticamente os servidores de base de dados para a versão menor determinada pelo Azure. Acontece como parte da manutenção planeada do serviço. Isto incorreria num curto período de inatividade em termos de segundos, e o servidor de base de dados é automaticamente reiniciado com a nova versão menor. Para mais informações, consulte a [documentação,](concepts-monitoring.md#planned-maintenance-notification)e verifique também o seu [portal.](https://aka.ms/servicehealthpm)|
+| <b>Upgrades de versão menores | A Azure Database for MySQL remenda automaticamente os servidores de base de dados para a versão menor determinada pelo Azure. Acontece como parte da manutenção planeada do serviço. Durante a manutenção planeada, pode haver reinício ou falhas no servidor de base de dados, o que pode levar a uma breve indisponibilidade dos servidores de base de dados para os utilizadores finais. A base de dados Azure para servidores MySQL está a funcionar em contentores para que os recomeçamento do servidor de base de dados sejam normalmente rápidos, esperando-se que completem normalmente em 60-120 segundos. Todo o evento de manutenção planeado, incluindo cada servidor, é cuidadosamente monitorizado pela equipa de engenharia. O tempo de falha do servidor depende do tempo de recuperação da base de dados, o que pode fazer com que a base de dados fique online por mais tempo se tiver uma atividade transacional pesada no servidor no momento da falha. Para evitar um tempo de reinício mais longo, é aconselhável evitar transações de longa duração (cargas a granel) durante os eventos de manutenção planeados. Para mais informações, consulte a [documentação,](concepts-monitoring.md#planned-maintenance-notification)e verifique também o seu [portal.](https://aka.ms/servicehealthpm)|
 
 
 ##  <a name="unplanned-downtime-mitigation"></a>Mitigação não planeada do tempo de inatividade
 
-O tempo de inatividade não planeado pode ocorrer em resultado de falhas imprevistas, incluindo falhas subjacentes ao hardware, problemas de rede e bugs de software. Se o servidor de base de dados se avariar inesperadamente, um novo servidor de base de dados é automaticamente a provisionado em segundos. O armazenamento remoto é automaticamente anexado ao novo servidor de base de dados. O motor MySQL executa a operação de recuperação utilizando ficheiros WAL e base de dados e abre o servidor de base de dados para permitir que os clientes se conectem. As transações não autorizadas perdem-se e têm de ser novamente julgadas pelo pedido. Embora não seja possível evitar um tempo de inatividade não planeado, a Base de Dados Azure para o MySQL atenua o tempo de inatividade, realizando automaticamente operações de recuperação tanto no servidor de base de dados como nas camadas de armazenamento sem necessidade de intervenção humana. 
+O tempo de inatividade não planeado pode ocorrer em resultado de falhas imprevistas, incluindo falhas subjacentes ao hardware, problemas de rede e bugs de software. Se o servidor de base de dados se avariar inesperadamente, um novo servidor de base de dados é automaticamente a provisionado em 60-120 segundos. O armazenamento remoto é automaticamente anexado ao novo servidor de base de dados. O motor MySQL executa a operação de recuperação utilizando ficheiros WAL e base de dados e abre o servidor de base de dados para permitir que os clientes se conectem. As transações não autorizadas perdem-se e têm de ser novamente julgadas pelo pedido. Embora não seja possível evitar um tempo de inatividade não planeado, a Base de Dados Azure para o MySQL atenua o tempo de inatividade, realizando automaticamente operações de recuperação tanto no servidor de base de dados como nas camadas de armazenamento sem necessidade de intervenção humana. 
 
 
-:::image type="content" source="./media/concepts-high-availability/availability-for-mysql-server.png" alt-text="vista de Elastic Scaling em Azure MySQL":::
+:::image type="content" source="./media/concepts-high-availability/availability-for-mysql-server.png" alt-text="vista de Alta Disponibilidade em Azure MySQL":::
 
 ### <a name="unplanned-downtime-failure-scenarios-and-service-recovery"></a>Tempo de inatividade não planeado: cenários de avaria e recuperação de serviços
 Aqui estão alguns cenários de falha e como a Base de Dados Azure para o MySQL recupera automaticamente:

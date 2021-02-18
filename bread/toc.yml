@@ -658,6 +658,9 @@
         - name: Front Door Service
           tocHref: /azure/frontdoor/
           topicHref: /azure/frontdoor/
+        - name: Padrão/Premium da porta da frente (pré-visualização)
+          tocHref: /azure/frontdoor/standard-premium
+          topicHref: /azure/frontdoor/standard-premium
         - name: Internet Analyzer
           tocHref: /azure/internet-analyzer/
           topicHref: /azure/internet-analyzer/

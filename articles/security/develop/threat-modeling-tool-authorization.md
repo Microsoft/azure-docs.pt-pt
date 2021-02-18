@@ -1,5 +1,5 @@
 ---
-title: Autorização - Ferramenta de Modelação de Ameaças da Microsoft - Azure / Microsoft Docs
+title: Autorização - Ferramenta de Modelação de Ameaças da Microsoft - Azure | Microsoft Docs
 description: Saiba mais sobre a mitigação da autorização na Ferramenta de Modelação de Ameaças. Consulte uma lista de potenciais ameaças e instruções de mitigação.
 services: security
 documentationcenter: na
@@ -16,14 +16,14 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b2ad38e518fa4b924992355990ea3eb06a338ebe
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: 38b147a85a26fd1e0be4f5dc6b63ae4c1331d348
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94693163"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101093997"
 ---
-# <a name="security-frame-authorization--mitigations"></a>Quadro de Segurança: Autorização / Mitigações 
+# <a name="security-frame-authorization--mitigations"></a>Quadro de Segurança: | de autorização Mitigações 
 | Produto/Serviço | Artigo |
 | --------------- | ------- |
 | **Limite de confiança da máquina** | <ul><li>[Certifique-se de que os ACLs adequados estão configurados para restringir o acesso não autorizado aos dados do dispositivo](#acl-restricted-access)</li><li>[Certifique-se de que o conteúdo de aplicação sensível específico do utilizador é armazenado no diretório de perfil do utilizador](#sensitive-directory)</li><li>[Certifique-se de que as aplicações implementadas são executadas com menos privilégios](#deployed-privileges)</li></ul> |
@@ -237,7 +237,7 @@ Por favor, note que o RLS como uma funcionalidade de base de dados fora da caixa
 | **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |
-| **Referências**              | [Adicione ou remova atribuições de funções Azure para gerir o acesso aos seus recursos de subscrição Azure](../../role-based-access-control/role-assignments-portal.md)  |
+| **Referências**              | [Atribua funções Azure para gerir o acesso aos seus recursos de subscrição Azure](../../role-based-access-control/role-assignments-portal.md)  |
 | **Passos** | O controlo de acesso baseado em funções Azure (Azure RBAC) permite uma gestão de acesso de grãos finos para o Azure. Utilizando o Azure RBAC, pode conceder apenas a quantidade de acesso que os utilizadores precisam para realizar os seus trabalhos.|
 
 ## <a name="restrict-clients-access-to-cluster-operations-using-service-fabric-rbac"></a><a id="cluster-rbac"></a>Restringir o acesso do cliente a operações de cluster usando o Service Fabric RBAC
@@ -277,7 +277,7 @@ Por favor, note que o RLS como uma funcionalidade de base de dados fora da caixa
 
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
-| **Componente**               | Armazenamento do Azure | 
+| **Componente**               | Storage do Azure | 
 | **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | StorageType - Tabela |
@@ -288,7 +288,7 @@ Por favor, note que o RLS como uma funcionalidade de base de dados fora da caixa
 
 | Título                   | Detalhes      |
 | ----------------------- | ------------ |
-| **Componente**               | Armazenamento do Azure | 
+| **Componente**               | Storage do Azure | 
 | **Fase SDL**               | Compilar |  
 | **Tecnologias aplicáveis** | Genérica |
 | **Atributos**              | N/D  |

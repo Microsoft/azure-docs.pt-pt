@@ -10,12 +10,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: d47e98273e696a4b6e827d8ebbc71a297f2861cb
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 9c973859c8b7a3d04693946f50377837c3538b85
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905320"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101094107"
 ---
 # <a name="authentication-with-azure-maps"></a>Autenticação com o Azure Maps
 
@@ -84,13 +84,13 @@ O Azure Maps suporta o acesso a todos os tipos principais de [controlo de acesso
 
 As próximas secções discutem conceitos e componentes da integração do Azure Maps com o Azure RBAC. Como parte do processo de criação da sua conta Azure Maps, um diretório AD Azure está associado à subscrição Azure que a conta Azure Maps reside. 
 
-Ao configurar o Azure RBAC, escolha um diretor de segurança e aplique-o a uma tarefa de função. Para aprender a adicionar atribuições de funções no portal Azure, consulte [adicionar ou remover atribuições de funções Azure](../role-based-access-control/role-assignments-portal.md).
+Ao configurar o Azure RBAC, escolha um diretor de segurança e aplique-o a uma tarefa de função. Para aprender a adicionar atribuições de funções no portal Azure, consulte [as funções De Atribuição Azure](../role-based-access-control/role-assignments-portal.md).
 
 ### <a name="picking-a-role-definition"></a>Escolher uma definição de papel
 
 Existem os seguintes tipos de definição de função para apoiar cenários de aplicação.
 
-| Definição de papel azul       | Descrição                                                                                              |
+| Definição de papel azul       | Description                                                                                              |
 | :-------------------------- | :------------------------------------------------------------------------------------------------------- |
 | Leitor de dados Azure Maps      | Fornece acesso a APIs de REST Imutável do Azure Maps.                                                       |
 | Colaborador de dados do Azure Maps | Fornece acesso a AZure Maps REST APIs mutáveis. A mutabilidade é definida pelas ações: escrever e apagar. |
@@ -114,7 +114,7 @@ A definição de função personalizada pode então ser usada numa atribuição 
 
 Aqui estão alguns cenários de exemplo onde as funções personalizadas podem melhorar a segurança da aplicação.
 
-| Cenário                                                                                                                                                                                                                 | Ação de dados de funções personalizadas                                                                                                                  |
+| Scenario                                                                                                                                                                                                                 | Ação de dados de funções personalizadas                                                                                                                  |
 | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------ |
 | Uma página web de inscrição pública ou interativa com azulejos de mapa base e nenhuma outra APIs de REST.                                                                                                                              | `Microsoft.Maps/accounts/services/render/read`                                                                                              |
 | Uma aplicação que requer apenas geocoding inverso e nenhuma outra APIs de REST.                                                                                                                                             | `Microsoft.Maps/accounts/services/search/read`                                                                                              |

@@ -5,12 +5,12 @@ author: mumian
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: jgao
-ms.openlocfilehash: 6086dffaefba003461a6edd8177afab05377103d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aabaad54dce52d57aaa4689f591351e290b0f9a3
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91371257"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101093694"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-the-azure-portal"></a>Gerir grupos de recursos do Azure Resource Manager utilizando o portal Azure
 
@@ -62,7 +62,7 @@ O grupo de recursos armazena metadados sobre os recursos. Por conseguinte, quand
 ## <a name="open-resource-groups"></a>Grupos de recursos abertos
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-2. Selecione **grupos de recursos**.
+2. Selecione **Grupos de recursos**.
 3. Selecione o grupo de recursos que pretende abrir.
 
 ## <a name="delete-resource-groups"></a>Eliminar grupos de recursos
@@ -89,7 +89,7 @@ O bloqueio impede que outros utilizadores da sua organização apaguem ou modifi
 1. Abra o grupo de recursos que pretende bloquear.  Consulte [grupos de recursos abertos](#open-resource-groups).
 2. No painel esquerdo, selecione **Fechaduras**.
 3. Para adicionar uma fechadura ao grupo de recursos, **selecione Adicionar**.
-4. Introduza **o nome de bloqueio,** **o tipo de bloqueio**e **as notas**. Os tipos de bloqueio incluem **Apenas leitura**e **excluir**.
+4. Introduza **o nome de bloqueio,** **o tipo de bloqueio** e **as notas**. Os tipos de bloqueio incluem **Apenas leitura** e **excluir**.
 
     ![bloquear grupo de recursos azul](./media/manage-resource-groups-portal/manage-resource-groups-add-lock.png)
 
@@ -105,7 +105,7 @@ Para obter informações sobre modelos de exportação, consulte [exportação �
 
 ## <a name="manage-access-to-resource-groups"></a>Gerir o acesso a grupos de recursos
 
-[O controlo de acesso baseado em funções (Azure RBAC)](../../role-based-access-control/overview.md) é a forma como gere o acesso aos recursos em Azure. Para obter mais informações, veja [Utilizar o portal do Azure para adicionar ou remover atribuições de funções do Azure](../../role-based-access-control/role-assignments-portal.md).
+[O controlo de acesso baseado em funções (Azure RBAC)](../../role-based-access-control/overview.md) é a forma como gere o acesso aos recursos em Azure. Para obter mais informações, consulte [as funções De Atribuição Azure utilizando o portal Azure](../../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 

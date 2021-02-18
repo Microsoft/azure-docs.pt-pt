@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 02/06/2021
 ms.author: robb
 ms.subservice: metrics
-ms.openlocfilehash: 51cd3bf3349e1880d4dc9f5d98d2d9b5dc5bb228
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 3f9ec395e8ccf6d5162717b2e38b0650ccc84812
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100616681"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101091787"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métricas suportadas com monitor Azure
 
@@ -154,21 +154,21 @@ Para obter informações adicionais importantes, consulte [a visão geral dos ag
 
 |Metric|Exportável através de Definições de Diagnóstico?|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|Dimensões|
 |---|---|---|---|---|---|---|
-|contagem de temporizador ativo|Yes|System.Runtime|contagem de temporizador ativo|de palavras|Média|Número de temporizadores que estão atualmente ativos|Implantação, AppName, Pod|
-|taxa alloc|Yes|System.Runtime|taxa alloc|Bytes|Média|Número de bytes atribuídos na pilha gerida|Implantação, AppName, Pod|
+|contagem de temporizador ativo|Yes|contagem de temporizador ativo|de palavras|Média|Número de temporizadores que estão atualmente ativos|Implantação, AppName, Pod|
+|taxa alloc|Yes|taxa alloc|Bytes|Média|Número de bytes atribuídos na pilha gerida|Implantação, AppName, Pod|
 |AppCpuUsage|Yes|Utilização do CPU da aplicação (pré-visualização)|Percentagem|Média|O recente uso do CPU para a app|Implantação, AppName, Pod|
-|montagem contagem|Yes|System.Runtime|montagem contagem|de palavras|Média|Número de Conjuntos Carregados|Implantação, AppName, Pod|
-|cpu-uso|Yes|System.Runtime|cpu-uso|Percentagem|Média|% do tempo que o processo utilizou o CPU|Implantação, AppName, Pod|
-|pedidos correntes|Yes|Microsoft.AspNetCore.Hosting|pedidos correntes|de palavras|Média|Número total de pedidos no processamento durante a vida útil do processo|Implantação, AppName, Pod|
-|exceção-contagem|Yes|System.Runtime|exceção-contagem|de palavras|Total|Número de Exceções|Implantação, AppName, Pod|
-|pedidos falhados|Yes|Microsoft.AspNetCore.Hosting|pedidos falhados|de palavras|Média|Número total de pedidos falhados durante a vida útil do processo|Implantação, AppName, Pod|
-|gc-tamanho-heap|Yes|System.Runtime|gc-tamanho-heap|de palavras|Média|Tamanho total da pilha reportado pelo GC (MB)|Implantação, AppName, Pod|
-|gen-0-gc-contagem|Yes|System.Runtime|gen-0-gc-contagem|de palavras|Média|Número de Gen 0 GCs|Implantação, AppName, Pod|
-|género-0 tamanho|Yes|System.Runtime|género-0 tamanho|Bytes|Média|Tamanho do monte Gen 0|Implantação, AppName, Pod|
-|gen-1-gc-contagem|Yes|System.Runtime|gen-1-gc-contagem|de palavras|Média|System.Runtime|Número de Gen 1 GCs|Implantação, AppName, Pod|
-|tamanho gen-1|Yes|System.Runtime|tamanho gen-1|Bytes|Média|Tamanho da pilha gen 1|Implantação, AppName, Pod|
-|gen-2-gc-contagem|Yes|System.Runtime|gen-2-gc-contagem|de palavras|Média|Número de GCs da Gen 2|Implantação, AppName, Pod|
-|tamanho gen-2|Yes|System.Runtime|tamanho gen-2|Bytes|Média|Tamanho do monte Gen 2|Implantação, AppName, Pod|
+|montagem contagem|Yes|montagem contagem|de palavras|Média|Número de Conjuntos Carregados|Implantação, AppName, Pod|
+|cpu-uso|Yes|cpu-uso|Percentagem|Média|% do tempo que o processo utilizou o CPU|Implantação, AppName, Pod|
+|pedidos correntes|Yes|pedidos correntes|de palavras|Média|Número total de pedidos no processamento durante a vida útil do processo|Implantação, AppName, Pod|
+|exceção-contagem|Yes|exceção-contagem|de palavras|Total|Número de Exceções|Implantação, AppName, Pod|
+|pedidos falhados|Yes|pedidos falhados|de palavras|Média|Número total de pedidos falhados durante a vida útil do processo|Implantação, AppName, Pod|
+|gc-tamanho-heap|Yes|gc-tamanho-heap|de palavras|Média|Tamanho total da pilha reportado pelo GC (MB)|Implantação, AppName, Pod|
+|gen-0-gc-contagem|Yes|gen-0-gc-contagem|de palavras|Média|Número de Gen 0 GCs|Implantação, AppName, Pod|
+|género-0 tamanho|Yes|género-0 tamanho|Bytes|Média|Tamanho do monte Gen 0|Implantação, AppName, Pod|
+|gen-1-gc-contagem|Yes|gen-1-gc-contagem|de palavras|Média|Número de Gen 1 GCs|Implantação, AppName, Pod|
+|tamanho gen-1|Yes|tamanho gen-1|Bytes|Média|Tamanho da pilha gen 1|Implantação, AppName, Pod|
+|gen-2-gc-contagem|Yes|gen-2-gc-contagem|de palavras|Média|Número de GCs da Gen 2|Implantação, AppName, Pod|
+|tamanho gen-2|Yes|tamanho gen-2|Bytes|Média|Tamanho do monte Gen 2|Implantação, AppName, Pod|
 |jvm.gc.live.data.size|Yes|jvm.gc.live.data.size|Bytes|Média|Tamanho da piscina de memória de geração velha depois de um GC completo|Implantação, AppName, Pod|
 |jvm.gc.max.data.size|Yes|jvm.gc.max.data.size|Bytes|Média|Tamanho máximo da piscina de memória de geração antiga|Implantação, AppName, Pod|
 |jvm.gc.memory.alocado|Yes|jvm.gc.memory.alocado|Bytes|Máximo|Incrementado para um aumento no tamanho do pool de memória de geração jovem após um GC para antes do próximo|Implantação, AppName, Pod|
@@ -178,15 +178,15 @@ Para obter informações adicionais importantes, consulte [a visão geral dos ag
 |jvm.memory.committed|Yes|jvm.memory.committed|Bytes|Média|Memória atribuída a JVM em bytes|Implantação, AppName, Pod|
 |jvm.memória.max|Yes|jvm.memória.max|Bytes|Máximo|A quantidade máxima de memória em bytes que pode ser usada para a gestão da memória|Implantação, AppName, Pod|
 |jvm.memory.usado|Yes|jvm.memory.usado|Bytes|Média|Memória de aplicativos utilizada em bytes|Implantação, AppName, Pod|
-|loh tamanho|Yes|System.Runtime|loh tamanho|Bytes|Média|Tamanho do monte LOH|Implantação, AppName, Pod|
-|monitor-lock-contention-count|Yes|System.Runtime|monitor-lock-contention-count|de palavras|Média|Número de vezes houve contenção ao tentar pegar o bloqueio do monitor|Implantação, AppName, Pod|
+|loh tamanho|Yes|loh tamanho|Bytes|Média|Tamanho do monte LOH|Implantação, AppName, Pod|
+|monitor-lock-contention-count|Yes|monitor-lock-contention-count|de palavras|Média|Número de vezes houve contenção ao tentar pegar o bloqueio do monitor|Implantação, AppName, Pod|
 |process.cpu.usage|Yes|process.cpu.usage|Percentagem|Média|O recente uso do CPU para o processo JVM|Implantação, AppName, Pod|
-|pedidos por segundo|Yes|Microsoft.AspNetCore.Hosting|taxa de pedidos|de palavras|Média|Taxa de pedido|Implantação, AppName, Pod|
+|pedidos por segundo|Yes|taxa de pedidos|de palavras|Média|Taxa de pedido|Implantação, AppName, Pod|
 |system.cpu.usage|Yes|system.cpu.usage|Percentagem|Média|O recente uso do CPU para todo o sistema|Implantação, AppName, Pod|
-|threadpool-complete-items-contagem|Yes|System.Runtime|threadpool-complete-items-contagem|de palavras|Média|Contagem de itens de trabalho concluídos ThreadPool|Implantação, AppName, Pod|
-|threadpool-fila-comprimento|Yes|System.Runtime|threadpool-fila-comprimento|de palavras|Média|Comprimento da fila de itens de trabalho threadpool|Implantação, AppName, Pod|
-|threadpool-thread-contagem|Yes|System.Runtime|threadpool-thread-contagem|de palavras|Média|Número de threadpool threads|Implantação, AppName, Pod|
-|time-in-gc|Yes|System.Runtime|time-in-gc|Percentagem|Média|% tempo em GC desde o último GC|Implantação, AppName, Pod|
+|threadpool-complete-items-contagem|Yes|threadpool-complete-items-contagem|de palavras|Média|Contagem de itens de trabalho concluídos ThreadPool|Implantação, AppName, Pod|
+|threadpool-fila-comprimento|Yes|threadpool-fila-comprimento|de palavras|Média|Comprimento da fila de itens de trabalho threadpool|Implantação, AppName, Pod|
+|threadpool-thread-contagem|Yes|threadpool-thread-contagem|de palavras|Média|Número de threadpool threads|Implantação, AppName, Pod|
+|time-in-gc|Yes|time-in-gc|Percentagem|Média|% tempo em GC desde o último GC|Implantação, AppName, Pod|
 |tomcat.global.erro|Yes|tomcat.global.erro|de palavras|Total|Erro Global de Tomcat|Implantação, AppName, Pod|
 |tomcat.global.recebeu|Yes|tomcat.global.recebeu|Bytes|Total|Tomcat Total Recebido Bytes|Implantação, AppName, Pod|
 |tomcat.global.request.avg.time|Yes|tomcat.global.request.avg.time|Milissegundos|Média|Tomcat Pede tempo médio|Implantação, AppName, Pod|
@@ -202,8 +202,8 @@ Para obter informações adicionais importantes, consulte [a visão geral dos ag
 |tomcat.sessions.rejeitado|Yes|tomcat.sessions.rejeitado|de palavras|Total|Contagem rejeitada da sessão de Tomcat|Implantação, AppName, Pod|
 |tomcat.threads.config.max|Yes|tomcat.threads.config.max|de palavras|Total|Tomcat Config Max Thread Count|Implantação, AppName, Pod|
 |tomcat.threads.current|Yes|tomcat.threads.current|de palavras|Total|Contagem de fios de corrente tomcat|Implantação, AppName, Pod|
-|pedidos totais|Yes|Microsoft.AspNetCore.Hosting|pedidos totais|de palavras|Média|Número total de pedidos durante a vida útil do processo|Implantação, AppName, Pod|
-|conjunto de trabalho|Yes|System.Runtime|conjunto de trabalho|de palavras|Média|Quantidade de conjunto de trabalho utilizado pelo processo (MB)|Implantação, AppName, Pod|
+|pedidos totais|Yes|pedidos totais|de palavras|Média|Número total de pedidos durante a vida útil do processo|Implantação, AppName, Pod|
+|conjunto de trabalho|Yes|conjunto de trabalho|de palavras|Média|Quantidade de conjunto de trabalho utilizado pelo processo (MB)|Implantação, AppName, Pod|
 
 
 ## <a name="microsoftautomationautomationaccounts"></a>Microsoft.Automation/automation

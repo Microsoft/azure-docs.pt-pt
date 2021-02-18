@@ -1,5 +1,5 @@
 ---
-title: Compreenda os gémeos dispositivo Azure IoT Hub Microsoft Docs
+title: Compreenda os gémeos do dispositivo Azure IoT Hub | Microsoft Docs
 description: Guia do desenvolvedor - use gémeos do dispositivo para sincronizar dados de estado e de configuração entre o IoT Hub e os seus dispositivos
 author: nehsin
 manager: philmea
@@ -11,12 +11,12 @@ ms.date: 09/29/2020
 ms.custom:
 - mqtt
 - 'Role: Cloud Development'
-ms.openlocfilehash: b83faecb16ac09a47a0ade25474f7a5b3ecd4296
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: fff4b9157c30203f47c65a74b211e3dbf6426d92
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97400933"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101093034"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Compreender e usar gémeos dispositivo no IoT Hub
 
@@ -42,6 +42,8 @@ Utilize gémeos do dispositivo para:
 Consulte a [orientação de comunicação dispositivo-a-nuvem](iot-hub-devguide-d2c-guidance.md) para obter orientações sobre a utilização de propriedades reportadas, mensagens de dispositivo para nuvem ou upload de ficheiros.
 
 Consulte as [orientações de comunicação cloud-to-device](iot-hub-devguide-c2d-guidance.md) para obter orientações sobre a utilização de propriedades desejadas, métodos diretos ou mensagens nuvem-dispositivo.
+
+Para saber como os gémeos do dispositivo se relacionam com o modelo do dispositivo utilizado por um dispositivo Azure IoT Plug and Play, consulte [o Understand IoT Plug e play digital twins](../iot-pnp/concepts-digital-twin.md).
 
 ## <a name="device-twins"></a>Gémeos do dispositivo
 
@@ -185,7 +187,7 @@ A extremidade traseira da solução funciona no dispositivo twin utilizando as s
 
   - Propriedades
 
-    | Nome | Valor |
+    | Name | Valor |
     | --- | --- |
     $content tipo | application/json |
     $iothub-enquestime |  Hora em que a notificação foi enviada |

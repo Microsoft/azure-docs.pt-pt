@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 01/03/2021
-ms.openlocfilehash: 23bc476c0d4fd90e19428d52b1468d090ffe2a1b
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.openlocfilehash: 6c5d758f94a4ad4e70a8b02a02c7c61097725f63
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99820794"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101094835"
 ---
 # <a name="tutorial-migrate-sql-server-to-azure-sql-database-offline-using-dms"></a>Tutorial: Migrar o SQL Server para a Base de Dados SQL do Azure offline com o DMS
 
@@ -63,7 +63,7 @@ Para concluir este tutorial, precisa de:
     >
     >Se não tiver conectividade site-to-site entre a rede no local e a Azure ou se houver uma largura de banda de conectividade local-local limitada, considere a utilização do Serviço de Migração da Base de Dados Azure em modo híbrido (Preview). O modo híbrido aproveita um trabalhador de migração no local, juntamente com um exemplo do Serviço de Migração da Base de Dados Azure a funcionar na nuvem. Para criar um exemplo do Serviço de Migração da Base de Dados Azure em modo híbrido, consulte o artigo [Criar uma instância do Serviço de Migração da Base de Dados Azure em modo híbrido utilizando o portal Azure](./quickstart-create-data-migration-service-hybrid-portal.md).
 
-- Certifique-se de que as suas regras de segurança de saída do Grupo de Segurança da Rede Virtual não bloqueiam as seguintes portas de comunicação necessárias para o Serviço de Migração da Base de Dados Azure: 443, 53, 9354, 445, 12000. Para obter mais detalhes sobre a filtragem de tráfego NSG da rede virtual Azure, consulte o artigo Filtrar o [tráfego da rede com grupos de segurança de rede](../virtual-network/virtual-network-vnet-plan-design-arm.md).
+- Certifique-se de que as regras de segurança de saída do Grupo de Segurança da Rede Virtual não bloqueiam a porta de saída 443 do ServiceTag para ServiceBus, Storage e AzureMonitor. Para obter mais detalhes sobre a filtragem de tráfego NSG da rede virtual Azure, consulte o artigo Filtrar o [tráfego da rede com grupos de segurança de rede](../virtual-network/virtual-network-vnet-plan-design-arm.md).
 - Configurar a sua [Firewall do Windows para acesso ao motor de bases de dados](/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 - Abra a firewall do Windows para permitir que o Serviço de Migração da Base de Dados de Azure aceda ao servidor SQL de origem, que por padrão é a porta TCP 1433. Se o seu caso padrão estiver a ouvir noutra porta, adicione-o à firewall.
 - Se estiver a executar várias instâncias chamadas SQL Server utilizando portas dinâmicas, pode desejar ativar o Serviço de Navegador SQL e permitir o acesso à porta UDP 1434 através das suas firewalls para que o Serviço de Migração da Base de Dados Azure possa ligar-se a uma instância nomeada no seu servidor de origem.

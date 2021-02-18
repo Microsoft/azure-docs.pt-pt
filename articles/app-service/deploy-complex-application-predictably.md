@@ -5,12 +5,12 @@ ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.topic: article
 ms.date: 01/06/2016
 ms.custom: seodec18
-ms.openlocfilehash: 6c45d2da8658740b5e5e7e3dceb7478ea28d712c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8742b590af89954cb8480e5282827bcd5228673b
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88962031"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101095837"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>Provisão e implantação de microserviços previsivelmente em Azure
 Este tutorial mostra como providenciar e implementar uma aplicação composta por [microserviços](https://en.wikipedia.org/wiki/Microservices) no [Azure App Service](https://azure.microsoft.com/services/app-service/) como uma única unidade e de forma previsível usando modelos de grupo de recursos JSON e scripts PowerShell. 
@@ -45,14 +45,14 @@ Para obter mais informações, consulte [utilizar a Azure PowerShell com o Azure
 Esta [ferramenta de pré-visualização](https://resources.azure.com) permite-lhe explorar as definições JSON de todos os grupos de recursos na sua subscrição e nos recursos individuais. Na ferramenta, pode editar as definições JSON de um recurso, eliminar toda uma hierarquia de recursos e criar novos recursos.  As informações prontamente disponíveis nesta ferramenta são muito úteis para a autoria do modelo porque mostra-lhe quais as propriedades que precisa de definir para um determinado tipo de recurso, os valores corretos, etc. Pode até criar o seu grupo de recursos no [Portal Azure,](https://portal.azure.com/)depois inspecione as definições de JSON na ferramenta exploradora para o ajudar a terpluário do grupo de recursos.
 
 ### <a name="deploy-to-azure-button"></a>Botão Implementar no Azure
-Se utilizar o GitHub para controlo de origem, pode colocar um [botão Implementar para Azure](https://azure.microsoft.com/blog/2014/11/13/deploy-to-azure-button-for-azure-websites-2/) na sua README. MD, que permite uma colocação de chave de turno uI para Azure. Embora possa fazê-lo para qualquer aplicação simples, pode estender isto para permitir a implementação de um grupo inteiro de recursos, colocando uma azuredeploy.jsem ficheiros na raiz do repositório. Este ficheiro JSON, que contém o modelo de grupo de recursos, será utilizado pelo botão Implementar para Azure para criar o grupo de recursos. Por exemplo, consulte a amostra [do ToDoApp,](https://github.com/azure-appservice-samples/ToDoApp) que utilizará neste tutorial.
+Se utilizar o GitHub para controlo de origem, pode colocar um [botão Implementar para Azure](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-to-azure-button) na sua README. MD, que permite uma colocação de chave de turno uI para Azure. Embora possa fazê-lo para qualquer aplicação simples, pode estender isto para permitir a implementação de um grupo inteiro de recursos, colocando uma azuredeploy.jsem ficheiros na raiz do repositório. Este ficheiro JSON, que contém o modelo de grupo de recursos, será utilizado pelo botão Implementar para Azure para criar o grupo de recursos. Por exemplo, consulte a amostra [do ToDoApp,](https://github.com/azure-appservice-samples/ToDoApp) que utilizará neste tutorial.
 
 ## <a name="get-the-sample-resource-group-template"></a>Obtenha o modelo do grupo de recursos de amostra
 Então, agora vamos ao que é.
 
 1. Navegue para a amostra do Serviço de Aplicações [ToDoApp.](https://github.com/azure-appservice-samples/ToDoApp)
 2. Em readme.md, clique **em Implementar para Azure**.
-3. É levado para o local [de implantação](https://deploy.azure.com) e azul e pediu para inserir parâmetros de implementação. Note que a maioria dos campos são povoados com o nome do repositório e algumas cordas aleatórias para si. Pode alterar todos os campos se quiser, mas as únicas coisas que tem de introduzir são o login administrativo do SQL Server e a palavra-passe, e depois clique em **Seguinte**.
+3. É levado para o local [de implantação](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure-appservice-samples%2FToDoApp%2Fmaster%2Fazuredeploy.json) e azul e pediu para inserir parâmetros de implementação. Note que a maioria dos campos são povoados com o nome do repositório e algumas cordas aleatórias para si. Pode alterar todos os campos se quiser, mas as únicas coisas que tem de introduzir são o login administrativo do SQL Server e a palavra-passe, e depois clique em **Seguinte**.
    
    ![Mostra os parâmetros de implantação da entrada no local de implantação-azul.](./media/app-service-deploy-complex-application-predictably/gettemplate-1-deploybuttonui.png)
 4. Em seguida, clique em **Implementar** para iniciar o processo de implementação. Assim que o processo terminar, clique na http://todoapp ligação *XXXX*.azurewebsites.net para navegar na aplicação implementada. 
@@ -183,7 +183,7 @@ Mais uma vez, os recursos aninhados devem ter uma hierarquia muito semelhante à
 O botão **Implementar para Azure** é ótimo, mas permite-lhe implementar o modelo de grupo de recursos em azuredeploy.jsapenas se já tiver pressionado azuredeploy.jspara o GitHub. O Azure .NET SDK também fornece as ferramentas para que possa implementar qualquer ficheiro de modelo JSON diretamente da sua máquina local. Para isso, siga os passos abaixo:
 
 1. No Estúdio Visual, clique em **File**  >  **New**  >  **Project**.
-2. Clique **em Visual C#**  >  **Cloud**  >  **Azure Resource Group**e, em seguida, clique em **OK**.
+2. Clique **em Visual C#**  >  **Cloud**  >  **Azure Resource Group** e, em seguida, clique em **OK**.
    
    ![Criar um novo projeto como Grupo de Recursos Azure no Azure .NET SDK.](./media/app-service-deploy-complex-application-predictably/deploy-1-vsproject.png)
 3. No **modelo de Azure select,** selecione **O Modelo em Branco** e clique em **OK**.
@@ -213,7 +213,7 @@ O botão **Implementar para Azure** é ótimo, mas permite-lhe implementar o mod
     
     ![Mostra como implementar o seu novo projeto.](./media/app-service-deploy-complex-application-predictably/deploy-8-newdeployment.png)
 13. Inicie sessão na sua conta Azure se ainda não o fez.
-14. Selecione um grupo de recursos existente na sua subscrição ou crie um novo, selecioneazuredeploy.jse, em seguida, clique ** em** **Editar Parâmetros**.
+14. Selecione um grupo de recursos existente na sua subscrição ou crie um novo, selecioneazuredeploy.jse, em seguida, clique **em** **Editar Parâmetros**.
     
     ![Mostra como editar os parâmetros do azuredeploy.jsno ficheiro.](./media/app-service-deploy-complex-application-predictably/deploy-9-deployconfig.png)
     

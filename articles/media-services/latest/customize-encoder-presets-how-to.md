@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: c8c9f1deb1b776a818269909b3feb19f00a2c356
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: ba17346d5f064b57f98e7ad8745d9f80bdde5116
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98954281"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101092307"
 ---
 # <a name="how-to-encode-with-a-custom-transform---net"></a>Como codificar com uma transformação personalizada - .NET
 
@@ -32,7 +32,7 @@ Ao criar predefinições personalizadas, aplicam-se as seguintes considerações
 * Todos os valores para altura e largura no conteúdo AVC devem ser múltiplos de 4.
 * No Azure Media Services v3, todos os bitrates codificadores estão em bits por segundo. Isto é diferente das predefinições com as nossas APIs v2, que usavam quilobits/segundo como unidade. Por exemplo, se o bitrate em v2 fosse especificado como 128 (quilobits/segundo), em v3 seria definido para 128000 (bits/segundo).
 
-## <a name="prerequisites"></a>Pré-requisitos 
+## <a name="prerequisites"></a>Pré-requisitos
 
 [Criar uma conta dos Media Services](./create-account-howto.md)
 
@@ -46,7 +46,7 @@ Clone um repositório GitHub que contenha a amostra completa do núcleo .NET à 
  
 A amostra pré-configurada personalizada encontra-se na pasta [EncodeCustomTransform.](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/blob/master/NETCore/EncodeCustomTransform/)
 
-## <a name="create-a-transform-with-a-custom-preset"></a>Criar uma transformação com uma predefinição personalizada 
+## <a name="create-a-transform-with-a-custom-preset"></a>Criar uma transformação com uma predefinição personalizada
 
 Ao criar uma nova [Transform,](/rest/api/media/transforms)tem de especificar o que pretende que produza como saída. O parâmetro necessário é um objeto [TransformOutput](/rest/api/media/transforms/createorupdate#transformoutput), conforme apresentado no código abaixo. Cada **TransformOutput** contém uma **Predefinição**. O **Predefinição** descreve as instruções passo a passo das operações de processamento de vídeo e/ou áudio que devem ser utilizadas para gerar o **TransformOutput** desejado . O seguinte **TransformOutput** cria definições personalizadas de saída de codec e camada.
 

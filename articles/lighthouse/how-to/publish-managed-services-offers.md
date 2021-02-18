@@ -1,14 +1,14 @@
 ---
 title: Publicar uma oferta de Serviço Gerido para o Azure Marketplace
 description: Saiba como publicar uma oferta de Serviço Gerido que a bordo dos clientes para o Farol de Azure.
-ms.date: 02/16/2021
+ms.date: 02/17/2021
 ms.topic: how-to
-ms.openlocfilehash: 3af460f17533d70b24f76ab40460a5fa920cdece
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: b906ba9961ae4f77ca16890fd0a9036123343111
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100555805"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101092140"
 ---
 # <a name="publish-a-managed-service-offer-to-azure-marketplace"></a>Publicar uma oferta de Serviço Gerido para o Azure Marketplace
 
@@ -26,13 +26,16 @@ A tabela a seguir pode ajudar a determinar se devem ou não embarcar clientes pu
 
 |**Consideração**  |**Oferta de Serviço Gerido**  |**Modelos de ARM**  |
 |---------|---------|---------|
-|Requer [conta partner center](../../marketplace/partner-center-portal/create-account.md)   |Sim         |Não        |
-|Requer [nível](/partner-center/learn-about-competencies) de competência da Plataforma Cloud prateada ou dourada ou [MSP expert Azure](https://partner.microsoft.com/membership/azure-expert-msp)      |Sim         |Não         |
-|Disponível para novos clientes através do Azure Marketplace     |Sim     |Não       |
-|Pode limitar a oferta a clientes específicos     |Sim (apenas com ofertas privadas, que não podem ser usadas com subscrições estabelecidas através de um revendedor do programa Cloud Solution Provider (CSP)         |Sim         |
-|Requer aceitação do cliente no portal Azure     |Sim     |Não   |
-|Pode usar a automatização para embarcar várias subscrições, grupos de recursos ou clientes |Não     |Sim    |
-|Acesso imediato a novas funções incorporadas e características do Farol Azure     |Nem sempre (geralmente disponível após algum atraso)         |Sim         |
+|Requer [conta partner center](../../marketplace/partner-center-portal/create-account.md)   |Yes         |No        |
+|Requer [nível](/partner-center/learn-about-competencies) de competência da Plataforma Cloud prateada ou dourada ou [MSP expert Azure](https://partner.microsoft.com/membership/azure-expert-msp)      |Yes         |No         |
+|Disponível para novos clientes através do Azure Marketplace     |Yes     |No       |
+|Pode limitar a oferta a clientes específicos     |Sim (apenas com ofertas privadas, que não podem ser usadas com subscrições estabelecidas através de um revendedor do programa Cloud Solution Provider (CSP)         |Yes         |
+|Requer aceitação do cliente no portal Azure     |Yes     |No   |
+|Pode usar a automatização para embarcar várias subscrições, grupos de recursos ou clientes |No     |Yes    |
+|Acesso imediato a novas funções incorporadas e características do Farol Azure     |Nem sempre (geralmente disponível após algum atraso)         |Yes         |
+
+> [!NOTE]
+> As ofertas de Serviço Gerido podem não estar disponíveis no Governo de Azure e noutras nuvens nacionais.
 
 ## <a name="create-your-offer"></a>Crie a sua oferta
 

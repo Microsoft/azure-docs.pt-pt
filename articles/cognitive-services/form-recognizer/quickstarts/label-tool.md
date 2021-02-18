@@ -2,22 +2,26 @@
 title: 'Quickstart: Label forms, train a model, and analyze forming using the sample labeling tool - Form Recogniser'
 titleSuffix: Azure Cognitive Services
 description: Neste arranque rápido, utilizará a ferramenta de rotulagem da amostra do Reconhecimento de Formulários para rotular manualmente documentos de formulário. Em seguida, irá treinar um modelo de processamento de documentos personalizado com os documentos rotulados e usar o modelo para extrair pares de chaves/valor.
-author: PatrickFarley
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 01/29/2021
-ms.author: pafarley
+ms.author: lajanuar
 ms.custom: cog-serv-seo-aug-2020
 keywords: processamento de documentos
-ms.openlocfilehash: 9642f9ce51cd3eb90344f96bc099da7adea93022
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 3814eb9d71f38406533d0bcecf594bbdcd42d5b7
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100364809"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101095806"
 ---
+<!-- markdownlint-disable MD001 -->
+<!-- markdownlint-disable MD024 -->
+<!-- markdownlint-disable MD033 -->
+<!-- markdownlint-disable MD034 -->
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Treine um modelo de reconhecimento de formulários com etiquetas usando a ferramenta de rotulagem da amostra
 
 Neste arranque rápido, utilizará a API do Coitalista de Formulários com a ferramenta de rotulagem da amostra para treinar um modelo de processamento de documentos personalizado com dados etiquetados manualmente. Consulte a secção [Train com etiquetas](../overview.md#train-with-labels) da visão geral para saber mais sobre a aprendizagem supervisionada com o Form Recogniser.
@@ -30,8 +34,8 @@ Para completar este arranque rápido, você deve ter:
 
 * Subscrição Azure - [Crie uma gratuitamente](https://azure.microsoft.com/free/cognitive-services)
 * Assim que tiver a sua subscrição Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title=" Crie um recurso De Reconhecimento de "  target="_blank"> Formulários crie um recurso De Reconhecimento de <span class="docon docon-navigate-external x-hidden-focus"></span> </a> Formulários no portal Azure para obter a sua chave e ponto final. Depois de implementar, clique em **Ir para o recurso**.
-    * Necessitará da chave e ponto final do recurso que criar para ligar a sua aplicação à API do Reconhecimento de Formulários. Colará a chave e o ponto final no código abaixo mais tarde no arranque rápido.
-    * Pode utilizar o nível de preços gratuitos `F0` para experimentar o serviço e fazer upgrade mais tarde para um nível pago para produção.
+  * Necessitará da chave e ponto final do recurso que criar para ligar a sua aplicação à API do Reconhecimento de Formulários. Colará a chave e o ponto final no código abaixo mais tarde no arranque rápido.
+  * Pode utilizar o nível de preços gratuitos `F0` para experimentar o serviço e fazer upgrade mais tarde para um nível pago para produção.
 * Um conjunto de pelo menos seis formas do mesmo tipo. Usará estes dados para treinar o modelo e testar um formulário. Pode utilizar um [conjunto de dados de amostra](https://go.microsoft.com/fwlink/?linkid=2090451) (descarregar e extrair *sample_data.zip)* para este arranque rápido. Faça o upload dos ficheiros de treino para a raiz de um recipiente de armazenamento de bolhas numa conta de armazenamento Azure de nível de desempenho padrão.
 
 ## <a name="create-a-form-recognizer-resource"></a>Criar um recurso de reconhecimento de formulários
@@ -42,27 +46,28 @@ Para completar este arranque rápido, você deve ter:
 
 Para experimentar online a Ferramenta de Rotulagem da Amostra do Reconhecimento de Formulários, aceda ao site da [FOTT](https://fott-preview.azurewebsites.net/).
 
-# <a name="v20"></a>[v2.0](#tab/v2-0)
-> [!div class="nextstepaction"]
-> [Experimente modelos pré-construídos](https://fott.azurewebsites.net/)
+### <a name="v21-preview"></a>[pré-visualização v2.1](#tab/v2-1)
 
-# <a name="v21-preview"></a>[pré-visualização v2.1](#tab/v2-1)
 > [!div class="nextstepaction"]
 > [Experimente modelos pré-construídos](https://fott-preview.azurewebsites.net/)
 
+### <a name="v20"></a>[v2.0](#tab/v2-0)
+
+> [!div class="nextstepaction"]
+> [Experimente modelos pré-construídos](https://fott.azurewebsites.net/)
+
 ---
 
-Você precisará de uma subscrição Azure[(crie uma gratuitamente](https://azure.microsoft.com/free/cognitive-services)) e um ponto final de [recurso do Reconhecimento de Formulários](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) e chave para experimentar o serviço Deseclarador de Formulários. 
-
+Você precisará de uma subscrição Azure[(crie uma gratuitamente](https://azure.microsoft.com/free/cognitive-services)) e um ponto final de [recurso do Reconhecimento de Formulários](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) e chave para experimentar o serviço Deseclarador de Formulários.
 
 ## <a name="set-up-the-sample-labeling-tool"></a>Configurar a ferramenta de rotulagem da amostra
 
 Vai usar o motor Docker para executar a ferramenta de rotulagem da amostra. Siga estes passos para configurar o contentor Docker. Para um manual de noções básicas do Docker e do contentor, veja a [descrição geral do Docker](https://docs.docker.com/engine/docker-overview/).
 
 > [!TIP]
-> A Ferramenta de Rotulagem do Formulário OCR também está disponível como um projeto de código aberto no GitHub. A ferramenta é uma aplicação web TypeScript construída utilizando o React + Redux. Para saber mais ou contribuir, consulte o repo da Ferramenta de Rotulagem do [Formulário OCR.](https://github.com/microsoft/OCR-Form-Tools/blob/master/README.md#run-as-web-application) Para experimentar a ferramenta online, aceda ao site da [FOTT.](https://fott.azurewebsites.net/)   
+> A Ferramenta de Rotulagem do Formulário OCR também está disponível como um projeto de código aberto no GitHub. A ferramenta é uma aplicação web TypeScript construída utilizando o React + Redux. Para saber mais ou contribuir, consulte o repo da Ferramenta de Rotulagem do [Formulário OCR.](https://github.com/microsoft/OCR-Form-Tools/blob/master/README.md#run-as-web-application) Para experimentar a ferramenta online, aceda ao site da [FOTT.](https://fott.azurewebsites.net/)
 
-1. Primeiro, instala o Docker num computador anfitrião. Este guia irá mostrar-lhe como usar o computador local como hospedeiro. Se pretender utilizar um serviço de hospedagem Docker em Azure, consulte a ferramenta de [rotulagem da amostra](../deploy-label-tool.md) como orientar. 
+1. Primeiro, instala o Docker num computador anfitrião. Este guia irá mostrar-lhe como usar o computador local como hospedeiro. Se pretender utilizar um serviço de hospedagem Docker em Azure, consulte a ferramenta de [rotulagem da amostra](../deploy-label-tool.md) como orientar.
 
    O computador anfitrião deve satisfazer os seguintes requisitos de hardware:
 
@@ -70,38 +75,43 @@ Vai usar o motor Docker para executar a ferramenta de rotulagem da amostra. Siga
     |:--|:--|:--|
     |Ferramenta de rotulagem de amostra|2 núcleo, memória de 4-GB|4 núcleo, memória de 8 GB|
 
-   Instale o Docker na sua máquina seguindo as instruções apropriadas para o seu sistema operativo: 
+   Instale o Docker na sua máquina seguindo as instruções apropriadas para o seu sistema operativo:
+
    * [Windows](https://docs.docker.com/docker-for-windows/)
    * [macOS](https://docs.docker.com/docker-for-mac/)
    * [Linux](https://docs.docker.com/install/)
 
-
-
 1. Obtenha o recipiente da ferramenta de rotulagem da amostra com o `docker pull` comando.
 
-    # <a name="v20"></a>[v2.0](#tab/v2-0)    
-    ```
-    docker pull mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool
-    ```
-    # <a name="v21-preview"></a>[pré-visualização v2.1](#tab/v2-1)    
-    ```
-    docker pull mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-preview
-    ```
+### <a name="v21-preview"></a>[pré-visualização v2.1](#tab/v2-1)
 
-    ---
+```console
+ docker pull mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-preview
+```
 
-1. Agora está pronto para executar o contentor `docker run` com.
+### <a name="v20"></a>[v2.0](#tab/v2-0)
 
-    # <a name="v20"></a>[v2.0](#tab/v2-0)    
-    ```
-    docker run -it -p 3000:80 mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool eula=accept
-    ```
-    # <a name="v21-preview"></a>[pré-visualização v2.1](#tab/v2-1)    
-    ```
-    docker run -it -p 3000:80 mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-preview eula=accept    
-    ```
+```console
+docker pull mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool
+```
 
-    --- 
+---
+</br>
+  3. Agora está pronto para executar o contentor `docker run` com.
+
+### <a name="v21-preview"></a>[pré-visualização v2.1](#tab/v2-1)
+
+```console
+ docker run -it -p 3000:80 mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-preview eula=accept
+```
+
+### <a name="v20"></a>[v2.0](#tab/v2-0)
+
+```console
+docker run -it -p 3000:80 mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool eula=accept
+```
+
+---
 
    Este comando disponibilizará a ferramenta de rotulagem da amostra através de um navegador web. Aceda a `http://localhost:3000`.
 
@@ -116,10 +126,10 @@ Primeiro, certifique-se de que todos os documentos de treino são do mesmo forma
 
 Ativar o CORS na sua conta de armazenamento. Selecione a sua conta de armazenamento no portal Azure e clique no **separador CORS** no painel esquerdo. Na linha de fundo, preencha os seguintes valores. Em seguida, clique em **Guardar** na parte superior.
 
-* Origens permitidas = * 
+* Origens permitidas = *
 * Métodos permitidos = \[ selecione todos os\]
 * Cabeçalhos permitidos = *
-* Cabeçalhos expostos = * 
+* Cabeçalhos expostos = *
 * Idade máxima = 200
 
 > [!div class="mx-imgBorder"]
@@ -164,7 +174,7 @@ Quando cria ou abre um projeto, abre-se a janela principal do editor de etiqueta
 
 * Um painel de pré-visualização resizável que contém uma lista de formulários scrollable da ligação de origem.
 * O painel de editor principal que lhe permite aplicar etiquetas.
-* O painel de editores de etiquetas que permite aos utilizadores modificar, bloquear, reencomendar e eliminar tags. 
+* O painel de editores de etiquetas que permite aos utilizadores modificar, bloquear, reencomendar e eliminar tags.
 
 ### <a name="identify-text-elements"></a>Identificar elementos de texto
 
@@ -178,7 +188,29 @@ Também mostrará quais as tabelas que foram automaticamente extraídas. Clique 
 
 Em seguida, irá criar tags (etiquetas) e aplicá-las nos elementos de texto que pretende que o modelo analise.
 
-# <a name="v20"></a>[v2.0](#tab/v2-0)  
+### <a name="v21-preview"></a>[pré-visualização v2.1](#tab/v2-1)
+
+1. Primeiro, use o painel de editor de tags para criar as etiquetas que gostaria de identificar:
+   * Clique **+** para criar uma nova etiqueta.
+   * Insira o nome da etiqueta.
+   * Pressione Insira para guardar a etiqueta.
+1. No editor principal, clique para selecionar palavras dos elementos de texto realçados. Na _pré-visualização v2.1.2_ API, também pode clicar para selecionar _Marcas de Seleção_ como botões de rádio e caixas de verificação como pares de valor chave. O Reconhecimento de Formulários identificará se a marca de seleção é "selecionada" ou "não selecionada" como o valor.
+1. Clique na etiqueta que pretende aplicar ou prima a tecla de teclado correspondente. As teclas numeradas são atribuídas como hotkeys para as primeiras 10 tags. Pode reencomendar as suas etiquetas utilizando os ícones de seta para cima e para baixo no painel de editores de etiquetas.
+    > [!Tip]
+    > Tenha em mente as seguintes dicas quando estiver a rotular os formulários:
+    >
+    > * Só pode aplicar uma etiqueta a cada elemento de texto selecionado.
+    > * Cada tag só pode ser aplicada uma vez por página. Se um valor aparecer várias vezes na mesma forma, crie etiquetas diferentes para cada instância. Por exemplo: "fatura nº 1", "fatura nº 2" e assim por diante.
+    > * As etiquetas não podem abranger páginas.
+    > * Valores de etiquetagem tal como aparecem no formulário; não tente dividir um valor em duas partes com duas etiquetas diferentes. Por exemplo, um campo de endereços deve ser rotulado com uma única etiqueta, mesmo que se enveredeça por várias linhas.
+    > * Não inclua chaves nos seus campos marcados &mdash; apenas os valores.
+    > * Os dados do quadro devem ser detetados automaticamente e estarão disponíveis no ficheiro JSON de saída final. No entanto, se o modelo não detetar todos os dados da sua tabela, também pode marcar manualmente estes campos. Marque cada célula na mesa com uma etiqueta diferente. Se os seus formulários tiverem tabelas com um número variado de linhas, certifique-se de que marca pelo menos um formulário com a maior tabela possível.
+    > * Utilize os botões à direita da **+** pesquisa, renomeação, reencomenda e exclusão das suas etiquetas.
+    > * Para remover uma etiqueta aplicada sem eliminar a etiqueta em si, selecione o retângulo marcado na vista do documento e prima a tecla de eliminação.
+    >
+
+### <a name="v20"></a>[v2.0](#tab/v2-0)
+
 1. Primeiro, use o painel de editores de etiquetas para criar as etiquetas que gostaria de identificar.
    1. Clique **+** para criar uma nova etiqueta.
    1. Insira o nome da etiqueta.
@@ -186,7 +218,8 @@ Em seguida, irá criar tags (etiquetas) e aplicá-las nos elementos de texto que
 1. No editor principal, clique para selecionar palavras dos elementos de texto realçados.
 1. Clique na etiqueta que pretende aplicar ou prima a tecla de teclado correspondente. As teclas numeradas são atribuídas como hotkeys para as primeiras 10 tags. Pode reencomendar as suas etiquetas utilizando os ícones de seta para cima e para baixo no painel de editores de etiquetas.
     > [!Tip]
-    > Tenha em mente as seguintes dicas quando estiver a rotular os formulários.
+    > Tenha em mente as seguintes dicas quando estiver a rotular os formulários:
+    >
     > * Só pode aplicar uma etiqueta a cada elemento de texto selecionado.
     > * Cada tag só pode ser aplicada uma vez por página. Se um valor aparecer várias vezes na mesma forma, crie etiquetas diferentes para cada instância. Por exemplo: "fatura nº 1", "fatura nº 2" e assim por diante.
     > * As etiquetas não podem abranger páginas.
@@ -195,31 +228,11 @@ Em seguida, irá criar tags (etiquetas) e aplicá-las nos elementos de texto que
     > * Os dados do quadro devem ser detetados automaticamente e estarão disponíveis no ficheiro JSON de saída final. No entanto, se o modelo não detetar todos os dados da sua tabela, também pode marcar manualmente estes campos. Marque cada célula na mesa com uma etiqueta diferente. Se os seus formulários tiverem tabelas com um número variado de linhas, certifique-se de que marca pelo menos um formulário com a maior tabela possível.
     > * Utilize os botões à direita da **+** pesquisa, renomeação, reencomenda e exclusão das suas etiquetas.
     > * Para remover uma etiqueta aplicada sem eliminar a etiqueta em si, selecione o retângulo marcado na vista do documento e prima a tecla de eliminação.
-
-
-# <a name="v21-preview"></a>[pré-visualização v2.1](#tab/v2-1) 
-1. Primeiro, use o painel de editores de etiquetas para criar as etiquetas que gostaria de identificar.
-   1. Clique **+** para criar uma nova etiqueta.
-   1. Insira o nome da etiqueta.
-   1. Pressione Insira para guardar a etiqueta.
-1. No editor principal, clique para selecionar palavras dos elementos de texto realçados. Na _pré-visualização v2.1.2_ API, também pode clicar para selecionar _Marcas de Seleção_ como botões de rádio e caixas de verificação como pares de valor chave. O Reconhecimento de Formulários identificará se a marca de seleção é "selecionada" ou "não selecionada" como o valor.
-1. Clique na etiqueta que pretende aplicar ou prima a tecla de teclado correspondente. As teclas numeradas são atribuídas como hotkeys para as primeiras 10 tags. Pode reencomendar as suas etiquetas utilizando os ícones de seta para cima e para baixo no painel de editores de etiquetas.
-    > [!Tip]
-    > Tenha em mente as seguintes dicas quando estiver a rotular os formulários.
-    > * Só pode aplicar uma etiqueta a cada elemento de texto selecionado.
-    > * Cada tag só pode ser aplicada uma vez por página. Se um valor aparecer várias vezes na mesma forma, crie etiquetas diferentes para cada instância. Por exemplo: "fatura nº 1", "fatura nº 2" e assim por diante.
-    > * As etiquetas não podem abranger páginas.
-    > * Valores de etiquetagem tal como aparecem no formulário; não tente dividir um valor em duas partes com duas etiquetas diferentes. Por exemplo, um campo de endereços deve ser rotulado com uma única etiqueta, mesmo que se enveredeça por várias linhas.
-    > * Não inclua chaves nos seus campos marcados &mdash; apenas os valores.
-    > * Os dados do quadro devem ser detetados automaticamente e estarão disponíveis no ficheiro JSON de saída final. No entanto, se o modelo não detetar todos os dados da sua tabela, também pode marcar manualmente estes campos. Marque cada célula na mesa com uma etiqueta diferente. Se os seus formulários tiverem tabelas com um número variado de linhas, certifique-se de que marca pelo menos um formulário com a maior tabela possível.
-    > * Utilize os botões à direita da **+** pesquisa, renomeação, reencomenda e exclusão das suas etiquetas.
-    > * Para remover uma etiqueta aplicada sem eliminar a etiqueta em si, selecione o retângulo marcado na vista do documento e prima a tecla de eliminação.
-
+>
 
 ---
 
 :::image type="content" source="../media/label-tool/main-editor-2-1.png" alt-text="Janela principal do editor da ferramenta de rotulagem de amostra.":::
-
 
 Siga os passos acima para rotular pelo menos cinco dos seus formulários.
 
@@ -231,35 +244,43 @@ Opcionalmente, pode definir o tipo de dados esperado para cada tag. Abra o menu 
 > ![Seleção do tipo de valor com ferramenta de rotulagem de amostra](../media/whats-new/value-type.png)
 
 Os seguintes tipos de valor e variações são atualmente suportados:
+
 * `string`
-    * padrão, `no-whitespaces` , `alphanumeric`
+  * padrão, `no-whitespaces` , `alphanumeric`
+
 * `number`
-    * padrão, `currency`
-* `date` 
-    * padrão, `dmy` `mdy` , `ymd`
+  * padrão, `currency`
+
+* `date`
+  * padrão, `dmy` `mdy` , `ymd`
+
 * `time`
 * `integer`
 * `selectionMark` – _Novo em v2.1-pré-visualização.1!_
 
 > [!NOTE]
 > Consulte estas regras para formatação de data:
-> 
+>
 > Tem de especificar um formato `dmy` (, `mdy` , , ) para `ymd` a formatação da data para o trabalho.
 >
 > Os seguintes caracteres podem ser usados como delimiters de data: `, - / . \` . O espaço branco não pode ser usado como um delimiter. Por exemplo:
+>
 > * 01,01,2020
 > * 01-01-2020
 > * 01/01/2020
 >
 > O dia e o mês podem ser escritos como um ou dois dígitos, e o ano pode ser de dois ou quatro dígitos:
+>
 > * 1-1-2020
 > * 1-01-20
 >
 > Se uma cadeia de data tem oito dígitos, o delimiter é opcional:
+>
 > * 01012020
 > * 01 01 2020
 >
 > O mês também pode ser escrito como o seu nome completo ou curto. Se o nome for utilizado, os caracteres delimiter são opcionais. No entanto, este formato pode ser reconhecido com menos precisão do que outros.
+>
 > * 01/Jan/2020
 > * 01Jan2020
 > * 01 Jan 2020
@@ -282,21 +303,22 @@ Após o final do treino, examine o valor **de precisão média.** Se for baixo, 
 
 ## <a name="compose-trained-models"></a>Compor modelos treinados
 
-# <a name="v20"></a>[v2.0](#tab/v2-0)  
-
-Esta funcionalidade encontra-se atualmente disponível em v2.1. previsualizar. 
-
-# <a name="v21-preview"></a>[pré-visualização v2.1](#tab/v2-1) 
+### <a name="v21-preview"></a>[pré-visualização v2.1](#tab/v2-1)
 
 Com a Composição de Modelo, pode compor até 100 modelos para um único ID de modelo. Quando chama Analisar com este ID de modelo composto, o Reconhecedor de Formato vai, em primeiro lugar, classificar o formulário que submeteu, fazendo-o corresponder ao modelo com a melhor correspondência e, em seguida, devolver os resultados para esse modelo. Tal é útil quando os formulários recebidos possam pertencer a um de vários modelos.
 
-Para compor os modelos na ferramenta de rotulagem da amostra, clique no ícone Model Compose (seta de fusão) à esquerda. À esquerda, selecione os modelos que pretende compor em conjunto. Os modelos com o ícone das setas já são modelos compostos. Clique no botão "Compor". No pop-up, nomeie o seu novo modelo composto e clique em "Compor". Quando a operação estiver concluída, o seu novo modelo composto deverá aparecer na lista. 
+Para compor os modelos na ferramenta de rotulagem da amostra, clique no ícone Model Compose (seta de fusão) à esquerda. À esquerda, selecione os modelos que pretende compor em conjunto. Os modelos com o ícone das setas já são modelos compostos.
+Clique no botão "Compor". No pop-up, nomeie o seu novo modelo composto e clique em "Compor". Quando a operação estiver concluída, o seu novo modelo composto deverá aparecer na lista.
 
 :::image type="content" source="../media/label-tool/model-compose.png" alt-text="Modelo componha a vista UX.":::
 
+### <a name="v20"></a>[v2.0](#tab/v2-0)
+
+Esta funcionalidade encontra-se atualmente disponível em v2.1. previsualizar.
+
 ---
 
-## <a name="analyze-a-form"></a>Analisar um formulário 
+## <a name="analyze-a-form"></a>Analisar um formulário
 
 Clique no ícone Predict (lâmpada) à esquerda para testar o seu modelo. Faça upload de um documento de formulário que não usou no processo de treino. Em seguida, clique no botão **Prever** à direita para obter previsões de chave/valor para o formulário. A ferramenta aplicará etiquetas em caixas de delimitação e reportará a confiança de cada etiqueta.
 
@@ -311,13 +333,15 @@ A precisão média reportada, as pontuações de confiança e a precisão real p
 
 ## <a name="save-a-project-and-resume-later"></a>Guarde um projeto e retome mais tarde
 
-Para retomar o seu projeto em outra hora ou em outro navegador, você precisa guardar o token de segurança do seu projeto e reentrá-lo mais tarde. 
+Para retomar o seu projeto em outra hora ou em outro navegador, você precisa guardar o token de segurança do seu projeto e reentrá-lo mais tarde.
 
 ### <a name="get-project-credentials"></a>Obtenha credenciais de projeto
+
 Vá à página de definições do projeto (ícone de slider) e tome nota do nome do símbolo de segurança. Em seguida, vá para as definições da sua aplicação (ícone de engrenagem), que mostra todos os tokens de segurança na sua instância atual do navegador. Encontre o símbolo de segurança do seu projeto e copie o seu nome e valor chave para um local seguro.
 
 ### <a name="restore-project-credentials"></a>Restaurar credenciais de projeto
-Quando pretende retomar o seu projeto, primeiro tem de criar uma ligação ao mesmo recipiente de armazenamento de bolhas. Repita os passos acima para fazer isto. Em seguida, vá à página de definições de aplicação (ícone de engrenagem) e veja se o sinal de segurança do seu projeto está lá. Se não for, adicione um novo token de segurança e copie o nome e a chave do seu token do passo anterior. Em seguida, clique em Guardar Definições. 
+
+Quando pretende retomar o seu projeto, primeiro tem de criar uma ligação ao mesmo recipiente de armazenamento de bolhas. Repita os passos acima para fazer isto. Em seguida, vá à página de definições de aplicação (ícone de engrenagem) e veja se o sinal de segurança do seu projeto está lá. Se não for, adicione um novo token de segurança e copie o nome e a chave do seu token do passo anterior. Em seguida, clique em Guardar Definições.
 
 ### <a name="resume-a-project"></a>Retomar um projeto
 

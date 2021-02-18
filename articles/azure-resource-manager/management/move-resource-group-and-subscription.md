@@ -4,12 +4,12 @@ description: Utilize o Azure Resource Manager para mover recursos para um novo g
 ms.topic: conceptual
 ms.date: 09/15/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: cd05fe045532ee1b1f1fb88e502d786daabf9365
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aca1e5255c89e99a2c996e072e5106da8dc3eef9
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319559"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101093634"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>Mover recursos para um novo grupo de recursos ou subscrição
 
@@ -37,7 +37,7 @@ Antes de mover um recurso, é necessário realizar alguns passos importantes. Ao
 
 1. Se mover um recurso que tenha uma função Azure atribuída diretamente ao recurso (ou recurso infantil), a atribuição de funções não é movida e torna-se órfã. Depois da mudança, tens de recriar a tarefa de função. Eventualmente, a atribuição de funções órfãs será automaticamente removida, mas é uma boa prática remover a atribuição de funções antes de mover o recurso.
 
-    Para obter informações sobre como gerir atribuições de funções, consulte [atribuições de funções list Azure](../../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-at-a-scope) e [adicione ou remova atribuições de funções Azure](../../role-based-access-control/role-assignments-portal.md).
+    Para obter informações sobre como gerir atribuições de funções, consulte [atribuições de funções list Azure](../../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-at-a-scope) e [atribuir funções Azure](../../role-based-access-control/role-assignments-portal.md).
 
 1. As assinaturas de origem e destino devem estar ativas. Se tiver problemas em ativar uma conta que tenha sido desativada, [crie um pedido de suporte Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md). Selecione **Gestão de Subscrição** para o tipo de emissão.
 
@@ -178,11 +178,11 @@ Quando vê o grupo de recursos, a opção de movimento é desativada.
 
 Para ativar a opção de movimento, selecione os recursos que pretende mover. Para selecionar todos os recursos, selecione a caixa de verificação no topo da lista. Ou, selecione recursos individualmente. Após a seleção dos recursos, a opção de movimento está ativada.
 
-:::image type="content" source="./media/move-resource-group-and-subscription/select-resources.png" alt-text="opção de mudança desativado":::
+:::image type="content" source="./media/move-resource-group-and-subscription/select-resources.png" alt-text="selecionar recursos":::
 
 Selecione o botão **Move.**
 
-:::image type="content" source="./media/move-resource-group-and-subscription/move-options.png" alt-text="opção de mudança desativado":::
+:::image type="content" source="./media/move-resource-group-and-subscription/move-options.png" alt-text="opções de movimento":::
 
 Este botão dá-lhe três opções:
 
@@ -194,11 +194,11 @@ Selecione se está a mover os recursos para um novo grupo de recursos ou uma nov
 
 Selecione o grupo de recursos de destino. Reconheça que precisa de atualizar scripts para estes recursos e selecione **OK**. Se selecionou para mudar para uma nova subscrição, também deve selecionar a subscrição do destino.
 
-:::image type="content" source="./media/move-resource-group-and-subscription/move-destination.png" alt-text="opção de mudança desativado":::
+:::image type="content" source="./media/move-resource-group-and-subscription/move-destination.png" alt-text="selecionar destino":::
 
 Depois de validar que os recursos podem ser movidos, vê uma notificação de que a operação de movimento está em execução.
 
-:::image type="content" source="./media/move-resource-group-and-subscription/move-notification.png" alt-text="opção de mudança desativado":::
+:::image type="content" source="./media/move-resource-group-and-subscription/move-notification.png" alt-text="notificação":::
 
 Quando estiver concluído, é notificado do resultado.
 

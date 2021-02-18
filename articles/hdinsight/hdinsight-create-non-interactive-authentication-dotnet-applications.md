@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 12/23/2019
-ms.openlocfilehash: 121c5850ef47999f54d206b95b69e10775d3e5c9
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 0fffe763f77fffcec6010d43deb92ffea9ece15d
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98946083"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101094911"
 ---
 # <a name="create-a-non-interactive-authentication-net-hdinsight-application"></a>Criar uma aplicação de autenticação não interativa .NET HDInsight
 
@@ -28,7 +28,7 @@ Um aglomerado HDInsight. Veja o [tutorial de início.](hadoop/apache-hadoop-linu
 
 ## <a name="assign-a-role-to-the-azure-ad-application"></a>Atribuir um papel à aplicação AD Azure
 
-Atribua à sua aplicação AZure AD um [papel,](../role-based-access-control/built-in-roles.md)para lhe conceder permissões para realizar ações. Pode definir o âmbito ao nível da subscrição, grupo de recursos ou recurso. As permissões são herdadas para níveis mais baixos de âmbito. Por exemplo, adicionar uma aplicação à função Reader para um grupo de recursos significa que a aplicação pode ler o grupo de recursos e quaisquer recursos nele. Neste artigo, define-se o âmbito ao nível do grupo de recursos. Para obter mais informações, consulte [utilizar atribuições de funções para gerir o acesso aos seus recursos de subscrição Azure.](../role-based-access-control/role-assignments-portal.md)
+Atribua à sua aplicação AZure AD um [papel,](../role-based-access-control/built-in-roles.md)para lhe conceder permissões para realizar ações. Pode definir o âmbito ao nível da subscrição, grupo de recursos ou recurso. As permissões são herdadas para níveis mais baixos de âmbito. Por exemplo, adicionar uma aplicação à função Reader para um grupo de recursos significa que a aplicação pode ler o grupo de recursos e quaisquer recursos nele. Neste artigo, define-se o âmbito ao nível do grupo de recursos. Para mais informações, consulte [as funções De Atribuir Azure para gerir o acesso aos seus recursos de subscrição Azure.](../role-based-access-control/role-assignments-portal.md)
 
 **Para adicionar a função do Proprietário à aplicação AD Azure**
 
@@ -116,7 +116,7 @@ Atribua à sua aplicação AZure AD um [papel,](../role-based-access-control/bui
     }
     ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Criar um Azure Ative Directory e um diretor de serviço no portal Azure.](../active-directory/develop/howto-create-service-principal-portal.md)
 * Saiba como [autenticar um diretor de serviço com o Azure Resource Manager.](../active-directory/develop/howto-authenticate-service-principal-powershell.md)

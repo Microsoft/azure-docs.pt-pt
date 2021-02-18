@@ -6,19 +6,19 @@ ms.topic: how-to
 ms.date: 01/19/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 33af83934e8ecc5745f2edad3a7832a870406452
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: ca92e6e888ead6bbd79c7a8d524516ee95e8c45d
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98602377"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101092931"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Preparar e personalizar uma imagem VHD principal
 
 Este artigo diz-lhe como preparar uma imagem de disco rígido virtual (VHD) para o upload para a Azure, incluindo como criar máquinas virtuais (VMs) e instalar software nelas. Estas instruções são para uma configuração virtual do Windows que pode ser usada com os processos existentes da sua organização.
 
 >[!IMPORTANT]
->Recomendamos que utilize uma imagem da Galeria de Imagens Azure. No entanto, se necessitar de usar uma imagem personalizada, certifique-se de que já não tem o Agente virtual de Desktop da WIndows instalado no seu dispositivo. A utilização de uma imagem personalizada com o Windows Virtual Desktop Agent pode causar problemas com a imagem.  
+>Recomendamos que utilize uma imagem da Galeria de Imagens Azure. No entanto, se precisar de utilizar uma imagem personalizada, certifique-se de que já não tem o Windows Virtual Desktop Agent instalado no seu VM. A utilização de uma imagem personalizada com o Windows Virtual Desktop Agent pode causar problemas com a imagem, como bloquear o registo e impedir ligações de sessão do utilizador.  
 
 ## <a name="create-a-vm"></a>Criar uma VM
 
@@ -216,3 +216,5 @@ Agora que tem uma imagem, pode criar ou atualizar piscinas de anfitriões. Para 
 - [Criar um conjunto de anfitriões com o PowerShell](create-host-pools-powershell.md)
 - [Criar um contentor de perfis para um conjunto de anfitriões através de uma partilha de ficheiros](create-host-pools-user-profile.md)
 - [Configurar o método de balanceamento de carga do Windows Virtual Desktop](configure-host-pool-load-balancing.md)
+
+Se encontrou um problema de conectividade depois de preparar ou personalizar a sua imagem VHD, consulte o [guia de resolução de problemas](troubleshoot-agent.md#your-issue-isnt-listed-here-or-wasnt-resolved) para obter ajuda.

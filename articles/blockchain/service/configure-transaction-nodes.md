@@ -4,12 +4,12 @@ description: Como configurar os nóns de transação do Serviço Azure Blockchai
 ms.date: 11/20/2019
 ms.topic: how-to
 ms.reviewer: janders
-ms.openlocfilehash: 50f9b2aa0f5e1a1b1095b6c799ce0706b6e541de
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 0b659fa9f15cd41e9e55de526747d470046cafa4
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150871"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101091268"
 ---
 # <a name="configure-azure-blockchain-service-transaction-nodes"></a>Configurar os nosdes de transação do Serviço Blockchain Azure
 
@@ -69,13 +69,13 @@ Para conceder ao Azure AD o controlo de acesso ao seu ponto final:
 
     | Definição | Ação |
     |---------|-------------|
-    | Função | Selecione **Proprietário,** **Contribuinte**ou **Leitor**.
+    | Função | Selecione **Proprietário,** **Contribuinte** ou **Leitor**.
     | Atribuir acesso a | Selecione **O utilizador, grupo ou principal de serviço da Azure.**
     | Selecione | Procure o utilizador, grupo ou o principal de serviço que pretende adicionar.
 
 1. **Selecione Guardar** para adicionar a atribuição de funções.
 
-Para obter mais informações sobre o controlo de acesso a Azure, consulte [adicionar ou remover atribuições de funções Azure utilizando o portal Azure](../../role-based-access-control/role-assignments-portal.md)
+Para obter mais informações sobre o controlo de acesso a Azure, consulte [as funções de Atribuição Azure utilizando o portal Azure](../../role-based-access-control/role-assignments-portal.md)
 
 Para obter mais informações sobre como ligar usando a autenticação AZure AD, consulte [a ligação ao seu nó utilizando a autenticação AAD](configure-aad.md).
 

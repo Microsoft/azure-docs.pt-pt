@@ -299,7 +299,7 @@
       href: partner-center-portal/downloads-dashboard.md
     - name: Dashboard de classificações e críticas
       href: partner-center-portal/ratings-reviews.md
-    - name: Deteção de anomalias para faturação medido
+    - name: Gerir anomalias de faturação medidos
       href: anomaly-detection.md
     - name: Perguntas comuns sobre análise
       href: analytics-faq.md

@@ -10,12 +10,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: devx-track-js
-ms.openlocfilehash: 3b647a02731a4fa404aab4bb648853eea766d92e
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 9d2af0bf731ab069a8512cb10feccf5ba18d3fa0
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98684077"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101092719"
 ---
 # <a name="how-to-secure-a-single-page-application-with-non-interactive-sign-in"></a>Como garantir uma aplicação de uma única página com o sign-in não interativo
 
@@ -111,7 +111,7 @@ Concede ao *Azure acesso ao controlo de acesso baseado em funções (Azure RBAC)
 
 2. No separador **Role assignments,** em **Role**, selecione uma definição de função incorporada no Azure Maps, como O Leitor **de Dados Azure Maps** ou **Azure Maps Data Contributor**. No **acesso de Atribuir acesso a**, selecione App de **função**. Selecione o principal pelo nome. Em seguida, selecione **Guardar**.
 
-   * Consulte detalhes em [Adicionar ou remover atribuições de funções](../role-based-access-control/role-assignments-portal.md).
+   * Consulte os detalhes sobre [as funções de Atribuição Azure](../role-based-access-control/role-assignments-portal.md).
 
 > [!WARNING]
 > As definições de funções incorporadas Azure Maps proporcionam um acesso de autorização muito grande a muitas APIs DE REST Azure Maps. Para restringir o acesso das APIs ao mínimo, consulte [criar uma definição de função personalizada e atribuir a identidade atribuída ao sistema](../role-based-access-control/custom-roles.md) à definição de função personalizada. Isto permitirá o menor privilégio necessário para a aplicação aceder ao Azure Maps.

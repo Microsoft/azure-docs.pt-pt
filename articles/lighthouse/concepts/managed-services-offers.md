@@ -1,14 +1,14 @@
 ---
 title: Ofertas de Serviço Gerido no Azure Marketplace
 description: As ofertas de Serviço Gerido permitem-lhe vender ofertas de gestão de recursos a clientes no Azure Marketplace.
-ms.date: 02/10/2021
+ms.date: 02/17/2021
 ms.topic: conceptual
-ms.openlocfilehash: 7f3a12f34b4cedcb12ad2786fcb687044c30c211
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: e66a87751e0375804031e777a40c5fc1d0e8a7e2
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100375549"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101092993"
 ---
 # <a name="managed-service-offers-in-azure-marketplace"></a>Ofertas de Serviço Gerido no Azure Marketplace
 
@@ -20,9 +20,12 @@ O Managed Service oferece agilização do processo de embarque de clientes para 
 
 Depois disso, os utilizadores da sua organização poderão trabalhar nesses recursos a partir do seu inquilino gerente através da [gestão de recursos delegados da Azure,](azure-delegated-resource-management.md)de acordo com o acesso que definiu ao criar a oferta. Isto é feito através de um manifesto que especifica os utilizadores, grupos e diretores de serviço Azure Ative Que terão acesso aos recursos dos clientes, juntamente com [funções](tenants-users-roles.md) que definem o seu nível de acesso.
 
+> [!NOTE]
+> As ofertas de Serviço Gerido podem não estar disponíveis no Governo de Azure e noutras nuvens nacionais.
+
 ## <a name="public-and-private-offers"></a>Ofertas públicas e privadas
 
-Cada oferta de Serviços Geridos inclui um ou mais planos. Os planos podem ser privados ou públicos.
+Cada oferta de Serviço Gerido inclui um ou mais planos. Os planos podem ser privados ou públicos.
 
 Se quiser limitar a sua oferta a clientes específicos, pode publicar um plano privado. Quando o fizer, o plano só pode ser adquirido para os IDs de subscrição específicos que fornece. Para mais informações, consulte [ofertas privadas.](../../marketplace/private-offers.md)
 
@@ -38,9 +41,9 @@ Se for caso disso, pode incluir planos públicos e privados na mesma oferta.
 
 ## <a name="publish-managed-service-offers"></a>Publicar ofertas de Serviço Gerido
 
-Para aprender a publicar uma oferta de Serviços Geridos, consulte [publicar uma oferta de Serviços Geridos ao Azure Marketplace.](../how-to/publish-managed-services-offers.md)
+Para aprender a publicar uma oferta de Serviço Gerido, consulte [publicar uma oferta de Serviço Gerido ao Azure Marketplace.](../how-to/publish-managed-services-offers.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 
 - Conheça as [experiências de gestão de recursos delegadas da Azure](azure-delegated-resource-management.md) e [da gestão de inquilinos.](cross-tenant-management-experience.md)
-- [Publicar Serviços Geridos oferece](../how-to/publish-managed-services-offers.md) ao Azure Marketplace.
+- [Publicar Ofertas de Serviço Gerido](../how-to/publish-managed-services-offers.md) para Azure Marketplace.

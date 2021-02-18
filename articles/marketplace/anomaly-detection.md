@@ -1,20 +1,20 @@
 ---
-title: Deteção de anomalias para | de faturação medido Mercado Azure
-description: Saiba como a deteção automática de anomalias para faturação medido ajuda a garantir que os seus clientes são faturados corretamente para o uso medido da sua oferta de mercado comercial.
+title: Gerir anomalias de faturação medidos no Partner Center | Mercado Azure
+description: Saiba como a deteção automática de anomalias para faturação medido ajuda a garantir que os seus clientes são faturados corretamente para o uso medido das suas ofertas de mercado comercial.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 2/17/2021
+ms.date: 2/18/2021
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: 7f1bcac49ccb12ea1e0517aed5a139e549451ec0
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 1ff6262a75261c575082f3fc48d588c868ad0b51
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/18/2021
-ms.locfileid: "100653011"
+ms.locfileid: "101092529"
 ---
-# <a name="anomaly-detection-for-metered-billing"></a>Deteção de anomalias para faturação medido
+# <a name="manage-metered-billing-anomalies-in-partner-center"></a>Gerir anomalias de faturação medidos no Partner Center
 
 A opção de faturação personalizada está atualmente disponível para [o Software como um serviço](plan-saas-offer.md) (SaaS) oferece e [aplicações Azure](plan-azure-application-offer.md#types-of-plans) com um plano de aplicação gerido.
 
@@ -80,3 +80,4 @@ Depois de marcar um uso excessivo como anomalia ou reconhecer um modelo que assi
 ## <a name="see-also"></a>Ver também
 - [Faturação medido para SaaS utilizando o serviço de medição de mercado comercial](./partner-center-portal/saas-metered-billing.md)
 - [Faturação gerida com medidos de aplicação](./partner-center-portal/azure-app-metered-billing.md)
+- [Serviço de deteção de anomalias da faturação limitada](./partner-center-portal/anomaly-detection-service-for-metered-billing.md)

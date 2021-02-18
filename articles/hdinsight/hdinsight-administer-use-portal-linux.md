@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 04/24/2020
-ms.openlocfilehash: 5d308bfbe605e5ec3bed3bf5d6506ccafc53836e
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: e21361b6d491f53f41754831d2bdf896ef2719db
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98942826"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101091431"
 ---
 # <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Gerir os clusters Apache Hadoop em HDInsight utilizando o portal Azure
 
@@ -54,7 +54,7 @@ Selecione o nome do seu cluster na página [**de clusters HDInsight.**](#showClu
     |---|---|
     |Descrição geral|Fornece informações gerais para o seu cluster.|
     |Registo de atividades|Mostrar e consultar registos de atividades.|
-    |Controlo de acesso (IAM)|Use tarefas de função.  Consulte [as atribuições de funções para gerir o acesso aos seus recursos de subscrição Azure.](../role-based-access-control/role-assignments-portal.md)|
+    |Controlo de acesso (IAM)|Use tarefas de função.  Consulte [as funções De Atribuição Azure para gerir o acesso aos seus recursos de subscrição Azure](../role-based-access-control/role-assignments-portal.md).|
     |Etiquetas|Permite-lhe definir pares de chaves/valor para definir uma taxonomia personalizada dos seus serviços na nuvem. Por exemplo, pode criar um **projeto** de nome chave , e depois usar um valor comum para todos os serviços associados a um projeto específico.|
     |Diagnosticar e resolver problemas|Apresentar informações de resolução de problemas.|
     |Início Rápido|Exibe informações que o ajudam a começar a usar HDInsight.|
@@ -261,7 +261,7 @@ O azulejo do tamanho do **cluster** da página inicial do [cluster](#homePage) e
 - [Use a Colmeia Apache com HDInsight](hadoop/apache-hadoop-use-hive-ambari-view.md)
 - [Utilizar SSH com o HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu algumas funções administrativas básicas. Para saber mais, leia os artigos seguintes:
 

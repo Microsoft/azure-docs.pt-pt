@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8c63ada9621fc1485742a7683fd6742f0e896854
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: ce18e71ced320c408933caeb39b469d5885bd6ba
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98954434"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101095937"
 ---
 # <a name="use-the-content-aware-encoding-preset-to-find-the-optimal-bitrate-value-for-a-given-resolution"></a>Utilize a predefinição de codificação consciente do conteúdo para encontrar o valor bitrate ideal para uma determinada resolução
 
@@ -29,7 +29,7 @@ Deve estar ciente do conteúdo que está a processar e personalizar/afinar a esc
 
 A predefinição de [Streaming Adaptativo](autogen-bitrate-ladder.md) da Microsoft aborda parcialmente o problema da variabilidade na qualidade e resolução dos vídeos de origem. Os nossos clientes têm uma mistura variada de conteúdo, alguns a 1080p, outros a 720p, e alguns em SD e resoluções mais baixas. Além disso, nem todos os conteúdos de origem são mezaninos de alta qualidade de estúdios de cinema ou tv. A predefinição de Streaming Adaptativo aborda estes problemas garantindo que a escada de bitrate nunca excede a resolução ou a bitrate média da mezanino de entrada. No entanto, esta predefinição não examina propriedades de origem que não a resolução e o bitrate.
 
-## <a name="the-content-aware-encoding"></a>A codificação consciente do conteúdo 
+## <a name="the-content-aware-encoding"></a>A codificação consciente do conteúdo
 
 A predefinição de codificação consciente do conteúdo alarga o mecanismo de "streaming de bitrate adaptativo", incorporando uma lógica personalizada que permite ao codificante procurar o valor bitrate ideal para uma determinada resolução, mas sem exigir uma análise computacional extensiva. Esta predefinição produz um conjunto de MP4s alinhados com GOP. Dado qualquer conteúdo de entrada, o serviço realiza uma análise leve inicial do conteúdo de entrada, e utiliza os resultados para determinar o número ideal de camadas, definições de bitrate e resolução apropriadas para entrega através do streaming adaptativo. Esta predefinição é particularmente eficaz para vídeos de baixa e média complexidade, onde os ficheiros de saída estarão em bitrates mais baixos do que a predefinição de Streaming Adaptive, mas com uma qualidade que ainda oferece uma boa experiência aos espectadores. A saída conterá ficheiros MP4 com vídeo e áudio intercalados
 
@@ -57,7 +57,7 @@ Seguem-se os resultados de outra categoria de conteúdo de origem, onde o codifi
 
 Pode criar transformações que utilizem esta predefinição da seguinte forma. 
 
-Consulte a secção [etapas seguintes](#next-steps) para tutoriais que utilizam saídas de transformação. O ativo de saída pode ser entregue a partir de pontos finais de streaming dos Media Services em protocolos como MPEG-DASH e HLS (como mostrado nos tutoriais).
+Consulte a secção [etapas seguintes](#next-steps) para tutoriais que usam saídas de transformação. O ativo de saída pode ser entregue a partir de pontos finais de streaming dos Media Services em protocolos como MPEG-DASH e HLS (como mostrado nos tutoriais).
 
 > [!NOTE]
 > Certifique-se de que utiliza o **predefinição de contentAwareEncodingExperimental.**

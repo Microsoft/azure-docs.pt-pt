@@ -10,12 +10,12 @@ ms.custom: devx-track-dotnet, devx-track-azurecli
 ms.topic: how-to
 ms.date: 04/27/2020
 ms.author: avgupta
-ms.openlocfilehash: 04edf2eeb231ff1444c732840def2b78b1373e79
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 39c50f539c04a6c49316f4541c759859be861f9d
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94565930"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101095506"
 ---
 # <a name="back-up-app-configuration-stores-automatically"></a>Fazer o back up Lojas de Configuração de Aplicativos automaticamente
 
@@ -23,7 +23,7 @@ Neste artigo, você vai aprender a configurar uma cópia de segurança automáti
 
 Depois de configurar a cópia de segurança automática, a Configuração da Aplicação publicará eventos na Azure Event Grid para quaisquer alterações feitas aos valores-chave numa loja de configuração. A Event Grid suporta uma variedade de serviços Azure a partir dos quais os utilizadores podem subscrever os eventos emitidos sempre que os valores-chave são criados, atualizados ou eliminados.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Neste artigo, você usará o armazenamento da Fila Azure para receber eventos da Grade de Eventos e usará um gatilho de temporizador de Funções Azure para processar eventos na fila em lotes. 
 
@@ -177,7 +177,7 @@ az functionapp identity assign --name $functionAppName --resource-group $resourc
 ```
 
 > [!NOTE]
-> Para realizar a criação de recursos e gestão de funções necessárias, a sua conta necessita de `Owner` permissões no âmbito apropriado (a sua subscrição ou grupo de recursos). Se precisar de assistência com a atribuição de funções, aprenda [a adicionar ou remover atribuições de funções Azure utilizando o portal Azure](../role-based-access-control/role-assignments-portal.md).
+> Para realizar a criação de recursos e gestão de funções necessárias, a sua conta necessita de `Owner` permissões no âmbito apropriado (a sua subscrição ou grupo de recursos). Se precisar de assistência com a atribuição de funções, aprenda [a atribuir funções de Azure utilizando o portal Azure](../role-based-access-control/role-assignments-portal.md).
 
 Utilize os seguintes comandos ou o [portal Azure](./howto-integrate-azure-managed-service-identity.md#grant-access-to-app-configuration) para garantir a identidade gerida da sua aplicação de função de acesso às suas lojas de Configuração de Aplicações. Utilize estas funções:
 - Atribua o `App Configuration Data Reader` papel na loja primária de configuração de aplicações.
@@ -251,7 +251,7 @@ Se não vir o novo cenário na sua loja secundária:
 - Também pode configurar a monitorização e alerta para funções Azure utilizando [insights de aplicação Azure](../azure-functions/functions-monitoring.md?tabs=cmd). 
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 Se pretender continuar a trabalhar com esta Configuração de Aplicações e subscrição de eventos, não limpe os recursos criados neste artigo. Se não pretender continuar, utilize o seguinte comando para eliminar os recursos criados neste artigo.
 
 ```azurecli-interactive

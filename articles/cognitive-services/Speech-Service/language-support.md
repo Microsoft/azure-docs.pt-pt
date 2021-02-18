@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/07/2021
 ms.author: trbye
 ms.custom: references_regions
-ms.openlocfilehash: c49ee2778d3198cc7109c34bceb1591756d82b1c
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 502f93df8d9948a6d6682b14ea13b59e324833cb
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/18/2021
-ms.locfileid: "100653453"
+ms.locfileid: "101091471"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Suporte linguístico e de voz para o serviço de fala
 
@@ -191,6 +191,7 @@ As vozes neurais podem ser usadas para tornar as interações com chatbots e ass
 | Finlandês (Finlândia) | `fi-FI` | Mulheres | `fi-FI-SelmaNeural` <sup>Novo</sup> | Geral |
 | Finlandês (Finlândia) | `fi-FI` | Homens | `fi-FI-HarriNeural` <sup>Novo</sup> | Geral |
 | Francês (Canadá) | `fr-CA` | Mulheres | `fr-CA-SylvieNeural` | Geral |
+| Francês (Canadá) | `fr-CA` | Homens | `fr-CA-AntoineNeural` <sup>Novo</sup> | Geral |
 | Francês (Canadá) | `fr-CA` | Homens | `fr-CA-JeanNeural` | Geral |
 | Francês (França) | `fr-FR` | Mulheres | `fr-FR-DeniseNeural` | Geral |
 | Francês (França) | `fr-FR` | Homens | `fr-FR-HenriNeural` | Geral |

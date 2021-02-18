@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 509eae7acf0dd9f6b8ae80befb7423422f778710
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 0211388f3b638080c79a58330ba1fff1989def7d
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100518832"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101095864"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Administrator role permissions in Azure Active Directory (Permissões de cargos de administrador no Azure Active Directory)
 
@@ -2176,6 +2176,6 @@ Leitor de Relatórios de Resumo de Utilização | &nbsp; | :heavy_check_mark: | 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para saber mais sobre como atribuir um utilizador como administrador de uma subscrição do Azure, consulte [Adicionar ou remover atribuições de funções Azure (Azure RBAC)](../../role-based-access-control/role-assignments-portal.md)
+* Para saber mais sobre como atribuir um utilizador como administrador de uma subscrição do Azure, consulte [atribuir um utilizador como administrador de uma subscrição do Azure](../../role-based-access-control/role-assignments-portal-subscription-admin.md)
 * Para saber mais sobre como o acesso a recursos é controlado no Microsoft Azure, consulte [Compreender as diferentes funções](../../role-based-access-control/rbac-and-directory-admin-roles.md)
 * Para mais detalhes sobre a relação entre subscrições e um inquilino AZure AD, ou para instruções para associar ou adicionar uma subscrição, consulte [Associado ou adicione uma assinatura Azure ao seu inquilino Azure Ative Directory](../fundamentals/active-directory-how-subscriptions-associated-directory.md)
