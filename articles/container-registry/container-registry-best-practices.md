@@ -2,19 +2,19 @@
 title: Registar melhores práticas
 description: Saiba como utilizar o registo de contentor do Azure de forma eficiente, ao seguir estas melhores práticas.
 ms.topic: article
-ms.date: 09/27/2018
-ms.openlocfilehash: fc84fb8cb98f58e28570095370d55a7358ce3a99
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 01/07/2021
+ms.openlocfilehash: 01c8c7f547be9dd225022fb3315a4bdecc48c2bf
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83682677"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100578141"
 ---
 # <a name="best-practices-for-azure-container-registry"></a>Melhores práticas do Azure Container Registry
 
-Ao seguir estas melhores práticas, pode ajudar a maximizar o desempenho e a utilização rentável do seu registo privado do Docker no Azure.
+Ao seguir estas boas práticas, pode ajudar a maximizar o desempenho e a utilização rentável do seu registo privado em Azure para armazenar e implantar imagens de contentores e outros artefactos.
 
-Consulte também [recomendações para a marcação e versão de imagens de contentores](container-registry-image-tag-version.md) para estratégias para etiquetar e versagens no seu registo. 
+Para obter antecedentes sobre conceitos de registo, consulte [sobre registos, repositórios e imagens.](container-registry-concepts.md) Consulte também [recomendações para a marcação e versão de imagens de contentores](container-registry-image-tag-version.md) para estratégias para etiquetar e versagens no seu registo. 
 
 ## <a name="network-close-deployment"></a>Implementação sem rede
 
@@ -25,13 +25,24 @@ Além disso, todas as clouds públicas, o Azure incluído, implementam as taxas 
 
 ## <a name="geo-replicate-multi-region-deployments"></a>Georreplicar implementações em várias regiões
 
-Utilize a funcionalidade de [georreplicação](container-registry-geo-replication.md) do Azure Container Registry, se estiver a implementar contentores em várias regiões. Se estiver a servir clientes globais de datacenters locais ou a sua equipa de desenvolvimento estiver em diferentes localizações, pode simplificar a gestão dos registos e minimizar a latência através da georreplicação do seu registo. A georreplicação está disponível apenas nos registos [Premium](container-registry-skus.md).
+Utilize a funcionalidade de [georreplicação](container-registry-geo-replication.md) do Azure Container Registry, se estiver a implementar contentores em várias regiões. Se estiver a servir clientes globais de datacenters locais ou a sua equipa de desenvolvimento estiver em diferentes localizações, pode simplificar a gestão dos registos e minimizar a latência através da georreplicação do seu registo. Também pode configurar [webhooks](container-registry-webhook.md) regionais para notificá-lo de eventos em réplicas específicas, como quando as imagens são empurradas.
 
-Para saber como utilizar a georreplicação, veja o tutorial de três partes [Geo-replication in Azure Container Registry (Georreplicação no Azure Container Registry)](container-registry-tutorial-prepare-registry.md).
+A geo-replicação está disponível com registos [Premium.](container-registry-skus.md) Para saber como utilizar a georreplicação, veja o tutorial de três partes [Geo-replication in Azure Container Registry (Georreplicação no Azure Container Registry)](container-registry-tutorial-prepare-registry.md).
+
+## <a name="maximize-pull-performance"></a>Maximizar o desempenho da puxar
+
+Além de colocar imagens perto das suas implementações, as características das suas próprias imagens podem ter impacto no desempenho da atração.
+
+* **Tamanho da imagem** - Minimize os tamanhos das suas imagens removendo [camadas desnecessárias](container-registry-concepts.md#manifest) ou reduzindo o tamanho das camadas. Uma maneira de reduzir o tamanho da imagem é usar a abordagem [de construção de Docker em várias fases](https://docs.docker.com/develop/develop-images/multistage-build/) para incluir apenas os componentes de tempo de execução necessários. 
+
+  Verifique também se a sua imagem pode incluir uma imagem de SO base mais leve. E se utilizar um ambiente de implantação como o Azure Container Instances que cache certas imagens base, verifique se pode trocar uma camada de imagem por uma das imagens em cache. 
+* **Número de camadas** - Equilibre o número de camadas utilizadas. Se tiver muito poucos, não se beneficia da reutilização da camada e do caching no hospedeiro. Demasiados, e o seu ambiente de implantação passa mais tempo puxando e descomprimindo. Cinco a 10 camadas é o ideal.
+
+Escolha também um [nível](container-registry-skus.md) de serviço do Registo de Contentores Azure que satisfaça as suas necessidades de desempenho. O nível Premium fornece a maior largura de banda e a maior taxa de operações de leitura e escrita simultâneas quando se tem implementações de grande volume.
 
 ## <a name="repository-namespaces"></a>Espaços de nomes do repositório
 
-Ao tirar partido dos espaços de nomes do repositório, pode permitir a partilha de um único registo em vários grupos na sua organização. Os registos podem ser partilhados em implementações e equipas. O Azure Container Registry suporta espaços de nomes aninhados, ao ativar o isolamento de grupo.
+Ao utilizar espaços de nomes de repositório, pode permitir a partilha de um único registo em vários grupos dentro da sua organização. Os registos podem ser partilhados em implementações e equipas. O Azure Container Registry suporta espaços de nomes aninhados, ao ativar o isolamento de grupo. No entanto, o registo gere todos os repositórios de forma independente, não como uma hierarquia.
 
 Por exemplo, considere as seguintes etiquetas da imagem de contentor. As imagens que são usadas em toda `aspnetcore` a empresa, como, são colocadas no espaço de nomes de raiz, enquanto as imagens de contentores pertencentes aos grupos de Produtos e Marketing usam cada uma as suas próprias espaços com nome.
 
@@ -44,22 +55,24 @@ Por exemplo, considere as seguintes etiquetas da imagem de contentor. As imagens
 
 Como os registos de contentores são recursos que são utilizados em vários hospedeiros de contentores, um registo deve residir no seu próprio grupo de recursos.
 
-Embora possa experimentar um tipo de anfitrião específico, como o Azure Container Instances, irá provavelmente eliminar a instância do contentor quando tiver terminado. No entanto, também pode manter a coleção de imagens enviadas para o Azure Container Registry. Ao colocar o seu registo no seu próprio grupo de recursos, está a minimizar o risco de eliminar acidentalmente a coleção de imagens no registo, ao eliminar o grupo de recursos de instância do contentor.
+Embora possa experimentar um tipo específico de hospedeiro, como [instâncias de contentores Azure,](../container-instances/container-instances-overview.md)é provável que queira apagar a instância do recipiente quando terminar. No entanto, também pode manter a coleção de imagens enviadas para o Azure Container Registry. Ao colocar o seu registo no seu próprio grupo de recursos, está a minimizar o risco de eliminar acidentalmente a coleção de imagens no registo, ao eliminar o grupo de recursos de instância do contentor.
 
-## <a name="authentication"></a>Autenticação
+## <a name="authentication-and-authorization"></a>Autenticação e autorização
 
 Ao autenticar com um registo de contentor do Azure, existem dois cenários principais: autenticação individual e autenticação de serviço (ou "sem interface"). A tabela seguinte apresenta uma breve descrição geral destes cenários e o método de autenticação recomendado para cada um.
 
 | Tipo | Cenário de exemplo | Método recomendado |
 |---|---|---|
-| Identidade individual | Um programador a extrair imagens ou enviar imagens a partir da respetiva máquina de desenvolvimento. | [az acr login](/cli/azure/acr?view=azure-cli-latest#az-acr-login) |
-| Identidade de serviço/sem interface | Compile e implemente pipelines onde o utilizador não esteja diretamente envolvido. | [Diretor de serviços](container-registry-authentication.md#service-principal) |
+| Identidade individual | Um programador a extrair imagens ou enviar imagens a partir da respetiva máquina de desenvolvimento. | [az acr login](/cli/azure/acr#az-acr-login) |
+| Identidade de serviço/sem interface | Compile e implemente pipelines onde o utilizador não esteja diretamente envolvido. | [Service principal (Principal de serviço)](container-registry-authentication.md#service-principal) |
 
-Para obter informações aprofundadas sobre a autenticação do Azure Container Registry, veja [Authenticate with an Azure container registry (Autenticar com um registo de contentor do Azure)](container-registry-authentication.md).
+Para obter informações aprofundadas sobre estes e outros cenários de autenticação do Registo do Contentor Azure, consulte [Authenticate com um registo de contentores Azure](container-registry-authentication.md).
 
-## <a name="manage-registry-size"></a>Gerir o tamanho do registo
+O Registo de Contentores Azure suporta práticas de segurança na sua organização para distribuir deveres e privilégios a diferentes identidades. Utilizando [o controlo de acesso baseado em funções,](container-registry-roles.md)atribua permissões apropriadas a diferentes utilizadores, principais de serviços ou outras identidades que realizem diferentes operações de registo. Por exemplo, atribua permissões de pressão a um principiante de serviço utilizado num oleoduto de construção e atribua permissões de puxar para uma identidade diferente usada para implantação. Criar [fichas](container-registry-repository-scoped-permissions.md) para acesso fino e limitado a repositórios específicos.
 
-Os constrangimentos de armazenamento de cada nível de serviço de registo de [contentores][container-registry-skus] destinam-se a alinhar-se com um cenário típico: **Básico** para começar, **Standard** para a maioria das aplicações de produção, e **Premium** para desempenho em hiper-escala e [geo-replicação.][container-registry-geo-replication] Ao longo da vida do registo, deve gerir o tamanho eliminando periodicamente o conteúdo não utilizado.
+## <a name="manage-registry-size"></a>Gerir o tamanho do registo      
+
+Os constrangimentos de armazenamento de cada [nível][container-registry-skus] de serviço de registo de contentores destinam-se a alinhar-se com um cenário típico: **Básico** para começar, **Standard** para a maioria das aplicações de produção, e **Premium** para desempenho e [geo-replicação][container-registry-geo-replication]de hiper-escala. Ao longo da vida do registo, deve gerir o tamanho eliminando periodicamente o conteúdo não utilizado.
 
 Utilize o comando Azure CLI [az acr show-use][az-acr-show-usage] para mostrar o tamanho atual do seu registo:
 
@@ -86,7 +99,9 @@ Para obter detalhes sobre a eliminação de dados de imagem do seu registo, incl
 
 ## <a name="next-steps"></a>Passos seguintes
 
-O Registo de Contentores Azure está disponível em vários níveis (também chamados SKUs) que cada um fornece diferentes capacidades. Para mais informações sobre os níveis de serviço disponíveis, consulte os [níveis de serviço do Registo de Contentores Azure](container-registry-skus.md).
+O Registo de Contentores Azure está disponível em vários níveis (também chamados SKUs) que fornecem diferentes capacidades. Para mais informações sobre os níveis de serviço disponíveis, consulte os [níveis de serviço do Registo de Contentores Azure](container-registry-skus.md).
+
+Para obter recomendações para melhorar a postura de segurança dos seus registos de contentores, consulte [a Linha de Base de Segurança Azure para o Registo do Contentor de Azure](security-baseline.md).
 
 <!-- IMAGES -->
 [delete-repository-portal]: ./media/container-registry-best-practices/delete-repository-portal.png

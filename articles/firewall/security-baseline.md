@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 4fccb0b2e382e56e83fbbe54c0f0afa50a5c9590
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: d63150fc1d929b899281cdd0ed7abae5e728b115
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202475"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595278"
 ---
 # <a name="azure-security-baseline-for-azure-firewall"></a>Linha de segurança Azure para Azure Firewall
 
@@ -92,9 +92,9 @@ Também pode usar plantas Azure para simplificar as implementações de Azure em
 
 - [Monitorar registos e métricas do Azure Firewall](./firewall-diagnostics.md)
 
-- [Como visualizar e recuperar eventos de Registo de Atividades Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [Como visualizar e recuperar eventos de Registo de Atividades Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Como criar alertas no Azure Monitor](../azure-monitor/platform/alerts-activity-log.md) 
+- [Como criar alertas no Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md) 
 
 **Monitorização do Centro de Segurança do Azure**: Sim
 
@@ -132,7 +132,7 @@ Nota: Ambos os registos podem ser guardados numa conta de armazenamento, transmi
 
 Lista de ações de recursos em registos de atividade: Operações do Fornecedor de Recursos do Gestor de Recursos Azure
 
-- [Como recolher registos e métricas da plataforma com o Azure Monitor ](../azure-monitor/platform/diagnostic-settings.md)
+- [Como recolher registos e métricas da plataforma com o Azure Monitor ](../azure-monitor/essentials/diagnostic-settings.md)
 
 - [Como embarcar Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -174,7 +174,7 @@ Os registos do Azure Monitor são mais utilizados para monitorizar em tempo real
 
 - [Registos e métricas do Azure Firewall](logs-and-metrics.md)
 
-- [Alterar o período de retenção de dados em Log Analytics](../azure-monitor/platform/manage-cost-storage.md)
+- [Alterar o período de retenção de dados em Log Analytics](../azure-monitor/logs/manage-cost-storage.md)
 
 - [Como configurar a política de retenção para os registos de conta de armazenamento Azure](../storage/common/storage-monitor-storage-account.md#configure-logging)
 
@@ -216,7 +216,7 @@ Em alternativa, pode ativar e a bordo dados para a Azure Sentinel.
 
 - [Como gerir alertas no Centro de Segurança Azure](../security-center/security-center-managing-and-responding-alerts.md)
 
-- [Como alertar nos dados de registos de registos](../azure-monitor/learn/tutorial-response.md)
+- [Como alertar nos dados de registo de registo de registos de registos](../azure-monitor/alerts/tutorial-response.md)
 
 **Monitorização do Centro de Segurança do Azure**: Sim
 
@@ -442,7 +442,7 @@ Siga as recomendações do Azure Security Center para encriptação em repouso e
 
 **Orientação**: Utilize o Monitor Azure com o Registo de Atividades Azure para criar alertas para quando ocorrerem alterações no Azure Firewall.
 
-- [Como criar alertas para eventos de Registo de Atividades Azure](../azure-monitor/platform/alerts-activity-log.md)
+- [Como criar alertas para eventos de Registo de Atividades Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 

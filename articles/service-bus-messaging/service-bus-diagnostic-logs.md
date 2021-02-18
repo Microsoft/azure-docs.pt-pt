@@ -1,14 +1,14 @@
 ---
-title: Registos de diagnóstico de autocarros da Azure Service / Microsoft Docs
+title: Registos de diagnóstico de autocarros da Azure Service | Microsoft Docs
 description: Este artigo fornece uma visão geral de todos os registos operacionais e de diagnóstico que estão disponíveis para a Azure Service Bus.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: f227f5a988ccd51425b4f43e87b4ed4d9af74e1f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f2672d61285025eadb8f742ca2518297107595ce
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88064439"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100585269"
 ---
 # <a name="enable-diagnostics-logs-for-service-bus"></a>Ativar registos de diagnóstico para Service Bus
 
@@ -90,7 +90,7 @@ Os registos operacionais são desativado por predefinição. Para ativar registo
 
    b. Selecione um dos seguintes três destinos para os seus registos de diagnóstico:  
    - Se selecionar **o Archive para uma conta de armazenamento,** tem de configurar a conta de armazenamento onde os registos de diagnóstico serão armazenados.  
-   - Se selecionar **o Stream para um centro**de eventos, tem de configurar o centro de eventos para o quais pretende transmitir os registos de diagnóstico.
+   - Se selecionar **o Stream para um centro** de eventos, tem de configurar o centro de eventos para o quais pretende transmitir os registos de diagnóstico.
    - Se selecionar **Enviar para Registar Analytics,** tem de especificar para que instância de Log Analytics os diagnósticos serão enviados.  
 
    c. Selecione a caixa de verificação **'Registos Operacionais'.**
@@ -101,7 +101,7 @@ Os registos operacionais são desativado por predefinição. Para ativar registo
 
 As novas definições fazem efeito em cerca de 10 minutos. Os registos são apresentados no alvo de arquivo configurado, no painel de **registos de diagnóstico.**
 
-Para obter mais informações sobre a configuração das definições de diagnóstico, consulte a [visão geral dos registos de diagnósticos do Azure](../azure-monitor/platform/platform-logs-overview.md).
+Para obter mais informações sobre a configuração das definições de diagnóstico, consulte a [visão geral dos registos de diagnósticos do Azure](../azure-monitor/essentials/platform-logs-overview.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 

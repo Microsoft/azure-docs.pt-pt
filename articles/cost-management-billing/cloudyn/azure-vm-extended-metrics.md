@@ -10,12 +10,12 @@ ms.service: cost-management-billing
 ms.subservice: cloudyn
 ms.custom: seodec18
 ROBOTS: NOINDEX
-ms.openlocfilehash: 14ea98ecc4d9682353038088a124802d60a5dd5d
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
-ms.translationtype: HT
+ms.openlocfilehash: da2e20e333fe499998fff72b175442650f5f1e28
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131450"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595316"
 ---
 # <a name="add-extended-metrics-for-azure-virtual-machines"></a>Adicionar métricas expandidas para máquinas virtuais do Azure
 
@@ -31,7 +31,7 @@ Depois de ativar a recolha de métricas, pode:
 Por exemplo, pode querer monitorizar a % da CPU e de Memória das VMs do Azure. As métricas das VMs do Azure correspondem à _Percentagem de CPU_ e _Memória\\% de Bytes Consolidados em Utilização_.
 
 > [!NOTE]
-> A recolha de dados de métricas expandidas é suportada apenas com a monitorização ao nível do convidado do Azure. A Cloudyn não é compatível com o [agente do Log Analytics](../../azure-monitor/platform/agents-overview.md).
+> A recolha de dados de métricas expandidas é suportada apenas com a monitorização ao nível do convidado do Azure. A Cloudyn não é compatível com o [agente do Log Analytics](../../azure-monitor/agents/agents-overview.md).
 
 [!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
 

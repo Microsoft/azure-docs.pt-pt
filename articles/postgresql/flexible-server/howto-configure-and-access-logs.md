@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
-ms.openlocfilehash: 3b54fe1ffd49c12db82a038ad449190a0049133f
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: e52f0f22065d89788d08659476d14af0351cc493
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492357"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590583"
 ---
 # <a name="configure-and-access-logs-in-azure-database-for-postgresql---flexible-server"></a>Configurar e aceder registos na base de dados Azure para PostgreSQL - Servidor Flexível
 
@@ -40,13 +40,13 @@ Para ativar registos de recursos utilizando o portal Azure:
 
 7. Guarde a sua configuração.
 
-Para ativar os registos de recursos utilizando a PowerShell, CLI ou REST API, visite o artigo [de definições de diagnóstico.](../../azure-monitor/platform/diagnostic-settings.md)
+Para ativar os registos de recursos utilizando a PowerShell, CLI ou REST API, visite o artigo [de definições de diagnóstico.](../../azure-monitor/essentials/diagnostic-settings.md)
 
 ### <a name="access-resource-logs"></a>Aceder a registos de recursos
 
-A forma como acede aos registos depende do ponto final que escolher. Para o Azure Storage, consulte o artigo da [conta de armazenamento de registos.](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage) Para Os Centros de Eventos, consulte o [artigo de registos Azure.](../../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs)
+A forma como acede aos registos depende do ponto final que escolher. Para o Azure Storage, consulte o artigo da [conta de armazenamento de registos.](../../azure-monitor/essentials/resource-logs.md#send-to-azure-storage) Para Os Centros de Eventos, consulte o [artigo de registos Azure.](../../azure-monitor/essentials/resource-logs.md#send-to-azure-event-hubs)
 
-Para registos do Monitor Azure, os registos são enviados para o espaço de trabalho selecionado. Os registos Postgres utilizam o modo de recolha **AzureDiagnostics,** para que possam ser consultados a partir da tabela AzureDiagnostics. Os campos na tabela são descritos abaixo. Saiba mais sobre consulta e alerta na visão geral dos Registos do [Monitor Azure.](../../azure-monitor/log-query/log-query-overview.md)
+Para registos do Monitor Azure, os registos são enviados para o espaço de trabalho selecionado. Os registos Postgres utilizam o modo de recolha **AzureDiagnostics,** para que possam ser consultados a partir da tabela AzureDiagnostics. Os campos na tabela são descritos abaixo. Saiba mais sobre consulta e alerta na visão geral dos Registos do [Monitor Azure.](../../azure-monitor/logs/log-query-overview.md)
 
 Seguem-se as consultas que pode tentar começar. Pode configurar alertas com base em consultas.
 
@@ -71,5 +71,5 @@ A consulta acima mostrará resultados nas últimas 6 horas para qualquer servido
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Começar com consultas de analítica de log](../../azure-monitor/log-query/log-analytics-tutorial.md)
+- [Começar com consultas de analítica de log](../../azure-monitor/logs/log-analytics-tutorial.md)
 - Saiba mais sobre [os centros de eventos da Azure](../../event-hubs/event-hubs-about.md)

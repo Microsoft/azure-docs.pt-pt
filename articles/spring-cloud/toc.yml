@@ -59,7 +59,7 @@
   items:
     - name: Programar
       items:
-        - name: Preparar uma aplicação Java Spring para a implementação
+        - name: Preparar uma aplicação para implementação
           href: spring-cloud-tutorial-prepare-app-deployment.md
         - name: Configurar um Servidor de Configuração
           href: spring-cloud-tutorial-config-server.md

@@ -1,16 +1,16 @@
 ---
-title: Amostragem de telemetria em Azure Application Insights / Microsoft Docs
+title: Amostragem de telemetria em Azure Application Insights | Microsoft Docs
 description: Como controlar o volume de telemetria.
 ms.topic: conceptual
 ms.date: 01/17/2020
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
-ms.openlocfilehash: e9334d222d443679362514481ecd83b90bbda0ac
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: 7b53b0bc8c7cc3df2123d327bf87a85081f88f50
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96855078"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100589551"
 ---
 # <a name="sampling-in-application-insights"></a>Amostragem no Application Insights
 
@@ -33,12 +33,12 @@ O quadro que se segue resume os tipos de amostragem disponíveis para cada SDK e
 | Insights de Aplicação SDK | Amostragem adaptativa suportada | Amostragem de taxa fixa suportada | Amostragem de ingestão suportada |
 |-|-|-|-|
 | ASP.NET | [Sim (on on by default)](#configuring-adaptive-sampling-for-aspnet-applications) | [Sim](#configuring-fixed-rate-sampling-for-aspnet-applications) | Só se nenhuma outra amostragem estiver em vigor |
-| Núcleo de ASP.NET | [Sim (on on by default)](#configuring-adaptive-sampling-for-aspnet-core-applications) | [Sim](#configuring-fixed-rate-sampling-for-aspnet-core-applications) | Só se nenhuma outra amostragem estiver em vigor |
-| Funções do Azure | [Sim (on on by default)](#configuring-adaptive-sampling-for-azure-functions) | Não | Só se nenhuma outra amostragem estiver em vigor |
-| Java | Não | [Sim](#configuring-fixed-rate-sampling-for-java-applications) | Só se nenhuma outra amostragem estiver em vigor |
-| Node.JS | Não | [Sim](./nodejs.md#sampling) | Só se nenhuma outra amostragem estiver em vigor
-| Python | Não | [Sim](#configuring-fixed-rate-sampling-for-opencensus-python-applications) | Só se nenhuma outra amostragem estiver em vigor |
-| Todos os outros | Não | Não | [Sim](#ingestion-sampling) |
+| ASP.NET Core | [Sim (on on by default)](#configuring-adaptive-sampling-for-aspnet-core-applications) | [Sim](#configuring-fixed-rate-sampling-for-aspnet-core-applications) | Só se nenhuma outra amostragem estiver em vigor |
+| Funções do Azure | [Sim (on on by default)](#configuring-adaptive-sampling-for-azure-functions) | No | Só se nenhuma outra amostragem estiver em vigor |
+| Java | No | [Sim](#configuring-fixed-rate-sampling-for-java-applications) | Só se nenhuma outra amostragem estiver em vigor |
+| Node.JS | No | [Sim](./nodejs.md#sampling) | Só se nenhuma outra amostragem estiver em vigor
+| Python | No | [Sim](#configuring-fixed-rate-sampling-for-opencensus-python-applications) | Só se nenhuma outra amostragem estiver em vigor |
+| Todos os outros | No | No | [Sim](#ingestion-sampling) |
 
 > [!NOTE]
 > A informação sobre a maior parte desta página aplica-se às versões atuais dos SDKs application insights. Para obter informações sobre versões mais antigas dos SDKs, [consulte a secção abaixo](#older-sdk-versions).
@@ -478,7 +478,7 @@ Se não se aplicarem as condições de utilização das outras formas de amostra
 
 ## <a name="knowing-whether-sampling-is-in-operation"></a>Saber se a amostragem está em funcionamento
 
-Para descobrir a taxa de amostragem real, independentemente do local onde tenha sido aplicada, utilize uma [consulta analítica](../log-query/log-query-overview.md) como esta:
+Para descobrir a taxa de amostragem real, independentemente do local onde tenha sido aplicada, utilize uma [consulta analítica](../logs/log-query-overview.md) como esta:
 
 ```kusto
 union requests,dependencies,pageViews,browserTimings,exceptions,traces

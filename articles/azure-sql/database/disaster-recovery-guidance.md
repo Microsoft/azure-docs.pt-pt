@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 06/21/2019
-ms.openlocfilehash: e4a6802829d230cebc460df1409b7655534a5b8e
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 322ef3b8ca30396bd4772850ff651f7545a21257
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92782999"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100580756"
 ---
 # <a name="restore-your-azure-sql-database-or-failover-to-a-secondary"></a>Restaurar a sua Base de Dados Azure SQL ou falhar para um secundário
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -109,7 +109,7 @@ Tem de se certificar de que todos os logins utilizados pela sua aplicação exis
 
 Tem de se certificar de que as definições de regra de alerta existentes são atualizadas para mapear para a base de dados recuperada e para o servidor diferente.
 
-Para obter mais informações sobre as regras de alerta de base de dados, consulte [receber notificações de alerta](../../azure-monitor/platform/alerts-overview.md) e serviço de rastreio de [saúde.](../../service-health/service-notifications.md)
+Para obter mais informações sobre as regras de alerta de base de dados, consulte [receber notificações de alerta](../../azure-monitor/alerts/alerts-overview.md) e serviço de rastreio de [saúde.](../../service-health/service-notifications.md)
 
 ### <a name="enable-auditing"></a>Permitir a auditoria
 

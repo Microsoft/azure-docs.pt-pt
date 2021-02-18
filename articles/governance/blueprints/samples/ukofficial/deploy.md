@@ -3,12 +3,12 @@ title: Implementar amostras de plantas do NHS do Reino Unido & do Reino Unido
 description: Implementar etapas para as amostras de plantas do NHS do Reino Unido e do Reino Unido, incluindo detalhes do parâmetro do artefacto da planta.
 ms.date: 02/05/2021
 ms.topic: sample
-ms.openlocfilehash: 0c917134e5807283ceb0e7ce693037824794a6ef
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: fc41e7d9d3867123286f970d7c54f5e6fff2d276
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99627554"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100578032"
 ---
 # <a name="deploy-the-uk-official-and-uk-nhs-blueprint-samples"></a>Implementar as amostras de plantas do NHS oficial do Reino Unido e do Reino Unido
 
@@ -93,9 +93,9 @@ A tabela seguinte mostra uma lista dos parâmetros dos artefactos de esquema:
 
 Nome do artefacto|Tipo de artefacto|Nome do parâmetro|Descrição|
 |-|-|-|-|
-|Iniciativa de blueprint para UK OFFICIAL ou UK NHS|Atribuição de políticas |Tipos de recursos para auditar registos de diagnóstico (Policy: Blueprint initiative for UK OFFICIAL ou UK NHS) |Lista de tipos de recursos para auditar se a definição de registo de diagnóstico estiver ativada.  Para obter valores aceitáveis, consulte [serviços, esquemas e categorias de Registos de Diagnóstico Azure](../../../../azure-monitor/platform/resource-logs-schema.md). |
-|\[Pré-visualização \] : Implementar agente de análise de registo para VMs Linux |Atribuição de políticas |Opcional: Lista de imagens VM que apoiaram o Linux OS para adicionar ao âmbito (Política: \[ Pré-visualização \] : Implementar Agente de Análise de Registo para VMs Linux) |(Opcional) O valor predefinido não é _nenhum._ Para obter mais informações, consulte [Criar um espaço de trabalho log Analytics no portal Azure](../../../../azure-monitor/learn/quick-create-workspace.md). |
-|\[Pré-visualização \] : Implementar agente de análise de registo para VMs do Windows |Atribuição de políticas |Opcional: Lista de imagens VM que apoiaram o Windows OS para adicionar ao âmbito (Política: \[ Pré-visualização \] : Implementar Agente de Análise de Registo para VMs do Windows) |(Opcional) O valor predefinido não é _nenhum._ Para obter mais informações, consulte [Criar um espaço de trabalho log Analytics no portal Azure](../../../../azure-monitor/learn/quick-create-workspace.md). |
+|Iniciativa de blueprint para UK OFFICIAL ou UK NHS|Atribuição de políticas |Tipos de recursos para auditar registos de diagnóstico (Policy: Blueprint initiative for UK OFFICIAL ou UK NHS) |Lista de tipos de recursos para auditar se a definição de registo de diagnóstico estiver ativada.  Para obter valores aceitáveis, consulte [serviços, esquemas e categorias de Registos de Diagnóstico Azure](../../../../azure-monitor/essentials/resource-logs-schema.md). |
+|\[Pré-visualização \] : Implementar agente de análise de registo para VMs Linux |Atribuição de políticas |Opcional: Lista de imagens VM que apoiaram o Linux OS para adicionar ao âmbito (Política: \[ Pré-visualização \] : Implementar Agente de Análise de Registo para VMs Linux) |(Opcional) O valor predefinido não é _nenhum._ Para obter mais informações, consulte [Criar um espaço de trabalho log Analytics no portal Azure](../../../../azure-monitor/logs/quick-create-workspace.md). |
+|\[Pré-visualização \] : Implementar agente de análise de registo para VMs do Windows |Atribuição de políticas |Opcional: Lista de imagens VM que apoiaram o Windows OS para adicionar ao âmbito (Política: \[ Pré-visualização \] : Implementar Agente de Análise de Registo para VMs do Windows) |(Opcional) O valor predefinido não é _nenhum._ Para obter mais informações, consulte [Criar um espaço de trabalho log Analytics no portal Azure](../../../../azure-monitor/logs/quick-create-workspace.md). |
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/27/2021
 ms.author: yelevin
-ms.openlocfilehash: 2a6e31115fb2548f8248f741213970605f230036
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: c404aa93669cd95dccb0ad185d71d2ec16256d0d
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100390730"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570441"
 ---
 # <a name="useful-resources-for-working-with-azure-sentinel"></a>Recursos úteis para trabalhar com Azure Sentinel
 
@@ -32,7 +32,7 @@ Este artigo lista recursos que podem ajudá-lo a obter mais informações sobre 
 
 
 ## <a name="auditing-and-reporting"></a>Auditoria e reporte
-Os registos de auditoria do Azure Sentinel são mantidos em [Registos de Atividades Azure](../azure-monitor/platform/platform-logs-overview.md).
+Os registos de auditoria do Azure Sentinel são mantidos em [Registos de Atividades Azure](../azure-monitor/essentials/platform-logs-overview.md).
 
 As seguintes operações apoiadas podem ser auditadas.
 

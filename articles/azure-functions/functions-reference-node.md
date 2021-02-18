@@ -5,12 +5,12 @@ ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
 ms.date: 11/17/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 58e31cfa42faabbfab217a451e14d33f2cf45863
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 71fe2d342f928c9d50a3fcf3f5367c21d7fba2ff
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/17/2021
-ms.locfileid: "100554815"
+ms.locfileid: "100591047"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript guia de desenvolvedores
 
@@ -201,7 +201,7 @@ module.exports = (context) => {
 
 O contexto passado para a sua função expõe uma `executionContext` propriedade, que é um objeto com as seguintes propriedades:
 
-| Nome da propriedade  | Tipo  | Descrição |
+| Nome da propriedade  | Tipo  | Description |
 |---------|---------|---------|
 | `invocationId` | String | Fornece um identificador único para a invocação de funções específicas. |
 | `functionName` | String | Fornece o nome da função de execução |
@@ -745,7 +745,7 @@ Quando trabalhar com funções JavaScript, esteja ciente das considerações nas
 
 ### <a name="choose-single-vcpu-app-service-plans"></a>Escolha planos de serviço de aplicações single-vCPU
 
-Quando cria uma aplicação de função que utiliza o plano de Serviço de Aplicações, recomendamos que selecione um plano de um único vCPU em vez de um plano com vários vCPUs. Hoje em dia, as funções javaScript funcionam de forma mais eficiente em VMs single-vCPU, e usar VMs maiores não produz as melhorias de desempenho esperadas. Quando necessário, pode escalar manualmente adicionando mais instâncias VM single-vCPU, ou pode ativar a autoescala. Para obter mais informações, consulte [a contagem de instâncias de escala manual ou automática.](../azure-monitor/platform/autoscale-get-started.md?toc=/azure/app-service/toc.json)
+Quando cria uma aplicação de função que utiliza o plano de Serviço de Aplicações, recomendamos que selecione um plano de um único vCPU em vez de um plano com vários vCPUs. Hoje em dia, as funções javaScript funcionam de forma mais eficiente em VMs single-vCPU, e usar VMs maiores não produz as melhorias de desempenho esperadas. Quando necessário, pode escalar manualmente adicionando mais instâncias VM single-vCPU, ou pode ativar a autoescala. Para obter mais informações, consulte [a contagem de instâncias de escala manual ou automática.](../azure-monitor/autoscale/autoscale-get-started.md?toc=/azure/app-service/toc.json)
 
 ### <a name="cold-start"></a>Início a Frio
 

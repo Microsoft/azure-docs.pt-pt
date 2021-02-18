@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: wachegha
 ms.custom: devx-track-js
-ms.openlocfilehash: 53be2ee9b6b3ab46f081747aec58b9c99fc54f0d
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 8a42ca4cf69515c99bb2e0bd28bb62dfed0e18f8
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96349961"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100650694"
 ---
 # <a name="add-an-api-to-azure-static-web-apps-preview-with-azure-functions"></a>Adicione uma API a Azure Static Web Apps Preview com Funções Azure
 
@@ -61,7 +61,7 @@ Em seguida, você cria um projeto Azure Functions como API da aplicação.
 
    :::image type="content" source="media/add-api/create-azure-functions-vscode-1.png" alt-text="A screenshot mostra a pasta A P I e o botão Select.":::
 
-1. Fornecer as seguintes informações nas instruções:
+1. Forneça as seguintes informações nos pedidos:
 
     - _Selecione um idioma_: Escolha **JavaScript**
     - _Selecione um modelo para a primeira função do seu projeto_: Escolha **o gatilho HTTP**
@@ -234,7 +234,7 @@ Em seguida, adicione as definições específicas da aplicação.
 1. Clique no botão **Iniciar sessão com o GitHub** e autentique-se no GitHub
 1. Selecione a sua _Organização_ Preferida
 1. Selecione **my-vanilla-api** do _repositório_ drop-down
-1. Selecione **mestre** do _ramo_ drop-down
+1. Selecione **principal** a partir do _drop-down branch_
 1. Selecione a estrutura da sua escolha para a configuração de construção a partir do drop-down _Build Presets_
 
  > Estes campos refletirão a estrutura de projeto padrão do tipo de aplicação. Altere os valores de acordo com a sua aplicação.

@@ -4,16 +4,16 @@ description: Este artigo descreve como configurar um alerta métrico com base no
 services: automation
 ms.date: 08/10/2020
 ms.topic: article
-ms.openlocfilehash: 8767687f0b72d3469bef570770ac81fa8300097f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3a52824a7030d78647d8a664819f439d92d7296d
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88055938"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593952"
 ---
 # <a name="monitor-runbooks-with-metric-alerts"></a>Monitorizar runbooks com alertas de métrica
 
-Neste artigo, aprende-se a criar um [alerta métrico](../azure-monitor/platform/alerts-metric-overview.md) baseado no estado de conclusão do runbook.
+Neste artigo, aprende-se a criar um [alerta métrico](../azure-monitor/alerts/alerts-metric-overview.md) baseado no estado de conclusão do runbook.
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
@@ -52,7 +52,7 @@ Os alertas permitem definir uma condição para monitorizar e uma ação a tomar
 
 ### <a name="define-the-action-to-take"></a>Definir a ação a tomar
 
-1. No **grupo Action**, selecione Specify action **group**. Um grupo de ação é um grupo de ações que você pode usar em mais de um alerta. Estes podem incluir, mas não se limitam a, notificações de e-mail, runbooks, webhooks, e muito mais. Para saber mais sobre grupos de ação e passos para criar um que envie uma notificação por e-mail, consulte [Criar e gerir grupos de ação.](../azure-monitor/platform/action-groups.md)
+1. No **grupo Action**, selecione Specify action **group**. Um grupo de ação é um grupo de ações que você pode usar em mais de um alerta. Estes podem incluir, mas não se limitam a, notificações de e-mail, runbooks, webhooks, e muito mais. Para saber mais sobre grupos de ação e passos para criar um que envie uma notificação por e-mail, consulte [Criar e gerir grupos de ação.](../azure-monitor/alerts/action-groups.md)
 
 ### <a name="define-alert-details"></a>Definir detalhes do alerta
 

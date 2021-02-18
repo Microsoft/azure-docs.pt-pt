@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: b5ce8e3d6482c13a8ba02065f2a97074610c25bb
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 2d902bbdc03596fe246fc36813895e72c53da05a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98877719"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100571398"
 ---
 # <a name="azure-security-baseline-for-virtual-machine-scale-sets"></a>Linha de base de segurança Azure para conjuntos de escala de máquina virtual
 
@@ -178,9 +178,9 @@ Pode utilizar o acesso da Rede Just In Time do Azure Security Center para limita
 
 Utilize a Política Azure para validar (e/ou remediar) configurações para recursos de rede relacionados com o Conjunto de Escala de Máquina Virtual.
 
-* [Como visualizar e recuperar eventos de Registo de Atividades Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+* [Como visualizar e recuperar eventos de Registo de Atividades Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-* [Como criar alertas no Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+* [Como criar alertas no Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 * [Como configurar e gerir o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -216,7 +216,7 @@ Utilize o Centro de Segurança Azure para fornecer monitorização de registo de
 
 Se a sua organização quiser reter os dados de registo de eventos de segurança da máquina virtual, pode ser armazenado num espaço de trabalho de Log Analytics no nível de recolha de dados pretendido configurado no Azure Security Center.
 
-* [Como recolher registos e métricas da plataforma com o Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
+* [Como recolher registos e métricas da plataforma com o Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
 * [Como embarcar Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -224,7 +224,7 @@ Se a sua organização quiser reter os dados de registo de eventos de segurança
 
 * [Data collection in Azure Security Center](../security-center/security-center-enable-data-collection.md#data-collection-tier) (Recolha de dados no Centro de Segurança do Azure)
 
-* [Como monitorizar máquinas virtuais em Azure](../azure-monitor/insights/monitor-vm-azure.md)
+* [Como monitorizar máquinas virtuais em Azure](../azure-monitor/vm/monitor-vm-azure.md)
 
 **Monitorização do Centro de Segurança do Azure**: Sim
 
@@ -238,11 +238,11 @@ Ativar a recolha de dados de diagnóstico de SO de hóspedes implantando a exten
 
 Para uma visibilidade avançada das aplicações e serviços suportados pelo Conjunto de Escala de Máquina Virtual Azure, pode ativar tanto o Monitor Azure para informações sobre VMs como para aplicações. Com o Application Insights, pode monitorizar a sua aplicação e capturar telemetria, como pedidos HTTP, exceções, etc. para que possa correlacionar problemas entre os VMs e a sua aplicação.
 
-* [Como recolher registos e métricas da plataforma com o Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
+* [Como recolher registos e métricas da plataforma com o Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
-* [Ver e recuperar eventos de log de atividades do Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+* [Ver e recuperar eventos de log de atividades do Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-* [Como monitorizar máquinas virtuais em Azure](../azure-monitor/insights/monitor-vm-azure.md)
+* [Como monitorizar máquinas virtuais em Azure](../azure-monitor/vm/monitor-vm-azure.md)
 
 * [Descrição geral do Application Insights](../azure-monitor/app/app-insights-overview.md)
 
@@ -258,7 +258,7 @@ Se a sua organização quiser reter os dados de registo de eventos de segurança
 
 * [Data collection in Azure Security Center](../security-center/security-center-enable-data-collection.md#data-collection-tier) (Recolha de dados no Centro de Segurança do Azure)
 
-* [Como monitorizar máquinas virtuais em Azure](../azure-monitor/insights/monitor-vm-azure.md)
+* [Como monitorizar máquinas virtuais em Azure](../azure-monitor/vm/monitor-vm-azure.md)
 
 **Monitorização do Centro de Segurança do Azure**: Sim
 
@@ -268,9 +268,9 @@ Se a sua organização quiser reter os dados de registo de eventos de segurança
 
 **Orientação**: Certifique-se de que quaisquer contas de armazenamento ou espaços de trabalho do Log Analytics utilizados para armazenar registos de máquinas virtuais tem o período de retenção de registo definido de acordo com as normas de conformidade da sua organização.
 
-* [Como monitorizar máquinas virtuais em Azure](../azure-monitor/insights/monitor-vm-azure.md)
+* [Como monitorizar máquinas virtuais em Azure](../azure-monitor/vm/monitor-vm-azure.md)
 
-* [Como configurar o período de retenção do espaço de trabalho do Log Analytics](../azure-monitor/platform/manage-cost-storage.md)
+* [Como configurar o período de retenção do espaço de trabalho do Log Analytics](../azure-monitor/logs/manage-cost-storage.md)
 
 **Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
@@ -284,9 +284,9 @@ Em alternativa, pode ativar e a bordo dados do Azure Sentinel ou de um SIEM de t
 
 * [Como embarcar Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-* [Compreender log analytics workspace](../azure-monitor/log-query/log-analytics-tutorial.md)
+* [Compreender log analytics workspace](../azure-monitor/logs/log-analytics-tutorial.md)
 
-* [Como realizar consultas personalizadas no Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
+* [Como realizar consultas personalizadas no Azure Monitor](../azure-monitor/logs/get-started-queries.md)
 
 **Monitorização do Centro de Segurança do Azure**: Não aplicável
 
@@ -302,7 +302,7 @@ Em alternativa, pode permitir e a bordo dados de Azure Sentinel ou um SIEM de te
 
 * [Como gerir alertas no Centro de Segurança Azure](../security-center/security-center-managing-and-responding-alerts.md)
 
-* [Como alertar nos dados de registos de registos](../azure-monitor/learn/tutorial-response.md)
+* [Como alertar nos dados de registo de registo de registos de registos](../azure-monitor/alerts/tutorial-response.md)
 
 **Monitorização do Centro de Segurança do Azure**: Sim
 
@@ -340,9 +340,9 @@ Para máquinas Virtual Linux, pode configurar manualmente o registo de consolas 
 
 * [Data collection in Azure Security Center](../security-center/security-center-enable-data-collection.md#data-collection-tier) (Recolha de dados no Centro de Segurança do Azure)
 
-* [Como realizar consultas personalizadas no Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
+* [Como realizar consultas personalizadas no Azure Monitor](../azure-monitor/logs/get-started-queries.md)
 
-* [Syslog data sources in Azure Monitor](../azure-monitor/platform/data-sources-syslog.md) (Origens de dados de Syslog no Azure Monitor)
+* [Syslog data sources in Azure Monitor](../azure-monitor/agents/data-sources-syslog.md) (Origens de dados de Syslog no Azure Monitor)
 
 **Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
@@ -430,7 +430,7 @@ Para máquinas Virtual Linux, pode configurar manualmente o registo de consolas 
 
 * [Como integrar os Registos de Atividades do Azure no Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-* [Como configurar grupos de ação para alerta e notificação personalizados](../azure-monitor/platform/action-groups.md)
+* [Como configurar grupos de ação para alerta e notificação personalizados](../azure-monitor/alerts/action-groups.md)
 
 **Monitorização do Centro de Segurança do Azure**: Sim
 
@@ -472,13 +472,13 @@ Para máquinas Virtual Linux, pode configurar manualmente o registo de consolas 
 
 **Orientação**: Configurar definições de diagnóstico para o Azure Ative Directory enviar os registos de auditoria e registos de login para um espaço de trabalho do Log Analytics. Além disso, utilize o Azure Monitor para rever registos e efetue consultas em dados de registo a partir de máquinas Virtuais Azure.
 
-* [Compreender log analytics workspace](../azure-monitor/log-query/log-analytics-tutorial.md)
+* [Compreender log analytics workspace](../azure-monitor/logs/log-analytics-tutorial.md)
 
 * [Como integrar os Registos de Atividades do Azure no Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-* [Como realizar consultas personalizadas no Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
+* [Como realizar consultas personalizadas no Azure Monitor](../azure-monitor/logs/get-started-queries.md)
 
-* [Como monitorizar máquinas virtuais em Azure](../azure-monitor/insights/monitor-vm-azure.md)
+* [Como monitorizar máquinas virtuais em Azure](../azure-monitor/vm/monitor-vm-azure.md)
 
 **Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
@@ -610,7 +610,7 @@ A Microsoft utiliza o protocolo De Segurança da Camada de Transporte (TLS) para
 
 **Orientação**: Utilize o Monitor Azure com o Registo de Atividades Azure para criar alertas para quando ocorrerem alterações nos conjuntos de escala de máquinas virtuais e recursos conexos.
 
-* [Como criar alertas para eventos de Registo de Atividades Azure](../azure-monitor/platform/alerts-activity-log.md)
+* [Como criar alertas para eventos de Registo de Atividades Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 * [Azure Storage analytics logging](../storage/common/storage-analytics-logging.md) (Registo de análise do Armazenamento do Azure)
 
@@ -1196,7 +1196,7 @@ Além disso, marque claramente as subscrições (para ex. produção, não-prod)
 
 **Responsabilidade**: Partilhada
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Consulte a [referência de segurança Azure](../security/benchmarks/overview.md)
 - Saiba mais sobre as [linhas de base de segurança do Azure](../security/benchmarks/security-baselines-overview.md)

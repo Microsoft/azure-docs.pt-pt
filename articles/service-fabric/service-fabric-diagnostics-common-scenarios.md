@@ -3,12 +3,12 @@ title: Tecido de serviço Azure diagnostica cenários comuns
 description: Saiba mais sobre a resolução de problemas de cenários comuns de monitorização e diagnóstico dentro das aplicações do Azure Service Fabric.
 ms.topic: article
 ms.date: 02/25/2019
-ms.openlocfilehash: f92bc02082d8bcd9d917f05c93d3da413f772cd0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3083348948ce97ae9d99098896878d79081a15f0
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86257732"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100580487"
 ---
 # <a name="diagnose-common-scenarios-with-service-fabric"></a>Diagnosticar cenários comuns com tecido de serviço
 
@@ -133,9 +133,9 @@ Consulte estes links para obter a lista completa de contadores de desempenho em 
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Procure erros de ativação de pacotes de código comum](./service-fabric-diagnostics-code-package-errors.md)
-* [Configurar alertas em IA](../azure-monitor/platform/alerts-log.md) para ser notificado sobre alterações no desempenho ou utilização
+* [Configurar alertas em IA](../azure-monitor/alerts/alerts-log.md) para ser notificado sobre alterações no desempenho ou utilização
 * [Smart Detection in Application Insights](../azure-monitor/app/proactive-diagnostics.md) realiza uma análise proativa da telemetria enviada para a IA para alertá-lo sobre potenciais problemas de desempenho
-* Saiba mais sobre os registos do Azure Monitor [alertando](../azure-monitor/platform/alerts-overview.md) para ajudar na deteção e diagnóstico.
-* Para clusters no local, os registos do Azure Monitor oferecem um gateway (HTTP Forward Proxy) que pode ser usado para enviar dados para registos do Monitor Azure. Leia mais sobre isso em [computadores de ligação sem acesso à Internet aos registos do Monitor Azure utilizando o gateway Log Analytics](../azure-monitor/platform/gateway.md)
-* Familiarize-se com as funcionalidades [de pesquisa e consulta](../azure-monitor/log-query/log-query-overview.md) de registo oferecidas como parte dos registos do Azure Monitor
+* Saiba mais sobre os registos do Azure Monitor [alertando](../azure-monitor/alerts/alerts-overview.md) para ajudar na deteção e diagnóstico.
+* Para clusters no local, os registos do Azure Monitor oferecem um gateway (HTTP Forward Proxy) que pode ser usado para enviar dados para registos do Monitor Azure. Leia mais sobre isso em [computadores de ligação sem acesso à Internet aos registos do Monitor Azure utilizando o gateway Log Analytics](../azure-monitor/agents/gateway.md)
+* Familiarize-se com as funcionalidades [de pesquisa e consulta](../azure-monitor/logs/log-query-overview.md) de registo oferecidas como parte dos registos do Azure Monitor
 * Obtenha uma visão geral mais detalhada dos registos do Azure Monitor e o que oferece, leia [O que são registos do Azure Monitor?](../azure-monitor/overview.md)
