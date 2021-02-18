@@ -6,12 +6,12 @@ ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
 ms.topic: article
 ms.date: 10/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: a29d81be9b750d89230a180b8a7c786466d99bb8
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 6e5de3cdec7a9c503f4b7bf7056bd62f1ddf682d
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936435"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100594020"
 ---
 # <a name="azure-app-service-plan-overview"></a>Descrição Geral do plano do Serviço de Aplicações do Azure
 
@@ -57,7 +57,7 @@ Quando cria uma aplicação no Serviço de Aplicações, é colocada num plano d
 
 Desta forma, o plano de Serviço de Aplicações é a unidade de escala das aplicações do Serviço de Aplicações. Se o plano estiver configurado para executar cinco instâncias VM, então todas as aplicações do plano são executadas em todas as cinco instâncias. Se o plano estiver configurado para autoscaling, então todas as aplicações do plano são dimensionadas em conjunto com base nas definições de autoescala.
 
-Para obter informações sobre a escala de uma aplicação, consulte [a contagem de instâncias de escala manual ou automática](../azure-monitor/platform/autoscale-get-started.md).
+Para obter informações sobre a escala de uma aplicação, consulte [a contagem de instâncias de escala manual ou automática](../azure-monitor/autoscale/autoscale-get-started.md).
 
 <a name="cost"></a>
 

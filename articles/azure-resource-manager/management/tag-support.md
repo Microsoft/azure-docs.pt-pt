@@ -3,12 +3,12 @@ title: Suporte de etiquetas para recursos
 description: Mostra quais os tipos de recursos Azure que suportam tags. Fornece detalhes para todos os serviços da Azure.
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: 12a57577241e3b2206aab9c3badb29502e7b0301
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 73f58dbda0e7c073cf4a8d2e846132a102192e93
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97656976"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100635919"
 ---
 # <a name="tag-support-for-azure-resources"></a>Suporte de etiqueta para recursos Azure
 Este artigo descreve se um tipo de recurso suporta [tags](tag-resources.md). As **etiquetas de suporte** da coluna rotuladas indicam se o tipo de recurso tem uma propriedade para a etiqueta. A coluna rotulada **Tag no relatório de custos** indica se esse tipo de recurso passa a etiqueta para o relatório de custos. Pode ver os custos por etiquetas na análise de custos de Gestão de [Custos](../../cost-management-billing/costs/group-filter.md) e na faturação da [Azure e dados de utilização diária.](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md)
@@ -1543,7 +1543,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | ------------- | ----------- | ----------- |
 > | planos de compromissos | Yes | Yes |
 > | webServices | Yes | Yes |
-> | Áreas de trabalho | Yes | Yes |
+> | Áreas de Trabalho | Yes | Yes |
 
 ## <a name="microsoftmachinelearningservices"></a>Microsoft.MachineLearningServices
 
@@ -1565,6 +1565,9 @@ Salte para um espaço de nome de fornecedor de recursos:
 > | espaços de trabalho / modelos / versões | No | No |
 > | espaços de trabalho / pontos de encontro online | Yes | Yes |
 > | espaços de trabalho / onlineEndpoints / implementações | Yes | Yes |
+ 
+> [!NOTE]
+> As tags do espaço de trabalho não se propagam para computar clusters e computar instâncias. 
 
 ## <a name="microsoftmaintenance"></a>Microsoft.Maintenance
 
@@ -1956,7 +1959,7 @@ Salte para um espaço de nome de fornecedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Suporta tags | Etiqueta no relatório de custos |
 > | ------------- | ----------- | ----------- |
-> | Áreas de trabalho | Yes | Yes |
+> | Áreas de Trabalho | Yes | Yes |
 
 ## <a name="microsoftrecoveryservices"></a>Microsoft.RecoveryServices
 

@@ -3,12 +3,12 @@ title: FedRAMP Controlos de amostras de planta moderada
 description: Controlo do mapeamento da amostra de planta moderada da FedRAMP. Cada controlo é mapeado para uma ou mais definições da Política Azure que ajudam na avaliação.
 ms.date: 01/08/2021
 ms.topic: sample
-ms.openlocfilehash: 30fd8030150613e6e429501ec27d5cad5cbe2a45
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: 7a78ebf631d2c7eb21fea64b0b6aa307bb500e0d
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98034803"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100594694"
 ---
 # <a name="control-mapping-of-the-fedramp-moderate-blueprint-sample"></a>Mapeamento de controlo da amostra de planta moderada do FedRAMP
 
@@ -29,7 +29,7 @@ Este projeto ajuda-o a rever contas que podem não cumprir os requisitos de gest
 - As contas externas com permissões de leitura devem ser removidas da sua subscrição
 - As contas externas com permissões de escrita devem ser removidas da sua subscrição
 
-## <a name="ac-2-7-account-management--role-based-schemes"></a>AC-2 (7) Gestão de Conta / Regimes Role-Based
+## <a name="ac-2-7-account-management--role-based-schemes"></a>AC-2 (7) Gestão de Contas | Regimes Role-Based
 
 [O controlo de acesso baseado em funções (Azure RBAC) ajuda-o](../../../../role-based-access-control/overview.md) a gerir quem tem acesso a recursos em Azure. Utilizando o portal Azure, pode rever quem tem acesso aos recursos do Azure e às suas permissões. Esta planta também atribui definições [de Política Azure](../../../policy/overview.md) à utilização de auditação da autenticação do Azure Ative Directory para servidores SQL e Tecido de Serviço. A utilização da autenticação do Azure Ative Directory permite uma gestão simplificada da permissão e uma gestão centralizada da identidade dos utilizadores de bases de dados e outros serviços da Microsoft. Além disso, este projeto atribui uma definição de Política Azure para auditar o uso de regras Azure RBAC personalizadas. Compreender onde as regras Azure RBAC personalizadas são implementadas pode ajudá-lo a verificar necessidades e implementação adequada, uma vez que as regras personalizadas do Azure RBAC são propensas a erros.
 
@@ -37,7 +37,7 @@ Este projeto ajuda-o a rever contas que podem não cumprir os requisitos de gest
 - Auditar o uso das regras personalizadas do RBAC
 - Os clusters de tecido de serviço só devem utilizar o Azure Ative Directy para a autenticação do cliente
 
-## <a name="ac-2-12-account-management--account-monitoring--atypical-usage"></a>AC-2 (12) Gestão de Contas / Monitorização de Conta / Utilização Atípica
+## <a name="ac-2-12-account-management--account-monitoring--atypical-usage"></a>AC-2 (12) Gestão de Contas | Monitorização de Conta / Utilização Atípica
 
 O acesso de máquina virtual just-in-time (JIT) bloqueia o tráfego de entrada para máquinas virtuais Azure, reduzindo a exposição a ataques, proporcionando fácil acesso à ligação aos VM quando necessário. Todos os pedidos de JIT para aceder a máquinas virtuais estão registados no Registo de Atividades que lhe permite monitorizar para uma utilização atípica. Esta planta atribui uma definição [de Política Azure](../../../policy/overview.md) que o ajuda a monitorizar máquinas virtuais que podem suportar o acesso just-in-time mas ainda não foram configuradas.
 
@@ -60,7 +60,7 @@ Ter apenas um proprietário de assinatura Azure não permite despedimento admini
 - Implementar pré-requisitos para auditar VMs do Windows em que o grupo de administradores não contém todos os membros especificados
 - Deve haver mais de um proprietário atribuído à sua subscrição
 
-## <a name="ac-17-1-remote-access--automated-monitoring--control"></a>AC-17 (1) Acesso Remoto / Monitorização automatizada / Controlo
+## <a name="ac-17-1-remote-access--automated-monitoring--control"></a>AC-17 (1) Acesso remoto | Monitorização automatizada / Controlo
 
 Esta planta ajuda-o a monitorizar e a controlar o acesso remoto, atribuindo definições [de Política Azure](../../../policy/overview.md) aos monitores que a depuração remota para a aplicação do Azure App Service é desligada e definições de política que auditam máquinas virtuais Linux que permitem ligações remotas a partir de contas sem palavras-passe. Esta planta também atribui uma definição de Política Azure que o ajuda a monitorizar o acesso ilimitado às contas de armazenamento. A monitorização destes indicadores pode ajudá-lo a garantir que os métodos de acesso remoto cumpram a sua política de segurança.
 
@@ -100,13 +100,13 @@ Estas definições de política auditam e impõem a implantação do agente Log 
 - Implementar auditorias em servidores SQL
 - Implementar definições de diagnóstico para grupos de segurança de rede
 
-## <a name="cm-7-2-least-functionality--prevent-program-execution"></a>CM-7 (2) Menor Funcionalidade / Impedir a execução do programa
+## <a name="cm-7-2-least-functionality--prevent-program-execution"></a>CM-7 (2) Menos Funcionalidade | Impedir a execução do programa
 
 O controlo de aplicações adaptativas no Azure Security Center é uma solução inteligente e automatizada de filtragem de aplicações que pode bloquear ou impedir que softwares específicos sejam funcionando nas suas máquinas virtuais. O controlo da aplicação pode ser executado num modo de execução que proíbe a execução de aplicações não aprovadas. Esta planta atribui uma definição de Política Azure que o ajuda a monitorizar máquinas virtuais onde uma lista permitida por aplicação é recomendada, mas ainda não foi configurada.
 
 - Os controlos de aplicações adaptativos devem ser ativados em máquinas virtuais
 
-## <a name="cm-7-5-least-functionality--authorized-software--whitelisting"></a>CM-7 (5) Menor Funcionalidade / Software autorizado / Whitelisting
+## <a name="cm-7-5-least-functionality--authorized-software--whitelisting"></a>CM-7 (5) Menor funcionalidade | Software autorizado / Whitelisting
 
 O controlo de aplicações adaptativas no Azure Security Center é uma solução inteligente e automatizada de filtragem de aplicações que pode bloquear ou impedir que softwares específicos sejam funcionando nas suas máquinas virtuais. O controlo de aplicações ajuda-o a criar listas de candidaturas aprovadas para as suas máquinas virtuais. Esta planta atribui uma definição [de Política Azure](../../../policy/overview.md) que o ajuda a monitorizar máquinas virtuais onde uma lista permitida por aplicação é recomendada, mas ainda não foi configurada.
 
@@ -124,14 +124,14 @@ A Azure Site Recovery replica cargas de trabalho em máquinas virtuais de um loc
 
 - Auditar máquinas virtuais sem recuperação de desastres configurada
 
-## <a name="ia-2-1-identification-and-authentication-organizational-users--network-access-to-privileged-accounts"></a>IA-2 (1) Identificação e Autenticação (Utilizadores Organizacionais) / Acesso à Rede a Contas Privilegiadas
+## <a name="ia-2-1-identification-and-authentication-organizational-users--network-access-to-privileged-accounts"></a>IA-2 (1) Identificação e Autenticação (Utilizadores Organizacionais) | Acesso à Rede a Contas Privilegiadas
 
 Este projeto ajuda-o a restringir e a controlar o acesso privilegiado atribuindo definições [da Azure Policy](../../../policy/overview.md) a contas de auditoria com o proprietário e/ou a escrever permissões que não tenham autenticação de vários fatores ativadas. A autenticação multi-factor ajuda a manter as contas seguras mesmo que uma peça de informação de autenticação esteja comprometida. Ao monitorizar contas sem autenticação multi-factor ativada, pode identificar contas que possam ser mais comprometidas.
 
 - O MFA deve ser ativado em contas com permissões do proprietário na sua subscrição
 - O MFA deve ser ativado em contas com permissões de escrita na sua subscrição
 
-## <a name="ia-2-2-identification-and-authentication-organizational-users--network-access-to-non-privileged-accounts"></a>IA-2 (2) Identificação e Autenticação (Utilizadores Organizacionais) / Acesso à Rede a Contas Não Privilegiadas
+## <a name="ia-2-2-identification-and-authentication-organizational-users--network-access-to-non-privileged-accounts"></a>IA-2 (2) Identificação e Autenticação (Utilizadores Organizacionais) | Acesso à Rede a Contas Não Privilegiadas
 
 Este plano ajuda-o a restringir e a controlar o acesso, atribuindo uma definição [de Política Azure](../../../policy/overview.md) a contas de auditoria com permissões de leitura que não têm autenticação multi-factor ativada. A autenticação multi-factor ajuda a manter as contas seguras mesmo que uma peça de informação de autenticação esteja comprometida. Ao monitorizar contas sem autenticação multi-factor ativada, pode identificar contas que possam ser mais comprometidas.
 
@@ -148,7 +148,7 @@ Esta planta atribui definições [de Política Azure](../../../policy/overview.m
 - \[Pré-visualização \] : Implementar requisitos para auditar Os VMs do Linux que têm contas sem senhas
 - \[Pré-visualização \] : Implementar requisitos para auditar VMs do Windows que não armazenam palavras-passe usando encriptação reversível
 
-## <a name="ia-5-1-authenticator-management--password-based-authentication"></a>IA-5 (1) Gestão de Autenticadores / Autenticação Password-Based
+## <a name="ia-5-1-authenticator-management--password-based-authentication"></a>IA-5 (1) Gestão de Autenticadores | Autenticação Password-Based
 
 Este plano ajuda-o a impor senhas fortes atribuindo definições [de Política Azure](../../../policy/overview.md) que auditam máquinas virtuais do Windows que não impõem a força mínima e outros requisitos de senha. A sensibilização das máquinas virtuais em violação da política de força de senha ajuda-o a tomar ações corretivas para garantir que as palavras-passe de todas as contas de utilizadores de máquinas virtuais cumprem a política de senha da sua organização.
 
@@ -193,19 +193,19 @@ Esta planta ajuda-o a gerir e a controlar a fronteira do sistema, atribuindo uma
 - As portas web devem ser restringidas em Grupos de Segurança de Rede associados ao seu VM
 - Auditoria acesso ilimitado à rede a contas de armazenamento
 
-## <a name="sc-7-3-boundary-protection--access-points"></a>SC-7 (3) Proteção de Fronteiras / Pontos de Acesso
+## <a name="sc-7-3-boundary-protection--access-points"></a>SC-7 (3) Proteção de Fronteiras | Pontos de Acesso
 
 O acesso de máquina virtual just-in-time (JIT) bloqueia o tráfego de entrada para máquinas virtuais Azure, reduzindo a exposição a ataques, proporcionando fácil acesso à ligação aos VM quando necessário. O acesso virtual à máquina JIT ajuda-o a limitar o número de ligações externas aos seus recursos em Azure. Esta planta atribui uma definição [de Política Azure](../../../policy/overview.md) que o ajuda a monitorizar máquinas virtuais que podem suportar o acesso just-in-time mas ainda não foram configuradas.
 
 - O controlo de acesso à rede Just-In-Time deve ser aplicado em máquinas virtuais
 
-## <a name="sc-7-4-boundary-protection--external-telecommunications-services"></a>SC-7 (4) Proteção de Fronteiras / Serviços externos de Telecomunicações
+## <a name="sc-7-4-boundary-protection--external-telecommunications-services"></a>SC-7 (4) Proteção de Fronteiras | Serviços externos de Telecomunicações
 
 O acesso de máquina virtual just-in-time (JIT) bloqueia o tráfego de entrada para máquinas virtuais Azure, reduzindo a exposição a ataques, proporcionando fácil acesso à ligação aos VM quando necessário. O acesso a máquinas virtuais JIT ajuda-o a gerir exceções à sua política de fluxo de tráfego, facilitando os processos de pedido de acesso e aprovação. Esta planta atribui uma definição [de Política Azure](../../../policy/overview.md) que o ajuda a monitorizar máquinas virtuais que podem suportar o acesso just-in-time mas ainda não foram configuradas.
 
 - O controlo de acesso à rede Just-In-Time deve ser aplicado em máquinas virtuais
 
-## <a name="sc-8-1-transmission-confidentiality-and-integrity--cryptographic-or-alternate-physical-protection"></a>SC-8 (1) Confidencialidade e Integridade da Transmissão Proteção Física Criptográfica ou Alternativa
+## <a name="sc-8-1-transmission-confidentiality-and-integrity--cryptographic-or-alternate-physical-protection"></a>SC-8 (1) Confidencialidade e Integridade da Transmissão | Proteção Física Criptográfica ou Alternativa
 
 Esta planta ajuda-o a proteger a confidencialidade e a integridade das informações transmitidas, atribuindo definições [da Política Azure](../../../policy/overview.md) que o ajudam a monitorizar o mecanismo criptográfico implementado para protocolos de comunicações. Garantir que as comunicações estão devidamente encriptadas pode ajudá-lo a satisfazer os requisitos da sua organização ou proteger informações de divulgação e modificação não autorizadas.
 
@@ -217,7 +217,7 @@ Esta planta ajuda-o a proteger a confidencialidade e a integridade das informaç
 - A transferência segura para contas de armazenamento deve ser ativada
 - A Aplicação Web só deve ser acessível em HTTPS
 
-## <a name="sc-28-1-protection-of-information-at-rest--cryptographic-protection"></a>SC-28 (1) Proteção da Informação em Repouso Proteção Criptográfica
+## <a name="sc-28-1-protection-of-information-at-rest--cryptographic-protection"></a>SC-28 (1) Proteção da Informação em Repouso | Proteção Criptográfica
 
 Esta planta ajuda-o a aplicar a sua política sobre a utilização de controlos criptógrafos para proteger a informação em repouso, atribuindo definições [de Política Azure](../../../policy/overview.md) que impõem controlos criptógrafos específicos e auditam o uso de configurações criptográficas fracas. Compreender onde os seus recursos Azure podem ter configurações criptográficas não ideais pode ajudá-lo a tomar ações corretivas para garantir que os recursos são configurados de acordo com a sua política de segurança de informação. Especificamente, as definições de política atribuídas por esta planta requerem encriptação para contas de armazenamento de lagos de dados; requerer encriptação de dados transparentes nas bases de dados SQL; e auditoria falta de encriptação em bases de dados SQL, discos de máquinas virtuais e variáveis de conta de automação.
 
@@ -249,7 +249,7 @@ Esta planta ajuda-o a gerir a proteção de pontos finais, incluindo a proteçã
 - A solução de proteção do ponto final deve ser instalada em conjuntos de escala de máquina virtual
 - Monitor que falta proteção de ponto final no Centro de Segurança Azure
 
-## <a name="si-3-1-malicious-code-protection--central-management"></a>SI-3 (1) Proteção de Código Malicioso / Gestão Central
+## <a name="si-3-1-malicious-code-protection--central-management"></a>SI-3 (1) Proteção de Código Malicioso | Gestão Central
 
 Esta planta ajuda-o a gerir a proteção de pontos finais, incluindo a proteção de código malicioso, atribuindo definições [de Política Azure](../../../policy/overview.md) que monitorizam a falta de proteção de pontos finais em máquinas virtuais no Azure Security Center. O Azure Security Center fornece capacidades de gestão e reporte centralizadas que lhe permitem ter informações em tempo real sobre o estado de segurança dos recursos Azure implantados.
 
@@ -284,7 +284,7 @@ Agora que reviu o mapeamento de controlo da planta moderada da FedRAMP, visite o
 
 > [!div class="nextstepaction"]
 > [FedRAMP Planta moderada - Visão geral](./index.md) 
->  [Projeto moderado FodRAMP - Implementar etapas](./deploy.md)
+>  [FedRAMP Planta moderada - Implementar etapas](./deploy.md)
 
 Artigos adicionais sobre esquemas e como os utilizar:
 

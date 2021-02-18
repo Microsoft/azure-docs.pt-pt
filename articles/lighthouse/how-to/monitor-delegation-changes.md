@@ -3,18 +3,18 @@ title: Monitorize as mudanças de delegação no seu inquilino gerente
 description: Saiba como monitorizar a atividade da delegação desde os inquilinos do cliente até ao seu inquilino gerente.
 ms.date: 01/27/2021
 ms.topic: how-to
-ms.openlocfilehash: 9fdf47df4ac37fec44cf53b565b7fe1411540793
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 3bf6cc044d807d0c830b15c6d9c9a6d507f1a54f
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99089427"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593135"
 ---
 # <a name="monitor-delegation-changes-in-your-managing-tenant"></a>Monitorize as mudanças de delegação no seu inquilino gerente
 
 Como prestador de serviços, poderá querer estar ciente de que as subscrições de clientes ou grupos de recursos são delegados ao seu inquilino através [do Farol Azure,](../overview.md)ou quando os recursos previamente delegados são removidos.
 
-No inquilino gerente, o [log de atividades Azure](../../azure-monitor/platform/platform-logs-overview.md) acompanha a atividade da delegação ao nível do inquilino. Esta atividade registada inclui quaisquer delegações adicionadas ou removidas de todos os inquilinos do cliente.
+No inquilino gerente, o [log de atividades Azure](../../azure-monitor/essentials/platform-logs-overview.md) acompanha a atividade da delegação ao nível do inquilino. Esta atividade registada inclui quaisquer delegações adicionadas ou removidas de todos os inquilinos do cliente.
 
 Este tópico explica as permissões necessárias para monitorizar a atividade da delegação ao seu inquilino (em todos os seus clientes). Também inclui um guião de amostra que mostra um método para consulta e relatório sobre estes dados.
 
@@ -104,7 +104,7 @@ Ao consultar estes dados, tenha em mente:
 - Se vários grupos de recursos forem delegados numa única implantação, serão devolvidas entradas separadas para cada grupo de recursos.
 - As alterações introduzidas numa delegação anterior (como a atualização da estrutura de permissões) serão registadas como uma delegação adicional.
 - Como referido acima, uma conta deve ter o monitor azure papel incorporado no âmbito raiz (/) para aceder a estes dados ao nível do inquilino.
-- Pode utilizar estes dados nos seus próprios fluxos de trabalho e reporte. Por exemplo, pode utilizar a [API do Retorno de Dados HTTP (pré-visualização pública)](../../azure-monitor/platform/data-collector-api.md) para registar dados no Azure Monitor a partir de um cliente REST API e, em seguida, utilizar [grupos](../../azure-monitor/platform/action-groups.md) de ação para criar notificações ou alertas.
+- Pode utilizar estes dados nos seus próprios fluxos de trabalho e reporte. Por exemplo, pode utilizar a [API do Retorno de Dados HTTP (pré-visualização pública)](../../azure-monitor/logs/data-collector-api.md) para registar dados no Azure Monitor a partir de um cliente REST API e, em seguida, utilizar [grupos](../../azure-monitor/alerts/action-groups.md) de ação para criar notificações ou alertas.
 
 ```azurepowershell-interactive
 # Log in first with Connect-AzAccount if you're not using Cloud Shell
@@ -181,5 +181,5 @@ else {
 ## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como embarcar clientes no [Farol Azure.](../concepts/azure-delegated-resource-management.md)
-- Saiba mais sobre [o Azure Monitor](../../azure-monitor/index.yml) e o [registo de atividades Azure](../../azure-monitor/platform/platform-logs-overview.md).
+- Saiba mais sobre [o Azure Monitor](../../azure-monitor/index.yml) e o [registo de atividades Azure](../../azure-monitor/essentials/platform-logs-overview.md).
 - Reveja os [registos de atividade por livro de amostras de domínio](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/workbook-activitylogs-by-domain) para aprender a exibir registos de Atividade Azure em subscrições com a opção de filtrar por nome de domínio.

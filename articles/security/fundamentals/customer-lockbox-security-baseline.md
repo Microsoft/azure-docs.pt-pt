@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: dd54459cef3d6f20180b4c7c41eefbdd42c6980c
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: b58d96adba690084580fe11b42253a1e77370379
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807925"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595598"
 ---
 # <a name="azure-security-baseline-for-customer-lockbox-for-microsoft-azure"></a>Linha de segurança Azure para o Lockbox do Cliente para o Microsoft Azure
 
@@ -164,7 +164,7 @@ A bordo dos registos de atividade gerados pelo Customer Lockbox para a Azure Sen
 
 **Orientação**: No Azure Monitor, detenva o período de retenção de registos para os espaços de trabalho do Log Analytics associados ao seu Lockbox de Clientes de acordo com os regulamentos de conformidade da sua organização.
 
-* [Como definir parâmetros de retenção de registos](../../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+* [Como definir parâmetros de retenção de registos](../../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Monitorização do Centro de Segurança do Azure**: Não aplicável
 
@@ -186,7 +186,7 @@ A bordo dos registos de atividade gerados pelo Customer Lockbox para a Azure Sen
 
 * [Registos de auditoria no Bloqueio do Cliente](./customer-lockbox-overview.md#auditing-logs)
 
-* [Como alertar nos dados de registo de registo de registos de registos](../../azure-monitor/learn/tutorial-response.md)
+* [Como alertar nos dados de registo de registo de registos de registos](../../azure-monitor/alerts/tutorial-response.md)
 
 **Monitorização do Centro de Segurança do Azure**: Sim
 
@@ -461,9 +461,9 @@ Pode agilizar este processo criando definições de diagnóstico para contas de 
 
 * [Como permitir a auditoria no Customer Lockbox](./customer-lockbox-overview.md)
 
-* [Como visualizar e recuperar eventos de Registo de Atividades Azure](../../azure-monitor/platform/activity-log.md#view-the-activity-log)
+* [Como visualizar e recuperar eventos de Registo de Atividades Azure](../../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-* [Como criar alertas no Azure Monitor](../../azure-monitor/platform/alerts-activity-log.md)
+* [Como criar alertas no Azure Monitor](../../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitorização do Centro de Segurança do Azure**: Sim
 

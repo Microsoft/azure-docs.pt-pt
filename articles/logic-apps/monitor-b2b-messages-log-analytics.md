@@ -6,23 +6,23 @@ ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 01/30/2020
-ms.openlocfilehash: 5baa4d4d968adb25b5520ca91149970f5c5578e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 765c15897bd5d435503d3bef07e76a93b148971c
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86536275"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100596854"
 ---
 # <a name="set-up-azure-monitor-logs-and-collect-diagnostics-data-for-b2b-messages-in-azure-logic-apps"></a>Configurar os registos do Azure Monitor e recolher dados de diagnóstico para mensagens B2B no Azure Logic Apps
 
-Depois de configurar a comunicação B2B entre parceiros comerciais na sua conta de integração, esses parceiros podem trocar mensagens utilizando protocolos como AS2, X12 e EDIFACT. Para verificar se esta comunicação funciona da forma que espera, pode configurar [registos do Azure Monitor](../azure-monitor/platform/data-platform-logs.md) para a sua conta de integração. [O Azure Monitor](../azure-monitor/overview.md) ajuda-o a monitorizar os ambientes da nuvem e do local para que possa manter mais facilmente a sua disponibilidade e desempenho. Ao utilizar registos do Azure Monitor, pode gravar e armazenar dados sobre dados e eventos de tempo de execução, tais como eventos de desencadeamento, eventos de execução e eventos de ação num [espaço de trabalho do Log Analytics.](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace) Para mensagens, o registo também recolhe informações como:
+Depois de configurar a comunicação B2B entre parceiros comerciais na sua conta de integração, esses parceiros podem trocar mensagens utilizando protocolos como AS2, X12 e EDIFACT. Para verificar se esta comunicação funciona da forma que espera, pode configurar [registos do Azure Monitor](../azure-monitor/logs/data-platform-logs.md) para a sua conta de integração. [O Azure Monitor](../azure-monitor/overview.md) ajuda-o a monitorizar os ambientes da nuvem e do local para que possa manter mais facilmente a sua disponibilidade e desempenho. Ao utilizar registos do Azure Monitor, pode gravar e armazenar dados sobre dados e eventos de tempo de execução, tais como eventos de desencadeamento, eventos de execução e eventos de ação num [espaço de trabalho do Log Analytics.](../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace) Para mensagens, o registo também recolhe informações como:
 
 * Contagem de mensagens e estado
 * Estatuto de agradecimento
 * Correlações entre mensagens e reconhecimentos
 * Descrições detalhadas de erros para falhas
 
-O Azure Monitor permite criar [consultas de registo](../azure-monitor/log-query/log-query-overview.md) para o ajudar a encontrar e rever estas informações. Também pode [utilizar estes dados de diagnóstico com outros serviços Azure](../logic-apps/monitor-logic-apps-log-analytics.md#extend-data), como o Azure Storage e o Azure Event Hubs.
+O Azure Monitor permite criar [consultas de registo](../azure-monitor/logs/log-query-overview.md) para o ajudar a encontrar e rever estas informações. Também pode [utilizar estes dados de diagnóstico com outros serviços Azure](../logic-apps/monitor-logic-apps-log-analytics.md#extend-data), como o Azure Storage e o Azure Event Hubs.
 
 Para configurar o registo da sua conta de integração, [instale a solução Logic Apps B2B](#install-b2b-solution) no portal Azure. Esta solução fornece informações agregadas para eventos de mensagens B2B. Em seguida, para permitir o registo e a criação de consultas para esta informação, crie [registos do Azure Monitor](#set-up-resource-logs).
 
@@ -32,7 +32,7 @@ Este artigo mostra como ativar o registo do Azure Monitor para a sua conta de in
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma área de trabalho do Log Analytics. Se não tiver um espaço de trabalho log analytics, aprenda [a criar um espaço de trabalho Log Analytics](../azure-monitor/learn/quick-create-workspace.md).
+* Uma área de trabalho do Log Analytics. Se não tiver um espaço de trabalho log analytics, aprenda [a criar um espaço de trabalho Log Analytics](../azure-monitor/logs/quick-create-workspace.md).
 
 * Uma aplicação lógica que foi criada com o registo do Azure Monitor e envia essa informação para um espaço de trabalho do Log Analytics. Saiba [como configurar os registos do Azure Monitor para a sua aplicação lógica.](../logic-apps/monitor-logic-apps.md)
 
@@ -52,7 +52,7 @@ Antes que os registos do Azure Monitor possam rastrear as mensagens B2B para a s
 
    ![Selecione o seu espaço de trabalho Log Analytics](./media/monitor-b2b-messages-log-analytics/select-log-analytics-workspace.png)
 
-1. No painel de visão geral, em **Iniciar com**  >  **soluções de monitorização**de configuração log Analytics, selecione **Ver soluções**.
+1. No painel de visão geral, em **Iniciar com**  >  **soluções de monitorização** de configuração log Analytics, selecione **Ver soluções**.
 
    ![No painel de visão geral, selecione "Ver soluções"](./media/monitor-b2b-messages-log-analytics/log-analytics-workspace.png)
 
@@ -86,7 +86,7 @@ Pode ativar o registo do Azure Monitor diretamente a partir da sua conta de inte
 
    ![Encontre e selecione a sua conta de integração](./media/monitor-b2b-messages-log-analytics/find-integration-account.png)
 
-1. No menu da sua conta de integração, em **Monitorização,** selecione **Definições de Diagnóstico**. **Selecione Adicionar a definição de diagnóstico**.
+1. No menu da sua conta de integração, em **Monitorização,** selecione **Definições de Diagnóstico**. Selecione **Adicionar definição de diagnóstico**.
 
    ![Em "Monitorização", selecione "Definições de diagnóstico"](./media/monitor-b2b-messages-log-analytics/monitor-diagnostics-settings.png)
 
@@ -127,7 +127,7 @@ Após a execução da sua aplicação lógica, pode visualizar o estado e os dad
 
    ![Intervalo de alteração](./media/monitor-b2b-messages-log-analytics/change-summary-interval.png)
 
-1. Depois de aparecer o painel de estado da mensagem, pode ver mais detalhes para um tipo de mensagem específico, que mostra dados baseados num único dia. Selecione o azulejo para **AS2,** **X12**ou **EDIFACT**.
+1. Depois de aparecer o painel de estado da mensagem, pode ver mais detalhes para um tipo de mensagem específico, que mostra dados baseados num único dia. Selecione o azulejo para **AS2,** **X12** ou **EDIFACT**.
 
    ![Ver statuses para mensagens](./media/monitor-b2b-messages-log-analytics/workspace-summary-b2b-messages.png)
 
@@ -163,7 +163,7 @@ Após a execução da sua aplicação lógica, pode visualizar o estado e os dad
 
    * To search results with prebuilt queries, select **Favorites**.
 
-   * Learn [how to build queries by adding filters](../logic-apps/create-monitoring-tracking-queries.md). Or learn more about [how to find data with log searches in Azure Monitor logs](../azure-monitor/log-query/log-query-overview.md).
+   * Learn [how to build queries by adding filters](../logic-apps/create-monitoring-tracking-queries.md). Or learn more about [how to find data with log searches in Azure Monitor logs](../azure-monitor/logs/log-query-overview.md).
 
    * To change query in the search box, update the query with the columns and values that you want to use as filters.
 -->
@@ -190,7 +190,7 @@ Aqui estão as descrições da propriedade para cada mensagem AS2.
 | **Direção** | A direção da mensagem AS2 |
 | **ID de rastreio** | O ID que correlaciona todos os gatilhos e ações numa aplicação lógica |
 | **ID da Mensagem** | O ID de mensagem AS2 dos cabeçalhos de mensagens AS2 |
-| **Timestamp** | O momento em que a ação AS2 processou a mensagem |
+| **Tempotamp** | O momento em que a ação AS2 processou a mensagem |
 |||
 
 <!--
@@ -225,7 +225,7 @@ Aqui estão as descrições da propriedade para cada mensagem X12.
 | **Tipo Msg** | O tipo de mensagem EDI X12 |
 | **ICN** | O Número de Controlo de Intercâmbio para a mensagem X12 |
 | **TSCN** | O número de controlo do conjunto de transações para a mensagem X12 |
-| **Timestamp** | O tempo em que a ação X12 processou a mensagem |
+| **Tempotamp** | O tempo em que a ação X12 processou a mensagem |
 |||
 
 <!--
@@ -260,7 +260,7 @@ Aqui estão as descrições da propriedade para cada mensagem EDIFACT.
 | **Tipo Msg** | O tipo de mensagem EDIFACT |
 | **ICN** | O Número de Controlo Intercambial da mensagem EDIFACT |
 | **TSCN** | O número de controlo do conjunto de transações para a mensagem EDIFACT |
-| **Timestamp** | O tempo em que a ação EDIFACT processou a mensagem |
+| **Tempotamp** | O tempo em que a ação EDIFACT processou a mensagem |
 |||
 
 <!--

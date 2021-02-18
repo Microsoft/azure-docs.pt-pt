@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/10/2020
 ms.author: alsin
 ms.reviewer: cynthn
-ms.openlocfilehash: 293245d6778a40e234cdca177905c15dc88dd04f
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 0f3b36729fb07c6f5ae03a46e199e4cadb44a25e
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737766"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100635596"
 ---
 # <a name="overview-of-red-hat-enterprise-linux-images"></a>Visão geral das imagens do Red Hat Enterprise Linux
 
@@ -65,6 +65,9 @@ Esta comparação de versão de imagem é feita comparando os valores como um ob
 
 ## <a name="rhel-6-image-types"></a>TIPOS DE IMAGEM RHEL 6
 
+>[!NOTE]
+> A partir de 30 de dezembro de 2020, a RHEL 6.10 entrou no End Of Life (EOL). Para um suporte continuado, por favor, ative o ELS como parte da fase de suporte ao ciclo de vida prolongado, consulte a [documentação do ElS do chapéu vermelho](./redhat-extended-lifecycle-support.md).
+
 Para as imagens RHEL 6.x, os tipos de imagem são apresentados na tabela seguinte.
 
 |Publisher | Oferta | Valor SKU | Versão | Detalhes
@@ -106,7 +109,15 @@ Os detalhes para os tipos de imagem RHEL 8 estão abaixo.
 |RedHat | RHEL | 8 | Valores concatenados da versão menor do RHEL e da data publicada (por exemplo, 8.0.20191023) | Estas imagens são imagens partidas pela RHEL 8 LVM ligadas aos repositórios padrão do Chapéu Vermelho.
 |RedHat | RHEL | 8-gen2 | Valores concatenados da versão menor do RHEL e da data publicada (por exemplo, 8.0.20191024) | Estas imagens são imagens de hiper-V geração 2 RHEL 8 LVM-partitioned connected to red hat repositórios padrão. Para obter mais informações sobre os VMs da Geração 2 em Azure, consulte [Suporte para Azure](../../generation-2.md).
 
-## <a name="rhel-longer-support-add-ons"></a>Addons de suporte mais longos RHEL
+## <a name="rhel-extended-support-add-ons"></a>Add-ons de suporte estendido RHEL
+
+### <a name="extended-life-cycle-support"></a>Suporte ao ciclo de vida prolongado
+
+O addon Extended Life-cycle Support (ELS) é uma subscrição opcional que permite correções de segurança críticas e importantes para lançamentos que atingiram o Fim de Vida (EOL). Mais informações sobre o EUS RHEL estão disponíveis na [documentação da Red Hat.](https://access.redhat.com/support/policy/updates/errata#Extended_Life_Cycle_Support)
+
+A ELS está atualmente disponível apenas para RHEL 6.10. Para imagens pay-as-you-go, o ELS pode ser ativado seguindo os passos na [documentação DO ELS do Chapéu Vermelho](./redhat-extended-lifecycle-support.md).
+
+Se estiver a executar uma versão mais antiga, é necessário um upgrade para RHEL 6.10 antes de poder ativar o ELS.
 
 ### <a name="extended-update-support"></a>Suporte de atualização alargada
 
@@ -176,7 +187,7 @@ Atualizamos apenas a versão menor atual numa dada família de imagens. Com o la
 
 A política atual é manter todas as imagens publicadas anteriormente. Reservamo-nos o direito de remover imagens que são conhecidas por causar problemas de qualquer tipo. Por exemplo, imagens com configurações incorretas devido a atualizações subsequentes da plataforma ou componentes podem ser removidas. As imagens que podem ser removidas seguem a atual política do Azure Marketplace para fornecer notificações até 30 dias antes da remoção da imagem.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para ver a lista completa de imagens RHEL em Azure, consulte [as imagens red hat enterprise Linux (RHEL) disponíveis em Azure](./redhat-imagelist.md).
 * Para saber mais sobre a Infraestrutura de Atualização do Chapéu Vermelho Azure, consulte [a Infraestrutura red hat update para VMs RHEL a pedido em Azure](./redhat-rhui.md).

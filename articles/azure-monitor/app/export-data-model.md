@@ -1,19 +1,19 @@
 ---
-title: Modelo de dados de insights de aplicação Azure Microsoft Docs
+title: Azure Application Insights Data Model | Microsoft Docs
 description: Descreve propriedades exportadas a partir de exportação contínua em JSON, e usadas como filtros.
 ms.topic: conceptual
 ms.date: 01/08/2019
-ms.openlocfilehash: 29ad999c307d1c11e7a584b61d85ed73b9448cb4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b4609d54c1c3c33a654dd58a3bceaca4974fda15
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87324391"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100584215"
 ---
 # <a name="application-insights-export-data-model"></a>Modelo de dados de exportação de insights de aplicação
 Esta tabela lista as propriedades da telemetria enviadas dos SDKs [application insights](./app-insights-overview.md) para o portal.
 Você verá estas propriedades na produção de dados da [Exportação Contínua.](export-telemetry.md)
-Também aparecem em filtros de propriedade no [Metric Explorer](../platform/metrics-charts.md) e na Pesquisa [de Diagnóstico.](./diagnostic-search.md)
+Também aparecem em filtros de propriedade no [Metric Explorer](../essentials/metrics-charts.md) e na Pesquisa [de Diagnóstico.](./diagnostic-search.md)
 
 Pontos a notar:
 
@@ -350,7 +350,7 @@ Em vez de métricas pré-agregantes, pode utilizar [a amostragem](./sampling.md)
 ### <a name="durations"></a>Durações
 Salvo indicação em contrário, as durações são representadas em décimos de um microsegundo, de modo que 100000000000 significa 1 segundo.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Ver também
 * [Application Insights](./app-insights-overview.md)
 * [Exportação Contínua](export-telemetry.md)
 * [Amostras de código](export-telemetry.md#code-samples)

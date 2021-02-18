@@ -59,8 +59,10 @@
       href: ./update-application-to-3.0-sdk.md
 - name: Referência
   items:
-    - name: API REST
-      href: 'https://docs.microsoft.com/rest/api/custom-vision/'
+    - name: API de Formação de Visão Personalizada
+      href: 'https://go.microsoft.com/fwlink/?linkid=865446'
+    - name: API de Predição de Visão Personalizada
+      href: 'https://go.microsoft.com/fwlink/?linkid=865445'
     - name: SDKs
       items:
         - name: .NET

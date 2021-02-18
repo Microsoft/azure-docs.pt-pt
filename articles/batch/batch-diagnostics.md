@@ -4,22 +4,22 @@ description: Grave e analise os eventos de registo de diagnóstico para recursos
 ms.topic: how-to
 ms.date: 10/08/2020
 ms.custom: seodec18
-ms.openlocfilehash: fe2697c73f2a5f3f0b33cfb598f11f39420ed723
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 83411d7018155955f5be71bd41803e510edbc9da
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95994116"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592681"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Métricas, alertas e registos de diagnóstico
 
-Este artigo explica como monitorizar uma conta batch utilizando características do [Azure Monitor](../azure-monitor/overview.md). O Azure Monitor recolhe [métricas](../azure-monitor/platform/data-platform-metrics.md) e [registos de diagnóstico](../azure-monitor/platform/platform-logs-overview.md) para recursos na sua conta Batch. Recolher e consumir estes dados de várias formas de monitorizar a sua conta Batch e diagnosticar problemas. Também pode configurar [alertas métricos](../azure-monitor/platform/alerts-overview.md) para que receba notificações quando uma métrica atinge um valor especificado.
+Este artigo explica como monitorizar uma conta batch utilizando características do [Azure Monitor](../azure-monitor/overview.md). O Azure Monitor recolhe [métricas](../azure-monitor/essentials/data-platform-metrics.md) e [registos de diagnóstico](../azure-monitor/essentials/platform-logs-overview.md) para recursos na sua conta Batch. Recolher e consumir estes dados de várias formas de monitorizar a sua conta Batch e diagnosticar problemas. Também pode configurar [alertas métricos](../azure-monitor/alerts/alerts-overview.md) para que receba notificações quando uma métrica atinge um valor especificado.
 
 ## <a name="batch-metrics"></a>Métricas de lote
 
 As métricas são dados de telemetria Azure (também chamados contadores de desempenho) que são emitidos pelos seus recursos Azure e consumidos pelo serviço Azure Monitor. Exemplos de métricas numa conta de Lote são Eventos de Criação de Pool, Low-Priority Contagem de Nó e Eventos Completos de Tarefas.
 
-Consulte a [lista de métricas do Lote suportado.](../azure-monitor/platform/metrics-supported.md#microsoftbatchbatchaccounts)
+Consulte a [lista de métricas do Lote suportado.](../azure-monitor/essentials/metrics-supported.md#microsoftbatchbatchaccounts)
 
 As métricas são:
 
@@ -68,9 +68,9 @@ Para configurar um alerta métrico no portal Azure:
 5. Na secção de detalhes da **regra de alerta,** insira um **nome de regra de alerta** e **descrição** e selecione a **Severidade**
 6. Selecione **Criar regra de alerta**.
 
-Para obter mais informações sobre a criação de alertas métricos, consulte [Como os alertas métricos funcionam no Azure Monitor](../azure-monitor/platform/alerts-metric-overview.md) e [Criar, ver e gerir alertas métricos usando o Azure Monitor](../azure-monitor/platform/alerts-metric.md).
+Para obter mais informações sobre a criação de alertas métricos, consulte [Como os alertas métricos funcionam no Azure Monitor](../azure-monitor/alerts/alerts-metric-overview.md) e [Criar, ver e gerir alertas métricos usando o Azure Monitor](../azure-monitor/alerts/alerts-metric.md).
 
-Também pode configurar um alerta quase em tempo real utilizando a [API do](/rest/api/monitor/)Monitor Azure . Para mais informações, consulte [a visão geral dos alertas no Microsoft Azure](../azure-monitor/platform/alerts-overview.md). Para incluir informações específicas de trabalho, tarefa ou piscina nos seus alertas, consulte as informações sobre consultas de pesquisa em [Responder a eventos com Alertas monitores Azure](../azure-monitor/learn/tutorial-response.md).
+Também pode configurar um alerta quase em tempo real utilizando a [API do](/rest/api/monitor/)Monitor Azure . Para mais informações, consulte [a visão geral dos alertas no Microsoft Azure](../azure-monitor/alerts/alerts-overview.md). Para incluir informações específicas de trabalho, tarefa ou piscina nos seus alertas, consulte as informações sobre consultas de pesquisa em [Responder a eventos com Alertas monitores Azure](../azure-monitor/alerts/tutorial-response.md).
 
 ## <a name="batch-diagnostics"></a>Batch diagnostics (Diagnósticos do Batch)
 
@@ -88,7 +88,7 @@ Um cenário comum é selecionar uma conta de Armazenamento Azure como destino de
 Alternadamente, pode:
 
 - Stream Batch diagnostic registrs para um [Azure Event Hub](../event-hubs/event-hubs-about.md). Os Centros de Eventos podem ingerir milhões de eventos por segundo, que podes transformar e armazenar usando qualquer fornecedor de análise em tempo real.
-- Envie registos de diagnóstico para [registos do Azure Monitor,](../azure-monitor/log-query/log-query-overview.md)onde pode analisá-los ou exportá-los para análise em Power BI ou Excel.
+- Envie registos de diagnóstico para [registos do Azure Monitor,](../azure-monitor/logs/log-query-overview.md)onde pode analisá-los ou exportá-los para análise em Power BI ou Excel.
 
 > [!NOTE]
 > Pode incorrer em custos adicionais para armazenar ou processar dados de registo de diagnóstico com os serviços Azure.
@@ -105,7 +105,7 @@ Para criar uma nova definição de diagnóstico no portal Azure, siga os passos 
 6. **Selecione ServiceLog**, **AllMetrics,** ou ambos.
 7. **Selecione Guardar** para criar a definição de diagnóstico.
 
-Também pode [ativar a recolha através do Azure Monitor no portal Azure](../azure-monitor/platform/diagnostic-settings.md) para configurar definições de diagnóstico, utilizando um [modelo de Gestor de Recursos](../azure-monitor/samples/resource-manager-diagnostic-settings.md), ou com a Azure PowerShell ou o Azure CLI. Para mais informações, consulte [a visão geral dos registos da plataforma Azure](../azure-monitor/platform/platform-logs-overview.md).
+Também pode [ativar a recolha através do Azure Monitor no portal Azure](../azure-monitor/essentials/diagnostic-settings.md) para configurar definições de diagnóstico, utilizando um [modelo de Gestor de Recursos](../azure-monitor/essentials/resource-manager-diagnostic-settings.md), ou com a Azure PowerShell ou o Azure CLI. Para mais informações, consulte [a visão geral dos registos da plataforma Azure](../azure-monitor/essentials/platform-logs-overview.md).
 
 ### <a name="access-diagnostics-logs-in-storage"></a>Aceder a registos de diagnósticos no armazenamento
 
@@ -135,7 +135,7 @@ Abaixo está um exemplo de uma `PoolResizeCompleteEvent` entrada num ficheiro de
 { "Tenant": "65298bc2729a4c93b11c00ad7e660501", "time": "2019-08-22T20:59:13.5698778Z", "resourceId": "/SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.BATCH/BATCHACCOUNTS/MYBATCHACCOUNT/", "category": "ServiceLog", "operationName": "PoolResizeCompleteEvent", "operationVersion": "2017-06-01", "properties": {"id":"MYPOOLID","nodeDeallocationOption":"Requeue","currentDedicatedNodes":10,"targetDedicatedNodes":100,"currentLowPriorityNodes":0,"targetLowPriorityNodes":0,"enableAutoScale":false,"isAutoPool":false,"startTime":"2019-08-22 20:50:59.522","endTime":"2019-08-22 20:59:12.489","resultCode":"Success","resultMessage":"The operation succeeded"}}
 ```
 
-Para obter mais informações sobre o esquema dos registos de diagnóstico na conta de armazenamento, consulte [os registos de recursos do Archive Azure para a conta de armazenamento.](../azure-monitor/platform/resource-logs.md#send-to-azure-storage) Para aceder aos registos na sua conta de armazenamento programáticamente, utilize as APIs de armazenamento.
+Para obter mais informações sobre o esquema dos registos de diagnóstico na conta de armazenamento, consulte [os registos de recursos do Archive Azure para a conta de armazenamento.](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage) Para aceder aos registos na sua conta de armazenamento programáticamente, utilize as APIs de armazenamento.
 
 ### <a name="service-log-events"></a>Eventos de registo de serviço
 

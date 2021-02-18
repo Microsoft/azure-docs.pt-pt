@@ -3,12 +3,12 @@ title: Monitor Azure Batch
 description: Saiba mais sobre os serviços de monitorização do Azure, métricas, registos de diagnóstico e outras funcionalidades de monitorização do Azure Batch.
 ms.topic: how-to
 ms.date: 04/05/2018
-ms.openlocfilehash: 9387d4894dbf06445fd43722353ca7ae98607359
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b926f9c6d173cd0b8d886047eae490e4a151988f
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86144943"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595424"
 ---
 # <a name="monitor-batch-solutions"></a>Monitorizar soluções do Batch
 
@@ -18,15 +18,15 @@ Para uma visão geral dos componentes e serviços Azure disponíveis para monito
 
 ## <a name="subscription-level-monitoring"></a>Monitorização ao nível da subscrição
 
-Ao nível da subscrição, que inclui contas Batch, o registo de atividades do [Azure](../azure-monitor/platform/platform-logs-overview.md) recolhe dados operacionais de eventos em [várias categorias](../azure-monitor/platform/activity-log.md#view-the-activity-log).
+Ao nível da subscrição, que inclui contas Batch, o registo de atividades do [Azure](../azure-monitor/essentials/platform-logs-overview.md) recolhe dados operacionais de eventos em [várias categorias](../azure-monitor/essentials/activity-log.md#view-the-activity-log).
 
 Especificamente para as contas do Batch, o registo de atividades recolhe eventos relacionados com a criação de conta e eliminação e gestão de chaves.
 
-Uma forma de recuperar eventos do seu registo de atividades é usar o portal Azure. Clique **em Todos os serviços**Registo de  >  **Atividades**. Ou, consulta para eventos usando o Azure CLI, powerShell cmdlets, ou o AZure Monitor REST API. Também pode exportar o registo de atividades ou configurar [alertas de registo de atividades](../azure-monitor/platform/alerts-activity-log.md).
+Uma forma de recuperar eventos do seu registo de atividades é usar o portal Azure. Clique **em Todos os serviços** Registo de  >  **Atividades**. Ou, consulta para eventos usando o Azure CLI, powerShell cmdlets, ou o AZure Monitor REST API. Também pode exportar o registo de atividades ou configurar [alertas de registo de atividades](../azure-monitor/alerts/alerts-activity-log.md).
 
 ## <a name="batch-account-level-monitoring"></a>Monitorização do nível da conta do lote
 
-Monitorize cada conta de Lote utilizando as características do [Azure Monitor](../azure-monitor/overview.md). O Azure Monitor recolhe [métricas](../azure-monitor/platform/data-platform-metrics.md) e registos de diagnóstico opcional para recursos [abrangidos](../azure-monitor/platform/platform-logs-overview.md) ao nível de uma conta Batch, tais como piscinas, empregos e tarefas. Recolher e consumir estes dados manualmente ou programáticamente para monitorizar as atividades na sua conta Batch e diagnosticar problemas. Para mais detalhes, consulte [métricas, alertas e registos do Lote para avaliação e monitorização de diagnósticos.](batch-diagnostics.md)
+Monitorize cada conta de Lote utilizando as características do [Azure Monitor](../azure-monitor/overview.md). O Azure Monitor recolhe [métricas](../azure-monitor/essentials/data-platform-metrics.md) e registos de diagnóstico opcional para recursos [abrangidos](../azure-monitor/essentials/platform-logs-overview.md) ao nível de uma conta Batch, tais como piscinas, empregos e tarefas. Recolher e consumir estes dados manualmente ou programáticamente para monitorizar as atividades na sua conta Batch e diagnosticar problemas. Para mais detalhes, consulte [métricas, alertas e registos do Lote para avaliação e monitorização de diagnósticos.](batch-diagnostics.md)
  
 > [!NOTE]
 > As métricas estão disponíveis por padrão na sua conta Batch sem configuração adicional, e têm um histórico de 30 dias de rolamento. Tem de ativar o registo de diagnóstico de uma conta Batch e poderá incorrer em custos adicionais para armazenar ou processar dados de registo de diagnóstico. 

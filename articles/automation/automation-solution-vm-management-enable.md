@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: dde2c3e4cf496bb15ca91c72d9a41936af7051c5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36f885416c5e9cb656d01a65b9c503f8897d2f9f
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83743761"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593904"
 ---
 # <a name="enable-startstop-vms-during-off-hours"></a>Ativar a solução Iniciar/Parar VMs fora do horário de expediente
 
@@ -82,7 +82,7 @@ Depois de clicar **em OK,** as opções de configuração são validadas e a con
   
 4. Utilize o campo **Agendar** para selecionar um horário de gestão de VM pela funcionalidade. Selecione uma data e hora de início para a sua agenda, para criar uma agenda diária recorrente a partir da hora escolhida. Não está disponível a seleção de uma região diferente. Para configurar o horário para o seu fuso horário específico depois de configurar a funcionalidade, consulte [Modificar os horários de arranque e de paragem](automation-solution-vm-management-config.md#modify-the-startup-and-shutdown-schedules).
 
-5. Para receber notificações por e-mail de um grupo de [ação,](../azure-monitor/platform/action-groups.md)aceite o valor padrão do **Sim** no campo das  **notificações por e-mail** e forneça um endereço de e-mail válido. Se selecionar **No** mas decidir numa data posterior que pretende receber notificações por e-mail, pode atualizar o grupo de ação que é criado com endereços de e-mail válidos separados por vírgulas. 
+5. Para receber notificações por e-mail de um grupo de [ação,](../azure-monitor/alerts/action-groups.md)aceite o valor padrão do **Sim** no campo das  **notificações por e-mail** e forneça um endereço de e-mail válido. Se selecionar **No** mas decidir numa data posterior que pretende receber notificações por e-mail, pode atualizar o grupo de ação que é criado com endereços de e-mail válidos separados por vírgulas. 
 
 6. Ativar as seguintes regras de alerta:
 
@@ -92,7 +92,7 @@ Depois de clicar **em OK,** as opções de configuração são validadas e a con
 
 ## <a name="create-alerts"></a>Criar alertas
 
-Os VMs de início/paragem durante o horário de folga não incluem um conjunto de alertas predefinidos. Reveja Criar alertas de registo com o [Azure Monitor](../azure-monitor/platform/alerts-log.md) para aprender a criar alertas falhados de trabalho para suportar os seus DevOps ou processos e procedimentos operacionais.
+Os VMs de início/paragem durante o horário de folga não incluem um conjunto de alertas predefinidos. Reveja Criar alertas de registo com o [Azure Monitor](../azure-monitor/alerts/alerts-log.md) para aprender a criar alertas falhados de trabalho para suportar os seus DevOps ou processos e procedimentos operacionais.
 
 ## <a name="deploy-the-feature"></a>Implementar a funcionalidade
 

@@ -8,12 +8,12 @@ ms.date: 08/26/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: b9b842b94d66cf91ad836b8ae61df1b3d3f34293
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: e38b3c617ded9c0001b01e481d4d3c1120be62ef
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96435948"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100634758"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge-devices-classic-editor"></a>Integração contínua e implementação contínua para dispositivos Azure IoT Edge (editor clássico)
 
@@ -112,7 +112,7 @@ Nesta secção, cria-se um novo oleoduto de construção. Configura o pipeline p
 
     * **ACR_ADDRESS**: O valor do servidor de registo do registo do seu registo de registo de **dados.** Pode recuperar o servidor 'Iniciar sessão' a partir da página de visão geral do seu registo de contentores no portal Azure.
 
-    Se tiver outras variáveis no seu projeto, pode especificar **Build module images** o nome e o valor neste separador. `${VARIABLE}` Certifique-se de que utiliza este formato nos seus `**/module.json` ficheiros.
+    Se tiver outras variáveis no seu projeto, pode especificar  o nome e o valor neste separador. `${VARIABLE}` Certifique-se de que utiliza este formato nos seus `**/module.json` ficheiros.
 
 8. Selecione a segunda tarefa **Azure IoT Edge** para editá-la. Esta tarefa empurra todas as imagens do módulo para o registo do contentor que seleciona.
 
@@ -160,7 +160,7 @@ Este gasoduto está agora configurado para funcionar automaticamente quando intr
 >[!NOTE]
 >Se desejar utilizar implementações em **camadas** no seu pipeline, as implementações em camadas ainda não são suportadas nas tarefas Azure IoT Edge em Azure DevOps.
 >
->No entanto, pode utilizar uma [tarefa Azure CLI em Azure DevOps](/azure/devops/pipelines/tasks/deploy/azure-cli) para criar a sua implementação como uma implementação em camadas. Para o valor **do Script Inline,** pode utilizar o [comando de criação de borda az iot](/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment):
+>No entanto, pode utilizar uma [tarefa Azure CLI em Azure DevOps](/azure/devops/pipelines/tasks/deploy/azure-cli) para criar a sua implementação como uma implementação em camadas. Para o valor **do Script Inline,** pode utilizar o [comando de criação de borda az iot](/cli/azure/ext/azure-iot/iot/edge/deployment):
 >
 >   ```azurecli-interactive
 >   az iot edge deployment create -d {deployment_name} -n {hub_name} --content modules_content.json --layered true

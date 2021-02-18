@@ -6,12 +6,12 @@ author: harelbr
 ms.author: harelbr
 ms.date: 03/13/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 63d1a0bf437df6bc0b68474e092ca23985493b24
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 0bf3a95814aadf687efcc27294b760e14f7d45d8
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/17/2021
-ms.locfileid: "100559588"
+ms.locfileid: "100585641"
 ---
 # <a name="smart-detection-e-mail-notification-change"></a>Alteração da notificação de e-mail de deteção inteligente
 
@@ -27,7 +27,7 @@ Esta alteração afetará todas as regras de Deteção Inteligente, excluindo as
 
 * Regras de Deteção Inteligente marcadas como pré-visualização. Estas regras de Deteção Inteligente não suportam notificações por e-mail hoje em dia.
 
-* As anomalias de falha reinam. Esta regra começará a direcionar as novas funções predefinidas uma vez que é migrada de um alerta clássico para a plataforma de alertas unificados (mais informações estão disponíveis [aqui](../platform/monitoring-classic-retirement.md).)
+* As anomalias de falha reinam. Esta regra começará a direcionar as novas funções predefinidas uma vez que é migrada de um alerta clássico para a plataforma de alertas unificados (mais informações estão disponíveis [aqui](../alerts/monitoring-classic-retirement.md).)
 
 ## <a name="how-to-prepare-for-this-change"></a>Como se preparar para esta mudança?
 

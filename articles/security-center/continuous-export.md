@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 12/24/2020
 ms.author: memildin
-ms.openlocfilehash: 845ff6f0905b232b9ec68dbe127ef7f47a6ad898
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 226ca943554ca24f3332f24f5a9baf571b432917
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98916794"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590612"
 ---
 # <a name="continuously-export-security-center-data"></a>Exportar continuamente dados do Centro de Segurança
 
@@ -185,7 +185,7 @@ Para ver os esquemas de eventos dos tipos de dados exportados, visite os [esquem
 
 ##  <a name="view-exported-alerts-and-recommendations-in-azure-monitor"></a>Ver alertas e recomendações exportadas no Azure Monitor
 
-Também pode optar por visualizar alertas de segurança exportados e/ou recomendações no [Azure Monitor.](../azure-monitor/platform/alerts-overview.md) 
+Também pode optar por visualizar alertas de segurança exportados e/ou recomendações no [Azure Monitor.](../azure-monitor/alerts/alerts-overview.md) 
 
 O Azure Monitor fornece uma experiência de alerta unificada para uma variedade de alertas Azure, incluindo Log de Diagnóstico, alertas métricos e alertas personalizados baseados em consultas de espaço de trabalho Log Analytics.
 
@@ -195,13 +195,13 @@ Para visualizar alertas e recomendações do Security Center no Azure Monitor, c
 
     ![Página de alertas do Azure Monitor](./media/continuous-export/azure-monitor-alerts.png)
 
-1. Na página de regras de criar, configuure a sua nova regra (da mesma forma que configuraria uma regra de [alerta de registo no Azure Monitor):](../azure-monitor/platform/alerts-unified-log.md)
+1. Na página de regras de criar, configuure a sua nova regra (da mesma forma que configuraria uma regra de [alerta de registo no Azure Monitor):](../azure-monitor/alerts/alerts-unified-log.md)
 
     * Para **obter recursos,** selecione o espaço de trabalho Log Analytics para o qual exportou alertas e recomendações de segurança.
 
     * Para **obter a condição**, selecione Custom log **search**. Na página que aparece, configurar o período de consulta, de resguardo e de frequência. Na consulta de pesquisa, pode escrever *SecurityAlert* ou *SecurityRecommendation* para consultar os tipos de dados que o Security Center exporta continuamente para que permita a exportação Contínua para log analytics. 
     
-    * Opcionalmente, configuure o [Grupo de Ação](../azure-monitor/platform/action-groups.md) que gostaria de desencadear. Os grupos de ação podem desencadear o envio de e-mails, bilhetes ITSM, WebHooks e muito mais.
+    * Opcionalmente, configuure o [Grupo de Ação](../azure-monitor/alerts/action-groups.md) que gostaria de desencadear. Os grupos de ação podem desencadear o envio de e-mails, bilhetes ITSM, WebHooks e muito mais.
     ![Regra de alerta do Monitor Azure](./media/continuous-export/azure-monitor-alert-rule.png)
 
 Verá agora novos alertas ou recomendações do Azure Security Center (dependendo das regras de exportação contínua configuradas e da condição definida na sua regra de alerta do Monitor Azure) nos alertas do Azure Monitor, com o desencadeamento automático de um grupo de ação (se fornecido).
@@ -229,7 +229,7 @@ Saiba mais sobre [os preços do Azure Event Hub](https://azure.microsoft.com/pri
 
 ### <a name="does-the-export-include-data-about-the-current-state-of-all-resources"></a>A exportação inclui dados sobre o estado atual de todos os recursos?
 
-Não. A exportação contínua é construída para o streaming de **eventos:**
+N.º A exportação contínua é construída para o streaming de **eventos:**
 
 - **Os alertas recebidos** antes de permitir a exportação não serão exportados.
 - **As recomendações** são enviadas sempre que o estado de conformidade de um recurso muda. Por exemplo, quando um recurso passa de saudável para insalubre. Portanto, tal como nos alertas, as recomendações para recursos que não mudaram de estado, uma vez que permitiu exportar, não serão exportadas.
@@ -255,7 +255,7 @@ Sim! Note que muitos alertas do Centro de Segurança só são fornecidos quando 
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu a configurar as exportações contínuas das suas recomendações e alertas. Também aprendeu a descarregar os seus dados de alerta como um ficheiro CSV. 
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/19/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: cd43b6c7b11cde17bc9f9923374baf3416e5b370
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 449fc686fb30cde0d15759036b58fea3bcfc6723
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98791867"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100596894"
 ---
 # <a name="azure-security-baseline-for-azure-lighthouse"></a>Linha de segurança Azure para o Farol de Azure
 
@@ -360,9 +360,9 @@ Com o Azure Lighthouse, você pode usar registos Azure Monitor de forma escaláv
 
 Os clientes que tenham delegado subscrições para o Azure Lighthouse podem ver os dados do registo da Atividade Azure para ver todas as ações tomadas. Isto dá aos clientes total visibilidade nas operações que os prestadores de serviços estão a realizar, juntamente com operações feitas pelos utilizadores dentro do inquilino Azure Ative Directory (Azure AD) do cliente.
 
-- [Como recolher registos e métricas da plataforma com o Azure Monitor](../azure-monitor/platform/diagnostic-settings.md) 
+- [Como recolher registos e métricas da plataforma com o Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md) 
 
-- [Compreenda o registo e diferentes tipos de registo em Azure](../azure-monitor/platform/platform-logs-overview.md)
+- [Compreenda o registo e diferentes tipos de registo em Azure](../azure-monitor/essentials/platform-logs-overview.md)
 
 - [Monitorar recursos delegados à escala](how-to/monitor-at-scale.md)
 
@@ -386,7 +386,7 @@ Os clientes que tenham delegado subscrições para o Azure Lighthouse podem ver 
 
 Muitas organizações optam por usar o Azure Sentinel para dados "quentes" que são usados frequentemente e o Azure Storage para dados "frios" que são usados com menos frequência.
 
-- [Como recolher registos e métricas da plataforma com o Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
+- [Como recolher registos e métricas da plataforma com o Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
 - [Monitorar recursos delegados à escala](how-to/monitor-at-scale.md)
 
@@ -404,7 +404,7 @@ Muitas organizações optam por usar o Azure Sentinel para dados "quentes" que s
 
 No Azure Monitor, pode definir o período de retenção do espaço de trabalho do Log Analytics de acordo com os regulamentos de conformidade da sua organização. Utilize o espaço de trabalho Azure Storage, Data Lake ou Log Analytics para armazenamento de longo prazo e arquivo.
 
-- [Alterar o período de retenção de dados em Log Analytics](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Alterar o período de retenção de dados em Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 - [Como configurar a política de retenção para os registos de conta de armazenamento Azure](../storage/common/storage-monitor-storage-account.md#configure-logging)
 

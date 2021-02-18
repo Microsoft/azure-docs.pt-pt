@@ -1,5 +1,5 @@
 ---
-title: Leia os registos de fluxo do NSG Microsoft Docs
+title: Leia os registos de fluxo NSG | Microsoft Docs
 description: Saiba como utilizar o Azure PowerShell para analisar os registos de fluxo do Grupo de Segurança da Rede, que são criados de hora a hora e atualizados a cada poucos minutos no Azure Network Watcher.
 services: network-watcher
 documentationcenter: na
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: damendo
-ms.openlocfilehash: d465106725e9b936172fb74e1cc265c14942f662
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: 27f94c43266fe324016a73e2e6d31e8488457416
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97898101"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593053"
 ---
 # <a name="read-nsg-flow-logs"></a>Ler registos do fluxo do NSG
 
@@ -189,6 +189,6 @@ Este cenário é um exemplo de como ler entradas em registos de fluxo NSG sem te
 
 Visite [Use Elástico Stack](network-watcher-visualize-nsg-flow-logs-open-source-tools.md), Use [Grafana](network-watcher-nsg-grafana.md)e [Use Graylog](network-watcher-analyze-nsg-flow-logs-graylog.md) para saber mais sobre formas de ver os registos de fluxo NSG. Uma abordagem da Função Open Source Azure para consumir as bolhas diretamente e emitir para vários consumidores de análise de registo pode ser encontrada aqui: [Azure Network Watcher NSG Flow Logs Connector](https://github.com/Microsoft/AzureNetworkWatcherNSGFlowLogsConnector).
 
-Você pode usar [a Azure Traffic Analytics](./traffic-analytics.md) para obter informações sobre os seus fluxos de tráfego. Traffic Analytics utiliza [o Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md) para tornar o seu fluxo de tráfego questionável.
+Você pode usar [a Azure Traffic Analytics](./traffic-analytics.md) para obter informações sobre os seus fluxos de tráfego. Traffic Analytics utiliza [o Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md) para tornar o seu fluxo de tráfego questionável.
 
 Para saber mais sobre as bolhas de armazenamento visite: [Azure Functions Blob encadernações de armazenamento](../azure-functions/functions-bindings-storage-blob.md)

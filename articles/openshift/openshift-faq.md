@@ -3,15 +3,15 @@ title: Perguntas frequentes para Azure Red Hat OpenShift
 description: Aqui estão as respostas a perguntas comuns sobre o Microsoft Azure Red Hat OpenShift
 author: jimzim
 ms.author: jzim
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.topic: conceptual
 ms.date: 07/31/2020
-ms.openlocfilehash: 69417945bcd5234a0e5e8d2d6aee42859bc95c20
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.openlocfilehash: a3721083e48774963cd761178abdb552c93b15c7
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99071057"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100634350"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>Azure Red Hat OpenShift FAQ
 
@@ -45,7 +45,7 @@ N.º Todos os nós de um aglomerado Azure Red Hat OpenShift devem ter origem na 
 
 ### <a name="can-a-cluster-be-deployed-across-multiple-availability-zones"></a>Um cluster pode ser implantado em várias zonas de disponibilidade?
 
-Yes. Isto acontece automaticamente se o seu cluster for implantado numa região do Azure que suporte zonas de disponibilidade. Para mais informações, consulte [as zonas de disponibilidade.](../availability-zones/az-overview.md#availability-zones)
+Sim. Isto acontece automaticamente se o seu cluster for implantado numa região do Azure que suporte zonas de disponibilidade. Para mais informações, consulte [as zonas de disponibilidade.](../availability-zones/az-overview.md#availability-zones)
 
 ### <a name="are-control-plane-nodes-abstracted-away-as-they-are-with-azure-kubernetes-service-aks"></a>Os nós dos aviões de controlo são abstraídos como estão com o Serviço Azure Kubernetes (AKS)?
 
@@ -163,15 +163,15 @@ O Azure Red Hat OpenShift utiliza o Balanceador de Carga Standard Azure, e não 
 
 ### <a name="can-an-admin-manage-users-and-quotas"></a>Pode um administrador gerir utilizadores e quotas?
 
-Yes. Um administrador Azure Red Hat OpenShift pode gerir utilizadores e quotas para além de aceder a todos os projetos criados pelo utilizador.
+Sim. Um administrador Azure Red Hat OpenShift pode gerir utilizadores e quotas para além de aceder a todos os projetos criados pelo utilizador.
 
 ### <a name="can-i-restrict-a-cluster-to-only-certain-azure-ad-users"></a>Posso restringir um cluster a apenas certos utilizadores de AD Azure?
 
-Yes. Pode restringir quais os utilizadores AZure AD que podem iniciar súpido num cluster configurando a Aplicação AD Azure. Para mais detalhes, consulte [Como: Restringir a sua aplicação a um conjunto de utilizadores.](../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md)
+Sim. Pode restringir quais os utilizadores AZure AD que podem iniciar súpido num cluster configurando a Aplicação AD Azure. Para mais detalhes, consulte [Como: Restringir a sua aplicação a um conjunto de utilizadores.](../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md)
 
 ### <a name="can-i-restrict-users-from-creating-projects"></a>Posso restringir os utilizadores à criação de projetos?
 
-Yes. Inicie sessão no seu cluster como administrador e execute este comando:
+Sim. Inicie sessão no seu cluster como administrador e execute este comando:
 
 ```
 oc adm policy \

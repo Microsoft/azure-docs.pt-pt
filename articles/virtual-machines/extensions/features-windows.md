@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 565f98126cea8cc03874bb4f83ecdc2c65f8d5fb
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 44d071c635967e4ce3078be8419414bc9ff0c653
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96016459"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100580146"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Extensões e funcionalidades de máquinas virtuais para Windows
 
@@ -36,7 +36,7 @@ Este artigo fornece uma visão geral das extensões VM, pré-requisitos para a u
 Estão disponíveis várias extensões VM Azure diferentes, cada uma com um caso de utilização específico. Alguns exemplos incluem:
 
 - Aplicar as configurações do Estado Desejado PowerShell a um VM com a extensão DSC para Windows. Para obter mais informações, consulte [a extensão de configuração do Estado Desejado Azure](dsc-overview.md).
-- Configure a monitorização de um VM com a extensão VM do Agente De Registo. Para obter mais informações, consulte [os registos de VMs do Connect Azure para o Azure Monitor](../../azure-monitor/learn/quick-collect-azurevm.md).
+- Configure a monitorização de um VM com a extensão VM do Agente De Registo. Para obter mais informações, consulte [os registos de VMs do Connect Azure para o Azure Monitor](../../azure-monitor/vm/quick-collect-azurevm.md).
 - Configure um Azure VM usando chef. Para mais informações, consulte [automatização da implantação de VM Azure com o Chef.](/azure/developer/chef/windows-vm-configure)
 - Configure a monitorização da sua infraestrutura Azure com a extensão Datadog. Para mais informações, consulte o [blog Datadog.](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/)
 
@@ -422,7 +422,7 @@ Também pode remover uma extensão no portal Azure da seguinte forma:
 4. Escolha **Desinstalar**.
 
 ## <a name="common-vm-extensions-reference"></a>Referência comum das extensões VM
-| Nome de extensão | Descrição | Mais informações |
+| Nome de extensão | Description | Mais informações |
 | --- | --- | --- |
 | Extensão de Script Personalizado para o Windows |Executar scripts contra uma máquina virtual Azure |[Extensão de Script Personalizado para o Windows](custom-script-windows.md) |
 | Extensão DSC para Windows |Extensão PowerShell DSC (Configuração do Estado Desejado) |[Extensão DSC para Windows](dsc-overview.md) |

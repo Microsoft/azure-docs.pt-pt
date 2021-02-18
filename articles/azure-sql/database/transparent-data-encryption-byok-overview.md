@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 02/01/2021
-ms.openlocfilehash: 74c0dbaaa511e2fd2f20a3c245a561a177dd2b9a
-ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
+ms.openlocfilehash: 62bdafd2dba31d875b0befccca0fb4a0e94f4e79
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99223445"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100582820"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Encriptação de Dados Transparente do SQL do Azure com chave gerida pelo cliente
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -164,7 +164,7 @@ Para monitorizar o estado da base de dados e permitir o alerta para a perda de a
 
 - [Saúde dos Recursos Azure.](../../service-health/resource-health-overview.md) Uma base de dados inacessível que tenha perdido o acesso ao protetor TDE mostrará como "Indisponível" depois de ter sido negada a primeira ligação à base de dados.
 - [Registo de atividades](../../service-health/alerts-activity-log-service-notifications-portal.md) quando o acesso ao protetor TDE no cofre de chaves gerido pelo cliente falha, as entradas são adicionadas ao registo de atividade.  A criação de alertas para estes eventos permitir-lhe-á restabelecer o acesso o mais rapidamente possível.
-- [Os Grupos de Ação](../../azure-monitor/platform/action-groups.md) podem ser definidos para enviar-lhe notificações e alertas com base nas suas preferências, por exemplo, Email/SMS/Push/Voice, Logic App, Webhook, ITSM ou Automation Runbook.
+- [Os Grupos de Ação](../../azure-monitor/alerts/action-groups.md) podem ser definidos para enviar-lhe notificações e alertas com base nas suas preferências, por exemplo, Email/SMS/Push/Voice, Logic App, Webhook, ITSM ou Automation Runbook.
 
 ## <a name="database-backup-and-restore-with-customer-managed-tde"></a>Backup de base de dados e restauro com TDE gerido pelo cliente
 

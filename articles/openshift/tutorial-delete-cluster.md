@@ -5,14 +5,14 @@ author: sakthi-vetrivel
 ms.custom: fasttrack-edit
 ms.author: suvetriv
 ms.topic: tutorial
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.date: 04/24/2020
-ms.openlocfilehash: 372f531154528698da05c7a20c5d842b593259d1
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.openlocfilehash: 61347d052aeb5d563f49275d8f072d1079b94f26
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99072256"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100634809"
 ---
 # <a name="tutorial-delete-an-azure-red-hat-openshift-4-cluster"></a>Tutorial: Apagar um aglomerado de chapéu vermelho Azure OpenShift 4
 

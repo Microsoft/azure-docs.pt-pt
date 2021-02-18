@@ -3,29 +3,29 @@ title: Monitorização - Base de Dados Azure para MariaDB
 description: Este artigo descreve as métricas de monitorização e alerta para a Base de Dados Azure para a MariaDB, incluindo CPU, armazenamento e estatísticas de conexão.
 author: savjani
 ms.author: pariks
-ms.service: jroth
+ms.service: mariadb
 ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 10/21/2020
-ms.openlocfilehash: 3d2cf88dba44a7f18f73fbafb66381d2ef8b29c5
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: f63b0b523184917097c73c852a7624b366fbbb24
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98664287"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595203"
 ---
 # <a name="monitoring-in-azure-database-for-mariadb"></a>Monitorização na Base de Dados Azure para MariaDB
 Monitorizar dados sobre os seus servidores ajuda-o a resolver problemas e a otimizar a sua carga de trabalho. A Azure Database for MariaDB fornece várias métricas que dão uma visão do comportamento do seu servidor.
 
 ## <a name="metrics"></a>Métricas
-Todas as métricas Azure têm uma frequência de um minuto, e cada métrica fornece 30 dias de história. Pode configurar alertas sobre as métricas. Outras tarefas incluem a criação de ações automatizadas, a realização de análises avançadas e arquivamento da história. Para mais informações, consulte a Visão Geral das [Métricas Azure](../azure-monitor/platform/data-platform.md).
+Todas as métricas Azure têm uma frequência de um minuto, e cada métrica fornece 30 dias de história. Pode configurar alertas sobre as métricas. Outras tarefas incluem a criação de ações automatizadas, a realização de análises avançadas e arquivamento da história. Para mais informações, consulte a Visão Geral das [Métricas Azure](../azure-monitor/data-platform.md).
 
 Para orientação passo a passo, consulte [como configurar alertas](howto-alert-metric.md).
 
 ### <a name="list-of-metrics"></a>Lista de métricas
 Estas métricas estão disponíveis para Azure Database for MariaDB:
 
-|Métrica|Nome de exibição métrica|Unidade|Description|
+|Metric|Nome de exibição métrica|Unidade|Description|
 |---|---|---|---|
 |cpu_percent|CPU por cento|Percentagem|A percentagem de CPU em uso.|
 |memory_percent|Por cento da memória|Percentagem|A percentagem de memória em uso.|
@@ -67,6 +67,6 @@ Saiba mais sobre como configurar notificações no documento [de notificações 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para obter mais informações sobre como aceder e exportar métricas utilizando o portal Azure, REST API ou CLI, consulte a Visão Geral das [Métricas Azure](../azure-monitor/platform/data-platform.md).
+- Para obter mais informações sobre como aceder e exportar métricas utilizando o portal Azure, REST API ou CLI, consulte a Visão Geral das [Métricas Azure](../azure-monitor/data-platform.md).
 - Veja [como configurar alertas](howto-alert-metric.md) para orientação sobre a criação de um alerta sobre uma métrica.
 - Saiba mais sobre [as notificações de manutenção planeadas](./concepts-planned-maintenance-notification.md) na Base de Dados Azure para MariaDB.

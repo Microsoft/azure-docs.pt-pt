@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 648e7991784212e4fe781efd5d9f01cb571c5012
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: d7753de473d90c45fecb20403352a594ef52dafe
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807857"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100586298"
 ---
 # <a name="azure-security-baseline-for-app-service"></a>Linha de base de segurança Azure para o Serviço de Aplicações
 
@@ -241,9 +241,9 @@ Reveja alertas e recomendações de segurança detalhadas no Security Center, no
 
 Recomenda-se que crie um processo com ferramentas automatizadas para monitorizar as configurações de recursos de rede e detetar rapidamente alterações.
 
-- [Como visualizar e recuperar eventos de Registo de Atividades Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [Como visualizar e recuperar eventos de Registo de Atividades Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Como criar alertas no Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+- [Como criar alertas no Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 - [Exportar alertas e recomendações de segurança](../security-center/continuous-export.md)
 
@@ -280,7 +280,7 @@ O "o quê, quem e quando" para quaisquer operações de escrita (PUT, POST, DELE
 
 Além disso, o Azure Key Vault fornece uma gestão secreta centralizada com políticas de acesso e histórico de auditoria. 
 
-- [Como ativar definições de diagnóstico para registo de atividades azure](../azure-monitor/platform/activity-log.md)
+- [Como ativar definições de diagnóstico para registo de atividades azure](../azure-monitor/essentials/activity-log.md)
 
 - [Como ativar definições de diagnóstico para o serviço de aplicações Azure](troubleshoot-diagnostic-logs.md)
 
@@ -293,7 +293,7 @@ Além disso, o Azure Key Vault fornece uma gestão secreta centralizada com pol�
 ### <a name="25-configure-security-log-storage-retention"></a>2.5: Configurar a retenção de armazenamento de registos de segurança
 
 **Orientação**: No Azure Monitor, detenva o período de retenção de registos para os espaços de trabalho do Log Analytics associados aos recursos do serviço de aplicações de acordo com os regulamentos de conformidade da sua organização.
-- [Como definir parâmetros de retenção de registos](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Como definir parâmetros de retenção de registos](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Monitorização do Centro de Segurança do Azure**: Não aplicável
 
@@ -309,7 +309,7 @@ Se tiver implementado uma Firewall de Aplicação Web (WAF), pode monitorizar os
 
 Utilize o Azure Sentinel, uma gestão de eventos de informação de segurança escalável e nativa da nuvem (SIEM), para integrar várias fontes de dados e conectores, de acordo com os requisitos. Opcionalmente, ativar e a bordo dados para uma solução de gestão de eventos de informação de segurança de terceiros no Azure Marketplace.
 
-- [Como ativar as definições de diagnóstico para registo de atividades Azure](../azure-monitor/platform/activity-log.md)
+- [Como ativar as definições de diagnóstico para registo de atividades Azure](../azure-monitor/essentials/activity-log.md)
 
 - [Como ativar insights de aplicações](../azure-monitor/app/app-insights-overview.md)
 
@@ -640,7 +640,7 @@ Note que enquanto os discos anexados localmente podem ser usados opcionalmente p
 
 **Orientação**: Utilize o Monitor Azure com log de Atividade Azure para criar alertas sobre quaisquer alterações à produção de aplicações do Serviço de Aplicações de produção e outros recursos críticos ou relacionados.
 
-- [Como criar alertas para eventos de Registo de Atividades Azure](../azure-monitor/platform/alerts-activity-log.md)
+- [Como criar alertas para eventos de Registo de Atividades Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
