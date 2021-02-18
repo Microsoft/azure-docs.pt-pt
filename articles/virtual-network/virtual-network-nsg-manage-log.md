@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 06/04/2018
 ms.author: kumud
-ms.openlocfilehash: 412556f3bd517539fc8ccad94c4de52226f16597
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: bb078b9738e995a1c507f7934a7dd64f075d5fe0
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98946221"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100596540"
 ---
 # <a name="resource-logging-for-a-network-security-group"></a>Registo de recursos para um grupo de segurança de rede
 
@@ -28,7 +28,7 @@ Quando ativa a sessão de registo de um NSG, pode recolher os seguintes tipos de
 
 Os registos de recursos só estão disponíveis para os NSGs implementados através do modelo de implementação do Gestor de Recursos Azure. Não é possível ativar a registo de recursos para NSGs implementadas através do modelo clássico de implementação. Para uma melhor compreensão dos dois modelos, consulte os [modelos de implementação Understanding Azure](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-A sessão de registo de recursos é ativada separadamente para *cada* NSG para a qual pretende recolher dados de diagnóstico. Se estiver interessado em registos de atividade (operacionais), consulte o [registo de atividades](../azure-monitor/platform/platform-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)do Azure .
+A sessão de registo de recursos é ativada separadamente para *cada* NSG para a qual pretende recolher dados de diagnóstico. Se estiver interessado em registos de atividade (operacionais), consulte o [registo de atividades](../azure-monitor/essentials/platform-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)do Azure .
 
 ## <a name="enable-logging"></a>Ativar registo
 
@@ -87,7 +87,7 @@ Set-AzDiagnosticSetting `
   -Enabled $true
 ```
 
-Se pretender registar apenas dados para uma categoria ou outra, em vez de ambos, adicione a `-Categories` opção ao comando anterior, seguido do *NetworkSecurityGroupEvent* ou *do NetworkSecurityGroupRuleCounter*. Se pretender registar-se num [destino](#log-destinations) diferente de um espaço de trabalho Log Analytics, utilize os parâmetros apropriados para uma [conta de Armazenamento](../azure-monitor/platform/resource-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#send-to-azure-storage) Azure ou Para o Centro de [Eventos](../azure-monitor/platform/resource-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#send-to-azure-event-hubs).
+Se pretender registar apenas dados para uma categoria ou outra, em vez de ambos, adicione a `-Categories` opção ao comando anterior, seguido do *NetworkSecurityGroupEvent* ou *do NetworkSecurityGroupRuleCounter*. Se pretender registar-se num [destino](#log-destinations) diferente de um espaço de trabalho Log Analytics, utilize os parâmetros apropriados para uma [conta de Armazenamento](../azure-monitor/essentials/resource-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#send-to-azure-storage) Azure ou Para o Centro de [Eventos](../azure-monitor/essentials/resource-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#send-to-azure-event-hubs).
 
 Ver e analisar registos. Para obter mais informações, consulte [Ver e analisar registos.](#view-and-analyze-logs)
 
@@ -120,18 +120,18 @@ az monitor diagnostic-settings create \
   --resource-group myWorkspaces
 ```
 
-Se não tiver um espaço de trabalho existente, pode criar um utilizando o [portal Azure](../azure-monitor/learn/quick-create-workspace.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [o PowerShell](/powershell/module/az.operationalinsights/new-azoperationalinsightsworkspace). Existem duas categorias de registos para os quais pode ativar os registos.
+Se não tiver um espaço de trabalho existente, pode criar um utilizando o [portal Azure](../azure-monitor/logs/quick-create-workspace.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [o PowerShell](/powershell/module/az.operationalinsights/new-azoperationalinsightsworkspace). Existem duas categorias de registos para os quais pode ativar os registos.
 
-Se pretender registar apenas dados para uma categoria ou outra, remova a categoria para a qual não pretende registar dados no comando anterior. Se pretender registar-se num [destino](#log-destinations) diferente de um espaço de trabalho Log Analytics, utilize os parâmetros apropriados para uma [conta de Armazenamento](../azure-monitor/platform/resource-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#send-to-azure-storage) Azure ou Para o Centro de [Eventos](../azure-monitor/platform/resource-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#send-to-azure-event-hubs).
+Se pretender registar apenas dados para uma categoria ou outra, remova a categoria para a qual não pretende registar dados no comando anterior. Se pretender registar-se num [destino](#log-destinations) diferente de um espaço de trabalho Log Analytics, utilize os parâmetros apropriados para uma [conta de Armazenamento](../azure-monitor/essentials/resource-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#send-to-azure-storage) Azure ou Para o Centro de [Eventos](../azure-monitor/essentials/resource-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#send-to-azure-event-hubs).
 
 Ver e analisar registos. Para obter mais informações, consulte [Ver e analisar registos.](#view-and-analyze-logs)
 
 ## <a name="log-destinations"></a>Destinos de registo
 
 Os dados de diagnóstico podem ser:
-- [Escrito numa conta de Armazenamento Azure,](../azure-monitor/platform/resource-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#send-to-azure-storage)para auditoria ou inspeção manual. Pode especificar o tempo de retenção (em dias) utilizando as definições de diagnóstico de recursos.
-- [Transmitido para um centro de eventos](../azure-monitor/platform/resource-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#send-to-azure-event-hubs) para ingestão por um serviço de terceiros, ou solução de análise personalizada, como o PowerBI.
-- [Registos escritos para Azure Monitor](../azure-monitor/platform/resource-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#send-to-azure-storage).
+- [Escrito numa conta de Armazenamento Azure,](../azure-monitor/essentials/resource-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#send-to-azure-storage)para auditoria ou inspeção manual. Pode especificar o tempo de retenção (em dias) utilizando as definições de diagnóstico de recursos.
+- [Transmitido para um centro de eventos](../azure-monitor/essentials/resource-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#send-to-azure-event-hubs) para ingestão por um serviço de terceiros, ou solução de análise personalizada, como o PowerBI.
+- [Registos escritos para Azure Monitor](../azure-monitor/essentials/resource-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#send-to-azure-storage).
 
 ## <a name="log-categories"></a>Categorias de registo
 
@@ -197,16 +197,16 @@ O registo de contador de regras contém informações sobre cada regra aplicada 
 
 ## <a name="view-and-analyze-logs"></a>Ver e analisar registos
 
-Para saber como ver os dados do registo de recursos, consulte [a visão geral dos registos da plataforma Azure](../azure-monitor/platform/platform-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Se enviar dados de diagnóstico para:
+Para saber como ver os dados do registo de recursos, consulte [a visão geral dos registos da plataforma Azure](../azure-monitor/essentials/platform-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Se enviar dados de diagnóstico para:
 - **Registos do Monitor Azure**: Pode utilizar a solução de análise do [grupo de segurança](../azure-monitor/insights/azure-networking-analytics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-security-group-analytics-solution-in-azure-monitor
 ) da rede para obter informações melhoradas. A solução fornece visualizações para regras NSG que permitem ou negam o tráfego, por endereço MAC, da interface de rede numa máquina virtual.
 - **Conta de Armazenamento Azure**: Os dados são escritos para um PT1H.jsficheiro. Pode encontrar o:
   - Registo de eventos no seguinte caminho: `insights-logs-networksecuritygroupevent/resourceId=/SUBSCRIPTIONS/[ID]/RESOURCEGROUPS/[RESOURCE-GROUP-NAME-FOR-NSG]/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/[NSG NAME]/y=[YEAR]/m=[MONTH/d=[DAY]/h=[HOUR]/m=[MINUTE]`
   - Registo de contador de regras no seguinte caminho: `insights-logs-networksecuritygrouprulecounter/resourceId=/SUBSCRIPTIONS/[ID]/RESOURCEGROUPS/[RESOURCE-GROUP-NAME-FOR-NSG]/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/[NSG NAME]/y=[YEAR]/m=[MONTH/d=[DAY]/h=[HOUR]/m=[MINUTE]`
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre [o registo de atividades.](../azure-monitor/platform/platform-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) O registo de atividade é ativado por padrão para NSGs criados através de um modelo de implementação Azure. Para determinar quais as operações que foram concluídas em NSGs no registo de atividade, procure entradas que contenham os seguintes tipos de recursos:
+- Saiba mais sobre [o registo de atividades.](../azure-monitor/essentials/platform-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) O registo de atividade é ativado por padrão para NSGs criados através de um modelo de implementação Azure. Para determinar quais as operações que foram concluídas em NSGs no registo de atividade, procure entradas que contenham os seguintes tipos de recursos:
   - Microsoft.ClassicNetwork/networkSecurityGroups
   - Microsoft.ClassicNetwork/networkSecurityGroups/securityRules
   - Microsoft.Network/networkSecurityGroups

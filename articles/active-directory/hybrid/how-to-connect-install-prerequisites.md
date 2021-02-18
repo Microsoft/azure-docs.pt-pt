@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 11/05/2020
+ms.date: 02/16/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1957adc0effd5b37d7aff3f813267da6ca065e0a
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 15e5aba2bad4cd7ae63ceb9c9f67f7e653a82a91
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100368970"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100650155"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Pré-requisitos do Azure AD Connect
 Este artigo descreve os pré-requisitos e os requisitos de hardware para a Azure Ative Directory (Azure AD) Connect.
@@ -167,6 +167,17 @@ Antes da versão 1.1.614.0, o Azure AD Connect por predefinição utiliza o TLS 
     "SchUseStrongCrypto"=dword:00000001
     ```
 1. Se também pretende ativar o TLS 1.2 entre o servidor do motor de sincronização e um servidor SQL remoto, certifique-se de que tem as versões necessárias instaladas para [suporte TLS 1.2 para o Microsoft SQL Server](https://support.microsoft.com/kb/3135244).
+
+### <a name="dcom-prerequisites-on-the-synchronization-server"></a>DCOM pré-requisitos no servidor de sincronização
+Durante a instalação do serviço de sincronização, a Azure AD Connect verifica a presença da seguinte chave de registo:
+
+- HKEY_LOCAL_MACHINE: Software\Microsoft\Ole
+
+Nesta chave de registo, o Azure AD Connect verificará se os seguintes valores estão presentes e não foram corrigidos: 
+
+- [MachineAccessRestriction](https://docs.microsoft.com/windows/win32/com/machineaccessrestriction)
+- [MachineLaunchRestriction](https://docs.microsoft.com/windows/win32/com/machinelaunchrestriction)
+- [Predefinição DaPermission](https://docs.microsoft.com/windows/win32/com/defaultlaunchpermission)
 
 ## <a name="prerequisites-for-federation-installation-and-configuration"></a>Pré-requisitos para a instalação e configuração da federação
 ### <a name="windows-remote-management"></a>Gestão Remota do Windows

@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 02/09/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 5519157b58268b30ecb7a1af7b86d13d587a23b8
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: eaf512915532b482c25e830cd9f2e01d61aa4524
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100519410"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100572782"
 ---
 # <a name="configure-an-aks-cluster"></a>Configurar um cluster do AKS
 
@@ -100,9 +100,9 @@ Ao utilizar `containerd` os nós AKS, a latência do arranque do pod melhora e o
 * Para `containerd` , recomendamos a utilização [`crictl`](https://kubernetes.io/docs/tasks/debug-application-cluster/crictl) como CLI de substituição em vez do CLI do Docker para **resolução de problemas** de cápsulas, contentores e imagens de contentores nos nós kubernetes (por exemplo, `crictl ps` ). 
    * Não fornece a funcionalidade completa do Estivador CLI. Destina-se apenas a resolver problemas.
    * `crictl` oferece uma visão mais amiga dos kubernetes dos recipientes, com conceitos como pods, etc. estar presentes.
-* `Containerd` configura o registo utilizando o formato de registo normalizado `cri` (que é diferente do que obtém atualmente do condutor json do Docker). A sua solução de registo precisa de suportar o `cri` formato de registo (como o [Azure Monitor for Containers)](../azure-monitor/insights/container-insights-enable-new-cluster.md)
+* `Containerd` configura o registo utilizando o formato de registo normalizado `cri` (que é diferente do que obtém atualmente do condutor json do Docker). A sua solução de registo precisa de suportar o `cri` formato de registo (como o [Azure Monitor for Containers)](../azure-monitor/containers/container-insights-enable-new-cluster.md)
 * Já não pode aceder ao motor do estivador, `/var/run/docker.sock` ou utilizar o Docker-in-Docker (DinD).
-  * Se atualmente extrair registos de aplicações ou dados de monitorização do Docker Engine, utilize algo como [Azure Monitor para contentores.](../azure-monitor/insights/container-insights-enable-new-cluster.md) Além disso, a AKS não suporta a execução de nenhum comando de banda nos nós do agente que possam causar instabilidade.
+  * Se atualmente extrair registos de aplicações ou dados de monitorização do Docker Engine, utilize algo como [Azure Monitor para contentores.](../azure-monitor/containers/container-insights-enable-new-cluster.md) Além disso, a AKS não suporta a execução de nenhum comando de banda nos nós do agente que possam causar instabilidade.
   * Mesmo quando se usa Moby/docker, construir imagens e alavancar diretamente o motor do estivador através dos métodos acima é fortemente desencorajado. Kubernetes não está totalmente ciente desses recursos consumidos, e essas abordagens apresentam numerosas questões detalhadas [aqui](https://jpetazzo.github.io/2015/09/03/do-not-use-docker-in-docker-for-ci/) e [aqui](https://securityboulevard.com/2018/05/escaping-the-whale-things-you-probably-shouldnt-do-with-docker-part-1/), por exemplo.
 * Imagens de construção - Pode continuar a utilizar o seu atual estivador construir fluxo de trabalho normalmente, a menos que esteja a construir imagens dentro do seu cluster AKS. Neste caso, considere mudar para a abordagem recomendada para a construção de imagens utilizando [tarefas ACR](../container-registry/container-registry-quickstart-task-cli.md), ou uma opção de cluster mais segura como [o estivador buildx](https://github.com/docker/buildx).
 

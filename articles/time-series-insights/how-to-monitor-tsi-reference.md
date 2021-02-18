@@ -1,5 +1,5 @@
 ---
-title: Monitorização da referência de dados da Série De Tempo Azure Insights Microsoft Docs
+title: Monitorização da Azure Time Series Insights Referência de dados | Microsoft Docs
 description: Documentação de referência para monitorização da Azure Time Series Insights.
 author: deepakpalled
 ms.author: lyhughes
@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/10/2020
 ms.custom: lyrana
-ms.openlocfilehash: 0b564ddfdea2cf24b7f9b1bc608d47fa4cfe541b
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: bfd0d04313f0b519b4013a43e29d88400c73ea31
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97632798"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100591387"
 ---
 # <a name="monitoring-azure-time-series-insights-data-reference"></a>Monitorização da referência de dados da Série De Tempo Azure Insights
 
@@ -23,12 +23,12 @@ Conheça os dados e recursos recolhidos pelo Azure Monitor a partir do seu ambie
 
 ## <a name="metrics"></a>Métricas
 
-Esta secção lista todas as métricas da plataforma recolhidas automaticamente para o Azure Time Series Insights. Para obter uma lista de todas as métricas de suporte do Azure Monitor (incluindo insights da Série de Tempo Azure), consulte [as métricas suportadas pelo Azure Monitor](../azure-monitor/platform/metrics-supported.md). O fornecedor de recursos para estas métricas é [o Microsoft.TimeSeriesInsights/environments/eventsources](../azure-monitor/platform/metrics-supported.md#microsofttimeseriesinsightsenvironmentseventsources) e [Microsoft.TimeSeriesInsights/environments](../azure-monitor/platform/metrics-supported.md#microsofttimeseriesinsightsenvironments).
+Esta secção lista todas as métricas da plataforma recolhidas automaticamente para o Azure Time Series Insights. Para obter uma lista de todas as métricas de suporte do Azure Monitor (incluindo insights da Série de Tempo Azure), consulte [as métricas suportadas pelo Azure Monitor](../azure-monitor/essentials/metrics-supported.md). O fornecedor de recursos para estas métricas é [o Microsoft.TimeSeriesInsights/environments/eventsources](../azure-monitor/essentials/metrics-supported.md#microsofttimeseriesinsightsenvironmentseventsources) e [Microsoft.TimeSeriesInsights/environments](../azure-monitor/essentials/metrics-supported.md#microsofttimeseriesinsightsenvironments).
 
 
 ### <a name="ingress"></a>Entrada
  
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|
+|Metric|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|
 |---|---|---|---|---|
 |IngressReceivedBytes|Ingress Recebido Bytes|Bytes|Total|Contagem de bytes lidos a partir da fonte do evento|
 |IngressReceivedInvalidMesages|Ingress recebeu mensagens inválidas|de palavras|Total|Contagem de mensagens inválidas lidas a partir da fonte do evento|
@@ -40,7 +40,7 @@ Esta secção lista todas as métricas da plataforma recolhidas automaticamente 
 
 ### <a name="storage"></a>Armazenamento
 
-|Métrica|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|
+|Metric|Nome de exibição métrica|Unidade|Tipo de Agregação|Description|
 |---|---|---|---|---|
 |WarmStorageMaxProperties|Propriedades Max de Armazenamento Quente|de palavras|Máximo|Número máximo de propriedades utilizadas pelo ambiente para S1/S2 SKU e número máximo de propriedades permitidas pela Warm Store para PAYG SKU|
 |WarmStorageUsedProperties|Propriedades usadas de armazenamento quente |de palavras|Máximo|Número de propriedades utilizadas pelo ambiente para S1/S2 SKU e número de propriedades utilizadas pela Warm Store para PAYG SKU|

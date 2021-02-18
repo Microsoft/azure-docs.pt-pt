@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: bbe683f1ec7dac1960395dd3d30fb36c70a1d6c9
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: a73602c565392ae050ac2a13961113b12d67abfd
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99806194"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593258"
 ---
 # <a name="azure-security-baseline-for-expressroute"></a>Linha de segurança Azure para ExpressRoute
 
@@ -128,9 +128,9 @@ Pode utilizar o Azure PowerShell ou o Azure CLI para procurar ou executar açõe
 
 * [Como permitir a auditoria em Azure Sentinel](../sentinel/resources.md)
 
-* [Como visualizar e recuperar eventos de Registo de Atividades Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+* [Como visualizar e recuperar eventos de Registo de Atividades Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-* [Como criar alertas no Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+* [Como criar alertas no Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitorização do Centro de Segurança do Azure**: Não aplicável
 
@@ -152,7 +152,7 @@ Pode utilizar o Azure PowerShell ou o Azure CLI para procurar ou executar açõe
 
 **Orientação**: Ativar as definições de diagnóstico do Registo de Atividade do Azure e enviar os registos para um espaço de trabalho log Analytics, centro de eventos Azure ou conta de armazenamento Azure para o arquivo. Os registos de atividade fornecem informações sobre as operações que foram realizadas nos seus recursos Azure ExpressRoute ao nível do plano de controlo. Utilizando dados de Registo de Atividades Azure, pode determinar o "o quê, quem e quando" para quaisquer operações de escrita (PUT, POST, DELETE) realizadas ao nível do plano de controlo para os seus recursos ExpressRoute.
 
-* [Como ativar definições de diagnóstico para registo de atividades azure](../azure-monitor/platform/activity-log.md)
+* [Como ativar definições de diagnóstico para registo de atividades azure](../azure-monitor/essentials/activity-log.md)
 
 **Monitorização do Centro de Segurança do Azure**: Sim
 
@@ -162,7 +162,7 @@ Pode utilizar o Azure PowerShell ou o Azure CLI para procurar ou executar açõe
 
 **Orientação**: Ativar as definições de diagnóstico do Registo de Atividade do Azure e enviar os registos para um espaço de trabalho log Analytics, centro de eventos Azure ou conta de armazenamento Azure para o arquivo. Os registos de atividade fornecem informações sobre as operações que foram realizadas nos seus recursos Azure ExpressRoute ao nível do plano de controlo. Utilizando dados de Registo de Atividades Azure, pode determinar o "o quê, quem e quando" para quaisquer operações de escrita (PUT, POST, DELETE) realizadas ao nível do plano de controlo para os seus recursos ExpressRoute.
 
-* [Como ativar definições de diagnóstico para registo de atividades azure](../azure-monitor/platform/activity-log.md)
+* [Como ativar definições de diagnóstico para registo de atividades azure](../azure-monitor/essentials/activity-log.md)
 
 **Monitorização do Centro de Segurança do Azure**: Sim
 
@@ -180,7 +180,7 @@ Pode utilizar o Azure PowerShell ou o Azure CLI para procurar ou executar açõe
 
 **Orientação**: No Azure Monitor, detenva o período de retenção de registos para os espaços de trabalho do Log Analytics associados aos seus recursos Azure ExpressRoute de acordo com os regulamentos de conformidade da sua organização.
 
-* [Como definir parâmetros de retenção de registos](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+* [Como definir parâmetros de retenção de registos](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Monitorização do Centro de Segurança do Azure**: Não aplicável
 
@@ -190,9 +190,9 @@ Pode utilizar o Azure PowerShell ou o Azure CLI para procurar ou executar açõe
 
 **Orientação**: Ativar as definições de diagnóstico do Registo de Atividade do Azure e enviar os registos para um espaço de trabalho do Log Analytics. Realize consultas no Log Analytics para pesquisar termos, identificar tendências, analisar padrões e fornecer muitos outros insights baseados nos Dados de Registo de Atividade que possam ter sido recolhidos para a Azure ExpressRoute.
 
-* [Como ativar definições de diagnóstico para registo de atividades azure](../azure-monitor/platform/activity-log.md)
+* [Como ativar definições de diagnóstico para registo de atividades azure](../azure-monitor/essentials/activity-log.md)
 
-* [Como recolher e analisar registos de atividades do Azure no espaço de trabalho do Log Analytics no Azure Monitor](../azure-monitor/platform/activity-log.md)
+* [Como recolher e analisar registos de atividades do Azure no espaço de trabalho do Log Analytics no Azure Monitor](../azure-monitor/essentials/activity-log.md)
 
 **Monitorização do Centro de Segurança do Azure**: Não aplicável
 
@@ -499,7 +499,7 @@ Além disso, os parceiros que usam a API do Gestor de Recursos parceiros Express
 
 **Orientação**: Utilize o Monitor Azure com o registo de atividade azure para criar alertas para quando ocorrerem alterações nas instâncias de produção da Azure ExpressRoute e outros recursos críticos ou relacionados.
 
-* [Como criar alertas para eventos de Registo de Atividades Azure](../azure-monitor/platform/alerts-activity-log.md)
+* [Como criar alertas para eventos de Registo de Atividades Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitorização do Centro de Segurança do Azure**: Sim
 

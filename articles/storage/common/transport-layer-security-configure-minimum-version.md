@@ -10,12 +10,12 @@ ms.date: 12/11/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: e5ab583330b46b8f53223500076aa04780e6deac
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.openlocfilehash: 3a44466f04e598080662599e785eb71698265f87
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98108726"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592332"
 ---
 # <a name="enforce-a-minimum-required-version-of-transport-layer-security-tls-for-requests-to-a-storage-account"></a>Impor uma versão mínima exigida de Segurança da Camada de Transporte (TLS) para pedidos a uma conta de armazenamento
 
@@ -35,11 +35,11 @@ Quando executa uma versão TLS mínima para a sua conta de armazenamento, arrisc
 
 Para registar pedidos na sua conta de Armazenamento Azure e determinar a versão TLS utilizada pelo cliente, pode utilizar o registo de armazenamento Azure no Azure Monitor (pré-visualização). Para obter mais informações, consulte [monitor Azure Storage](../blobs/monitor-blob-storage.md).
 
-O registo de armazenamento Azure no Azure Monitor suporta a utilização de consultas de registo para analisar dados de registo. Para consultar registos, pode utilizar um espaço de trabalho Azure Log Analytics. Para saber mais sobre consultas de log, consulte [Tutorial: Começar com consultas de Log Analytics](../../azure-monitor/log-query/log-analytics-tutorial.md).
+O registo de armazenamento Azure no Azure Monitor suporta a utilização de consultas de registo para analisar dados de registo. Para consultar registos, pode utilizar um espaço de trabalho Azure Log Analytics. Para saber mais sobre consultas de log, consulte [Tutorial: Começar com consultas de Log Analytics](../../azure-monitor/logs/log-analytics-tutorial.md).
 
 Para registar os dados de Armazenamento Azure com o Azure Monitor e analisá-los com o Azure Log Analytics, tem primeiro de criar uma definição de diagnóstico que indique quais os tipos de pedidos e quais os serviços de armazenamento que pretende registar dados. Os registos de armazenamento Azure no Azure Monitor estão em pré-visualização pública e estão disponíveis para testes de pré-visualização em todas as regiões de nuvem pública. Esta pré-visualização permite registos para bolhas (incluindo Azure Data Lake Storage Gen2), ficheiros, filas e tabelas. Para criar uma definição de diagnóstico no portal Azure, siga estes passos:
 
-1. Crie um novo espaço de trabalho log Analytics na subscrição que contenha a sua conta de Armazenamento Azure. Depois de configurar o registo da sua conta de armazenamento, os registos estarão disponíveis no espaço de trabalho do Log Analytics. Para obter mais informações, consulte [Criar um espaço de trabalho log Analytics no portal Azure](../../azure-monitor/learn/quick-create-workspace.md).
+1. Crie um novo espaço de trabalho log Analytics na subscrição que contenha a sua conta de Armazenamento Azure. Depois de configurar o registo da sua conta de armazenamento, os registos estarão disponíveis no espaço de trabalho do Log Analytics. Para obter mais informações, consulte [Criar um espaço de trabalho log Analytics no portal Azure](../../azure-monitor/logs/quick-create-workspace.md).
 1. Navegue para a sua conta de armazenamento no portal do Azure.
 1. Na secção de Monitorização, selecione **definições de diagnóstico (pré-visualização)**.
 1. Selecione o serviço de Armazenamento Azure para o qual pretende registar pedidos. Por exemplo, escolha **Blob** para registar pedidos para armazenamento Blob.
@@ -50,7 +50,7 @@ Para registar os dados de Armazenamento Azure com o Azure Monitor e analisá-los
 
     :::image type="content" source="media/transport-layer-security-configure-minimum-version/create-diagnostic-setting-logs.png" alt-text="Screenshot mostrando como criar uma definição de diagnóstico para pedidos de registo":::
 
-Depois de criar a definição de diagnóstico, os pedidos para a conta de armazenamento são subsequentemente registados de acordo com essa definição. Para obter mais informações, consulte [Criar a definição de diagnóstico para recolher registos e métricas de recursos em Azure](../../azure-monitor/platform/diagnostic-settings.md).
+Depois de criar a definição de diagnóstico, os pedidos para a conta de armazenamento são subsequentemente registados de acordo com essa definição. Para obter mais informações, consulte [Criar a definição de diagnóstico para recolher registos e métricas de recursos em Azure](../../azure-monitor/essentials/diagnostic-settings.md).
 
 Para obter uma referência dos campos disponíveis nos registos de armazenamento Azure no Azure Monitor, consulte [registos de recursos (pré-visualização)](../blobs/monitor-blob-storage-reference.md#resource-logs-preview).
 
@@ -344,13 +344,13 @@ A imagem a seguir mostra o erro que ocorre se tentar criar uma conta de armazena
 
 ## <a name="permissions-necessary-to-require-a-minimum-version-of-tls"></a>Permissões necessárias para exigir uma versão mínima de TLS
 
-Para definir a propriedade **MinimumTlsVersion** para a conta de armazenamento, um utilizador deve ter permissões para criar e gerir contas de armazenamento. As funções de controlo de acesso baseado em funções (Azure RBAC) que fornecem estas permissões incluem a **microsoft.Storage/storageAccounts/write** ou **Microsoft.Storage/storageAçãos/ \** _ ação. As funções incorporadas com esta ação incluem:
+Para definir a propriedade **MinimumTlsVersion** para a conta de armazenamento, um utilizador deve ter permissões para criar e gerir contas de armazenamento. As funções de controlo de acesso baseado em funções (Azure RBAC) que fornecem estas permissões incluem o **Microsoft.Storage/storageAccounts/write** ou **\* Microsoft.Storage/storageAcounts/action.** As funções incorporadas com esta ação incluem:
 
 - A função [de proprietário](../../role-based-access-control/built-in-roles.md#owner) de recursos Azure
 - O papel de [Colaborador](../../role-based-access-control/built-in-roles.md#contributor) do Gestor de Recursos Azure
 - A [função de contribuinte da conta de armazenamento](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
-Estas funções não fornecem acesso a dados numa conta de armazenamento via Azure Ative Directory (Azure AD). No entanto, incluem as chaves de acesso à conta _*Microsoft.Storage/storageAs/listkeys/action**, que dá acesso às chaves de acesso à conta. Com esta permissão, um utilizador pode utilizar as chaves de acesso à conta para aceder a todos os dados numa conta de armazenamento.
+Estas funções não fornecem acesso a dados numa conta de armazenamento via Azure Ative Directory (Azure AD). No entanto, incluem o **Microsoft.Storage/storageAccounts/listkeys/action**, que dá acesso às chaves de acesso à conta. Com esta permissão, um utilizador pode utilizar as chaves de acesso à conta para aceder a todos os dados numa conta de armazenamento.
 
 As atribuições de funções devem ser a nível da conta de armazenamento ou superior para permitir que um utilizador exija uma versão mínima de TLS para a conta de armazenamento. Para obter mais informações sobre o âmbito de funções, consulte [o âmbito de aplicação do Azure RBAC](../../role-based-access-control/scope-overview.md).
 

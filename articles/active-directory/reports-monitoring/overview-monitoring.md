@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 427cf2614f81a086dcb174db06cd636df4876c7e
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 763e628183e5f6ad7b7bdbb8ee7ce6db572f44ad
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96778500"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100577778"
 ---
 # <a name="what-is-azure-active-directory-monitoring"></a>O que é a monitorização do Azure Active Directory?
 
@@ -62,7 +62,7 @@ Para configurar definições de monitorização para registos de atividades do A
 
 * Selecione **Definições de diagnóstico** na secção **Monitorização**.
 
-    ![Definições de diagnósticos](./media/overview-monitoring/diagnostic-settings.png)
+    ![Definições de diagnóstico](./media/overview-monitoring/diagnostic-settings.png)
     
 * Selecione **Registos de Auditoria** ou **Inícios de Sessão** e, em seguida, selecione **Exportar definições**. 
 
@@ -79,7 +79,7 @@ O encaminhamento de registos para um hub de eventos do Azure permite-lhe integra
 
 ## <a name="send-logs-to-azure-monitor-logs"></a>Enviar registos para registos do Monitor Azure
 
-[Os registos do Azure Monitor](../../azure-monitor/log-query/log-query-overview.md) são uma solução que consolida dados de monitorização de diferentes fontes e fornece um motor de linguagem e análise de consulta que lhe dá informações sobre o funcionamento das suas aplicações e recursos. Ao enviar registos de atividade azure AD para registos do Azure Monitor, pode rapidamente recuperar, monitorizar e alertar os dados recolhidos. Saiba como [enviar dados para os registos do Azure Monitor](howto-integrate-activity-logs-with-log-analytics.md).
+[Os registos do Azure Monitor](../../azure-monitor/logs/log-query-overview.md) são uma solução que consolida dados de monitorização de diferentes fontes e fornece um motor de linguagem e análise de consulta que lhe dá informações sobre o funcionamento das suas aplicações e recursos. Ao enviar registos de atividade azure AD para registos do Azure Monitor, pode rapidamente recuperar, monitorizar e alertar os dados recolhidos. Saiba como [enviar dados para os registos do Azure Monitor](howto-integrate-activity-logs-with-log-analytics.md).
 
 Também pode instalar as vistas pré-criadas para os registos de atividades do Azure AD para monitorizar cenários comuns que envolvem inícios de sessão e eventos de auditoria. Saiba como [instalar e utilizar vistas de análise de registos para registos de atividades Azure AD](howto-install-use-log-analytics-views.md).
 

@@ -4,12 +4,12 @@ description: Saiba mais sobre a escala de clusters de tecidos de serviço Azure 
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: atsenthi
-ms.openlocfilehash: 126be55c63c625995ad52b84a51a8983e220652d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 610c43f64f9073aefe8008473209039122cf36d7
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85610205"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100591785"
 ---
 # <a name="scaling-azure-service-fabric-clusters"></a>Aglomerados de tecido de serviço de escala Azure
 Um cluster de tecido de serviço é um conjunto de máquinas virtuais ou físicas ligadas à rede em que os seus microserviços são implantados e geridos. Uma máquina ou VM que faz parte de um aglomerado é chamada de nó. Os aglomerados podem conter potencialmente milhares de nós. Depois de criar um cluster de Tecido de Serviço, pode escalar o cluster horizontalmente (alterar o número de nós) ou verticalmente (alterar os recursos dos nós).  Pode escalar o cluster a qualquer momento, mesmo quando as cargas de trabalho estão a funcionar no cluster.  À medida que o cluster escala, as suas aplicações também escalam automaticamente.
@@ -40,7 +40,7 @@ Em muitos cenários, [escalar um cluster manualmente ou com regras de autoescala
 - O dimensionamento manual requer que faça sing e solicite explicitamente operações de escala. Se as operações de escalonamento forem necessárias frequentemente ou em momentos imprevisíveis, esta abordagem pode não ser uma boa solução.
 - Quando as regras de escala automática removem uma instância de um conjunto de escala de máquina virtual, não removem automaticamente o conhecimento desse nó do cluster de tecido de serviço associado, a menos que o tipo de nó tenha um nível de durabilidade de Prata ou Ouro. Dado que as regras de escala automática funcionam ao nível definido na escala (e não ao nível do Tecido de Serviço), as regras de escala automática podem remover os nós do Tecido de Serviço sem os desligar graciosamente. Esta remoção rude do nó deixará o nó de nó de tecido de serviço 'fantasma' para trás após operações de escala. Um indivíduo (ou um serviço) teria de limpar periodicamente o estado do nó removido no cluster de Tecido de Serviço.
 - Um tipo de nó com um nível de durabilidade de Ouro ou Prata limpa automaticamente os nós removidos, para que não seja necessária uma limpeza adicional.
-- Embora existam [muitas métricas](../azure-monitor/platform/autoscale-common-metrics.md) suportadas por regras de escala automática, ainda é um conjunto limitado. Se o seu cenário requer uma escala com base em alguma métrica não abrangida por esse conjunto, então as regras de escala automática podem não ser uma boa opção.
+- Embora existam [muitas métricas](../azure-monitor/autoscale/autoscale-common-metrics.md) suportadas por regras de escala automática, ainda é um conjunto limitado. Se o seu cenário requer uma escala com base em alguma métrica não abrangida por esse conjunto, então as regras de escala automática podem não ser uma boa opção.
 
 A forma como deve abordar o dimensionamento do Tecido de Serviço depende do seu cenário. Se a escala é incomum, a capacidade de adicionar ou remover os nós manualmente é provavelmente suficiente. Para cenários mais complexos, regras de escala automática e SDKs expondo a capacidade de escalar programáticamente oferecem alternativas poderosas.
 

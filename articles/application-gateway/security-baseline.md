@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 4f28665998dcac9f641d4142a0dea60707fb02e9
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 579baa611db47215c8ada554328d254ce99f17cf
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99805365"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579752"
 ---
 # <a name="azure-security-baseline-for-azure-application-gateway"></a>Linha de segurança Azure para Azure Application Gateway
 
@@ -188,9 +188,9 @@ Pode utilizar o Azure PowerShell ou o Azure CLI para procurar ou executar açõe
 
 **Orientação**: Utilize o Registo de Atividades Azure para monitorizar as configurações de recursos de rede e detetar alterações para as definições de rede e recursos relacionados com as suas implementações do Gateway de Aplicações Azure. Crie alertas dentro do Azure Monitor que irão desencadear quando ocorrerem alterações nas definições ou recursos críticos da rede.
 
-* [Como visualizar e recuperar eventos de Registo de Atividades Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+* [Como visualizar e recuperar eventos de Registo de Atividades Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-* [Como criar alertas no Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+* [Como criar alertas no Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
@@ -216,7 +216,7 @@ Além dos Registos de Atividade, pode configurar definições de diagnóstico pa
 
 O Azure Application Gateway também oferece integração incorporada com a Azure Application Insights. O Application Insights recolhe dados de registo, desempenho e erro. O Application Insights deteta automaticamente anomalias de desempenho e inclui poderosas ferramentas de análise para o ajudar a diagnosticar problemas e a compreender como as suas aplicações web estão a ser utilizadas. Pode permitir a exportação contínua para a telemetria de exportação da Application Insights para um local centralizado para manter os dados por mais tempo do que o período de retenção padrão.
 
-* [Como ativar as definições de diagnóstico para registo de atividades Azure](../azure-monitor/platform/activity-log.md)
+* [Como ativar as definições de diagnóstico para registo de atividades Azure](../azure-monitor/essentials/activity-log.md)
 
 * [Como ativar as definições de diagnóstico para O Gateway de Aplicação Azure](./application-gateway-diagnostics.md)
 
@@ -236,7 +236,7 @@ Além dos Registos de Atividade, pode configurar definições de diagnóstico pa
 
 O Azure Application Gateway também oferece integração incorporada com a Azure Application Insights. O Application Insights recolhe dados de registo, desempenho e erro. O Application Insights deteta automaticamente anomalias de desempenho e inclui poderosas ferramentas de análise para o ajudar a diagnosticar problemas e a compreender como as suas aplicações web estão a ser utilizadas. Pode permitir a exportação contínua para a telemetria de exportação da Application Insights para um local centralizado para manter os dados por mais tempo do que o período de retenção padrão.
 
-* [Como ativar as definições de diagnóstico para registo de atividades Azure](../azure-monitor/platform/activity-log.md)
+* [Como ativar as definições de diagnóstico para registo de atividades Azure](../azure-monitor/essentials/activity-log.md)
 
 * [Como ativar as definições de diagnóstico para O Gateway de Aplicação Azure](./application-gateway-diagnostics.md)
 
@@ -260,7 +260,7 @@ O Azure Application Gateway também oferece integração incorporada com a Azure
 
 **Orientação**: Dentro do Azure Monitor, desa um ponto final no período de retenção do espaço de trabalho do Log Analytics de acordo com os regulamentos de conformidade da sua organização. Utilize contas de armazenamento Azure para armazenamento a longo prazo/arquivo.
 
-* [Como definir parâmetros de retenção de registos para log analytics workspaces](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+* [Como definir parâmetros de retenção de registos para log analytics workspaces](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
@@ -274,7 +274,7 @@ Utilize o Monitor Azure para redes para uma visão abrangente da saúde e métri
 
 Opcionalmente, pode ativar e a bordo dados para Azure Sentinel ou um SIEM de terceiros.
 
-* [Como ativar as definições de diagnóstico para registo de atividades Azure](../azure-monitor/platform/activity-log.md)
+* [Como ativar as definições de diagnóstico para registo de atividades Azure](../azure-monitor/essentials/activity-log.md)
 
 * [Como ativar as definições de diagnóstico para O Gateway de Aplicação Azure](./application-gateway-diagnostics.md)
 
@@ -294,13 +294,13 @@ Utilize o Monitor Azure para redes para uma visão abrangente da saúde e métri
 
 * [Como implantar a Azure WAF](../web-application-firewall/ag/create-waf-policy-ag.md)
 
-* [Como ativar as definições de diagnóstico para registo de atividades Azure](../azure-monitor/platform/activity-log.md)
+* [Como ativar as definições de diagnóstico para registo de atividades Azure](../azure-monitor/essentials/activity-log.md)
 
 * [Como ativar as definições de diagnóstico para O Gateway de Aplicação Azure](./application-gateway-diagnostics.md)
 
 * [Como utilizar o Monitor Azure para redes](../azure-monitor/insights/network-insights-overview.md)
 
-* [Como criar alertas dentro do Azure](../azure-monitor/learn/tutorial-response.md)
+* [Como criar alertas dentro do Azure](../azure-monitor/alerts/tutorial-response.md)
 
 **Monitorização do Centro de Segurança do Azure**: Sim
 
@@ -591,7 +591,7 @@ A Microsoft gere a infraestrutura subjacente ao Azure Application Gateway e impl
 
 **Orientação**: Utilize o Monitor Azure com o registo de atividade azure para criar alertas para quando ocorrerem alterações na produção de instâncias do Gateway de aplicação Azure, bem como outros recursos críticos ou relacionados.
 
-* [Como criar alertas para eventos de Registo de Atividades Azure](../azure-monitor/platform/alerts-activity-log.md)
+* [Como criar alertas para eventos de Registo de Atividades Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitorização do Centro de Segurança do Azure**: Sim
 

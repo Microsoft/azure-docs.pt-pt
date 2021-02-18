@@ -10,12 +10,12 @@ ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: d71f3fa27dda9edc4c88ad9ed563e5c3a95ffa4b
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: e872d28063a3e0671558ee4d388cad280b94f45b
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99574538"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100596924"
 ---
 # <a name="monitoring-azure-files"></a>Monitorar ficheiros Azure
 
@@ -28,7 +28,7 @@ A página **'Visão Geral'** no portal Azure para cada recurso de Ficheiros Azur
 ## <a name="what-is-azure-monitor"></a>O que é o Azure Monitor?
 O Azure Files cria dados de monitorização utilizando [o Azure Monitor,](../../azure-monitor/overview.md)que é um serviço de monitorização de pilhas completa em Azure. O Azure Monitor fornece um conjunto completo de funcionalidades para monitorizar os seus recursos e recursos Azure em outras nuvens e no local. 
 
-Comece com o artigo [Monitorar os recursos do Azure com o Azure Monitor,](../../azure-monitor/insights/monitor-azure-resource.md)que descreve o seguinte:
+Comece com o artigo [Monitorar os recursos do Azure com o Azure Monitor,](../../azure-monitor/essentials/monitor-azure-resource.md)que descreve o seguinte:
 
 - O que é o Azure Monitor?
 - Custos associados à monitorização
@@ -40,7 +40,7 @@ As secções seguintes baseiam-se neste artigo descrevendo os dados específicos
 
 ## <a name="monitoring-data"></a>Monitorizar dados
 
-A Azure Files recolhe os mesmos tipos de dados de monitorização que outros recursos Azure, que são descritos na [monitorização de dados a partir de recursos Azure](../../azure-monitor/insights/monitor-azure-resource.md#monitoring-data). 
+A Azure Files recolhe os mesmos tipos de dados de monitorização que outros recursos Azure, que são descritos na [monitorização de dados a partir de recursos Azure](../../azure-monitor/essentials/monitor-azure-resource.md#monitoring-data). 
 
 Consulte [a referência de dados de monitorização do Ficheiro Azure](storage-files-monitoring-reference.md) para obter informações detalhadas sobre as métricas de métricas e registos criadas pelos Ficheiros Azure.
 
@@ -67,7 +67,7 @@ Pode criar uma definição de diagnóstico utilizando o portal Azure, o PowerShe
 > [!NOTE]
 > Os registos de armazenamento Azure no Azure Monitor estão em pré-visualização pública e estão disponíveis para testes de pré-visualização em todas as regiões de nuvem pública. Esta pré-visualização permite registos para bolhas (que inclui Azure Data Lake Storage Gen2), ficheiros, filas e tabelas. Esta funcionalidade encontra-se disponível para todas as contas de armazenamento que são criadas com o modelo de implementação do Azure Resource Manager. Consulte [a visão geral da conta de armazenamento](../common/storage-account-overview.md).
 
-Para obter orientações gerais, consulte [Criar definição de diagnóstico para recolher registos e métricas da plataforma em Azure](../../azure-monitor/platform/diagnostic-settings.md).
+Para obter orientações gerais, consulte [Criar definição de diagnóstico para recolher registos e métricas da plataforma em Azure](../../azure-monitor/essentials/diagnostic-settings.md).
 
 ### <a name="azure-portal"></a>[Portal do Azure](#tab/azure-portal)
 
@@ -106,7 +106,7 @@ Se optar por arquivar os seus registos numa conta de armazenamento, pagará o vo
 2. Na lista de down-down da **conta De armazenamento,** selecione a conta de armazenamento para a que pretende arquivar os seus registos, clique no botão **OK** e, em seguida, clique no botão **Guardar.**
 
    > [!NOTE]
-   > Antes de escolher uma conta de armazenamento como destino de exportação, consulte [os registos de recursos do Archive Azure](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage) para entender os pré-requisitos na conta de armazenamento.
+   > Antes de escolher uma conta de armazenamento como destino de exportação, consulte [os registos de recursos do Archive Azure](../../azure-monitor/essentials/resource-logs.md#send-to-azure-storage) para entender os pré-requisitos na conta de armazenamento.
 
 #### <a name="stream-logs-to-azure-event-hubs"></a>Registos de streaming para Azure Event Hubs
 
@@ -160,7 +160,7 @@ Eis um exemplo:
 
 `Set-AzDiagnosticSetting -ResourceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/fileServices/default -StorageAccountId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount -Enabled $true -Category StorageWrite,StorageDelete`
 
-Para obter uma descrição de cada parâmetro, consulte os [registos de recursos archive Azure através do Azure PowerShell](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage).
+Para obter uma descrição de cada parâmetro, consulte os [registos de recursos archive Azure através do Azure PowerShell](../../azure-monitor/essentials/resource-logs.md#send-to-azure-storage).
 
 #### <a name="stream-logs-to-an-event-hub"></a>Registos de fluxo para um centro de eventos
 
@@ -176,7 +176,7 @@ Eis um exemplo:
 
 `Set-AzDiagnosticSetting -ResourceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/fileServices/default -EventHubAuthorizationRuleId /subscriptions/20884142-a14v3-4234-5450-08b10c09f4/resourceGroups/myresourcegroup/providers/Microsoft.EventHub/namespaces/myeventhubnamespace/authorizationrules/RootManageSharedAccessKey -Enabled $true -Category StorageDelete`
 
-Para obter uma descrição de cada parâmetro, consulte os dados de [fluxo para centros de evento através de cmdlets PowerShell](../../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs).
+Para obter uma descrição de cada parâmetro, consulte os dados de [fluxo para centros de evento através de cmdlets PowerShell](../../azure-monitor/essentials/resource-logs.md#send-to-azure-event-hubs).
 
 #### <a name="send-logs-to-log-analytics"></a>Enviar registos para o Log Analytics
 
@@ -190,7 +190,7 @@ Eis um exemplo:
 
 `Set-AzDiagnosticSetting -ResourceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/fileServices/default -WorkspaceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.OperationalInsights/workspaces/my-analytic-workspace -Enabled $true -Category StorageDelete`
 
-Para obter mais informações, consulte [os Registos de Recursos stream Azure para registar o espaço de trabalho no Azure Monitor](../../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace).
+Para obter mais informações, consulte [os Registos de Recursos stream Azure para registar o espaço de trabalho no Azure Monitor](../../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace).
 
 ### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
@@ -222,7 +222,7 @@ Eis um exemplo:
 
 `az monitor diagnostic-settings create --name setting1 --storage-account mystorageaccount --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/fileServices/default --resource-group myresourcegroup --logs '[{"category": StorageWrite, "enabled": true, "retentionPolicy": {"days": 90, "enabled": true}}]'`
 
-Para obter uma descrição de cada parâmetro, consulte os [registos de Recursos de Arquivo através do CLI Azure](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage).
+Para obter uma descrição de cada parâmetro, consulte os [registos de Recursos de Arquivo através do CLI Azure](../../azure-monitor/essentials/resource-logs.md#send-to-azure-storage).
 
 #### <a name="stream-logs-to-an-event-hub"></a>Registos de fluxo para um centro de eventos
 
@@ -238,7 +238,7 @@ Eis um exemplo:
 
 `az monitor diagnostic-settings create --name setting1 --event-hub myeventhub --event-hub-rule /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.EventHub/namespaces/myeventhubnamespace/authorizationrules/RootManageSharedAccessKey --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/fileServices/default --logs '[{"category": StorageDelete, "enabled": true }]'`
 
-Para obter uma descrição de cada parâmetro, consulte os dados do [Stream para Os Centros de Eventos via Azure CLI](../../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs).
+Para obter uma descrição de cada parâmetro, consulte os dados do [Stream para Os Centros de Eventos via Azure CLI](../../azure-monitor/essentials/resource-logs.md#send-to-azure-event-hubs).
 
 #### <a name="send-logs-to-log-analytics"></a>Enviar registos para o Log Analytics
 
@@ -252,24 +252,24 @@ Eis um exemplo:
 
 `az monitor diagnostic-settings create --name setting1 --workspace /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.OperationalInsights/workspaces/my-analytic-workspace --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/fileServices/default --logs '[{"category": StorageDelete, "enabled": true ]'`
 
- Para obter mais informações, consulte [os Registos de Recursos stream Azure para registar o espaço de trabalho no Azure Monitor](../../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace).
+ Para obter mais informações, consulte [os Registos de Recursos stream Azure para registar o espaço de trabalho no Azure Monitor](../../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace).
 
 ### <a name="template"></a>[Modelo](#tab/template)
 
-Para ver um modelo do Gestor de Recursos Azure que cria uma definição de diagnóstico, consulte [a definição de Diagnóstico para armazenamento Azure](../../azure-monitor/samples/resource-manager-diagnostic-settings.md#diagnostic-setting-for-azure-storage).
+Para ver um modelo do Gestor de Recursos Azure que cria uma definição de diagnóstico, consulte [a definição de Diagnóstico para armazenamento Azure](../../azure-monitor/essentials/resource-manager-diagnostic-settings.md#diagnostic-setting-for-azure-storage).
 
 ---
 
 ## <a name="analyzing-metrics"></a>Análise de métricas
 
-Pode analisar métricas para armazenamento Azure com métricas de outros serviços Azure utilizando o Metrics Explorer. Open Metrics Explorer escolhendo **métricas** do menu **Azure Monitor.** Para obter detalhes sobre a utilização desta ferramenta, consulte [Começar com o Azure Metrics Explorer](../../azure-monitor/platform/metrics-getting-started.md). 
+Pode analisar métricas para armazenamento Azure com métricas de outros serviços Azure utilizando o Metrics Explorer. Open Metrics Explorer escolhendo **métricas** do menu **Azure Monitor.** Para obter detalhes sobre a utilização desta ferramenta, consulte [Começar com o Azure Metrics Explorer](../../azure-monitor/essentials/metrics-getting-started.md). 
 
 Para métricas que suportam dimensões, pode filtrar a métrica com o valor de dimensão pretendido.  Para obter uma lista completa das dimensões que o Azure Storage suporta, consulte [as dimensões das Métricas.](storage-files-monitoring-reference.md#metrics-dimensions) As métricas para ficheiros Azure estão nestes espaços de nome: 
 
 - Microsoft.Storage/storageAcontas
 - Microsoft.Storage/storageAcontas/fileServices
 
-Para obter uma lista de todas as métricas de suporte do Azure Monitor, que inclui ficheiros Azure, consulte [as métricas suportadas pelo Monitor Azure](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountsfileservices).
+Para obter uma lista de todas as métricas de suporte do Azure Monitor, que inclui ficheiros Azure, consulte [as métricas suportadas pelo Monitor Azure](../../azure-monitor/essentials/metrics-supported.md#microsoftstoragestorageaccountsfileservices).
 
 ### <a name="accessing-metrics"></a>Métricas de acesso
 
@@ -513,20 +513,20 @@ Os registos enviados para um centro de eventos não são armazenados como um fic
 
 ![Registos de auditoria](media/storage-files-monitoring/event-hub-log.png)
 
-Pode aceder e ler dados de registo que são enviados para o seu centro de eventos utilizando informações de segurança e ferramentas de gestão e monitorização de eventos. Para mais informações, veja [o que posso fazer com os dados de monitorização que estão a ser enviados para o meu centro de eventos?](../../azure-monitor/platform/stream-monitoring-data-event-hubs.md)
+Pode aceder e ler dados de registo que são enviados para o seu centro de eventos utilizando informações de segurança e ferramentas de gestão e monitorização de eventos. Para mais informações, veja [o que posso fazer com os dados de monitorização que estão a ser enviados para o meu centro de eventos?](../../azure-monitor/essentials/stream-monitoring-data-event-hubs.md)
 
 ### <a name="accessing-logs-in-a-log-analytics-workspace"></a>Aceder a registos num espaço de trabalho do Log Analytics
 
 Pode aceder aos registos enviados para um espaço de trabalho do Log Analytics utilizando consultas de registo do Azure Monitor. Os dados são armazenados na tabela **StorageFileLogs.** 
 
-Para mais informações, consulte [o tutorial do Log Analytics.](../../azure-monitor/log-query/log-analytics-tutorial.md)
+Para mais informações, consulte [o tutorial do Log Analytics.](../../azure-monitor/logs/log-analytics-tutorial.md)
 
 #### <a name="sample-kusto-queries"></a>Experimente consultas kusto
 
-Aqui ficam algumas consultas que pode introduzir na barra **de pesquisa log** para ajudá-lo a monitorizar os seus Ficheiros Azure. Estas consultas funcionam com a [nova linguagem.](../../azure-monitor/log-query/log-query-overview.md)
+Aqui ficam algumas consultas que pode introduzir na barra **de pesquisa log** para ajudá-lo a monitorizar os seus Ficheiros Azure. Estas consultas funcionam com a [nova linguagem.](../../azure-monitor/logs/log-query-overview.md)
 
 > [!IMPORTANT]
-> Quando seleciona **Logs** do menu do grupo de recursos de conta de armazenamento, o Log Analytics é aberto com o âmbito de consulta definido para o grupo de recursos atual. Isto significa que as consultas de registo só incluirão dados desse grupo de recursos. Se pretender executar uma consulta que inclua dados de outros recursos ou dados de outros serviços Azure, selecione **Logs** do menu **Azure Monitor.** Consulte [o âmbito de consulta de registo e o intervalo de tempo no Azure Monitor Log Analytics](../../azure-monitor/log-query/scope.md) para obter mais detalhes.
+> Quando seleciona **Logs** do menu do grupo de recursos de conta de armazenamento, o Log Analytics é aberto com o âmbito de consulta definido para o grupo de recursos atual. Isto significa que as consultas de registo só incluirão dados desse grupo de recursos. Se pretender executar uma consulta que inclua dados de outros recursos ou dados de outros serviços Azure, selecione **Logs** do menu **Azure Monitor.** Consulte [o âmbito de consulta de registo e o intervalo de tempo no Azure Monitor Log Analytics](../../azure-monitor/logs/scope.md) para obter mais detalhes.
 
 Utilize estas consultas para ajudá-lo a monitorizar as suas partilhas de ficheiros Azure:
 
@@ -567,11 +567,11 @@ StorageFileLogs
 
 Para ver a lista de nomes e descrições de colunas para Ficheiros Azure, consulte [StorageFileLogs](/azure/azure-monitor/reference/tables/storagefilelogs).
 
-Para obter mais informações sobre como escrever consultas, consulte [o tutorial do Log Analytics.](../../azure-monitor/log-query/log-analytics-tutorial.md)
+Para obter mais informações sobre como escrever consultas, consulte [o tutorial do Log Analytics.](../../azure-monitor/logs/log-analytics-tutorial.md)
 
 ## <a name="alerts"></a>Alertas
 
-Os alertas do Azure Monitor notificam-no proativamente quando forem encontradas condições importantes nos seus dados de monitorização. Permitem identificar e resolver problemas no seu sistema antes que os seus clientes os percebam. Pode definir alertas em [métricas,](../../azure-monitor/platform/alerts-metric-overview.md) [registos](../../azure-monitor/platform/alerts-unified-log.md)e no registo de [atividades](../../azure-monitor/platform/activity-log-alerts.md). 
+Os alertas do Azure Monitor notificam-no proativamente quando forem encontradas condições importantes nos seus dados de monitorização. Permitem identificar e resolver problemas no seu sistema antes que os seus clientes os percebam. Pode definir alertas em [métricas,](../../azure-monitor/alerts/alerts-metric-overview.md) [registos](../../azure-monitor/alerts/alerts-unified-log.md)e no registo de [atividades](../../azure-monitor/alerts/activity-log-alerts.md). 
 
 A tabela a seguir enumera alguns cenários de exemplo para monitorizar e a métrica adequada a utilizar para o alerta:
 
@@ -689,7 +689,7 @@ A tabela a seguir enumera alguns cenários de exemplo para monitorizar e a métr
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Azure Files monitorizando a referência de dados](storage-files-monitoring-reference.md)
-- [Monitorar recursos do Azure com o Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md)
+- [Monitorar recursos do Azure com o Azure Monitor](../../azure-monitor/essentials/monitor-azure-resource.md)
 - [Migração de métricas de armazenamento Azure](../common/storage-metrics-migration.md)
 - [Planear uma implementação de Ficheiros do Azure](./storage-files-planning.md)
 - [Como implementar os Ficheiros do Azure](./storage-how-to-create-file-share.md)

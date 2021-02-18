@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: c1e61e9434d96148fbce840f4bad7f6a3b2ecb6b
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: e37171fce5dd7fe625550c5f554f211cf148ea07
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202730"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100591442"
 ---
 # <a name="azure-security-baseline-for-stream-analytics"></a>Linha de segurança Azure para Stream Analytics
 
@@ -114,9 +114,9 @@ Para obter mais informações, consulte a visão geral das [linhas de base de se
 
 **Orientação**: Utilize o Registo de Atividades Azure para monitorizar as configurações dos recursos e detetar alterações para os seus recursos stream Analytics. Crie alertas dentro do Azure Monitor que irão desencadear quando ocorrerem alterações nos recursos críticos.
 
-* [Como visualizar e recuperar eventos de Registo de Atividades Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+* [Como visualizar e recuperar eventos de Registo de Atividades Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-* [Como criar alertas no Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+* [Como criar alertas no Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
@@ -138,7 +138,7 @@ Para obter mais informações, consulte a visão geral das [linhas de base de se
 
 **Orientação**: Ingerir registos via Azure Monitor para agregar dados de segurança, tais como eventos de auditoria e pedidos. Dentro do Azure Monitor, utilize espaços de trabalho do Log Analytics para consultar e realizar análises, e utilize a conta de Armazenamento Azure para armazenamento de longo prazo/arquivo, opcionalmente com funcionalidades de segurança, tais como armazenamento imutável e retenção forçada.
 
-* [Como recolher registos e métricas da plataforma com o Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
+* [Como recolher registos e métricas da plataforma com o Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
 **Monitorização do Centro de Segurança do Azure**: Sim
 
@@ -170,7 +170,7 @@ Para obter mais informações, consulte a visão geral das [linhas de base de se
 
 * [Como configurar a política de retenção para os registos de conta de armazenamento Azure](../storage/common/storage-monitor-storage-account.md#configure-logging)
 
-* [Alterar o período de retenção de dados em Log Analytics](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+* [Alterar o período de retenção de dados em Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
@@ -182,9 +182,9 @@ Para obter mais informações, consulte a visão geral das [linhas de base de se
 
 * [Como embarcar Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-* [Para mais informações sobre o Log Analytics Workspace](../azure-monitor/log-query/log-analytics-tutorial.md)
+* [Para mais informações sobre o Log Analytics Workspace](../azure-monitor/logs/log-analytics-tutorial.md)
 
-* [Como realizar consultas personalizadas no Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
+* [Como realizar consultas personalizadas no Azure Monitor](../azure-monitor/logs/get-started-queries.md)
 
 **Monitorização do Centro de Segurança do Azure**: Não aplicável
 
@@ -196,7 +196,7 @@ Para obter mais informações, consulte a visão geral das [linhas de base de se
 
 * [Como embarcar Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-* [Como alertar nos dados de registos de registos](../azure-monitor/learn/tutorial-response.md)
+* [Como alertar nos dados de registo de registo de registos de registos](../azure-monitor/alerts/tutorial-response.md)
 
 * [Azure Stream Analytics fornece registos de diagnóstico e dados de atividade para revisão](./stream-analytics-job-diagnostic-logs.md)
 
@@ -474,7 +474,7 @@ Para a plataforma subjacente, gerida pela Microsoft, a Microsoft trata todos os 
 
 **Orientação**: Utilize o Monitor Azure com o registo de atividade azure para criar alertas para quando ocorrerem alterações nas instâncias de produção dos recursos Azure Stream Analytics.
 
-* [Como criar alertas para eventos de Registo de Atividades Azure](../azure-monitor/platform/alerts-activity-log.md)
+* [Como criar alertas para eventos de Registo de Atividades Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitorização do Centro de Segurança do Azure**: Sim
 

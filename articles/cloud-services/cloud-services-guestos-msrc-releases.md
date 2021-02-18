@@ -3,21 +3,21 @@ title: Lista de atualizações aplicadas ao Azure Guest OS | Microsoft Docs
 description: Este artigo lista as atualizações do Microsoft Security Response Center aplicadas a diferentes OAure Guest OS. Veja se uma atualização se aplica ao so-os convidado que está a utilizar.
 services: cloud-services
 documentationcenter: na
-author: yohaddad
+author: gunnarcms
 editor: ''
 ms.assetid: d0a272a9-ed01-4f4c-a0b3-bd5e841bdd77
 ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 2/9/2021
+ms.date: 2/17/2021
 ms.author: gunnarcms
-ms.openlocfilehash: 63aa13c178acd0b560c2bbd9cbc8873464062488
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 1a77ab15bc4d1095f47d9d411b5a0fd64bb568de
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100580651"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100650801"
 ---
 # <a name="azure-guest-os"></a>Hóspede Azure OS
 As tabelas seguintes mostram as atualizações do Microsoft Security Response Center (MSRC) aplicadas ao Azure Guest OS. Pes faça uma pesquisa neste artigo para determinar se uma determinada atualização se aplica ao so-os convidado que está a utilizar. As atualizações são sempre transmitidas para a [família][family-explain] em particular em que foram introduzidas.

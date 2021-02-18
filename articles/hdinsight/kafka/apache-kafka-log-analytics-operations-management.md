@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 02/17/2020
-ms.openlocfilehash: d577e96c3ae95103a412b96eba3e1293142f1acd
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 51301bd38bf0700ce42ef33a47b9e763da8d4ed6
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98932774"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595302"
 ---
 # <a name="analyze-logs-for-apache-kafka-on-hdinsight"></a>Analyze logs for Apache Kafka on HDInsight (Analisar registos do Apache Kafka no HDInsight)
 
@@ -22,7 +22,7 @@ Aprenda a usar registos do Azure Monitor para analisar os registos gerados por A
 
 Os troncos Apache Kafka no aglomerado estão localizados em `/var/log/kafka` . Os registos kafka não são salvos ou persistidos em ciclos de vida do cluster, independentemente de os discos geridos forem utilizados. A tabela a seguir mostra os registos disponíveis.
 
-|Registo |Descrição |
+|Registo |Description |
 |---|---|
 |kafka.out|stdout e stderr do processo Kafka. Você vai encontrar logs de arranque e encerramento de Kafka neste ficheiro.|
 |servidor.log|O registo principal do servidor Kafka. Todos os registos de corretores kafka acabam aqui.|
@@ -34,7 +34,7 @@ Os troncos Apache Kafka no aglomerado estão localizados em `/var/log/kafka` . O
 
 Os passos para permitir os registos do Monitor Azure para HDInsight são os mesmos para todos os clusters HDInsight. Utilize os seguintes links para entender como criar e configurar os serviços necessários:
 
-1. Criar uma área de trabalho do Log Analytics. Para mais informações, consulte o documento ['Logs in Azure Monitor'.](../../azure-monitor/platform/data-platform-logs.md)
+1. Criar uma área de trabalho do Log Analytics. Para mais informações, consulte o documento ['Logs in Azure Monitor'.](../../azure-monitor/logs/data-platform-logs.md)
 
 2. Crie um Kafka no cluster HDInsight. Para mais informações, consulte o Início com Apache Kafka no documento [HDInsight.](apache-kafka-get-started.md)
 
@@ -91,7 +91,7 @@ Os passos para permitir os registos do Monitor Azure para HDInsight são os mesm
 
     Também pode introduzir `*` para pesquisar todos os tipos registados. Atualmente, os seguintes registos estão disponíveis para consultas:
 
-    | Tipo de registo | Descrição |
+    | Tipo de registo | Description |
     | ---- | ---- |
     | log \_ kafkaserver \_ CL | Servidor de corretor kafka.log |
     | log \_ kafkacontroller \_ CL | Controlador de corretor kafka.log |
@@ -99,7 +99,7 @@ Os passos para permitir os registos do Monitor Azure para HDInsight são os mesm
 
     ![Apache kafka log analytics uso cpu](./media/apache-kafka-log-analytics-operations-management/apache-kafka-cpu-usage.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre o Azure Monitor, consulte [a visão geral do Monitor Azure](../../azure-monitor/overview.md)e [os registos do Monitor Desatado para monitorizar os clusters HDInsight](../hdinsight-hadoop-oms-log-analytics-use-queries.md).
 

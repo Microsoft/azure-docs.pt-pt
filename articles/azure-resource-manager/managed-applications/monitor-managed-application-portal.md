@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 10/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: afe78dd00ecebdc54b6d73c4c8324729e117d95b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a02062edd1a940bcc6588ab53457e0af91fedd9a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75651751"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100578267"
 ---
 # <a name="monitor-a-deployed-instance-of-a-managed-application"></a>Monitorize uma instância implantada de uma aplicação gerida
 
@@ -44,7 +44,7 @@ Depois de ter implementado uma aplicação gerida para a sua subscrição Azure,
 
    ![Criar alerta](./media/monitor-managed-application-portal/create-new-alert.png)
 
-Pode criar alertas para a sua aplicação gerida ou para os recursos na aplicação gerida. Para obter informações sobre a criação de alertas, consulte [a visão geral dos alertas no Microsoft Azure](../../azure-monitor/platform/alerts-overview.md).
+Pode criar alertas para a sua aplicação gerida ou para os recursos na aplicação gerida. Para obter informações sobre a criação de alertas, consulte [a visão geral dos alertas no Microsoft Azure](../../azure-monitor/alerts/alerts-overview.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 

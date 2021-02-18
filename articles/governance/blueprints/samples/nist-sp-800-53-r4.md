@@ -3,12 +3,12 @@ title: Descrição geral do exemplo de esquema NIST SP 800-53 R4
 description: Descrição geral do exemplo de esquema NIST SP 800-53 R4. Este exemplo de esquema ajuda os clientes a avaliar controlos NIST SP 800-53 R4 específicos.
 ms.date: 01/27/2021
 ms.topic: sample
-ms.openlocfilehash: b773013c61a8bed3c5c5f4e8b24878f10889f954
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: cff59a53642bcaf0828d9d6a99052bca4d651f31
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98918132"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100577137"
 ---
 # <a name="nist-sp-800-53-r4-blueprint-sample"></a>Amostra de planta NIST SP 800-53 R4
 
@@ -102,7 +102,7 @@ A tabela seguinte mostra uma lista dos parâmetros dos artefactos de esquema:
 |Nome do artefacto|Tipo de artefacto|Nome do parâmetro|Descrição|
 |-|-|-|-|
 |\[Pré-visualização \] : Auditoria NIST SP 800-53 R4 controla e implementa extensões VM específicas para apoiar os requisitos de auditoria|Atribuição de políticas|Log Analytics workspace ID que VMs deve ser configurado para|Este é o ID (GUID) do espaço de trabalho Log Analytics para o qual os VMs devem ser configurados.|
-|\[Pré-visualização \] : Auditoria NIST SP 800-53 R4 controla e implementa extensões VM específicas para apoiar os requisitos de auditoria|Atribuição de políticas|Lista de tipos de recursos que devem ter registos de diagnóstico ativados|Lista de tipos de recursos para auditar se a definição de registo de diagnóstico não estiver ativada. Os valores aceitáveis podem ser encontrados nos [esquemas de registos de diagnóstico do Azure Monitor](../../../azure-monitor/platform/resource-logs-schema.md#service-specific-schemas).|
+|\[Pré-visualização \] : Auditoria NIST SP 800-53 R4 controla e implementa extensões VM específicas para apoiar os requisitos de auditoria|Atribuição de políticas|Lista de tipos de recursos que devem ter registos de diagnóstico ativados|Lista de tipos de recursos para auditar se a definição de registo de diagnóstico não estiver ativada. Os valores aceitáveis podem ser encontrados nos [esquemas de registos de diagnóstico do Azure Monitor](../../../azure-monitor/essentials/resource-logs-schema.md#service-specific-schemas).|
 |\[Pré-visualização \] : Auditoria NIST SP 800-53 R4 controla e implementa extensões VM específicas para apoiar os requisitos de auditoria|Atribuição de políticas|Lista de utilizadores que devem ser excluídos do grupo de administradores do Windows VM|Uma lista separada de membros que deve ser excluída no grupo local de administradores. Ex: Administrador; myUser1; myUser2|
 |\[Pré-visualização \] : Auditoria NIST SP 800-53 R4 controla e implementa extensões VM específicas para apoiar os requisitos de auditoria|Atribuição de políticas|Lista de utilizadores que devem ser incluídos no grupo de administradores do Windows VM|Uma lista separada de membros que deve ser incluída no grupo local de administradores. Ex: Administrador; myUser1; myUser2|
 |\[Pré-visualização \] : Implementar o agente de análise de registo para conjuntos de escalas De VM Linux (VMSS)|Atribuição de políticas|Log Analytics espaço de trabalho para conjuntos de escala de VM Linux (VMSS)|Se este espaço de trabalho estiver fora do âmbito da atribuição, deve conceder manualmente permissões de "Log Analytics Contributor" (ou similar) ao ID principal da atribuição de políticas.|
@@ -119,7 +119,7 @@ A tabela seguinte mostra uma lista dos parâmetros dos artefactos de esquema:
 |Implementar definições de diagnóstico para grupos de segurança de rede|Atribuição de políticas|Prefixo de conta de armazenamento para diagnósticos de grupos de segurança de rede|Este prefixo será combinado com a localização do grupo de segurança da rede para formar o nome da conta de armazenamento criada.|
 |Implementar definições de diagnóstico para grupos de segurança de rede|Atribuição de políticas|Nome do grupo de recursos para conta de armazenamento para diagnósticos de grupos de segurança de rede (deve existir)|O grupo de recursos em que a conta de armazenamento será criada. Este grupo de recursos já deve existir.|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Artigos adicionais sobre esquemas e como os utilizar:
 

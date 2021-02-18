@@ -1,5 +1,5 @@
 ---
-title: Plataformas apoiadas pelo Azure Security Center Microsoft Docs
+title: Plataformas apoiadas pelo Azure Security Center | Microsoft Docs
 description: Este documento fornece uma lista de plataformas apoiadas pelo Azure Security Center.
 services: security-center
 documentationcenter: na
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/31/2020
 ms.author: memildin
-ms.openlocfilehash: 31ff3620bcab6b10b59582daa255ff1f259ab0d3
-ms.sourcegitcommit: 48cb2b7d4022a85175309cf3573e72c4e67288f5
+ms.openlocfilehash: 4cc8130d34b5f51728fb2e7fb47c1fb0717d2138
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96852647"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595123"
 ---
 # <a name="supported-platforms"></a>Plataformas suportadas 
 
@@ -37,10 +37,10 @@ Para um ambiente Azure ativado numa subscrição do Azure, o Azure Security Cent
 
 ## <a name="supported-operating-systems"></a>Sistemas operativos suportados
 
-O Centro de Segurança depende do [Agente de Análise de Registos.](../azure-monitor/platform/agents-overview.md#log-analytics-agent) Certifique-se de que as suas máquinas estão a executar um dos sistemas operativos suportados para este agente, conforme descrito nas páginas seguintes:
+O Centro de Segurança depende do [Agente de Análise de Registos.](../azure-monitor/agents/agents-overview.md#log-analytics-agent) Certifique-se de que as suas máquinas estão a executar um dos sistemas operativos suportados para este agente, conforme descrito nas páginas seguintes:
 
-* [Log Analytics agente para sistemas operativos suportados pelo Windows](../azure-monitor/platform/agents-overview.md#supported-operating-systems)
-* [Log Analytics agente para sistemas operativos suportados pelo Linux](../azure-monitor/platform/agents-overview.md#supported-operating-systems)
+* [Log Analytics agente para sistemas operativos suportados pelo Windows](../azure-monitor/agents/agents-overview.md#supported-operating-systems)
+* [Log Analytics agente para sistemas operativos suportados pelo Linux](../azure-monitor/agents/agents-overview.md#supported-operating-systems)
 
 Também certifique-se de que o seu agente Log Analytics está [devidamente configurado para enviar dados para o Centro de Segurança](security-center-enable-data-collection.md#manual-agent)
 

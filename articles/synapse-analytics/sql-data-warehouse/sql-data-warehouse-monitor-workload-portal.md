@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3334c5ca300b6dbeb0ad055c7dbd2c15e1c5481a
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 2a2161fd24ccde596630549163a631626a961773
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98677126"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100596663"
 ---
 # <a name="monitor-workload---azure-portal"></a>Monitor de carga de trabalho - Portal Azure
 
@@ -36,7 +36,7 @@ Navegue até à lâmina de navegação para espaços de trabalho log analytics e
 
 ![A screenshot mostra o espaço de trabalho Log Analytics onde pode introduzir valores.](./media/sql-data-warehouse-monitor-workload-portal/add_analytics_workspace_2.png)
 
-Para mais detalhes sobre espaços de trabalho, visite a seguinte [documentação.](../../azure-monitor/learn/quick-create-workspace.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.jsond#create-a-workspace)
+Para mais detalhes sobre espaços de trabalho, visite a seguinte [documentação.](../../azure-monitor/logs/quick-create-workspace.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.jsond#create-a-workspace)
 
 ## <a name="turn-on-resource-logs"></a>Ligue registos de recursos
 

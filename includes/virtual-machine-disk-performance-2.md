@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/12/2020
 ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: 3c4ab8362b2a717a348a59c0baf829b61e1a8006
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 82b4c127f983f3133326bf7fb538e40713ef9655
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99808495"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100580392"
 ---
 ![Gráfico mostrando as especificações D s v 3.](media/vm-disk-performance/dsv3-documentation.jpg)
 
@@ -117,57 +117,3 @@ Neste caso, a aplicação em execução numa máquina virtual Standard_D8s_v3 fa
 - Uma vez que os três discos que utilizam o cacheing estão dentro dos limites em cache de 16.000, esses pedidos são concluídos com sucesso. Não ocorre uma cobertura de desempenho de armazenamento.
 - Uma vez que os dois discos que não usam o cache do hospedeiro estão dentro dos limites não encatados de 12.800, esses pedidos também são concluídos com sucesso. Não ocorre a tampa.
 
-## <a name="disk-performance-metrics"></a>Métricas de desempenho do disco
-
-Temos métricas no Azure que fornecem informações sobre como as suas máquinas virtuais e discos estão a funcionar. Estas métricas podem ser vistas através do portal Azure. Também podem ser recuperados através de uma chamada da API. As métricas são calculadas em intervalos de um minuto. As seguintes métricas estão disponíveis para obter informações sobre VM e Disk IO, e também sobre o desempenho da produção:
-
-- **Profundidade da fila do disco os**: O número de pedidos atuais pendentes de IO que estão à espera de serem lidos ou escritos para o disco OS.
-- **Leitura de discos de OS/Sec**: O número de bytes que são lidos num segundo a partir do disco OS.
-- **Operações de leitura do disco oss/sec**: O número de operações de entrada que são lidas num segundo a partir do disco OS.
-- **Os Discos Write Bytes/Sec**: O número de bytes que são escritos num segundo a partir do disco OS.
-- Operações de escrita do **disco oss/sec**: O número de operações de saída que são escritas num segundo a partir do disco OS.
-- Profundidade da fila do disco de **dados**: O número de pedidos atuais de IO pendentes que estão à espera de serem lidos ou escritos para o ou dos discos de dados.
-- **Ficha de dados Ler Bytes/Sec**: O número de bytes que são lidos num segundo a partir do ou dos discos de dados.
-- Operações de leitura do disco de **dados/Sec**: O número de operações de entrada que são lidas num segundo a partir do ou dos discos de dados.
-- **Data Disk Write Bytes/Sec**: O número de bytes que são escritos num segundo a partir do ou dos discos de dados.
-- Operações de escrita de **discos de dados/seg**: O número de operações de saída que são escritas num segundo a partir do ou dos discos de dados.
-- **Leitura de discos/seg**: O número de bytes totais que são lidos num segundo de todos os discos ligados a um VM.
-- Operações de leitura do **disco/Sec**: O número de operações de entrada que são lidas num segundo de todos os discos ligados a um VM.
-- **Discos Write Bytes/Sec**: O número de bytes que são escritos num segundo de todos os discos ligados a um VM.
-- **Operações de escrita em disco/Sec**: O número de operações de saída que são escritas num segundo de todos os discos ligados a um VM.
-
-## <a name="storage-io-utilization-metrics"></a>Métricas de utilização de IO de armazenamento
-As seguintes métricas ajudam a diagnosticar o estrangulamento na sua combinação de Máquina Virtual e Disco. Estas métricas só estão disponíveis quando se utiliza VM habilitado premium. Estas métricas estão disponíveis para todos os tipos de discos, exceto para o Ultra. 
-
-Métricas que ajudam a diagnosticar a tampa do IO do disco:
-
-- **Percentagem consumida** pelo disco de dados : A percentagem calculada pelo disco de dados IOPS concluída sobre o disco de dados iOPS. Se este valor estiver a 100%, a sua aplicação em execução é IO limitada a partir do limite de IOPS do seu disco de dados.
-- **Percentagem consumida** pela largura de banda do disco de dados : A percentagem calculada pela produção do disco de dados concluída sobre o rendimento do disco de dados fortado. Se este valor estiver a 100%, a sua aplicação em execução é IO limitada do limite de largura de banda do seu disco de dados.
-- **Percentagem consumida** pelo disco oss : A percentagem calculada pelo disco os IOPS concluída sobre o disco de oss IOPS. Se este valor estiver a 100%, a sua aplicação em execução é IO limitada do limite de IOPS do seu disco de SO.
-- **Percentagem consumida** pela largura de banda do disco OS : A percentagem calculada pela produção do disco OS concluída sobre a produção do disco os provisionado. Se este valor estiver a 100%, a sua aplicação em execução é IO limitada do limite de largura de banda do seu disco de SO.
-
-Métricas que ajudam a diagnosticar a tampa de IO VM:
-
-- **VM Cached IOPS Percentagem consumida**: A percentagem calculada pelo total de IOPS concluída acima do limite máximo da máquina virtual em cache IOPS. Se este valor estiver a 100%, a sua aplicação em execução é IO limitada do limite de IOPS em cache do seu VM.
-- **VM Cached Bandwidth Percentagem consumida**: A percentagem calculada pela produção total do disco concluída sobre a potência máxima da máquina virtual em cache. Se este valor estiver a 100%, a sua aplicação em execução é IO limitada do limite de largura de banda em cache do seu VM.
-- **VM IOPS Percentagem consumida sem cómoda**: A percentagem calculada pelo total de IOPS numa máquina virtual concluída sobre o limite máximo de IOPS da máquina virtual não-acolhida. Se este valor estiver a 100%, a sua aplicação em execução é IO limitada do limite de IOPS não encaberto do seu VM.
-- **VM Percentagem consumida** pela largura de banda não colada : A percentagem calculada pela produção total do disco numa máquina virtual concluída sobre a potência máxima da máquina virtual. Se este valor estiver a 100%, a sua aplicação em execução é IO limitada do limite de largura de banda não coberta do seu VM.
-
-## <a name="storage-io-utilization-metrics-example"></a>Exemplo de métricas de utilização de IO de armazenamento
-
-Vamos analisar um exemplo de como usar estas novas métricas de utilização de IO de armazenamento para nos ajudar a depurar onde um estrangulamento está no nosso sistema. A configuração do sistema é a mesma que o exemplo anterior, exceto que desta vez o disco de SO anexado *não* está em cache.
-
-**Configuração:**
-
-- Standard_D8s_v3
-  - IOPS em cache: 16.000
-  - IOPS sem cocó: 12.800
-- Disco P30 OS
-  - IOPS: 5.000
-  - Caching hospedeiro: **Deficiente**
-- Dois discos de dados P30 × 2
-  - IOPS: 5.000
-  - Caching do anfitrião: **Ler/escrever**
-- Dois discos de dados P30 × 2
-  - IOPS: 5.000
-  - Caching hospedeiro: **Deficiente**

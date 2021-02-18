@@ -4,16 +4,16 @@ description: Saiba como obter eventos de recursos através de Registos de Ativid
 ms.topic: article
 ms.date: 04/24/2020
 ms.author: msangapu
-ms.openlocfilehash: c5c84891187c540c0b24162cf5c8c7f96e9e731a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c20028a4f84dae9d292cf855a1e164bd69864909
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88962303"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574047"
 ---
 # <a name="get-resource-events-in-azure-app-service"></a>Obtenha eventos de recursos no Azure App Service
 
-O Azure App Service fornece ferramentas incorporadas para monitorizar o estado e a saúde dos seus recursos. Os eventos de recursos ajudam-no a compreender quaisquer alterações que foram feitas aos recursos da sua aplicação web subjacente e a tomar medidas conforme necessário. Exemplos de eventos incluem: dimensionamento de instâncias, atualizações para definições de aplicações, reinicio da aplicação web, e muito mais. Neste artigo, você vai aprender a ver [Registos de Atividades Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log) e permitir que a [Grade de Eventos](../event-grid/index.yml) monitorize eventos de recursos relacionados com a sua aplicação web do Serviço de Aplicações.
+O Azure App Service fornece ferramentas incorporadas para monitorizar o estado e a saúde dos seus recursos. Os eventos de recursos ajudam-no a compreender quaisquer alterações que foram feitas aos recursos da sua aplicação web subjacente e a tomar medidas conforme necessário. Exemplos de eventos incluem: dimensionamento de instâncias, atualizações para definições de aplicações, reinicio da aplicação web, e muito mais. Neste artigo, você vai aprender a ver [Registos de Atividades Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log) e permitir que a [Grade de Eventos](../event-grid/index.yml) monitorize eventos de recursos relacionados com a sua aplicação web do Serviço de Aplicações.
 
 > [!NOTE]
 > A integração do Serviço de Aplicações com a Grade de Eventos está em **pré-visualização.** [Veja o anúncio para mais detalhes.](https://aka.ms/app-service-event-grid-announcement)
@@ -33,7 +33,7 @@ Registos de atividades Azure para detalhes do Serviço de Aplicações, tais com
 
 Os Registos de Atividade Azure podem ser consultados utilizando o portal Azure, PowerShell, REST API ou CLI. Pode enviar os registos para uma conta de armazenamento, Event Hub e Log Analytics. Também pode analisá-los no Power BI ou criar alertas para se manter atualizado sobre eventos de recursos.
 
-[Ver e recuperar eventos de registo de atividades Azure.](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+[Ver e recuperar eventos de registo de atividades Azure.](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
 ## <a name="ship-activity-logs-to-event-grid"></a>Troncos de atividade do navio para a grelha de eventos
 
@@ -44,7 +44,7 @@ Em alternativa, pode utilizar o Event Grid com o Logic Apps para processar dados
 [Ver as propriedades e esquema para eventos de serviço de aplicações Azure.](../event-grid/event-schema-app-service.md)
 
 ## <a name="next-steps"></a><a name="nextsteps"></a> Próximos passos
-* [Registos de consulta com monitor Azure](../azure-monitor/log-query/log-query-overview.md)
+* [Registos de consulta com monitor Azure](../azure-monitor/logs/log-query-overview.md)
 * [Como monitorizar o Serviço de Aplicações Azure](web-sites-monitor.md)
 * [Serviço de aplicações Azure em Estúdio Visual](troubleshoot-dotnet-visual-studio.md)
 * [Analisar registos de aplicativos em HDInsight](https://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)

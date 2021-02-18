@@ -3,18 +3,18 @@ title: Estimativa dos custos do plano de consumo em Funções Azure
 description: Saiba como estimar melhor os custos que poderá incorrer ao executar a sua aplicação de função num plano de Consumo em Azure.
 ms.date: 9/20/2019
 ms.topic: conceptual
-ms.openlocfilehash: 430804d478df718f51ae1da9adb6693f597157a9
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 4967e0ff79a638891da4f784cf2f5f1ca4ddfe51
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97934888"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100578559"
 ---
 # <a name="estimating-consumption-plan-costs"></a>Estimativa dos custos do plano de consumo
 
 Existem atualmente três tipos de planos de hospedagem para uma app que funciona em Azure Functions, com cada plano tendo o seu próprio modelo de preços: 
 
-| Planear | Descrição |
+| Planear | Description |
 | ---- | ----------- |
 | [**Consumo**](consumption-plan.md) | Só é cobrado pelo tempo que a sua aplicação de função for executado. Este plano inclui uma página de[preços] [de subvenção gratuita]por subscrição.|
 | [**Premium**](functions-premium-plan.md) | Fornece-lhe as mesmas funcionalidades e mecanismo de escala que o plano de Consumo, mas com um desempenho melhorado e acesso VNET. O custo baseia-se no seu nível de preços escolhido. Para saber mais, consulte [o plano Azure Functions Premium.](functions-premium-plan.md) |
@@ -67,11 +67,11 @@ Na [sua fatura,](../cost-management-billing/understand/download-azure-invoice.md
 
 ### <a name="function-app-level-metrics"></a>Métricas de nível de aplicação de função
 
-Para entender melhor o impacto de custos das suas funções, pode utilizar o Azure Monitor para visualizar métricas relacionadas com os custos atualmente geradas pelas suas aplicações de função. Pode utilizar o [explorador de métricas Azure Monitor](../azure-monitor/platform/metrics-getting-started.md) no portal [Azure] ou NAS DERES PARA obter estes dados.
+Para entender melhor o impacto de custos das suas funções, pode utilizar o Azure Monitor para visualizar métricas relacionadas com os custos atualmente geradas pelas suas aplicações de função. Pode utilizar o [explorador de métricas Azure Monitor](../azure-monitor/essentials/metrics-getting-started.md) no portal [Azure] ou NAS DERES PARA obter estes dados.
 
 #### <a name="monitor-metrics-explorer"></a>Explorador de métricas de monitorização
 
-Utilize [o explorador de métricas Azure Monitor](../azure-monitor/platform/metrics-getting-started.md) para visualizar dados relacionados com o custo para as aplicações de função do seu plano de consumo num formato gráfico. 
+Utilize [o explorador de métricas Azure Monitor](../azure-monitor/essentials/metrics-getting-started.md) para visualizar dados relacionados com o custo para as aplicações de função do seu plano de consumo num formato gráfico. 
 
 1. No topo do [portal Azure] em **serviços de pesquisa, recursos e docs**  procure `monitor` e selecione **Monitor** em **Serviços**.
 

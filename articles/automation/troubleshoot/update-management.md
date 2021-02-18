@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 01/13/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: 9ccaddec73a9c74123471c34b1b973b78eacfff8
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: c16b032502401b633532ab0fcf9518aa85a1b8d6
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98890786"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579737"
 ---
 # <a name="troubleshoot-update-management-issues"></a>Resolver problemas da Gestão de Atualizações
 
@@ -135,7 +135,7 @@ Este problema pode ser causado por problemas de configuração locais ou por con
 
 1. Execute o resolução de problemas para [Windows](update-agent-issues.md#troubleshoot-offline) ou [Linux,](update-agent-issues-linux.md#troubleshoot-offline)dependendo do SISTEMA.
 
-2. Certifique-se de que a sua máquina está a reportar para o espaço de trabalho correto. Para obter orientações sobre como verificar este aspeto, consulte [verificar a conectividade do agente com o Azure Monitor](../../azure-monitor/platform/agent-windows.md#verify-agent-connectivity-to-azure-monitor). Certifique-se também de que este espaço de trabalho está ligado à sua conta Azure Automation. Para confirmar, vá à sua conta de Automação e selecione **espaço de trabalho linked** under Related **Resources**.
+2. Certifique-se de que a sua máquina está a reportar para o espaço de trabalho correto. Para obter orientações sobre como verificar este aspeto, consulte [verificar a conectividade do agente com o Azure Monitor](../../azure-monitor/agents/agent-windows.md#verify-agent-connectivity-to-azure-monitor). Certifique-se também de que este espaço de trabalho está ligado à sua conta Azure Automation. Para confirmar, vá à sua conta de Automação e selecione **espaço de trabalho linked** under Related **Resources**.
 
 3. Certifique-se de que as máquinas aparecem no espaço de trabalho Do Log Analytics ligado à sua conta Automation. Executar a seguinte consulta no espaço de trabalho Log Analytics.
 
@@ -144,7 +144,7 @@ Este problema pode ser causado por problemas de configuração locais ou por con
    | summarize by Computer, Solutions
    ```
 
-    Se não vir a sua máquina nos resultados da consulta, não fez o check-in recentemente. Há provavelmente um problema de configuração local e deve [reinstalar o agente.](../../azure-monitor/learn/quick-collect-windows-computer.md#install-the-agent-for-windows)
+    Se não vir a sua máquina nos resultados da consulta, não fez o check-in recentemente. Há provavelmente um problema de configuração local e deve [reinstalar o agente.](../../azure-monitor/vm/quick-collect-windows-computer.md#install-the-agent-for-windows)
 
     Se a sua máquina estiver listada nos resultados da consulta, verifique na propriedade **Solutions** que as atualizações estão **listadas.** Isto verifica que está registado na Gestão de Atualização. Se não for, verifique se existem problemas de configuração de âmbito. A [configuração](../update-management/scope-configuration.md) de âmbito determina quais as máquinas configuradas para a Gestão de Atualização. Para configurar a configuração de âmbito para o alvo da máquina, consulte [Ativar as máquinas no espaço de trabalho](../update-management/enable-from-automation-account.md#enable-machines-in-the-workspace).
 
@@ -626,7 +626,7 @@ A implementação de atualizações no Linux por classificação ("atualizaçõe
 
 KB2267602 é a [atualização de definições do Windows Defender](https://www.microsoft.com/wdsi/definitions). É atualizado diariamente.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se não vir o seu problema ou não conseguir resolver o seu problema, experimente um dos seguintes canais para obter apoio adicional.
 

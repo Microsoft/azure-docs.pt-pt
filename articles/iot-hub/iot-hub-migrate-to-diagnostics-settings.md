@@ -1,5 +1,5 @@
 ---
-title: Migrar Azure IoT Hub operações monitorizando registos de recursos do IoT Hub no Azure Monitor Microsoft Docs
+title: Migrar as operações do Azure IoT Hub monitorizando os registos de recursos do IoT Hub em Azure Monitor | Microsoft Docs
 description: Como atualizar o Azure IoT Hub para utilizar o Azure Monitor em vez de monitorizar as operações para monitorizar o estado das operações no seu hub IoT em tempo real.
 author: kgremban
 manager: philmea
@@ -8,16 +8,16 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: kgremban
-ms.openlocfilehash: dfd819d82f5e35183802e33e5d423cad4de36c38
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 48b646881b12047b28490999a96326f6076af2c1
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461591"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100591844"
 ---
 # <a name="migrate-your-iot-hub-from-operations-monitoring-to-azure-monitor-resource-logs"></a>Migrar o seu Hub IoT da monitorização de operações para registos de recursos do Azure Monitor
 
-Os clientes que utilizam [a monitorização](iot-hub-operations-monitoring.md) de operações para monitorizar o estado das operações no IoT Hub podem migrar esse fluxo de trabalho para registos de recursos do [Azure Monitor](../azure-monitor/platform/platform-logs-overview.md), uma funcionalidade do Azure Monitor. Os registos de recursos fornecem informações de diagnóstico ao nível do recurso para muitos serviços Azure.
+Os clientes que utilizam [a monitorização](iot-hub-operations-monitoring.md) de operações para monitorizar o estado das operações no IoT Hub podem migrar esse fluxo de trabalho para registos de recursos do [Azure Monitor](../azure-monitor/essentials/platform-logs-overview.md), uma funcionalidade do Azure Monitor. Os registos de recursos fornecem informações de diagnóstico ao nível do recurso para muitos serviços Azure.
 
 **A funcionalidade de monitorização de operações do IoT Hub está depreciada**, e foi removida do portal. Este artigo fornece medidas para mover as suas cargas de trabalho da monitorização de operações para registos de recursos do Azure Monitor. Para obter mais informações sobre a linha temporal de depreciação, consulte [monitorar as suas soluções Azure IoT com o Azure Monitor e a Azure Resource Health](https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health/).
 
@@ -49,9 +49,9 @@ Para atualizar o seu Hub IoT no portal Azure, primeiro crie uma definição de d
 
 1. Selecione **Guardar** para guardar as definições.
 
-As novas definições fazem efeito em cerca de 10 minutos. Depois disso, os registos aparecem no destino configurado. Para obter mais informações sobre a configuração de diagnósticos, consulte [recolher e consumir dados de registo dos seus recursos Azure.](../azure-monitor/platform/platform-logs-overview.md)
+As novas definições fazem efeito em cerca de 10 minutos. Depois disso, os registos aparecem no destino configurado. Para obter mais informações sobre a configuração de diagnósticos, consulte [recolher e consumir dados de registo dos seus recursos Azure.](../azure-monitor/essentials/platform-logs-overview.md)
 
-Para obter informações mais detalhadas sobre como criar definições de diagnóstico, incluindo com o PowerShell e o Azure CLI, consulte [as definições de Diagnóstico](../azure-monitor/platform/diagnostic-settings.md) na documentação do Monitor Azure.
+Para obter informações mais detalhadas sobre como criar definições de diagnóstico, incluindo com o PowerShell e o Azure CLI, consulte [as definições de Diagnóstico](../azure-monitor/essentials/diagnostic-settings.md) na documentação do Monitor Azure.
 
 ### <a name="turn-off-operations-monitoring"></a>Desligar a monitorização das operações
 

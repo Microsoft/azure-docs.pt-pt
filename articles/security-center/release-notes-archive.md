@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/02/2020
 ms.author: memildin
-ms.openlocfilehash: b7cb6edf825519bb3048de7a8c5326842f2db097
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: f24785336642570ae3f21d96462317890526a4c9
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99524298"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100578945"
 ---
 # <a name="archive-for-whats-new-in-azure-security-center"></a>Arquivo para o que há de novo no Centro de Segurança Azure?
 
@@ -296,7 +296,7 @@ Saiba mais sobre [a segurança avançada de dados para máquinas SQL](defender-f
 
 ### <a name="two-new-recommendations-to-deploy-the-log-analytics-agent-to-azure-arc-machines-preview"></a>Duas novas recomendações para implantar o agente Log Analytics nas máquinas Azure Arc (pré-visualização)
 
-Foram adicionadas duas novas recomendações para ajudar a implantar o [Agente Desanalização](../azure-monitor/platform/log-analytics-agent.md) do Log para as suas máquinas Azure Arc e garantir que estão protegidas pelo Azure Security Center:
+Foram adicionadas duas novas recomendações para ajudar a implantar o [Agente Desanalização](../azure-monitor/agents/log-analytics-agent.md) do Log para as suas máquinas Azure Arc e garantir que estão protegidas pelo Azure Security Center:
 
 - **O agente Log Analytics deve ser instalado nas suas máquinas Azure Arc baseadas no Windows (Pré-visualização)**
 - **O agente Log Analytics deve ser instalado nas suas máquinas Azure Arc baseadas em Linux (Pré-visualização)**

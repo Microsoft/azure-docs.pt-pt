@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: tutorial
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 1f5db17549c2b95d5dd0dd2f866ca1d1c0e7d8aa
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 0868c99a29b8da4376b639a54988fc821433e26d
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94965124"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100576988"
 ---
 # <a name="planning-and-operations-guide"></a>Guia de planeamento e operações
 Este guia destina-se a profissionais de tecnologias da informação (TI), arquitetos de TI, analistas de segurança da informação e administradores de nuvem que planeiam usar o Azure Security Center.
@@ -135,7 +135,7 @@ O Azure Security Center utiliza o agente Log Analytics – este é o mesmo agent
 
 ### <a name="agent"></a>Agente
 
-Quando o fornecimento automático é ativado na política de segurança, o agente Log Analytics (para [Windows](../azure-monitor/platform/agent-windows.md) ou [Linux)](../azure-monitor/learn/quick-collect-linux-computer.md)é instalado em todos os VMs Azure suportados e quaisquer novos que sejam criados. Se o VM ou o computador já tiver o agente Log Analytics instalado, o Azure Security Center alavancará o agente instalado atual. O processo do agente foi concebido para não ser invasivo e ter um impacto muito mínimo no desempenho do VM.
+Quando o fornecimento automático é ativado na política de segurança, o agente Log Analytics (para [Windows](../azure-monitor/agents/agent-windows.md) ou [Linux)](../azure-monitor/vm/quick-collect-linux-computer.md)é instalado em todos os VMs Azure suportados e quaisquer novos que sejam criados. Se o VM ou o computador já tiver o agente Log Analytics instalado, o Azure Security Center alavancará o agente instalado atual. O processo do agente foi concebido para não ser invasivo e ter um impacto muito mínimo no desempenho do VM.
 
 O agente Log Analytics para Windows requer a utilização da porta TCP 443. Veja o [artigo Resolução de Problemas](security-center-troubleshooting-guide.md) para mais detalhes.
 

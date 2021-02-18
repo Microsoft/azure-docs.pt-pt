@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 307afc8f1caafac1a511f0f9895cc73dd9b47eb4
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 50c8a36b943abb24f2c31bfc2bc33e646a74524a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98196049"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100596627"
 ---
 # <a name="azure-spring-cloud-faq"></a>FAQ de nuvem de primavera de Azure
 
@@ -90,9 +90,9 @@ Identificamos um problema com a Bota de primavera 2.4 e estamos atualmente a tra
 
 ### <a name="where-can-i-view-my-spring-cloud-application-logs-and-metrics"></a>Onde posso ver os registos e métricas da minha aplicação da Cloud Spring Cloud?
 
-Encontre métricas no separador Visão Geral da App e no [separador Azure Monitor.](../azure-monitor/platform/data-platform-metrics.md#metrics-explorer)
+Encontre métricas no separador Visão Geral da App e no [separador Azure Monitor.](../azure-monitor/essentials/data-platform-metrics.md#metrics-explorer)
 
-A Azure Spring Cloud suporta a exportação de registos e métricas de aplicações da Spring Cloud para Azure Storage, EventHub e [Log Analytics](../azure-monitor/platform/data-platform-logs.md). O nome da tabela no Log Analytics é *AppPlatformLogsforSpring*. Para aprender a capacitá-lo, consulte [os serviços de Diagnóstico.](diagnostic-services.md)
+A Azure Spring Cloud suporta a exportação de registos e métricas de aplicações da Spring Cloud para Azure Storage, EventHub e [Log Analytics](../azure-monitor/logs/data-platform-logs.md). O nome da tabela no Log Analytics é *AppPlatformLogsforSpring*. Para aprender a capacitá-lo, consulte [os serviços de Diagnóstico.](diagnostic-services.md)
 
 ### <a name="does-azure-spring-cloud-support-distributed-tracing"></a>O Azure Spring Cloud suporta o rastreio distribuído?
 

@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 10/06/2020
 ms.author: memildin
-ms.openlocfilehash: 6ffb6ced6fc828733dd627943a3d4b54e8293ad2
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 3ddc385b9d489e0c2ab4abf35a6ade011970342b
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791907"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100572945"
 ---
 # <a name="stream-alerts-to-a-siem-soar-or-it-service-management-solution"></a>Alertas de fluxo para uma solução siem, SOAR ou GESTão de Serviços de TI
 
@@ -63,22 +63,22 @@ Você pode usar esta API para transmitir alertas de todo o seu **inquilino** (e 
 - **Power BI**  -  [Ligue-se à API de Segurança do Gráfico da Microsoft no Power BI Desktop](/power-bi/connect-data/desktop-connect-graph-security)
 - **ServiceNow**  -  [Siga as instruções para instalar e configurar a aplicação API de segurança do Microsoft Graph da Loja ServiceNow](https://docs.servicenow.com/bundle/orlando-security-management/page/product/secops-integration-sir/secops-integration-ms-graph/task/ms-graph-install.html)
 - **Rio QRadar**  -  [Módulo de suporte a dispositivos da IBM para o Azure Security Center via Microsoft Graph API](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/com.ibm.dsm.doc/c_dsm_guide_ms_azure_security_center_overview.html) 
-- **Palo Alto Networks** , **Anomali** , **Lookout** , **InSpark** , e muito mais - [Microsoft Graph Security API](https://www.microsoft.com/security/business/graph-security-api#office-MultiFeatureCarousel-09jr2ji)
+- **Palo Alto Networks**, **Anomali**, **Lookout**, **InSpark**, e muito mais - [Microsoft Graph Security API](https://www.microsoft.com/security/business/graph-security-api#office-MultiFeatureCarousel-09jr2ji)
 
 [Saiba mais sobre a Microsoft Graph Security API](https://www.microsoft.com/security/business/graph-security-api).
 
 
 ## <a name="stream-alerts-with-azure-monitor"></a>Alertas de fluxo com monitor Azure 
 
-Para transmitir alertas para **ArcSight** , **Splunk,** **SumoLogic,** Syslog servidores, **LogRhythm,** **Logz.io Cloud Observeability Platform** , e outras soluções de monitorização. ligar o Centro de Segurança com o monitor Azure através dos Hubs de Eventos Azure:
+Para transmitir alertas para **ArcSight**, **Splunk,** **SumoLogic,** Syslog servidores, **LogRhythm,** **Logz.io Cloud Observeability Platform**, e outras soluções de monitorização. ligar o Centro de Segurança com o monitor Azure através dos Hubs de Eventos Azure:
 
 1. Permitir [a exportação contínua](continuous-export.md) para transmitir alertas do Security Center para um Centro de Eventos Azure dedicado ao nível da subscrição. 
     > [!TIP]
     > Para isso ao nível do Grupo de Gestão utilizando a Política Azure, consulte [Criar configurações contínuas de automatização de exportação à escala](continuous-export.md?tabs=azure-policy#configure-continuous-export-at-scale-using-the-supplied-policies)
 
-1. [Ligue o hub do Azure Event à sua solução preferida utilizando os conectores incorporados do Azure Monitor.](../azure-monitor/platform/stream-monitoring-data-event-hubs.md#partner-tools-with-azure-monitor-integration)
+1. [Ligue o hub do Azure Event à sua solução preferida utilizando os conectores incorporados do Azure Monitor.](../azure-monitor/essentials/stream-monitoring-data-event-hubs.md#partner-tools-with-azure-monitor-integration)
 
-1. Opcionalmente, transmita os troncos crus para o Azure Event Hub e ligue-se à sua solução preferida. Saiba mais sobre [os dados de monitorização disponíveis.](../azure-monitor/platform/stream-monitoring-data-event-hubs.md#monitoring-data-available)
+1. Opcionalmente, transmita os troncos crus para o Azure Event Hub e ligue-se à sua solução preferida. Saiba mais sobre [os dados de monitorização disponíveis.](../azure-monitor/essentials/stream-monitoring-data-event-hubs.md#monitoring-data-available)
 
 > [!TIP]
 > Para ver os esquemas de eventos dos tipos de dados exportados, visite os [esquemas de eventos do Event Hub.](https://aka.ms/ASCAutomationSchemas)

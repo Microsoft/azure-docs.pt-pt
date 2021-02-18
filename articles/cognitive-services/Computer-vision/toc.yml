@@ -110,8 +110,14 @@
       href: /cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
     - name: Azure PowerShell
       href: /powershell/module/azurerm.cognitiveservices/
-    - name: API REST
-      href: 'https://docs.microsoft.com/rest/api/computer-vision/'
+    - name: Pré-visualização da API de Imagem Digitalizada v3.2
+      href: 'https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005'
+    - name: API de Imagem Digitalizada v3.1
+      href: 'https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005'
+    - name: API de Imagem Digitalizada v2.1
+      href: 'https://westus.dev.cognitive.microsoft.com/docs/services/5cd27ec07268f6c679a3e641'
+    - name: API de Imagem Digitalizada v1.0
+      href: 'https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739'
     - name: SDKs
       items:
         - name: .NET

@@ -9,12 +9,12 @@ author: rolyon
 ms.author: rolyon
 ms.date: 02/15/2021
 ms.custom: generated
-ms.openlocfilehash: d9a2667907108cfb4c8d7a2a2c9b1558e02a9110
-ms.sourcegitcommit: b513b0becf878eb9a1554c26da53aa48d580bb22
+ms.openlocfilehash: 1cd86ac2b9500c15bc32445e1866a40ca1c6b409
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100535132"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100576999"
 ---
 # <a name="azure-built-in-roles"></a>Funções incorporadas do Azure
 
@@ -196,9 +196,9 @@ A tabela seguinte fornece uma breve descrição e a identificação única de ca
 > | **Monitorizar** |  |  |
 > | [Contribuinte componente de insights de aplicação](#application-insights-component-contributor) | Pode gerir componentes de Insights de Aplicação | ae349356-3a1b-4a5e-921d-050484c6347e |
 > | [Insights de aplicação Snapshot Debugger](#application-insights-snapshot-debugger) | Dá permissão ao utilizador para visualizar e descarregar instantâneos de depurg recolhidos com o Debugger Debugger Do Snapshot da Aplicação. Note que estas permissões não estão incluídas nas funções [Proprietário](#owner) ou [Contribuinte.](#contributor) Ao atribuir aos utilizadores o papel de Debugger Snapshot Debugger do Application Insights, deve conceder a função diretamente ao utilizador. O papel não é reconhecido quando é adicionado a um papel personalizado. | 08954f03-6346-4c2e-81c0-ec3a5cfae23b |
-> | [Colaborador de monitorização](#monitoring-contributor) | Pode ler todos os dados de monitorização e editar as definições de monitorização. Ver também [Começar com papéis, permissões e segurança com o Azure Monitor](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles). | 749f88d5-cbae-40b8-bcfc-e573ddc772fa |
+> | [Colaborador de monitorização](#monitoring-contributor) | Pode ler todos os dados de monitorização e editar as definições de monitorização. Ver também [Começar com papéis, permissões e segurança com o Azure Monitor](../azure-monitor/roles-permissions-security.md#built-in-monitoring-roles). | 749f88d5-cbae-40b8-bcfc-e573ddc772fa |
 > | [Editor de Métricas de Monitorização](#monitoring-metrics-publisher) | Permite publicar métricas contra recursos Azure | 3913510d-42f4-4e42-8a64-420c390055eb |
-> | [Leitor de Monitorização](#monitoring-reader) | Pode ler todos os dados de monitorização (métricas, registos, etc.). Ver também [Começar com papéis, permissões e segurança com o Azure Monitor](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles). | 43d0d8ad-25c7-4714-9337-8ba259a9fe05 |
+> | [Leitor de Monitorização](#monitoring-reader) | Pode ler todos os dados de monitorização (métricas, registos, etc.). Ver também [Começar com papéis, permissões e segurança com o Azure Monitor](../azure-monitor/roles-permissions-security.md#built-in-monitoring-roles). | 43d0d8ad-25c7-4714-9337-8ba259a9fe05 |
 > | [Contribuinte do livro](#workbook-contributor) | Pode salvar livros partilhados. | e8ddcd69-c73f-4f9f-9844-4100522f16ad |
 > | [Leitor de livros de trabalho](#workbook-reader) | Pode ler livros. | b279062a-9be3-42a0-92ae-8b3cf002ec4d |
 > | **Gestão + governação** |  |  |
@@ -4774,7 +4774,7 @@ Criar e gerir fábricas de dados, bem como recursos infantis dentro delas. [Saib
 
 ### <a name="data-purger"></a>Purgador de dados
 
-Pode purgar dados de análise [Saiba mais](../azure-monitor/platform/personal-data-mgmt.md)
+Pode purgar dados de análise [Saiba mais](../azure-monitor/logs/personal-data-mgmt.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -4917,7 +4917,7 @@ Pode ler, criar, modificar e eliminar as operações relacionadas com os serviç
 
 ### <a name="log-analytics-contributor"></a>Contribuidor do Log Analytics
 
-Log Analytics Contributor pode ler todos os dados de monitorização e editar as definições de monitorização. As definições de monitorização de edição incluem a adição da extensão VM aos VM; leitura das chaves da conta de armazenamento para poder configurar a recolha de registos do Azure Storage; criar e configurar contas de automação; adição de soluções; e configurar diagnósticos Azure em todos os recursos da Azure. [Saiba mais](../azure-monitor/platform/manage-access.md)
+Log Analytics Contributor pode ler todos os dados de monitorização e editar as definições de monitorização. As definições de monitorização de edição incluem a adição da extensão VM aos VM; leitura das chaves da conta de armazenamento para poder configurar a recolha de registos do Azure Storage; criar e configurar contas de automação; adição de soluções; e configurar diagnósticos Azure em todos os recursos da Azure. [Saiba mais](../azure-monitor/logs/manage-access.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -4982,7 +4982,7 @@ Log Analytics Contributor pode ler todos os dados de monitorização e editar as
 
 ### <a name="log-analytics-reader"></a>Leitor do Log Analytics
 
-O Log Analytics Reader pode visualizar e pesquisar todos os dados de monitorização, bem como visualizar as definições de monitorização, incluindo visualizar a configuração dos diagnósticos Azure em todos os recursos do Azure. [Saiba mais](../azure-monitor/platform/manage-access.md)
+O Log Analytics Reader pode visualizar e pesquisar todos os dados de monitorização, bem como visualizar as definições de monitorização, incluindo visualizar a configuração dos diagnósticos Azure em todos os recursos do Azure. [Saiba mais](../azure-monitor/logs/manage-access.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -8596,7 +8596,7 @@ Dá permissão ao utilizador para visualizar e descarregar instantâneos de depu
 
 ### <a name="monitoring-contributor"></a>Colaborador de monitorização
 
-Pode ler todos os dados de monitorização e editar as definições de monitorização. Ver também [Começar com papéis, permissões e segurança com o Azure Monitor](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles). [Saiba mais](../azure-monitor/platform/roles-permissions-security.md)
+Pode ler todos os dados de monitorização e editar as definições de monitorização. Ver também [Começar com papéis, permissões e segurança com o Azure Monitor](../azure-monitor/roles-permissions-security.md#built-in-monitoring-roles). [Saiba mais](../azure-monitor/roles-permissions-security.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -8742,7 +8742,7 @@ Permite publicar métricas contra recursos Azure [Saiba mais](../azure-monitor/i
 
 ### <a name="monitoring-reader"></a>Leitor de Monitorização
 
-Pode ler todos os dados de monitorização (métricas, registos, etc.). Ver também [Começar com papéis, permissões e segurança com o Azure Monitor](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles). [Saiba mais](../azure-monitor/platform/roles-permissions-security.md)
+Pode ler todos os dados de monitorização (métricas, registos, etc.). Ver também [Começar com papéis, permissões e segurança com o Azure Monitor](../azure-monitor/roles-permissions-security.md#built-in-monitoring-roles). [Saiba mais](../azure-monitor/roles-permissions-security.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -10421,7 +10421,7 @@ Permite-lhe gerir etiquetas em entidades, sem fornecer acesso às próprias enti
 }
 ```
 
-## <a name="other"></a>Outros
+## <a name="other"></a>Outro
 
 
 ### <a name="azure-digital-twins-data-owner"></a>Proprietário de dados Azure Digital Twins

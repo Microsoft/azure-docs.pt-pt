@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/02/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 89296b3d0ee4e4339553d22d2ae53ee470ecad31
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: d1ff047c44833a94ae9db0a410f501a1f23a369f
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807585"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100576227"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-postgresql---single-server"></a>Linha de segurança Azure para Base de Dados Azure para PostgreSQL - Servidor Único
 
@@ -160,9 +160,9 @@ Pode utilizar o Azure PowerShell ou o Azure CLI para procurar ou executar açõe
 
 **Orientação**: Utilize o Registo de Atividades Azure para monitorizar as configurações de recursos de rede e detetar alterações nos recursos de rede relacionados com a sua Base de Dados Azure para instâncias postgreSQL. Crie alertas dentro do Azure Monitor que irão desencadear quando ocorrerem alterações nos recursos críticos da rede.
 
-- [Como visualizar e recuperar eventos de Registo de Atividades Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [Como visualizar e recuperar eventos de Registo de Atividades Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Como criar alertas no Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+- [Como criar alertas no Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitorização do Centro de Segurança do Azure**: Não aplicável
 
@@ -202,7 +202,7 @@ Pode utilizar o Azure PowerShell ou o Azure CLI para procurar ou executar açõe
 
 - [Como configurar e aceder aos registos de auditoria do Azure Database para PostgreSQL](concepts-audit.md)
 
-- [Como configurar definições de diagnóstico para o registo de atividades azure](../azure-monitor/platform/activity-log.md)
+- [Como configurar definições de diagnóstico para o registo de atividades azure](../azure-monitor/essentials/activity-log.md)
 
 **Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
@@ -220,9 +220,9 @@ Pode utilizar o Azure PowerShell ou o Azure CLI para procurar ou executar açõe
 
 **Orientação**: No âmbito do Monitor Azure, para o espaço de trabalho do Log Analytics que está a ser utilizado para manter a sua Base de Dados Azure para registos PostgreSQL, desagreda o período de retenção de acordo com os regulamentos de conformidade da sua organização. Utilize contas de armazenamento Azure para armazenamento a longo prazo/arquivo.
 
-- [Como definir parâmetros de retenção de registos para log analytics workspaces](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Como definir parâmetros de retenção de registos para log analytics workspaces](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
-- [Armazenar registos de recursos numa conta de armazenamento Azure](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)
+- [Armazenar registos de recursos numa conta de armazenamento Azure](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage)
 
 **Monitorização do Centro de Segurança do Azure**: Não aplicável
 
@@ -234,9 +234,9 @@ Pode utilizar o Azure PowerShell ou o Azure CLI para procurar ou executar açõe
 
 - [Como embarcar Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Para mais informações sobre o Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)
+- [Para mais informações sobre o Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md)
 
-- [Como realizar consultas personalizadas no Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
+- [Como realizar consultas personalizadas no Azure Monitor](../azure-monitor/logs/get-started-queries.md)
 
 **Monitorização do Centro de Segurança do Azure**: Não aplicável
 
@@ -254,7 +254,7 @@ Além disso, pode ativar registos de servidores e definições de diagnóstico p
 
 - [Como configurar e aceder aos registos de auditoria do Azure Database para PostgreSQL](concepts-audit.md)
 
-- [Como configurar definições de diagnóstico para o registo de atividades azure](../azure-monitor/platform/activity-log.md)
+- [Como configurar definições de diagnóstico para o registo de atividades azure](../azure-monitor/essentials/activity-log.md)
 
 - [Como embarcar Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -588,7 +588,7 @@ AskAzureDBforPostgreSQL@service.microsoft.com.
 
 **Orientação**: Utilize o Monitor Azure com o Registo de Atividades Azure para criar alertas para quando ocorrerem alterações nas instâncias de produção da Base de Dados Azure para PostgreSQL e outros recursos críticos ou relacionados.
 
-- [Como criar alertas para eventos de Registo de Atividades Azure](../azure-monitor/platform/alerts-activity-log.md)
+- [Como criar alertas para eventos de Registo de Atividades Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitorização do Centro de Segurança do Azure**: Não aplicável
 

@@ -1,5 +1,5 @@
 ---
-title: Como instalar e utilizar as vistas de análise de registos ! Microsoft Docs
+title: Como instalar e utilizar as vistas de análise de registo | Microsoft Docs
 description: Saiba como instalar e utilizar as vistas de análise de registo para o Azure Ative Directory
 services: active-directory
 documentationcenter: ''
@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9fc1592681429998f5082fbadcd45fa068f130e
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 86ad698793d562f93f9972903ca21e50c209c79c
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96180477"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100580008"
 ---
 # <a name="install-and-use-the-log-analytics-views-for-azure-active-directory"></a>Instale e utilize as vistas de análise de registo para o Azure Ative Directory
 
@@ -35,7 +35,7 @@ As vistas de análise de registo de registo do Azure Ative Informação ajudam-n
 
 Para utilizar as vistas de análise de registo, precisa de:
 
-* Um espaço de trabalho Log Analytics na sua subscrição Azure. Saiba como [criar um espaço de trabalho Log Analytics.](../../azure-monitor/learn/quick-create-workspace.md)
+* Um espaço de trabalho Log Analytics na sua subscrição Azure. Saiba como [criar um espaço de trabalho Log Analytics.](../../azure-monitor/logs/quick-create-workspace.md)
 * Em primeiro lugar, complete os passos para [encaminhar os registos de atividade azure AD para o seu espaço de trabalho Log Analytics](howto-integrate-activity-logs-with-log-analytics.md).
 * Faça o download das vistas do [repositório GitHub](https://aka.ms/AADLogAnalyticsviews) para o seu computador local.
 
@@ -67,11 +67,11 @@ Para utilizar as vistas de análise de registo, precisa de:
 
     ![Criar regra](./media/howto-install-use-log-analytics-views/create-rule.png)
 
-6. Selecione o grupo de ação para alertar. Em geral, esta pode ser uma equipa que pretende notificar via e-mail ou mensagem de texto, ou pode ser uma tarefa automatizada usando webhooks, runbooks, funções, aplicações lógicas ou soluções ITSM externas. Saiba como [criar e gerir grupos de ação no portal Azure.](../../azure-monitor/platform/action-groups.md)
+6. Selecione o grupo de ação para alertar. Em geral, esta pode ser uma equipa que pretende notificar via e-mail ou mensagem de texto, ou pode ser uma tarefa automatizada usando webhooks, runbooks, funções, aplicações lógicas ou soluções ITSM externas. Saiba como [criar e gerir grupos de ação no portal Azure.](../../azure-monitor/alerts/action-groups.md)
 
 7. Selecione **Criar a regra de alerta** para criar o alerta. Agora será alertado sempre que houver um erro de inscrição.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Como analisar registos de atividade com registos do Azure Monitor](howto-analyze-activity-logs-log-analytics.md)
-* [Começa com registos do Azure Monitor no portal Azure](../../azure-monitor/log-query/log-analytics-tutorial.md)
+* [Começa com registos do Azure Monitor no portal Azure](../../azure-monitor/logs/log-analytics-tutorial.md)

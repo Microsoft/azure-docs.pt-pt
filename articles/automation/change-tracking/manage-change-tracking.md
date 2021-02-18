@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 12/10/2020
 ms.topic: conceptual
-ms.openlocfilehash: 636dbf95567f761aee19bd567b0835173ce36ccc
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: dff314f3c9fb72c565a7c2d522694d533c487895
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97093626"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100572645"
 ---
 # <a name="manage-change-tracking-and-inventory"></a>Gerir o Controlo de Alterações e o Inventário
 
@@ -53,7 +53,7 @@ Utilize os seguintes passos para configurar o rastreio de ficheiros nos computad
     |---------|---------|
     |Ativado     | Verdade se a definição for aplicada, e falso de outra forma.        |
     |Nome do Item     | Nome amigável do ficheiro a ser rastreado.        |
-    |Grupo     | Um nome de grupo para agrupar logicamente ficheiros.        |
+    |Group     | Um nome de grupo para agrupar logicamente ficheiros.        |
     |Introduzir o Caminho     | O caminho para verificar o ficheiro, por exemplo, **c:\temperatura \\ \* .txt**. Também pode utilizar variáveis ambientais, tais `%winDir%\System32\\\*.*` como.       |
     |Tipo de Caminho     | O tipo de caminho. Os valores possíveis são Ficheiro e Pasta.        |    
     |Recursão     | É verdade que se a recursão for usada quando se procura que o item seja rastreado, e falso de outra forma.        |    
@@ -82,7 +82,7 @@ Utilize os seguintes passos para configurar o rastreio de ficheiros nos computad
     |---------|---------|
     |Ativado     | Verdade se a definição for aplicada, e falso de outra forma.        |
     |Nome do Item     | Nome amigável do ficheiro a ser rastreado.        |
-    |Grupo     | Um nome de grupo para agrupar logicamente ficheiros.        |
+    |Group     | Um nome de grupo para agrupar logicamente ficheiros.        |
     |Introduzir o Caminho     | O caminho para verificar o ficheiro, por exemplo, **/etc/*.conf**.       |
     |Tipo de Caminho     | O tipo de caminho. Os valores possíveis são Arquivo e Diretório.        |
     |Recursão     | É verdade que se a recursão for usada quando se procura que o item seja rastreado, e falso de outra forma.        |
@@ -152,14 +152,14 @@ Utilize os seguintes passos para configurar o rastreio das chaves de registo nos
     |---------|---------|
     |Ativado     | Verdade se uma definição é aplicada, e falso de outra forma.        |
     |Nome do Item     | Nome amigável da chave de registo para rastrear.        |
-    |Grupo     | Nome do grupo para agrupar logicamente chaves de registo.        |
+    |Group     | Nome do grupo para agrupar logicamente chaves de registo.        |
     |Chave do Registo do Windows   | Nome chave com caminho, por `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup` exemplo, .      |
 
 ## <a name="search-logs-for-change-records"></a>Registos de pesquisa para registos de alteração
 
 Pode fazer várias pesquisas contra os registos do Azure Monitor para alterar registos. Com a página de rastreio de Alteração aberta, clique em **Registar Analytics** para abrir a página 'Registar'. A tabela seguinte fornece pesquisas de registo de amostras para registos de alteração.
 
-|Consulta  |Descrição  |
+|Consulta  |Description  |
 |---------|---------|
 |`ConfigurationData`<br>&#124; `where ConfigDataType == "WindowsServices" and SvcStartupType == "Auto"`<br>&#124; `where SvcState == "Stopped"`<br>&#124; `summarize arg_max(TimeGenerated, *) by SoftwareName, Computer`         | Mostra os registos de inventário mais recentes dos serviços da Microsoft que foram definidos para Auto, mas foram reportados como sendo parados. Os resultados estão limitados ao registo mais recente do nome e computador especificados.    |
 |`ConfigurationChange`<br>&#124; `where ConfigChangeType == "Software" and ChangeCategory == "Removed"`<br>&#124; `order by TimeGenerated desc`|Mostra registos de alteração para software removido.|
@@ -167,7 +167,7 @@ Pode fazer várias pesquisas contra os registos do Azure Monitor para alterar re
 ## <a name="next-steps"></a>Passos seguintes
 
 * Para obter informações sobre configurações de âmbito, consulte [o âmbito de rastreio de alterações de limite e o âmbito de implantação do inventário](manage-scope-configurations.md).
-* Se necessitar de pesquisar registos armazenados em Registos do Monitor Azure, consulte [as pesquisas de Registo em Registos do Monitor Azure](../../azure-monitor/log-query/log-query-overview.md).
+* Se necessitar de pesquisar registos armazenados em Registos do Monitor Azure, consulte [as pesquisas de Registo em Registos do Monitor Azure](../../azure-monitor/logs/log-query-overview.md).
 * Se terminar com as implementações, consulte [remover o rastreio e o inventário de alteração](remove-feature.md).
 * Para eliminar os seus VMs de Change Tracking and Inventory, consulte [remover VMs do Change Tracking and Inventory](remove-vms-from-change-tracking.md).
 * Para resolver erros de funcionalidades, consulte [problemas de rastreio e inventário de alterações de resolução de problemas.](../troubleshoot/change-tracking.md)
