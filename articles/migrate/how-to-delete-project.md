@@ -6,12 +6,12 @@ ms.author: panshar
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 10/22/2019
-ms.openlocfilehash: face3d02ee72d1e05c6c08330dae4fffc2fd0e0b
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: bfb4db5d3ebf69f9c7f552c175d33a8b817d1562
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96754254"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595138"
 ---
 # <a name="delete-an-azure-migrate-project"></a>Eliminar um projeto do Azure Migrate
 
@@ -27,7 +27,7 @@ Antes de apagar um projeto:
     - O espaço de trabalho não é apagado automaticamente. Apague-o manualmente.
     - Verifique para que espaço de trabalho é utilizado antes de eliminá-lo. O mesmo espaço de trabalho log Analytics pode ser usado para vários cenários.
     - Antes de eliminar o projeto, pode encontrar uma ligação para o espaço de trabalho em **Azure Migrate - Servers**  >  **Azure Migrate - Avaliação do Servidor,** no **espaço de trabalho OMS**.
-    - Para eliminar um espaço de trabalho após a eliminação de um projeto, encontre o espaço de trabalho no grupo de recursos relevante e siga [estas instruções](../azure-monitor/platform/delete-workspace.md).
+    - Para eliminar um espaço de trabalho após a eliminação de um projeto, encontre o espaço de trabalho no grupo de recursos relevante e siga [estas instruções](../azure-monitor/logs/delete-workspace.md).
 
 
 ## <a name="delete-a-project"></a>Excluir um projeto

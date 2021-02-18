@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: b7dc7a9f93d6d70abec57632ffc95aea8a6bc699
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 82e15712fe1e7a5791b1374e4aa4cd446f8f5e90
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99804993"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574429"
 ---
 # <a name="azure-security-baseline-for-network-watcher"></a>Linha de segurança Azure para Observador de Rede
 
@@ -118,9 +118,9 @@ O Observador de Rede deve ser ativado
 
 **Orientação**: Utilize o Registo de Atividades Azure para monitorizar as alterações efetuadas ao Observador de Redes Azure. Pode criar alertas dentro do Azure Monitor que irão desencadear quando ocorrerem alterações.
 
-* [Como visualizar e recuperar eventos de Registo de Atividades Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+* [Como visualizar e recuperar eventos de Registo de Atividades Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-* [Como criar alertas no Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+* [Como criar alertas no Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitorização do Centro de Segurança do Azure**: Não aplicável
 
@@ -142,7 +142,7 @@ O Observador de Rede deve ser ativado
 
 **Orientação**: Utilize o Registo de Atividades Azure para monitorizar as configurações e detetar alterações para as suas instâncias do Observador de Redes Azure. Para além do plano de controlo (por exemplo, portal Azure), o próprio Network Watcher não gera registos relacionados com o tráfego de rede. O Network Watcher fornece ferramentas para monitorizar, diagnosticar, visualizar métricas e ativar ou desativar registos de recursos numa rede virtual Azure.
 
-* [Como visualizar e recuperar eventos de Registo de Atividades Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+* [Como visualizar e recuperar eventos de Registo de Atividades Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
 * [Compreender o Observador de Redes](./network-watcher-monitoring-overview.md)
 
@@ -154,7 +154,7 @@ O Observador de Rede deve ser ativado
 
 **Orientação**: Utilize o Registo de Atividades Azure para monitorizar as configurações e detetar alterações para as suas instâncias do Observador de Redes Azure. Para além do plano de controlo (por exemplo, portal Azure), o próprio Network Watcher não gera registos de auditoria. O Network Watcher fornece ferramentas para monitorizar, diagnosticar, visualizar métricas e ativar ou desativar registos de recursos numa rede virtual Azure.
 
-* [Como visualizar e recuperar eventos de Registo de Atividades Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+* [Como visualizar e recuperar eventos de Registo de Atividades Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
 * [Compreender o Observador de Redes](./network-watcher-monitoring-overview.md)
 
@@ -174,7 +174,7 @@ O Observador de Rede deve ser ativado
 
 **Orientação**: No Azure Monitor, detenva o período de retenção de registos para os espaços de trabalho do Log Analytics associados ao Azure Network Watcher de acordo com os regulamentos de conformidade da sua organização.
 
-* [Como definir parâmetros de retenção de registos](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+* [Como definir parâmetros de retenção de registos](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Monitorização do Centro de Segurança do Azure**: Não aplicável
 
@@ -184,7 +184,7 @@ O Observador de Rede deve ser ativado
 
 **Orientação**: Utilize o Registo de Atividades Azure para monitorizar as configurações e detetar alterações para as suas instâncias do Observador de Redes Azure. Para além do plano de controlo (por exemplo, portal Azure), o próprio Network Watcher não gera registos relacionados com o tráfego de rede. O Network Watcher fornece ferramentas para monitorizar, diagnosticar, visualizar métricas e ativar ou desativar registos de recursos numa rede virtual Azure.
 
-* [Como visualizar e recuperar eventos de Registo de Atividades Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+* [Como visualizar e recuperar eventos de Registo de Atividades Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
 * [Compreender o Observador de Redes](./network-watcher-monitoring-overview.md)
 
@@ -479,7 +479,7 @@ Para utilizar as capacidades do Network Watcher, a conta com a qual inicia sess�
 
 **Orientação**: Utilize o Monitor Azure com o registo de atividade Azure para criar alertas para quando ocorrerem alterações para o Observador de Redes Azure e outros recursos críticos ou relacionados.
 
-* [Como criar alertas para eventos de Registo de Atividades Azure](../azure-monitor/platform/alerts-activity-log.md)
+* [Como criar alertas para eventos de Registo de Atividades Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitorização do Centro de Segurança do Azure**: Sim
 

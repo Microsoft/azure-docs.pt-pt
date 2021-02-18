@@ -1,5 +1,5 @@
 ---
-title: Segurança Operacional Azure Microsoft Docs
+title: Azure Segurança Operacional | Microsoft Docs
 description: Apresente-se aos registos do Microsoft Azure Monitor, aos seus serviços e ao funcionamento desta visão geral.
 services: security
 documentationcenter: na
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: f968267d4233c765bfd107d81957cf04edace923
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 7380c0d9679fe74bc91eea269f53fea750922b79
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94408520"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100575010"
 ---
 # <a name="azure-operational-security"></a>Segurança Operacional Azure
 ## <a name="introduction"></a>Introdução
 
-### <a name="overview"></a>Descrição Geral
+### <a name="overview"></a>Descrição geral
 Sabemos que a segurança é um trabalho na nuvem e como é importante que encontre informações precisas e oportunas sobre a segurança do Azure. Uma das melhores razões para usar o Azure para as suas aplicações e serviços é aproveitar o vasto leque de ferramentas e capacidades de segurança disponíveis. Estas ferramentas e capacidades ajudam a tornar possível a criação de soluções seguras na plataforma Azure segura. O Windows Azure deve fornecer confidencialidade, integridade e disponibilidade de dados dos clientes, ao mesmo tempo que permite uma responsabilização transparente.
 
 Para ajudar os clientes a compreender melhor o conjunto de controlos de segurança implementados dentro do Microsoft Azure a partir das perspetivas operacionais do cliente e da Microsoft, este livro branco, "Azure Operational Security", é escrito que proporciona um olhar abrangente sobre a segurança operacional disponível com o Windows Azure.
@@ -108,7 +108,7 @@ Os dados protegidos no Azure Backup são armazenados num cofre de cópias de seg
 
 ![Soluções de Gestão](./media/operational-security/azure-operational-security-fig4.png)
 
-Um bom exemplo de uma solução que utiliza vários serviços para fornecer funcionalidades adicionais é a [solução de Gestão de Atualização.](../../automation/update-management/overview.md) Esta solução utiliza o agente [de registos Azure Monitor](../../azure-monitor/log-query/log-query-overview.md) para windows e Linux para recolher informações sobre as atualizações necessárias em cada agente. Escreve estes dados para o repositório de registos do Azure Monitor onde pode analisá-los com um dashboard incluído.
+Um bom exemplo de uma solução que utiliza vários serviços para fornecer funcionalidades adicionais é a [solução de Gestão de Atualização.](../../automation/update-management/overview.md) Esta solução utiliza o agente [de registos Azure Monitor](../../azure-monitor/logs/log-query-overview.md) para windows e Linux para recolher informações sobre as atualizações necessárias em cada agente. Escreve estes dados para o repositório de registos do Azure Monitor onde pode analisá-los com um dashboard incluído.
 
 Quando cria uma implementação, os runbooks na [Azure Automation](../../automation/automation-intro.md) são utilizados para instalar as atualizações necessárias. Todo este processo é gerido no portal e não tem de se preocupar com os detalhes subjacentes.
 
@@ -148,11 +148,11 @@ O Centro de Segurança recolhe dados das suas máquinas virtuais (VMs) para aval
 
 Para ajudar os clientes a evitar, detetar e responder a ameaças, o Centro de Segurança do Azure recolhe e processa dados relacionados com segurança, incluindo informações de configuração, metadados, registos de eventos, ficheiros de informação de falha de sistema e mais. A Microsoft respeita diretrizes rigorosas de conformidade e segurança, desde a codificação à operação de um serviço.
 
--   **Segregação de dados** : os dados são mantidos separados de forma lógica em cada componente em todo o serviço. Todos os dados são etiquetados por organização. Este tipo de etiquetagem persiste por todo o ciclo de vida dos dados e é imposto em cada camada do serviço.
+-   **Segregação de dados**: os dados são mantidos separados de forma lógica em cada componente em todo o serviço. Todos os dados são etiquetados por organização. Este tipo de etiquetagem persiste por todo o ciclo de vida dos dados e é imposto em cada camada do serviço.
 
--   **Acesso a dados** : Para fornecer recomendações de segurança e investigar potenciais ameaças à segurança, o pessoal da Microsoft pode aceder a informações recolhidas ou analisadas pelos serviços Azure, incluindo ficheiros de despejo de falhas, eventos de criação de processos, instantâneos de discos VM e artefactos, que podem incluir involuntariamente dados do Cliente ou dados pessoais das suas máquinas virtuais. Aderimos à [Microsoft Online Services Terms and Privacy Statement](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31), que declara que a Microsoft não utiliza dados do cliente ou obtém informações dos mesmos para qualquer publicidade ou fins comerciais semelhantes.
+-   **Acesso a dados**: Para fornecer recomendações de segurança e investigar potenciais ameaças à segurança, o pessoal da Microsoft pode aceder a informações recolhidas ou analisadas pelos serviços Azure, incluindo ficheiros de despejo de falhas, eventos de criação de processos, instantâneos de discos VM e artefactos, que podem incluir involuntariamente dados do Cliente ou dados pessoais das suas máquinas virtuais. Aderimos à [Microsoft Online Services Terms and Privacy Statement](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31), que declara que a Microsoft não utiliza dados do cliente ou obtém informações dos mesmos para qualquer publicidade ou fins comerciais semelhantes.
 
--   **Utilização de dados** : a Microsoft utiliza os padrões e as informações sobre ameaças presentes em vários inquilinos para melhorar as nossas capacidades de prevenção e deteção. Fazemo-lo em conformidade com os compromissos de privacidade descritos na nossa [Declaração de Privacidade](https://www.microsoft.com/en-us/privacystatement/OnlineServices/).
+-   **Utilização de dados**: a Microsoft utiliza os padrões e as informações sobre ameaças presentes em vários inquilinos para melhorar as nossas capacidades de prevenção e deteção. Fazemo-lo em conformidade com os compromissos de privacidade descritos na nossa [Declaração de Privacidade](https://www.microsoft.com/en-us/privacystatement/OnlineServices/).
 
 ### <a name="data-location"></a>Localização dos dados
 
@@ -160,7 +160,7 @@ O Centro de Segurança do Azure recolhe cópias efémeras dos ficheiros de infor
 
 -   **As suas Contas de Armazenamento:** É especificada uma conta de armazenamento para cada região onde as máquinas virtuais estão a funcionar. Isto permite-lhe armazenar dados na mesma região que a máquina virtual a partir da qual os dados são recolhidos.
 
--   **Armazenamento do Centro de Segurança do Azure** : as informações sobre alertas de segurança, incluindo alertas de parceiros, recomendações e estado de funcionamento da segurança, são armazenadas de forma central, atualmente nos Estados Unidos. Estas informações podem incluir informações de configuração relacionadas e eventos de segurança recolhidos das suas máquinas virtuais, conforme necessário para lhe fornecer o alerta de segurança, recomendação ou estado de funcionamento de segurança.
+-   **Armazenamento do Centro de Segurança do Azure**: as informações sobre alertas de segurança, incluindo alertas de parceiros, recomendações e estado de funcionamento da segurança, são armazenadas de forma central, atualmente nos Estados Unidos. Estas informações podem incluir informações de configuração relacionadas e eventos de segurança recolhidos das suas máquinas virtuais, conforme necessário para lhe fornecer o alerta de segurança, recomendação ou estado de funcionamento de segurança.
 
 
 ## <a name="azure-monitor"></a>Azure Monitor
@@ -195,17 +195,17 @@ Estes registos são emitidos por um recurso e fornecem dados ricos e frequentes 
 
 Por exemplo, os registos do sistema de eventos Windows são uma categoria de Registo de Diagnóstico para VMs e blob, tabela e registos de fila são categorias de Registos de Diagnóstico para contas de armazenamento.
 
-Os Registos de Diagnóstico diferem do Registo de [Atividade (anteriormente conhecido como Registo de Auditoria ou Registo Operacional)](../../azure-monitor/platform/platform-logs-overview.md). O registo de Atividades fornece informações sobre as operações que foram realizadas sobre os recursos na sua subscrição. Os registos de diagnóstico fornecem informações aprofundadas sobre as operações executadas pelo próprio recurso.
+Os Registos de Diagnóstico diferem do Registo de [Atividade (anteriormente conhecido como Registo de Auditoria ou Registo Operacional)](../../azure-monitor/essentials/platform-logs-overview.md). O registo de Atividades fornece informações sobre as operações que foram realizadas sobre os recursos na sua subscrição. Os registos de diagnóstico fornecem informações aprofundadas sobre as operações executadas pelo próprio recurso.
 
 ### <a name="metrics"></a>Métricas
 
-O Azure Monitor permite-lhe consumir telemetria para ganhar visibilidade no desempenho e saúde das suas cargas de trabalho no Azure. O tipo mais importante de dados de telemetria Azure são as métricas (também chamadas contadores de desempenho) emitidas pela maioria dos recursos Azure. O Azure Monitor fornece várias formas de configurar e consumir estas [métricas](../../azure-monitor/platform/data-platform.md) para monitorização e resolução de problemas. As métricas são uma valiosa fonte de telemetria e permitem-lhe fazer as seguintes tarefas:
+O Azure Monitor permite-lhe consumir telemetria para ganhar visibilidade no desempenho e saúde das suas cargas de trabalho no Azure. O tipo mais importante de dados de telemetria Azure são as métricas (também chamadas contadores de desempenho) emitidas pela maioria dos recursos Azure. O Azure Monitor fornece várias formas de configurar e consumir estas [métricas](../../azure-monitor/data-platform.md) para monitorização e resolução de problemas. As métricas são uma valiosa fonte de telemetria e permitem-lhe fazer as seguintes tarefas:
 
 -   **Acompanhe o desempenho** do seu recurso (como um VM, website ou aplicação lógica) traçando as suas métricas num gráfico de portal e fixando esse gráfico num dashboard.
 
 -   **Seja notificado de um problema** que impacta o desempenho do seu recurso quando uma métrica atravessa um determinado limiar.
 
--   **Configure ações automatizadas** , tais como a escala automática de um recurso ou o disparo de um livro de execução quando uma métrica cruza um determinado limiar.
+-   **Configure ações automatizadas**, tais como a escala automática de um recurso ou o disparo de um livro de execução quando uma métrica cruza um determinado limiar.
 
 -   **Realize análises avançadas** ou reporte sobre as tendências de desempenho ou utilização do seu recurso.
 
@@ -213,7 +213,7 @@ O Azure Monitor permite-lhe consumir telemetria para ganhar visibilidade no dese
 
 ### <a name="azure-diagnostics"></a>Diagnóstico do Azure
 
-É a capacidade dentro do Azure que permite a recolha de dados de diagnóstico numa aplicação implementada. Pode utilizar a extensão de diagnóstico de várias fontes diferentes. Atualmente suportadas são [Azure Cloud Service Web and Worker Roles](/visualstudio/azure/vs-azure-tools-configure-roles-for-cloud-service), [Azure Virtual Machines](../../virtual-machines/windows/overview.md) running Microsoft Windows,and [Service Fabric](../../azure-monitor/platform/diagnostics-extension-overview.md). Outros serviços da Azure têm os seus próprios diagnósticos separados.
+É a capacidade dentro do Azure que permite a recolha de dados de diagnóstico numa aplicação implementada. Pode utilizar a extensão de diagnóstico de várias fontes diferentes. Atualmente suportadas são [Azure Cloud Service Web and Worker Roles](/visualstudio/azure/vs-azure-tools-configure-roles-for-cloud-service), [Azure Virtual Machines](../../virtual-machines/windows/overview.md) running Microsoft Windows,and [Service Fabric](../../azure-monitor/agents/diagnostics-extension-overview.md). Outros serviços da Azure têm os seus próprios diagnósticos separados.
 
 ## <a name="azure-network-watcher"></a>Observador de Rede do Azure
 
@@ -225,7 +225,7 @@ A auditoria da segurança da sua rede é vital para detetar vulnerabilidades de 
 
 O Network Watcher tem atualmente as seguintes capacidades:
 
--   **<a href="/azure/network-watcher/network-watcher-monitoring-overview">Registos de Auditoria</a>** - As operações realizadas como parte da configuração das redes são registadas. Estes registos podem ser vistos no portal Azure ou recuperados utilizando ferramentas da Microsoft, como o Power BI ou ferramentas de terceiros. Os registos de auditoria estão disponíveis através do portal, PowerShell, CLI e Rest API. Para obter mais informações sobre registos de auditoria, consulte as operações de Auditoria com o Gestor de Recursos. Os registos de auditoria estão disponíveis para operações realizadas em todos os recursos da rede.
+-   **<a href="/azure/network-watcher/network-watcher-monitoring-overview">Registos de Auditoria</a>**- As operações realizadas como parte da configuração das redes são registadas. Estes registos podem ser vistos no portal Azure ou recuperados utilizando ferramentas da Microsoft, como o Power BI ou ferramentas de terceiros. Os registos de auditoria estão disponíveis através do portal, PowerShell, CLI e Rest API. Para obter mais informações sobre registos de auditoria, consulte as operações de Auditoria com o Gestor de Recursos. Os registos de auditoria estão disponíveis para operações realizadas em todos os recursos da rede.
 
 
 -   **<a href="/azure/network-watcher/network-watcher-ip-flow-verify-overview">Verifica-se o fluxo IP</a>** - Verifica se um pacote é permitido ou negado com base em parâmetros de pacote de informação de fluxo 5-tuple (Destination IP, Source IP, Destination Port, Source Port e Protocol). Se o pacote for negado por um Grupo de Segurança de Rede, a regra e o Grupo de Segurança da Rede que negou o pacote são devolvidos.
@@ -337,7 +337,7 @@ Este artigo explica
 
 A Microsoft projeta os seus serviços e software com segurança em mente para ajudar a garantir que a sua infraestrutura em nuvem é resistente e defendida contra ataques.
 
-- [Registos do Monitor Azure Conformidade & de Segurança](https://www.microsoft.com/cloud-platform/security-and-compliance)
+- [Registos do Monitor Azure | Conformidade & de Segurança](https://www.microsoft.com/cloud-platform/security-and-compliance)
 
 Utilize dados e análises de segurança da Microsoft para realizar uma deteção de ameaças mais inteligente e eficaz.
 

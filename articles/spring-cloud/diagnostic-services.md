@@ -1,5 +1,5 @@
 ---
-title: Analise os registos e métricas em Azure Spring Cloud Microsoft Docs
+title: Analise os registos e métricas em Azure Spring Cloud | Microsoft Docs
 description: Saiba como analisar dados de diagnóstico em Azure Spring Cloud
 author: bmitchell287
 ms.service: spring-cloud
@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 11f5fcd74b228fa2d57658f5c268e3bebc3c7e93
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 52413f36a9ba5c7b7a3c68567a65a20bc3ce4090
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499531"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100585200"
 ---
 # <a name="analyze-logs-and-metrics-with-diagnostics-settings"></a>Analisar registos e métricas com definições de diagnóstico
 
@@ -31,7 +31,7 @@ Escolha a categoria de registo e a categoria métrica que pretende monitorizar.
 
 ## <a name="logs"></a>Registos
 
-|Registar | Descrição |
+|Registo | Description |
 |----|----|
 | **AplicaçãoConsola** | Registo de consola de todas as aplicações do cliente. |
 | **SystemLogs** | Atualmente, apenas os registos [do Servidor Config da Nuvem de primavera](https://cloud.spring.io/spring-cloud-config/reference/html/#_spring_cloud_config_server) nesta categoria. |
@@ -40,7 +40,7 @@ Escolha a categoria de registo e a categoria métrica que pretende monitorizar.
 
 Para obter uma lista completa de métricas, consulte [spring cloud metrics](./spring-cloud-concept-metrics.md#user-metrics-options).
 
-Para começar, permita que um destes serviços receba os dados. Para saber mais sobre a configuração do Log Analytics, consulte [Começar com o Log Analytics no Azure Monitor](../azure-monitor/log-query/log-analytics-tutorial.md).
+Para começar, permita que um destes serviços receba os dados. Para saber mais sobre a configuração do Log Analytics, consulte [Começar com o Log Analytics no Azure Monitor](../azure-monitor/logs/log-analytics-tutorial.md).
 
 ## <a name="configure-diagnostics-settings"></a>Configurar configurações de diagnóstico
 
@@ -131,11 +131,11 @@ Para saber mais sobre o envio de informações de diagnóstico para uma conta de
 1. Para rever os registos de aplicações, procure um centro de eventos chamado **insights-logs-applicationconsole**.
 1. Para rever as métricas da aplicação, procure um centro de eventos chamado **insights-metrics-pt1m**.
 
-Para saber mais sobre o envio de informações de diagnóstico para um centro de [eventos, consulte os dados do Streaming Azure Diagnostics no caminho quente utilizando os Centros de Eventos.](../azure-monitor/platform/diagnostics-extension-stream-event-hubs.md)
+Para saber mais sobre o envio de informações de diagnóstico para um centro de [eventos, consulte os dados do Streaming Azure Diagnostics no caminho quente utilizando os Centros de Eventos.](../azure-monitor/agents/diagnostics-extension-stream-event-hubs.md)
 
 ## <a name="analyze-the-logs"></a>Analisar os registos
 
-O Azure Log Analytics está a funcionar com um motor Kusto para que possa consultar os seus registos para análise. Para uma rápida introdução aos registos de consulta utilizando o Kusto, reveja o [tutorial do Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md).
+O Azure Log Analytics está a funcionar com um motor Kusto para que possa consultar os seus registos para análise. Para uma rápida introdução aos registos de consulta utilizando o Kusto, reveja o [tutorial do Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md).
 
 Os registos de aplicações fornecem informações críticas e registos verbosos sobre a saúde, desempenho e muito mais da sua aplicação. Nas secções seguintes estão algumas perguntas simples para ajudá-lo a entender os estados atuais e passados da sua aplicação.
 
@@ -176,9 +176,9 @@ AppPlatformLogsforSpring
 
 ### <a name="learn-more-about-querying-application-logs"></a>Saiba mais sobre os registos de aplicações de consulta
 
-O Azure Monitor fornece um suporte extensivo para consulta de registos de aplicações utilizando o Log Analytics. Para saber mais sobre este serviço, consulte [Começar com consultas de log no Azure Monitor.](../azure-monitor/log-query/get-started-queries.md) Para obter mais informações sobre consultas de construção para analisar os registos de aplicações, consulte [a visão geral das consultas de registo no Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
+O Azure Monitor fornece um suporte extensivo para consulta de registos de aplicações utilizando o Log Analytics. Para saber mais sobre este serviço, consulte [Começar com consultas de log no Azure Monitor.](../azure-monitor/logs/get-started-queries.md) Para obter mais informações sobre consultas de construção para analisar os registos de aplicações, consulte [a visão geral das consultas de registo no Azure Monitor](../azure-monitor/logs/log-query-overview.md).
 
-## <a name="frequently-asked-questions-faq"></a>Perguntas mais frequentes (FAQ)
+## <a name="frequently-asked-questions-faq"></a>Perguntas Mais Frequentes (FAQ)
 
 ### <a name="how-to-convert-multi-line-java-stack-traces-into-a-single-line"></a>Como converter vestígios de pilhas de Java multi-linhas numa única linha?
 

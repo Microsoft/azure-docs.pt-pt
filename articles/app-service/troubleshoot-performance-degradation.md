@@ -7,12 +7,12 @@ ms.assetid: b8783c10-3a4a-4dd6-af8c-856baafbdde5
 ms.topic: article
 ms.date: 08/03/2016
 ms.custom: seodec18
-ms.openlocfilehash: cf8b0e1fda03a74d30ec77c911d705bf12cf0126
-ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
+ms.openlocfilehash: e048e4c17092c71a5adaf29f342546b9258837c5
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96763813"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100586238"
 ---
 # <a name="troubleshoot-slow-app-performance-issues-in-azure-app-service"></a>Resolução de problemas problemas de desempenho de aplicações lentas no Azure App Service
 Este artigo ajuda-o a resolver problemas de desempenho de aplicações lentas no [Azure App Service](./overview.md).
@@ -58,10 +58,10 @@ Algumas das métricas que pode querer monitorizar para a sua aplicação são
 
 ![monitorizar o desempenho da aplicação](./media/app-service-web-troubleshoot-performance-degradation/1-monitor-metrics.png)
 
-Para obter mais informações, veja:
+Para obter mais informações, consulte:
 
 * [Monitorize aplicativos no Azure App Service](web-sites-monitor.md)
-* [Receber notificações de alerta](../azure-monitor/platform/alerts-overview.md)
+* [Receber notificações de alerta](../azure-monitor/alerts/alerts-overview.md)
 
 #### <a name="monitor-web-endpoint-status"></a>Monitorar o estado do ponto final da web
 Se estiver a executar a sua aplicação no nível de preços **Standard,** o App Service permite-lhe monitorizar dois pontos finais de três localizações geográficas.

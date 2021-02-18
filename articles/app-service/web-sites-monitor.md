@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 04/23/2020
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 587ad53fa3a4875f7019a8c094db1b9a5f096519
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: bf230032afe80680dc392c2a74da2a5aef381983
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99509558"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100586101"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>Monitorize aplicativos no Azure App Service
 [O Azure App Service](./overview.md) fornece funcionalidades de monitorização incorporadas para aplicações web, móveis e API no [portal Azure.](https://portal.azure.com)
@@ -31,7 +31,7 @@ Se a aplicação estiver hospedada num plano *Básico,* *Standard* ou *Premium,*
 
 As quotas para aplicações gratuitas ou partilhadas são:
 
-| Quota | Descrição |
+| Quota | Description |
 | --- | --- |
 | **CPU (Curto)** | A quantidade de CPU permitida para esta aplicação num intervalo de 5 minutos. Esta quota repõe a cada cinco minutos. |
 | **CPU (Dia)** | A quantidade total de CPU permitida para esta aplicação em um dia. Esta quota repõe-se a cada 24 horas à meia-noite utc. |
@@ -136,7 +136,7 @@ Existem duas métricas que refletem o uso do CPU:
 **Percentagem de CPU**: Útil para aplicações hospedadas em planos Básicos, Standard e Premium, porque podem ser dimensionadas. A percentagem de CPU é uma boa indicação da utilização global em todos os casos.
 
 ## <a name="metrics-granularity-and-retention-policy"></a>Política de granularidade e retenção de métricas
-As métricas para um plano de serviço de aplicações e aplicações são registadas e agregadas pelo serviço e [mantidas de acordo com estas regras.](../azure-monitor/platform/data-platform-metrics.md#retention-of-metrics)
+As métricas para um plano de serviço de aplicações e aplicações são registadas e agregadas pelo serviço e [mantidas de acordo com estas regras.](../azure-monitor/essentials/data-platform-metrics.md#retention-of-metrics)
 
 ## <a name="monitoring-quotas-and-metrics-in-the-azure-portal"></a>Quotas e métricas de monitorização no portal Azure
 Para rever o estado das várias quotas e métricas que afetam uma app, vá ao [portal Azure](https://portal.azure.com).
@@ -153,14 +153,14 @@ Para encontrar quotas, selecione **Definições**  >  **Quotas**. Na tabela, pod
 
 Clicar em qualquer um desses gráficos irá levá-lo à vista de métricas onde pode criar gráficos personalizados, consultar métricas diferentes e muito mais. 
 
-Para saber mais sobre as métricas, consulte [as métricas de serviço do Monitor.](../azure-monitor/platform/data-platform.md)
+Para saber mais sobre as métricas, consulte [as métricas de serviço do Monitor.](../azure-monitor/data-platform.md)
 
 ## <a name="alerts-and-autoscale"></a>Alertas e autoescala
-As métricas para uma aplicação ou um plano de Serviço de Aplicações podem ser ligadas a alertas. Para obter mais informações, consulte [Receber notificações de alerta](../azure-monitor/platform/alerts-classic-portal.md).
+As métricas para uma aplicação ou um plano de Serviço de Aplicações podem ser ligadas a alertas. Para obter mais informações, consulte [Receber notificações de alerta](../azure-monitor/alerts/alerts-classic-portal.md).
 
 As aplicações do Serviço de Aplicações hospedadas em planos básicos ou superiores do Serviço de Aplicações suportam a autoescala. Com a autoescala, pode configurar regras que monitorizam as métricas do plano do Serviço de Aplicações. As regras podem aumentar ou diminuir a contagem de casos, que pode fornecer recursos adicionais, se necessário. As regras também podem ajudá-lo a economizar dinheiro quando a aplicação está sobre-aprovisionada.
 
-Para obter mais informações sobre a autoescala, consulte [Como escalar](../azure-monitor/platform/autoscale-get-started.md) e [As Melhores Práticas para autoscaling do Azure Monitor](../azure-monitor/platform/autoscale-best-practices.md).
+Para obter mais informações sobre a autoescala, consulte [Como escalar](../azure-monitor/autoscale/autoscale-get-started.md) e [As Melhores Práticas para autoscaling do Azure Monitor](../azure-monitor/autoscale/autoscale-best-practices.md).
 
 [fzilla]:https://go.microsoft.com/fwlink/?LinkId=247914
 [vmsizes]:https://go.microsoft.com/fwlink/?LinkID=309169

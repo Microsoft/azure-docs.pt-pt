@@ -3,15 +3,15 @@ title: Configurar o registo de contentor incorporado para o Azure Red Hat OpenSh
 description: Configurar o registo de contentor incorporado para o Azure Red Hat OpenShift 4
 author: jiangma
 ms.author: jiangma
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: 79b74c9dccd68ac3abfd9ae6cb2d0c345e45d4bf
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.openlocfilehash: dda050b8d824f0ff0ac1c84d2f008387de55aedf
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99070615"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100636387"
 ---
 # <a name="configure-built-in-container-registry-for-azure-red-hat-openshift-4"></a>Configurar o registo de contentor incorporado para o Azure Red Hat OpenShift 4
 

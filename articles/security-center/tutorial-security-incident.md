@@ -12,16 +12,16 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/30/2020
+ms.date: 02/17/2021
 ms.author: memildin
-ms.openlocfilehash: b9f0b3219a75900a44a73ca0fc3e453f023bddb8
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: aeabfb42d378f22ff660214517fea031d678b208
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92787164"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100635579"
 ---
-# <a name="tutorial-triage-investigate-and-respond-to-security-alerts"></a>Tutorial: Triagem, investigar e responder a alertas de segurança
+# <a name="tutorial-triage-investigate-and-respond-to-security-alerts"></a>Tutorial: Efetuar a triagem, investigar e responder a alertas de segurança
 O Security Center analisa continuamente as suas cargas de trabalho em nuvem híbrida usando análises avançadas e inteligência de ameaça para alertá-lo sobre atividades potencialmente maliciosas nos seus recursos na nuvem. Também pode integrar alertas de outros produtos e serviços de segurança no Centro de Segurança. Uma vez levantado um alerta, são necessárias medidas rápidas para investigar e remediar a questão potencial de segurança. 
 
 Neste tutorial, vai aprender a:
@@ -42,7 +42,7 @@ O Centro de Segurança proporciona uma vista unificada de todos os alertas de se
 
 Triagem dos seus alertas a partir da página **de alertas** de segurança:
 
-:::image type="content" source="./media/tutorial-security-incident/alerts-list.png" alt-text="Página da lista de alertas de segurança" lightbox="./media/tutorial-security-incident/alerts-list.png":::
+:::image type="content" source="media/security-center-managing-and-responding-alerts/alerts-page.png" alt-text="Lista de alertas de segurança do Azure Security Center":::
 
 Use esta página para rever os alertas de segurança ativos no seu ambiente para decidir qual o alerta para investigar primeiro.
 
@@ -60,7 +60,7 @@ Quando decidir qual o alerta para investigar primeiro:
 1. A partir da página geral do alerta, selecione o recurso para investigar primeiro.
 1. Inicie a sua investigação a partir do painel esquerdo, que mostra a informação de alto nível sobre o alerta de segurança.
 
-    :::image type="content" source="./media/tutorial-security-incident/alert-details-left-pane.png" alt-text="Página da lista de alertas de segurança":::
+    :::image type="content" source="./media/tutorial-security-incident/alert-details-left-pane.png" alt-text="O painel esquerdo da página de detalhes de alerta destacando a informação de alto nível":::
 
     Este painel mostra:
     - Gravidade, estado de alerta e tempo de atividade
@@ -80,7 +80,7 @@ Depois de investigar um alerta e compreender o seu âmbito de aplicação, pode 
 
 1.  Abra o **separador de ação Take** para ver as respostas recomendadas.
 
-    :::image type="content" source="./media/tutorial-security-incident/alert-details-take-action.png" alt-text="Página da lista de alertas de segurança" lightbox="./media/tutorial-security-incident/alert-details-take-action.png":::
+    :::image type="content" source="./media/tutorial-security-incident/alert-details-take-action.png" alt-text="Alertas de segurança tomam separador de ação" lightbox="./media/tutorial-security-incident/alert-details-take-action.png":::
 
 1.  Reveja a secção **de ameaças para** as etapas de investigação manuais necessárias para atenuar a questão.
 1.  Para endurecer os seus recursos e prevenir futuros ataques deste tipo, remediar as recomendações de segurança na secção **Prevenir futuros ataques.**
@@ -89,7 +89,7 @@ Depois de investigar um alerta e compreender o seu âmbito de aplicação, pode 
 
 1.  Quando terminar a investigação sobre o alerta e responder da forma apropriada, altere o estatuto para **Dispensado.**
 
-    :::image type="content" source="./media/tutorial-security-incident/set-status-dismissed.png" alt-text="Página da lista de alertas de segurança":::
+    :::image type="content" source="./media/tutorial-security-incident/set-status-dismissed.png" alt-text="Definição do estado de um alerta":::
 
     Isto remove o alerta da lista principal de alertas. Pode utilizar o filtro na página da lista de alertas para visualizar todos os alertas com o estado **de Despedimento.**
 
@@ -97,7 +97,7 @@ Depois de investigar um alerta e compreender o seu âmbito de aplicação, pode 
     1. Marcar o alerta como **Útil** ou **Não útil.**
     1. Selecione uma razão e adicione um comentário.
 
-        :::image type="content" source="./media/tutorial-security-incident/alert-feedback.png" alt-text="Página da lista de alertas de segurança":::
+        :::image type="content" source="./media/tutorial-security-incident/alert-feedback.png" alt-text="Fornecer feedback à Microsoft sobre a utilidade de um alerta":::
 
     > [!TIP]
     > Revemos o seu feedback para melhorar os nossos algoritmos e fornecer melhores alertas de segurança.
@@ -108,11 +108,11 @@ Outros inícios rápidos e tutoriais desta coleção têm por base este início 
 
 Se não pretende continuar, ou se pretende desativar qualquer uma destas funcionalidades:
 
-1. Volte ao menu principal do Centro de Segurança e **selecione preços e configurações** .
+1. Volte ao menu principal do Centro de Segurança e **selecione preços e configurações**.
 1. Selecione a subscrição relevante.
-1. Para reduzir, selecione **Azure Defender off** .
-1. Para desativar o fornecimento automático, abra a página **de Recolha de Dados** e desemalte **o provisionamento automático** para **desligar** .
-4. Selecione **Guardar** .
+1. Para reduzir, selecione **Azure Defender off**.
+1. Para desativar o fornecimento automático, abra a página **de Recolha de Dados** e desemalte **o provisionamento automático** para **desligar**.
+4. Selecione **Guardar**.
 
 >[!NOTE]
 > A desativação do fornecimento automático não remove o agente Log Analytics dos VMs Azure que já têm o agente. Desativar o aprovisionamento automático limita a monitorização da segurança dos seus recursos.

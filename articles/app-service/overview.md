@@ -5,12 +5,12 @@ ms.assetid: 94af2caf-a2ec-4415-a097-f60694b860b3
 ms.topic: overview
 ms.date: 07/06/2020
 ms.custom: devx-track-dotnet, mvc, seodec18
-ms.openlocfilehash: 0bfacc4169de6b30272229283e9aef9a9d69fad5
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: 668988ae34c2f97f3baca3f360c13e3ec3e30731
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99592335"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100586352"
 ---
 # <a name="app-service-overview"></a>Descrição geral do Serviço de Aplicações
 
@@ -28,7 +28,7 @@ Aqui estão algumas características-chave do Serviço de Aplicações:
 * **Ambiente de produção gerido** - O Serviço de Aplicações [remenda e mantém automaticamente o sistema operativo e os quadros linguísticos](overview-patch-os-runtime.md) para si. Passe o tempo escrevendo grandes apps e deixe o Azure preocupar-se com a plataforma.
 * **Containerization e Docker** - Dockerize a sua app e hospede um recipiente personalizado Windows ou Linux no Serviço de Aplicações. Executar aplicativos multi-contentores com Docker Compose. Migrar as tuas habilidades Docker diretamente para o Serviço de Aplicações.
 * **Otimização de DevOps** – Configure a [integração e implementação contínuas](deploy-continuous-deployment.md) com o Azure DevOps, GitHub, BitBucket, Docker Hub ou Azure Container Registry. Promova atualizações através de [ambientes de teste](deploy-staging-slots.md). Faça a gestão das suas aplicações no App Service utilizando o [Azure PowerShell](/powershell/azure/) ou a [interface de linha de comandos (CLI) de várias plataformas](/cli/azure/install-azure-cli).
-* **Dimensionamento global com elevada disponibilidade** – aumente [verticalmente](manage-scale-up.md) ou [horizontalmente](../azure-monitor/platform/autoscale-get-started.md) de forma manual ou automática. Aloje as aplicações em qualquer lugar da infraestrutura do datacenter global da Microsoft e o App Service [SLA](https://azure.microsoft.com/support/legal/sla/app-service/) promete elevada disponibilidade.
+* **Dimensionamento global com elevada disponibilidade** – aumente [verticalmente](manage-scale-up.md) ou [horizontalmente](../azure-monitor/autoscale/autoscale-get-started.md) de forma manual ou automática. Aloje as aplicações em qualquer lugar da infraestrutura do datacenter global da Microsoft e o App Service [SLA](https://azure.microsoft.com/support/legal/sla/app-service/) promete elevada disponibilidade.
 * **Ligações a plataformas SaaS e dados no local** – escolha entre mais de 50 [conectores](../connectors/apis-list.md) para sistemas empresariais (como SAP), serviços SaaS (como o Salesforce) e serviços Internet (como o Facebook). Aceda a dados no local ao utilizar [Ligações Híbridas](app-service-hybrid-connections.md) e [Azure Virtual Networks](web-sites-integrate-with-vnet.md).
 * **Segurança e conformidade** – o App Service está [em conformidade com ISO, SOC e PCI](https://www.microsoft.com/en-us/trustcenter). Autenticar utilizadores com [Diretório Ativo Azure](configure-authentication-provider-aad.md), [Google,](configure-authentication-provider-google.md) [Facebook,](configure-authentication-provider-facebook.md) [Twitter](configure-authentication-provider-twitter.md)ou [conta Microsoft.](configure-authentication-provider-microsoft.md) Crie [restrições de endereço IP](app-service-ip-restrictions.md) e [faça a gestão de identidades de serviço](overview-managed-identity.md).
 * **Modelos de aplicação** – escolha entre uma lista extensa de modelos de aplicação no [Azure Marketplace](https://azure.microsoft.com/marketplace/), como o WordPress, o Joomla e o Drupal.

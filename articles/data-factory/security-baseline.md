@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 387c5e70d50e53f922530cfb1fa91494fa7cc624
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: ab4f92c9723dc98d0b6c32d3a49df8d4f724ebfa
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100376314"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100585471"
 ---
 # <a name="azure-security-baseline-for-azure-data-factory"></a>Linha de segurança Azure para Azure Data Factory
 
@@ -175,9 +175,9 @@ Pode utilizar o Azure PowerShell ou o Azure CLI para procurar ou executar açõe
 
 **Orientação**: Utilize o Registo de Atividades Azure para monitorizar as configurações de recursos de rede e detetar alterações nos recursos de rede relacionados com as suas instâncias da Azure Data Factory. Crie alertas dentro do Azure Monitor que irão desencadear quando ocorrerem alterações nos recursos críticos da rede.
 
-* [Como visualizar e recuperar eventos de Registo de Atividades Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+* [Como visualizar e recuperar eventos de Registo de Atividades Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-* [Como criar alertas no Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+* [Como criar alertas no Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
@@ -201,7 +201,7 @@ Pode utilizar o Azure PowerShell ou o Azure CLI para procurar ou executar açõe
 
 Em alternativa, pode ativar e a bordo dados para Azure Sentinel ou para um terceiro Security Incident and Event Management (SIEM). Também pode integrar a Azure Data Factory com o Git para alavancar vários benefícios de controlo de origem, tais como a capacidade de rastrear/auditar alterações e a capacidade de reverter as alterações que introduzem bugs.
 
-* [Como configurar definições de diagnóstico](../azure-monitor/platform/diagnostic-settings.md)
+* [Como configurar definições de diagnóstico](../azure-monitor/essentials/diagnostic-settings.md)
 
 * [Como embarcar Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -219,7 +219,7 @@ Em alternativa, pode ativar e a bordo dados para Azure Sentinel ou para um terce
 
 Utilize definições de diagnóstico para configurar registos de diagnóstico para recursos não conformes na Azure Data Factory, tais como métricas e dados executados pelo pipeline. A Azure Data Factory armazena dados de condutas geridas por gasodutos durante 45 dias. Para reter estes dados por um período mais longo, guarde os seus registos de diagnóstico numa conta de armazenamento para auditoria ou inspeção manual e especifique o tempo de retenção em dias. Também pode transmitir os registos para Azure Event Hubs ou enviar os registos para um espaço de trabalho log Analytics para análise.
 
-* [Como ativar definições de diagnóstico para registo de atividades azure](../azure-monitor/platform/activity-log.md)
+* [Como ativar definições de diagnóstico para registo de atividades azure](../azure-monitor/essentials/activity-log.md)
 
 * [Compreenda os registos de diagnóstico da Azure Data Factory](./monitor-using-azure-monitor.md)
 
@@ -233,7 +233,7 @@ Utilize definições de diagnóstico para configurar registos de diagnóstico pa
 
 Se a sua organização quiser reter os dados de registo de eventos de segurança, pode ser armazenado dentro de um nível de Recolha de Dados, altura em que pode ser consultado no Log Analytics.
 
-* [Como recolher dados de Azure Virtual Machines no Azure Monitor](../azure-monitor/learn/quick-collect-azurevm.md)
+* [Como recolher dados de Azure Virtual Machines no Azure Monitor](../azure-monitor/vm/quick-collect-azurevm.md)
 
 * [Habilitação da recolha de dados no Centro de Segurança Azure](../security-center/security-center-enable-data-collection.md#data-collection-tier)
 
@@ -247,7 +247,7 @@ Se a sua organização quiser reter os dados de registo de eventos de segurança
 
 * [Como permitir registos de diagnóstico na Azure Data Factory](./monitor-using-azure-monitor.md)
 
-* [Como definir parâmetros de retenção de registos para log analytics workspaces](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+* [Como definir parâmetros de retenção de registos para log analytics workspaces](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Monitorização do Centro de Segurança do Azure**: Não aplicável
 
@@ -263,7 +263,7 @@ Em alternativa, pode ativar e a bordo dados para Azure Sentinel ou um SIEM de te
 
 * [Log Analytics schema](./monitor-using-azure-monitor.md#schema-of-logs-and-events)
 
-* [Como recolher dados de uma Máquina Virtual Azure com Monitor Azure](../azure-monitor/learn/quick-collect-azurevm.md)
+* [Como recolher dados de uma Máquina Virtual Azure com Monitor Azure](../azure-monitor/vm/quick-collect-azurevm.md)
 
 * [Como embarcar Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -281,9 +281,9 @@ Além disso, certifique-se de que permite configurações de diagnóstico para s
 
 * [Alertas na Fábrica de Dados Azure](./monitor-visually.md#alerts)
 
-* [Todas as métricas suportadas](../azure-monitor/platform/metrics-supported.md)
+* [Todas as métricas suportadas](../azure-monitor/essentials/metrics-supported.md)
 
-* [Como configurar alertas no Log Analytics Workspace](../azure-monitor/platform/alerts-log.md)
+* [Como configurar alertas no Log Analytics Workspace](../azure-monitor/alerts/alerts-log.md)
 
 **Monitorização do Centro de Segurança do Azure**: Sim
 
@@ -652,9 +652,9 @@ Você pode armazenar credenciais ou valores secretos em um Cofre de Chave Azure 
 
 **Orientação**: Utilize o Monitor Azure com o Registo de Atividades Azure para criar alertas para quando ocorrerem alterações na Fábrica de Dados Azure e recursos conexos.
 
-* [Como criar alertas para eventos de Registo de Atividades Azure](../azure-monitor/platform/alerts-activity-log.md)
+* [Como criar alertas para eventos de Registo de Atividades Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
-* [Como criar alertas para eventos de Registo de Atividades Azure](../azure-monitor/platform/alerts-activity-log.md)
+* [Como criar alertas para eventos de Registo de Atividades Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 * [Azure Storage analytics logging](../storage/common/storage-analytics-logging.md) (Registo de análise do Armazenamento do Azure)
 

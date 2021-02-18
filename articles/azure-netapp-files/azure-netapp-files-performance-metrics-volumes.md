@@ -7,18 +7,18 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: conceptual
 ms.date: 08/07/2019
-ms.openlocfilehash: b41575208d0793a33864556ec4313ae1a71f2db5
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: f73091552a78760024189b173897913edca724bb
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96184472"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593401"
 ---
 # <a name="performance-benchmark-test-recommendations-for-azure-netapp-files"></a>Recomendações do teste da referência de desempenho do Azure NetApp Files
 
 Este artigo fornece recomendações de teste de referência para desempenho de volume e métricas usando Ficheiros Azure NetApp.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Para compreender as características de desempenho de um volume de Ficheiros Azure NetApp, pode utilizar a ferramenta de código aberto [FIO](https://github.com/axboe/fio) para executar uma série de referências para simular uma variedade de cargas de trabalho. O FIO pode ser instalado tanto em sistemas operativos Linux como windows.  É uma excelente ferramenta para obter uma imagem rápida de IOPS e produção para um volume.
 
@@ -113,7 +113,7 @@ Também pode criar um dashboard no Azure Monitor para Ficheiros Azure NetApp, in
 
 ### <a name="azure-monitor-api-access"></a>Acesso Azure Monitor API
 
-Pode aceder aos balcões do Azure NetApp Files utilizando chamadas REST API. Consulte [métricas suportadas com o Azure Monitor: Microsoft.NetApp/netAppAccounts/capacityPools/Volumes](../azure-monitor/platform/metrics-supported.md#microsoftnetappnetappaccountscapacitypoolsvolumes) para balcões para piscinas e volumes de capacidade.
+Pode aceder aos balcões do Azure NetApp Files utilizando chamadas REST API. Consulte [métricas suportadas com o Azure Monitor: Microsoft.NetApp/netAppAccounts/capacityPools/Volumes](../azure-monitor/essentials/metrics-supported.md#microsoftnetappnetappaccountscapacitypoolsvolumes) para balcões para piscinas e volumes de capacidade.
 
 O exemplo a seguir mostra um URL GET para visualização do tamanho do volume lógico:
 

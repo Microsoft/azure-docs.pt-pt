@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/27/2020
 ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: 28c92004fe67de35e5776cd7dc24cf534ec6f8f3
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: 801f0f03b49d20c84a4531bd0daad7630a0ed01d
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98061150"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100585068"
 ---
 ## <a name="common-scenarios"></a>Cenários comuns
 Os seguintes cenários podem beneficiar muito da explosão:
@@ -36,8 +36,9 @@ Existem três estados em que o seu recurso pode estar com a explosão ativada:
 - **Rebentamento** – O tráfego do recurso está a utilizar mais do que o alvo de desempenho. O tráfego de rajada consumirá créditos, de forma independente, da largura de banda ou do IOPS.
 - **Constante** – O tráfego do recurso está exatamente no alvo de desempenho.
 
-## <a name="examples-of-bursting"></a>Exemplos de estouragens
-Os exemplos a seguir mostram como a explosão funciona com várias combinações de máquinas virtuais e discos. Para tornar os exemplos fáceis de seguir, vamos focar-nos em MB/s, mas a mesma lógica é aplicada independentemente ao IOPS.
+## <a name="examples-of-bursting"></a>Exemplos de Estourando
+
+Os exemplos a seguir mostram como a explosão funciona com várias combinações de VM e discos. Para tornar os exemplos fáceis de seguir, vamos focar-nos em MB/s, mas a mesma lógica é aplicada independentemente ao IOPS.
 
 ### <a name="non-burstable-virtual-machine-with-burstable-disks"></a>Máquina virtual não rebentada com discos rebentados
 **VM e combinação de discos:** 
@@ -50,17 +51,17 @@ Os exemplos a seguir mostram como a explosão funciona com várias combinações
     - MB/s provisionados: 100
     - Max burst MB/s: 170
 
- Quando o VM arrancar, recuperará dados do disco oss. Uma vez que o disco DE faz parte de um VM que está a começar, o disco de SO estará cheio de créditos rebentados. Estes créditos permitirão que o disco DE rebentasse o seu arranque em 170 MB/s segundo, como se vê abaixo:
+ Quando o VM arranca, obtém dados do disco os. Uma vez que o disco DE faz parte de um VM que está a arrancar, o disco de SO estará cheio de créditos rebentados. Estes créditos permitirão que o disco SO rebente o seu arranque em 170 MB/s em segundo.
 
-![Arranque de disco de rutura vm não rebentando](media/managed-disks-bursting/nonbursting-vm-busting-disk/nonbusting-vm-bursting-disk-startup.jpg)
+![A VM envia um pedido de 192 MB/s de produção para o disco os, o disco de OS responde com 170 MB/s dados.](media/managed-disks-bursting/nonbursting-vm-busting-disk/nonbusting-vm-bursting-disk-startup.jpg)
 
-Após o arranque estar concluído, uma aplicação é executada no VM e tem uma carga de trabalho não crítica. Esta carga de trabalho requer 15 MB/S que é distribuído uniformemente por todos os discos:
+Após o arranque estar concluído, uma aplicação é executada no VM e tem uma carga de trabalho não crítica. Esta carga de trabalho requer 15 MB/S que é distribuído uniformemente por todos os discos.
 
-![O disco de rutura vm não rebentando ocioso](media/managed-disks-bursting/nonbursting-vm-busting-disk/nonbusting-vm-bursting-disk-idling.jpg)
+![A aplicação envia um pedido de 15 MB/s de produção para VM, vM recebe pedido e envia a cada um dos seus discos um pedido de 5 MB/s, cada disco devolve 5 MB/s, VM devolve 15 MB/s à aplicação.](media/managed-disks-bursting/nonbursting-vm-busting-disk/nonbusting-vm-bursting-disk-idling.jpg)
 
-Em seguida, a aplicação precisa processar um trabalho em lotado que requer 192 MB/s. 2 MB/s são utilizados pelo disco oss e os restantes são divididos uniformemente entre os discos de dados:
+Em seguida, a aplicação precisa processar um trabalho em lotado que requer 192 MB/s. 2 MB/s são utilizados pelo disco de so e os restantes são divididos uniformemente entre os discos de dados.
 
-![Não estourando vm rebentando disco rebentando](media/managed-disks-bursting/nonbursting-vm-busting-disk/nonbusting-vm-bursting-disk-bursting.jpg)
+![A aplicação envia pedido de 192 MB/s de produção para VM, VM recebe pedido e envia a maior parte do seu pedido para os discos de dados (95 MB/s cada) e 2 MB/s para o disco de OS, os discos de dados rebentam para satisfazer a procura e todos os discos devolvem o rendimento solicitado ao VM, que o devolve à aplicação.](media/managed-disks-bursting/nonbursting-vm-busting-disk/nonbusting-vm-bursting-disk-bursting.jpg)
 
 ### <a name="burstable-virtual-machine-with-non-burstable-disks"></a>Máquina virtual rebentada com discos não rebentados
 **VM e combinação de discos:** 
@@ -72,11 +73,12 @@ Em seguida, a aplicação precisa processar um trabalho em lotado que requer 192
 - 2 Discos de dados P10 
     - MB/s provisionados: 250
 
- Após o arranque inicial, uma aplicação é executada no VM e tem uma carga de trabalho não crítica. Esta carga de trabalho requer 30 MB/s que se espalha uniformemente por todos os discos: ![ Estourando vm não estourando o disco inativo](media/managed-disks-bursting/bursting-vm-nonbursting-disk/burst-vm-nonbursting-disk-normal.jpg)
+ Após o arranque inicial, uma aplicação é executada no VM e tem uma carga de trabalho não crítica. Esta carga de trabalho requer 30 MB/s que é distribuído uniformemente por todos os discos.
+![A aplicação envia um pedido de 30 MB/s de produção para VM, VM recebe pedido e envia a cada um dos seus discos um pedido de 10 MB/s, cada disco devolve 10 MB/s, VM devolve 30 MB/s à aplicação.](media/managed-disks-bursting/bursting-vm-nonbursting-disk/burst-vm-nonbursting-disk-normal.jpg)
 
-Em seguida, a aplicação precisa processar um trabalho em massa que requer 600 MB/s. O Standard_L8s_v2 rebenta para satisfazer esta procura e, em seguida, os pedidos para os discos são distribuídos uniformemente para discos P50:
+Em seguida, a aplicação precisa processar um trabalho em massa que requer 600 MB/s. O Standard_L8s_v2 rebenta para satisfazer esta procura e, em seguida, os pedidos para os discos são distribuídos uniformemente para discos P50.
 
-![Rebentamento do disco não rebentando vm](media/managed-disks-bursting/bursting-vm-nonbursting-disk/burst-vm-nonbursting-disk-bursting.jpg)
+![A aplicação envia um pedido de 600 MB/s de produção para VM, VM leva rajadas para receber o pedido e envia a cada um dos seus discos um pedido de 200 MB/s, cada disco devolve 200 MB/s, explosões de VM para devolver 600 MB/s à aplicação.](media/managed-disks-bursting/bursting-vm-nonbursting-disk/burst-vm-nonbursting-disk-bursting.jpg)
 ### <a name="burstable-virtual-machine-with-burstable-disks"></a>Máquina virtual rebentada com discos rebentados
 **VM e combinação de discos:** 
 - Standard_L8s_v2 
@@ -89,14 +91,14 @@ Em seguida, a aplicação precisa processar um trabalho em massa que requer 600 
     - MB/s provisionados: 25
     - Max burst MB/s: 170 
 
-Quando o VM arrancar, irá rebentar para solicitar o seu limite de explosão de 1.280 MB/s do disco de so e o disco de so responderá com o seu desempenho de 170 MB/s:
+Quando o VM começar, irá rebentar para solicitar o seu limite de explosão de 1.280 MB/s do disco de so e o disco de so responderá com o seu desempenho de rajada de 170 MB/s.
 
-![Startup de disco estourando vm rebentando](media/managed-disks-bursting/bursting-vm-bursting-disk/burst-vm-burst-disk-startup.jpg)
+![No arranque, o VM explode para enviar um pedido de 1.280 MB/s para o disco de OS, o disco DER rebenta para devolver os 1.280 MB/s.](media/managed-disks-bursting/bursting-vm-bursting-disk/burst-vm-burst-disk-startup.jpg)
 
-Em seguida, após o arranque estar completo, uma aplicação é executada no VM. A aplicação tem uma carga de trabalho não crítica que requer 15 MB/s que é distribuído uniformemente por todos os discos:
+Após o arranque, inicia-se uma aplicação com uma carga de trabalho não crítica. Esta aplicação requer 15 MB/s que é distribuído uniformemente por todos os discos.
 
-![Estourando vm estourando ocioso disco ocioso](media/managed-disks-bursting/bursting-vm-bursting-disk/burst-vm-burst-disk-idling.jpg)
+![A aplicação envia um pedido de 15 MB/s de produção para VM, vM recebe pedido e envia a cada um dos seus discos um pedido de 5 MB/s, cada disco devolve 5 MB/s, VM devolve 15 MB/s à aplicação.](media/managed-disks-bursting/bursting-vm-bursting-disk/burst-vm-burst-disk-idling.jpg)
 
-Em seguida, a aplicação precisa processar um trabalho em massa que requer 360 MB/s. O Standard_L8s_v2 rebenta para satisfazer esta exigência e depois pede. Apenas 20 MB/s são necessários pelo disco de so. Os restantes 340 MB/s são tratados pelos discos de dados P4 rebentados:  
+Em seguida, a aplicação precisa processar um trabalho em massa que requer 360 MB/s. O Standard_L8s_v2 rebenta para satisfazer esta exigência e depois pede. Apenas 20 MB/s são necessários pelo disco de so. Os restantes 340 MB/s são tratados pelos discos de dados P4 rebentados.
 
-![Explosão de vm estourando disco rebentando](media/managed-disks-bursting/bursting-vm-bursting-disk/burst-vm-burst-disk-bursting.jpg)
+![A aplicação envia um pedido de 360 MB/s de produção para VM, VM leva rajadas para receber o pedido e envia a cada um dos seus discos de dados um pedido de 170 MB/s e 20 MB/s do disco de OS, cada disco devolve os MB/s solicitados, explosões de VM para devolver 360 MB/s à aplicação.](media/managed-disks-bursting/bursting-vm-bursting-disk/burst-vm-burst-disk-bursting.jpg)

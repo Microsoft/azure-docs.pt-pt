@@ -1,23 +1,23 @@
 ---
-title: Configurar registos de diagnóstico - Azure Event Hub / Microsoft Docs
+title: Configurar registos de diagnóstico - Azure Event Hub | Microsoft Docs
 description: Saiba como configurar registos de atividades e registos de diagnóstico para centros de eventos em Azure.
 ms.topic: article
 ms.date: 10/27/2020
-ms.openlocfilehash: 015814b9a56ec963f5209f971f096ac6c173d7e1
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: dc5cbea31583a4e8126897b2dcda63b216438e1b
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131989"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100573169"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Configurar registos de diagnósticos para um hub de eventos do Azure
 
 Pode ver dois tipos de registos para Azure Event Hubs:
 
-* **[Registos de atividades](../azure-monitor/platform/platform-logs-overview.md)**: Estes registos têm informações sobre operações feitas num trabalho. Os registos estão sempre ativados. Pode ver as entradas de registo de atividade selecionando **o registo de atividade** no painel esquerdo para o seu espaço de nome do centro de eventos no portal Azure. Por exemplo: "Criar ou atualizar o espaço de nomes", "Criar ou atualizar o Centro de Eventos".
+* **[Registos de atividades](../azure-monitor/essentials/platform-logs-overview.md)**: Estes registos têm informações sobre operações feitas num trabalho. Os registos estão sempre ativados. Pode ver as entradas de registo de atividade selecionando **o registo de atividade** no painel esquerdo para o seu espaço de nome do centro de eventos no portal Azure. Por exemplo: "Criar ou atualizar o espaço de nomes", "Criar ou atualizar o Centro de Eventos".
 
     ![Registo de atividades para um espaço de nomes de Centros de Eventos](./media/event-hubs-diagnostic-logs/activity-log.png)
-* **[Registos de diagnóstico](../azure-monitor/platform/platform-logs-overview.md)**: Os registos de diagnóstico fornecem informações mais ricas sobre operações e ações que são conduzidas contra o seu espaço de nome utilizando a API, ou através de clientes de gestão no SDK de língua. 
+* **[Registos de diagnóstico](../azure-monitor/essentials/platform-logs-overview.md)**: Os registos de diagnóstico fornecem informações mais ricas sobre operações e ações que são conduzidas contra o seu espaço de nome utilizando a API, ou através de clientes de gestão no SDK de língua. 
     
     A seguinte secção mostra-lhe como ativar registos de diagnóstico para um espaço de nomes de Centros de Eventos.
 
@@ -36,7 +36,7 @@ Os registos de diagnóstico são desativado por predefinição. Para ativar regi
 
     As novas definições fazem efeito em cerca de 10 minutos. Depois disso, os registos aparecem no alvo de arquivo configurado, no painel de **registos de diagnóstico.**
 
-    Para obter mais informações sobre a configuração dos diagnósticos, consulte a [visão geral dos registos de diagnóstico do Azure](../azure-monitor/platform/platform-logs-overview.md).
+    Para obter mais informações sobre a configuração dos diagnósticos, consulte a [visão geral dos registos de diagnóstico do Azure](../azure-monitor/essentials/platform-logs-overview.md).
 
 ## <a name="diagnostic-logs-categories"></a>Categorias de registos de diagnóstico
 

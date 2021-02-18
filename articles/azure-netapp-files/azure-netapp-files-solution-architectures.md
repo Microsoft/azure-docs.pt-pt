@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/16/2021
 ms.author: b-juche
-ms.openlocfilehash: e9e7451e411ed9160eace0a60c65b5b74bf8f750
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: f36a7827b9351b5565eab19abd4bfdb3d8b4a273
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/17/2021
-ms.locfileid: "100559479"
+ms.locfileid: "100635409"
 ---
 # <a name="solution-architectures-using-azure-netapp-files"></a>Arquiteturas de solução com o Azure NetApp Files
 Este artigo fornece referências às melhores práticas que podem ajudá-lo a entender as arquiteturas de solução para a utilização de Ficheiros Azure NetApp.  
@@ -94,8 +94,8 @@ Esta secção fornece referências à SAP sobre soluções Azure.
 * [Ficheiros Azure NetApp – SAP HANA descarregando backup com Cloud Sync](https://blog.netapp.com/azure-netapp-files-sap-hana)
 * [Acelere as suas cópias do sistema SAP HANA utilizando ficheiros Azure NetApp](https://blog.netapp.com/sap-hana-faster-using-azure-netapp-files/)
 * [Volumes de nuvem ONTAP e Azure NetApp Ficheiros: Migração do sistema SAP HANA facilitada](https://blog.netapp.com/cloud-volumes-ontap-and-azure-netapp-files-sap-hana-system-migration-made-easy/)
-* [Decisões arquitetónicas para maximizar o investimento da ANF na HANA N+M Scale-Out Architecture - Parte 1 - Microsoft Tech Community](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/architectural-decisions-to-maximize-anf-investment-in-hana-n-m/ba-p/2078737)
-* [Decisões arquitetónicas para maximizar o investimento da ANF na HANA N+M Scale-Out Architecture - Parte 2 - Microsoft Tech Community](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/architectural-decisions-to-maximize-anf-investment-in-hana-n-m/ba-p/2117130)
+* [Decisões arquitetónicas para maximizar o investimento da ANF na HANA N+M Scale-Out Architecture - Parte 1](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/architectural-decisions-to-maximize-anf-investment-in-hana-n-m/ba-p/2078737)
+* [Decisões arquitetónicas para maximizar o investimento da ANF na HANA N+M Scale-Out Architecture - Parte 2](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/architectural-decisions-to-maximize-anf-investment-in-hana-n-m/ba-p/2117130)
 
 ## <a name="azure-vmware-solutions"></a>Soluções Azure VMware
 

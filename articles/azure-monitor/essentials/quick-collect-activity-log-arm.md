@@ -7,12 +7,12 @@ ms.custom: subject-armqs, devx-track-azurecli
 author: bwren
 ms.author: bwren
 ms.date: 06/25/2020
-ms.openlocfilehash: 8150a172c49b2b0e969ff35928976e5909b7daa8
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 7465127ed9c52941d6c3ccfd40446546f0795455
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
 ms.lasthandoff: 02/17/2021
-ms.locfileid: "100628943"
+ms.locfileid: "100635477"
 ---
 # <a name="quickstart-send-azure-activity-log-to-log-analytics-workspace-using-an-arm-template"></a>Quickstart: Enviar log de atividade azure para log analytics espaço de trabalho usando um modelo ARM
 
@@ -260,7 +260,7 @@ az deployment sub create --name CreateDiagnosticSetting --location eastus --temp
 # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
 
 ```powershell
-New-AzSubscriptionDeployment -Name CreateDiagnosticSetting -location eastus -TemplateFile CreateDiagnosticSetting.json -settingName="Send Activity log to workspace" -workspaceId "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/my-resource-group/providers/microsoft.operationalinsights/workspaces/my-workspace-01"
+New-AzSubscriptionDeployment -Name CreateDiagnosticSetting -location eastus -TemplateFile CreateDiagnosticSetting.json -settingName "Send Activity log to workspace" -workspaceId "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/my-resource-group/providers/microsoft.operationalinsights/workspaces/my-workspace-01"
 ```
 ---
 

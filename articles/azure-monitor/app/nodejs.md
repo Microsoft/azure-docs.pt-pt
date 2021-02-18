@@ -4,12 +4,12 @@ description: Monitorize o desempenho e diagnostique problemas em serviços Node.
 ms.topic: conceptual
 ms.date: 06/01/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 0d414ce44a8d6ab308bd31f7372bb1c146fac9f5
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: 9eba74bcf2b4b047b3ed881342db4f7b1011f928
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98611020"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100585757"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Monitorizar os seus serviços e aplicações Node.js com o Application Insights
 
@@ -181,7 +181,7 @@ A fim de rastrear o contexto através de chamadas assíncronos, são necessária
 
  As manchas individuais de macaco podem ser desativadas, definindo a `APPLICATION_INSIGHTS_NO_PATCH_MODULES` variável ambiente para uma lista separada de vírgulas de pacotes para desativar (por exemplo, `APPLICATION_INSIGHTS_NO_PATCH_MODULES=console,redis` ) para evitar remendar as `console` embalagens e as `redis` embalagens.
 
-Atualmente existem nove pacotes que são instrumentados: `bunyan` `console` , e `mongodb` `mongodb-core` `mysql` `redis` `winston` `pg` `pg-pool` . Visite a [README dos editores de canais de diagnóstico](https://github.com/Microsoft/node-diagnostic-channel/blob/master/src/diagnostic-channel-publishers/README.md) para obter informações sobre a versão exata destes pacotes.
+Atualmente existem nove pacotes que são instrumentados: `bunyan` , , , , , , , , , `console` e `mongodb` `mongodb-core` `mysql` `redis` `winston` `pg` `pg-pool` . Visite a [README dos editores de canais de diagnóstico](https://github.com/Microsoft/node-diagnostic-channel/blob/master/src/diagnostic-channel-publishers/README.md) para obter informações sobre a versão exata destes pacotes.
 
 Os `bunyan` , e patches `winston` `console` gerarão insights de aplicação trace eventos baseados em se `setAutoCollectConsole` está ativado. O resto gerará eventos de dependência de Insights de Aplicação com base no facto `setAutoCollectDependencies` de estar ativado.
 
@@ -425,7 +425,7 @@ Estas propriedades são específicas do cliente, para que possa configurar `appI
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Monitorizar a telemetria no portal](./overview-dashboard.md)
-* [Escrever consultas de análise sobre a telemetria](../log-query/log-analytics-tutorial.md)
+* [Escrever consultas de análise sobre a telemetria](../logs/log-analytics-tutorial.md)
 
 <!--references-->
 

@@ -9,12 +9,12 @@ ms.subservice: management
 ms.date: 11/12/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: 2aa589d237a8cfeb8e0dc947896dba82e755631c
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 85e4b6a4d0ff1c3bd7e634311a36396a74408419
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94564774"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100594445"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>Planned maintenance notifications for virtual machine scale sets (Notificações de manutenção planeada para conjuntos de dimensionamento de máquinas virtuais)
 
@@ -28,7 +28,7 @@ O Azure executa periodicamente atualizações para melhorar a fiabilidade, desem
 
 A manutenção planeada que requer um reboot está programada em ondas. Cada onda tem âmbito diferente (regiões):
 
-- Uma onda começa com uma notificação aos clientes. Por predefinição, a notificação é enviada ao proprietário da subscrição e aos coproprietários. Pode adicionar destinatários e opções de mensagens como e-mail, SMS e webhooks às notificações utilizando alertas de [Registo de Atividades](../azure-monitor/platform/platform-logs-overview.md)Azure .  
+- Uma onda começa com uma notificação aos clientes. Por predefinição, a notificação é enviada ao proprietário da subscrição e aos coproprietários. Pode adicionar destinatários e opções de mensagens como e-mail, SMS e webhooks às notificações utilizando alertas de [Registo de Atividades](../azure-monitor/essentials/platform-logs-overview.md)Azure .  
 - Com a notificação, é disponibilizada uma *janela de self-service.* Durante esta janela que é tipicamente de 35 dias, você pode encontrar quais dos seus VMs estão incluídos na onda. Pode iniciar proativamente a manutenção de acordo com as suas necessidades de agendamento.
 - Após a janela de autosserviço, começa uma *janela de manutenção programada.* Em algum momento durante esta janela, a Azure programa e aplica a manutenção necessária ao seu VM. 
 
@@ -84,22 +84,22 @@ A coluna **de manutenção de autosserviço** aparece agora na lista de conjunto
 | Valor | Descrição |
 |-------|-------------|
 | Sim | Pelo menos um VM no seu conjunto de escala de máquina virtual está numa janela de autosserviço. Pode iniciar a manutenção a qualquer momento durante esta janela de autosserviço. | 
-| Não | Não há VMs numa janela de autosserviço no conjunto de escala de máquina virtual afetado. | 
+| No | Não há VMs numa janela de autosserviço no conjunto de escala de máquina virtual afetado. | 
 | - | Os conjuntos de escala de máquinas virtuais não fazem parte de uma onda de manutenção planeada.| 
 
 ## <a name="notification-and-alerts-in-the-portal"></a>Notificação e alertas no portal
 
-O Azure comunica um horário de manutenção planeada enviando um e-mail ao proprietário da assinatura e ao grupo de coproprietários. Pode adicionar destinatários e canais a esta comunicação criando alertas de Registo de Atividade. Para obter mais informações, consulte [a atividade de subscrição do Monitor com o Registo de Atividades Azure](../azure-monitor/platform/platform-logs-overview.md).
+O Azure comunica um horário de manutenção planeada enviando um e-mail ao proprietário da assinatura e ao grupo de coproprietários. Pode adicionar destinatários e canais a esta comunicação criando alertas de Registo de Atividade. Para obter mais informações, consulte [a atividade de subscrição do Monitor com o Registo de Atividades Azure](../azure-monitor/essentials/platform-logs-overview.md).
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. No menu esquerdo, selecione **Monitor**. 
 3. No painel **Monitor - Alertas (clássicos),** selecione **+Adicione o alerta de registo de atividade**.
 4. Na página **de alerta de registo de atividades Adicionar,** selecione ou introduza as informações solicitadas. Em **Critérios,** certifique-se de que define os seguintes valores:
-   - **Categoria de evento** : Select **Service Health**.
-   - **Serviços** : Selecione **conjuntos de balanças de máquinas virtuais e máquinas virtuais.**
-   - **Tipo** : Selecione **a manutenção planeada.** 
+   - **Categoria de evento**: Select **Service Health**.
+   - **Serviços**: Selecione **conjuntos de balanças de máquinas virtuais e máquinas virtuais.**
+   - **Tipo**: Selecione **a manutenção planeada.** 
     
-Para saber mais sobre como configurar alertas de Registo de Atividade, consulte [Alertas de Registo de Atividades](../azure-monitor/platform/activity-log-alerts.md)
+Para saber mais sobre como configurar alertas de Registo de Atividade, consulte [Alertas de Registo de Atividades](../azure-monitor/alerts/activity-log-alerts.md)
     
     
 ## <a name="start-maintenance-on-your-virtual-machine-scale-set-from-the-portal"></a>Inicie a manutenção na escala de máquina virtual definida a partir do portal

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/26/2020
 ms.author: yelevin
-ms.openlocfilehash: 5bf94d7c5889bb5a743655d65e48f021e91e01b7
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 0b2a6088effc735076d56ba83dd85135392147b8
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807144"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574997"
 ---
 # <a name="import-threat-intelligence-into-azure-sentinel"></a>Importar informações sobre ameaças para o Azure Sentinel
 
@@ -419,7 +419,7 @@ Vamos percorrer como encontrar o livro de inteligência de ameaça fornecido no 
 
     :::image type="content" source="media/import-threat-intelligence/threat-intel-bar-chart.png" alt-text="Gráfico de barras":::
 
-Os livros de trabalho fornecem poderosos dashboards interativos que lhe dão informações sobre todos os aspetos do Azure Sentinel. Há muito que você pode fazer com livros de trabalho, e embora os modelos fornecidos sejam um ótimo ponto de partida, você provavelmente vai querer mergulhar e personalizar estes modelos, ou criar novos dashboards combinando muitas fontes de dados diferentes para que você possa visualizar seus dados de formas únicas. Uma vez que os livros de Azure Sentinel são baseados em livros do Azure Monitor, já existe documentação extensa disponível, e muitos mais modelos. Um ótimo lugar para começar é este artigo sobre como [criar relatórios interativos com os livros de trabalho do Azure Monitor.](../azure-monitor/platform/workbooks-overview.md) 
+Os livros de trabalho fornecem poderosos dashboards interativos que lhe dão informações sobre todos os aspetos do Azure Sentinel. Há muito que você pode fazer com livros de trabalho, e embora os modelos fornecidos sejam um ótimo ponto de partida, você provavelmente vai querer mergulhar e personalizar estes modelos, ou criar novos dashboards combinando muitas fontes de dados diferentes para que você possa visualizar seus dados de formas únicas. Uma vez que os livros de Azure Sentinel são baseados em livros do Azure Monitor, já existe documentação extensa disponível, e muitos mais modelos. Um ótimo lugar para começar é este artigo sobre como [criar relatórios interativos com os livros de trabalho do Azure Monitor.](../azure-monitor/visualize/workbooks-overview.md) 
 
 Há também uma rica comunidade de livros do [Azure Monitor no GitHub](https://github.com/microsoft/Application-Insights-Workbooks) onde você pode baixar modelos adicionais e contribuir com seus próprios modelos.
 

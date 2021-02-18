@@ -1,15 +1,15 @@
 ---
-title: Smart Detection - anomalias de desempenho / Microsoft Docs
+title: Smart Detection - anomalias de desempenho | Microsoft Docs
 description: A Application Insights realiza uma análise inteligente da telemetria da sua aplicação e alerta para potenciais problemas. Esta funcionalidade não necessita de configuração.
 ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
-ms.openlocfilehash: ead71a5ac6e2cfa0df6654c7ba9aa7b5b9238d04
-ms.sourcegitcommit: d6e92295e1f161a547da33999ad66c94cf334563
+ms.openlocfilehash: a055a323001e0291d3cb5c1716e640b3c8b21dbf
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96763779"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100573736"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Deteção Inteligente - Anomalias de desempenho
 
@@ -70,12 +70,12 @@ Os e-mails sobre anomalias de desempenho de Smart Detections estão limitados a 
 * *Posso criar as minhas próprias regras de deteção de anomalias ou personalizar as regras existentes?*
 
   * Ainda não, mas pode:
-    * [Configurar alertas](../platform/alerts-log.md) que lhe digam quando uma métrica cruza um limiar.
+    * [Configurar alertas](../alerts/alerts-log.md) que lhe digam quando uma métrica cruza um limiar.
     * [Exporte telemetria](./export-telemetry.md) para uma [base de dados](./code-sample-export-sql-stream-analytics.md) ou [para Power BI,](./export-power-bi.md)onde você pode analisá-la por si mesmo.
 * *Com que frequência é feita a análise?*
 
   * Fazemos a análise diariamente sobre a telemetria do dia anterior (dia inteiro no fuso horário utc).
-* *Isto substitui [os alertas métricos?](../platform/alerts-log.md)*
+* *Isto substitui [os alertas métricos?](../alerts/alerts-log.md)*
   * N.º  Não nos comprometemos a detetar todos os comportamentos que possa supor anormais.
 
 
@@ -175,10 +175,10 @@ Estas ferramentas de diagnóstico ajudam-no a inspecionar a telemetria a partir 
 
 * [Gerador de perfis](profiler.md) 
 * [depurar instantâneo](./snapshot-debugger.md)
-* [Análise](../log-query/log-analytics-tutorial.md)
-* [Analytics diagnósticos inteligentes](../log-query/log-query-overview.md)
+* [Análise](../logs/log-analytics-tutorial.md)
+* [Analytics diagnósticos inteligentes](../logs/log-query-overview.md)
 
 As deteções inteligentes são completamente automáticas. Mas talvez queira fazer mais alguns alertas?
 
-* [Alertas métricos configurados manualmente](../platform/alerts-log.md)
+* [Alertas métricos configurados manualmente](../alerts/alerts-log.md)
 * [Testes Web de disponibilidade](./monitor-web-app-availability.md)

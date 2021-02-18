@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 02/05/2021
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: b55aeb68d5fa740d34c8823f555f804be54895a7
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.openlocfilehash: 69fc0d6f3c4e18b34555a099f4e28e278ca3bdad
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99988778"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100635392"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions"></a>Utilize referências de Cofre de Chaves para Serviço de Aplicações e Funções Azure
 
@@ -46,7 +46,7 @@ Uma referência do Cofre-Chave é do `@Microsoft.KeyVault({referenceString})` fo
 Por exemplo, uma referência completa seria semelhante:
 
 ```
-@Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret)
+@Microsoft.KeyVault(SecretUri=https://myvault.vault.azure.net/secrets/mysecret/)
 ```
 
 Em alternativa:

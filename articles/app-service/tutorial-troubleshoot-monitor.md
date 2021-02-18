@@ -5,12 +5,12 @@ author: msangapu-msft
 ms.author: msangapu
 ms.topic: tutorial
 ms.date: 06/20/2020
-ms.openlocfilehash: af2711a3d219bb472334ad61bad0b87f6c691dab
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: d45a8b8f426df32b9f5ac6f64237107083e0f9ab
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98183205"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100586278"
 ---
 # <a name="tutorial-troubleshoot-an-app-service-app-with-azure-monitor"></a>Tutorial: Resolução de problemas de uma aplicação do Serviço de Aplicações com o Azure Monitor
 
@@ -22,7 +22,7 @@ Este tutorial mostra como resolver problemas numa aplicação [do Serviço de Ap
 
 [O Azure Monitor](../azure-monitor/overview.md) maximiza a disponibilidade e desempenho das suas aplicações e serviços, fornecendo uma solução abrangente para recolher, analisar e agir em telemetria a partir dos seus ambientes de nuvem e no local.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Configure uma aplicação web com o Azure Monitor
@@ -39,7 +39,7 @@ Para completar este tutorial, você precisará:
 
 - [Subscrição do Azure](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 - [CLI do Azure](/cli/azure/install-azure-cli)
-- [Rio Git](https://git-scm.com/)
+- [Git](https://git-scm.com/)
 
 ## <a name="create-azure-resources"></a>Criar recursos do Azure
 
@@ -78,7 +78,7 @@ As definições de diagnóstico podem ser usadas para recolher métricas de cert
 Executou os seguintes comandos para criar definições de diagnóstico para AppServiceConsoleLogs (saída/erro padrão) e AppServiceHTTPLogs (registos de servidores web). Substitua _\<app-name>_ e _\<workspace-name>_ os seus valores. 
 
 > [!NOTE]
-> Os dois primeiros `resourceID` `workspaceID` comandos, e, são variáveis para serem usados no `az monitor diagnostic-settings create` comando. Consulte [Configurações de diagnóstico utilizando O Azure CLI](../azure-monitor/platform/diagnostic-settings.md#create-using-azure-cli) para obter mais informações sobre este comando.
+> Os dois primeiros `resourceID` `workspaceID` comandos, e, são variáveis para serem usados no `az monitor diagnostic-settings create` comando. Consulte [Configurações de diagnóstico utilizando O Azure CLI](../azure-monitor/essentials/diagnostic-settings.md#create-using-azure-cli) para obter mais informações sobre este comando.
 >
 
 ```bash
@@ -129,7 +129,7 @@ No portal Azure, selecione o seu espaço de trabalho Log Analytics.
 
 ### <a name="log-queries"></a>Registar consultas
 
-As consultas de registo ajudam-no a aproveitar totalmente o valor dos dados recolhidos nos Registos do Monitor Azure. Utiliza consultas de registo para identificar os registos tanto em AppServiceHTTPLogs como em AppServiceConsoleLogs. Consulte a [visão geral](../azure-monitor/log-query/log-query-overview.md) da consulta de registo para obter mais informações sobre consultas de registo.
+As consultas de registo ajudam-no a aproveitar totalmente o valor dos dados recolhidos nos Registos do Monitor Azure. Utiliza consultas de registo para identificar os registos tanto em AppServiceHTTPLogs como em AppServiceConsoleLogs. Consulte a [visão geral](../azure-monitor/logs/log-query-overview.md) da consulta de registo para obter mais informações sobre consultas de registo.
 
 ### <a name="view-appservicehttplogs-with-log-query"></a>Ver AppServiceHTTPLogs com consulta de log
 
@@ -269,6 +269,6 @@ O que aprendeu:
 > * Consultas de registo usadas para identificar e resolver erros de aplicações web
 
 ## <a name="next-steps"></a><a name="nextsteps"></a> Próximos passos
-* [Registos de consulta com monitor Azure](../azure-monitor/log-query/log-query-overview.md)
+* [Registos de consulta com monitor Azure](../azure-monitor/logs/log-query-overview.md)
 * [Serviço de aplicações Azure em Estúdio Visual](troubleshoot-dotnet-visual-studio.md)
 * [Analisar registos de aplicativos em HDInsight](https://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)

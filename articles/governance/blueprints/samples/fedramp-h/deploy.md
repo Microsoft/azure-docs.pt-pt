@@ -3,12 +3,12 @@ title: Implementar amostra de planta alta da FedRAMP
 description: Implementar etapas para a amostra de planta da FedRAMP High, incluindo detalhes do parâmetro do artefacto da planta.
 ms.date: 01/08/2021
 ms.topic: sample
-ms.openlocfilehash: 065f1343066f5d0ac9b0846de790124e907a5e24
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: 53d48eff79f7227373c1e7dfb0c34ef17a00e125
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98034871"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100594775"
 ---
 # <a name="deploy-the-fedramp-high-blueprint-sample"></a>Implementar a amostra de planta alta fedRAMP
 
@@ -94,7 +94,7 @@ A tabela seguinte mostra uma lista dos parâmetros dos artefactos de esquema:
 |Nome do artefacto|Tipo de artefacto|Nome do parâmetro|Descrição|
 |-|-|-|-|
 |\[Pré-visualização \] : Audit FedRAMP Altos controlos e implementar extensões VM específicas para apoiar os requisitos de auditoria|Atribuição de políticas|Log Analytics workspace ID que VMs deve ser configurado para|Este é o ID (GUID) do espaço de trabalho Log Analytics para o qual os VMs devem ser configurados.|
-|\[Pré-visualização \] : Audit FedRAMP Altos controlos e implementar extensões VM específicas para apoiar os requisitos de auditoria|Atribuição de políticas|Lista de tipos de recursos que devem ter registos de diagnóstico ativados|Lista de tipos de recursos para auditar se a definição de registo de diagnóstico não estiver ativada. Os valores aceitáveis podem ser encontrados nos [esquemas de registos de diagnóstico do Azure Monitor](../../../../azure-monitor/platform/resource-logs-schema.md#service-specific-schemas).|
+|\[Pré-visualização \] : Audit FedRAMP Altos controlos e implementar extensões VM específicas para apoiar os requisitos de auditoria|Atribuição de políticas|Lista de tipos de recursos que devem ter registos de diagnóstico ativados|Lista de tipos de recursos para auditar se a definição de registo de diagnóstico não estiver ativada. Os valores aceitáveis podem ser encontrados nos [esquemas de registos de diagnóstico do Azure Monitor](../../../../azure-monitor/essentials/resource-logs-schema.md#service-specific-schemas).|
 |\[Pré-visualização \] : Audit FedRAMP Altos controlos e implementar extensões VM específicas para apoiar os requisitos de auditoria|Atribuição de políticas|Lista de utilizadores que devem ser excluídos do grupo de administradores do Windows VM|Uma lista separada de membros que deve ser excluída no grupo local de administradores. Ex: Administrador; myUser1; myUser2|
 |\[Pré-visualização \] : Audit FedRAMP Altos controlos e implementar extensões VM específicas para apoiar os requisitos de auditoria|Atribuição de políticas|Lista de utilizadores que devem ser incluídos no grupo de administradores do Windows VM|Uma lista separada de membros que deve ser incluída no grupo local de administradores. Ex: Administrador; myUser1; myUser2|
 |\[Pré-visualização \] : Implementar o agente de análise de registo para conjuntos de escalas De VM Linux (VMSS)|Atribuição de políticas|Log Analytics espaço de trabalho para conjuntos de escala de VM Linux (VMSS)|Se este espaço de trabalho estiver fora do âmbito da atribuição, deve conceder manualmente permissões de "Log Analytics Contributor" (ou similar) ao ID principal da atribuição de políticas.|

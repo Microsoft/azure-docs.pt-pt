@@ -6,16 +6,18 @@ ms.date: 05/18/2019
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: fb91662dfcdeb404f51f91c1fef893dc72dcac73
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 4013b60a5718de6c196e806f894503f63ec9dafd
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96601055"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593679"
 ---
 # <a name="explore-java-trace-logs-in-application-insights"></a>Explore registos de vestígios de Java em Insights de Aplicação
 
 > [!IMPORTANT]
+> A abordagem descrita neste documento já não é recomendada.
+>
 > A abordagem recomendada para monitorizar as aplicações java é utilizar a auto-instrumentação sem alterar o código. Siga as diretrizes para o [agente Application Insights Java 3.0](./java-in-process-agent.md).
 
 Se estiver a utilizar o Logback ou o Log4J (v1.2 ou v2.0) para rastreio, pode enviar automaticamente os seus registos de rastreios para o Application Insights, onde poderá explorar e pesquisar neles.
@@ -195,7 +197,7 @@ As exceções submetidas através de madeireiros serão apresentadas no portal c
 
 ![No portal Application Insights, abrir procura](./media/java-trace-logs/01-diagnostics.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 [Pesquisa de diagnóstico][diagnostic]
 
 <!--Link references-->

@@ -1,5 +1,5 @@
 ---
-title: Azure traffic analytics / Microsoft Docs
+title: Azure análise de tráfego | Microsoft Docs
 description: Saiba como analisar os registos de fluxo do grupo de segurança da rede Azure com análise de tráfego.
 services: network-watcher
 documentationcenter: na
@@ -13,12 +13,12 @@ ms.date: 01/04/2021
 ms.author: damendo
 ms.reviewer: vinigam
 ms.custom: references_regions
-ms.openlocfilehash: 6cd1965ab51e7a7bbcc65836383000f0773b9b82
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: 42536480a72e8d2160064a82eee7bac11c17746c
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98070952"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100585527"
 ---
 # <a name="traffic-analytics"></a>Análise de Tráfego
 
@@ -46,8 +46,8 @@ As redes virtuais Azure têm registos de fluxo NSG, que lhe fornecem informaçõ
 
 - Grupo de **segurança de rede (NSG)**: Contém uma lista de regras de segurança que permitem ou negam o tráfego de rede a recursos ligados a uma Rede Virtual Azure. Os NSGs podem ser associados a sub-redes, VMs individuais (clássicas) ou a interfaces de rede individuais (NIC) ligadas a VMs (Resource Manager). Para obter mais informações, consulte [a visão geral do grupo de segurança da rede.](../virtual-network/network-security-groups-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)
 - **Registos de fluxo do grupo de segurança da rede (NSG):** Permita-lhe visualizar informações sobre o tráfego IP de entrada e saída através de um grupo de segurança de rede. Os registos de fluxo NSG são escritos em formato json e mostram fluxos de saída e de entrada por regra, o NIC o fluxo aplica-se a, cinco tuple informações sobre o fluxo (endereço IP de origem/destino, porta de origem/destino e protocolo), e se o tráfego foi permitido ou negado. Para obter mais informações sobre os registos de fluxo NSG, consulte [os registos de fluxo NSG](network-watcher-nsg-flow-logging-overview.md).
-- **Log Analytics**: Um serviço Azure que recolhe dados de monitorização e armazena os dados num repositório central. Estes dados podem incluir eventos, dados de desempenho ou dados personalizados fornecidos através da AZure API. Depois de recolhidos, os dados estão disponíveis para alertas, análises e exportação. Aplicações de monitorização como monitor de desempenho de rede e análise de tráfego são construídas usando registos do Azure Monitor como uma fundação. Para obter mais informações, consulte [os registos do Monitor Azure](../azure-monitor/log-query/log-query-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
-- **Log Analytics workspace**: Uma instância de registos do Azure Monitor, onde os dados relativos a uma conta Azure, são armazenados. Para obter mais informações sobre os espaços de trabalho do Log Analytics, consulte [Criar um espaço de trabalho Log Analytics](../azure-monitor/learn/quick-create-workspace.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+- **Log Analytics**: Um serviço Azure que recolhe dados de monitorização e armazena os dados num repositório central. Estes dados podem incluir eventos, dados de desempenho ou dados personalizados fornecidos através da AZure API. Depois de recolhidos, os dados estão disponíveis para alertas, análises e exportação. Aplicações de monitorização como monitor de desempenho de rede e análise de tráfego são construídas usando registos do Azure Monitor como uma fundação. Para obter mais informações, consulte [os registos do Monitor Azure](../azure-monitor/logs/log-query-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+- **Log Analytics workspace**: Uma instância de registos do Azure Monitor, onde os dados relativos a uma conta Azure, são armazenados. Para obter mais informações sobre os espaços de trabalho do Log Analytics, consulte [Criar um espaço de trabalho Log Analytics](../azure-monitor/logs/quick-create-workspace.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 - **Monitor de rede**: Um serviço regional que lhe permite monitorizar e diagnosticar condições a um nível de cenário de rede em Azure. Pode ligar e desligar os registos de fluxo NSG com o Network Watcher. Para mais informações, consulte [o Network Watcher](network-watcher-monitoring-overview.md).
 
 ## <a name="how-traffic-analytics-works"></a>Como funciona a análise de tráfego
@@ -232,7 +232,7 @@ Selecione as seguintes opções, como mostra a imagem:
 4. Desabar **a Retenção** para o número de dias para os dias para os que pretende armazenar os dados. Se quiser armazenar os dados para sempre, desa um valor para *0*. Incorre nas taxas de armazenamento do Azure para a conta de armazenamento. 
 5. Selecione *on* for **Traffic Analytics Status**.
 6. Selecione o intervalo de processamento. Com base na sua escolha, os registos de fluxo serão recolhidos a partir da conta de armazenamento e processados pela Traffic Analytics. Pode escolher o intervalo de processamento de cada 1 hora ou a cada 10 minutos. 
-7. Selecione um espaço de trabalho de Log Analytics (OMS) existente ou selecione **Criar novo espaço de trabalho** para criar um novo. Um espaço de trabalho Log Analytics é utilizado pela Traffic Analytics para armazenar os dados agregados e indexados que são depois utilizados para gerar a análise. Se selecionar um espaço de trabalho existente, deve existir numa das [regiões apoiadas](#supported-regions-log-analytics-workspaces) e ter sido atualizado para a nova linguagem de consulta. Se não pretender atualizar um espaço de trabalho existente, ou não tiver um espaço de trabalho numa região apoiada, crie um novo espaço de trabalho. Para obter mais informações sobre idiomas de consulta, consulte [o upgrade do Azure Log Analytics para nova pesquisa de registo](../azure-monitor/log-query/log-query-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+7. Selecione um espaço de trabalho de Log Analytics (OMS) existente ou selecione **Criar novo espaço de trabalho** para criar um novo. Um espaço de trabalho Log Analytics é utilizado pela Traffic Analytics para armazenar os dados agregados e indexados que são depois utilizados para gerar a análise. Se selecionar um espaço de trabalho existente, deve existir numa das [regiões apoiadas](#supported-regions-log-analytics-workspaces) e ter sido atualizado para a nova linguagem de consulta. Se não pretender atualizar um espaço de trabalho existente, ou não tiver um espaço de trabalho numa região apoiada, crie um novo espaço de trabalho. Para obter mais informações sobre idiomas de consulta, consulte [o upgrade do Azure Log Analytics para nova pesquisa de registo](../azure-monitor/logs/log-query-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
 > [!NOTE]
 >O espaço de trabalho de análise de log analytics que acolhe a solução de análise de tráfego e os NSGs não têm de estar na mesma região. Por exemplo, você pode ter análises de tráfego em um espaço de trabalho na região da Europa Ocidental, enquanto você pode ter NSGs em Leste dos EUA e Eua Ocidental. Vários NSGs podem ser configurados no mesmo espaço de trabalho.
