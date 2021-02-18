@@ -5,16 +5,16 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/04/2020
 ms.topic: conceptual
-ms.openlocfilehash: 991ef6e7ffc26294f75ba5bd2f24c62ea6e0b421
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.openlocfilehash: a521ca80039b68f93bf7c9d98e51d9846e96e985
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100007011"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593834"
 ---
 # <a name="startstop-vms-during-off-hours-overview"></a>VMs de início/paragem durante a visão geral fora de horas
 
-Os VMs de início/paragem durante o início ou paragens ativadas ativadas Azure VMs. Inicia ou para as máquinas em horários definidos pelo utilizador, fornece insights através de registos do Azure Monitor e envia e-mails opcionais utilizando [grupos de ação](../azure-monitor/platform/action-groups.md). A funcionalidade pode ser ativada tanto no Azure Resource Manager como em VMs clássicos para a maioria dos cenários.
+Os VMs de início/paragem durante o início ou paragens ativadas ativadas Azure VMs. Inicia ou para as máquinas em horários definidos pelo utilizador, fornece insights através de registos do Azure Monitor e envia e-mails opcionais utilizando [grupos de ação](../azure-monitor/alerts/action-groups.md). A funcionalidade pode ser ativada tanto no Azure Resource Manager como em VMs clássicos para a maioria dos cenários. 
 
 Esta função utiliza [o cmdlet Start-AzVm](/powershell/module/az.compute/start-azvm) para iniciar VMs. Utiliza [o Stop-AzVM](/powershell/module/az.compute/stop-azvm) para parar os VMs.
 

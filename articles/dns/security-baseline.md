@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/25/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: bdfdba3bb9ad6d393e55e6070b2435c72254668a
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 26075a272252c0e04948315593bb2e4a38e195da
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201302"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100577377"
 ---
 # <a name="azure-security-baseline-for-azure-dns"></a>Linha de segurança Azure para Azure DNS
 
@@ -30,7 +30,7 @@ Ingerir registos via Azure Monitor para agregar dados de segurança gerados por 
 
 - [Como embarcar Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Como recolher registos e métricas da plataforma com o Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
+- [Como recolher registos e métricas da plataforma com o Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
 **Monitorização do Centro de Segurança do Azure**: Sim
 
@@ -48,7 +48,7 @@ Ingerir registos via Azure Monitor para agregar dados de segurança gerados por 
 
 **Orientação**: No Azure Monitor, desa um ponto final no seu período de retenção do espaço de trabalho Log Analytics de acordo com os regulamentos de conformidade da sua organização. Utilize as contas de armazenamento Azure para armazenamento a longo prazo e arquivo.
 
-- [Alterar o período de retenção de dados em Log Analytics](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Alterar o período de retenção de dados em Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 - [Como configurar a política de retenção para os registos de conta de armazenamento Azure](../storage/common/storage-monitor-storage-account.md#configure-logging)
 
@@ -64,9 +64,9 @@ Em alternativa, pode ativar e a bordo dados para Azure Sentinel ou um SIEM de te
 
 - [Como embarcar Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Começando com consultas log analytics](../azure-monitor/log-query/log-analytics-tutorial.md)
+- [Começando com consultas log analytics](../azure-monitor/logs/log-analytics-tutorial.md)
 
-- [Como realizar consultas personalizadas no Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
+- [Como realizar consultas personalizadas no Azure Monitor](../azure-monitor/logs/get-started-queries.md)
 
 **Monitorização do Centro de Segurança do Azure**: Sim
 
@@ -82,7 +82,7 @@ Em alternativa, pode ativar e a bordo dados para a Azure Sentinel.
 
 - [Como gerir alertas no Centro de Segurança Azure](../security-center/security-center-managing-and-responding-alerts.md)
 
-- [Como alertar nos dados de registos de registos](../azure-monitor/learn/tutorial-response.md)
+- [Como alertar nos dados de registo de registo de registos de registos](../azure-monitor/alerts/tutorial-response.md)
 
 **Monitorização do Centro de Segurança do Azure**: Não aplicável
 
@@ -278,7 +278,7 @@ No Azure DNS, existe o papel de Contribuinte da Zona DNS, bem como nível de zon
 
 **Orientação**: Utilize o Monitor Azure com o Registo de Atividades Azure para criar alertas para quando ocorrerem alterações para o Azure DNS, bem como outros recursos críticos ou relacionados.
 
-- [Como criar alertas para eventos de Registo de Atividades Azure](../azure-monitor/platform/alerts-activity-log.md)
+- [Como criar alertas para eventos de Registo de Atividades Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitorização do Centro de Segurança do Azure**: Sim
 

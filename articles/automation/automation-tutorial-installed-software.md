@@ -1,5 +1,5 @@
 ---
-title: Descubra que software está instalado nos seus VMs com Azure Automation Microsoft Docs
+title: Descubra que software está instalado nos seus VMs com a Azure Automation | Microsoft Docs
 description: Este artigo descreve o software instalado em VMs em todo o seu ambiente.
 services: automation
 keywords: inventário, automação, rastreio de mudança
@@ -7,12 +7,12 @@ ms.date: 04/11/2018
 ms.topic: tutorial
 ms.subservice: change-inventory-management
 ms.custom: mvc
-ms.openlocfilehash: 0c083f4576e123ea14d837ed3915c56d18d84623
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 8451067ae86e95269c0c2f22554e1654ac64c1e4
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207568"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593780"
 ---
 # <a name="discover-what-software-is-installed-on-your-vms"></a>Descubra que software está instalado nos seus VMs
 
@@ -48,7 +48,7 @@ Primeiro, tem de ativar o Controlo de alterações e Inventário para este tutor
 
 1. Navegue na sua conta de Automação e selecione **o rastreio de Inventário** ou **Alteração** em **Gestão de Configuração.**
 
-2. Escolha o espaço de trabalho [Log Analytics.](../azure-monitor/log-query/log-query-overview.md) Este espaço de trabalho recolhe dados que são gerados por funcionalidades como Change Tracking e Inventory. A área de trabalho fornece uma localização única para rever e analisar dados de várias origens.
+2. Escolha o espaço de trabalho [Log Analytics.](../azure-monitor/logs/log-query-overview.md) Este espaço de trabalho recolhe dados que são gerados por funcionalidades como Change Tracking e Inventory. A área de trabalho fornece uma localização única para rever e analisar dados de várias origens.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -80,7 +80,7 @@ Após a funcionalidade estar ativada, informações sobre software instalado e a
 
 Para ativar máquinas não-Azure para a funcionalidade:
 
-1. Instale o [agente Log Analytics para o Windows](../azure-monitor/platform/agent-windows.md) ou o agente Log Analytics para o [Linux,](automation-linux-hrw-install.md)dependendo do seu sistema operativo. 
+1. Instale o [agente Log Analytics para o Windows](../azure-monitor/agents/agent-windows.md) ou o agente Log Analytics para o [Linux,](automation-linux-hrw-install.md)dependendo do seu sistema operativo. 
 
 2. Navegue na sua conta de Automação e vá ao **rastreio de Inventário** ou **Alteração** em **Gestão de Configuração.** 
 
@@ -122,7 +122,7 @@ ConfigurationData
 | summarize arg_max(TimeGenerated, *) by SoftwareName, Computer
 ```
 
-Para saber mais sobre a execução e pesquisa de ficheiros de registo nos registos do Azure Monitor, consulte [os registos do Azure Monitor](../azure-monitor/log-query/log-query-overview.md).
+Para saber mais sobre a execução e pesquisa de ficheiros de registo nos registos do Azure Monitor, consulte [os registos do Azure Monitor](../azure-monitor/logs/log-query-overview.md).
 
 ## <a name="see-the-software-inventory-for-a-single-machine"></a>Consulte o inventário de software para uma única máquina
 

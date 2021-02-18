@@ -1,5 +1,5 @@
 ---
-title: Azure Monitor Resource Group Insights / Microsoft Docs
+title: Azure Monitor Resource Group Insights | Microsoft Docs
 description: Compreender a saúde e o desempenho das suas aplicações e serviços distribuídos ao nível do Grupo de Recursos com o Azure Monitor
 ms.subservice: ''
 ms.topic: conceptual
@@ -7,12 +7,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 09/19/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: bf8ea45f37e421d70a68c4a6e138f5203e92d78f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 620dadbaba049d6baea54b3b64c9e248fc48004a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87045777"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100573451"
 ---
 # <a name="monitor-resource-groups-with-azure-monitor-preview"></a>Monitorize grupos de recursos com monitor Azure (pré-visualização)
 
@@ -46,9 +46,9 @@ A página de insights do grupo de recursos fornece várias outras ferramentas te
 
    |         |          |
    | ---------------- |:-----|
-   | [**Alertas**](../platform/alerts-overview.md)      |  Veja, crie e gere os seus alertas. |
-   | [**Métricas**](../platform/data-platform.md) | Visualize e explore os seus dados métricos.    |
-   | [**Troncos de atividade**](../platform/platform-logs-overview.md) | Eventos de nível de subscrição que ocorreram em Azure.  |
+   | [**Alertas**](../alerts/alerts-overview.md)      |  Veja, crie e gere os seus alertas. |
+   | [**Métricas**](../data-platform.md) | Visualize e explore os seus dados métricos.    |
+   | [**Troncos de atividade**](../essentials/platform-logs-overview.md) | Eventos de nível de subscrição que ocorreram em Azure.  |
    | [**Mapa de aplicação**](../app/app-map.md) | Navegue na topologia da sua aplicação distribuída para identificar estrangulamentos de desempenho ou hotspots de falha. |
 
 ## <a name="failures-and-performance"></a>Falhas e desempenho
@@ -117,6 +117,6 @@ O Azure Monitor for Resource Groups conta com o sistema de gestão de alertas de
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Livros de trabalho do Monitor Azure](../platform/workbooks-overview.md)
+- [Livros de trabalho do Monitor Azure](../visualize/workbooks-overview.md)
 - [Azure Resource Health](../../service-health/resource-health-overview.md)
-- [Alertas do Azure Monitor](../platform/alerts-overview.md)
+- [Alertas do Azure Monitor](../alerts/alerts-overview.md)

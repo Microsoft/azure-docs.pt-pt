@@ -5,12 +5,12 @@ ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 345d0d31528f7bdc40be4400e783ad5be45df72f
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: b4a255235b2c6d772ab9a05dffacd4574ddd3280
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930565"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100584196"
 ---
 # <a name="custom-metric-collection-in-net-and-net-core"></a>Coleção métrica personalizada em .NET e .NET Core
 
@@ -109,7 +109,7 @@ Se examinarmos o nosso recurso Application Insights na experiência Logs (Analyt
 > [!NOTE]
 > Embora o item de telemetria bruta não contenha uma propriedade/campo de soma explícita uma vez ingerido, criamos um para si. Neste caso, tanto a propriedade como a `value` propriedade representam a mesma `valueSum` coisa.
 
-Também pode aceder à sua telemetria métrica personalizada na secção [_Métricas_](../platform/metrics-charts.md) do portal. Como uma [métrica baseada em log e personalizado.](pre-aggregated-metrics-log-metrics.md) (A imagem abaixo é um exemplo de log-based.) ![Vista exploradora de métricas](./media/get-metric/metrics-explorer.png)
+Também pode aceder à sua telemetria métrica personalizada na secção [_Métricas_](../essentials/metrics-charts.md) do portal. Como uma [métrica baseada em log e personalizado.](pre-aggregated-metrics-log-metrics.md) (A imagem abaixo é um exemplo de log-based.) ![Vista exploradora de métricas](./media/get-metric/metrics-explorer.png)
 
 ### <a name="caching-metric-reference-for-high-throughput-usage"></a>Caching referência métrica para utilização de alta produção
 
@@ -302,6 +302,6 @@ SeverityLevel.Error);
 
 * [Saiba mais ](./worker-service.md)sobre a monitorização das aplicações de serviço dos trabalhadores.
 * Para mais detalhes sobre [métricas baseadas em registos e pré-agregadas](./pre-aggregated-metrics-log-metrics.md).
-* [Explorador métrico](../platform/metrics-getting-started.md)
+* [Explorador métrico](../essentials/metrics-getting-started.md)
 * Como ativar insights de aplicações para [aplicações ASP.NET core](asp-net-core.md)
 * Como ativar insights de aplicações para [aplicações ASP.NET](asp-net.md)

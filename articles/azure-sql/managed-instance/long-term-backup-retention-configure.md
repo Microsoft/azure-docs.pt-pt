@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 04/29/2020
-ms.openlocfilehash: a5a2ff85395a55bcd4e8405e2eb60c6a4645818c
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: bb74a2e271473666332c627f6ad4324ca597e40c
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99833444"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593361"
 ---
 # <a name="manage-azure-sql-managed-instance-long-term-backup-retention-powershell"></a>Gerir a azure SQL Gestão de Casos de reserva a longo prazo (PowerShell)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -195,7 +195,7 @@ Remove-AzSqlInstanceDatabaseLongTermRetentionBackup -ResourceId $ltrBackup.Resou
 ```
 
 > [!IMPORTANT]
-> Eliminar a cópia de segurança LTR não é reversível. Para eliminar uma cópia de segurança LTR após a eliminação do caso, tem de ter permissão de âmbito de subscrição. Pode configurar notificações sobre cada exclusão no Azure Monitor filtrando para a operação "Elimina uma cópia de segurança de retenção a longo prazo". O registo de atividades contém informações sobre quem e quando foi feito o pedido. Consulte [Criar alertas de registo de atividade](../../azure-monitor/platform/alerts-activity-log.md) para obter instruções detalhadas.
+> Eliminar a cópia de segurança LTR não é reversível. Para eliminar uma cópia de segurança LTR após a eliminação do caso, tem de ter permissão de âmbito de subscrição. Pode configurar notificações sobre cada exclusão no Azure Monitor filtrando para a operação "Elimina uma cópia de segurança de retenção a longo prazo". O registo de atividades contém informações sobre quem e quando foi feito o pedido. Consulte [Criar alertas de registo de atividade](../../azure-monitor/alerts/alerts-activity-log.md) para obter instruções detalhadas.
 
 ## <a name="restore-from-ltr-backups"></a>Restauro a partir de backups LTR
 

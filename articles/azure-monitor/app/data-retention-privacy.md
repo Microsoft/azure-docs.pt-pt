@@ -1,15 +1,15 @@
 ---
-title: Retenção e armazenamento de dados no Azure Application Insights / Microsoft Docs
+title: Retenção e armazenamento de dados em Azure Application Insights | Microsoft Docs
 description: Declaração de política de retenção e privacidade
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 2205ab1115a66092ae6dd6d75ee7004ab281eec7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 54d3e53b71b5f63da84e41a752bbbb6fce65c045
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91263917"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579587"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Recolha, retenção e armazenamento de dados no Application Insights
 
@@ -120,7 +120,7 @@ Sim, certos canais de telemetria persistirão dados localmente se não for poss�
 
 Os canais de telemetria que utilizam o armazenamento local criam ficheiros temporários nos diretórios TEMP ou APPDATA, que se limitam à conta específica que executa a sua aplicação. Isto pode acontecer quando um ponto final estava temporariamente indisponível ou se atingir o limite de estrangulamento. Uma vez resolvido este problema, o canal de telemetria retomará o envio de todos os dados novos e persistidos.
 
-Estes dados persistidos não são encriptados localmente. Se isso for uma preocupação, reveja os dados e restringa a recolha de dados privados. (Para mais informações, consulte [Como exportar e eliminar dados privados](../platform/personal-data-mgmt.md#how-to-export-and-delete-private-data).)
+Estes dados persistidos não são encriptados localmente. Se isso for uma preocupação, reveja os dados e restringa a recolha de dados privados. (Para mais informações, consulte [Como exportar e eliminar dados privados](../logs/personal-data-mgmt.md#how-to-export-and-delete-private-data).)
 
 Se um cliente precisar de configurar este diretório com requisitos de segurança específicos, pode ser configurado por estrutura. Certifique-se de que o processo em execução da sua aplicação tem acesso a este diretório, mas também certifique-se de que este diretório está protegido para evitar que a telemetria seja lida por utilizadores não intencionais.
 
@@ -240,7 +240,7 @@ openssl s_client -connect bing.com:443 -tls1_2
 
 ## <a name="personal-data-stored-in-application-insights"></a>Dados pessoais armazenados em Insights de Aplicação
 
-O nosso artigo de [dados pessoais da Application Insights](../platform/personal-data-mgmt.md) discute esta questão em profundidade.
+O nosso artigo de [dados pessoais da Application Insights](../logs/personal-data-mgmt.md) discute esta questão em profundidade.
 
 #### <a name="can-my-users-turn-off-application-insights"></a>Os meus utilizadores podem desligar o Application Insights?
 Não diretamente. Não fornecemos um interruptor que os seus utilizadores possam operar para desativar o Application Insights.
@@ -293,7 +293,7 @@ Para [SDKs para outras plataformas,][platforms]consulte os seus documentos.
 Pode [desativar alguns dos dados editando ApplicationInsights.config][config]
 
 > [!NOTE]
-> O COMPUTADOR do cliente é utilizado para inferir a localização geográfica, mas por padrão os dados IP já não são armazenados e todos os zeros são escritos para o campo associado. Para saber mais sobre o tratamento de dados pessoais recomendamos este [artigo.](../platform/personal-data-mgmt.md#application-data) Se necessitar de armazenar dados de endereço IP, o nosso [artigo de recolha de endereços IP](./ip-collection.md) irá acompanhar-lhe as suas opções.
+> O COMPUTADOR do cliente é utilizado para inferir a localização geográfica, mas por padrão os dados IP já não são armazenados e todos os zeros são escritos para o campo associado. Para saber mais sobre o tratamento de dados pessoais recomendamos este [artigo.](../logs/personal-data-mgmt.md#application-data) Se necessitar de armazenar dados de endereço IP, o nosso [artigo de recolha de endereços IP](./ip-collection.md) irá acompanhar-lhe as suas opções.
 
 ## <a name="credits"></a>Créditos
 Este produto inclui dados da GeoLite2 criados pela MaxMind, disponíveis a partir de [https://www.maxmind.com](https://www.maxmind.com) .

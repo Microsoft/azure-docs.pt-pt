@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 3678ead9f3e1ba2556fde3c2fbe30df4e7dc2225
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 96d1c4c0ad210352be94255609a3a373b408ed23
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737240"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593298"
 ---
 # <a name="azure-security-baseline-for-batch"></a>Linha de base de segurança Azure para Batch
 
@@ -142,7 +142,7 @@ Pode utilizar o Azure PowerShell ou o Azure CLI para procurar ou executar açõe
 
 - [Como visualizar e recuperar eventos de Registo de Atividades Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log) 
 
-- [Como criar alertas no Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+- [Como criar alertas no Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitorização do Centro de Segurança do Azure**: Sim
 
@@ -200,7 +200,7 @@ Se necessário, talvez se conecte aos seus nós de piscina individuais através 
 
 - [Como configurar a monitorização e a exploração madeireira do Azure Batch](monitoring-overview.md)
 
-- [Como configurar o período de retenção do espaço de trabalho do Azure Log Analytics](../azure-monitor/platform/manage-cost-storage.md)
+- [Como configurar o período de retenção do espaço de trabalho do Azure Log Analytics](../azure-monitor/logs/manage-cost-storage.md)
 
 **Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
@@ -514,7 +514,7 @@ A encriptação do disco Azure pode ser usada para ajudar a proteger e salvaguar
 
 Configure as definições de diagnóstico para contas de armazenamento associadas ao Azure Batch Pool para monitorizar e registar todas as operações CRUD contra dados do pool.
 
-- [Como criar alertas para eventos de Registo de Atividades Azure](../azure-monitor/platform/alerts-activity-log.md)
+- [Como criar alertas para eventos de Registo de Atividades Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 - [Como permitir a registo/auditoria adicional de uma Conta de Armazenamento Azure](../storage/common/storage-monitor-storage-account.md)
 

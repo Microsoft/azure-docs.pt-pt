@@ -3,12 +3,12 @@ title: Amostra de planta do DoD Impact Level 4
 description: Implementar etapas para a amostra de planta do DoD Impact Level 4, incluindo detalhes do parâmetro do artefacto da planta.
 ms.date: 01/08/2021
 ms.topic: sample
-ms.openlocfilehash: 40f45d1194ae089010edf308c3b110bc97591613
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: 389090b79c0aad343c1999ea17ed8c9332958544
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98033766"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100594805"
 ---
 # <a name="deploy-the-dod-impact-level-4-blueprint-sample"></a>Implementar a amostra de planta do DoD Impact Level 4
 
@@ -109,7 +109,7 @@ A tabela seguinte mostra uma lista dos parâmetros dos artefactos de esquema:
 |Implementar agente de análise de registo para VMs do Windows|Atribuição de políticas|Opcional: Lista de imagens VM que apoiaram o Windows OS para adicionar ao âmbito|Pode ser utilizado um conjunto vazio para indicar que não há parâmetros opcionais: \[\]|
 |\[Pré-visualização \] : DoD Impact Level 4|Atribuição de políticas|Membros a serem incluídos no grupo local administradores|Uma lista separada de membros que deve ser excluída no grupo local de administradores. Ex: Administrador; myUser1; myUser2|
 |\[Pré-visualização \] : DoD Impact Level 4|Atribuição de políticas|Membros que devem ser excluídos no grupo local de administradores|Uma lista separada de membros que deve ser incluída no grupo local de administradores. Ex: Administrador; myUser1; myUser2|
-|\[Pré-visualização \] : DoD Impact Level 4|Atribuição de políticas|Lista de tipos de recursos que devem ter registos de diagnóstico ativados|Lista de tipos de recursos para auditar se a definição de registo de diagnóstico não estiver ativada. Os valores aceitáveis podem ser encontrados nos [esquemas de registos de diagnóstico do Azure Monitor](../../../../azure-monitor/platform/resource-logs-schema.md#service-specific-schemas).|
+|\[Pré-visualização \] : DoD Impact Level 4|Atribuição de políticas|Lista de tipos de recursos que devem ter registos de diagnóstico ativados|Lista de tipos de recursos para auditar se a definição de registo de diagnóstico não estiver ativada. Os valores aceitáveis podem ser encontrados nos [esquemas de registos de diagnóstico do Azure Monitor](../../../../azure-monitor/essentials/resource-logs-schema.md#service-specific-schemas).|
 |\[Pré-visualização \] : DoD Impact Level 4|Atribuição de políticas|Log Analytics workspace ID que VMs deve ser configurado para|Este é o ID (GUID) do espaço de trabalho Log Analytics para o qual os VMs devem ser configurados.|
 |\[Pré-visualização \] : DoD Impact Level 4|Atribuição de políticas|Backup geo-redundante a longo prazo deve ser ativado para bases de dados Azure SQL|Informações sobre os efeitos da política podem ser encontradas na [Understand Azure Policy Effects](../../../policy/concepts/effects.md).|
 |\[Pré-visualização \] : DoD Impact Level 4|Atribuição de políticas|A avaliação da vulnerabilidade deve ser ativada nas suas instâncias geridas pelo SQL|Informações sobre os efeitos da política podem ser encontradas na [Understand Azure Policy Effects](../../../policy/concepts/effects.md).|

@@ -3,12 +3,12 @@ title: Migrar um recurso clássico de Aplicação Azure Monitor Insights para um
 description: Conheça os passos necessários para atualizar o seu recurso clássico Azure Monitor Application Insights para o novo modelo baseado no espaço de trabalho.
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 5316bf5b919fe8b24ea1dd601214df62aa034f37
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 5791abe33dee2e62aadb00ae1024338e1e44a900
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98945107"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100584249"
 ---
 # <a name="migrate-to-workspace-based-application-insights-resources"></a>Migrar para recursos de Insights de Aplicação baseados no espaço de trabalho
 
@@ -22,21 +22,21 @@ Os recursos baseados no espaço de trabalho permitem o controlo comum de acesso 
 
 O Workspace Application Insights permite-lhe tirar partido de todas as mais recentes capacidades do Azure Monitor e do Log Analytics, incluindo:
 
-* [As Chaves Geridas pelo Cliente (CMK)](../platform/customer-managed-keys.md) fornecem encriptação em repouso para os seus dados com chaves de encriptação às quais só tem acesso.
-* [O Azure Private Link](../platform/private-link-security.md) permite-lhe ligar de forma segura os serviços Azure PaaS à sua rede virtual utilizando pontos finais privados.
+* [As Chaves Geridas pelo Cliente (CMK)](../logs/customer-managed-keys.md) fornecem encriptação em repouso para os seus dados com chaves de encriptação às quais só tem acesso.
+* [O Azure Private Link](../logs/private-link-security.md) permite-lhe ligar de forma segura os serviços Azure PaaS à sua rede virtual utilizando pontos finais privados.
 * [Bring Your Own Storage (BYOS) for Profiler and Snapshot Debugger](./profiler-bring-your-own-storage.md) dá-lhe total controlo sobre a política de encriptação em repouso, a política de gestão vitalícia e o acesso à rede para todos os dados associados ao Profiler Application Insights e ao Snapshot Debugger. 
-* [Os níveis de Reserva de Capacidade](../platform/manage-cost-storage.md#pricing-model) permitem-lhe economizar até 25% em comparação com o preço Pay-As-You-Go. 
+* [Os níveis de Reserva de Capacidade](../logs/manage-cost-storage.md#pricing-model) permitem-lhe economizar até 25% em comparação com o preço Pay-As-You-Go. 
 * Ingestão de dados mais rápida via Log Analytics streaming ingestão.
 
 ## <a name="migration-process"></a>Processo de migração
 
 Quando migra para um recurso baseado no espaço de trabalho, nenhum dado é transferido do armazenamento do seu recurso clássico para o novo armazenamento baseado no espaço de trabalho. A escolha de migrar irá, em vez disso, alterar a localização onde novos dados são escritos num espaço de trabalho do Log Analytics, preservando o acesso aos seus dados clássicos de recursos. 
 
-Os seus dados clássicos de recursos persistirão e estarão sujeitos às definições de retenção no seu recurso clássico Application Insights. Todos os novos dados ingeridos após a migração estarão sujeitos às definições de [retenção](../platform/manage-cost-storage.md#change-the-data-retention-period) do espaço de trabalho associado do Log Analytics, que também suporta [diferentes definições de retenção por tipo de dados.](../platform/manage-cost-storage.md#retention-by-data-type)
+Os seus dados clássicos de recursos persistirão e estarão sujeitos às definições de retenção no seu recurso clássico Application Insights. Todos os novos dados ingeridos após a migração estarão sujeitos às definições de [retenção](../logs/manage-cost-storage.md#change-the-data-retention-period) do espaço de trabalho associado do Log Analytics, que também suporta [diferentes definições de retenção por tipo de dados.](../logs/manage-cost-storage.md#retention-by-data-type)
 O processo de migração é **permanente e não pode ser invertido.** Uma vez migrar um recurso para o Workspace Application Insights baseado no espaço de trabalho, será sempre um recurso baseado no espaço de trabalho. No entanto, uma vez migrado, é capaz de alterar o espaço de trabalho alvo sempre que necessário. 
 
 > [!NOTE]
-> A ingestão de dados e a retenção de recursos de Insights de Aplicação baseados no espaço de trabalho são [faturados através do espaço de trabalho Log Analytics](../platform/manage-cost-storage.md) onde os dados estão localizados. Se selecionou uma retenção de dados superior a 90 dias sobre os dados ingeridos no recurso Classic Application Insights antes da migração, a retenção de dados continuará a ser faturada através desse recurso Application Insights. [Saiba mais]( ./pricing.md#workspace-based-application-insights) sobre a faturação dos recursos de Aplicações Insights baseados no espaço de trabalho.
+> A ingestão de dados e a retenção de recursos de Insights de Aplicação baseados no espaço de trabalho são [faturados através do espaço de trabalho Log Analytics](../logs/manage-cost-storage.md) onde os dados estão localizados. Se selecionou uma retenção de dados superior a 90 dias sobre os dados ingeridos no recurso Classic Application Insights antes da migração, a retenção de dados continuará a ser faturada através desse recurso Application Insights. [Saiba mais]( ./pricing.md#workspace-based-application-insights) sobre a faturação dos recursos de Aplicações Insights baseados no espaço de trabalho.
 
 Se não precisar de migrar um recurso existente e, em vez disso, pretender criar um novo recurso de Aplicações Insights baseado no espaço de trabalho, utilize o [guia de criação de recursos baseado no espaço de trabalho.](create-workspace-resource.md)
 
@@ -44,12 +44,12 @@ Se não precisar de migrar um recurso existente e, em vez disso, pretender criar
 
 - Um espaço de trabalho Log Analytics com o modo de controlo de acesso definido para a **`use resource or workspace permissions`** definição. 
 
-    - Os recursos de Insights de Aplicação baseados no espaço de trabalho não são compatíveis com espaços de trabalho definidos para a **`workspace based permissions`** definição dedicada. Para saber mais sobre o controlo do espaço de trabalho log Analytics, consulte a [orientação](../platform/manage-access.md#configure-access-control-mode) do modo de controlo de acesso de log Analytics
+    - Os recursos de Insights de Aplicação baseados no espaço de trabalho não são compatíveis com espaços de trabalho definidos para a **`workspace based permissions`** definição dedicada. Para saber mais sobre o controlo do espaço de trabalho log Analytics, consulte a [orientação](../logs/manage-access.md#configure-access-control-mode) do modo de controlo de acesso de log Analytics
 
-    - Se ainda não tiver um espaço de trabalho log analytics existente, [consulte a documentação de criação do espaço de trabalho Log Analytics](../learn/quick-create-workspace.md).
+    - Se ainda não tiver um espaço de trabalho log analytics existente, [consulte a documentação de criação do espaço de trabalho Log Analytics](../logs/quick-create-workspace.md).
     
 - As exportações contínuas não são apoiadas por recursos baseados no espaço de trabalho e devem ser desativadas.
-Uma vez concluída a migração, pode utilizar [definições de diagnóstico](../platform/diagnostic-settings.md) para configurar o arquivo de dados para uma conta de armazenamento ou streaming para o Azure Event Hub.  
+Uma vez concluída a migração, pode utilizar [definições de diagnóstico](../essentials/diagnostic-settings.md) para configurar o arquivo de dados para uma conta de armazenamento ou streaming para o Azure Event Hub.  
 
 - Verifique as definições de retenção atuais em Uso **Geral**  >  **e custos estimados**  >  **Retenção de Dados** para o seu espaço de trabalho Log Analytics. Esta definição terá impacto quanto tempo quaisquer novos dados ingeridos são armazenados assim que migrar o seu recurso Application Insights. Se atualmente armazenar dados de Insights de Aplicação por mais de 90 dias e pretender reter este período de retenção maior, poderá ter de ajustar as definições de retenção do espaço de trabalho.
 
@@ -209,7 +209,7 @@ A partir do painel de recursos Do Application Insights, selecione **Propriedades
 
 **Mensagem de erro:** *O espaço de trabalho selecionado está configurado com o modo de acesso baseado no espaço de trabalho. Algumas funcionalidades de APM podem ser impactadas. Selecione outro espaço de trabalho ou permita o acesso baseado em recursos nas definições do espaço de trabalho. Pode anular este erro utilizando o CLI.* 
 
-Para que o seu recurso Application Insights baseado no espaço de trabalho funcione corretamente, é necessário alterar o modo de controlo de acesso do seu espaço de trabalho target Log Analytics para a definição de **permissões de recursos ou espaço de trabalho.** Esta definição está localizada no espaço de trabalho do Log Analytics UI no modo de controlo de acesso **ao properties**  >  . Para obter instruções detalhadas, consulte a orientação do modo de controlo de acesso de [configuração do Log Analytics](../platform/manage-access.md#configure-access-control-mode). Se o seu modo de controlo de acesso estiver definido para a definição exclusiva **de permissões de espaço de trabalho,** a migração através da experiência de migração do portal permanecerá bloqueada.
+Para que o seu recurso Application Insights baseado no espaço de trabalho funcione corretamente, é necessário alterar o modo de controlo de acesso do seu espaço de trabalho target Log Analytics para a definição de **permissões de recursos ou espaço de trabalho.** Esta definição está localizada no espaço de trabalho do Log Analytics UI no modo de controlo de acesso **ao properties**  >  . Para obter instruções detalhadas, consulte a orientação do modo de controlo de acesso de [configuração do Log Analytics](../logs/manage-access.md#configure-access-control-mode). Se o seu modo de controlo de acesso estiver definido para a definição exclusiva **de permissões de espaço de trabalho,** a migração através da experiência de migração do portal permanecerá bloqueada.
 
 Se não conseguir alterar o modo de controlo de acesso por razões de segurança para o seu espaço de trabalho alvo atual, recomendamos a criação de um novo espaço de trabalho log Analytics para utilizar para a migração. 
 
@@ -229,7 +229,7 @@ A funcionalidade de exportação contínua do legado não é suportada por recur
 
 - Uma vez selecionados desativar, pode navegar de volta para a UI de migração. Se a página de exportação contínua de edição lhe solicitar que as suas definições não sejam guardadas, pode selecionar ok para esta solicitação, uma vez que não diz respeito à desativação/ativação da exportação contínua.
 
-- Uma vez migrado com sucesso o seu recurso Application Insights para o espaço de trabalho, pode utilizar definições de Diagnóstico para substituir a funcionalidade que a exportação contínua usou para fornecer. Selecione **as definições** de Diagnóstico  >  **adicione a definição** de diagnóstico a partir do seu recurso Application Insights. Pode selecionar todas as tabelas ou um subconjunto de tabelas para arquivar numa conta de armazenamento ou para transmitir para um Azure Event Hub. Para obter orientações detalhadas sobre as definições de diagnóstico, consulte a orientação de diagnóstico do [Monitor Azure](../platform/diagnostic-settings.md).
+- Uma vez migrado com sucesso o seu recurso Application Insights para o espaço de trabalho, pode utilizar definições de Diagnóstico para substituir a funcionalidade que a exportação contínua usou para fornecer. Selecione **as definições** de Diagnóstico  >  **adicione a definição** de diagnóstico a partir do seu recurso Application Insights. Pode selecionar todas as tabelas ou um subconjunto de tabelas para arquivar numa conta de armazenamento ou para transmitir para um Azure Event Hub. Para obter orientações detalhadas sobre as definições de diagnóstico, consulte a orientação de diagnóstico do [Monitor Azure](../essentials/diagnostic-settings.md).
 
 ### <a name="retention-settings"></a>Definições de retenção
 
@@ -239,7 +239,7 @@ Não tem de fazer quaisquer alterações antes de migrar, mas esta mensagem é p
 
 Pode verificar as definições de retenção atuais para Log Analytics em Uso **Geral**  >  **e custos estimados**  >  **Retenção** de Dados a partir do UI do Log Analytics. Esta definição terá impacto quanto tempo quaisquer novos dados ingeridos são armazenados assim que migrar o seu recurso Application Insights.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-* [Explorar métricas](../platform/metrics-charts.md)
-* [Escrever consultas da Análise](../log-query/log-query-overview.md)
+* [Explorar métricas](../essentials/metrics-charts.md)
+* [Escrever consultas da Análise](../logs/log-query-overview.md)

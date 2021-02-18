@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: sttsinar
-ms.openlocfilehash: 833d96b8ca252cff5384cde114390aba8c2f51c3
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: e3a24e4c947afdc1970f6e624335ecc84dd8eff2
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99097695"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100594398"
 ---
 # <a name="b-series-burstable-virtual-machine-sizes"></a>Tamanhos de máquina virtual rebentado da série B
 
@@ -109,7 +109,7 @@ Para um D16s_v3 que tem 16 vCPUs e 64 GiB de memória, a taxa horária é de $0,
 
 **R**: A métrica **de Crédito** permite-lhe visualizar quantos créditos o seu VM foi depositado e a métrica **ConsumedCredit** mostrará quantos créditos cpU o seu VM consumiu do banco.    Poderá ver estas métricas a partir do painel de métricas do portal ou programáticamente através das APIs do Monitor Azure.
 
-Para obter mais informações sobre como aceder aos dados das métricas para Azure, consulte [a visão geral das métricas no Microsoft Azure](../azure-monitor/platform/data-platform.md).
+Para obter mais informações sobre como aceder aos dados das métricas para Azure, consulte [a visão geral das métricas no Microsoft Azure](../azure-monitor/data-platform.md).
 
 ### <a name="q-how-are-credits-accumulated-and-consumed"></a>P: Como são acumulados e consumidos os créditos?
 

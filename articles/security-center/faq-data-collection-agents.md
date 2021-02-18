@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2020
 ms.author: memildin
-ms.openlocfilehash: 64fa6c72e3bc37276dd108e3981bbefb5a2021a7
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 30744ab97549d585cb6893dc2e2e12009e8cd3fb
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96444520"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595766"
 ---
 # <a name="faq---questions-about-data-collection-agents-and-workspaces"></a>FAQ - Perguntas sobre recolha de dados, agentes e espaços de trabalho
 
@@ -27,7 +27,7 @@ O Security Center recolhe dados das suas máquinas virtuais Azure (VMs), conjunt
 
 ## <a name="am-i-billed-for-azure-monitor-logs-on-the-workspaces-created-by-security-center"></a>Estou cobrado para registos do Monitor Azure nos espaços de trabalho criados pelo Security Center?
 
-Não. Os espaços de trabalho criados pelo Security Center, enquanto configurados para registos do Monitor Azure por faturação de nó, não incorrem em cargas de registos do Azure Monitor. A faturação do Security Center baseia-se sempre na sua política de segurança do Security Center e nas soluções instaladas num espaço de trabalho:
+N.º Os espaços de trabalho criados pelo Security Center, enquanto configurados para registos do Monitor Azure por faturação de nó, não incorrem em cargas de registos do Azure Monitor. A faturação do Security Center baseia-se sempre na sua política de segurança do Security Center e nas soluções instaladas num espaço de trabalho:
 
 - **Azure Defender off** – O Security Center permite a solução 'SecurityCenterFree' no espaço de trabalho predefinido. Não será cobrado se o Azure Defender estiver fora.
 
@@ -43,7 +43,7 @@ Para obter mais informações sobre preços, consulte [os preços do Security Ce
 
 ## <a name="what-is-the-log-analytics-agent"></a>O que é o agente log analytics?
 
-Para monitorizar vulnerabilidades e ameaças de segurança, o Azure Security Center depende do [Agente De Análise de Registo](../azure-monitor/platform/log-analytics-agent.md) - este é o mesmo agente utilizado pelo serviço Azure Monitor. 
+Para monitorizar vulnerabilidades e ameaças de segurança, o Azure Security Center depende do [Agente De Análise de Registo](../azure-monitor/agents/log-analytics-agent.md) - este é o mesmo agente utilizado pelo serviço Azure Monitor. 
 
 O agente é por vezes referido como o Agente de Monitorização da Microsoft (ou "MMA"). 
 
@@ -51,9 +51,9 @@ O agente recolhe vários detalhes de configuração relacionados com a seguranç
 
 Certifique-se de que as suas máquinas estão a executar um dos sistemas operativos suportados para o agente, conforme descrito nas páginas seguintes:
 
-* [Log Analytics agente para sistemas operativos suportados pelo Windows](../azure-monitor/platform/agents-overview.md#supported-operating-systems)
+* [Log Analytics agente para sistemas operativos suportados pelo Windows](../azure-monitor/agents/agents-overview.md#supported-operating-systems)
 
-* [Log Analytics agente para sistemas operativos suportados pelo Linux](../azure-monitor/platform/agents-overview.md#supported-operating-systems)
+* [Log Analytics agente para sistemas operativos suportados pelo Linux](../azure-monitor/agents/agents-overview.md#supported-operating-systems)
 
 Saiba mais sobre os [dados recolhidos pelo agente Log Analytics.](security-center-enable-data-collection.md)
 
@@ -184,7 +184,7 @@ Pode desativar o fornecimento automático para as suas subscrições na polític
 ## <a name="should-i-opt-out-of-the-automatic-agent-installation-and-workspace-creation"></a>Devo optar por não sair da instalação do agente automático e da criação do espaço de trabalho?
 
 > [!NOTE]
-> Certifique-se de rever secções Quais são as [recommended steps when opting out](#what-are-the-recommended-steps-when-opting-out-of-automatic-provisioning) [implicações de excluir?](#what-are-the-implications-of-opting-out-of-automatic-provisioning)
+> Certifique-se de rever secções Quais são as [](#what-are-the-recommended-steps-when-opting-out-of-automatic-provisioning) [implicações de excluir?](#what-are-the-implications-of-opting-out-of-automatic-provisioning)
 
 É melhor optar por não prestar provisões automáticas se lhe for aplicável:
 
@@ -255,7 +255,7 @@ Pode ativar a recolha de dados para a sua subscrição Azure na política de Seg
 
 ## <a name="what-happens-when-data-collection-is-enabled"></a>O que acontece quando a recolha de dados está ativada?
 
-Quando o provisionamento automático é ativado, o Centro de Segurança fornece o agente Log Analytics em todos os VMs Azure suportados e quaisquer novos que sejam criados. Recomenda-se o fornecimento automático, mas a instalação do agente manual também está disponível. [Saiba como instalar a extensão do agente Log Analytics](../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension). 
+Quando o provisionamento automático é ativado, o Centro de Segurança fornece o agente Log Analytics em todos os VMs Azure suportados e quaisquer novos que sejam criados. Recomenda-se o fornecimento automático, mas a instalação do agente manual também está disponível. [Saiba como instalar a extensão do agente Log Analytics](../azure-monitor/vm/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension). 
 
 O agente permite o evento de criação de processo 4688 e o campo *CommandLine* dentro do evento 4688. Os novos processos criados no VM são registados pelo EventLog e monitorizados pelos serviços de deteção do Security Center. Para obter mais informações sobre os detalhes registados para cada novo processo, consulte [os campos de descrição em 4688](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventID=4688#fields). O agente também recolhe os 4688 eventos criados no VM e armazena-os em busca.
 
@@ -267,7 +267,7 @@ Quando o Centro de Segurança deteta atividade suspeita no VM, o cliente é noti
 ## <a name="will-security-center-work-using-an-oms-gateway"></a>O Centro de Segurança funcionará com um gateway OMS?
 
 Sim. O Azure Security Center aproveita o Azure Monitor para recolher dados de VMs e servidores Azure, utilizando o agente Log Analytics.
-Para recolher os dados, cada VM e servidor devem ligar-se à Internet utilizando HTTPS. A ligação pode ser direta, utilizando um proxy, ou através do [Portal OMS](../azure-monitor/platform/gateway.md).
+Para recolher os dados, cada VM e servidor devem ligar-se à Internet utilizando HTTPS. A ligação pode ser direta, utilizando um proxy, ou através do [Portal OMS](../azure-monitor/agents/gateway.md).
 
 
 ## <a name="does-the-monitoring-agent-impact-the-performance-of-my-servers"></a>O Agente de Monitorização afeta o desempenho dos meus servidores?

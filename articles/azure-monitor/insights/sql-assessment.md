@@ -1,17 +1,17 @@
 ---
-title: Otimize o seu ambiente de Servidor SQL com O Azure Monitor ; Microsoft Docs
+title: Otimize o seu ambiente de servidor SQL com | do Azure Monitor Microsoft Docs
 description: Com o Azure Monitor, pode utilizar a solução SQL Health Check para avaliar o risco e a saúde dos seus ambientes num intervalo regular.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/05/2020
-ms.openlocfilehash: 98caca31e172f54c3e37f33c5a463790d9d27032
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e0a7a5b9e19436deaed45382fe23063fa61edadf
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87325989"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100587246"
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-azure-monitor"></a>Otimize o seu ambiente SQL com a solução SQL Server Health Check no Azure Monitor
 
@@ -44,9 +44,9 @@ Depois de ter adicionado a solução e de ter concluído uma avaliação, são m
 
 Para efetuar a verificação de saúde contra os seus servidores SQL Server, eles requerem um agente e conectividade ao Azure Monitor usando um dos seguintes métodos suportados:
 
-1. Instale o [Microsoft Monitoring Agent (MMA)](../platform/agent-windows.md) se o servidor ainda não estiver monitorizado pelo System Center 2016 - Gestor de Operações ou Gestor de Operações 2012 R2.
+1. Instale o [Microsoft Monitoring Agent (MMA)](../agents/agent-windows.md) se o servidor ainda não estiver monitorizado pelo System Center 2016 - Gestor de Operações ou Gestor de Operações 2012 R2.
 2. Se for monitorizado com o System Center 2016 - Gestor de Operações ou Gestor de Operações 2012 R2 e o grupo de gestão não estiver integrado com o Azure Monitor, o servidor pode ser multi-acotado com o Log Analytics para recolher dados e encaminhar para o serviço e ainda ser monitorizado pelo Gestor de Operações.  
-3. Caso contrário, se o seu grupo de gestão de Gestor de Operações estiver integrado no serviço, tem de adicionar os controladores de domínio para recolha de dados pelo serviço seguindo os passos em [adicionar computadores geridos por agentes](../platform/om-agents.md#connecting-operations-manager-to-azure-monitor) depois de ativar a solução no seu espaço de trabalho.  
+3. Caso contrário, se o seu grupo de gestão de Gestor de Operações estiver integrado no serviço, tem de adicionar os controladores de domínio para recolha de dados pelo serviço seguindo os passos em [adicionar computadores geridos por agentes](../agents/om-agents.md#connecting-operations-manager-to-azure-monitor) depois de ativar a solução no seu espaço de trabalho.  
 
 O agente no seu SQL Server que reporta a um grupo de gestão de Gestores de Operações, recolhe dados, encaminha para o seu servidor de gestão atribuído e, em seguida, é enviado diretamente de um servidor de gestão para o Azure Monitor.  Os dados não são escritos nas bases de dados do Gestor de Operações.  
 
@@ -77,7 +77,7 @@ Utilize as seguintes informações para definir o Gestor de Operações executad
 >
 
 1. Em Gestor de Operações, abra a consola operações e, em seguida, clique em **Administração**.
-2. Em **Execução como configuração**, clique em **Perfis**e abra **a avaliação do SQL executada como perfil**.
+2. Em **Execução como configuração**, clique em **Perfis** e abra **a avaliação do SQL executada como perfil**.
 3. Na página **Contas Run As**, clique em **Adicionar**.
 4. Selecione uma conta Windows Run Como que contenha as credenciais necessárias para o SQL Server, ou clique em **Novo** para criar uma.
 
@@ -257,5 +257,5 @@ Os resultados podem então ser exportados para o Excel para posterior revisão.
 * Sim, consulte a secção [de recomendações ignore](#ignore-recommendations) acima.
 
 ## <a name="next-steps"></a>Passos seguintes
-* [Faça consultas](../log-query/log-query-overview.md) para aprender a analisar dados e recomendações detalhadas do SQL Health Check.
+* [Faça consultas](../logs/log-query-overview.md) para aprender a analisar dados e recomendações detalhadas do SQL Health Check.
 

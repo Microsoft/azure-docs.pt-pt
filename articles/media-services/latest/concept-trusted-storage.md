@@ -9,16 +9,19 @@ ms.service: media-services
 ms.topic: conceptual
 ms.date: 1/29/2020
 ms.author: inhenkel
-ms.openlocfilehash: 96031642efb1248fb3b1acabeb9d7381177a2c70
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: fd92eed127ec50a3d3a86f667d9aa764b79c190a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100098083"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100585405"
 ---
 # <a name="trusted-storage-for-media-services"></a>Armazenamento fidedigno para Serviços de Mídia
 
 Ao criar uma conta de Serviços de Comunicação, deve associá-la a uma conta de armazenamento. Os Serviços de Mídia podem aceder a essa conta de armazenamento utilizando a autenticação do sistema ou a autenticação de Identidade Gerida. Os Serviços de Comunicação Social validam que a conta de Serviços de Mídia e a conta de armazenamento estão na mesma subscrição e valida que o utilizador que acrescenta a associação tem acesso à conta de armazenamento com o Azure Resource Manager RBAC.
+
+>[!NOTE]
+>O armazenamento fidedigno só está disponível na API, e não está atualmente ativado no portal Azure.
 
 ## <a name="trusted-storage-with-a-firewall"></a>Armazenamento confiável com uma firewall
 

@@ -7,21 +7,21 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 01/06/2021
 ms.author: sngun
-ms.openlocfilehash: d78ddf983f1c8f2bfeaf733c273afc1cc98b1185
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 561375eb41600ba1404bba2bcbf15b6cbfc61851
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98684863"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595342"
 ---
-# <a name="monitor-azure-cosmos-db-data-by-using-diagnostic-settings-in-azure"></a>Monitorize os dados do DB da Azure Cosmos utilizando configurações de diagnóstico em Azure
+# <a name="monitor-azure-cosmos-db-data-by-using-diagnostic-settings-in-azure"></a>Monitorizar os dados do Azure Cosmos DB com as definições de diagnóstico no Azure
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-As definições de diagnóstico em Azure são usadas para recolher registos de recursos. Os registos de recursos Azure são emitidos por um recurso e fornecem dados ricos e frequentes sobre o funcionamento desse recurso. Estes registos são capturados por pedido e também são referidos como "registos de data plane". Alguns exemplos das operações do plano de dados incluem eliminar, inserir e lerFeed. O conteúdo destes registos varia consoá-lo por tipo de recurso.
+As definições de diagnóstico no Azure são utilizadas para recolher registos de recursos. Os registos de recursos Azure são emitidos por um recurso e fornecem dados ricos e frequentes sobre o funcionamento desse recurso. Estes registos são capturados por pedido e também são referidos como "registos de data plane". Alguns exemplos das operações do plano de dados incluem eliminar, inserir e lerFeed. O conteúdo destes registos varia consoá-lo por tipo de recurso.
 
 As métricas da plataforma e os registos de Atividade são recolhidos automaticamente, enquanto que deve criar uma definição de diagnóstico para recolher registos de recursos ou reencaizá-los para fora do Azure Monitor. Pode ligar a definição de diagnóstico para as contas da Azure Cosmos utilizando os seguintes passos:
 
-1. Inicie sessão no [portal do Azure](https://portal.azure.com).
+1. Inicie sessão no [Portal do Azure](https://portal.azure.com).
 
 1. Navegue para a sua conta Azure Cosmos. Abra o painel de **definições de diagnóstico** e, em seguida, selecione Adicione a opção **de definição de diagnóstico.**
 
@@ -33,7 +33,7 @@ As métricas da plataforma e os registos de Atividade são recolhidos automatica
 
 1. Quando cria uma definição de diagnóstico, especifica qual a categoria de registos a recolher. As categorias de registos suportados pela Azure Cosmos DB são listadas abaixo, juntamente com o registo de amostras recolhido por eles:
 
- * **DataPlaneRequests**: Selecione esta opção para registar pedidos de back-end nas contas API SQL em Azure Cosmos DB. As propriedades-chave a notar são: `Requestcharge` `statusCode` , e `clientIPaddress` `partitionID` `resourceTokenPermissionId` `resourceTokenPermissionMode` .
+ * **DataPlaneRequests**: Selecione esta opção para registar pedidos de back-end nas contas API SQL em Azure Cosmos DB. As propriedades-chave a notar são: `Requestcharge` , , , , , e `statusCode` `clientIPaddress` `partitionID` `resourceTokenPermissionId` `resourceTokenPermissionMode` .
 
    ```json
     { "time": "2019-04-23T23:12:52.3814846Z", "resourceId": "/SUBSCRIPTIONS/<your_subscription_ID>/RESOURCEGROUPS/<your_resource_group>/PROVIDERS/MICROSOFT.DOCUMENTDB/DATABASEACCOUNTS/<your_database_account>", "category": "DataPlaneRequests", "operationName": "ReadFeed", "properties": {"activityId": "66a0c647-af38-4b8d-a92a-c48a805d6460","requestResourceType": "Database","requestResourceId": "","collectionRid": "","statusCode": "200","duration": "0","userAgent": "Microsoft.Azure.Documents.Common/2.2.0.0","clientIpAddress": "10.0.0.24","requestCharge": "1.000000","requestLength": "0","responseLength": "372", "resourceTokenPermissionId": "perm-prescriber-app","resourceTokenPermissionMode": "all", "resourceTokenUserRid": "","region": "East US","partitionId": "062abe3e-de63-4aa5-b9de-4a77119c59f8","keyType": "PrimaryReadOnlyMasterKey","databaseName": "","collectionName": ""}}
@@ -103,7 +103,7 @@ As métricas da plataforma e os registos de Atividade são recolhidos automatica
 
 * **Pedidos**: Selecione esta opção para recolher dados métricos da Azure Cosmos DB para os destinos na definição de diagnóstico. Estes são os mesmos dados recolhidos automaticamente em Azure Metrics. Recolher dados métricos com registos de recursos para analisar ambos os tipos de dados em conjunto e enviar dados métricos fora do Azure Monitor.
 
-Para obter informações detalhadas sobre como criar uma definição de diagnóstico utilizando o portal Azure, CLI ou PowerShell, consulte [Criar definição de diagnóstico para recolher registos e métricas da plataforma em artigo Azure.](../azure-monitor/platform/diagnostic-settings.md)
+Para obter informações detalhadas sobre como criar uma definição de diagnóstico utilizando o portal Azure, CLI ou PowerShell, consulte [Criar definição de diagnóstico para recolher registos e métricas da plataforma em artigo Azure.](../azure-monitor/essentials/diagnostic-settings.md)
 
 
 ## <a name="troubleshoot-issues-with-diagnostics-queries"></a><a id="diagnostic-queries"></a> Problemas de resolução de problemas com consultas de diagnóstico

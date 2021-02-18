@@ -1,5 +1,5 @@
 ---
-title: Passe das métricas de Storage Analytics para as métricas do Monitor Azure Microsoft Docs
+title: Passar das métricas de Storage Analytics para Azure Monitor | Microsoft Docs
 description: Saiba como fazer a transição das métricas storage Analytics (métricas clássicas) para métricas no Azure Monitor.
 author: normesta
 ms.service: storage
@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: 4a4624a94a27f00201c55a320f1745783b06d169
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: ff4c3c5ae8629879fca6e9e683a9c77d0e2f144b
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92781928"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100596110"
 ---
 # <a name="transition-to-metrics-in-azure-monitor"></a>Transição para métricas no Monitor Azure
 
@@ -35,7 +35,7 @@ Para a transição para métricas no Azure Monitor, recomendamos a seguinte abor
    > [!NOTE]
    > As métricas no Monitor Azure são ativadas por padrão, por isso não há nada que precise fazer para começar a capturar métricas. No entanto, deve criar gráficos ou dashboards para visualizar essas métricas. 
  
-5. Se criou regras de alerta baseadas em métricas clássicas de armazenamento, então [crie regras](../../azure-monitor/platform/alerts-overview.md) de alerta baseadas em métricas no Azure Monitor. 
+5. Se criou regras de alerta baseadas em métricas clássicas de armazenamento, então [crie regras](../../azure-monitor/alerts/alerts-overview.md) de alerta baseadas em métricas no Azure Monitor. 
 
 6. Depois de poder ver todas as suas métricas no Azure Monitor, pode desligar a exploração madeireira clássica. 
 
@@ -53,7 +53,7 @@ No que diz respeito ao suporte de métricas, as métricas clássicas fornecem m�
 
 Se a atividade na sua conta não desencadear uma métrica, as métricas clássicas mostrarão um valor de zero (0) para essa métrica. As métricas no Azure Monitor omitirão completamente os dados, o que leva a relatórios mais limpos. Por exemplo, com métricas clássicas, se não forem reportados erros de tempo do servidor, o `ServerTimeoutError` valor na tabela de métricas é definido para 0. O Azure Monitor não devolve quaisquer dados quando consulta o valor da métrica `Transactions` com dimensão `ResponseType` igual a `ServerTimeoutError` . 
 
-Para saber mais sobre as métricas no Azure Monitor, consulte [métricas no Azure Monitor](../../azure-monitor/platform/data-platform-metrics.md).
+Para saber mais sobre as métricas no Azure Monitor, consulte [métricas no Azure Monitor](../../azure-monitor/essentials/data-platform-metrics.md).
 
 <a id="metrics-mapping-between-old-metrics-and-new-metrics"></a>
 

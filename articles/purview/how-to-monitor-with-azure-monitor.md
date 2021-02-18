@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 12/03/2020
-ms.openlocfilehash: 22c69288479e0247e499a33c2e818c19f7edb2ae
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: b13d03f05b7225a1c88f6b10b454749bd7b42477
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879953"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100588342"
 ---
 # <a name="azure-purview-metrics-in-azure-monitor"></a>Métricas de Azure Purview no Monitor Azure
 
@@ -24,7 +24,7 @@ Os administradores do Azure Purview podem usar o Azure Monitor para rastrear o e
 
 ## <a name="aggregated-metrics"></a>Métricas agregadas
 
-As métricas podem ser acedidas a partir do portal Azure para uma conta Purview. O acesso às métricas é controlado pela atribuição de funções da conta Purview. Os utilizadores precisam de fazer parte do papel de "Monitoring Reader" no Azure Purview para ver as métricas. Consulte [as permissões de Função do Leitor de Monitorização](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles) para saber mais sobre os níveis de acesso das funções.
+As métricas podem ser acedidas a partir do portal Azure para uma conta Purview. O acesso às métricas é controlado pela atribuição de funções da conta Purview. Os utilizadores precisam de fazer parte do papel de "Monitoring Reader" no Azure Purview para ver as métricas. Consulte [as permissões de Função do Leitor de Monitorização](../azure-monitor/roles-permissions-security.md#built-in-monitoring-roles) para saber mais sobre os níveis de acesso das funções.
 
 A pessoa que criou a conta 'Purview' obtém automaticamente permissões para visualizar métricas. Se mais alguém quiser ver métricas, adicione-as à **função de Leitor de Monitorização,** seguindo estes passos:
 
@@ -58,11 +58,11 @@ Os utilizadores do Azure Purview também podem aceder à página de métricas di
 
 ### <a name="available-metrics"></a>Métricas disponíveis
 
-Para se familiarizar com a utilização da secção métrica no portal Azure pré-ler os dois documentos seguintes. [Começando com o Metric Explorer](../azure-monitor/platform/metrics-getting-started.md) e as [funcionalidades avançadas do Metric Explorer.](../azure-monitor/platform/metrics-charts.md)
+Para se familiarizar com a utilização da secção métrica no portal Azure pré-ler os dois documentos seguintes. [Começando com o Metric Explorer](../azure-monitor/essentials/metrics-getting-started.md) e as [funcionalidades avançadas do Metric Explorer.](../azure-monitor/essentials/metrics-charts.md)
 
 A tabela a seguir contém a lista de métricas disponíveis para explorar no portal Azure:
 
-| Nome da Métrica | Espaço de Nomes das Métricas | Tipo de agregação | Descrição |
+| Nome da Métrica | Espaço de Nomes das Métricas | Tipo de agregação | Description |
 | ------------------- | ------------------- | ------------------- | ----------------- |
 | Digitalização cancelada | Digitalização automatizada | Soma <br> de palavras | Agregar as análises de fontes de dados canceladas ao longo do período de tempo |
 | Digitalização Concluída | Digitalização automatizada | Soma <br> de palavras | Agregar as análises completas da fonte de dados ao longo do período de tempo |
@@ -75,7 +75,7 @@ Os eventos de telemetria em bruto são emitidos ao Azure Monitor. Os eventos pod
 
 Siga os passos para criar uma definição de Diagnóstico para a sua conta Azure Purview.
 
-1. Crie uma nova definição de diagnóstico para recolher registos e métricas da plataforma seguindo este artigo: [Criar definições de diagnóstico para enviar registos e métricas da plataforma para diferentes destinos](../azure-monitor/platform/diagnostic-settings.md). Selecione o destino apenas como conta de armazenamento Azure.
+1. Crie uma nova definição de diagnóstico para recolher registos e métricas da plataforma seguindo este artigo: [Criar definições de diagnóstico para enviar registos e métricas da plataforma para diferentes destinos](../azure-monitor/essentials/diagnostic-settings.md). Selecione o destino apenas como conta de armazenamento Azure.
 
    :::image type="content" source="./media/how-to-monitor-with-azure-monitor/step-one-diagnostic-setting.png" alt-text="Screenshot mostrando a criação de registo de diagnóstico." lightbox="./media/how-to-monitor-with-azure-monitor/step-one-diagnostic-setting.png":::
 
@@ -154,6 +154,6 @@ O registo de amostras de uma instância do evento é mostrado na secção abaixo
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Ver insights de ativos](asset-insights.md)

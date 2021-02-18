@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.custom: subject-monitoring
 ms.date: 10/02/2020
-ms.openlocfilehash: 6da9c6775a6d5c96bc52183fefc3e5330272e9ff
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: f9f25ec2dd8fb8b859f7863c1e695e22cb9a9cec
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99585131"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100575082"
 ---
 # <a name="monitoring-azure-machine-learning-data-reference"></a>Monitorização da referência de dados de aprendizagem de máquinas Azure
 
@@ -23,7 +23,7 @@ Conheça os dados e recursos recolhidos pelo Azure Monitor a partir do seu espa�
 
 ## <a name="metrics"></a>Métricas
 
-Esta secção lista todas as métricas da plataforma recolhidas automaticamente para a Azure Machine Learning. O fornecedor de recursos para estas métricas é [o Microsoft.MachineLearningServices/workspaces](../azure-monitor/platform/metrics-supported.md#microsoftmachinelearningservicesworkspaces).
+Esta secção lista todas as métricas da plataforma recolhidas automaticamente para a Azure Machine Learning. O fornecedor de recursos para estas métricas é [o Microsoft.MachineLearningServices/workspaces](../azure-monitor/essentials/metrics-supported.md#microsoftmachinelearningservicesworkspaces).
 
 **Modelação**
 
@@ -74,7 +74,7 @@ Informação sobre treinos.
 
 ## <a name="metric-dimensions"></a>Dimensões métricas
 
-Para obter mais informações sobre as dimensões métricas, consulte [métricas multidimensionais.](../azure-monitor/platform/data-platform-metrics.md#multi-dimensional-metrics)
+Para obter mais informações sobre as dimensões métricas, consulte [métricas multidimensionais.](../azure-monitor/essentials/data-platform-metrics.md#multi-dimensional-metrics)
 
 A Azure Machine Learning tem as seguintes dimensões associadas às suas métricas.
 
@@ -117,7 +117,7 @@ A tabela que se segue lista as operações relacionadas com a Azure Machine Lear
 
 Esta secção lista os tipos de registos de recursos que pode recolher para o espaço de trabalho Azure Machine Learning.
 
-Fornecedor e Tipo de Recursos: [Microsoft.MachineLearningServices/workspace](../azure-monitor/platform/resource-logs-categories.md#microsoftmachinelearningservicesworkspaces).
+Fornecedor e Tipo de Recursos: [Microsoft.MachineLearningServices/workspace](../azure-monitor/essentials/resource-logs-categories.md#microsoftmachinelearningservicesworkspaces).
 
 | Categoria | Nome a Apresentar |
 | ----- | ----- |
@@ -232,4 +232,4 @@ Os seguintes esquemas estão em uso pela Azure Machine Learning
 ## <a name="see-also"></a>Ver também
 
 - Consulte [a monitorização da aprendizagem automática Azure](monitor-azure-machine-learning.md) para uma descrição da monitorização da aprendizagem automática do Azure.
-- Consulte [os recursos de Monitor Azure com o Azure Monitor](../azure-monitor/insights/monitor-azure-resource.md) para obter informações sobre a monitorização dos recursos do Azure.
+- Consulte [os recursos de Monitor Azure com o Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md) para obter informações sobre a monitorização dos recursos do Azure.
