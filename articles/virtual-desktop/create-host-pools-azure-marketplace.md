@@ -3,15 +3,16 @@ title: Windows Virtual Desktop host pool Azure portal - Azure
 description: Como criar um conjunto de anfitriões virtual do Windows desktop utilizando o portal Azure.
 author: Heidilohr
 ms.topic: tutorial
-ms.date: 09/14/2020
+ms.custom: references_regions
+ms.date: 02/17/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 268f1c4bff84a2c9ef67c3f6b5749bc8d0b90e85
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 46a029a3b803428d6250b74059190f66183be452
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98735185"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100651464"
 ---
 # <a name="tutorial-create-a-host-pool-with-the-azure-portal"></a>Tutorial: Criar uma piscina de anfitriões com o portal Azure
 
@@ -67,6 +68,9 @@ Para começar a criar a sua nova piscina de anfitriões:
 
      > [!div class="mx-imgBorder"]
      > ![Uma imagem do portal Azure mostrando o campo de Localização com a localização leste dos EUA selecionada. Ao lado do campo está o texto que diz: "Os metadados serão armazenados nos EUA Orientais."](media/portal-location-field.png)
+  
+   >[!NOTE]
+   > Se quiser criar o seu pool de anfitriões [numa região apoiada](data-locations.md) fora dos EUA, terá de voltar a registar o fornecedor de recursos. Depois de voltar a registar-se, deverá consultar as outras regiões da entrega para selecionar o local. Saiba como se recandistar no nosso artigo de resolução de problemas da criação de [piscinas host.](troubleshoot-set-up-issues.md#i-only-see-us-when-setting-the-location-for-my-service-objects)
 
 8. No tipo de piscina host, selecione se a sua piscina de anfitriões será **Pessoal** ou **Piscina.**
 
@@ -197,7 +201,7 @@ Se preferir usar um processo automatizado, [baixe o nosso modelo de Gestor de Re
 >[!NOTE]
 >Se estiver a utilizar um processo automatizado para construir o seu ambiente, precisará da versão mais recente do ficheiro JSON de configuração. Pode encontrar o ficheiro JSON [aqui.](https://wvdportalstorageblob.blob.core.windows.net/galleryartifacts?restype=container&comp=list)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que fez a sua piscina de anfitriões, pode povoá-la com programas RemoteApp. Para saber mais sobre como gerir aplicações no Windows Virtual Desktop, dirija-se ao nosso próximo tutorial:
 

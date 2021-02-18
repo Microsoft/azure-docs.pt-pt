@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/15/2021
 ms.author: jeedes
-ms.openlocfilehash: ab2aa1df0719b685800529f32e36674bf85e57ee
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: c330ce9b9eec693d7dabda55ad65d297ca78ca01
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98625318"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653871"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-logicmonitor"></a>Tutorial: Integração do Azure Ative Directory com o LogicMonitor
 
@@ -80,7 +80,9 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
     a. Na caixa de texto **URL, digite** um URL utilizando o seguinte padrão: `https://<companyname>.logicmonitor.com`
 
     b. Na caixa de texto **identifier (Entity ID),** digite um URL utilizando o seguinte padrão: `https://<companyname>.logicmonitor.com`
-
+    
+    c. Na caixa de texto **URL de resposta (URL do serviço de consumo de afirmação),** digite um URL utilizando o seguinte padrão: `https://companyname.logicmonitor.com/santaba/saml/SSO/` 
+  
     > [!NOTE]
     > Estes valores não são reais. Atualize estes valores com o sinal real no URL e no identificador. Contacte [a equipa de suporte do Cliente LogicMonitor](https://www.logicmonitor.com/contact/) para obter estes valores. Também pode consultar os padrões indicados na secção **de Configuração BÁSICA SAML** no portal Azure.
 

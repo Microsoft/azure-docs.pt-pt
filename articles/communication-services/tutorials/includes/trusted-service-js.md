@@ -8,12 +8,12 @@ ms.author: dademath
 ms.date: 07/28/2020
 ms.topic: include
 ms.service: azure-communication-services
-ms.openlocfilehash: a16846b8859f93a2d376691115e4b2dd0a7163b6
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 3bf0831084b9dd6f16d8208def87033fc0be2900
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98633420"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100645501"
 ---
 ## <a name="download-code"></a>Código de Descarregamento
 
@@ -27,7 +27,7 @@ Encontre o código finalizado para este arranque rápido no [GitHub](https://git
 - A [extensão das Funções do Azure](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) para o Visual Studio Code. 
 - Um recurso ativo dos Serviços de Comunicação e cadeia de ligação. [Criar um recurso de Serviços de Comunicação.](../../quickstarts/create-communication-resource.md)
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 :::image type="content" source="../media/trusted-service-architecture.png" alt-text="Diagrama para arquitetura de serviço de confiança":::
 
@@ -74,13 +74,13 @@ Vamos agora proceder à instalação de bibliotecas dos Serviços de Comunicaç�
 
 ### <a name="install-communication-services-libraries"></a>Instalar bibliotecas de serviços de comunicação
 
-Usaremos a `Administration` biblioteca para `User Access Tokens` gerar.
+Usaremos a `Identity` biblioteca para `User Access Tokens` gerar.
 
 Utilize o `npm install` comando para instalar a biblioteca de clientes da Administração de Serviços de Comunicação Azure para o JavaScript.
 
 ```console
 
-npm install @azure/communication-administration --save
+npm install @azure/communication-identity --save
 
 ```
 
@@ -89,7 +89,7 @@ A `--save` opção lista a biblioteca como uma dependência do seu **package.jsa
 No topo do `index.js` ficheiro, importe a interface para o `CommunicationIdentityClient`
 
 ```javascript
-const { CommunicationIdentityClient } = require('@azure/communication-administration');
+const { CommunicationIdentityClient } = require('@azure/communication-identity');
 ```
 
 ## <a name="access-token-generation"></a>Geração simbólica de acesso
@@ -136,7 +136,7 @@ Abra o URL no seu navegador e deverá ver um corpo de resposta com o ID do utili
 
 Para implementar a sua Função Azure, pode seguir [as instruções passo a passo](../../../azure-functions/create-first-function-vs-code-csharp.md?pivots=programming-language-javascript#sign-in-to-azure)
 
-Geralmente, terá de:
+Em resumo, terá de:
 1. Inscreva-se no Azure do Visual Studio
 2. Publique o seu projeto na sua conta Azure. Aqui terá de escolher uma subscrição existente.
 3. Crie um novo recurso Azure Function utilizando o assistente do Estúdio Visual ou utilize um recurso existente. Para um novo recurso, terá de o configurar para a sua região desejada, tempo de execução e identificador único.

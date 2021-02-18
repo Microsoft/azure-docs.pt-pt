@@ -68,7 +68,7 @@
     - name: Modelos do Resource Manager
       items:
         - name: Descrição geral
-          href: /resource-manager-samples.md
+          href: resource-manager-samples.md
         - name: Agentes
           href: agents/resource-manager-agent.md
         - name: Alertas
@@ -102,9 +102,9 @@
         - name: Azure Monitor para VMs
           href: vm/resource-manager-vminsights.md
     - name: CLI do Azure
-      href: /cli-samples.md
+      href: cli-samples.md
     - name: Azure PowerShell
-      href: /powershell-samples.md
+      href: powershell-samples.md
 - name: Conceitos
   items:
     - name: O que pode monitorizar?
@@ -114,7 +114,7 @@
     - name: Origens de dados
       href: agents/data-sources.md
     - name: Plataforma de dados
-      href: /data-platform.md
+      href: data-platform.md
     - name: Segurança de dados
       items:
         - name: Dados de registo
@@ -142,7 +142,7 @@
     - name: Visualizar os dados
       href: visualizations.md
     - name: Integrações de parceiros
-      href: /partners.md
+      href: partners.md
     - name: Segurança
       items:
         - name: Linha de base de segurança
@@ -169,14 +169,14 @@
     - name: Gerir e configurar
       items:
         - name: Permissões e segurança de funções
-          href: /roles-permissions-security.md
+          href: roles-permissions-security.md
         - name: Endereços IP
           href: app/ip-addresses.md
           displayname: 'firewall, firewall exceptions, whitelist'
         - name: Utilização e custos
           items:
             - name: Utilização e custos estimados
-              href: /usage-estimated-costs.md
+              href: usage-estimated-costs.md
             - name: Utilização e custos da aplicação
               href: app/pricing.md
             - name: Registar utilização e custos de dados
@@ -1399,7 +1399,7 @@
           href: /azure/templates/microsoft.operationalinsights/allversions
     - name: Incorporações do Azure Policy
       displayName: 'samples, policies, definitions'
-      href: /policy-reference.md
+      href: policy-reference.md
     - name: Extinção de Funcionalidades e APIs
       items:
         - name: API OperationalInsights

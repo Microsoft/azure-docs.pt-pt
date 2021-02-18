@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 46c41a4868c80bf9ba1c2c6d4a8286c3a8f47c3d
-ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
+ms.openlocfilehash: cbab73a2fb3aecaacdfc92950c0d0b86edf775af
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100530438"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653351"
 ---
 # <a name="manage-digital-twins"></a>Gerir duplos digitais
 
@@ -160,7 +160,7 @@ Aqui está um exemplo do código de patch JSON. Este documento substitui os *val
 
 :::code language="json" source="~/digital-twins-docs-samples/models/patch.json":::
 
-Pode criar patches utilizando um `JsonPatchDocument` na [SDK.](how-to-use-apis-sdks.md) Eis um exemplo.
+Pode criar patches utilizando o [JsonPatchDocument](/dotnet/api/azure.jsonpatchdocument?view=azure-dotnet&preserve-view=true)do Azure .NET SDK . Eis um exemplo.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_other.cs" id="UpdateTwin":::
 

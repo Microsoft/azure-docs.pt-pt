@@ -3,12 +3,12 @@ title: Gerir e monitorizar backups Azure VM
 description: Aprenda a gerir e monitorizar as cópias de segurança Azure VM utilizando o serviço Azure Backup.
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: a56f13afa23a81b9cd2b34d34e1ca302c0c667f0
-ms.sourcegitcommit: 30906a33111621bc7b9b245a9a2ab2e33310f33f
+ms.openlocfilehash: 51ce88bb67d64ce129a3479d38db9a66dfe65d0a
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/22/2020
-ms.locfileid: "96002919"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100635082"
 ---
 # <a name="manage-azure-vm-backups-with-azure-backup-service"></a>Gerir backups Azure VM com serviço de backup Azure
 
@@ -97,7 +97,7 @@ Pode executar uma cópia de segurança a pedido de um VM depois de configurar a 
 * O intervalo de retenção para uma cópia de segurança a pedido é o valor de retenção que especifica quando ativa a cópia de segurança.
 
 > [!NOTE]
-> O serviço Azure Backup suporta até nove backups a pedido por dia, mas a Microsoft recomenda não mais do que quatro backups diários a pedido para garantir o melhor desempenho.
+> O serviço Azure Backup suporta até três backups a pedido por dia, e um backup adicional agendado.
 
 Para desencadear uma cópia de segurança a pedido:
 

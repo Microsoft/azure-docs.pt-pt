@@ -4,12 +4,12 @@ description: Configurar testes Web no Application Insights. Receber alertas se u
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.reviewer: sdash
-ms.openlocfilehash: b0f66608c6e0f23b861e207d0dea07a546b41c2a
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 41338760034918dce30ffb45c738588a2aa29786
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98937413"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100585943"
 ---
 # <a name="monitor-the-availability-of-any-website"></a>Monitorize a disponibilidade de qualquer website
 
@@ -151,7 +151,7 @@ Clique na linha de exceção para ver os detalhes da exceção do lado do servid
 
 ![Diagnósticos do lado do servidor](./media/monitor-web-app-availability/open-instance-4.png)
 
-Além dos resultados brutos, pode também ver duas métricas chave de disponibilidade no [Metrics Explorer:](../platform/metrics-getting-started.md)
+Além dos resultados brutos, pode também ver duas métricas chave de disponibilidade no [Metrics Explorer:](../essentials/metrics-getting-started.md)
 
 1. Disponibilidade: percentagem dos testes que foram bem-sucedidos, em todas as execuções de testes.
 2. Duração do Teste: duração média dos testes em todas as execuções de testes.
@@ -159,13 +159,13 @@ Além dos resultados brutos, pode também ver duas métricas chave de disponibil
 ## <a name="automation"></a>Automatização
 
 * [Utilize scripts do PowerShell para configurar um teste de disponibilidade](./powershell.md#add-an-availability-test) automaticamente.
-* Configure um [webhook](../platform/alerts-webhooks.md) que será chamado sempre que for gerado um alerta.
+* Configure um [webhook](../alerts/alerts-webhooks.md) que será chamado sempre que for gerado um alerta.
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
 Artigo dedicado [à resolução de problemas.](troubleshoot-availability.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Alertas de Disponibilidade](availability-alerts.md)
 * [Testes Web com vários passos](availability-multistep.md)

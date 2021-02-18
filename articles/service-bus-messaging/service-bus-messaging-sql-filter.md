@@ -3,12 +3,12 @@ title: Azure Service Bus Subscription Rule SQL Filter syntax | Microsoft Docs
 description: Este artigo fornece detalhes sobre a gramática do filtro SQL. Um filtro SQL suporta um subconjunto da norma SQL-92.
 ms.topic: article
 ms.date: 11/24/2020
-ms.openlocfilehash: 810d17d458de79c851b6f1ada4556a231bfd20eb
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 022f6cb1d698a10dc216db8d41c172691f7535ab
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98742986"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652946"
 ---
 # <a name="subscription-rule-sql-filter-syntax"></a>Sintaxe de filtro SQL regra de subscrição
 
@@ -183,7 +183,7 @@ As constantes booleanas são representadas pelas palavras-chave **TRUE** ou **FA
 
 As constantes de corda são incluídas em aspas únicas e incluem caracteres Unicode válidos. Uma única marca de aspas incorporada numa constante de corda é representada como duas aspas únicas.  
   
-## <a name="function"></a>função  
+## <a name="function"></a> Função   
   
 ```  
 <function> :=  
@@ -265,14 +265,14 @@ Considere as seguintes semânticas [SqlFilter:](/dotnet/api/microsoft.servicebus
   
 ### <a name="operator-binding-semantics"></a>Semântica de ligação do operador
   
--   Operadores de comparação `>` `>=` como, `<` e `<=` `!=` `=` seguem a mesma semântica que o operador C# que liga em promoções tipo de dados e conversões implícitas.  
+-   Operadores de comparação `>` `>=` como, `<` , , , , e `<=` `!=` `=` seguem a mesma semântica que o operador C# que liga em promoções tipo de dados e conversões implícitas.  
   
--   Operadores aritméticos `+` `-` como, `*` e `/` `%` seguem a mesma semântica que o operador C# que liga em promoções tipo de dados e conversões implícitas.
+-   Operadores aritméticos `+` `-` como, `*` , , , `/` e `%` seguem a mesma semântica que o operador C# que liga em promoções tipo de dados e conversões implícitas.
 
+## <a name="examples"></a>Exemplos
+Por exemplo, consulte [exemplos de filtros de service bus](service-bus-filter-examples.md).
 
-[!INCLUDE [service-bus-filter-examples](../../includes/service-bus-filter-examples.md)]
-
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Classe SQLFilter (.Net Framework)](/dotnet/api/microsoft.servicebus.messaging.sqlfilter)
 - [Classe SQLFilter (.NET Standard)](/dotnet/api/microsoft.azure.servicebus.sqlfilter)

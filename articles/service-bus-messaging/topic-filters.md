@@ -2,13 +2,13 @@
 title: O tópico do ônibus da Azure Service filtra | Microsoft Docs
 description: Este artigo explica como os assinantes podem definir quais as mensagens que querem receber de um tópico especificando filtros.
 ms.topic: conceptual
-ms.date: 01/22/2021
-ms.openlocfilehash: 63cf6e67d4fa32c5c7f52f569094e1165554108c
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.date: 02/17/2021
+ms.openlocfilehash: f28b26ee112b47b9782823f6c79670dee9a3f082
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98742969"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100651668"
 ---
 # <a name="topic-filters-and-actions"></a>Filtros de tópico e ações
 
@@ -32,9 +32,7 @@ Cada subscrição de tópico recentemente criada tem uma regra inicial de subscr
 O Service Bus suporta três condições de filtro:
 
 -   *FILTROS SQL* - Um **SqlFilter** detém uma expressão condicional semelhante ao SQL que é avaliada no corretor contra as propriedades e propriedades do sistema definidas pelo utilizador das mensagens que chegam. Todas as propriedades do sistema devem ser pré-fixas `sys.` na expressão condicional. O [subconjunto de linguagem SQL para testes](service-bus-messaging-sql-filter.md) de condições de filtração para a existência de propriedades `EXISTS` (, valores nulos ( `IS NULL` ), NÃO/AND/OR lógicos, operadores relacionais, aritmética numérica simples e padrão de texto simples combinando com `LIKE` .
-
 -   *Filtros Boolean* - O **TrueFilter** e **o FalseFilter** fazem com que todas as mensagens que chegam (**verdadeiras**) ou nenhuma das mensagens que chegam **(falsas**) sejam selecionadas para a subscrição. Estes dois filtros derivam do filtro SQL. 
-
 -   *Filtros de correlação* - Um **CorrelationFiltro** contém um conjunto de condições que são compatíveis com uma ou mais das propriedades do utilizador e do sistema de uma mensagem que chega. Um uso comum é corresponder à propriedade **CorrelationId,** mas a aplicação também pode optar por corresponder às seguintes propriedades:
 
     - **ConteúdoType**
@@ -66,14 +64,15 @@ A partição utiliza filtros para distribuir mensagens em várias subscrições 
 
 O encaminhamento utiliza filtros para distribuir mensagens através de subscrições de tópicos de forma previsível, mas não necessariamente exclusivos. Em conjunto com a [função de encaminhamento automático,](service-bus-auto-forwarding.md) os filtros tópicos podem ser usados para criar gráficos de encaminhamento complexos dentro de um espaço de nomes de Service Bus para distribuição de mensagens dentro de uma região de Azure. Com as Azure Functions ou Azure Logic Apps atuando como uma ponte entre os espaços de nomes do Azure Service Bus, pode criar topologias globais complexas com integração direta em aplicações de linha de negócio.
 
-[!INCLUDE [service-bus-filter-examples](../../includes/service-bus-filter-examples.md)]
+## <a name="examples"></a>Exemplos
+Por exemplo, consulte [exemplos de filtros de service bus](service-bus-filter-examples.md).
 
 
 
 > [!NOTE]
 > Como o portal Azure suporta agora a funcionalidade Service Bus Explorer, os filtros de subscrição podem ser criados ou editados a partir do portal. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Consulte as seguintes amostras: 
 
 - [.NET - Envio básico e receber tutorial com filtros](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted/BasicSendReceiveTutorialwithFilters/BasicSendReceiveTutorialWithFilters)

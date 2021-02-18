@@ -3,15 +3,16 @@ title: Windows Virtual Desktop ambiente anfitrião criação de piscina - Azure
 description: Como resolver problemas e resolver problemas de inquilinos e piscinas durante a configuração de um ambiente de desktop virtual do Windows.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 09/14/2020
+ms.custom: references_regions
+ms.date: 02/17/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 0a5439a9d1fd43154379c1dc1a95a6e98b6e877b
-ms.sourcegitcommit: fc23b4c625f0b26d14a5a6433e8b7b6fb42d868b
+ms.openlocfilehash: c31a32b32a685087c53198ec52af1188d0071cab
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/17/2021
-ms.locfileid: "98539645"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652450"
 ---
 # <a name="host-pool-creation"></a>Criação de conjuntos de anfitriões
 
@@ -49,9 +50,21 @@ Se a sua operação ultrapassar o limite de quota, pode fazer uma das seguintes 
 
 ### <a name="error-cant-see-user-assignments-in-app-groups"></a>Erro: Não é possível ver atribuições de utilizadores em grupos de aplicações.
 
-Causa: Este erro geralmente acontece depois de ter mudado a subscrição de 1 Azure Ative Directory (AD) inquilino para outro. Se as suas antigas missões ainda estiverem ligadas ao antigo inquilino da AD Azure, o portal Azure perderá o rasto deles.
+**Causa:** Este erro geralmente acontece depois de ter mudado a subscrição de 1 Azure Ative Directory (AD) inquilino para outro. Se as suas antigas missões ainda estiverem ligadas ao antigo inquilino da AD Azure, o portal Azure perderá o rasto deles.
 
-Correção: Terá de reatribuir os utilizadores a grupos de aplicações.
+**Correção**: Terá de reatribuir os utilizadores a grupos de aplicações.
+
+### <a name="i-only-see-us-when-setting-the-location-for-my-service-objects"></a>Só nos vejo quando defini a localização dos meus objetos de serviço
+
+**Causa**: A Azure não suporta atualmente aquela região para o serviço de desktop virtual do Windows. Para saber quais as geografias que apoiamos, confira [as localizações dos Dados.](data-locations.md) Se o Windows Virtual Desktop suportar a localização, mas ainda não aparecer quando está a tentar selecionar uma localização, isso significa que o seu fornecedor de recursos ainda não foi atualizado.
+
+**Correção**: Para obter a última lista de regiões, re-registe o fornecedor de recursos:
+
+1. Vá a **Subscrições** e selecione a subscrição relevante.
+2. Selecione **Fornecedor de Recursos**.
+3. Selecione **Microsoft.DesktopVirtualization** e, em seguida, **selecione Re-registrar-se** no menu de ação.
+
+Quando voltar a registar o fornecedor de recursos, não verá nenhum feedback específico da UI ou estados de atualização. O processo de reins registo também não interferirá com os seus ambientes existentes.
 
 ## <a name="azure-resource-manager-template-errors"></a>Erros do modelo do Gestor de Recursos Azure
 

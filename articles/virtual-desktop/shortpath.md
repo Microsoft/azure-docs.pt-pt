@@ -6,12 +6,12 @@ author: gundarev
 ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: denisgun
-ms.openlocfilehash: c1cdafe2929502293aada32dbae06e342761862b
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 295a46f6d1074ddf8422233ea3ccfa4d65c28fd8
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98876703"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100571594"
 ---
 # <a name="windows-virtual-desktop-rdp-shortpath-preview"></a>Windows Virtual Desktop RDP Shortpath (pré-visualização)
 
@@ -53,7 +53,7 @@ O diagrama abaixo dá uma visão geral de alto nível da ligação da rede RDP S
 
 :::image type="content" source="media/rdp-shortpath-connections.svg" alt-text="Diagrama de Ligações de Rede DE Shortpath RDP" lightbox="media/rdp-shortpath-connections.svg":::
 
-## <a name="requirements"></a>Requirements
+## <a name="requirements"></a>Requisitos
 
 Para suportar o Caminho Curto RDP, o cliente virtual do Windows desktop precisa de uma linha de visão direta para o anfitrião da sessão. Pode obter uma linha de visão direta utilizando uma das seguintes tecnologias:
 
@@ -151,7 +151,8 @@ Para permitir o acesso ao ouvinte rdp shortpath através dos limites de seguran�
 Siga a [documentação](../virtual-machines/windows/nsg-quickstart-portal.md) do grupo de segurança da rede para criar uma regra de segurança de entrada que permite o tráfego com os seguintes parâmetros:
 
 * **Fonte**  -  **Qualquer** ou a gama de IP onde os clientes estão a residir
-* **Gamas portuárias de origem** - * *\** _ _ **Destino**  -  **Qualquer**
+* **Gamas portuárias de origem** - **\***
+* **Destino**  -  **Qualquer**
 * **Gamas portuárias de**  -  destino **3390**
 * **Protocolo**  -  **UDP**
 * **Ação**  -  **Permitir**
@@ -188,7 +189,7 @@ Os valores possíveis são:
 * **0** - a ligação do utilizador não está a utilizar o Caminho-Curto RDP
 * **1** - a ligação do utilizador está a utilizar o Caminho-Curto RDP
   
-A seguinte lista de consultas permite-lhe rever as informações de ligação. Pode executar esta consulta no [editor de consulta do Log Analytics.](../azure-monitor/log-query/log-analytics-tutorial.md#write-a-query) Para cada consulta, `userupn` substitua-a pela UPN do utilizador que pretende procurar.
+A seguinte lista de consultas permite-lhe rever as informações de ligação. Pode executar esta consulta no [editor de consulta do Log Analytics.](../azure-monitor/logs/log-analytics-tutorial.md#write-a-query) Para cada consulta, `userupn` substitua-a pela UPN do utilizador que pretende procurar.
 
 ```kusto
 let Events = WVDConnections | where UserName == "userupn" ;
@@ -253,7 +254,7 @@ Para desativar o Caminho Curto RDP para um anfitrião de sessão específica, po
 Gostaríamos de ouvir sobre as suas experiências com esta pré-estreia pública!
 * Para perguntas, pedidos, comentários e outros comentários, [utilize este formulário de feedback](https://aka.ms/RDPShortpathFeedback).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para saber mais sobre a conectividade da rede virtual do Windows Desktop, consulte [a conectividade da rede virtual de desktop do Windows.](network-connectivity.md)
 * Para começar com a Qualidade de Serviço (QoS) para o Windows Virtual Desktop, consulte [implementar qualidade de serviço (QoS) para Windows Virtual Desktop](rdp-quality-of-service-qos.md).

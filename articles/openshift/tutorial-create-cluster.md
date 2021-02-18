@@ -4,14 +4,14 @@ description: Saiba como criar um cluster Microsoft Azure Red Hat OpenShift utili
 author: sakthi-vetrivel
 ms.author: suvetriv
 ms.topic: tutorial
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.date: 10/26/2020
-ms.openlocfilehash: e6be2b659223fb110d7e13b14d732561df9ad408
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.openlocfilehash: b690d3b3c29d2943e28a0992730d932b35c20734
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99072240"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653045"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-4-cluster"></a>Tutorial: Criar um aglomerado Azure Red Hat OpenShift 4
 
@@ -26,6 +26,8 @@ Neste tutorial, parte um de três, você vai preparar o seu ambiente para criar 
 Se optar por instalar e utilizar o CLI localmente, este tutorial requer que esteja a executar a versão 2.6.0 ou mais tarde do Azure CLI. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 O Azure Red Hat OpenShift requer um mínimo de 40 núcleos para criar e executar um cluster OpenShift. A quota de recursos Azure por defeito para uma nova subscrição do Azure não satisfaz este requisito. Para solicitar um aumento do seu limite de recursos, consulte [quota standard: Aumentar os limites por série VM](../azure-portal/supportability/per-vm-quota-requests.md).
+
+A ARO pull secret não altera o custo da licença RH OpenShift para a ARO.
 
 ### <a name="verify-your-permissions"></a>Verificar as permissões
 

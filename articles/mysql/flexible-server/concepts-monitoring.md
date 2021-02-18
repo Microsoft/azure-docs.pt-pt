@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/21/2020
-ms.openlocfilehash: 5fe1d5a5a472b47abd364a89d1a65f1249c67c0d
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: c2883a2ddba9a322c09a318aa9f232de5f4704b4
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92538668"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595158"
 ---
 # <a name="monitor-azure-database-for-mysql-flexible-servers-with-built-in-metrics"></a>Monitor Azure Database para Servidores Flexíveis MySQL com métricas incorporadas
 
@@ -26,12 +26,12 @@ Neste artigo, irá conhecer as várias métricas disponíveis para o seu servido
 
 A Azure Database for MySQL Flexible Server fornece várias métricas para entender como a sua carga de trabalho está a funcionar e com base nestes dados, pode compreender o impacto no seu servidor e aplicação. Por exemplo, no servidor flexível, é possível monitorizar **o CPU anfitrião por cento,** **As Ligações Ativas,** **IO%** e **o Host Memory Percent** para identificar quando há um impacto de desempenho. A partir daí, poderá ter de otimizar a sua carga de trabalho, escalar verticalmente alterando os níveis de cálculo ou escalando horizontalmente usando réplicas de leitura.
 
-Todas as métricas Azure têm uma frequência de um minuto, e cada métrica fornece 30 dias de história. Pode configurar alertas sobre as métricas. Para obter orientação passo a passo, consulte [como configurar alertas](./how-to-alert-on-metric.md). Outras tarefas incluem a criação de ações automatizadas, a realização de análises avançadas e arquivamento da história. Para mais informações, consulte a Visão Geral das [Métricas Azure](../../azure-monitor/platform/data-platform.md).
+Todas as métricas Azure têm uma frequência de um minuto, e cada métrica fornece 30 dias de história. Pode configurar alertas sobre as métricas. Para obter orientação passo a passo, consulte [como configurar alertas](./how-to-alert-on-metric.md). Outras tarefas incluem a criação de ações automatizadas, a realização de análises avançadas e arquivamento da história. Para mais informações, consulte a Visão Geral das [Métricas Azure](../../azure-monitor/data-platform.md).
 
 ### <a name="list-of-metrics"></a>Lista de métricas
 Estas métricas estão disponíveis para Azure Database para MySQL:
 
-|Nome de exibição métrica|Métrica|Unidade|Descrição|
+|Nome de exibição métrica|Metric|Unidade|Description|
 |---|---|---|---|
 |CpU anfitrião por cento|cpu_percent|Percentagem|A percentagem de utilização do CPU no servidor, incluindo a utilização do CPU tanto da carga de trabalho do cliente como dos processos Azure MySQL|
 |Rede de anfitriões em |network_bytes_ingress|Bytes|O tráfego de rede de entrada no servidor, incluindo o tráfego da base de dados do cliente e as funcionalidades Azure MySQL como replicação, monitorização, registos, etc.|

@@ -5,16 +5,16 @@ services: automation
 ms.subservice: process-automation
 ms.date: 11/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 09c86e23379cf9ccecf77d88a99ad6b3a7019a87
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.openlocfilehash: f6858c7350e6c72a096b2f2bd5f4a4ff606bf023
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100006994"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100651362"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Implementar um trabalhador de runbook híbrido windows
 
-Pode utilizar a funcionalidade de Trabalhador de Runbook Híbrido do utilizador da Azure Automation para executar livros de execução diretamente na máquina Azure ou não-Azure, incluindo servidores registados com [servidores ativados Azure Arc](../azure-arc/servers/overview.md). A partir da máquina ou servidor que está hospedando o papel, você pode executar runbooks diretamente e contra recursos no ambiente para gerir esses recursos locais.
+Pode utilizar a funcionalidade de Trabalhador de Runbook Híbrido do utilizador da Azure Automation para executar livros de execução diretamente numa máquina Azure ou não-Azure, incluindo servidores registados com [servidores ativados Azure Arc](../azure-arc/servers/overview.md). A partir da máquina ou servidor que está hospedando o papel, você pode executar runbooks diretamente contra ele e contra recursos no ambiente para gerir esses recursos locais.
 
 A Azure Automation armazena e gere os runbooks e depois entrega-os a uma ou mais máquinas designadas. Este artigo descreve como implementar um utilizador Hybrid Runbook Worker numa máquina Windows, como remover o trabalhador e como remover um grupo híbrido de Runbook Worker.
 
@@ -26,13 +26,13 @@ Antes de começar, certifique-se de ter o seguinte.
 
 ### <a name="a-log-analytics-workspace"></a>Um espaço de trabalho Log Analytics
 
-O papel de Trabalhador de Runbook Híbrido depende de um espaço de trabalho Azure Monitor Log Analytics para instalar e configurar o papel. Pode criá-lo através [do Azure Resource Manager,](../azure-monitor/samples/resource-manager-workspace.md#create-a-log-analytics-workspace)através [do PowerShell,](../azure-monitor/scripts/powershell-sample-create-workspace.md?toc=/powershell/module/toc.json)ou no [portal Azure](../azure-monitor/learn/quick-create-workspace.md).
+O papel de Trabalhador de Runbook Híbrido depende de um espaço de trabalho Azure Monitor Log Analytics para instalar e configurar o papel. Pode criá-lo através [do Azure Resource Manager,](../azure-monitor/logs/resource-manager-workspace.md#create-a-log-analytics-workspace)através [do PowerShell,](../azure-monitor/logs/powershell-sample-create-workspace.md?toc=/powershell/module/toc.json)ou no [portal Azure](../azure-monitor/logs/quick-create-workspace.md).
 
-Se não tiver um espaço de trabalho do Azure Monitor Log Analytics, reveja a orientação de [design do Registo do Monitor Azure](../azure-monitor/platform/design-logs-deployment.md) antes de criar o espaço de trabalho.
+Se não tiver um espaço de trabalho do Azure Monitor Log Analytics, reveja a orientação de [design do Registo do Monitor Azure](../azure-monitor/logs/design-logs-deployment.md) antes de criar o espaço de trabalho.
 
 ### <a name="log-analytics-agent"></a>Agente do Log Analytics
 
-A função De Trabalhador de Runbook Híbrido requer o [agente Log Analytics](../azure-monitor/platform/log-analytics-agent.md) para o sistema operativo Windows suportado. Para servidores ou máquinas hospedadas fora do Azure, pode instalar o agente Log Analytics utilizando [servidores ativados pelo Azure Arc](../azure-arc/servers/overview.md).
+A função De Trabalhador de Runbook Híbrido requer o [agente Log Analytics](../azure-monitor/agents/log-analytics-agent.md) para o sistema operativo Windows suportado. Para servidores ou máquinas hospedadas fora do Azure, pode instalar o agente Log Analytics utilizando [servidores ativados pelo Azure Arc](../azure-arc/servers/overview.md).
 
 ### <a name="supported-windows-operating-system"></a>Sistema operativo Windows suportado
 

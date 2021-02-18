@@ -3,20 +3,20 @@ title: Tipos de runbook Azure Automation
 description: Este artigo descreve os tipos de livros que pode utilizar na Azure Automation e considerações para determinar que tipo de utilização.
 services: automation
 ms.subservice: process-automation
-ms.date: 01/08/2021
+ms.date: 02/17/2021
 ms.topic: conceptual
-ms.openlocfilehash: c1398d25b6d2540abea0012acd69555e5e53e25c
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 067096943cd95913077ada817c94640ff5264520
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98050974"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100634894"
 ---
 # <a name="azure-automation-runbook-types"></a>Tipos de runbook Azure Automation
 
 A funcionalidade Azure Automation Process Automation suporta vários tipos de runbooks, conforme definido na tabela seguinte. Para conhecer o ambiente de automatização de processos, consulte [a execução do Runbook na Azure Automation.](automation-runbook-execution.md)
 
-| Tipo | Descrição |
+| Tipo | Description |
 |:--- |:--- |
 | [Gráficos](#graphical-runbooks)|Livro gráfico baseado no Windows PowerShell e criado e editado completamente no editor gráfico no portal Azure. |
 | [Fluxo de trabalho gráfico powershell](#graphical-runbooks)|Livro gráfico baseado no Fluxo de Trabalho do Windows PowerShell e criado e editado completamente no editor gráfico no portal Azure. |
@@ -101,6 +101,11 @@ Os livros de fluxo de trabalho PowerShell são livros de texto baseados no [flux
 ## <a name="python-runbooks"></a>Livros de python
 
 Os livros de python compilam-se sob Python 2 e Python 3. Os livros de 100 python estão atualmente em pré-visualização. Pode editar diretamente o código do livro de texto utilizando o editor de texto no portal Azure. Também pode utilizar um editor de texto offline e [importar o livro de bordo](manage-runbooks.md) para a Azure Automation.
+
+Os livros de produção Python 3 são suportados nas seguintes infraestruturas globais do Azure:
+
+* Azure global
+* Azure Government
 
 ### <a name="advantages"></a>Vantagens
 

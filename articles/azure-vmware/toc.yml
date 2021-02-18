@@ -52,7 +52,7 @@
       href: concepts-upgrades.md
 - name: Guias de procedimentos
   items:
-    - name: Ativar o Azure VMware Solution
+    - name: Solicite quota de anfitrião e permita a Solução VMware Azure
       href: enable-azure-vmware-solution.md
     - name: Poupar custos com uma instância reservada
       href: reserved-instance.md

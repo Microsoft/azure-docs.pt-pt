@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/29/2021
 ms.topic: conceptual
-ms.openlocfilehash: 8ea668ab2266a1deae108542687c89f3a221568e
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: a6827f8629423b9ed3adc362d3d05fd740e25a65
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99220978"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100633313"
 ---
 # <a name="run-runbooks-on-a-hybrid-runbook-worker"></a>Executar runbooks numa Função de Trabalho de Runbook Híbrida
 
@@ -96,7 +96,7 @@ Utilize o seguinte procedimento para especificar uma conta Run As para um grupo 
 Como parte do seu processo automatizado de construção para implantação de recursos em Azure, poderá necessitar de acesso a sistemas no local para suportar uma tarefa ou conjunto de passos na sua sequência de implementação. Para fornecer autenticação contra a Azure utilizando a conta Run As, tem de instalar o certificado de conta Run As.
 
 >[!NOTE]
->Atualmente, este manual powerShell não funciona em máquinas LInux. Funciona apenas em máquinas Windows.
+>Este manual powerShell não funciona atualmente em máquinas Linux. Funciona apenas em máquinas Windows.
 >
 
 O seguinte runbook PowerShell, chamado **Export-RunAsCertificateToHybridWorker,** exporta o certificado Run As da sua conta Azure Automation. O runbook descarrega e importa o certificado para a loja de certificados de máquina local num Trabalhador De Runbook Híbrido que está ligado à mesma conta. Uma vez concluído esse passo, o livro de recortes verifica se o trabalhador pode autenticar com sucesso a Azure utilizando a conta Run As.

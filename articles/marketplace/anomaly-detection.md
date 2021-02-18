@@ -4,31 +4,29 @@ description: Saiba como a deteção automática de anomalias para faturação me
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 1/09/2021
+ms.date: 2/17/2021
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: d4fb88854359dcd6e383b47d2a8ce4e9c91f867a
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.openlocfilehash: 7f1bcac49ccb12ea1e0517aed5a139e549451ec0
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99989469"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653011"
 ---
 # <a name="anomaly-detection-for-metered-billing"></a>Deteção de anomalias para faturação medido
 
-Este artigo fornece detalhes sobre o serviço de medição do mercado e a capacidade de deteção de anomalias automatizadas associadas para ajudar a garantir que faturamos corretamente os clientes para o seu uso medido. A opção de faturação medido está atualmente disponível para [o Software como um serviço](plan-saas-offer.md) (SaaS) oferece e [aplicações Azure](plan-azure-application-offer.md#types-of-plans) com um plano de aplicação gerido. Esta opção permite que os parceiros criem ofertas no programa de marketplace comercial que são cobradas de acordo com unidades não padrão.
+A opção de faturação personalizada está atualmente disponível para [o Software como um serviço](plan-saas-offer.md) (SaaS) oferece e [aplicações Azure](plan-azure-application-offer.md#types-of-plans) com um plano de aplicação gerido.
 
-Os parceiros que têm contadores personalizados implantados para aplicações SaaS e Managed podem ver o desvio do comportamento de uso esperado como anomalias para os _eventos de overage_ em _medidores personalizados específicos_ no Partner Center. Para mitigar o risco, o Partner Center utiliza um serviço de deteção de anomalias que aplica algoritmos de aprendizagem automática para determinar o comportamento normal de faturação medido, analisar o uso da faturação medido e descobrir anomalias com a mínima intervenção do utilizador. Utilizando _modelos de deteção de anomalias_ nos conjuntos de dados de utilização de faturação medidos, o Partner Center tem como objetivo informar o editor quando o uso reportado exceder o uso esperado.
+Se estiver a utilizar a opção de faturação medido para criar ofertas no programa de marketplace comercial que lhe permite cobrar pelo uso com base em unidades não standard, precisa de saber quando o seu cliente utilizou mais um serviço do que o esperado.
 
-## <a name="usability-experience"></a>Experiência de usabilidade
+## <a name="use-the-anomaly-detection-feature"></a>Utilize a função de deteção de anomalias
 
-A Microsoft conta com o parceiro para reportar o uso excessivo dos seus clientes nas suas ofertas de aplicações SaaS ou Azure Managed antes da Microsoft faturar o cliente. Se o uso errado for reportado, o cliente pode potencialmente receber uma fatura incorreta, minando a credibilidade da Microsoft e do parceiro.
+A Microsoft conta consigo, o parceiro, para comunicar o uso excessivo dos seus clientes das suas ofertas de aplicações SaaS ou Azure Managed antes da Microsoft faturar o cliente. Se o uso errado for reportado, o cliente pode potencialmente receber uma fatura incorreta, minando a credibilidade da Microsoft e do parceiro.
 
-Para ajudar a mitigar isto, é fornecida uma funcionalidade automatizada de deteção de anomalias tanto para apps SaaS como para planos de aplicações geridos pela Azure. Esta funcionalidade é um modelo de machine learning que monitoriza proativamente o uso contra a faturação medido e prevê o valor esperado de utilização dentro da gama esperada. Se a utilização estiver fora do alcance esperado, é tratada como uma anomalia, e uma notificação de alerta é apresentada ao parceiro na página 'Oferta Geral' no programa de marketplace comercial do Partner Center.
+Para ajudar a garantir que os seus clientes são faturados corretamente, utilize a funcionalidade **de deteção de Anomalias** tanto para apps SaaS como para planos de aplicações geridos pela Azure. Esta funcionalidade monitoriza o uso contra a faturação medido e prevê o valor esperado de utilização dentro do intervalo esperado. Se a utilização estiver fora do alcance esperado, é tratada como inesperada, (uma anomalia,) e receberá uma notificação de alerta na sua página de Oferta Geral no programa de marketplace comercial do Partner Center. Pode acompanhar diariamente o uso dos seus clientes para cada dimensão personalizada dos contadores que definiu.
 
-O modelo de aprendizagem automática analisa diariamente o uso excessivo. A editora pode ver todas as anomalias reportadas contra o uso excessivo dos seus clientes para as dimensões personalizadas de cada oferta.
-
-### <a name="view-and-manage-metered-usage-anomalies"></a>Ver e gerir anomalias de utilização medidos
+## <a name="view-and-manage-metered-usage-anomalies"></a>Ver e gerir anomalias de utilização medidos
 
 1. Iniciar s-in no [Partner Center](https://partner.microsoft.com/dashboard/home).
 1. No menu de navegação à esquerda, selecione **Commercial Marketplace**  >  **Analyze**.

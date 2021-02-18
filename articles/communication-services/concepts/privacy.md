@@ -8,12 +8,12 @@ ms.author: chpalm
 ms.date: 10/03/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: a047761669920d6460c3d6fb6d74b970effa7846
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 5ea4e4fcce380a3bd9c30312639f7aa10bf0bb90
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100572026"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653470"
 ---
 # <a name="region-availability-and-data-residency"></a>Disponibilidade de região e residência dos dados
 
@@ -23,7 +23,11 @@ A Azure Communication Services está empenhada em ajudar os nossos clientes a cu
 
 ## <a name="data-residency"></a>Residência dos dados
 
-Ao criar um recurso de Serviços de Comunicação, especifique uma **geografia** (não um centro de dados Azure). Todos os dados armazenados pelos Serviços de Comunicação em repouso serão conservados nessa geografia, num centro de dados selecionado internamente pelos Serviços de Comunicação. No entanto, os dados podem transitar ou ser processados noutras geografias, estes pontos finais globais são necessários para proporcionar uma experiência de alto desempenho e baixa latência aos utilizadores finais, independentemente da sua localização.
+Ao criar um recurso de Serviços de Comunicação, especifique uma **geografia** (não um centro de dados Azure). Todos os dados armazenados pelos Serviços de Comunicação em repouso serão conservados nessa geografia, num centro de dados selecionado internamente pelos Serviços de Comunicação. Os dados podem transitar ou ser processados noutras geografias. Estes pontos finais globais são necessários para proporcionar uma experiência de alto desempenho e baixa latência aos utilizadores finais, independentemente da sua localização.
+
+## <a name="data-residency-and-events"></a>Residência de dados e eventos
+
+Qualquer tópico do sistema de Grade de Eventos configurado com os Serviços de Comunicação Azure será criado numa localização global. Para suportar uma entrega fiável, um tópico global do sistema Event Grid pode armazenar os dados do evento em qualquer centro de dados da Microsoft. Ao configurar a Grade de Eventos com os Serviços de Comunicação Azure, está a entregar os seus dados de eventos à Grade de Eventos, que é um recurso Azure sob o seu controlo. Embora os Serviços de Comunicação Azure possam estar configurados para utilizar a Azure Event Grid, é responsável pela gestão do seu recurso de Grelha de Eventos e dos dados armazenados no mesmo.
 
 ## <a name="relating-humans-to-azure-communication-services-identities"></a>Relacionados com os humanos com as identidades dos Serviços de Comunicação da Azure
 

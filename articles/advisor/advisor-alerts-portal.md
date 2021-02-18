@@ -3,18 +3,18 @@ title: Crie alertas do Azure Advisor para novas recomendações usando o portal 
 description: Crie alertas do Azure Advisor para nova recomendação
 ms.topic: article
 ms.date: 09/09/2019
-ms.openlocfilehash: 837f12a12e532902ee76e345afa430f758f79c10
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3c51479821914ef34edcd13d8708344169f17aae
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90973657"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590115"
 ---
 # <a name="create-azure-advisor-alerts-on-new-recommendations-using-the-azure-portal"></a>Criar alertas do Azure Advisor sobre novas recomendações através do portal Azure 
 
 Este artigo mostra-lhe como configurar um alerta para novas recomendações do Azure Advisor usando o portal Azure. 
 
-Sempre que o Azure Advisor deteta uma nova recomendação para um dos seus recursos, um evento é armazenado no [diário de atividades Azure](../azure-monitor/platform/platform-logs-overview.md). Pode configurar alertas para estes eventos do Azure Advisor utilizando uma experiência de criação de alertas específicos de recomendação. Pode selecionar uma subscrição e opcionalmente um grupo de recursos para especificar os recursos em que deseja receber alertas. 
+Sempre que o Azure Advisor deteta uma nova recomendação para um dos seus recursos, um evento é armazenado no [diário de atividades Azure](../azure-monitor/essentials/platform-logs-overview.md). Pode configurar alertas para estes eventos do Azure Advisor utilizando uma experiência de criação de alertas específicos de recomendação. Pode selecionar uma subscrição e opcionalmente um grupo de recursos para especificar os recursos em que deseja receber alertas. 
 
 Também pode determinar os tipos de recomendações utilizando estas propriedades:
 
@@ -27,7 +27,7 @@ Também pode configurar a ação que ocorrerá quando um alerta é desencadeado 
 * Selecionando um grupo de ação existente
 * Criação de um novo grupo de ação
 
-Para saber mais sobre grupos de ação, veja [Criar e gerir grupos de ações](../azure-monitor/platform/action-groups.md).
+Para saber mais sobre grupos de ação, veja [Criar e gerir grupos de ações](../azure-monitor/alerts/action-groups.md).
 
 > [!NOTE] 
 > Atualmente, os alertas de aconselhamento só estão disponíveis para recomendações de Alta Disponibilidade, Desempenho e Custo. Recomendações de segurança não são apoiadas. 
@@ -57,7 +57,7 @@ Para saber mais sobre grupos de ação, veja [Criar e gerir grupos de ações](.
 
     ![Grupo de ação de alerta de conselheiro](./media/advisor-alerts/create6.png)
 
-7. Na secção **grupos de ação,** selecione **Adicionar a existência** para utilizar um grupo de ação que já criou ou selecione Criar **novo** para criar um novo grupo [de ação](../azure-monitor/platform/action-groups.md). 
+7. Na secção **grupos de ação,** selecione **Adicionar a existência** para utilizar um grupo de ação que já criou ou selecione Criar **novo** para criar um novo grupo [de ação](../azure-monitor/alerts/action-groups.md). 
 
     ![Alerta de aviso adicionar existente](./media/advisor-alerts/create7.png)
 
@@ -187,11 +187,11 @@ A partir do Azure Advisor, pode editar, eliminar ou desativar e ativar os alerta
 
 1. No **portal,** selecione **Azure Advisor**.
 
-    :::image type="content" source="./media/advisor-alerts/create1.png" alt-text="Screenshot da secção de detalhes do alerta.":::
+    :::image type="content" source="./media/advisor-alerts/create1.png" alt-text="Screenshot do menu do portal Azure mostrando Azure Advisor selecionado.":::
 
 2. Na secção **de Monitorização** do menu esquerdo, selecione **Alertas**.
 
-    :::image type="content" source="./media/advisor-alerts/create2.png" alt-text="Screenshot da secção de detalhes do alerta.":::
+    :::image type="content" source="./media/advisor-alerts/create2.png" alt-text="Screenshot do menu do portal Azure mostrando alertas selecionados.":::
 
 3. Para editar um alerta, clique no nome Alerta para abrir o alerta e editar os campos que pretende editar.
 
@@ -199,5 +199,5 @@ A partir do Azure Advisor, pode editar, eliminar ou desativar e ativar os alerta
  
 
 ## <a name="next-steps"></a>Passos seguintes
-- Obtenha uma [visão geral dos alertas de registo de atividades](../azure-monitor/platform/alerts-overview.md)e aprenda a receber alertas.
-- Saiba mais sobre [grupos de ação.](../azure-monitor/platform/action-groups.md)
+- Obtenha uma [visão geral dos alertas de registo de atividades](../azure-monitor/alerts/alerts-overview.md)e aprenda a receber alertas.
+- Saiba mais sobre [grupos de ação.](../azure-monitor/alerts/action-groups.md)

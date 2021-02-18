@@ -5,16 +5,16 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/14/2021
+ms.date: 02/16/2021
 ms.author: alkohli
 ms.subservice: common
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: 772be332af1476975d91eb270bec24d6d241a616
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 8ccc7b641e2bfcb4ea8733b9d4f793229c430bc0
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98706843"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652878"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Utilizar o serviço Importar/Exportar do Microsoft Azure para exportar dados do Armazenamento de blobs do Azure
 
@@ -43,13 +43,13 @@ Tens de o fazer:
 Execute os seguintes passos para criar uma função de exportação no portal Azure.
 
 1. Faça login em <https://portal.azure.com/> .
-2. Aceda a **todos os serviços > armazenamento > empregos de importação/exportação.**
+2. Procura de **postos de trabalho de importação/exportação.**
 
-    ![Ir para os postos de trabalho de importação/exportação](./media/storage-import-export-data-from-blobs/export-from-blob1.png)
+    ![Procura de postos de trabalho de importação/exportação](./media/storage-import-export-data-to-blobs/import-to-blob-1.png)
 
-3. Clique **em Criar Trabalho de Importação/Exportação.**
+3. Selecione **+ Novo**.
 
-    ![Clique em Trabalho de importação/exportação](./media/storage-import-export-data-from-blobs/export-from-blob2.png)
+    ![Selecione + Novo para criar um novo ](./media/storage-import-export-data-to-blobs/import-to-blob-2.png)
 
 4. No **Básico:**
 
@@ -60,7 +60,7 @@ Execute os seguintes passos para criar uma função de exportação no portal Az
     - Selecione uma subscrição.
     - Insira ou selecione um grupo de recursos.
 
-        ![Informações básicas](./media/storage-import-export-data-from-blobs/export-from-blob3.png)
+        ![Informações básicas](./media/storage-import-export-data-from-blobs/export-from-blob-3.png)
 
 5. Em **detalhes de trabalho:**
 
@@ -69,17 +69,17 @@ Execute os seguintes passos para criar uma função de exportação no portal Az
     - Especifique os dados blob que deseja exportar da sua conta de armazenamento para a sua unidade ou unidades em branco.
     - Opte por **exportar todos os** dados blob na conta de armazenamento.
 
-         ![Exportar tudo](./media/storage-import-export-data-from-blobs/export-from-blob4.png)
+         ![Exportar tudo](./media/storage-import-export-data-from-blobs/export-from-blob-4.png)
 
     - Pode especificar quais recipientes e bolhas para exportar.
         - **Para especificar uma bolha para exportar:** Utilize o seletor **Igual A.** Especifique o caminho relativo para a bolha, começando pelo nome do recipiente. Utilize *$root* para especificar o recipiente de raiz.
         - **Para especificar todas as bolhas que começam com um prefixo:** Utilize o seletor **'Iniciar'.** Especifique o prefixo, começando com um corte para a frente '/'. O prefixo pode ser o prefixo do nome do recipiente, o nome completo do recipiente ou o nome completo do recipiente seguido do prefixo do nome blob. Tem de fornecer os caminhos blob em formato válido para evitar erros durante o processamento, como mostra esta imagem. Para mais informações, consulte [exemplos de caminhos de bolhas válidos.](#examples-of-valid-blob-paths)
 
-           ![Exportar recipientes e bolhas selecionados](./media/storage-import-export-data-from-blobs/export-from-blob5.png)
+           ![Exportar recipientes e bolhas selecionados](./media/storage-import-export-data-from-blobs/export-from-blob-5.png)
 
     - Pode exportar a partir do ficheiro da lista de bolhas.
 
-        ![Exportação a partir de ficheiro de lista de bolhas](./media/storage-import-export-data-from-blobs/export-from-blob6.png)
+        ![Exportação a partir de ficheiro de lista de bolhas](./media/storage-import-export-data-from-blobs/export-from-blob-6.png)
 
    > [!NOTE]
    > Se a bolha a exportar estiver a ser utilizada durante a cópia de dados, o serviço Azure Import/Export tira uma foto da bolha e copia o instantâneo.
@@ -320,7 +320,7 @@ Este passo *opcional* ajuda-o a determinar o número de unidades necessárias pa
 
     Os parâmetros são descritos no quadro seguinte:
 
-    |Parâmetro de linha de comando|Descrição|
+    |Parâmetro de linha de comando|Description|
     |--------------------------|-----------------|
     |**/logdir:**|Opcional. O diretório de registos. Os ficheiros de registo verboso são escritos neste diretório. Se não for especificado, o diretório atual é utilizado como diretório de registo.|
     |**/sn:**|Obrigatório. O nome do armazém é responsável pelo trabalho de exportação.|
@@ -374,7 +374,7 @@ Number of drives needed:        3
 
 A tabela a seguir mostra exemplos de caminhos de bolhas válidos:
 
-   | Seletor | Caminho da Bolha | Descrição |
+   | Seletor | Caminho da Bolha | Description |
    | --- | --- | --- |
    | Começa com |/ |Exporta todas as bolhas na conta de armazenamento |
    | Começa com |/$root/ |Exporta todas as bolhas no recipiente raiz |
@@ -384,7 +384,7 @@ A tabela a seguir mostra exemplos de caminhos de bolhas válidos:
    | Igual a |$root/logo.bmp |Exportações blob **logo.bmp** no recipiente raiz |
    | Igual a |vídeos/story.mp4 |Exportações blob **story.mp4** em **vídeos** de contentores |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Ver o estado do trabalho e da unidade](storage-import-export-view-drive-status.md)
 - [Rever os requisitos de importação/exportação](storage-import-export-requirements.md)

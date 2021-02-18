@@ -10,12 +10,12 @@ ms.date: 9/1/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 4d3781c7a3894429cb5daccb334655543e3eea01
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: af42b83fc005397d4564b7570eedaff0305a8bc8
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100551552"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653585"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de começar, certifique-se de:
@@ -88,24 +88,7 @@ Crie um ficheiro no diretório de raiz do seu projeto chamado **client.js** para
 
 Para criar um cliente de chat na sua aplicação web, utilizará o **ponto final** do Serviço de Comunicações e o **token** de acesso que foi gerado como parte das etapas pré-necessárias. 
 
-Os tokens de acesso ao utilizador permitem-lhe construir aplicações de clientes que autenticam diretamente os Serviços de Comunicação Azure.
-
-##### <a name="server-vs-client-side"></a>Servidor vs. lado do cliente
-
-Recomendamos gerar fichas de acesso utilizando um componente do lado do servidor que os transmite para a aplicação do cliente. Neste cenário, o lado do servidor seria responsável pela criação e gestão dos utilizadores e pela emissão dos seus tokens. O lado do cliente pode então receber fichas de acesso do serviço e usá-las para autenticar as bibliotecas de clientes dos Serviços de Comunicação Azure.
-
-Os tokens também podem ser emitidos do lado do cliente utilizando a biblioteca da Administração de Comunicação Azure para o JavaScript. Neste cenário, o lado cliente teria de estar atento aos utilizadores para poderem emitir os seus tokens.
-
-Consulte a seguinte documentação para obter mais detalhes [Sobre o Cliente e a Arquitetura do Servidor](../../../concepts/client-and-server-architecture.md)
-
-No diagrama abaixo, a aplicação do lado do cliente recebe um token de acesso a partir de um nível de serviço de confiança. A aplicação utiliza então o símbolo para autenticar bibliotecas de Serviços de Comunicação. Uma vez autenticada, a aplicação pode agora utilizar as bibliotecas laterais do cliente dos Serviços de Comunicação para realizar operações como conversar com outros utilizadores.
-
-:::image type="content" source="../../../media/scenarios/archdiagram-access.png" alt-text="Diagrama mostrando o acesso do utilizador à arquitetura simbólica.":::
-
-##### <a name="instructions"></a>Instruções
-Esta demonstração não cobre a criação de um nível de serviço para a sua aplicação de chat. 
-
-Se não tiver gerado utilizadores e seus tokens, siga as instruções aqui para fazê-lo: [User Access Token](../../access-tokens.md). Lembre-se de definir o âmbito para "chat" e não "voip".
+Os tokens de acesso ao utilizador permitem-lhe construir aplicações de clientes que autenticam diretamente os Serviços de Comunicação Azure. Este quickstart não cobre a criação de um nível de serviço para gerir fichas para a sua aplicação de chat. Consulte [os conceitos de chat](../../../concepts/chat/concepts.md) para obter mais informações sobre a arquitetura de chat e os [tokens de acesso ao utilizador](../../access-tokens.md) para obter mais informações sobre os tokens de acesso.
 
 No interior **client.js** utilizar o ponto final e o token de acesso no código abaixo para adicionar a capacidade de chat utilizando a biblioteca de clientes Azure Communication Chat para o JavaScript.
 

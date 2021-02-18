@@ -6,12 +6,12 @@ author: TimothyMothra
 ms.author: tilee
 ms.date: 01/22/2021
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: f340b4fdf7fef6daecf8801d16d19aee9b89e4d5
-ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.openlocfilehash: 21184e1623fd47e8367d4c5dfbc2c85debe93124
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/24/2021
-ms.locfileid: "98746463"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100587394"
 ---
 # <a name="get-started-with-azure-monitor-application-insights-agent-for-on-premises-servers"></a>Começar com o Azure Monitor Application Insights Agent para servidores no local
 
@@ -75,13 +75,13 @@ Enable-ApplicationInsightsMonitoring -ConnectionString xxxxxxxx-xxxx-xxxx-xxxx-x
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
  Ver a telemetria:
 
-- [Explore métricas](../platform/metrics-charts.md) para monitorizar o desempenho e a utilização.
+- [Explore métricas](../essentials/metrics-charts.md) para monitorizar o desempenho e a utilização.
 - [Pesquisar eventos e registos](./diagnostic-search.md) para diagnosticar problemas.
-- [Use Analytics](../log-query/log-query-overview.md) para consultas mais avançadas.
+- [Use Analytics](../logs/log-query-overview.md) para consultas mais avançadas.
 - [Criar painéis de instrumentos.](./overview-dashboard.md)
 
  Adicionar mais telemetria:

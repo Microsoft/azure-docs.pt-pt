@@ -3,16 +3,16 @@ title: Introdução ao Azure Red Hat OpenShift
 description: Aprenda as funcionalidades e benefícios do Microsoft Azure Red Hat OpenShift para implementar e gerir aplicações baseadas em contentores.
 author: jimzim
 ms.author: jzim
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.topic: overview
 ms.date: 11/13/2020
 ms.custom: mvc
-ms.openlocfilehash: 1bf3141876ee56ee1361f19a67689ca3b2f4f89a
-ms.sourcegitcommit: c157b830430f9937a7fa7a3a6666dcb66caa338b
+ms.openlocfilehash: ec934a8a9907f0c0c3aff047e003c6725c5ab25f
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94685295"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100636225"
 ---
 # <a name="azure-red-hat-openshift"></a>Azure Red Hat OpenShift
 
@@ -38,7 +38,7 @@ Os nós Azure Red Hat OpenShift funcionam em máquinas virtuais Azure. Pode liga
 
 A Azure Red Hat OpenShift oferece um Acordo de Nível de Serviço para garantir que o serviço estará disponível 99,95% das vezes. Para mais detalhes sobre o SLA, consulte [Azure Red Hat OpenShift SLA](https://azure.microsoft.com/en-au/support/legal/sla/openshift/v1_0/).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Aprenda os pré-requisitos para Azure Red Hat OpenShift:
 

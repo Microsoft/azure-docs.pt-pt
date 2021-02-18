@@ -10,14 +10,14 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 02/01/2021
+ms.date: 02/16/2021
 ms.author: juliako
-ms.openlocfilehash: a6b1fc5adba166aa15a786d3440be1eca7f0a260
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: c8fcd6e662a0beff61209de4b5c4331618b45ea1
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100560517"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653321"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Notas de lançamento do Azure Media Services Video Indexer
 
@@ -29,6 +29,33 @@ Para se manter atualizado com os desenvolvimentos mais recentes, este artigo for
 * Problemas conhecidos
 * Correções de erros
 * Funcionalidade preterida
+
+## <a name="february-2021"></a>Fevereiro de 2021
+
+### <a name="multiple-account-owners"></a>Vários proprietários de conta 
+
+O papel do proprietário da conta foi adicionado ao Video Indexer. Pode adicionar, alterar e remover utilizadores; mudar o seu papel. Para obter mais informações sobre como partilhar uma conta, consulte [os utilizadores do Invite](invite-users.md).
+
+### <a name="audio-event-detection-public-preview"></a>Deteção de eventos áudio (pré-visualização pública)
+
+> [!NOTE]
+> Esta funcionalidade apenas se encontra disponível em contas de teste. 
+
+O Video Indexer deteta agora os seguintes efeitos áudio nos segmentos de não-fala do conteúdo: tiro, vidro estilhaçado, alarme, sirene, explosão, casca de cão, gritos, risos, reações da multidão (aplausos, palmas e vaiados) e Silêncio. 
+
+A funcionalidade de efeitos áudio recentemente adicionada está disponível ao indexar o seu ficheiro, escolhendo a  ->  predefinição **de áudio avançada** (em indexação de áudio Vídeo +). A indexação padrão incluirá apenas **o silêncio** e **a reação da multidão.** 
+
+O tipo de evento **de palmas** que foi incluído no modelo anterior de efeitos áudio, é agora extraído uma parte do tipo de evento de reação de **multidão.**
+
+Quando escolhe ver **Insites** do seu vídeo no site do [Índice de Vídeo,](https://www.videoindexer.ai/) os Efeitos Áudio aparecem na página.
+
+:::image type="content" source="./media/release-notes/audio-detection.png" alt-text="Deteção de eventos áudio":::
+
+### <a name="named-entities-enhancement"></a>Melhoria de entidades nomeadas  
+
+A lista extraída de pessoas e locais foi alargada e atualizada em geral. 
+
+Além disso, o modelo agora inclui pessoas e locais em contexto que não são famosos, como um 'Sam' ou 'Home' no vídeo. 
 
 ## <a name="january-2021"></a>Janeiro de 2021
 

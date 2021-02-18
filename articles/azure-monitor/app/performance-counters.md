@@ -4,12 +4,12 @@ description: Monitorar o sistema e os contadores de desempenho .NET personalizad
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f772b129e20fbaaade7305d84064a713dd734199
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 5f1bd3ac4542dcce0d41f69a9c1664b747214554
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98937391"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100583889"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Contadores de desempenho do sistema em Insights de Aplicações
 
@@ -110,7 +110,7 @@ using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector;
 ```
 
 ## <a name="performance-counters-in-analytics"></a>Contadores de desempenho em Analytics
-Pode pesquisar e exibir relatórios de contador de desempenho em [Analytics](../log-query/log-query-overview.md).
+Pode pesquisar e exibir relatórios de contador de desempenho em [Analytics](../logs/log-query-overview.md).
 
 O **esquema do PerformanceCounters** expõe o `category` nome e o nome de cada contador de `counter` `instance` desempenho.  Na telemetria para cada aplicação, verá apenas os contadores para essa aplicação. Por exemplo, para ver que contadores estão disponíveis: 
 
@@ -148,9 +148,9 @@ Suporte para contadores de desempenho em ASP.NET Core é limitado:
 * Versões SDK 2.8.0 e posterior suporte cpu/contador de memória em Linux. Nenhum outro contador é apoiado em Linux. A forma recomendada de obter contadores de sistema em Linux (e outros ambientes não-Windows) é usando [EventCounters](eventcounters.md)
 
 ## <a name="alerts"></a>Alertas
-Tal como outras métricas, pode [definir um alerta](../platform/alerts-log.md) para o avisar se um contador de desempenho sair do limite especificado. Abra o painel de alertas e clique em Adicionar Alerta.
+Tal como outras métricas, pode [definir um alerta](../alerts/alerts-log.md) para o avisar se um contador de desempenho sair do limite especificado. Abra o painel de alertas e clique em Adicionar Alerta.
 
-## <a name="next-steps"></a><a name="next"></a>Próximos passos
+## <a name="next-steps"></a><a name="next"></a>Passos seguintes
 
 * [Rastreio de dependência](./asp-net-dependencies.md)
 * [Rastreio de exceções](./asp-net-exceptions.md)
