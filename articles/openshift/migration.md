@@ -3,16 +3,16 @@ title: Migrar do Azure Red Hat OpenShift 3.11 para o Azure Red Hat OpenShift 4
 description: Migrar do Azure Red Hat OpenShift 3.11 para o Azure Red Hat OpenShift 4
 author: sakthi-vetrivel
 ms.author: suvetriv
-ms.service: azure-redhat-openshift
+ms.service: container-service
 ms.topic: conceptual
 ms.date: 08/13/2020
 keywords: migração, aro, openshift, chapéu vermelho
-ms.openlocfilehash: 371672de83a6d745d7b367f8327a64e11059923e
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 6c7a340c2afe510454697f653b7e74ebb0f1e560
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100653283"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100588275"
 ---
 # <a name="migrate-from-azure-red-hat-openshift-311-to-azure-red-hat-openshift-4"></a>Migrar do Azure Red Hat OpenShift 3.11 para Azure Red Hat OpenShift 4
 
@@ -100,7 +100,7 @@ Para obter informações sobre a configuração destes tipos de armazenamento, c
 
 O Azure Red Hat OpenShift 4 pode construir imagens a partir do seu código fonte, implantá-las e gerir o seu ciclo de vida. Para o permitir isto, o Azure Red Hat OpenShift fornece 4 um [registo de imagem de contentor integrado e interno](https://docs.openshift.com/container-platform/4.6/registry/registry-options.html) que pode ser implantado no seu ambiente Azure Red Hat OpenShift para gerir localmente imagens.
 
-Se estiver a utilizar registos externos como [registo de contentores Azure,](../container-registry/index.yml) [registos red hat quay,](https://docs.openshift.com/container-platform/4.6/registry/registry-options.html#registry-quay-overview_registry-options)ou uma [autenticação ativada pelo registo do Chapéu Vermelho,](https://docs.openshift.com/container-platform/4.6/registry/registry-options.html#registry-authentication-enabled-registry-overview_registry-options)siga as medidas para fornecer credenciais ao cluster para permitir que o cluster aceda aos repositórios.
+Se estiver a utilizar registos externos como [registo de contentores Azure,](../container-registry/index.yml) [registos red hat quay,](ttps://docs.openshift.com/container-platform/4.6/registry/registry-options.html#registry-quay-overview_registry-options)ou uma [autenticação ativada pelo registo do Chapéu Vermelho,](https://docs.openshift.com/container-platform/4.6/registry/registry-options.html#registry-authentication-enabled-registry-overview_registry-options)siga as medidas para fornecer credenciais ao cluster para permitir que o cluster aceda aos repositórios.
 
 ### <a name="monitoring"></a>Monitorização
 

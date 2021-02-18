@@ -7,7 +7,7 @@
     - name: Comparar serviços de mensagens
       href: ../event-grid/compare-messaging-services.md
       maintainContext: true
-    - name: Utilizar o Service Bus com o Java Message Service (JMS) 2.0 (pré-visualização)
+    - name: Utilizar ônibus de serviço com serviço de mensagens Java (JMS) 2.0
       href: how-to-use-java-message-service-20.md
 - name: Guias de Início Rápido
   items:
@@ -90,6 +90,10 @@
       href: service-bus-samples.md
 - name: Conceitos
   items:
+    - name: 'Filas, tópicos e subscrições'
+      href: service-bus-queues-topics-subscriptions.md
+    - name: Filtros de tópico e ações
+      href: topic-filters.md
     - name: Mensagens premium
       href: service-bus-premium-messaging.md
     - name: Comparar Filas do Azure e filas do Service Bus
@@ -158,12 +162,16 @@
       href: service-bus-create-namespace-portal.md
     - name: Programar
       items:
+        - name: Definir filtros e ações de subscrição
+          href: service-bus-filter-examples.md
         - name: Processamento de mensagens
           items:
             - name: 'Filas, tópicos e subscrições'
               href: service-bus-queues-topics-subscriptions.md
-            - name: Java Message Service (JMS) 2.0 entidades (pré-visualização)
+            - name: Serviço de mensagens Java (JMS) 2.0 entidades
               href: java-message-service-20-entities.md
+            - name: Desenvolvedor de serviço de mensagens Java (JMS) guide.md
+              href: jms-developer-guide.md
             - name: 'Mensagens, payloads e serialização'
               href: service-bus-messages-payloads.md
             - name: 'Transferências de mensagens, bloqueios e acordo'
@@ -172,8 +180,6 @@
               href: message-sequencing.md
             - name: Expiração de mensagem (TTL)
               href: message-expiration.md
-        - name: Filtros de tópico e ações
-          href: topic-filters.md
         - name: Migrar de espaços de nomes Standard para Premium
           href: service-bus-migrate-standard-premium.md
         - name: Filas e tópicos particionados

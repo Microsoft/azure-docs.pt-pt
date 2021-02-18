@@ -1,35 +1,27 @@
 ---
 title: Implementar e configurar a solução VMware Azure
-description: Saiba como utilizar as informações recolhidas na fase de planeamento para implementar a nuvem privada Azure VMware Solution.
+description: Saiba como utilizar as informações recolhidas na fase de planeamento para implementar e configurar a nuvem privada Azure VMware Solution.
 ms.topic: tutorial
-ms.date: 12/24/2020
-ms.openlocfilehash: 4c6929ca59bae022642082e8382203a10bd41309
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.custom: contperf-fy21q3
+ms.date: 02/17/2021
+ms.openlocfilehash: bfd057a19ebe26a66d11b52ddf17c285a1f9a308
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100382060"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652739"
 ---
 # <a name="deploy-and-configure-azure-vmware-solution"></a>Implementar e configurar a solução VMware Azure
 
-Neste artigo, utilizará as informações da secção de [planeamento](production-ready-deployment-steps.md) para implementar a Solução VMware Azure. 
+Neste artigo, utilizará as informações da secção de [planeamento](production-ready-deployment-steps.md) para implementar e configurar a Solução VMware Azure. 
 
 >[!IMPORTANT]
 >Se ainda não definiu a informação, volte à [secção de planeamento](production-ready-deployment-steps.md) antes de continuar.
 
-## <a name="register-the-resource-provider"></a>Registar o fornecedor de recursos
 
-[!INCLUDE [register-resource-provider-steps](includes/register-resource-provider-steps.md)]
+## <a name="create-an-azure-vmware-solution-private-cloud"></a>Criar uma nuvem privada Azure VMware Solution
 
-
-## <a name="deploy-azure-vmware-solution"></a>Implementar o Azure VMware Solution
-
-Utilize as informações recolhidas no artigo [de implementação do Planeamento da Solução VMware Azure:](production-ready-deployment-steps.md)
-
->[!NOTE]
->Para implementar a Solução Azure VMware, tem de estar ao nível mínimo de contribuinte na subscrição.
-
-[!INCLUDE [create-avs-private-cloud-azure-portal](includes/create-private-cloud-azure-portal-steps.md)]
+Siga os pré-requisitos e passos no tutorial [de nuvem privada Create azure VMware Solution.](tutorial-create-private-cloud.md) Pode criar uma nuvem privada Azure VMware Solution utilizando o [portal Azure](tutorial-create-private-cloud.md#azure-portal) ou utilizando o [Azure CLI](tutorial-create-private-cloud.md#azure-cli).  
 
 >[!NOTE]
 >Para uma visão geral deste passo, consulte a [Solução Azure VMware: Deployment](https://www.youtube.com/embed/gng7JjxgayI) video.
@@ -60,7 +52,7 @@ Se não definiu uma rede virtual no passo de implementação e a sua intenção 
 
 A caixa de salto encontra-se na rede virtual onde a Azure VMware Solution se conecta através do seu circuito ExpressRoute.  Em Azure, vá à interface de rede da caixa de salto e [veja as rotas eficazes.](../virtual-network/manage-route-table.md#view-effective-routes)
 
-Na lista de rotas eficazes, deverá ver as redes criadas como parte da implementação da Solução VMware Azure. Você verá várias redes que foram derivadas da [ `/22` rede que definiu](production-ready-deployment-steps.md#ip-address-segment) durante o [passo de implementação](#deploy-azure-vmware-solution) mais cedo neste artigo.
+Na lista de rotas eficazes, deverá ver as redes criadas como parte da implementação da Solução VMware Azure. Verá várias redes que foram derivadas da [ `/22` rede que definiu](production-ready-deployment-steps.md#ip-address-segment) quando [cria uma nuvem privada.](#create-an-azure-vmware-solution-private-cloud)  
 
 :::image type="content" source="media/pre-deployment/azure-vmware-solution-effective-routes.png" alt-text="Verifique as rotas de rede anunciadas da Solução VMware Azure para a Rede Virtual Azure" lightbox="media/pre-deployment/azure-vmware-solution-effective-routes.png":::
 
