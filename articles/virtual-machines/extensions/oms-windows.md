@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: akjosh
-ms.openlocfilehash: 22cc9bf1bdfdb8a3026bb09f44e007ab3438325a
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 1b394a6daf7ba680d193a13dd4cb25dbebc576e4
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98046826"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100580080"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-windows"></a>Log Analytics virtual machine extension for Windows (Extensão de máquina virtual do Log Analytics para Windows)
 
@@ -30,12 +30,12 @@ O Azure Monitor Logs fornece capacidades de monitorização através de ativos d
 
 ### <a name="operating-system"></a>Sistema operativo
 
-Para obter mais informações sobre os sistemas operativos windows suportados, consulte o artigo [dos agentes do Azure Monitor.](../../azure-monitor/platform/agents-overview.md#supported-operating-systems)
+Para obter mais informações sobre os sistemas operativos windows suportados, consulte o artigo [dos agentes do Azure Monitor.](../../azure-monitor/agents/agents-overview.md#supported-operating-systems)
 
 ### <a name="agent-and-vm-extension-version"></a>Versão de extensão de agente e VM
 A tabela seguinte fornece um mapeamento da versão da extensão VM do Windows Log Analytics e do pacote de agente Log Analytics para cada lançamento. 
 
-| Versão do pacote de agente do Windows do Log Analytics | Versão de extensão do Windows VM do Log Analytics | Data da versão: | Notas de Versão |
+| Versão do pacote de agente do Windows do Log Analytics | Versão de extensão do Windows VM do Log Analytics | Data da versão: | Release Notes (Notas de Lançamento) |
 |--------------------------------|--------------------------|--------------------------|--------------------------|
 | 10.20.18053| 1.0.18053.0 | Outubro de 2020   | <ul><li>Novo agente Troubleshooter</li><li>Atualizações da forma como o agente lida com as alterações dos certificados aos serviços da Azure</li></ul> |
 | 10.20.18040 | 1.0.18040.2 | Agosto de 2020   | <ul><li>Resolve um problema no Arco Azure</li></ul> |
@@ -89,26 +89,26 @@ O JSON seguinte mostra o esquema para a extensão do agente Log Analytics. A ext
 ```
 ### <a name="property-values"></a>Valores patrimoniais
 
-| Nome | Valor / Exemplo |
+| Name | Valor / Exemplo |
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
 | publicador | Microsoft.EnterpriseCloud.Monitoring |
 | tipo | MicrosoftMonitoringAgent |
-| typeHandlerVersion | 1,0 |
+| typeHandlerVersion | 1.0 |
 | workspaceId (por exemplo)* | 6f680a37-00c6-41c7-a93f-1437e3462574 |
 | workspaceKey (por exemplo) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRsGo9TXffbrTahyrwv35W0pOqQAUUQ== |
 
 \* O workspaceId é chamado de consumerId na API log Analytics.
 
 > [!NOTE]
-> Para obter propriedades adicionais consulte Azure [Connect Windows Computers to Azure Monitor](../../azure-monitor/platform/agent-windows.md).
+> Para obter propriedades adicionais consulte Azure [Connect Windows Computers to Azure Monitor](../../azure-monitor/agents/agent-windows.md).
 
 ## <a name="template-deployment"></a>Implementação de modelos
 
 As extensões Azure VM podem ser implementadas com modelos Azure Resource Manager. O esquema JSON detalhado na secção anterior pode ser usado num modelo de Gestor de Recursos Azure para executar a extensão do agente Log Analytics durante uma implementação do modelo do Azure Resource Manager. Um modelo de amostra que inclui a extensão VM do agente Log Analytics pode ser encontrado na [Galeria Azure Quickstart](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-windows-vm). 
 
 >[!NOTE]
->O modelo não suporta especificar mais do que uma chave de ID de espaço de trabalho e espaço de trabalho quando pretende configurar o agente para reportar a vários espaços de trabalho. Para configurar o agente para reportar a vários espaços de trabalho, consulte [adicionar ou remover um espaço de trabalho](../../azure-monitor/platform/agent-manage.md#adding-or-removing-a-workspace).  
+>O modelo não suporta especificar mais do que uma chave de ID de espaço de trabalho e espaço de trabalho quando pretende configurar o agente para reportar a vários espaços de trabalho. Para configurar o agente para reportar a vários espaços de trabalho, consulte [adicionar ou remover um espaço de trabalho](../../azure-monitor/agents/agent-manage.md#adding-or-removing-a-workspace).  
 
 O JSON para uma extensão de máquina virtual pode ser aninhado dentro do recurso de máquina virtual, ou colocado no nível raiz ou superior de um modelo JSON do Gestor de Recursos. A colocação do JSON afeta o valor do nome e do tipo de recurso. Para obter mais informações, consulte [o nome definido e o tipo para obter recursos para crianças.](../../azure-resource-manager/templates/child-resource-name-type.md) 
 

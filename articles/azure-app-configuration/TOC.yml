@@ -132,6 +132,8 @@
       href: howto-backup-config-store.md
     - name: Utilizar identidades geridas para aceder ao App Configuration
       href: howto-integrate-azure-managed-service-identity.md
+    - name: Integrar configuração de aplicativos em estúdio visual
+      href: /visualstudio/azure/vs-azure-tools-connected-services-app-configuration
 - name: Referência
   items:
     - name: Configuração

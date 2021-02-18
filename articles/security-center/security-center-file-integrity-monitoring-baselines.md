@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/22/2020
+ms.date: 02/17/2021
 ms.author: memildin
-ms.openlocfilehash: 89230b6aca9e225c28a1efd0b99476b35f4d8db0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2f160948a06d8a3175158e0100345ee2a330048c
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91439558"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100634715"
 ---
 # <a name="compare-baselines-using-file-integrity-monitoring-fim"></a>Comparar linhas de base com a Monitorização d a Integridade dos Ficheiros (FIM)
 
@@ -62,23 +62,22 @@ As linhas de base FIM começam por identificar características de um estado de 
 > [!NOTE]
 > Para saber mais sobre as definições de registo suportadas por várias versões do sistema operativo, consulte a folha de cálculo de [referência de Definições de Política de Grupo](https://www.microsoft.com/download/confirmation.aspx?id=25250).
 
-*Para configurar o FIM para monitorizar as linhas de base de registo:*
+Para configurar o FIM para monitorizar as linhas de base de registo:
 
-1. Na janela **'Adicionar registo do Windows' para alterar o rastreio,** na caixa de texto da chave do registo do **Windows,** introduza a tecla de registo.
+1. Na janela de registo do Windows Add Windows para alterar o **rastreio,** na caixa de texto chave do registo do **Windows,** introduza a seguinte chave de registo:
 
-    <code>
-
+    ```
     HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Netlogon\Parameters
-    </code>
+    ```
 
-      ![Ativar o FIM num registo](./media/security-center-file-integrity-monitoring-baselines/baselines-add-registry.png)
+    :::image type="content" source="./media/security-center-file-integrity-monitoring-baselines/baselines-add-registry.png" alt-text="Ativar o FIM num registo":::
 
 ## <a name="track-changes-to-windows-files"></a>Rastrear alterações nos ficheiros do Windows
 
 1. Na janela 'Adicionar ficheiro **do Windows' para alterar o rastreio,** na caixa de texto **do caminho 'Introduzir',** introduza a pasta que contém os ficheiros que pretende rastrear. No exemplo na seguinte figura, a **Contoso Web App** reside no D:\ unidade dentro da estrutura da pasta **ContosWebApp.**  
 1. Crie uma entrada personalizada de ficheiros Windows fornecendo um nome da classe de definição, permitindo a recursão e especificando a pasta superior com um sufixo wildcard (*).
 
-    ![Ativar o FIM num ficheiro](./media/security-center-file-integrity-monitoring-baselines/baselines-add-file.png)
+    :::image type="content" source="./media/security-center-file-integrity-monitoring-baselines/baselines-add-file.png" alt-text="Ativar o FIM num ficheiro":::
 
 ## <a name="retrieve-change-data"></a>Recuperar dados de alteração
 

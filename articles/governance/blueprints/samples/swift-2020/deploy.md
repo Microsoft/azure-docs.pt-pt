@@ -3,12 +3,12 @@ title: Implementar amostra de planta SWIFT CSP-CSCF v2020
 description: Implementar etapas para a amostra de planta SWIFT CSP-CSCF v2020, incluindo detalhes do parâmetro do artefacto da planta.
 ms.date: 01/08/2021
 ms.topic: sample
-ms.openlocfilehash: c3672dabb7f4c0a977b8140f470ddfc9fcea9c6d
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 8f28bae58128306776fa18a6b383e324482bb03f
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98048764"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100582013"
 ---
 # <a name="deploy-the-swift-csp-cscf-v2020-blueprint-sample"></a>Implementar a amostra de planta SWIFT CSP-CSCF v2020
 
@@ -93,7 +93,7 @@ A tabela seguinte mostra uma lista dos parâmetros dos artefactos de esquema:
 
 |Nome do artefacto|Tipo de artefacto|Nome do parâmetro|Descrição|
 |-|-|-|-|
-|\[Pré-visualização \] : Audit SWIFT CSP-CSCF v2020 controla e implementa extensões VM específicas para apoiar os requisitos de auditoria|Atribuição de políticas|Lista de tipos de recursos que devem ter registos de diagnóstico ativados|Lista de tipos de recursos para auditar se a definição de registo de diagnóstico não estiver ativada. Os valores aceitáveis podem ser encontrados nas [categorias de registos de recursos do Azure Monitor](../../../../azure-monitor/platform/resource-logs-categories.md#supported-log-categories-per-resource-type).|
+|\[Pré-visualização \] : Audit SWIFT CSP-CSCF v2020 controla e implementa extensões VM específicas para apoiar os requisitos de auditoria|Atribuição de políticas|Lista de tipos de recursos que devem ter registos de diagnóstico ativados|Lista de tipos de recursos para auditar se a definição de registo de diagnóstico não estiver ativada. Os valores aceitáveis podem ser encontrados nas [categorias de registos de recursos do Azure Monitor](../../../../azure-monitor/essentials/resource-logs-categories.md#supported-log-categories-per-resource-type).|
 |\[Pré-visualização \] : Audit SWIFT CSP-CSCF v2020 controla e implementa extensões VM específicas para apoiar os requisitos de auditoria|Atribuição de políticas|IDs de espaço de trabalho conectados|Uma lista separada de pontos de trabalho com os IDs do espaço de trabalho a que o agente Log Analytics deve ser ligado|
 |\[Pré-visualização \] : Audit SWIFT CSP-CSCF v2020 controla e implementa extensões VM específicas para apoiar os requisitos de auditoria|Atribuição de políticas|Lista de utilizadores que devem ser incluídos no grupo de administradores do Windows VM|Uma lista separada de membros que deve ser incluída no grupo local de administradores. Ex: Administrador; myUser1; myUser2|
 |\[Pré-visualização \] : Audit SWIFT CSP-CSCF v2020 controla e implementa extensões VM específicas para apoiar os requisitos de auditoria|Atribuição de políticas|Nome de domínio (FQDN)|O nome de domínio totalmente qualificado (FQDN) a que os VMs do Windows devem ser unidos|

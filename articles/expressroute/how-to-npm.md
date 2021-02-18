@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 01/25/2019
 ms.author: duau
-ms.openlocfilehash: 837d1f78a9fde72137383e6c22adb8870997dc9b
-ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
+ms.openlocfilehash: 907c03bd15463368def316e72f55ce214cb3e617
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98986044"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100571043"
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>Configurar o Monitor de Desempenho de Rede para o ExpressRoute
 
@@ -54,7 +54,7 @@ Crie um espaço de trabalho na subscrição que tenha a ligação VNets ao circu
 1. No [portal Azure,](https://portal.azure.com)selecione a Subscrição que tem os VNETs espreitados para o seu circuito ExpressRoute. Em seguida, procure a lista de serviços no **Marketplace** para 'Network Performance Monitor'. Na devolução, clique para abrir a página do Monitor de Desempenho da **Rede.**
 
    >[!NOTE]
-   >Pode criar um novo espaço de trabalho ou utilizar um espaço de trabalho existente. Se quiser utilizar um espaço de trabalho existente, deve certificar-se de que o espaço de trabalho foi migrado para a nova linguagem de consulta. [Mais informações...](../azure-monitor/log-query/log-query-overview.md)
+   >Pode criar um novo espaço de trabalho ou utilizar um espaço de trabalho existente. Se quiser utilizar um espaço de trabalho existente, deve certificar-se de que o espaço de trabalho foi migrado para a nova linguagem de consulta. [Mais informações...](../azure-monitor/logs/log-query-overview.md)
    >
 
    ![portal](./media/how-to-npm/3.png)<br><br>
@@ -118,7 +118,7 @@ Recomendamos que instale pelo menos dois agentes em cada lado da ligação Expre
 
 ### <a name="23-configure-proxy-settings-optional"></a><a name="proxy"></a>2.3: Configurações de procuração de configuração (opcional)
 
-Se estiver a utilizar um representante web para aceder à Internet, utilize os seguintes passos para configurar as definições de procuração para o Agente de Monitorização da Microsoft. Execute estes passos para cada servidor. Se tiver vários servidores que necessita configurar, poderá considerar mais fácil utilizar um script para automatizar este processo. Em caso afirmativo, consulte [Configurar as definições de procuração para o Agente de Monitorização da Microsoft utilizando um script](../azure-monitor/platform/agent-windows.md).
+Se estiver a utilizar um representante web para aceder à Internet, utilize os seguintes passos para configurar as definições de procuração para o Agente de Monitorização da Microsoft. Execute estes passos para cada servidor. Se tiver vários servidores que necessita configurar, poderá considerar mais fácil utilizar um script para automatizar este processo. Em caso afirmativo, consulte [Configurar as definições de procuração para o Agente de Monitorização da Microsoft utilizando um script](../azure-monitor/agents/agent-windows.md).
 
 Para configurar as definições de procuração para o agente de monitorização da Microsoft utilizando o Painel de Controlo:
 

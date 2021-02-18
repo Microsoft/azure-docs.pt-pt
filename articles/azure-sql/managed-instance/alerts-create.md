@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: wiassaf, sstein
 ms.date: 05/04/2020
-ms.openlocfilehash: a85bf6510163c47fa39bdb28debff806e1812f58
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: d37465223000399aa42895626c48426ddadc0c72
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499276"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592706"
 ---
 # <a name="create-alerts-for-azure-sql-managed-instance-using-the-azure-portal"></a>Criar alertas para o Azure SQL Managed Instance com o portal do Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -24,7 +24,7 @@ ms.locfileid: "96499276"
 Este artigo mostra como configurar alertas para bases de dados na Base de Dados de Casos Geridos Azure SQL utilizando o portal Azure. Os alertas podem enviar-lhe um e-mail, chamar um webhook, executar uma Função do Azure, runbook, chamar um sistema de pedidos de suporte compatível com ITSM externo, ligar-lhe para o telefone ou enviar uma mensagem de texto quando alguma métrica como, por exemplo, o tamanho de armazenamento ou a utilização da CPU, atingir um limiar predefinido. Este artigo também fornece as melhores práticas para a definição de períodos de alerta.
 
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Pode receber um alerta baseado em métricas de monitorização ou eventos nos seus serviços Azure.
 
@@ -41,7 +41,7 @@ Pode configurar um alerta para fazer o seguinte quando acionar:
 * Ligue para o runbook de Azure
 * Ligue para um sistema compatível com a BILHS ITSM
 
-Pode configurar e obter informações sobre as regras de alerta utilizando [o portal Azure, PowerShell ou o API do Azure Monitor](../../azure-monitor/platform/alerts-classic-portal.md) [REST](/rest/api/monitor/alertrules). 
+Pode configurar e obter informações sobre as regras de alerta utilizando [o portal Azure, PowerShell ou o API do Azure Monitor](../../azure-monitor/alerts/alerts-classic-portal.md) [REST](/rest/api/monitor/alertrules). 
 
 ## <a name="alerting-metrics-available-for-managed-instance"></a>Métricas de alerta disponíveis para instância gerida
 
@@ -113,7 +113,7 @@ A nova regra de alerta ficará ativa dentro de alguns minutos e será ativada co
 ## <a name="verifying-alerts"></a>Verificação de alertas
 
 > [!NOTE]
-> Para suprimir alertas ruidosos, consulte [supressão de alertas utilizando regras de ação](../../azure-monitor/platform/alerts-action-rules.md#suppression-of-alerts).
+> Para suprimir alertas ruidosos, consulte [supressão de alertas utilizando regras de ação](../../azure-monitor/alerts/alerts-action-rules.md#suppression-of-alerts).
 
 Ao configurar uma regra de alerta, verifique se está satisfeito com o gatilho de alerta e a sua frequência. Para o exemplo mostrado nesta página para configurar um alerta sobre o espaço de armazenamento utilizado, se a sua opção de alerta fosse e-mail, pode receber e-mail tal é o indicado abaixo.
 
@@ -142,8 +142,8 @@ Para ver, suspender, ativar, modificar e eliminar os alertas existentes:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Saiba mais sobre o sistema de alerta Azure Monitor, consulte [a visão geral dos alertas no Microsoft Azure](../../azure-monitor/platform/alerts-overview.md)
-* Saiba mais sobre alertas métricos, veja [como os alertas métricos funcionam no Azure Monitor](../../azure-monitor/platform/alerts-metric-overview.md)
-* Saiba como configurar um webhook em alertas, consulte [Call a webhook com um alerta métrico clássico](../../azure-monitor/platform/alerts-webhooks.md)
+* Saiba mais sobre o sistema de alerta Azure Monitor, consulte [a visão geral dos alertas no Microsoft Azure](../../azure-monitor/alerts/alerts-overview.md)
+* Saiba mais sobre alertas métricos, veja [como os alertas métricos funcionam no Azure Monitor](../../azure-monitor/alerts/alerts-metric-overview.md)
+* Saiba como configurar um webhook em alertas, consulte [Call a webhook com um alerta métrico clássico](../../azure-monitor/alerts/alerts-webhooks.md)
 * Saiba como configurar e gerir alertas usando o PowerShell, consulte [as regras de Ação](/powershell/module/az.monitor/add-azmetricalertrulev2)
 * Saiba como configurar e gerir alertas utilizando a API, consulte [a referência API do Monitor AZure](/rest/api/monitor/)

@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 06/30/2020
 ms.reviewer: jushiman
 ms.custom: avverma
-ms.openlocfilehash: 092b95845ed033ac0705e325fc6535739088848f
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: dbd2d6dc3034ff64ef6b5d4d36d836ce8462b154
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94888798"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100591394"
 ---
 # <a name="overview-of-autoscale-with-azure-virtual-machine-scale-sets"></a>Descrição geral do dimensionamento automático com o conjunto de dimensionamento de máquinas virtuais do Azure
 Um conjunto de escala de máquina virtual Azure pode aumentar ou diminuir automaticamente o número de instâncias VM que executam a sua aplicação. Este comportamento automatizado e elástico reduz a sobrecarga de gestão para monitorizar e otimizar o desempenho da sua aplicação. Cria regras que definem o desempenho aceitável para uma experiência positiva do cliente. Quando esses limiares definidos são cumpridos, as regras de autoescala tomam medidas para ajustar a capacidade do seu conjunto de escala. Também pode agendar eventos para aumentar ou diminuir automaticamente a capacidade da sua escala definida em horários fixos. Este artigo fornece uma visão geral das métricas de desempenho disponíveis e quais as ações que a autoescala pode realizar.
@@ -142,4 +142,4 @@ Esta visão geral detalha como utilizar regras de autoescala para escalar horizo
 
 Para obter informações sobre como gerir as suas instâncias em VM, consulte [Gerir conjuntos de balanças de máquinas virtuais com Azure PowerShell](./virtual-machine-scale-sets-manage-powershell.md).
 
-Para aprender a gerar alertas quando as suas regras de autoescalação disparam, consulte [utilizar ações de autoescala para enviar notificações de alerta de email e webhook no Azure Monitor](../azure-monitor/platform/autoscale-webhook-email.md). Também pode [utilizar registos de auditoria para enviar notificações de alerta de email e webhook no Azure Monitor](../azure-monitor/platform/alerts-log-webhook.md).
+Para aprender a gerar alertas quando as suas regras de autoescalação disparam, consulte [utilizar ações de autoescala para enviar notificações de alerta de email e webhook no Azure Monitor](../azure-monitor/autoscale/autoscale-webhook-email.md). Também pode [utilizar registos de auditoria para enviar notificações de alerta de email e webhook no Azure Monitor](../azure-monitor/alerts/alerts-log-webhook.md).

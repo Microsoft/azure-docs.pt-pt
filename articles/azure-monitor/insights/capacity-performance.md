@@ -1,17 +1,17 @@
 ---
-title: Solução de capacidade e desempenho no Azure Monitor Microsoft Docs
+title: Solução de capacidade e desempenho no Azure Monitor | Microsoft Docs
 description: Utilize a solução de capacidade e desempenho no Monitor para o ajudar a compreender a capacidade dos seus servidores Hiper-V.
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/13/2017
-ms.openlocfilehash: ee5aec2e483f41c73d57fc1d91427e5657bda3e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9fce67c0ffe1951b0bfc325603b6d8f985dd804d
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87317999"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592196"
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-deprecated"></a>Plan Hyper-V capacidade de máquina virtual com a solução capacidade e desempenho (depreciada)
 
@@ -39,12 +39,12 @@ A solução:
 
 A tabela seguinte descreve as origens ligadas que são suportadas por esta solução.
 
-| Origem Ligada | Suporte | Descrição |
+| Origem Ligada | Suporte | Description |
 |---|---|---|
-| [Agentes do Windows](../platform/agent-windows.md) | Sim | A solução recolhe informações de capacidade e dados de desempenho de agentes do Windows. |
-| [Agentes do Linux](../learn/quick-collect-linux-computer.md) | Não | A solução não recolhe informações de capacidade e dados de desempenho de agentes linux diretos.|
-| [Grupo de gestão SCOM](../platform/om-agents.md) | Sim |A solução recolhe dados de capacidade e desempenho de agentes de um grupo de gestão SCOM conectado. Não é necessária uma ligação direta do agente SCOM ao Log Analytics.|
-| [Conta de armazenamento Azure](../platform/resource-logs.md#send-to-log-analytics-workspace) | Não | O armazenamento do azul não inclui dados de capacidade e desempenho.|
+| [Agentes do Windows](../agents/agent-windows.md) | Yes | A solução recolhe informações de capacidade e dados de desempenho de agentes do Windows. |
+| [Agentes do Linux](../vm/quick-collect-linux-computer.md) | No    | A solução não recolhe informações de capacidade e dados de desempenho de agentes linux diretos.|
+| [Grupo de gestão SCOM](../agents/om-agents.md) | Yes |A solução recolhe dados de capacidade e desempenho de agentes de um grupo de gestão SCOM conectado. Não é necessária uma ligação direta do agente SCOM ao Log Analytics.|
+| [Conta de armazenamento Azure](../essentials/resource-logs.md#send-to-log-analytics-workspace) | No | O armazenamento do azul não inclui dados de capacidade e desempenho.|
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -72,7 +72,7 @@ New Management Pack with id:"Microsoft.IntelligencePacks.CapacityPerformance", v
 
 Quando a solução capacidade e desempenho for atualizada, o número da versão mudará.
 
-Para obter mais informações sobre como são atualizados os pacotes de gestão da solução, veja [Connect Operations Manager to Log Analytics (Ligar o Operations Manager ao Log Analytics)](../platform/om-agents.md).
+Para obter mais informações sobre como são atualizados os pacotes de gestão da solução, veja [Connect Operations Manager to Log Analytics (Ligar o Operations Manager ao Log Analytics)](../agents/om-agents.md).
 
 ## <a name="using-the-solution"></a>Utilizar a solução
 
@@ -117,7 +117,7 @@ Resumindo, a solução recolhe dados de capacidade e desempenho de várias fonte
 A tabela seguinte fornece pesquisas de registo de amostras para dados de capacidade e desempenho recolhidos e calculados por esta solução.
 
 
-| Consulta | Descrição |
+| Consulta | Description |
 |:--- |:--- |
 | Todas as configurações de memória do anfitrião | Perf &#124; onde ObjectName == "Capacidade e Desempenho" e ContraName == "Host Assigned Memory MB" &#124; resumir MB = avg (CounterValue) by InstanceName |
 | Todas as configurações de memória VM | Perf &#124; onde ObjectName == "Capacidade e Desempenho" e ContraName == "VM Memória Atribuída MB" &#124; resumir MB = avg (ContraValue) por ExemploName |
@@ -129,5 +129,5 @@ A tabela seguinte fornece pesquisas de registo de amostras para dados de capacid
 
 
 ## <a name="next-steps"></a>Passos seguintes
-* Utilize pesquisas de Log no Log Analytics para visualizar [dados](../log-query/log-query-overview.md) detalhados de capacidade e desempenho.
+* Utilize pesquisas de Log no Log Analytics para visualizar [dados](../logs/log-query-overview.md) detalhados de capacidade e desempenho.
 

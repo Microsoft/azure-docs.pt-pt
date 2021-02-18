@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: cherylmc
-ms.openlocfilehash: 62979a2cbe2a5912476ca65327a06eef9c36c1cb
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: a5bbcc4c07826a5093da3f51c709f49ceb231753
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98127894"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100596081"
 ---
 # <a name="azure-virtual-wan-logs-and-metrics"></a>Registos e métricas Azure Virtual WAN
 
@@ -130,4 +130,4 @@ Substitua os valores abaixo, após o **= =**, conforme necessário.
 ## <a name="next-steps"></a>Passos seguintes
 
 * Para aprender a monitorizar registos e métricas do Azure Firewall, consulte [Tutorial: Monitor Azure Firewall .](../firewall/firewall-diagnostics.md)
-* Para saber mais sobre as métricas no Azure Monitor, consulte [métricas no Azure Monitor](../azure-monitor/platform/data-platform-metrics.md).
+* Para saber mais sobre as métricas no Azure Monitor, consulte [métricas no Azure Monitor](../azure-monitor/essentials/data-platform-metrics.md).

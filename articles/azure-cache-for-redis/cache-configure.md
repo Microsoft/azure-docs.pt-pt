@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: yegu
-ms.openlocfilehash: c13821544ff9725a387534370fc716c70072bb85
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: ba021d280f71504ad5c1e1aea0dc1c8c6b507b1e
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99831778"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100581079"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Como configurar cache Azure para Redis
 Este tópico descreve as configurações disponíveis para o seu Azure Cache para instâncias Redis. Este tópico também cobre a configuração padrão do servidor Redis para Azure Cache para instâncias Redis.
@@ -62,7 +62,7 @@ Pode visualizar e configurar as seguintes definições utilizando o **Menu de Re
     * [Novo pedido de apoio](#new-support-request)
 
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 **A visão geral** fornece-lhe informações básicas sobre o seu cache, tais como nome, portas, nível de preços e métricas de cache selecionadas.
 
@@ -341,10 +341,10 @@ Clique **em regras de alerta** para configurar alertas com base em Cache Azure p
 
 ### <a name="diagnostics"></a>Diagnóstico
 
-Por predefinição, as métricas de cache no Azure Monitor são [armazenadas durante 30 dias](../azure-monitor/platform/data-platform-metrics.md) e depois eliminadas. Para persistir as suas métricas de cache por mais de 30 dias, clique em **Diagnósticos** para [configurar a conta de armazenamento](cache-how-to-monitor.md#export-cache-metrics) utilizada para armazenar diagnósticos de cache.
+Por predefinição, as métricas de cache no Azure Monitor são [armazenadas durante 30 dias](../azure-monitor/essentials/data-platform-metrics.md) e depois eliminadas. Para persistir as suas métricas de cache por mais de 30 dias, clique em **Diagnósticos** para [configurar a conta de armazenamento](cache-how-to-monitor.md#export-cache-metrics) utilizada para armazenar diagnósticos de cache.
 
 >[!NOTE]
->Além de arquivar as suas métricas de cache para armazenamento, também pode [transmiti-las para um hub de Eventos ou enviá-las para registos do Azure Monitor](../azure-monitor/platform/stream-monitoring-data-event-hubs.md).
+>Além de arquivar as suas métricas de cache para armazenamento, também pode [transmiti-las para um hub de Eventos ou enviá-las para registos do Azure Monitor](../azure-monitor/essentials/stream-monitoring-data-event-hubs.md).
 >
 >
 

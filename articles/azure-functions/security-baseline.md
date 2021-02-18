@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 5b38da5539cb80110b2a769a219213a5c74e1506
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: b57de23bf59f1b9c84674fe95495f980c4594e2a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98198560"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100587606"
 ---
 # <a name="azure-security-baseline-for-azure-functions"></a>Linha de segurança Azure para Funções Azure
 
@@ -207,9 +207,9 @@ Pode utilizar o Azure PowerShell ou o Azure CLI para procurar ou executar açõe
 
 **Orientação**: Utilize o Registo de Atividades Azure para monitorizar as configurações de recursos de rede e detetar alterações para as definições de rede e recursos relacionados com as suas implementações de Funções Azure. Crie alertas dentro do Azure Monitor que irão desencadear quando ocorrerem alterações nas definições ou recursos críticos da rede. 
 
-- [Como visualizar e recuperar eventos de Registo de Atividades Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [Como visualizar e recuperar eventos de Registo de Atividades Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Como criar alertas no Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+- [Como criar alertas no Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitorização do Centro de Segurança do Azure**: Não aplicável
 
@@ -237,7 +237,7 @@ Se tiver um registo de segurança/auditoria personalizado incorporado dentro da 
 
 Opcionalmente, pode ativar e a bordo dados para Azure Sentinel ou um SIEM de terceiros. 
 
-- [Como ativar definições de diagnóstico para registo de atividades azure](../azure-monitor/platform/activity-log.md)
+- [Como ativar definições de diagnóstico para registo de atividades azure](../azure-monitor/essentials/activity-log.md)
 
 - [Como configurar funções Azure com Insights de Aplicação Azure](./functions-monitoring.md)
 
@@ -255,7 +255,7 @@ Opcionalmente, pode ativar e a bordo dados para Azure Sentinel ou um SIEM de ter
 
 Se tiver um registo de segurança/auditoria personalizado incorporado dentro da sua aplicação de função, ative a definição de diagnóstico "FunctionAppLogs" e envie os registos para um espaço de trabalho do Log Analytics, centro de eventos Azure ou conta de armazenamento Azure para arquivo. 
 
-- [Como ativar definições de diagnóstico para registo de atividades azure](../azure-monitor/platform/activity-log.md)
+- [Como ativar definições de diagnóstico para registo de atividades azure](../azure-monitor/essentials/activity-log.md)
 
 - [Como ativar definições de diagnóstico (registos gerados pelo utilizador) para funções Azure](./functions-monitor-log-analytics.md)
 
@@ -275,7 +275,7 @@ Se tiver um registo de segurança/auditoria personalizado incorporado dentro da 
 
 **Orientação**: No Azure Monitor, detenva o período de retenção de registos para os espaços de trabalho do Log Analytics associados às aplicações de função de acordo com os regulamentos de conformidade da sua organização.
 
-- [Como definir parâmetros de retenção de registos](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Como definir parâmetros de retenção de registos](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Monitorização do Centro de Segurança do Azure**: Não aplicável
 
@@ -291,7 +291,7 @@ Se tiver um registo de segurança/auditoria personalizado incorporado dentro da 
 
 Opcionalmente, pode ativar e a bordo dados para Azure Sentinel ou um SIEM de terceiros. 
 
-- [Como ativar as definições de diagnóstico para registo de atividades Azure](../azure-monitor/platform/activity-log.md)
+- [Como ativar as definições de diagnóstico para registo de atividades Azure](../azure-monitor/essentials/activity-log.md)
 
 - [Como ativar as definições de diagnóstico para funções Azure](./functions-monitor-log-analytics.md)
 
@@ -311,13 +311,13 @@ Ative o Application Insights para as suas aplicações de função para recolher
 
 Opcionalmente, pode ativar e a bordo dados para Azure Sentinel ou um SIEM de terceiros. 
 
-- [Como ativar as definições de diagnóstico para registo de atividades Azure](../azure-monitor/platform/activity-log.md)
+- [Como ativar as definições de diagnóstico para registo de atividades Azure](../azure-monitor/essentials/activity-log.md)
 
 - [Como ativar as definições de diagnóstico para funções Azure](./functions-monitor-log-analytics.md)
 
 - [Como ativar insights de aplicação para funções Azure](./configure-monitoring.md#enable-application-insights-integration)
 
-- [Como criar alertas dentro do Azure](../azure-monitor/learn/tutorial-response.md)
+- [Como criar alertas dentro do Azure](../azure-monitor/alerts/tutorial-response.md)
 
 - [Como embarcar Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -631,7 +631,7 @@ A Microsoft gere a infraestrutura subjacente às Funções Azure e implementou r
 
 **Orientação**: Utilize o Monitor Azure com o registo de Atividade Azure para criar alertas para quando ocorrerem alterações nas aplicações de função de produção, bem como outros recursos críticos ou relacionados.
 
-- [Como criar alertas para eventos de Registo de Atividades Azure](../azure-monitor/platform/alerts-activity-log.md)
+- [Como criar alertas para eventos de Registo de Atividades Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitorização do Centro de Segurança do Azure**: Não aplicável
 

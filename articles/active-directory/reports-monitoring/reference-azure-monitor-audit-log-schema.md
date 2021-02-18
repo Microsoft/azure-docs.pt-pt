@@ -1,5 +1,5 @@
 ---
-title: Interprete o esquema de registo de auditoria do Azure Ative Directory no Azure Monitor Microsoft Docs
+title: Interprete o esquema de registo de auditoria do Azure Ative Directory no Azure Monitor | Microsoft Docs
 description: Descreva o esquema de registo de auditoria AZure AD para utilização no Azure Monitor
 services: active-directory
 documentationcenter: ''
@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc7a5e2e45cd3d76c0d8af612291ecaf9893b5b5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b4d32e0b939731d64f3ef2495ab606b5dc0780e4
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89231100"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592289"
 ---
 # <a name="interpret-the-azure-ad-audit-logs-schema-in-azure-monitor-preview"></a>Interpretar o esquema de registos de auditoria AZure AD no Azure Monitor (pré-visualização)
 
@@ -147,7 +147,7 @@ Este artigo descreve o esquema de registo de auditoria Azure Ative (Azure AD) no
 
 ## <a name="field-and-property-descriptions"></a>Descrições de campo e de propriedade
 
-| Nome do campo | Descrição |
+| Nome do campo | Description |
 |------------|-------------|
 | hora       | A data e a hora (UTC). |
 | operationName | O nome da operação. |
@@ -167,11 +167,11 @@ Este artigo descreve o esquema de registo de auditoria Azure Ative (Azure AD) no
 
 <br>
 
-| Nome da propriedade | Descrição |
+| Nome da propriedade | Description |
 |---------------|-------------|
 | AuditEventCategoria | O tipo de evento de auditoria. Pode ser *Gestão de Utilizadores,* *Gestão de Aplicações,* ou outro tipo.|
 | Tipo de Identidade | O tipo pode ser *Aplicação* ou *Utilizador.* |
-| Tipo de operação | O tipo pode ser *Adicionar*, *Atualizar*, *Eliminar*. ou *Outros*. |
+| Tipo de Operação | O tipo pode ser *Adicionar*, *Atualizar*, *Eliminar*. ou *Outros*. |
 | Tipo de recurso alvo | Especifica o tipo de recurso-alvo em que a operação foi realizada. O tipo pode ser *Aplicação,* *Utilizador,* *Papel,* *Política* | 
 | Nome do recurso alvo | O nome do recurso alvo. Pode ser um nome de aplicação, um nome de papel, um nome principal do utilizador ou um nome principal de serviço. |
 | adicionalsagets | Lista quaisquer propriedades adicionais para operações específicas. Por exemplo, para uma operação de atualização, os valores antigos e os novos valores estão listados no *âmbito das Propriedades Dedada.* | 
@@ -179,5 +179,5 @@ Este artigo descreve o esquema de registo de auditoria Azure Ative (Azure AD) no
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Interpret sign-in logs schema in Azure Monitor](reference-azure-monitor-sign-ins-log-schema.md) (Interpretar o esquema dos registos de início de sessão no Azure Monitor)
-* [Registos de diagnóstico do Azure](../../azure-monitor/platform/platform-logs-overview.md)
+* [Registos de diagnóstico do Azure](../../azure-monitor/essentials/platform-logs-overview.md)
 * [Perguntas mais frequentes e problemas conhecidos](concept-activity-logs-azure-monitor.md#frequently-asked-questions)

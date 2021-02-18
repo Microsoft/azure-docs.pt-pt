@@ -2,13 +2,13 @@
 title: Clusters geridos por tecido de serviço (pré-visualização)
 description: Os clusters geridos pela Service Fabric são uma evolução do modelo de recursos de cluster Azure Service Fabric que dinamiza a implementação e gestão de clusters.
 ms.topic: overview
-ms.date: 09/28/2020
-ms.openlocfilehash: 3d26a92126491662d5c51b3c4e8900ffa547f830
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 02/15/2021
+ms.openlocfilehash: 8b90b73ef5f3202788ac7857875427673ebb562b
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91410496"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100635150"
 ---
 # <a name="service-fabric-managed-clusters-preview"></a>Clusters geridos por tecido de serviço (pré-visualização)
 
@@ -59,24 +59,29 @@ Os clusters geridos do Service Fabric estão disponíveis tanto em SKUs Básicos
 | Contagem de nó min (exemplo VM) | 3 | 5 |
 | Contagem de nó máximo por tipo de nó | 100 | 100 |
 | Contagem de tipo de nó máximo | 1 | 20 |
-| Adicionar/remover tipos de nó | Não | Sim |
-| Redundância entre zonas | Não | Sim |
+| Adicionar/remover tipos de nó | No | Yes |
+| Redundância entre zonas | No | Yes |
 
-## <a name="service-fabric-managed-cluster-feature-roadmap"></a>Roteiro de funcionalidade de cluster gerido de tecido de serviço
-Como esta é uma versão de pré-visualização antecipada dos clusters geridos por Service Fabric existem algumas lacunas a ter em conta. Estas funcionalidades ficarão disponíveis em futuras versões. 
+## <a name="whats-new-for-service-fabric-managed-clusters"></a>Quais as novidades para clusters geridos de Tecido de Serviço
 
-* Publicar aplicações para clusters diretamente do Visual Studio
-* Identidades geridas 
-* Implementações de aplicações ARM 
-* Zonas de Disponibilidade 
-* Procuração inversa 
-* Auto escalonamento 
-* Atualizar as regras do NSG 
-* Atualizações auto-OS
+As funcionalidades mais recentes para a pré-visualização de clusters geridos por Tecido de Serviço incluem suporte para:
+
+* [Implementação de aplicações utilizando modelos ARM](how-to-managed-cluster-app-deployment-template.md)
+* [Atualizações automáticas do SO](how-to-managed-cluster-configuration.md#enable-automatic-os-image-upgrades)
+* [Encriptação do disco](how-to-enable-managed-cluster-disk-encryption.md)
+* [Aplicação das regras NSG](how-to-managed-cluster-configuration.md#apply-nsg-rules)
+
+As funcionalidades a adicionar nas próximas versões incluem:
+
+* Implementação de aplicações utilizando o Visual Studio
+* Suporte de identidades geridas
+* Zonas de Disponibilidade
+* Procuração inversa
+* Dimensionamento automático
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para começar com clusters geridos pela Service Fabric, experimente o arranque rápido:
+Para começar com clusters geridos de Service Fabric, experimente o arranque rápido:
 
 > [!div class="nextstepaction"]
 > [Criar um cluster gerido por Tecido de Serviço (pré-visualização)](quickstart-managed-cluster-template.md)

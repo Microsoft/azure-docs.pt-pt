@@ -24,9 +24,9 @@
       items:
         - name: Firebase Cloud Messaging
           items:
-            - name: Enviar notificações push para todos os registos (Versão SDK 1.0.0-pré-visualização1)
+            - name: Enviar notificações push para todos os registos (Atual SDK)
               href: android-sdk.md
-            - name: Enviar notificações push para todos os registos (Versão SDK 0.6)
+            - name: Enviar notificações push para todos os registos (Legacy SDK)
               href: notification-hubs-android-push-notification-google-fcm-get-started.md
             - name: Enviar notificações push para dispositivos específicos
               href: push-notifications-android-specific-devices-firebase-cloud-messaging.md
@@ -50,10 +50,10 @@
           items:
             - name: Pré-requisitos para tutoriais iOS
               href: ios-sdk-get-started.md
-            - name: Objetivo C (versão 3.0.0 - pré-visualização 1)
-              href: ios-sdk-300.md
-            - name: Objetivo C (versão 2.0.4)
-              href: ios-sdk-204.md
+            - name: Objectivo-C (Atual SDK)
+              href: ios-sdk-current.md
+            - name: Objectivo-C (Legacy SDK)
+              href: ios-sdk-legacy.md
         - name: Enviar notificações push para dispositivos específicos
           href: notification-hubs-ios-xplat-segmented-apns-push-notification.md
         - name: Enviar notificações push para utilizadores específicos

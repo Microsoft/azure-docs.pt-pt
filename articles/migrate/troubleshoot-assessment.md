@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: cefcd4ce287eecfe2c764d88d5d2233cc8ac0a5c
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 4eeda2e4e418920522f7a65bef68928963c43ad4
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96753450"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100581791"
 ---
 # <a name="troubleshoot-assessmentdependency-visualization"></a>Resolver problemas de avaliação/visualização de dependência
 
@@ -22,7 +22,7 @@ Este artigo ajuda-o a resolver problemas com avaliação e visualização de dep
 
 Corrigir problemas de prontidão de avaliação da seguinte forma:
 
-**Problema** | **Correção**
+**Emissão** | **Correção**
 --- | ---
 Tipo de bota não suportada | O Azure não suporta VMs com um tipo de bota EFI. Recomendamos que converta o tipo de porta-malas em BIOS antes de fazer uma migração. <br/><br/>Pode utilizar a migração do servidor Azure Migrate para lidar com a migração de tais VMs. Converterá o tipo de arranque do VM para BIOS durante a migração.
 Sistema operativo Windows suportado condicionalmente | O sistema operativo passou a sua data de fim de suporte e precisa de um Acordo de Apoio Personalizado (CSA) para [apoio no Azure](/troubleshoot/azure/virtual-machines/server-software-support). Considere melhorar antes de migrar para Azure. [Reveja]() informações sobre [a preparação de máquinas que executam o Windows Server 2003](prepare-windows-server-2003-migration.md) para migração para Azure.
@@ -75,7 +75,7 @@ A avaliação do servidor Azure Migrate poderá recomendar SKUs Azure VM com mai
 
 - A recomendação VM SKU depende das propriedades de avaliação.
 - Isto é afetado pelo tipo de avaliação que realiza na Avaliação do Servidor: *Baseada no Desempenho* ou como no *local*.
-- Para avaliações baseadas no desempenho, a Avaliação do Servidor considera os dados de utilização dos VMs no local (CPU, memória, disco e utilização da rede) para determinar o alvo certo VM SKU para os seus VMs no local. Também adiciona um fator de conforto ao determinar uma utilização eficaz.
+- Para as avaliações com base no desempenho, a Avaliação do Servidor considera os dados de utilização das VMs no local (utilização da CPU, da memória, do disco e da rede) para determinar o SKU da VM de destino ideal para as VMs no local. Também adiciona um fator de conforto ao determinar uma utilização eficaz.
 - Para o dimensionamento no local, os dados de desempenho não são considerados, e o SKU-alvo é recomendado com base na atribuição no local.
 
 Para mostrar como isto pode afetar as recomendações, vejamos um exemplo:
@@ -160,12 +160,12 @@ Para VMs windows:
 
     ![Estatuto de MMA](./media/troubleshoot-assessment/mma-properties.png)
 
-Para os VMs Linux, certifique-se de que os comandos de instalação para o MMA e o agente de dependência foram bem sucedidos. Consulte [aqui](../azure-monitor/insights/service-map.md#post-installation-issues)mais orientações de resolução de problemas.
+Para os VMs Linux, certifique-se de que os comandos de instalação para o MMA e o agente de dependência foram bem sucedidos. Consulte [aqui](../azure-monitor/vm/service-map.md#post-installation-issues)mais orientações de resolução de problemas.
 
 ## <a name="supported-operating-systems"></a>Sistemas operativos suportados
 
-- **Agente MMS**: Reveja os sistemas operativos [Windows](../azure-monitor/platform/agents-overview.md#supported-operating-systems)e [Linux](../azure-monitor/platform/agents-overview.md#supported-operating-systems) suportados.
-- **Agente de dependência:** os sistemas operativos [Windows e Linux](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) suportados.
+- **Agente MMS**: Reveja os sistemas operativos [Windows](../azure-monitor/agents/agents-overview.md#supported-operating-systems)e [Linux](../azure-monitor/agents/agents-overview.md#supported-operating-systems) suportados.
+- **Agente de dependência:** os sistemas operativos [Windows e Linux](../azure-monitor/vm/vminsights-enable-overview.md#supported-operating-systems) suportados.
 
 ## <a name="visualize-dependencies-for--hour"></a>Visualizar dependências para > hora
 

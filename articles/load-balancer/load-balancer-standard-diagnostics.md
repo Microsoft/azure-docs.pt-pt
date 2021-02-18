@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/25/2021
 ms.author: allensu
-ms.openlocfilehash: 43d83d994c9a4ee3cf89b584f6c3835a62fa2cfe
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: fbde2b95b7aca205f164dc45c1f0170cc4da74fb
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98806003"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100581889"
 ---
 # <a name="standard-load-balancer-diagnostics-with-metrics-alerts-and-resource-health"></a>Diagnóstico do Balanceador de Carga Standard com métricas, alertas e estado de funcionamento dos recursos
 
@@ -34,7 +34,7 @@ O Azure Load Balancer fornece métricas multidimensionais através das Métricas
 
 As várias configurações standard de balançadores de carga fornecem as seguintes métricas:
 
-| Metric | Tipo de recurso | Descrição | Agregação recomendada |
+| Metric | Tipo de recurso | Description | Agregação recomendada |
 | --- | --- | --- | --- |
 | Disponibilidade do caminho dos dados | Balanceador de carga público e interno | O Balanceador de Carga Standard exerce continuamente o caminho de dados a partir de uma região para o front-end do balanceador de carga, até à pilha SDN que suporta a sua VM. Enquanto se mantiverem casos saudáveis, a medição segue o mesmo caminho que o tráfego equilibrado da sua aplicação. O caminho de dados que os clientes utilizam também é validado. A medição é invisível para a aplicação e não interfere com outras operações.| Média |
 | Estado da sonda de estado de funcionamento | Balanceador de carga público e interno | O Standard Load Balancer utiliza um serviço de sondagem de saúde distribuído que monitoriza a saúde do seu ponto final de aplicação de acordo com as definições de configuração. Esta métrica proporciona uma vista filtrada agregada ou por ponto final de cada ponto final no conjunto do balanceador de carga. Pode ver como o Balanceador de Carga vê o estado de funcionamento da sua aplicação, conforme indicado pela configuração da sonda de estado de funcionamento. |  Média |
@@ -72,7 +72,7 @@ Para ver as métricas dos seus recursos standard balanceador de carga:
 
 ### <a name="retrieve-multi-dimensional-metrics-programmatically-via-apis"></a>Recuperar métricas multidimensionais programáticamente através de APIs
 
-Para obter orientações da API para a recuperação de definições e valores métricos multidimensionais, consulte [a Azure Monitoring REST API walkthrough](../azure-monitor/platform/rest-api-walkthrough.md#retrieve-metric-definitions-multi-dimensional-api). Estas métricas podem ser escritas numa conta de armazenamento adicionando uma [Definição de Diagnóstico](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) para a categoria 'Todas as Métricas'. 
+Para obter orientações da API para a recuperação de definições e valores métricos multidimensionais, consulte [a Azure Monitoring REST API walkthrough](../azure-monitor/essentials/rest-api-walkthrough.md#retrieve-metric-definitions-multi-dimensional-api). Estas métricas podem ser escritas numa conta de armazenamento adicionando uma [Definição de Diagnóstico](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) para a categoria 'Todas as Métricas'. 
 
 ### <a name="configure-alerts-for-multi-dimensional-metrics"></a>Alertas de configuração para métricas multidimensionais ###
 
@@ -232,7 +232,7 @@ O gráfico permite que os clientes resolvam a implementação por conta própria
 
 O estado de saúde dos recursos do Balanceador de Carga Padrão é exposto através da **saúde dos recursos** existentes no **âmbito do Serviço de > Saúde** do Serviço de Monitorização . É avaliado de **dois em dois minutos** medindo a disponibilidade do caminho de dados que determina se os seus pontos finais de equilíbrio de carga frontal estão disponíveis.
 
-| Estado da saúde dos recursos | Descrição |
+| Estado da saúde dos recursos | Description |
 | --- | --- |
 | Disponível | O seu recurso balanceador de carga padrão é saudável e disponível. |
 | Degradado | O seu balanceador de carga padrão tem eventos iniciados pela plataforma ou pelo utilizador com impacto no desempenho. A métrica de Disponibilidade do DataPath comunicou um estado de funcionamento inferior a 90%, mas superior a 25% durante, pelo menos, dois minutos. Você vai experimentar um impacto de desempenho moderado a grave. [Siga o guia RHC de resolução de problemas](https://docs.microsoft.com/azure/load-balancer/troubleshoot-rhc) para determinar se existem eventos iniciados pelo utilizador que causam impacto na sua disponibilidade.
@@ -261,7 +261,7 @@ Para ver a saúde dos seus recursos públicos standard balancer:
 A descrição genérica do estado de saúde dos recursos está disponível na documentação do [RHC](../service-health/resource-health-overview.md). Para os estatutos específicos do Balançador de Carga Azure estão listados na tabela abaixo: 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre a [utilização de Insights](https://docs.microsoft.com/azure/load-balancer/load-balancer-insights) para visualizar estas métricas pré-configuradas para o seu Balancer de Carga
 - Saiba mais sobre [o Balancer de Carga Padrão](./load-balancer-overview.md).

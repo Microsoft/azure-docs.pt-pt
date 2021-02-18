@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/31/2019
 ms.author: tomsh
-ms.openlocfilehash: c3674b6877438a0dd4fe53569cf6852e872334a7
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: 4bc30fbf342a9bc85b52c9f88ce7ca1df3c36e23
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98693617"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595506"
 ---
 # <a name="azure-operational-security-overview"></a>Visão geral da segurança operacional do Azure
 
@@ -94,7 +94,7 @@ O Centro de Segurança avalia a configuração dos seus recursos para identifica
 >[!Note]
 >Para saber mais sobre funções e ações permitidas no Centro de Segurança, consulte [permissões no Centro de Segurança Azure.](../../security-center/security-center-permissions.md)
 
-O Security Center utiliza o Agente de Monitorização da Microsoft. Este é o mesmo agente que o serviço Azure Monitor utiliza. Os dados recolhidos deste agente são armazenados num espaço de [trabalho](../../azure-monitor/platform/manage-access.md) existente do Log Analytics associado à sua subscrição Azure ou a um novo espaço de trabalho, tendo em conta a geolocalização do VM.
+O Security Center utiliza o Agente de Monitorização da Microsoft. Este é o mesmo agente que o serviço Azure Monitor utiliza. Os dados recolhidos deste agente são armazenados num espaço de [trabalho](../../azure-monitor/logs/manage-access.md) existente do Log Analytics associado à sua subscrição Azure ou a um novo espaço de trabalho, tendo em conta a geolocalização do VM.
 
 ## <a name="azure-monitor"></a>Azure Monitor
 
@@ -108,23 +108,23 @@ O Monitor Azure inclui os seguintes componentes.
 
 ### <a name="azure-activity-log"></a>Registo de Atividades do Azure
 
-O [Azure Activity Log](../../azure-monitor/platform/platform-logs-overview.md) fornece informações sobre as operações que foram realizadas sobre os recursos na sua subscrição. Anteriormente era conhecido como "Registo de Auditoria" ou "Registo Operacional", porque reporta eventos de control-plane para as suas subscrições.
+O [Azure Activity Log](../../azure-monitor/essentials/platform-logs-overview.md) fornece informações sobre as operações que foram realizadas sobre os recursos na sua subscrição. Anteriormente era conhecido como "Registo de Auditoria" ou "Registo Operacional", porque reporta eventos de control-plane para as suas subscrições.
 
 ### <a name="azure-diagnostic-logs"></a>Registos de diagnóstico do Azure
 
-[Os registos de diagnóstico Azure](../../azure-monitor/platform/platform-logs-overview.md) são emitidos por um recurso e fornecem dados ricos e frequentes sobre o funcionamento desse recurso. O conteúdo destes registos varia consoá-lo por tipo de recurso.
+[Os registos de diagnóstico Azure](../../azure-monitor/essentials/platform-logs-overview.md) são emitidos por um recurso e fornecem dados ricos e frequentes sobre o funcionamento desse recurso. O conteúdo destes registos varia consoá-lo por tipo de recurso.
 
 Os registos do sistema de eventos windows são uma categoria de registos de diagnóstico para VMs. Os registos de bolhas, mesas e filas são categorias de registos de diagnóstico para contas de armazenamento.
 
-Os registos de diagnóstico diferem do Registo de [Atividade.](../../azure-monitor/platform/platform-logs-overview.md) O registo de Atividades fornece informações sobre as operações que foram realizadas sobre os recursos na sua subscrição. Os registos de diagnóstico fornecem informações sobre as operações que o seu recurso executou por si próprio.
+Os registos de diagnóstico diferem do Registo de [Atividade.](../../azure-monitor/essentials/platform-logs-overview.md) O registo de Atividades fornece informações sobre as operações que foram realizadas sobre os recursos na sua subscrição. Os registos de diagnóstico fornecem informações sobre as operações que o seu recurso executou por si próprio.
 
 ### <a name="metrics"></a>Métricas
 
-O Azure Monitor fornece telemetria que lhe dá visibilidade ao desempenho e saúde das suas cargas de trabalho no Azure. O tipo mais importante de dados de telemetria Azure são as [métricas](../../azure-monitor/platform/data-platform.md) (também chamadas contadores de desempenho) emitidas pela maioria dos recursos Azure. O Azure Monitor fornece várias formas de configurar e consumir estas métricas para monitorização e resolução de problemas.
+O Azure Monitor fornece telemetria que lhe dá visibilidade ao desempenho e saúde das suas cargas de trabalho no Azure. O tipo mais importante de dados de telemetria Azure são as [métricas](../../azure-monitor/data-platform.md) (também chamadas contadores de desempenho) emitidas pela maioria dos recursos Azure. O Azure Monitor fornece várias formas de configurar e consumir estas métricas para monitorização e resolução de problemas.
 
 ### <a name="azure-diagnostics"></a>Diagnóstico do Azure
 
-O Azure Diagnostics permite a recolha de dados de diagnóstico numa aplicação implementada. Pode utilizar a extensão de Diagnóstico de várias fontes. Atualmente suportados são [funções de serviço em nuvem Azure,](/visualstudio/azure/vs-azure-tools-configure-roles-for-cloud-service) [máquinas virtuais Azure](/visualstudio/azure/vs-azure-tools-configure-roles-for-cloud-service) que executam o Microsoft Windows e [Azure Service Fabric](../../azure-monitor/platform/diagnostics-extension-overview.md).
+O Azure Diagnostics permite a recolha de dados de diagnóstico numa aplicação implementada. Pode utilizar a extensão de Diagnóstico de várias fontes. Atualmente suportados são [funções de serviço em nuvem Azure,](/visualstudio/azure/vs-azure-tools-configure-roles-for-cloud-service) [máquinas virtuais Azure](/visualstudio/azure/vs-azure-tools-configure-roles-for-cloud-service) que executam o Microsoft Windows e [Azure Service Fabric](../../azure-monitor/agents/diagnostics-extension-overview.md).
 
 ## <a name="azure-network-watcher"></a>Observador de Rede do Azure
 
@@ -187,7 +187,7 @@ Os praticantes de DevOps maduros adotam várias das seguintes práticas. Estas p
 - [Infraestrutura como Código (IAC)](/azure/devops/learn/what-is-infrastructure-as-code) é uma prática que permite a automatização e validação da criação e demolição de redes e máquinas virtuais para ajudar a fornecer plataformas de hospedagem de aplicações seguras e estáveis.
 - A arquitetura [microserviços](/azure/devops/learn/what-are-microservices) é usada para isolar casos de uso de negócios em pequenos serviços reutilizáveis.  Esta arquitetura permite escalabilidade e eficiência.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre a solução segurança e auditoria, consulte os seguintes artigos:
 

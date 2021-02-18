@@ -5,16 +5,16 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seodec18, devx-track-azurecli
 ms.date: 01/03/2020
-ms.openlocfilehash: dc8528c40fe7e3b32e2f38152afc8abb0ae18ba5
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 09564bd149488d956586c8a0e349cd79eec358a1
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98945995"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100582754"
 ---
 # <a name="hdinsight-sdk-for-go-preview"></a>HDInsight SDK para Go (Pré-visualização)
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 O HDInsight SDK for Go fornece aulas e funções que lhe permitem gerir os seus clusters HDInsight. Inclui operações para criar, eliminar, atualizar, listar, redimensionar, executar ações de script, monitorizar, obter propriedades de clusters HDInsight, e muito mais.
 
 > [!NOTE]  
@@ -362,7 +362,7 @@ extClient.Authorizer, _ = credentials.Authorizer()
 ### <a name="enable-oms-monitoring"></a>Permitir a monitorização do OMS
 
 > [!NOTE]  
-> Para ativar o controlo OMS, tem de ter um espaço de trabalho log analytics existente. Se ainda não criou um, pode aprender a fazê-lo aqui: [Criar um espaço de trabalho Log Analytics no portal Azure.](../azure-monitor/learn/quick-create-workspace.md)
+> Para ativar o controlo OMS, tem de ter um espaço de trabalho log analytics existente. Se ainda não criou um, pode aprender a fazê-lo aqui: [Criar um espaço de trabalho Log Analytics no portal Azure.](../azure-monitor/logs/quick-create-workspace.md)
 
 Para ativar a monitorização do OMS no seu cluster:
 
@@ -486,6 +486,6 @@ for (page.NotDone()) {
 }
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Explore o [material de referência GoDoc.](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2015-03-01-preview/hdinsight) Os GoDocs fornecem documentação de referência para todas as funções do SDK.

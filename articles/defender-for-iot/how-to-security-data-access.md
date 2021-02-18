@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/04/2020
 ms.author: mlottner
-ms.openlocfilehash: 495f9d568760421c7f42df3acf74217c15b01a05
-ms.sourcegitcommit: 08458f722d77b273fbb6b24a0a7476a5ac8b22e0
+ms.openlocfilehash: d054b005b6b11e718662619b5525de3fc1ae5f4c
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98246344"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592650"
 ---
 # <a name="access-your-security-data"></a>Aceda aos seus dados de segurança
 
@@ -37,7 +37,7 @@ Para aceder aos seus alertas e recomendações no seu espaço de trabalho Log An
 1. Escolha um alerta ou recomendação no Defender para IoT.
 1. Clique **em mais investigação,** em seguida, clique **em ver quais os dispositivos que têm este clique de alerta aqui e ver a coluna DeviceId**.
 
-Para obter detalhes sobre a consulta de dados do Log Analytics, consulte [Começar com consultas no Log Analytics](../azure-monitor/log-query/get-started-queries.md).
+Para obter detalhes sobre a consulta de dados do Log Analytics, consulte [Começar com consultas no Log Analytics](../azure-monitor/logs/get-started-queries.md).
 
 ## <a name="security-alerts"></a>Alertas de segurança
 

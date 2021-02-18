@@ -6,12 +6,12 @@ ms.author: magoedte
 ms.topic: conceptual
 ms.date: 12/11/2020
 ms.subservice: ''
-ms.openlocfilehash: 26e7dbf3f5629d4691211b6c9b82446ba4035421
-ms.sourcegitcommit: fa807e40d729bf066b9b81c76a0e8c5b1c03b536
+ms.openlocfilehash: f3c9197faaae89e0ffb238f987ee66dafea8abdd
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97347639"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579800"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-automation"></a>Utilize o Azure Private Link para ligar de forma segura as redes à Azure Automation
 
@@ -34,7 +34,7 @@ Com Link Privado pode:
 - Ligue-se privadamente ao espaço de trabalho do Azure Monitor Log Analytics sem abrir qualquer acesso público à rede.
 
     >[!NOTE]
-    >É necessário um ponto final privado separado para o seu espaço de trabalho Log Analytics se a sua conta Demômes estiver ligada a um espaço de trabalho do Log Analytics para encaminhar dados de trabalho, e quando tiver ativado funcionalidades como Gestão de Atualização, Rastreio de Alterações e Inventário, Configuração do Estado ou VMs de início/paragem durante o horário de folga. Para obter mais informações sobre o Private Link for Azure Monitor, consulte [use Azure Private Link para ligar de forma segura as redes ao Azure Monitor](../../azure-monitor/platform/private-link-security.md).
+    >É necessário um ponto final privado separado para o seu espaço de trabalho Log Analytics se a sua conta Demômes estiver ligada a um espaço de trabalho do Log Analytics para encaminhar dados de trabalho, e quando tiver ativado funcionalidades como Gestão de Atualização, Rastreio de Alterações e Inventário, Configuração do Estado ou VMs de início/paragem durante o horário de folga. Para obter mais informações sobre o Private Link for Azure Monitor, consulte [use Azure Private Link para ligar de forma segura as redes ao Azure Monitor](../../azure-monitor/logs/private-link-security.md).
 
 - Certifique-se de que os seus dados de Automação só são acedidos através de redes privadas autorizadas.
 - Impedir a exfiltração de dados das suas redes privadas definindo o seu recurso Azure Automation que se conecta através do seu ponto final privado.
@@ -46,8 +46,8 @@ Para mais informações, consulte [os Principais Benefícios do Link Privado.](.
 ## <a name="limitations"></a>Limitações
 
 - Na implementação atual do Private Link, os trabalhos na nuvem de conta de automação não podem aceder aos recursos da Azure que são garantidos usando o ponto final privado. Por exemplo, Azure Key Vault, Azure SQL, Conta de Armazenamento Azure, etc. Para resolver isto, use um [Trabalhador De Runbook Híbrido.](../automation-hybrid-runbook-worker.md)
-- Tem de utilizar a versão mais recente do [agente Log Analytics](../../azure-monitor/platform/log-analytics-agent.md) para Windows ou Linux.
-- O [Log Analytics Gateway](../../azure-monitor/platform/gateway.md) não suporta o Link Privado.
+- Tem de utilizar a versão mais recente do [agente Log Analytics](../../azure-monitor/agents/log-analytics-agent.md) para Windows ou Linux.
+- O [Log Analytics Gateway](../../azure-monitor/agents/gateway.md) não suporta o Link Privado.
 
 ## <a name="how-it-works"></a>Como funciona
 
@@ -76,7 +76,7 @@ Para compreender & configurar a avaliação de Gestão de Atualização [sobre a
 
 Se pretender que as suas máquinas configuradas para a gestão de Atualização se conectem ao espaço de trabalho do & Do Registo de Adoção de Forma segura através do canal Private Link, tem de ativar o Link Privado para o espaço de trabalho Log Analytics ligado à Conta de Automação configurada com Ligação Privada.
 
-Pode controlar como um espaço de trabalho Log Analytics pode ser alcançado a partir de fora dos âmbitos de ligação privada, seguindo os passos descritos no [Configure Log Analytics](../../azure-monitor/platform/private-link-security.md#configure-log-analytics). Se definir **Permita o acesso à rede pública para ingestão** a **Nº,** então as máquinas fora dos âmbitos ligados não podem enviar dados para este espaço de trabalho. Se definir Permita o acesso à **rede pública para consultas** a **No,** então as máquinas fora dos âmbitos não podem aceder aos dados neste espaço de trabalho.
+Pode controlar como um espaço de trabalho Log Analytics pode ser alcançado a partir de fora dos âmbitos de ligação privada, seguindo os passos descritos no [Configure Log Analytics](../../azure-monitor/logs/private-link-security.md#configure-log-analytics). Se definir **Permita o acesso à rede pública para ingestão** a **Nº,** então as máquinas fora dos âmbitos ligados não podem enviar dados para este espaço de trabalho. Se definir Permita o acesso à **rede pública para consultas** a **No,** então as máquinas fora dos âmbitos não podem aceder aos dados neste espaço de trabalho.
 
 Utilize o sub-recurso alvo **DSCAndHybridWorker** para permitir o Private Link para os trabalhadores híbridos do sistema & do utilizador.
 
@@ -113,8 +113,8 @@ Nesta secção, irá criar um ponto final privado para a sua conta Demôm automa
     | Subscrição | Selecione a sua subscrição. |
     | Grupo de recursos | Selecione **myResourceGroup**. Criou isto na secção anterior.  |
     | **DETALHES DE INSTÂNCIA** |  |
-    | Nome | Insira o seu *PrivateEndpoint*. |
-    | Região | Selecione **A Sua Região**. |
+    | Name | Insira o seu *PrivateEndpoint*. |
+    | Region | Selecione **A Sua Região**. |
     |||
 
 4. Selecione **Seguinte: Recurso**.

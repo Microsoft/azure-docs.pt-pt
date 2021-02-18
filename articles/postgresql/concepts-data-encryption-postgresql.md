@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 730d12558e413d96909914d06187d0d5f89ec661
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.openlocfilehash: d9624fd899649f4e54c5bd509ed5961b862632dd
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98567526"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100581573"
 ---
 # <a name="azure-database-for-postgresql-single-server-data-encryption-with-a-customer-managed-key"></a>Azure Database para encriptação de dados de servidor único postgresQL com uma chave gerida pelo cliente
 
@@ -117,7 +117,7 @@ Para monitorizar o estado da base de dados e para permitir alertar para a perda 
 * [Azure Resource Health](../service-health/resource-health-overview.md): Uma base de dados inacessível que perdeu o acesso à chave do cliente mostra como "Inacessível" depois de ter sido negada a primeira ligação à base de dados.
 * [Registo de atividade](../service-health/alerts-activity-log-service-notifications-portal.md): Quando o acesso à chave do cliente no Cofre chave gerido pelo cliente falha, as entradas são adicionadas ao registo de atividade. Pode restabelecer o acesso o mais rapidamente possível, se criar alertas para estes eventos.
 
-* [Grupos de ação](../azure-monitor/platform/action-groups.md): Defina estes grupos para enviar notificações e alertas com base nas suas preferências.
+* [Grupos de ação](../azure-monitor/alerts/action-groups.md): Defina estes grupos para enviar notificações e alertas com base nas suas preferências.
 
 ## <a name="restore-and-replicate-with-a-customers-managed-key-in-key-vault"></a>Restaurar e replicar com a chave gerida por um cliente no Cofre chave
 

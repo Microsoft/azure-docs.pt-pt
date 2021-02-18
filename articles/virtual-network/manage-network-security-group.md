@@ -11,18 +11,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/13/2020
 ms.author: kumud
-ms.openlocfilehash: d42e0f5594fdde55f1b4183a806e388658e86dc3
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 5070b64c3900aa4ee1cf51519c7b64362ac37413
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98222943"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100596679"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>Criar, alterar ou eliminar um grupo de segurança de rede
 
 As regras de segurança nos grupos de segurança da rede permitem filtrar o tipo de tráfego de rede que pode fluir dentro e fora das sub-redes de rede virtuais e interfaces de rede. Para saber mais sobre os grupos de segurança de rede, consulte [a visão geral do grupo de segurança da rede.](./network-security-groups-overview.md) Em seguida, complete o tutorial [de tráfego da rede Filter](tutorial-filter-network-traffic.md) para ganhar alguma experiência com grupos de segurança de rede.
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -93,7 +93,7 @@ Em **Monitorização,** pode ativar ou desativar **as definições de Diagnósti
 
 Para saber mais sobre as definições comuns do Azure listadas, consulte os seguintes artigos:
 
-- [Registo de atividades](../azure-monitor/platform/platform-logs-overview.md)
+- [Registo de atividades](../azure-monitor/essentials/platform-logs-overview.md)
 - [Controlo de acesso (IAM)](../role-based-access-control/overview.md)
 - [Etiquetas](../azure-resource-manager/management/tag-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Bloqueios](../azure-resource-manager/management/lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
