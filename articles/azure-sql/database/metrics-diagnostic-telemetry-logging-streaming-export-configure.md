@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: wiassaf, sstein
 ms.date: 04/06/2020
-ms.openlocfilehash: 999bb83af6937d4a7b3d7ee8207e2fd689a23d35
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 1de2c1ff02c799d04f2ab2c81e83dda5001a531f
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96490842"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592735"
 ---
 # <a name="configure-streaming-export-of-azure-sql-database-and-sql-managed-instance-diagnostic-telemetry"></a>Configure exportação de streaming de Azure SQL Database e SQL Managed Instance telemetria de diagnóstico
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -37,17 +37,17 @@ Além de transmitir a exportação do registo De Insights Inteligentes, também 
 
 | Telemetria de diagnóstico para bases de dados | Suporte à base de dados Azure SQL | Suporte de Instância Gerida do SQL do Azure |
 | :------------------- | ----- | ----- |
-| [Métricas básicas](#basic-metrics): Contém percentagem de DTU/CPU, limite de DTU/CPU, percentagem de leitura de dados físicos, percentagem de registo, Sucesso/Falhado/Bloqueado por ligações de firewall, percentagem de sessões, percentagem de trabalhadores, armazenamento, percentagem de armazenamento e percentagem de armazenamento de XTP. | Sim | Não |
-| [Instância e App Advanced](#advanced-metrics): Contém dados de base de dados do sistema temporário e registo do tamanho do ficheiro e ficheiro de registo temporário por cento utilizado. | Sim | Não |
-| [QueryStoreRuntimeStatistics](#query-store-runtime-statistics): Contém informações sobre as estatísticas de tempo de consulta, tais como estatísticas de utilização de CPU e duração de consulta. | Sim | Sim |
-| [QueryStoreWaitStatistics](#query-store-wait-statistics): Contém informações sobre as estatísticas de espera de consulta (em que as suas consultas aguardavam) tais como CPU, LOG e LOCKING. | Sim | Sim |
-| [Erros](#errors-dataset): Contém informações sobre erros SQL numa base de dados. | Sim | Sim |
-| [DatabaseWaitStatistics](#database-wait-statistics-dataset): Contém informações sobre quanto tempo uma base de dados passou à espera de diferentes tipos de espera. | Sim | Não |
-| [Intervalos de](#time-outs-dataset)tempo : Contém informações sobre intervalos de tempo numa base de dados. | Sim | Não |
-| [Blocos](#blockings-dataset): Contém informações sobre o bloqueio de eventos numa base de dados. | Sim | Não |
-| [Impasses](#deadlocks-dataset): Contém informações sobre eventos de impasse numa base de dados. | Sim | Não |
-| [Sintonização Automática](#automatic-tuning-dataset): Contém informações sobre recomendações de sintonização automática para uma base de dados. | Sim | Não |
-| [SQLInsights](#intelligent-insights-dataset): Contém insights inteligentes sobre o desempenho de uma base de dados. Para saber mais, consulte [Insights Inteligentes.](intelligent-insights-overview.md) | Sim | Sim |
+| [Métricas básicas](#basic-metrics): Contém percentagem de DTU/CPU, limite de DTU/CPU, percentagem de leitura de dados físicos, percentagem de registo, Sucesso/Falhado/Bloqueado por ligações de firewall, percentagem de sessões, percentagem de trabalhadores, armazenamento, percentagem de armazenamento e percentagem de armazenamento de XTP. | Yes | No |
+| [Instância e App Advanced](#advanced-metrics): Contém dados de base de dados do sistema temporário e registo do tamanho do ficheiro e ficheiro de registo temporário por cento utilizado. | Yes | No |
+| [QueryStoreRuntimeStatistics](#query-store-runtime-statistics): Contém informações sobre as estatísticas de tempo de consulta, tais como estatísticas de utilização de CPU e duração de consulta. | Yes | Yes |
+| [QueryStoreWaitStatistics](#query-store-wait-statistics): Contém informações sobre as estatísticas de espera de consulta (em que as suas consultas aguardavam) tais como CPU, LOG e LOCKING. | Yes | Yes |
+| [Erros](#errors-dataset): Contém informações sobre erros SQL numa base de dados. | Yes | Yes |
+| [DatabaseWaitStatistics](#database-wait-statistics-dataset): Contém informações sobre quanto tempo uma base de dados passou à espera de diferentes tipos de espera. | Yes | No |
+| [Intervalos de](#time-outs-dataset)tempo : Contém informações sobre intervalos de tempo numa base de dados. | Yes | No |
+| [Blocos](#blockings-dataset): Contém informações sobre o bloqueio de eventos numa base de dados. | Yes | No |
+| [Impasses](#deadlocks-dataset): Contém informações sobre eventos de impasse numa base de dados. | Yes | No |
+| [Sintonização Automática](#automatic-tuning-dataset): Contém informações sobre recomendações de sintonização automática para uma base de dados. | Yes | No |
+| [SQLInsights](#intelligent-insights-dataset): Contém insights inteligentes sobre o desempenho de uma base de dados. Para saber mais, consulte [Insights Inteligentes.](intelligent-insights-overview.md) | Yes | Yes |
 
 > [!NOTE]
 > As definições de diagnóstico não podem ser configuradas para as **bases de dados** do sistema, tais são bases de dados master, msdb, modelo, recursos e bases de dados temporárias.
@@ -58,17 +58,17 @@ Esta telemetria de diagnóstico pode ser transmitida para um dos seguintes recur
 
 - **[Log Analytics espaço de trabalho:](#stream-into-sql-analytics)**
 
-  Os dados transmitidos para um [espaço de trabalho Log Analytics](../../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace) podem ser consumidos pela [SQL Analytics](../../azure-monitor/insights/azure-sql.md). O SQL Analytics é uma solução de monitorização apenas em nuvem que fornece uma monitorização inteligente das suas bases de dados que inclui relatórios de desempenho, alertas e recomendações de mitigação. Os dados transmitidos para um espaço de trabalho do Log Analytics podem ser analisados com outros dados de monitorização recolhidos e também permite-lhe alavancar outras funcionalidades do Azure Monitor, tais como alertas e visualizações
+  Os dados transmitidos para um [espaço de trabalho Log Analytics](../../azure-monitor/essentials/resource-logs.md#send-to-log-analytics-workspace) podem ser consumidos pela [SQL Analytics](../../azure-monitor/insights/azure-sql.md). O SQL Analytics é uma solução de monitorização apenas em nuvem que fornece uma monitorização inteligente das suas bases de dados que inclui relatórios de desempenho, alertas e recomendações de mitigação. Os dados transmitidos para um espaço de trabalho do Log Analytics podem ser analisados com outros dados de monitorização recolhidos e também permite-lhe alavancar outras funcionalidades do Azure Monitor, tais como alertas e visualizações
 - **[Hubs de Eventos Azure:](#stream-into-event-hubs)**
 
-  Os dados transmitidos para um [Azure Event Hub](../../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs)fornecem a seguinte funcionalidade:
+  Os dados transmitidos para um [Azure Event Hub](../../azure-monitor/essentials/resource-logs.md#send-to-azure-event-hubs)fornecem a seguinte funcionalidade:
 
   - **Fluxo de registos para sistemas de registo e telemetria** de terceiros : Transmita todas as suas métricas e registos de recursos para um único centro de eventos para obter dados de registo de tubos para uma ferramenta siem de terceiros ou ferramenta de análise de registo.
   - **Construa uma plataforma de telemetria e registo personalizado**: A natureza altamente escalável de publicação-subscrição dos centros de eventos permite-lhe ingerir métricas e registos de recursos de forma flexível numa plataforma de telemetria personalizada. Consulte [Designing e Dimensionamento de uma Plataforma global de Telemetria à Escala Global nos Hubs de Eventos Azure](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/) para mais detalhes.
   - **Ver saúde do serviço através do streaming de dados para Power BI**: Use Event Hubs, Stream Analytics e Power BI para transformar os seus dados de diagnóstico em insights quase em tempo real nos seus serviços Azure. Consulte [Stream Analytics e Power BI: Um dashboard de análise em tempo real para transmitir dados](../../stream-analytics/stream-analytics-power-bi-dashboard.md) para obter detalhes sobre esta solução.
 - **[Armazenamento Azure:](#stream-into-azure-storage)**
 
-  Os dados transmitidos para [o Azure Storage](../../azure-monitor/platform/resource-logs.md#send-to-azure-storage) permitem-lhe arquivar grandes quantidades de telemetria de diagnóstico por uma fração do custo das duas opções de streaming anteriores.
+  Os dados transmitidos para [o Azure Storage](../../azure-monitor/essentials/resource-logs.md#send-to-azure-storage) permitem-lhe arquivar grandes quantidades de telemetria de diagnóstico por uma fração do custo das duas opções de streaming anteriores.
 
 Esta telemetria de diagnóstico transmitida para um destes destinos pode ser usada para medir as estatísticas de utilização de recursos e de execução de consultas para facilitar a monitorização do desempenho.
 
@@ -89,7 +89,7 @@ Pode ativar e gerir as métricas e os registos de telemetria de diagnóstico com
 
 ## <a name="configure-the-streaming-export-of-diagnostic-telemetry"></a>Configure a exportação em streaming de telemetria de diagnóstico
 
-Pode utilizar o menu **de definições de Diagnóstico** no portal Azure para ativar e configurar o streaming de telemetria de diagnóstico. Além disso, pode utilizar o PowerShell, o Azure CLI, o [REST API](/rest/api/monitor/diagnosticsettings)e [os modelos Resource Manager](../../azure-monitor/samples/resource-manager-diagnostic-settings.md) para configurar o streaming de telemetria de diagnóstico. Pode definir os seguintes destinos para transmitir a telemetria de diagnóstico: Azure Storage, Azure Event Hubs e registos Azure Monitor.
+Pode utilizar o menu **de definições de Diagnóstico** no portal Azure para ativar e configurar o streaming de telemetria de diagnóstico. Além disso, pode utilizar o PowerShell, o Azure CLI, o [REST API](/rest/api/monitor/diagnosticsettings)e [os modelos Resource Manager](../../azure-monitor/essentials/resource-manager-diagnostic-settings.md) para configurar o streaming de telemetria de diagnóstico. Pode definir os seguintes destinos para transmitir a telemetria de diagnóstico: Azure Storage, Azure Event Hubs e registos Azure Monitor.
 
 > [!IMPORTANT]
 > A exportação em streaming de telemetria de diagnóstico não é ativada por defeito.
@@ -335,7 +335,7 @@ Pode monitorizar uma coleção de bases de dados e coleções de bases de dados 
 2. Crie um espaço de trabalho Log Analytics na solução.
 3. Configure bases de dados para transmitir telemetria de diagnóstico para o espaço de trabalho.
 
-Pode configurar a exportação em streaming desta telemetria de diagnóstico utilizando a opção **de Envio para Log Analytics** incorporada no separador de definições de diagnóstico no portal Azure. Também pode ativar o streaming num espaço de trabalho do Log Analytics utilizando definições de diagnóstico através de [cmdlets PowerShell](metrics-diagnostic-telemetry-logging-streaming-export-configure.md?tabs=azure-powershell#configure-the-streaming-export-of-diagnostic-telemetry), O [CLI Azure,](metrics-diagnostic-telemetry-logging-streaming-export-configure.md?tabs=azure-cli#configure-the-streaming-export-of-diagnostic-telemetry)o [Azure Monitor REST API](/rest/api/monitor/diagnosticsettings), ou [modelos de Gestor de Recursos](../../azure-monitor/samples/resource-manager-diagnostic-settings.md).
+Pode configurar a exportação em streaming desta telemetria de diagnóstico utilizando a opção **de Envio para Log Analytics** incorporada no separador de definições de diagnóstico no portal Azure. Também pode ativar o streaming num espaço de trabalho do Log Analytics utilizando definições de diagnóstico através de [cmdlets PowerShell](metrics-diagnostic-telemetry-logging-streaming-export-configure.md?tabs=azure-powershell#configure-the-streaming-export-of-diagnostic-telemetry), O [CLI Azure,](metrics-diagnostic-telemetry-logging-streaming-export-configure.md?tabs=azure-cli#configure-the-streaming-export-of-diagnostic-telemetry)o [Azure Monitor REST API](/rest/api/monitor/diagnosticsettings), ou [modelos de Gestor de Recursos](../../azure-monitor/essentials/resource-manager-diagnostic-settings.md).
 
 ### <a name="create-an-azure-sql-analytics-resource"></a>Criar um recurso Azure SQL Analytics
 
@@ -428,7 +428,7 @@ Se estiver a utilizar o Azure SQL Analytics, pode monitorizar o consumo de inges
 
 ## <a name="metrics-and-logs-available"></a>Métricas e registos disponíveis
 
-A telemetria de monitorização disponível para bases de dados individuais, bases de dados agrárias, piscinas elásticas, instâncias geridas e bases de dados de casos está documentada nesta secção do artigo. A telemetria de monitorização recolhida dentro do SQL Analytics pode ser usada para a sua própria análise personalizada e desenvolvimento de aplicações usando [o idioma de consultas de log do Azure Monitor.](../../azure-monitor/log-query/get-started-queries.md)
+A telemetria de monitorização disponível para bases de dados individuais, bases de dados agrárias, piscinas elásticas, instâncias geridas e bases de dados de casos está documentada nesta secção do artigo. A telemetria de monitorização recolhida dentro do SQL Analytics pode ser usada para a sua própria análise personalizada e desenvolvimento de aplicações usando [o idioma de consultas de log do Azure Monitor.](../../azure-monitor/logs/get-started-queries.md)
 
 ### <a name="basic-metrics"></a>Métricas básicas
 
@@ -747,8 +747,8 @@ Saiba mais sobre o [formato de registo de Insights Inteligentes.](intelligent-in
 
 Para aprender como permitir a exploração madeireira e compreender as métricas e categorias de registo suportadas pelos vários serviços Azure, consulte:
 
-- [Visão geral das métricas no Microsoft Azure](../../azure-monitor/platform/data-platform.md)
-- [Descrição geral dos registos de plataforma Azure](../../azure-monitor/platform/platform-logs-overview.md)
+- [Visão geral das métricas no Microsoft Azure](../../azure-monitor/data-platform.md)
+- [Descrição geral dos registos de plataforma Azure](../../azure-monitor/essentials/platform-logs-overview.md)
 
 Para saber mais sobre os Centros de Eventos, leia:
 

@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 5659f3b2d020a97ed2460c55283bb41f2f7606cc
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 16c18d8f86890baaf1882c532c19ff32ab2017da
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98943745"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592664"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Tutorial: Criar e gerir orçamentos do Azure
 
@@ -140,7 +140,7 @@ As avaliações dos custos do orçamento baseiam-se no custo real, não incluem 
 
 ## <a name="trigger-an-action-group"></a>Acionar um grupo de ações
 
-Quando cria ou edita um orçamento de um âmbito de subscrição ou grupo de recursos, pode configurá-lo para chamar um grupo de ações. O grupo de ações pode realizar várias ações quando o limiar do orçamento for atingido. De momento, os Grupos de Ações são suportados apenas nos âmbitos de subscrição e grupo de recursos. Para obter mais informações sobre os Grupos de Ações, veja [Criar e gerir grupos de ações no portal do Azure](../../azure-monitor/platform/action-groups.md). Para obter mais informações sobre a utilização da automatização baseada em orçamentos com os grupos de ações, veja [Gerir os custos com os orçamentos do Azure](../manage/cost-management-budget-scenario.md).
+Quando cria ou edita um orçamento de um âmbito de subscrição ou grupo de recursos, pode configurá-lo para chamar um grupo de ações. O grupo de ações pode realizar várias ações quando o limiar do orçamento for atingido. De momento, os Grupos de Ações são suportados apenas nos âmbitos de subscrição e grupo de recursos. Para obter mais informações sobre os Grupos de Ações, veja [Criar e gerir grupos de ações no portal do Azure](../../azure-monitor/alerts/action-groups.md). Para obter mais informações sobre a utilização da automatização baseada em orçamentos com os grupos de ações, veja [Gerir os custos com os orçamentos do Azure](../manage/cost-management-budget-scenario.md).
 
 Para criar ou atualizar os grupos de ações, selecione **Gerir grupos de ações** enquanto estiver a criar ou a editar um orçamento.
 
@@ -160,7 +160,7 @@ O exemplo seguinte mostra limiares de orçamento definidos como 50%, 75% e 100%.
 
 ![Exemplo a mostrar as condições de alerta configuradas com vários grupos de ações e tipo de ações](./media/tutorial-acm-create-budgets/manage-action-groups04.png)
 
-A integração de orçamentos com os grupos de ações apenas funciona para grupos de ações que têm o esquema de alerta comum desativado. Para obter mais informações sobre como desativar o esquema, veja [Como posso ativar o esquema de alerta comum?](../../azure-monitor/platform/alerts-common-schema.md#how-do-i-enable-the-common-alert-schema)
+A integração de orçamentos com os grupos de ações apenas funciona para grupos de ações que têm o esquema de alerta comum desativado. Para obter mais informações sobre como desativar o esquema, veja [Como posso ativar o esquema de alerta comum?](../../azure-monitor/alerts/alerts-common-schema.md#how-do-i-enable-the-common-alert-schema)
 
 ## <a name="create-and-edit-budgets-with-powershell"></a>Criar e editar orçamentos com o PowerShell
 

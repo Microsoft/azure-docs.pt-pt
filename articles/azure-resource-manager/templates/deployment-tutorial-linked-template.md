@@ -5,12 +5,12 @@ ms.date: 02/12/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: b69d4e8d2748cffec6a4f0cddfa20e6722653c76
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 8f2bbd327adca6eef62d5e79f422f61d460ea7a5
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100519019"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100589275"
 ---
 # <a name="tutorial-deploy-a-linked-template"></a>Tutorial: Implementar um modelo ligado
 

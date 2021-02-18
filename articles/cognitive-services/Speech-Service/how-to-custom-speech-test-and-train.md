@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: trbye
-ms.openlocfilehash: 8546201d21e68fbcf1e519c8fe9ba0de1dc38a96
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 2e6f79643493457a587f907f2649c7ab50b963f4
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100367984"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100634741"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Preparar dados para Voz Personalizada
 
@@ -58,7 +58,7 @@ Os ficheiros devem ser agrupados por tipo num conjunto de dados e carregados com
 > Para começar rapidamente, considere usar dados da amostra. Consulte este repositório GitHub para <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/sampledata/customspeech" target="_target">amostra de dados de discurso personalizado <span class="docon docon-navigate-external x-hidden-focus"></span> </a>
 
 > [!NOTE]
-> Nem todos os modelos base suportam o treino com áudio. Se um modelo base não o suportar, o serviço Desemaguiso utilizará apenas o texto das transcrições e ignorará o áudio. Consulte [o suporte linguístico](language-support.md#speech-to-text) para uma lista de modelos base que suportam a formação com dados áudio.
+> Nem todos os modelos base suportam o treino com áudio. Se um modelo base não o suportar, o serviço Desemaguiso utilizará apenas o texto das transcrições e ignorará o áudio. Consulte [o suporte linguístico](language-support.md#speech-to-text) para uma lista de modelos base que suportam a formação com dados áudio. Mesmo que um modelo base suporte a formação com dados áudio, o serviço pode usar apenas uma parte do áudio. Ainda assim, vai usar todas as transcrições.
 
 > [!NOTE]
 > Nos casos em que altera o modelo base utilizado para o treino, e tem áudio no conjunto de dados de treino, verifique *sempre* se o novo modelo base selecionado [suporta a formação com dados áudio](language-support.md#speech-to-text). Se o modelo base anteriormente utilizado não suportasse a formação com dados áudio, e o conjunto de dados de formação contiver áudio, o tempo de treino com o novo modelo base aumentará **drasticamente,** podendo facilmente passar de várias horas para vários dias e mais. Isto é especialmente verdade se a subscrição do seu serviço Desem declarações **não** estiver numa [região com o hardware dedicado](custom-speech-overview.md#set-up-your-azure-account) para a formação.

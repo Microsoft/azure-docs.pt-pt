@@ -86,6 +86,22 @@
           href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
         - name: Conformidade
           href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
+- name: Tradução documental
+  items:
+    - name: Descrição Geral
+      items:
+        - name: O que é tradução de documentos?
+          href: document-translation/overview.md
+    - name: Guias de procedimentos
+      items:
+        - name: Começar com tradução de documentos
+          href: document-translation/get-started-with-document-translation.md
+        - name: Criar fichas SAS
+          href: document-translation/create-sas-tokens.md
+    - name: Referência
+      items:
+        - name: Referência API de tradução documental
+          href: 'https://docs.microsoft.com/rest/api/cognitiveservices/translator/translation'
 - name: Custom Translator
   items:
     - name: Descrição geral

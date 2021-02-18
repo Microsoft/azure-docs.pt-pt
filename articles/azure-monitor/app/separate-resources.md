@@ -3,12 +3,12 @@ title: Como conceber a sua implementação de Application Insights - Um vs muito
 description: Telemetria direta a diferentes recursos para desenvolvimento, teste e carimbos de produção.
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: 49e9b8920af7333e0d95e23e6e5cf0828d448609
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: 3964cddcf27a4b2c7397b508ccb3cc8928bd04ad
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95536358"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100589533"
 ---
 # <a name="how-many-application-insights-resources-should-i-deploy"></a>Quantos recursos de Insights de Aplicação devo implementar
 
@@ -86,7 +86,7 @@ Precisa das chaves de instrumentação de todos os recursos para os quais a sua 
 ## <a name="filter-on-build-number"></a>Filtro no número de construção
 Ao publicar uma nova versão da sua aplicação, vai querer separar a telemetria de diferentes construções.
 
-Pode definir a propriedade Versão aplicação para que possa filtrar os resultados [da pesquisa](../../azure-monitor/app/diagnostic-search.md) e do [explorador métrico.](../../azure-monitor/platform/metrics-charts.md)
+Pode definir a propriedade Versão aplicação para que possa filtrar os resultados [da pesquisa](../../azure-monitor/app/diagnostic-search.md) e do [explorador métrico.](../../azure-monitor/essentials/metrics-charts.md)
 
 Existem vários métodos diferentes de definir a propriedade Versão aplicação.
 
@@ -132,7 +132,7 @@ Para controlar a versão da aplicação, certifique-se de que `buildinfo.config`
 </PropertyGroup>
 ```
 
-Quando possui informações de compilação, o módulo Web do Application Insights adiciona automaticamente a **Versão da aplicação** como uma propriedade a todos os itens de telemetria. Desta forma, poderá filtrar por versão quando executar [pesquisas de diagnóstico](../../azure-monitor/app/diagnostic-search.md) ou [explorar métricas](../../azure-monitor/platform/metrics-charts.md).
+Quando possui informações de compilação, o módulo Web do Application Insights adiciona automaticamente a **Versão da aplicação** como uma propriedade a todos os itens de telemetria. Desta forma, poderá filtrar por versão quando executar [pesquisas de diagnóstico](../../azure-monitor/app/diagnostic-search.md) ou [explorar métricas](../../azure-monitor/essentials/metrics-charts.md).
 
 No entanto, note que o número da versão de construção é gerado apenas pelo Microsoft Build Engine, e não pelo desenvolvedor construído a partir de Visual Studio.
 
@@ -142,4 +142,4 @@ Se utilizar O Azure DevOps, pode [obter um marcador de anotação](../../azure-m
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Recursos partilhados para múltiplos papéis](../../azure-monitor/app/app-map.md)
-* [Criar um Inicializador de Telemetria para distinguir A/ Variantes B](../../azure-monitor/app/api-filtering-sampling.md#add-properties)
+* [Crie um inicializador de telemetria para distinguir A| Variantes B](../../azure-monitor/app/api-filtering-sampling.md#add-properties)

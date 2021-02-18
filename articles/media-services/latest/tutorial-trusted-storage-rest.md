@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: tutorial
 ms.date: 2/8/2021
-ms.openlocfilehash: b20da64c135f7e54a7f6bc74beea073140a1e0a9
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 18cb4e3ada94822c2f4cb1ca7675310a37e44e84
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100101727"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590657"
 ---
 # <a name="tutorial-media-services-trusted-storage"></a>Tutorial: Armazenamento fidedigno dos Media Services
 
@@ -24,11 +24,14 @@ Neste tutorial, ficará a saber:
 
 Com a API 2020-05-01, pode ativar o armazenamento fidedigno associando uma Identidade Gerida a uma conta de Serviços de Comunicação.
 
+>[!NOTE]
+>O armazenamento fidedigno só está disponível na API, e não está atualmente ativado no portal Azure.
+
 Os Serviços de Mídia podem aceder automaticamente à sua conta de armazenamento utilizando a autenticação do sistema. Os Serviços de Comunicação Social validam que a conta de Serviços de Comunicação Social e a conta de armazenamento estão na mesma subscrição. Também valida que o utilizador que adiciona a associação tenha acesso à conta de armazenamento com o Azure Resource Manager RBAC.
 
 No entanto, se pretender utilizar o controlo de acesso à rede para proteger a sua conta de armazenamento e permitir o armazenamento fidedigno, é necessária a autenticação [de Identidades Geridas.](concept-managed-identities.md) Permite que os Serviços de Comunicação Social acedam à conta de armazenamento que foi configurada com uma firewall ou uma restrição VNet através de acesso de armazenamento fidedigno.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 > [!IMPORTANT]
 > Utilize a API 2020-05-01 para todos os pedidos aos Serviços de Comunicação Social.

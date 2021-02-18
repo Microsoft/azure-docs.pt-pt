@@ -9,12 +9,12 @@ metadata:
   ms.service: azure-app-configuration
   ms.topic: landing-page
   ms.date: 02/03/2020
-  ms.openlocfilehash: 64a9bc3cf00af66c65b06b9edbed4621668b05bc
-  ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+  ms.openlocfilehash: 917508f1fee4e4a53083a29e2459a442f7fddccd
+  ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 02/14/2021
-  ms.locfileid: "100365026"
+  ms.lasthandoff: 02/18/2021
+  ms.locfileid: "100650240"
 landingContent:
 - title: Sobre a Configuração da Aplicação Azure
   linkLists:
@@ -24,6 +24,8 @@ landingContent:
       url: overview.md
     - text: Perguntas mais frequentes
       url: faq.yml
+    - text: Melhores práticas
+      url: howto-best-practices.md
   - linkListType: video
     links:
     - text: Introdução ao Azure App Configuration
@@ -52,15 +54,15 @@ landingContent:
   linkLists:
   - linkListType: quickstart
     links:
+    - text: Programar uma aplicação ASP.NET Core
+      url: quickstart-aspnet-core-app.md
     - text: Codificar uma aplicação .NET Core
       url: quickstart-dotnet-core-app.md
     - text: Codificar uma aplicação .NET Framework
       url: quickstart-dotnet-app.md
-    - text: Programar uma aplicação ASP.NET Core
-      url: quickstart-aspnet-core-app.md
     - text: Programar uma aplicação das Funções do Azure em C#
       url: quickstart-azure-functions-csharp.md
-    - text: Codificar uma aplicação Spring Boot
+    - text: Programar uma aplicação Java Spring
       url: quickstart-java-spring-app.md
     - text: Codificar uma aplicação em Python
       url: quickstart-python.md
@@ -78,6 +80,8 @@ landingContent:
       url: enable-dynamic-configuration-azure-functions-csharp.md
     - text: Utilizar a configuração dinâmica no Spring Boot
       url: enable-dynamic-configuration-java-spring-app.md
+    - text: Integração de config dinâmico usando o modelo push
+      url: enable-dynamic-configuration-dotnet-core-push-refresh.md
   - linkListType: tutorial
     links:
     - text: Integrar num pipeline CI/CD
@@ -102,10 +106,10 @@ landingContent:
       url: concept-feature-management.md
   - linkListType: quickstart
     links:
-    - text: Aplicação .NET Core
-      url: use-feature-flags-dotnet-core.md
     - text: Aplicação ASP.NET Core
       url: quickstart-feature-flag-aspnet-core.md
+    - text: Aplicação .NET Core
+      url: use-feature-flags-dotnet-core.md
     - text: Aplicação .NET Framework
       url: quickstart-feature-flag-dotnet.md
     - text: Aplicação Spring Boot
@@ -114,6 +118,12 @@ landingContent:
     links:
     - text: Gerir sinalizadores de funcionalidades
       url: manage-feature-flags.md
+    - text: Use bandeiras de recurso em ASP.NET Core
+      url: use-feature-flags-dotnet-core.md
+    - text: Use bandeiras de recurso na Bota de primavera
+      url: use-feature-flags-spring-boot.md
+    - text: Ativar uma funcionalidade para utilizadores/grupos especificados
+      url: howto-targetingfilter-aspnet-core.md
   - linkListType: reference
     links:
     - text: Biblioteca de .NET Core

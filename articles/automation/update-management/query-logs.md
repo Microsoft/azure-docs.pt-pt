@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 09/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 833e2f7808b4b8efa210bc6a903ed30fe9ac53e0
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 5eb0c7d72896cc9a27907743b1b9c3d5a40614dd
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92222572"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592866"
 ---
 # <a name="query-update-management-logs"></a>Consultar os registos da Gestão de Atualizações
 
@@ -193,9 +193,9 @@ Num computador Windows, pode rever as seguintes informações para verificar a c
 
 1. No Painel de Controlo, abra o **Agente de Monitorização da Microsoft.** No **separador Azure Log Analytics,** o agente apresenta a seguinte mensagem: **O Agente de Monitorização da Microsoft ligou-se com sucesso ao Log Analytics**.
 
-1. Abra o Registo de Eventos do Windows. Aceda aos **Registos de Aplicações e Serviços\Gestor de Operações** e procure o ID do evento 3000 e o ID do evento 5002 a partir do **Conector**de Serviço de origem . Estes eventos indicam que o computador foi registado na área de trabalho do Log Analytics e que está a receber a configuração.
+1. Abra o Registo de Eventos do Windows. Aceda aos **Registos de Aplicações e Serviços\Gestor de Operações** e procure o ID do evento 3000 e o ID do evento 5002 a partir do **Conector** de Serviço de origem . Estes eventos indicam que o computador foi registado na área de trabalho do Log Analytics e que está a receber a configuração.
 
-Se o agente não conseguir comunicar com os registos do Azure Monitor e o agente estiver configurado para comunicar com a internet através de uma firewall ou servidor de procuração, confirme que a firewall ou o servidor proxy estão corretamente configurados. Para saber como verificar se a firewall ou o servidor proxy estão corretamente configurados, consulte [a configuração da Rede para o agente Windows](../../azure-monitor/platform/agent-windows.md) ou para a [configuração da rede para o agente Linux](../../azure-monitor/learn/quick-collect-linux-computer.md).
+Se o agente não conseguir comunicar com os registos do Azure Monitor e o agente estiver configurado para comunicar com a internet através de uma firewall ou servidor de procuração, confirme que a firewall ou o servidor proxy estão corretamente configurados. Para saber como verificar se a firewall ou o servidor proxy estão corretamente configurados, consulte [a configuração da Rede para o agente Windows](../../azure-monitor/agents/agent-windows.md) ou para a [configuração da rede para o agente Linux](../../azure-monitor/vm/quick-collect-linux-computer.md).
 
 > [!NOTE]
 > Se os seus sistemas Linux estiverem configurados para comunicar com um proxy ou Log Analytics Gateway e estiver a permitir a Gestão de Atualização, atualize as `proxy.conf` permissões para conceder ao grupo omiuser a permissão de leitura no ficheiro utilizando os seguintes comandos:
@@ -205,7 +205,7 @@ Se o agente não conseguir comunicar com os registos do Azure Monitor e o agente
 
 Os novos agentes Linux adicionados mostram um estado de **atualização** após a avaliação. Este processo pode demorar até seis horas.
 
-Para confirmar que um grupo de gestão de Gestores de Operações está a comunicar com os registos do Azure Monitor, consulte [a integração do Gestor de Operações Validado com os registos do Azure Monitor](../../azure-monitor/platform/om-agents.md#validate-operations-manager-integration-with-azure-monitor).
+Para confirmar que um grupo de gestão de Gestores de Operações está a comunicar com os registos do Azure Monitor, consulte [a integração do Gestor de Operações Validado com os registos do Azure Monitor](../../azure-monitor/agents/om-agents.md#validate-operations-manager-integration-with-azure-monitor).
 
 ### <a name="single-azure-vm-assessment-queries-windows"></a>Consultas únicas de avaliação de VM Azure (Windows)
 
@@ -410,5 +410,5 @@ Update
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Para obter informações sobre os registos do [Monitor Azure, consulte os registos do Monitor Azure](../../azure-monitor/log-query/log-query-overview.md).
+* Para obter informações sobre os registos do [Monitor Azure, consulte os registos do Monitor Azure](../../azure-monitor/logs/log-query-overview.md).
 * Para obter ajuda com alertas, consulte [alertas de configuração.](configure-alerts.md)

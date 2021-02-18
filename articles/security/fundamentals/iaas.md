@@ -1,5 +1,5 @@
 ---
-title: Melhores práticas de segurança para cargas de trabalho iaaS em Azure Microsoft Docs
+title: Melhores práticas de segurança para cargas de trabalho iaaS em Azure | Microsoft Docs
 description: " A migração de cargas de trabalho para o Azure IaaS traz oportunidades para reavaliar os nossos projetos "
 services: security
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 9b9a83cf71dfa7658c34c3c98f8d12a056adad0c
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.openlocfilehash: e7e8d51b8227acd033c95583d6e61d78a56d62a3
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94698789"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590273"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Melhores práticas de segurança para cargas de trabalho IaaS no Azure
 Este artigo descreve as melhores práticas de segurança para VMs e sistemas operativos.
@@ -130,17 +130,17 @@ Para monitorizar a postura de segurança dos seus [VMs Windows](../../security-c
 
 O Centro de Segurança pode monitorizar ativamente ameaças, e potenciais ameaças são expostas em alertas de segurança. Ameaças correlacionadas são agregadas numa única vista chamada incidente de segurança.
 
-O Centro de Segurança armazena dados nos [registos do Monitor Azure](../../azure-monitor/log-query/log-query-overview.md). Os registos do Azure Monitor fornecem uma linguagem de consulta e um motor de análise que lhe dá informações sobre o funcionamento das suas aplicações e recursos. Os dados são também recolhidos a partir do [Azure Monitor,](../../batch/monitoring-overview.md)soluções de gestão e agentes instalados em máquinas virtuais na nuvem ou no local. Esta funcionalidade partilhada ajuda-o a formar uma visão geral do seu ambiente.
+O Centro de Segurança armazena dados nos [registos do Monitor Azure](../../azure-monitor/logs/log-query-overview.md). Os registos do Azure Monitor fornecem uma linguagem de consulta e um motor de análise que lhe dá informações sobre o funcionamento das suas aplicações e recursos. Os dados são também recolhidos a partir do [Azure Monitor,](../../batch/monitoring-overview.md)soluções de gestão e agentes instalados em máquinas virtuais na nuvem ou no local. Esta funcionalidade partilhada ajuda-o a formar uma visão geral do seu ambiente.
 
 Organizações que não impõem uma segurança forte para os seus VMs continuam desconhecendo possíveis tentativas de utilizadores não autorizados de contornar os controlos de segurança.
 
 ## <a name="monitor-vm-performance"></a>Desempenho do Monitor VM
 O abuso de recursos pode ser um problema quando os processos de VM consomem mais recursos do que deviam. Problemas de desempenho com um VM podem levar a uma interrupção do serviço, o que viola o princípio de segurança da disponibilidade. Isto é particularmente importante para VMs que estão hospedando IIS ou outros servidores web, porque o uso elevado de CPU ou memória pode indicar um ataque de negação de serviço (DoS). É imperativo monitorizar o acesso vm não só reactivamente enquanto um problema está ocorrendo, mas também proativamente contra o desempenho de base como medido durante o funcionamento normal.
 
-Recomendamos que utilize [o Azure Monitor](../../azure-monitor/platform/data-platform.md) para ganhar visibilidade na saúde do seu recurso. Características do Azure Monitor:
+Recomendamos que utilize [o Azure Monitor](../../azure-monitor/data-platform.md) para ganhar visibilidade na saúde do seu recurso. Características do Azure Monitor:
 
-- [Ficheiros de registo de diagnóstico de recursos](../../azure-monitor/platform/platform-logs-overview.md): Monitoriza os seus recursos VM e identifica potenciais problemas que podem comprometer o desempenho e a disponibilidade.
-- [Extensão Azure Diagnostics](../../azure-monitor/platform/diagnostics-extension-overview.md): Fornece capacidades de monitorização e diagnóstico em VMs do Windows. Pode ativar estas capacidades incluindo a extensão como parte do [modelo do Gestor de Recursos Azure](../../virtual-machines/extensions/diagnostics-template.md).
+- [Ficheiros de registo de diagnóstico de recursos](../../azure-monitor/essentials/platform-logs-overview.md): Monitoriza os seus recursos VM e identifica potenciais problemas que podem comprometer o desempenho e a disponibilidade.
+- [Extensão Azure Diagnostics](../../azure-monitor/agents/diagnostics-extension-overview.md): Fornece capacidades de monitorização e diagnóstico em VMs do Windows. Pode ativar estas capacidades incluindo a extensão como parte do [modelo do Gestor de Recursos Azure](../../virtual-machines/extensions/diagnostics-template.md).
 
 As organizações que não monitorizam o desempenho do VM não conseguem determinar se certas alterações nos padrões de desempenho são normais ou anormais. Um VM que está a consumir mais recursos do que o normal pode indicar um ataque de um recurso externo ou um processo comprometido em execução no VM.
 

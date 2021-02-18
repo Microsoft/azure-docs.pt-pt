@@ -1,5 +1,5 @@
 ---
-title: Azure Files monitorizando a referência de dados Microsoft Docs
+title: Ficheiros Azure monitorizam | de referência de dados Microsoft Docs
 description: Referência de registo e métricas para monitorização de dados a partir de Ficheiros Azure.
 author: normesta
 services: azure-monitor
@@ -9,12 +9,12 @@ ms.date: 10/02/2020
 ms.author: normesta
 ms.subservice: logs
 ms.custom: monitoring
-ms.openlocfilehash: 3a3f4faf8278553153ae2186ea74d20702c603b3
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 4575709a4fa7067b02228036fb2e2b4a60844e21
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96780931"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592321"
 ---
 # <a name="azure-files-monitoring-data-reference"></a>Azure Files monitorizando a referência de dados
 
@@ -36,9 +36,9 @@ A Azure Files fornece as seguintes métricas de capacidade no Azure Monitor.
 
 #### <a name="azure-files"></a>Ficheiros do Azure
 
-Esta tabela mostra [as métricas do Azure Files](../../azure-monitor/platform/metrics-supported.md#microsoftstoragestorageaccountsfileservices).
+Esta tabela mostra [as métricas do Azure Files](../../azure-monitor/essentials/metrics-supported.md#microsoftstoragestorageaccountsfileservices).
 
-| Métrica | Descrição |
+| Metric | Descrição |
 | ------------------- | ----------------- |
 | Capacidade de Ficheiros | A quantidade de armazenamento de ficheiros utilizado pela conta de armazenamento. <br/><br/> Unidade: Bytes <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 |
 | Contagem de ficheiros   | O número de ficheiros na conta de armazenamento. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Média <br/> Exemplo de valor: 1024 |
@@ -88,4 +88,4 @@ A tabela que se segue lista as propriedades dos registos de recursos de armazena
 ## <a name="see-also"></a>Ver também
 
 - Consulte [os ficheiros Azure monitor de monitorização](storage-files-monitoring-reference.md) para uma descrição da monitorização do Armazenamento Azure.
-- Consulte [os recursos de Monitor Azure com o Azure Monitor](../../azure-monitor/insights/monitor-azure-resource.md) para obter informações sobre a monitorização dos recursos do Azure.
+- Consulte [os recursos de Monitor Azure com o Azure Monitor](../../azure-monitor/essentials/monitor-azure-resource.md) para obter informações sobre a monitorização dos recursos do Azure.

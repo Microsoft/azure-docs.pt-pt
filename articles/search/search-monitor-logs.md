@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: e6fcf5980cf64b5fc088dfa295ef6221ffda6de9
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: e29e20d071e992b941b2f6bd803c8dade044fbfd
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96499939"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592480"
 ---
 # <a name="collect-and-analyze-log-data-for-azure-cognitive-search"></a>Recolher e analisar dados de registo para a pesquisa cognitiva do Azure
 
@@ -25,7 +25,7 @@ Quando configurar a registo de diagnóstico, ser-lhe-á pedido que especifique u
 
 | Recurso | Utilizado para |
 |----------|----------|
-| [Enviar para a área de trabalho do Log Analytics](../azure-monitor/learn/tutorial-resource-logs.md) | Eventos e métricas são enviados para um espaço de trabalho Log Analytics, que pode ser consultado no portal para devolver informações detalhadas. Para uma introdução, consulte [Começar com os registos do Azure Monitor](../azure-monitor/log-query/log-analytics-tutorial.md) |
+| [Enviar para a área de trabalho do Log Analytics](../azure-monitor/essentials/tutorial-resource-logs.md) | Eventos e métricas são enviados para um espaço de trabalho Log Analytics, que pode ser consultado no portal para devolver informações detalhadas. Para uma introdução, consulte [Começar com os registos do Azure Monitor](../azure-monitor/logs/log-analytics-tutorial.md) |
 | [Arquivo com armazenamento Blob](../storage/blobs/storage-blobs-overview.md) | Os eventos e métricas são arquivados num recipiente Blob e armazenados em ficheiros JSON. Os troncos podem ser bastante granulares (à hora/minuto), úteis para pesquisar um incidente específico, mas não para investigação aberta. Utilize um editor JSON para visualizar um ficheiro de log cru ou Power BI para agregar e visualizar dados de registo.|
 | [Stream para Centro de Eventos](../event-hubs/index.yml) | Eventos e métricas são transmitidos para um serviço Azure Event Hubs. Escolha isto como um serviço alternativo de recolha de dados para registos muito grandes. |
 
@@ -33,11 +33,11 @@ Quando configurar a registo de diagnóstico, ser-lhe-á pedido que especifique u
 
 Crie recursos com antecedência para que possa selecionar um ou mais ao configurar a sessão de diagnóstico.
 
-+ [Criar um espaço de trabalho de análise de log analytics](../azure-monitor/learn/quick-create-workspace.md)
++ [Criar um espaço de trabalho de análise de log analytics](../azure-monitor/logs/quick-create-workspace.md)
 
 + [Criar uma conta de armazenamento](../storage/common/storage-account-create.md)
 
-+ [Criar um Centro de Eventos](../event-hubs/event-hubs-create.md)
++ [Criar um Hub de Eventos](../event-hubs/event-hubs-create.md)
 
 ## <a name="enable-data-collection"></a>Ativar a recolha de dados
 
@@ -120,7 +120,7 @@ AzureDiagnostics
 
 Os eventos registados capturados pelo Azure Monitor incluem os relacionados com a indexação e consultas. A tabela **AzureDiagnostics** no Log Analytics recolhe dados operacionais relacionados com consultas e indexação.
 
-| OperationName | Descrição |
+| OperationName | Description |
 |---------------|-------------|
 | Estatísticas de Serviço | Esta operação é uma chamada de rotina para [obter estatísticas de serviços,](/rest/api/searchservice/get-service-statistics)chamadas direta ou implicitamente para preencher uma página de visão geral do portal quando esta é carregada ou atualizada. |
 | Consulta.Pesquisa |  Pedidos de consulta contra um índice Consulte [consultas do Monitor](search-monitor-queries.md) para obter informações sobre consultas registadas.|

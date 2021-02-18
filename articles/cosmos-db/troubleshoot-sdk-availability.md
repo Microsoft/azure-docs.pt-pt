@@ -8,12 +8,12 @@ ms.author: maquaran
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 34c6e7ad8473f02f2772c84ea63aee2a41b97306
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 641b7d44407f8f3760c673f45d69dcfdc8b363b8
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100559698"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100650988"
 ---
 # <a name="diagnose-and-troubleshoot-the-availability-of-azure-cosmos-sdks-in-multiregional-environments"></a>Diagnosticar e resolver problemas da disponibilidade de Azure Cosmos SDKs em ambientes multi-regionais
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -43,7 +43,17 @@ Se **não definir uma região preferida,** o cliente SDK falha na região primá
 | Múltiplas regiões de escrita | Região primária  | Região primária  |
 
 > [!NOTE]
-> Região primária refere-se à primeira região da lista da região da [conta Azure Cosmos](distribute-data-globally.md)
+> A região primária refere-se à primeira região da lista da região da [conta Azure Cosmos.](distribute-data-globally.md)
+> Se os valores especificados como preferência regional não corresponderem a quaisquer regiões azure existentes, serão ignorados. Se corresponderem a uma região existente, mas a conta não é replicada, então o cliente ligar-se-á à próxima região preferida que corresponda ou à região primária.
+
+> [!WARNING]
+> Desativar a redescoberta do ponto final (que está a defini-lo em falso) na configuração do cliente irá desativar toda a lógica de failover e disponibilidade descrita neste documento.
+> Esta configuração pode ser acedida pelos seguintes parâmetros em cada Azure Cosmos SDK:
+>
+> * A [propriedade ConnectionPolicy.EnableEndpointRediscovery](/dotnet/api/microsoft.azure.documents.client.connectionpolicy.enableendpointdiscovery) em .NET V2 SDK.
+> * O [método CosmosClientBuilder.endpointDiscoveryEnabled](/java/api/com.azure.cosmos.cosmosclientbuilder.endpointdiscoveryenabled) em Java V4 SDK.
+> * O [CosmosClient.enable_endpoint_discovery](/python/api/azure-cosmos/azure.cosmos.cosmos_client.cosmosclient) parâmetro em Python SDK.
+> * O [cosmosClientOptions.ConnectionPolicy.enableEndpointDiscovery](/javascript/api/@azure/cosmos/connectionpolicy#enableEndpointDiscovery) parameter in JS SDK.
 
 Em circunstâncias normais, o cliente SDK ligará à região preferida (se for definida uma preferência regional) ou à região primária (se não for definida qualquer preferência), e as operações serão limitadas a essa região, a menos que ocorra qualquer um dos cenários abaixo.
 
@@ -59,7 +69,7 @@ Para obter um pormenor exaustivo sobre as garantias de SLA durante estes eventos
 
 ## <a name="removing-a-region-from-the-account"></a><a id="remove-region"></a>Remoção de uma região da conta
 
-Quando remover uma região de uma conta Azure Cosmos, qualquer cliente SDK que utilize a conta detetará a remoção da região através de um código de resposta de backend. O cliente marca então o ponto final regional como indisponível. O cliente retrigia a operação atual e todas as operações futuras são encaminhadas permanentemente para a região seguinte por ordem de preferência.
+Quando remover uma região de uma conta Azure Cosmos, qualquer cliente SDK que utilize a conta detetará a remoção da região através de um código de resposta de backend. O cliente marca então o ponto final regional como indisponível. O cliente retrigia a operação atual e todas as operações futuras são encaminhadas permanentemente para a região seguinte por ordem de preferência. Caso a lista de preferências tivesse apenas uma entrada (ou estivesse vazia), mas a conta tem outras regiões disponíveis, irá encaminhar-se para a região seguinte na lista de contas.
 
 ## <a name="adding-a-region-to-an-account"></a>Adicionar uma região a uma conta
 

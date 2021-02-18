@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/28/2020
 ms.author: yitoh
-ms.openlocfilehash: 42d4467a6441e517ef3194f701eb47e7e68505b1
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: cc5b3b85d6d13fda532da0993fa7f733126b8eae
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99806312"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100591872"
 ---
 # <a name="view-and-configure-ddos-diagnostic-logging"></a>Ver e configurar o registo de diagnósticos do DDoS
 
@@ -57,9 +57,9 @@ Se pretender ativar automaticamente o registo de diagnóstico em todos os IPs p�
 
 7. Nos **detalhes do Destino,** selecione quantas opções for necessária:
 
-    - **Arquivar para uma conta de armazenamento**: Os dados são escritos numa conta de Armazenamento Azure. Para saber mais sobre esta opção, consulte [os registos de recursos do Arquivo.](../azure-monitor/platform/resource-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#send-to-azure-storage)
-    - **Stream para um centro de eventos**: Permite que um recetor de log recolha registos usando um Azure Event Hub. Os centros de eventos permitem a integração com a Splunk ou outros sistemas SIEM. Para saber mais sobre esta opção, consulte [os registos de recursos do Stream para um centro de eventos.](../azure-monitor/platform/resource-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#send-to-azure-event-hubs)
-    - **Enviar para Log Analytics**: Escreve registos para o serviço Azure Monitor. Para saber mais sobre esta opção, consulte [recolher registos para utilização nos registos do Azure Monitor](../azure-monitor/platform/resource-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#send-to-log-analytics-workspace).
+    - **Arquivar para uma conta de armazenamento**: Os dados são escritos numa conta de Armazenamento Azure. Para saber mais sobre esta opção, consulte [os registos de recursos do Arquivo.](../azure-monitor/essentials/resource-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#send-to-azure-storage)
+    - **Stream para um centro de eventos**: Permite que um recetor de log recolha registos usando um Azure Event Hub. Os centros de eventos permitem a integração com a Splunk ou outros sistemas SIEM. Para saber mais sobre esta opção, consulte [os registos de recursos do Stream para um centro de eventos.](../azure-monitor/essentials/resource-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#send-to-azure-event-hubs)
+    - **Enviar para Log Analytics**: Escreve registos para o serviço Azure Monitor. Para saber mais sobre esta opção, consulte [recolher registos para utilização nos registos do Azure Monitor](../azure-monitor/essentials/resource-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json#send-to-log-analytics-workspace).
 
 ### <a name="log-schemas"></a>Esquemas de registo
 

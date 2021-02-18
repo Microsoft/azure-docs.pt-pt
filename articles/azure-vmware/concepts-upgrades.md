@@ -2,17 +2,17 @@
 title: Conceitos - Atualizações e atualizações em nuvem privadas
 description: Conheça os principais processos e funcionalidades de upgrade na Azure VMware Solution.
 ms.topic: conceptual
-ms.date: 02/02/2021
-ms.openlocfilehash: 78d4b566aa9156cdddfdcd69b50ebfd1d10aa784
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.date: 02/16/2021
+ms.openlocfilehash: d93453cbf6ad744844a04cd298cc18ad181cc0b0
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100006707"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100634997"
 ---
 # <a name="azure-vmware-solution-private-cloud-updates-and-upgrades"></a>Atualizações e atualizações privadas de nuvem Azure VMware
 
-Um dos principais benefícios das nuvens privadas Azure VMware Solution é que a plataforma é mantida para si. A manutenção da plataforma inclui atualizações automatizadas para um pacote de software validado VMware, ajudando a garantir que está a utilizar a versão mais recente do software de nuvem privada Azure VMware Solution validado.
+Um dos benefícios das nuvens privadas Azure VMware Solution é que a plataforma é mantida para si. A manutenção inclui atualizações automatizadas para um pacote de software validado VMware para ajudar a garantir que está a usar a versão mais recente do software de nuvem privada Azure VMware Solution.
 
 Especificamente, uma nuvem privada Azure VMware Solution inclui:
 
@@ -22,7 +22,7 @@ Especificamente, uma nuvem privada Azure VMware Solution inclui:
 - Loja de dados VMware vSAN para vSphere carga de trabalho VMs  
 - VMware HCX para mobilidade de carga de trabalho  
 
-Além destes componentes, uma nuvem privada Azure VMware Solution inclui recursos na base Azure necessária para a conectividade e para operar a nuvem privada. A Azure VMware Solution monitoriza continuamente a saúde tanto da base como dos componentes VMware. Quando a Azure VMware Solution deteta uma falha, toma medidas para reparar os componentes falhados. 
+Uma nuvem privada Azure VMware Solution também inclui recursos na base Azure necessária para a conectividade e para operar a nuvem privada. A Azure VMware Solution monitoriza continuamente a saúde tanto da base como dos componentes VMware. Quando a Azure VMware Solution deteta uma falha, toma medidas para reparar os componentes falhados. 
 
 ## <a name="what-components-get-updated"></a>Que componentes são atualizados?   
 
@@ -46,12 +46,12 @@ Será notificado antes e depois de os patches serem aplicados às suas nuvens pr
 
 ## <a name="vmware-appliance-backup"></a>Backup do aparelho VMware 
 
-Além de fazer atualizações, a Azure VMware Solution requer uma cópia de segurança de configuração destes componentes VMware:
+A Azure VMware Solution também requer uma cópia de segurança de configuração dos seguintes componentes VMware:
 
 - vCenter Server 
 - Gerente da NSX-T 
 
-Em momentos de falha, a Azure VMware Solution pode restaurá-las a partir da cópia de segurança de configuração. 
+Em momentos de falha, a Azure VMware Solution pode restaurar estes componentes a partir da cópia de segurança de configuração. 
 
 Para obter mais informações sobre as versões de software VMware, consulte o [artigo de conceito de nuvens e clusters privados](concepts-private-clouds-clusters.md) e o [FAQ](faq.yml).
 
