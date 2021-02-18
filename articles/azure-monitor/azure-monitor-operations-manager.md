@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/11/2021
-ms.openlocfilehash: c213a38286de05df5c3be8e3498bcca4ab6e1fbf
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: b1262533c3398a774b85e4143289a9b7c342aeab
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736150"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593576"
 ---
 # <a name="azure-monitor-for-existing-operations-manager-customers"></a>Azure Monitor para clientes gestores de operações existentes
 Este artigo fornece orientações para os clientes que atualmente utilizam [o Gestor de Operações do System Center](/system-center/scom/welcome) e estão a planear uma transição para o [Azure Monitor](overview.md) à medida que migram aplicações de negócios e outros recursos para o Azure. Assume que o seu objetivo final é uma transição completa para a nuvem, substituindo o máximo de funcionalidades do Gestor de Operações possível pelo Azure Monitor, sem comprometer os requisitos operacionais do seu negócio e de TI. 
@@ -63,11 +63,11 @@ Você ativa o Application Insights para cada uma das suas aplicações de negóc
 À medida que se familiariza com o Azure Monitor, começa a criar regras de alerta que são capazes de substituir algumas funcionalidades do pacote de gestão e começam a evoluir os seus processos de negócio para utilizar a nova plataforma de monitorização. Isto permite-lhe começar a remover máquinas e pacotes de gestão do grupo de gestão de Gestores de Operações. Continua a utilizar pacotes de gestão para software de servidor crítico e infraestruturas no local, mas continua a observar novas funcionalidades no Azure Monitor que lhe permitirão retirar funcionalidades adicionais.
 
 ## <a name="monitor-azure-services"></a>Monitor Azure serviços
-Os serviços Azure realmente requerem a Azure Monitor para recolher telemetria, e está ativado no momento em que você cria uma subscrição Azure. O [registo de Atividade](platform/activity-log.md) é recolhido automaticamente para a subscrição, e as [métricas](platform/data-platform-metrics.md) da plataforma são automaticamente recolhidas a partir de quaisquer recursos Azure que crie. Pode começar imediatamente a utilizar [o explorador de métricas](platform/metrics-getting-started.md), que é semelhante às vistas de desempenho na consola Operações, mas fornece análises interativas e [agregações avançadas de dados.](platform/metrics-charts.md) [Crie um alerta métrico](platform/alerts-metric.md) para ser notificado quando um valor cruza um limiar ou [adicione um gráfico a um painel Azure](platform/metrics-charts.md#pinning-to-dashboards) para visibilidade.
+Os serviços Azure realmente requerem a Azure Monitor para recolher telemetria, e está ativado no momento em que você cria uma subscrição Azure. O [registo de Atividade](essentials/activity-log.md) é recolhido automaticamente para a subscrição, e as [métricas](essentials/data-platform-metrics.md) da plataforma são automaticamente recolhidas a partir de quaisquer recursos Azure que crie. Pode começar imediatamente a utilizar [o explorador de métricas](essentials/metrics-getting-started.md), que é semelhante às vistas de desempenho na consola Operações, mas fornece análises interativas e [agregações avançadas de dados.](essentials/metrics-charts.md) [Crie um alerta métrico](alerts/alerts-metric.md) para ser notificado quando um valor cruza um limiar ou [adicione um gráfico a um painel Azure](essentials/metrics-charts.md#pinning-to-dashboards) para visibilidade.
 
 [![Explorador de Métricas](media/azure-monitor-operations-manager/metrics-explorer.png)](media/azure-monitor-operations-manager/metrics-explorer.png#lightbox)
 
-[Crie uma definição de diagnóstico](platform/diagnostic-settings.md) para cada recurso Azure para enviar métricas e [registos](platform/resource-logs.md)de recursos , que fornecem detalhes sobre o funcionamento interno de cada recurso, para um espaço de trabalho Log Analytics. Isto dá-lhe toda a telemetria disponível para os seus recursos e permite-lhe utilizar [o Log Analytics](log-query/log-analytics-overview.md) para analisar interativamente dados de registo e desempenho utilizando uma linguagem de consulta avançada que não tem equivalente no Gestor de Operações. Também pode criar [alertas de consulta de registo,](platform/alerts-log-query.md)que podem usar lógica complexa para determinar as condições de alerta e correlacionar dados em vários recursos.
+[Crie uma definição de diagnóstico](essentials/diagnostic-settings.md) para cada recurso Azure para enviar métricas e [registos](essentials/resource-logs.md)de recursos , que fornecem detalhes sobre o funcionamento interno de cada recurso, para um espaço de trabalho Log Analytics. Isto dá-lhe toda a telemetria disponível para os seus recursos e permite-lhe utilizar [o Log Analytics](logs/log-analytics-overview.md) para analisar interativamente dados de registo e desempenho utilizando uma linguagem de consulta avançada que não tem equivalente no Gestor de Operações. Também pode criar [alertas de consulta de registo,](alerts/alerts-log-query.md)que podem usar lógica complexa para determinar as condições de alerta e correlacionar dados em vários recursos.
 
 [![Registos Analytics](media/azure-monitor-operations-manager/log-analytics.png)](media/azure-monitor-operations-manager/log-analytics.png#lightbox)
 
@@ -76,7 +76,7 @@ Os serviços Azure realmente requerem a Azure Monitor para recolher telemetria, 
 [![Exemplo de insight](media/azure-monitor-operations-manager/insight.png)](media/azure-monitor-operations-manager/insight.png#lightbox)
 
 
-Os insights são [baseados](platform/workbooks-overview.md) em livros de trabalho no Azure Monitor, que combinam métricas e consultas de registo em relatórios interativos ricos. Crie os seus próprios livros para combinar dados de vários serviços semelhantes aos de como pode criar visualizações e relatórios personalizados na consola Operações.
+Os insights são [baseados](visualize/workbooks-overview.md) em livros de trabalho no Azure Monitor, que combinam métricas e consultas de registo em relatórios interativos ricos. Crie os seus próprios livros para combinar dados de vários serviços semelhantes aos de como pode criar visualizações e relatórios personalizados na consola Operações.
 
 ### <a name="azure-management-pack"></a>Pacote de gestão Azure
 O [pacote de gestão Azure](https://www.microsoft.com/download/details.aspx?id=50013) permite ao Gestor de Operações descobrir os recursos da Azure e monitorizar a sua saúde com base num determinado conjunto de cenários de monitorização. Este pacote de gestão requer que execute configurações adicionais para cada recurso em Azure, mas pode ser útil fornecer alguma visibilidade dos seus recursos Azure na Consola de Operações até que evolua os seus processos de negócio para se concentrar no Azure Monitor.
@@ -89,21 +89,21 @@ O [pacote de gestão Azure](https://www.microsoft.com/download/details.aspx?id=5
 ## <a name="monitor-server-software-and-local-infrastructure"></a>Monitorize o software do servidor e a infraestrutura local
 Quando se deslocam as máquinas para a nuvem, os requisitos de monitorização do seu software não mudam. Já não é necessário monitorizar os seus componentes físicos uma vez que são virtualizados, mas o sistema operativo dos hóspedes e as suas cargas de trabalho têm os mesmos requisitos, independentemente do seu ambiente.
 
-[O Azure Monitor para VMs](insights/vminsights-overview.md) é a principal característica do Azure Monitor para monitorizar máquinas virtuais e o seu sistema operativo convidado e cargas de trabalho. À semelhança do Gestor de Operações, o Azure Monitor para VMs utiliza um agente para recolher dados do sistema operativo de hóspedes de máquinas virtuais. Estes são os mesmos dados de desempenho e eventos normalmente utilizados pelos pacotes de gestão para análise e alerta. Não existem regras pré-existentes para identificar e alertar sobre problemas para as aplicações empresariais e software de servidores que estão a decorrer nessas máquinas. Deve criar as suas próprias regras de alerta para ser notificado proactivamente de quaisquer problemas detetados.
+[O Azure Monitor para VMs](vm/vminsights-overview.md) é a principal característica do Azure Monitor para monitorizar máquinas virtuais e o seu sistema operativo convidado e cargas de trabalho. À semelhança do Gestor de Operações, o Azure Monitor para VMs utiliza um agente para recolher dados do sistema operativo de hóspedes de máquinas virtuais. Estes são os mesmos dados de desempenho e eventos normalmente utilizados pelos pacotes de gestão para análise e alerta. Não existem regras pré-existentes para identificar e alertar sobre problemas para as aplicações empresariais e software de servidores que estão a decorrer nessas máquinas. Deve criar as suas próprias regras de alerta para ser notificado proactivamente de quaisquer problemas detetados.
 
 [![Monitor Azure para desempenho em VMs](media/azure-monitor-operations-manager/vm-insights-performance.png)](media/azure-monitor-operations-manager/vm-insights-performance.png#lightbox)
 
 O Azure Monitor também não mede a saúde de diferentes aplicações e serviços em execução numa máquina virtual. Os alertas métricos podem resolver-se automaticamente quando um valor cai abaixo de um limiar, mas o Azure Monitor não tem atualmente a capacidade de definir critérios de saúde para aplicações e serviços em execução na máquina, nem fornece rollup de saúde para agrupar a saúde dos componentes relacionados.
 
 > [!NOTE]
-> Uma nova [funcionalidade de saúde para o Azure Monitor para VMs](insights/vminsights-health-overview.md) está agora em pré-visualização pública e alerta com base no estado de saúde de um conjunto de métricas de desempenho. Isto é inicialmente limitado a um conjunto específico de contadores de desempenho relacionados com o sistema operativo do hóspede e não aplicações ou outras cargas de trabalho em execução na máquina virtual.
+> Uma nova [funcionalidade de saúde para o Azure Monitor para VMs](vm/vminsights-health-overview.md) está agora em pré-visualização pública e alerta com base no estado de saúde de um conjunto de métricas de desempenho. Isto é inicialmente limitado a um conjunto específico de contadores de desempenho relacionados com o sistema operativo do hóspede e não aplicações ou outras cargas de trabalho em execução na máquina virtual.
 > 
 > [![Monitor Azure para saúde de hóspedes VMs](media/azure-monitor-operations-manager/vm-insights-guest-health.png)](media/azure-monitor-operations-manager/vm-insights-guest-health.png#lightbox)
 
 A monitorização do software nas suas máquinas num ambiente híbrido utilizará normalmente uma combinação de Monitor Azure para VMs e Gestor de Operações, dependendo dos requisitos de cada máquina e da sua maturidade desenvolvendo processos operacionais em torno do Azure Monitor. O Agente de Gestão da Microsoft (designado como agente Log Analytics no Azure Monitor) é utilizado por ambas as plataformas para que uma única máquina possa ser monitorizada simultaneamente por ambas.
 
 > [!NOTE]
-> No futuro, o Azure Monitor para VMs irá transitar para o [agente Azure Monitor](platform/azure-monitor-agent-overview.md), que está atualmente em pré-visualização pública. Será compatível com o Microsoft Monitoring Agent para que a mesma máquina virtual continue a ser monitorizada por ambas as plataformas.
+> No futuro, o Azure Monitor para VMs irá transitar para o [agente Azure Monitor](agents/azure-monitor-agent-overview.md), que está atualmente em pré-visualização pública. Será compatível com o Microsoft Monitoring Agent para que a mesma máquina virtual continue a ser monitorizada por ambas as plataformas.
 
 Continue a utilizar o Gestor de Operações para funcionalidades que ainda não podem ser fornecidas pelo Azure Monitor. Isto inclui pacotes de gestão para software de servidor crítico como IIS, SQL Server ou Exchange. Você também pode ter pacotes de gestão personalizados desenvolvidos para infraestruturas no local que não podem ser alcançados com o Azure Monitor. Continue também a utilizar o Gestor de Operações se estiver fortemente integrado nos seus processos operacionais até que possa transitar para modernizar as suas operações de serviço onde o Azure Monitor e outros serviços Azure podem aumentar ou substituir. 
 
@@ -111,8 +111,8 @@ Utilize o Azure Monitor fo VMs para melhorar a sua monitorização atual, mesmo 
 
 - Descubra e monitorize as relações entre máquinas virtuais e as suas dependências externas.
 - Ver dados de desempenho agregados em várias máquinas virtuais em gráficos interativos e livros de trabalho.
-- Utilize [consultas de registo](log-query/log-query-overview.md) para analisar interativamente a telemetria das suas máquinas virtuais com dados dos seus outros recursos Azure.
-- Crie [regras de alerta de registo baseadas](platform/alerts-log-query.md) em lógicas complexas em várias máquinas virtuais.
+- Utilize [consultas de registo](logs/log-query-overview.md) para analisar interativamente a telemetria das suas máquinas virtuais com dados dos seus outros recursos Azure.
+- Crie [regras de alerta de registo baseadas](alerts/alerts-log-query.md) em lógicas complexas em várias máquinas virtuais.
 
 [![Monitor Azure para mapa de VMs](media/azure-monitor-operations-manager/vm-insights-map.png)](media/azure-monitor-operations-manager/vm-insights-map.png#lightbox)
 
@@ -130,8 +130,8 @@ Se a sua monitorização de uma aplicação de negócio se limitar à funcionali
 - Recolher dados do navegador, tais como visualizações de página e desempenho de carga.
 - Detete exceções e berbule vestígios de pilha e pedidos relacionados.
 - Realize análises avançadas utilizando funcionalidades como [rastreio distribuído](app/distributed-tracing.md) e [deteção inteligente.](app/proactive-diagnostics.md)
-- Use [o explorador de métricas](platform/metrics-getting-started.md) para analisar interativamente dados de desempenho.
-- Utilize [consultas de registo](log-query/log-query-overview.md) para analisar interativamente a telemetria recolhida juntamente com os dados recolhidos para os serviços Azure e o Azure Monitor para VMs.
+- Use [o explorador de métricas](essentials/metrics-getting-started.md) para analisar interativamente dados de desempenho.
+- Utilize [consultas de registo](logs/log-query-overview.md) para analisar interativamente a telemetria recolhida juntamente com os dados recolhidos para os serviços Azure e o Azure Monitor para VMs.
 
 [![Application Insights](media/azure-monitor-operations-manager/application-insights.png)](media/azure-monitor-operations-manager/application-insights.png#lightbox)
 
@@ -145,10 +145,10 @@ Existem certos cenários, no entanto, onde poderá ter de continuar a utilizar o
 Seguindo a estratégia básica nas outras secções deste guia, continue a utilizar o Gestor de Operações para as suas aplicações empresariais, mas aproveite as funcionalidades adicionais fornecidas pela Application Insights. Como é capaz de substituir a funcionalidade crítica pelo Azure Monitor, pode começar a retirar os seus pacotes de gestão personalizados.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Consulte o [Guia de Monitorização](/azure/cloud-adoption-framework/manage/monitor/) da Nuvem para uma comparação detalhada do Azure Monitor e Do System Center Operations Manager e mais detalhes sobre a conceção e implementação de um ambiente de monitorização híbrido.
-- Leia mais sobre [a monitorização dos recursos do Azure no Azure Monitor](insights/monitor-azure-resource.md).
-- Leia mais sobre [a monitorização das máquinas virtuais Azure no Azure Monitor](insights/monitor-vm-azure.md).
-- Leia mais sobre [O Monitor Azure para VMs](insights/vminsights-overview.md).
+- Leia mais sobre [a monitorização dos recursos do Azure no Azure Monitor](essentials/monitor-azure-resource.md).
+- Leia mais sobre [a monitorização das máquinas virtuais Azure no Azure Monitor](vm/monitor-vm-azure.md).
+- Leia mais sobre [O Monitor Azure para VMs](vm/vminsights-overview.md).
 - Leia mais sobre [Informações sobre Aplicações.](app/app-insights-overview.md)

@@ -9,18 +9,18 @@ ms.subservice: cost-management
 ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: de0e9c631a97891e75c091c75a34b7dd94a52894
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
-ms.translationtype: HT
+ms.openlocfilehash: 1706fd69f58e4dee4a7ed963fb22cb63aec026fa
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131467"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593384"
 ---
 # <a name="manage-costs-with-azure-budgets"></a>Gerir os custos com os Orçamentos do Azure
 
 O controlo de custos é um elemento essencial para maximizar o valor do seu investimento na cloud. Existem vários cenários em que a visibilidade de custos, os relatórios e a orquestração baseada em custos são fundamentais para as operações de negócios continuadas. As [APIs de Gestão de Custos do Azure](/rest/api/consumption/) fornecem um conjunto de APIs que suportam cada um destes cenários. As APIs fornecem detalhes de utilização e permitem que veja os custos ao nível da instância granular.
 
-Os orçamentos são normalmente utilizados como parte do controlo de custos. Os orçamentos podem ser delimitados no Azure. Por exemplo, pode restringir a vista do orçamento com base na subscrição, nos grupos de recursos ou numa coleção de recursos. Além de utilizar a API de orçamentos para ser notificado por e-mail quando é atingido um limiar de orçamento, pode utilizar os [grupos de ação do Azure Monitor](../../azure-monitor/platform/action-groups.md) para acionar um conjunto de ações orquestradas resultantes de um evento de orçamento.
+Os orçamentos são normalmente utilizados como parte do controlo de custos. Os orçamentos podem ser delimitados no Azure. Por exemplo, pode restringir a vista do orçamento com base na subscrição, nos grupos de recursos ou numa coleção de recursos. Além de utilizar a API de orçamentos para ser notificado por e-mail quando é atingido um limiar de orçamento, pode utilizar os [grupos de ação do Azure Monitor](../../azure-monitor/alerts/action-groups.md) para acionar um conjunto de ações orquestradas resultantes de um evento de orçamento.
 
 Um cliente que executa uma carga de trabalho não crítica pode recorrer a um cenário de orçamentos comum quando quer gerir a utilização em função do orçamento e também obter um custo previsível quando olha para a fatura mensal. Este cenário requer uma orquestração baseada nos custos dos recursos que fazem parte do ambiente do Azure. Neste cenário, é definido um orçamento mensal de 1000 $ para a subscrição. Além disso, são definidos limiares de notificação para acionar algumas orquestrações. Este cenário começa com um limiar de custos de 80%, o que irá encerrar todas as VMs no grupo de recursos **Opcional**. Em seguida, no limiar de custos a 100%, serão encerradas todas as instâncias de VM.
 

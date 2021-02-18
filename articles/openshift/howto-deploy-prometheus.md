@@ -3,16 +3,16 @@ title: Implementar a instância prometheus no cluster Azure Red Hat OpenShift
 description: Crie uma instância Prometheus num cluster Azure Red Hat OpenShift para monitorizar as métricas da sua aplicação.
 author: makdaam
 ms.author: b-lejaku
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.topic: conceptual
 ms.date: 06/17/2019
 keywords: prometheus, aro, openshift, métricas, chapéu vermelho
-ms.openlocfilehash: 42ed8c90b35eba57fdc3db1f0ed93d44cf9a5e41
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 974096e515401ab5e292dbad4c9beba7f1611a8a
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95996853"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100633449"
 ---
 # <a name="deploy-a-standalone-prometheus-instance-in-an-azure-red-hat-openshift-cluster"></a>Implemente uma instância prometheus autónoma num cluster Azure Red Hat OpenShift
 
@@ -206,7 +206,7 @@ oc new-app python:3.6~https://github.com/Makdaam/prometheus-example --name=examp
 ```
 As novas aplicações devem aparecer como alvos válidos na página De Descoberta de Serviços no prazo de 30 segundos após a implementação.
 
-Para mais detalhes, selecione **Status**  >  **Alvos de** Estado .
+Para mais detalhes, selecione   >  **Alvos de** Estado .
 
 > [!NOTE]
 > Para cada alvo riscado com sucesso, Prometheus adiciona um ponto de dados na métrica de cima. Selecione **Prometheus** no canto superior esquerdo, **introduza-se** como expressão e, em seguida, selecione **Executar**.

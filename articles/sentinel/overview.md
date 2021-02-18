@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/16/2020
 ms.author: yelevin
-ms.openlocfilehash: 773cf5cc6755a4f094eb676992364eea07a795ea
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 4bc5732c1b2349f34297ecaacc7eb3176fdba611
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94654665"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570485"
 ---
 # <a name="what-is-azure-sentinel"></a>O que é o Azure Sentinel?
 
@@ -51,7 +51,7 @@ Para embarcar a Azure Sentinel, primeiro tem de [se ligar às suas fontes de seg
 
 ## <a name="workbooks"></a>Livros
 
-Depois de [ligar as suas fontes de dados](quickstart-onboard.md) ao Azure Sentinel, pode monitorizar os dados utilizando a integração do Azure Sentinel com os Livros de Trabalho do Azure Monitor, que proporciona versatilidade na criação de livros de trabalho personalizados. Embora os livros de trabalho sejam apresentados de forma diferente no Azure Sentinel, pode ser útil para você ver como [criar relatórios interativos com os livros de trabalho do Monitor Azure](../azure-monitor/platform/workbooks-overview.md). O Azure Sentinel permite-lhe criar livros de trabalho personalizados através dos seus dados, e também vem com modelos de livros incorporados para lhe permitir obter rapidamente informações sobre os seus dados assim que ligar uma fonte de dados.
+Depois de [ligar as suas fontes de dados](quickstart-onboard.md) ao Azure Sentinel, pode monitorizar os dados utilizando a integração do Azure Sentinel com os Livros de Trabalho do Azure Monitor, que proporciona versatilidade na criação de livros de trabalho personalizados. Embora os livros de trabalho sejam apresentados de forma diferente no Azure Sentinel, pode ser útil para você ver como [criar relatórios interativos com os livros de trabalho do Monitor Azure](../azure-monitor/visualize/workbooks-overview.md). O Azure Sentinel permite-lhe criar livros de trabalho personalizados através dos seus dados, e também vem com modelos de livros incorporados para lhe permitir obter rapidamente informações sobre os seus dados assim que ligar uma fonte de dados.
 
 ![Dashboards](./media/tutorial-monitor-data/access-workbooks.png)
 
@@ -90,7 +90,7 @@ A comunidade Azure Sentinel é um poderoso recurso para deteção e automação 
 
 ![Explore a comunidade de utilizadores](./media/overview/community.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para começar com o Azure Sentinel, precisa de uma subscrição do Microsoft Azure. Se não tiver uma subscrição, pode inscrever-se numa [avaliação gratuita](https://azure.microsoft.com/free/).
 - Aprenda a [embarcar os seus dados ao Azure Sentinel](quickstart-onboard.md)e obtenha [visibilidade nos seus dados e potenciais ameaças.](quickstart-get-visibility.md)

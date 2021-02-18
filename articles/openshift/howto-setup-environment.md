@@ -6,14 +6,14 @@ author: jimzim
 ms.author: jzim
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: c189c0902e694dc49d81a48433e3269e9f2a438c
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 9654711a1399c2708ce8c9150b79eefa73387c03
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92216883"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100635031"
 ---
 # <a name="set-up-your-azure-red-hat-openshift-dev-environment"></a>Configurar o seu ambiente de desenvolvimento do Azure Red Hat OpenShift
 

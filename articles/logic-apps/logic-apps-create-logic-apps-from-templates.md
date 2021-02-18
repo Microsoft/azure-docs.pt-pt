@@ -8,12 +8,12 @@ ms.author: klam
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 10/15/2017
-ms.openlocfilehash: 7eca9b4a8cf09f2f35d56dc22fc25169be192f47
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 42c592e6aede4537dc983fd2cff043a878f81f1c
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87066241"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593097"
 ---
 # <a name="create-logic-app-workflows-from-prebuilt-templates"></a>Create logic app workflows from prebuilt templates (Criar fluxos de trabalho de aplicações lógicas a partir de modelos pré-criados)
 
@@ -21,7 +21,7 @@ Para começar a criar fluxos de trabalho mais rapidamente, as Aplicações Lógi
 
 Aqui estão algumas categorias de modelos:
 
-| Tipo de modelo | Descrição | 
+| Tipo de modelo | Description | 
 | ------------- | ----------- | 
 | Modelos de nuvem de empresa | Para integrar a Azure Blob, Dynamics CRM, Salesforce, Box, e inclui outros conectores para as necessidades da sua nuvem empresarial. Por exemplo, pode usar estes modelos para organizar leads de negócios ou fazer o back up dos seus dados de ficheiros corporativos. | 
 | Modelos de produtividade pessoal | Melhorar a produtividade pessoal definindo lembretes diários, transformando itens de trabalho importantes em listas de tarefas e automatizando tarefas longas até um único passo de aprovação do utilizador. | 
@@ -36,7 +36,7 @@ Se não tiver uma subscrição do Azure, [inscreva-se numa conta do Azure gratui
 
 1. Se ainda não o fez, inscreva-se no [portal Azure](https://portal.azure.com "Portal do Azure").
 
-2. A partir do menu Azure principal, escolha **Criar uma**App lógica de  >  **integração**  >  **empresarial de**recursos.
+2. A partir do menu Azure principal, escolha **Criar uma** App lógica de  >  **integração**  >  **empresarial de** recursos.
 
    ![Portal do Azure, Novo, Integração Empresarial, Aplicação Lógica](./media/logic-apps-create-logic-apps-from-templates/azure-portal-create-logic-app.png)
 
@@ -50,7 +50,7 @@ Se não tiver uma subscrição do Azure, [inscreva-se numa conta do Azure gratui
    | **Subscrição** | *o-nome-da-sua-subscrição-do-Azure* | Selecione a subscrição do Azure que pretende utilizar. | 
    | **Grupo de recursos** | *o-nome-do-seu-grupo-de-recursos-do-Azure* | Crie ou selecione um [grupo de recursos Azure](../azure-resource-manager/management/overview.md) para esta aplicação lógica e para organizar todos os recursos associados a esta app. | 
    | **Localização** | *a-região-do-seu-datacenter-do-Azure* | Selecione a região do datacenter para implementar a sua aplicação lógica, como, por exemplo, E.U.A. Oeste. | 
-   | **Log Analytics** | **Off** (predefinido) ou **On** | Confiúdo [de registo de diagnóstico](../logic-apps/monitor-logic-apps-log-analytics.md) para a sua aplicação lógica utilizando [registos do Monitor Azure](../azure-monitor/log-query/log-query-overview.md). Requer que já tenha um espaço de trabalho log analytics. | 
+   | **Log Analytics** | **Off** (predefinido) ou **On** | Confiúdo [de registo de diagnóstico](../logic-apps/monitor-logic-apps-log-analytics.md) para a sua aplicação lógica utilizando [registos do Monitor Azure](../azure-monitor/logs/log-query-overview.md). Requer que já tenha um espaço de trabalho log analytics. | 
    |||| 
 
 4. Quando estiver pronto, selecione **Afixar ao dashboard**. Desta forma, a aplicação lógica aparece automaticamente no seu dashboard do Azure e abre-se após a implementação. Escolha **Criar**.

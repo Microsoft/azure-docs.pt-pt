@@ -5,16 +5,16 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: de013b6ccd924f50ffe12fcba1285b121eece5f7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3e9e924d6626d9f0dcd2db8a5e8b8f90a0aa01ce
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83827561"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593854"
 ---
 # <a name="query-logs-from-startstop-vms-during-off-hours"></a>Consultar registos a partir da solução Iniciar/Parar VMs fora do horário de expediente
 
-A Azure Automation encaminha dois tipos de registos para o espaço de trabalho linked Log Analytics: registos de trabalho e fluxos de emprego. Este artigo analisa os dados disponíveis para [consulta](../azure-monitor/log-query/log-query-overview.md) no Azure Monitor.
+A Azure Automation encaminha dois tipos de registos para o espaço de trabalho linked Log Analytics: registos de trabalho e fluxos de emprego. Este artigo analisa os dados disponíveis para [consulta](../azure-monitor/logs/log-query-overview.md) no Azure Monitor.
 
 ## <a name="job-logs"></a>Registos de trabalhos
 
@@ -62,7 +62,7 @@ Quando efetuar qualquer pesquisa de registo que retorne registos de categorias d
 
 A tabela seguinte fornece pesquisas de registo de amostras para registos de trabalho recolhidos por VMs start/stop durante o horário de folga.
 
-|Consulta | Descrição|
+|Consulta | Description|
 |----------|----------|
 |Encontre empregos para ScheduledStartStop_Parent de runbook que terminaram com sucesso | <code>search Category == "JobLogs" <br>&#124;  where ( RunbookName_s == "ScheduledStartStop_Parent" ) <br>&#124;  where ( ResultType == "Completed" )  <br>&#124;  summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) <br>&#124;  sort by TimeGenerated desc</code>|
 |Encontre empregos para ScheduledStartStop_Parent de runbook que não tenham concluído com sucesso | <code>search Category == "JobLogs" <br>&#124;  where ( RunbookName_s == "ScheduledStartStop_Parent" ) <br>&#124;  where ( ResultType == "Failed" )  <br>&#124;  summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) <br>&#124;  sort by TimeGenerated desc</code>|
@@ -72,5 +72,5 @@ A tabela seguinte fornece pesquisas de registo de amostras para registos de trab
 ## <a name="next-steps"></a>Passos seguintes
 
 * Para configurar a função, consulte [Configure Stop/Start VMs durante as horas de folga](automation-solution-vm-management-config.md).
-* Para obter informações sobre alertas de registo durante a implementação da funcionalidade, consulte [Criar alertas de registo com o Azure Monitor](../azure-monitor/platform/alerts-log.md).
+* Para obter informações sobre alertas de registo durante a implementação da funcionalidade, consulte [Criar alertas de registo com o Azure Monitor](../azure-monitor/alerts/alerts-log.md).
 * Para resolver erros de funcionalidade, consulte [Os VMs de início/paragem de resolução de problemas durante as horas fora de horas](troubleshoot/start-stop-vm.md).

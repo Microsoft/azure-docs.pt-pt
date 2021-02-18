@@ -1,5 +1,5 @@
 ---
-title: Ligue os dados da Atividade Azure ao Azure Sentinel ! Microsoft Docs
+title: Ligue os dados da Atividade Azure ao Azure Sentinel | Microsoft Docs
 description: Stream Azure Activity entra em Azure Sentinel com um único clique. O Registo de Atividade regista e exibe eventos de nível de subscrição em todo o Azure.
 services: sentinel
 documentationcenter: na
@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/22/2020
 ms.author: yelevin
-ms.openlocfilehash: 88f363406ec40dfa439a52ad351501d1c64dce95
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8f0bac363e020826e34df3cb0b4e3d3582990302
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85564492"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595455"
 ---
 # <a name="connect-data-from-azure-activity-log"></a>Conecte dados do registo de atividades Azure
 
-Pode transmitir registos do [Azure Activity para](../azure-monitor/platform/platform-logs-overview.md) O Azure Sentinel com um único clique. O registo de atividades é um registo de subscrição que regista e exibe eventos de nível de subscrição em todo o Azure, desde dados operacionais do Azure Resource Manager até atualizações sobre eventos de Saúde de Serviço. Utilizando o registo de Atividade, pode determinar o 'o quê, quem e quando' para qualquer operação de escrita (PUT, POST, DELETE) realizada nos recursos da sua subscrição. Também pode conhecer o estado da operação e outras propriedades relevantes. O registo de Atividades não inclui operações de leitura (GET) ou operações para recursos que utilizem o modelo Classic/"RDFE". 
+Pode transmitir registos do [Azure Activity para](../azure-monitor/essentials/platform-logs-overview.md) O Azure Sentinel com um único clique. O registo de atividades é um registo de subscrição que regista e exibe eventos de nível de subscrição em todo o Azure, desde dados operacionais do Azure Resource Manager até atualizações sobre eventos de Saúde de Serviço. Utilizando o registo de Atividade, pode determinar o 'o quê, quem e quando' para qualquer operação de escrita (PUT, POST, DELETE) realizada nos recursos da sua subscrição. Também pode conhecer o estado da operação e outras propriedades relevantes. O registo de Atividades não inclui operações de leitura (GET) ou operações para recursos que utilizem o modelo Classic/"RDFE". 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -33,7 +33,7 @@ Pode transmitir registos do [Azure Activity para](../azure-monitor/platform/plat
 
 ## <a name="set-up-the-azure-activity-connector"></a>Configurar o conector de atividade azure
 
-1. A partir do menu de navegação Azure Sentinel, selecione **Conectores de dados**. A partir da lista de conectores, clique na **Atividade Azure**e, em seguida, no botão de página do **conector Open** no lado inferior direito.
+1. A partir do menu de navegação Azure Sentinel, selecione **Conectores de dados**. A partir da lista de conectores, clique na **Atividade Azure** e, em seguida, no botão de página do **conector Open** no lado inferior direito.
 
 2. No separador **Instruções,** clique nos **registos de Atividade Configure >** link.
 

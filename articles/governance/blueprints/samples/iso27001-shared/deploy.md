@@ -3,12 +3,12 @@ title: Implementar amostra de projeto iso 27001 serviços partilhados
 description: Implementar etapas para a amostra de planta de serviços partilhados ISO 27001, incluindo detalhes do parâmetro do artefacto da planta.
 ms.date: 02/05/2021
 ms.topic: sample
-ms.openlocfilehash: 8b28954b6145a9e6c1827107cf11aa85326dcc1f
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: 2eb9ed2199b28ad7cb349e6088c3cc583d8f011d
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99627803"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100577314"
 ---
 # <a name="deploy-the-iso-27001-shared-services-blueprint-sample"></a>Implementar a amostra de projeto iso 27001 serviços partilhados
 
@@ -110,7 +110,7 @@ A tabela seguinte mostra uma lista dos parâmetros dos artefactos de esquema:
 |Tipos de recursos permitidos|Atribuição de políticas|Tipos de recursos permitidos|Lista de tipos de recursos autorizados a ser implantados. Esta lista é composta por todos os tipos de recursos implantados em Serviços Partilhados.|
 |SKUs de contas de armazenamento permitidos|Atribuição de políticas|SKUs de armazenamento permitido|Lista de registos de diagnóstico de conta de armazenamento SKUs permitida. O valor predefinido é _["Standard_LRS"]_.|
 |SKUs de máquina virtual permitida|Atribuição de políticas|Lista de máquinas virtuais SKUs permitidas para ser implantada. O valor predefinido é _["Standard_DS1_v2", "Standard_DS2_v2"]_.|
-|Iniciativa de planta para a ISO 27001|Atribuição de políticas|Tipos de recursos para auditar registos de diagnóstico|Lista de tipos de recursos para auditar se a definição de registo de diagnóstico não estiver ativada. Os valores aceitáveis podem ser encontrados nos [esquemas de registos de diagnóstico do Azure Monitor](../../../../azure-monitor/platform/resource-logs-schema.md#service-specific-schemas).|
+|Iniciativa de planta para a ISO 27001|Atribuição de políticas|Tipos de recursos para auditar registos de diagnóstico|Lista de tipos de recursos para auditar se a definição de registo de diagnóstico não estiver ativada. Os valores aceitáveis podem ser encontrados nos [esquemas de registos de diagnóstico do Azure Monitor](../../../../azure-monitor/essentials/resource-logs-schema.md#service-specific-schemas).|
 |Grupo de recursos Log Analytics|Grupo de recursos|Name|**Locked** - Concatenates o **nome da Organização** para tornar o grupo de recursos `-sharedsvsc-log-rg` único.|
 |Grupo de recursos Log Analytics|O grupo de recursos|A localização|**Bloqueado** - Usa o parâmetro da planta.|
 |Modelo de Analítica de Log|Modelo do Resource Manager|Escalão de serviço|Define o nível do espaço de trabalho Log Analytics. O valor predefinido é _PerNode_.|

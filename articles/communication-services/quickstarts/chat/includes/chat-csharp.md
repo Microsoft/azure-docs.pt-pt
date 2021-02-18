@@ -10,12 +10,12 @@ ms.date: 9/1/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 04e658e3107ac0c9622ca1601eb93b01b9986fef
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 1db7eeb61bc4ded2d7015baecaacd974d7767812
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100645328"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653560"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de começar, certifique-se de:
@@ -60,7 +60,11 @@ As seguintes aulas lidam com algumas das principais características da bibliote
 
 ## <a name="create-a-chat-client"></a>Criar um cliente de chat
 
-Para criar um cliente de chat, utilizará o seu ponto final dos Serviços de Comunicação e o token de acesso que foi gerado como parte dos passos pré-requisitos. Você precisa usar a `CommunicationIdentityClient` classe da biblioteca do cliente para criar um utilizador e emitir um símbolo para passar para o seu `Administration` cliente de chat. Saiba mais sobre [tokens de acesso ao utilizador.](../../access-tokens.md)
+Para criar um cliente de chat, utilizará o seu ponto final dos Serviços de Comunicação e o token de acesso que foi gerado como parte dos passos pré-requisitos. Você precisa usar a `CommunicationIdentityClient` classe da biblioteca do cliente para criar um utilizador e emitir um símbolo para passar para o seu `Administration` cliente de chat.
+
+Saiba mais sobre [tokens de acesso ao utilizador.](../../access-tokens.md)
+
+Este quickstart não cobre a criação de um nível de serviço para gerir fichas para a sua aplicação de chat, embora seja recomendado. Saiba mais sobre [a Arquitetura chat](../../../concepts/chat/concepts.md)
 
 ```csharp
 using Azure.Communication.Identity;

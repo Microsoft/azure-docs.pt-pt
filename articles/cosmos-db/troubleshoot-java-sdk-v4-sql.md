@@ -9,12 +9,12 @@ ms.devlang: java
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.custom: devx-track-java
-ms.openlocfilehash: d6b23a831426a3308a0b47946d5a82679e937bbe
-ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
+ms.openlocfilehash: cba8b97adb40ca2c277268188ff6ad541c7e9676
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97683116"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100596473"
 ---
 # <a name="troubleshoot-issues-when-you-use-azure-cosmos-db-java-sdk-v4-with-sql-api-accounts"></a>Problemas de resolução de problemas quando utiliza Azure Cosmos DB Java SDK v4 com contas API SQL
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -40,7 +40,7 @@ Comece com esta lista:
 * Leia o resto deste artigo, se não encontrou uma solução. Em seguida, arquivar um [problema gitHub](https://github.com/Azure/azure-sdk-for-java/issues). Se houver uma opção para adicionar tags à sua edição do GitHub, adicione uma etiqueta *cosmos:v4 item.*
 
 ### <a name="retry-logic"></a>Lógica de Retíria <a id="retry-logics"></a>
-Cosmos DB SDK em qualquer falha de IO tentará voltar a tentar a operação falhada se for viável novamente no SDK. Ter uma nova agem para qualquer falha é uma boa prática, mas especificamente lidar/tentar falhar a escrita é uma obrigação. Recomenda-se usar o mais recente SDK, uma vez que a lógica de retíria está continuamente a ser melhorada.
+Em qualquer falha de E/S, o SDK do Cosmos DB tentará repetir a operação falhada se for viável realizar a repetição no SDK. Ter uma nova agem para qualquer falha é uma boa prática, mas especificamente lidar/tentar falhar a escrita é uma obrigação. Recomenda-se usar o mais recente SDK, uma vez que a lógica de retíria está continuamente a ser melhorada.
 
 1. As falhas de IO de leitura e consulta serão novamente julgadas pelo SDK sem as deixar em cima do utilizador final.
 2. As escritas (Criar, Aumentar, Substituir, Excluir) são "não" idempotentes e, portanto, a SDK nem sempre pode voltar a tentar cegamente as operações de escrita falhadas. É necessário que a lógica de aplicação do utilizador lide com a falha e relemque.
@@ -54,7 +54,7 @@ Cosmos DB SDK em qualquer falha de IO tentará voltar a tentar a operação falh
 Para melhor desempenho:
 * Certifique-se de que a aplicação está a funcionar na mesma região que a sua conta DB Azure Cosmos. 
 * Verifique a utilização do CPU no anfitrião onde a aplicação está em funcionamento. Se a utilização do CPU for de 50% ou mais, execute a sua aplicação num anfitrião com uma configuração mais alta. Ou pode distribuir a carga em mais máquinas.
-    * Se estiver a executar a sua aplicação no Serviço Azure Kubernetes, pode [utilizar o Azure Monitor para monitorizar a utilização do CPU](../azure-monitor/insights/container-insights-analyze.md).
+    * Se estiver a executar a sua aplicação no Serviço Azure Kubernetes, pode [utilizar o Azure Monitor para monitorizar a utilização do CPU](../azure-monitor/containers/container-insights-analyze.md).
 
 #### <a name="connection-throttling"></a>Estrangulamento de conexão
 O estrangulamento da ligação pode ocorrer devido a um limite de [ligação numa máquina hospedeira] ou à [exaustão da porta Azure SNAT (PAT).]
