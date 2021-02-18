@@ -9,16 +9,16 @@ ms.author: chpalm
 ms.date: 10/06/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: ed9af178c10d033806b05f73372a0642bb28cab4
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.openlocfilehash: 24926640de3b50823dfeaf195500f33b49aebc18
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91801671"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652722"
 ---
 # <a name="quickstart-send-sms-messages-in-azure-logic-apps-with-azure-communication-services"></a>Quickstart: Envie mensagens SMS em Azure Logic Apps com Serviços de Comunicação Azure
 
-Ao utilizar o conector [SMS dos Serviços de Comunicação Azure](../../overview.md) e [as Aplicações Lógicas Azure,](../../../logic-apps/logic-apps-overview.md)pode criar fluxos de trabalho automatizados ou *aplicações lógicas*que podem enviar mensagens SMS. Este quickstart mostra como enviar automaticamente mensagens de texto em resposta a um evento de gatilho, que é o primeiro passo de um fluxo de trabalho de aplicações lógicas. Um evento de gatilho pode ser uma mensagem de e-mail recebida, um horário de recorrência, um evento de recursos [Azure Event Grid](../../../event-grid/overview.md) ou qualquer outro [gatilho que seja suportado por Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors).
+Ao utilizar o conector [SMS dos Serviços de Comunicação Azure](../../overview.md) e [as Aplicações Lógicas Azure,](../../../logic-apps/logic-apps-overview.md)pode criar fluxos de trabalho automatizados ou *aplicações lógicas* que podem enviar mensagens SMS. Este quickstart mostra como enviar automaticamente mensagens de texto em resposta a um evento de gatilho, que é o primeiro passo de um fluxo de trabalho de aplicações lógicas. Um evento de gatilho pode ser uma mensagem de e-mail recebida, um horário de recorrência, um evento de recursos [Azure Event Grid](../../../event-grid/overview.md) ou qualquer outro [gatilho que seja suportado por Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors).
 
 :::image type="content" source="./media/logic-app/azure-communication-services-connector.png" alt-text="Screenshot que mostra o portal Azure, que está aberto ao Logic App Designer, e mostra uma aplicação lógica de exemplo que utiliza a ação SMS enviar para o conector Azure Communication Services.":::
 
@@ -39,6 +39,8 @@ Embora este arranque rápido se concentre na utilização do conector para respo
 
 - Um número de telefone ativado por SMS ou [um número de telefone](./get-phone-number.md).
 
+[!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
+
 ## <a name="add-an-sms-action"></a>Adicione uma ação SMS
 
 Para adicionar a ação **SMS enviar** como um novo passo no seu fluxo de trabalho utilizando o conector SMS dos Serviços de Comunicação Azure, siga estes passos no [portal Azure](https://portal.azure.com) com o fluxo de trabalho da sua aplicação lógica aberta no Logic App Designer:
@@ -47,7 +49,7 @@ Para adicionar a ação **SMS enviar** como um novo passo no seu fluxo de trabal
 
 1. Na caixa de pesquisa de **operação Escolha,** insira `Azure Communication Services` . A partir da lista de ações, selecione **Enviar SMS.**
 
-   :::image type="content" source="./media/logic-app/select-send-sms-action.png" alt-text="Screenshot que mostra o portal Azure, que está aberto ao Logic App Designer, e mostra uma aplicação lógica de exemplo que utiliza a ação SMS enviar para o conector Azure Communication Services.":::
+   :::image type="content" source="./media/logic-app/select-send-sms-action.png" alt-text="Screenshot que mostra o Logic App Designer e o conector Azure Communication Services com a ação SMS de envio selecionado.":::
 
 1. Agora crie uma ligação ao seu recurso de Serviços de Comunicação.
 
@@ -57,7 +59,7 @@ Para adicionar a ação **SMS enviar** como um novo passo no seu fluxo de trabal
 
    1. Selecione **Criar**.
 
-   :::image type="content" source="./media/logic-app/send-sms-configuration.png" alt-text="Screenshot que mostra o portal Azure, que está aberto ao Logic App Designer, e mostra uma aplicação lógica de exemplo que utiliza a ação SMS enviar para o conector Azure Communication Services.":::
+   :::image type="content" source="./media/logic-app/send-sms-configuration.png" alt-text="Screenshot que mostra a configuração de ação enviar SMS com informações de amostra.":::
 
 1. Na ação **Enviar SMS,** forneça as seguintes informações: 
 
@@ -67,7 +69,7 @@ Para adicionar a ação **SMS enviar** como um novo passo no seu fluxo de trabal
 
    Aqui está uma ação **enviar SMS** com informações de exemplo:
 
-   :::image type="content" source="./media/logic-app/send-sms-action.png" alt-text="Screenshot que mostra o portal Azure, que está aberto ao Logic App Designer, e mostra uma aplicação lógica de exemplo que utiliza a ação SMS enviar para o conector Azure Communication Services.":::
+   :::image type="content" source="./media/logic-app/send-sms-action.png" alt-text="Screenshot que mostra a ação enviar SMS com informações de amostra.":::
 
 1. Quando terminar, na barra de ferramentas do designer, **selecione Save**.
 
@@ -93,5 +95,5 @@ Neste arranque rápido, aprendeu a enviar mensagens SMS utilizando apps Azure Lo
 Para obter mais informações sobre SMS nos Serviços de Comunicação Azure, consulte estes artigos:
 
 - [Conceitos de SMS](../../concepts/telephony-sms/concepts.md)
-- [Planear a solução de telefonia e SMS](../../concepts/telephony-sms/plan-solution.md)
+- [Tipos de números de telefone](../../concepts/telephony-sms/plan-solution.md)
 - [SMS SDK](../../concepts/telephony-sms/sdk-features.md)

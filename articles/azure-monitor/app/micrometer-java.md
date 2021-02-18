@@ -6,16 +6,18 @@ author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
 ms.date: 11/01/2018
-ms.openlocfilehash: df3ed451776f30e8b7c13b95618f1a7f0c7688db
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 8dba7280f6abd6026fabdde500dc76b73129d557
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98937536"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100589754"
 ---
 # <a name="how-to-use-micrometer-with-azure-application-insights-java-sdk-not-recommended"></a>Como utilizar o Micrometro com Azure Application Insights Java SDK (não recomendado)
 
 > [!IMPORTANT]
+> A abordagem descrita neste documento já não é recomendada.
+> 
 > A abordagem recomendada para monitorizar as aplicações java é utilizar a auto-instrumentação sem alterar o código. A telemetria de micrometros é recolhida automaticamente com o agente Application Insights Java 3.0 - siga as orientações para o [agente Desconsetecção de Aplicações Java 3.0](./java-in-process-agent.md).
 
 > [!NOTE]
@@ -278,7 +280,7 @@ Adicione o seguinte código de ligação ao ficheiro de configuração:
     New GuavaCacheMetrics().bind(registry);
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para saber mais sobre o Micrometro, consulte a documentação oficial do [Micrometro.](https://micrometer.io/docs)
 * Para saber mais sobre a primavera em Azure, consulte a documentação oficial [da primavera sobre Azure.](/java/azure/spring-framework/)

@@ -1,5 +1,5 @@
 ---
-title: Azure Monitor livros para relatórios Microsoft Docs
+title: Azure Monitor livros para relatórios | Microsoft Docs
 description: Saiba como utilizar os livros de trabalho do Azure Monitor para relatórios do Azure Ative Directory.
 services: active-directory
 author: MarkusVi
@@ -14,12 +14,12 @@ ms.subservice: report-monitor
 ms.date: 10/30/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 76dc7693b1773038d610f9ed42eddad2c81e3eaf
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: b84c38b28b51f867160272883465242fc81ff2bf
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93126639"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100588048"
 ---
 # <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>Como utilizar os livros do Azure Monitor para relatórios do Azure Ative Directory
 
@@ -42,13 +42,13 @@ Quer:
 
 - Obtenha informações mais profundas sobre as consultas de login, o livro relata quantos utilizadores foram concedidos ou negados de acesso, bem como quantos utilizadores contornaram as políticas de Acesso Condicional ao aceder aos recursos.
 
-- Para ajudá-lo a resolver estas questões, o Azure Ative Directory fornece livros de trabalho para monitorização. [Os livros do Azure Monitor](../../azure-monitor/platform/workbooks-overview.md) combinam texto, consultas de análise, métricas e parâmetros em ricos relatórios interativos.
+- Para ajudá-lo a resolver estas questões, o Azure Ative Directory fornece livros de trabalho para monitorização. [Os livros do Azure Monitor](../../azure-monitor/visualize/workbooks-overview.md) combinam texto, consultas de análise, métricas e parâmetros em ricos relatórios interativos.
 
 
 
 Este artigo:
 
-- Assume que está familiarizado com a forma de [criar relatórios interativos utilizando livros de monitorização.](../../azure-monitor/platform/workbooks-overview.md)
+- Assume que está familiarizado com a forma de [criar relatórios interativos utilizando livros de monitorização.](../../azure-monitor/visualize/workbooks-overview.md)
 
 - Explica como utilizar os livros do Monitor para compreender o efeito das suas políticas de Acesso Condicional, para resolver falhas de acesso a problemas e identificar autenticações antigas.
  
@@ -60,9 +60,9 @@ Para utilizar os livros do Monitor, é necessário:
 
 - Um inquilino do Azure Ative Directory com uma licença premium (P1 ou P2). Saiba como [obter uma licença premium.](../fundamentals/active-directory-get-started-premium.md)
 
-- Uma [área de trabalho do Log Analytics](../../azure-monitor/learn/quick-create-workspace.md).
+- Uma [área de trabalho do Log Analytics](../../azure-monitor/logs/quick-create-workspace.md).
 
-- [Acesso](../../azure-monitor/platform/manage-access.md#manage-access-using-workspace-permissions) ao espaço de trabalho de análise de log analytics
+- [Acesso](../../azure-monitor/logs/manage-access.md#manage-access-using-workspace-permissions) ao espaço de trabalho de análise de log analytics
 - Seguintes funções no Azure Ative Directory (se estiver a aceder ao Log Analytics através do portal Azure Ative Directory)
     - Administrador de segurança
     - Leitor de segurança
@@ -70,7 +70,7 @@ Para utilizar os livros do Monitor, é necessário:
     - Administrador global
 
 ## <a name="roles"></a>Funções
-Deve estar numa das seguintes funções, bem como ter acesso ao espaço de trabalho [subjacente ao Log Analytics](../../azure-monitor/platform/manage-access.md#manage-access-using-azure-permissions) para gerir os livros:
+Deve estar numa das seguintes funções, bem como ter acesso ao espaço de trabalho [subjacente ao Log Analytics](../../azure-monitor/logs/manage-access.md#manage-access-using-azure-permissions) para gerir os livros:
 -   Administrador global
 -   Administrador de segurança
 -   Leitor de segurança
@@ -83,21 +83,21 @@ Para aceder a livros de trabalho:
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
-1. Navegue para **Azure Ative**  >  **Directory Monitoring**  >  **Workbooks** . 
+1. Navegue para **Azure Ative**  >  **Directory Monitoring**  >  **Workbooks**. 
 
-1. Selecione um relatório ou modelo, ou na barra de ferramentas **selecione Abrir** . 
+1. Selecione um relatório ou modelo, ou na barra de ferramentas **selecione Abrir**. 
 
 ![Encontre os livros do Azure Monitor em Azure AD](./media/howto-use-azure-monitor-workbooks/azure-monitor-workbooks-in-azure-ad.png)
 
 ## <a name="sign-in-analysis"></a>Análise de inscrição
 
-Para aceder ao livro de análise de inscrição, na secção **Utilização,** selecione **Iniciar s-ins** . 
+Para aceder ao livro de análise de inscrição, na secção **Utilização,** selecione **Iniciar s-ins**. 
 
 Este livro mostra as seguintes tendências de inscrição:
 
 - Todos os insus máximos
 
-- Success
+- Com êxito
 
 - Pendente de ação do utilizador
 
@@ -128,13 +128,13 @@ Para cada tendência, obtém-se uma desagregação pelas seguintes categorias:
 ## <a name="sign-ins-using-legacy-authentication"></a>Insuposições utilizando a autenticação do legado 
 
 
-Para aceder ao livro de trabalho para iniciar sentutagens que utilizem [autenticação antiga,](../conditional-access/block-legacy-authentication.md)na secção **Utilização,** selecione **Iniciar s-ins utilizando a Autenticação Legacy** . 
+Para aceder ao livro de trabalho para iniciar sentutagens que utilizem [autenticação antiga,](../conditional-access/block-legacy-authentication.md)na secção **Utilização,** selecione **Iniciar s-ins utilizando a Autenticação Legacy**. 
 
 Este livro mostra as seguintes tendências de inscrição:
 
 - Todos os insus máximos
 
-- Success
+- Com êxito
 
 
 Pode filtrar cada tendência pelas seguintes categorias:
@@ -159,7 +159,7 @@ Para cada tendência, obtém-se uma avaria por app e protocolo.
 ## <a name="sign-ins-by-conditional-access"></a>Ins-ins por Acesso Condicional 
 
 
-Para aceder ao livro de inscrições por políticas de [acesso condicional,](../conditional-access/overview.md)na secção **Acesso Condicional,** selecione **Iniciar sê-ins por Acesso Condicional** . 
+Para aceder ao livro de inscrições por políticas de [acesso condicional,](../conditional-access/overview.md)na secção **Acesso Condicional,** selecione **Iniciar sê-ins por Acesso Condicional**. 
 
 Este livro mostra as tendências para inserções com deficiência. Pode filtrar cada tendência pelas seguintes categorias:
 
@@ -179,7 +179,7 @@ Para insinuações desativadas, obtém-se uma avaria pelo estado de Acesso Condi
 
 ## <a name="conditional-access-insights"></a>Informações de Acesso Condicional
 
-### <a name="overview"></a>Descrição geral
+### <a name="overview"></a>Descrição Geral
 
 Os livros contêm consultas de registo de login que podem ajudar os administradores de TI a monitorizar o impacto das políticas de Acesso Condicional no seu inquilino. Tem a capacidade de informar sobre quantos utilizadores teriam sido concedidos ou negados acesso. O livro contém informações sobre quantos utilizadores teriam contornado as políticas de Acesso Condicional com base nos atributos desses utilizadores no momento da s início. Contém detalhes por condição para que o impacto de uma política possa ser contextualizado por condição, incluindo plataforma de dispositivo, estado do dispositivo, app do cliente, risco de login, localização e aplicação.
 
@@ -217,7 +217,7 @@ Também pode investigar as entradas individuais, filtradas pelos parâmetros sel
 
 ## <a name="sign-ins-by-grant-controls"></a>Inscrições por controlos de subvenções
 
-Para aceder ao livro de inscrições através de controlos de [concessão,](../conditional-access/controls.md)na secção **Acesso Condicional,** selecione **Iniciar sing-ins por Grant Controls** . 
+Para aceder ao livro de inscrições através de controlos de [concessão,](../conditional-access/controls.md)na secção **Acesso Condicional,** selecione **Iniciar sing-ins por Grant Controls**. 
 
 Este livro mostra as seguintes tendências de inserção de inserção de deficientes:
 
@@ -253,17 +253,17 @@ Para cada tendência, obtém-se uma avaria por app e protocolo.
 Utilize o livro **de análise de falhas de inscrição** para obter erros de resolução de problemas com:
 
 - Inícios de sessão
-- Políticas de acesso condicional
+- Políticas de Acesso Condicional
 - Autenticação do legado 
 
 
-Para aceder aos dados de acesso condicional, na secção **Resolução** de Problemas, selecione **Iniciar sessão utilizando a Autenticação Legacy** . 
+Para aceder aos dados de acesso condicional, na secção **Resolução** de Problemas, selecione **Iniciar sessão utilizando a Autenticação Legacy**. 
 
 Este livro mostra as seguintes tendências de inscrição:
 
 - Todos os insus máximos
 
-- Success
+- Com êxito
 
 - Ação pendente
 
@@ -298,4 +298,4 @@ Para ajudá-lo a resolver os sign-ins, o Azure Monitor dá-lhe uma repartição 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-[Crie relatórios interativos utilizando livros de monitorização.](../../azure-monitor/platform/workbooks-overview.md)
+[Crie relatórios interativos utilizando livros de monitorização.](../../azure-monitor/visualize/workbooks-overview.md)

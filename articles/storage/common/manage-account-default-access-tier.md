@@ -8,16 +8,16 @@ ms.service: storage
 ms.subservice: common
 ms.topic: how-to
 ms.reviewer: klaasl
-ms.openlocfilehash: 10d4e99d7bbebb6bc7d7def308e233507ed99ce9
-ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
+ms.openlocfilehash: 637f748882b3ac84127c8b71761a06629e1e0957
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98166499"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653837"
 ---
 # <a name="manage-the-default-access-tier-of-an-azure-storage-account"></a>Gerir o nível de acesso predefinido de uma conta de Armazenamento Azure
 
-Cada conta Azure Storage tem um nível de acesso predefinido, quente, fresco ou arquivado. Atribua o nível de acesso quando cria uma conta de armazenamento. O nível de acesso predefinido é quente.
+Cada conta Azure Storage tem um nível de acesso predefinido, quente ou fresco. Atribua o nível de acesso quando cria uma conta de armazenamento. O nível de acesso predefinido é quente.
 
 Pode alterar o nível de conta predefinido definindo o atributo **de nível De acesso** na conta de armazenamento. A alteração do nível de conta aplica-se a todos os objetos armazenados na conta que não tenham um conjunto de nível explícito. O toggling do nível da conta de operações de escrita quentes a frio incorre (por 10.000) para todas as bolhas sem um nível definido apenas nas contas GPv2 e toggling de cool para quente incorre tanto operações de leitura (por 10.000) como taxas de recuperação de dados (por GB) para todos os blobs em Blob Storage e contas GPv2.
 

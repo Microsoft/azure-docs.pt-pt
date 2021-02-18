@@ -1,5 +1,5 @@
 ---
-title: Executar várias ações a partir de uma regra Azure IoT Central / Microsoft Docs
+title: Executar várias ações de uma regra central Azure IoT | Microsoft Docs
 description: Executar várias ações a partir de uma única regra IoT Central e criar grupos reutilizáveis de ações que você pode executar a partir de várias regras.
 services: iot-central
 author: dominicbetts
@@ -8,18 +8,18 @@ ms.date: 12/06/2019
 ms.topic: how-to
 ms.service: iot-central
 manager: philmea
-ms.openlocfilehash: b447f44d0c95693e560fd5bbfbff8c8daeec964e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84a723023bf8614b837ba9783bae987403921c06
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80157692"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100585481"
 ---
 # <a name="group-multiple-actions-to-run-from-one-or-more-rules"></a>Agrupar múltiplas ações para executar a partir de uma ou mais regras
 
 *Este artigo aplica-se a construtores e administradores.*
 
-Na Azure IoT Central, cria-se regras para executar ações quando uma condição é cumprida. As regras baseiam-se na telemetria do dispositivo ou em eventos. Por exemplo, pode notificar um operador quando a temperatura de um dispositivo exceder um limiar. Este artigo descreve como usar *grupos de ação* [do Azure Monitor](../../azure-monitor/overview.md) para anexar múltiplas ações a uma regra IoT Central. Pode anexar um grupo de ação a várias regras. Um [grupo de ação](../../azure-monitor/platform/action-groups.md) é uma coleção de preferências de notificação definidas pelo proprietário de uma subscrição Azure.
+Na Azure IoT Central, cria-se regras para executar ações quando uma condição é cumprida. As regras baseiam-se na telemetria do dispositivo ou em eventos. Por exemplo, pode notificar um operador quando a temperatura de um dispositivo exceder um limiar. Este artigo descreve como usar *grupos de ação* [do Azure Monitor](../../azure-monitor/overview.md) para anexar múltiplas ações a uma regra IoT Central. Pode anexar um grupo de ação a várias regras. Um [grupo de ação](../../azure-monitor/alerts/action-groups.md) é uma coleção de preferências de notificação definidas pelo proprietário de uma subscrição Azure.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -28,7 +28,7 @@ Na Azure IoT Central, cria-se regras para executar ações quando uma condição
 
 ## <a name="create-action-groups"></a>Criar grupos de ações
 
-Pode [criar e gerir grupos de ação no portal Azure](../../azure-monitor/platform/action-groups.md) ou com um [modelo de Gestor de Recursos Azure.](../../azure-monitor/platform/action-groups-create-resource-manager-template.md)
+Pode [criar e gerir grupos de ação no portal Azure](../../azure-monitor/alerts/action-groups.md) ou com um [modelo de Gestor de Recursos Azure.](../../azure-monitor/alerts/action-groups-create-resource-manager-template.md)
 
 Um grupo de ação pode:
 

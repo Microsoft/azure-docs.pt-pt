@@ -3,18 +3,63 @@ title: Problemas de resolução de alterações de automação Azure
 description: Este artigo diz como resolver problemas e resolver problemas com a funcionalidade de Rastreio e Inventário de Alterações da Automação Azure.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 01/31/2019
+ms.date: 02/15/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: 516f1a4e5e7c677b17a2941ee3c300db44d49a3b
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 9fe53a343a9f6675519b60d37d077886adaf8a9d
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896550"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100651170"
 ---
 # <a name="troubleshoot-change-tracking-and-inventory-issues"></a>Resolver problemas do Controlo de Alterações e Inventário
 
 Este artigo descreve como resolver problemas e resolver problemas de rastreio e inventário de alterações de automação da Azure. Para obter informações gerais sobre o Rastreio e Inventário de Alterações, consulte [a visão geral do Change Tracking e Do Inventário](../change-tracking/overview.md).
+
+## <a name="general-errors"></a>Erros gerais
+
+### <a name="scenario-machine-is-already-registered-to-a-different-account"></a><a name="machine-already-registered"></a>Cenário: A máquina já está registada numa conta diferente
+
+### <a name="issue"></a>Problema
+
+Recebe a seguinte mensagem de erro:
+
+```error
+Unable to Register Machine for Change Tracking, Registration Failed with Exception System.InvalidOperationException: {"Message":"Machine is already registered to a different account."}
+```
+
+### <a name="cause"></a>Causa
+
+A máquina já foi implantada noutro espaço de trabalho para o Change Tracking.
+
+### <a name="resolution"></a>Resolução
+
+1. Certifique-se de que a sua máquina está a reportar para o espaço de trabalho correto. Para obter orientações sobre como verificar isto, consulte [verificar a conectividade do agente com o Azure Monitor](../../azure-monitor/platform/agent-windows.md#verify-agent-connectivity-to-azure-monitor). Certifique-se também de que este espaço de trabalho está ligado à sua conta Azure Automation. Para confirmar, vá à sua conta de Automação e selecione **espaço de trabalho linked** under Related **Resources**.
+
+1. Certifique-se de que as máquinas aparecem no espaço de trabalho Do Log Analytics ligado à sua conta Automation. Executar a seguinte consulta no espaço de trabalho Log Analytics.
+
+   ```kusto
+   Heartbeat
+   | summarize by Computer, Solutions
+   ```
+
+   Se não vir a sua máquina nos resultados da consulta, não fez o check-in recentemente. Deve haver um problema de configuração local. Deverá reinstalar o agente Log Analytics.
+
+   Se a sua máquina estiver listada nos resultados da consulta, verifique na propriedade Solutions que **a changeTracking** está listada. Isto verifica-se que está registado no Change Tracking and Inventory. Se não for, verifique se existem problemas de configuração de âmbito. A configuração de âmbito determina quais as máquinas configuradas para o Rastreio de Alterações e Inventário. Para configurar a configuração de âmbito para a máquina-alvo, consulte [Ativar o Rastreio e Inventário de Alterações a partir de uma conta de Automação](../change-tracking/enable-from-automation-account.md).
+
+   No seu espaço de trabalho, faça esta consulta.
+
+   ```kusto
+   Operation
+   | where OperationCategory == 'Data Collection Status'
+   | sort by TimeGenerated desc
+   ```
+
+1. Se obtém um ```Data collection stopped due to daily limit of free data reached. Ingestion status = OverQuota``` resultado, a quota definida no seu espaço de trabalho foi alcançada, o que impediu que os dados fossem guardados. No seu espaço de trabalho, vá ao **Uso e custos estimados.** Selecione um novo **nível de preços** que lhe permita utilizar mais dados, ou clique na **tampa diária** e remova a tampa.
+
+:::image type="content" source="./media/change-tracking/change-tracking-usage.png" alt-text="Utilização e custos estimados." lightbox="./media/change-tracking/change-tracking-usage.png":::
+
+Se o seu problema ainda não estiver resolvido, siga os passos no [Deploy a Windows Hybrid Runbook Worker](../automation-windows-hrw-install.md) para reinstalar o Trabalhador Híbrido para o Windows. Para o Linux, siga os passos em [Implementar um Trabalhador de Runbook Híbrido Linux.](../automation-linux-hrw-install.md)
 
 ## <a name="windows"></a>Windows
 
@@ -96,11 +141,11 @@ Heartbeat
 | summarize by Computer, Solutions
 ```
 
-Se não vir a sua máquina nos resultados da consulta, não fez o check-in recentemente. Deve haver um problema de configuração local e deve reinstalar o agente. Para obter informações sobre a instalação e configuração, consulte [recolher dados de registo com o agente Log Analytics](../../azure-monitor/platform/log-analytics-agent.md).
+Se não vir a sua máquina nos resultados da consulta, não fez o check-in recentemente. Deve haver um problema de configuração local e deve reinstalar o agente. Para obter informações sobre a instalação e configuração, consulte [recolher dados de registo com o agente Log Analytics](../../azure-monitor/agents/log-analytics-agent.md).
 
 Se a sua máquina aparecer nos resultados da consulta, verifique a configuração do âmbito. Consulte [soluções de monitorização de direções no Azure Monitor](../../azure-monitor/insights/solution-targeting.md).
 
-Para uma maior resolução de problemas desta questão, consulte [A questão: Não está a ver quaisquer dados do Linux](../../azure-monitor/platform/agent-linux-troubleshoot.md#issue-you-are-not-seeing-any-linux-data).
+Para uma maior resolução de problemas desta questão, consulte [A questão: Não está a ver quaisquer dados do Linux](../../azure-monitor/agents/agent-linux-troubleshoot.md#issue-you-are-not-seeing-any-linux-data).
 
 ##### <a name="log-analytics-agent-for-linux-not-configured-correctly"></a>Log Analytics agente para Linux não configurado corretamente
 
@@ -110,7 +155,7 @@ O agente Log Analytics do Linux pode não estar configurado corretamente para a 
 
 A funcionalidade FIM do Azure Security Center pode estar a validar incorretamente a integridade dos seus ficheiros Linux. Verifique se o FIM está operacional e corretamente configurado para a monitorização de ficheiros Linux. Consulte [o tracking de alterações e a visão geral do inventário](../change-tracking/overview.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Se não vir o seu problema aqui ou não conseguir resolver o seu problema, experimente um dos seguintes canais para obter apoio adicional:
 

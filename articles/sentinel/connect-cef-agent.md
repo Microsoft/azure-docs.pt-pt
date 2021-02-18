@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2021
 ms.author: yelevin
-ms.openlocfilehash: 8261856598a155e97f90ea350cedcd4c10e6893c
-ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
+ms.openlocfilehash: a4303f43dffa98f842bd3daf9e3a0cd5214932b1
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98747311"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100585369"
 ---
 # <a name="step-1-deploy-the-log-forwarder"></a>Passo 1: Implementar o reencaminhador de registo
 
@@ -70,7 +70,7 @@ Neste passo, designará e configurará a máquina Linux que irá encaminhar os r
 >
 > Se planeia utilizar esta máquina de encaminhar o reencaminhador de registos para encaminhar [mensagens Syslog,](connect-syslog.md) bem como CEF, então, para evitar a duplicação de eventos nas tabelas Syslog e CommonSecurityLog:
 >
-> 1. Em cada máquina de origem que envia registos para o reencaminhador no formato CEF, tem de editar o ficheiro de configuração Syslog para remover as instalações que estão a ser utilizadas para enviar mensagens CEF. Desta forma, as instalações que são enviadas no CEF também não serão enviadas em Syslog. Consulte [o Configure Syslog no agente Linux](../azure-monitor/platform/data-sources-syslog.md#configure-syslog-on-linux-agent) para obter instruções detalhadas sobre como fazê-lo.
+> 1. Em cada máquina de origem que envia registos para o reencaminhador no formato CEF, tem de editar o ficheiro de configuração Syslog para remover as instalações que estão a ser utilizadas para enviar mensagens CEF. Desta forma, as instalações que são enviadas no CEF também não serão enviadas em Syslog. Consulte [o Configure Syslog no agente Linux](../azure-monitor/agents/data-sources-syslog.md#configure-syslog-on-linux-agent) para obter instruções detalhadas sobre como fazê-lo.
 >
 > 1. Tem de executar o seguinte comando nessas máquinas para desativar a sincronização do agente com a configuração Syslog em Azure Sentinel. Isto garante que a alteração de configuração efetuada no passo anterior não seja substituída.<br>
 > `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/OMS_MetaConfigHelper.py --disable'`
@@ -226,7 +226,7 @@ Escolha um daemon syslog para ver a descrição apropriada.
         ```
 ---
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste documento, aprendeu a implantar o agente Log Analytics para ligar aparelhos CEF ao Azure Sentinel. Para saber mais sobre Azure Sentinel, consulte os seguintes artigos:
 - Saiba como [obter visibilidade nos seus dados e potenciais ameaças.](quickstart-get-visibility.md)

@@ -1,14 +1,14 @@
 ---
 title: Mensagens de autocarro da Azure Service - filas, tópicos e subscrições
 description: Este artigo fornece uma visão geral das entidades de mensagens Azure Service Bus (fila, tópicos e subscrições).
-ms.topic: article
-ms.date: 11/04/2020
-ms.openlocfilehash: 54b6a1fd2d4e8e5ef5bb6522374646257213e4b4
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.topic: conceptual
+ms.date: 02/16/2021
+ms.openlocfilehash: f647164ba18cb83e35b5bd174f09e07a4a9f9aa7
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95791613"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652824"
 ---
 # <a name="service-bus-queues-topics-and-subscriptions"></a>Filas, tópicos e subscrições do Service Bus
 A Azure Service Bus suporta um conjunto de tecnologias de middleware baseadas em nuvem e orientadas para mensagens, incluindo mensagens de mensagens fiáveis e mensagens de publicação/subscrição duradouras. Estas capacidades de mensagens intermediadas podem ser consideradas como funcionalidades de mensagens dissociadas que suportam cenários de subscrição, dissociação temporal e equilíbrio de cargas utilizando a carga de trabalho de mensagens Service Bus. A comunicação dissociada tem muitas vantagens. Por exemplo, os clientes e servidores podem conectar-se conforme necessário e fazer as suas operações de forma assíncronea.
@@ -26,19 +26,16 @@ A utilização de filas para intermediários entre os produtores de mensagens e 
 Pode criar filas utilizando os [modelos](service-bus-resource-manager-namespace-queue.md) [do portal Azure,](service-bus-quickstart-portal.md) [PowerShell,](service-bus-quickstart-powershell.md) [CLI](service-bus-quickstart-cli.md)ou Gestor de Recursos . Em seguida, envie e receba mensagens usando clientes escritos em [C#](service-bus-dotnet-get-started-with-queues.md), [Java,](service-bus-java-how-to-use-queues.md) [Python,](service-bus-python-how-to-use-queues.md) [JavaScript,](service-bus-nodejs-how-to-use-queues.md) [PHP](service-bus-php-how-to-use-queues.md)e [Ruby](service-bus-ruby-how-to-use-queues.md). 
 
 ### <a name="receive-modes"></a>Receber modos
-Pode especificar dois modos diferentes em que o Service Bus recebe mensagens: **ReceberAndDelete** ou **PeekLock**. No modo [ReceiveAndDelete,](/dotnet/api/microsoft.azure.servicebus.receivemode) quando a Service Bus recebe o pedido do consumidor, marca a mensagem como sendo consumida e devolve-a à aplicação do consumidor. Este modo é o modelo mais simples. Funciona melhor para cenários em que a aplicação pode tolerar não processar uma mensagem se ocorrer uma falha. Para compreender este cenário, considere um cenário em que o consumidor emite o pedido de receber e depois cai antes de o processar. À medida que o Service Bus marca a mensagem como sendo consumida, a aplicação começa a consumir mensagens no reinício. Vai perder a mensagem que consumiu antes do acidente.
+Pode especificar dois modos diferentes em que o Service Bus recebe mensagens.
 
-No modo [PeekLock,](/dotnet/api/microsoft.azure.servicebus.receivemode) a operação de receção torna-se em duas fases, o que permite suportar aplicações que não podem tolerar mensagens em falta. Quando a Service Bus recebe o pedido, faz as seguintes operações:
+- **Receber e apagar**. Neste modo, quando a Service Bus recebe o pedido do consumidor, marca a mensagem como sendo consumida e devolve-a à aplicação do consumidor. Este modo é o modelo mais simples. Funciona melhor para cenários em que a aplicação pode tolerar não processar uma mensagem se ocorrer uma falha. Para compreender este cenário, considere um cenário em que o consumidor emite o pedido de receber e depois cai antes de o processar. À medida que o Service Bus marca a mensagem como sendo consumida, a aplicação começa a consumir mensagens no reinício. Vai perder a mensagem que consumiu antes do acidente.
+- **Trave de espreitar.** Neste modo, a operação de receção torna-se em duas fases, o que permite suportar aplicações que não podem tolerar mensagens em falta. 
+    1. Encontra a próxima mensagem a ser consumida, **bloqueia-a** para evitar que outros consumidores a recebam e, em seguida, devolva a mensagem à aplicação. 
+    1. Após o final da aplicação terminar o processamento da mensagem, solicita ao serviço Service Bus que complete a segunda fase do processo de receção. Em seguida, o serviço **marca a mensagem como sendo consumida.** 
 
-1. Encontra a próxima mensagem a ser consumida.
-1. Bloqueia-o para evitar que outros consumidores o recebam.
-1. Em seguida, devolva a mensagem à aplicação. 
+        Se a aplicação não conseguir processar a mensagem por algum motivo, pode solicitar ao serviço service Bus que **abandone** a mensagem. A Service Bus **desbloqueia** a mensagem e disponibiliza-a para ser novamente recebida, quer pelo mesmo consumidor, quer por outro consumidor concorrente. Em segundo lugar, há um **tempo limite** associado à fechadura. Se a aplicação não processar a mensagem antes do prazo de bloqueio expirar, o Service Bus desbloqueia a mensagem e disponibiliza-a para ser novamente recebida.
 
-Depois de a aplicação terminar o processamento da mensagem ou armazena-a de forma fiável para o processamento futuro, completa a segunda fase do processo de receção, chamando [`CompleteAsync`](/dotnet/api/microsoft.azure.servicebus.queueclient.completeasync) a mensagem. Quando o Service Bus recebe o pedido **CompleteAsync,** marca a mensagem como sendo consumida.
-
-Se a aplicação não conseguir processar a mensagem por alguma razão, pode ligar para [`AbandonAsync`](/dotnet/api/microsoft.azure.servicebus.queueclient.abandonasync) o método na mensagem (em vez de [`CompleteAsync`](/dotnet/api/microsoft.azure.servicebus.queueclient.completeasync) ). Este método permite que a Service Bus desbloqueie a mensagem e a disponibilize para ser novamente recebida, quer pelo mesmo consumidor, quer por outro consumidor concorrente. Em segundo lugar, há um tempo limite associado à fechadura. Se a aplicação não processar a mensagem antes do prazo de bloqueio expirar, o Service Bus desbloqueia a mensagem e disponibiliza-a para ser novamente recebida.
-
-Se a aplicação falhar depois de processar a mensagem, mas antes de [`CompleteAsync`](/dotnet/api/microsoft.azure.servicebus.queueclient.completeasync) ligar, o Service Bus reentra a mensagem para a aplicação quando esta reinicia. Este processo é muitas vezes chamado **pelo menos uma vez processado.** Ou seja, cada mensagem é processada pelo menos uma vez. No entanto, em determinadas situações, a mesma mensagem pode ser reenviada. Se o seu cenário não puder tolerar o processamento duplicado, adicione lógica adicional na sua aplicação para detetar duplicados. Pode alcançá-lo utilizando a propriedade [MessageId](/dotnet/api/microsoft.azure.servicebus.message.messageid) da mensagem, que permanece constante em todas as tentativas de entrega. Esta funcionalidade é conhecida **como exatamente uma vez** processada.
+        Se a aplicação falhar depois de processar a mensagem, mas antes de solicitar ao serviço Service Bus para completar a mensagem, a Service Bus reentra a mensagem para a aplicação quando reinicia. Este processo é muitas vezes chamado **pelo menos uma vez processado.** Ou seja, cada mensagem é processada pelo menos uma vez. No entanto, em determinadas situações, a mesma mensagem pode ser reenviada. Se o seu cenário não puder tolerar o processamento duplicado, adicione lógica adicional na sua aplicação para detetar duplicados. Para obter mais informações, consulte [a deteção de Duplicado.](duplicate-detection.md) Esta funcionalidade é conhecida **como exatamente uma vez** processada.
 
 ## <a name="topics-and-subscriptions"></a>Tópicos e subscrições
 Uma fila permite o processamento de uma mensagem por um único consumidor. Em contraste com as filas, tópicos e subscrições fornecem uma forma de comunicação de um a muitos num padrão **de publicação e subscrição.** É útil para escalar para um grande número de destinatários. Cada mensagem publicada é disponibilizada a cada subscrição registada com o tema. O editor envia uma mensagem para um tópico e um ou mais subscritores recebem uma cópia da mensagem, dependendo das regras de filtro definidas nestas subscrições. As subscrições podem usar filtros adicionais para restringir as mensagens que querem receber. Os editores enviam mensagens para um tópico da mesma forma que enviam mensagens para uma fila. Mas os consumidores não recebem mensagens diretamente do tema. Em vez disso, os consumidores recebem mensagens de subscrições do tema. Uma subscrição de tópico assemelha-se a uma fila virtual que recebe cópias das mensagens que são enviadas para o tema. Os consumidores recebem mensagens de uma subscrição idêntica à forma como recebem mensagens de uma fila.
@@ -55,7 +52,7 @@ Para obter um exemplo completo de trabalho, consulte a [amostra TopicSubscriptio
 
 Para obter mais informações sobre possíveis valores de filtro, consulte a documentação para as classes [SqlFilter](/dotnet/api/microsoft.azure.servicebus.sqlfilter) e [SqlRuleAction.](/dotnet/api/microsoft.azure.servicebus.sqlruleaction)
 
-## <a name="java-message-service-jms-20-entities-preview"></a>Serviço de mensagens Java (JMS) 2.0 entidades (Pré-visualização)
+## <a name="java-message-service-jms-20-entities"></a>Serviço de mensagens Java (JMS) 2.0 entidades
 As seguintes entidades estão acessíveis através do serviço de mensagens Java (JMS) 2.0 API.
 
   * Filas temporárias

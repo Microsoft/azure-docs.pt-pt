@@ -3,12 +3,12 @@ title: Criar e executar testes de disponibilidade personalizados usando funçõe
 description: Este doc cobrirá como criar uma Função Azure com TrackAvailability() que será executada periodicamente de acordo com a configuração dada na função TimerTrigger. Os resultados deste teste serão enviados para o seu recurso Application Insights, onde poderá consultar e alertar sobre os dados dos resultados da disponibilidade. Os testes personalizados permitir-lhe-ão escrever testes de disponibilidade mais complexos do que é possível utilizando o portal UI, monitorizar uma aplicação dentro do seu Azure VNET, alterar o endereço de ponto final ou criar um teste de disponibilidade se não estiver disponível na sua região.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 3553b212d1b63d4bd239893ba90aa3465d98df60
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 98d9eaadb31ffdeabe85752f7c76bdd4f7c0d4f3
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945656"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100589940"
 ---
 # <a name="create-and-run-custom-availability-tests-using-azure-functions"></a>Criar e executar testes de disponibilidade personalizados usando funções Azure
 
@@ -175,7 +175,7 @@ Se executou tudo como está (sem adicionar lógica de negócio), verá que o tes
 
 ## <a name="query-in-logs-analytics"></a>Consulta em Registos (Analytics)
 
-Pode utilizar Logs (analytics) para visualizar os resultados da disponibilidade, dependências e muito mais. Para saber mais sobre Os Registos, visite [a visão geral da consulta de registo.](../log-query/log-query-overview.md)
+Pode utilizar Logs (analytics) para visualizar os resultados da disponibilidade, dependências e muito mais. Para saber mais sobre Os Registos, visite [a visão geral da consulta de registo.](../logs/log-query-overview.md)
 
 >[!div class="mx-imgBorder"]
 >![Resultados da disponibilidade](media/availability-azure-functions/availabilityresults.png)
@@ -183,7 +183,7 @@ Pode utilizar Logs (analytics) para visualizar os resultados da disponibilidade,
 >[!div class="mx-imgBorder"]
 >![A screenshot mostra o novo separador de consulta com dependências limitadas a 50.](media/availability-azure-functions/dependencies.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Mapeamento de Aplicações](./app-map.md)
 - [Diagnóstico da transação](./transaction-diagnostics.md)

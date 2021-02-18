@@ -1,15 +1,15 @@
 ---
-title: Métricas de Retransmissão Azure no Monitor Azure Microsoft Docs
+title: Métricas de Retransmissão Azure em | monitor Azure Microsoft Docs
 description: Este artigo fornece informações sobre como pode utilizar o Azure Monitor para monitorizar o estado do Azure Relay.
 services: service-bus-relay
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: f39019dc092740c166798a7f85d5bdba686adbf4
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: 7f91ac0aec46d0fc24901585156dceabb18640c1
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98179967"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100586833"
 ---
 # <a name="azure-relay-metrics-in-azure-monitor"></a>Métricas de Retransmissão Azure em Monitor Azure 
 As métricas Azure Relay dão-lhe o estado dos recursos na sua assinatura Azure. Com um rico conjunto de dados de métricas, você pode avaliar a saúde geral dos seus recursos De Retransmissor, não só ao nível do espaço de nome, mas também ao nível da entidade. Estas estatísticas podem ser importantes, uma vez que o ajudam a monitorizar o estado de Azure Relay. As métricas também podem ajudar a resolver problemas de causa de raiz sem precisar de contactar o suporte do Azure.
@@ -21,9 +21,9 @@ O Azure Monitor fornece interfaces de utilizador unificadas para monitorização
 
 ## <a name="access-metrics"></a>Métricas de acesso
 
-O Azure Monitor fornece várias formas de aceder às métricas. Pode aceder às métricas através do [portal Azure,](https://portal.azure.com)ou utilizar as APIs do Monitor Azure (REST e .NET) e soluções de análise como a Operation Management Suite e os Event Hubs. Para obter mais informações, consulte [os dados de monitorização recolhidos pelo Azure Monitor](../azure-monitor/platform/data-platform.md).
+O Azure Monitor fornece várias formas de aceder às métricas. Pode aceder às métricas através do [portal Azure,](https://portal.azure.com)ou utilizar as APIs do Monitor Azure (REST e .NET) e soluções de análise como a Operation Management Suite e os Event Hubs. Para obter mais informações, consulte [os dados de monitorização recolhidos pelo Azure Monitor](../azure-monitor/data-platform.md).
 
-As métricas são ativadas por padrão, e pode aceder aos últimos 30 dias de dados. Se precisar de reter dados por um período de tempo mais longo, pode arquivar dados de métricas numa conta de Armazenamento Azure. Isto está configurado em [definições de diagnóstico](../azure-monitor/platform/diagnostic-settings.md) no Monitor Azure.
+As métricas são ativadas por padrão, e pode aceder aos últimos 30 dias de dados. Se precisar de reter dados por um período de tempo mais longo, pode arquivar dados de métricas numa conta de Armazenamento Azure. Isto está configurado em [definições de diagnóstico](../azure-monitor/essentials/diagnostic-settings.md) no Monitor Azure.
 
 ## <a name="access-metrics-in-the-portal"></a>Métricas de acesso no portal
 
@@ -48,7 +48,7 @@ Todos os valores de métricas são enviados para o Azure Monitor a cada minuto. 
 
 ## <a name="connection-metrics"></a>Métricas de ligação
 
-| Nome da Métrica | Descrição |
+| Nome da Métrica | Description |
 | ------------------- | ----------------- |
 | ListenerConnections-Success  | O número de ligações de ouvintes bem sucedidas efetuadas ao Azure Relay durante um período especificado. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: Nome da Entidade|
 |ListenerConnections-ClientError |O número de erros do cliente nas ligações dos ouvintes durante um período determinado.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: Nome da Entidade|
@@ -65,7 +65,7 @@ Todos os valores de métricas são enviados para o Azure Monitor a cada minuto. 
 
 ## <a name="memory-usage-metrics"></a>Métricas de utilização da memória
 
-| Nome da Métrica | Descrição |
+| Nome da Métrica | Description |
 | ------------------- | ----------------- |
 |BytesTransferido |O número de bytes transferidos durante um período especificado.<br/><br/> Unidade: Bytes <br/> Tipo de agregação: Total <br/> Dimensão: Nome da Entidade|
 
@@ -73,7 +73,7 @@ Todos os valores de métricas são enviados para o Azure Monitor a cada minuto. 
 
 O Azure Relay suporta as seguintes dimensões para métricas no Azure Monitor. Adicionar dimensões às suas métricas é opcional. Se não adicionar dimensões, as métricas são especificadas ao nível do espaço de identificação. 
 
-|Nome de dimensão|Descrição|
+|Nome de dimensão|Description|
 | ------------------- | ----------------- |
 |Nome de Entidade| A Azure Relay suporta entidades de mensagens sob o espaço de nome.|
 

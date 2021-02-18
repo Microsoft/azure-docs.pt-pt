@@ -7,14 +7,14 @@ tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: managed-hsm
 ms.topic: conceptual
-ms.date: 09/15/2020
+ms.date: 02/17/2021
 ms.author: ambapat
-ms.openlocfilehash: 816941fe0ec3a81c41da56acedcedf2de7febe74
-ms.sourcegitcommit: 6109f1d9f0acd8e5d1c1775bc9aa7c61ca076c45
+ms.openlocfilehash: 0c0a0c5f62f92aaf195e207dfd505ffb017d924e
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94445239"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653905"
 ---
 # <a name="managed-hsm-access-control"></a>Controlo de acesso do HSM Gerido
 
@@ -63,7 +63,7 @@ A tabela seguinte mostra os pontos finais para os aviões de gestão e dados.
 | Avião de acesso &nbsp; | Pontos finais de acesso | Operações | Mecanismo de controlo de acesso |
 | --- | --- | --- | --- |
 | Plano de gestão | **Global:**<br> management.azure.com:443<br> | Criar, ler, atualizar, excluir e mover HSMs geridos<br>Definir tags HSM geridas | RBAC do Azure |
-| Plano de dados | **Global:**<br> &lt;hsm-nome &gt; .vault.azure.net:443<br> | **Chaves:** desencriptar, encriptar,<br> desembrulhar, embrulhar, verificar, assinar, obter, listar, atualizar, criar, importar, eliminar, limpar, restaurar, purgar<br/><br/> **Gestão de funções de plano de dados (Managed HSM local RBAC)**_: <br/> <br/> listar definições de funções, atribuir funções, eliminar atribuições de funções, definir funções personalizadas_ *Backup/restaurar **: backup, restaurar, verificar o estado de backup/restaurar operações <br/> <br/>** Domínio de segurança**: descarregar e carregar domínio de segurança | Gerido HSM local RBAC |
+| Plano de dados | **Global:**<br> &lt;hsm-nome &gt; .managedhsm.azure.net:443<br> | **Chaves:** desencriptar, encriptar,<br> desembrulhar, embrulhar, verificar, assinar, obter, listar, atualizar, criar, importar, eliminar, limpar, restaurar, purgar<br/><br/> **Gestão de funções de plano de dados (Managed HSM local RBAC)**_: <br/> <br/> listar definições de funções, atribuir funções, eliminar atribuições de funções, definir funções personalizadas_*Backup/restaurar **: backup, restaurar, verificar o estado de backup/restaurar operações <br/> <br/>** Domínio de segurança**: descarregar e carregar domínio de segurança | Gerido HSM local RBAC |
 |||||
 ## <a name="management-plane-and-azure-rbac"></a>Avião de gestão e Azure RBAC
 
@@ -71,10 +71,10 @@ No plano de gestão, você usa Azure RBAC para autorizar as operações que um c
 
 Cria um cofre chave num grupo de recursos e gere o acesso utilizando o Azure Ative Directory. Você concede aos utilizadores ou grupos a capacidade de gerir os cofres chave em um grupo de recursos. Você concede o acesso a um nível de âmbito específico, atribuindo as funções apropriadas de Azure. Para conceder acesso a um utilizador para gerir cofres-chave, atribui uma função predefinida `key vault Contributor` ao utilizador num âmbito específico. Os seguintes níveis de âmbito podem ser atribuídos a uma função Azure:
 
-- **Grupo de gestão** : Uma função Azure atribuída ao nível da subscrição aplica-se a todas as subscrições desse grupo de gestão.
-- **Subscrição** : Uma função Azure atribuída ao nível de subscrição aplica-se a todos os grupos de recursos e recursos dentro dessa subscrição.
-- **Grupo de recursos** : Uma função Azure atribuída ao nível do grupo de recursos aplica-se a todos os recursos desse grupo de recursos.
-- **Recurso específico** : Uma função Azure atribuída a um recurso específico aplica-se a esse recurso. Neste caso, o recurso é um cofre-chave específico.
+- **Grupo de gestão**: Uma função Azure atribuída ao nível da subscrição aplica-se a todas as subscrições desse grupo de gestão.
+- **Subscrição**: Uma função Azure atribuída ao nível de subscrição aplica-se a todos os grupos de recursos e recursos dentro dessa subscrição.
+- **Grupo de recursos**: Uma função Azure atribuída ao nível do grupo de recursos aplica-se a todos os recursos desse grupo de recursos.
+- **Recurso específico**: Uma função Azure atribuída a um recurso específico aplica-se a esse recurso. Neste caso, o recurso é um cofre-chave específico.
 
 Há vários papéis predefinidos. Se um papel predefinido não se adequa às suas necessidades, pode definir o seu próprio papel. Para mais informações, consulte [Azure RBAC: Funções incorporadas](../../role-based-access-control/built-in-roles.md).
 

@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 02/15/2021
-ms.openlocfilehash: 7149233782815deebebde53767a3c654ac2321bb
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: e183d81355d4db81e677f34b02330ddb9b631957
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100547762"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100651991"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>Quickstart: Criar um serviço Azure Cognitive Search no portal
 
 [A Azure Cognitive Search](search-what-is-azure-search.md) é um recurso Azure usado para adicionar uma experiência completa de pesquisa de texto a aplicações personalizadas. Pode integrá-lo facilmente com outros serviços Azure que fornecem dados ou processamento adicional, com aplicações em servidores de rede ou com software em execução em outras plataformas de nuvem.
 
-Pode criar um serviço de pesquisa utilizando o [portal Azure,](https://portal.azure.com/)coberto neste artigo. Também pode utilizar [a Azure PowerShell](search-manage-powershell.md), [Azure CLI,](/cli/azure/search)ou um modelo de [serviço Azure Resource Manager](https://azure.microsoft.com/resources/templates/101-azure-search-create/).
+Pode criar um serviço de pesquisa através do [portal Azure,](https://portal.azure.com/)que está abrangido por este artigo. Também pode utilizar [a Azure PowerShell](search-manage-powershell.md), [Azure CLI,](/cli/azure/search)a [Management REST API](/rest/api/searchmanagement/)ou um [modelo de serviço Azure Resource Manager](https://azure.microsoft.com/resources/templates/101-azure-search-create/).
 
 [![GIF animado](./media/search-create-service-portal/AnimatedGif-AzureSearch-small.gif)](./media/search-create-service-portal/AnimatedGif-AzureSearch.gif#lightbox)
 
@@ -27,9 +27,9 @@ Pode criar um serviço de pesquisa utilizando o [portal Azure,](https://portal.a
 
 As seguintes propriedades de serviço são fixadas durante o tempo de vida do serviço - alterar qualquer uma delas requer um novo serviço. Por serem fixas, considere as implicações de utilização à medida que preenche cada propriedade:
 
-* O nome do serviço torna-se parte do ponto final do URL[(dicas de revisão](#name-the-service) para nomes de serviços úteis).
-* [O nível de](search-sku-tier.md) serviço afeta a faturação e estabelece um limite ascendente de capacidade. Algumas funcionalidades não estão disponíveis no nível livre.
-* A região de serviços pode determinar a disponibilidade de certos cenários. Se necessitar de [funcionalidades](search-security-overview.md) de alta segurança ou [enriquecimento de IA,](cognitive-search-concept-intro.md)terá de criar a Azure Cognitive Search na mesma região que outros serviços, ou em regiões que fornecem a funcionalidade em questão. 
++ O nome do serviço torna-se parte do ponto final do URL[(dicas de revisão](#name-the-service) para nomes de serviços úteis).
++ [O nível de](search-sku-tier.md) serviço afeta a faturação e estabelece um limite ascendente de capacidade. Algumas funcionalidades não estão disponíveis no nível livre.
++ A região de serviços pode determinar a disponibilidade de certos cenários. Se necessitar de [funcionalidades](search-security-overview.md) de alta segurança ou [enriquecimento de IA,](cognitive-search-concept-intro.md)terá de criar a Azure Cognitive Search na mesma região que outros serviços, ou em regiões que fornecem a funcionalidade em questão. 
 
 ## <a name="subscribe-free-or-paid"></a>Subscrever (gratuito ou pago)
 
@@ -72,30 +72,30 @@ Em caso de detalhes, forneça um nome de serviço no campo **URL.** O nome faz p
 
 Requisitos do nome do serviço:
 
-* Tem de ser exclusivo no espaço de nomes search.windows.net
-* Deve ter entre 2 e 60 caracteres de comprimento
-* Deve utilizar letras minúsculas, dígitos ou traços ("-")
-* Não utilize traços ("-") nos primeiros 2 caracteres ou como o último personagem único
-* Não pode usar traços consecutivos ("--") em qualquer lugar
++ Tem de ser exclusivo no espaço de nomes search.windows.net
++ Deve ter entre 2 e 60 caracteres de comprimento
++ Deve utilizar letras minúsculas, dígitos ou traços ("-")
++ Não utilize traços ("-") nos primeiros 2 caracteres ou como o último personagem único
++ Não pode usar traços consecutivos ("--") em qualquer lugar
 
 > [!TIP]
 > Se você acha que você vai usar vários serviços, recomendamos incluir a região (ou localização) no nome de serviço como uma convenção de nomeação. Os serviços dentro da mesma região podem trocar dados gratuitamente, por isso, se a Azure Cognitive Search estiver nos EUA Ocidentais, e tiver outros serviços também nos EUA ocidentais, um nome como `mysearchservice-westus` pode poupar-lhe uma viagem à página de propriedades ao decidir como combinar ou anexar recursos.
 
 ## <a name="choose-a-location"></a>Escolha uma localização
 
-A Azure Cognitive Search está disponível na maioria das regiões, conforme documentado na [página de preços.](https://azure.microsoft.com/pricing/details/search/)
+A Azure Cognitive Search está disponível na maioria das regiões, conforme documentado nos [Produtos disponíveis por região.](https://azure.microsoft.com/global-infrastructure/services/?products=search) Geralmente, se estiver a utilizar vários serviços Azure, escolha uma região que também esteja hospedando os seus dados ou serviço de aplicação. Ao fazê-lo, minimiza ou anula os encargos de largura de banda para os dados de saída (não há encargos para os dados de saída quando os serviços estão na mesma região).
 
-Geralmente, se estiver a utilizar vários serviços Azure, escolha uma região que também esteja hospedando os seus dados ou serviço de aplicação. Ao fazê-lo, minimiza ou anula os encargos de largura de banda para os dados de saída (não há encargos para os dados de saída quando os serviços estão na mesma região).
++ [O enriquecimento de](cognitive-search-concept-intro.md) IA requer que os Serviços Cognitivos estejam na mesma região física que a Pesquisa Cognitiva de Azure. Há apenas algumas regiões que não fornecem ambas. Os [Produtos disponíveis por](https://azure.microsoft.com/global-infrastructure/services/?products=search) página de região indicam dupla disponibilidade mostrando duas marcas de verificação empilhadas. Uma combinação indisponível tem uma marca de verificação em falta:
 
-Os clientes com requisitos de continuidade e recuperação de desastres (BCDR) devem criar os seus serviços em [pares regionais.](../best-practices-availability-paired-regions.md#azure-regional-pairs) Por exemplo, se estiver a operar na América do Norte, poderá escolher os EUA e o Oeste dos EUA, ou o Norte Central DOS EUA e o Centro Sul dos EUA, para cada serviço.
+  :::image type="content" source="media/search-create-service-portal/region-availability.png" alt-text="Disponibilidade regional" border="true":::
 
-As seguintes características só estão disponíveis em determinadas regiões:
++ Os requisitos de continuidade do negócio e recuperação de desastres (BCDR) devem ser cumpridos através da criação de múltiplos serviços de pesquisa em [pares regionais.](../best-practices-availability-paired-regions.md#azure-regional-pairs) Por exemplo, se estiver a operar na América do Norte, poderá escolher os EUA e o Oeste dos EUA, ou o Norte Central DOS EUA e o Centro Sul dos EUA, para cada serviço de pesquisa.
 
-* O enriquecimento de IA requer que os Serviços Cognitivos estejam na mesma região que a Pesquisa Cognitiva Azure. Escolha primeiro a [região para Serviços Cognitivos](https://azure.microsoft.com/pricing/details/cognitive-services/) (a lista é menor), e depois escolha a mesma região para o serviço de pesquisa.
+Algumas funcionalidades têm disponibilidade limitada com base em regiões. As restrições são delineadas na documentação do recurso:
 
-* A dupla encriptação só está disponível em certas regiões. Para mais informações, consulte [a dupla encriptação](search-security-overview.md#double-encryption)
++ [Dupla encriptação](search-security-overview.md#double-encryption)
 
-* O suporte à zona de disponibilidade é oferecido em regiões específicas, em serviços criados após datas específicas. Para obter mais informações, consulte ["Zonas de Disponibilidade" em Escala para Desempenho.](search-performance-optimization.md#availability-zones)
++ ["Zonas de disponibilidade" em Escala para Desempenho](search-performance-optimization.md#availability-zones).
 
 ## <a name="choose-a-pricing-tier"></a>Escolha um nível de preços
 
@@ -121,7 +121,7 @@ A menos que esteja a utilizar o portal, o acesso programático ao seu novo servi
 
 1. Na página **'Vista Geral',** localize e copie o ponto final URL no lado direito da página.
 
-2. Na página **Chaves,** copie qualquer uma das teclas de administração (são equivalentes). As teclas Admin api são necessárias para criar, atualizar e apagar objetos no seu serviço. Em contraste, as teclas de consulta fornecem acesso de leitura ao conteúdo do índice.
+1. Na página **Chaves,** copie qualquer uma das teclas de administração (são equivalentes). As teclas Admin api são necessárias para criar, atualizar e apagar objetos no seu serviço. Em contraste, as teclas de consulta fornecem acesso de leitura ao conteúdo do índice.
 
    :::image type="content" source="media/search-create-service-portal/get-url-key.png" alt-text="Página geral do serviço com ponto final de URL" border="false":::
 
@@ -141,8 +141,8 @@ A adição de recursos aumenta a sua fatura mensal. A [calculadora de preços](h
 > Um serviço tem de ter [2 réplicas para SLA só de leitura e 3 réplicas para SLA de leitura/escrita](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
 1. Aceda à página do serviço de pesquisa no portal do Azure.
-2. No painel de navegação à esquerda, selecione **Escala de Definições**  >  .
-3. Utilize a barra de deslize para adicionar recursos de qualquer tipo.
+1. No painel de navegação à esquerda, selecione **Escala de Definições**  >  .
+1. Utilize a barra de deslize para adicionar recursos de qualquer tipo.
 
 :::image type="content" source="media/search-create-service-portal/settings-scale.png" alt-text="Adicione capacidade através de réplicas e divisórias" border="false":::
 

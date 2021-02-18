@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 04/03/2018
 ms.author: srrengar
-ms.openlocfilehash: bcb9ca9e73c0898dc778202eca036a5ae92bebf8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 87fc8e30274f0a11b7ddfc5eeb184f1a45a5351d
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87076132"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100588379"
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Agregação e recolha de eventos usando o Windows Azure Diagnostics
 > [!div class="op_single_selector"]
@@ -207,19 +207,19 @@ Registos de canais adicionais também estão disponíveis para recolha, aqui est
 ```json
       scheduledTransferKeywordFilter: "4611686018427387904"
   ```
-* Canal Operacional - Detalhado: Isto inclui relatórios de saúde e decisões de equilíbrio de carga, além de tudo no canal operacional base. Estes eventos são gerados pelo sistema ou pelo seu código utilizando as APIs de saúde ou de relatório de carga, tais como [ReportPartitionHealth](/previous-versions/azure/reference/mt645153(v=azure.100)) ou [ReportLoad](/previous-versions/azure/reference/mt161491(v=azure.100)). Para visualizar estes eventos no Visualizador de Eventos de Diagnóstico do Estúdio Visual adicione "Microsoft-ServiceFabric:4:0x4000000000000000000000" à lista de fornecedores da ETW.
+* Canal Operacional - Detalhado: Isto inclui relatórios de saúde e decisões de equilíbrio de carga, além de tudo no canal operacional base. Estes eventos são gerados pelo sistema ou pelo seu código utilizando as APIs de saúde ou de relatório de carga, tais como [ReportPartitionHealth](/previous-versions/azure/reference/mt645153(v=azure.100)) ou [ReportLoad](/previous-versions/azure/reference/mt161491(v=azure.100)). Para ver estes eventos no Visualizador de Eventos de Diagnóstico do Visual Studio adicione "Microsoft-ServiceFabric:4:0x4000000000000008" à lista de fornecedores da ETW.
 
 ```json
       scheduledTransferKeywordFilter: "4611686018427387912"
   ```
 
-* Data and Messaging Channel - Base: Registos críticos e eventos gerados nas mensagens (atualmente apenas o ReverseProxy) e na trajetória de dados, além de registos de canais operacionais detalhados. Estes eventos são falhas de processamento de pedidos e outras questões críticas no ReverseProxy, bem como pedidos processados. **Esta é a nossa recomendação para a exploração madeireira abrangente.** Para ver estes eventos no Visualizador de Eventos de Diagnóstico do Estúdio Visual, adicione "Microsoft-ServiceFabric:4:0x40000000000000000010" à lista de fornecedores da ETW.
+* Data and Messaging Channel - Base: Registos críticos e eventos gerados nas mensagens (atualmente apenas o ReverseProxy) e na trajetória de dados, além de registos de canais operacionais detalhados. Estes eventos são falhas de processamento de pedidos e outras questões críticas no ReverseProxy, bem como pedidos processados. **Esta é a nossa recomendação para a exploração madeireira abrangente.** Para ver estes eventos no Visualizador de Eventos de Diagnóstico do Visual Studio, adicione "Microsoft-ServiceFabric:4:0x4000000000000010" à lista de fornecedores da ETW.
 
 ```json
       scheduledTransferKeywordFilter: "4611686018427387928"
   ```
 
-* Data & Canal de Mensagens - Detalhado: Canal Verbose que contém todos os registos não críticos de dados e mensagens no cluster e no canal operacional detalhado. Para uma resolução detalhada de problemas de todos os eventos de procuração inversa, consulte o [guia de diagnóstico de procuração inversa](service-fabric-reverse-proxy-diagnostics.md).  Para ver estes eventos no visualizador de Eventos de Diagnóstico do Visual Studio, adicione "Microsoft-ServiceFabric:4:0x4000000000000000020" à lista de fornecedores da ETW.
+* Data & Canal de Mensagens - Detalhado: Canal Verbose que contém todos os registos não críticos de dados e mensagens no cluster e no canal operacional detalhado. Para uma resolução detalhada de problemas de todos os eventos de procuração inversa, consulte o [guia de diagnóstico de procuração inversa](service-fabric-reverse-proxy-diagnostics.md).  Para ver estes eventos no visualizador de Eventos de Diagnóstico do Visual Studio, adicione "Microsoft-ServiceFabric:4:0x4000000000000020" à lista de fornecedores da ETW.
 
 ```json
       scheduledTransferKeywordFilter: "4611686018427387944"
@@ -346,7 +346,7 @@ No "WadCfg" do modelo de Gestor de Recursos, adicione um "Sink" incluindo as seg
 
 Em ambos os cortes de código anteriores, o nome "applicationInsights" foi usado para descrever a pia. Isto não é um requisito e enquanto o nome da pia estiver incluído em "pias", pode definir o nome em qualquer cadeia.
 
-Atualmente, os registos do cluster aparecem como vestígios no visualizador de **registos** da Application Insights. Uma vez que a maioria dos vestígios provenientes da plataforma são de nível "Informativo", também pode considerar alterar a configuração do lavatório apenas para enviar registos do tipo "Aviso" ou "Erro". Isto pode ser feito adicionando "Canais" à sua pia, como demonstrado [neste artigo.](../azure-monitor/platform/diagnostics-extension-to-application-insights.md)
+Atualmente, os registos do cluster aparecem como vestígios no visualizador de **registos** da Application Insights. Uma vez que a maioria dos vestígios provenientes da plataforma são de nível "Informativo", também pode considerar alterar a configuração do lavatório apenas para enviar registos do tipo "Aviso" ou "Erro". Isto pode ser feito adicionando "Canais" à sua pia, como demonstrado [neste artigo.](../azure-monitor/agents/diagnostics-extension-to-application-insights.md)
 
 >[!NOTE]
 >Se utilizar uma Chave de Insights de Aplicação incorreta no portal ou no seu modelo de Gestor de Recursos, terá de alterar manualmente a tecla e atualizar o cluster /recolocar o cluster/recolocar o cluster/recolocar.
