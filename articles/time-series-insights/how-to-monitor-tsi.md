@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/10/2020
 ms.custom: lyrana
-ms.openlocfilehash: 3fc880e238c1c9f45c663975470a6ab57267a648
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 940f7efc7130ef80817be3b42e3c0eff83588a90
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879549"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100587978"
 ---
 # <a name="monitoring-time-series-insights"></a>Insights das Séries de Tempo de Monitorização
 
@@ -29,7 +29,7 @@ A página **'Visão Geral'** no portal Azure para cada ambiente de Insights sér
 
 Time Series Insights cria dados de monitorização usando [o Azure Monitor](../azure-monitor/overview.md), que é um serviço completo de monitorização de pilhas em Azure que fornece um conjunto completo de funcionalidades para monitorizar os seus recursos Azure, além de recursos em outras nuvens e no local.
 
-Comece com o artigo [Monitorar recursos Azure com Azure Monitor,](../azure-monitor/insights/monitor-azure-resource.md)que descreve os seguintes conceitos:
+Comece com o artigo [Monitorar recursos Azure com Azure Monitor,](../azure-monitor/essentials/monitor-azure-resource.md)que descreve os seguintes conceitos:
 
 - O que é o Azure Monitor?
 - Custos associados à monitorização
@@ -40,11 +40,11 @@ Comece com o artigo [Monitorar recursos Azure com Azure Monitor,](../azure-monit
 As secções seguintes baseiam-se neste artigo descrevendo os dados específicos recolhidos para a Azure Time Series Insights. Estas secções também fornecem exemplos para configurar a recolha de dados e analisar estes dados com ferramentas Azure.
 
 > [!TIP]
-> Para compreender os custos associados ao Azure Monitor, consulte [a Utilização e os custos estimados.](../azure-monitor/platform/usage-estimated-costs.md) Para compreender o tempo que os seus dados demoram a aparecer no Azure Monitor, consulte [o tempo de ingestão de dados do Registo](../azure-monitor/platform/data-ingestion-time.md).
+> Para compreender os custos associados ao Azure Monitor, consulte [a Utilização e os custos estimados.](../azure-monitor//usage-estimated-costs.md) Para compreender o tempo que os seus dados demoram a aparecer no Azure Monitor, consulte [o tempo de ingestão de dados do Registo](../azure-monitor/logs/data-ingestion-time.md).
 
 ## <a name="monitoring-data-from-azure-time-series-insights"></a>Dados de monitorização da Azure Time Series Insights
 
-A Azure Time Series Insights recolhe os mesmos tipos de dados de monitorização que outros recursos Azure que são descritos na [monitorização de dados a partir de recursos Azure](../azure-monitor/insights/monitor-azure-resource.md#monitoring-data). 
+A Azure Time Series Insights recolhe os mesmos tipos de dados de monitorização que outros recursos Azure que são descritos na [monitorização de dados a partir de recursos Azure](../azure-monitor/essentials/monitor-azure-resource.md#monitoring-data). 
 
 Consulte [a referência de dados da Série De Tempo Azure para](how-to-monitor-tsi-reference.md) obter uma referência detalhada dos registos e métricas que pode recolher.
 
@@ -53,7 +53,7 @@ Consulte [a referência de dados da Série De Tempo Azure para](how-to-monitor-t
 As métricas da plataforma são recolhidas e armazenadas automaticamente, mas podem ser encaminhadas para outros locais utilizando uma definição de diagnóstico.
 
 Os Registos de Recursos não são recolhidos e armazenados até criar uma definição de diagnóstico e encaminhá-los para um ou mais locais.
-Consulte [Criar definição de diagnóstico para recolher registos e métricas da plataforma em Azure](../azure-monitor/platform/diagnostic-settings.md) para o processo detalhado para criar uma definição de diagnóstico utilizando o portal Azure, CLI ou PowerShell. Quando cria uma definição de diagnóstico, especifica quais as categorias de registos a recolher.
+Consulte [Criar definição de diagnóstico para recolher registos e métricas da plataforma em Azure](../azure-monitor/essentials/diagnostic-settings.md) para o processo detalhado para criar uma definição de diagnóstico utilizando o portal Azure, CLI ou PowerShell. Quando cria uma definição de diagnóstico, especifica quais as categorias de registos a recolher.
 
 Pode recolher registos das seguintes categorias para Azure Time Series Insights:
 
@@ -80,7 +80,7 @@ Pode aceder a registos de recursos como uma bolha numa conta de armazenamento, c
 
 Os dados em Registos monitores Azure são armazenados em tabelas que cada mesa tem o seu próprio conjunto de propriedades únicas.
 
-Todos os registos de recursos no Azure Monitor têm os mesmos campos seguidos por campos específicos de serviço. O esquema comum é delineado no [esquema de registo de recursos do Azure Monitor](../azure-monitor/platform/resource-logs-schema.md#top-level-common-schema). Para obter uma lista dos tipos de registos de recursos recolhidos para Azure Time Series Insights, consulte [a referência de dados da Série de Tempo Azure.](how-to-monitor-tsi-reference.md#resource-logs)
+Todos os registos de recursos no Azure Monitor têm os mesmos campos seguidos por campos específicos de serviço. O esquema comum é delineado no [esquema de registo de recursos do Azure Monitor](../azure-monitor/essentials/resource-logs-schema.md#top-level-common-schema). Para obter uma lista dos tipos de registos de recursos recolhidos para Azure Time Series Insights, consulte [a referência de dados da Série de Tempo Azure.](how-to-monitor-tsi-reference.md#resource-logs)
 
 A Azure Time Series Insights armazena dados nas seguintes tabelas.
 
@@ -122,4 +122,4 @@ Ao criar uma regra de alerta baseada em métricas da plataforma, esteja ciente d
 ## <a name="next-steps"></a>Passos Seguintes
 
 * Consulte [a referência de dados da Série De Tempo Azure para](how-to-monitor-tsi-reference.md) uma referência dos registos e métricas criados pela Azure Time Series Insights.
-* Consulte [os recursos de Monitor Azure com o Azure Monitor](../azure-monitor/insights/monitor-azure-resource.md) para obter informações sobre a monitorização dos recursos do Azure.
+* Consulte [os recursos de Monitor Azure com o Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md) para obter informações sobre a monitorização dos recursos do Azure.

@@ -3,12 +3,12 @@ title: Ativar a extensão de VM a partir do portal Azure
 description: Este artigo descreve como implementar extensões de máquinas virtuais para O Arco Azure habilitados a funcionar em ambientes de nuvem híbrida a partir do portal Azure.
 ms.date: 01/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 43bbcef28b77e7c7112880fdac1bbd4809791cef
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: b0e114b314179d42ccd47b7d7bd534d3a824a411
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98728959"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100587660"
 ---
 # <a name="enable-azure-vm-extensions-from-the-azure-portal"></a>Ativar extensões VM do Azure a partir do portal Azure
 
@@ -33,7 +33,7 @@ As extensões VM podem ser aplicadas ao seu Arco para máquina gerida pelo servi
 
     ![Instalar extensão VM do Log Analytics](./media/manage-vm-extensions/mma-extension-config.png)
 
-    Para completar a instalação, é-lhe exigido que forneça o ID do espaço de trabalho e a chave primária. Se não estiver familiarizado com a forma de encontrar esta informação, consulte [a identificação do espaço de trabalho e a chave.](../../azure-monitor/platform/log-analytics-agent.md#workspace-id-and-key)
+    Para completar a instalação, é-lhe exigido que forneça o ID do espaço de trabalho e a chave primária. Se não estiver familiarizado com a forma de encontrar esta informação, consulte [a identificação do espaço de trabalho e a chave.](../../azure-monitor/agents/log-analytics-agent.md#workspace-id-and-key)
 
 4. Depois de confirmar as informações necessárias fornecidas, selecione **Criar**. É apresentado um resumo da implantação e pode rever o estado da implantação.
 
@@ -64,7 +64,7 @@ Pode remover uma ou mais extensões de um servidor ativado pelo Arco do portal A
 
 4. Selecione **Desinstalar** e quando for solicitado para verificar, selecione **Sim** para prosseguir.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Pode implementar, gerir e remover extensões VM utilizando os modelos [Azure CLI,](manage-vm-extensions-cli.md) [PowerShell](manage-vm-extensions-powershell.md)ou [Azure Resource Manager](manage-vm-extensions-template.md).
 

@@ -1,15 +1,15 @@
 ---
-title: Recursos, funções e controlo de acessos no Azure Application Insights Microsoft Docs
+title: Recursos, funções e controlo de acessos em Azure Application Insights | Microsoft Docs
 description: Proprietários, colaboradores e leitores das ideias da sua organização.
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: cd1e69ecd121380353ad6400d473d572b7b7bb3e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4254170ad100b634439cc846dc381e305ae71d1f
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89076689"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100589595"
 ---
 # <a name="resources-roles-and-access-control-in-application-insights"></a>Recursos, funções e controlo de acessos em Insights de Aplicações
 
@@ -76,7 +76,7 @@ Quando aplicável, ligamo-nos à documentação oficial de referência associada
 | [Leitor](../../role-based-access-control/built-in-roles.md#reader) |Pode ver, mas não mudar nada. |
 | [Insights de aplicação Snapshot Debugger](../../role-based-access-control/built-in-roles.md#application-insights-snapshot-debugger) | Dá ao utilizador permissão para utilizar as funcionalidades de Debugger Snapshot Do Application Insights. Note que esta função não está incluída nem nas funções de Proprietário nem Contribuinte. |
 | Colaborador de Gestão de Lançamento de Lançamento de Serviço Azure | Função contributiva para serviços implantados através do Serviço Azure Deploy. |
-| [Purgador de dados](../../role-based-access-control/built-in-roles.md#data-purger) | Papel especial para a purga de dados pessoais. Consulte a nossa [orientação para obter dados pessoais](../platform/personal-data-mgmt.md) para mais informações.   |
+| [Purgador de dados](../../role-based-access-control/built-in-roles.md#data-purger) | Papel especial para a purga de dados pessoais. Consulte a nossa [orientação para obter dados pessoais](../logs/personal-data-mgmt.md) para mais informações.   |
 | Administrador ExpressRoute | Pode criar exclusão e gestão de rotas expressas.|
 | [Contribuidor do Log Analytics](../../role-based-access-control/built-in-roles.md#log-analytics-contributor) | Log Analytics Contributor pode ler todos os dados de monitorização e editar as definições de monitorização. As definições de monitorização de edição incluem a adição da extensão VM aos VM; leitura das chaves da conta de armazenamento para poder configurar a recolha de registos do Azure Storage; criar e configurar contas de automação; adição de soluções; e configurar diagnósticos Azure em todos os recursos da Azure.  |
 | [Leitor do Log Analytics](../../role-based-access-control/built-in-roles.md#log-analytics-reader) | O Log Analytics Reader pode visualizar e pesquisar todos os dados de monitorização, bem como visualizar as definições de monitorização, incluindo visualizar a configuração dos diagnósticos Azure em todos os recursos do Azure. |

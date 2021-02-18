@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 12/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 9672d18fe99d8baae3c73fa3782531eb84114713
-ms.sourcegitcommit: 66479d7e55449b78ee587df14babb6321f7d1757
+ms.openlocfilehash: 05d312296b48f35ea87c5443cc587989e2d11fd5
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97515633"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100587973"
 ---
 # <a name="deploy-the-windows-virtual-desktop-classic-diagnostics-tool"></a>Implementar a ferramenta de diagnóstico virtual do Windows Desktop (clássico)
 
@@ -116,7 +116,7 @@ Eis como configurar manualmente os contadores de desempenho recomendados:
     -   Tempo de \* processador de informação do \\ processador
     -   Atraso de entrada do utilizador por \* sessão. \\
 
-Saiba mais sobre os contadores de desempenho no [Windows e nas fontes de dados de desempenho do Linux no Azure Monitor](../../azure-monitor/platform/data-sources-performance-counters.md).
+Saiba mais sobre os contadores de desempenho no [Windows e nas fontes de dados de desempenho do Linux no Azure Monitor](../../azure-monitor/agents/data-sources-performance-counters.md).
 
 >[!NOTE]
 >Quaisquer contadores adicionais que configurar não aparecerão na própria ferramenta de diagnóstico. Para que apareça na ferramenta de diagnóstico, é necessário configurar o ficheiro config da ferramenta. As instruções para como fazê-lo com administração avançada estarão disponíveis no GitHub mais tarde.
@@ -199,7 +199,7 @@ Para definir o URI de redirecionamento:
 
 Antes de disponibilizar a ferramenta de diagnóstico aos seus utilizadores, certifique-se de que dispõem das seguintes permissões:
 
-- Os utilizadores precisam de ler o acesso para análise de registos. Para mais informações, consulte [Começar com papéis, permissões e segurança com o Azure Monitor.](../../azure-monitor/platform/roles-permissions-security.md)
+- Os utilizadores precisam de ler o acesso para análise de registos. Para mais informações, consulte [Começar com papéis, permissões e segurança com o Azure Monitor.](../../azure-monitor/roles-permissions-security.md)
 -  Os utilizadores também precisam de acesso lido para o inquilino virtual do Windows Desktop (função RDS Reader). Para obter mais informações, consulte [o acesso delegado no Windows Virtual Desktop](delegated-access-virtual-desktop-2019.md).
 
 Também precisa de dar aos seus utilizadores as seguintes informações:

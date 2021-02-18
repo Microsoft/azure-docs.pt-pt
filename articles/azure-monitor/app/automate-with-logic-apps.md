@@ -3,19 +3,19 @@ title: Automatizar processos de Insights de Aplicações Azure utilizando apps l
 description: Saiba como pode automatizar rapidamente processos repetíveis adicionando o conector Application Insights à sua aplicação lógica.
 ms.topic: conceptual
 ms.date: 03/11/2019
-ms.openlocfilehash: f6406c2e6fb933c561a8ae54009499768c81a204
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d7ff75be3cb847235405a740df4a20803cdc87b3
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90970862"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100589917"
 ---
 # <a name="automate-application-insights-processes-by-using-logic-apps"></a>Automatizar processos de Insights de Aplicações utilizando apps lógicas
 
 Encontra-se repetidamente a executar as mesmas consultas nos seus dados de telemetria para verificar se o seu serviço está a funcionar corretamente? Pretende automatizar estas consultas para encontrar tendências e anomalias e depois construir os seus próprios fluxos de trabalho à sua volta? O conector Azure Application Insights para Aplicações Lógicas é a ferramenta certa para este fim.
 
 > [!NOTE]
-> O conector Azure Application Insights foi substituído pelo [conector Azure Monitor](../platform/logicapp-flow-connector.md) que está integrado com o Azure Ative Directory em vez de necessitar de uma chave API e também permite obter dados de um espaço de trabalho log Analytics.
+> O conector Azure Application Insights foi substituído pelo [conector Azure Monitor](../logs/logicapp-flow-connector.md) que está integrado com o Azure Ative Directory em vez de necessitar de uma chave API e também permite obter dados de um espaço de trabalho log Analytics.
 
 Com esta integração, você pode automatizar inúmeros processos sem escrever uma única linha de código. Pode criar uma aplicação lógica com o conector Application Insights para automatizar rapidamente qualquer processo de Insights de Aplicação. 
 
@@ -27,7 +27,7 @@ Neste tutorial, aprende-se a criar uma aplicação lógica que utiliza o algorit
 
 ### <a name="step-1-create-a-logic-app"></a>Passo 1: Criar uma aplicação lógica
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
-1. Clique **em Criar um recurso,** selecione Web + **Mobile**e, em seguida, selecione **a Aplicação Lógica**.
+1. Clique **em Criar um recurso,** selecione Web + **Mobile** e, em seguida, selecione **a Aplicação Lógica**.
 
     ![Nova janela de aplicativos de lógica](./media/automate-with-logic-apps/1createlogicapp.png)
 
@@ -36,7 +36,7 @@ Neste tutorial, aprende-se a criar uma aplicação lógica que utiliza o algorit
 
     ![Janela do Designer de Aplicativos Lógicas](./media/automate-with-logic-apps/2logicappdesigner.png)
 
-1. Na caixa  **Interval,** tipo **1** e depois, caixa**de frequência,** selecione **Day**.
+1. Na caixa  **Interval,** tipo **1** e depois, caixa **de frequência,** selecione **Day**.
 
     ![Janela "Recorrência" do Designer de Aplicativos Lógicas](./media/automate-with-logic-apps/3recurrence.png)
 
@@ -130,7 +130,7 @@ Quando a sua aplicação lógica é executado, os destinatários especificados n
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre a criação [de consultas analíticas.](../log-query/get-started-queries.md)
+- Saiba mais sobre a criação [de consultas analíticas.](../logs/get-started-queries.md)
 - Saiba mais sobre o [Logic Apps](../../logic-apps/logic-apps-overview.md).
 
 

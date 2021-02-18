@@ -11,20 +11,22 @@ ms.topic: overview
 ms.service: azure-communication-services
 ms.custom: tracking-python, devx-track-js
 zone_pivot_groups: acs-js-csharp-java-python
-ms.openlocfilehash: 60c51de4e4549649c681c961c6ddc1acdb12e698
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 9d665df8eacfa575cd8dc50251662730e58fa7b3
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94659697"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653436"
 ---
 # <a name="quickstart-send-an-sms-message"></a>Quickstart: Enviar uma mensagem SMS
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
+[!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
+
 
 > [!IMPORTANT]
 > As mensagens SMS podem ser enviadas e recebidas a partir de números de telefone dos Estados Unidos. Os números de telefone localizados noutras geografias ainda não são suportados por SMS dos Serviços de Comunicação.
-> Para mais informações, consulte **[Planear a sua solução de telefonia e SMS.](../../concepts/telephony-sms/plan-solution.md)**
+> Para obter mais informações, consulte **[os tipos de números de telefone.](../../concepts/telephony-sms/plan-solution.md)**
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Send SMS with .NET client library](./includes/send-sms-net.md)]
@@ -50,7 +52,7 @@ Para resolver problemas relacionados com a entrega de SMS, pode permitir que o r
 
 Se pretender limpar e remover uma assinatura de Serviços de Comunicação, pode eliminar o grupo de recursos ou recursos. A eliminação do grupo de recursos também elimina quaisquer outros recursos que lhe sejam associados. Saiba mais sobre [a limpeza de recursos.](../create-communication-resource.md#clean-up-resources)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste arranque rápido, aprendeu a enviar mensagens SMS utilizando os Serviços de Comunicação Azure.
 
@@ -58,7 +60,7 @@ Neste arranque rápido, aprendeu a enviar mensagens SMS utilizando os Serviços 
 > [Subscreva os Eventos SMS](./handle-sms-events.md)
 
 > [!div class="nextstepaction"]
-> [Planeie a sua Solução PSTN](../../concepts/telephony-sms/plan-solution.md)
+> [Tipos de números de telefone](../../concepts/telephony-sms/plan-solution.md)
 
 > [!div class="nextstepaction"]
 > [Saiba mais sobre SMS](../../concepts/telephony-sms/concepts.md)

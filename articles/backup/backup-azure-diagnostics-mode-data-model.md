@@ -3,12 +3,12 @@ title: Azure Monitor regista modelo de dados
 description: Neste artigo, conheça os dados do modelo de dados do Azure Monitor Log Analytics para os dados do Azure Backup.
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.openlocfilehash: 1fcb4eb0c584f792132f19c8c4d66289342aa36e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d2146612763bac39eb636bb7da522586a0daee2
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89020954"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100586779"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Registar modelo de dados do Analytics para dados de backup do Azure
 
@@ -172,7 +172,7 @@ Esta tabela fornece detalhes sobre campos relacionados com o emprego.
 
 Esta tabela fornece detalhes sobre campos relacionados com políticas.
 
-| Campo | Tipo de Dados | Versões Aplicáveis | Descrição |
+| Campo | Tipo de Dados | Versões Aplicáveis | Description |
 | --- | --- | --- | --- |
 | EventName_s |Texto ||Este campo representa o nome deste evento. É sempre AzureBackupCentralReport |
 | SchemaVersion_s |Texto ||Este campo denota a versão atual do esquema. É **V2.** |
@@ -220,7 +220,7 @@ Esta tabela fornece detalhes sobre campos relacionados com políticas.
 
 Esta tabela fornece detalhes sobre associações políticas com várias entidades.
 
-| Campo | Tipo de Dados | Versões Aplicáveis | Descrição |
+| Campo | Tipo de Dados | Versões Aplicáveis | Description |
 | --- | --- | --- | --- |
 | EventName_s |Texto ||Este campo representa o nome deste evento. É sempre AzureBackupCentralReport |
 | SchemaVersion_s |Texto ||Este campo denota a versão atual do esquema. É **V2.** |
@@ -349,7 +349,7 @@ Esta tabela especifica a carga de trabalho(s) a volume a que está associada.
 
 Esta tabela fornece campos básicos protegidos relacionados com casos.
 
-| Campo | Tipo de Dados |Versões Aplicáveis | Descrição |
+| Campo | Tipo de Dados |Versões Aplicáveis | Description |
 | --- | --- | --- | --- |
 | BackupItemUniqueId_s |Texto |v2|ID único usado para identificar o item de backup para VMs apoiado usando DPM, MABS|
 | ProtectedContainerUniqueId_s |Texto |v2|ID único usado para identificar o recipiente protegido para tudo, exceto VMs apoiados usando DPM, MABS|
@@ -462,7 +462,7 @@ Abaixo estão algumas amostras para ajudá-lo a escrever consultas sobre dados d
 
 ## <a name="v1-schema-vs-v2-schema"></a>Esquema V1 vs V2
 
-Anteriormente, os dados de diagnóstico do Agente de Backup Azure e da cópia de segurança Azure VM foram enviados para a tabela Azure Diagnostics num esquema referido como ***esquema V1***. Posteriormente, foram adicionadas novas colunas para apoiar outros cenários e cargas de trabalho, e os dados de diagnóstico foram empurrados num novo esquema referido como ***esquema V2***.  
+Anteriormente, os dados de diagnóstico do Agente de Backup Azure e da cópia de segurança Azure VM foram enviados para a tabela Azure Diagnostics num esquema referido como ***esquema V1** _. Posteriormente, novas colunas foram adicionadas para apoiar outros cenários e cargas de trabalho, e os dados de diagnóstico foram empurrados num novo esquema referido como _*_esquema V2_**.  
 
 Por razões de retrocompatibilidade, os dados de diagnóstico do Agente de Backup Azure e da cópia de segurança Azure VM são atualmente enviados para a tabela Azure Diagnostics no esquema V1 e V2 (com o esquema V1 agora em rota de depreciação). Pode identificar quais os registos em Log Analytics que são de esquema V1 filtrando registos de SchemaVersion_s=="V1" nas suas consultas de registo.
 
@@ -495,4 +495,4 @@ Como o esquema V1 está em um caminho de depreciação, é recomendado usar apen
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Uma vez que reveja o modelo de dados, pode começar [a criar consultas personalizadas](../azure-monitor/learn/tutorial-logs-dashboards.md) nos registos do Azure Monitor para construir o seu próprio dashboard.
+Uma vez que reveja o modelo de dados, pode começar [a criar consultas personalizadas](../azure-monitor/visualize/tutorial-logs-dashboards.md) nos registos do Azure Monitor para construir o seu próprio dashboard.
