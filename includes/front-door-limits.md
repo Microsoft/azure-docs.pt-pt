@@ -1,19 +1,19 @@
 ---
-title: ficheiro de inclusão
-description: ficheiro de inclusão
+title: incluir ficheiro
+description: incluir ficheiro
 services: frontdoor
 author: duongau
 ms.service: frontdoor
 ms.topic: include
-ms.date: 05/09/2019
-ms.author: sharadag
+ms.date: 02/18/2021
+ms.author: duau
 ms.custom: include file
-ms.openlocfilehash: 361fb18574e90fc46e45bff8914c51ee1afa2f96
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 53d837883daefddd5fa3f0f543eae1d116a5e86a
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89411641"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101102942"
 ---
 | Recurso | Limite |
 | --- | --- |
@@ -29,12 +29,37 @@ ms.locfileid: "89411641"
 | Condições de correspondência de firewall de aplicação web por regra personalizada | 10 |
 | Gamas de endereços IP de firewall de aplicação web por condição de correspondência | 600 |
 | Valores de correspondência de cadeia de firewall de aplicação web por condição de correspondência | 10 |
-| Comprimento do valor do valor do valor do valor do jogo de combinação de firewall de aplicação web | 256 |
+| Comprimento do valor do jogo de combinação de firewall de aplicação web | 256 |
 | Web application firewall POST comprimento do nome do parâmetro do corpo | 256 |
 | Firewall de aplicação web HTTP comprimento do nome do cabeçalho | 256 |
 | Comprimento do nome do cookie de firewall de aplicação web | 256 |
 | Firewall de aplicação web HTTP solicitar tamanho do corpo inspecionado | 128 KB |
 | Web application firewall comprimento do corpo de resposta personalizada | 2 KB |
+
+### <a name="azure-front-door-standardpremium-preview-service-limits"></a>Limites de serviço standard/premium da porta frontal Azure (pré-visualização)
+
+*** *Máximo **500** perfis Standard e Premium totais por subscrição.*
+
+| Recurso | Limite padrão de SKU | Limite premium SKU |
+| --- | --- | --- |
+| Ponto final máximo por perfil  | 10 | 25 |
+| Domínio personalizado máximo por perfil | 100 | 200 |
+| Grupo de origem máxima por perfil | 100 | 200 |
+| Segredos máximos por perfil | 100 | 200 |
+| Política de segurança máxima por perfil | 100 | 200 |
+| Regra máxima definida por perfil | 100 | 200 |
+| Regras máximas por regra definida | 100 | 100 |
+| Origem máxima por grupo de origem | 50 | 50 |
+| Rotas máximas por ponto final | 100 | 200 |
+| Condições de correspondência de firewall de aplicação web por regra personalizada | 10 | 10 |
+| Gamas de endereços IP de firewall de aplicação web por condição de correspondência | 600 | 600 |
+| Valores de correspondência de cadeia de firewall de aplicação web por condição de correspondência | 10 | 10 |
+| Comprimento do valor do jogo de combinação de firewall de aplicação web | 256 | 256 |
+| Web application firewall POST comprimento do nome do parâmetro do corpo | 256 | 256 |
+| Firewall de aplicação web HTTP comprimento do nome do cabeçalho | 256 | 256 |
+| Comprimento do nome do cookie de firewall de aplicação web | 256 | 256|
+| Firewall de aplicação web HTTP solicitar tamanho do corpo inspecionado | 128 KB | 128 KB |
+| Web application firewall comprimento do corpo de resposta personalizada | 2 KB | 2 KB |
 
 ### <a name="timeout-values"></a>Valores de tempo limite
 #### <a name="client-to-front-door"></a>Cliente para Porta da Frente
