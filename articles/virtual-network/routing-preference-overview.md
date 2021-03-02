@@ -11,22 +11,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/02/2020
+ms.date: 02/01/2021
 ms.author: mnayak
-ms.openlocfilehash: 7fdd23aea5e435c94493a0cbe86b6ffcdb0d2e10
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.custom: references_regions
+ms.openlocfilehash: b0235286260910a45523e3236e7ed3a114eaf57f
+ms.sourcegitcommit: 8c93b05c27c7e8a5ba62a4d6fc6fc4d0c3980a21
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99539075"
+ms.lasthandoff: 02/26/2021
+ms.locfileid: "101601334"
 ---
-# <a name="what-is-routing-preference-preview"></a>O que é a preferência de encaminhamento (pré-visualização)?
+# <a name="what-is-routing-preference"></a>O que é a preferência de encaminhamento?
 
 A preferência por encaminhamento azure permite-lhe escolher como as suas rotas de tráfego entre Azure e a Internet. Pode optar por encaminhar o tráfego através da rede Microsoft, ou através da rede ISP (internet pública). Estas opções também são referidas como *encaminhamento de batata fria* e *encaminhamento de batatas quentes,* respectivamente. O preço de transferência de dados da Egress varia em função da seleção de encaminhamento. Pode escolher a opção de encaminhamento enquanto cria um endereço IP público. O endereço IP público pode ser associado a recursos como máquina virtual, conjuntos de escala de máquinas virtuais, balanceador de carga virado para a Internet, etc. Também pode definir a preferência de encaminhamento para recursos de armazenamento Azure, tais como bolhas, ficheiros, web e Azure DataLake. Por padrão, o tráfego é encaminhado através da rede global da Microsoft para todos os serviços Azure.
-
-> [!IMPORTANT]
-> A preferência de encaminhamento está atualmente em visualização pública.
-> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="routing-via-microsoft-global-network"></a>Encaminhamento através da rede global da Microsoft
 
@@ -70,13 +67,13 @@ Para armazenamento, os pontos finais primários utilizam sempre a rede global da
 * Azure DataLake
 
 ## <a name="pricing"></a>Preços
-A diferença de preços entre ambas as opções reflete-se nos preços de transferência de dados da internet. O preço de transferência de dados **da rede global da Microsoft** é o mesmo que o preço atual da saída da Internet. Visite [a página de preços da largura de banda Azure](https://azure.microsoft.com/pricing/details/bandwidth/) para obter as informações mais recentes sobre os preços. 
+A diferença de preços entre ambas as opções reflete-se nos preços de transferência de dados da internet. O preço de transferência de dados **da rede global da Microsoft** é o mesmo que o preço atual da saída da Internet. Visite [a página de preços da largura de banda Azure](https://azure.microsoft.com/pricing/details/bandwidth/) para obter as informações mais recentes sobre os preços.
 
 ## <a name="limitations"></a>Limitações
 
+* Atualmente, a preferência pelo encaminhamento não é suportada na Austrália Central, Austrália Central2, Canadá Leste, Brasil Sul, Coreia Central e Coreia do Sul.
 * A preferência por encaminhamento só é compatível com o SKU padrão redundante de zona do endereço IP público. O SKU básico do endereço IP público não é suportado.
 * Atualmente, a preferência de encaminhamento suporta apenas endereços IP públicos IPv4. Os endereços IP públicos IPv6 não são suportados.
-* Máquinas virtuais com vários NICs podem ter apenas um tipo de preferência de encaminhamento.
 
 
 ## <a name="next-steps"></a>Passos seguintes
