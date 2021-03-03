@@ -7,18 +7,39 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 51e8f01726c732604199ff08323f073d508da66e
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 6a5460a691658bda1cd60e503be8c98433c9c343
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98602307"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101720159"
 ---
 # <a name="examples-of-an-attestation-policy"></a>Exemplos de uma política de atestado
 
-A política de atestado é usada para processar as provas de atestado e determinar se o Azure Attestation emitirá um token de atestado. A geração de token attestation pode ser controlada com políticas personalizadas. Seguem-se alguns exemplos de uma política de atestado.
+A política de atestado é usada para processar as provas de atestado e determinar se o Azure Attestation emitirá um token de atestado. A geração de token attestation pode ser controlada com políticas personalizadas. Seguem-se alguns exemplos de uma política de atestado. 
 
-## <a name="default-policy-for-an-sgx-enclave"></a>Política padrão para um enclave SGX 
+## <a name="sample-custom-policy-for-an-sgx-enclave"></a>Experimente a política personalizada para um enclave SGX 
+
+```
+version= 1.0;
+authorizationrules
+{
+       [ type=="x-ms-sgx-is-debuggable", value==false ]
+        && [ type=="x-ms-sgx-product-id", value==<product-id> ]
+        && [ type=="x-ms-sgx-svn", value>= 0 ]
+        && [ type=="x-ms-sgx-mrsigner", value=="<mrsigner>"]
+    => permit();
+};
+issuancerules {
+c:[type=="x-ms-sgx-mrsigner"] => issue(type="<custom-name>", value=c.value);
+};
+
+```
+Para obter mais informações sobre as reclamações recebidas geradas pela Azure Attestation, consulte [os conjuntos de reclamações](/azure/attestation/claim-sets). As reclamações recebidas podem ser usadas por autores de políticas para definir regras de autorização numa política personalizada. 
+
+A secção de regras de emissão não é obrigatória. Esta secção pode ser usada pelos utilizadores para ter reclamações adicionais de saída geradas no token de atestado com nomes personalizados. Para obter mais informações sobre as reclamações de saída geradas pelo serviço em ficha atestado, consulte [os conjuntos de reclamações](/azure/attestation/claim-sets).
+
+## <a name="default-policy-for-an-sgx-enclave"></a>Política padrão para um enclave SGX
 
 ```
 version= 1.0;
@@ -38,17 +59,18 @@ issuancerules
 };
 ```
 
-## <a name="sample-custom-policy-for-an-sgx-enclave"></a>Experimente a política personalizada para um enclave SGX 
+As reclamações utilizadas na política por defeito são consideradas depreciadas, mas são totalmente apoiadas e continuarão a ser incluídas no futuro. Recomenda-se a utilização dos nomes de reclamações não depreciados. Para obter mais informações sobre os nomes de reclamações recomendados, consulte [os conjuntos de reclamações](/azure/attestation/claim-sets). 
+
+## <a name="sample-custom-policy-to-support-multiple-sgx-enclaves"></a>Experimente a política personalizada para suportar vários enclaves SGX
 
 ```
 version= 1.0;
-authorizationrules
+authorizationrules 
 {
-       [ type=="x-ms-sgx-is-debuggable", value==false ]
-        && [ type=="x-ms-sgx-product-id", value==<product-id> ]
-        && [ type=="x-ms-sgx-svn", value>= 0 ]
-        && [ type=="x-ms-sgx-mrsigner", value=="<mrsigner>"]
-    => permit();
+    [ type=="x-ms-sgx-is-debuggable", value==true ]&&
+    [ type=="x-ms-sgx-mrsigner", value=="mrsigner1"] => permit(); 
+    [ type=="x-ms-sgx-is-debuggable", value==true ]&& 
+    [ type=="x-ms-sgx-mrsigner", value=="mrsigner2"] => permit(); 
 };
 ```
 

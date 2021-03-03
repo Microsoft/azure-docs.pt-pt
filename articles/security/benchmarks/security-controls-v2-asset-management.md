@@ -4,19 +4,21 @@ description: Azure Security Benchmark V2 Gestão de Ativos
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/20/2020
+ms.date: 02/22/2021
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: f0c2fe78c32357798e1f9acb43f5867df9148b38
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: 32b0a7e31fc0d595eacc2bf5257f41e4ce35566b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97368907"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101735816"
 ---
 # <a name="security-control-v2-asset-management"></a>Controlo de Segurança V2: Gestão de Ativos
 
 A Gestão de Ativos cobre controlos para garantir visibilidade e governação de segurança sobre os recursos da Azure. Isto inclui recomendações sobre permissões para pessoal de segurança, acesso de segurança ao inventário de ativos, e gestão de aprovações para serviços e recursos (inventário, pista e correto).
+
+Para ver a política de Azure incorporada aplicável, consulte [detalhes da iniciativa Azure Security Benchmark Regulatory Compliance built-in: Network Security](../../governance/policy/samples/azure-security-benchmark#asset-management)
 
 ## <a name="am-1-ensure-security-team-has-visibility-into-risks-for-assets"></a>AM-1: Certifique-se de que a equipa de segurança tem visibilidade para os riscos dos ativos
 
@@ -24,13 +26,13 @@ A Gestão de Ativos cobre controlos para garantir visibilidade e governação de
 |--|--|--|--|
 | AM-1 | 1.1, 1.2 | CM-8, PM-5 |
 
-Certifique-se de que as equipas de segurança recebem permissões de Leitor de Segurança no seu inquilino Estaure e subscrições para que possam monitorizar riscos de segurança usando o Centro de Segurança Azure. 
+Certifique-se de que as equipas de segurança recebem permissões de Leitor de Segurança no seu inquilino Estaure e subscrições para que possam monitorizar riscos de segurança usando o Centro de Segurança Azure.
 
-Dependendo da forma como as responsabilidades destas equipas são estruturadas, a monitorização dos riscos de segurança pode ser da responsabilidade de uma equipa de segurança central ou de uma equipa local. Dito isto, as informações e os riscos de segurança têm de ser sempre agregados centralmente nas organizações. 
+Dependendo da forma como as responsabilidades das equipas de segurança são estruturadas, a monitorização dos riscos de segurança pode ser da responsabilidade de uma equipa de segurança central ou de uma equipa local. Dito isto, as informações e os riscos de segurança têm de ser sempre agregados centralmente nas organizações. 
 
 As permissões Leitor de Segurança podem ser aplicadas de um modo amplo em todo um inquilino (Grupo de Gestão Raiz) ou dentro de âmbitos, como grupos de gestão ou subscrições específicas. 
 
-Nota: para obter visibilidade para cargas de trabalho e serviços, poderão ser necessárias permissões adicionais. 
+Nota: para obter visibilidade para cargas de trabalho e serviços, poderão ser necessárias permissões adicionais.
 
 - [Descrição Geral da Função de Leitor de Segurança](../../role-based-access-control/built-in-roles.md#security-reader)
 
@@ -52,9 +54,9 @@ Nota: para obter visibilidade para cargas de trabalho e serviços, poderão ser 
 
 Certifique-se de que as equipas de segurança têm acesso a um inventário continuamente atualizado de ativos em Azure. As equipas de segurança, normalmente, precisam deste inventário para avaliar o potencial de exposição da organização a riscos emergentes e como um ponto de entrada para melhorias contínuas à segurança. 
 
-A funcionalidade de inventário do Azure Security Center e o Azure Resource Graph podem consultar e descobrir todos os recursos nas suas subscrições, incluindo serviços Azure, aplicações e recursos de rede.  
+A funcionalidade de inventário do Azure Security Center e o Azure Resource Graph podem consultar e descobrir todos os recursos nas suas subscrições, incluindo serviços Azure, aplicações e recursos de rede.
 
-Organize logicamente os recursos de acordo com a taxonomia da organização, com as Etiquetas e com outros metadados no Azure (Nome, Descrição e Categoria).  
+Organizar logicamente ativos de acordo com a taxonomia da sua organização usando Tags, bem como outros metadados em Azure (Nome, Descrição e Categoria).
 
 - [Como criar consultas com o Explorador do Azure Resource Graph](../../governance/resource-graph/first-query-portal.md)
 
@@ -76,7 +78,7 @@ Organize logicamente os recursos de acordo com a taxonomia da organização, com
 |--|--|--|--|
 | AM-3 | 2.3, 2.4 | CM-7, CM-8 |
 
-Utilize o Azure Policy para auditar e restringir que serviços os utilizadores podem aprovisionar no ambiente. Utilize o Azure Resource Graph para consultar e detetar recursos dentro das subscrições.  Também pode utilizar o Azure Monitor para criar regras para acionar alertas quando um serviço não aprovado for detetado.
+Utilize o Azure Policy para auditar e restringir que serviços os utilizadores podem aprovisionar no ambiente. Utilize o Azure Resource Graph para consultar e detetar recursos dentro das subscrições. Também pode utilizar o Azure Monitor para criar regras para acionar alertas quando um serviço não aprovado for detetado.
 
 - [Configure e gere a Política Azure](../../governance/policy/tutorials/create-and-manage.md)
 
@@ -90,7 +92,7 @@ Utilize o Azure Policy para auditar e restringir que serviços os utilizadores p
 
 - [Gestão de Conformidade de Segurança](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
 
-- [Gestão de postura](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)  
+- [Gestão de postura](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)
 
 ## <a name="am-4-ensure-security-of-asset-lifecycle-management"></a>AM-4: Garanta a segurança da gestão do ciclo de vida dos ativos
 
@@ -110,7 +112,7 @@ Quando já não precisar dos recursos do Azure, remova-os.
 
 - [Segurança de infraestrutura e pontos finais](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
-- [Gestão de postura](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)  
+- [Gestão de postura](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)
 
 - [Gestão de Conformidade de Segurança](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
 
@@ -128,7 +130,7 @@ Utilize o Acesso Condicional AD Azure para limitar a capacidade dos utilizadores
 
 **Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
-- [Gestão de postura](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)  
+- [Gestão de postura](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)
 
 - [Segurança de infraestrutura e pontos finais](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
@@ -144,7 +146,7 @@ Utilize controlos de aplicação adaptativos do Azure Security Center (ASC) para
 
 Utilize o Azure Automation Change Tracking and Inventory para automatizar a recolha de informações de inventário dos seus VMs Windows e Linux. O nome do software, versão, editor e tempo de atualização estão disponíveis a partir do portal Azure. Para obter a data de instalação do software e outras informações, ative os diagnósticos ao nível do hóspede e direcione os Registos de Eventos do Windows para o espaço de trabalho do Log Analytics.
 
-Dependendo do tipo de scripts, pode utilizar configurações específicas do sistema operativo ou recursos de terceiros para limitar a capacidade dos utilizadores de executar scripts em recursos computatórios Azure. 
+Dependendo do tipo de scripts, pode utilizar configurações específicas do sistema operativo ou recursos de terceiros para limitar a capacidade dos utilizadores de executar scripts em recursos computatórios Azure.
 
 Também pode usar uma solução de terceiros para descobrir e identificar software não aprovado.
 
@@ -160,6 +162,6 @@ Também pode usar uma solução de terceiros para descobrir e identificar softwa
 
 - [Segurança de infraestrutura e pontos finais](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
-- [Gestão de postura](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)  
+- [Gestão de postura](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)
 
 - [Gestão de Conformidade de Segurança](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)

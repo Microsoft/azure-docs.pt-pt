@@ -1,24 +1,24 @@
 ---
-title: Estender a Azure IoT Central com análises personalizadas Microsoft Docs
+title: Estenda a Azure IoT Central com | de análise personalizada Microsoft Docs
 description: Como desenvolvedor de soluções, configurar uma aplicação IoT Central para fazer análises e visualizações personalizadas. Esta solução utiliza a Azure Databricks.
-author: dominicbetts
-ms.author: dobett
-ms.date: 12/02/2019
+author: TheJasonAndrew
+ms.author: v-anjaso
+ms.date: 02/18/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 1e261e8d5d9cd147f3157303b7a2a50db7c33e58
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 86f94b8059d85b892a87c82537b1e9b02552f8f7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92123050"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101741721"
 ---
 # <a name="extend-azure-iot-central-with-custom-analytics-using-azure-databricks"></a>Estenda a Azure IoT Central com análises personalizadas usando Azure Databricks
 
-Este guia de como fazer mostra-lhe, como um desenvolvedor de soluções, como estender a sua aplicação IoT Central com análises e visualizações personalizadas. O exemplo utiliza um espaço de trabalho [Azure Databricks](/azure/azure-databricks/) para analisar o fluxo de telemetria IoT Central e gerar visualizações como [parcelas de caixa.](https://wikipedia.org/wiki/Box_plot)
+Este guia de como fazer mostra-lhe, como um desenvolvedor de soluções, como estender a sua aplicação IoT Central com análises e visualizações personalizadas. O exemplo utiliza um espaço de trabalho [Azure Databricks](/azure/azure-databricks/) para analisar o fluxo de telemetria IoT Central e gerar visualizações como [parcelas de caixa.](https://wikipedia.org/wiki/Box_plot)  
 
 Este guia de como fazer mostra-lhe como estender a IoT Central para além do que já pode fazer com as [ferramentas de análise incorporadas.](./howto-create-custom-analytics.md)
 
@@ -45,7 +45,7 @@ Crie uma aplicação IoT Central no site do [gestor de aplicações Azure IoT Ce
 | URL | Aceite o prefixo padrão ou escolha o seu próprio prefixo URL único |
 | Diretório | Seu inquilino do Diretório Ativo Azure |
 | Subscrição do Azure | A sua subscrição do Azure |
-| Região | A sua região mais próxima |
+| Region | A sua região mais próxima |
 
 Os exemplos e imagens deste artigo utilizam a região **dos Estados Unidos.** Escolha um local próximo de si e certifique-se de criar todos os seus recursos na mesma região.
 
@@ -103,7 +103,7 @@ O seu espaço de nomes do Event Hubs parece a seguinte imagem:
 
 No site do [gestor de aplicações Azure IoT Central,](https://aka.ms/iotcentral) navegue para a aplicação IoT Central que criou a partir do modelo Contoso. Nesta secção, configura a aplicação para transmitir a telemetria dos seus dispositivos simulados para o seu centro de eventos. Para configurar a exportação:
 
-1. Navegue para a página **data export,** selecione **+ Novos**, e depois **Azure Event Hubs**.
+1. Navegue para a página **Data Export (Legacy),** selecione **+ Novos**, e depois **Azure Event Hubs**.
 1. Utilize as seguintes definições para configurar a exportação e, em seguida, **selecione Guardar**:
 
     | Definição | Valor |
@@ -134,7 +134,7 @@ Utilize as informações na tabela seguinte para criar o seu cluster:
 | ------- | ----- |
 | Nome do Cluster | centralmente |
 | Modo cluster | Standard |
-| Versão de runtime databricks | 5.5 LTS (Scala 2.11, Faísca 2.4.3) |
+| Versão de runtime databricks | 5.5 LTS (Scala 2.11, Faísca 2.4.5) |
 | Versão Python | 3 |
 | Ativar a autoscalagem | Não |
 | Terminar após minutos de inatividade | 30 |

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/24/2019
-ms.openlocfilehash: 0374c7d304a40031919bae8816d31477e742b9c8
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 688adcf0012f8871c4034cbba6ce2ddcacdbcc43
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100618301"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717150"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Utilizar a solução Mapa de Serviços no Azure
 
@@ -26,7 +26,7 @@ Este artigo descreve os detalhes do embarque e utilização do Mapa de Serviços
 * O [agente Desapeito](vminsights-enable-overview.md#agents) instalado no computador Windows ou no servidor Linux.
 
 >[!NOTE]
->Se já implementou o Mapa de Serviços, pode agora também ver os seus mapas no Azure Monitor para VMs, que inclui funcionalidades adicionais para monitorizar a saúde e o desempenho do VM. Para saber mais, consulte [o Azure Monitor para obter uma visão geral dos VMs](../vm/vminsights-overview.md). Para saber mais sobre as diferenças entre a solução de Mapa de Serviço e o Monitor Azure para a funcionalidade mapa de VMs, consulte as seguintes [FAQ](../faq.md#azure-monitor-for-vms).
+>Se já implementou o Mapa de Serviços, pode agora também ver os seus mapas em insights VM, que incluem funcionalidades adicionais para monitorizar a saúde e o desempenho do VM. Para saber mais, consulte a [visão geral dos insights em VM](../vm/vminsights-overview.md). Para saber mais sobre as diferenças entre a solução de Mapa de Serviço e a funcionalidade de mapa de insights VM, consulte as [seguintes FAQ](../faq.md#azure-monitor-for-vms).
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 
@@ -154,7 +154,7 @@ Clique no menu de elipses ao lado do nome de grupo na Lista de Grupos.
 
 Certos processos servem papéis específicos em máquinas: servidores web, servidores de aplicações, base de dados, e assim por diante. O Mapa de Serviço anota o processo e as caixas de máquinas com ícones de função para ajudar a identificar de relance o papel que um processo ou servidor desempenha.
 
-| Ícone de papel | Description |
+| Ícone de papel | Descrição |
 |:--|:--|
 | ![Servidor Web](media/service-map/role-web-server.png) | Servidor Web |
 | ![Servidor de aplicações](media/service-map/role-application-server.png) | Servidor de aplicações |
@@ -241,7 +241,7 @@ O Mapa de Serviços integra-se com a Log Search para mostrar uma contagem de tod
 
 ## <a name="service-desk-integration"></a>Integração do Balcão de Serviço
 
-A integração do Mapa de Serviço com o Conector de Gestão de Serviços de TI é automática quando ambas as soluções estão ativadas e configuradas no seu espaço de trabalho Log Analytics. A integração no Mapa de Serviços está rotulada como "Service Desk". Para obter mais informações, consulte [Centralmente gerir itens de trabalho ITSM utilizando o Conector de Gestão de Serviços de TI.](../platform/itsmc-overview.md)
+A integração do Mapa de Serviço com o Conector de Gestão de Serviços de TI é automática quando ambas as soluções estão ativadas e configuradas no seu espaço de trabalho Log Analytics. A integração no Mapa de Serviços está rotulada como "Service Desk". Para obter mais informações, consulte [Centralmente gerir itens de trabalho ITSM utilizando o Conector de Gestão de Serviços de TI.](../alerts/itsmc-overview.md)
 
 O **painel de serviço de máquinas** lista todos os eventos de Gestão de Serviços de TI para o servidor selecionado no intervalo de tempo selecionado. O servidor apresenta um ícone se existirem itens atuais e o painel de serviço de máquinas os lista.
 
@@ -304,7 +304,7 @@ O **painel de atualizações** da máquina exibe dados da solução de Gestão d
 
 ## <a name="log-analytics-records"></a>Registos do Log Analytics
 
-O computador do Mapa de Serviço e os dados de inventário de processos estão disponíveis para [pesquisa](../log-query/log-query-overview.md) no Log Analytics. Pode aplicar estes dados em cenários que incluem planeamento de migração, análise de capacidade, descoberta e resolução de problemas de desempenho a pedido.
+O computador do Mapa de Serviço e os dados de inventário de processos estão disponíveis para [pesquisa](../logs/log-query-overview.md) no Log Analytics. Pode aplicar estes dados em cenários que incluem planeamento de migração, análise de capacidade, descoberta e resolução de problemas de desempenho a pedido.
 
 Um registo é gerado por hora para cada computador e processo único, além dos registos que são gerados quando um processo ou computador começa ou está a bordo do Mapa de Serviço. Estes registos têm as propriedades nas seguintes tabelas. Os campos e valores no mapa de eventos ServiceMapComputer_CL para os campos do recurso Máquina na API do ServiceMap Azure Resource Manager. Os campos e valores no mapa de eventos ServiceMapProcess_CL para os campos do recurso processuais na API do ServiceMap Azure Resource Manager. O campo ResourceName_s corresponde ao campo de nomes no recurso correspondente ao Gestor de Recursos. 
 
@@ -550,7 +550,7 @@ Para obter mais informações sobre a recolha e utilização de dados, consulte 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre [pesquisas de registo](../log-query/log-query-overview.md) no Log Analytics para recuperar dados recolhidos pelo Mapa de Serviços.
+Saiba mais sobre [pesquisas de registo](../logs/log-query-overview.md) no Log Analytics para recuperar dados recolhidos pelo Mapa de Serviços.
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
@@ -571,7 +571,7 @@ Pode ser útil instalar primeiro as [bibliotecas de runtime mais recentes](https
 
 A tabela que se segue lista os números de código e as resoluções sugeridas.
 
-| Código | Description | Resolução |
+| Código | Descrição | Resolução |
 |:--|:--|:--|
 | 0x17 | O instalador da biblioteca requer uma atualização do Windows que não foi instalada. | Veja o registo de instalação da biblioteca mais recente.<br><br>Se uma referência `Windows8.1-KB2999226-x64.msu` for seguida por uma `Error 0x80240017: Failed to execute MSU package,` linha, não tem os pré-requisitos para instalar o KB2999226. Siga as instruções na secção de pré-requisitos no artigo [Universal C Runtime no Windows](https://support.microsoft.com/kb/2999226). Pode ter de executar o Windows Update e reiniciar várias vezes para instalar os pré-requisitos.<br><br>Volte a executar o instalador do Microsoft Dependency Agent. |
 

@@ -2,13 +2,13 @@
 title: Visão geral das funcionalidades - Azure Event Hubs | Microsoft Docs
 description: Este artigo fornece detalhes sobre funcionalidades e terminologia dos Azure Event Hubs.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 8860a8aa83a17b12236dd47d79479a82846fa8a8
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.date: 02/19/2021
+ms.openlocfilehash: 8bb63bfdbeb5b875b1e461fbd93fb48dcbb43054
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98791951"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101739080"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Funcionalidades e terminologia nos Hubs de Eventos do Azure
 
@@ -47,7 +47,12 @@ O Event Hubs garante que todos os eventos que partilham um valor chave de parti�
 
 ### <a name="event-retention"></a>Retenção de Eventos
 
-Os eventos publicados são removidos de um Centro de Eventos com base numa política de retenção baseada em tempo configurável. O valor predefinido e o período de retenção mais curto possível é de 1 dia (24 horas). Para o Event Hubs Standard, o período máximo de retenção é de 7 dias. Para os Centros de Eventos Dedicados, o período máximo de retenção é de 90 dias.
+Os eventos publicados são removidos de um Centro de Eventos com base numa política de retenção baseada em tempo configurável. Eis alguns pontos importantes:
+
+- O valor **predefinido** e **o período de** retenção mais curto possível é de **1 dia (24 horas)**.
+- Para o Event Hubs **Standard,** o período máximo de retenção é **de 7 dias**. 
+- Para centros de **eventos Dedicados,** o período máximo de retenção é **de 90 dias.**
+- Se alterar o período de retenção, aplica-se a todas as mensagens, incluindo mensagens que já se encontram no centro de eventos. 
 
 > [!NOTE]
 > O Event Hubs é um motor de fluxo de eventos em tempo real e não foi concebido para ser utilizado em vez de uma base de dados e/ou como uma loja permanente para streams de eventos infinitamente realizados. 
@@ -118,6 +123,9 @@ O *ponto de verificação* é um processo pelo qual os leitores marcam ou confir
 
 Se um leitor for desligado de uma partição, quando voltar a ser ligado, começa a leitura no ponto de verificação que foi previamente submetido pelo último leitor dessa partição nesse grupo de consumidores. Quando o leitor se conecta, passa a offset para o centro do evento para especificar o local onde começar a ler. Desta forma, pode utilizar o ponto de verificação para marcar os eventos como “concluídos” pelas aplicações a jusante e para fornecer resiliência se ocorrer uma ativação pós-falha entre os leitores em execução em computadores diferentes. É possível devolver dados mais antigos ao especificar um desvio inferior a partir deste processo de ponto de verificação. Através deste mecanismo, o ponto de verificação ativa a resiliência pós-falha e a repetição do fluxo de eventos.
 
+> [!IMPORTANT]
+> As compensações são fornecidas pelo serviço Event Hubs. É da responsabilidade do consumidor fazer um controlo à medida que os acontecimentos são processados.
+
 > [!NOTE]
 > Se estiver a utilizar o Azure Blob Storage como loja de checkpoint num ambiente que suporta uma versão diferente do Storage Blob SDK do que os normalmente disponíveis no Azure, terá de utilizar código para alterar a versão API do serviço de armazenamento para a versão específica suportada por esse ambiente. Por exemplo, se estiver a executar [Os Centros de Eventos numa versão Azure Stack Hub 2002](/azure-stack/user/event-hubs-overview), a versão mais alta disponível para o serviço de Armazenamento é a versão 2017-11-09. Neste caso, é necessário utilizar o código para direcionar a versão API do serviço de armazenamento para 2017-11-09. Para um exemplo sobre como direcionar uma versão específica da API de armazenamento, consulte estas amostras no GitHub: 
 > - [.NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples/). 
@@ -151,7 +159,7 @@ Dados do evento:
 
 É da sua responsabilidade gerir o desvio.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações sobre os Hubs de Eventos, visite as seguintes ligações:
 

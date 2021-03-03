@@ -9,12 +9,12 @@ ms.date: 07/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 564f19a1be5b3ce8a5267a07bd4f1f6de80fecf1
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 8e64233ce1d59512e38ce6c366eba889392c4623
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96621285"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101736496"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>Tutorial: Classificar imagens na periferia com o Serviço de Visão Personalizada
 
@@ -40,7 +40,7 @@ Neste tutorial, ficará a saber como:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 >[!TIP]
->Este tutorial é uma versão simplificada da [Visão Personalizada e da Borda IoT Azure num](https://github.com/Azure-Samples/Custom-vision-service-iot-edge-raspberry-pi) projeto de amostra raspberry Pi 3. Este tutorial foi projetado para funcionar em um VM em nuvem e usa imagens estáticas para treinar e testar o classificador de imagem, o que é útil para alguém que apenas começa a avaliar a Visão Personalizada no IoT Edge. O projeto da amostra usa hardware físico e configura um feed de câmara ao vivo para treinar e testar o classificador de imagem, o que é útil para alguém que quer experimentar um cenário mais detalhado e real.
+>Este tutorial é uma versão simplificada da [Visão Personalizada e da Borda IoT Azure num](https://github.com/Azure-Samples/custom-vision-service-iot-edge-raspberry-pi) projeto de amostra raspberry Pi 3. Este tutorial foi projetado para funcionar em um VM em nuvem e usa imagens estáticas para treinar e testar o classificador de imagem, o que é útil para alguém que apenas começa a avaliar a Visão Personalizada no IoT Edge. O projeto da amostra usa hardware físico e configura um feed de câmara ao vivo para treinar e testar o classificador de imagem, o que é útil para alguém que quer experimentar um cenário mais detalhado e real.
 
 Antes de iniciar este tutorial, deveria ter passado pelo tutorial anterior para configurar o seu ambiente para o desenvolvimento de recipientes Linux: [Desenvolver módulos IoT Edge para dispositivos Linux](tutorial-develop-for-linux.md). Ao completar este tutorial, deverá ter os seguintes pré-requisitos no lugar:
 
@@ -53,7 +53,7 @@ Antes de iniciar este tutorial, deveria ter passado pelo tutorial anterior para 
 Para desenvolver um módulo IoT Edge com o serviço Custom Vision, instale os seguintes pré-requisitos adicionais na sua máquina de desenvolvimento:
 
 * [Python](https://www.python.org/downloads/)
-* [Rio Git](https://git-scm.com/downloads)
+* [Git](https://git-scm.com/downloads)
 * [Extensão python para código de estúdio visual](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
 
 ## <a name="build-an-image-classifier-with-custom-vision"></a>Compilar um classificador de imagens com a Visão Personalizada
@@ -75,7 +75,7 @@ Quando o classificador de imagens estiver compilado e preparado, pode exportá-l
    | Campo | Valor |
    | ----- | ----- |
    | Nome | Indique um nome para o projeto, como **EdgeTreeClassifier**. |
-   | Description | Descrição do projeto opcional. |
+   | Descrição | Descrição do projeto opcional. |
    | Recurso | Selecione um dos seus grupos de recursos Azure que inclui um recurso De Serviço de Visão Personalizada ou **crie novos** caso ainda não tenha adicionado um. |
    | Project Types (Tipos de Projetos) | **Classificação** |
    | Classification Types (Tipos de Classificações) | **Multiclasse (marca única por imagem)** |
@@ -324,11 +324,11 @@ Nesta secção, vai adicionar um módulo novo à mesma CustomVisionSolution e fo
 
 Neste cenário, em vez de utilizarmos uma câmara real para fornecer um feed de imagens, vamos utilizar uma imagem de teste individual. Está incluída uma imagem de teste no repositório do GitHub que transferiu para as imagens de preparação no início do tutorial. 
 
-1. Navegue para a imagem de teste, localizada no Teste de Imagens de Amostras **Cognitiva-PersonalizadasVision-Windows**  /  **Samples**  /  **Images**  /  **Test**. 
+1. Navegue para a imagem de teste, localizada no Teste de Imagens de Amostras **Cognitiva-PersonalizadasVision-Windows**  /    /    /  . 
 
 2. Copie **test_image.jpg** 
 
-3. Navegue no diretório de solução IoT Edge e cole a imagem de teste na pasta de imagem de foto de grupo de **módulos.**  /  **cameraCapture** A imagem deverá estar na mesma pasta que o ficheiro main.py que foi editado na última secção. 
+3. Navegue no diretório de solução IoT Edge e cole a imagem de teste na pasta de imagem de foto de grupo de **módulos.**  /   A imagem deverá estar na mesma pasta que o ficheiro main.py que foi editado na última secção. 
 
 4. No Visual Studio Code, abra o ficheiro **Dockerfile.amd64** relativo ao módulo cameraCapture.
 
@@ -382,7 +382,7 @@ Quando as imagens estiverem no registo, pode implementar a solução num disposi
 
 Primeiro, compile e envie a solução para o registo de contentor.
 
-1. Abra o terminal integrado do Código VS selecionando o Terminal **de Visualização**  >  **Terminal**.
+1. Abra o terminal integrado do Código VS selecionando o Terminal **de Visualização**  >  .
 
 2. Inscreva-se no Docker introduzindo o seguinte comando no terminal. Inicie sessão com o nome de utilizador, palavra-passe e servidor de login do seu registo de contentores Azure. Pode recuperar estes valores a partir da secção de **teclas de acesso** do seu registo no portal Azure.
 
@@ -439,7 +439,7 @@ A partir do Código do Estúdio Visual, clique com o botão direito no nome do s
 
 Os resultados do módulo da Visão Personalizada, que são enviados como mensagens a partir do módulo cameraCapture, incluem a probabilidade de a imagem ser de uma cicuta ou de uma cerejeira. Uma vez que a imagem é de uma cicuta, a probabilidade deverá aparecer como 1,0.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se planeia avançar para o próximo artigo recomendado, pode manter os recursos e as configurações que criou e reutilizá-los. Também pode continuar a utilizar o mesmo dispositivo IoT Edge como um dispositivo de teste. 
 

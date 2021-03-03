@@ -7,14 +7,14 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 02/11/2021
+ms.date: 03/02/2021
 ms.topic: how-to
-ms.openlocfilehash: dd20a76ebc833320050c87862ad5022e99cd453a
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 329df78bb5829695b95fcca5b7ed7e1439ced821
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100384967"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101688370"
 ---
 # <a name="create-the-azure-arc-data-controller"></a>Criar o controlador de dados Azure Arc
 
@@ -37,7 +37,7 @@ Atualmente, a lista suportada de serviços e distribuições de Kubernetes são 
 
 > [!IMPORTANT]
 > * A versão mínima suportada de Kubernetes é v1.17. Consulte [questões conhecidas](./release-notes.md#known-issues) para obter informações adicionais. 
-> * A versão mínima suportada do OCP é 4.3.
+> * A versão mínima suportada do OCP é 4.5.
 > * Consulte os [requisitos de conectividade](connectivity.md) para entender que conectividade é necessária entre o seu ambiente e a Azure.
 > * Consulte a orientação de [configuração](storage-configuration.md) de armazenamento para entender os detalhes de como configurar o seu armazenamento persistente.
 > * Se estiver a utilizar o Serviço Azure Kubernetes, o tamanho VM do seu grupo de trabalho deve ser pelo menos **Standard_D8s_v3** e utilizar **discos premium.** O cluster não deve abranger várias zonas de disponibilidade. 

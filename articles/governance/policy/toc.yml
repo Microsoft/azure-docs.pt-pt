@@ -202,7 +202,7 @@
           href: ../../azure-monitor/deploy-scale.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
         - name: Ativar o Azure Monitor para VMs (pré-visualização)
           displayName: 'monitor, insights, log analytics, builtin'
-          href: ../../azure-monitor/insights/vminsights-enable-policy.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
+          href: ../../azure-monitor/vm/vminsights-enable-policy.md?bc=%2fazure%2fgovernance%2fpolicy%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fgovernance%2fpolicy%2ftoc.json
     - name: Integração do Armazenamento do Azure
       items:
         - name: Auditar TLS com o Azure Policy
@@ -323,16 +323,6 @@
       items:
         - name: Canal do YouTube sobre Governação
           href: 'https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ'
-        - name: Vídeos da Configuração de Convidado
-          items:
-            - name: Introdução
-              href: 'https://www.youtube.com/watch?v=mjJw9_EIyHo'
-            - name: Noções básicas sobre as Iniciativas
-              href: 'https://www.youtube.com/watch?v=4JZH3kuG8bI'
-            - name: Atribuir Política
-              href: 'https://www.youtube.com/watch?v=fbZBaxcjA-Y'
-            - name: Tarefa de Remediação
-              href: 'https://www.youtube.com/watch?v=URE4DUYMgmg'
     - name: Roteiro do Azure
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Calculadora de preços

@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
 ms.custom: devx-track-csharp
-ms.openlocfilehash: bfcd1e600c722cf3a4951da60097c7c373f9b1a6
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: ef2d0eb409cbef2fdd3579ae5e8b409e24bdda2f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99592046"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101735969"
 ---
 # <a name="tutorial-viewing-a-remotely-rendered-model"></a>Tutorial: Visualização de um modelo renderizado remotamente
 
@@ -55,43 +55,9 @@ Neste exemplo, assumimos que o projeto está a ser criado numa pasta chamada **R
 
 ## <a name="include-the-azure-remote-rendering-package"></a>Incluir o pacote de renderização remota Azure
 
-Tem de modificar o ficheiro `Packages/manifest.json` que está localizado na pasta do projeto Unidade. Abra o ficheiro num editor de texto e adicione as seguintes linhas ao topo do seu manifesto:
+[Siga as instruções](../../../how-tos/unity/install-remote-rendering-unity-package.md) sobre como adicionar o pacote de renderização remota Azure a um Projeto de Unidade.
 
-```json
-{
-    "scopedRegistries": [
-    {
-        "name": "Azure Mixed Reality Services",
-        "url": "https://api.bintray.com/npm/microsoft/AzureMixedReality-NPM/",
-        "scopes": ["com.microsoft.azure"]
-    }
-    ],
-    "dependencies": {
-        "com.unity.render-pipelines.universal": "7.3.1",
-        "com.microsoft.azure.remote-rendering": "0.1.31",
-        ...existing dependencies...
-    }
-}
-```
 
-Depois de modificar e guardar o manifesto, a Unidade irá automaticamente refrescar-se. Confirme que as embalagens foram carregadas na janela do *Projeto:*
-
-:::image type="content" source="./media/confirm-packages.png" alt-text="confirmar importações de pacotes":::
-
-Se os seus pacotes não estiverem a carregar, verifique se a consola Unidade tem erros. Se não tiver erros e ainda não vir nenhuma embalagem na pasta **Pacotes,** verifique o botão de alternação de visibilidade da embalagem.\
-![Screenshot com uma seta apontando para o botão de visibilidade da embalagem.](./media/unity-package-visibility.png)
-
-## <a name="ensure-you-have-the-latest-version-of-the-package"></a>Certifique-se de que tem a versão mais recente do pacote
-
-Os seguintes passos asseguram que o seu projeto está a utilizar a versão mais recente do pacote de renderização remota.
-
-1. No menu de topo do Editor de Unidade, abra *o Gestor de Pacotes Window->*.
-1. Selecione o pacote **Microsoft Azure Remote Rendering**.
-1. Na página do gestor de pacotes para o pacote **de renderização remota do Microsoft Azure,** consulte se o botão **'Atualização'** está disponível. Se for, clique nele para atualizar o pacote para a versão mais recente disponível:\
-![O pacote ARR no gestor de pacotes](./media/package-manager.png)
-1. A atualização do pacote pode ocasionalmente levar a erros de consola. Se isso ocorrer, tente fechar e reabrir o projeto.
-1. Quando o pacote estiver atualizado, o Gestor de Pacotes aparecerá **atualizado** em vez de um botão De atualização.\
-![Pacote atualizado](./media/package-up-to-date.png)
 ## <a name="configure-the-camera"></a>Configure a câmara
 
 1. Selecione o nó **da câmara principal.**

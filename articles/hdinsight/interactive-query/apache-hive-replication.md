@@ -4,12 +4,12 @@ description: Aprenda a usar a replicação da Colmeia em clusters HDInsight para
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/08/2020
-ms.openlocfilehash: 3dd894a46b666703f64e44336c0bf022da8a063a
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 2e57b7d8121ac0bd6fc9cb693750c41a0ef6a5bc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98941344"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101733062"
 ---
 # <a name="how-to-use-apache-hive-replication-in-azure-hdinsight-clusters"></a>Como utilizar a replicação da Colmeia Apache em clusters Azure HDInsight
 
@@ -17,9 +17,9 @@ No contexto de bases de dados e armazéns, a replicação é o processo de dupli
 
 A Replicação da Colmeia tem evoluído ao longo dos anos com versões mais recentes que fornecem uma melhor funcionalidade e sendo mais rápida e menos intensiva de recursos. Neste artigo, discutimos a Replicação da Colmeia (Replv2) que é suportada tanto nos tipos de cluster HDInsight 3.6 como HDInsight 4.0.
 
-## <a name="advantages-of-replv2"></a>Vantagens do Replv2
+## <a name="advantages-of-replv2"></a>Vantagens do replv2
 
-[A Replicação da ColmeiaV2](https://cwiki.apache.org/confluence/display/Hive/HiveReplicationv2Development) ou (Replv2) tem as seguintes vantagens sobre a primeira versão da replicação da Colmeia que utilizou a [HIVE IMPORT-EXPORT](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+ImportExport):
+[A Replicação da ColmeiaV2](https://cwiki.apache.org/confluence/display/Hive/HiveReplicationv2Development) (também chamada Replv2) tem as seguintes vantagens sobre a primeira versão da replicação da Colmeia que utilizou a [HIVE IMPORT-EXPORT](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+ImportExport):
 
 - Replicação incremental baseada em eventos
 - Replicação pontual  
@@ -217,7 +217,7 @@ A seguinte sequência de código fornece um exemplo de como a colocação de bot
    |-|
    |2960|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre os itens discutidos neste artigo, consulte:
 

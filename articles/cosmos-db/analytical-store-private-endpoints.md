@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 03/02/2021
 ms.author: anithaa
-ms.openlocfilehash: 26c99beb95d60b476fff255321d85c0db8aa7363
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 9b07af72983931e0e1cab9e7d5093fd845b363bc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101679996"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101692203"
 ---
 # <a name="configure-private-endpoints-for-azure-cosmos-db-analytical-store"></a>Configurar pontos finais privados para a loja analítica Azure Cosmos DB
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]

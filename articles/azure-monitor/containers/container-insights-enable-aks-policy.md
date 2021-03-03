@@ -3,20 +3,20 @@ title: Ativar addon de monitorização AKS usando a política de Azure
 description: Descreve como ativar o Addon de monitorização AKS utilizando a Azure Custom Policy.
 ms.topic: conceptual
 ms.date: 02/04/2021
-ms.openlocfilehash: 302fdbbbcadf211339952f4b1bd97dcbb4ab1a85
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 2163527cc83e70913e9a6e11bf2e22f9ed9c6690
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99808417"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713903"
 ---
 # <a name="enable-aks-monitoring-addon-using-azure-policy"></a>Ativar o addon de monitorização AKS usando a política de Azure
 Este artigo descreve como ativar o Addon de monitorização AKS usando a Azure Custom Policy. A política personalizada de monitorização addon pode ser atribuída no âmbito de subscrição ou grupo de recursos. Se o espaço de trabalho do Azure Log Analytics e o cluster AKS estiverem em diferentes subscrições, então a identidade gerida utilizada pela atribuição de políticas tem de ter as permissões de função necessárias tanto nas subscrições como, menos, no recurso do espaço de trabalho Log Analytics. Da mesma forma, se a política for traçada para o grupo de recursos, então a identidade gerida deve ter as permissões de função necessárias no espaço de trabalho Log Analytics se o espaço de trabalho não estiver no âmbito do grupo de recursos selecionado.
 
 A Monitorização do Addon requer as seguintes funções na identidade gerida utilizada pela Azure Policy:
 
- - [azure-kubernetes-service-contributor-role](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#azure-kubernetes-service-contributor-role)
- - [log-analytics-contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#log-analytics-contributor)
+ - [azure-kubernetes-service-contributor-role](../../role-based-access-control/built-in-roles.md#azure-kubernetes-service-contributor-role)
+ - [log-analytics-contributor](../../role-based-access-control/built-in-roles.md#log-analytics-contributor)
 
 ## <a name="create-and-assign-policy-definition-using-azure-portal"></a>Criar e atribuir definição de política usando o portal Azure
 
@@ -79,6 +79,5 @@ A Monitorização do Addon requer as seguintes funções na identidade gerida ut
 
 - Saiba mais sobre [a Política Azure.](../../governance/policy/overview.md)
 - Saiba como [funciona a segurança da reparação.](../../governance/policy/how-to/remediate-resources.md#how-remediation-security-works)
-- Saiba mais sobre [o Azure Monitor para Contentores.](../insights/container-insights-overview.md)
-- Instale o [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
-
+- Saiba mais sobre [os insights do Contentor.](./container-insights-overview.md)
+- Instale o [Azure CLI](/cli/azure/install-azure-cli).

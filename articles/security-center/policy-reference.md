@@ -7,20 +7,20 @@ author: memildin
 ms.author: memildin
 ms.service: security-center
 ms.custom: subject-policy-reference
-ms.openlocfilehash: ab6556bc391eb3136fa8c4ba40f5a5d71da956e7
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 3b5860cc4ada88e2e7c7813e3441db3ec89f31af
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100093061"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101729937"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-security-center"></a>Definições incorporadas do Azure Policy para o Centro de Segurança do Azure
 
 Esta página é um índice de definições políticas incorporadas da [Azure Policy](../governance/policy/overview.md) relacionadas com o Azure Security Center. Estão disponíveis os seguintes agrupamentos de definições políticas:
 
-- O grupo [de iniciativas](#azure-security-center-initiatives) enumera as definições de iniciativa da Política Azure na categoria "Centro de Segurança".
+- O grupo [de iniciativas](#azure-security-center-initiatives) lista as definições de iniciativa da Política Azure na categoria "Centro de Segurança".
 - O grupo [de iniciativa padrão](#azure-security-center-initiatives) lista todas as definições da Política Azure que fazem parte da iniciativa padrão do Security Center, [Azure Security Benchmark](../security/benchmarks/introduction.md). Esta referência de autoria da Microsoft, amplamente respeitada, baseia-se nos controlos do [Center for Internet Security (CIS)](https://www.cisecurity.org/benchmark/azure/) e do National Institute of Standards and Technology [(NIST)](https://www.nist.gov/) com foco na segurança centrada na nuvem.
-- O grupo [de categoria](#azure-security-center-category) lista todas as definições da Política Azure na categoria "Centro de Segurança".
+- O grupo [de categoria](#azure-security-center-category) lista todas as definições de Política Azure na categoria "Centro de Segurança".
 
 Para obter mais informações sobre políticas de segurança, consulte [Trabalhar com políticas de segurança.](./tutorial-security-policy.md) Para obter mais incorporados em Azure Policy para outros serviços, consulte [definições incorporadas da Política Azure](../governance/policy/samples/built-in-policies.md).
 
@@ -32,7 +32,7 @@ Para conhecer as iniciativas incorporadas que são monitorizadas pelo Centro de 
 
 [!INCLUDE [azure-policy-reference-policyset-security-center](../../includes/policy/reference/bycat/policysets-security-center.md)]
 
-## <a name="azure-security-center-default-initiative"></a>Iniciativa padrão do Centro de Segurança Azure
+## <a name="security-centers-default-initiative-azure-security-benchmark"></a>Iniciativa padrão do Centro de Segurança (Azure Security Benchmark)
 
 Para conhecer as políticas incorporadas que são monitorizadas pelo Centro de Segurança, consulte a seguinte tabela:
 

@@ -1,18 +1,18 @@
 ---
-title: Configure Monitor Azure para contentores Prometheus Integration | Microsoft Docs
-description: Este artigo descreve como pode configurar o Monitor Azure para o agente de contentores raspar métricas de Prometeu com o seu cluster Kubernetes.
+title: Configure Container insights Prometheus Integration | Microsoft Docs
+description: Este artigo descreve como pode configurar o agente de insights do Contentor para raspar métricas de Prometeu com o seu cluster Kubernetes.
 ms.topic: conceptual
 ms.date: 04/22/2020
-ms.openlocfilehash: f5a9b364bc3e51307bd44d8338485f482bda6e1e
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 8affeb472b9452e4d234e99e5ea6bb4509770fac
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100618771"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731736"
 ---
-# <a name="configure-scraping-of-prometheus-metrics-with-azure-monitor-for-containers"></a>Configurar a apresentação de métricas Prometheus com o Azure Monitor para contentores
+# <a name="configure-scraping-of-prometheus-metrics-with-container-insights"></a>Configurar a raspagem das métricas prometheus com insights de contentores
 
-[Prometheus](https://prometheus.io/) é uma solução popular de monitorização métrica de código aberto e faz parte da [Cloud Native Compute Foundation.](https://www.cncf.io/) O Azure Monitor para recipientes proporciona uma experiência de embarque perfeita para recolher métricas de Prometeu. Normalmente, para utilizar o Prometheus, é necessário configurar e gerir um servidor Prometheus com uma loja. Ao integrar-se com o Azure Monitor, não é necessário um servidor Prometheus. Basta expor o ponto final das métricas Prometheus através dos seus exportadores ou cápsulas (aplicação), e o agente contentorizado para o Azure Monitor para contentores pode raspar as métricas para si. 
+[Prometheus](https://prometheus.io/) é uma solução popular de monitorização métrica de código aberto e faz parte da [Cloud Native Compute Foundation.](https://www.cncf.io/) Os insights do recipiente proporcionam uma experiência de embarque perfeita para recolher métricas de Prometeu. Normalmente, para utilizar o Prometheus, é necessário configurar e gerir um servidor Prometheus com uma loja. Ao integrar-se com o Azure Monitor, não é necessário um servidor Prometheus. Basta expor o ponto final das métricas Prometheus através dos seus exportadores ou cápsulas (aplicação), e o agente contentorizado para insights de contentores pode raspar as métricas para si. 
 
 ![Arquitetura de monitorização de contentores para Prometeu](./media/container-insights-prometheus-integration/monitoring-kubernetes-architecture.png)
 
@@ -42,20 +42,20 @@ A raspagem ativa das métricas de Prometeu é realizada a partir de uma de duas 
 | Serviço Kubernetes | Em todo o agrupamento | `http://my-service-dns.my-namespace:9100/metrics` <br>`https://metrics-server.kube-system.svc.cluster.local/metrics` |
 | url/endpoint | Por nó e/ou em largura de cluster | `http://myurl:9101/metrics` |
 
-Quando um URL é especificado, o Monitor Azure para recipientes apenas raspa o ponto final. Quando o serviço Kubernetes é especificado, o nome de serviço é resolvido com o servidor DNS do cluster para obter o endereço IP e, em seguida, o serviço resolvido é raspado.
+Quando um URL é especificado, os insights do recipiente apenas raspam o ponto final. Quando o serviço Kubernetes é especificado, o nome de serviço é resolvido com o servidor DNS do cluster para obter o endereço IP e, em seguida, o serviço resolvido é raspado.
 
 |Âmbito | Chave | Tipo de dados | Valor | Descrição |
 |------|-----|-----------|-------|-------------|
 | Em todo o agrupamento | | | | Especifique qualquer um dos três métodos seguintes para raspar pontos finais para métricas. |
-| | `urls` | String | Matriz separada por vírgula | Ponto final HTTP (endereço IP ou caminho URL válido especificado). Por exemplo: `urls=[$NODE_IP/metrics]`. ($NODE_IP é um Azure Monitor específico para parâmetros de contentores e pode ser utilizado em vez de um endereço IP de nó. Deve ser tudo maiúscula.) |
+| | `urls` | String | Matriz separada por vírgula | Ponto final HTTP (endereço IP ou caminho URL válido especificado). Por exemplo: `urls=[$NODE_IP/metrics]`. ($NODE_IP é um parâmetro específico de insights do contentor e pode ser usado em vez de um endereço IP de nó. Deve ser tudo maiúscula.) |
 | | `kubernetes_services` | String | Matriz separada por vírgula | Uma série de serviços kubernetes para raspar métricas de kube-state-metrics. Por exemplo, `kubernetes_services = ["https://metrics-server.kube-system.svc.cluster.local/metrics",http://my-service-dns.my-namespace:9100/metrics]`.|
-| | `monitor_kubernetes_pods` | Booleano | true ou false | Quando definido `true` para as configurações de todo o cluster, o Azure Monitor para o agente de contentores raspará as cápsulas kubernetes em todo o cluster para as seguintes anotações prometeu:<br> `prometheus.io/scrape:`<br> `prometheus.io/scheme:`<br> `prometheus.io/path:`<br> `prometheus.io/port:` |
+| | `monitor_kubernetes_pods` | Booleano | true ou false | Quando definido `true` para as configurações de largura do cluster, o agente de insights de contentores raspará as cápsulas de Kubernetes em todo o cluster para as seguintes anotações prometeu:<br> `prometheus.io/scrape:`<br> `prometheus.io/scheme:`<br> `prometheus.io/path:`<br> `prometheus.io/port:` |
 | | `prometheus.io/scrape` | Booleano | true ou false | Permite raspar a cápsula. `monitor_kubernetes_pods` deve ser definido para `true` . |
 | | `prometheus.io/scheme` | String | http ou https | Predefinições para raspar em HTTP. Se necessário, dedão `https` . | 
 | | `prometheus.io/path` | String | Matriz separada por vírgula | O caminho de recurso HTTP para obter métricas de. Se o caminho das métricas não `/metrics` for, defina-o com esta anotação. |
 | | `prometheus.io/port` | String | 9102 | Especifique uma porta para raspar. Se a porta não estiver definida, ficará em incumprimento para o 9102. |
 | | `monitor_kubernetes_pods_namespaces` | String | Matriz separada por vírgula | Uma lista de espaços de nome para raspar métricas de kubernetes pods.<br> Por exemplo, `monitor_kubernetes_pods_namespaces = ["default1", "default2", "default3"]` |
-| Node-wide | `urls` | String | Matriz separada por vírgula | Ponto final HTTP (endereço IP ou caminho URL válido especificado). Por exemplo: `urls=[$NODE_IP/metrics]`. ($NODE_IP é um Azure Monitor específico para parâmetros de contentores e pode ser utilizado em vez de um endereço IP de nó. Deve ser tudo maiúscula.) |
+| Node-wide | `urls` | String | Matriz separada por vírgula | Ponto final HTTP (endereço IP ou caminho URL válido especificado). Por exemplo: `urls=[$NODE_IP/metrics]`. ($NODE_IP é um parâmetro específico de insights do contentor e pode ser usado em vez de um endereço IP de nó. Deve ser tudo maiúscula.) |
 | Node-wide ou Cluster-wide | `interval` | String | Anos 60 | O intervalo de recolha é de um minuto (60 segundos). Pode modificar a coleção para as unidade *prometheus_data_collection_settings* *prometheus_data_collection_settings s* de tempo como s, m, h. |
 | Node-wide ou Cluster-wide | `fieldpass`<br> `fielddrop`| String | Matriz separada por vírgula | Pode especificar determinadas métricas a serem recolhidas ou não a partir do ponto final, definindo a listagem de permitir ( `fieldpass` ) e não permitir ( `fielddrop` ). Tem de definir a lista de autorizações primeiro. |
 
@@ -124,7 +124,7 @@ Execute os seguintes passos para configurar o seu ficheiro de configuração Con
         ```
 
         >[!NOTE]
-        >$NODE_IP é um Azure Monitor específico para parâmetros de contentores e pode ser usado em vez de um endereço IP de nó. Deve ser tudo maiúscula. 
+        >$NODE_IP é um parâmetro específico de insights do contentor e pode ser usado em vez de um endereço IP de nó. Deve ser tudo maiúscula. 
 
     - Para configurar a raspagem das métricas de Prometeu, especificando uma anotação de vagem, execute os seguintes passos:
 
@@ -241,7 +241,7 @@ Execute os seguintes passos para configurar o seu ficheiro de configuração Con
         ```
 
         >[!NOTE]
-        >$NODE_IP é um Azure Monitor específico para parâmetros de contentores e pode ser usado em vez de um endereço IP de nó. Deve ser tudo maiúscula. 
+        >$NODE_IP é um parâmetro específico de insights do contentor e pode ser usado em vez de um endereço IP de nó. Deve ser tudo maiúscula. 
 
     - Para configurar a raspagem das métricas de Prometeu, especificando uma anotação de vagem, execute os seguintes passos:
 
@@ -330,7 +330,7 @@ Para visualizar as métricas prometheus raspadas pelo Azure Monitor e quaisquer 
 
 ## <a name="view-prometheus-metrics-in-grafana"></a>Ver métricas de Prometeu em Grafana
 
-O Azure Monitor para contentores suporta métricas de visualização armazenadas no seu espaço de trabalho Log Analytics nos painéis grafana. Fornecemos um modelo que você pode baixar do [repositório](https://grafana.com/grafana/dashboards?dataSource=grafana-azure-monitor-datasource&category=docker) do painel de grafana para começar e referência para ajudá-lo a aprender a consultar dados adicionais dos seus clusters monitorizados para visualizar em dashboards grafana personalizados. 
+As informações do contentor suportam métricas de visualização armazenadas no seu espaço de trabalho Log Analytics nos dashboards grafana. Fornecemos um modelo que você pode baixar do [repositório](https://grafana.com/grafana/dashboards?dataSource=grafana-azure-monitor-datasource&category=docker) do painel de grafana para começar e referência para ajudá-lo a aprender a consultar dados adicionais dos seus clusters monitorizados para visualizar em dashboards grafana personalizados. 
 
 ## <a name="review-prometheus-data-usage"></a>Rever utilização de dados da Prometheus
 
@@ -364,8 +364,8 @@ A saída apresentará resultados semelhantes aos seguintes:
 
 ![Resultados da consulta de registo do volume de ingestão de dados](./media/container-insights-prometheus-integration/log-query-example-usage-02.png)
 
-Mais informações sobre como monitorizar a utilização dos dados e analisar o custo estão disponíveis na [Gestão de utilização e custos com registos do Monitor Azure](../platform/manage-cost-storage.md).
+Mais informações sobre como monitorizar a utilização dos dados e analisar o custo estão disponíveis na [Gestão de utilização e custos com registos do Monitor Azure](../logs/manage-cost-storage.md).
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Saiba mais sobre a configuração das configurações de recolha do agente para stdout, stderr e variáveis ambientais a partir de cargas de trabalho de contentores [aqui.](container-insights-agent-config.md) 
+Saiba mais sobre a configuração das configurações de recolha do agente para stdout, stderr e variáveis ambientais a partir de cargas de trabalho de contentores [aqui.](container-insights-agent-config.md)

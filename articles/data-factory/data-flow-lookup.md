@@ -7,13 +7,13 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/30/2020
-ms.openlocfilehash: 7ed1d9db09357b0702188c01a802600ff6350aff
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.date: 02/19/2021
+ms.openlocfilehash: b8754742c572a8dbc1f55c64e47bec640d757d65
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93147271"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101739373"
 ---
 # <a name="lookup-transformation-in-mapping-data-flow"></a>Transformação de procura no fluxo de dados de mapeamento
 
@@ -39,8 +39,6 @@ Uma transformação de procura é semelhante a uma união exterior esquerda. Tod
 
 **Condições de procura:** Escolha quais colunas combinar. Se a condição de igualdade for cumprida, então as linhas serão consideradas compatíveis. Hover e selecione 'Coluna Computada' para extrair um valor utilizando a linguagem de [expressão de fluxo de dados](data-flow-expression-functions.md).
 
-A transformação da procura só suporta jogos de igualdade. Para personalizar a expressão de procuração para incluir outros operadores, como maiores do que, é recomendado usar uma [cruz na transformação de junção.](data-flow-join.md#custom-cross-join) Uma junção cruzada evitará eventuais erros de produto cartesianos na execução.
-
 Todas as colunas de ambos os fluxos estão incluídas nos dados de saída. Para deixar cair colunas duplicadas ou indesejadas, adicione uma [transformação selecionada](data-flow-select.md) após a sua transformação de procura. As colunas também podem ser largadas ou renomeadas numa transformação de pia.
 
 ### <a name="non-equi-joins"></a>Não-equi junta-se
@@ -65,7 +63,7 @@ Ao testar a transformação de procura com pré-visualização de dados no modo 
 
 ![Transmissão Aderir](media/data-flow/broadcast.png "Transmissão Aderir")
 
-Em juntas, procura e transformação existente, se um ou ambos os fluxos de dados se encaixarem na memória do nó do trabalhador, pode otimizar o desempenho permitindo a **radiodifusão.** Por predefinição, o motor de faísca decidirá automaticamente se transmite ou não um dos lados. Para escolher manualmente qual lado transmitir, selecione **Fixo** .
+Em juntas, procura e transformação existente, se um ou ambos os fluxos de dados se encaixarem na memória do nó do trabalhador, pode otimizar o desempenho permitindo a **radiodifusão.** Por predefinição, o motor de faísca decidirá automaticamente se transmite ou não um dos lados. Para escolher manualmente qual lado transmitir, selecione **Fixo**.
 
 Não é aconselhável desativar a transmissão através da opção **Off,** a menos que as suas junções estejam a ter erros de tempo.
 

@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 11/27/2018
-ms.openlocfilehash: 69f0a20bdcba23d947e3d1b573c1a359da245161
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: e639762cd1adb7bbbc3fb2ec31f4ce52710e46f9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369425"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711948"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sap-netweaver-app-deployment"></a>Configurar a recuperação de desastres para uma implementação de aplicativos SAP NetWeaver de vários níveis
 
@@ -119,7 +119,7 @@ Para começar a replicar todas as máquinas virtuais da aplicação SAP para o c
 
 ## <a name="networking-configuration"></a>Configuração da rede
 
-Se utilizar um endereço IP estático, pode especificar o endereço IP que pretende que a máquina virtual seja tomada. Para definir o endereço IP, aceda ao cartão de interface de rede de **configurações de computação e rede**  >  **Network interface card**.
+Se utilizar um endereço IP estático, pode especificar o endereço IP que pretende que a máquina virtual seja tomada. Para definir o endereço IP, aceda ao cartão de interface de rede de **configurações de computação e rede**  >  .
 
 ![Screenshot que mostra como definir um endereço IP privado no painel de interface da Rede de Recuperação do Site](./media/site-recovery-sap/sap-static-ip.png)
 
@@ -167,5 +167,5 @@ Para obter mais informações, consulte [test failover to Azure in Site Recovery
 Para obter mais informações, consulte [Failover na Recuperação do Local.](site-recovery-failover.md)
 
 ## <a name="next-steps"></a>Passos seguintes
-* Saiba mais sobre a construção de uma solução de recuperação de desastres para implementações SAP NetWeaver utilizando a Recuperação do Site. Consulte o papel branco transferível [SAP NetWeaver: Construindo uma solução de recuperação de desastres com recuperação do local.](https://aka.ms/asr_sap) O livro branco discute recomendações para várias arquiteturas SAP. Pode ver aplicações suportadas e tipos de VM para SAP on Azure. Existem também opções de plano para testar a sua solução de recuperação de desastres.
+* Saiba mais sobre a construção de uma solução de recuperação de desastres para implementações SAP NetWeaver utilizando a Recuperação do Site. Consulte o papel branco transferível [SAP NetWeaver: Construindo uma solução de recuperação de desastres com recuperação do local.](/samples/browse/?redirectedfrom=TechNet-Gallery) O livro branco discute recomendações para várias arquiteturas SAP. Pode ver aplicações suportadas e tipos de VM para SAP on Azure. Existem também opções de plano para testar a sua solução de recuperação de desastres.
 * Saiba mais sobre [a replicação de outras cargas de trabalho](site-recovery-workload.md) utilizando a Recuperação do Site.

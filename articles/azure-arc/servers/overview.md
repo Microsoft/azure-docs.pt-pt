@@ -4,12 +4,12 @@ description: Saiba como usar o Azure Arc habilitado os servidores a gerir servid
 keywords: automação azul, DSC, powershell, configuração de estado desejada, gestão de atualização, rastreio de alterações, inventário, runbooks, python, gráfico, híbrido
 ms.date: 02/18/2021
 ms.topic: overview
-ms.openlocfilehash: 615835e5a11fac0b09a56e10084249ea493d794d
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 5692dfaceb15086b04ee951b8ecdf88f73c7d122
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101651115"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101686228"
 ---
 # <a name="what-is-azure-arc-enabled-servers"></a>O que são servidores preparados para o Azure Arc?
 
@@ -57,7 +57,7 @@ Por exemplo, se a máquina estiver registada com a Azure Arc na região leste do
 
 ### <a name="supported-environments"></a>Ambientes apoiados
 
-Os servidores ativados pelo Arco suportam a gestão de servidores físicos e máquinas virtuais hospedadas *fora* de Azure. Para obter detalhes específicos dos ambientes híbridos em nuvem que hospedam VMs, consulte [agent-overview.md#supported-environments].
+Os servidores ativados pelo Arco suportam a gestão de servidores físicos e máquinas virtuais hospedadas *fora* de Azure. Para obter detalhes específicos dos ambientes híbridos em nuvem que hospedam VMs, consulte [os pré-requisitos do agente da Máquina Conectada](agent-overview.md#supported-environments).
 
 > [!NOTE]
 > Os servidores ativados pelo Arco não são concebidos ou suportados para permitir a gestão de máquinas virtuais em funcionamento em Azure.

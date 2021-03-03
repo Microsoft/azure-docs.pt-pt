@@ -6,12 +6,12 @@ ms.author: marobert
 ms.date: 08/11/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: b4719fcf046ce7ef5d74ccf1863b0400c2c52845
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: a387261b392ea6718941f5eabe889e0c1a41fd5a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101656642"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101750341"
 ---
 Neste arranque rápido, você vai aprender a iniciar uma chamada usando a biblioteca de clientes Azure Communication Services Call para Android.
 
@@ -185,9 +185,9 @@ import android.widget.Toast;
 
 import com.azure.android.communication.common.CommunicationUserIdentifier;
 import com.azure.android.communication.common.CommunicationTokenCredential;
-import com.azure.communication.calling.CallAgent;
-import com.azure.communication.calling.CallClient;
-import com.azure.communication.calling.StartCallOptions;
+import com.azure.android.communication.calling.CallAgent;
+import com.azure.android.communication.calling.CallClient;
+import com.azure.android.communication.calling.StartCallOptions;
 
 
 import java.util.ArrayList;

@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 09/17/2020
 ms.author: alkemper
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 701fe4ffc6147086dde740bfdb2dc7db92508e28
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 327bc687c466a30d4f92810e48dc08f822f752ec
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100380241"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726432"
 ---
 # <a name="tutorial-use-feature-flags-in-an-aspnet-core-app"></a>Tutorial: Use bandeiras de recurso numa aplicação core ASP.NET
 
@@ -74,7 +74,7 @@ public class Startup
 ```
 
 
-Se utilizar filtros nas suas bandeiras de funcionalidade, deve incluir o espaço de [nomes Microsoft.FeatureManagement.FeatureFilters](/dotnet/api/microsoft.featuremanagement.featurefilters) e adicionar uma chamada aos [AddFeatureFilters](/dotnet/api/microsoft.featuremanagement.ifeaturemanagementbuilder.addfeaturefilter) especificando o nome do tipo do filtro que pretende utilizar como tipo genérico do método. Para obter mais informações sobre a utilização de filtros de funcionalidades para ativar e desativar dinamicamente a funcionalidade, consulte [Ativar o lançamento encenado de funcionalidades para audiências direcionadas](/azure/azure-app-configuration/howto-targetingfilter-aspnet-core).
+Se utilizar filtros nas suas bandeiras de funcionalidade, deve incluir o espaço de [nomes Microsoft.FeatureManagement.FeatureFilters](/dotnet/api/microsoft.featuremanagement.featurefilters) e adicionar uma chamada aos [AddFeatureFilters](/dotnet/api/microsoft.featuremanagement.ifeaturemanagementbuilder.addfeaturefilter) especificando o nome do tipo do filtro que pretende utilizar como tipo genérico do método. Para obter mais informações sobre a utilização de filtros de funcionalidades para ativar e desativar dinamicamente a funcionalidade, consulte [Ativar o lançamento encenado de funcionalidades para audiências direcionadas](./howto-targetingfilter-aspnet-core.md).
 
 O exemplo a seguir mostra como utilizar um filtro de recurso incorporado chamado `PercentageFilter` :
 
@@ -211,14 +211,14 @@ Por convenção, a `FeatureManagement` secção deste documento JSON é utilizad
 
 * `FeatureA`está *ligado.*
 * `FeatureB`está *desligado.*
-* `FeatureC` especifica um filtro nomeado `Percentage` com uma `Parameters` propriedade. `Percentage` é um filtro configurável. Neste exemplo, `Percentage` especifica uma probabilidade de 50% para a bandeira estar `FeatureC` *em*. Para obter um guia sobre como utilizar filtros de funcionalidades, consulte [filtros de funcionalidades de utilização para permitir as bandeiras de características condicionais](/azure/azure-app-configuration/howto-feature-filters-aspnet-core).
+* `FeatureC` especifica um filtro nomeado `Percentage` com uma `Parameters` propriedade. `Percentage` é um filtro configurável. Neste exemplo, `Percentage` especifica uma probabilidade de 50% para a bandeira estar `FeatureC` *em*. Para obter um guia sobre como utilizar filtros de funcionalidades, consulte [filtros de funcionalidades de utilização para permitir as bandeiras de características condicionais](./howto-feature-filters-aspnet-core.md).
 
 
 
 
 ## <a name="use-dependency-injection-to-access-ifeaturemanager"></a>Use a injeção de dependência para aceder iFeatureManager 
 
-Para algumas operações, como verificar manualmente os valores da bandeira de características, é necessário obter um exemplo de [IFeatureManager](https://docs.microsoft.com/dotnet/api/microsoft.featuremanagement.ifeaturemanager?view=azure-dotnet-preview). Em ASP.NET Core MVC, pode aceder ao gestor de recursos `IFeatureManager` através de injeção de dependência. No exemplo seguinte, é adicionado um argumento do tipo `IFeatureManager` à assinatura do construtor para um controlador. O tempo de funcionamento resolve automaticamente a referência e fornece uma parte da interface ao chamar o construtor. Se estiver a utilizar um modelo de aplicação no qual o controlador já tem um ou mais argumentos de injeção de dependência no construtor, `ILogger` como, por exemplo, pode apenas adicionar `IFeatureManager` como argumento adicional:
+Para algumas operações, como verificar manualmente os valores da bandeira de características, é necessário obter um exemplo de [IFeatureManager](/dotnet/api/microsoft.featuremanagement.ifeaturemanager?view=azure-dotnet-preview). Em ASP.NET Core MVC, pode aceder ao gestor de recursos `IFeatureManager` através de injeção de dependência. No exemplo seguinte, é adicionado um argumento do tipo `IFeatureManager` à assinatura do construtor para um controlador. O tempo de funcionamento resolve automaticamente a referência e fornece uma parte da interface ao chamar o construtor. Se estiver a utilizar um modelo de aplicação no qual o controlador já tem um ou mais argumentos de injeção de dependência no construtor, `ILogger` como, por exemplo, pode apenas adicionar `IFeatureManager` como argumento adicional:
 
 ### <a name="net-5x"></a>[.NET 5.x](#tab/core5x)
     

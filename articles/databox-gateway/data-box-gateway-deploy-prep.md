@@ -6,14 +6,14 @@ author: v-dalc
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 10/15/2020
+ms.date: 03/01/2021
 ms.author: alkohli
-ms.openlocfilehash: 40de216a9bcb173d9dfebf39d05fb9cb12579301
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: ceda5015770ad0b9898def181fa7199f119920db
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98937333"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101706100"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-data-box-gateway"></a>Tutorial: Prepare-se para implementar gateway de caixa de dados azul
 
@@ -65,7 +65,7 @@ Antes de implementar um dispositivo virtual, certifique-se de que:
 - O sistema anfitrião tem capacidade para dedicar os recursos seguintes para aprovisionar o seu dispositivo virtual Data Box:
   
   - Um mínimo de 4 processadores virtuais.
-  - Pelos menos 8 GB de RAM.
+  - Pelos menos 8 GB de RAM. Recomendamos vivamente pelo menos 16 GB de RAM.
   - Uma interface de rede.
   - Um disco de SO de 250 GB.
   - Um disco virtual de 2 TB para dados do sistema.
@@ -175,7 +175,7 @@ Depois de o recurso Data Box Gateway estar a funcionar, terá de obter a chave d
 > - A chave de ativação expira três dias após a sua geração.
 > - Se a chave tiver expirado, gere uma nova chave. A chave mais antiga não é válida.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a conhecer tópicos do Data Box Gateway, como:
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/24/2019
-ms.openlocfilehash: a9b93cf05141442901531e745971ee16348cdaae
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: d83ee4b53d4ccda9cb2af21fa0cb4c91822ec7c4
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100615551"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101732025"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Conecte computadores sem acesso à Internet utilizando o gateway Log Analytics no Azure Monitor
 
@@ -89,7 +89,7 @@ O gateway Log Analytics está disponível nestes idiomas:
 
 O gateway Log Analytics suporta apenas a Segurança da Camada de Transporte (TLS) 1.0, 1.1 e 1.2.  Não suporta a camada de tomadas seguras (SSL).  Para garantir a segurança dos dados em trânsito para o Log Analytics, configure o gateway para utilizar pelo menos TLS 1.2. As versões mais antigas de TLS ou SSL são vulneráveis. Embora atualmente permitam retrocompatibilidade, evite usá-las.  
 
-Para obter informações adicionais, [reveja o envio de dados de forma segura utilizando o TLS 1.2](../platform/data-security.md#sending-data-securely-using-tls-12). 
+Para obter informações adicionais, [reveja o envio de dados de forma segura utilizando o TLS 1.2](../logs/data-security.md#sending-data-securely-using-tls-12). 
 
 ### <a name="supported-number-of-agent-connections"></a>Número suportado de ligações de agentes
 

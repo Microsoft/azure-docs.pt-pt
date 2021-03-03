@@ -3,12 +3,12 @@ title: Adicione uma extensão de conjunto de escala de máquina virtual a um tip
 description: Aqui está como adicionar uma extensão de conjunto de escala de máquina virtual um tipo de nó de cluster gerido de tecido de serviço
 ms.topic: article
 ms.date: 09/28/2020
-ms.openlocfilehash: 64df4b82795f382e176d66dc61470296447b9e29
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: a47908b511f79c18482e9d21e623f1cb4dc70ed1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98788083"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737771"
 ---
 # <a name="add-a-virtual-machine-scale-set-extension-to-a-service-fabric-managed-cluster-node-type-preview"></a>Adicione uma extensão de conjunto de escala de máquina virtual a um tipo de nó de cluster gerido por Tecido de Serviço (pré-visualização)
 
@@ -53,7 +53,7 @@ Alternadamente, pode uma extensão de conjunto de escala de máquina virtual num
 
 Para obter mais informações sobre a configuração dos tipos de nós de cluster geridos do Tecido de Serviço, consulte o [tipo de nó de cluster gerido](/azure/templates/microsoft.servicefabric/2020-01-01-preview/managedclusters/nodetypes).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre clusters geridos pela Service Fabric, consulte:
 

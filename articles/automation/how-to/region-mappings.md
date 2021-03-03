@@ -1,20 +1,24 @@
 ---
 title: Regiões suportadas para a área de trabalho do Log Analytics ligada
 description: Este artigo descreve os mapeamentos da região suportada entre uma conta de Automação e um espaço de trabalho Log Analytics, uma vez que se relaciona com certas características da Azure Automation.
-ms.date: 01/21/2021
+ms.date: 02/17/2021
 services: automation
 ms.topic: conceptual
 ms.custom: references_regions
-ms.openlocfilehash: 3b744127b51b0e0db63c158feaf463af4cd0bdcf
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 0599dcb57b46d1e48b4035acac8b64edbbe06912
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98704326"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101720176"
 ---
 # <a name="supported-regions-for-linked-log-analytics-workspace"></a>Regiões suportadas para a área de trabalho do Log Analytics ligada
 
 Na Azure Automation, pode ativar a Gestão de Atualização, O Rastreio de Alterações e Inventário e VMs de início/paragem durante as funcionalidades de folga para os seus servidores e máquinas virtuais. Estas funcionalidades têm uma dependência de um espaço de trabalho Log Analytics, pelo que requerem a ligação do espaço de trabalho com uma conta Automation. No entanto, apenas algumas regiões são apoiadas para as associar. Em geral, o mapeamento *não* é aplicável se pretender ligar uma conta Demômpa ao espaço de trabalho que não terá estas funcionalidades ativadas.
+
+Os mapeamentos aqui discutidos aplicam-se apenas à ligação do Espaço de Trabalho do Log Analytics a uma conta de Automação. Não se aplicam às máquinas virtuais (VMs) que estão ligadas ao espaço de trabalho que está ligado à Conta de Automação. Os VM não se limitam às regiões apoiadas por um determinado espaço de trabalho log analytics. Podem estar em qualquer região. Tenha em mente que ter os VMs em uma região diferente pode afetar os requisitos regulamentares estatais, locais e do país, ou os requisitos de conformidade da sua empresa. Ter VMs numa região diferente poderia também introduzir taxas de largura de banda de dados.
+
+Antes de ligar VMs a um espaço de trabalho numa região diferente, deve rever os requisitos e custos potenciais para confirmar e compreender as implicações legais e de custos.
 
 Este artigo fornece os mapeamentos suportados de forma a ativar e utilizar com sucesso estas funcionalidades na sua conta Automation.
 
@@ -96,7 +100,7 @@ Em alternativa, pode desvincular o seu espaço de trabalho da sua conta Automati
 1. No espaço de trabalho, selecione **a Conta de Automação** em **Recursos Relacionados.**
 2. Na página 'Conta Dem automação', selecione **'Desvincular'.**
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre a Gestão de Atualização na [visão geral da Gestão de Atualização](../update-management/overview.md).
 * Saiba mais sobre o Rastreio de Alterações e Inventário na [visão geral do Change Tracking e do Inventário](../change-tracking/overview.md).

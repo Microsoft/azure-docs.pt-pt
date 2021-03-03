@@ -12,12 +12,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: bonova, sstein, danil
 ms.date: 02/21/2021
-ms.openlocfilehash: 7acb891cc887fb118a338cc837c5c5c4c98a63d8
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 75fc4166614862c5ac48a72bacb6b7b19019d003
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101655943"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691914"
 ---
 # <a name="features-comparison-azure-sql-database-and-azure-sql-managed-instance"></a>Comparação de características: Azure SQL Database e Azure SQL Managed Instance
 
@@ -48,7 +48,7 @@ A tabela que se segue lista as principais funcionalidades do SQL Server e fornec
 | [Declaração de INSERÇÃO A GRANEL](/sql/relational-databases/import-export/import-bulk-data-by-using-bulk-insert-or-openrowset-bulk-sql-server) | Sim, mas só do armazém da Azure Blob como fonte. | Sim, mas apenas do Azure Blob Storage como fonte - veja [as diferenças](../managed-instance/transact-sql-tsql-differences-sql-server.md#bulk-insert--openrowset). |
 | [Certificados e chaves assimétricas](/sql/relational-databases/security/sql-server-certificates-and-asymmetric-keys) | Sim, sem acesso ao sistema de ficheiros `BACKUP` e `CREATE` operações. | Sim, sem acesso ao sistema de ficheiros `BACKUP` e `CREATE` operações - ver [diferenças de certificados](../managed-instance/transact-sql-tsql-differences-sql-server.md#certificates). |
 | [Alterar a captura de dados - CDC](/sql/relational-databases/track-changes/about-change-data-capture-sql-server) | Não | Sim |
-| [Colagem - servidor/instância](/sql/relational-databases/collations/set-or-change-the-server-collation) | Não, a colagem padrão do servidor `SQL_Latin1_General_CP1_CI_AS` é sempre usada. | Sim, pode ser definido quando o [caso é criado](../managed-instance/scripts/create-powershell-azure-resource-manager-template.md) e não pode ser atualizado mais tarde. |
+| [Colagem - servidor/instância](/sql/relational-databases/collations/set-or-change-the-server-collation) | Não, a colagem padrão do servidor `SQL_Latin1_General_CP1_CI_AS` é sempre usada. | Sim, pode ser definido quando o [caso é criado](../managed-instance/create-template-quickstart.md) e não pode ser atualizado mais tarde. |
 | [Índices Columnstore](/sql/relational-databases/indexes/columnstore-indexes-overview) | Sim - [Nível premium, nível standard - S3 e acima, nível de finalidade geral, business critical e hiperscale](/sql/relational-databases/indexes/columnstore-indexes-overview) |Sim |
 | [Tempo comum de execução da linguagem - CLR](/sql/relational-databases/clr-integration/common-language-runtime-clr-integration-programming-concepts) | Não | Sim, mas sem acesso ao sistema de ficheiros em `CREATE ASSEMBLY` comunicado - ver [diferenças clr](../managed-instance/transact-sql-tsql-differences-sql-server.md#clr) |
 | [Credenciais](/sql/relational-databases/security/authentication-access/credentials-database-engine) | Sim, mas apenas [credenciais de base de dados.](/sql/t-sql/statements/create-database-scoped-credential-transact-sql) | Sim, mas apenas **Azure Key Vault** e `SHARED ACCESS SIGNATURE` são suportados - ver [detalhes](../managed-instance/transact-sql-tsql-differences-sql-server.md#credential) |

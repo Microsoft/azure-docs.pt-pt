@@ -1,18 +1,15 @@
 ---
 title: Apache Hive políticas em Apache Ranger - Azure HDInsight
 description: Saiba como configurar as políticas apache ranger para a Colmeia num serviço Azure HDInsight com o Pacote de Segurança Empresarial.
-author: omidm1
-ms.author: omidm
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive
 ms.date: 11/27/2019
-ms.openlocfilehash: 8ebc03d0847414730c51b899be4cf6586d064696
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: fbe4361033321f2ba81478c41a138937f70b5498
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98932239"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101705709"
 ---
 # <a name="configure-apache-hive-policies-in-hdinsight-with-enterprise-security-package"></a>Configurar as políticas do Apache Hive no HDInsight com o Pacote de Segurança Enterprise
 
@@ -155,7 +152,7 @@ Para testar a segunda política (read-hivesampletable-devicemake), criou na últ
 
     Quando estiver feito, verá duas colunas de dados importadas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para configurar um cluster HDInsight com pacote de segurança empresarial, consulte [clusters Configure HDInsight com ESP](./apache-domain-joined-configure-using-azure-adds.md).
 * Para gerir um cluster HDInsight com ESP, consulte [Gerir clusters HDInsight com ESP](apache-domain-joined-manage.md).

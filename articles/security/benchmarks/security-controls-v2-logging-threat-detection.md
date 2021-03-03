@@ -4,19 +4,21 @@ description: Azure Security Benchmark V2 Logging e Deteção de Ameaças
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/20/2020
+ms.date: 02/22/2021
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 2a0ce52c094739ffbbce2f93a41b2533222066b8
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 43119a51be2359ed2ddfb4e5d5fa629badedb054
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100576805"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101720686"
 ---
 # <a name="security-control-v2-logging-and-threat-detection"></a>Controlo de Segurança V2: Registo e deteção de ameaças
 
-A deteção de registos e deteção de ameaças abrange os controlos de deteção de ameaças no Azure e a capacitação, recolha e armazenamento de registos de auditoria para os serviços Azure. Isto inclui permitir processos de deteção, investigação e remediação com controlos para gerar alertas de alta qualidade com deteção de ameaças nativas nos serviços Azure; inclui também a recolha de registos com o Azure Monitor, a centralização da análise de segurança com o Azure Sentinel, a sincronização do tempo e a retenção de registos. 
+A deteção de registos e deteção de ameaças abrange os controlos de deteção de ameaças no Azure e a capacitação, recolha e armazenamento de registos de auditoria para os serviços Azure. Isto inclui permitir processos de deteção, investigação e remediação com controlos para gerar alertas de alta qualidade com deteção de ameaças nativas nos serviços Azure; inclui também a recolha de registos com o Azure Monitor, a centralização da análise de segurança com o Azure Sentinel, a sincronização do tempo e a retenção de registos.
+
+Para ver a política de Azure incorporada aplicável, consulte detalhes da iniciativa de conformidade regulamentar de referência de [segurança Azure: Registo e Deteção de Ameaças](../../governance/policy/samples/azure-security-benchmark#logging-and-threat-detection)
 
 ## <a name="lt-1-enable-threat-detection-for-azure-resources"></a>LT-1: Permitir a deteção de ameaças para recursos Azure
 
@@ -46,7 +48,7 @@ Além disso, use o Azure Sentinel para construir regras de análise, que caçam 
 
 - [Operações de segurança](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
-- [Gestão de postura](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)   
+- [Gestão de postura](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)
 
 - [Segurança de Aplicações e DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
 
@@ -83,9 +85,9 @@ O Azure Security Center também pode alertar para certas atividades suspeitas, c
 
 - [Operações de segurança](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
-- [Gestão de postura](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)   
+- [Gestão de postura](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)
 
-- [Segurança de Aplicações e DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
+- [Segurança de Aplicações e DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
 - [Inteligência de ameaça](/azure/cloud-adoption-framework/organize/cloud-security-threat-intelligence)
 
@@ -95,7 +97,9 @@ O Azure Security Center também pode alertar para certas atividades suspeitas, c
 |--|--|--|--|
 | LT-3 | 9.3, 12.2, 12.5, 12.8 | AU-3, AU-6, AU-12, SI-4 |
 
-Ativar e recolher registos de recursos do grupo de segurança da rede (NSG), registos de fluxo NSG, registos de firewall Azure e web application firewall (WAF) para análise de segurança para apoiar investigações de incidentes, caça de ameaças e geração de alerta de segurança. Pode enviar os registos de fluxo para um espaço de trabalho do Azure Monitor Log Analytics e, em seguida, utilizar o Traffic Analytics para fornecer informações. Certifique-se de que está a recolher registos de consultas DNS para ajudar a correlacionar outros dados de rede.
+Ativar e recolher registos de recursos do grupo de segurança da rede (NSG), registos de fluxo NSG, registos de firewall Azure e web application firewall (WAF) para análise de segurança para apoiar investigações de incidentes, caça de ameaças e geração de alerta de segurança. Pode enviar os registos de fluxo para um espaço de trabalho do Azure Monitor Log Analytics e, em seguida, utilizar o Traffic Analytics para fornecer informações.
+
+Certifique-se de que está a recolher registos de consultas DNS para ajudar a correlacionar outros dados de rede.
 
 - [Como ativar os registos de fluxo do grupo de segurança da rede](../../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
@@ -117,7 +121,7 @@ Ativar e recolher registos de recursos do grupo de segurança da rede (NSG), reg
 
 - [Operações de segurança](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
-- [Gestão de postura](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)   
+- [Gestão de postura](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)
 
 - [Segurança de Aplicações e DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
 
@@ -131,7 +135,7 @@ Ativar e recolher registos de recursos do grupo de segurança da rede (NSG), reg
 
 Permitir a exploração madeireira dos recursos Azure para satisfazer os requisitos de conformidade, deteção de ameaças, caça e investigação de incidentes. 
 
-Pode utilizar o Azure Security Center e a Azure Policy para permitir registos de recursos e registar a recolha de dados nos recursos da Azure para acesso a registos de auditoria, segurança e recursos. Os registos de atividade, que estão automaticamente disponíveis, incluem fonte de evento, data, utilizador, marcação de tempo, endereços de origem, endereços de destino e outros elementos úteis. 
+Pode utilizar o Azure Security Center e a Azure Policy para permitir registos de recursos e registar a recolha de dados nos recursos da Azure para acesso a registos de auditoria, segurança e recursos. Os registos de atividade, que estão automaticamente disponíveis, incluem fonte de evento, data, utilizador, marcação de tempo, endereços de origem, endereços de destino e outros elementos úteis.
 
 - [Compreenda o registo e diferentes tipos de registo em Azure](../../azure-monitor/essentials/platform-logs-overview.md)
 
@@ -145,7 +149,7 @@ Pode utilizar o Azure Security Center e a Azure Policy para permitir registos de
 
 Segurança de infraestrutura e pontos finais 
 
-- [Segurança de aplicações e DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
+- [Segurança de aplicações e DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
 - [Inteligência de ameaça](/azure/cloud-adoption-framework/organize/cloud-security-threat-intelligence)
 
@@ -161,7 +165,7 @@ Certifique-se de que está a integrar os registos de atividade do Azure na sua s
 
 Além disso, ative e a bordo dados para Azure Sentinel ou um SIEM de terceiros.
 
-Muitas organizações optam por usar o Azure Sentinel para dados "quentes" que são usados frequentemente e o Azure Storage para dados "frios" que são usados com menos frequência. 
+Muitas organizações optam por usar o Azure Sentinel para dados "quentes" que são usados frequentemente e o Azure Storage para dados "frios" que são usados com menos frequência.
 
 - [Como recolher registos e métricas da plataforma com o Azure Monitor](../../azure-monitor/essentials/diagnostic-settings.md)
 
@@ -189,7 +193,7 @@ No Azure Monitor, pode definir o período de retenção do espaço de trabalho d
 
 - [Alterar o período de retenção de dados em Log Analytics](../../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
-- [Como configurar a política de retenção para os registos de conta de armazenamento Azure](../../storage/common/storage-monitor-storage-account.md#configure-logging)
+- [Como configurar a política de retenção para os registos de conta de armazenamento Azure](../../storage/common/manage-storage-analytics-logs.md#configure-logging)
 
 - [Alertas e recomendações do Centro de Segurança Azure](../../security-center/continuous-export.md)
 
@@ -199,9 +203,9 @@ No Azure Monitor, pode definir o período de retenção do espaço de trabalho d
 
 - [Arquitetura de segurança](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 
-- [Segurança de Aplicações e DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
+- [Segurança de Aplicações e DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
-- [Operações de segurança](/azure/cloud-adoption-framework/organize/cloud-security-operations-center) 
+- [Operações de segurança](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [Gestão de conformidade de segurança](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
 
@@ -211,7 +215,7 @@ No Azure Monitor, pode definir o período de retenção do espaço de trabalho d
 |--|--|--|--|
 | LT-7 | 6.1 | AU-8 |
 
-A Microsoft mantém fontes de tempo para a maioria dos serviços Azure PaaS e SaaS. Para as suas máquinas virtuais, utilize o servidor NTP padrão da Microsoft para sincronização de tempo, a menos que tenha um requisito específico.  Se precisar de manter o seu próprio servidor de protocolo de tempo de rede (NTP), certifique-se de que protege a porta de serviço UDP 123.
+A Microsoft mantém fontes de tempo para a maioria dos serviços Azure PaaS e SaaS. Para as suas máquinas virtuais, utilize o servidor NTP padrão da Microsoft para sincronização de tempo, a menos que tenha um requisito específico. Se precisar de manter o seu próprio servidor de protocolo de tempo de rede (NTP), certifique-se de que protege a porta de serviço UDP 123.
 
 Todos os registos gerados por recursos dentro do Azure fornecem carimbos de tempo com o fuso horário especificado por padrão.
 

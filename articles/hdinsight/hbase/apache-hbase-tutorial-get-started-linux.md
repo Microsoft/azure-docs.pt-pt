@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 01/22/2021
-ms.openlocfilehash: 05e40dd38fc7111521b600908cda38084249e4de
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 5de98f5bf57626a408dd5bec8575856074f434c7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98936058"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101705675"
 ---
 # <a name="tutorial-use-apache-hbase-in-azure-hdinsight"></a>Tutorial: Use Apache HBase em Azure HDInsight
 
@@ -133,7 +133,7 @@ Na HBase (uma implementação do [Cloud BigTable),](https://cloud.google.com/big
 
 O HBase inclui vários métodos de carregamento dos dados em tabelas.  Para obter mais informações, consulte o artigo [Carregamento em massa](https://hbase.apache.org/book.html#arch.bulk.load).
 
-Está disponível um ficheiro de dados de exemplo num contentor de blobs público, `wasb://hbasecontacts\@hditutorialdata.blob.core.windows.net/contacts.txt`.  O conteúdo do ficheiro de dados é:
+Está disponível um ficheiro de dados de exemplo num contentor de blobs público, `wasb://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt`.  O conteúdo do ficheiro de dados é:
 
 `8396    Calvin Raji      230-555-0191    230-555-0191    5415 San Gabriel Dr.`
 
@@ -357,7 +357,7 @@ Se não continuar a utilizar esta aplicação, elimine o cluster HBase que criou
 1. Na lista de clusters HDInsight que aparecem, clique no **...** ao lado do cluster que criou para este tutorial.
 1. Clique em **Eliminar**. Clique em **Sim**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, aprendeu a criar um cluster Apache HBase. E como criar tabelas e ver os dados nessas tabelas a partir da concha HBase. Também aprendeu a usar uma consulta de Hive em dados em tabelas HBase. E como utilizar as APIs DE REPOUSO HBase C# para criar uma tabela HBase e obter dados da tabela. Para saber mais, veja:
 

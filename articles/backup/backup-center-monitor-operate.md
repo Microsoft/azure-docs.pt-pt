@@ -3,20 +3,20 @@ title: Monitorizar e operar cópias de segurança através do Centro de Cópias 
 description: Este artigo explica como monitorizar e operar backups em escala usando backup Center
 ms.topic: conceptual
 ms.date: 09/01/2020
-ms.openlocfilehash: 9ce3b0f00c51e9b466a9ed040b677df811448b1d
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 1c40f7804a0f0bb7694e6df205648d3ad20ad80e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98893783"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719547"
 ---
-# <a name="monitor-and-operate-backups-using-backup-center-preview"></a>Monitorize e opere backups usando backup Center (Pré-visualização)
+# <a name="monitor-and-operate-backups-using-backup-center"></a>Monitorizar e operar cópias de segurança através do Centro de Cópias de Segurança
 
 Como administrador de reserva, pode usar o Backup Center como uma única vidraça para monitorizar os seus trabalhos e o inventário de backup no dia-a-dia. Também pode utilizar o Backup Center para realizar as suas operações regulares, tais como responder a pedidos de backup a pedido, restaurar backups, criar políticas de backup, e assim por diante.
 
 ## <a name="supported-scenarios"></a>Cenários suportados
 
-* O Backup Center é atualmente suportado para backup Azure VM, SQL em backup Azure VM, SAP HANA em backup VM Azure, backup de Ficheiros Azure e Base de Dados Azure para backup do Servidor PostgreSQL.
+* O Backup Center é atualmente suportado para backup Azure VM, SQL em backup Azure VM, SAP HANA em backup VM Azure, backup Azure Files, backup Azure Blobs, backup de Discos Geridos Azure e Base de Dados Azure para backup do Servidor PostgreSQL.
 * Consulte a matriz de [suporte](backup-center-support-matrix.md) para obter uma lista detalhada de cenários suportados e não apoiados.
 
 ## <a name="backup-instances"></a>Instâncias de backup
@@ -89,7 +89,7 @@ A seleção do item do menu **Políticas de Cópia** de Segurança permite-lhe v
 
 ![Backup Center - Políticas](./media/backup-center-monitor-operate/backup-center-policies.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Governe a sua propriedade de reserva](backup-center-govern-environment.md)
 * [Executar ações usando o Backup Center](backup-center-actions.md)

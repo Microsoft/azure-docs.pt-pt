@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: df74a15a84ba04addb75b021d3b77b06cfe2ea48
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 29a63d598ada8c413316fbf18bb87597afdf62de
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96781118"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101693837"
 ---
 # <a name="azure-disk-encryption-scenarios-on-windows-vms"></a>Cenários do Azure Disk Encryption em VMs do Windows
 
@@ -151,14 +151,14 @@ Para ativar a encriptação nos discos NVMe:
 
 A encriptação persistirá nos discos NVMe nos seguintes cenários:
 - Reinicialização do VM
-- VMSS reimagem
+- Conjunto de escala de máquina virtual reimagem
 - Troca de OS
 
 Os discos NVMe serão não ininitializados os seguintes cenários:
 
 - Iniciar VM após alocação de negócios
 - Cura de serviço
-- Cópia de segurança
+- Backup
 
 Nestes cenários, os discos NVMe precisam de ser inicializados após o início do VM. Para ativar a encriptação nos discos NVMe, executar o comando para ativar a Encriptação do Disco Azure novamente após a inicialização dos discos NVMe.
 
@@ -260,9 +260,8 @@ A Azure Disk Encryption não funciona para os seguintes cenários, funcionalidad
 - Recipientes do Servidor Windows, que criam volumes dinâmicos para cada recipiente.
 - Discos efémeros de OS.
 - Encriptação de sistemas de ficheiros partilhados/distribuídos como (mas não limitados a) DFS, GFS, DRDB e CephFS.
-- Mover um VMs encriptado para outra subscrição ou região.
+- Mover um VM encriptado para outra subscrição ou região.
 - Criar uma imagem ou instantâneo de um VM encriptado e usá-lo para implementar VMs adicionais.
-- Gen2 VMs (ver: [Suporte para a geração 2 VMs em Azure](../generation-2.md#generation-1-vs-generation-2-capabilities))
 - VMs da série M com discos de acelerador de escrita.
 - Aplicação de ADE a um VM que tenha discos encriptados com [encriptação do lado do servidor com teclas geridas pelo cliente](../disk-encryption.md) (SSE + CMK). Aplicar SSE + CMK a um disco de dados num VM encriptado com ADE também é um cenário não suportado.
 - Migrar um VM que é encriptado com ADE, ou **que já** foi encriptado com ADE, para [encriptação do lado do servidor com teclas geridas pelo cliente](../disk-encryption.md).

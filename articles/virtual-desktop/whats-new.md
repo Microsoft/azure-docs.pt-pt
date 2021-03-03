@@ -3,17 +3,17 @@ title: Quais as novidades no Windows Virtual Desktop? - Azure
 description: Novas funcionalidades e atualizações de produtos para o Windows Virtual Desktop.
 author: Heidilohr
 ms.topic: overview
-ms.date: 01/29/2021
+ms.date: 02/23/2021
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: lizross
 ms.custom: references_regions
-ms.openlocfilehash: 1deec49cfeca65628485ed105e0919f2c2b18b17
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: a2afd47db01725c56f4fe571f1b464818653081d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99575318"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737499"
 ---
 # <a name="whats-new-in-windows-virtual-desktop"></a>Quais as novidades no Windows Virtual Desktop?
 
@@ -39,6 +39,26 @@ Consulte estes artigos para saber mais sobre as atualizações para os nossos cl
 ## <a name="fslogix-updates"></a>Atualizações da FSLogix
 
 Curioso sobre as últimas atualizações para fSLogix? Confira [as novidades da FSLogix.](/fslogix/whats-new)
+
+## <a name="february-2021"></a>Fevereiro de 2021
+
+Eis o que mudou em fevereiro de 2021.
+
+### <a name="portal-experience"></a>Experiência do portal
+
+Melhorámos a experiência do portal Azure das seguintes formas:
+
+- Modo de drenagem a granel nos anfitriões no separador grelha do anfitrião da sessão. 
+- O anexo de aplicações MSIX já está disponível para pré-visualização pública.
+- Informação geral da piscina de anfitrião fixa para modo escuro.
+
+### <a name="eu-metadata-storage-now-in-public-preview"></a>Armazenamento de metadados da UE agora em pré-visualização pública
+
+Estamos agora a realizar uma pré-visualização pública da geografia da Europa (UE) como uma opção de armazenamento para metadados de serviço no Windows Virtual Desktop. Os clientes podem escolher entre o Oeste e o Norte da Europa quando criam os seus objetos de serviço. Os objetos de serviço e metadados para as piscinas hospedeiras serão armazenados na geografia Azure associada a cada região. Para saber mais, leia [a nossa publicação de blog anunciando a pré-visualização do público.](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/announcing-public-preview-of-windows-virtual-desktop-service/m-p/2143939)
+
+### <a name="teams-on-windows-virtual-desktop-plugin-updates"></a>Equipas em atualizações de plugin virtual do Windows Desktop
+
+Melhorámos a qualidade das chamadas de vídeo no plugin virtual do Windows Desktop, abordando os problemas mais relatados, como quando o ecrã de repente escureceu ou o vídeo e o som dessincronizados. Estas melhorias devem aumentar o desempenho da visualização de um único vídeo com a comutação ativa do altifalante. Também corrigimos um problema em que dispositivos de hardware com caracteres especiais não estavam disponíveis em Equipas.
 
 ## <a name="january-2021"></a>Janeiro de 2021
 

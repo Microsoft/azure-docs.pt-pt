@@ -158,9 +158,6 @@
           href: batch-sig-images.md
         - name: Criar um conjunto com um recurso de imagem gerida
           href: batch-custom-images.md
-        - name: Criar uma piscina através de Zonas de Disponibilidade
-          displayName: 'region, zonal policy'
-          href: create-pool-availability-zones.md
         - name: Criar um conjunto com a encriptação de disco ativada
           href: disk-encryption.md
         - name: Criar um conjunto numa rede virtual
@@ -172,8 +169,6 @@
         - name: Criar um conjunto sem endereços IP públicos
           displayName: private
           href: batch-pool-no-public-ip-address.md
-        - name: Use extensões com piscinas
-          href: create-pool-extensions.md
         - name: Configurar identidades geridas
           displayName: user-assigned
           href: managed-identity-pools.md

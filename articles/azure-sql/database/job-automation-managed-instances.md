@@ -12,12 +12,12 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: ''
 ms.date: 02/01/2021
-ms.openlocfilehash: beb82f8435aea817a074ce83fddc6a5417b86c26
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 6ba1ba9d8c809a805fe8691baf96350b70ec6a51
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100418083"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691897"
 ---
 # <a name="automate-management-tasks-using-sql-agent-jobs-in-azure-sql-managed-instance"></a>Automatizar tarefas de gestão utilizando empregos de agente SQL em Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -78,7 +78,7 @@ Existem vários conceitos-chave no SQL Agent Jobs:
 
 Os passos de trabalho do agente SQL são sequências de ações que o Agente SQL deve executar. Cada passo tem o passo seguinte que deve ser executado se o passo for bem sucedido ou falhar, número de retrações em caso de falha.
 
-O SqL Agent permite-lhe criar diferentes tipos de etapas de trabalho, tais como etapas de trabalho Transact-SQL que executam um único lote Transact-SQL contra a base de dados, ou passos de comando/PowerShell que podem executar scripts de [trabalho personalizados, passos de trabalho SSIS](/azure/data-factory/how-to-invoke-ssis-package-managed-instance-agent) que lhe permitem carregar dados usando o tempo de execução SSIS, ou passos de [replicação](../managed-instance/replication-transactional-overview.md) que podem publicar alterações da sua base de dados para outras bases de dados.
+O SqL Agent permite-lhe criar diferentes tipos de etapas de trabalho, tais como etapas de trabalho Transact-SQL que executam um único lote Transact-SQL contra a base de dados, ou passos de comando/PowerShell que podem executar scripts de [trabalho personalizados, passos de trabalho SSIS](../../data-factory/how-to-invoke-ssis-package-managed-instance-agent.md) que lhe permitem carregar dados usando o tempo de execução SSIS, ou passos de [replicação](../managed-instance/replication-transactional-overview.md) que podem publicar alterações da sua base de dados para outras bases de dados.
 
 > [!Note]
 > Para obter mais informações sobre a utilização do tempo de execução da integração do Azure SSIS com o SSISDB hospedado pela Azure SQL Managed Instance, consulte [Use Azure SQL Managed Instance with SQL Server Integration Services (SSIS) in Azure Data Factory](/../azure/data-factory/how-to-use-sql-managed-instance-with-ir.md).

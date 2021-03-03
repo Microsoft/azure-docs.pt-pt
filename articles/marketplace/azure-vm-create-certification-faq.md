@@ -4,15 +4,15 @@ description: Resolver problemas comuns relacionados com testes e certificação 
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: troubleshooting
-author: iqshahmicrosoft
-ms.author: iqshah
+author: mathapli
+ms.author: mathapli
 ms.date: 01/18/2021
-ms.openlocfilehash: 80dc19a58d212bb6ab8d608e222cd3a0bd3990d1
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: adcd91d58b3bb5fde3ffa81c828c58d4b6db48d4
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98600989"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101721162"
 ---
 # <a name="troubleshoot-virtual-machine-certification"></a>Certificação de máquina virtual de resolução de problemas
 
@@ -54,7 +54,7 @@ Verifique se seguiu rigorosamente o processo de provisionamento de VM antes de s
 
 As questões de provisionamento podem incluir os seguintes cenários de falha:
 
-|Cenário|Erro|Razão|Solução|
+|Scenario|Erro|Razão|Solução|
 |---|---|---|---|
 |1|Disco rígido virtual inválido (VHD)|Se o valor de cookie especificado no rodapé VHD estiver incorreto, o VHD será considerado inválido.|Re-crie a imagem e envie o pedido.|
 |2|Tipo de bolha inválida|O fornecimento de VM falhou porque o bloco usado é um tipo de bolha em vez de um tipo de página.|Re-crie a imagem e envie o pedido.|
@@ -126,7 +126,7 @@ Descarregue o [kit de ferramentas da Microsoft Certification](azure-vm-image-tes
 
 A tabela que se segue lista os casos de teste Linux que o conjunto de ferramentas irá executar. A validação do teste está indicada na descrição.
 
-|Cenário|Caso de teste|Descrição|
+|Scenario|Caso de teste|Descrição|
 |---|---|---|
 |1|História da bash|Os ficheiros de histórico de bash devem ser limpos antes de criar a imagem VM.|
 |2|Versão linux agent|O Agente Azure Linux 2.2.41 ou mais tarde deve ser instalado.|
@@ -144,7 +144,7 @@ A tabela que se segue lista os casos de teste Linux que o conjunto de ferramenta
 
 Consulte a tabela seguinte para os erros comuns que pode ver ao executar casos de teste:
 
-| Cenário | Caso de teste | Erro | Solução |
+| Scenario | Caso de teste | Erro | Solução |
 | --- | --- | --- | --- |
 | 1 | Caso de teste de versão linux agente | A versão mínima do agente Linux é 2.2.41 ou mais tarde. Esta exigência é obrigatória desde 1 de maio de 2020. | Atualize a versão do agente Linux. Deve ser 2.241 ou mais tarde. Para mais informações, visite a [página de atualização da versão do agente Linux](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support). |
 | 2 | Caso de teste de história de bash | Ocorre um erro se o tamanho da história da Bash na sua imagem submetida for superior a 1 quilobyte (KB). O tamanho é restrito a 1 KB para garantir que o seu ficheiro de histórico bash não contém nenhuma informação potencialmente sensível. | Resolva montando o VHD em outro VM em funcionamento e faça alterações para reduzir o tamanho para 1 KB ou menos. Por exemplo, elimine os `.bash` ficheiros de histórico. |
@@ -156,7 +156,7 @@ Consulte a tabela seguinte para os erros comuns que pode ver ao executar casos d
 
 A tabela que se segue lista os casos de teste do Windows que o conjunto de ferramentas irá executar, juntamente com uma descrição da validação do teste:
 
-|Cenário |Casos de teste|Descrição|
+|Scenario |Casos de teste|Descrição|
 |---|---|---|
 |1|Arquitetura de SO|O Azure suporta apenas sistemas operativos de 64 bits.|
 |2|Dependência da conta do utilizador|A execução da aplicação não deve depender da conta do administrador.|
@@ -594,8 +594,37 @@ Em seguida, reeditar a oferta.
 
 Para completar o processo de publicação, consulte [Rever e publicar ofertas.](review-publish-offer.md)
 
+### <a name="vm-images-with-limited-access-or-requiring-custom-templates"></a>Imagens VM com acesso limitado ou requisitos personalizados
+
+#### <a name="locked-down-or-ssh-disabled-offer"></a>Oferta de desativada SSH bloqueada (ou)
+
+  As imagens publicadas com SSH desativadas (para Linux) ou RDP desativadas (para Windows) são tratadas como VMs bloqueados. Existem cenários de negócio especiais devido aos quais os Editores apenas permitem o acesso restrito a alguns utilizadores. Durante as verificações de validação, os VM bloqueados podem não permitir a execução de determinados comandos de certificação.
+
+
+#### <a name="custom-templates"></a>Modelos personalizados
+
+   Em geral, todas as imagens publicadas sob ofertas VM únicas seguirão o modelo padrão ARM para implementação. No entanto, existem cenários em que o editor pode necessitar de personalização durante a implementação de VMs (por exemplo, múltiplos NIC(s) a serem configurados).
+    
+   Dependendo dos cenários abaixo (não exaustivos), os editores utilizarão modelos personalizados para a implementação do VM:
+
+   * O VM requer sub-redes de rede adicionais.
+   * Metadados adicionais a serem inseridos no modelo ARM.
+   * Comandos que são pré-requisitos para a execução do modelo ARM.
+
+### <a name="vm-extensions"></a>Extensões de VM   
+
+   As extensões de máquina virtual (VM) do Azure são pequenas aplicações que proporcionam tarefas de automação e configuração pós-implementação nas VMs do Azure. Por exemplo, se uma máquina virtual exigir a instalação de software, a proteção antivírus ou a execução de um script, poderá ser utilizada uma extensão de VM. 
+
+   As validações de extensão Linux VM requerem que faça parte da imagem:
+* Agente Azure Linux maior 2.2.41
+* Versão python acima de 2.8 
+
+
+Para mais informações, visite [a extensão VM.](https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-linux)
+     
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Configurar as propriedades da oferta de VM](azure-vm-create-properties.md)
 - [Recompensas de mercado ativas](partner-center-portal/marketplace-rewards.md)
 - Se tiver dúvidas ou feedback para melhorar, contacte [o suporte do Partner Center](https://aka.ms/marketplacepublishersupport).
+ 

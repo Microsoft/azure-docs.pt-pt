@@ -3,12 +3,12 @@ title: Tutorial - Implementar e configurar VMware HCX
 description: Aprenda a implementar e configurar uma solução VMware HCX para a sua nuvem privada Azure VMware Solution.
 ms.topic: tutorial
 ms.date: 11/25/2020
-ms.openlocfilehash: a792f8dbc646f61377cf0a88e1a6e386340f23e8
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: e1df53a7aea0b7642828bba80cd7237e26a7182f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97357896"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728234"
 ---
 # <a name="deploy-and-configure-vmware-hcx"></a>Implementar e configurar o VMware HCX
 
@@ -36,7 +36,7 @@ Então, vamos percorrer todos os procedimentos necessários para:
 
 Depois de terminar, siga os próximos passos recomendados no final deste artigo.  
 
-## <a name="before-you-begin"></a>Before you begin
+## <a name="before-you-begin"></a>Antes de começar
 
 Ao preparar a sua implementação, recomendamos que reveja a seguinte documentação VMware:
 
@@ -76,12 +76,15 @@ Antes de colocar o aparelho virtual no seu vCenter no local, tem de descarregar 
 
    :::image type="content" source="media/tutorial-vmware-hcx/find-hcx-ip-address.png" alt-text="Screenshot do endereço IP VMware HCX." lightbox="media/tutorial-vmware-hcx/find-hcx-ip-address.png":::
 
-1. Selecione **Gerir**  >  **identidade** e selecione **a palavra-passe de administração vCenter** para identificar a palavra-passe.
+1. Selecione **Gerir**  >  **identidade**. 
+
+   Os URLs e as credenciais de utilizador para o visor privado de vCenter e NSX-T Manager.
 
    > [!TIP]
-   > A palavra-passe vCenter foi definida quando configura a nuvem privada. É a mesma palavra-passe que vai usar para iniciar sposição no Azure VMware Solution HCX Manager.
+   > A palavra-passe vCenter foi definida quando configura a nuvem privada. É a mesma palavra-passe que vai usar para iniciar sposição no Azure VMware Solution HCX Manager. Pode selecionar **Gerar uma nova palavra-passe** para gerar novas palavras-passe vCenter e NSX-T.
 
-   :::image type="content" source="media/tutorial-vmware-hcx/hcx-admin-password.png" alt-text="encontrar a palavra-passe hcx." lightbox="media/tutorial-vmware-hcx/hcx-admin-password.png":::
+   :::image type="content" source="media/tutorial-access-private-cloud/ss4-display-identity.png" alt-text="Exiba urls e credenciais de cloud vCenter e NSX Manager." border="true":::
+
 
 1. Abra uma janela do navegador, inscreva-se no Azure VMware Solution HCX Manager na `https://x.x.x.9` porta 443 com as credenciais de utilizador **cloudadmin \@ vsphere.local**
 

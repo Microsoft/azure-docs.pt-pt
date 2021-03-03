@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/23/2020
 ms.author: yuajia
-ms.openlocfilehash: d1f3e59cc88ea9cb30e7eacbd26591e08d71be61
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 58db217ca173acbe0356596de916216c4ab7f241
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100575249"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101715552"
 ---
 # <a name="monitoring-metrics-and-logs-in-azure-front-door"></a>Métricas de monitorização e troncos na Porta frontal de Azure
 
@@ -25,11 +25,11 @@ Ao utilizar a Porta Frontal Azure, pode monitorizar os recursos das seguintes fo
 - **Métricas**. A Azure Front Door tem atualmente oito métricas para visualizar balcões de desempenho.
 - **Troncos**. Os registos de atividade e de diagnóstico permitem que o desempenho, o acesso e outros dados sejam guardados ou consumidos a partir de um recurso para fins de monitorização.
 
-### <a name="metrics"></a>Métricas
+##  <a name="metrics"></a><a name="metrics"></a>Métricas
 
 As métricas são uma característica de certos recursos Azure que permitem visualizar contadores de desempenho no portal. Estão disponíveis as métricas da Porta frontal:
 
-| Metric | Nome de exibição métrica | Unidade | Dimensões | Description |
+| Metric | Nome de exibição métrica | Unidade | Dimensões | Descrição |
 | --- | --- | --- | --- | --- |
 | PedidoCount | Número de Pedidos | de palavras | HttpStatus</br>Grupo HttpStatus</br>Região do Cliente</br>ClientCountry | O número de pedidos de clientes servidos pela Porta da Frente.  |
 | Solicitação | Tamanho do pedido | Bytes | HttpStatus</br>Grupo HttpStatus</br>Região do Cliente</br>ClientCountry | O número de bytes enviados como pedidos de clientes para a Porta da Frente. |

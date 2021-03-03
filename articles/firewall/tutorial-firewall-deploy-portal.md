@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 07/15/2020
+ms.date: 02/19/2021
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 40e4a3d3a819280255ee931e5e12206f99ef28fe
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 54900b7b9089d4a4c6cbc742ecf09aa19ff2a550
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98051518"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101741961"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Tutorial: implementar e configurar o Azure Firewall com o portal do Azure
 
@@ -62,30 +62,32 @@ O grupo de recursos contém todos os recursos para o tutorial.
 
 1. Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 2. No menu do portal Azure, selecione **grupos de recursos** ou procure e selecione *grupos* de Recursos a partir de qualquer página. Em seguida, selecione **Adicionar**.
-3. Para **o nome do grupo de recursos**, insira *Test-FW-RG*.
 4. Em **Subscrição**, selecione a sua subscrição.
-5. Em **Localização do grupo de recursos**, selecione uma localização. Todos os outros recursos que cria devem estar no mesmo local.
-6. Selecione **Criar**.
+1. Para **o nome do grupo de recursos**, insira *Test-FW-RG*.
+1. Em **Localização do grupo de recursos**, selecione uma localização. Todos os outros recursos que cria devem estar no mesmo local.
+1. Selecione **Rever + criar**.
+1. Selecione **Criar**.
 
 ### <a name="create-a-vnet"></a>Criar uma VNet
 
-Esta VNet irá conter três sub-redes.
+Este VNet terá três sub-redes.
 
 > [!NOTE]
 > O tamanho da sub-rede AzureFirewallSubnet é /26. Para obter mais informações sobre o tamanho da sub-rede, consulte [a Azure Firewall FAQ](firewall-faq.yml#why-does-azure-firewall-need-a--26-subnet-size).
 
-1. No menu do portal do Azure ou a partir da **Home page**, selecione **Criar um recurso**.
+1. No menu do portal do Azure ou a partir da **Home Page**, selecione **Criar um recurso**.
 1. Selecione rede virtual **de rede**  >  .
-2. Em **Subscrição**, selecione a sua subscrição.
-3. Para **o grupo de recursos**, selecione **Test-FW-RG**.
-4. Em **Nome**, escreva **Test-FW-VN**.
-5. Para **a Região**, selecione o mesmo local que usou anteriormente.
-6. Selecione **Seguinte: endereços IP**.
-7. Para **o espaço IPv4 Address,** tipo **10.0.0.0/16**.
-8. Na **sub-rede,** selecione **o padrão**.
-9. Para o nome **da sub-rede,** tipo **AzureFirewallSubnet**. A firewall estará nesta sub-rede, e o nome da sub-rede **tem** de ser AzureFirewallSubnet.
-10. Para **a gama Address**, tipo **10.0.1.0/26**.
-11. Selecione **Guardar**.
+1. Selecione **Criar**.
+1. Em **Subscrição**, selecione a sua subscrição.
+1. Para **o grupo de recursos**, selecione **Test-FW-RG**.
+1. Em **Nome**, escreva **Test-FW-VN**.
+1. Para **a Região**, selecione o mesmo local que usou anteriormente.
+1. Selecione **Seguinte: endereços IP**.
+1. Para **o espaço IPv4 Address,** tipo **10.0.0.0/16**.
+1. Na **sub-rede,** selecione **o padrão**.
+1. Para o nome **da sub-rede,** tipo **AzureFirewallSubnet**. A firewall estará nesta sub-rede, e o nome da sub-rede **tem** de ser AzureFirewallSubnet.
+1. Para **a gama Address**, tipo **10.0.1.0/26**.
+1. Selecione **Guardar**.
 
    Em seguida, crie uma sub-rede para o servidor de carga de trabalho.
 
@@ -100,16 +102,15 @@ Esta VNet irá conter três sub-redes.
 
 Agora crie a máquina virtual de carga de trabalho e coloque-a na sub-rede **Workload-SN.**
 
-1. No menu do portal do Azure ou a partir da **Home page**, selecione **Criar um recurso**.
-2. Selecione **Compute** e, em seguida, selecione **máquina Virtual**.
-3. **Centro de dados do Windows Server 2016** na lista em destaque.
+1. No menu do portal do Azure ou a partir da **Home Page**, selecione **Criar um recurso**.
+2. Selecione **o Centro de Dados do Windows Server 2016**.
 4. Introduza estes valores para a máquina virtual:
 
    |Definição  |Valor  |
    |---------|---------|
    |Grupo de recursos     |**Teste-FW-RG**|
    |Nome da máquina virtual     |**Srv-Work**|
-   |Região     |O mesmo que anterior|
+   |Region     |O mesmo que anterior|
    |Imagem|Windows Server 2019 Datacenter|
    |Nome do utilizador do administrador     |Digite um nome de utilizador|
    |Palavra-passe     |Digite uma senha|
@@ -120,14 +121,14 @@ Agora crie a máquina virtual de carga de trabalho e coloque-a na sub-rede **Wor
 8. Certifique-se de que **o Test-FW-VN** está selecionado para a rede virtual e a sub-rede é **Workload-SN**.
 9. Para **IP público**, selecione **Nenhum**.
 11. Aceite os outros incumprimentos e selecione **Seguinte: Gestão**.
-12. Selecione **Off** para desativar os diagnósticos de arranque. Aceite os outros predefinidos e selecione **Review + create**.
+12. **Selecione Desativar** para desativar os diagnósticos de arranque. Aceite os outros predefinidos e selecione **Review + create**.
 13. Reveja as definições na página do resumo e, em seguida, **selecione Criar**.
 
 ## <a name="deploy-the-firewall"></a>Implementar a firewall
 
 Implemente a firewall na VNet.
 
-1. No menu do portal do Azure ou a partir da **Home page**, selecione **Criar um recurso**.
+1. No menu do portal do Azure ou a partir da **Home Page**, selecione **Criar um recurso**.
 2. Digite **firewall** na caixa de pesquisa e prima **Enter**.
 3. Selecione **Firewall** e, em seguida, selecione **Criar**.
 4. Na página **Criar uma firewall**, utilize a seguinte tabela para configurar a firewall:
@@ -136,12 +137,13 @@ Implemente a firewall na VNet.
    |---------|---------|
    |Subscrição     |\<your subscription\>|
    |Grupo de recursos     |**Teste-FW-RG** |
-   |Nome     |**Test-FW01**|
-   |Localização     |Selecionar a mesma localização que utilizou anteriormente|
+   |Name     |**Test-FW01**|
+   |Region     |Selecionar a mesma localização que utilizou anteriormente|
+   |Gestão de firewall|**Use as regras firewall (clássica) para gerir esta firewall**|
    |Escolher uma rede virtual     |**Utilização existente**: **Test-FW-VN**|
    |Endereço IP público     |**Adicionar novo**<br>**Nome**:  **fw-pip**|
 
-5. Selecione **Rever + criar**.
+5. Aceite os outros valores predefinidos e, em seguida, **selecione Review + create**.
 6. Reveja o resumo e, em seguida, **selecione Criar** para criar a firewall.
 
    Este processo irá demorar alguns minutos a implementar.
@@ -155,15 +157,18 @@ Na sub-rede **Workload-SN**, vai configurar a rota de saída predefinida para pa
 1. No menu do portal Azure, selecione **Todos os serviços** ou procure e selecione *Todos os serviços* de qualquer página.
 2. Em **Rede,** selecione **tabelas de rota**.
 3. Selecione **Adicionar**.
-4. Em **Nome**, escreva **Firewall-route**.
 5. Em **Subscrição**, selecione a sua subscrição.
 6. Para **o grupo de recursos**, selecione **Test-FW-RG**.
-7. Em **Localização**, selecione a mesma localização que utilizou anteriormente.
-8. Selecione **Criar**.
-9. Selecione **Refresh** e, em seguida, selecione a tabela **de rota de rota firewall.**
-10. Selecione **Sub-redes** e, em seguida, **selecione Associate**.
-11. Selecione **Rede Virtual**  >  **Test-FW-VN**.
-12. Para **a sub-rede**, selecione **Workload-SN**. Certifique-se de que seleciona apenas a **sub-rede Workload-SN** para esta rota, caso contrário a sua firewall não funcionará corretamente.
+7. Para **a Região**, selecione o mesmo local que usou anteriormente.
+4. Em **Nome**, escreva **Firewall-route**.
+1. Selecione **Rever + criar**.
+1. Selecione **Criar**.
+
+Após a implementação concluída, selecione **Ir para o recurso**.
+
+1. Na página de rota firewall, selecione **Subnetas** e, em seguida, **selecione Associate**.
+1. Selecione **Rede Virtual**  >  **Test-FW-VN**.
+1. Para **a sub-rede**, selecione **Workload-SN**. Certifique-se de que seleciona apenas a **sub-rede Workload-SN** para esta rota, caso contrário a sua firewall não funcionará corretamente.
 
 13. Selecione **OK**.
 14. Selecione **Rotas** e, em seguida, selecione **Adicionar**.
@@ -180,7 +185,7 @@ Na sub-rede **Workload-SN**, vai configurar a rota de saída predefinida para pa
 Esta é a regra da aplicação que permite o acesso de saída a `www.google.com` .
 
 1. Abra o **Test-FW-RG** e selecione a firewall **Test-FW01.**
-2. Na página **Teste-FW01,** em **Definições,** selecione **Regras**.
+2. Na página **Test-FW01,** em **Definições,** selecione **Regras (clássicas)**.
 3. Selecione o separador **de recolha de regras de aplicação.**
 4. **Selecione Adicionar a recolha de regras de aplicação**.
 5. Em **Nome**, escreva **App-Coll01**.
@@ -226,8 +231,8 @@ Esta regra permite-lhe ligar um ambiente de trabalho remoto à Srv-Work máquina
 5. De **acordo com as regras**, para **nome**, tipo **rdp-nat**.
 6. Em **Protocolo**, selecione **TCP**.
 7. Para **o tipo de fonte**, selecione endereço **IP**.
-8. Para **fonte,** escreva * *\** _.
-9. Para _*Endereço destino**, digite o endereço IP público de firewall.
+8. Para **fonte**, tipo **\*** .
+9. Para **o endereço Destino,** escreva o endereço IP público de firewall.
 10. Para **portos de destino**, tipo **3389**.
 11. Para **endereço traduzido,** digite o endereço IP privado **Srv-work.**
 12. Em **Porta traduzida**, escreva **3389**.

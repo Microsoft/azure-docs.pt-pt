@@ -10,16 +10,16 @@ ms.custom: ''
 ms.workload: infrastructure-services
 ms.date: 7/16/2020
 ms.author: jonbeck
-ms.openlocfilehash: d805fb926131e047572887758b10506e4edd5944
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 1e2eddd821bb7a9d2050913efef3d73b406e32f7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96183384"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101733215"
 ---
 # <a name="tutorial-creating-a-new-child-dns-zone"></a>Tutorial: Criar uma nova zona de DNS infantil
 
-Neste tutorial, vai aprender a: 
+Neste tutorial, ficará a saber como: 
 
 > [!div class="checklist"]
 > * A assinar no Portal Azure.
@@ -81,7 +81,8 @@ Também pode criar uma nova zona de DNS para crianças e deledá-la na zona de D
 1.  Selecione **Seguinte: Tags** e depois **Seguinte: Rever + criar**.
 1.  No **separador 'Rever +' criar,** rever o resumo, corrigir quaisquer erros de validação e, em seguida, selecionar **Criar**.
 
-    :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-dns-zone-child-inline.png" alt-text="Screenshot da zona infantil selecionada" border="true"  lightbox="./media/dns-delegate-domain-azure-dns/create-dns-zone-child-expanded.png":::
+    :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-dns-zone-child-inline.png" alt-text="Screenshot da zona infantil selecionada" border="true" lightbox="./media/dns-delegate-domain-azure-dns/create-dns-zone-child-expanded.png":::
+
 ## <a name="verify-child-dns-zone"></a>Verifique a zona de DNS infantil
 Agora que tem uma nova zona de DNS infantil *subdomain.contoso.com* criada. Para verificar se a delegação aconteceu corretamente, deverá verificar se os registos de nomes (NS) para a zona do seu filho estão na zona dos pais, conforme descrito abaixo.  
 
@@ -100,7 +101,7 @@ Agora, neste passo, vamos para a zona de DNS dos pais *contoso.com* e verificar 
 1.  Você vai descobrir que o conjunto de registos de tipo NS e subdomínio de nome já está criado na zona de DNS dos pais. Verifique os valores deste conjunto de registos é semelhante à lista de nomes que recuperamos da zona de DNS infantil em cima do degrau.
 
      :::image type="content" source="./media/dns-delegate-domain-azure-dns/create-child-zone-ns-validate-inline.png" alt-text="Screenshot da validação de conservadores de nomes de zona infantil" border="true" lightbox="./media/dns-delegate-domain-azure-dns/create-child-zone-ns-validate-expanded.png":::
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 Quando já não precisar dos recursos que criou neste tutorial, remova-os eliminando o grupo de recursos **MyResourceGroup.** Abra o grupo de recursos **MyResourceGroup** e selecione **Delete resource group**.
 
 

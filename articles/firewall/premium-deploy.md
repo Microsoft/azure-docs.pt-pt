@@ -7,12 +7,12 @@ services: firewall
 ms.topic: how-to
 ms.date: 02/16/2021
 ms.author: victorh
-ms.openlocfilehash: ec8fc4473669b0c056d0b22ff44e5818b87ba3fa
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: fa106fac683619706f4be330ad1c4bff7b56f2dd
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100549889"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101721791"
 ---
 # <a name="deploy-and-configure-azure-firewall-premium-preview"></a>Implementar e configurar a pré-visualização Azure Firewall Premium
 
@@ -34,7 +34,7 @@ Você usará um modelo para implementar um ambiente de teste que tem um VNet cen
 - uma sub-rede Azure Bastion (10.0.20.0/24)
 - uma sub-rede de firewall (10.0.100.0/24)
 
-Um único VNet central é utilizado neste ambiente de teste para a simplicidade. Para fins de produção, um [hub e topologia falada](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) com VNets espreitados é mais comum.
+Um único VNet central é utilizado neste ambiente de teste para a simplicidade. Para fins de produção, um [hub e topologia falada](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) com VNets espreitados é mais comum.
 
 :::image type="content" source="media/premium-deploy/premium-topology.png" alt-text="Topologia central do VNet":::
 

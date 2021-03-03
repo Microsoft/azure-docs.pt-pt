@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com Workable Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com | viável Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Workable.
 services: active-directory
 author: jeevansd
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: jeedes
-ms.openlocfilehash: e6cf8b0ea7064b99cf6f630a83b2800900f29c47
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: f705ca1e001d3b7852c5bec5b494f23eb7943626
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636090"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101687775"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workable"></a>Tutorial: Integração do Diretório Ativo Azure com Workable
 
@@ -50,7 +50,7 @@ Para configurar a integração do Workable em Azure AD, é necessário adicionar
 
 **Para adicionar Workable da galeria, execute os seguintes passos:**
 
-1. No **[portal Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.**
+1. No **[portal Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.**
 
     ![O botão Azure Ative Directory](common/select-azuread.png)
 
@@ -62,13 +62,13 @@ Para configurar a integração do Workable em Azure AD, é necessário adicionar
 
     ![O novo botão de aplicação](common/add-new-app.png)
 
-4. Na caixa de pesquisa, **escreva Workable** , selecione **Workable** a partir do painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar a aplicação.
+4. Na caixa de pesquisa, **escreva Workable**, selecione **Workable** a partir do painel de resultados e, em seguida, clique no botão **Adicionar** para adicionar a aplicação.
 
     ![Viável na lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar Azure AD único sinal de inscrição
 
-Nesta secção, configura e testa o Azure AD com um único sign-on com Workable baseado num utilizador de teste chamado **Britta Simon** .
+Nesta secção, configura e testa o Azure AD com um único sign-on com Workable baseado num utilizador de teste chamado **Britta Simon**.
 Para um único sinal de trabalho, é necessário estabelecer uma relação de ligação entre um utilizador Azure AD e o utilizador relacionado em Trabalho viável.
 
 Para configurar e testar o Azure AD com um único sinal de acesso com o Workable, é necessário completar os seguintes blocos de construção:
@@ -86,7 +86,7 @@ Nesta secção, você ativa a Azure AD um único sinal no portal Azure.
 
 Para configurar o Azure AD com um único sign-on com Workable, execute os seguintes passos:
 
-1. No [portal Azure,](https://portal.azure.com/)na página de integração de aplicações **viável,** selecione **Single sign-on** .
+1. No [portal Azure,](https://portal.azure.com/)na página de integração de aplicações **viável,** selecione **Single sign-on**.
 
     ![Configurar link único de inscrição](common/select-sso.png)
 
@@ -143,7 +143,7 @@ Uma vez ativado o Sign On único, o seu gestor de conta viável informá-lo-á e
 
 O objetivo desta secção é criar um utilizador de teste no portal Azure chamado Britta Simon.
 
-1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory** , selecione **Utilizadores** , e, em seguida, selecione **Todos os utilizadores** .
+1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory**, selecione **Utilizadores**, e, em seguida, selecione **Todos os utilizadores**.
 
     ![Os links "Utilizadores e grupos" e "Todos os utilizadores"](common/users.png)
 
@@ -155,27 +155,27 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
     ![A caixa de diálogo do utilizador](common/user-properties.png)
 
-    a. No campo **Nome** entra **BrittaSimon** .
+    a. No campo **Nome** entra **BrittaSimon**.
   
-    b. No tipo de campo **do nome do utilizador** `brittasimon\@yourcompanydomain.extension` . Por exemplo, BrittaSimon@contoso.com.
+    b. No tipo de campo **do nome do utilizador,** `brittasimon@yourcompanydomain.extension` por exemplo: `brittasimon@contoso.com` .
 
     c. Selecione Mostrar caixa de verificação de **palavra-passe** e, em seguida, anotar o valor que é apresentado na caixa de palavra-passe.
 
-    d. Clique em **Criar** .
+    d. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
 Nesta secção, você permite que Britta Simon use Azure single sign-on, concedendo acesso ao Workable.
 
-1. No portal Azure, selecione **Aplicações empresariais** , selecione **Todas as aplicações** e, em seguida, selecione **Workable** .
+1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações** e, em seguida, selecione **Workable**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
-2. Na lista de candidaturas, **selecione Workable** .
+2. Na lista de candidaturas, **selecione Workable**.
 
     ![O link viável na lista de Aplicações](common/all-applications.png)
 
-3. No menu à esquerda, selecione **Utilizadores e grupos** .
+3. No menu à esquerda, selecione **Utilizadores e grupos**.
 
     ![A ligação "Utilizadores e grupos"](common/users-groups-blade.png)
 

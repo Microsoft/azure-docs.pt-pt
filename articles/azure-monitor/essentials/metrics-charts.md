@@ -7,17 +7,17 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 8d0f1e711b325b1b9ce4e431c1438e511384e8a0
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: b042049c803ad04b54bb6c2a242ca1008bc17dd3
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100615201"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734524"
 ---
 # <a name="advanced-features-of-the-azure-metrics-explorer"></a>Características avançadas do explorador de métricas Azure
 
 > [!NOTE]
-> Este artigo pressupõe que está familiarizado com as características básicas da funcionalidade exploradora de métricas Azure do Azure Monitor. Se é um novo utilizador e quer aprender a criar o seu primeiro gráfico métrico, veja [como começar com o explorador de métricas](../platform/metrics-getting-started.md).
+> Este artigo pressupõe que está familiarizado com as características básicas da funcionalidade exploradora de métricas Azure do Azure Monitor. Se é um novo utilizador e quer aprender a criar o seu primeiro gráfico métrico, veja [como começar com o explorador de métricas](./metrics-getting-started.md).
 
 No Azure Monitor, [as métricas](data-platform-metrics.md) são uma série de valores medidos e contagens que são recolhidas e armazenadas ao longo do tempo. As métricas podem ser padrão (também chamada de "plataforma") ou personalizadas. 
 
@@ -49,11 +49,11 @@ Quando estiver satisfeito com a sua seleção, **selecione Apply**.
 ### <a name="view-metrics-across-multiple-resources"></a>Ver métricas em vários recursos
 Alguns tipos de recursos podem consultar métricas sobre vários recursos. Os recursos devem estar dentro da mesma subscrição e local. Encontre estes tipos de recursos no topo do menu **de tipos de recursos.** 
 
-Para obter mais informações, consulte [Selecione vários recursos.](../platform/metrics-dynamic-scope.md#select-multiple-resources)
+Para obter mais informações, consulte [Selecione vários recursos.](./metrics-dynamic-scope.md#select-multiple-resources)
 
 ![Screenshot mostrando tipos de recursos cruzados.](./media/metrics-charts/multi-resource-scope.png)
 
-Para tipos compatíveis com múltiplos recursos, pode consultar métricas através de uma subscrição ou de vários grupos de recursos. Para obter mais informações, consulte [Selecione um grupo de recursos ou subscrição](../platform/metrics-dynamic-scope.md#select-a-resource-group-or-subscription).
+Para tipos compatíveis com múltiplos recursos, pode consultar métricas através de uma subscrição ou de vários grupos de recursos. Para obter mais informações, consulte [Selecione um grupo de recursos ou subscrição](./metrics-dynamic-scope.md#select-a-resource-group-or-subscription).
 
 ## <a name="multiple-metric-lines-and-charts"></a>Múltiplas linhas métricas e gráficos
 
@@ -67,7 +67,7 @@ Por exemplo, imagine que tem cinco contas de armazenamento, e quer saber quanto 
 
 ### <a name="multiple-metrics-on-the-same-chart"></a>Métricas múltiplas no mesmo gráfico
 
-Para ver várias métricas no mesmo gráfico, primeiro [crie um novo gráfico](../platform/metrics-getting-started.md#create-your-first-metric-chart). Em seguida, **selecione Adicionar métrica**. Repita este passo para adicionar outra métrica no mesmo gráfico.
+Para ver várias métricas no mesmo gráfico, primeiro [crie um novo gráfico](./metrics-getting-started.md#create-your-first-metric-chart). Em seguida, **selecione Adicionar métrica**. Repita este passo para adicionar outra métrica no mesmo gráfico.
 
 > [!NOTE]
 > Normalmente, os seus gráficos não devem misturar métricas que usam diferentes unidades de medida. Por exemplo, evite misturar uma métrica que usa milissegundos com outra que usa quilobytes. Evite também misturar métricas cujas escamas diferem significativamente. 
@@ -86,7 +86,7 @@ Quando se adiciona uma métrica a um gráfico, o explorador de métricas aplica 
 
 Antes de usar agregações diferentes num gráfico, deve entender como o explorador de métricas as trata. As métricas são uma série de medições (ou "valores métricos") que são capturadas ao longo de um período de tempo. Quando se traça um gráfico, os valores da métrica selecionada são agregados separadamente ao longo do grão de *tempo*. 
 
-Selecione o tamanho do grão de tempo utilizando o painel de recolha de tempo do explorador de [métricas](../platform/metrics-getting-started.md#select-a-time-range). Se não selecionar explicitamente o grão de tempo, o intervalo de tempo atualmente selecionado é utilizado por predefinição. Após o tempo em que os grãos são determinados, os valores métricos que foram capturados durante cada vez que os grãos são agregados na tabela, um ponto de dados por grão de tempo.
+Selecione o tamanho do grão de tempo utilizando o painel de recolha de tempo do explorador de [métricas](./metrics-getting-started.md#select-a-time-range). Se não selecionar explicitamente o grão de tempo, o intervalo de tempo atualmente selecionado é utilizado por predefinição. Após o tempo em que os grãos são determinados, os valores métricos que foram capturados durante cada vez que os grãos são agregados na tabela, um ponto de dados por grão de tempo.
 
 Por exemplo, suponha que um gráfico mostre a métrica do tempo de resposta do *Servidor.* Utiliza a agregação *média* ao longo do tempo das *últimas 24 horas.* Neste exemplo:
 
@@ -230,6 +230,42 @@ O painel de criação de regras de alerta abre. No painel, vê-se as dimensões 
 
 Para obter mais informações, consulte [Criar, ver e gerir alertas métricos.](../alerts/alerts-metric.md)
 
+## <a name="correlate-metrics-to-logs"></a>Correlacionar métricas com registos
+Para ajudar o cliente a diagnosticar a causa principal de anomalias na sua tabela de métricas, criámos a Drill em Logs. Perfurar em Logs permite que os clientes correlacionem picos na sua tabela de métricas com registos e consultas. 
+
+Antes de mergulharmos na experiência, queremos primeiro introduzir os diferentes tipos de registos e consultas fornecidas. 
+
+| Termo             | Definição  | 
+|------------------|-------------|
+| Registos de atividade    | Fornece informações sobre as operações de cada recurso Azure na subscrição a partir do exterior (o plano de gestão) para além de atualizações sobre eventos de Saúde de Serviço. Utilize o Registo de Atividades, para determinar o quê, quem e quando para quaisquer operações de escrita (PUT, POST, DELETE) assumiu os recursos na sua subscrição. Há um único registo de Atividade para cada subscrição do Azure.  |   
+| Registo de diagnósticos   | Forneça informações sobre as operações que foram realizadas dentro de um recurso Azure (o plano de dados), por exemplo, obter um segredo de um Cofre-Chave ou fazer um pedido para uma base de dados. O conteúdo dos registos de recursos varia consouros e de tipo de recurso. **Nota:** Deve ser prestado por serviço e habilitado pelo cliente  | 
+| Tronco recomendado | Consultas baseadas em cenários que o cliente pode aproveitar para investigar anomalias no seu explorador de métricas.  |
+
+Atualmente, a Drill in Logs está disponível para fornecedores de recursos selecionados. Os fornecedores de recursos que possuem a experiência drill in Logs completa são: 
+
+* Application Insights 
+* Dimensionamento Automático 
+* Serviços Aplicacionais  
+* Armazenamento  
+
+Abaixo está uma amostra de experiências para o fornecedor de recursos Application Insights.
+
+![Pico em falhas na lâmina de insights de apps](./media/metrics-charts/drill-into-log-ai.png)
+
+Para diagnosticar o pico em pedidos falhados, clique em "Drill in Logs".
+
+![Screenshot da broca em troncos dropdown](./media/metrics-charts/drill-into-logs-dropdown.png)
+
+Ao clicar na opção de falha, você será levado a uma lâmina de falha personalizada que lhe fornece as operações de funcionamento falhadas, tipos de exceções de topo e dependências. 
+
+![Screenshot da lâmina de falha de insights de aplicativos](./media/metrics-charts/ai-failure-blade.png)
+
+### <a name="common-problems-with-drill-into-logs"></a>Problemas comuns com perfuração em troncos
+
+* Os registos e consultas estão desativados - Para visualizar registos e consultas recomendados, tem de encaminhar os seus registos de diagnóstico para Registar Analytics. Leia [este documento](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) para aprender a fazer isto. 
+* Os registos de atividade só são fornecidos - A funcionalidade Drill in Logs só está disponível para fornecedores de recursos selecionados. Por predefinição, são fornecidos registos de atividade. 
+
+ 
 ## <a name="troubleshooting"></a>Resolução de problemas
 
 Se não vir nenhum dado na sua ficha, reveja as seguintes informações de resolução de problemas:
@@ -242,6 +278,5 @@ Se não vir nenhum dado na sua ficha, reveja as seguintes informações de resol
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para criar painéis de instrumentos através da utilização de métricas, consulte [criar painéis KPI personalizados](../learn/tutorial-app-dashboards.md).
+Para criar painéis de instrumentos através da utilização de métricas, consulte [criar painéis KPI personalizados](../app/tutorial-app-dashboards.md).
 
- 

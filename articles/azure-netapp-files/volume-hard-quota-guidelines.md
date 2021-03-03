@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/05/2021
 ms.author: b-juche
-ms.openlocfilehash: b173342c1c384213e88f216334b5e03cd8b7bea7
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: b25d312e6710a07f523c4acdb0fd4b970ce4a2d7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100374495"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101740091"
 ---
 # <a name="what-changing-to-volume-hard-quota-means-for-your-azure-netapp-files-service"></a>O que mudar para volume de quota dura significa para o seu serviço Azure NetApp Files
 
 Desde o início do serviço, o Azure NetApp Files tem vindo a utilizar um mecanismo de fornecimento de capacidade e de crescimento automático. Os volumes Azure NetApp Files são pouco abastetados num conjunto de capacidades de subposição, abasteçados pelo cliente de um nível e tamanho selecionados. Os tamanhos de volume (quotas) são utilizados para proporcionar desempenho e capacidade, e as quotas podem ser ajustadas no voo a qualquer momento. Este comportamento significa que, atualmente, a quota de volume é uma alavanca de desempenho usada para controlar a largura de banda ao volume. Atualmente, os pools de capacidade de subposição crescem automaticamente quando a capacidade se enche.   
 
 > [!IMPORTANT] 
-> O comportamento do Azure NetApp Files de volume e capacidade de fornecimento de piscinas mudará para um mecanismo *manual* e *controlável.* **A partir de 1 de abril de 2021, os tamanhos de volume (quota) vão gerir o desempenho da largura de banda, bem como a capacidade a provisionada, e os pools de capacidade subjacentes deixarão de crescer automaticamente.** 
+> O comportamento do Azure NetApp Files de volume e capacidade de fornecimento de piscinas mudará para um mecanismo *manual* e *controlável.* **A partir de 1 de abril de 2021 (atualizado), os tamanhos de volume (quota) vão gerir o desempenho da largura de banda, bem como a capacidade a provisionada, e os pools de capacidade subjacentes deixarão de crescer automaticamente.** 
 
 ## <a name="reasons-for-the-change-to-volume-hard-quota"></a>Razões para a alteração da quota dura do volume
 
@@ -185,8 +185,8 @@ Em alguns casos, o pool de capacidade de alojamento não tem capacidade suficien
 
 Pode utilizar as [ferramentas CLI dos Ficheiros Azure NetApp,](azure-netapp-files-sdk-cli.md#cli-tools)incluindo o Azure CLI e o Azure PowerShell, para alterar manualmente o tamanho do volume ou da capacidade da piscina.  Os dois comandos seguintes podem ser utilizados para gerir o volume de volume e os recursos de pool do Azure NetApp:  
 
-* [`az netappfiles pool`](https://docs.microsoft.com/cli/azure/netappfiles/pool?view=azure-cli-latest&preserve-view=true)
-* [`az netappfiles volume`](https://docs.microsoft.com/cli/azure/netappfiles/volume?view=azure-cli-latest&preserve-view=true)
+* [`az netappfiles pool`](/cli/azure/netappfiles/pool?preserve-view=true&view=azure-cli-latest)
+* [`az netappfiles volume`](/cli/azure/netappfiles/volume?preserve-view=true&view=azure-cli-latest)
 
 Para gerir os recursos do Azure NetApp Files utilizando o Azure CLI, pode abrir o portal Azure e selecionar a ligação Azure **Cloud Shell** no topo da barra de menus: 
 
@@ -196,13 +196,13 @@ Esta ação abrirá a Azure Cloud Shell:
 
 [![Screenshot que mostra a janela Cloud Shell. ](../media/azure-netapp-files/hard-quota-update-cloud-shell-window.png)](../media/azure-netapp-files/hard-quota-update-cloud-shell-window.png#lightbox)
 
-Os seguintes exemplos utilizam os comandos para [mostrar](https://docs.microsoft.com/cli/azure/netappfiles/volume?view=azure-cli-latest#az-netappfiles-volume-show&preserve-view=true) e [atualizar](https://docs.microsoft.com/cli/azure/netappfiles/volume?view=azure-cli-latest#az-netappfiles-volume-update&preserve-view=true) o tamanho de um volume:
+Os seguintes exemplos utilizam os comandos para [mostrar](/cli/azure/netappfiles/volume?preserve-view=true&view=azure-cli-latest#az-netappfiles-volume-show) e [atualizar](/cli/azure/netappfiles/volume?preserve-view=true&view=azure-cli-latest#az-netappfiles-volume-update) o tamanho de um volume:
  
 [![Screenshot que mostra usar o PowerShell para mostrar o tamanho do volume. ](../media/azure-netapp-files/hard-quota-update-powershell-volume-show.png)](../media/azure-netapp-files/hard-quota-update-powershell-volume-show.png#lightbox)
 
 [![Screenshot que mostra usar o PowerShell para atualizar o tamanho do volume. ](../media/azure-netapp-files/hard-quota-update-powershell-volume-update.png)](../media/azure-netapp-files/hard-quota-update-powershell-volume-update.png#lightbox)
 
-Os seguintes exemplos utilizam os comandos para [mostrar](https://docs.microsoft.com/cli/azure/netappfiles/pool?view=azure-cli-latest#az-netappfiles-pool-show&preserve-view=true) e [atualizar](https://docs.microsoft.com/cli/azure/netappfiles/pool?view=azure-cli-latest#az-netappfiles-pool-update&preserve-view=true) o tamanho de um pool de capacidade:
+Os seguintes exemplos utilizam os comandos para [mostrar](/cli/azure/netappfiles/pool?preserve-view=true&view=azure-cli-latest#az-netappfiles-pool-show) e [atualizar](/cli/azure/netappfiles/pool?preserve-view=true&view=azure-cli-latest#az-netappfiles-pool-update) o tamanho de um pool de capacidade:
 
 [![Screenshot que mostra usar o PowerShell para mostrar o tamanho da piscina de capacidade. ](../media/azure-netapp-files/hard-quota-update-powershell-pool-show.png)](../media/azure-netapp-files/hard-quota-update-powershell-pool-show.png#lightbox) 
 
@@ -277,4 +277,4 @@ Pode submeter bugs e pedidos de funcionalidade clicando em **Nova Emissão** na 
 
 ## <a name="next-steps"></a>Passos seguintes
 * [Redimensionar um conjunto de capacidade ou um volume](azure-netapp-files-resize-capacity-pools-or-volumes.md) 
-* [Métricas do Azure NetApp Files](azure-netapp-files-metrics.md) 
+* [Métricas do Azure NetApp Files](azure-netapp-files-metrics.md)

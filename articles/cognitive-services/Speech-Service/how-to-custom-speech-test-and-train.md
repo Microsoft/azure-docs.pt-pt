@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: trbye
-ms.openlocfilehash: 2e6f79643493457a587f907f2649c7ab50b963f4
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: f7e29fab542db79b22a9ace7371bc22d3526ac33
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100634741"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101710503"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Preparar dados para Voz Personalizada
 
@@ -46,9 +46,9 @@ Esta tabela lista os tipos de dados aceites, quando cada tipo de dados deve ser 
 
 | Tipo de dados | Utilizado para testes | Quantidade recomendada | Usado para treino | Quantidade recomendada |
 |-----------|-----------------|----------|-------------------|----------|
-| [Áudio](#audio-data-for-testing) | Yes<br>Usado para inspeção visual | 5+ ficheiros áudio | No | N/D |
-| [Transcrições com rótulo humano + áudio +](#audio--human-labeled-transcript-data-for-testingtraining) | Yes<br>Usado para avaliar a precisão | 0,5-5 horas de áudio | Yes | 1-20 horas de áudio |
-| [Texto relacionado](#related-text-data-for-training) | No | N/a | Yes | 1-200 MB de texto relacionado |
+| [Áudio](#audio-data-for-testing) | Sim<br>Usado para inspeção visual | 5+ ficheiros áudio | Não | N/D |
+| [Transcrições com rótulo humano + áudio +](#audio--human-labeled-transcript-data-for-testingtraining) | Sim<br>Usado para avaliar a precisão | 0,5-5 horas de áudio | Sim | 1-20 horas de áudio |
+| [Texto relacionado](#related-text-data-for-training) | Não | N/a | Sim | 1-200 MB de texto relacionado |
 
 Quando treinar um novo modelo, comece com [textos relacionados.](#related-text-data-for-training) Estes dados já melhorarão o reconhecimento de termos e frases especiais. Treinar com texto é muito mais rápido do que treinar com áudio (minutos vs. dias).
 
@@ -64,6 +64,8 @@ Os ficheiros devem ser agrupados por tipo num conjunto de dados e carregados com
 > Nos casos em que altera o modelo base utilizado para o treino, e tem áudio no conjunto de dados de treino, verifique *sempre* se o novo modelo base selecionado [suporta a formação com dados áudio](language-support.md#speech-to-text). Se o modelo base anteriormente utilizado não suportasse a formação com dados áudio, e o conjunto de dados de formação contiver áudio, o tempo de treino com o novo modelo base aumentará **drasticamente,** podendo facilmente passar de várias horas para vários dias e mais. Isto é especialmente verdade se a subscrição do seu serviço Desem declarações **não** estiver numa [região com o hardware dedicado](custom-speech-overview.md#set-up-your-azure-account) para a formação.
 >
 > Se encarar a questão descrita no parágrafo acima, pode diminuir rapidamente o tempo de treino reduzindo a quantidade de áudio no conjunto de dados ou removendo-o completamente e deixando apenas o texto. Esta última opção é altamente recomendada se a subscrição do serviço Speech **não** estiver numa [região com o hardware dedicado](custom-speech-overview.md#set-up-your-azure-account) para a formação.
+>
+> Em regiões com hardware dedicado para formação, o serviço De Discurso utilizará até 20 horas de áudio para treinar. Noutras regiões, só utilizará até 8 horas de áudio.
 
 ## <a name="upload-data"></a>Carregar dados
 
@@ -101,7 +103,7 @@ Utilize esta tabela para garantir que os seus ficheiros áudio são formatados c
 
 Utilize <a href="http://sox.sourceforge.net" target="_blank" rel="noopener">o <span class="docon docon-navigate-external x-hidden-focus"></span> SoX</a> para verificar as propriedades áudio ou converter o áudio existente nos formatos apropriados. Abaixo estão alguns exemplos de como cada uma destas atividades pode ser feita através da linha de comando SoX:
 
-| Atividade | Description | Comando SoX |
+| Atividade | Descrição | Comando SoX |
 |----------|-------------|-------------|
 | Verifique o formato áudio | Use este comando para verificar<br>o formato de ficheiro áudio. | `sox --i <filename>` |
 | Converter formato áudio | Use este comando para converter<br>o ficheiro áudio para um único canal, 16-bit, 16 KHz. | `sox <input> -b 16 -e signed-integer -c 1 -r 16k -t wav <output>.wav` |
@@ -127,7 +129,7 @@ Os ficheiros áudio podem ter silêncio no início e no fim da gravação. Se po
 > [!NOTE]
 > Ao carregar dados de treino e teste, o tamanho do ficheiro .zip não pode exceder 2 GB. Só pode testar a partir de um *único* conjunto de dados, certifique-se de mantê-lo dentro do tamanho apropriado do ficheiro. Além disso, cada ficheiro de treino não pode exceder 60 segundos, caso contrário, irá errar.
 
-Para resolver questões como a eliminação ou substituição de palavras, é necessária uma quantidade significativa de dados para melhorar o reconhecimento. Geralmente, é recomendado fornecer transcrições palavra-a-palavra para aproximadamente 10 a 20 horas de áudio. As transcrições para todos os ficheiros WAV devem estar contidas num único ficheiro de texto simples. Cada linha do ficheiro de transcrição deve ter o nome de um dos ficheiros de áudio, seguido da transcrição correspondente. O nome de ficheiro e a transcrição devem estar separados por uma tabulação (\t).
+Para resolver questões como a eliminação ou substituição de palavras, é necessária uma quantidade significativa de dados para melhorar o reconhecimento. Geralmente, é recomendado fornecer transcrições palavra-a-palavra para 1 a 20 horas de áudio. No entanto, mesmo que apenas 30 minutos possam ajudar a melhorar os resultados do reconhecimento. As transcrições para todos os ficheiros WAV devem estar contidas num único ficheiro de texto simples. Cada linha do ficheiro de transcrição deve ter o nome de um dos ficheiros de áudio, seguido da transcrição correspondente. O nome de ficheiro e a transcrição devem estar separados por uma tabulação (\t).
 
 Por exemplo:
 

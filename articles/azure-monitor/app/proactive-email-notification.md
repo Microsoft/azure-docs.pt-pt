@@ -4,14 +4,14 @@ description: Altere para os destinatários de notificação predefinidos da Smar
 ms.topic: conceptual
 author: harelbr
 ms.author: harelbr
-ms.date: 03/13/2019
+ms.date: 02/14/2021
 ms.reviewer: mbullwin
-ms.openlocfilehash: 0bf3a95814aadf687efcc27294b760e14f7d45d8
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: fa14f0dd40a30a4750d9bb102d8e67608f958135
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100585641"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734507"
 ---
 # <a name="smart-detection-e-mail-notification-change"></a>Alteração da notificação de e-mail de deteção inteligente
 
@@ -27,7 +27,7 @@ Esta alteração afetará todas as regras de Deteção Inteligente, excluindo as
 
 * Regras de Deteção Inteligente marcadas como pré-visualização. Estas regras de Deteção Inteligente não suportam notificações por e-mail hoje em dia.
 
-* As anomalias de falha reinam. Esta regra começará a direcionar as novas funções predefinidas uma vez que é migrada de um alerta clássico para a plataforma de alertas unificados (mais informações estão disponíveis [aqui](../alerts/monitoring-classic-retirement.md).)
+* As anomalias de falha reinam.
 
 ## <a name="how-to-prepare-for-this-change"></a>Como se preparar para esta mudança?
 

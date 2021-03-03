@@ -1,5 +1,5 @@
 ---
-title: Migrar do Serviço de Controlo de Acessos Azure / Microsoft Docs
+title: Migrar do Serviço de Controlo de Acesso Azure | Microsoft Docs
 description: Conheça as opções de mudança de apps e serviços do Serviço de Controlo de Acesso Azure (ACS).
 services: active-directory
 author: rwike77
@@ -13,12 +13,12 @@ ms.date: 10/03/2018
 ms.author: ryanwi
 ms.reviewer: jlu, annaba, hirsin
 ROBOTS: NOINDEX
-ms.openlocfilehash: 4f6b2b1c0f584e092c9e8f7d330a94b0b54fd6f2
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: d68cfb91445e2055cb3c3feb88bf925987ea9852
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98197426"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101687401"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>Como: Migrar do Serviço de Controlo de Acesso Azure
 
@@ -113,7 +113,7 @@ A partir de novembro de 2017, todos os componentes do Controlo de Acesso estão 
 Aqui está o horário para depreciar os componentes do Controlo de Acesso:
 
 - **novembro de 2017**: A experiência de administração Azure AD no portal clássico Azure [é aposentada.](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/18/marching-into-the-future-of-the-azure-ad-admin-experience-retiring-the-azure-classic-portal/) Neste momento, a gestão do namespace para controlo de acesso está disponível num novo URL dedicado: `https://manage.windowsazure.com?restoreClassic=true` . Utilize este URl para visualizar os espaços de nome existentes, ative e desativar espaços de nomes e eliminar espaços de nome, se assim o desejar.
-- **2 de abril de 2018**: O portal clássico do Azure está completamente reformado, o que significa que a gestão do espaço de identificação do Access Control já não está disponível através de qualquer URL. Neste ponto, não é possível desativar ou ativar, eliminar ou enumerar os seus espaços de nomes do Access Control. No entanto, o portal de gestão do Controlo de Acesso estará totalmente funcional e localizado em `https://\<namespace\>.accesscontrol.windows.net` . Todos os outros componentes do Controlo de Acesso continuam a funcionar normalmente.
+- **2 de abril de 2018**: O portal clássico do Azure está completamente reformado, o que significa que a gestão do espaço de identificação do Access Control já não está disponível através de qualquer URL. Neste ponto, não é possível desativar ou ativar, eliminar ou enumerar os seus espaços de nomes do Access Control. No entanto, o portal de gestão do Controlo de Acesso estará totalmente funcional e localizado em `https://<namespace>.accesscontrol.windows.net` . Todos os outros componentes do Controlo de Acesso continuam a funcionar normalmente.
 - **7 de novembro de 2018**: Todos os componentes do Controlo de Acesso estão permanentemente desligados. Isto inclui o portal de gestão do Controlo de Acesso, o serviço de gestão, STS e o motor de regra de transformação simbólica. Neste momento, quaisquer pedidos enviados para o Controlo de Acesso (localizados em \<namespace\> .accesscontrol.windows.net) falham. Você deveria ter migrado todas as aplicações e serviços existentes para outras tecnologias muito antes deste tempo.
 
 > [!NOTE]

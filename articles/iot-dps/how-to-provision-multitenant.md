@@ -7,12 +7,12 @@ ms.date: 04/10/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: d0c132d1aa7a37dc8e7620352bb7b9a078d79a09
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: eebcfb98d4e155ca965b9e4c68a862afa08a46ca
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96571611"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101727435"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>Como aprovisionar para arquitetura "multitenancy" 
 
@@ -301,7 +301,7 @@ O código de amostra simula uma sequência de arranque do dispositivo que envia 
 
     ![Extrair informações de ponto final do Serviço Aprovisionamento de Dispositivos do painel do portal](./media/quick-create-simulated-device-x509/extract-dps-endpoints.png) 
 
-1. Abra **a amostra de \_ cliente/amostra de cliente/prov \_ dev dev dev/prov \_ dev \_ \_ \_ \_ dev.c** para edição em ambos os VMs.
+1. Abra **a amostra de \_ cliente/amostra de cliente/prov \_ dev \_ \_ /prov \_ dev \_ \_ dev.c** para edição em ambos os VMs.
 
     ```bash
     vi ~/azure-iot-sdk-c/provisioning_client/samples/prov_dev_client_sample/prov_dev_client_sample.c
@@ -395,7 +395,7 @@ O código de amostra simula uma sequência de arranque do dispositivo que envia 
 
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se pretende continuar a trabalhar com os recursos criados neste artigo, pode deixá-los. Se não pretender continuar a utilizar o recurso, utilize as seguintes medidas para eliminar todos os recursos criados por este artigo para evitar encargos desnecessários.
 
@@ -417,16 +417,8 @@ Para eliminar o grupo de recursos pelo nome:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para saber mais Reprovisioning, consulte [conceitos de reprovisionamento do IoT Hub Device](concepts-device-reprovision.md) 
-- Para saber mais Deprovisionamento, consulte [Como desprovisionar dispositivos que foram previamente auto-aprovisionados](how-to-unprovision-devices.md) 
+> [!div class="nextstepaction"]
+> Para saber mais sobre a reprovisionamento, consulte [conceitos de reprovisionamento do IoT Hub Device](concepts-device-reprovision.md)
 
-
-
-
-
-
-
-
-
-
-
+> [!div class="nextstepaction"]
+> Para saber mais sobre a desprovisionamento, consulte [Como desprovisionar dispositivos que foram previamente auto-aprovisionados](how-to-unprovision-devices.md)

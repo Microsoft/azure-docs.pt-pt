@@ -1,22 +1,18 @@
 ---
-title: Acerca de
+title: Sobre
 description: Introdução à renderização remota do Azure
 author: florianborn71
 ms.author: flborn
 ms.date: 02/05/2020
 ms.topic: overview
-ms.openlocfilehash: 14ebe9dfd11bed2dfaded9f18e23f73d33a708ae
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 6001fff54b86b7c18684092aad6c7fdf64f81990
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91650464"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101729951"
 ---
 # <a name="about-azure-remote-rendering"></a>Acerca do Azure Remote Rendering
-
-> [!IMPORTANT]
-> **A Azure Remote Rendering** está atualmente em pré-visualização pública.
-> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, consulte [termos de utilização suplementares para pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 *A Azure Remote Rendering* (ARR) é um serviço que lhe permite renderizar conteúdo 3D interativo de alta qualidade na nuvem e transmiti-lo em tempo real para dispositivos, como os HoloLens 2.
 

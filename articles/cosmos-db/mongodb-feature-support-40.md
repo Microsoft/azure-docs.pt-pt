@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 03/02/2021
 author: gahl-levy
 ms.author: gahllevy
-ms.openlocfilehash: 4a7e80b77048d1853c9cb0d6e59c5bdd76e8d823
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 41293f96246dd4badab000c4e7f936d825e7665a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101665602"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691132"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-40-server-version-supported-features-and-syntax"></a>A API da Azure Cosmos DB para MongoDB (versão do servidor 4.0): funcionalidades suportadas e sintaxe
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -583,7 +583,7 @@ A Azure Cosmos DB suporta um time-to-live (TTL) baseado no tempotamp do document
 
 ## <a name="transactions"></a>Transações
 
-A Azure Cosmos DB suporta transações para coleções nãohardificadas. O tempo limite para transações é de 5 segundos fixos.
+As transações multi-documentos são suportadas numa coleção nãohardificada. As transações multi-documentos não são suportadas através de coleções ou em coleções de fragmentos. O tempo limite para transações é de 5 segundos fixos.
 
 ## <a name="user-and-role-management"></a>Gestão de funções e utilizadores
 

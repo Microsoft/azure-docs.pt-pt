@@ -4,12 +4,12 @@ description: Saiba como ativar e ver os registos do plano de controlo Kubernetes
 services: container-service
 ms.topic: article
 ms.date: 01/27/2020
-ms.openlocfilehash: 7fce3db6f3636a5ee984c8be44f877c5636f4e16
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 4027b2ca66b4d4319f7df347df6d671e6d48b772
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98948923"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101735136"
 ---
 # <a name="enable-and-review-kubernetes-control-plane-logs-in-azure-kubernetes-service-aks"></a>Ativar e rever os registos de aviões de controlo da Kubernetes no Serviço Azure Kubernetes (AKS)
 
@@ -161,7 +161,7 @@ AKS regista os seguintes eventos:
 | *masterclient*           | O nome de exibição no registo de auditoria do MasterClientCertificate, o certificado que obtém a az aks obter credenciais |
 | *não declarado*             | O nome de exibição para ClientCertificate, que é usado por nós de agente |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu a ativar e rever os registos dos componentes do avião de controlo Kubernetes no seu cluster AKS. Para monitorizar e resolver mais problemas, também pode [ver os registos de Kubelet][kubelet-logs] e [permitir o acesso ao nó SSH][aks-ssh].
 
@@ -171,8 +171,8 @@ Neste artigo, aprendeu a ativar e rever os registos dos componentes do avião de
 <!-- LINKS - internal -->
 [cli-quickstart]: kubernetes-walkthrough.md
 [portal-quickstart]: kubernetes-walkthrough-portal.md
-[log-analytics-overview]: ../azure-monitor/log-query/log-query-overview.md
-[analyze-log-analytics]: ../azure-monitor/log-query/log-analytics-tutorial.md
+[log-analytics-overview]: ../azure-monitor/logs/log-query-overview.md
+[analyze-log-analytics]: ../azure-monitor/logs/log-analytics-tutorial.md
 [kubelet-logs]: kubelet-logs.md
 [aks-ssh]: ssh.md
 [az-feature-register]: /cli/azure/feature#az-feature-register

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: fbed48dda3d6b022d30bb9fb0507c3f9f203771d
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 4274f976a04a9694c0429a2a4794d645304a9e97
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100613251"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728812"
 ---
 # <a name="collect-custom-metrics-for-a-linux-vm-with-the-influxdata-telegraf-agent"></a>Colete métricas personalizadas para um Linux VM com o agente InfluxData Telegraf
 
@@ -25,7 +25,7 @@ Ao utilizar o Azure Monitor, pode recolher métricas personalizadas através da 
  ![Visão geral do agente de telégrafo](./media/collect-custom-metrics-linux-telegraf/telegraf-agent-overview.png)
 
 > [!NOTE]  
-> As métricas personalizadas não são suportadas em todas as regiões. Regiões apoiadas estão listadas [aqui](../platform/metrics-custom-overview.md#supported-regions)
+> As métricas personalizadas não são suportadas em todas as regiões. Regiões apoiadas estão listadas [aqui](./metrics-custom-overview.md#supported-regions)
 
 ## <a name="send-custom-metrics"></a>Enviar métricas personalizadas 
 
@@ -136,4 +136,4 @@ Além disso, nesta passagem, usou o agente Telegraf para emitir métricas sobre 
 Quando já não são necessários, pode eliminar o grupo de recursos, a máquina virtual e todos os recursos relacionados. Para tal, selecione o grupo de recursos para a máquina virtual e selecione **Delete**. Em seguida, confirme o nome do grupo de recursos para apagar. 
 
 ## <a name="next-steps"></a>Passos seguintes
-- Saiba mais sobre [métricas personalizadas.](../platform/metrics-custom-overview.md)
+- Saiba mais sobre [métricas personalizadas.](./metrics-custom-overview.md)

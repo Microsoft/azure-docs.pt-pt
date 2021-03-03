@@ -5,18 +5,18 @@ author: linda33wj
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 01/15/2021
+ms.date: 02/18/2021
 ms.author: jingwang
-ms.openlocfilehash: 002ceba60853908e381f084e95ec1ee58e8580cb
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: a3cc3686d4b256fc7b8702f34cdf393dc1b0e25f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100375821"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101740397"
 ---
 # <a name="copy-data-securely-from-azure-blob-storage-to-a-sql-database-by-using-private-endpoints"></a>Copie os dados de forma segura do armazenamento do Azure Blob para uma base de dados SQL utilizando pontos finais privados
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Neste tutorial, vai criar uma fábrica de dados com a interface de utilizador (IU) do Azure Data Factory. *O oleoduto desta fábrica de dados copia os dados de forma segura do armazenamento do Azure Blob para uma base de dados Azure SQL (ambas permitindo o acesso a redes selecionadas apenas) utilizando pontos finais privados na Rede Virtual Gerida pela [Azure Data Factory](managed-virtual-network-private-endpoint.md).* O padrão de configuração neste tutorial aplica-se à cópia a partir de um arquivo de dados baseado em ficheiros para um arquivo de dados relacional. Para obter uma lista de lojas de dados suportadas como fontes e pias, consulte a [tabela de datas suportadas e formatos.](./copy-activity-overview.md)
 

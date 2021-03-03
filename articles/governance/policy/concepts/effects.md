@@ -1,14 +1,14 @@
 ---
 title: Entenda como os efeitos funcionam
 description: As definições de Política Azure têm vários efeitos que determinam como a conformidade é gerida e reportada.
-ms.date: 10/05/2020
+ms.date: 02/17/2021
 ms.topic: conceptual
-ms.openlocfilehash: e72e94766dce2660409e729bc43eb107fb9ab39a
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: 67445b3d0d63b3827f82822de00412bdab67c5ab
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97883083"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101741825"
 ---
 # <a name="understand-azure-policy-effects"></a>Compreender os efeitos da Política Azure
 
@@ -19,7 +19,7 @@ Estes efeitos são atualmente apoiados numa definição de política:
 - [Append](#append)
 - [Auditar](#audit)
 - [AuditIfNotExists](#auditifnotexists)
-- [Deny](#deny)
+- [Negar](#deny)
 - [DeployIfNotExists](#deployifnotexists)
 - [Desativado](#disabled)
 - [Modificar](#modify)
@@ -266,8 +266,7 @@ Semelhante ao AuditIfNotExists, uma definição de política deployIfNotExists e
 
 ### <a name="deployifnotexists-evaluation"></a>Implementação Avaliação DeNotExists
 
-O DeployIfNotExists funciona cerca de 15 minutos depois de um Fornecedor de Recursos ter tratado um pedido de criação ou atualização de recursos e ter devolvido um código de estado de sucesso. Uma implementação do modelo ocorre se não houver recursos relacionados ou se os recursos definidos pela **ExistênciaCondição** não avaliarem verdadeiramente.
-A duração da implantação depende da complexidade dos recursos incluídos no modelo.
+O DeployIfNotExists funciona cerca de 15 minutos depois de um Fornecedor de Recursos ter tratado uma subscrição ou pedido de recursos de criação ou atualização e ter devolvido um código de estado de sucesso. Uma implementação do modelo ocorre se não houver recursos relacionados ou se os recursos definidos pela **ExistênciaCondição** não avaliarem verdadeiramente. A duração da implantação depende da complexidade dos recursos incluídos no modelo.
 
 Durante um ciclo de avaliação, definições de políticas com um efeito DeployIfNotExists que correspondem aos recursos são marcados como incompatíveis, mas não são tomadas medidas nesse recurso. Os recursos existentes não conformes podem ser remediados com uma [tarefa de reparação](../how-to/remediate-resources.md).
 
@@ -482,8 +481,7 @@ Exemplo: Regra de controlo de admissão de porteiro v2 para permitir apenas as i
 
 ## <a name="modify"></a>Modificar
 
-Modificar é usado para adicionar, atualizar ou remover propriedades ou tags em um recurso durante a criação ou atualização.
-Um exemplo comum é a atualização de etiquetas em recursos como o CostCenter. Os recursos existentes não conformes podem ser remediados com uma [tarefa de reparação](../how-to/remediate-resources.md). Uma única regra de modificação pode ter qualquer número de operações.
+O modificar é utilizado para adicionar, atualizar ou remover propriedades ou tags numa subscrição ou recurso durante a criação ou atualização. Um exemplo comum é a atualização de etiquetas em recursos como o CostCenter. Os recursos existentes não conformes podem ser remediados com uma [tarefa de reparação](../how-to/remediate-resources.md). Uma única regra de modificação pode ter qualquer número de operações.
 
 As seguintes operações são suportadas pela Modificação:
 
@@ -537,7 +535,7 @@ Os **detalhes** da propriedade do efeito Modificar têm todas as subpropriedades
       - Esta propriedade é necessária se **a operação** for _addOrReplace_ ou _Add_.
     - **condição** (opcional)
       - Uma corda que contém uma expressão linguística Azure Policy com [funções políticas](./definition-structure.md#policy-functions) que _avaliam_ a verdade ou _falsa_.
-      - Não suporta as seguintes funções políticas: `field()` `resourceGroup()` . `subscription()`
+      - Não suporta as seguintes funções políticas: `field()` `resourceGroup()` . . . `subscription()` .
 
 ### <a name="modify-operations"></a>Modificar operações
 
@@ -571,7 +569,7 @@ O conjunto de propriedades **de operações** permite alterar várias tags de di
 
 A **propriedade de operação** tem as seguintes opções:
 
-|Operação |Description |
+|Operação |Descrição |
 |-|-|
 |addOrReplace |Adiciona a propriedade definida ou etiqueta e valor ao recurso, mesmo que o imóvel ou etiqueta já exista com um valor diferente. |
 |Adicionar |Adiciona a propriedade definida ou etiqueta e valor ao recurso. |

@@ -7,13 +7,13 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.author: terrylan
 manager: rkarlin
-ms.date: 09/15/2020
-ms.openlocfilehash: 01232aa101e2964354acfbeb6cea341a0da33ca6
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.date: 02/19/2021
+ms.openlocfilehash: 04fc020b2b08d4d3dc68b62c417eb8e2d2e85b97
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96489895"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101720618"
 ---
 # <a name="customer-lockbox-for-microsoft-azure"></a>Sistema de Proteção de Dados do Cliente para o Microsoft Azure
 
@@ -22,18 +22,16 @@ ms.locfileid: "96489895"
 
 O Sistema de Proteção de Dados do Cliente para o Microsoft Azure proporciona uma interface para os clientes reverem e aprovarem ou rejeitarem pedidos de acesso a dados do cliente. É utilizado nos casos em que um engenheiro da Microsoft precisa de aceder aos dados do cliente durante um pedido de suporte.
 
-Este artigo cobre a forma como os pedidos do Customer Lockbox são iniciados, rastreados e armazenados para posteriores revisões e auditorias.
+Este artigo abrange como ativar o Lockbox do Cliente e como os pedidos do Lockbox são iniciados, rastreados e armazenados para avaliações e auditorias posteriores.
 
-O Sistema de Proteção de Dados do Cliente está agora disponível para o público geral e atualmente ativado para o acesso de ambiente de trabalho remoto a máquinas virtuais.
+<a id='supported-services-and-scenarios-in-preview'>## Serviços e cenários suportados (Disponibilidade Geral)
 
-## <a name="supported-services-and-scenarios-in-preview"></a>Serviços e cenários apoiados na pré-visualização
+Os seguintes serviços estão agora geralmente disponíveis para o Lockbox do cliente:
 
-Os seguintes serviços estão atualmente em pré-visualização para o Sistema de Proteção de Dados do Cliente:
-
-- Gestão de API
+- API Management do Azure
 - Serviço de Aplicações do Azure
-- Serviços Cognitivos
-- Container Registry
+- Serviços Cognitivos do Azure
+- Registo de Contentores do Azure
 - Base de Dados do Azure para MySQL
 - Azure Databricks
 - Azure Data Box
@@ -41,34 +39,21 @@ Os seguintes serviços estão atualmente em pré-visualização para o Sistema d
 - Azure Data Factory
 - Base de Dados do Azure para PostgreSQL
 - Funções do Azure
-- HDInsight
+- Azure HDInsight
 - Azure Kubernetes Service
 - Azure Monitor
 - Storage do Azure
-- BD SQL do Azure
+- Base de Dados SQL do Azure
 - Transferências de subscrição do Azure
 - Azure Synapse Analytics
-- Máquinas virtuais (agora também abrangem o acesso a informações do estado da memória e discos geridos)
+- Máquinas virtuais em Azure (abrangendo o acesso remoto ao ambiente de trabalho, acesso a despejos de memória e discos geridos)
 
-Para ativar o Bloqueio do Cliente para estas ofertas de pré-visualização para a sua organização, inscreva-se no [Customer Lockbox para pré-visualização pública Azure](https://aka.ms/customerlockbox/insiderprogram).
+## <a name="enable-customer-lockbox"></a>Ativar o bloqueio do cliente
 
-## <a name="supported-services-and-scenarios-in-general-availability"></a>Serviços e cenários apoiados em disponibilidade geral
-
-Os seguintes serviços e cenários estão atualmente em disponibilidade geral para o Lockbox do Cliente.
-
-### <a name="remote-desktop-access-to-virtual-machines"></a>Acesso ao ambiente de trabalho remoto para máquinas virtuais
-
-O Sistema de Proteção de Dados do Cliente está atualmente ativado para pedidos de acesso de ambiente de trabalho remoto a máquinas virtuais. As seguintes cargas de trabalho são suportadas:
-- Plataforma como serviço (PaaS) – Serviços Cloud do Azure (função da Web e função de trabalho)
-- Infraestrutura como serviço (IaaS) – Windows e Linux (apenas o Azure Resource Manager)
-- Conjunto de dimensionamento de máquinas virtuais – Windows e Linux
+Pode agora ativar o Bloqueio do Cliente a partir do [módulo Administração](https://aka.ms/customerlockbox/administration) na lâmina do Bloqueio do Cliente.  
 
 > [!NOTE]
-> As instâncias iaaS Classic não são suportadas pelo Lockbox do Cliente. Se tiver cargas de trabalho em casos clássicos do IaaS, recomendamos que as emigres de modelos de implementação Classic para Resource Manager. Para obter instruções, veja [Migração suportada por plataforma dos recursos IaaS clássicos para o Azure Resource Manager](../../virtual-machines/migration-classic-resource-manager-overview.md).
-
-#### <a name="detailed-audit-logs"></a>Registos de auditoria detalhados
-
-Para cenários que envolvem o acesso ao ambiente de trabalho remoto, pode utilizar registos de eventos do Windows para rever as ações executadas pelo engenheiro da Microsoft. Considere utilizar o Centro de Segurança do Azure para recolher os registos de eventos e copiar os dados para a área de trabalho para análise. Para obter mais informações, veja [Recolha de dados no Centro de Segurança do Azure](../../security-center/security-center-enable-data-collection.md).
+> Para ativar o Bloqueio do Cliente, a conta de utilizador precisa de ter a [função de Administrador Global atribuída](../../active-directory/roles/manage-roles-portal.md).
 
 ## <a name="workflow"></a>Fluxo de trabalho
 
@@ -80,7 +65,7 @@ Os passos seguintes descrevem um fluxo de trabalho típico para um pedido de blo
 
 3. Um Engenheiro de Suporte Azure revê o pedido de serviço e determina os próximos passos para resolver o problema.
 
-4. Se o engenheiro de suporte não conseguir resolver o problema utilizando ferramentas padrão e telemetria, o próximo passo é solicitar permissões elevadas utilizando um serviço de acesso Just-In-Time (JIT). Este pedido pode ser do engenheiro de suporte original. Ou pode ser de um engenheiro diferente porque o problema é escalado para a equipa de Azure DevOps.
+4. Se o engenheiro de suporte não conseguir resolver o problema utilizando ferramentas padrão e telemetria, o próximo passo é solicitar permissões elevadas utilizando um serviço de acesso Just-In-Time (JIT). Este pedido pode ser do engenheiro de suporte original ou de um engenheiro diferente porque o problema é escalado para a equipa de Azure DevOps.
 
 5. Após o pedido de acesso ser submetido pelo Engenheiro Azure, o serviço Just-In-Time avalia o pedido tendo em conta fatores como:
     - O âmbito do recurso
@@ -99,7 +84,7 @@ Os passos seguintes descrevem um fluxo de trabalho típico para um pedido de blo
 
     ![Azure Customer Lockbox - notificação de e-mail](./media/customer-lockbox-overview/customer-lockbox-email-notification.png)
 
-8. A notificação por e-mail fornece um link para a lâmina **do Bloqueio** do Cliente no portal Azure. Utilizando este link, o aprovador designado assina no portal Azure para visualizar quaisquer pedidos pendentes que a sua organização tenha para o Bloqueio do Cliente:
+8. A notificação por e-mail fornece um link para a lâmina **de bloqueio** do cliente no módulo Administração. Utilizando este link, o aprovador designado assina no portal Azure para visualizar quaisquer pedidos pendentes que a sua organização tenha para o Bloqueio do Cliente:
 
     ![Azure Customer Lockbox - página de aterragem](./media/customer-lockbox-overview/customer-lockbox-landing-page.png)
 
@@ -141,14 +126,13 @@ Introduzimos um novo controlo de base[(3.13)](../benchmarks/security-control-ide
 
 ## <a name="exclusions"></a>Exclusões
 
-Os pedidos do Sistema de Proteção de Dados do Cliente não são acionados nos seguintes cenários de suporte de engenharia:
+Os pedidos de bloqueio do cliente não são desencadeados nos seguintes cenários de suporte à engenharia:
 
 - Um engenheiro da Microsoft precisa de realizar uma atividade que está fora dos procedimentos operacionais padrão. Por exemplo, para recuperar ou restaurar serviços em cenários inesperados ou imprevisíveis.
-
-- Um engenheiro da Microsoft acede à plataforma do Azure como parte da resolução de problemas e, inadvertidamente, tem acesso aos dados do cliente. Por exemplo, a Equipa de Rede do Azure executa a resolução de problemas que resulta numa captura de pacotes num dispositivo de rede. No entanto, se o cliente encriptou os dados enquanto estavam em trânsito, o engenheiro não poderá ler os dados.
+- Um engenheiro da Microsoft acede à plataforma do Azure como parte da resolução de problemas e, inadvertidamente, tem acesso aos dados do cliente. Por exemplo, a Equipa de Rede do Azure executa a resolução de problemas que resulta numa captura de pacotes num dispositivo de rede. Neste cenário, se o cliente encriptar os dados enquanto este está em trânsito, então o engenheiro não pode ler os dados.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-O Customer Lockbox está automaticamente disponível para todos os clientes que tenham um plano de [suporte Azure](https://azure.microsoft.com/support/plans/) com um nível mínimo de **Programador.**
+O Customer Lockbox está disponível para todos os clientes que tenham um plano de [suporte Azure](https://azure.microsoft.com/support/plans/) com um nível mínimo de **Programador.** Pode ativar o Bloqueio do Cliente a partir do [módulo Administração](https://aka.ms/customerlockbox/administration) na lâmina do Bloqueio do Cliente.
 
-Quando tem um plano de suporte elegível, não é necessária nenhuma ação por si para ativar o Lockbox do Cliente. Os pedidos de Bloqueio do Cliente são iniciados por um engenheiro da Microsoft se esta ação for necessária para progredir num bilhete de suporte que é arquivado por alguém da sua organização.
+Os pedidos de bloqueio do cliente são iniciados por um engenheiro da Microsoft se esta ação for necessária para progredir num caso de suporte.

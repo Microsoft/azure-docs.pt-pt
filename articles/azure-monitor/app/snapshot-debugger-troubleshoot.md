@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 03/07/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 6e926211a0d86fef55608ede574dca53487f267c
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: c9813108c05cabbd071a9d919452682bd6ad69e7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98732732"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731957"
 ---
 # <a name="troubleshoot-problems-enabling-application-insights-snapshot-debugger-or-viewing-snapshots"></a><a id="troubleshooting"></a> Problemas de resolução de problemas que permitem insights de aplicação Debugger ou visualização de instantâneos
 Se ativou o Application Insights Snapshot Debugger para a sua aplicação, mas não estiver a ver instantâneos para exceções, pode utilizar estas instruções para resolver problemas.
@@ -35,9 +35,10 @@ Se isso não resolver o problema, consulte os seguintes passos manuais de resolu
 
 Certifique-se de que está a utilizar a chave de instrumentação correta na sua aplicação publicada. Normalmente, a chave de instrumentação é lida a partir do ficheiro ApplicationInsights.config. Verifique se o valor é o mesmo que a chave de instrumentação do recurso Application Insights que vê no portal.
 
-## <a name="check-ssl-client-settings-aspnet"></a><a id="SSL"></a>Verifique as definições do cliente SSL (ASP.NET)
+## <a name="check-tlsssl-client-settings-aspnet"></a><a id="SSL"></a>Verifique as definições do cliente TLS/SSL (ASP.NET)
 
-Se tiver uma aplicação ASP.NET hospedada no Azure App Service ou no IIS numa máquina virtual, a sua aplicação poderá não conseguir ligar-se ao serviço Snapshot Debugger devido a um protocolo de segurança SSL em falta.
+Se tiver uma aplicação ASP.NET que esteja hospedada no Azure App Service ou no IIS numa máquina virtual, a sua aplicação poderá não conseguir ligar-se ao serviço Snapshot Debugger devido a um protocolo de segurança SSL em falta.
+
 [O ponto final Snapshot Debugger requer a versão 1.2 do TLS](snapshot-debugger-upgrade.md?toc=/azure/azure-monitor/toc.json). O conjunto de protocolos de segurança SSL é uma das peculiaridades ativadas pelo valor de base de metas httpRuntime na secção system.web de web.config. Se o targetFramework httpRuntime for 4.5.2 ou inferior, então o TLS 1.2 não está incluído por padrão.
 
 > [!NOTE]
@@ -64,6 +65,10 @@ Se estiver a utilizar uma versão de pré-visualização de .NET Core ou as refe
 
 ## <a name="check-the-diagnostic-services-site-extension-status-page"></a>Consulte a página de estado do site dos serviços de diagnóstico
 Se o Snapshot Debugger foi ativado através do painel de Insights de [Aplicação](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json) no portal, foi ativado pela extensão do site dos Serviços de Diagnóstico.
+
+> [!NOTE]
+> A instalação sem código do Application Insights Snapshot Debugger segue a política de suporte .NET Core.
+> Para obter mais informações sobre os tempos de funcionação suportados, consulte [a Política de Suporte do Núcleo .NET](https://dotnet.microsoft.com/platform/support/policy/dotnet-core).
 
 Pode consultar a Página de Estado desta extensão indo para o seguinte url: `https://{site-name}.scm.azurewebsites.net/DiagnosticServices`
 

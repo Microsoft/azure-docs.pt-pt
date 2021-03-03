@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seodec18
 ms.date: 08/06/2020
-ms.openlocfilehash: 4e81ccb541b188fedfefd150233082e9cb1f8c22
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: a04d976ed3d9be253425b4c8a5a5c0effb6f80b8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98945551"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101741842"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-apache-hadoop-apache-spark-apache-kafka-and-more"></a>Configurar clusters no HDInsight com Apache Hadoop, Apache Spark, Apache Kafka e muito mais
 
@@ -40,7 +40,7 @@ A tabela a seguir mostra os diferentes métodos que pode utilizar para configura
 
 Este artigo acompanha-o através da configuração no [portal Azure,](https://portal.azure.com)onde pode criar um cluster HDInsight.
 
-## <a name="basics"></a>Informações básicas
+## <a name="basics"></a>Noções básicas
 
 ![hdinsight criar opções personalizadas rápido](./media/hdinsight-hadoop-provision-linux-clusters/azure-portal-cluster-basics-blank-fs.png)
 
@@ -216,7 +216,7 @@ Cada tipo de cluster tem o seu próprio número de nós, terminologia para nós,
 | Storm |Nó Nimbus (2), servidor de supervisor (1+), nó ZooKeeper (3) |![Configuração do tipo de cluster de tempestade HDInsight](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-storm-cluster-type-setup.png) |
 | Spark |Nó de cabeça (2), nó do trabalhador (1+), nó ZooKeeper (3) (grátis para o tamanho A1 ZooKeeper VM) |![Configuração do tipo de cluster de faíscas HDInsight](./media/hdinsight-hadoop-provision-linux-clusters/hdinsight-spark-cluster-type-setup.png) |
 
-Para obter mais informações, consulte [a configuração do nó padrão e os tamanhos de máquinas virtuais para clusters](hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters) em "Quais são os componentes e versões Hadoop em HDInsight?"
+Para obter mais informações, consulte [a configuração do nó padrão e os tamanhos de máquinas virtuais para clusters](hdinsight-supported-node-configuration.md) em "Quais são os componentes e versões Hadoop em HDInsight?"
 
 O custo dos clusters HDInsight é determinado pelo número de nós e pelos tamanhos das máquinas virtuais para os nós.
 
@@ -287,7 +287,7 @@ Por vezes, pretende-se configurar os seguintes ficheiros de configuração duran
 
 Para obter mais informações, consulte [os clusters HDInsight personalizados utilizando o Bootstrap](hdinsight-hadoop-customize-cluster-bootstrap.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Falhas na criação de clusters de resolução de problemas com Azure HDInsight](./hadoop/hdinsight-troubleshoot-cluster-creation-fails.md)
 * [O que são HDInsight, o ecossistema Apache Hadoop e os aglomerados hadoop?](hadoop/apache-hadoop-introduction.md)

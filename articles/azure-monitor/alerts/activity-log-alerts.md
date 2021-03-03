@@ -4,18 +4,18 @@ description: Seja notificado via SMS, webhook, SMS, e-mail e muito mais, quando 
 ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 09/17/2018
-ms.openlocfilehash: cfe44fb5220b217b73c17280d5c8aaf87c57ebaf
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: a8ab9520527a0d5ebc1de698f84e9f64e28b869a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100616732"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718119"
 ---
 # <a name="alerts-on-activity-log"></a>Alertas no registo de atividades
 
 ## <a name="overview"></a>Descrição Geral
 
-Os alertas de registo de atividade são alertas que se ativam quando ocorre um novo [evento de registo de atividade](../essentials/activity-log-schema.md) que corresponde às condições especificadas no alerta. Com base na ordem e volume dos eventos registados no [registo de atividades do Azure,](../platform/platform-logs-overview.md)a regra de alerta disparará. As regras de alerta de registo de atividade são recursos Azure, para que possam ser criadas usando um modelo de Gestor de Recursos Azure. Também podem ser criados, atualizados ou eliminados no portal Azure. Este artigo introduz os conceitos por trás dos alertas de registo de atividade. Para obter mais informações sobre a criação ou utilização de regras de alerta de registo de atividades, consulte [Criar e gerir alertas de registo de atividades](alerts-activity-log.md).
+Os alertas de registo de atividade são alertas que se ativam quando ocorre um novo [evento de registo de atividade](../essentials/activity-log-schema.md) que corresponde às condições especificadas no alerta. Com base na ordem e volume dos eventos registados no [registo de atividades do Azure,](../essentials/platform-logs-overview.md)a regra de alerta disparará. As regras de alerta de registo de atividade são recursos Azure, para que possam ser criadas usando um modelo de Gestor de Recursos Azure. Também podem ser criados, atualizados ou eliminados no portal Azure. Este artigo introduz os conceitos por trás dos alertas de registo de atividade. Para obter mais informações sobre a criação ou utilização de regras de alerta de registo de atividades, consulte [Criar e gerir alertas de registo de atividades](alerts-activity-log.md).
 
 > [!NOTE]
 > * Não **podem** ser criados alertas para eventos na categoria de alerta de registo de atividade.
@@ -54,12 +54,12 @@ Quando um alerta de registo de atividade é ativado, utiliza um grupo de ação 
 * Utilize um grupo de ação existente no seu alerta de registo de atividade.
 * Criar um novo grupo de ação.
 
-Para saber mais sobre grupos de ação, consulte [Criar e gerir grupos de ação no portal Azure.](../platform/action-groups.md)
+Para saber mais sobre grupos de ação, consulte [Criar e gerir grupos de ação no portal Azure.](./action-groups.md)
 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Obtenha uma [visão geral dos alertas.](../platform/alerts-overview.md)
+- Obtenha uma [visão geral dos alertas.](./alerts-overview.md)
 - Saiba como [criar e modificar os alertas de registo de atividades.](alerts-activity-log.md)
 - Reveja o [esquema de alerta de registo de atividade webhook](../alerts/activity-log-alerts-webhook.md).
 - Saiba mais sobre [as notificações de saúde do serviço.](../../service-health/service-notifications.md)

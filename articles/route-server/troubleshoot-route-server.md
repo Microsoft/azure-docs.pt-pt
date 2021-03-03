@@ -7,12 +7,12 @@ ms.service: route-server
 ms.topic: how-to
 ms.date: 03/02/2021
 ms.author: duau
-ms.openlocfilehash: 02dd9aa74da42f0a5d70de4513b88756a97bea1e
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 9fa0f73d06bda02d784628823ee70bc538b375e2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101680395"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101695809"
 ---
 # <a name="troubleshooting-azure-route-server-issues"></a>Problemas no servidor de rota de Azure
 
@@ -21,11 +21,15 @@ ms.locfileid: "101680395"
 > Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
 > Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="bgp-connectivity-issues"></a>Problemas de conectividade BGP
+## <a name="connectivity-issues"></a>Problemas de conectividade
 
-### <a name="why-is-the-bgp-peering-between-my-nva-and-the-azure-route-server-going-up-and-down-flapping"></a>Porque é que o BGP está a espreitar entre o meu NVA e o Azure Route Server a subir e a descer ("flapping")?
+### <a name="why-does-my-nva-lose-internet-connectivity-after-it-advertises-the-default-route-00000-to-azure-route-server"></a>Porque é que a minha NVA perde a conectividade da Internet depois de anunciar a rota padrão (0.0.0.0/0) para o Azure Route Server?
+Quando o seu NVA anuncia a rota predefinida, o Azure Route Server programa-o para todos os VMs da rede virtual, incluindo o próprio NVA. Esta rota padrão define o NVA como o próximo salto para todo o tráfego ligado à Internet. Se o seu NVA necessitar de conectividade com a Internet, é necessário configurar uma [Rota Definida](../virtual-network/virtual-networks-udr-overview.md) pelo Utilizador para anular esta rota predefinida a partir do NVA e anexar a UDR à sub-rede onde o NVA está hospedado (ver exemplo abaixo). Caso contrário, a máquina de anfitrião NVA continuará a enviar o tráfego ligado à Internet, incluindo o enviado pela NVA de volta para a própria NVA.
 
-A causa da agitação pode ser devido à regulação do temporizador BGP. Por predefinição, o temporizador Keep-alive no Azure Route Server está definido para 60 segundos e o temporizador de espera é de 180 segundos.
+| Rota | Próximo Hop |
+|-------|----------|
+| 0.0.0.0/0 | Internet |
+
 
 ### <a name="why-can-i-ping-from-my-nva-to-the-bgp-peer-ip-on-azure-route-server-but-after-i-set-up-the-bgp-peering-between-them-i-cant-ping-the-same-ip-anymore-why-does-the-bgp-peering-goes-down"></a>Por que posso fazer o ping do meu NVA para o BGP peer IP no Azure Route Server mas depois de configurar o BGP a espreitar entre eles, não posso mais ping o mesmo IP? Porque é que o olhar do BGP desce?
 
@@ -37,11 +41,18 @@ Em alguns NVA, precisa de adicionar uma rota estática para a sub-rede Azure Rou
 
 10.0.1.1 é o IP de gateway predefinido na sub-rede onde o seu NVA (ou, mais precisamente, um dos NICs) está hospedado.
 
-## <a name="bgp-route-issues"></a>Problemas de rota BGP
+### <a name="why-do-i-lose-connectivity-to-my-on-premises-network-over-expressroute-andor-azure-vpn-when-im-deploying-azure-route-server-to-a-virtual-network-that-already-has-expressroute-gateway-andor-azure-vpn-gateway"></a>Porque é que perco a conectividade com a minha rede no local sobre o ExpressRoute e/ou Azure VPN quando estou a implantar o Azure Route Server para uma rede virtual que já tem gateway ExpressRoute e/ou gateway VPN Azure?
+Quando implementa o Azure Route Server numa rede virtual, precisamos de atualizar o plano de controlo entre os gateways e a rede virtual. Durante esta atualização, há um período de tempo em que os VMs na rede virtual perderão conectividade com a rede no local. Recomendamos vivamente que agende uma manutenção para implantar o Azure Route Server no seu ambiente de produção.  
+
+## <a name="control-plane-issues"></a>Problemas de plano de controlo
+
+### <a name="why-is-the-bgp-peering-between-my-nva-and-the-azure-route-server-going-up-and-down-flapping"></a>Porque é que o BGP está a espreitar entre o meu NVA e o Azure Route Server a subir e a descer ("flapping")?
+
+A causa da agitação pode ser devido à regulação do temporizador BGP. Por predefinição, o temporizador Keep-alive no Azure Route Server está definido para 60 segundos e o temporizador de espera é de 180 segundos.
 
 ### <a name="why-does-my-nva-not-receive-routes-from-azure-route-server-even-though-the-bgp-peering-is-up"></a>Porque é que a minha NVA não recebe rotas do Azure Route Server, mesmo que o olhar do BGP esteja em cima?
 
-O ASN que o Azure Route Server utiliza é 65515. Certifique-se de que configura uma ASN diferente para o seu NVA para que possa ser estabelecida uma sessão "eBGP" entre o seu NVA e o Azure Route Server para que a propagação da rota possa acontecer automaticamente.
+O ASN que o Azure Route Server utiliza é 65515. Certifique-se de que configura uma ASN diferente para o seu NVA para que possa ser estabelecida uma sessão "eBGP" entre o seu NVA e o Azure Route Server para que a propagação da rota possa acontecer automaticamente. Certifique-se de que ativa o "multi-hop" na sua configuração BGP porque o seu NVA e O Azure Route Server estão em diferentes sub-redes na rede virtual.
 
 ### <a name="the-bgp-peering-between-my-nva-and-azure-route-server-is-up-i-can-see-routes-exchanged-correctly-between-them-why-arent-the-nva-routes-in-the-effective-routing-table-of-my-vm"></a>O BGP a espreitar entre o meu NVA e o Azure Route Server está em cima. Vejo rotas trocadas corretamente entre eles. Porque é que as rotas da NVA não estão na tabela de encaminhamento eficaz do meu VM? 
 

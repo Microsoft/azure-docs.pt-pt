@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 02/26/2021
 ms.author: jushiman
-ms.openlocfilehash: dcc599daaa8d124c7188165ff5e024767a5e3cd7
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 356afea7573b24649f682205d26823b4e24e7fbe
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101672634"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101695197"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Suporte para VMs de geração 2 no Azure
 

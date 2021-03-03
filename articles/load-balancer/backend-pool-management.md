@@ -6,14 +6,14 @@ services: load-balancer
 author: asudbring
 ms.service: load-balancer
 ms.topic: how-to
-ms.date: 07/07/2020
+ms.date: 01/28/2021
 ms.author: allensu
-ms.openlocfilehash: e5efbf695b85f474e5d7c84c86809acb2f5a1035
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 65a00cd898ef63dd3194e48ad6dd3fb73a211d6f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99429607"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101709874"
 ---
 # <a name="backend-pool-management"></a>Gestão de piscinas de backend
 A piscina de backend é um componente crítico do equilibrador de carga. O pool backend define o grupo de recursos que servirá o tráfego para uma determinada regra de equilíbrio de carga.
@@ -255,8 +255,16 @@ Em cenários com piscinas de backend pré-povoadas, utilize IP e rede virtual.
 
 Toda a gestão da piscina de backend é feita diretamente no objeto da piscina backend, como realçado nos exemplos abaixo.
 
-  >[!IMPORTANT] 
-  >Esta funcionalidade encontra-se em pré-visualização. Consulte a [secção de limitações](#limitations) para os limites atuais desta funcionalidade.
+### <a name="limitations"></a>Limitações
+Um Pool backend configurado por endereço IP tem as seguintes limitações:
+  * Só pode ser usado para equilibradores de carga standard
+  * Limite de 100 endereços IP na piscina de backend
+  * Os recursos de backend devem estar na mesma rede virtual que o equilibrador de carga
+  * Um balanceador de carga com backend pool baseado em IP não pode funcionar como um serviço de ligação privada
+  * Esta funcionalidade não é suportada atualmente no portal Azure
+  * Os contentores ACI não são suportados atualmente por esta funcionalidade
+  * Os balançadores de carga ou serviços frontados por balançadores de carga não podem ser colocados no pool de backend do equilibrador de carga
+  * As regras nat de entrada não podem ser especificadas por endereço IP
 
 ### <a name="powershell"></a>PowerShell
 Criar uma nova piscina de backend:
@@ -517,17 +525,6 @@ Corpo de Pedido JSON:
   }
 }
 ```
-
-## <a name="limitations"></a>Limitações
-Um Pool backend configurado por endereço IP tem as seguintes limitações:
-  * Balanceador de carga padrão apenas
-  * Limite de 100 endereços IP na piscina de backend
-  * Os recursos de backend devem estar na mesma rede virtual que o equilibrador de carga
-  * Um balanceador de carga com backend pool baseado em IP não pode funcionar como um serviço de ligação privada
-  * Esta funcionalidade não é suportada atualmente no portal Azure
-  * Os contentores ACI não são suportados atualmente por esta funcionalidade
-  * Os balançadores de carga ou serviços frontados por balançadores de carga não podem ser colocados no pool de backend do equilibrador de carga
-  * As regras nat de entrada não podem ser especificadas por endereço IP
   
 ## <a name="next-steps"></a>Passos seguintes
 Neste artigo, você aprendeu sobre a gestão do pool backend balancer Azure Load balancer e como configurar um pool de backend por endereço IP e rede virtual.

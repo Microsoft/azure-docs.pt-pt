@@ -4,12 +4,12 @@ description: Fornece um resumo das definições de suporte e limitações Azure 
 ms.topic: conceptual
 ms.date: 01/07/2021
 ms.custom: references_regions
-ms.openlocfilehash: 7d6de863a45bcadd73e847cbf407c13363952151
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 922bd532275cdd6b09df83b0e9d36fdec1da0b47
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99806109"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101707222"
 ---
 # <a name="azure-disk-backup-support-matrix-in-preview"></a>Matriz de suporte de backup do disco Azure (na pré-visualização)
 
@@ -58,7 +58,7 @@ Serão anunciadas mais regiões quando estiverem disponíveis.
 
 - Atualmente (durante a pré-visualização), a utilização do PowerShell e do Azure CLI para configurar a cópia de segurança e a restauração dos discos não é suportada.
 
-- Ao configurar a cópia de segurança, o disco selecionado para ser apoiado e o grupo de recursos instantâneos onde as imagens devem ser armazenadas deve fazer parte da mesma subscrição. Não é possível criar uma imagem incremental para um disco específico fora da subscrição do disco. Saiba mais sobre [instantâneos incrementais](../virtual-machines/windows/disks-incremental-snapshots-portal.md#restrictions) para o disco gerido. Para obter mais informações sobre como escolher um grupo de recursos instantâneos, consulte  [a cópia de segurança Configure](backup-managed-disks.md#configure-backup).
+- Ao configurar a cópia de segurança, o disco selecionado para ser apoiado e o grupo de recursos instantâneos onde as imagens devem ser armazenadas deve fazer parte da mesma subscrição. Não é possível criar uma imagem incremental para um disco específico fora da subscrição do disco. Saiba mais sobre [instantâneos incrementais](../virtual-machines/disks-incremental-snapshots.md#restrictions) para o disco gerido. Para obter mais informações sobre como escolher um grupo de recursos instantâneos, consulte  [a cópia de segurança Configure](backup-managed-disks.md#configure-backup).
 
 - Para operações de backup e restauro bem sucedidas, as atribuições de funções são necessárias pela identidade gerida do cofre de reserva. Utilize apenas as definições de função fornecidas na documentação. O uso de outros papéis como proprietário, colaborador, e assim por diante, não é apoiado. Pode enfrentar problemas de permissão, se começar a configurar operações de backup ou restaurar as operações logo após a atribuição de funções. Isto porque as tarefas de função demoram alguns minutos a fazer efeito.
 

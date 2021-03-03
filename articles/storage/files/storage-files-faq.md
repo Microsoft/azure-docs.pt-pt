@@ -1,5 +1,5 @@
 ---
-title: Perguntas frequentes (FAQ) para Ficheiros Azure Microsoft Docs
+title: Perguntas frequentes (FAQ) para ficheiros Azure | Microsoft Docs
 description: Obtenha respostas para ficheiros Azure frequentemente feitas perguntas. Pode montar ações de ficheiros Azure simultaneamente nas implementações de Windows, Linux ou macOS em nuvem ou no local.
 author: roygara
 ms.service: storage
@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 266862a1691387caf1b1ffa9a47b0e60e84970d8
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 739e1dea23f87403a4aded50d5c9f254a55c64cc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492136"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737618"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Perguntas mais frequentes (FAQ) sobre os Ficheiros do Azure
 [O Azure Files](storage-files-introduction.md) oferece ações de ficheiros totalmente geridas na nuvem que são acessíveis através do protocolo do Bloco de [Mensagens do Servidor (SMB)](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) padrão da indústria e do [protocolo do Sistema de Ficheiros de Rede (NFS)](https://en.wikipedia.org/wiki/Network_File_System) (pré-visualização). Pode montar ações de ficheiros Azure simultaneamente em implementações em nuvem ou no local de Windows, Linux e macOS. Também pode cache ações de ficheiros Azure em máquinas do Windows Server utilizando o Azure File Sync para um acesso rápido perto do local onde os dados são utilizados.
@@ -73,7 +73,7 @@ Este artigo responde a perguntas comuns sobre funcionalidades e funcionalidades 
 
 * <a id="tier-options"></a>
   **Que níveis de armazenamento são suportados em Ficheiros Azure?**  
-    A Azure Files suporta dois níveis de armazenamento: premium e standard. As ações de ficheiros standard são criadas em contas de armazenamento de finalidade geral (GPv1 ou GPv2) e as ações de ficheiros premium são criadas em contas de armazenamento de fileStorage. Saiba mais sobre como criar [ações de ficheiros padrão](storage-how-to-create-file-share.md) e [ações de ficheiros premium.](storage-how-to-create-premium-fileshare.md) 
+    A Azure Files suporta dois níveis de armazenamento: premium e standard. As ações de ficheiros standard são criadas em contas de armazenamento de finalidade geral (GPv1 ou GPv2) e as ações de ficheiros premium são criadas em contas de armazenamento de fileStorage. Saiba mais sobre como criar [ações de ficheiros padrão](storage-how-to-create-file-share.md) e [ações de ficheiros premium.](./storage-how-to-create-file-share.md) 
     
     > [!NOTE]
     > Não é possível criar ações de ficheiros Azure a partir de contas de armazenamento Blob ou contas de armazenamento *premium* (GPv1 ou GPv2). As ações de ficheiros Standard Azure devem ser criadas apenas em contas de finalidade geral *padrão* e as ações de ficheiros Premium Azure devem ser criadas apenas em contas de armazenamento fileStorage. *As* contas de armazenamento premium (GPv1 e GPv2) são apenas para bolhas de página premium. 
@@ -176,7 +176,7 @@ Este artigo responde a perguntas comuns sobre funcionalidades e funcionalidades 
 * <a id="ad-support"></a>
 **A autenticação e o controlo de acesso baseados na identidade são suportados por Ficheiros Azure?**  
     
-    Sim, o Azure Files suporta a autenticação baseada na identidade e o controlo de acesso. Pode escolher uma de duas formas de utilizar o controlo de acesso baseado na identidade: no local Serviços de Domínio de Diretório Ativo ou Serviços de Domínio do Diretório Ativo Azure (Azure AD DS). No local, os Serviços de Domínio do Diretório Ativo (AD DS) suportam a autenticação utilizando máquinas aderidas ao domínio AD DS, no local ou no Azure, para aceder a ações de ficheiros Azure através de SMB. A autenticação Azure AD DS sobre SMB para Ficheiros Azure permite que os VMS do Windows AD AD AD aderidos ao domínio Azure DS acedam a partilhas, diretórios e ficheiros utilizando credenciais Azure AD. Para mais detalhes, consulte [o suporte de autenticação baseado em identidade do Azure Files para acesso ao SMB.](storage-files-active-directory-overview.md) 
+    Sim, o Azure Files suporta a autenticação baseada na identidade e o controlo de acesso. Pode escolher uma de duas formas de utilizar o controlo de acesso baseado na identidade: no local Serviços de Domínio de Diretório Ativo ou Serviços de Domínio do Diretório Ativo Azure (Azure AD DS). No local, os Serviços de Domínio do Diretório Ativo (AD DS) suportam a autenticação utilizando máquinas aderidas ao domínio AD DS, no local ou no Azure, para aceder a ações de ficheiros Azure através de SMB. A autenticação Azure AD DS sobre SMB para Ficheiros Azure permite que os VMS do Windows AD aderidos ao domínio Azure DS acedam a partilhas, diretórios e ficheiros utilizando credenciais Azure AD. Para mais detalhes, consulte [o suporte de autenticação baseado em identidade do Azure Files para acesso ao SMB.](storage-files-active-directory-overview.md) 
 
     A Azure Files oferece duas formas adicionais de gerir o controlo de acessos:
 
@@ -324,7 +324,7 @@ Este artigo responde a perguntas comuns sobre funcionalidades e funcionalidades 
 * <a id="expressroute-not-required"></a>
 **Tenho de usar o Azure ExpressRoute para ligar aos Ficheiros Azure ou para utilizar o Azure File Sync no local?**  
 
-    Não. O ExpressRoute não é obrigado a aceder a uma partilha de ficheiros Azure. Se estiver a montar uma partilha de ficheiros Azure diretamente no local, tudo o que é necessário é ter a porta 445 (saída TCP) aberta para acesso à Internet (esta é a porta que o SMB utiliza para comunicar). Se estiver a utilizar o Azure File Sync, tudo o que é necessário é a porta 443 (saída TCP) para acesso HTTPS (sem necessidade de SMB). No entanto, *pode* utilizar o ExpressRoute com qualquer uma destas opções de acesso.
+    N.º O ExpressRoute não é obrigado a aceder a uma partilha de ficheiros Azure. Se estiver a montar uma partilha de ficheiros Azure diretamente no local, tudo o que é necessário é ter a porta 445 (saída TCP) aberta para acesso à Internet (esta é a porta que o SMB utiliza para comunicar). Se estiver a utilizar o Azure File Sync, tudo o que é necessário é a porta 443 (saída TCP) para acesso HTTPS (sem necessidade de SMB). No entanto, *pode* utilizar o ExpressRoute com qualquer uma destas opções de acesso.
 
 * <a id="mount-locally"></a>
 **Como posso montar uma parte do ficheiro Azure na minha máquina local?**  
@@ -428,7 +428,7 @@ Este artigo responde a perguntas comuns sobre funcionalidades e funcionalidades 
 * <a id="lfs-performance-impact"></a>
 **A expansão da minha quota de ações de ficheiros afeta as minhas cargas de trabalho ou o Azure File Sync?**
     
-    Não. A expansão da quota não afetará as suas cargas de trabalho ou o Azure File Sync.
+    N.º A expansão da quota não afetará as suas cargas de trabalho ou o Azure File Sync.
 
 * <a id="open-handles-quota"></a>
 **Quantos clientes podem aceder ao mesmo ficheiro simultaneamente?**   
@@ -457,7 +457,7 @@ Este artigo responde a perguntas comuns sobre funcionalidades e funcionalidades 
 
 * <a id="nested-shares"></a>
 **Posso criar ações aninhadas? Por outras palavras, uma parte sob uma ação?**  
-    Não. A partilha de ficheiros *é* o controlador virtual que pode montar, por isso as ações aninhadas não são suportadas.
+    N.º A partilha de ficheiros *é* o controlador virtual que pode montar, por isso as ações aninhadas não são suportadas.
 
 * <a id="ibm-mq"></a>
 **Como uso ficheiros Azure com MQ IBM?**  

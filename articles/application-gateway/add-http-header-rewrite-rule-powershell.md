@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 04/12/2019
 ms.author: absha
-ms.openlocfilehash: 6938ad55915286af397fee6d72a333e3bb39a1e6
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 29ca3aff7d75c7a14bf7b325719924936762d191
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397921"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711693"
 ---
 # <a name="rewrite-http-request-and-response-headers-with-azure-application-gateway---azure-powershell"></a>Reescrever os cabeçalhos de pedido e resposta HTTP com Gateway de Aplicação Azure - Azure PowerShell
 
@@ -31,23 +31,23 @@ Para configurar a reescrita do cabeçalho HTTP, é necessário completar estes p
 
 1. Crie os objetos necessários para reescrever o cabeçalho HTTP:
 
-   - **RequerimentoConfiguration** : Usado para especificar os campos de cabeçalho de pedido que pretende reescrever e o novo valor para os cabeçalhos.
+   - **RequerimentoConfiguration**: Usado para especificar os campos de cabeçalho de pedido que pretende reescrever e o novo valor para os cabeçalhos.
 
-   - **RespostaConfiguration** : Usado para especificar os campos de cabeçalho de resposta que pretende reescrever e o novo valor para os cabeçalhos.
+   - **RespostaConfiguration**: Usado para especificar os campos de cabeçalho de resposta que pretende reescrever e o novo valor para os cabeçalhos.
 
-   - **ActionSet** : Contém as configurações dos cabeçalhos de pedido e resposta especificados anteriormente.
+   - **ActionSet**: Contém as configurações dos cabeçalhos de pedido e resposta especificados anteriormente.
 
-   - **Condição** : Uma configuração opcional. As condições de reescrita avaliam o conteúdo dos pedidos e respostas HTTP(S). A ação de reescrita ocorrerá se o pedido http(S) ou a resposta corresponder à condição de reescrita.
+   - **Condição**: Uma configuração opcional. As condições de reescrita avaliam o conteúdo dos pedidos e respostas HTTP(S). A ação de reescrita ocorrerá se o pedido http(S) ou a resposta corresponder à condição de reescrita.
 
      Se associar mais do que uma condição a uma ação, a ação ocorre apenas quando todas as condições estão reunidas. Por outras palavras, a operação é uma operação lógica.
 
-   - **ReescritaRule** : Contém combinações de condições de reescrita múltiplas/ reescrita.
+   - **ReescritaRule**: Contém combinações de condições de reescrita múltiplas/ reescrita.
 
-   - **RegraSSequence** : Uma configuração opcional que ajuda a determinar a ordem em que as regras de reescrita executam. Esta configuração é útil quando tem várias regras de reescrita num conjunto de reescrita. Uma regra de reescrita que tem um valor de sequência de regras mais baixo corre primeiro. Se atribuir o mesmo valor de sequência de regras a duas regras de reescrita, a ordem de execução não é determinística.
+   - **RegraSSequence**: Uma configuração opcional que ajuda a determinar a ordem em que as regras de reescrita executam. Esta configuração é útil quando tem várias regras de reescrita num conjunto de reescrita. Uma regra de reescrita que tem um valor de sequência de regras mais baixo corre primeiro. Se atribuir o mesmo valor de sequência de regras a duas regras de reescrita, a ordem de execução não é determinística.
 
      Se não especificar explicitamente a regra, é definido um valor padrão de 100.
 
-   - **ReescreveruleSet** : Contém várias regras de reescrita que serão associadas a uma regra de encaminhamento de pedidos.
+   - **ReescreveruleSet**: Contém várias regras de reescrita que serão associadas a uma regra de encaminhamento de pedidos.
 
 2. Fixe o RewriteRuleSet a uma regra de encaminhamento. A configuração de reescrita é anexada ao ouvinte de origem através da regra de encaminhamento. Quando utiliza uma regra de encaminhamento básico, a configuração de reescrita do cabeçalho está associada a um ouvinte de origem e é uma reescrita global do cabeçalho. Quando utiliza uma regra de encaminhamento baseada no caminho, a configuração de reescrita do cabeçalho é definida no mapa do caminho URL. Nesse caso, aplica-se apenas à área específica do percurso de um sítio.
 
@@ -62,7 +62,7 @@ Select-AzSubscription -Subscription "<sub name>"
 
 ## <a name="specify-the-http-header-rewrite-rule-configuration"></a>Especificar a configuração da regra de reescrita do cabeçalho HTTP
 
-Neste exemplo, modificaremos um URL de reorientação reescrevendo o cabeçalho de localização na resposta HTTP sempre que o cabeçalho de localização contiver uma referência a azurewebsites.net. Para isso, adicionaremos uma condição para avaliar se o cabeçalho de localização na resposta contém azurewebsites.net. Usaremos o `(https?):\/\/.*azurewebsites\.net(.*)$` padrão. E usaremos `{http_resp_Location_1}://contoso.com{http_resp_Location_2}` como valor de cabeçalho. Este valor substituirá *azurewebsites.net* por *contoso.com* no cabeçalho de localização.
+Neste exemplo, modificaremos um URL de reorientação reescrevendo o cabeçalho de localização na resposta HTTP sempre que o cabeçalho de localização contiver uma referência a azurewebsites.net. Para isso, adicionaremos uma condição para avaliar se o cabeçalho de localização na resposta contém azurewebsites.net. Usaremos o `(https?)://.*azurewebsites.net(.*)$` padrão. E usaremos `{http_resp_Location_1}://contoso.com{http_resp_Location_2}` como valor de cabeçalho. Este valor substituirá *azurewebsites.net* por *contoso.com* no cabeçalho de localização.
 
 ```azurepowershell
 $responseHeaderConfiguration = New-AzApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "Location" -HeaderValue "{http_resp_Location_1}://contoso.com{http_resp_Location_2}"

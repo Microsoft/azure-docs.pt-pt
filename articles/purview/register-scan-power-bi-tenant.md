@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/19/2020
-ms.openlocfilehash: a4883bfce2469af0ee8bcc34933f94b0b5329959
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 2ecc5df9db51bb6c923b9e0f47163e492bd76cfa
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100518084"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101695754"
 ---
 # <a name="register-and-scan-a-power-bi-tenant-preview"></a>Registar e digitalizar um inquilino power BI (pré-visualização)
 
@@ -98,11 +98,13 @@ Primeiro, adicione uma bandeira de recurso especial ao seu URL de Purview
     > Para o Power BI, o registo de fontes de dados e a varredura são permitidos apenas por um caso.
 
 
-4. Dê um nome à sua tomografia. Note que o único método de autenticação suportado é **identidade gerida.**
+4. Dê um nome à sua tomografia. Em seguida, selecione a opção de incluir ou excluir os espaços de trabalho pessoais. Note que o único método de autenticação suportado é **identidade gerida.**
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-scan-setup.png" alt-text="Imagem mostrando configuração de digitalização de BI de energia":::
 
-    O nome da varredura deve ter entre 3-63 caracteres e deve conter apenas letras, números, sublinhados e hífenes.  Espaços não são permitidos.
+    > [!Note]
+    > * Mudar a configuração de uma varredura para incluir ou excluir um espaço de trabalho pessoal irá desencadear uma verificação completa da fonte powerbi
+    > * O nome da varredura deve ter entre 3-63 caracteres e deve conter apenas letras, números, sublinhados e hífenes. Espaços não são permitidos.
 
 5. Instale um gatilho de digitalização. As suas opções são **Uma Vez,** **A cada 7 dias,** e **a cada 30 dias.**
 

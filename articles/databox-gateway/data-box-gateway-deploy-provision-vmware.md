@@ -6,18 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 10/16/2020
+ms.date: 03/01/2021
 ms.author: alkohli
-ms.openlocfilehash: dfbc63ccbdf6f0a8abe1e955b43240d799d6783d
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.openlocfilehash: 948005942be193c8b15c363282aa06c006eb244e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96583669"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101727622"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-vmware"></a>Tutorial: Aprovisionar o Azure Data Box Gateway na VMware
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Este tutorial descreve como providenciar um Gateway de Caixa de Dados num sistema de anfitriões que executa VMware ESXi 6.0, 6.5 ou 6.7. 
 
@@ -55,7 +55,7 @@ Antes de implementar um dispositivo virtual, certifique-se de que:
 * O sistema anfitrião tem capacidade para dedicar os seguintes recursos para aprovisionar o seu dispositivo virtual:
 
   * Um mínimo de 4 núcleos.
-  * Pelos menos 8 GB de RAM.
+  * Pelos menos 8 GB de RAM. Recomendamos vivamente pelo menos 16 GB de RAM.
   * Uma interface de rede.
   * Um disco de SO de 250 GB.
   * Um disco virtual de 2 TB para dados do sistema.

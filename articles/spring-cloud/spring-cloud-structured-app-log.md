@@ -4,15 +4,15 @@ description: Este artigo explica como gerar e recolher dados estruturados de reg
 author: MikeDodaro
 ms.service: spring-cloud
 ms.topic: conceptual
-ms.date: 01/13/2021
+ms.date: 02/05/2021
 ms.author: brendanm
 ms.custom: devx-track-java
-ms.openlocfilehash: c5c35fe8a352a1bc3467e9512a7fcbc068375bfb
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: e846da81444ae1632cb7f9a4cd413bc3f9b7b232
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99056181"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101701948"
 ---
 # <a name="structured-application-log-for-azure-spring-cloud"></a>Registo de aplicações estruturado para Azure Spring Cloud
 
@@ -23,16 +23,16 @@ Para melhorar a experiência de consulta de registo, é necessário um registo d
 
 **Requisitos de esquema JSON:**
 
-| Chave Json      | Tipo de valor Json|  Necessário | Coluna em Log Analytics| Description |
+| Chave Json      | Tipo de valor Json|  Necessário | Coluna em Log Analytics| Descrição |
 | --------------| ------------|-----------|-----------------|--------------------------|
-| carimbo de data/hora     | string      |     Yes   | AppTimestamp    | timetamp em formato UTC  |
+| carimbo de data/hora     | string      |     Sim   | AppTimestamp    | timetamp em formato UTC  |
 | madeireiro        | cadeia (de carateres)      |     No    | Madeir          | madeireiro                   |
 | nível         | cadeia (de carateres)      |     No    | PersonalizadoSLevel     | nível de log                |
 | fio        | cadeia (de carateres)      |     No    | Fio          | fio                   |
 | message       | cadeia (de carateres)      |     No    | Mensagem         | mensagem de log              |
 | stackTrace    | cadeia (de carateres)      |     No    | StackTrace      | traço de pilha de exceção    |
 | exceçãoClass| cadeia (de carateres)      |     No    | Classe de Exceções  | nome de classe exceção     |
-| mdc           | JSON aninhado |     No    |                 | contexto de diagnóstico mapeado|
+| mdc           | JSON aninhado |     Não    |                 | contexto de diagnóstico mapeado|
 | mdc.traceId   | cadeia (de carateres)      |     No    | TraceId         |trace Id para rastreador distribuído|
 | mdc.spanId    | cadeia (de carateres)      |     No    | SpanId          |id de extensão para rastreador distribuído |
 |               |             |           |                 |                          |
@@ -238,4 +238,4 @@ AppPlatformLogsforSpring
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
-* Para saber mais sobre a Consulta de Log, consulte [Começar com consultas de log no Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries)
+* Para saber mais sobre a Consulta de Log, consulte [Começar com consultas de log no Azure Monitor](../azure-monitor/logs/get-started-queries.md)

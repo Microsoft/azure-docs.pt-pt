@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 09/22/2020
-ms.openlocfilehash: 46d8fe6427b2a3e7811719792ac4bf67ddbcc3c5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 746f15d2d712f4b571d3f27e3535c69f5f4f9732
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90940381"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101732773"
 ---
 # <a name="create-and-manage-virtual-networks-for-azure-database-for-postgresql---flexible-server-using-the-azure-portal"></a>Criar e gerir redes virtuais para Azure Database for PostgreSQL - Servidor Flexível utilizando o portal Azure
 
@@ -34,6 +34,13 @@ Para criar um servidor flexível numa rede virtual, é necessário:
     > A rede virtual e a sub-rede devem estar na mesma região e subscrição que o seu servidor flexível.
 
 -  Para [delegar uma sub-rede](../../virtual-network/manage-subnet-delegation.md#delegate-a-subnet-to-an-azure-service) para **Microsoft.DBforPostgreSQL/flexibleServers**. Esta delegação significa que apenas a Base de Dados Azure para servidores flexíveis postgresQL pode utilizar essa sub-rede. Nenhum outro tipo de recurso do Azure pode estar na sub-rede delegada.
+-  Adicione `Microsoft.Storage` ao ponto final de serviço para a sub-rede delegada em servidores flexíveis. Isto é feito executando os seguintes passos:
+     1. Vá à sua página de rede virtual.
+     2. Selecione o VNET no qual está a planear implantar o seu servidor flexível.
+     3. Escolha a sub-rede que está delegada para servidor flexível.
+     4. No ecrã pull-out, no **ponto final de Serviço,** escolha `Microsoft.storage` a partir do drop-down.
+     5. Guarde as alterações.
+
 
 ## <a name="create-azure-database-for-postgresql---flexible-server-in-an-already-existing-virtual-network"></a>Criar base de dados Azure para PostgreSQL - Servidor Flexível numa rede virtual já existente
 

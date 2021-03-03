@@ -3,12 +3,12 @@ title: Criar uma piscina em todas as zonas de disponibilidade
 description: Aprenda a criar um pool de Lote com política zonal para ajudar a proteger contra falhas.
 ms.topic: how-to
 ms.date: 01/28/2021
-ms.openlocfilehash: 98109e1b74106bc636eaa715575e4b30ab29f9e2
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 56e718bedf504b8e69598c2d99ab8b889a470b89
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99056351"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101725293"
 ---
 # <a name="create-an-azure-batch-pool-across-availability-zones"></a>Criar uma piscina de lote Azure em zonas de disponibilidade
 
@@ -22,7 +22,7 @@ O lote mantém a paridade com o Azure no suporte de Zonas de Disponibilidade. Pa
 
 Para que o seu pool Batch seja alocado através de zonas de disponibilidade, a região de Azure em que a piscina é criada deve apoiar o VM SKU solicitado em mais de uma zona. Pode validá-lo ligando para a [API da Lista de Recursos Skus](/rest/api/compute/resourceskus/list) e verifique a **localizaçãoInfo** field of [resourceSku](/rest/api/compute/resourceskus/list#resourcesku). Certifique-se de que mais de uma zona é suportada para o VM SKU solicitado.
 
-Para [o modo de subscrição do utilizador,](accounts.md#batch-accounts)certifique-se de que a subscrição na qual está a criar o seu pool não tem uma restrição de oferta de zona no VM SKU solicitado. Para confirmar isto, ligue para a [API da Lista de Recursos Skus](/rest/api/compute/resourceskus/list) e verifique as [RecursosSkuRestritions](/rest/api/compute/resourceskus/list#resourceskurestrictions). Se existir uma restrição de zona, pode submeter um [bilhete de apoio](../azure-portal/supportability/sku-series-unavailable.md) para remover a restrição de zona.
+Para [o modo de subscrição do utilizador,](accounts.md#batch-accounts)certifique-se de que a subscrição na qual está a criar o seu pool não tem uma restrição de oferta de zona no VM SKU solicitado. Para confirmar isto, ligue para a [API da Lista de Recursos Skus](/rest/api/compute/resourceskus/list) e verifique as [RecursosSkuRestritions](/rest/api/compute/resourceskus/list#resourceskurestrictions). Se existir uma restrição de zona, pode submeter um [bilhete de apoio](/troubleshoot/azure/general/region-access-request-process) para remover a restrição de zona.
 
 Note também que não é possível criar uma piscina com uma política zonal se tiver comunicação inter-node ativada e utilizar um [VM SKU que suporta a InfiniBand.](../virtual-machines/workloads/hpc/enable-infiniband.md)
 
@@ -83,4 +83,3 @@ Corpo do pedido
 - Conheça o fluxo de trabalho do [serviço Batch e os recursos primários,](batch-service-workflow-features.md) tais como piscinas, nós, empregos e tarefas.
 - Saiba como [criar uma piscina numa sub-rede de uma rede virtual Azure.](batch-virtual-network.md)
 - Saiba como [criar uma piscina Azure Batch sem endereços IP públicos.](./batch-pool-no-public-ip-address.md)
-

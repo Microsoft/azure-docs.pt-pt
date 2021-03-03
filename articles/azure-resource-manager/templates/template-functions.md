@@ -3,12 +3,12 @@ title: Funções de modelos
 description: Descreve as funções a utilizar num modelo de Gestor de Recursos Azure (modelo ARM) para recuperar valores, trabalhar com cordas e numéricos e recuperar informações de implantação.
 ms.topic: conceptual
 ms.date: 10/12/2020
-ms.openlocfilehash: 2d124893cbe1694671231fd206f8e44cc20f6204
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: dbda5c635a5189158424363c341b269d331a5fdc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96931712"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101707324"
 ---
 # <a name="arm-template-functions"></a>Funções do modelo ARM
 
@@ -34,6 +34,10 @@ A maioria das funções funciona da mesma forma quando implantada num grupo de r
 <a id="take" aria-hidden="true"></a>
 <a id="union" aria-hidden="true"></a>
 
+## <a name="any-function"></a>Qualquer função
+
+Qualquer [função](template-functions-any.md) está disponível no Bicep para ajudar a resolver problemas em torno de avisos de tipo de dados.
+
 ## <a name="array-functions"></a>Funções de matriz
 
 O Gestor de Recursos fornece várias funções para trabalhar com matrizes.
@@ -51,7 +55,7 @@ O Gestor de Recursos fornece várias funções para trabalhar com matrizes.
 * [máx](template-functions-array.md#max)
 * [gama](template-functions-array.md#range)
 * [saltar](template-functions-array.md#skip)
-* [take](template-functions-array.md#take)
+* [tomar](template-functions-array.md#take)
 * [união](template-functions-array.md#union)
 
 <a id="coalesce" aria-hidden="true"></a>
@@ -237,9 +241,9 @@ O Gestor de Recursos fornece as seguintes funções para trabalhar com cordas:
 * [saltar](template-functions-string.md#skip)
 * [divisão](template-functions-string.md#split)
 * [começacom](template-functions-string.md#startswith)
-* [cadeia](template-functions-string.md#string)
+* [string](template-functions-string.md#string)
 * [substring](template-functions-string.md#substring)
-* [take](template-functions-string.md#take)
+* [tomar](template-functions-string.md#take)
 * [toLower](template-functions-string.md#tolower)
 * [toupper](template-functions-string.md#toupper)
 * [guarnição](template-functions-string.md#trim)

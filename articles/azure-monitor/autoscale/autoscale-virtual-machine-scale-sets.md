@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 06/25/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 96d8c32791bd968dd8740a2d4633496b42e9f3f4
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 26cfdf05847b01d28a8574483acc89cfeced0ffa
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100617571"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717745"
 ---
 # <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>Configuração avançada de autoescalação utilizando modelos de gestor de recursos para conjuntos de escala VM
 Pode escalar e escalar em conjuntos de escala de máquina virtual com base em limiares de métrica de desempenho, por um horário recorrente ou por uma data específica. Também pode configurar notificações de email e webhook para ações de escala. Este walkthrough mostra um exemplo de configuração de todos estes objetos usando um modelo de Gestor de Recursos num Conjunto de Escala VM.
@@ -36,7 +36,7 @@ Nesta passagem de walkthrough, utilizamos [o Azure Resource Explorer](https://re
 
 3. Pode agora adicionar mais perfis e regras com base no horário ou requisitos específicos. Criamos uma definição de autoescala com três perfis. Para compreender perfis e regras em autoescala, reveja [as Melhores Práticas de Autoscale.](autoscale-best-practices.md)  
 
-    | Regras & perfis | Description |
+    | Regras & perfis | Descrição |
     |--- | --- |
     | **Perfil** |**Baseado em desempenho/métrica** |
     | Regra |Contagem de mensagens de ônibus de serviço > x |
@@ -243,9 +243,9 @@ Use estes links para saber mais sobre autoscaling.
 
 [Boas Práticas para Azure Autoscale](autoscale-best-practices.md)
 
-[Gerir autoescala usando PowerShell](../samples/powershell-samples.md#create-and-manage-autoscale-settings)
+[Gerir autoescala usando PowerShell](../powershell-samples.md#create-and-manage-autoscale-settings)
 
-[Gerir autoescala usando CLI](../samples/cli-samples.md#autoscale)
+[Gerir autoescala usando CLI](../cli-samples.md#autoscale)
 
 [Configurar Webhook & notificações de e-mail para autoescala](autoscale-webhook-email.md)
 

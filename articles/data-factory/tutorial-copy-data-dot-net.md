@@ -4,18 +4,18 @@ description: Este tutorial fornece instruções passo a passo para copiar dados 
 author: linda33wj
 ms.service: data-factory
 ms.topic: tutorial
-ms.date: 11/08/2019
+ms.date: 02/18/2021
 ms.author: jingwang
-ms.openlocfilehash: b2ec4a65f1001d6d1c93a23964d59972419f651e
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 2a9e19f24c4889a194c85e33317860db1d3a68d2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100380887"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101736564"
 ---
 # <a name="copy-data-from-azure-blob-to-azure-sql-database-using-azure-data-factory"></a>Copiar dados do Blob do Azure para a Base de Dados SQL do Azure utilizando o Azure Data Factory
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Neste tutorial, vai criar um pipeline do Data Factory que copia dados do Armazenamento de Blobs do Azure para a Base de Dados SQL do Azure. O padrão de configuração neste tutorial aplica-se à cópia a partir de um arquivo de dados baseado em ficheiros para um arquivo de dados relacional. Para obter uma lista de lojas de dados suportadas como fontes e sumidouros, consulte [lojas e formatos de dados suportados.](copy-activity-overview.md#supported-data-stores-and-formats)
 

@@ -7,12 +7,12 @@ ms.date: 01/18/2021
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 3f81ae72af48ec934d1c2c2567ebdd212d8e0499
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 735ad7ad9ded6baded59ab3f08e239d1c8376b74
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98763465"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702730"
 ---
 # <a name="migrate-your-v2-iot-central-application-to-v3"></a>Migrar a sua aplicação V2 IoT Central para V3
 
@@ -59,7 +59,7 @@ Deve ser um administrador para migrar uma aplicação para v3.
     Dependendo do número e complexidade dos modelos do seu dispositivo, este processo pode demorar vários minutos a ser concluído.
 
     > [!Warning]
-    > A criação da sua aplicação V3 falhará se algum modelo de dispositivo tiver campos que comecem com um número ou contenham qualquer um dos seguintes caracteres ( `+` , `*` `?` `^` `$` `(` `)` `[` `]` `{` `}` `|` `\` O esquema do modelo do dispositivo DTDL que as aplicações V3 utilizam não permite estes caracteres. Atualize o modelo do seu dispositivo para resolver este problema antes de migrar para V3.
+    > A criação da sua aplicação V3 falhará se algum modelo de dispositivo tiver campos que comecem com um número ou contenham qualquer um dos seguintes caracteres ( `+` , `*` , , `?` `^` `$` `(` `)` `[` `]` `{` `}` `|` , `\` O esquema do modelo do dispositivo DTDL que as aplicações V3 utilizam não permite estes caracteres. Atualize o modelo do seu dispositivo para resolver este problema antes de migrar para V3.
 
 1. Quando a sua nova aplicação V3 estiver pronta, selecione **Abra a sua nova aplicação** para abri-la.
 
@@ -104,11 +104,11 @@ Depois de concluído o movimento, reinicie todos os seus dispositivos para garan
 Depois de validar que tudo funciona como esperado na sua nova aplicação V3, apague a sua antiga aplicação V2. Este passo garante que não é cobrado por uma aplicação que já não utiliza.
 
 > [!Note]
-> Para eliminar uma aplicação, tem de ter permissões para eliminar recursos na subscrição Azure que escolheu quando criou a aplicação. Para saber mais, consulte [o controlo de acesso baseado em funções para gerir o acesso aos seus recursos de subscrição Azure.](../../active-directory/role-based-access-control-configure.md)
+> Para eliminar uma aplicação, tem de ter permissões para eliminar recursos na subscrição Azure que escolheu quando criou a aplicação. Para saber mais, consulte [o controlo de acesso baseado em funções para gerir o acesso aos seus recursos de subscrição Azure.](../../role-based-access-control/role-assignments-portal.md)
 
 1. Na sua aplicação V2, selecione o separador **Administração** no menu
 2. **Selecione Eliminar** para eliminar permanentemente a sua aplicação IoT Central. Esta opção elimina permanentemente todos os dados associados a esta aplicação.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que aprendeu a migrar a sua aplicação, o próximo passo sugerido é rever a [UI Central Azure IoT](overview-iot-central-tour.md) para ver o que mudou na V3.

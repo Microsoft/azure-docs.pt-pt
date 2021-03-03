@@ -4,12 +4,12 @@ description: A API de Alerta de Log Analytics permite-lhe criar e gerir alertas 
 ms.subservice: logs
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 6c347b7b8ddaac103019e15e32fb5c06219e0064
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 4acb6cdcb544e8774fb60bf1ead1a4a13140024a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100620912"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717813"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Criar e gerir regras de alerta em Log Analytics com REST API 
 
@@ -21,7 +21,7 @@ A API de Alerta de Log Analytics permite-lhe criar e gerir alertas em Log Analyt
 O Log Analytics Search REST API é RESTful e pode ser acedido através da API do Gestor de Recursos Azure. Neste documento, encontrará exemplos onde a API é acedida a partir de uma linha de comando PowerShell utilizando  [o ARMClient](https://github.com/projectkudu/ARMClient), uma ferramenta de linha de comando de código aberto que simplifica a invocação da API do Gestor de Recursos Azure. A utilização de ARMClient e PowerShell é uma das muitas opções para aceder à API de Pesquisa de Ambulasção de Log Analytics. Com estas ferramentas, pode utilizar a API restful Azure Resource Manager para fazer chamadas para log analytics e executar comandos de pesquisa dentro deles. A API irá obter resultados de pesquisa para si no formato JSON, permitindo-lhe utilizar os resultados da pesquisa de várias maneiras programáticamente.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Atualmente, os alertas só podem ser criados com uma pesquisa guardada no Log Analytics.  Pode consultar a [API do Log Search REST](../log-query/log-query-overview.md) para obter mais informações.
+Atualmente, os alertas só podem ser criados com uma pesquisa guardada no Log Analytics.  Pode consultar a [API do Log Search REST](../logs/log-query-overview.md) para obter mais informações.
 
 ## <a name="schedules"></a>Agendas
 Uma pesquisa guardada pode ter um ou mais horários. O calendário define a frequência com que a pesquisa é executada e o intervalo de tempo sobre o qual os critérios são identificados.
@@ -136,7 +136,7 @@ armclient delete /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupN
 ### <a name="alert-actions"></a>Ações de Alerta
 A Agenda deve ter uma e única ação de alerta.  As ações de alerta têm uma ou mais secções na tabela seguinte.  Cada um é descrito em mais detalhes abaixo.
 
-| Section | Description | Utilização |
+| Section | Descrição | Utilização |
 |:--- |:--- |:--- |
 | Limite |Critérios para quando a ação é executada.| Necessário para cada alerta, antes ou depois de estendidos ao Azure. |
 | Gravidade |Etiqueta usada para classificar o alerta quando acionado.| Necessário para cada alerta, antes ou depois de estendidos ao Azure. |
@@ -387,7 +387,6 @@ armclient put /subscriptions/{Subscription ID}/resourceGroups/{Resource Group Na
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Utilize a [API REST para realizar pesquisas de registo](../log-query/log-query-overview.md) no Log Analytics.
+* Utilize a [API REST para realizar pesquisas de registo](../logs/log-query-overview.md) no Log Analytics.
 * Saiba mais sobre [alertas de registo no monitor Azure](./alerts-unified-log.md)
 * Como [criar, editar ou gerir regras de alerta de registo no monitor Azure](./alerts-log.md)
-

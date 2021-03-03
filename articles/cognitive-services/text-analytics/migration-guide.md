@@ -10,18 +10,18 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 01/22/2021
 ms.author: aahi
-ms.openlocfilehash: 0faa7a6f5a3d2efc8bbef11308b308e3305a00d5
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 416ef4ceddbb43e9f1606d44a66ffd5295cee4e6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99096326"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101699900"
 ---
 # <a name="migrate-to-version-3x-of-the-text-analytics-api"></a>Migrar para a versão 3.x da API text Analytics
 
 Se estiver a utilizar a versão 2.1 da API text Analytics, este artigo irá ajudá-lo a atualizar a sua aplicação para utilizar a versão 3.x. A versão 3.0 está geralmente disponível e introduz novas funcionalidades, como o reconhecimento de entidades nomeadas expandidas [(NER)](how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-features-and-versions) e [a versão de modelo.](concepts/model-versioning.md) Está também disponível uma versão de pré-visualização do v3.1 (v3.1-preview.x), que adiciona funcionalidades como [a mineração de opinião.](how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) Os modelos utilizados na V2 não receberão futuras atualizações. 
 
-## <a name="sentiment-analysis"></a>[Análise de sentimento](#tab/sentiment-analysis)
+## <a name="sentiment-analysis"></a>[Análise de sentimentos](#tab/sentiment-analysis)
 
 ### <a name="feature-changes"></a>Alterações de recursos 
 
@@ -104,7 +104,7 @@ A tabela que se segue lista as categorias de entidades devolvidas para NER v2.1.
 
 ### <a name="feature-changes"></a>Alterações de recursos 
 
-A função de deteção de idiomas não mudou em V3 fora da versão endpoint, mas a resposta JSON irá conter `ConfidenceScore` em vez de `score` . V3 também devolve apenas uma única língua na saída. 
+A produção da funcionalidade de deteção de idiomas mudou em v3. A resposta JSON conterá `ConfidenceScore` em vez de `score` . V3 também devolve apenas um idioma num  `detectedLanguage` atributo para cada documento.
 
 ### <a name="steps-to-migrate"></a>Passos para migrar
 

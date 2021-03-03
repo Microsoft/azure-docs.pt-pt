@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 12/17/2020
+ms.date: 02/17/2021
 ms.author: aahi
-ms.openlocfilehash: 0b57629f5c21d933fc898258263199b5fc713fdb
-ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
+ms.openlocfilehash: 3fd3695490331a1f599db71bf5cafb25e957bf08
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97683361"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101710350"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Como utilizar o reconhecimento de entidade nomeada em análise de texto
 
@@ -481,7 +481,7 @@ Neste artigo, aprendeu conceitos e fluxo de trabalho para entidade que liga usan
 * Os pedidos de CORREIO são enviados para um ou mais pontos finais, utilizando uma chave de acesso personalizada [e um ponto final](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) válido para a sua subscrição.
 * A saída de resposta, que consiste em entidades ligadas (incluindo pontuações de confiança, compensações e links web, para cada ID do documento) pode ser utilizada em qualquer aplicação
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Descrição geral da Análise de Texto](../overview.md)
 * [Utilização da biblioteca de clientes Text Analytics](../quickstarts/client-libraries-rest-api.md)

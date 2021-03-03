@@ -6,12 +6,12 @@ ms.author: bahusse
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 1/28/2021
-ms.openlocfilehash: 46c7952247babd528b230dfa0e70b0eb47878912
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 7b5223bc08c470a0e8722b76b80473aaa235b51a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99217759"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101727163"
 ---
 # <a name="best-practices-for-optimal-performance-of-your-azure-database-for-mysql---single-server"></a>Melhores práticas para um melhor desempenho da sua Base de Dados Azure para MySQL - Servidor único
 
@@ -65,7 +65,7 @@ Recomendamos testar e monitorizar o tempo de reinicio para garantir que o desemp
 Para salvar o estado da piscina tampão no fecho do servidor, desace o parâmetro do servidor `innodb_buffer_pool_dump_at_shutdown` para `ON` . Da mesma forma, desace o parâmetro do servidor `innodb_buffer_pool_load_at_startup` para restaurar o estado do pool de `ON` tampão no arranque do servidor. Pode controlar o impacto no tempo de arranque/reinicio, reduzindo e afinando o valor do parâmetro do servidor `innodb_buffer_pool_dump_pct` . Por predefinição, este parâmetro é definido para `25` .
 
 > [!Note]
-> Os parâmetros de aquecimento do pool de tampão InnoDB só são suportados em servidores de armazenamento de finalidade geral com armazenamento até 16-TB. Saiba mais sobre [a Base de Dados Azure para as opções de armazenamento MySQL aqui.](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage)
+> Os parâmetros de aquecimento do pool de tampão InnoDB só são suportados em servidores de armazenamento de finalidade geral com armazenamento até 16-TB. Saiba mais sobre [a Base de Dados Azure para as opções de armazenamento MySQL aqui.](./concepts-pricing-tiers.md#storage)
 
 ## <a name="next-steps"></a>Passos seguintes
 

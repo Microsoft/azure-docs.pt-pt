@@ -12,12 +12,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 02/16/2021
 ms.author: juliako
-ms.openlocfilehash: c8fcd6e662a0beff61209de4b5c4331618b45ea1
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 3a64bb261db39efb63b35004f1daa0452b4f0672
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100653321"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101715161"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Notas de lançamento do Azure Media Services Video Indexer
 
@@ -47,7 +47,7 @@ A funcionalidade de efeitos áudio recentemente adicionada está disponível ao 
 
 O tipo de evento **de palmas** que foi incluído no modelo anterior de efeitos áudio, é agora extraído uma parte do tipo de evento de reação de **multidão.**
 
-Quando escolhe ver **Insites** do seu vídeo no site do [Índice de Vídeo,](https://www.videoindexer.ai/) os Efeitos Áudio aparecem na página.
+Quando escolhe ver **insights** do seu vídeo no site do [Índice de Vídeo,](https://www.videoindexer.ai/) os Efeitos Áudio aparecem na página.
 
 :::image type="content" source="./media/release-notes/audio-detection.png" alt-text="Deteção de eventos áudio":::
 

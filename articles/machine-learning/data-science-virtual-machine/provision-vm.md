@@ -2,18 +2,18 @@
 title: 'Quickstart: Criar uma máquina virtual de ciência de dados do Windows'
 titleSuffix: Azure Data Science Virtual Machine
 description: Configure e crie uma máquina virtual de ciência de dados em Azure para análise e machine learning.
-ms.service: machine-learning
-ms.subservice: data-science-vm
+services: machine-learning
+ms.service: data-science-vm
 author: gvashishtha
 ms.author: gopalv
 ms.topic: quickstart
 ms.date: 12/31/2019
-ms.openlocfilehash: e876ddc9b4df32cad5bbf15215da5ce2f912bba1
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 53c7eb899578a044ecca0900da722c594bdac8dc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97109730"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691846"
 ---
 # <a name="quickstart-set-up-the-data-science-virtual-machine-for-windows"></a>Quickstart: Configurar a máquina virtual da Ciência de Dados para windows
 

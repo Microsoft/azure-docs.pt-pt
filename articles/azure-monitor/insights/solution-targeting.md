@@ -1,17 +1,16 @@
 ---
 title: Soluções de monitorização direcionais no Azure Monitor | Microsoft Docs
 description: Direcionar as soluções de monitorização permite limitar as soluções de monitorização a um conjunto específico de agentes.  Este artigo descreve como criar uma configuração de âmbito e aplicá-la a uma solução.
-ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/27/2017
-ms.openlocfilehash: 338dc22c7a4f9fbca9f007ae76c092a3fe5f6762
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: cb030456eb3b9e3c81fadd8451b5b0526920ba33
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100587239"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728574"
 ---
 # <a name="targeting-monitoring-solutions-in-azure-monitor-preview"></a>Soluções de monitorização direcionais no Azure Monitor (Preview)
 Quando adiciona uma solução de monitorização à sua subscrição, é automaticamente implementada por padrão a todos os agentes Windows e Linux ligados ao seu espaço de trabalho Log Analytics.  Pode querer gerir os seus custos e limitar a quantidade de dados recolhidos para uma solução, limitando-os a um determinado conjunto de agentes.  Este artigo descreve como utilizar **o Solution Targeting,** que é uma funcionalidade que lhe permite aplicar um âmbito às suas soluções.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/02/2019
 ms.author: TomSh
-ms.openlocfilehash: 68f3b9f9cfa8ea74a8240fab6e47bf737788081f
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 4793216a12b17c4e4ea03f62d5a0ba512febc232
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99094329"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101735731"
 ---
 # <a name="azure-best-practices-for-network-security"></a>Melhores práticas do Azure para segurança de rede
 Este artigo discute uma coleção de boas práticas da Azure para aumentar a segurança da sua rede. Estas boas práticas derivam da nossa experiência com o networking da Azure e as experiências de clientes como você.
@@ -206,7 +206,7 @@ A Azure Private Link fornece os seguintes benefícios:
 - **Alcance global**: Conecte-se privadamente aos serviços que correm noutras regiões. A rede virtual do consumidor pode estar na região A e pode ligar-se aos serviços na região B.
 - **Simples de configurar e gerir**: Já não precisa de endereços IP públicos reservados nas suas redes virtuais para garantir os recursos do Azure através de uma firewall IP. Não existem dispositivos NAT ou gateway necessários para configurar os pontos finais privados. Os pontos finais privados são configurados através de um simples fluxo de trabalho. No lado de serviço, também pode gerir com facilidade os pedidos de ligação no seu recurso de serviço Azure. A Azure Private Link trabalha para consumidores e serviços pertencentes a diferentes inquilinos do Azure Ative Directory também. 
     
-Para saber mais sobre os pontos finais privados e os serviços e regiões Azure para os quais os pontos finais privados estão disponíveis, consulte [a Azure Private Link](https://docs.microsoft.com/azure/private-link/private-link-overview).
+Para saber mais sobre os pontos finais privados e os serviços e regiões Azure para os quais os pontos finais privados estão disponíveis, consulte [a Azure Private Link](../../private-link/private-link-overview.md).
 
 
 ## <a name="next-steps"></a>Passos seguintes

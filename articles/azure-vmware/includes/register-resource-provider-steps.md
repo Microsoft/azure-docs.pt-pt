@@ -3,16 +3,16 @@ title: Registe-se o fornecedor de recursos Azure VMware Solution
 description: Passos para registar o fornecedor de recursos Azure VMware Solution.
 ms.topic: include
 ms.date: 02/17/2021
-ms.openlocfilehash: 80010a232f80865b20c2e3d953dc1d9d22ece1c6
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: cd4a6f3003945973f0fe5367eb198823595a412e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100653185"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101750971"
 ---
 <!-- Used in deploy-azure-vmware-solution.md and tutorial-create-private-cloud.md -->
 
-Para utilizar a Solução Azure VMware, tem primeiro de registar o fornecedor de recursos com a sua subscrição. Para obter mais informações sobre os fornecedores de recursos, consulte [os fornecedores e tipos de recursos Azure](/azure/azure-resource-manager/management/resource-providers-and-types).
+Para utilizar a Solução Azure VMware, tem primeiro de registar o fornecedor de recursos com a sua subscrição. Para obter mais informações sobre os fornecedores de recursos, consulte [os fornecedores e tipos de recursos Azure](../../azure-resource-manager/management/resource-providers-and-types.md).
 
 ### <a name="azure-cli"></a>CLI do Azure 
 

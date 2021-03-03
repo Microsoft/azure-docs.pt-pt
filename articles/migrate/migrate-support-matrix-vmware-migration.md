@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 0b671fbdfe16848012ac94671ce68e8a33a8b3e8
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: fc3ba062f4995e975015d7c4db145ccde0c3f701
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98703874"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101705216"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>Matriz de suporte da migração do VMware
 
@@ -29,8 +29,8 @@ Pode migrar VMware VMs de várias maneiras:
 
 ## <a name="migration-limitations"></a>Limitações da migração
 
-- Pode selecionar até 10 VMs de uma só vez para replicação. Se quiser migrar mais máquinas, então replique em grupos de 10.
-- Para a migração sem agente VMware, pode executar até 300 replicações simultaneamente.
+- Pode selecionar até 10 VMs de uma só vez para replicação através do portal Azure. Se quiser migrar mais máquinas, então replique em grupos de 10. Não há limite para o número de VMs que podem ser replicados através de cmdlets PowerShell. A nossa recomendação é replicar não mais de 500 VMs de cada vez de um único vCenter através do PowerShell para garantir um desempenho ideal.
+- Para a migração sem agente VMware, pode executar até 500 replicações simultaneamente a partir de cada vCenter Server.
 
 ## <a name="agentless-migration"></a>Migração sem agentes 
 
@@ -56,7 +56,7 @@ A tabela resume os requisitos de migração sem agente para VMware VMs.
 --- | ---
 **Sistemas operativos suportados** | Pode migrar sistemas operativos [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) e [Linux](../virtual-machines/linux/endorsed-distros.md) que são suportados pelo Azure.
 **Windows VMs em Azure** | Talvez precise de [fazer algumas alterações](prepare-for-migration.md#verify-required-changes-before-migrating) nos VM antes da migração. 
-**Linux VMs em Azure** | Alguns VMs podem necessitar de alterações para que possam ser executados em Azure.<br/><br/> Para o Linux, a Azure Migrate faz as alterações automaticamente para estes sistemas operativos:<br/> - Red Hat Enterprise Linux 7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x<br/> - Cent OS 7.7, 7.6, 7.5, 7.4, 6.x</br> - SUSE Linux Enterprise Server 12 SP1+<br/> - SUSE Linux Enterprise Server 15 SP1 <br/>- Ubuntu 19.04, 19.10, 14.04LTS, 16.04LTS, 18.04LTS<br/> - Debian 7, 8 <br/> Oracle Linux 7.7, 7.7-CI<br/> Para outros sistemas operativos, es faça as [alterações necessárias](prepare-for-migration.md#verify-required-changes-before-migrating) manualmente.
+**Linux VMs em Azure** | Alguns VMs podem necessitar de alterações para que possam ser executados em Azure.<br/><br/> Para o Linux, a Azure Migrate faz as alterações automaticamente para estes sistemas operativos:<br/> - Red Hat Enterprise Linux 7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x<br/> - Cent OS 7.7, 7.6, 7.5, 7.4, 6.x</br> - SUSE Linux Enterprise Server 12 SP1+<br/> - SUSE Linux Enterprise Server 15 SP1 <br/>- Ubuntu 19.04, 19.10, 14.04LTS, 16.04LTS, 18.04LTS<br/> - Debian 7, 8, 9 <br/> Oracle Linux 7.7, 7.7-CI<br/> Para outros sistemas operativos, es faça as [alterações necessárias](prepare-for-migration.md#verify-required-changes-before-migrating) manualmente.
 **Bota Linux** | Se o arranque estiver numa divisória dedicada, deve residir no disco OS e não ser espalhado por vários discos.<br/> Se /boot é parte da raiz (/) partição, então a partição '/' deve estar no disco DE, e não abranger outros discos.
 **Bota UEFI** | Suportado. Os VMs baseados na UEFI serão migrados para a geração Azure 2 VMs. 
 **Tamanho do disco** | 2 Disco de SO TB;  32 TB para discos de dados.
@@ -72,7 +72,7 @@ A tabela resume os requisitos de migração sem agente para VMware VMs.
 **NICs em equipa** | Não suportado.
 **IPv6** | Não suportado.
 **Disco-alvo** | Os VMs só podem ser migrados para discos geridos (HDD padrão, SSD padrão, SSD premium) em Azure.
-**Replicação simultânea** | 300 VMs por vCenter Server. Se tiver mais, migra-os em lotes de 300.
+**Replicação simultânea** | 500 VMs por vCenter Server. Se tiver mais, migra-os em lotes de 500.
 **Instalação automática do agente Azure VM (Windows Agent)** | Suportado para Windows Server 2008 R2 em diante.
 
 ### <a name="appliance-requirements-agentless"></a>Requisitos do aparelho (sem agente)
@@ -176,6 +176,6 @@ Conecte-se após a migração-Windows | Para ligar aos VMs Azure que executam o 
 Conecte-se após migração-Linux | Para ligar aos VMs Azure após a migração utilizando SSH:<br/><br/> Antes da migração, na máquina no local, verifique se o serviço Secure Shell está definido para iniciar e que as regras de firewall permitem uma ligação SSH.<br/><br/> Após o failover, no Azure VM, permita a entrada de ligações à porta SSH para as regras do grupo de segurança da rede sobre o falhado sobre vM, e para a sub-rede Azure à qual está ligada.<br/><br/> Além disso, adicione um endereço IP público para o VM.  
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Selecione](server-migrate-overview.md) uma opção de migração VMware.

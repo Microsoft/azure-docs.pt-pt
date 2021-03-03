@@ -214,7 +214,7 @@
         - name: Configurar os registos de diagnóstico
           href: event-hubs-diagnostic-logs.md
         - name: Transmitir dados do Diagnóstico do Azure em fluxo com os Hubs de Eventos
-          href: ../azure-monitor/platform/diagnostics-extension-stream-event-hubs.md
+          href: ../azure-monitor/agents/diagnostics-extension-stream-event-hubs.md
         - name: Dimensionar automaticamente unidades de débito
           href: event-hubs-auto-inflate.md
         - name: Bibliotecas de gestão dos Hubs de Eventos

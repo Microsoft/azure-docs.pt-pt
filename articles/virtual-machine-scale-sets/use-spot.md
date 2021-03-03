@@ -9,12 +9,12 @@ ms.subservice: spot
 ms.date: 02/26/2021
 ms.reviewer: cynthn
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 33aa553e688b595551c20e8b1432163152865537
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: b20a5bd9c06c3948097389d5439defa219a7931b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101675023"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101694993"
 ---
 # <a name="azure-spot-virtual-machines-for-virtual-machine-scale-sets"></a>Máquinas virtuais Azure Spot para conjuntos de escala de máquinas virtuais 
 
@@ -68,13 +68,56 @@ Esta nova funcionalidade ao nível da plataforma irá utilizar a IA para tentar 
 > Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Experimente & restaurar os benefícios:
-- Ativado por predefinição ao implementar uma Máquina Virtual Azure Spot num conjunto de escala.
 - Tentativas de restaurar máquinas virtuais Azure Spot despejadas devido à capacidade.
 - Espera-se que as máquinas virtuais do Azure Spot restauradas sejam executadas por uma duração mais longa, com uma menor probabilidade de uma capacidade desencadeada de despejo.
 - Melhora o tempo de vida útil de uma Máquina Virtual Azure Spot, para que as cargas de trabalho decorram por uma duração mais longa.
 - Ajuda os conjuntos de escala de máquinas virtuais a manter a contagem de alvos para máquinas virtuais Azure Spot, semelhantes para manter a funcionalidade de contagem de alvos que já existe para VMs Pay-As-You-Go.
 
 Experimente & a restauração seja desativada em conjuntos de escala que utilizam [a Autoscale](virtual-machine-scale-sets-autoscale-overview.md). O número de VMs no conjunto de escala é impulsionado pelas regras de autoescala.
+
+### <a name="register-for-try--restore"></a>Registe-se para tentar & restauro
+
+Antes de poder utilizar a função de restauro &, tem de registar a sua subscrição para a pré-visualização. A inscrição pode demorar vários minutos a ser concluída. Pode utilizar o Azure CLI ou o PowerShell para completar o registo de funcionalidades.
+
+
+**Utilizar a CLI**
+
+Utilize [o registo de funcionalidades AZ](/cli/azure/feature#az-feature-register) para ativar a pré-visualização da sua subscrição. 
+
+```azurecli-interactive
+az feature register --namespace Microsoft.Compute --name SpotTryRestore 
+```
+
+A inscrição da funcionalidade pode demorar até 15 minutos. Para verificar o estado do registo: 
+
+```azurecli-interactive
+az feature show --namespace Microsoft.Compute --name SpotTryRestore 
+```
+
+Uma vez registada a funcionalidade para a sua subscrição, complete o processo de opt-in propagando a alteração no fornecedor de recursos Compute. 
+
+```azurecli-interactive
+az provider register --namespace Microsoft.Compute 
+```
+**Utilizar o PowerShell** 
+
+Utilize o [cmdlet Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature) para ativar a pré-visualização da sua subscrição. 
+
+```azurepowershell-interactive
+Register-AzProviderFeature -FeatureName SpotTryRestore -ProviderNamespace Microsoft.Compute 
+```
+
+A inscrição da funcionalidade pode demorar até 15 minutos. Para verificar o estado do registo: 
+
+```azurepowershell-interactive
+Get-AzProviderFeature -FeatureName SpotTryRestore -ProviderNamespace Microsoft.Compute 
+```
+
+Uma vez registada a funcionalidade para a sua subscrição, complete o processo de opt-in propagando a alteração no fornecedor de recursos Compute. 
+
+```azurepowershell-interactive
+Register-AzResourceProvider -ProviderNamespace Microsoft.Compute 
+```
 
 ## <a name="placement-groups"></a>Grupos de colocação
 

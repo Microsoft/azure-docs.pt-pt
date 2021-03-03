@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/11/2020
 ms.author: memildin
-ms.openlocfilehash: ca60d5afa38a560492c8574aadd43d6170eca253
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 23cbabf1c4fb1433fa1201f77528db9d9f393ed5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98916189"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101712152"
 ---
-# <a name="adaptive-network-hardening-in-azure-security-center"></a>Endurecimento de rede adaptativa no Centro de Segurança Azure
+# <a name="improve-your-network-security-posture-with-adaptive-network-hardening"></a>Melhore a sua postura de segurança de rede com endurecimento adaptativo da rede
 Aprenda a configurar o endurecimento adaptativo da rede no Centro de Segurança.
 
 ## <a name="availability"></a>Disponibilidade
@@ -29,7 +29,7 @@ Aprenda a configurar o endurecimento adaptativo da rede no Centro de Segurança.
 |Estado de libertação:|Disponibilidade Geral (GA)|
 |Preços:|Requer [Azure Defender para servidores](defender-for-servers-introduction.md)|
 |Funções e permissões necessárias:|Escreva permissões nos NSGs da máquina|
-|Nuvens:|![Yes](./media/icons/yes-icon.png) Nuvens comerciais<br>![No](./media/icons/no-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
+|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Não](./media/icons/no-icon.png) Nacional/Soberano (Gov dos EUA, China Gov, Outro Gov)|
 |||
 
 ## <a name="what-is-adaptive-network-hardening"></a>O que é o endurecimento adaptativo da rede?

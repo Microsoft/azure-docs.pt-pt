@@ -7,12 +7,12 @@ ms.date: 01/16/2018
 author: dcstwh
 ms.author: weetok
 ms.custom: devx-track-python
-ms.openlocfilehash: 038da033c2bdf78a0a2547cc713944bc11bf093d
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 6c913c7c623c77baea0c575d06d2c44709af43fa
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100379901"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101740448"
 ---
 # <a name="programmatically-monitor-an-azure-data-factory"></a>Monitorize programáticamente uma fábrica de dados Azure
 
@@ -30,7 +30,7 @@ Se pretender manter os dados de funcionamento do gasoduto durante mais de 45 dia
 
 ## <a name="pipeline-run-information"></a>Informação de execução do gasoduto
 
-Para obter propriedades de execução de gasodutos, consulte a [referência PipelineRun API](https://docs.microsoft.com/rest/api/datafactory/pipelineruns/get#pipelinerun). Uma corrida de gasodutos tem um estatuto diferente durante o seu ciclo de vida, os valores possíveis do estado de funcionação são listados abaixo:
+Para obter propriedades de execução de gasodutos, consulte a [referência PipelineRun API](/rest/api/datafactory/pipelineruns/get#pipelinerun). Uma corrida de gasodutos tem um estatuto diferente durante o seu ciclo de vida, os valores possíveis do estado de funcionação são listados abaixo:
 
 * Em fila
 * InProgress
@@ -163,5 +163,4 @@ Para obter uma utilização completa da criação e monitorização de um gasodu
 Para obter documentação completa sobre cmdlets PowerShell, consulte [a referência cmdlet powershell da data factory](/powershell/module/az.datafactory).
 
 ## <a name="next-steps"></a>Passos seguintes
-Consulte os gasodutos Monitor utilizando o artigo [do Azure Monitor](monitor-using-azure-monitor.md) para saber se utiliza o Monitor Azure para monitorizar os oleodutos da Data Factory. 
-
+Consulte os gasodutos Monitor utilizando o artigo [do Azure Monitor](monitor-using-azure-monitor.md) para saber se utiliza o Monitor Azure para monitorizar os oleodutos da Data Factory.

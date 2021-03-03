@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2020
 ms.author: allensu
-ms.openlocfilehash: 6ddfe581bb3f2f584fdec0229981321297c9a77f
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: 6bf090cde7262fdae9c98ef55227bf2925937dbf
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97399202"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101739836"
 ---
 # <a name="azure-load-balancer-components"></a>Componentes do balançador de carga Azure
 
@@ -133,6 +133,7 @@ O equilibrador básico de carga não suporta regras de saída.
 - O fluxo de saída de um VM de backend para uma parte frontal de um balanceador de carga interno falhará.
 - Uma regra do balançador de carga não pode abranger duas redes virtuais.  Os frontends e as suas instâncias de backend devem estar localizadas na mesma rede virtual.  
 - Reencaminhar fragmentos de IP não é suportado em regras de equilíbrio de carga. A fragmentação ip de pacotes UDP e TCP não é suportada em regras de equilíbrio de carga. As regras de equilíbrio de carga das portas HA podem ser utilizadas para encaminhar os fragmentos de IP existentes. Para mais informações, consulte [a visão geral das portas de alta disponibilidade.](load-balancer-ha-ports-overview.md)
+- Só pode ter 1 Balançador de Carga Pública e 1 Balançador de Carga interno por definição de disponibilidade
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -3,12 +3,12 @@ title: Azure Quickstart - Criar um centro de eventos utilizando o portal Azure
 description: Neste arranque rápido, você aprende a criar um hub de eventos Azure usando o portal Azure.
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: c1244317655815da91429585eff9ffbcc16662d4
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 6bd9d247db6cd5a956ff4bce9b70f1f8a5a7499a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96435506"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101742046"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-portal"></a>Início Rápido: Criar um hub de eventos com o portal do Azure
 O Azure Event Hubs é uma plataforma de streaming big data e serviço de ingestão de eventos que pode receber e processar milhões de eventos por segundo. Os Hubs de Eventos podem processar e armazenar eventos, dados ou telemetria produzidos por dispositivos e software distribuído. Os dados enviados para um hub de eventos podem ser transformados e armazenados em qualquer fornecedor de análise em tempo real ou adaptadores de armazenamento/criação de batches. Para uma descrição geral detalhada dos Hubs de Eventos, veja [Descrição geral dos Hubs de Eventos](event-hubs-about.md) e [Funcionalidades dos Hubs de Eventos](event-hubs-features.md).
@@ -33,7 +33,7 @@ Um grupo de recursos é uma coleção lógica de recursos do Azure. Todos os rec
 1. Para **Subscrição**, selecione o nome da subscrição Azure na qual pretende criar o grupo de recursos.
 1. Digite um nome único **para o grupo de recursos.** O sistema verifica imediatamente a disponibilidade do nome na subscrição do Azure atualmente selecionada.
 1. Selecione uma **região** para o grupo de recursos.
-1. Selecione **Review + Criar**.
+1. Selecione **Rever + Criar**.
 
    ![Grupo de recursos - criar](./media/event-hubs-quickstart-portal/resource-groups2.png)
 1. Na página **'Rever + Criar',** selecione **Criar**. 
@@ -87,7 +87,7 @@ Para criar um hub de eventos no espaço de nomes, faça as ações seguintes:
 
     A **definição de contagem de divisórias** permite-lhe paralelizar o consumo entre muitos consumidores. Para mais informações, consulte [As Divisórias.](event-hubs-scalability.md#partitions)
 
-    A **definição de retenção de mensagens** especifica quanto tempo o serviço 'Centros de Eventos' mantém os dados. Para os limites máximos para esta definição, consulte [quotas e limites](event-hubs-quotas.md).
+    A **definição de retenção de mensagens** especifica quanto tempo o serviço 'Centros de Eventos' mantém os dados. Para mais informações, consulte [a retenção do Evento.](event-hubs-features.md#event-retention)
 1. Pode verificar o estado da criação do centro de eventos em alertas. Depois de o centro de eventos ser criado, vê-lo na lista de centros de eventos.
 
     ![Centro de eventos criado](./media/event-hubs-quickstart-portal/event-hub-created.png)

@@ -6,12 +6,12 @@ ms.date: 11/25/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: d815c919c2b2d63b093c4290a661cbf508c56012
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: e9208e617eb73786bcb003dc1b55d0d77ca6650f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96601072"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704434"
 ---
 # <a name="upgrading-from-application-insights-java-2x-sdk"></a>Upgrade a partir de Application Insights Java 2.x SDK
 
@@ -220,3 +220,16 @@ Mais uma vez, para algumas aplicações, pode ainda preferir a vista agregada no
 Anteriormente no 2.x SDK, o nome de operação da telemetria de pedido também foi definido na telemetria de dependência.
 Application Insights Java 3.0 já não povoa o nome da operação na telemetria de dependência.
 Se quiser ver o nome da operação para o pedido que é o pai da telemetria de dependência, pode escrever uma consulta de Logs (Kusto) para se juntar da tabela de dependência à tabela de pedidos.
+
+## <a name="2x-sdk-logging-appenders"></a>2.x Aplicativos de registo SDK
+
+O agente 3.0 recolhe automaticamente o [registo registado sem](./java-standalone-config#auto-collected-logging) a necessidade de configurar quaisquer appenders de registo.
+Se estiver a utilizar 2.x appenders de registo SDK, estes podem ser removidos, uma vez que serão suprimidos pelo agente 3.0 de qualquer forma.
+
+## <a name="2x-sdk-spring-boot-starter"></a>Arranque de arranque de mola SDK de 2.x
+
+Não há arranque de mola 3.0.
+A configuração e configuração do agente 3.0 segue os mesmos [passos simples,](./java-in-process-agent.md#quickstart) quer esteja a usar ou não bota de mola.
+
+Ao atualizar a partir do arranque de mola de 2.x SDK, note que o nome da função da nuvem deixará de ser padrão para `spring.application.name` .
+Consulte os [docs de configuração 3.0](./java-standalone-config.md#cloud-role-name) para definir o nome da função de nuvem em 3.0 via json config ou variável ambiente.

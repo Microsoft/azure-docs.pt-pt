@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: laobri
 author: lobrien
-ms.date: 01/12/2021
+ms.date: 02/26/2021
 ms.custom: devx-track-python
-ms.openlocfilehash: e3f92f445068b98c12069577ddf61a71568e403b
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 8b5e74d12af92b5d300e638bee27020a5af5383c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98871558"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690384"
 ---
 # <a name="what-are-azure-machine-learning-pipelines"></a>O que são os oleodutos Azure Machine Learning?
 
@@ -95,22 +95,27 @@ experiment = Experiment(ws, 'MyExperiment')
 
 input_data = Dataset.File.from_files(
     DataPath(datastore, '20newsgroups/20news.pkl'))
+prepped_data_path = OutputFileDatasetConfig(name="output_path")
 
 dataprep_step = PythonScriptStep(
     name="prep_data",
     script_name="dataprep.py",
-    compute_target=cluster,
-    arguments=[input_dataset.as_named_input('raw_data').as_mount(), dataprep_output]
-    )
-output_data = OutputFileDatasetConfig()
-input_named = input_data.as_named_input('input')
-
-steps = [ PythonScriptStep(
-    script_name="train.py",
-    arguments=["--input", input_named.as_download(), "--output", output_data],
+    source_directory="prep_src",
     compute_target=compute_target,
-    source_directory="myfolder"
-) ]
+    arguments=["--prepped_data_path", prepped_data_path],
+    inputs=[input_dataset.as_named_input('raw_data').as_mount() ]
+    )
+
+prepped_data = prepped_data_path.read_delimited_files()
+
+train_step = PythonScriptStep(
+    name="train",
+    script_name="train.py",
+    compute_target=compute_target,
+    arguments=["--prepped_data", prepped_data],
+    source_directory="train_src"
+)
+steps = [ dataprep_step, train_step ]
 
 pipeline = Pipeline(workspace=ws, steps=steps)
 
@@ -118,9 +123,13 @@ pipeline_run = experiment.submit(pipeline)
 pipeline_run.wait_for_completion()
 ```
 
-O snippet começa com objetos comuns de Aprendizagem automática Azure, `Workspace` um `Datastore` , um [ComputeTarget](/python/api/azureml-core/azureml.core.computetarget?preserve-view=true&view=azure-ml-py), e um `Experiment` . Em seguida, o código cria os objetos para segurar `input_data` e `output_data` . `input_data`Trata-se de uma instância do [FileDataset](/python/api/azureml-core/azureml.data.filedataset?preserve-view=true&view=azure-ml-py) e `output_data` é um exemplo de [OutputFileDatasetConfig](/python/api/azureml-core/azureml.data.output_dataset_config.outputfiledatasetconfig?preserve-view=true&view=azure-ml-py). Para `OutputFileDatasetConfig` o comportamento predefinido é copiar a saída para a `workspaceblobstore` datastore sob o caminho `/dataset/{run-id}/{output-name}` , onde está o `run-id` ID da Run e é um valor `output-name` autogerado se não for especificado pelo desenvolvedor.
+O snippet começa com objetos comuns de Aprendizagem automática Azure, `Workspace` um `Datastore` , um [ComputeTarget](/python/api/azureml-core/azureml.core.computetarget?preserve-view=true&view=azure-ml-py), e um `Experiment` . Em seguida, o código cria os objetos para segurar `input_data` e `prepped_data_path` . `input_data`Trata-se de uma instância do [FileDataset](/python/api/azureml-core/azureml.data.filedataset?preserve-view=true&view=azure-ml-py) e `prepped_data_path` é um exemplo de [OutputFileDatasetConfig](/python/api/azureml-core/azureml.data.output_dataset_config.outputfiledatasetconfig?preserve-view=true&view=azure-ml-py). Para `OutputFileDatasetConfig` o comportamento predefinido é copiar a saída para a `workspaceblobstore` datastore sob o caminho `/dataset/{run-id}/{output-name}` , onde está o `run-id` ID da Run e é um valor `output-name` autogerado se não for especificado pelo desenvolvedor.
 
-A matriz `steps` contém um único elemento, um que `PythonScriptStep` utilizará os objetos de dados e funcionará no `compute_target` . Em seguida, o código instantaneamente o `Pipeline` objeto em si, passando no espaço de trabalho e passos matriz. A chamada para `experiment.submit(pipeline)` iniciar o gasoduto Azure ML. A chamada para `wait_for_completion()` bloquear até que o oleoduto esteja terminado. 
+O código de preparação de dados (não apresentado), escreve ficheiros delimitados para `prepped_data_path` . Estas saídas do passo de preparação de dados são passadas `prepped_data` quanto ao passo de formação. 
+
+A matriz `steps` segura os dois `PythonScriptStep` s, e `dataprep_step` `train_step` . A Azure Machine Learning analisará a dependência de dados `prepped_data` e será executada antes `dataprep_step` `train_step` . 
+
+Em seguida, o código instantaneamente o `Pipeline` objeto em si, passando no espaço de trabalho e passos matriz. A chamada para `experiment.submit(pipeline)` iniciar o gasoduto Azure ML. A chamada para `wait_for_completion()` bloquear até que o oleoduto esteja terminado. 
 
 Para saber mais sobre a ligação do seu oleoduto aos seus dados, consulte os artigos [Acesso de dados em Azure Machine Learning](concept-data.md) e Moving datas dentro e entre etapas de gasoduto [ML (Python)](how-to-move-data-in-out-of-pipelines.md). 
 
@@ -145,7 +154,7 @@ As principais vantagens da utilização de oleodutos para os seus fluxos de trab
 | **Modularidade** | Separar áreas de preocupações e isolar alterações permite que o software evolua a um ritmo mais rápido com maior qualidade. | 
 |**Colaboração**|Os oleodutos permitem que os cientistas de dados colaborem em todas as áreas do processo de design de machine learning, ao mesmo tempo que podem trabalhar simultaneamente em etapas de gasoduto.|
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Os oleodutos Azure Machine Learning são uma instalação poderosa que começa a fornecer valor nas fases iniciais de desenvolvimento. O valor aumenta à medida que a equipa e o projeto crescem. Este artigo explicou como os oleodutos são especificados com o Azure Machine Learning Python SDK e orquestrados em Azure. Viu um simples código-fonte e foi introduzido em algumas das `PipelineStep` aulas que estão disponíveis. Deve ter uma noção de quando usar os oleodutos Azure Machine Learning e como o Azure os gere. 
 

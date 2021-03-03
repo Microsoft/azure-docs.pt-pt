@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: cf3a3d3fdfcd03f068224c93643d364cd2646290
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 7446b2050fdd7bbc7704953c053da0629231191c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98895633"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101715127"
 ---
 # <a name="select-a-vmware-migration-option"></a>Selecione uma opção de migração VMware
 
@@ -28,7 +28,7 @@ Utilize estas comparações selecionadas para ajudá-lo a decidir qual o método
 **Definição** | **Sem agente** | **Baseada em agente**
 --- | --- | ---
 **Permissões Azure** | Precisa de permissões para criar um projeto Azure Migrate e para registar aplicações AD AZure criadas quando implementa o aparelho Azure Migrate. | Precisa de permissões do Contribuinte na assinatura Azure. 
-**Replicação** | Um máximo de 300 VMs pode ser replicado simultaneamente a partir de um servidor vCenter.<br/> Se tiver mais de 50 VMs para migração, crie vários lotes de VMs.<br/> Replicar mais num único momento terá impacto no desempenho.<br/><br/> No portal, pode selecionar até 10 máquinas ao mesmo tempo para replicação. Para replicar mais máquinas, adicione em lotes de 10.| A capacidade de replicação aumenta escalando o aparelho de replicação.
+**Replicação** | Um máximo de 500 VMs pode ser replicado simultaneamente a partir de um servidor vCenter. No portal, pode selecionar até 10 máquinas ao mesmo tempo para replicação. Para replicar mais máquinas, adicione em lotes de 10.| A capacidade de replicação aumenta escalando o aparelho de replicação.
 **Implantação do aparelho** | O [aparelho Azure Migrate](migrate-appliance.md) está implantado no local. | O [aparelho de replicação Azure Migrate](migrate-replication-appliance.md) está implantado no local.
 **Compatibilidade de Recuperação de Sítio** | É compatível. | Não é possível replicar com a migração do servidor Azure Migrate se tiver configurado a replicação para uma máquina que utiliza a Recuperação do Site.
 **Disco-alvo** | Managed disks | Managed disks
@@ -54,7 +54,7 @@ Depois de rever as limitações, compreender os passos envolvidos na implementa�
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Migrar VMware VMs](tutorial-migrate-vmware.md) com migração sem agentes.
 

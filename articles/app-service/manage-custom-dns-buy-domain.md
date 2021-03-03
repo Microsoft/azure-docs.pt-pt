@@ -5,12 +5,12 @@ ms.assetid: 70fb0e6e-8727-4cca-ba82-98a4d21586ff
 ms.topic: article
 ms.date: 11/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 6f0ff7a54c2ad1fa1af649c8082498b442783c7e
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.openlocfilehash: cdcf22a42375949cc4d6be0b4f3062cee26219d6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96608150"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704859"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Buy a custom domain name for Azure App Service (Comprar um nome de domínio personalizado para o Serviço de Aplicações do Azure)
 
@@ -211,7 +211,7 @@ A Azure lida com domínios de Serviço de Aplicações expirados ou expirados da
 * Se a renovação automática for desativada: 90 dias antes da expiração do domínio, é enviado um e-mail de notificação de renovação e o botão **de domínio Renovar** é ativado no portal.
 * Se estiver ativada a renovação automática: No dia a seguir à data de validade do seu domínio, o Azure tenta cobrar-lhe a renovação do nome de domínio.
 * Se ocorrer um erro durante a renovação automática (por exemplo, o seu cartão no ficheiro está expirado), ou se a renovação automática for desativada e permitir que o domínio expire, o Azure notifica-o da expiração do domínio e estaciona o nome do seu domínio. Pode [renovar manualmente](#renew-the-domain) o seu domínio.
-* Nos dias 4 e 12 dias após a expiração, a Azure envia-lhe e-mails de notificação adicionais. Pode [renovar manualmente](#renew-the-domain) o seu domínio.
+* Nos dias 4 e 12 dias após a expiração, a Azure envia-lhe e-mails de notificação adicionais. Pode [renovar manualmente](#renew-the-domain) o seu domínio. No quinto dia após a expiração, a resolução de DNS para para o domínio expirado.
 * No 19º dia após a expiração, o seu domínio permanece em espera, mas fica sujeito a uma taxa de resgate. Pode ligar para o suporte ao cliente para renovar o seu nome de domínio, sujeito a quaisquer taxas de renovação e resgate aplicáveis.
 * No 25º dia após a expiração, a Azure coloca o seu domínio em leilão com um serviço de leilão da indústria de nome de domínio. Pode ligar para o suporte ao cliente para renovar o seu nome de domínio, sujeito a quaisquer taxas de renovação e resgate aplicáveis.
 * No 30º dia após a expiração, já não és capaz de resgatar o teu domínio.

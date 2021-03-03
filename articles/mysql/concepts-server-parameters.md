@@ -6,12 +6,12 @@ ms.author: bahusse
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 1/26/2021
-ms.openlocfilehash: 1b0bcf528a16e2f75bf21235980424b5375f8824
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 756337ce20c827d0c6549181c20fd843fa60c020
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99539489"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101720958"
 ---
 # <a name="server-parameters-in-azure-database-for-mysql"></a>Parâmetros do servidor na Base de Dados Azure para o MySQL
 
@@ -21,7 +21,7 @@ Este artigo fornece considerações e diretrizes para configurar parâmetros do 
 
 O motor MySQL fornece muitas variáveis/parâmetros de servidor diferentes que podem ser usados para configurar e afinar o comportamento do motor. Alguns parâmetros podem ser definidos dinamicamente durante o tempo de funcionamento, enquanto outros são "estáticos", exigindo um reinício do servidor para se aplicar.
 
-A Azure Database for MySQL expõe a capacidade de alterar o valor de vários parâmetros do servidor MySQL utilizando o [portal Azure](./howto-server-parameters.md), [Azure CLI](./howto-configure-server-parameters-using-cli.md)e [PowerShell](./howto-configure-server-parameters-using-powershell.md) para corresponder às necessidades da sua carga de trabalho.
+A Base de Dados do Azure para MySQL expõe a capacidade de alterar o valor de vários parâmetros do servidor MySQL com o [portal do Azure](./howto-server-parameters.md), a [CLI do Azure](./howto-configure-server-parameters-using-cli.md) e o [PowerShell](./howto-configure-server-parameters-using-powershell.md) para corresponder às necessidades da sua carga de trabalho.
 
 ## <a name="configurable-server-parameters"></a>Parâmetros de servidor configuráveis
 
@@ -272,7 +272,7 @@ Também é importante notar que um melhor desempenho vem à custa de tempo de ar
 Para salvar o estado da piscina tampão no parâmetro do servidor de paragem do servidor `innodb_buffer_pool_dump_at_shutdown` para `ON` . Da mesma forma, desace o parâmetro do servidor `innodb_buffer_pool_load_at_startup` para restaurar o estado do pool de `ON` tampão no arranque do servidor. Pode controlar o impacto no arranque/reinício reduzindo e finamente afinando o valor do parâmetro do servidor `innodb_buffer_pool_dump_pct` , Por predefinição, este parâmetro está definido para `25` .
 
 > [!Note]
-> Os parâmetros de aquecimento do pool de tampão InnoDB só são suportados em servidores de armazenamento de finalidade geral com armazenamento até 16-TB. Saiba mais sobre [a Base de Dados Azure para as opções de armazenamento MySQL aqui.](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers#storage)
+> Os parâmetros de aquecimento do pool de tampão InnoDB só são suportados em servidores de armazenamento de finalidade geral com armazenamento até 16-TB. Saiba mais sobre [a Base de Dados Azure para as opções de armazenamento MySQL aqui.](./concepts-pricing-tiers.md#storage)
 
 ### <a name="time_zone"></a>time_zone
 

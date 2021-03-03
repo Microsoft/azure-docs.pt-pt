@@ -6,16 +6,16 @@ ms.reviewer: estfan, logicappspm, azla
 ms.topic: how-to
 ms.custom: subject-cost-optimization
 ms.date: 01/29/2021
-ms.openlocfilehash: 58e12862cf00b500bced105d67fede8599c2a257
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 44351497ed58c8d49404c094f6800b52186edabb
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99180499"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101709636"
 ---
 # <a name="plan-and-manage-costs-for-azure-logic-apps"></a>Planear e gerir custos para apps Azure Logic
 
-Este artigo ajuda-o a planear e gerir custos para a Azure Logic Apps. Antes de criar ou adicionar quaisquer recursos usando este serviço, estimure os seus custos usando a calculadora de preços Azure. Depois de começar a utilizar os recursos de Aplicações Lógicas, pode definir orçamentos e monitorizar os custos utilizando [a Azure Cost Management.](https://docs.microsoft.com/azure/cost-management-billing/cost-management-billing-overview?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) Para identificar áreas onde você pode querer agir, você também pode rever os custos previstos e monitorizar as tendências de gastos.
+Este artigo ajuda-o a planear e gerir custos para a Azure Logic Apps. Antes de criar ou adicionar quaisquer recursos usando este serviço, estimure os seus custos usando a calculadora de preços Azure. Depois de começar a utilizar os recursos de Aplicações Lógicas, pode definir orçamentos e monitorizar os custos utilizando [a Azure Cost Management.](../cost-management-billing/cost-management-billing-overview.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) Para identificar áreas onde você pode querer agir, você também pode rever os custos previstos e monitorizar as tendências de gastos.
 
 Tenha em mente que os custos para as Aplicações Lógicas são apenas parte dos custos mensais na sua conta Azure. Embora este artigo explique como estimar e gerir custos para as Aplicações Lógicas, você está cobrado para todos os serviços e recursos Azure que são usados na sua subscrição Azure, incluindo quaisquer serviços de terceiros. Depois de estar familiarizado com os custos de gestão das Aplicações Lógicas, pode aplicar métodos semelhantes para gerir custos para todos os serviços Azure utilizados na sua subscrição.
 
@@ -23,9 +23,9 @@ Tenha em mente que os custos para as Aplicações Lógicas são apenas parte dos
 
 <!--Note for Azure service writer: This section covers prerequisites for the Cost Management's Cost Analysis feature. Add other prerequisites needed for your service after the Cost Management prerequisites. -->
 
-[A Azure Cost Management](https://docs.microsoft.com/azure/cost-management-billing/cost-management-billing-overview?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) suporta a maioria dos tipos de conta Azure. Para ver todos os tipos de conta suportados, consulte [os dados de Gestão de Custos](https://docs.microsoft.com/azure/cost-management-billing/costs/understand-cost-mgt-data?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn). Para ver os dados dos custos, precisa de ter, pelo menos, acesso de leitura na sua conta do Azure.
+[A Azure Cost Management](../cost-management-billing/cost-management-billing-overview.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) suporta a maioria dos tipos de conta Azure. Para ver todos os tipos de conta suportados, consulte [os dados de Gestão de Custos](../cost-management-billing/costs/understand-cost-mgt-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn). Para ver os dados dos custos, precisa de ter, pelo menos, acesso de leitura na sua conta do Azure.
 
-Para obter informações sobre a atribuição de acesso aos dados do Azure Cost Management, veja [Atribuir acesso aos dados](https://docs.microsoft.com/azure/cost-management/assign-access-acm-data?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
+Para obter informações sobre a atribuição de acesso aos dados do Azure Cost Management, veja [Atribuir acesso aos dados](../cost-management-billing/costs/assign-access-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 
 <!--Note for Azure service writer: If you have other prerequisites for your service, add them here -->
 
@@ -101,9 +101,9 @@ Antes de criar recursos com a Azure Logic Apps, calcule os seus custos utilizand
 
 ## <a name="create-budgets-and-alerts"></a>Criar orçamentos e alertas
 
-Para ajudá-lo a gerir proativamente os custos da sua conta ou subscrição Azure, pode criar [orçamentos](https://docs.microsoft.com/azure/cost-management/tutorial-acm-create-budgets?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) e [alertas](https://docs.microsoft.com/azure/cost-management/cost-mgt-alerts-monitor-usage-spending?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) utilizando o serviço e capacidades [de Gestão de Custos E Faturação Azure.](https://docs.microsoft.com/azure/cost-management-billing/cost-management-billing-overview?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)  Orçamentos e alertas são criados para subscrições e grupos de recursos Azure, por isso são úteis como parte de uma estratégia global de monitorização de custos.
+Para ajudá-lo a gerir proativamente os custos da sua conta ou subscrição Azure, pode criar [orçamentos](../cost-management-billing/costs/tutorial-acm-create-budgets.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) e [alertas](../cost-management-billing/costs/cost-mgt-alerts-monitor-usage-spending.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) utilizando o serviço e capacidades [de Gestão de Custos E Faturação Azure.](../cost-management-billing/cost-management-billing-overview.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)  Orçamentos e alertas são criados para subscrições e grupos de recursos Azure, por isso são úteis como parte de uma estratégia global de monitorização de custos.
 
-Com base nas despesas comparadas com os limiares orçamentais e de custos, os alertas notificam automaticamente as partes interessadas sobre anomalias de gastos e riscos de gastos excessivos. Se quiser mais granularidade na sua monitorização, também pode criar orçamentos que utilizem filtros para recursos ou serviços específicos em Azure. Os filtros ajudam a garantir que não criam acidentalmente novos recursos que lhe custam dinheiro extra. Para obter mais informações sobre as opções do filtro, consulte as [opções de Grupo e filtro](https://docs.microsoft.com/azure/cost-management-billing/costs/group-filter?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
+Com base nas despesas comparadas com os limiares orçamentais e de custos, os alertas notificam automaticamente as partes interessadas sobre anomalias de gastos e riscos de gastos excessivos. Se quiser mais granularidade na sua monitorização, também pode criar orçamentos que utilizem filtros para recursos ou serviços específicos em Azure. Os filtros ajudam a garantir que não criam acidentalmente novos recursos que lhe custam dinheiro extra. Para obter mais informações sobre as opções do filtro, consulte as [opções de Grupo e filtro](../cost-management-billing/costs/group-filter.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 
 <a name="monitor-costs"></a>
 
@@ -115,7 +115,7 @@ Depois de começar a incorrer em custos para recursos que criam ou começam a us
 
 * [Monitorize execuções de aplicativos lógicos e consumo de armazenamento](#monitor-billing-metrics) utilizando o Azure Monitor
 
-* Executar [análise de custos](https://docs.microsoft.com/azure/cost-management/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) utilizando [a Azure Cost Management e Billing](https://docs.microsoft.com/azure/cost-management-billing/cost-management-billing-overview?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+* Executar [análise de custos](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) utilizando [a Azure Cost Management e Billing](../cost-management-billing/cost-management-billing-overview.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
 
 <a name="monitor-billing-metrics"></a>
 
@@ -170,7 +170,7 @@ Utilizando o Azure Monitor, pode ver estas métricas para uma aplicação lógic
 
 ### <a name="run-cost-analysis-by-using-azure-cost-management-and-billing"></a>Executar análise de custos utilizando a Azure Cost Management e Billing
 
-Para rever os custos do serviço De aplicações lógicas com base num âmbito específico, por exemplo, uma subscrição Azure, pode utilizar as capacidades de análise de [custos](https://docs.microsoft.com/azure/cost-management/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) em [Azure Cost Management e Billing.](https://docs.microsoft.com/azure/cost-management-billing/cost-management-billing-overview?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+Para rever os custos do serviço De aplicações lógicas com base num âmbito específico, por exemplo, uma subscrição Azure, pode utilizar as capacidades de análise de [custos](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) em [Azure Cost Management e Billing.](../cost-management-billing/cost-management-billing-overview.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
 
 1. No portal Azure, abra o âmbito que pretende, como a sua subscrição Azure. A partir do menu esquerdo, em **Gestão de Custos,** selecione **Análise de Custos**.
 
@@ -197,7 +197,7 @@ Para rever os custos do serviço De aplicações lógicas com base num âmbito e
 
 ### <a name="export-cost-data"></a>Exportar dados de custos
 
-Quando precisa de fazer mais análises de dados sobre os custos, pode [exportar dados de custos](https://docs.microsoft.com/azure/cost-management-billing/costs/tutorial-export-acm-data?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) para uma conta de armazenamento. Por exemplo, uma equipa de finanças pode analisar estes dados usando o Excel ou o Power BI. Você pode exportar seus custos em um horário diário, semanal ou mensal, e definir um intervalo de data personalizado. Exportar dados de custos é a forma recomendada de recuperar conjuntos de dados de custos.
+Quando precisa de fazer mais análises de dados sobre os custos, pode [exportar dados de custos](../cost-management-billing/costs/tutorial-export-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) para uma conta de armazenamento. Por exemplo, uma equipa de finanças pode analisar estes dados usando o Excel ou o Power BI. Você pode exportar seus custos em um horário diário, semanal ou mensal, e definir um intervalo de data personalizado. Exportar dados de custos é a forma recomendada de recuperar conjuntos de dados de custos.
 
 ## <a name="other-ways-to-manage-and-reduce-costs"></a>Outras formas de gerir e reduzir custos
 
@@ -228,9 +228,7 @@ Para ajudá-lo a reduzir custos nos seus aps lógicos e recursos relacionados, e
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Otimizar o investimento na cloud com o Azure Cost Management](https://docs.microsoft.com/azure/cost-management-billing/costs/cost-mgt-best-practices?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
-* [Gerir custos usando a análise de custos](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
-* [Evitar custos inesperados](https://docs.microsoft.com/azure/cost-management-billing/understand/analyze-unexpected-charges?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
-* Faça o curso de gestão de [custos](https://docs.microsoft.com/learn/paths/control-spending-manage-bills?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) guiado
-
-
+* [Otimizar o investimento na cloud com o Azure Cost Management](../cost-management-billing/costs/cost-mgt-best-practices.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+* [Gerir custos usando a análise de custos](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+* [Evitar custos inesperados](../cost-management-billing/understand/analyze-unexpected-charges.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+* Faça o curso de gestão de [custos](/learn/paths/control-spending-manage-bills?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) guiado

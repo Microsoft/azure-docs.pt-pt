@@ -4,12 +4,12 @@ description: Rastrear problemas com autoscalagem Azure usados em Tecido de Servi
 ms.topic: conceptual
 ms.date: 11/4/2019
 ms.subservice: autoscale
-ms.openlocfilehash: 8936d1b94082291f5c081c47f8331cc64042896b
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: a0fed6c2d06edcb2c9eb8d715feb0ef6c6ade46f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100617601"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711404"
 ---
 # <a name="troubleshooting-azure-autoscale"></a>Resolução de problemas Azure autoscale
  
@@ -24,14 +24,14 @@ O serviço de autoescala fornece-lhe métricas e registos para entender que aç�
   
 ## <a name="autoscale-metrics"></a>Métricas de autoescala
 
-A Autoscale fornece-lhe [quatro métricas](../platform/metrics-supported.md#microsoftinsightsautoscalesettings) para entender o seu funcionamento. 
+A Autoscale fornece-lhe [quatro métricas](../essentials/metrics-supported.md#microsoftinsightsautoscalesettings) para entender o seu funcionamento. 
 
 - **Valor métrico observado** - O valor da métrica que escolheu para tomar a escala em, como visto ou calculado pelo motor de autoescala. Uma vez que uma única definição de autoescala pode ter múltiplas regras e, portanto, múltiplas fontes métricas, pode filtrar usando "fonte métrica" como uma dimensão.
 - **Limiar métrico** - O limiar que definiu para tomar a medida de escala. Uma vez que uma única definição de autoescala pode ter múltiplas regras e, portanto, múltiplas fontes métricas, pode filtrar usando a "regra métrica" como uma dimensão.
 - **Capacidade observada** - O número ativo de casos do recurso-alvo visto pelo motor Autoscale.
 - **Ações de Dimensionamento Iniciadas** – o número de ações de redução horizontal e ampliação iniciadas pelo mecanismo de dimensionamento automático. Pode filtrar por escala vs. escala em ações.
 
-Pode utilizar o [Metrics Explorer](../platform/metrics-getting-started.md) para traçar as métricas acima, tudo num só local. O gráfico deve mostrar:
+Pode utilizar o [Metrics Explorer](../essentials/metrics-getting-started.md) para traçar as métricas acima, tudo num só local. O gráfico deve mostrar:
 
   - a métrica real
   - a métrica vista/calculada pelo motor de autoescala
@@ -87,7 +87,7 @@ O gráfico na parte inferior mostra alguns valores.
  - A **Capacidade Observada** (púrpura) mostra a contagem de exemplos vista pelo motor de autoescala. 
  - O **Limiar métrico** (verde claro) está definido para 10. 
 
-Se existirem regras de ação de várias escalas, pode utilizar a divisão ou a opção **de filtro de adicionar** na tabela de exploradores métricas para olhar a métrica por uma fonte ou regra específica. Para obter mais informações sobre a divisão de um gráfico métrico, consulte [funcionalidades avançadas de gráficos métricos - divisão](../platform/metrics-charts.md#apply-splitting)
+Se existirem regras de ação de várias escalas, pode utilizar a divisão ou a opção **de filtro de adicionar** na tabela de exploradores métricas para olhar a métrica por uma fonte ou regra específica. Para obter mais informações sobre a divisão de um gráfico métrico, consulte [funcionalidades avançadas de gráficos métricos - divisão](../essentials/metrics-charts.md#apply-splitting)
 
 ## <a name="example-3---understanding-autoscale-events"></a>Exemplo 3 - Compreender eventos de autoescala
 
@@ -97,13 +97,13 @@ No ecrã de definição de escala automática, vá ao separador **história do R
 
 ## <a name="autoscale-resource-logs"></a>Registos de recursos de autoescalação
 
-Tal como qualquer outro recurso Azure, o serviço de autoescala fornece [registos de recursos](../platform/platform-logs-overview.md). Há duas categorias de registos.
+Tal como qualquer outro recurso Azure, o serviço de autoescala fornece [registos de recursos](../essentials/platform-logs-overview.md). Há duas categorias de registos.
 
 - **Avaliações de autoescala** - O motor de escala automática regista as entradas de registo para cada avaliação de cada condição sempre que faz uma verificação.  A rubrica inclui detalhes sobre os valores observados das métricas, as regras avaliadas, e se a avaliação resultou numa ação de escala ou não.
 
 - **Ações de escala automática** - O motor regista eventos de ação de escala iniciados pelo serviço de autoescala e os resultados dessas ações de escala (sucesso, falha e quanta escala ocorreu como visto pelo serviço de autoescala).
 
-Tal como acontece com qualquer serviço suportado pelo Azure Monitor, pode utilizar [Definições de Diagnóstico](../platform/diagnostic-settings.md) para encaminhar estes registos:
+Tal como acontece com qualquer serviço suportado pelo Azure Monitor, pode utilizar [Definições de Diagnóstico](../essentials/diagnostic-settings.md) para encaminhar estes registos:
 
 - ao seu espaço de trabalho Log Analytics para análise detalhada
 - para Os Centros de Eventos e, em seguida, para ferramentas não-Azure
@@ -206,4 +206,4 @@ Crie regras de alerta para ser notificado de ações ou falhas de autoescala. Ta
 Para obter mais informações, consulte [registos de recursos de escala automática](autoscale-resource-log-schema.md)
 
 ## <a name="next-steps"></a>Passos seguintes
-Leia informações sobre [as melhores práticas de autoescala.](autoscale-best-practices.md) 
+Leia informações sobre [as melhores práticas de autoescala.](autoscale-best-practices.md)

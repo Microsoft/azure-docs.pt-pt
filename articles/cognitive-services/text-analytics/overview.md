@@ -8,22 +8,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 11/17/2020
+ms.date: 02/09/2021
 ms.author: aahi
 keywords: mineração de texto, análise de sentimento, análise de texto
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 6cef9dc65a72134e0aa70db5f89f4934263c48b4
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: cb7bdeb379ee753424d9c975a8c030b0f7890552
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97563233"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101722284"
 ---
 # <a name="what-is-the-text-analytics-api"></a>O que é a API de Análise de Texto?
 
 A API text Analytics é um serviço baseado na nuvem que fornece funcionalidades de processamento de linguagem natural (NLP) para a mineração de texto e análise de texto, incluindo: análise de sentimentos, mineração de opinião, extração de frases-chave, deteção de linguagem e reconhecimento de entidades nomeadas.
 
-A API faz parte da [Azure Cognitive Services,](../index.yml)uma coleção de machine learning e algoritmos de IA na nuvem para os seus projetos de desenvolvimento. Pode utilizar estas funcionalidades com a [API REST,](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/)ou com a biblioteca do [cliente.](quickstarts/client-libraries-rest-api.md)
+A API faz parte da [Azure Cognitive Services,](../index.yml)uma coleção de machine learning e algoritmos de IA na nuvem para os seus projetos de desenvolvimento. Pode utilizar estas funcionalidades com a versão REST API [3.0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V3-0/) ou [a versão 3.1- ou](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-preview-3/)a biblioteca do [cliente](quickstarts/client-libraries-rest-api.md).
 
 > [!VIDEO https://channel9.msdn.com/Shows/AI-Show/Whats-New-in-Text-Analytics-Opinion-Mining-and-Async-API/player]
 

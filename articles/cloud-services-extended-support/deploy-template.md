@@ -8,38 +8,42 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: eb59bb43d493609ae408a402eaea2dcc9c6fab29
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 71217e6379c02191311f5d93cb439d9da20080bc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100548782"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101706967"
 ---
 # <a name="deploy-a-cloud-service-extended-support-using-arm-templates"></a>Implementar um Serviço de Nuvem (suporte alargado) utilizando modelos ARM
 
-Este tutorial explica como criar uma implementação de Cloud Service (suporte alargado) utilizando [modelos ARM](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview). 
+Este tutorial explica como criar uma implementação de Cloud Service (suporte alargado) utilizando [modelos ARM](../azure-resource-manager/templates/overview.md). 
 
 > [!IMPORTANT]
 > Os Serviços cloud (suporte alargado) estão atualmente em pré-visualização pública.
-> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas.
+> Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
 ## <a name="before-you-begin"></a>Antes de começar
-1. Reveja os [pré-requisitos](deploy-prerequisite.md) de implantação para serviços em nuvem (suporte alargado) e crie os recursos associados. 
 
-2. Criar um novo grupo de recursos utilizando o [portal Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal) ou [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-powershell). Este passo é opcional se estiver a utilizar um grupo de recursos existente. 
+1. Reveja os [pré-requisitos](deploy-prerequisite.md) de implantação para serviços em nuvem (suporte alargado) e crie os recursos associados.
+
+2. Criar um novo grupo de recursos utilizando o [portal Azure](/azure/azure-resource-manager/management/manage-resource-groups-portal) ou [PowerShell](/azure/azure-resource-manager/management/manage-resource-groups-powershell). Este passo é opcional se estiver a utilizar um grupo de recursos existente.
  
-3. Criar uma nova conta de armazenamento utilizando o [portal Azure](https://docs.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal) ou [PowerShell](https://docs.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-powershell). Este passo é opcional se estiver a utilizar uma conta de armazenamento existente. 
+3. Criar uma nova conta de armazenamento utilizando o [portal Azure](/azure/storage/common/storage-account-create?tabs=azure-portal) ou [PowerShell](/azure/storage/common/storage-account-create?tabs=azure-powershell). Este passo é opcional se estiver a utilizar uma conta de armazenamento existente.
 
-4. Faça o upload dos ficheiros de Definição de Serviço (.csdef) e Configuração de Serviço (.cscfg) para a conta de armazenamento utilizando o [portal Azure](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal#upload-a-block-blob), [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-blobs-upload?toc=/azure/storage/blobs/toc.json) ou [PowerShell](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-powershell#upload-blobs-to-the-container). Obtenha os URIs SAS de ambos os ficheiros a adicionar ao modelo ARM mais tarde neste tutorial. 
+4. Faça o upload dos ficheiros de Definição de Serviço (.csdef) e Configuração de Serviço (.cscfg) para a conta de armazenamento utilizando o [portal Azure](/azure/storage/blobs/storage-quickstart-blobs-portal#upload-a-block-blob), [AzCopy](/azure/storage/common/storage-use-azcopy-blobs-upload?toc=/azure/storage/blobs/toc.json) ou [PowerShell](/azure/storage/blobs/storage-quickstart-blobs-powershell#upload-blobs-to-the-container). Obtenha os URIs SAS de ambos os ficheiros a adicionar ao modelo ARM mais tarde neste tutorial.
 
-5. (Opcional) Crie um cofre chave e carre fique com os certificados. 
-    -  Os certificados podem ser anexados aos serviços na nuvem para permitir uma comunicação segura de e para o serviço. Para utilizar certificados, as suas impressões digitais devem ser especificadas no seu ficheiro de Configuração de Serviço (.cscfg) e enviadas para um cofre-chave. Um Cofre-Chave pode ser criado através do [portal Azure](https://docs.microsoft.com/azure/key-vault/general/quick-create-portal) ou [PowerShell](https://docs.microsoft.com/azure/key-vault/general/quick-create-powershell). 
-    - O Cofre-Chave associado deve estar localizado na mesma região e subscrição que o serviço de nuvem.   
-    - O Cofre de Chaves associado deve ser ativado permissões apropriadas para que o recurso Cloud Services (suporte alargado) possa obter o certificado do Key Vault. Para mais informações, consulte [Certificados e Cofre chave](certificates-and-key-vault.md)
-    - O cofre da chave deve ser referenciado na secção OsProfile do modelo ARM indicado nos degraus abaixo.
+5. (Opcional) Crie um cofre chave e carre fique com os certificados.
 
-## <a name="deploy-a-cloud-service-extended-support"></a>Implementar um Serviço de Cloud (suporte alargado) 
+    -  Os certificados podem ser anexados aos serviços na nuvem para permitir uma comunicação segura de e para o serviço. Para utilizar certificados, as suas impressões digitais devem ser especificadas no seu ficheiro de Configuração de Serviço (.cscfg) e enviadas para um cofre de chaves. Um cofre-chave pode ser criado através do [portal Azure](/azure/key-vault/general/quick-create-portal) ou [PowerShell](/azure/key-vault/general/quick-create-powershell).
+    - O cofre-chave associado deve estar localizado na mesma região e subscrição que o serviço de nuvem.
+    - O cofre-chave associado deve ser ativado permissões apropriadas para que o recurso Cloud Services (suporte alargado) possa obter certificados do Key Vault. Para mais informações, consulte [Certificados e Cofre chave](certificates-and-key-vault.md)
+    - O cofre-chave deve ser referenciado na secção OsProfile do modelo ARM indicado nos degraus abaixo.
+
+## <a name="deploy-a-cloud-service-extended-support"></a>Implementar um Serviço de Cloud (suporte alargado)
+
 1. Criar rede virtual. O nome da rede virtual deve coincidir com as referências no ficheiro Configuração de Serviço (.cscfg). Se utilizar uma rede virtual existente, omita esta secção do modelo ARM.
 
     ```json
@@ -68,7 +72,7 @@ Este tutorial explica como criar uma implementação de Cloud Service (suporte a
     ] 
     ```
     
-     Se criar uma nova rede virtual, adicione o seguinte à `dependsOn` secção para garantir que a plataforma cria a rede virtual antes de criar o serviço na nuvem. 
+     Se criar uma nova rede virtual, adicione o seguinte à `dependsOn` secção para garantir que a plataforma cria a rede virtual antes de criar o serviço na nuvem.
 
     ```json
     "dependsOn": [ 
@@ -100,7 +104,7 @@ Este tutorial explica como criar uma implementação de Cloud Service (suporte a
     ] 
     ```
      
-     Se criar um novo endereço IP, adicione o seguinte à `dependsOn` secção para garantir que a plataforma cria o endereço IP antes de criar o serviço de cloud. 
+     Se criar um novo endereço IP, adicione o seguinte à `dependsOn` secção para garantir que a plataforma cria o endereço IP antes de criar o serviço de cloud.
     
     ```json
     "dependsOn": [ 
@@ -108,7 +112,7 @@ Este tutorial explica como criar uma implementação de Cloud Service (suporte a
           ] 
     ```
  
-3. Crie um Objeto de Perfil de Rede e associe o endereço IP público à parte frontal do equilibrador de carga. Um equilibrador de carga é automaticamente criado pela plataforma.  
+3. Crie um Objeto de Perfil de Rede e associe o endereço IP público à parte frontal do equilibrador de carga. Um equilibrador de carga é automaticamente criado pela plataforma.
 
     ```json
     "networkProfile": { 
@@ -134,7 +138,7 @@ Este tutorial explica como criar uma implementação de Cloud Service (suporte a
     ```
  
 
-4. Adicione a referência do cofre chave na  `OsProfile`   secção do modelo ARM. O Key Vault é utilizado para armazenar certificados associados aos Serviços Cloud (suporte alargado). Adicione os certificados ao Key Vault e, em seguida, faça referência às impressões digitais do certificado no ficheiro de Configuração de Serviço (.cscfg). Também precisa de ativar o Key Vault para obter permissões apropriadas para que o recurso Cloud Services (suporte alargado) possa obter o certificado armazenado como segredos do Key Vault. O Cofre-Chave deve estar localizado na mesma região e subscrição que o serviço de nuvem e ter um nome único. Para obter mais informações, consulte [a utilização de certificados com serviços cloud (suporte alargado)](certificates-and-key-vault.md).
+4. Adicione a referência do cofre chave na  `OsProfile`   secção do modelo ARM. O Key Vault é utilizado para armazenar certificados associados aos Serviços Cloud (suporte alargado). Adicione os certificados ao Key Vault e, em seguida, faça referência às impressões digitais do certificado no ficheiro de Configuração de Serviço (.cscfg). Também precisa de ativar o Key Vault para obter permissões apropriadas para que o recurso Cloud Services (suporte alargado) possa obter o certificado armazenado como segredos do Key Vault. O cofre-chave deve estar localizado na mesma região e subscrição que o serviço de nuvem e ter um nome único. Para obter mais informações, consulte [a utilização de certificados com serviços cloud (suporte alargado)](certificates-and-key-vault.md).
      
     ```json
     "osProfile": { 
@@ -154,71 +158,70 @@ Este tutorial explica como criar uma implementação de Cloud Service (suporte a
     ```
   
     > [!NOTE]
-    > SourceVault é o ID de recursos ARM do seu Cofre de Chaves. Pode encontrar esta informação localizando o ID de recurso na secção de propriedades do seu Cofre chave. 
+    > SourceVault é o ID de recursos ARM do seu cofre de chaves. Pode encontrar esta informação localizando o ID de recurso na secção de propriedades do seu cofre de chaves.
     > - certificateUrl pode ser encontrado navegando no certificado no cofre-chave rotulado como **Identificador Secreto**.  
    >  - certificateUrl deve ser do formulário https://{keyvault-endpoin}/secrets/{secretname}/{secret-id}
 
-5. Criar um perfil de papel. Certifique-se de que o número de funções, nomes de funções, número de casos em cada função e tamanhos são os mesmos em toda a Configuração de Serviço (.cscfg), Definição de Serviço (.csdef) e secção de perfil de função no modelo ARM. 
+5. Criar um perfil de papel. Certifique-se de que o número de funções, nomes de funções, número de casos em cada função e tamanhos são os mesmos em toda a Configuração de Serviço (.cscfg), Definição de Serviço (.csdef) e secção de perfil de função no modelo ARM.
     
     ```json
-    "roleProfile": { 
-          "roles": { 
-          "value": [ 
-            { 
-              "name": "WebRole1", 
-              "sku": { 
-                "name": "Standard_D1_v2", 
-                "capacity": "1" 
-              } 
-            }, 
-            { 
-              "name": "WorkerRole1", 
-              "sku": { 
-                "name": "Standard_D1_v2", 
-                "capacity": "1" 
-              } 
+    "roleProfile": {
+      "roles": {
+        "value": [
+          {
+            "name": "WebRole1",
+            "sku": {
+              "name": "Standard_D1_v2",
+              "capacity": "1"
+            }
+          },
+          {
+            "name": "WorkerRole1",
+            "sku": {
+              "name": "Standard_D1_v2",
+              "capacity": "1"
             } 
-        }
+          } 
+        ]
+      }
     }   
     ```
 
-6. (Opcional) Crie um perfil de extensão para adicionar extensões ao seu serviço na nuvem. Para este exemplo, estamos a adicionar o ambiente de trabalho remoto e a extensão de diagnóstico do Windows Azure. 
+6. (Opcional) Crie um perfil de extensão para adicionar extensões ao seu serviço na nuvem. Para este exemplo, estamos a adicionar o ambiente de trabalho remoto e a extensão de diagnóstico do Windows Azure.
     
     ```json
         "extensionProfile": {
-              "extensions": [
-                {
-                  "name": "RDPExtension",
-                  "properties": {
-                    "autoUpgradeMinorVersion": true,
-                    "publisher": "Microsoft.Windows.Azure.Extensions",
-                    "type": "RDP",
-                    "typeHandlerVersion": "1.2.1",
-                    "settings": "<PublicConfig>\r\n <UserName>[Insert Username]</UserName>\r\n <Expiration>1/21/2022 12:00:00 AM</Expiration>\r\n</PublicConfig>",
-                    "protectedSettings": "<PrivateConfig>\r\n <Password>[Insert Password]</Password>\r\n</PrivateConfig>"
-                  }
-                },
-                {
-                  "name": "Microsoft.Insights.VMDiagnosticsSettings_WebRole1",
-                  "properties": {
-                    "autoUpgradeMinorVersion": true,
-                    "publisher": "Microsoft.Azure.Diagnostics",
-                    "type": "PaaSDiagnostics",
-                    "typeHandlerVersion": "1.5",
-                    "settings": "[parameters('wadPublicConfig_WebRole1')]",
-                    "protectedSettings": "[parameters('wadPrivateConfig_WebRole1')]",
-                    "rolesAppliedTo": [
-                      "WebRole1"
-              ]
+          "extensions": [
+            {
+              "name": "RDPExtension",
+              "properties": {
+                "autoUpgradeMinorVersion": true,
+                "publisher": "Microsoft.Windows.Azure.Extensions",
+                "type": "RDP",
+                "typeHandlerVersion": "1.2.1",
+                "settings": "<PublicConfig>\r\n <UserName>[Insert Username]</UserName>\r\n <Expiration>1/21/2022 12:00:00 AM</Expiration>\r\n</PublicConfig>",
+                "protectedSettings": "<PrivateConfig>\r\n <Password>[Insert Password]</Password>\r\n</PrivateConfig>"
+              }
+            },
+            {
+              "name": "Microsoft.Insights.VMDiagnosticsSettings_WebRole1",
+              "properties": {
+                "autoUpgradeMinorVersion": true,
+                "publisher": "Microsoft.Azure.Diagnostics",
+                "type": "PaaSDiagnostics",
+                "typeHandlerVersion": "1.5",
+                "settings": "[parameters('wadPublicConfig_WebRole1')]",
+                "protectedSettings": "[parameters('wadPrivateConfig_WebRole1')]",
+                "rolesAppliedTo": [
+                  "WebRole1"
+                ]
+              }
             }
-          }
-        ]
-      }
+          ]
+        }
+    ```
 
-  
-    ```    
-
-7. Reveja o modelo completo. 
+7. Reveja o modelo completo.
 
     ```json
     {
@@ -266,12 +269,12 @@ Este tutorial explica como criar uma implementação de Cloud Service (suporte a
           "metadata": {
              "description": "Public configuration of Windows Azure Diagnostics extension"
           }
-         },
+        },
         "wadPrivateConfig_WebRole1": {
           "type": "securestring",
           "metadata": {
             "description": "Private configuration of Windows Azure Diagnostics extension"
-         }
+          }
         },
         "vnetName": {
           "type": "string",
@@ -411,7 +414,7 @@ Este tutorial explica como criar uma implementação de Cloud Service (suporte a
                 }
               ]
             },
-        "extensionProfile": {
+            "extensionProfile": {
               "extensions": [
                 {
                   "name": "RDPExtension",
@@ -445,14 +448,15 @@ Este tutorial explica como criar uma implementação de Cloud Service (suporte a
       ]
     }
     ```
- 
+
 8. Implemente o ficheiro do modelo e do parâmetro (definindo parâmetros no ficheiro do modelo) para criar a implementação do Serviço de Nuvem (suporte alargado). Consulte estes [modelos de amostra](https://github.com/Azure-Samples/cloud-services-extended-support) conforme necessário.
 
     ```powershell
-    New-AzResourceGroupDeployment -ResourceGroupName “ContosOrg"  -TemplateFile "file path to your template file” -TemplateParameterFile "file path to your parameter file"
+    New-AzResourceGroupDeployment -ResourceGroupName "ContosOrg" -TemplateFile "file path to your template file" -TemplateParameterFile "file path to your parameter file"
     ```
- 
+
 ## <a name="next-steps"></a>Passos seguintes 
+
 - Reveja [perguntas frequentes](faq.md) para serviços cloud (suporte alargado).
 - Implementar um Serviço de Cloud (suporte alargado) utilizando o [portal Azure](deploy-portal.md), [PowerShell,](deploy-powershell.md) [Modelo](deploy-template.md) ou [Estúdio Visual](deploy-visual-studio.md).
 - Visite o [repositório](https://github.com/Azure-Samples/cloud-services-extended-support) de amostras cloud services (suporte alargado)

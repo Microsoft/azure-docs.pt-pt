@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/02/2017
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 6f63315c3e9b150a54e122d9a1c6948087603d51
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.openlocfilehash: 314404ef132c55a783ce4d2d0069eb8a930439a1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99537412"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691455"
 ---
 # <a name="configure-a-sql-server-always-on-availability-group-across-different-azure-regions"></a>Configure um SQL Server Always On availability group em diferentes regiões do Azure
 
@@ -202,6 +202,6 @@ Para obter mais informações, consulte os seguintes tópicos:
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Grupos de Disponibilidade Always On](/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server)
-* [Máquinas Virtuais do Azure](../../../virtual-machines/windows/index.yml)
+* [Máquinas Virtuais do Azure](../../../virtual-machines/index.yml)
 * [Balançadores de carga Azure](availability-group-manually-configure-tutorial.md#configure-internal-load-balancer)
 * [Conjuntos de disponibilidade de Azure](../../../virtual-machines/manage-availability.md)

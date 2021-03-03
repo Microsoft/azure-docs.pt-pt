@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 12/21/2020
 ms.author: alkohli
-ms.openlocfilehash: 7534052412c2bee0f31e352fc577d376c11215c3
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: cb6b8e310f46cd98c4d3343d44fd83a3cc714a32
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98804939"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101730716"
 ---
 # <a name="gpu-vms-for-your-azure-stack-edge-pro-device"></a>VMs GPU para o seu dispositivo Azure Stack Edge Pro
 
@@ -110,8 +110,8 @@ Siga estes passos ao colocar VMs GPU no seu dispositivo:
 1. Após a criação do VM, implemente a extensão gpu utilizando o modelo de extensão. Para os VMs linux, consulte [a extensão GPU de instalação para Linux](#gpu-extension-for-linux) e para VMs do Windows, consulte [a extensão GPU de instalação para windows](#gpu-extension-for-windows).
 
 1. Para verificar a instalação de extensão GPU, ligue-se ao VM GPU:
-    1. Se utilizar um VM do Windows, siga os passos em [Ligar a um VM do Windows](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#connect-to-windows-vm). [Verifique a instalação](#verify-windows-driver-installation).
-    1. Se utilizar um Linux VM, siga os passos em [Connect to a Linux VM](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#connect-to-linux-vm). [Verifique a instalação](#verify-linux-driver-installation).
+    1. Se utilizar um VM do Windows, siga os passos em [Ligar a um VM do Windows](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#connect-to-a-windows-vm). [Verifique a instalação](#verify-windows-driver-installation).
+    1. Se utilizar um Linux VM, siga os passos em [Connect to a Linux VM](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#connect-to-a-linux-vm). [Verifique a instalação](#verify-linux-driver-installation).
 
 1. Se necessário, pode mudar a rede de cálculo de volta para o que precisar. 
 
@@ -545,7 +545,7 @@ A saída de execução de extensão é registada no seguinte ficheiro: `/var/log
 
 Siga estes passos para verificar a instalação do condutor:
 
-1. Ligue-se ao VM gpu. Siga as instruções em [Ligar a um LM Linux](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#connect-to-linux-vm). 
+1. Ligue-se ao VM gpu. Siga as instruções em [Ligar a um LM Linux](azure-stack-edge-gpu-deploy-virtual-machine-powershell.md#connect-to-a-linux-vm). 
 
     Eis uma saída de exemplo:
 
@@ -638,6 +638,6 @@ Requestld IsSuccessStatusCode StatusCode ReasonPhrase
 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Cmdlets do Gestor de Recursos Azure](/powershell/module/azurerm.resources/?view=azurermps-6.13.0&preserve-view=true)

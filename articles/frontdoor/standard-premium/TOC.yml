@@ -31,7 +31,7 @@
       href: concept-rule-set-url-redirect-and-rewrite.md
     - name: Sondas do estado de funcionamento
       href: concept-health-probes.md
-    - name: Private Link
+    - name: Ligação Privada
       href: concept-private-link.md
     - name: Colocação em cache
       href: concept-caching.md
@@ -49,14 +49,16 @@
       href: how-to-configure-https-custom-domain.md
     - name: Associação Rota
       href: how-to-configure-route.md
+    - name: Configurar um conjunto de regras
+      href: how-to-configure-rule-set.md
     - name: Configure cabeçalhos de segurança com conjunto de regras
       href: how-to-add-security-headers.md
     - name: Purga de cache
       href: how-to-cache-purge.md
     - name: Compressão
       href: how-to-compression.md
-    - name: Ativar Ligação Privada
-      href: how-to-enable-private-link.md
+    - name: Ativar o Link Privado para a Web App
+      href: how-to-enable-private-link-web-app.md
     - name: Registo
       href: how-to-logs.md
     - name: Monitorização e alertas

@@ -4,12 +4,12 @@ description: Resume o apoio à recuperação de desastres dos VMs do Azure para 
 ms.topic: article
 ms.date: 11/29/2020
 ms.author: raynew
-ms.openlocfilehash: 522af9738cac098dcc9e8cb73183c0bd6b3b4902
-ms.sourcegitcommit: b513b0becf878eb9a1554c26da53aa48d580bb22
+ms.openlocfilehash: 7e9cb2397017c428c3a5251ed0d0c4f9a076c72f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100534685"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101735544"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Matriz de suporte para recuperação após desastre de VMs do Azure entre regiões do Azure
 
@@ -258,6 +258,7 @@ Dupla encriptação em repouso | Suportado | Saiba mais sobre regiões apoiadas 
 Encriptação do disco Azure (ADE) para o Windows OS | Suportado para VMs com discos geridos. | Os VMs que utilizam discos não geridos não são suportados. <br/><br/> As chaves protegidas pelo HSM não são suportadas. <br/><br/> A encriptação de volumes individuais num único disco não é suportada. |
 Encriptação do disco Azure (ADE) para Linux OS | Suportado para VMs com discos geridos. | Os VMs que utilizam discos não geridos não são suportados. <br/><br/> As chaves protegidas pelo HSM não são suportadas. <br/><br/> A encriptação de volumes individuais num único disco não é suportada. <br><br> Problema conhecido com ativar a replicação. [Saiba mais.](./azure-to-azure-troubleshoot-errors.md#enable-protection-failed-as-the-installer-is-unable-to-find-the-root-disk-error-code-151137) |
 Rotação da chave SAS | Não suportado | Se a chave SAS para contas de armazenamento for rotativa, o cliente precisa de desativar e reativar a replicação. |
+Caching hospedeiro | Suportado
 Adicionar quente    | Suportado | Ativar a replicação de um disco de dados que adiciona a um VM Azure replicado é suportado para VMs que utilizam discos geridos. <br/><br/> Apenas um disco pode ser adicionado quente a um Azure VM de cada vez. A adição paralela de vários discos não é suportada. |
 Disco de remoção quente    | Não suportado | Se remover o disco de dados no VM, tem de desativar a replicação e ativar novamente a replicação para o VM.
 Excluir o disco | Apoio. Tem de usar [o PowerShell](azure-to-azure-exclude-disks.md) para configurar. |    Os discos temporários são excluídos por defeito.

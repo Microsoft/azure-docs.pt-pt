@@ -1,17 +1,16 @@
 ---
 title: Histórico de versão de esquema de configuração do Windows Azure Diagnostics (WAD)
 description: Relevante para a recolha de contadores perf em Máquinas Virtuais Azure, Conjuntos de Escala VM, Tecido de Serviço e Serviços cloud.
-ms.subservice: diagnostic-extension
 ms.topic: reference
 author: bwren
 ms.author: bwren
 ms.date: 01/29/2020
-ms.openlocfilehash: 3b6dc0e19c181ebf4df2778633f981258023e046
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 57ba1c760fe8919fff95493c5c81da4368894f73
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100617321"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719819"
 ---
 # <a name="windows-azure-diagnostics-extension-wad-configuration-schema-versions-and-history"></a>Versões e histórico de esquemas de configuração do Windows Azure Diagnostics (WAD)
 Este artigo fornece o histórico da versão da [extensão Azure Diagnostics para versões](diagnostics-extension-overview.md) de esquema do Windows (WAD) enviadas como parte do Microsoft Azure SDK.  
@@ -47,7 +46,7 @@ Diferentes versões de diagnósticos Azure utilizam diferentes esquemas de confi
 ### <a name="diagnostics-extension-111"></a>Extensão de diagnóstico 1.11
 Apoio adicional à pia do Monitor Azure. Esta pia só é aplicável aos contadores de desempenho. Permite o envio de contadores de desempenho recolhidos no seu VM, VMSS ou serviço de nuvem para O Azure Monitor como métricas personalizadas. O azure monitor suporta:
 * Recuperação de todos os contadores de desempenho enviados para o Azure Monitor através das [métricas Azure Monitor APIs.](/rest/api/monitor/metrics/list)
-* Alertando em todos os contadores de desempenho enviados ao Azure Monitor através da nova [experiência de alertas unificados](../platform/alerts-overview.md) no Azure Monitor
+* Alertando em todos os contadores de desempenho enviados ao Azure Monitor através da nova [experiência de alertas unificados](../alerts/alerts-overview.md) no Azure Monitor
 * Tratar o operador wildcard nos contadores de desempenho como a dimensão "Exemplo" na sua métrica. Por exemplo, se recolhesse o \* contador "LogicalDisk,)/DiskWrites/sec" seria capaz de filtrar e dividir na dimensão "Exemplo" para traçar ou alertar no Disco Writes/seg para cada Disco Lógico (C:, D:, etc.)
 
 Defina o Azure Monitor como uma nova pia na configuração da extensão de diagnóstico
@@ -190,4 +189,3 @@ Se estiver a atualizar o seu projeto de Azure SDK 2.4 para Azure SDK 2.5 ou mais
 * **Os diagnósticos para aplicações de serviço na nuvem só podem ser configurados ao nível da função, e não ao nível da instância.**
 * **Sempre que implementa a sua aplicação, a configuração de diagnóstico é atualizada** – Isto pode causar problemas de paridade se alterar a configuração de diagnóstico do Server Explorer e, em seguida, recolocar a sua aplicação.
 * **No Azure SDK 2.5 e posteriormente, os depósitos de colisão são configurados no ficheiro de configuração de diagnósticos, não em código** – Se tiver falhas configuradas em código, terá de transferir manualmente a configuração do código para o ficheiro de configuração, porque os depósitos de colisão não são transferidos durante a migração para Azure SDK 2.6.
-

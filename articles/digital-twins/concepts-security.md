@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: d129890cc63e5a0e4cbc6139e1de2df7a31f6f77
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 81a44d4d0025c841cf56e19d6afee5e95bd44a55
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101094562"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101730512"
 ---
 # <a name="secure-azure-digital-twins"></a>Secure Azure Digital Twins
 
@@ -92,7 +92,7 @@ O Azure suporta dois tipos de identidades geridas: atribuídas pelo sistema e at
 
 Pode utilizar uma identidade gerida atribuída ao sistema para a sua Instância Digital Azure para autenticar num [ponto final definido sob medida.](concepts-route-events.md#create-an-endpoint) A Azure Digital Twins suporta a autenticação baseada no sistema para pontos finais para destinos [de Event Hub](../event-hubs/event-hubs-about.md) e Service [Bus](../service-bus-messaging/service-bus-messaging-overview.md)e para um ponto final   do [Azure Storage Container](../storage/blobs/storage-blobs-introduction.md)para   [eventos com letras mortas.](concepts-route-events.md#dead-letter-events) [Grelha de eventos](../event-grid/overview.md)   os pontos finais não são atualmente suportados para identidades geridas.
 
-Para obter instruções sobre como ativar uma identidade gerida pelo sistema para as Gémeas Digitais Azure e usá-la para encaminhar eventos, consulte [*Como-a: Habilitar uma identidade gerida para eventos de encaminhamento (pré-visualização)*](how-to-enable-managed-identities.md).
+Para obter instruções sobre como ativar uma identidade gerida pelo sistema para as Gémeas Digitais Azure e usá-la para encaminhar eventos, consulte [*Como-a: Habilitar uma identidade gerida para eventos de encaminhamento (pré-visualização)*](./how-to-enable-managed-identities-portal.md).
 
 ## <a name="private-network-access-with-azure-private-link-preview"></a>Acesso à rede privada com Link Privado Azure (pré-visualização)
 
@@ -106,7 +106,7 @@ O ponto final privado utiliza um endereço IP a partir do seu espaço de endere�
 
 Configurar um ponto final privado para a sua instância Azure Digital Twins permite-lhe proteger a sua instância Azure Digital Twins e eliminar a exposição pública, bem como evitar a exfiltração de dados a partir do seu VNet.
 
-Para obter instruções sobre como configurar o Link Privado para Gémeos Digitais Azure, consulte [*Como-a-fazer: Ative o acesso privado com o Link Privado (pré-visualização)*](how-to-enable-private-link.md).
+Para obter instruções sobre como configurar o Link Privado para Gémeos Digitais Azure, consulte [*Como-a-fazer: Ative o acesso privado com o Link Privado (pré-visualização)*](./how-to-enable-private-link-portal.md).
 
 ### <a name="design-considerations"></a>Considerações de conceção 
 
@@ -127,7 +127,7 @@ Abaixo estão os detalhes da etiqueta de serviço **AzureDigitalTwins.**
 
 | Etiqueta | Objetivo | Pode usar entrada ou saída? | Pode ser regional? | Pode usar com Azure Firewall? |
 | --- | --- | --- | --- | --- |
-| AzureDigitalTwins | Azure Digital Twins<br>Nota: Esta etiqueta ou os endereços IP abrangidos por esta etiqueta podem ser utilizados para restringir o acesso aos pontos finais configurados para [as rotas do evento](concepts-route-events.md). | Entrada | No | Yes |
+| AzureDigitalTwins | Azure Digital Twins<br>Nota: Esta etiqueta ou os endereços IP abrangidos por esta etiqueta podem ser utilizados para restringir o acesso aos pontos finais configurados para [as rotas do evento](concepts-route-events.md). | Entrada | Não | Sim |
 
 ### <a name="using-service-tags-for-accessing-event-route-endpoints"></a>Utilização de etiquetas de serviço para aceder aos pontos finais da rota do evento 
 

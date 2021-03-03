@@ -7,12 +7,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
-ms.openlocfilehash: 8493b75f0d9e0f947996df431d63bfba9abdc9e0
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 9f4f5f82423f0ecb4e810eab2d675e95b8b66763
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100615912"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717167"
 ---
 # <a name="workbook-time-parameters"></a>Parâmetros de tempo do livro
 
@@ -78,5 +78,5 @@ requests
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Começar a](../platform/workbooks-overview.md#visualizations) aprender mais sobre livros de trabalho muitas opções de visualizações ricas.
-* [Controle](../platform/workbooks-access-control.md) e partilhe o acesso aos seus recursos do livro.
+* [Começar a](./workbooks-overview.md#visualizations) aprender mais sobre livros de trabalho muitas opções de visualizações ricas.
+* [Controle](./workbooks-access-control.md) e partilhe o acesso aos seus recursos do livro.

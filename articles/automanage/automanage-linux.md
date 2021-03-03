@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 02/22/2021
 ms.author: deanwe
-ms.openlocfilehash: e36d170e1a7f918ff40c32f3225ce3a0ddbe260f
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: b4ca9a69ab56a81e192560a3a61ec90f82cbbe80
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101662737"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101688404"
 ---
 # <a name="azure-automanage-for-virtual-machines-best-practices---linux"></a>Azure Automanage para as melhores práticas de máquinas virtuais - Linux
 
@@ -26,9 +26,9 @@ Para todos estes serviços, iremos configurar automaticamente, configurar automa
 A automanagem suporta as seguintes distribuições e versões Linux:
 
 - CentOS 7.3+
-- RHEL 7.4-7.8
+- RHEL 7.4+
 - Ubuntu 16.04 e 18.04
-- SLES 12 (todos os pacotes de serviço)
+- SLES 12 (apenas SP3-SP5)
 
 ## <a name="participating-services"></a>Serviços participantes
 

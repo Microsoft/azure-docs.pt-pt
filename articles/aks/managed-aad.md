@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 02/1/2021
 ms.author: miwithro
-ms.openlocfilehash: 7f6cf503a459175e3109a515b666bbeaa3a25b4d
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 78eed4086c04ceca677a96f03875481e56206e0c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99550004"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101724025"
 ---
 # <a name="aks-managed-azure-active-directory-integration"></a>Integração do Azure Ative Directory gerido pela AKS
 
@@ -231,6 +231,70 @@ No portal Azure, navegue para O Diretório Ativo Azure, selecione *aplicações 
 
 :::image type="content" source="./media/managed-aad/conditional-access-sign-in-activity.png" alt-text="Entrada de entrada falhada devido à política de acesso condicional":::
 
+## <a name="configure-just-in-time-cluster-access-with-azure-ad-and-aks"></a>Configure o acesso ao cluster just-in-time com Azure AD e AKS
+
+Outra opção para o controlo de acesso ao cluster é utilizar a Gestão de Identidade Privilegiada (PIM) para pedidos just-in-time.
+
+>[!NOTE]
+> O PIM é uma capacidade Azure AD Premium que requer um Premium P2 SKU. Para mais informações sobre Azure AD SKUs, consulte o [guia de preços.][aad-pricing]
+
+Para integrar pedidos de acesso just-in-time com um cluster AKS utilizando a integração Azure AD gerida pela AKS, complete os seguintes passos:
+
+1. No topo do portal Azure, procure e selecione O Diretório Ativo Azure.
+1. Tome nota do ID do Inquilino, referido para o resto destas instruções como `<tenant-id>` :::image type="content" source="./media/managed-aad/jit-get-tenant-id.png" alt-text="Num navegador web, o ecrã do portal Azure para O Diretório Ativo Azure é mostrado com o ID do inquilino realçado.":::
+1. No menu do Azure Ative Directory no lado esquerdo, sob *Gerir* *grupos selecionados* e depois *Novo Grupo*.
+    :::image type="content" source="./media/managed-aad/jit-create-new-group.png" alt-text="Mostra o ecrã de grupos de grupos do portal Azure com a opção 'Novo Grupo' em destaque.":::
+1. Certifique-se de que um tipo de *segurança* do grupo está selecionado e introduza um nome de grupo, como *o myJITGroup*. Sob *Azure AD Roles pode ser atribuído a este grupo (Preview)*, selecione *Sim*. Por fim, *selecione Criar*.
+    :::image type="content" source="./media/managed-aad/jit-new-group-created.png" alt-text="Mostra o novo ecrã de criação de grupo do portal Azure.":::
+1. Serão devolvidos à página *grupos.* Selecione o seu grupo recém-criado e tome nota do ID do objeto, referido para o resto destas instruções como `<object-id>` .
+    :::image type="content" source="./media/managed-aad/jit-get-object-id.png" alt-text="Mostra o ecrã do portal Azure para o grupo acabado de criar, destacando o Id do Objeto":::
+1. Implementar um cluster AKS com integração Azure AD gerida pela AKS utilizando os `<tenant-id>` valores e `<object-id>` valores anteriores:
+    ```azurecli-interactive
+    az aks create -g myResourceGroup -n myManagedCluster --enable-aad --aad-admin-group-object-ids <object-id> --aad-tenant-id <tenant-id>
+    ```
+1. De volta ao portal Azure, no menu de *Atividade* do lado esquerdo, selecione *Acesso Privilegiado (Pré-visualização)* e selecione *Enable Privileged Access*.
+    :::image type="content" source="./media/managed-aad/jit-enabling-priv-access.png" alt-text="É mostrada a página de acesso privilegiado (Preview) do portal Azure, com destaque para o 'Enable privileged access'":::
+1. Selecione *Adicionar Atribuições* para começar a conceder acesso.
+    :::image type="content" source="./media/managed-aad/jit-add-active-assignment.png" alt-text="O ecrã de acesso privilegiado (Preview) do portal Azure após a ativação é mostrado. A opção de 'Adicionar atribuições' está em destaque.":::
+1. Selecione um papel de *membro* e selecione os utilizadores e grupos a quem deseja conceder acesso ao cluster. Estas atribuições podem ser modificadas a qualquer momento por um administrador de grupo. Quando estiver pronto para seguir em frente, selecione *Next*.
+    :::image type="content" source="./media/managed-aad/jit-adding-assignment.png" alt-text="É apresentado o ecrã de adesão do portal Azure, com um utilizador de amostra selecionado para ser adicionado como membro. A opção 'Seguinte' está em destaque.":::
+1. Escolha um tipo de atribuição de *Ative,* a duração desejada, e forneça uma justificação. Quando estiver pronto para prosseguir, selecione *Atribua.* Para obter mais informações sobre tipos de atribuição, consulte [Atribuir elegibilidade para um grupo privilegiado de acesso (pré-visualização) em Gestão de Identidade Privilegiada.][aad-assignments]
+    :::image type="content" source="./media/managed-aad/jit-set-active-assignment-details.png" alt-text="É mostrado o ecrã de definição de atribuições do portal Azure. É selecionado um tipo de atribuição de 'Activo' e foi dada uma justificação de amostra. A opção 'Atribuir' é realçada.":::
+
+Uma vez feitas as atribuições, verifique se o acesso just-in-time está a funcionar acedendo ao cluster. Por exemplo:
+
+```azurecli-interactive
+ az aks get-credentials --resource-group myResourceGroup --name myManagedCluster
+```
+
+Siga os passos para se inscrever.
+
+Utilize o `kubectl get nodes` comando para visualizar os nóns no cluster:
+
+```azurecli-interactive
+kubectl get nodes
+```
+
+Observe o requisito de autenticação e siga os passos para autenticar. Se for bem sucedido, deverá ver uma saída semelhante à seguinte:
+
+```output
+To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code AAAAAAAAA to authenticate.
+NAME                                STATUS   ROLES   AGE     VERSION
+aks-nodepool1-61156405-vmss000000   Ready    agent   6m36s   v1.18.14
+aks-nodepool1-61156405-vmss000001   Ready    agent   6m42s   v1.18.14
+aks-nodepool1-61156405-vmss000002   Ready    agent   6m33s   v1.18.14
+```
+
+### <a name="troubleshooting"></a>Resolução de problemas
+
+Se `kubectl get nodes` retornar um erro semelhante ao seguinte:
+
+```output
+Error from server (Forbidden): nodes is forbidden: User "aaaa11111-11aa-aa11-a1a1-111111aaaaa" cannot list resource "nodes" in API group "" at the cluster scope
+```
+
+Certifique-se de que o administrador do grupo de segurança deu à sua conta uma missão *Ativa.*
+
 ## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [a integração do Azure RBAC para a Autorização Kubernetes][azure-rbac-integration]
@@ -243,6 +307,7 @@ No portal Azure, navegue para O Diretório Ativo Azure, selecione *aplicações 
 [kubernetes-webhook]:https://kubernetes.io/docs/reference/access-authn-authz/authentication/#webhook-token-authentication
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [aks-arm-template]: /azure/templates/microsoft.containerservice/managedclusters
+[aad-pricing]: /azure/pricing/details/active-directory
 
 <!-- LINKS - Internal -->
 [aad-conditional-access]: ../active-directory/conditional-access/overview.md
@@ -260,3 +325,4 @@ No portal Azure, navegue para O Diretório Ativo Azure, selecione *aplicações 
 [azure-ad-cli]: azure-ad-integration-cli.md
 [access-cluster]: #access-an-azure-ad-enabled-cluster
 [aad-migrate]: #upgrading-to-aks-managed-azure-ad-integration
+[aad-assignments]: ../active-directory/privileged-identity-management/groups-assign-member-owner.md#assign-an-owner-or-member-of-a-group

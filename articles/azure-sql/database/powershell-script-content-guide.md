@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/25/2019
-ms.openlocfilehash: 77220fabc78dd10b4299219ef84c1f6eb32ba82e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7d732f0e42bc5eef8f72a2b9ce2adee28deb9a67
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85987328"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690979"
 ---
 # <a name="azure-powershell-samples-for-azure-sql-database-and-azure-sql-managed-instance"></a>Amostras Azure PowerShell para Azure SQL Database e Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -68,7 +68,7 @@ A tabela seguinte inclui links para amostrar scripts Azure PowerShell para Azure
 |---|---|
 |**Criar e configurar instâncias geridas**||
 | [Criar e gerir um caso gerido](../managed-instance/scripts/create-configure-managed-instance-powershell.md) | Este script PowerShell mostra-lhe como criar e gerir um caso gerido usando Azure PowerShell. |
-| [Criar e gerir um caso gerido usando o modelo de Gestor de Recursos Azure](../managed-instance/scripts/create-powershell-azure-resource-manager-template.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Este script PowerShell mostra-lhe como criar e gerir um caso gerido usando o modelo Azure PowerShell e o modelo Azure Resource Manager.|
+| [Criar e gerir um caso gerido usando o modelo de Gestor de Recursos Azure](../managed-instance/create-template-quickstart.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Este script PowerShell mostra-lhe como criar e gerir um caso gerido usando o modelo Azure PowerShell e o modelo Azure Resource Manager.|
 | [Restaurar a base de dados para um caso gerido em outra geo-região](../managed-instance/scripts/restore-geo-backup.md) | Este script PowerShell pega numa cópia de segurança de uma base de dados e restaura-a para outra região. Isto é conhecido como um cenário de recuperação de desastres geo-restaurado. |
 | **Configurar encriptação de dados transparentes**||
 | [Gerir encriptação de dados transparentes em um caso gerido usando a sua própria chave a partir de Azure Key Vault](../managed-instance/scripts/transparent-data-encryption-byok-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Este script PowerShell configura encriptação de dados transparente num cenário Bring Your Own Key para Azure SQL Managed Instance, usando uma chave do Cofre de Chaves Azure.|

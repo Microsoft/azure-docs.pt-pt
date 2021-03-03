@@ -7,12 +7,12 @@ ms.author: allensu
 ms.service: load-balancer
 ms.topic: tutorial
 ms.date: 02/10/2021
-ms.openlocfilehash: b1a249bac4a1a46e52bf52eccd56649153eefe8e
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 88e400cea764be84521c003a681aa74885dc29ce
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100360929"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101721349"
 ---
 # <a name="tutorial-create-a-cross-region-azure-load-balancer-using-azure-powershell"></a>Tutorial: Criar um balanceador de carga Azure de região transversal usando Azure PowerShell
 
@@ -195,7 +195,7 @@ Set-AzLoadBalancerBackendAddressPool @bepoolcr
 
 Nesta secção, você vai testar o equilibrador de carga cross-region. Você vai ligar ao endereço IP público em um navegador web.  Você vai parar as máquinas virtuais em uma das piscinas regionais de backend balancer de carga e observar o failover.
 
-1. Utilize [o Get-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/get-azpublicipaddress) para obter o endereço IP público do equilibrista de carga:
+1. Utilize [o Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) para obter o endereço IP público do equilibrista de carga:
 
 ```azurepowershell-interactive
 $ip = @{

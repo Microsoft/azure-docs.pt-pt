@@ -3,12 +3,12 @@ title: Modelos de ligação para implantação
 description: Descreve como usar modelos ligados num modelo de Gestor de Recursos Azure (modelo ARM) para criar uma solução de modelo modular. Mostra como passar valores de parâmetros, especificar um ficheiro de parâmetros e URLs criados dinamicamente.
 ms.topic: conceptual
 ms.date: 01/26/2021
-ms.openlocfilehash: aae3947656e475d15bc4f0da770d0398fafa13c5
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: ac987b1390e939ad2b081745396245b432bb836b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880441"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101741009"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Utilizar modelos ligados e aninhados ao implementar recursos do Azure
 
@@ -668,10 +668,10 @@ O modelo de exemplo a seguir mostra como usar `copy` com um modelo aninhado.
             "kind": "StorageV2"
             // Copy works here when scope is inner
             // But, when scope is default or outer, you get an error
-            //"copy":{
-            //  "name": "storagecopy",
-            //  "count": 2
-            //}
+            // "copy": {
+            //   "name": "storagecopy",
+            //   "count": 2
+            // }
           }
         ]
       }
@@ -888,7 +888,7 @@ Os exemplos a seguir mostram utilizações comuns de modelos ligados.
 |[Balanceador de carga com endereço IP público](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) |[modelo ligado](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) |Devolve o endereço IP público do modelo ligado e define esse valor no equilibrador de carga. |
 |[Vários endereços IP](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip-parent.json) | [modelo ligado](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip.json) |Cria vários endereços IP públicos em modelo ligado.  |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para passar por um tutorial, consulte [Tutorial: Implemente um modelo ligado](./deployment-tutorial-linked-template.md).
 * Para saber mais sobre a definição da ordem de implantação dos seus recursos, consulte [Definir a ordem para a implantação de recursos em modelos ARM](define-resource-dependency.md).

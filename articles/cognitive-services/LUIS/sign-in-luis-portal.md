@@ -9,12 +9,12 @@ ms.date: 09/08/2020
 ms.topic: how-to
 ms.author: nitinme
 author: nitinme
-ms.openlocfilehash: 8a4b86fb8fa5a87283178d957e07617b908e6286
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: aeb84fca47dbf2922f17a3e8931e3158f9ee2cca
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98790906"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101706780"
 ---
 # <a name="sign-in-to-luis-portal"></a>Iniciar sessão no portal LUIS
 
@@ -48,14 +48,14 @@ Use este artigo para começar com o portal LUIS e crie um recurso de autoria. De
     * **Nome do grupo Azure Resource** - um nome de grupo de recursos personalizado que escolher na sua subscrição. Os grupos de recursos permitem-lhe agrupar recursos Azure para acesso e gestão. Se atualmente não tiver um grupo de recursos na sua subscrição, não poderá criar um no portal LUIS. Vá ao [portal Azure](https://ms.portal.azure.com/#create/Microsoft.ResourceGroup) para criar um e depois vá ao LUIS para continuar o processo de inscrição.
     * **Nome do Recurso Azure** - um nome personalizado que escolhe, usado como parte do URL para as suas transações de autoria. O seu nome de recurso só pode incluir caracteres alfanuméricos, `-` e não pode começar ou terminar com `-` . Se outros símbolos estiverem incluídos no nome, a criação de um recurso falhará.
     * **Localização** - Escolha autor de suas aplicações em um dos [três locais de autoria](./luis-reference-regions.md) que são atualmente apoiados pela LUIS, incluindo: West Us, West Europe e East Australia
-    * **Nível de preços** - Por padrão, o nível de preços de autoria de F0 é selecionado como recomendado. Crie uma [chave gerida pelo cliente](./luis-encryption-of-data-at-rest.md#customer-managed-keys-for-language-understanding) a partir do portal Azure se estiver à procura de uma camada extra de segurança.
+    * **Nível de preços** - Por padrão, o nível de preços de autoria de F0 é selecionado como recomendado. Crie uma [chave gerida pelo cliente](./encrypt-data-at-rest.md#customer-managed-keys-for-language-understanding) a partir do portal Azure se estiver à procura de uma camada extra de segurança.
 8. Agora assinou com sucesso com o LUIS. Pode agora começar a criar aplicações.
 
-## <a name="troubleshooting"></a>Resolução de Problemas
+## <a name="troubleshooting"></a>Resolução de problemas
 
 * Ao criar um novo recurso, certifique-se de que o nome do recurso apenas inclui caracteres alfanuméricos, '-', e não pode começar ou terminar com '-'. Caso contrário, falhará.
 * Certifique-se de que tem as [permissões adequadas na sua subscrição para criar um recurso Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles). Se não tiver as permissões adequadas, contacte a administração da sua subscrição para lhe dar permissões suficientes.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba como [iniciar uma nova aplicação](luis-how-to-start-new-app.md)

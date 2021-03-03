@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/25/2021
 ms.author: allensu
-ms.openlocfilehash: fbde2b95b7aca205f164dc45c1f0170cc4da74fb
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 29584a9453fa052745f417cba0bbe940766c30e9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100581889"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101699084"
 ---
 # <a name="standard-load-balancer-diagnostics-with-metrics-alerts-and-resource-health"></a>Diagnóstico do Balanceador de Carga Standard com métricas, alertas e estado de funcionamento dos recursos
 
@@ -34,7 +34,7 @@ O Azure Load Balancer fornece métricas multidimensionais através das Métricas
 
 As várias configurações standard de balançadores de carga fornecem as seguintes métricas:
 
-| Metric | Tipo de recurso | Description | Agregação recomendada |
+| Metric | Tipo de recurso | Descrição | Agregação recomendada |
 | --- | --- | --- | --- |
 | Disponibilidade do caminho dos dados | Balanceador de carga público e interno | O Balanceador de Carga Standard exerce continuamente o caminho de dados a partir de uma região para o front-end do balanceador de carga, até à pilha SDN que suporta a sua VM. Enquanto se mantiverem casos saudáveis, a medição segue o mesmo caminho que o tráfego equilibrado da sua aplicação. O caminho de dados que os clientes utilizam também é validado. A medição é invisível para a aplicação e não interfere com outras operações.| Média |
 | Estado da sonda de estado de funcionamento | Balanceador de carga público e interno | O Standard Load Balancer utiliza um serviço de sondagem de saúde distribuído que monitoriza a saúde do seu ponto final de aplicação de acordo com as definições de configuração. Esta métrica proporciona uma vista filtrada agregada ou por ponto final de cada ponto final no conjunto do balanceador de carga. Pode ver como o Balanceador de Carga vê o estado de funcionamento da sua aplicação, conforme indicado pela configuração da sonda de estado de funcionamento. |  Média |
@@ -72,18 +72,7 @@ Para ver as métricas dos seus recursos standard balanceador de carga:
 
 ### <a name="retrieve-multi-dimensional-metrics-programmatically-via-apis"></a>Recuperar métricas multidimensionais programáticamente através de APIs
 
-Para obter orientações da API para a recuperação de definições e valores métricos multidimensionais, consulte [a Azure Monitoring REST API walkthrough](../azure-monitor/essentials/rest-api-walkthrough.md#retrieve-metric-definitions-multi-dimensional-api). Estas métricas podem ser escritas numa conta de armazenamento adicionando uma [Definição de Diagnóstico](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) para a categoria 'Todas as Métricas'. 
-
-### <a name="configure-alerts-for-multi-dimensional-metrics"></a>Alertas de configuração para métricas multidimensionais ###
-
-O Azure Standard Load Balancer suporta alertas facilmente configuráveis para métricas multidimensionais. Configure limiares personalizados para métricas específicas para desencadear alertas com diferentes níveis de gravidade para capacitar uma experiência de monitorização de recursos sem toque.
-
-Para configurar alertas:
-1. Vá ao sub-lâmina de alerta para o equilibrador de carga
-1. Criar nova regra de alerta
-    1.  Condição de alerta de configuração
-    1.  (Opcional) Adicione grupo de ação para reparação automatizada
-    1.  Atribua gravidade, nome e descrição de alerta que permita uma reação intuitiva
+Para obter orientações da API para a recuperação de definições e valores métricos multidimensionais, consulte [a Azure Monitoring REST API walkthrough](../azure-monitor/essentials/rest-api-walkthrough.md#retrieve-metric-definitions-multi-dimensional-api). Estas métricas podem ser escritas numa conta de armazenamento adicionando uma [Definição de Diagnóstico](../azure-monitor/essentials/diagnostic-settings.md) para a categoria 'Todas as Métricas'. 
 
 ### <a name="common-diagnostic-scenarios-and-recommended-views"></a><a name = "DiagnosticScenarios"></a>Cenários de diagnóstico comuns e pontos de vista recomendados
 
@@ -228,15 +217,41 @@ O gráfico apresenta as seguintes informações:
 O gráfico permite que os clientes resolvam a implementação por conta própria sem terem de adivinhar ou pedir apoio se estão a ocorrer outras questões. O serviço estava indisponível porque as sondas de saúde estavam a falhar devido a uma configuração errada ou a uma aplicação falhada.
 </details>
 
+## <a name="configure-alerts-for-multi-dimensional-metrics"></a>Alertas de configuração para métricas multidimensionais ###
+
+O Azure Standard Load Balancer suporta alertas facilmente configuráveis para métricas multidimensionais. Configure limiares personalizados para métricas específicas para desencadear alertas com diferentes níveis de gravidade para capacitar uma experiência de monitorização de recursos sem toque.
+
+Para configurar alertas:
+1. Vá ao sub-lâmina de alerta para o equilibrador de carga
+1. Criar nova regra de alerta
+    1.  Condição de alerta de configuração
+    1.  (Opcional) Adicione grupo de ação para reparação automatizada
+    1.  Atribua gravidade, nome e descrição de alerta que permita uma reação intuitiva
+
+### <a name="inbound-availability-alerting"></a>Alerta de disponibilidade de entrada
+Para alertar para a disponibilidade de entrada, pode criar dois alertas separados utilizando a disponibilidade do caminho de dados e as métricas do estado da sonda de saúde. Os clientes podem ter diferentes cenários que requerem lógica de alerta específica, mas os exemplos abaixo serão úteis para a maioria das configurações.
+
+Utilizando a disponibilidade de trajetória de dados, pode disparar alertas sempre que uma regra específica de equilíbrio de carga se torne indisponível. Pode configurar este alerta definindo uma condição de alerta para a disponibilidade do caminho de dados e dividindo-se por todos os valores atuais e valores futuros tanto para o Frontend Port como para o Frontend IP Address. Definir a lógica de alerta para ser inferior ou igual a 0 fará com que este alerta seja disparado sempre que qualquer regra de equilíbrio de carga não responda. Deslovide a granularidade de agregação e a frequência de avaliação de acordo com a avaliação desejada. 
+
+Com o estado da sonda de saúde, pode alertar quando uma dada instância de backend não responde à sonda de saúde durante um período significativo de tempo. Desacione a sua condição de alerta para utilizar a métrica do estado da sonda de saúde e divida pelo Backend IP Address e backend Port. Isto garantirá que pode alertar separadamente para a capacidade de cada instância de backend individual de servir o tráfego em uma porta específica. Utilize o tipo de agregação **média** e desagrega o valor limiar de acordo com a frequência com que a sua instância de backend é sondada e o que considera ser o seu limiar saudável. 
+
+Também pode alertar para um nível de piscina de backend, não dividindo por nenhuma dimensão e usando o tipo de agregação **média.** Isto permitir-lhe-á configurar regras de alerta, tais como alerta quando 50% dos membros da piscina de backend não estão saudáveis.
+
+### <a name="outbound-availability-alerting"></a>Alerta de disponibilidade de saída
+Para configurar a disponibilidade de saída, pode configurar dois alertas separados utilizando as métricas de contagem de ligação SNAT e porta SNAT usadas.
+
+Para detetar falhas de ligação de saída, configuure um alerta utilizando a contagem de ligação SNAT e filtrando o Estado de Ligação = Falhado. Utilize a **agregação total.** Em seguida, também pode dividi-lo por Backend IP Address definido para todos os valores atuais e futuros para alertar separadamente para cada instância de backend experimentando ligações falhadas. Desa um limiar superior ao de zero ou um número superior se esperar ver algumas falhas de ligação de saída.
+
+Através de portas SNAT usadas, pode alertar para um maior risco de exaustão SNAT e falha de ligação de saída. Certifique-se de que está a dividir o endereço IP e o Protocolo do Backend ao utilizar este alerta e utilize a agregação **média.** Desavendar o limiar para ser superior a uma percentagem do número de portos que atribuiu por exemplo que considere inseguro. Por exemplo, pode configurar um alerta de baixa gravidade quando uma instância de backend utiliza 75% das portas atribuídas e uma alta gravidade quando utiliza 90% ou 100% das portas atribuídas.  
 ## <a name="resource-health-status"></a><a name = "ResourceHealth"></a>Estado da saúde dos recursos
 
 O estado de saúde dos recursos do Balanceador de Carga Padrão é exposto através da **saúde dos recursos** existentes no **âmbito do Serviço de > Saúde** do Serviço de Monitorização . É avaliado de **dois em dois minutos** medindo a disponibilidade do caminho de dados que determina se os seus pontos finais de equilíbrio de carga frontal estão disponíveis.
 
-| Estado da saúde dos recursos | Description |
+| Estado da saúde dos recursos | Descrição |
 | --- | --- |
 | Disponível | O seu recurso balanceador de carga padrão é saudável e disponível. |
-| Degradado | O seu balanceador de carga padrão tem eventos iniciados pela plataforma ou pelo utilizador com impacto no desempenho. A métrica de Disponibilidade do DataPath comunicou um estado de funcionamento inferior a 90%, mas superior a 25% durante, pelo menos, dois minutos. Você vai experimentar um impacto de desempenho moderado a grave. [Siga o guia RHC de resolução de problemas](https://docs.microsoft.com/azure/load-balancer/troubleshoot-rhc) para determinar se existem eventos iniciados pelo utilizador que causam impacto na sua disponibilidade.
-| Indisponível | O seu recurso padrão de balanceador de carga não é saudável. A métrica de Disponibilidade de Datapath reportou menos 25% de saúde durante pelo menos dois minutos. Você sentirá um impacto significativo no desempenho ou falta de disponibilidade para a conectividade de entrada. Pode haver eventos de utilizador ou plataforma que causem indisponibilidade. [Siga o guia RHC de resolução de problemas](https://docs.microsoft.com/azure/load-balancer/troubleshoot-rhc) para determinar se existem eventos iniciados pelo utilizador com impacto na sua disponibilidade. |
+| Degradado | O seu balanceador de carga padrão tem eventos iniciados pela plataforma ou pelo utilizador com impacto no desempenho. A métrica de Disponibilidade do DataPath comunicou um estado de funcionamento inferior a 90%, mas superior a 25% durante, pelo menos, dois minutos. Você vai experimentar um impacto de desempenho moderado a grave. [Siga o guia RHC de resolução de problemas](./troubleshoot-rhc.md) para determinar se existem eventos iniciados pelo utilizador que causam impacto na sua disponibilidade.
+| Indisponível | O seu recurso padrão de balanceador de carga não é saudável. A métrica de Disponibilidade de Datapath reportou menos 25% de saúde durante pelo menos dois minutos. Você sentirá um impacto significativo no desempenho ou falta de disponibilidade para a conectividade de entrada. Pode haver eventos de utilizador ou plataforma que causem indisponibilidade. [Siga o guia RHC de resolução de problemas](./troubleshoot-rhc.md) para determinar se existem eventos iniciados pelo utilizador com impacto na sua disponibilidade. |
 | Desconhecido | O estado de saúde dos recursos para o seu recurso balanceador de carga padrão ainda não foi atualizado ou não recebeu informações de disponibilidade do Data Path nos últimos 10 minutos. Este estado deve ser transitório e refletirá o estado correto assim que os dados forem recebidos. |
 
 Para ver a saúde dos seus recursos públicos standard balancer:
@@ -263,7 +278,7 @@ A descrição genérica do estado de saúde dos recursos está disponível na do
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre a [utilização de Insights](https://docs.microsoft.com/azure/load-balancer/load-balancer-insights) para visualizar estas métricas pré-configuradas para o seu Balancer de Carga
+- Saiba mais sobre a [utilização de Insights](./load-balancer-insights.md) para visualizar estas métricas pré-configuradas para o seu Balancer de Carga
 - Saiba mais sobre [o Balancer de Carga Padrão](./load-balancer-overview.md).
 - Saiba mais sobre a conectividade de saída do seu [balanceador de carga](./load-balancer-outbound-connections.md).
 - Saiba mais sobre [o Azure Monitor](../azure-monitor/overview.md).

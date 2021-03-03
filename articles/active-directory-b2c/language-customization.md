@@ -12,12 +12,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: e29ef68bb6f02e329d0406cd80dceb25beab8932
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 418f0797343a64728c4e48084b09bd0e426cec62
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101645913"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101686415"
 ---
 # <a name="language-customization-in-azure-active-directory-b2c"></a>Personalização linguística no Azure Ative Directory B2C
 
@@ -226,7 +226,7 @@ As [Fontes Locais](localization.md#localizedresources) do `Localization` element
 Configura elementos de recursos localizados para a definição de conteúdo e qualquer idioma que queira apoiar. Para personalizar as páginas unificadas de inscrição ou inscrição para inglês e espanhol, adicione os `LocalizedResources` seguintes elementos após o fecho do `</SupportedLanguages>` elemento.
 
 > [!NOTE]
-> Na amostra seguinte, adicionámos o símbolo da libra `#` na mendigagem de cada linha, para que possa encontrar as etiquetas localizadas no ecrã.
+> Na amostra seguinte, adicionámos o símbolo da libra `#` no início de cada linha, para que possa encontrar facilmente as etiquetas localizadas no ecrã.
 
 ```xml
 <!--Local account sign-up or sign-in page English-->

@@ -9,12 +9,12 @@ ms.workload: azure-vs
 ms.topic: tutorial
 ms.date: 10/5/2020
 ms.author: ghogen
-ms.openlocfilehash: b12f8beeee054e547a6b58750d8482d32ee14453
-ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
+ms.openlocfilehash: 80aa160c53b278137467dba2afa41384c7c4f378
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98747261"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101722675"
 ---
 # <a name="create-and-deploy-a-azure-cloud-service-extended-support-using-visual-studio"></a>Criar e implementar um Azure Cloud Service (suporte alargado) utilizando o Visual Studio
 
@@ -63,7 +63,7 @@ O projeto Visual Studio Azure tem associações para os projetos de papel na sol
 - **Ficheiro de definição** de serviço - Define as definições de tempo de execução para a sua aplicação, incluindo quais as funções necessárias, pontos finais e tamanho da máquina virtual.
 - **Ficheiro de configuração** de serviço - Configura quantas instâncias de uma função são executadas e os valores das definições definidas para um papel.
 
-Para obter mais informações sobre estes ficheiros, consulte [Configurar os Papéis para um Serviço de Nuvem Azure com Visual Studio](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-configure-roles-for-cloud-service).
+Para obter mais informações sobre estes ficheiros, consulte [Configurar os Papéis para um Serviço de Nuvem Azure com Visual Studio](/visualstudio/azure/vs-azure-tools-configure-roles-for-cloud-service).
 
 ## <a name="publish-a-cloud-service"></a>Publicar um Serviço cloud
 
@@ -75,7 +75,7 @@ Para obter mais informações sobre estes ficheiros, consulte [Configurar os Pap
 
 1. **Conta** - Selecione uma conta ou **selecione Adicionar uma conta** na lista de downdown da conta.
 
-1. **Escolha a sua subscrição** - Escolha a subscrição para utilizar para a sua implementação. A subscrição que utiliza para implantar serviços cloud (suporte alargado) precisa de ter funções de Proprietário ou Contribuinte atribuídas através do controlo de acesso baseado em funções (RBAC). Se a sua subscrição não tiver nenhuma destas funções, consulte [Passos para adicionar uma atribuição](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-steps) de papel para adicioná-lo antes de prosseguir mais.
+1. **Escolha a sua subscrição** - Escolha a subscrição para utilizar para a sua implementação. A subscrição que utiliza para implantar serviços cloud (suporte alargado) precisa de ter funções de Proprietário ou Contribuinte atribuídas através do controlo de acesso baseado em funções (RBAC). Se a sua subscrição não tiver nenhuma destas funções, consulte [Passos para adicionar uma atribuição](../role-based-access-control/role-assignments-steps.md) de papel para adicioná-lo antes de prosseguir mais.
 
 1. Escolha **o próximo** para mover para a página **Definições.**
 
@@ -105,7 +105,7 @@ Para obter mais informações sobre estes ficheiros, consulte [Configurar os Pap
 
    ![Definições de diagnóstico](./media/diagnostics-settings.png)
 
-   O diagnóstico permite-lhe resolver problemas num Serviço de Nuvem Azure (ou máquina virtual Azure). Para obter informações sobre diagnósticos, consulte [Configurar Diagnósticos para Serviços em Nuvem Azure e Máquinas Virtuais.](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines) Para obter informações sobre o Application Insights, consulte [o que é Insights de Aplicação?](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview)
+   O diagnóstico permite-lhe resolver problemas num Serviço de Nuvem Azure (ou máquina virtual Azure). Para obter informações sobre diagnósticos, consulte [Configurar Diagnósticos para Serviços em Nuvem Azure e Máquinas Virtuais.](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines) Para obter informações sobre o Application Insights, consulte [o que é Insights de Aplicação?](../azure-monitor/app/app-insights-overview.md)
 
 1. Escolha o **próximo** para passar para a página **Resumo.**
 
@@ -124,6 +124,6 @@ Parabéns! Publicou o seu projeto de Serviço Cloud de apoio alargado ao Azure. 
 
 Para limpar os recursos Azure que criou seguindo este tutorial, vá ao [portal Azure,](https://portal.azure.com)escolha **grupos de Recursos,** encontre e abra o grupo de recursos que utilizou para criar o serviço, e escolha **Delete grupo de recursos**.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-Configure a integração contínua (CI) utilizando o **botão Configure** no ecrã **Publicar.** Para mais informações, consulte [a documentação da Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines).
+Configure a integração contínua (CI) utilizando o **botão Configure** no ecrã **Publicar.** Para mais informações, consulte [a documentação da Azure Pipelines](/azure/devops/pipelines).

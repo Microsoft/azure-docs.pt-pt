@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 01/19/2021
-ms.openlocfilehash: c8d0ea43410b8d191d3d0b08c2f232bd72c80b20
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: b86414758c3b644725e5aa29ca3b314f489508aa
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101669627"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101693531"
 ---
 # <a name="automatically-label-your-data-in-azure-purview"></a>Rotular automaticamente os seus dados em Azure Purview
 
@@ -102,7 +102,10 @@ Ao alargar os rótulos de sensibilidade do MIP com o Azure Purview, as organiza�
 
 **Para alargar os rótulos de sensibilidade à Purview:**
 
-Na Microsoft 365, navegue para a página **de Proteção de Informação.** Na **rotulagem Extend para ativos em Azure Purview,** selecione o botão **Ligar e,** em seguida, selecione **Sim** no diálogo de confirmação que aparece.
+Os seguintes passos permitem que as suas etiquetas de sensibilidade estejam disponíveis para utilização no Azure Purview, onde pode aplicar as suas etiquetas de sensibilidade a ativos como colunas SQL, ficheiros no Azure Blob Storage, entre outros.
+
+1. Na Microsoft 365, navegue para a página **de Proteção de Informação.** 
+1. Na **rotulagem Extend para ativos em Azure Purview,** selecione o botão **Ligar e,** em seguida, selecione **Sim** no diálogo de confirmação que aparece.
 
 Por exemplo:
 

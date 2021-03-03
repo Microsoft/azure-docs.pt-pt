@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 09/24/2020
-ms.openlocfilehash: d72e3ffc8698d9f3a2df170bd87f2969475ca9ed
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: d1c095be1d0525cc843c04a3b83e14bb4211b175
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100580688"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101721264"
 ---
 # <a name="set-up-azure-monitor-logs-and-collect-diagnostics-data-for-azure-logic-apps"></a>Configurar registos do Azure Monitor e recolher dados de diagnóstico para apps Azure Logic
 
@@ -142,9 +142,6 @@ Depois de a sua aplicação lógica ser executado, pode ver os dados sobre essas
    Aqui está um exemplo que mostra todas as corridas para uma aplicação lógica específica:
 
    ![Ver corre e estado da aplicação lógica](./media/monitor-logic-apps-log-analytics/logic-app-run-details.png)
-
-   > [!NOTE]
-   > A capacidade **de Resubmit** nesta página não está disponível neste momento.
 
    Para ações onde [configura propriedades rastreadas,](#extend-data)também pode ver essas propriedades selecionando **Ver** na coluna **Propriedades Rastreadas.** Para pesquisar as propriedades rastreadas, utilize o filtro da coluna.
 

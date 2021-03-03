@@ -5,12 +5,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: fdf482f5afc444aff77c2ab528a4e333a0282c3d
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: d88bf65f1bd94e29bd9f60f5597d655f0040623b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100582357"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101725805"
 ---
 # <a name="explore-azure-monitor-for-azure-cosmos-db"></a>Explore o Monitor Azure para Azure Cosmos DB
 
@@ -71,7 +71,7 @@ Selecione **Falhas** no topo da página e a parte de **Falhas** do modelo de liv
 
 ![Screenshot de falhas com avaria por tipo de pedido HTTP](./media/cosmosdb-insights-overview/failures.png)
 
-| Código |  Description       | 
+| Código |  Descrição       | 
 |-----------|:--------------------|
 | `200 OK`  | Uma das seguintes operações REST foi bem sucedida: </br>- Obter um recurso. </br> - Coloque um recurso. </br> - Post num recurso. </br> - POST num recurso de procedimento armazenado para executar o procedimento armazenado.|
 | `201 Created` | Uma operação POST para criar um recurso é bem sucedida. |
@@ -87,13 +87,51 @@ Selecione **a capacidade** no topo da página e a parte **de capacidade** do mod
 
 Tal como acontece com o livro de visão geral, a seleção do drop-down ao lado de um recurso DB Azure Cosmos na coluna **subscrição** revelará uma avaria por cada recipiente que compõem a base de dados.
 
-### <a name="operations"></a>Operações 
+### <a name="operations"></a>Operações
 
-Selecione **Operações** no topo da página e a parte de **Operações** do modelo de livro abre. Dá-lhe a capacidade de ver os seus pedidos discriminados pelo tipo de pedidos feitos. 
+Selecione **Operações** no topo da página e a parte de **Operações** do modelo de livro abre. Dá-lhe a capacidade de ver os seus pedidos discriminados pelo tipo de pedidos feitos.
 
 Assim, no exemplo abaixo vê-se que `eastus-billingint` está predominantemente a receber pedidos de leitura, mas com um pequeno número de upsert e criar pedidos. Considerando `westeurope-billingint` que a leitura é apenas de uma perspetiva de pedido, pelo menos nas últimas quatro horas que o livro é atualmente traçado através do seu parâmetro de intervalo de tempo.
 
-![Livro de operações](./media/cosmosdb-insights-overview/operation.png) 
+![Livro de operações](./media/cosmosdb-insights-overview/operation.png)
+
+## <a name="view-from-an-azure-cosmos-db-resource"></a>Vista de um recurso DB Azure Cosmos
+
+1. Procure ou selecione qualquer uma das suas contas DB Azure Cosmos existentes.
+
+:::image type="content" source="./media/cosmosdb-insights-overview/cosmosdb-search.png" alt-text="Procure por Azure Cosmos DB." border="true":::
+
+2. Depois de ter navegado para a sua conta DB Azure Cosmos, na secção de Monitorização selecione **Insights (pré-visualização)** ou Livros para realizar mais **análises** sobre o resultado, pedidos, armazenamento, disponibilidade, latência, sistema e gestão de conta.
+
+:::image type="content" source="./media/cosmosdb-insights-overview/cosmosdb-overview.png" alt-text="Cosmos DB Insights Visão Geral." border="true":::
+
+### <a name="time-range"></a>Intervalo de tempo
+
+Por predefinição, o campo **de intervalo** de tempo apresenta dados das **últimas 24 horas**. Pode modificar o intervalo de tempo para exibir dados em qualquer lugar dos últimos 5 minutos até aos últimos sete dias. O seletor de intervalos também inclui um modo **Personalizado** que permite escrever nas datas de início/fim para visualizar um prazo personalizado baseado nos dados disponíveis para a conta selecionada.
+
+:::image type="content" source="./media/cosmosdb-insights-overview/cosmosdb-time-range.png" alt-text="Cosmos DB Time Range." border="true":::
+
+### <a name="insights-overview"></a>Visão geral
+
+O **separador Visão** Geral fornece as métricas mais comuns para a conta DB Azure Cosmos selecionada, incluindo:
+
+* Total de Pedidos
+* Pedidos Falhados (429s)
+* Consumo de RU normalizado (máx)
+* Utilização do índice de & de dados
+* Métricas de Conta Cosmos DB por Coleção
+
+**Total de Pedidos:** Este gráfico fornece uma visão do total de pedidos para a conta discriminada por código de estado. As unidades na parte inferior do gráfico são uma soma do total de pedidos para o período.
+
+:::image type="content" source="./media/cosmosdb-insights-overview/cosmosdb-total-requests.png" alt-text="Gráfico de pedidos totais do Cosmos DB." border="true":::
+
+**Pedidos Falhados (429s)**: Este gráfico fornece uma visão de pedidos falhados com um código de estado de 429. As unidades na parte inferior do gráfico são uma soma do total de pedidos falhados para o período.
+
+:::image type="content" source="./media/cosmosdb-insights-overview/cosmosdb-429.png" alt-text="Gráfico de pedidos falhados do Cosmos DB." border="true":::
+
+**Consumo DE RU normalizado (máx)**: Este gráfico fornece a percentagem máxima entre 0-100% das unidades de consumo RU normalizadas para o período especificado.
+
+:::image type="content" source="./media/cosmosdb-insights-overview/cosmosdb-normalized-ru.png" alt-text="Cosmos DB Normalizou o consumo de RU." border="true":::
 
 ## <a name="pin-export-and-expand"></a>Pin, exportação e expansão
 

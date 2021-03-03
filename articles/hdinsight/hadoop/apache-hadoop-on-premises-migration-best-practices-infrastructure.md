@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/06/2019
-ms.openlocfilehash: f66e13046a34bddfd27912e23ce51f75006fd9fa
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 309053c2d7a0f9482016f1bd83e0c61dcd31bec5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98932153"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101740669"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---infrastructure-best-practices"></a>Migrar para as instalações apache Hadoop clusters para Azure HDInsight - melhores práticas de infraestrutura
 
@@ -36,7 +36,7 @@ Para mais informações, consulte o artigo [Planeamento de capacidade para clust
 
 ## <a name="use-recommended-virtual-machine-type-for-cluster"></a>Utilize o tipo de máquina virtual recomendado para o cluster
 
-Consulte [a configuração do nó predefinido e os tamanhos de máquinas virtuais para os conjuntos](../hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters) de máquinas virtuais recomendadas para cada tipo de cluster HDInsight.
+Consulte [a configuração do nó predefinido e os tamanhos de máquinas virtuais para os conjuntos](../hdinsight-supported-node-configuration.md) de máquinas virtuais recomendadas para cada tipo de cluster HDInsight.
 
 ## <a name="check-hadoop-components-availability-in-hdinsight"></a>Verifique a disponibilidade de componentes hadoop em HDInsight
 
@@ -73,7 +73,7 @@ Aplicações ou componentes que estavam disponíveis em clusters no local, mas q
 |Palantir|IaaS 
 |Ponto de navegação|Iaas 
 
-Para mais informações, consulte o artigo [Componentes Apache Hadoop disponíveis com diferentes versões HDInsight](../hdinsight-component-versioning.md#apache-components-available-with-different-hdinsight-versions)
+Para mais informações, consulte o artigo [Componentes Apache Hadoop disponíveis com diferentes versões HDInsight](../hdinsight-component-versioning.md)
 
 ## <a name="customize-hdinsight-clusters-using-script-actions"></a>Personalize clusters HDInsight usando ações de script
 
@@ -193,6 +193,6 @@ O HDInsight pode ser ligado à rede no local utilizando redes virtuais Azure e u
 
 Para mais informações, consulte o artigo [Connect HDInsight para a sua rede no local](../connect-on-premises-network.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Leia o artigo seguinte nesta série: [Armazenamento das melhores práticas para a migração de Azure HDInsight Hadoop](apache-hadoop-on-premises-migration-best-practices-storage.md).

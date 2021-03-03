@@ -1,22 +1,21 @@
 ---
 title: Conectividade de serviço de serviço de solução monitor de desempenho de rede - Azure Log Analytics
 description: Utilize a capacidade do Monitor de Conectividade de Serviço no Monitor de Desempenho da Rede para monitorizar a conectividade da rede a qualquer ponto final que tenha uma porta TCP aberta.
-ms.subservice: logs
 ms.topic: conceptual
 author: abshamsft
 ms.author: absha
 ms.date: 02/20/2018
-ms.openlocfilehash: a980c0987106a80751a98c48dfc5780708e6f889
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: a5b42e61af398e111b2014f3734a0011a4bee778
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100573404"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734167"
 ---
 # <a name="service-connectivity-monitor"></a>Monitor de Conectividade do Serviço
 
 > [!IMPORTANT]
-> A partir de 1 de julho de 2021, não poderá adicionar novos testes num espaço de trabalho existente ou permitir um novo espaço de trabalho no Network Performance Monitor. Pode continuar a utilizar os testes criados antes de 1 de julho de 2021. Para minimizar a perturbação do serviço nas suas cargas de trabalho atuais, [migrar os seus testes do Monitor de Desempenho da Rede para o novo Monitor de Ligação](https://docs.microsoft.com/azure/network-watcher/migrate-to-connection-monitor-from-network-performance-monitor) no Azure Network Watcher antes de 29 de fevereiro de 2024.
+> A partir de 1 de julho de 2021, não poderá adicionar novos testes num espaço de trabalho existente ou permitir um novo espaço de trabalho no Network Performance Monitor. Pode continuar a utilizar os testes criados antes de 1 de julho de 2021. Para minimizar a perturbação do serviço nas suas cargas de trabalho atuais, [migrar os seus testes do Monitor de Desempenho da Rede para o novo Monitor de Ligação](../../network-watcher/migrate-to-connection-monitor-from-network-performance-monitor.md) no Azure Network Watcher antes de 29 de fevereiro de 2024.
 
 Pode utilizar a capacidade do Monitor de Conectividade de Serviço no [Monitor de Desempenho da Rede](network-performance-monitor.md) para monitorizar a conectividade da rede a qualquer ponto final que tenha uma porta TCP aberta. Esses pontos finais incluem websites, aplicações SaaS, aplicações PaaS e bases de dados SQL. 
 
@@ -137,4 +136,3 @@ Para a região do governo dos EUA, apenas URLs DOD são NPM embutidos. Os client
 
 ## <a name="next-steps"></a>Passos seguintes
 [Faça uma pesquisa de registos](../logs/log-query-overview.md) para visualizar registos de dados de desempenho detalhados da rede.
-

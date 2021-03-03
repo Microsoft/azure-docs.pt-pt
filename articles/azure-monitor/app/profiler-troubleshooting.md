@@ -6,17 +6,14 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 05a2eaeb3b716988a8ae1eddcaa5a5a58cc3776a
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 2ab719b47245f3adc2fba610f9c0473868889a7e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98675701"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711455"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Problemas de resolução de problemas que permitem ou visualizam o perfil de insights de aplicações
-
-> [!CAUTION]
-> Existe um perfil de execução de bugs para aplicações core ASP.NET no Azure App Service. Temos uma solução, mas levará algumas semanas para implantar em todo o mundo. Pode trabalhar à volta do bug adicionando o SDK Application Insights à sua aplicação com instruções [aqui.](./asp-net-core.md#enable-application-insights-server-side-telemetry-visual-studio)
 
 ## <a name="general-troubleshooting"></a><a id="troubleshooting"></a>Resolução geral de problemas
 
@@ -67,6 +64,7 @@ Normalmente, o fio que rapidamente entra num estado de espera está simplesmente
 Envie um bilhete de apoio no portal. Certifique-se de que inclui o ID de correlação da mensagem de erro.
 
 ## <a name="troubleshoot-profiler-on-azure-app-service"></a>Profiler de resolução de problemas no Serviço de Aplicações Azure
+
 Para que o Profiler funcione corretamente:
 * O seu plano de serviço de aplicações web deve ser básico ou superior.
 * A sua aplicação web deve ter o Application Insights ativado.
@@ -95,6 +93,10 @@ Se o Profiler não estiver a trabalhar para si, pode descarregar o registo e env
 
 ### <a name="check-the-diagnostic-services-site-extension-status-page"></a>Consulte a página de estado do site dos serviços de diagnóstico
 Se o Profiler foi ativado através do painel de Insights de [Aplicação](profiler.md) no portal, foi ativado pela extensão do site dos Serviços de Diagnóstico.
+
+> [!NOTE]
+> A instalação sem código do Application Insights Profiler segue a política de suporte .NET Core.
+> Para obter mais informações sobre os tempos de funcionação suportados, consulte [a Política de Suporte do Núcleo .NET](https://dotnet.microsoft.com/platform/support/policy/dotnet-core).
 
 Pode consultar a Página de Estado desta extensão indo para o seguinte url: `https://{site-name}.scm.azurewebsites.net/DiagnosticServices`
 
@@ -140,7 +142,7 @@ Se estiver a recolocar a sua aplicação web num recurso de Aplicações Web com
 
 *Diretório Não Vazio 'D: \\ site doméstico \\ \\ wwwroot \\ App_Data \\ empregos'*
 
-Este erro ocorre se executar web Deploy a partir de scripts ou a partir dos Pipelines Azure. A solução consiste em adicionar os seguintes parâmetros de implementação adicionais à tarefa de implementação da Web:
+Este erro ocorre se executar web Deploy a partir de scripts ou a partir dos Pipelines Azure. A solução consiste em adicionar os seguintes parâmetros de implementação à tarefa de implantação da Web:
 
 ```
 -skip:Directory='.*\\App_Data\\jobs\\continuous\\ApplicationInsightsProfiler.*' -skip:skipAction=Delete,objectname='dirPath',absolutepath='.*\\App_Data\\jobs\\continuous$' -skip:skipAction=Delete,objectname='dirPath',absolutepath='.*\\App_Data\\jobs$'  -skip:skipAction=Delete,objectname='dirPath',absolutepath='.*\\App_Data$'

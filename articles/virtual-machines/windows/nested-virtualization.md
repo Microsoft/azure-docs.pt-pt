@@ -7,12 +7,12 @@ ms.date: 10/09/2017
 ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.workload: infrastructure
-ms.openlocfilehash: e85ac58c80e1fd695938bf09b6435dba1f4ee083
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 924ee745804ef31e42dc21437dbb0459f6d37701
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100091351"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101693752"
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Como permitir a virtualização aninhada num VM Azure
 
@@ -22,11 +22,9 @@ Este artigo passa por permitir o Hiper-V num VM Azure e configurar a conectivida
 
 ## <a name="create-a-nesting-capable-azure-vm"></a>Criar um Azure VM capaz de nidificação
 
-Criar um novo Windows Server 2016 Azure VM. Para obter uma lista completa dos tamanhos de máquinas virtuais que suportam a nidificação, confira o [artigo da Unidade Azure Compute](../acu.md).
+Crie um novo Windows Server 2016 ou Windows Server 2019 Azure VM para o seu anfitrião. Certifique-se de que escolhe um tamanho para o seu VM que suporta a nidificação, e é grande o suficiente para satisfazer as exigências dos VMs convidados. Para obter uma lista de tamanhos de máquinas virtuais que suportam a nidificação, consulte o artigo [da Unidade Azure Compute.](../acu.md)
 
-Lembre-se de escolher um tamanho VM grande o suficiente para suportar as exigências de uma máquina virtual convidada. Neste exemplo, estamos a usar um Azure VM D4_v3 tamanho. 
-
-Pode ver a disponibilidade regional de máquinas virtuais da série Dv3 ou Ev3 [aqui.](https://azure.microsoft.com/regions/services/)
+Pode ver a disponibilidade regional de tamanhos VM nos Produtos disponíveis por página [da região.](https://azure.microsoft.com/regions/services/)
 
 >[!NOTE]
 >
@@ -94,7 +92,7 @@ Crie um novo adaptador de rede virtual para a máquina virtual do hóspede e con
 4. Crie um endereço IP para o GATEWAY NAT.
     
 Para configurar o portal, precisa de algumas informações sobre a sua rede:    
-  * IPAddress - O IP DO GATEWAY NAT especifica o endereço IPv4 ou IPv6 para utilizar como endereço de gateway predefinido para a sub-rede de rede virtual. A forma genérica é a.b.c.1 (por exemplo, "192.168.0.1"). Embora a posição final não tenha de ser .1, geralmente é (com base no comprimento do prefixo). Normalmente deve usar um espaço de endereço de rede privada RFC 1918. 
+  * Endereço IP - O IP DO GATEWAY NAT especifica o endereço IPv4 ou IPv6 para utilizar como endereço de porta de entrada padrão para a sub-rede de rede virtual. A forma genérica é a.b.c.1 (por exemplo, "192.168.0.1"). Embora a posição final não tenha de ser .1, geralmente é (com base no comprimento do prefixo). Normalmente deve usar um espaço de endereço de rede privada RFC 1918. 
   * PrefixLength - O comprimento do prefixo da sub-rede define o tamanho da sub-rede local (máscara de sub-rede). O comprimento do prefixo do sub-rede será um valor inteiro entre 0 e 32. 0 iria mapear toda a internet, 32 só permitiria um IP mapeado. Os valores comuns variam de 24 a 12 dependendo do número de IPs necessários para ser ligado ao NAT. Um prefixLength comum é 24- esta é uma máscara de sub-rede de 255.255.255.0.
   * InterfaceIndex - **seIndex** é o índice de interface do interruptor virtual criado no passo anterior. 
 

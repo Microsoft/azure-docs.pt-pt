@@ -1,5 +1,5 @@
 ---
-title: Quickstart - Criar exemplo de Gestão API Azure utilizando O CLI (pré-visualização)
+title: Quickstart - Criar exemplo de Gestão API Azure usando O CLI
 description: Crie uma nova instância de serviço de gestão Azure API utilizando o Azure CLI.
 author: dlepow
 ms.service: api-management
@@ -7,18 +7,18 @@ ms.topic: quickstart
 ms.custom: ''
 ms.date: 09/10/2020
 ms.author: apimpm
-ms.openlocfilehash: 863cb6cd10664e14966898045cb2b1861ef75b9f
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: 72d1faac02a21f23d46eb992af1d501bca89e71f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94887455"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101688081"
 ---
-# <a name="quickstart-create-a-new-azure-api-management-service-instance-by-using-the-azure-cli-preview"></a>Quickstart: Criar uma nova instância de serviço AZure API Management utilizando o Azure CLI (pré-visualização)
+# <a name="quickstart-create-a-new-azure-api-management-service-instance-by-using-the-azure-cli"></a>Quickstart: Criar uma nova instância de serviço de gestão API Azure utilizando o Azure CLI
 
 A Gestão de API (APIM) do Azure ajuda as organizações a publicar APIs para programadores externos, parceiros e internos, de modo a que estes possam explorar ao máximo o potencial dos seus dados e serviços. A Gestão de API fornece as competências essenciais para garantir um programa de API bem-sucedido através do envolvimento dos programadores, das informações de negócio, da análise, da segurança e da proteção. A APIM permite-lhe criar e gerir os modernos gateways API para serviços de backend existentes hospedados em qualquer lugar. Para obter mais informações, consulte [Descrição Geral](api-management-key-concepts.md).
 
-Este quickstart descreve os passos para criar uma nova instância de Gestão de API usando comandos [az apim](/cli/azure/apim) no CLI Azure. Os comandos do `az apim` grupo de comando estão atualmente em pré-visualização e podem ser alterados ou removidos numa futura libertação.
+Este quickstart descreve os passos para criar uma nova instância de Gestão de API usando comandos [az apim](/cli/azure/apim) no CLI Azure.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 

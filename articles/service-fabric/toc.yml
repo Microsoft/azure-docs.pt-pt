@@ -448,12 +448,14 @@
           href: how-to-managed-cluster-vmss-extension.md
         - name: Configure o seu cluster gerido
           href: how-to-managed-cluster-configuration.md
+        - name: Adicionar regras NSG e outras opções de networking de cluster geridas
+          href: how-to-managed-cluster-networking.md
         - name: Implementar aplicações de cluster geridas usando o modelo ARM
           href: how-to-managed-cluster-app-deployment-template.md
-        - name: Configurar um cluster gerido com identidade gerida
-          href: how-to-managed-identity-managed-cluster-virtual-machine-scale-sets.md
         - name: Ativar a encriptação do disco para os nosdes de cluster geridos
           href: how-to-enable-managed-cluster-disk-encryption.md
+        - name: Utilize identidade gerida para os nosdes de cluster geridos
+          href: how-to-managed-identity-managed-cluster-virtual-machine-scale-sets.md
     - name: Planear e preparar
       items:
         - name: Planear a capacidade do cluster

@@ -5,13 +5,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: how-to
-ms.date: 11/12/2020
-ms.openlocfilehash: bdbbf3e808e1dda0970aaf87d154ee79bea4dcb1
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.date: 02/24/2021
+ms.openlocfilehash: f87ad76e9bb1db4d71716bf860d5fee2d413e8e9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97964172"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101740380"
 ---
 # <a name="share-and-receive-data-from-azure-sql-database-and-azure-synapse-analytics"></a>Partilhar e receber dados da Base de Dados SQL do Azure e do Azure Synapse Analytics
 
@@ -275,7 +275,7 @@ Siga os passos abaixo para configurar onde pretende receber dados.
 ### <a name="trigger-a-snapshot"></a>Desencadear um instantâneo
 Estes passos aplicam-se apenas à partilha baseada em instantâneos.
 
-1. Pode ativar uma imagem instantânea selecionando o separador **Detalhes** seguido do **instantâneo Trigger**. Aqui, pode desencadear uma imagem completa ou incremental dos seus dados. Se for a primeira vez que recebe dados do seu fornecedor de dados, selecione cópia completa. Para as fontes SQL, apenas o instantâneo completo é suportado.
+1. Pode ativar uma imagem instantânea selecionando o separador **Detalhes** seguido do **instantâneo Trigger**. Aqui, pode desencadear uma imagem completa ou incremental dos seus dados. Se for a primeira vez que recebe dados do seu fornecedor de dados, selecione cópia completa. Para as fontes SQL, apenas o instantâneo completo é suportado. Quando um instantâneo está a ser executado, as imagens subsequentes não começam até que a anterior esteja completa.
 
    ![Instantâneo do gatilho](./media/trigger-snapshot.png "Instantâneo do gatilho") 
 
@@ -295,7 +295,7 @@ Quando partilha dados a partir de fonte SQL, os seguintes mapeamentos são usado
 | binary |Byte[] |
 | bit |Booleano |
 | char |String, Char[] |
-| date |DateTime |
+| data |DateTime |
 | Datetime |DateTime |
 | datetime2 |DateTime |
 | Datatimeoff |Início de execução de tempo de data |

@@ -6,18 +6,18 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/21/2020
-ms.openlocfilehash: c911b3a2ef927bf000513665dfafd735e3bcf181
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: b747a4b58c9c460178d415d0b45ade814723d8fe
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100615532"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719870"
 ---
 # <a name="collect-windows-event-log-data-sources-with-log-analytics-agent"></a>Recolher fontes de dados de registo de eventos do Windows com o agente Log Analytics
 Os registos do Windows Event são uma das fontes de dados mais [comuns](../agents/agent-data-sources.md) para agentes do Log Analytics em máquinas virtuais windows, uma vez que muitas aplicações escrevem no registo de eventos do Windows.  Pode recolher eventos a partir de registos padrão, como Sistema e Aplicação, além de especificar quaisquer registos personalizados criados pelas aplicações que precisa de monitorizar.
 
 > [!IMPORTANT]
-> Este artigo abrange a recolha de eventos do Windows com o [agente Log Analytics,](../platform/log-analytics-agent.md) que é um dos agentes utilizados pelo Azure Monitor. Outros agentes recolhem dados diferentes e são configurados de forma diferente. Consulte [a visão geral dos agentes do Azure Monitor](../agents/agents-overview.md) para obter uma lista dos agentes disponíveis e os dados que podem recolher.
+> Este artigo abrange a recolha de eventos do Windows com o [agente Log Analytics,](./log-analytics-agent.md) que é um dos agentes utilizados pelo Azure Monitor. Outros agentes recolhem dados diferentes e são configurados de forma diferente. Consulte [a visão geral dos agentes do Azure Monitor](../agents/agents-overview.md) para obter uma lista dos agentes disponíveis e os dados que podem recolher.
 
 ![Eventos do Windows](media/data-sources-windows-events/overview.png)     
 
@@ -63,7 +63,7 @@ Os registos de eventos do Windows têm um tipo de **Evento** e têm as proprieda
 ## <a name="log-queries-with-windows-events"></a>Consultas de registo com eventos do Windows
 A tabela seguinte fornece diferentes exemplos de consultas de registo que recuperam registos do Windows Event.
 
-| Consulta | Description |
+| Consulta | Descrição |
 |:---|:---|
 | Evento |Todos os eventos do Windows. |
 | Evento &#124; onde EventLevelName == "erro" |Todos os eventos do Windows com gravidade de erro. |
@@ -73,5 +73,5 @@ A tabela seguinte fornece diferentes exemplos de consultas de registo que recupe
 
 ## <a name="next-steps"></a>Passos seguintes
 * Configure o Log Analytics para recolher [outras fontes de dados](../agents/agent-data-sources.md) para análise.
-* Saiba mais [sobre consultas de registo](../log-query/log-query-overview.md) para analisar os dados recolhidos a partir de fontes de dados e soluções.  
+* Saiba mais [sobre consultas de registo](../logs/log-query-overview.md) para analisar os dados recolhidos a partir de fontes de dados e soluções.  
 * Configure [a recolha de contadores de desempenho dos](data-sources-performance-counters.md) seus agentes Windows.

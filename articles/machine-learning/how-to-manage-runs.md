@@ -12,12 +12,12 @@ ms.reviewer: nibaccam
 ms.date: 12/04/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: ec006636ed7e975b696aa32300b32089e3209bb5
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 3eaab31d3948e41a216eaa402c2a11e470a6545d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96600477"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691506"
 ---
 # <a name="start-monitor-and-cancel-training-runs-in-python"></a>Iniciar, monitorizar e cancelar treinos em Python
 
@@ -112,17 +112,7 @@ Vai precisar dos seguintes itens:
         > Para mais ficheiros runconfig, consulte [https://github.com/MicrosoftDocs/pipelines-azureml/](https://github.com/MicrosoftDocs/pipelines-azureml/) .
     
         Para obter mais informações, consulte [o roteiro de submissão az ml run](/cli/azure/ext/azure-cli-ml/ml/run?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-submit-script).
-    
-    # <a name="studio"></a>[Studio](#tab/azure-studio)
-    
-    Para iniciar uma corrida de gasoduto no designer, utilize os seguintes passos:
-    
-    1. Desaponte um alvo de computação padrão para o seu pipeline.
-    
-    1. Selecione **Executar** na parte superior da tela do gasoduto.
-    
-    1. Selecione uma Experiência para agrupar as suas corridas de gasodutos.
-    
+
     ---
 
 * Monitorizar o estado de uma corrida
@@ -183,24 +173,128 @@ Vai precisar dos seguintes itens:
     
     # <a name="studio"></a>[Studio](#tab/azure-studio)
     
-    Para ver o número de execuções ativas para a sua experiência no estúdio.
+    Para ver as suas corridas no estúdio: 
     
-    1. Navegue para a secção **de Experiências.**
+    1. Navegue para o **separador Experimentos.**
     
-    1. Selecione uma experiência.
+    1. Selecione **todas as experiências** para visualizar todas as corridas numa experiência ou selecione **Todas as corre** para ver todas as correções submetidas no Espaço de Trabalho.
     
-        Na página de experiências, pode ver o número de alvos de computação ativa e a duração de cada execução. 
+        Na página **'All runs',** pode filtrar a lista de execuções por tags, experiências, metas de computação e muito mais para organizar e estender melhor o seu trabalho.  
     
-    1. Faça personalizações para a Experiência selecionando corridas para comparar, adicionar gráficos ou aplicar filtros. Estas alterações podem ser guardadas como uma **Vista Personalizada** para que possa facilmente voltar ao seu trabalho. Os utilizadores com permissões de espaço de trabalho podem editar ou visualizar a vista personalizada. Além disso, partilhe a vista personalizada com outros copiando e colando o URL no navegador.  
+    1. Faça personalizações na página selecionando runs para comparar, adicionar gráficos ou aplicar filtros. Estas alterações podem ser guardadas como uma **Vista Personalizada** para que possa facilmente voltar ao seu trabalho. Os utilizadores com permissões de espaço de trabalho podem editar ou visualizar a vista personalizada. Além disso, partilhe a visão personalizada com os membros da equipa para uma colaboração reforçada selecionando a **vista Share**.   
     
         :::image type="content" source="media/how-to-manage-runs/custom-views.gif" alt-text="Screenshot: criar uma vista personalizada":::
     
-    1. Selecione um número de execução específico.
-    
-    1. No **separador 'Registar',** pode encontrar registos de diagnóstico e erro para o seu pipeline.
+    1. Para visualizar os registos de execução, selecione uma execução específica e no separador **Saídas + registos,** pode encontrar registos de diagnóstico e erro para a sua execução.
     
     ---
+
+## <a name="run-description"></a>Executar descrição 
+
+Uma descrição de execução pode ser adicionada a uma corrida para fornecer mais contexto e informações para a execução. Também pode pesquisar nestas descrições a partir da lista de execuções e adicionar a descrição da execução como uma coluna na lista de execuções. 
+
+Navegue na página **'Detalhes de execução'** para a sua execução e selecione o ícone de edição ou lápis para adicionar, editar ou apagar descrições para a sua execução. Para persistir nas alterações à lista de execuções, guarde as alterações na sua Visualização Personalizada existente ou numa nova Vista Personalizada. O formato markdown é suportado para descrições de execução que permitem que as imagens sejam incorporadas e ligações profundas como mostrado abaixo.
+
+:::image type="content" source="media/how-to-manage-runs/rundescription.gif" alt-text="Screenshot: criar uma descrição de execução"::: 
     
+
+## <a name="tag-and-find-runs"></a>Etiquetar e encontrar corridas
+
+No Azure Machine Learning, pode utilizar propriedades e tags para ajudar a organizar e consultar as suas corridas para obter informações importantes.
+
+* Adicionar propriedades e etiquetas
+
+    # <a name="python"></a>[Python](#tab/python)
+    
+    Para adicionar metadados pesjáveis às suas execuções, utilize o [`add_properties()`](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=trueadd-properties-properties-) método. Por exemplo, o seguinte código adiciona a `"author"` propriedade à execução:
+    
+    ```Python
+    local_run.add_properties({"author":"azureml-user"})
+    print(local_run.get_properties())
+    ```
+    
+    As propriedades são imutáveis, por isso criam um registo permanente para fins de auditoria. O exemplo de código a seguir resulta num erro, pois já adicionámos `"azureml-user"` como `"author"` valor patrimonial no código anterior:
+    
+    ```Python
+    try:
+        local_run.add_properties({"author":"different-user"})
+    except Exception as e:
+        print(e)
+    ```
+    
+    Ao contrário das propriedades, as etiquetas são mutáveis. Para adicionar informações pes pes que pesjáveis e significativas para os consumidores da sua experiência, utilize o [`tag()`](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truetag-key--value-none-) método.
+    
+    ```Python
+    local_run.tag("quality", "great run")
+    print(local_run.get_tags())
+    
+    local_run.tag("quality", "fantastic run")
+    print(local_run.get_tags())
+    ```
+    
+    Também pode adicionar etiquetas de corda simples. Quando estas etiquetas aparecem no dicionário de etiquetas como teclas, têm um valor de `None` .
+    
+    ```Python
+    local_run.tag("worth another look")
+    print(local_run.get_tags())
+    ```
+    
+    # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+    
+    > [!NOTE]
+    > Utilizando o CLI, só é possível adicionar ou atualizar tags.
+    
+    Para adicionar ou atualizar uma etiqueta, utilize o seguinte comando:
+    
+    ```azurecli-interactive
+    az ml run update -r runid --add-tag quality='fantastic run'
+    ```
+    
+    Para mais informações, consulte [a atualização de execução az ml](/cli/azure/ext/azure-cli-ml/ml/run?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-update).
+    
+    # <a name="studio"></a>[Studio](#tab/azure-studio)
+    
+    Pode adicionar, editar ou eliminar tags de execução do estúdio. Navegue na página **'Detalhes de execução'** para a sua execução e selecione o ícone de edição ou lápis para adicionar, editar ou eliminar tags para as suas execuções. Também pode pesquisar e filtrar estas etiquetas na página da lista de execuções.
+    
+    :::image type="content" source="media/how-to-manage-runs/run-tags.gif" alt-text="Screenshot: Adicionar, editar ou eliminar tags de execução":::
+    
+    ---
+
+* Propriedades e tags de consulta
+
+    Você pode consultar corre dentro de uma experiência para devolver uma lista de runs que correspondem a propriedades e etiquetas específicas.
+
+    # <a name="python"></a>[Python](#tab/python)
+    
+    ```Python
+    list(exp.get_runs(properties={"author":"azureml-user"},tags={"quality":"fantastic run"}))
+    list(exp.get_runs(properties={"author":"azureml-user"},tags="worth another look"))
+    ```
+    
+    # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+    
+    O Azure CLI suporta consultas [JMESPath,](http://jmespath.org) que podem ser usadas para filtrar corridas com base em propriedades e etiquetas. Para utilizar uma consulta JMESPath com o CLI Azure, especifique-a com o `--query` parâmetro. Os exemplos a seguir mostram algumas consultas utilizando propriedades e etiquetas:
+    
+    ```azurecli-interactive
+    # list runs where the author property = 'azureml-user'
+    az ml run list --experiment-name experiment [?properties.author=='azureml-user']
+    # list runs where the tag contains a key that starts with 'worth another look'
+    az ml run list --experiment-name experiment [?tags.keys(@)[?starts_with(@, 'worth another look')]]
+    # list runs where the author property = 'azureml-user' and the 'quality' tag starts with 'fantastic run'
+    az ml run list --experiment-name experiment [?properties.author=='azureml-user' && tags.quality=='fantastic run']
+    ```
+    
+    Para obter mais informações sobre os resultados do Azure CLI, consulte [a saída do comando Do CLI da Consulta .](/cli/azure/query-azure-cli?preserve-view=true&view=azure-cli-latest)
+    
+    # <a name="studio"></a>[Studio](#tab/azure-studio)
+    
+    1. Navegue para a lista **de todas as corridas.**
+    
+    1. Utilize a barra de pesquisa para filtrar os metadados executados como as etiquetas, descrições, nomes de experiências e nome do apresentador. O filtro de etiquetas também pode ser utilizado para filtrar as etiquetas. 
+    
+    ---
+
+
 ## <a name="cancel-or-fail-runs"></a>Cancelar ou falhar corre
 
 Se notar um erro ou se a sua corrida estiver a demorar muito tempo a terminar, pode cancelar a corrida.
@@ -345,101 +439,6 @@ root_run(current_child_run).log("MyMetric", f"Data from child run {current_child
 
 ```
 
-
-## <a name="tag-and-find-runs"></a>Etiquetar e encontrar corridas
-
-No Azure Machine Learning, pode utilizar propriedades e tags para ajudar a organizar e consultar as suas corridas para obter informações importantes.
-
-* Adicionar propriedades e etiquetas
-
-    # <a name="python"></a>[Python](#tab/python)
-    
-    Para adicionar metadados pesjáveis às suas execuções, utilize o [`add_properties()`](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=trueadd-properties-properties-) método. Por exemplo, o seguinte código adiciona a `"author"` propriedade à execução:
-    
-    ```Python
-    local_run.add_properties({"author":"azureml-user"})
-    print(local_run.get_properties())
-    ```
-    
-    As propriedades são imutáveis, por isso criam um registo permanente para fins de auditoria. O exemplo de código a seguir resulta num erro, pois já adicionámos `"azureml-user"` como `"author"` valor patrimonial no código anterior:
-    
-    ```Python
-    try:
-        local_run.add_properties({"author":"different-user"})
-    except Exception as e:
-        print(e)
-    ```
-    
-    Ao contrário das propriedades, as etiquetas são mutáveis. Para adicionar informações pes pes que pesjáveis e significativas para os consumidores da sua experiência, utilize o [`tag()`](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truetag-key--value-none-) método.
-    
-    ```Python
-    local_run.tag("quality", "great run")
-    print(local_run.get_tags())
-    
-    local_run.tag("quality", "fantastic run")
-    print(local_run.get_tags())
-    ```
-    
-    Também pode adicionar etiquetas de corda simples. Quando estas etiquetas aparecem no dicionário de etiquetas como teclas, têm um valor de `None` .
-    
-    ```Python
-    local_run.tag("worth another look")
-    print(local_run.get_tags())
-    ```
-    
-    # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
-    
-    > [!NOTE]
-    > Utilizando o CLI, só é possível adicionar ou atualizar tags.
-    
-    Para adicionar ou atualizar uma etiqueta, utilize o seguinte comando:
-    
-    ```azurecli-interactive
-    az ml run update -r runid --add-tag quality='fantastic run'
-    ```
-    
-    Para mais informações, consulte [a atualização de execução az ml](/cli/azure/ext/azure-cli-ml/ml/run?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-update).
-    
-    # <a name="studio"></a>[Studio](#tab/azure-studio)
-    
-    Pode ver as propriedades e etiquetas em estúdio, mas não pode modificá-las lá.
-    
-    ---
-
-* Propriedades e tags de consulta
-
-    Você pode consultar corre dentro de uma experiência para devolver uma lista de runs que correspondem a propriedades e etiquetas específicas.
-
-    # <a name="python"></a>[Python](#tab/python)
-    
-    ```Python
-    list(exp.get_runs(properties={"author":"azureml-user"},tags={"quality":"fantastic run"}))
-    list(exp.get_runs(properties={"author":"azureml-user"},tags="worth another look"))
-    ```
-    
-    # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
-    
-    O Azure CLI suporta consultas [JMESPath,](http://jmespath.org) que podem ser usadas para filtrar corridas com base em propriedades e etiquetas. Para utilizar uma consulta JMESPath com o CLI Azure, especifique-a com o `--query` parâmetro. Os exemplos a seguir mostram algumas consultas utilizando propriedades e etiquetas:
-    
-    ```azurecli-interactive
-    # list runs where the author property = 'azureml-user'
-    az ml run list --experiment-name experiment [?properties.author=='azureml-user']
-    # list runs where the tag contains a key that starts with 'worth another look'
-    az ml run list --experiment-name experiment [?tags.keys(@)[?starts_with(@, 'worth another look')]]
-    # list runs where the author property = 'azureml-user' and the 'quality' tag starts with 'fantastic run'
-    az ml run list --experiment-name experiment [?properties.author=='azureml-user' && tags.quality=='fantastic run']
-    ```
-    
-    Para obter mais informações sobre os resultados do Azure CLI, consulte [a saída do comando Do CLI da Consulta .](/cli/azure/query-azure-cli?preserve-view=true&view=azure-cli-latest)
-    
-    # <a name="studio"></a>[Studio](#tab/azure-studio)
-    
-    1. Navegue para a secção **Pipelines.**
-    
-    1. Utilize a barra de pesquisa para filtrar os oleodutos utilizando etiquetas, descrições, nomes de experiências e nome do apresentador.
-    
-    ---
-
 ## <a name="example-notebooks"></a>Blocos de notas de exemplo
 
 Os seguintes cadernos demonstram os conceitos deste artigo:
@@ -448,7 +447,7 @@ Os seguintes cadernos demonstram os conceitos deste artigo:
 
 * Para obter mais informações sobre a gestão de corridas com o Azure Machine Learning SDK, consulte o [caderno de gestão](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/track-and-monitor-experiments/manage-runs/manage-runs.ipynb).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para aprender a registar métricas para as suas experiências, consulte [as métricas do Registo durante os treinos](how-to-track-experiments.md).
 * Para aprender a monitorizar recursos e registos da Azure Machine Learning, consulte [monitorar a Azure Machine Learning](monitor-azure-machine-learning.md).

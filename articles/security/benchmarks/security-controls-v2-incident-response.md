@@ -4,19 +4,21 @@ description: Resposta de incidente de referência de segurança Azure V2
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/20/2020
+ms.date: 002/22/2021
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 043e365bfe27db516a42386a91bc0433e27e2068
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: 40a88349040482b3325e63d7035dea35df444cdb
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97368839"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101698591"
 ---
 # <a name="security-control-v2-incident-response"></a>Controlo de Segurança V2: Resposta a incidentes
 
 Incident Response abrange controlos no ciclo de vida de resposta a incidentes - preparação, deteção e análise, contenção e atividades pós-incidente. Isto inclui a utilização de serviços Azure, como o Azure Security Center e o Sentinel, para automatizar o processo de resposta a incidentes.
+
+Para ver a política de Azure incorporada aplicável, consulte [detalhes da iniciativa Azure Security Benchmark Regulatory Compliance built-in: Incident Response](../../governance/policy/samples/azure-security-benchmark#incident-response)
 
 ## <a name="ir-1-preparation--update-incident-response-process-for-azure"></a>IR-1: Preparação – atualizar o processo de resposta a incidentes para o Azure
 
@@ -38,7 +40,7 @@ Certifique-se de que a sua organização tem processos para responder a incident
 
 - [Preparação de incidentes](/azure/cloud-adoption-framework/organize/cloud-security-incident-preparation)
 
-- [Informações sobre ameaças](/azure/cloud-adoption-framework/organize/cloud-security-threat-intelligence)
+- [Inteligência de ameaça](/azure/cloud-adoption-framework/organize/cloud-security-threat-intelligence)
 
 ## <a name="ir-2-preparation--setup-incident-notification"></a>IR-2: Preparação – configurar a notificação de incidentes
 
@@ -64,7 +66,7 @@ Confiem informações de contacto com incidentes de segurança no Centro de Segu
 |--|--|--|--|
 | IR-3 | 19.6 | IR-4, IR-5 |
 
-Certifique-se de que tem um processo para criar alertas de alta qualidade e medir a qualidade dos alertas. Desta forma, pode aprender lições com os incidentes passados e priorizar os alertas para os analistas, para que estes não percam tempo a lidar com falsos positivos. 
+Certifique-se de que tem um processo para criar alertas de alta qualidade e medir a qualidade dos alertas. Isto permite-lhe aprender lições de incidentes passados e priorizar alertas para analistas, para que não percam tempo com falsos positivos. 
 
 Os alertas de alta qualidade podem ser criados a partir da experiência com incidentes anteriores, de origens validadas pela comunidade e de ferramentas desenhadas para gerar e limpar alertas ao combinar e correlacionar diversas origens de sinais. 
 
@@ -84,7 +86,7 @@ Exporte os alertas e as recomendações do Centro de Segurança do Azure com a f
 
 - [Preparação de incidentes](/azure/cloud-adoption-framework/organize/cloud-security-incident-preparation)
 
-- [Informações sobre ameaças](/azure/cloud-adoption-framework/organize/cloud-security-threat-intelligence)
+- [Inteligência de ameaça](/azure/cloud-adoption-framework/organize/cloud-security-threat-intelligence)
 
 ## <a name="ir-4-detection-and-analysis--investigate-an-incident"></a>IR-4: Deteção e análise – investigar incidentes
 
@@ -92,7 +94,7 @@ Exporte os alertas e as recomendações do Centro de Segurança do Azure com a f
 |--|--|--|--|
 | IR-4 | 19 | IR-4 |
 
-Certifique-se de que os analistas podem consultar e usar diversas fontes de dados à medida que investigam potenciais incidentes, para construir uma visão completa do que aconteceu. Para monitorizar as atividades de um potencial atacante em toda a rede do ataque e evitar ângulos mortos, devem ser recolhidos diversos registos.  Também deve assegurar que são apreendidas informações e aprendizagens para outros analistas e para informação histórica futura.  
+Certifique-se de que os analistas podem consultar e usar diversas fontes de dados à medida que investigam potenciais incidentes, para construir uma visão completa do que aconteceu. Para monitorizar as atividades de um potencial atacante em toda a rede do ataque e evitar ângulos mortos, devem ser recolhidos diversos registos. Também deve assegurar que são apreendidas informações e aprendizagens para outros analistas e para informação histórica futura.
 
 As origens de dados para investigação incluem as origens de registos centralizadas que já estão a ser recolhidas pelos serviços dentro do âmbito e pelos sistemas em execução, mas podem também incluir:
 
@@ -124,19 +126,19 @@ O Azure Sentinel disponibiliza uma grande quantidade de análises de dados em pr
 
 - [Preparação de incidentes](/azure/cloud-adoption-framework/organize/cloud-security-incident-preparation)
 
-- [Informações sobre ameaças](/azure/cloud-adoption-framework/organize/cloud-security-threat-intelligence)
+- [Inteligência de ameaça](/azure/cloud-adoption-framework/organize/cloud-security-threat-intelligence)
 
 ## <a name="ir-5-detection-and-analysis--prioritize-incidents"></a>IR-5: Deteção e análise – priorizar incidentes
 
 | Azure ID | Controlos do CIS v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
-| IR-5 | 19.8 | CA-2, IR-4 |
+| IR-5 | 19,8 | CA-2, IR-4 |
 
 Fornecer contexto aos analistas sobre quais incidentes se concentrar em primeiro lugar com base na gravidade do alerta e sensibilidade ao ativo. 
 
 O Centro de Segurança do Azure atribui uma gravidade a cada alerta para o ajudar a priorizar os que devem ser investigados primeiro. A gravidade baseia-se na confiança que o Centro de Segurança tem na descoberta ou na análise utilizada para emitir o alerta, bem como no nível de confiança em que havia uma intenção maliciosa por trás da atividade que levou ao alerta.
 
-Além disso, marque os recursos com etiquetas e crie um sistema de nomenclatura para identificar e categorizar os recursos do Azure, especialmente aqueles que processam dados confidenciais.  É da sua responsabilidade priorizar a remediação dos alertas de acordo com a criticalidade dos recursos do Azure e o ambiente em que os incidentes ocorreram.
+Além disso, marque os recursos com etiquetas e crie um sistema de nomenclatura para identificar e categorizar os recursos do Azure, especialmente aqueles que processam dados confidenciais. É da sua responsabilidade priorizar a remediação dos alertas de acordo com a criticalidade dos recursos do Azure e o ambiente em que os incidentes ocorreram.
 
 - [Alertas de segurança no Centro de Segurança do Azure](../../security-center/security-center-alerts-overview.md)
 
@@ -150,7 +152,7 @@ Além disso, marque os recursos com etiquetas e crie um sistema de nomenclatura 
 
 - [Preparação de incidentes](/azure/cloud-adoption-framework/organize/cloud-security-incident-preparation)
 
-- [Informações sobre ameaças](/azure/cloud-adoption-framework/organize/cloud-security-threat-intelligence)
+- [Inteligência de ameaça](/azure/cloud-adoption-framework/organize/cloud-security-threat-intelligence)
 
 ## <a name="ir-6-containment-eradication-and-recovery--automate-the-incident-handling"></a>IR-6: Contenção, erradicação e recuperação – automatizar o processamento dos incidentes
 
@@ -174,4 +176,4 @@ Automatizar tarefas repetitivas manuais para acelerar o tempo de resposta e redu
 
 - [Preparação de incidentes](/azure/cloud-adoption-framework/organize/cloud-security-incident-preparation)
 
-- [Informações sobre ameaças](/azure/cloud-adoption-framework/organize/cloud-security-threat-intelligence)
+- [Inteligência de ameaça](/azure/cloud-adoption-framework/organize/cloud-security-threat-intelligence)

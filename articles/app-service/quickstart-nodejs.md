@@ -7,12 +7,15 @@ ms.date: 08/01/2020
 ms.custom: mvc, devcenter, seodec18
 zone_pivot_groups: app-service-platform-windows-linux
 adobe-target: true
-ms.openlocfilehash: b42abfda863ed38eb3c29004630f905edef075c4
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
+adobe-target-experience: Experience B
+adobe-target-content: ./quickstart-nodejs-uiex
+ms.openlocfilehash: 6c6f0543dcfbecd16ba4176272f928ffd0eb54de
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93359107"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101735119"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Criar uma aplicação Web Node.js no Azure
 
@@ -156,7 +159,7 @@ Pode visualizar a saída de registo (chamadas `console.log` para) a partir da ap
 > [!div class="nextstepaction"]
 > [Dei conta de um problema.](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azure-app-service&step=tailing-logs)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Parabéns, conseguiste completar esta rapidinha!
 
@@ -194,7 +197,7 @@ Assim que a extensão estiver instalada, inicie sessão na sua conta Azure. Na B
 
 ### <a name="troubleshooting"></a>Resolução de problemas
 
-Se vir o erro **"Não é possível encontrar subscrição com nome [ID de subscrição]"** , pode ser porque está por trás de um representante e incapaz de chegar à API Azure. Configure `HTTP_PROXY` `HTTPS_PROXY` variáveis e ambientais com a sua informação de procuração no seu terminal utilizando `export` .
+Se vir o erro **"Não é possível encontrar subscrição com nome [ID de subscrição]"**, pode ser porque está por trás de um representante e incapaz de chegar à API Azure. Configure `HTTP_PROXY` `HTTPS_PROXY` variáveis e ambientais com a sua informação de procuração no seu terminal utilizando `export` .
 
 ```sh
 export HTTPS_PROXY=https://username:password@proxy:8080
@@ -330,7 +333,7 @@ Após alguns segundos, verá uma mensagem indicando que está ligado ao serviço
 > [!div class="nextstepaction"]
 > [Dei conta de um problema.](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azure-app-service&step=tailing-logs)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Parabéns, conseguiste completar esta rapidinha!
 

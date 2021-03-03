@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 02/16/2021
+ms.date: 02/23/2021
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: 3205e96bca6ce13afdfe06fede1112e6ddb1ab39
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 629b40567ad9a1126413f5a97d1dc6264b4b10ca
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100653922"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101736646"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>O que há de novo na API de Análise de Texto?
 
@@ -24,7 +24,12 @@ A API text Analytics é atualizada numa base contínua. Para se manter atualizad
 
 ## <a name="february-2021"></a>Fevereiro de 2021
 
+* A `2021-01-15` versão modelo para o ponto final pii em Reconhecimento de Entidade [Nomeada](how-tos/text-analytics-how-to-entity-linking.md) v3.1-preview.x, que fornece 
+  * Apoio alargado a 9 novas línguas
+  * Melhoria da qualidade da IA das categorias de entidades nomeadas para línguas apoiadas.
 * Os níveis de preços S0-S4 estão a ser retirados a 8 de março de 2021. Se tiver um recurso de Análise de Texto existente utilizando o nível de preços S0-S4, deverá atualizá-lo para utilizar o [nível de preços](how-tos/text-analytics-how-to-call-api.md#change-your-pricing-tier)Standard (S).
+* O [recipiente de deteção de idiomas](how-tos/text-analytics-how-to-install-containers.md?tabs=sentiment) está agora geralmente disponível.
+* v2.1 da API está a ser reformado. 
 
 ## <a name="january-2021"></a>Janeiro de 2021
 
@@ -256,7 +261,7 @@ Apoia o inglês ( `en` japonês `ja` ), chinês simplificado ( `zh-Hans` , chin�
 
 * [O que é a API de Análise de Texto?](overview.md)  
 * [Cenários de utilizador acionáveis](text-analytics-user-scenarios.md)
-* [Análise de sentimento](how-tos/text-analytics-how-to-sentiment-analysis.md)
+* [Análise de sentimentos](how-tos/text-analytics-how-to-sentiment-analysis.md)
 * [Deteção linguística](how-tos/text-analytics-how-to-language-detection.md)
 * [Reconhecimento de entidades](how-tos/text-analytics-how-to-entity-linking.md)
 * [Extração de frase-chave](how-tos/text-analytics-how-to-keyword-extraction.md)

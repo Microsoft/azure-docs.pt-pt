@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/02/2021
 ms.custom: references_regions
-ms.openlocfilehash: cdc5de8153e8b2e0ea8bb8ea372fe8610ccb895b
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: da172e9a7605876711e4a4f32bf4fac698b35109
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101680355"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101694806"
 ---
 # <a name="add-spell-check-to-queries-in-cognitive-search"></a>Adicione verificação ortográfica a consultas na Pesquisa Cognitiva
 
@@ -36,7 +36,7 @@ Pode melhorar a recuperação corrigindo os termos de consulta individual de pes
   A queryLanguage é necessária para soletrar, e atualmente "en-us" é o único valor válido.
 
 > [!Note]
-> O parâmetro soletrador está disponível em todos os níveis, nas mesmas regiões que proporcionam pesquisa semântica. Para mais informações, consulte [Disponibilidade e preços.](semantic-search-overview.md#availability-and-pricing)
+> O parâmetro soletrador está disponível em todos os níveis, nas mesmas regiões que proporcionam pesquisa semântica. Não precisa de se inscrever para aceder a esta funcionalidade de pré-visualização. Para mais informações, consulte [Disponibilidade e preços.](semantic-search-overview.md#availability-and-pricing)
 
 ## <a name="spell-correction-with-simple-search"></a>Correção ortográfica com pesquisa simples
 
@@ -94,7 +94,13 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
 
 ## <a name="language-considerations"></a>Considerações linguísticas
 
-O parâmetro de queryLanguage necessário para soletrar deve ser consistente com quaisquer [analisadores de linguagem](index-add-language-analyzers.md) atribuídos às definições de campo no esquema de índice. Especificado num pedido de consulta, a consultaLanguage determina quais os léxicos utilizados para verificação ortográfica, e também é usado como uma entrada para o [algoritmo de classificação semântica](semantic-how-to-query-response.md) se estiver a usá-lo. Os analisadores linguísticos são usados durante a indexação, e enquanto recuperam documentos correspondentes no índice de pesquisa. Para ser consistente, se a queryLanguage é "en-us", então qualquer analisador de línguas também deve ser uma variante inglesa ("en.microsoft" ou "en.lucene"). 
+O parâmetro de queryLanguage necessário para soletrar deve ser consistente com quaisquer [analisadores de linguagem](index-add-language-analyzers.md) atribuídos às definições de campo no esquema de índice. 
+
++ queryLanguage determina quais os léxicos que são usados para verificação ortográfica, e também é usado como uma entrada para o [algoritmo de classificação semântica](semantic-how-to-query-response.md) se estiver a usar "queriaType=semântica".
+
++ Os analisadores linguísticos são utilizados durante a indexação e execução de consultas para encontrar documentos correspondentes no índice de pesquisa. Um exemplo de uma definição de campo que usa um analisador de linguagem é `"name": "Description", "type": "Edm.String", "analyzer": "en.microsoft"` .
+
+Para obter melhores resultados ao utilizar soletrador, se a queryLanguage for "en-us", qualquer analisador de idiomas também deve ser uma variante em inglês ("en.microsoft" ou "en.lucene").
 
 > [!NOTE]
 > Os analisadores linguísticos agnósticos (tais como palavra-chave, simples, padrão, stop, whitespace, ou `standardasciifolding.lucene` ) não entram em conflito com as definições de dúvida.

@@ -3,14 +3,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: include
-ms.date: 12/23/2020
+ms.date: 02/21/2021
 ms.author: alkohli
-ms.openlocfilehash: 11958c54dd1f54e424b71eb00780f5309a1c0bab
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: 112c30fdd242c20f11c43f42ba54e3717e074bbb
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98209559"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101706052"
 ---
 Aqui está uma lista das contas de armazenamento suportadas e tipos de armazenamento para um dispositivo Data Box. Para obter uma lista completa de todas as capacidades para todos os tipos de contas de armazenamento, consulte [tipos de contas de armazenamento](../articles/storage/common/storage-account-overview.md#types-of-storage-accounts).
 
@@ -45,6 +45,7 @@ Para as encomendas de exportação, a tabela seguinte mostra as contas de armaze
 > [!IMPORTANT]
 > - Para contas para fins gerais, a Caixa de Dados não suporta tipos de armazenamento de fila, tabela e disco para encomendas de importação. Para encomendas de exportação, a Data Box não suporta tipos de armazenamento de fila, tabela, disco e Azure Data Lake Gen 2 para contas para fins gerais.
 > - A Data Box não suporta blobs de apêndice para contas blob de armazenamento de blob e blocos de armazenamento.
+> - O suporte do protocolo 3.0 do Sistema de Ficheiros de Rede (NFS) 3.0 no armazenamento do Azure Blob não é suportado com a Data Box.
 > - Os dados enviados para as bolhas de página devem estar alinhados com 512 bytes, tais como VHDs.
 > - Um máximo de 80 TB pode ser exportado.
 > - O histórico de ficheiros e as fotos blob não são exportadas.

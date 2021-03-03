@@ -1,19 +1,19 @@
 ---
-title: Configurar o Azure Monitor para contentores Live Data (pré-visualização) | Microsoft Docs
-description: Este artigo descreve como configurar a visão em tempo real dos troncos de contentores (stdout/stderr) e eventos sem utilizar kubectl com O Azure Monitor para contentores.
+title: Configurar informações de recipientes Live Data (pré-visualização) | Microsoft Docs
+description: Este artigo descreve como configurar a visão em tempo real dos troncos de contentores (stdout/stderr) e eventos sem utilizar kubectl com insights de contentores.
 ms.topic: conceptual
 ms.date: 01/08/2020
 ms.custom: references_regions
-ms.openlocfilehash: 3c176b2db659577d585ac077eebe0484203eb9cf
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 4302bdbb3d71c890f7fb0cfb82ab5f8d5aecbd43
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614321"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713784"
 ---
 # <a name="how-to-set-up-the-live-data-preview-feature"></a>Como configurar a funcionalidade Dados Ao Vivo (pré-visualização)
 
-Para visualizar dados ao vivo (pré-visualização) com o Azure Monitor para contentores dos clusters Azure Kubernetes Service (AKS), é necessário configurar a autenticação para conceder permissão para aceder aos seus dados Kubernetes. Esta configuração de segurança permite o acesso em tempo real aos seus dados através da API de Kubernetes diretamente no portal Azure.
+Para visualizar dados ao vivo (pré-visualização) com insights do Contentor dos clusters Azure Kubernetes Service (AKS), é necessário configurar a autenticação para conceder permissão de acesso aos seus dados Kubernetes. Esta configuração de segurança permite o acesso em tempo real aos seus dados através da API de Kubernetes diretamente no portal Azure.
 
 Esta funcionalidade suporta os seguintes métodos para controlar o acesso aos registos, eventos e métricas:
 
@@ -46,7 +46,7 @@ O portal Azure solicita-lhe que valide as suas credenciais de login para um clus
 
 Para eliminar a necessidade de aplicar alterações de configuração adicionais para permitir que o **clusterUser** de ligação da função do utilizador Kubernetes aceda à funcionalidade De dados vivos (pré-visualização) depois de permitir a autorização [do AMC de Kubernetes,](#configure-kubernetes-rbac-authorization) a AKS adicionou uma nova ligação de cluster de kubernetes chamada **clusterMonitoringUser**. Esta ligação de funções de cluster tem todas as permissões necessárias fora da caixa para aceder à API de Kubernetes e aos pontos finais para utilizar a funcionalidade De Dados Ao Vivo (pré-visualização).
 
-Para utilizar a funcionalidade Dados Ao Vivo (pré-visualização) com este novo utilizador, é necessário ser membro do [Grupo de Atendimento Azure Kubernetes](../../role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-user-role) ou [do contributo](../../role-based-access-control/built-in-roles.md#contributor) no recurso cluster AKS. O Monitor Azure para recipientes, quando ativado, é configurado para autenticar utilizando o clusterMonitoringUser por predefinição. Se a ligação de funções clusterMonitoringUser não existir num cluster, **o clusterUser** é utilizado para a autenticação. O colaborador dá-lhe acesso ao clusterMonitoringUser (se existir) e o Utilizador do Cluster de Serviços Azure Kuberenetes dá-lhe acesso ao clusterUser. Qualquer uma destas duas funções dá acesso suficiente à utilização desta funcionalidade.
+Para utilizar a funcionalidade Dados Ao Vivo (pré-visualização) com este novo utilizador, é necessário ser membro do [Grupo de Atendimento Azure Kubernetes](../../role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-user-role) ou [do contributo](../../role-based-access-control/built-in-roles.md#contributor) no recurso cluster AKS. As informações do recipiente, quando ativadas, são configuradas para autenticar utilizando o clusterMonitoringUser por predefinição. Se a ligação de funções clusterMonitoringUser não existir num cluster, **o clusterUser** é utilizado para a autenticação. O colaborador dá-lhe acesso ao clusterMonitoringUser (se existir) e o Utilizador do Cluster de Serviços Azure Kuberenetes dá-lhe acesso ao clusterUser. Qualquer uma destas duas funções dá acesso suficiente à utilização desta funcionalidade.
 
 A AKS divulgou esta nova função vinculativa em janeiro de 2020, pelo que os clusters criados antes de janeiro de 2020 não o têm. Se tiver um cluster que foi criado antes de janeiro de 2020, o novo **clusterMonitoringUser** pode ser adicionado a um cluster existente através da realização de uma operação PUT no cluster, ou realizando qualquer outra operação no cluster que execute uma operação PUT no cluster, como atualizar a versão do cluster.
 
@@ -106,7 +106,7 @@ O registo do cliente Azure AD deve ser reformulado para permitir que o portal Az
 Para obter mais informações sobre a configuração avançada de segurança em Kubernetes, reveja a [documentação de Kubernetes](https://kubernetes.io/docs/reference/access-authn-authz/rbac/).
 
 >[!NOTE]
->Se estiver a criar um novo cluster ativado por Kubernetes, consulte [o Integrate Azure Ative Directory com o Serviço Azure Kubernetes](../../aks/azure-ad-integration-cli.md) e siga os passos para configurar a autenticação Azure AD. Durante os passos para criar a aplicação do cliente, uma nota nessa secção realça os dois URLs de redirecionamento que precisa de criar para o Azure Monitor para recipientes que correspondam aos especificados no Passo 3 abaixo.
+>Se estiver a criar um novo cluster ativado por Kubernetes, consulte [o Integrate Azure Ative Directory com o Serviço Azure Kubernetes](../../aks/azure-ad-integration-cli.md) e siga os passos para configurar a autenticação Azure AD. Durante os passos para criar a aplicação do cliente, uma nota nessa secção realça os dois URLs de redirecionamento que precisa de criar para insights de contentores que correspondam aos especificados no Passo 3 abaixo.
 
 ### <a name="client-registration-reconfiguration"></a>Reconfiguração do registo do cliente
 

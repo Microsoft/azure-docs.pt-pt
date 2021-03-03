@@ -1,22 +1,22 @@
 ---
-title: Como consultar registos do Azure Monitor para contentores | Microsoft Docs
-description: O Azure Monitor para contentores recolhe métricas e dados de registo e este artigo descreve os registos e inclui consultas de amostra.
+title: Como consultar registos a partir de insights de contentores | Microsoft Docs
+description: Os insights do contentor recolhem métricas e dados de registo e este artigo descreve os registos e inclui consultas de amostra.
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: 8f02d900ba931768c7f8acebc1b124aff777da18
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 79efa714548adbde67774cab741bf953a4ff1e83
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100620032"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711115"
 ---
-# <a name="how-to-query-logs-from-azure-monitor-for-containers"></a>Como consultar registos do Azure Monitor para contentores
+# <a name="how-to-query-logs-from-container-insights"></a>Como consultar registos a partir de insights de contentores
 
-O Azure Monitor para contentores recolhe métricas de desempenho, dados de inventário e informações do estado de saúde dos anfitriões e contentores dos contentores. Os dados são recolhidos a cada três minutos e encaminhados para o espaço de trabalho Log Analytics no Azure Monitor. Estes dados estão disponíveis para [consulta](../log-query/log-query-overview.md) no Azure Monitor. Pode aplicar estes dados em cenários que incluem planeamento de migração, análise de capacidade, descoberta e resolução de problemas de desempenho a pedido.
+Os insights dos contentores recolhem métricas de desempenho, dados de inventário e informações do estado de saúde dos anfitriões e contentores dos contentores. Os dados são recolhidos a cada três minutos e encaminhados para o espaço de trabalho Log Analytics no Azure Monitor. Estes dados estão disponíveis para [consulta](../logs/log-query-overview.md) no Azure Monitor. Pode aplicar estes dados em cenários que incluem planeamento de migração, análise de capacidade, descoberta e resolução de problemas de desempenho a pedido.
 
 ## <a name="container-records"></a>Registos de contentores
 
-No quadro seguinte, são fornecidos pormenores sobre os registos recolhidos pelo Azure Monitor para os contentores. Para obter uma listagem das descrições da coluna, consulte a referência para as tabelas [ContainerInventory](/azure/azure-monitor/reference/tables/containerinventory) e [ContainerLog.](/azure/azure-monitor/reference/tables/containerlog)
+Na tabela seguinte, são fornecidos pormenores sobre os registos recolhidos pelos insights do Contentor. Para obter uma listagem das descrições da coluna, consulte a referência para as tabelas [ContainerInventory](/azure/azure-monitor/reference/tables/containerinventory) e [ContainerLog.](/azure/azure-monitor/reference/tables/containerlog)
 
 | Dados | Origem de dados | Tipo de dados | Campos |
 |------|-------------|-----------|--------|
@@ -47,7 +47,7 @@ Os registos de contentores que são reencaminhados para o seu espaço de trabalh
 
 Muitas vezes é útil construir consultas que começam com um ou dois exemplos e depois modificá-las para se adequar às suas necessidades. Para ajudar a construir consultas mais avançadas, pode experimentar as seguintes consultas de amostra:
 
-| Consulta | Description | 
+| Consulta | Descrição | 
 |-------|-------------|
 | ContentorInventory<br> &#124; projeto Computador, Nome, Imagem, ImageTag, ContainerState, CreatedTime, StartedTime, FinishedTime<br> &#124; mesa de renderização | Listar todas as informações do ciclo de vida de um contentor| 
 | KubeEvents_CL<br> &#124; em que não(isempty(Namespace_s))<br> &#124; tipo por Desc degenerado Tempo<br> &#124; mesa de renderização | Eventos de Kubernetes|
@@ -110,4 +110,4 @@ A saída apresenta resultados semelhantes ao seguinte exemplo:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-O Monitor Azure para contentores não inclui um conjunto de alertas predefinidos. Reveja os [alertas de desempenho da Create com o Azure Monitor para que os recipientes](./container-insights-log-alerts.md) aprendam a criar alertas recomendados para alta utilização de CPU e memória para suportar os seus DevOps ou processos e procedimentos operacionais.
+As informações do recipiente não incluem um conjunto de alertas predefinidos. Reveja os [alertas de desempenho da Create com insights](./container-insights-log-alerts.md) de Contentores para aprender a criar alertas recomendados para alta utilização de CPU e memória para suportar os seus DevOps ou processos e procedimentos operacionais.

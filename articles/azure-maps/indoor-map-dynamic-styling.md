@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 266dc5d62f6224495075546528ad71d806d415ac
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: a23c492d4a81703c0dc6612928a56b5b31d52cae
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96903450"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726324"
 ---
 # <a name="implement-dynamic-styling-for-creator-preview-indoor-maps"></a>Implementar estilo dinâmico para mapas interiores do Criador (Preview)
 
@@ -54,11 +54,11 @@ map.events.add("click", function(e){
 
     var features = map.layers.getRenderedShapes(e.position, "indoor");
 
-    var result = features.reduce(function (ids, feature) {
-        if (feature.layer.id == "indoor_unit_office") {
+    features.forEach(function (feature) {
+        if (feature.layer.id == 'indoor_unit_office') {
             console.log(feature);
         }
-    }, []);
+    });
 });
 ```
 
@@ -78,7 +78,7 @@ Na próxima secção, vamos definir o *estado* de ocupação para `UNIT26` `true
     https://atlas.microsoft.com/featureState/state?api-version=1.0&statesetID={statesetId}&featureID=UNIT26&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-3. Nos **Cabeçalhos** do pedido **DOM,** definido `Content-Type` para `application/json` . No **corpo** do pedido **POST,** escreva o seguinte JSON com as atualizações de funcionalidades. A atualização só será guardada se o carimbo de tempo registado for após o carimbo de tempo utilizado nos pedidos de atualização do estado de funcionalidade anterior para a mesma funcionalidade `ID` . Passe o "ocupado" `keyName` para atualizar o seu valor.
+3. Nos **Cabeçalhos** do pedido **DOM,** definido `Content-Type` para `application/json` . No **corpo** do pedido **POST,** escreva o seguinte JSON cru com as atualizações de funcionalidades. A atualização só será guardada se o carimbo de tempo registado for após o carimbo de tempo utilizado nos pedidos de atualização do estado de funcionalidade anterior para a mesma funcionalidade `ID` . Passe o "ocupado" `keyName` para atualizar o seu valor.
 
     ```json
     {
@@ -108,9 +108,11 @@ Na próxima secção, vamos definir o *estado* de ocupação para `UNIT26` `true
 
 ### <a name="visualize-dynamic-styles-on-a-map"></a>Visualize estilos dinâmicos em um mapa
 
-A aplicação web que abriu anteriormente num browser deve agora refletir o estado atualizado das funcionalidades do mapa. `UNIT27`(151) deve parecer verde e `UNIT26` (157) deve parecer vermelho.
+A aplicação web que abriu anteriormente num browser deve agora refletir o estado atualizado das funcionalidades do mapa. `UNIT27`(142) deve parecer verde e `UNIT26` (143) deve parecer vermelho.
 
 ![Quarto livre em verde e quarto ocupado em vermelho](./media/indoor-map-dynamic-styling/room-state.png)
+
+[Ver demonstração ao vivo](https://azuremapscodesamples.azurewebsites.net/?sample=Creator%20indoor%20maps)
 
 ## <a name="next-steps"></a>Passos seguintes
 

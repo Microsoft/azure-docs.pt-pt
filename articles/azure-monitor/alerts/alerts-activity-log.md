@@ -4,12 +4,12 @@ description: Crie alertas de registo de atividade utilizando o portal Azure, um 
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 06/25/2019
-ms.openlocfilehash: 83023cca6b034ee0e9acddfa081f09eb47b9fb1e
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: bb4c1410d046389ae9e82986c6b0ed3d133fcf2a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100621022"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704468"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-by-using-azure-monitor"></a>Criar, visualizar e gerir alertas de registo de atividades utilizando o Azure Monitor  
 
@@ -26,7 +26,9 @@ Quando criar regras de alerta, certifique-se de que:
 
 - A subscrição no âmbito não é diferente da subscrição onde o alerta é criado.
 - Os critérios devem ser o nível, estado, chamador, grupo de recursos, ID de recurso ou categoria de evento tipo de recurso em que o alerta está configurado.
-- Não existe condição "qualquer Of" ou condições aninhadas na configuração de alerta JSON. Basicamente, apenas uma condição "allOf" é permitida sem mais condições "allOf" ou "anyOf".
+- Apenas uma condição "allOf" é permitida.
+- 'AnyOf' pode ser usado para permitir múltiplas condições em vários campos (por exemplo, se os campos "status" ou "subStatus" forem iguais a um determinado valor). Note que a utilização de 'AnyOf' está atualmente limitada à criação da regra de alerta utilizando uma implementação do modelo ARM.
+- 'Contém' Pode ser utilizado para permitir múltiplos valores do mesmo campo (por exemplo, se "operação" for igual a 'eliminar' ou 'modificar'). Note que a utilização de 'ContainsAny' está atualmente limitada à criação da regra de alerta utilizando uma implementação do modelo ARM.
 - Quando a categoria for "administrativa", deve especificar pelo menos um dos critérios anteriores no seu alerta. Não pode criar um alerta que seja ativado sempre que um evento é criado nos registos de atividade.
 - Não podem ser criados alertas para eventos na categoria de alerta de registo de atividade.
 
@@ -92,7 +94,7 @@ Utilize o seguinte procedimento.
     - **Descrição**: A descrição da nova regra de alerta.
     - **Guardar alerta para o grupo de recursos**: Selecione o grupo de recursos onde pretende guardar esta nova regra.
 
-5. No **grupo Ação**, a partir do menu suspenso, especifique o grupo de ação que pretende atribuir a esta nova regra de alerta. Ou [criar um novo grupo de ação](../platform/action-groups.md) e atribuí-lo à nova regra. Para criar um novo grupo, selecione **+ Novo grupo.**
+5. No **grupo Ação**, a partir do menu suspenso, especifique o grupo de ação que pretende atribuir a esta nova regra de alerta. Ou [criar um novo grupo de ação](./action-groups.md) e atribuí-lo à nova regra. Para criar um novo grupo, selecione **+ Novo grupo.**
 
 6. Para ativar as regras após a sua criação, selecione **Sim** para a regra Enable após a opção **de criação.**
 7. Selecione **Criar regra de alerta**.
@@ -287,6 +289,5 @@ Os recursos de regra de alerta de registo de atividade podem ser removidos utili
 
 - Saiba mais sobre [o esquema webhook para registos de atividades](./activity-log-alerts-webhook.md).
 - Leia uma [visão geral dos registos de atividades.](./activity-log-alerts.md)
-- Saiba mais sobre [grupos de ação.](../platform/action-groups.md)  
+- Saiba mais sobre [grupos de ação.](./action-groups.md)  
 - Saiba mais sobre [as notificações de saúde do serviço.](../../service-health/service-notifications.md)
-

@@ -3,12 +3,12 @@ title: Resolução de problemas SAP HANA erros de backup
 description: Descreve como resolver erros comuns que podem ocorrer quando utiliza o Azure Backup para fazer backup nas bases de dados SAP HANA.
 ms.topic: troubleshooting
 ms.date: 11/7/2019
-ms.openlocfilehash: b9fa73ee38e337a547816432212bc68d419f40bb
-ms.sourcegitcommit: 1d366d72357db47feaea20c54004dc4467391364
+ms.openlocfilehash: 22800adc323bda8a60278160f24bc559103fb57e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95411330"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713342"
 ---
 # <a name="troubleshoot-backup-of-sap-hana-databases-on-azure"></a>Backup de resolução de problemas das bases de dados SAP HANA em Azure
 
@@ -46,13 +46,6 @@ Consulte os [pré-requisitos](tutorial-backup-sap-hana-db.md#prerequisites) e [o
 | Mensagem de Erro      | <span style="font-weight:normal">A operação SAP HANA especificada não é suportada</span>              |
 | ------------------ | ------------------------------------------------------------ |
 | **Possíveis causas**    | A Azure Backup para SAP HANA não suporta backup incremental e ações realizadas em clientes nativos SAP HANA (Studio/ Cockpit/ DBA Cockpit) |
-| **Ação recomendada** | Para mais informações, consulte [aqui.](./sap-hana-backup-support-matrix.md#scenario-support) |
-
-### <a name="usererrorhanapodoesnotsupportbackuptype"></a>UserErrorHANAPODoesNotSupportBackUpType
-
-| Mensagem de Erro      | <span style="font-weight:normal">Esta base de dados SAP HANA não suporta o tipo de backup solicitado</span>  |
-| ------------------ | ------------------------------------------------------------ |
-| **Possíveis causas**    | A Azure Backup não suporta backup incremental e backup usando instantâneos |
 | **Ação recomendada** | Para mais informações, consulte [aqui.](./sap-hana-backup-support-matrix.md#scenario-support) |
 
 ### <a name="usererrorhanalsnvalidationfailure"></a>UserErrorHANALSNValidationFailure
@@ -202,6 +195,6 @@ Estes sintomas podem surgir por uma ou mais das seguintes razões:
 
 Nos cenários anteriores, recomendamos que desencadeie uma operação de re-registo no VM.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Reveja as [perguntas frequentes](./sap-hana-faq-backup-azure-vm.md) sobre o backup das bases de dados SAP HANA em VMs Azure.

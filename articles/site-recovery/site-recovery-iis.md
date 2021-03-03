@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: mayg
-ms.openlocfilehash: 7a4408b54b663b2cd8abc22772ac1b799ea50de0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 56ac58e47bffc73c7079af043ad567a77e8f3323
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87083774"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101735510"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-iis-based-web-application"></a>Configurar a recuperação após desastre para uma aplicação baseada em IIS de vários escalões
 
@@ -58,7 +58,7 @@ Para os exemplos deste artigo, utilizamos máquinas virtuais VMware com IIS 7.5 
 
 ### <a name="source-and-target"></a>Fonte e alvo
 
-Cenário | Para um site secundário | Para o Azure
+Scenario | Para um site secundário | Para o Azure
 --- | --- | ---
 Hyper-V | Sim | Sim
 VMware | Sim | Sim
@@ -69,7 +69,7 @@ Azure|ND|Sim
 
 Para começar a replicar todas as máquinas virtuais da web do IIS para a Azure, siga as orientações em [Test failover to Azure in Site Recovery](site-recovery-test-failover-to-azure.md).
 
-Se estiver a utilizar um endereço IP estático, pode especificar o endereço IP que pretende que a máquina virtual possa ser tomada. Para definir o endereço IP, aceda às definições de **Compute e Network**TARGET  >  **IP**.
+Se estiver a utilizar um endereço IP estático, pode especificar o endereço IP que pretende que a máquina virtual possa ser tomada. Para definir o endereço IP, aceda às definições de **Compute e Network** TARGET  >  **IP**.
 
 ![Screenshot que mostra como definir o IP alvo no painel de recuperação do site e painel de rede](./media/site-recovery-active-directory/dns-target-ip.png)
 
@@ -122,10 +122,10 @@ Cada site consiste em informações vinculativas. As informações vinculativas 
 
 ![Screenshot que mostra a definição da ligação TLS/SSL](./media/site-recovery-iis/sslbinding.png)
 
-Se associar o endereço IP a um site, atualize todas as ligações do site com o novo endereço IP. Para alterar as ligações do site, adicione um [script de atualização de nível web IIS](https://aka.ms/asr-web-tier-update-runbook-classic) após o Grupo 3 no plano de recuperação.
+Se associar o endereço IP a um site, atualize todas as ligações do site com o novo endereço IP. Para alterar as ligações do site, adicione um [script de atualização de nível web IIS](/samples/browse/?redirectedfrom=TechNet-Gallery) após o Grupo 3 no plano de recuperação.
 
 #### <a name="update-the-load-balancer-ip-address"></a>Atualizar o endereço IP do balançador de carga
-Se tiver uma máquina virtual ARR para atualizar o endereço IP, adicione um [script de falha do IIS ARR](https://aka.ms/asr-iis-arrtier-failover-script-classic) após o Grupo 4.
+Se tiver uma máquina virtual ARR para atualizar o endereço IP, adicione um [script de falha do IIS ARR](/samples/browse/?redirectedfrom=TechNet-Gallery) após o Grupo 4.
 
 #### <a name="tlsssl-certificate-binding-for-an-https-connection"></a>Encadernação de certificado TLS/SSL para uma ligação HTTPS
 Um site pode ter um certificado TLS/SSL associado que ajuda a garantir uma comunicação segura entre o servidor web e o navegador do utilizador. Se o website tiver uma ligação HTTPS, e tiver também uma ligação https associada ao endereço IP do servidor IIS com uma ligação de certificado TLS/SSL, deve adicionar uma nova ligação de site para o certificado com o endereço IP da máquina virtual IIS pós-falha.

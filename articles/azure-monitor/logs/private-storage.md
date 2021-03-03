@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: noakup
 ms.author: noakuper
 ms.date: 09/03/2020
-ms.openlocfilehash: 3c5a528ada9e7239f5c53da1cae6df7ceffac918
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 4161f2f4ced848eb02d395dfb2da35d64f0c0fb6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100617472"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723066"
 ---
 # <a name="using-customer-managed-storage-accounts-in-azure-monitor-log-analytics"></a>Utilizar contas de armazenamento geridas pelo cliente no Log Analytics do Azure Monitor
 
@@ -51,6 +51,7 @@ Para que a conta de armazenamento se conecte com sucesso ao seu link privado, de
 * Permitir ao Monitor Azure aceder à conta de armazenamento. Se optar por permitir apenas que redes selecionadas acedam à sua conta de armazenamento, deverá selecionar a exceção: "Permitir que serviços fidedignos da Microsoft acedam a esta conta de armazenamento".
 ![Imagem de serviços de MS fidedindo de conta de armazenamento](./media/private-storage/storage-trust.png)
 * Se o seu espaço de trabalho também lidar com o tráfego de outras redes, deverá configurar a conta de armazenamento para permitir a entrada de tráfego proveniente das redes/internet relevantes.
+* Coordenar a versão TLS entre os agentes e a conta de armazenamento - É recomendável que envie dados para Log Analytics utilizando tLS 1.2 ou superior. Reveja [a orientação específica da plataforma](https://docs.microsoft.com/azure/azure-monitor/logs/data-security#sending-data-securely-using-tls-12), e se necessário [configurar os seus agentes para utilizar o TLS 1.2](https://docs.microsoft.com/azure/azure-monitor/agents/agent-windows#configure-agent-to-use-tls-12). Se por alguma razão isso não for possível, configuure a conta de armazenamento para aceitar TLS 1.0.
 
 ### <a name="using-a-customer-managed-storage-account-for-cmk-data-encryption"></a>Utilização de uma conta de armazenamento gerida pelo cliente para encriptação de dados CMK
 O Azure Storage encripta todos os dados em repouso numa conta de armazenamento. Por padrão, utiliza as teclas geridas pela Microsoft (MMK) para encriptar os dados; No entanto, o Azure Storage também permite utilizar o CMK do cofre Azure Key para encriptar os seus dados de armazenamento. Pode importar as suas próprias chaves para o Cofre da Chave Azure, ou pode usar as APIs do Cofre de Chaves Azure para gerar chaves.

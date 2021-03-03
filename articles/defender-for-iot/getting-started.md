@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/26/2020
+ms.date: 2/18/2021
 ms.author: shhazam
-ms.openlocfilehash: 06cf8b5f35bdebed0ebaa9e6949261d7c0d516f2
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: c224dc3f919471e769717f308aff9ae58630d421
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100522568"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101712764"
 ---
 # <a name="get-started-with-defender-for-iot"></a>Começa com o Defender para o IoT
 
@@ -69,6 +69,8 @@ Para se registar:
 1. Selecione **a subscrição a bordo**.
 1. Na página **de Preços,** selecione uma subscrição ou crie uma nova e adicione o número de dispositivos comprometidos.
 1. Selecione **o separador de consola de gestão de gestão de descarregamento e** guarde o ficheiro de ativação descarregado. Este ficheiro contém os dispositivos agregados comprometidos que definiu. O ficheiro será enviado para a consola de gestão após a iniciação inicial.
+
+Para obter informações sobre como embarcar uma subscrição, consulte [Offboard uma subscrição](how-to-manage-sensors-on-the-cloud.md#offboard-a-subscription).
 
 ## <a name="3-install-and-set-up-the-on-premises-management-console"></a>3. Instale e instale a consola de gestão no local
 
@@ -126,8 +128,9 @@ Para obter mais informações, consulte [os sensores de ligação à consola de 
 ## <a name="7-populate-azure-sentinel-with-alert-information-optional"></a>7. Populate Azure Sentinel com informações de alerta (opcional)
 
 Envie informações de alerta ao Azure Sentinel, configurando Azure Sentinel. Consulte [os seus dados do Defender para IoT ao Azure Sentinel](how-to-configure-with-sentinel.md).
-## <a name="next-steps"></a>Passos seguintes
 
-[Bem-vindo ao Azure Defender para ioT](overview.md)
+## <a name="see-also"></a>Ver também
 
-[Azure Defender para arquitetura IoT](architecture.md)
+- [Bem-vindo ao Azure Defender para ioT](overview.md)
+
+- [Azure Defender para arquitetura IoT](architecture.md)

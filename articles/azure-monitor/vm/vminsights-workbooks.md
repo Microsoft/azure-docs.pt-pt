@@ -1,19 +1,19 @@
 ---
-title: Criar relatórios interativos do Azure Monitor para VMs com livros
-description: Simplificar relatórios complexos com livros de trabalho parametrizados predefinidos e personalizados para o Azure Monitor para VMs.
+title: Criar relatórios interativos VM insights com livros de trabalho
+description: Simplificar relatórios complexos com livros de trabalho parametrizados predefinidos e personalizados para insights VM.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
-ms.openlocfilehash: 43cdb9de111bdea5486e49a56d58d38279b685c7
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 1e2f6c7a6b4a36eb1aa4230f62ee4b0c2a1c57c3
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100619601"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731294"
 ---
-# <a name="create-interactive-reports-azure-monitor-for-vms-with-workbooks"></a>Criar relatórios interativos do Azure Monitor para VMs com livros
+# <a name="create-interactive-reports-vm-insights-with-workbooks"></a>Criar relatórios interativos VM insights com livros de trabalho
 
 Os livros combinam texto, [consultas de registo,](/azure/data-explorer/kusto/query/)métricas e parâmetros em ricos relatórios interativos. Os livros de trabalho são editáveis por quaisquer outros membros da equipa que tenham acesso aos mesmos recursos Azure.
 
@@ -24,9 +24,9 @@ Os livros de trabalho são úteis para cenários como:
 * Partilhar os resultados de uma experiência de redimensionamento do seu VM com outros membros da sua equipa. Você pode explicar os objetivos para a experiência com texto, em seguida, mostrar cada métrica de uso e consultas de análise usadas para avaliar a experiência, juntamente com chamadas claras para se cada métrica estava acima ou abaixo do alvo.
 * Relatar o impacto de uma paragem no uso do seu VM, combinando dados, explicação de texto, e uma discussão dos próximos passos para evitar interrupções no futuro.
 
-A tabela que se segue resume os livros que o Azure Monitor para VMs inclui para começar.
+A tabela seguinte resume os livros de trabalho que os insights de VM incluem para começar.
 
-| Livro | Description | Âmbito |
+| Livro | Descrição | Âmbito |
 |----------|-------------|-------|
 | Desempenho | Fornece uma versão personalizável da nossa visão top N List e Charts num único livro que aproveita todos os contadores de desempenho do Log Analytics que ativou.| Em escala |
 | Contadores de desempenho | Uma vista de gráfico top N através de um vasto conjunto de contadores de desempenho. | Em escala |
@@ -96,7 +96,7 @@ As secções de consulta são altamente flexíveis e podem ser usadas para respo
 
 Também não se limita apenas a consultar o contexto da máquina virtual a que lançou o livro. Você pode consultar várias máquinas virtuais, bem como espaços de trabalho Log Analytics, desde que você tenha permissão de acesso a esses recursos.
 
-Para incluir dados de outros espaços de trabalho do Log Analytics ou de uma aplicação específica de Insights de Aplicação utilizando o identificador **do espaço de trabalho.** Para saber mais sobre consultas de recursos cruzados, consulte a [orientação oficial.](../log-query/cross-workspace-query.md)
+Para incluir dados de outros espaços de trabalho do Log Analytics ou de uma aplicação específica de Insights de Aplicação utilizando o identificador **do espaço de trabalho.** Para saber mais sobre consultas de recursos cruzados, consulte a [orientação oficial.](../logs/cross-workspace-query.md)
 
 ### <a name="advanced-analytic-query-settings"></a>Definições avançadas de consulta analítica
 
@@ -137,7 +137,7 @@ VMConnection
 
 ## <a name="adding-metrics-sections"></a>Adicionar secções de métricas
 
-As secções de métricas dão-lhe acesso total para incorporar dados de métricas do Azure Monitor nos seus relatórios interativos. No Azure Monitor para VMs, os livros pré-construídos normalmente contêm dados de consulta analítica em vez de dados métricos.  Pode optar por criar livros com dados métricos, permitindo-lhe tirar o máximo partido do melhor de ambas as funcionalidades num só local. Também tem a capacidade de extrair dados métricos de recursos em qualquer uma das subscrições a que tem acesso.
+As secções de métricas dão-lhe acesso total para incorporar dados de métricas do Azure Monitor nos seus relatórios interativos. Nos conhecimentos de VM, os livros pré-construídos normalmente contêm dados de consulta analítica em vez de dados métricos.  Pode optar por criar livros com dados métricos, permitindo-lhe tirar o máximo partido do melhor de ambas as funcionalidades num só local. Também tem a capacidade de extrair dados métricos de recursos em qualquer uma das subscrições a que tem acesso.
 
 Aqui está um exemplo de dados de máquinas virtuais sendo puxados para um livro para fornecer uma visualização de grelha do desempenho do CPU:
 
@@ -244,4 +244,4 @@ Para fixar uma ligação a um livro a um painel de instrumentos Azure:
 
 - Para identificar limitações e desempenho geral do VM, consulte [Ver Azure VM Performance](vminsights-performance.md).
 
-- Para saber mais sobre as dependências de aplicações descobertas, consulte [o Monitor Do Azure para o Mapa de VMs.](vminsights-maps.md)
+- Para saber mais sobre as dependências de aplicações descobertas, consulte [o Mapa de insights VM.](vminsights-maps.md)

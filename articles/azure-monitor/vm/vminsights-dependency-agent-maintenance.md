@@ -1,21 +1,21 @@
 ---
-title: Como atualizar o Monitor Azure para o agente VMs Dependency
-description: Este artigo descreve como atualizar o Monitor Azure para o agente VMs Dependency utilizando linha de comando, assistente de configuração e outros métodos.
+title: Como atualizar o agente de dependência de insights VM
+description: Este artigo descreve como atualizar o agente de dependência de insights VM usando linha de comando, assistente de configuração e outros métodos.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/16/2020
-ms.openlocfilehash: 05358c560c70396d4e165abd174178378aad517b
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 14ca614c1e108ce43f05f98520cff6ff215ec5cc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100619871"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101722913"
 ---
-# <a name="how-to-upgrade-the-azure-monitor-for-vms-dependency-agent"></a>Como atualizar o Monitor Azure para o agente VMs Dependency
+# <a name="how-to-upgrade-the-vm-insights-dependency-agent"></a>Como atualizar o agente de dependência de insights VM
 
-Após a implementação inicial do Azure Monitor para o agente VMs Dependency, são lançadas atualizações que incluem correções de bugs ou suporte de novas funcionalidades ou funcionalidades.  Este artigo ajuda-o a compreender os métodos disponíveis e como realizar a atualização manualmente ou através da automatização.
+Após a implementação inicial do agente de dependência de insights VM, são lançadas atualizações que incluem correções de bugs ou suporte de novas funcionalidades ou funcionalidades.  Este artigo ajuda-o a compreender os métodos disponíveis e como realizar a atualização manualmente ou através da automatização.
 
 ## <a name="upgrade-options"></a>Opções de upgrade 
 
@@ -70,4 +70,4 @@ Se o agente de dependência não arrancar, verifique se os registos são informa
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Se pretender parar de monitorizar os seus VMs durante um período de tempo ou remover completamente o Monitor Azure para VMs, consulte [a monitorização desativada dos seus VMs no Monitor Azure para VMs](../vm/vminsights-optout.md).
+Se pretender parar de monitorizar os seus VMs durante um período de tempo ou remover completamente os conhecimentos de VM, consulte [a monitorização desativada dos seus VMs em insights VM](../vm/vminsights-optout.md).

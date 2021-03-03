@@ -4,12 +4,12 @@ description: Entenda como desenvolver funções com Python
 ms.topic: article
 ms.date: 11/4/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: a13b4463d2a9c32a3487f839c0bf53b4c5bd2963
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 78965a1a09272663c52469b8ccd91988f30b53cc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98735848"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708701"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guia de desenvolvedores de Azure Functions Python
 
@@ -20,6 +20,9 @@ Como desenvolvedor de Python, também poderá estar interessado num dos seguinte
 | Introdução | Conceitos| Cenários/Amostras |
 | -- | -- | -- | 
 | <ul><li>[Função python usando Código de Estúdio Visual](./create-first-function-vs-code-csharp.md?pivots=programming-language-python)</li><li>[Função python com terminal/comando](./create-first-function-cli-csharp.md?pivots=programming-language-python)</li></ul> | <ul><li>[Guia para programadores](functions-reference.md)</li><li>[Opções de alojamento](functions-scale.md)</li><li>[&nbsp;Considerações de desempenho](functions-best-practices.md)</li></ul> | <ul><li>[Classificação de imagens com PyTorch](machine-learning-pytorch.md)</li><li>[Amostra de automação Azure](/samples/azure-samples/azure-functions-python-list-resource-groups/azure-functions-python-sample-list-resource-groups/)</li><li>[Aprendizagem automática com o TensorFlow](functions-machine-learning-tensorflow.md)</li><li>[Pesquise amostras de Python](/samples/browse/?products=azure-functions&languages=python)</li></ul> |
+
+> [!NOTE]
+> Enquanto você pode [desenvolver as suas Funções Azure baseadas em Python localmente no Windows](./azure-functions/create-first-function-vs-code-python#run-the-function-locally), Python só é suportado em um plano de hospedagem baseado em Linux quando está em execução em Azure. Consulte a lista de combinações [suportadas do sistema operativo/tempo de execução.](./azure-functions/functions-scale#operating-systemruntime)
 
 ## <a name="programming-model"></a>Modelo de programação
 
@@ -633,7 +636,7 @@ Segue-se uma lista de guias de resolução de problemas para questões comuns:
 
 Todos os problemas e pedidos de funcionalidades conhecidos são rastreados utilizando a lista [de problemas do GitHub.](https://github.com/Azure/azure-functions-python-worker/issues) Se encontrar um problema e não encontrar o problema no GitHub, abra um novo problema e inclua uma descrição detalhada do problema.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais informações, veja os seguintes recursos:
 

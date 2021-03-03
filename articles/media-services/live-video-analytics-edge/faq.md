@@ -3,12 +3,12 @@ title: Vídeo ao vivo analytics em IoT Edge FAQ - Azure
 description: Este artigo responde a perguntas comumente sobre live video analytics on IoT Edge.
 ms.topic: conceptual
 ms.date: 12/01/2020
-ms.openlocfilehash: 0cb378bf614582070dd1bdd0a11706b26437af53
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 72a07a1a509aebcd7ba4048d0c84e913481c978e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880055"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702254"
 ---
 # <a name="live-video-analytics-on-iot-edge-faq"></a>Análise de vídeo ao vivo em IoT Edge FAQ
 
@@ -20,8 +20,8 @@ Este artigo responde a perguntas comumente sobre live video analytics em Azure I
 
 | Variável   |  Descrição  | 
 | --- | --- | 
-| [Sistema.DataTime](/dotnet/framework/data/adonet/sql/linq/system-datetime-methods) | Representa um instante na hora utc, tipicamente expresso como data e hora do dia no seguinte formato:<br>*yMddTHHmmssZ* | 
-| System.PreciseDateTime | Representa uma data-tempo universal coordenada (UTC) num formato compatível com ficheiros ISO8601 com milissegundos, no seguinte formato:<br>*yMddTHHmmss.fffZ* | 
+| [Sistema.DataTime](/dotnet/framework/data/adonet/sql/linq/system-datetime-methods) | Representa um instante na hora utc, tipicamente expresso como data e hora do dia no seguinte formato:<br>*yyyMddTHHmmssZ* | 
+| System.PreciseDateTime | Representa uma data-tempo universal coordenada (UTC) num formato compatível com ficheiros ISO8601 com milissegundos, no seguinte formato:<br>*yyyMddTHHmmss.fffZ* | 
 | Nome System.GraphTopology   | Representa uma topologia de gráficos de mídia, e detém a planta de um gráfico. | 
 | Nome system.graphInstance |    Representa uma instância de gráfico de mídia, detém valores de parâmetros, e faz referência à topologia. | 
 
@@ -29,7 +29,7 @@ Este artigo responde a perguntas comumente sobre live video analytics em Azure I
 
 **Posso implantar o módulo de borda de mídia para um dispositivo Windows 10?**
 
-Yes. Para mais informações, consulte [os recipientes Linux no Windows 10](/virtualization/windowscontainers/deploy-containers/linux-containers).
+Sim. Para mais informações, consulte [os recipientes Linux no Windows 10](/virtualization/windowscontainers/deploy-containers/linux-containers).
 
 ## <a name="capture-from-ip-camera-and-rtsp-settings"></a>Captura a partir de câmara IP e definições de RTSP
 
@@ -57,11 +57,11 @@ Não, não suportamos a descoberta de dispositivos no limite do Open Network Vid
 
 **Posso reproduzir os ativos registados na Azure Media Services a partir do limite, utilizando tecnologias de streaming como o HLS ou o DASH?**
 
-Yes. Pode transmitir ativos registados como qualquer outro ativo na Azure Media Services. Para transmitir o conteúdo, tem de ter um ponto final de streaming criado e no estado de funcionamento. A utilização do processo padrão de criação do Localizador de Streaming irá dar-lhe acesso a um apple HTTP Live Streaming (HLS) ou a Um Streaming Adaptativo Dinâmico sobre HTTP (DASH, também conhecido como MPEG-DASH) manifesto para streaming para qualquer estrutura de jogador capaz. Para obter mais informações sobre a criação e publicação de manifestos HLS ou DASH, consulte [a embalagem dinâmica.](../latest/dynamic-packaging-overview.md)
+Sim. Pode transmitir ativos registados como qualquer outro ativo na Azure Media Services. Para transmitir o conteúdo, tem de ter um ponto final de streaming criado e no estado de funcionamento. A utilização do processo padrão de criação do Localizador de Streaming irá dar-lhe acesso a um apple HTTP Live Streaming (HLS) ou a Um Streaming Adaptativo Dinâmico sobre HTTP (DASH, também conhecido como MPEG-DASH) manifesto para streaming para qualquer estrutura de jogador capaz. Para obter mais informações sobre a criação e publicação de manifestos HLS ou DASH, consulte [a embalagem dinâmica.](../latest/dynamic-packaging-overview.md)
 
 **Posso utilizar a proteção padrão de conteúdos e as funcionalidades de DRM dos Serviços de Mídia num ativo arquivado?**
 
-Yes. Todas as funcionalidades de proteção de conteúdos de encriptação dinâmica padrão e gestão de direitos digitais (DRM) estão disponíveis para utilização em ativos que são registados a partir de um gráfico de mídia.
+Sim. Todas as funcionalidades de proteção de conteúdos de encriptação dinâmica padrão e gestão de direitos digitais (DRM) estão disponíveis para utilização em ativos que são registados a partir de um gráfico de mídia.
 
 **Que jogadores posso usar para ver conteúdo dos ativos gravados?**
 
@@ -170,7 +170,7 @@ Com uma extensão gRPC, cada sessão é para um único feed de câmara, por isso
 
 **Todos os ProcessMediaStreams de um determinado recipiente funcionam no mesmo modelo de IA?** 
 
-Não. Iniciar ou parar chamadas do utilizador final numa instância de gráfico constitui uma sessão, ou talvez haja uma câmara desligada ou reconectar-se. O objetivo é persistir uma sessão se a câmara estiver a transmitir vídeo. 
+N.º Iniciar ou parar chamadas do utilizador final numa instância de gráfico constitui uma sessão, ou talvez haja uma câmara desligada ou reconectar-se. O objetivo é persistir uma sessão se a câmara estiver a transmitir vídeo. 
 
 * Duas câmaras que enviam vídeo para processamento criam duas sessões. 
 * Uma câmara que vai para um gráfico que tem dois nós de extensão gRPC cria duas sessões. 
@@ -226,11 +226,11 @@ Pode utilizar quaisquer funcionalidades gRPC do lado do servidor, desde que o co
 
 **Posso monitorizar o gráfico mediático no limite utilizando a Grelha de Eventos do Azure?**
 
-Yes. Pode consumir métricas prometheus e publicá-las na sua grelha de eventos. 
+Sim. Pode consumir métricas prometheus e publicá-las na sua grelha de eventos. 
 
 **Posso usar o Azure Monitor para ver a saúde, as métricas e o desempenho dos meus gráficos mediáticos na nuvem ou no limite?**
 
-Sim, apoiamos esta abordagem. Para saber mais, consulte [a visão geral do Azure Monitor Metrics](../../azure-monitor/platform/data-platform-metrics.md).
+Sim, apoiamos esta abordagem. Para saber mais, consulte [a visão geral do Azure Monitor Metrics](../../azure-monitor/essentials/data-platform-metrics.md).
 
 **Existem ferramentas para facilitar a monitorização do módulo IoT Edge dos Serviços de Comunicação Social?**
 
@@ -246,6 +246,6 @@ Para obter mais informações, consulte o artigo [de monitorização e registo.]
 
 Para obter detalhes de faturação, consulte [os preços dos Serviços de Comunicação Social.](https://azure.microsoft.com/pricing/details/media-services/)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Quickstart: Começa com o Live Video Analytics no IoT Edge](get-started-detect-motion-emit-events-quickstart.md)

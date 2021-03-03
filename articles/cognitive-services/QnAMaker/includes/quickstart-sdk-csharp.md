@@ -3,12 +3,12 @@ title: 'Quickstart: Biblioteca de clientes QnA Maker para .NET'
 description: Este quickstart mostra como começar com a biblioteca cliente do QnA Maker para .NET. Siga estes passos para instalar a embalagem e experimente o código de exemplo para tarefas básicas.  O Criador de FAQ permite-lhe incorporar um serviço de perguntas e respostas a partir do seu conteúdo semiestruturado, como documentos de FAQ, URLs e manuais de produtos.
 ms.topic: quickstart
 ms.date: 06/18/2020
-ms.openlocfilehash: 18d8dbc59d1c43961cd665a3ea98d1041516afb7
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: d14c137150b802c734a0386536fbe32a6917cd92
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99616386"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731006"
 ---
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (lançamento estável)](#tab/version-1)
 
@@ -153,7 +153,7 @@ No método da `Main` aplicação, adicione variáveis e código, mostrados na se
 > [!IMPORTANT]
 > Vá ao portal Azure e encontre a chave e o ponto final para o recurso QnA Maker que criou nos pré-requisitos. Estarão localizados na **página chave e endpoint** do recurso, sob **gestão de recursos.** 
 
-Utilizamos a chave de subscrição e a chave de autoria interchangemente. Para obter mais detalhes sobre a chave de autoria, siga [as Chaves no QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/concepts/azure-resources?tabs=v1#keys-in-qna-maker).
+Utilizamos a chave de subscrição e a chave de autoria interchangemente. Para obter mais detalhes sobre a chave de autoria, siga [as Chaves no QnA Maker](../concepts/azure-resources.md?tabs=v1#keys-in-qna-maker).
 
 - Crie variáveis ambientais denominadas QNA_MAKER_SUBSCRIPTION_KEY, QNA_MAKER_ENDPOINT e QNA_MAKER_RUNTIME_ENDPOINT para armazenar estes valores.
 - O valor de QNA_MAKER_ENDPOINT tem o `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com` formato. 
@@ -167,7 +167,7 @@ Utilizamos a chave de subscrição e a chave de autoria interchangemente. Para o
 > [!IMPORTANT]
 > Vá ao portal Azure e encontre a chave e o ponto final para o recurso QnA Maker que criou nos pré-requisitos. Estarão localizados na **página chave e endpoint** do recurso, sob **gestão de recursos.** 
 
-Utilizamos a chave de subscrição e a chave de autoria interchangemente. Para obter mais detalhes sobre a chave de autoria, siga [as Chaves no QnA Maker](https://docs.microsoft.com/azure/cognitive-services/qnamaker/concepts/azure-resources?tabs=v2#keys-in-qna-maker).
+Utilizamos a chave de subscrição e a chave de autoria interchangemente. Para obter mais detalhes sobre a chave de autoria, siga [as Chaves no QnA Maker](../concepts/azure-resources.md?tabs=v2#keys-in-qna-maker).
 
 - Crie variáveis ambientais denominadas QNA_MAKER_SUBSCRIPTION_KEY e QNA_MAKER_ENDPOINT para armazenar estes valores.
 - O valor de QNA_MAKER_ENDPOINT tem o `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com` formato. 
@@ -184,7 +184,7 @@ Utilizamos a chave de subscrição e a chave de autoria interchangemente. Para o
 
 [O Fabricante QnA](/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker) usa dois modelos de objetos diferentes:
 * **[QnAMakerClient](#qnamakerclient-object-model)** é o objeto para criar, gerir, publicar e descarregar a base de conhecimentos.
-* **[QnAMakerRuntime](#qnamakerruntimeclient-object-model)** é o objeto para consultar a base de conhecimento com a API GenerateAnswer e enviar novas perguntas sugeridas usando a API do comboio (como parte da [aprendizagem ativa).](../concepts/active-learning-suggestions.md)
+* **[QnAMakerRuntime](#qnamakerruntimeclient-object-model)** é o objeto para consultar a base de conhecimento com a API GenerateAnswer e enviar novas perguntas sugeridas usando a API do comboio (como parte da [aprendizagem ativa).](../how-to/use-active-learning.md)
 
 # <a name="qna-maker-managed-preview-release"></a>[QnA Maker gerido (pré-visualização)](#tab/version-2)
 

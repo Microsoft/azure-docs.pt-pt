@@ -1,15 +1,15 @@
 ---
 title: 'Quickstart: Nova atribuição de políticas com Python'
 description: Neste quickstart, você usa Python para criar uma atribuição de Política Azure para identificar recursos não conformes.
-ms.date: 10/14/2020
+ms.date: 03/02/2021
 ms.topic: quickstart
 ms.custom: devx-track-python, devx-track-azurecli
-ms.openlocfilehash: aa67b3a2bae2beb62daa6e64871411ee760f802b
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: e600f97dafdd1040c22b6e4d9e333f638334b663
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94832206"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101742352"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-python"></a>Quickstart: Criar uma atribuição de política para identificar recursos não conformes usando Python
 
@@ -40,7 +40,7 @@ Para permitir que python trabalhe com a Política Azure, a biblioteca deve ser a
    az login
    ```
 
-1. No seu ambiente python de eleição, instale as bibliotecas necessárias para o Azure Resource Graph:
+1. No seu ambiente python de eleição, instale as bibliotecas necessárias para a Política Azure:
 
    ```bash
    # Add the Python library for Python
@@ -96,7 +96,7 @@ Detalhes da atribuição:
 - **policy_definition_id** – O caminho de definição de política, baseado no qual está a usar para criar a atribuição. Neste caso, é o ID de definição de política _Audit VMs que não usam discos geridos_. Neste exemplo, a definição de política é um incorporado e o caminho não inclui o grupo de gestão ou informações de subscrição.
 - **âmbito** - Um âmbito determina quais os recursos ou agrupamento de recursos em que a atribuição de políticas é executada. Pode ir de um grupo de gestão a um recurso individual. Certifique-se de que `{scope}` substitui por um dos seguintes padrões:
   - Grupo de gestão: `/providers/Microsoft.Management/managementGroups/{managementGroup}`
-  - Assinatura: `/subscriptions/{subscriptionId}`
+  - Subscrição: `/subscriptions/{subscriptionId}`
   - Grupo de recursos: `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}`
   - Recurso: `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/[{parentResourcePath}/]`
 - **descrição** - Uma explicação mais profunda do que a apólice faz ou por que é atribuída a este âmbito.

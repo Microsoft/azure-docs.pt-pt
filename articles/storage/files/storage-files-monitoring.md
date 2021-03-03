@@ -6,16 +6,16 @@ services: storage
 ms.service: storage
 ms.subservice: files
 ms.topic: conceptual
-ms.date: 10/26/2020
+ms.date: 3/02/2021
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: e872d28063a3e0671558ee4d388cad280b94f45b
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 620afb0ca5de7c6a89db107fb4616748473f0809
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100596924"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101701659"
 ---
 # <a name="monitoring-azure-files"></a>Monitorar ficheiros Azure
 
@@ -481,21 +481,10 @@ As entradas de registo só são criadas se houver pedidos feitos contra o ponto 
 
 - Pedidos com êxito
 - Pedidos falhados, incluindo tempo limite, limitação, rede, autorização e outros erros
-- Pedidos que utilizem uma assinatura de acesso partilhado (SAS) ou OAuth, incluindo pedidos falhados e bem sucedidos
-- Pedidos de dados de análise (dados clássicos **de** registo no $logs dados métricos do recipiente e da classe nas tabelas **$metric)**
+- Pedidos que utilizem Kerberos, NTLM ou assinatura de acesso partilhado (SAS), incluindo pedidos falhados e bem sucedidos
+- Pedidos de dados de análise (dados clássicos de registo no recipiente **$logs** e dados métricos clássicos nas tabelas **$metric)**
 
 Os pedidos feitos pelo próprio serviço Azure Files, como criação de registos ou eliminação, não são registados. Para obter uma lista completa dos pedidos de SMB e REST que estão registados, consulte [as operações registadas de Armazenamento e mensagens de estado](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) e os [Ficheiros Azure que monitorizam a referência de dados](storage-files-monitoring-reference.md).
-
-### <a name="log-anonymous-requests"></a>Registar pedidos anónimos
-
- Os seguintes tipos de pedidos anónimos são registados:
-
-- Pedidos com êxito
-- Erros de servidor
-- Erros de tempo limite para o cliente e o servidor
-- Pedidos GET falhados com o código de erro 304 (Não Modificado)
-
-Todos os outros pedidos anónimos falhados não estão registados. Para obter uma lista completa dos pedidos de SMB e REST que estão registados, consulte [as operações registadas de Armazenamento e mensagens de estado](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) e os [Ficheiros Azure que monitorizam a referência de dados](storage-files-monitoring-reference.md).
 
 ### <a name="accessing-logs-in-a-storage-account"></a>Aceder a registos numa conta de armazenamento
 
@@ -631,13 +620,12 @@ A tabela a seguir enumera alguns cenários de exemplo para monitorizar e a métr
    > [!NOTE]
    > Se os tipos de resposta não estiverem listados na redução dos valores de **dimensão,** isto significa que o recurso não foi estrangulado. Para adicionar os valores de dimensão, junto à lista de valores de **Dimensão,** selecione **Adicionar valor personalizado,** introduzir o tipo de respone (por exemplo, **SuccessWithThrottling),** selecionar **OK**, e, em seguida, repetir estes passos para adicionar todos os tipos de resposta aplicáveis para a sua partilha de ficheiros.
 
-8. Clique no **drop-down** do nome Dimension e selecione A partilha **de ficheiros**.
-9. Clique nos **valores** de Dimension drop-down e selecione as ações de ficheiros em que pretende alertar.
-
+8. Para **ações de ficheiros premium,** clique no **nome Dimension** drop-down e selecione File **Share**. Para **ações de ficheiros padrão**, salte para **o passo #10**. .
 
    > [!NOTE]
-   > Se a partilha de ficheiros for uma partilha de ficheiros padrão, selecione **Todos os valores atuais e futuros**. Os valores de dimensão não listam as ações de ficheiros porque as métricas por ação não estão disponíveis para ações de ficheiros padrão. Os alertas de estrangulamento para as ações de ficheiros padrão serão desencadeados se alguma parte do ficheiro dentro da conta de armazenamento for acelerada e o alerta não identificar qual a partilha de ficheiros que foi acelerada. Uma vez que as métricas por ação não estão disponíveis para ações de ficheiros padrão, a recomendação é ter uma ação de ficheiro por conta de armazenamento.
+   > Se a partilha de ficheiros for uma partilha de ficheiros padrão, a dimensão de Partilha de **Ficheiros** não listará a(s) partilha de ficheiros porque as métricas por partilha não estão disponíveis para ações de ficheiros padrão. Os alertas de estrangulamento para as ações de ficheiros padrão serão desencadeados se alguma parte do ficheiro dentro da conta de armazenamento for acelerada e o alerta não identificar qual a partilha de ficheiros que foi acelerada. Uma vez que as métricas por ação não estão disponíveis para ações de ficheiros padrão, a recomendação é ter uma ação de ficheiro por conta de armazenamento.
 
+9. Clique nos **valores** de Dimension drop-down e selecione as ações de ficheiros em que pretende alertar.
 10. Defina os **parâmetros** de alerta (valor limiar, operador, granularidade de agregação e frequência de avaliação) e clique em **Fazer**.
 
     > [!TIP]
@@ -654,12 +642,12 @@ A tabela a seguir enumera alguns cenários de exemplo para monitorizar e a métr
 3. Clique **em Editar o recurso,** selecione o **tipo de recurso De ficheiro** para a conta de armazenamento e, em seguida, clique em **Fazer**. Por exemplo, se o nome da conta de armazenamento `contoso` for, selecione o `contoso/file` recurso.
 4. Clique **em Adicionar condição** para adicionar uma condição.
 5. Verá uma lista de sinais suportados para a conta de armazenamento, selecione a métrica capacidade de **ficheiro.**
-6. Na lâmina lógica de **sinal configurar,** clique no **nome Dimension** drop-down e selecione File **Share**.
-7. Clique nos **valores** de Dimension drop-down e selecione as ações de ficheiros em que pretende alertar.
+6. Para **ações de ficheiros premium,** clique no **nome Dimension** drop-down e selecione File **Share**. Para **ações de ficheiros padrão**, salte para **o passo #8**. .
 
    > [!NOTE]
-   > Se a partilha de ficheiros for uma partilha de ficheiros padrão, selecione **Todos os valores atuais e futuros**. Os valores de dimensão não listam as ações de ficheiros porque as métricas por ação não estão disponíveis para ações de ficheiros padrão. Os alertas para as ações de ficheiros padrão baseiam-se em todas as ações de ficheiros na conta de armazenamento. Uma vez que as métricas por ação não estão disponíveis para ações de ficheiros padrão, a recomendação é ter uma ação de ficheiro por conta de armazenamento.
+   > Se a partilha de ficheiros for uma partilha de ficheiros padrão, a dimensão de Partilha de **Ficheiros** não listará a(s) partilha de ficheiros porque as métricas por partilha não estão disponíveis para ações de ficheiros padrão. Os alertas para as ações de ficheiros padrão baseiam-se em todas as ações de ficheiros na conta de armazenamento. Uma vez que as métricas por ação não estão disponíveis para ações de ficheiros padrão, a recomendação é ter uma ação de ficheiro por conta de armazenamento.
 
+7. Clique nos **valores** de Dimension drop-down e selecione as ações de ficheiros em que pretende alertar.
 8. Introduza o **valor Threshold** em bytes. Por exemplo, se o tamanho da partilha de ficheiros for de 100 TiB e pretender receber um alerta quando o tamanho da ação do ficheiro for de 80% da capacidade, o valor-limiar nos bytes é de 87960930222080.
 9. Defina o resto dos **parâmetros** de alerta (granularidade agregação e frequência de avaliação) e clique em **Fazer**.
 10. Clique **em Adicionar grupos de ação** para adicionar um grupo de **ação** (e-mail, SMS, etc.) ao alerta, selecionando um grupo de ação existente ou criando um novo grupo de ação.
@@ -673,12 +661,12 @@ A tabela a seguir enumera alguns cenários de exemplo para monitorizar e a métr
 3. Clique **em Editar o recurso,** selecione o **tipo de recurso De ficheiro** para a conta de armazenamento e, em seguida, clique em **Fazer**. Por exemplo, se o nome da conta de armazenamento for contoso, selecione o recurso contoso/ficheiro.
 4. Clique **em Adicionar condição** para adicionar uma condição.
 5. Verá uma lista de sinais suportados para a conta de armazenamento, selecione a métrica **Egress.**
-6. Na lâmina lógica de **sinal configurar,** clique no **nome Dimension** drop-down e selecione File **Share**.
-7. Clique nos **valores** de Dimension drop-down e selecione as ações de ficheiros em que pretende alertar.
+6. Para **ações de ficheiros premium,** clique no **nome Dimension** drop-down e selecione File **Share**. Para **ações de ficheiros padrão**, salte para **o passo #8**. .
 
    > [!NOTE]
-   > Se a partilha de ficheiros for uma partilha de ficheiros padrão, selecione **Todos os valores atuais e futuros**. Os valores de dimensão não listam as ações de ficheiros porque as métricas por ação não estão disponíveis para ações de ficheiros padrão. Os alertas para as ações de ficheiros padrão baseiam-se em todas as ações de ficheiros na conta de armazenamento. Uma vez que as métricas por ação não estão disponíveis para ações de ficheiros padrão, a recomendação é ter uma ação de ficheiro por conta de armazenamento.
+   > Se a partilha de ficheiros for uma partilha de ficheiros padrão, a dimensão de Partilha de **Ficheiros** não listará a(s) partilha de ficheiros porque as métricas por partilha não estão disponíveis para ações de ficheiros padrão. Os alertas para as ações de ficheiros padrão baseiam-se em todas as ações de ficheiros na conta de armazenamento. Uma vez que as métricas por ação não estão disponíveis para ações de ficheiros padrão, a recomendação é ter uma ação de ficheiro por conta de armazenamento.
 
+7. Clique nos **valores** de Dimension drop-down e selecione as ações de ficheiros em que pretende alertar.
 8. Introduza **536870912000** bytes para o valor limiar. 
 9. Clique na **granularidade** da agregação e selecione **24 horas**.
 10. Selecione a **Frequência da avaliação** e **clique em Fazer**.

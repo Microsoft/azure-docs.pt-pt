@@ -6,17 +6,17 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/27/2021
+ms.date: 02/19/2021
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 38978982baea41d23958a857b19a1edf2e454f37
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 412e5ac661761d5fda1d375c59511c053a6354a6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98938727"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101714787"
 ---
 # <a name="change-how-a-storage-account-is-replicated"></a>Alterar a forma como uma conta de armazenamento é replicada
 
@@ -41,7 +41,7 @@ A tabela a seguir fornece uma visão geral de como mudar de cada tipo de replica
 |--------------------|----------------------------------------------------|---------------------------------------------------------------------|----------------------------------------------------|---------------------------------------------------------------------|
 | <b>... do LRS</b> | N/D | Utilize o portal Azure, PowerShell ou CLI para alterar a definição de replicação<sup>1,2</sup> | Realizar uma migração manual <br /><br /> OR <br /><br /> Solicite uma migração ao vivo | Realizar uma migração manual <br /><br /> OR <br /><br /> Mude primeiro para GRS/RA-GRS e, em seguida, solicite uma migração ao vivo<sup>1</sup> |
 | <b>... de GRS/RA-GRS</b> | Use o portal Azure, PowerShell ou CLI para alterar a definição de replicação | N/D | Realizar uma migração manual <br /><br /> OR <br /><br /> Mude primeiro para LRS e, em seguida, solicite uma migração ao vivo | Realizar uma migração manual <br /><br /> OR <br /><br /> Solicite uma migração ao vivo |
-| <b>... da ZRS</b> | Realizar uma migração manual | Realizar uma migração manual | N/D | Utilize o portal Azure, PowerShell ou CLI para alterar a definição de replicação<sup>1,3</sup> |
+| <b>... da ZRS</b> | Realizar uma migração manual | Realizar uma migração manual | N/D | Solicite uma migração ao vivo |
 | <b>... de GZRS/RA-GZRS</b> | Realizar uma migração manual | Realizar uma migração manual | Use o portal Azure, PowerShell ou CLI para alterar a definição de replicação | N/D |
 
 <sup>1</sup> Incorre numa carga de saída única.<br />
@@ -199,7 +199,7 @@ Se migrar a sua conta de armazenamento de GRS para LRS, não há custo adicional
 > [!IMPORTANT]
 > Se migrar a sua conta de armazenamento de RA-GRS para GRS ou LRS, essa conta é faturada como RA-GRS por mais 30 dias além da data em que foi convertida.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 - [Redundância do Armazenamento do Azure](storage-redundancy.md)
 - [Verifique a propriedade da Última Hora do Sincronização para obter uma conta de armazenamento](last-sync-time-get.md)

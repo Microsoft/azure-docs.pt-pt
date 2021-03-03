@@ -6,12 +6,12 @@ ms.author: bahusse
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 2/11/2021
-ms.openlocfilehash: 97778951777677ce02adec59d906c1246494457a
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 0c8f55b6eeba4319b0ce9e39085912b8c4829235
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100369412"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101720805"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-postgresql"></a>Arquitetura de conectividade na Base de Dados Azure para PostgreSQL
 Este artigo explica a Base de Dados Azure para a arquitetura de conectividade PostgreSQL, bem como como o tráfego é direcionado para a sua base de dados Azure para postgresQL caso de dados de clientes dentro e fora de Azure.
@@ -64,7 +64,7 @@ A tabela que se segue lista os endereços IP gateway da Base de Dados Azure para
 | Índia Central | 104.211.96.159     | | |
 | Índia do Sul | 104.211.224.146  | | |
 | Oeste da Índia | 104.211.160.80    | | |
-| Leste do Japão | 40.79.192.23 | 13.78.61.196 | |
+| Leste do Japão | 40.79.192.23, 40.79.184.8 | 13.78.61.196 | |
 | Oeste do Japão | 191.238.68.11, 40.74.96.6, 40.74.96.7     | 104.214.148.156 | |
 | Coreia do Sul Central | 52.231.17.13   | 52.231.32.42 | |
 | Sul da Coreia do Sul | 52.231.145.3     | 52.231.200.86 | |

@@ -3,15 +3,15 @@ title: Criar tarefas de automatização para gerir e monitorizar recursos do Azu
 description: Crie tarefas automatizadas que o ajudem a gerir os recursos do Azure e monitorize os custos criando fluxos de trabalho que funcionam em Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: deli, jonfan, logicappspm
+ms.reviewer: logicappspm
 ms.topic: conceptual
-ms.date: 09/23/2020
-ms.openlocfilehash: 2b3b40b5958df52dabf92155a1de809578f1d374
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.date: 02/19/2021
+ms.openlocfilehash: 8180fe8554e5fff83e4caef8c245839518649ca1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92201125"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719054"
 ---
 # <a name="manage-azure-resources-and-monitor-costs-by-creating-automation-tasks-preview"></a>Gerir os recursos do Azure e monitorizar os custos criando tarefas de automação (pré-visualização)
 
@@ -71,13 +71,15 @@ Em comparação, a Azure Automation é um serviço de automação e configuraç�
 
    ![Screenshot que mostra o painel de conta de armazenamento "Tarefas" onde a barra de ferramentas tem "Adicionar" selecionada](./media/create-automation-tasks-azure-resources/add-automation-task.png)
 
-1. No painel **'Adicionar uma tarefa',** em **'Selecionar um modelo',** selecione o modelo para a tarefa que pretende criar e selecione **Seguinte: Autenticação**.
+1. No painel **'Adicionar uma tarefa',** em **'Selecionar um modelo',** selecione o modelo para a tarefa que pretende criar. Se a página seguinte não aparecer, selecione **Seguinte: Autenticação**.
 
    Este exemplo continua selecionando o custo mensal enviar para o modelo de tarefa **de recurso.**
 
    ![Screenshot que mostra as seleções, "Enviar custo mensal para o recurso" e "Seguinte: Autenticação"](./media/create-automation-tasks-azure-resources/select-task-template.png)
 
-1. Em **Autenticação**, na secção **Ligações,** selecione **Criar** para cada ligação para que possa fornecer credenciais de autenticação para essa ligação. Os tipos de ligações em cada tarefa variam em função da tarefa.
+1. Em **Autenticação**, na secção **Ligações,** selecione **Criar** para cada ligação que aparecer na tarefa para que possa fornecer credenciais de autenticação para todas as ligações. Os tipos de ligações em cada tarefa variam em função da tarefa.
+
+   Este exemplo mostra apenas uma das ligações que é exigida por esta tarefa.
 
    ![Screenshot que mostra a opção "Criar" selecionada para a ligação Azure Resource Manager](./media/create-automation-tasks-azure-resources/create-authenticate-connections.png)
 
@@ -89,7 +91,7 @@ Em comparação, a Azure Automation é um serviço de automação e configuraç�
 
    ![Screenshot que mostra ligação criada com sucesso](./media/create-automation-tasks-azure-resources/create-connection-success.png)
 
-1. Depois de autenticar todas as ligações necessárias, selecione **Seguinte: Configuração**.
+1. Depois de autenticar todas as ligações, selecione **Seguinte: Configuração** se a página seguinte não aparecer.
 
 1. Em **Configuração**, forneça um nome para a tarefa e qualquer outra informação necessária para a tarefa. Quando concluir, selecione **Criar**.
 
@@ -148,7 +150,7 @@ Para ver o histórico de execuções de uma tarefa juntamente com os seus estatu
 
    O painel **de execução da aplicação Logic** abre e mostra o fluxo de trabalho subjacente que funciona.
 
-   * Um fluxo de trabalho começa sempre com um [*gatilho*](../connectors/apis-list.md#triggers-actions). Para esta tarefa, o fluxo de trabalho começa com o gatilho [ **de Recorrência** ](../connectors/connectors-native-recurrence.md).
+   * Um fluxo de trabalho começa sempre com um [*gatilho*](../connectors/apis-list.md#triggers-actions). Para esta tarefa, o fluxo de trabalho começa com o gatilho [ **de Recorrência**](../connectors/connectors-native-recurrence.md).
 
    * Cada passo mostra o seu estado e duração de funcionação. Passos que têm durações de 0 segundos demoraram menos de 1 segundo a correr.
 
@@ -265,7 +267,7 @@ Quando altera o fluxo de trabalho subjacente para uma tarefa de automatização,
 
 ## <a name="provide-feedback"></a>Enviar comentários
 
-Gostaríamos de ouvir-te! Para reportar bugs, fornecer feedback ou fazer perguntas sobre esta capacidade de pré-visualização, [contacte a equipa de Apps Azure Logic](mailto:logicapps@microsoft.com).
+Gostaríamos de ouvir-te! Para reportar bugs, fornecer feedback ou fazer perguntas sobre esta capacidade de pré-visualização, [contacte a equipa de Apps Azure Logic](mailto:logicappspm@microsoft.com).
 
 ## <a name="next-steps"></a>Passos seguintes
 

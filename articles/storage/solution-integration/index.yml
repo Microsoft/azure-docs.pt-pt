@@ -1,0 +1,56 @@
+### YamlMime:Landing
+title: Azure Storage validou documentação de soluções de parceiros
+summary: As soluções de parceiro validadas Azure Storage permitem cenários avançados no topo da Plataforma de Armazenamento Azure.
+metadata:
+  title: Azure Storage validou soluções parceiras
+  description: As soluções de parceiro validadas Azure Storage permitem cenários avançados no topo da Plataforma de Armazenamento Azure.
+  services: storage
+  ms.service: storage
+  ms.topic: landing-page
+  ms.collection: collection
+  author: beber-msft
+  ms.author: beber
+  ms.date: 12/08/2020
+  ms.openlocfilehash: 2e9a2ac1e8d33020a94c2c783d3d695a459fcea5
+  ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+  ms.translationtype: MT
+  ms.contentlocale: pt-PT
+  ms.lasthandoff: 03/03/2021
+  ms.locfileid: "101749123"
+landingContent:
+- title: Azure Storage Analytics e parceiros big data
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Parceiros Azure Storage Analytics validados
+      url: .\validated-partners\analytics\partner-overview.md
+- title: Azure Storage Archive, Backup e parceiros BCDR
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Arquivo de Armazenamento Azure validado e parceiros BCDR
+      url: .\validated-partners\backup-archive-disaster-recovery\partner-overview.md
+  - linkListType: quickstart
+    links:
+    - text: Guia de arranque rápido commvault
+      url: .\validated-partners\backup-archive-disaster-recovery\commvault\commvault-solution-guide.md
+    - text: Guia de arranque rápido de Veeam
+      url: .\validated-partners\backup-archive-disaster-recovery\veeam\veeam-solution-guide.md
+- title: Parceiros de solução de recipiente de armazenamento Azure
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Parceiros de solução de recipiente de armazenamento Azure validados
+      url: .\validated-partners\container-solutions\partner-overview.md
+- title: Parceiros de gestão e migração de dados de armazenamento Azure
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Parceiros validados de gestão de dados de armazenamento de Azure e migração
+      url: .\validated-partners\data-management\partner-overview.md
+- title: Parceiros de armazenamento primário e secundário do Azure Storage
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Parceiros validados para armazenamento primário e secundário
+      url: .\validated-partners\primary-secondary-storage\partner-overview.md

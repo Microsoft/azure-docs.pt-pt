@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: tutorial
 ms.date: 01/11/2021
 ms.author: duau
-ms.openlocfilehash: f780c8c2f932b612ee42e13906f72983b324eefd
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.openlocfilehash: 11a4798c0cb3bc010bbdbae1fcb709951c67781a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98108539"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101721906"
 ---
 # <a name="tutorial-create-and-modify-peering-for-an-expressroute-circuit-using-the-azure-portal"></a>Tutorial: Criar e modificar o espreitamento para um circuito ExpressRoute utilizando o portal Azure
 
@@ -30,7 +30,7 @@ Este tutorial mostra-lhe como criar e gerir a configuração de encaminhamento p
 
 Pode configurar o espreitamento privado e a Microsoft a espreitar por um circuito ExpressRoute (o espremiamento público Azure é precotado para novos circuitos). Os seus pares podem ser configurados em qualquer ordem que escolherem. No entanto, tem de confirmar que conclui a configuração de cada peering, um de cada vez. Para obter mais informações sobre domínios de encaminhamento e observação, consulte [os domínios de encaminhamento ExpressRoute](expressroute-circuit-peerings.md). Para obter informações sobre olhando o público, consulte [o público ExpressRoute.](about-public-peering.md)
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
 > - Configurar, atualizar e eliminar a Microsoft a espreitar por um circuito
 > - Configurar, atualizar e apagar Azure private espreitar por um circuito
@@ -75,14 +75,17 @@ Esta secção ajuda-o a criar, obter, atualizar e eliminar a configuração de e
 
 2. Configure o peering da Microsoft para o circuito. Certifique-se de que tem as seguintes informações antes de continuar.
 
-   * Um par de sub-redes /30 propriedade de si e registado num RIR/IRR. Estes devem ser prefixos IPv4 públicos válidos. Uma sub-rede será usada para a ligação primária, enquanto a outra será usada para a ligação secundária. A partir de cada uma destas sub-redes, irá atribuir o primeiro endereço IP utilizável ao seu router, uma vez que a Microsoft utiliza o segundo IP utilizável para o seu router.
-   * Um ID de VLAN válido para estabelecer este peering. Assegure que nenhum peering no circuito utiliza o mesmo ID de VLAN. Ambos os links primários e secundários devem utilizar o mesmo ID VLAN.
+   * Um par de sub-redes pertencentes a si e registadas num RIR/IRR. Uma sub-rede será usada para a ligação primária, enquanto a outra será usada para a ligação secundária. A partir de cada uma destas sub-redes, irá atribuir o primeiro endereço IP utilizável ao seu router, uma vez que a Microsoft utiliza o segundo IP utilizável para o seu router. Tem três opções para este par de sub-redes:
+       * IPv4: Duas sub-redes /30. Estes devem ser prefixos IPv4 públicos válidos.
+       * IPv6: Duas sub-redes /126. Estes devem ser prefixos IPv6 públicos válidos.
+       * Ambas: Duas sub-redes /30 e duas sub-redes /126.
+   * Um ID de VLAN válido para estabelecer este peering. Assegure que nenhum peering no circuito utiliza o mesmo ID de VLAN. Para ligações primárias e secundárias, deve utilizar o mesmo ID VLAN.
    * Número AS para peering. Pode utilizar números AS de 2 e 4 bytes.
    * Prefixos anunciados: Você fornece uma lista de todos os prefixos que pretende anunciar durante a sessão de BGP. São aceites apenas prefixos de endereços IP públicos. Se pretender enviar um conjunto de prefixos, pode enviar uma lista separada por vírgula. Estes prefixos têm de ser registados para si num RIR/TIR.
    * **Opcional -** Cliente ASN: Se estiver a publicitar prefixos não registados no número AS, pode especificar o número AS em que estão registados.
    * Nome do registo de encaminhamento: pode especificar o RIR/TIR de acordo com o número AS e os prefixos aos quais estão registados.
    * **Opcional -** Um haxixe MD5 se optar por usar um.
-3. Pode selecionar o espreguite que deseja configurar, como mostra o exemplo a seguir. Selecione a linha de peering da Microsoft.
+1. Pode selecionar o espreguite que deseja configurar, como mostra o exemplo a seguir. Selecione a linha de peering da Microsoft.
 
    :::image type="content" source="./media/expressroute-howto-routing-portal-resource-manager/select-microsoft-peering.png" alt-text="Selecione a linha de observação da Microsoft":::
 
@@ -120,6 +123,11 @@ Pode selecionar a linha para o espreitamento que pretende modificar, modificar a
 
 Esta secção ajuda-o a criar, obter, atualizar e eliminar a configuração de observação privada Azure para um circuito ExpressRoute.
 
+> [!IMPORTANT]
+> O apoio iPv6 ao peering privado está atualmente em **Visualização Pública**. Se pretender ligar a sua rede virtual a um circuito ExpressRoute com o espremo privado com base no IPv6, certifique-se de que a sua rede virtual é dupla pilha e segue as diretrizes [descritas aqui.](https://docs.microsoft.com/azure/virtual-network/ipv6-overview)
+> 
+> 
+
 ### <a name="to-create-azure-private-peering"></a>Para criar um peering privado do Azure
 
 1. Configure o circuito ExpressRoute. Assegure que o circuito é totalmente aprovisionado pelo fornecedor de conectividade antes de continuar. 
@@ -136,8 +144,11 @@ Esta secção ajuda-o a criar, obter, atualizar e eliminar a configuração de o
 
 2. Configure o peering privado do Azure para o circuito. Certifique-se de que tem os seguintes itens antes de continuar com os próximos passos:
 
-   * Um par de sub-redes de 30 de propriedade de si. Uma sub-rede será usada para a ligação primária, enquanto a outra será usada para a ligação secundária. A partir de cada uma destas sub-redes, irá atribuir o primeiro endereço IP utilizável ao seu router, uma vez que a Microsoft utiliza o segundo IP utilizável para o seu router.
-   * Um ID de VLAN válido para estabelecer este peering. Assegure que nenhum peering no circuito utiliza o mesmo ID de VLAN. Ambos os links primários e secundários devem utilizar o mesmo ID VLAN.
+   * Um par de sub-redes que não fazem parte de qualquer espaço de endereço reservado para redes virtuais. Uma sub-rede será usada para a ligação primária, enquanto a outra será usada para a ligação secundária. A partir de cada uma destas sub-redes, irá atribuir o primeiro endereço IP utilizável ao seu router, uma vez que a Microsoft utiliza o segundo IP utilizável para o seu router. Tem três opções para este par de sub-redes:
+       * IPv4: Duas sub-redes /30.
+       * IPv6: Duas sub-redes /126.
+       * Ambas: Duas sub-redes /30 e duas sub-redes /126.
+   * Um ID de VLAN válido para estabelecer este peering. Assegure que nenhum peering no circuito utiliza o mesmo ID de VLAN. Para ligações primárias e secundárias, deve utilizar o mesmo ID VLAN.
    * Número AS para peering. Pode utilizar números AS de 2 e 4 bytes. Pode utilizar um número de AS privado para este espreitê-lo, exceto para o número de 65515 a 65520, inclusive.
    * Deve anunciar as rotas do seu router Edge para Azure via BGP quando configurar o seu persp de observação privado.
    * **Opcional -** Um haxixe MD5 se optar por usar um.
@@ -165,7 +176,7 @@ Pode selecionar a linha para peering e modificar as propriedades do peering. Dep
 
 :::image type="content" source="./media/expressroute-howto-routing-portal-resource-manager/update-private-peering.png" alt-text="Atualizar o espreitamento privado":::
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 ### <a name="to-delete-microsoft-peering"></a><a name="deletemsft"></a>Para eliminar o peering da Microsoft
 

@@ -13,16 +13,16 @@ ms.topic: quickstart
 ms.date: 12/24/2019
 ms.author: bwren
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: ef6e31968f85407e8055315becdc1337b474ad70
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: dbe51930ec92ec4f89738dc5d543003f45acebf9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100628824"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101733827"
 ---
 # <a name="quickstart-collect-data-from-a-linux-computer-in-a-hybrid-environment-with-azure-monitor"></a>Quickstart: Recolher dados de um computador Linux em ambiente híbrido com Azure Monitor
 
-[O Azure Monitor](../overview.md) pode recolher dados diretamente dos seus computadores Linux físicos ou virtuais no seu ambiente num espaço de trabalho do Log Analytics para análise e correlação detalhadas. A instalação do [agente Log Analytics](../agents/log-analytics-agent.md) permite ao Azure Monitor recolher dados de um datacenter ou de outro ambiente em nuvem. Este quickstart mostra-lhe como configurar e recolher dados do seu servidor Linux com alguns passos fáceis. Para obter informações sobre os VMs Azure Linux, consulte [recolher dados sobre máquinas virtuais Azure](../learn/quick-collect-azurevm.md).  
+[O Azure Monitor](../overview.md) pode recolher dados diretamente dos seus computadores Linux físicos ou virtuais no seu ambiente num espaço de trabalho do Log Analytics para análise e correlação detalhadas. A instalação do [agente Log Analytics](../agents/log-analytics-agent.md) permite ao Azure Monitor recolher dados de um datacenter ou de outro ambiente em nuvem. Este quickstart mostra-lhe como configurar e recolher dados do seu servidor Linux com alguns passos fáceis. Para obter informações sobre os VMs Azure Linux, consulte [recolher dados sobre máquinas virtuais Azure](./quick-collect-azurevm.md).  
 
 Para compreender a configuração suportada, consulte [sistemas operativos suportados](../agents/agents-overview.md#supported-operating-systems) e [configuração de firewall de rede](../agents/log-analytics-agent.md#network-requirements).
  
@@ -166,4 +166,4 @@ Agora que está a recolher dados operacionais e de desempenho do computador com 
 Para saber como ver e analisar os dados, avance para o tutorial.
 
 > [!div class="nextstepaction"]
-> [Ver ou analisar dados no Log Analytics](../log-query/log-analytics-tutorial.md)
+> [Ver ou analisar dados no Log Analytics](../logs/log-analytics-tutorial.md)

@@ -3,12 +3,12 @@ title: Azure Service Bus - expiração da mensagem
 description: Este artigo explica sobre a expiração e tempo para viver das mensagens do Azure Service Bus. Após tal prazo, a mensagem já não é entregue.
 ms.topic: conceptual
 ms.date: 02/17/2021
-ms.openlocfilehash: a2a568f04c2607832a1fa2a8e32bc6ce8331da4d
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 505a041d2f6129b159166e9f99ce7fef779e1e66
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100652076"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101698370"
 ---
 # <a name="message-expiration-time-to-live"></a>Expiração de mensagem (TTL)
 A carga útil numa mensagem, ou um comando ou inquérito que uma mensagem transmite a um recetor, está quase sempre sujeita a algum tipo de prazo de validade de nível de aplicação. Após esse prazo, o conteúdo deixou de ser entregue ou a operação solicitada deixou de ser executada.
@@ -20,6 +20,8 @@ A expiração de qualquer mensagem individual pode ser controlada definindo a pr
 Passado o instante **expira-at-utc,** as mensagens tornam-se inelegíveis para a recuperação. A expiração não afeta as mensagens que estão atualmente bloqueadas para entrega. As mensagens ainda são tratadas normalmente. Se o bloqueio expirar ou a mensagem for abandonada, a expiração produz efeitos imediatos.
 
 Enquanto a mensagem está bloqueada, a aplicação pode estar na posse de uma mensagem que expirou. Se a aplicação está disposta a avançar com o processamento ou opta por abandonar a mensagem cabe ao implementador.
+
+Recomendamos que desembarate o valor **de tempo a vida** numa mensagem para estar em horas ou dias. Se o definir para um valor baixo em segundos ou milissegundos, a mensagem pode expirar antes que os consumidores tenham a oportunidade de consumi-la. 
 
 ## <a name="entity-level-expiration"></a>Caducidade ao nível da entidade
 Todas as mensagens enviadas para uma fila ou tópico estão sujeitas a uma expiração padrão que é definida ao nível da entidade. Também pode ser definido no portal durante a criação e ajustado mais tarde. A expiração padrão é usada para todas as mensagens enviadas para a entidade onde o tempo de vida não é explicitamente definido. A expiração predefinida também funciona como um teto para o valor de tempo para viver. As mensagens que têm uma expiração de tempo a viver mais longa do que o valor predefinido são ajustadas silenciosamente ao valor de tempo a vida da mensagem padrão antes de serem encosadas.

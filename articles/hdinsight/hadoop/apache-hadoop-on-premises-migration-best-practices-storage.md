@@ -6,12 +6,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/10/2019
-ms.openlocfilehash: 8d87d2164a5131b71a2000243c37553610497750
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 89a2a659e195afcae336c930a101ed0c0b470cb4
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98944853"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101715416"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight"></a>Migrar para o local aglomerados Apache Hadoop para Azure HDInsight
 
@@ -75,7 +75,7 @@ Para obter mais informações, veja os seguintes artigos:
 - [Metas de escalabilidade e desempenho para armazenamento blob](../../storage/blobs/scalability-targets.md)
 - [Lista de Verificação de Desempenho e Escalabilidade do Armazenamento do Microsoft Azure](../../storage/blobs/storage-performance-checklist.md)
 - [Monitorizar, diagnosticar e resolver problemas do Armazenamento do Microsoft Azure (Monitor, diagnose, and troubleshoot Microsoft Azure Storage)](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md)
-- [Monitorizar uma conta de armazenamento no portal do Azure](../../storage/common/storage-monitor-storage-account.md)
+- [Monitorizar uma conta de armazenamento no portal do Azure](../../storage/common/manage-storage-analytics-logs.md)
 
 ### <a name="azure-data-lake-storage-gen1"></a>Armazenamento do Azure Data Lake Ger1
 
@@ -202,7 +202,7 @@ O Azure Storage fornece armazenamento localmente redundante (LRS), mas também d
 
 Para obter mais informações, veja os seguintes artigos:
 
-- [Replicação do armazenamento Azure](../../storage/common/storage-redundancy.md)
+- [Replicação do Armazenamento do Azure](../../storage/common/storage-redundancy.md)
 - [Orientação de desastres para Azure Data Lake Storage Gen1 (ADLS)](../../data-lake-store/data-lake-store-disaster-recovery-guidance.md)
 
 ## <a name="attach-additional-azure-storage-accounts-to-cluster"></a>Anexar contas adicionais de armazenamento Azure ao cluster
@@ -218,6 +218,6 @@ A conta de armazenamento adicional pode ser adicionada de uma sobre as seguintes
 
 Para obter mais informações, veja [Adicionar mais contas de armazenamento ao HDInsight](../hdinsight-hadoop-add-storage.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Leia o artigo seguinte nesta série: [As melhores práticas de migração de dados para a migração de Azure HDInsight Hadoop](apache-hadoop-on-premises-migration-best-practices-data-migration.md).

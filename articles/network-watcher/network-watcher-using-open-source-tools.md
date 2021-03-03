@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 48501a2796f4d826a20af559058490a14785b53e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0503f6910186b42bf381c662c7942e37c28bfdf0
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84738639"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101709517"
 ---
 # <a name="visualize-network-traffic-patterns-to-and-from-your-vms-using-open-source-tools"></a>Visualize padrões de tráfego de rede de e para os seus VMs usando ferramentas de código aberto
 
@@ -25,7 +25,7 @@ As capturas de pacotes contêm dados de rede que permitem realizar a análise fo
 
 O Observador de Rede do Azure fornece-lhe a capacidade de capturar dados, permitindo-lhe realizar capturas de pacotes na sua rede. Este artigo, proporciona uma caminhada de como visualizar e obter insights de capturas de pacotes usando CapAnalysis com Network Watcher.
 
-## <a name="scenario"></a>Cenário
+## <a name="scenario"></a>Scenario
 
 Você tem uma aplicação web simples implantada em um VM em Azure quer usar ferramentas de código aberto para visualizar o seu tráfego de rede para identificar rapidamente padrões de fluxo e quaisquer anomalias possíveis. Com o Network Watcher, pode obter uma captura de pacotes do ambiente da sua rede e armazená-lo diretamente na sua conta de armazenamento. A CapAnalysis pode então ingerir a captura do pacote diretamente a partir da bolha de armazenamento e visualizar o seu conteúdo.
 
@@ -47,7 +47,7 @@ Pode carregar diretamente uma captura de pacotes captada pelo observador de rede
 
 Ao fornecer um link para a CapAnalysis, certifique-se de anexar um token SAS ao URL blob de armazenamento.  Para isso, navegue para assinatura de acesso partilhado a partir da conta de armazenamento, designe as permissões permitidas e pressione o botão Gerar SAS para criar um token. Em seguida, pode anexar o token SAS ao URL de armazenamento de armazenamento de captura de pacote.
 
-O URL resultante será parecido com o seguinte URL: `http:\//storageaccount.blob.core.windows.net/container/location?addSASkeyhere`
+O URL resultante será parecido com o seguinte URL: `http://storageaccount.blob.core.windows.net/container/location?addSASkeyhere`
 
 
 ### <a name="analyzing-packet-captures"></a>Analisar capturas de pacotes

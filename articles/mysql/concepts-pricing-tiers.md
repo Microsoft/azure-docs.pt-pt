@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: c70e4a097a56b76089a26510bcf33b4c7c24c266
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: be7f15b5221be8b3acb7f64c4435e40f40f21f8f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96018720"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101720924"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Base de Dados Azure para os níveis de preços do MySQL
 
@@ -21,7 +21,7 @@ Pode criar uma Base de Dados Azure para o servidor MySQL num dos três níveis d
 |:---|:----------|:--------------------|:---------------------|
 | Geração computacional | Gen 4, Gen 5 | Gen 4, Gen 5 | Geração 5 |
 | vCores | 1, 2 | 2, 4, 8, 16, 32, 64 |2, 4, 8, 16, 32 |
-| Memória por vCore | 2 GB | 5 GB | 10 GB |
+| Memória por vCore | 2 GB | 5 GB | 10 GB |
 | Tamanho do armazenamento | 5 GB a 1 TB | 5 GB a 16 TB | 5 GB a 16 TB |
 | Período de retenção de backup da base de dados | 7 a 35 dias | 7 a 35 dias | 7 a 35 dias |
 
@@ -43,7 +43,7 @@ Os recursos compute são fornecidos como vCores, que representam o CPU lógico d
 
 O armazenamento que fornece é a quantidade de capacidade de armazenamento disponível para a sua Base de Dados Azure para o servidor MySQL. O armazenamento é utilizado para os ficheiros de base de dados, ficheiros temporários, registos de transações e registos de servidores MySQL. A quantidade total de armazenamento que fornece também define a capacidade de E/S disponível para o seu servidor.
 
-| Atributo de armazenamento   | Básico | Fins gerais | Com otimização de memória |
+| Atributo de armazenamento   | Básico | Fins gerais | Otimizada para memória |
 |:---|:----------|:--------------------|:---------------------|
 | Tipo de armazenamento | Armazenamento básico | Armazenamento de Finalidade Geral | Armazenamento de Finalidade Geral |
 | Tamanho do armazenamento | 5 GB a 1 TB | 5 GB a 16 TB | 5 GB a 16 TB |
@@ -65,9 +65,9 @@ O nível básico não oferece uma garantia de IOPS. Nos níveis de preços otimi
 
 Pode monitorizar o seu consumo de E/S no portal Azure ou utilizando comandos Azure CLI. As métricas relevantes a monitorizar são [o limite de armazenamento, a percentagem de armazenamento, o armazenamento utilizado e a IO por cento](concepts-monitoring.md).
 
-### <a name="reaching-the-storage-limit"></a>Atingindo o limite de armazenamento
+### <a name="reaching-the-storage-limit"></a>Atingir o limite de armazenamento
 
-Os servidores com menos de 100 GB de armazenamento a provisionado só são marcados de leitura se o armazenamento gratuito for inferior a 5% do tamanho de armazenamento a provisionado. Os servidores com mais de 100 GB de armazenamento aprovisionado serão marcados como só de leitura se o armazenamento livre for inferior a 5 GB.
+Os servidores com armazenamento aprovisionado igual ou inferior a 100 GB são marcados como só de leitura se o armazenamento livre for inferior a 5% do tamanho de armazenamento aprovisionado. Os servidores com mais de 100 GB de armazenamento aprovisionado serão marcados como só de leitura se o armazenamento livre for inferior a 5 GB.
 
 Por exemplo, se tiver provisionado 110 GB de armazenamento, e a utilização real ultrapassar os 105 GB, o servidor está marcado apenas para leitura. Alternativamente, se tiver disponibilizado 5 GB de armazenamento, o servidor só está marcado quando o armazenamento gratuito atinge menos de 256 MB.
 
@@ -91,7 +91,7 @@ A Azure Database for MySQL fornece até 100% do armazenamento do servidor a prov
 
 Depois de criar o seu servidor, pode alterar independentemente os vCores, a geração de hardware, o nível de preços (exceto de e para o Básico), a quantidade de armazenamento e o período de retenção de backup. Não é possível alterar o tipo de armazenamento de cópia de segurança após a criação de um servidor. O número de vCores pode ser aumentado para cima ou para baixo. O período de retenção de backup pode ser aumentado para cima ou para baixo de 7 a 35 dias. O tamanho do armazenamento só pode ser aumentado. A escala dos recursos pode ser feita através do portal ou do Azure CLI. Para um exemplo de escala através da utilização do Azure CLI, consulte [o Monitor e dimensione uma Base de Dados Azure para o servidor MySQL utilizando o Azure CLI](scripts/sample-scale-server.md).
 
-Quando altera o número de vCores, a geração de hardware ou o nível de preços, uma cópia do servidor original é criada com a nova alocação de computação. Depois de o novo servidor estar a funcionar em pleno, as ligações são passadas para o novo servidor. Durante o período em que o sistema muda para o novo servidor, não se pode estabelecer nenhuma nova ligação e todas as transações não confirmadas são revertidas. Esta janela varia mas, na maioria dos casos, é inferior a um minuto.
+Quando altera o número de vCores, a geração de hardware ou o nível de preços, uma cópia do servidor original é criada com a nova alocação de computação. Depois de o novo servidor estar a funcionar em pleno, as ligações são passadas para o novo servidor. Durante o período em que o sistema muda para o novo servidor, não se pode estabelecer nenhuma nova ligação e todas as transações não confirmadas são revertidas. Este tempo de paragem durante o escalonamento pode ser de cerca de 60-120 segundos. O tempo de paragem durante o dimensionamento depende do tempo de recuperação da base de dados, o que pode fazer com que a base de dados fique online por mais tempo se tiver uma atividade transacional pesada no servidor no momento da operação de dimensionamento. Para evitar um tempo de reinício mais longo, recomenda-se a realização de operações de escala durante períodos de baixa atividade transacional no servidor.
 
 O armazenamento de escala e a alteração do período de retenção de backup são verdadeiras operações online. Não há tempo de inatividade, e a sua candidatura não é afetada. À escala de IOPS com o tamanho do armazenamento a provisionado, pode aumentar o IOPS disponível para o seu servidor aumentando o armazenamento.
 

@@ -1,8 +1,8 @@
-- name: Desenvolvimento de dispositivos IoT e aplicações
+- name: Desenvolvimento de dispositivos IoT
   href: index.yml
-- name: Descrição geral
+- name: Descrição Geral
   items:
-    - name: O que é o desenvolvimento de dispositivos IoT e aplicações?
+    - name: O que é o desenvolvimento de dispositivos IoT?
       href: about-iot-develop.md
     - name: Que SDK devo usar?
       href: about-iot-sdks.md
@@ -22,7 +22,7 @@
 - name: Tutoriais
   items:
     - name: Ligar dispositivos IoT à cloud em segurança
-      href: 'https://docs.microsoft.com/learn/paths/securely-connect-iot-devices/'
+      href: /learn/paths/securely-connect-iot-devices/
 - name: Conceitos
   items:
     - name: Opções de conexão para desenvolvedores de dispositivos

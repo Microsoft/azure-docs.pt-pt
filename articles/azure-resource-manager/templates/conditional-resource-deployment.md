@@ -2,79 +2,143 @@
 title: Implementação condicional com modelos
 description: Descreve como implantar um recurso condicionalmente num modelo de Gestor de Recursos Azure (modelo ARM).
 ms.topic: conceptual
-ms.date: 12/17/2020
-ms.openlocfilehash: 5650f7fb9f1483f2dc7059607732ecc68cbb7b9d
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.date: 03/02/2021
+ms.openlocfilehash: 409d258d7dfe3ed186e5cf97cc0dbe6dc149b849
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97934786"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101741179"
 ---
-# <a name="conditional-deployment-in-arm-templates"></a>Implantação condicional em modelos ARM
+# <a name="conditional-deployment-in-arm-templates"></a>Implementação condicional nos modelos do ARM
 
-Por vezes, é necessário implantar opcionalmente um recurso num modelo de Gestor de Recursos Azure (modelo ARM). Utilize o `condition` elemento para especificar se o recurso é implantado. O valor deste elemento resolve-se a verdade ou falso. Quando o valor é verdadeiro, o recurso é criado. Quando o valor é falso, o recurso não é criado. O valor só pode ser aplicado a todo o recurso.
+Por vezes, é necessário implantar opcionalmente um recurso num modelo de Gestor de Recursos Azure (modelo ARM) ou ficheiro Bicep. Para os modelos JSON, utilize o `condition` elemento para especificar se o recurso é implantado. Para Bicep, utilize a `if` palavra-chave para especificar se o recurso está implantado. O valor da condição resolve-se a verdade ou falsa. Quando o valor é verdadeiro, o recurso é criado. Quando o valor é falso, o recurso não é criado. O valor só pode ser aplicado a todo o recurso.
 
 > [!NOTE]
 > A implantação condicional não se cascata para [os recursos infantis.](child-resource-name-type.md) Se pretender implantar condicionalmente um recurso e os seus recursos para crianças, deve aplicar a mesma condição a cada tipo de recurso.
 
-## <a name="new-or-existing-resource"></a>Recurso novo ou existente
+## <a name="deploy-condition"></a>Implementar condição
 
-Pode utilizar a implementação condicional para criar um novo recurso ou utilizar um existente. O exemplo a seguir mostra como usar `condition` para implantar uma nova conta de armazenamento ou usar uma conta de armazenamento existente.
+Pode passar num valor de parâmetro que indique se um recurso é implantado. O exemplo seguinte implanta condicionalmente uma zona de DNS.
+
+# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
-  "condition": "[equals(parameters('newOrExisting'),'new')]",
-  "type": "Microsoft.Storage/storageAccounts",
-  "apiVersion": "2017-06-01",
-  "name": "[variables('storageAccountName')]",
-  "location": "[parameters('location')]",
-  "sku": {
-    "name": "[variables('storageAccountType')]"
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "deployZone": {
+      "type": "bool"
+    }
   },
-  "kind": "Storage",
-  "properties": {}
+  "functions": [],
+  "resources": [
+    {
+      "condition": "[parameters('deployZone')]",
+      "type": "Microsoft.Network/dnsZones",
+      "apiVersion": "2018-05-01",
+      "name": "myZone",
+      "location": "global"
+    }
+  ]
 }
 ```
 
-Quando o parâmetro `newOrExisting` é definido para **novo,** a condição avalia a verdade. A conta de armazenamento está implantada. No entanto, quando `newOrExisting` está definido para **existir,** a condição avalia-se a falsa e a conta de armazenamento não é implantada.
+# <a name="bicep"></a>[Bicep](#tab/bicep)
 
-Para obter um modelo de exemplo completo que utilize o `condition` elemento, consulte [VM com uma rede virtual nova ou existente, armazenamento e IP público.](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-new-or-existing-conditions)
+```bicep
+param deployZone bool
 
-## <a name="allow-condition"></a>Permitir a condição
+resource dnsZone 'Microsoft.Network/dnszones@2018-05-01' = if (deployZone) {
+  name: 'myZone'
+  location: 'global'
+}
+```
 
-Pode passar num valor de parâmetro que indique se uma condição é permitida. O exemplo a seguir implementa um servidor SQL e permite opcionalmente IPs Azure.
+---
+
+Para um exemplo mais complexo, consulte [o servidor lógico Azure SQL](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-logical-server).
+
+## <a name="new-or-existing-resource"></a>Recurso novo ou existente
+
+Pode utilizar a implementação condicional para criar um novo recurso ou utilizar um existente. O exemplo a seguir mostra como implantar uma nova conta de armazenamento ou utilizar uma conta de armazenamento existente.
+
+# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
-  "type": "Microsoft.Sql/servers",
-  "apiVersion": "2015-05-01-preview",
-  "name": "[parameters('serverName')]",
-  "location": "[parameters('location')]",
-  "properties": {
-    "administratorLogin": "[parameters('administratorLogin')]",
-    "administratorLoginPassword": "[parameters('administratorLoginPassword')]",
-    "version": "12.0"
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "storageAccountName": {
+      "type": "string"
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]"
+    },
+    "newOrExisting": {
+      "type": "string",
+      "defaultValue": "new",
+      "allowedValues": [
+        "new",
+        "existing"
+      ]
+    }
   },
+  "functions": [],
   "resources": [
     {
-      "condition": "[parameters('allowAzureIPs')]",
-      "type": "firewallRules",
-      "apiVersion": "2015-05-01-preview",
-      "name": "AllowAllWindowsAzureIps",
+      "condition": "[equals(parameters('newOrExisting'), 'new')]",
+      "type": "Microsoft.Storage/storageAccounts",
+      "apiVersion": "2019-06-01",
+      "name": "[parameters('storageAccountName')]",
       "location": "[parameters('location')]",
-      "dependsOn": [
-        "[resourceId('Microsoft.Sql/servers/', parameters('serverName'))]"
-      ],
+      "sku": {
+        "name": "Standard_LRS",
+        "tier": "Standard"
+      },
+      "kind": "StorageV2",
       "properties": {
-        "endIpAddress": "0.0.0.0",
-        "startIpAddress": "0.0.0.0"
+        "accessTier": "Hot"
       }
     }
   ]
 }
 ```
 
-Para obter o modelo completo, consulte [o servidor lógico Azure SQL](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-logical-server).
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+```bicep
+param storageAccountName string
+param location string = resourceGroup().location
+
+@allowed([
+  'new'
+  'existing'
+])
+param newOrExisting string = 'new'
+
+resource sa 'Microsoft.Storage/storageAccounts@2019-06-01' = if (newOrExisting == 'new') {
+  name: storageAccountName
+  location: location
+  sku: {
+    name: 'Standard_LRS'
+    tier: 'Standard'
+  }
+  kind: 'StorageV2'
+  properties: {
+    accessTier: 'Hot'
+  }
+}
+```
+
+---
+
+Quando o parâmetro `newOrExisting` é definido para **novo,** a condição avalia a verdade. A conta de armazenamento está implantada. No entanto, quando `newOrExisting` está definido para **existir,** a condição avalia-se a falsa e a conta de armazenamento não é implantada.
+
+Para obter um modelo de exemplo completo que utilize o `condition` elemento, consulte [VM com uma rede virtual nova ou existente, armazenamento e IP público.](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-new-or-existing-conditions)
 
 ## <a name="runtime-functions"></a>Funções de tempo de execução
 

@@ -6,18 +6,18 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/21/2020
-ms.openlocfilehash: 2d7406c1e801a07f10342c47e7334e6a12bfd449
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 0d9804d088e1f193e0adf1fa26adbbe5d3680097
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100616322"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101729203"
 ---
 # <a name="collect-syslog-data-sources-with-log-analytics-agent"></a>Recolher fontes de dados Syslog com o agente Log Analytics
 Syslog é um protocolo de registo de eventos que é comum ao Linux. As aplicações enviarão mensagens que podem ser armazenadas na máquina local ou entregues a um colecionador Syslog. Quando o agente Log Analytics do Linux é instalado, configura o daemon Syslog local para transmitir mensagens ao agente. Em seguida, o agente envia a mensagem para o Azure Monitor, onde é criado um registo correspondente.  
 
 > [!IMPORTANT]
-> Este artigo abrange a recolha de eventos Syslog com o [agente Log Analytics,](../platform/log-analytics-agent.md) que é um dos agentes utilizados pelo Azure Monitor. Outros agentes recolhem dados diferentes e são configurados de forma diferente. Consulte [a visão geral dos agentes do Azure Monitor](../agents/agents-overview.md) para obter uma lista dos agentes disponíveis e os dados que podem recolher.
+> Este artigo abrange a recolha de eventos Syslog com o [agente Log Analytics,](./log-analytics-agent.md) que é um dos agentes utilizados pelo Azure Monitor. Outros agentes recolhem dados diferentes e são configurados de forma diferente. Consulte [a visão geral dos agentes do Azure Monitor](../agents/agents-overview.md) para obter uma lista dos agentes disponíveis e os dados que podem recolher.
 
 > [!NOTE]
 > O Azure Monitor suporta a recolha de mensagens enviadas por rsyslog ou syslog-ng, onde o rsyslog é o daemon predefinido. O syslog daemon padrão na versão 5 da red hat Enterprise Linux, CentOS e oracle Linux versão (sysklog) não é suportado para a coleção de eventos syslog. Para recolher dados syslog desta versão destas distribuições, o [anão de rsyslog](http://rsyslog.com) deve ser instalado e configurado para substituir o sysklog.
@@ -57,7 +57,7 @@ Pode adicionar uma nova instalação selecionando primeiro a opção **Aplicar a
 Por predefinição, todas as alterações de configuração são automaticamente empurradas para todos os agentes. Se pretender configurar o Syslog manualmente em cada agente Linux, desmarque a caixa *Aplique abaixo a configuração das minhas máquinas*.
 
 ### <a name="configure-syslog-on-linux-agent"></a>Configurar syslog sobre o agente Linux
-Quando o [agente Log Analytics é instalado num cliente Linux,](../learn/quick-collect-linux-computer.md)instala um ficheiro de configuração de syslog predefinido que define a instalação e a gravidade das mensagens recolhidas. Pode modificar este ficheiro para alterar a configuração. O ficheiro de configuração é diferente dependendo do daemon Syslog que o cliente instalou.
+Quando o [agente Log Analytics é instalado num cliente Linux,](../vm/quick-collect-linux-computer.md)instala um ficheiro de configuração de syslog predefinido que define a instalação e a gravidade das mensagens recolhidas. Pode modificar este ficheiro para alterar a configuração. O ficheiro de configuração é diferente dependendo do daemon Syslog que o cliente instalou.
 
 > [!NOTE]
 > Se editar a configuração do syslog, deve reiniciar o syslog daemon para que as alterações produzam efeitos.
@@ -222,7 +222,7 @@ Os registos Syslog têm um tipo de **Syslog** e têm as propriedades na tabela s
 ## <a name="log-queries-with-syslog-records"></a>Consultas de registo com registos Syslog
 A tabela seguinte fornece diferentes exemplos de consultas de log que recuperam registos Syslog.
 
-| Consulta | Description |
+| Consulta | Descrição |
 |:--- |:--- |
 | Syslog |Todos os Syslogs. |
 | Syslog &#124; onde SeverityLevel == "erro" |Todos os registos do Syslog com gravidade de erro. |
@@ -230,7 +230,6 @@ A tabela seguinte fornece diferentes exemplos de consultas de log que recuperam 
 | Syslog &#124; resumir AggregatedValue = count() by Facility |Contagem de registos de Syslog por instalações. |
 
 ## <a name="next-steps"></a>Passos seguintes
-* Saiba mais [sobre consultas de registo](../log-query/log-query-overview.md) para analisar os dados recolhidos a partir de fontes de dados e soluções.
-* Utilize [campos personalizados](./../platform/custom-fields.md) para analisar dados de syslog records em campos individuais.
-* [Configure os agentes Linux](../learn/quick-collect-linux-computer.md) para recolher outros tipos de dados.
-
+* Saiba mais [sobre consultas de registo](../logs/log-query-overview.md) para analisar os dados recolhidos a partir de fontes de dados e soluções.
+* Utilize [campos personalizados](../logs/custom-fields.md) para analisar dados de syslog records em campos individuais.
+* [Configure os agentes Linux](../vm/quick-collect-linux-computer.md) para recolher outros tipos de dados.

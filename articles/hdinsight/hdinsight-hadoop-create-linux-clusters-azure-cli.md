@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-azurecli
 ms.date: 02/03/2020
-ms.openlocfilehash: a2b39f25aa2a8847697df8a5097f5ffdc9cbd212
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 9028d85346611341afec0d0598f27a77e4f37fdf
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98945887"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101715501"
 ---
 # <a name="create-hdinsight-clusters-using-the-azure-cli"></a>Criar clusters HDInsight utilizando o Azure CLI
 
@@ -42,7 +42,7 @@ Os passos neste documento walk-through criando um cluster HDInsight 3.6 usando o
     |`--workernode-count`| O número de nós de trabalhadores no aglomerado. Este artigo utiliza a variável `clusterSizeInNodes` à medida que o valor passado para `--workernode-count` . |
     |`--version`| A versão do cluster HDInsight. Este artigo utiliza a variável `clusterVersion` à medida que o valor passado para `--version` . Ver também: [Versões HDInsight suportadas](./hdinsight-component-versioning.md#supported-hdinsight-versions).|
     |`--type`| Tipo de aglomerado HDInsight, como: hadoop, interactivehive, hbase, kafka, storm, spark, rserver, mlservices.  Este artigo utiliza a variável `clusterType` à medida que o valor passado para `--type` . Consulte também: [Tipos de agrupamento e configuração](./hdinsight-hadoop-provision-linux-clusters.md#cluster-type).|
-    |`--component-version`|As versões de vários componentes Hadoop, em versões separadas pelo espaço em formato 'component=version'. Este artigo utiliza a variável `componentVersion` à medida que o valor passado para `--component-version` . Ver também: [Componentes hadoop](./hdinsight-component-versioning.md#apache-components-available-with-different-hdinsight-versions).|
+    |`--component-version`|As versões de vários componentes Hadoop, em versões separadas pelo espaço em formato 'component=version'. Este artigo utiliza a variável `componentVersion` à medida que o valor passado para `--component-version` . Ver também: [Componentes hadoop](./hdinsight-component-versioning.md).|
 
     `RESOURCEGROUPNAME`Substitua, , , , e pelos `LOCATION` `CLUSTERNAME` `STORAGEACCOUNTNAME` `PASSWORD` valores desejados. Alterar valores para as outras variáveis como desejado. Em seguida, insira os comandos da CLI.
 
@@ -158,7 +158,7 @@ az group delete \
 
 Caso se depare com problemas com a criação de clusters do HDInsight, veja [aceder aos requisitos de controlo](./hdinsight-hadoop-customize-cluster-linux.md#access-control).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Agora que criou com sucesso um cluster HDInsight usando o Azure CLI, use o seguinte para aprender a trabalhar com o seu cluster:
 

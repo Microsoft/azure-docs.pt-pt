@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: dac5a434d7f7c62d7a20e971294992ea91c79d2b
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 9ac53dab29feddd36a95b8b2b041caaf5c3598d5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98625020"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101720142"
 ---
 # <a name="tutorial-use-creator-preview-to-create-indoor-maps"></a>Tutorial: Use Creator (Preview) para criar mapas interiores
 
@@ -116,6 +116,7 @@ A API de Data Upload é uma transação de longa duração que implementa o padr
 
     >[!IMPORTANT]
     > Os urls API neste documento podem ter de ser ajustados de acordo com a localização do seu recurso Criador. Para mais detalhes, consulte [os serviços de Acesso ao Criador (Pré-visualização) ](how-to-manage-creator.md#access-to-creator-services).
+    > Se receber um erro com `"RequiresCreatorResource"` código, certifique-se de que [aprovisionou um recurso Azure Maps Creator](how-to-manage-creator.md) na sua conta Azure Maps.
 
 3. Clique no botão **Enviar** e aguarde que o pedido processe. Assim que o pedido estiver concluído, vá ao **separador Cabeçalhos** da resposta e procure a chave **localização.** Copie o valor da chave **Localização,** que é o `status URL` pedido de conversão. Vais usar isto no próximo passo.
 
@@ -314,7 +315,7 @@ Um azulejo é um conjunto de azulejos vetoriais que prestam no mapa. Os tilesets
     https://atlas.microsoft.com/featureState/stateset?api-version=1.0&datasetId={datasetId}&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
-3. Nos **Cabeçalhos** do pedido **DOM,** definido `Content-Type` para `application/json` . No **Corpo**, forneça os estilos abaixo para refletir alterações ao `occupied` e `temperature` *estados.* Quando terminar, clique em **Enviar.**
+3. Nos **Cabeçalhos** do pedido **DOM,** definido `Content-Type` para `application/json` . No **Corpo**, forneça os estilos de json crus abaixo para refletir alterações nos `occupied` estados e `temperature` *estados.* Quando terminar, clique em **Enviar.**
 
     ```json
     {

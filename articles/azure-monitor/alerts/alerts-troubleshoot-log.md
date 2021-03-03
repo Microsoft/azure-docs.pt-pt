@@ -6,18 +6,18 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 09/22/2020
-ms.openlocfilehash: b877cba794f97dd4736e30a72d91695774c8e688
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 9352b27002162e08d53bc8166ceddd010be3c8d1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614501"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738655"
 ---
 # <a name="troubleshoot-log-alerts-in-azure-monitor"></a>Alertas de registo de resolução de problemas no Azure Monitor  
 
 Este artigo mostra-lhe como resolver problemas comuns com alertas de registo no Azure Monitor. Também fornece soluções para problemas comuns com a funcionalidade e configuração de alertas de log.
 
-Os alertas de registo permitem que os utilizadores utilizem uma consulta [log Analytics](../log-query/log-analytics-tutorial.md) para avaliar os registos de recursos em cada frequência definida e disparem um alerta com base nos resultados. As regras podem desencadear uma ou mais ações utilizando [grupos de ação.](../platform/action-groups.md) [Saiba mais sobre funcionalidade e terminologia de alertas de registo.](alerts-unified-log.md)
+Os alertas de registo permitem que os utilizadores utilizem uma consulta [log Analytics](../logs/log-analytics-tutorial.md) para avaliar os registos de recursos em cada frequência definida e disparem um alerta com base nos resultados. As regras podem desencadear uma ou mais ações utilizando [grupos de ação.](./action-groups.md) [Saiba mais sobre funcionalidade e terminologia de alertas de registo.](alerts-unified-log.md)
 
 > [!NOTE]
 > Este artigo não considera casos em que o portal Azure apresente uma regra de alerta desencadeada e uma notificação não seja realizada por um grupo de ação associado. Para estes casos, consulte os detalhes sobre a resolução de problemas [aqui.](./alerts-troubleshoot.md#action-or-notification-on-my-alert-did-not-work-as-expected)
@@ -26,7 +26,7 @@ Os alertas de registo permitem que os utilizadores utilizem uma consulta [log An
 
 ### <a name="data-ingestion-time-for-logs"></a>Tempo de ingestão de dados para registos
 
-O Azure Monitor processa terabytes dos registos dos clientes de todo o mundo, o que pode causar [latência de ingestão de registos.](../platform/data-ingestion-time.md)
+O Azure Monitor processa terabytes dos registos dos clientes de todo o mundo, o que pode causar [latência de ingestão de registos.](../logs/data-ingestion-time.md)
 
 Os registos são dados semi-estruturados e inerentemente mais latentes do que as métricas. Se tiver mais de 4 minutos de atraso em alertas disparados, deve considerar a utilização [de alertas métricos](alerts-metric-overview.md). Pode enviar dados para a loja métrica a partir de registos utilizando [alertas métricos para registos](alerts-metric-logs.md).
 
@@ -60,7 +60,7 @@ Uma regra de alerta de registo configurada [no Monitor Azure](./alerts-log.md) p
 
 ### <a name="alert-triggered-by-partial-data"></a>Alerta desencadeado por dados parciais
 
-O Azure Monitor processa terabytes dos registos dos clientes de todo o mundo, o que pode causar [latência de ingestão de registos.](../platform/data-ingestion-time.md)
+O Azure Monitor processa terabytes dos registos dos clientes de todo o mundo, o que pode causar [latência de ingestão de registos.](../logs/data-ingestion-time.md)
 
 Os registos são dados semi-estruturados e inerentemente mais latentes do que as métricas. Se está a sentir muitas falhas em alertas disparados, deve considerar usar [alertas métricos.](alerts-metric-overview.md) Pode enviar dados para a loja métrica a partir de registos utilizando [alertas métricos para registos](alerts-metric-logs.md).
 
@@ -87,7 +87,7 @@ SecurityEvent
 
 Não há necessidade de adicionar lógica de alerta à consulta e fazer que pode até causar problemas. No exemplo acima, se incluir `count` na sua consulta, resultará sempre no valor 1, uma vez que o serviço de alerta fará `count` de `count` .
 
-A consulta otimizada é o que o serviço de alerta de registo funciona. Pode executar a consulta modificada no [portal](../log-query/log-query-overview.md) Log Analytics ou [API](/rest/api/loganalytics/).
+A consulta otimizada é o que o serviço de alerta de registo funciona. Pode executar a consulta modificada no [portal](../logs/log-query-overview.md) Log Analytics ou [API](/rest/api/loganalytics/).
 
 Para espaços de trabalho e Insights de Aplicação, chama-se **Consulta a ser executada** no painel de condições. Em todos os outros tipos de recursos, **selecione Consulte a consulta de alerta final** no separador condição.
 
@@ -108,7 +108,7 @@ O Azure Monitor desativará o alerta de registo após uma semana se falhar conti
 Quando uma regra de alerta de registo é criada, a consulta é validada para sintaxe correta. Mas, às vezes, a consulta fornecida na regra de alerta de registo pode começar a falhar. Algumas razões comuns são:
 
 - As regras foram criadas através da API e a validação foi ignorada pelo utilizador.
-- A consulta [funciona com múltiplos recursos](../log-query/cross-workspace-query.md) e um ou mais dos recursos foram eliminados ou movidos.
+- A consulta [funciona com múltiplos recursos](../logs/cross-workspace-query.md) e um ou mais dos recursos foram eliminados ou movidos.
 - A [consulta falha](https://dev.loganalytics.io/documentation/Using-the-API/Errors) porque:
     - A solução de registo não foi [implantada no espaço de trabalho,](../insights/solutions.md#install-a-monitoring-solution)pelo que as tabelas não são criadas.
     - Os dados pararam de fluir para uma mesa na consulta por mais de 30 dias.
@@ -219,5 +219,5 @@ Se a consulta falhar durante sete dias continuamente, o Azure Monitor desativar�
 ## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [os alertas de registo em Azure](./alerts-unified-log.md).
-- Saiba mais sobre [configurar alertas de registo.](../log-query/log-query-overview.md)
-- Saiba mais sobre [consultas de registo.](../log-query/log-query-overview.md)
+- Saiba mais sobre [configurar alertas de registo.](../logs/log-query-overview.md)
+- Saiba mais sobre [consultas de registo.](../logs/log-query-overview.md)

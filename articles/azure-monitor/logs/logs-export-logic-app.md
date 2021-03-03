@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/02/2020
-ms.openlocfilehash: 040c487df83c117e177b8a8b0e8fddde8682c67f
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: ae95580a8c192f0815623461fb21ec9ecf52ae26
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614022"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101700648"
 ---
 # <a name="archive-data-from-log-analytics-workspace-to-azure-storage-using-logic-app"></a>Arquivar dados do log analytics espaço de trabalho para o armazenamento do Azure usando a Logic App
 Este artigo descreve um método para usar [Azure Logic Apps](../../logic-apps/index.yml) para consultar dados de um espaço de trabalho Log Analytics no Azure Monitor e enviar para o Azure Storage. Utilize este processo quando necessitar de exportar os seus dados de Registo do Monitor Azure para cenários de auditoria e conformidade ou para permitir que outro serviço recupere estes dados.  
@@ -118,7 +118,7 @@ AzureActivity
     ResourceId = _ResourceId 
 ```
 
-O **Intervalo de Tempo** especifica os registos que serão incluídos na consulta com base na coluna **TimeGenerated.** Isto deve ser definido para um valor igual ou superior ao intervalo de tempo selecionado na consulta. Uma vez que esta consulta não está a usar a coluna **TimeGenerated,** então a opção **de consulta** não está disponível. Consulte [o âmbito de consulta](../log-query/scope.md) para obter mais detalhes sobre o intervalo de tempo. 
+O **Intervalo de Tempo** especifica os registos que serão incluídos na consulta com base na coluna **TimeGenerated.** Isto deve ser definido para um valor igual ou superior ao intervalo de tempo selecionado na consulta. Uma vez que esta consulta não está a usar a coluna **TimeGenerated,** então a opção **de consulta** não está disponível. Consulte [o âmbito de consulta](./scope.md) para obter mais detalhes sobre o intervalo de tempo. 
 
 Selecione **Last 4 horas** para o **intervalo de tempo**. Isto garantirá que quaisquer registos com um tempo de ingestão maior do que **o TimeGenerated** serão incluídos nos resultados.
    
@@ -210,6 +210,6 @@ Vá ao menu **de contas de Armazenamento** no portal Azure e selecione a sua con
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre [consultas de registo no Azure Monitor](../log-query/log-query-overview.md).
+- Saiba mais sobre [consultas de registo no Azure Monitor](./log-query-overview.md).
 - Saiba mais sobre [aplicações lógicas](../../logic-apps/index.yml)
 - Saiba mais sobre [o Power Automamate](https://flow.microsoft.com).

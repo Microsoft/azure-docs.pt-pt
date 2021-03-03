@@ -10,19 +10,19 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2020
 ms.author: sausin
-ms.openlocfilehash: 0f932eed2f1d58e8470a24ea595e21712deb7f03
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 89d7a6f8beb004f57a00dfe75e4cc387c8591b1e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95021903"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101716589"
 ---
 # <a name="custom-commands-encryption-of-data-at-rest"></a>Encriptação de Comandos Personalizados de dados inativos
 
 Os Comandos Personalizados encriptam automaticamente os seus dados quando estes são persistidos na nuvem. A encriptação do serviço Comandos Personalizados protege os seus dados e ajuda-o a cumprir os seus compromissos de segurança organizacional e de conformidade.
 
 > [!NOTE]
-> O serviço De Comandos Personalizados não permite automaticamente encriptação para os recursos LUIS associados à sua aplicação. Se necessário, deve ativar a encriptação do seu recurso LUIS a partir [daqui.](./../LUIS/luis-encryption-of-data-at-rest.md)
+> O serviço De Comandos Personalizados não permite automaticamente encriptação para os recursos LUIS associados à sua aplicação. Se necessário, deve ativar a encriptação do seu recurso LUIS a partir [daqui.](../luis/encrypt-data-at-rest.md)
 
 ## <a name="about-cognitive-services-encryption"></a>Sobre a encriptação dos Serviços Cognitivos
 Os dados são encriptados e desencriptados utilizando encriptação AES de [140-2](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) em conformidade com o [FIPS.](https://en.wikipedia.org/wiki/FIPS_140-2) A encriptação e a desencriptação são transparentes, o que significa que a encriptação e o acesso são geridos para si. Os dados estão protegidos por predefinição e não precisa de modificar o código ou as aplicações para tirar partido da encriptação.
@@ -149,7 +149,7 @@ Quando desativa as teclas geridas pelo cliente, o seu recurso Speech é então e
 1. Navegue para o seu recurso De discurso e apresente as definições **de Encriptação.**
 1. Desmarcar a caixa de verificação ao lado da definição **de teclas.**
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Formulário de pedido chave Customer-Managed de discurso](https://aka.ms/cogsvc-cmk)
 * [Saiba mais sobre o Azure Key Vault](../../key-vault/general/overview.md)

@@ -7,12 +7,12 @@ ms.author: abnarain
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/26/2018
-ms.openlocfilehash: ab49c294fb8923c9a1a47af016e5224a8bba846c
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 64588d5968df635c3bb017bd1ff1d10951968f32
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100576359"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101724953"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Utilizar atividades personalizadas num pipeline do Azure Data Factory
 
@@ -37,7 +37,7 @@ Consulte os seguintes artigos se é novo no serviço Azure Batch:
 * [Cmdlet New-AzBatchPool](/powershell/module/az.batch/New-AzBatchPool) para criar uma piscina Azure Batch.
 
 > [!IMPORTANT]
-> Ao criar um novo pool Azure Batch, deve ser utilizado o 'VirtualMachineConfiguration' e NÃO 'CloudServiceConfiguration'. Para mais detalhes, consulte [a orientação de migração do Azure Batch Pool.](https://docs.microsoft.com/azure/batch/batch-pool-cloud-service-to-virtual-machine-configuration) 
+> Ao criar um novo pool Azure Batch, deve ser utilizado o 'VirtualMachineConfiguration' e NÃO 'CloudServiceConfiguration'. Para mais detalhes, consulte [a orientação de migração do Azure Batch Pool.](../batch/batch-pool-cloud-service-to-virtual-machine-configuration.md) 
 
 ## <a name="azure-batch-linked-service"></a>Serviço ligado a Azure Batch
 
@@ -102,16 +102,16 @@ A tabela seguinte descreve nomes e descrições de propriedades específicas a e
 
 | Propriedade              | Descrição                              | Necessário |
 | :-------------------- | :--------------------------------------- | :------- |
-| name                  | Nome da atividade no oleoduto     | Yes      |
-| descrição           | Texto descrevendo o que a atividade faz.  | No       |
-| tipo                  | Para atividades personalizadas, o tipo de atividade é **Personalizado.** | Yes      |
-| linkedServiceName     | Serviço ligado ao Azure Batch. Para saber mais sobre este serviço ligado, consulte o artigo [de serviços ligados a Compute.](compute-linked-services.md)  | Yes      |
-| command               | Comando da aplicação personalizada a executar. Se a aplicação já estiver disponível no Nó de Piscina de Lote Azure, o recursoLinkedService e a pastaPath podem ser ignorados. Por exemplo, pode especificar o comando a ser `cmd /c dir` , que é suportado de forma nativa pelo nó do Pool do Lote do Windows. | Yes      |
+| name                  | Nome da atividade no oleoduto     | Sim      |
+| descrição           | Texto descrevendo o que a atividade faz.  | Não       |
+| tipo                  | Para atividades personalizadas, o tipo de atividade é **Personalizado.** | Sim      |
+| linkedServiceName     | Serviço ligado ao Azure Batch. Para saber mais sobre este serviço ligado, consulte o artigo [de serviços ligados a Compute.](compute-linked-services.md)  | Sim      |
+| command               | Comando da aplicação personalizada a executar. Se a aplicação já estiver disponível no Nó de Piscina de Lote Azure, o recursoLinkedService e a pastaPath podem ser ignorados. Por exemplo, pode especificar o comando a ser `cmd /c dir` , que é suportado de forma nativa pelo nó do Pool do Lote do Windows. | Sim      |
 | recursoLinkedService | Serviço ligado ao armazenamento Azure à conta de Armazenamento onde a aplicação personalizada é armazenada | Sem &#42;       |
 | folderPath            | Caminho para a pasta da aplicação personalizada e todas as suas dependências<br/><br/>Se tiver dependências armazenadas em subpastas - isto é, numa estrutura hierárquica de pastas em *modo de pasta* - a estrutura da pasta é atualmente achatada quando os ficheiros são copiados para O Lote de Azure. Ou seja, todos os ficheiros são copiados numa única pasta sem sub-dobras. Para contornar este comportamento, considere comprimir os ficheiros, copiar o ficheiro comprimido e, em seguida, desapertá-lo com código personalizado no local pretendido. | Sem &#42;       |
-| referênciaObjects      | Uma série de serviços e conjuntos de dados existentes. Os serviços e conjuntos de dados ligados referenciados são transmitidos à aplicação personalizada no formato JSON para que o seu código personalizado possa referenciar recursos da Data Factory | No       |
-| extensões    | Propriedades definidas pelo utilizador que podem ser passadas para a aplicação personalizada no formato JSON para que o seu código personalizado possa referenciar propriedades adicionais | No       |
-| retençãoTimeInDays | O tempo de retenção para os ficheiros submetidos para atividade personalizada. O valor predefinido é de 30 dias. | No |
+| referênciaObjects      | Uma série de serviços e conjuntos de dados existentes. Os serviços e conjuntos de dados ligados referenciados são transmitidos à aplicação personalizada no formato JSON para que o seu código personalizado possa referenciar recursos da Data Factory | Não       |
+| extensões    | Propriedades definidas pelo utilizador que podem ser passadas para a aplicação personalizada no formato JSON para que o seu código personalizado possa referenciar propriedades adicionais | Não       |
+| retençãoTimeInDays | O tempo de retenção para os ficheiros submetidos para atividade personalizada. O valor predefinido é de 30 dias. | Não |
 
 &#42; As propriedades `resourceLinkedService` e devem ser `folderPath` especificadas ou ambas omitidas.
 
@@ -301,7 +301,7 @@ Activity Error section:
 Se quiser consumir o conteúdo de stdout.txt em atividades a jusante, pode obter o caminho para o ficheiro stdout.txt em expressão " \@ atividade('MyCustomActivity').outputs[0]".
 
 > [!IMPORTANT]
-> - Os activity.jsligados, linkedServices.jse datasets.jsestão armazenados na pasta de tempo de funcionaamento da tarefa Lote. Para este exemplo, os activity.js, linkedServices.jse datasets.jsestão armazenados no `"https://adfv2storage.blob.core.windows.net/adfjobs/\<GUID>/runtime/"` caminho. Se necessário, tem de limpá-los separadamente.
+> - Os activity.jsligados, linkedServices.jse datasets.jsestão armazenados na pasta de tempo de funcionaamento da tarefa Lote. Para este exemplo, os activity.js, linkedServices.jse datasets.jsestão armazenados no `https://adfv2storage.blob.core.windows.net/adfjobs/<GUID>/runtime/` caminho. Se necessário, tem de limpá-los separadamente.
 > - Para os Serviços Ligados que utilizam o tempo de execução de integração Self-Hosted, as informações sensíveis como chaves ou palavras-passe são encriptadas pelo tempo de execução de integração Self-Hosted para garantir estadias credenciais no ambiente de rede privada definida pelo cliente. Alguns campos sensíveis podem estar em falta quando referenciados pelo seu código de aplicação personalizado desta forma. Utilize SecureString em extensões prolongadas em vez de utilizar a referência do Serviço Linked, se necessário.
 
 ## <a name="pass-outputs-to-another-activity"></a>Passar saídas para outra atividade

@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: sstein
 ms.date: 1/29/2021
-ms.openlocfilehash: 95b721f12e4818a77f18d01c99a5c6d60b881169
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: d356cad1b4754875574e19be732fdf6481c61e22
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99089708"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691217"
 ---
 # <a name="quickstart-create-an-azure-sql-managed-instance"></a>Quickstart: Criar uma instância gerida Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -113,7 +113,7 @@ Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure
 
 ### <a name="tags"></a>Etiquetas
 
-- Adicione etiquetas aos recursos no seu modelo de Gestor de Recursos Azure (modelo ARM). [As etiquetas](/azure/azure-resource-manager/management/tag-resources) ajudam-no a organizar logicamente os seus recursos. Os valores da etiqueta aparecem nos relatórios de custos e permitem outras atividades de gestão por etiqueta. 
+- Adicione etiquetas aos recursos no seu modelo de Gestor de Recursos Azure (modelo ARM). [As etiquetas](../../azure-resource-manager/management/tag-resources.md) ajudam-no a organizar logicamente os seus recursos. Os valores da etiqueta aparecem nos relatórios de custos e permitem outras atividades de gestão por etiqueta. 
 
 - Considere pelo menos marcar o seu novo SQL Managed Instance com a etiqueta Proprietário para identificar quem criou, e a etiqueta Ambiente para identificar se este sistema é Produção, Desenvolvimento, etc. Para mais informações, consulte [Desenvolver a sua estratégia de nomeação e marcação para recursos Azure.](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging)
  

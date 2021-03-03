@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 90f0cd913a191f345afd8acc3f3449b87e4cbfaf
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 474bad4c3d7250d93b3e926f6e71da6734d7a4d0
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98918611"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702050"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Monitorização da integridade do ficheiro no Centro de Segurança Azure
 Saiba como configurar a monitorização da integridade do ficheiro (FIM) no Azure Security Center utilizando este walkthrough.
@@ -120,7 +120,7 @@ O FIM só está disponível nas páginas do Security Center no portal Azure. Atu
 
     - Aceder e ver o estado e as configurações de cada espaço de trabalho
 
-    - ![Atualizar o ícone do plano ][4] Atualize o espaço de trabalho para usar o Azure Defender. Este ícone indica que o espaço de trabalho ou subscrição não está protegido pelo Azure Defender. Para utilizar as funcionalidades FIM, a sua subscrição deve ser protegida pelo Azure Defender. [Saiba mais](security-center-pricing.md).
+    - ![Atualizar o ícone do plano ][4] Atualize o espaço de trabalho para usar o Azure Defender. Este ícone indica que o espaço de trabalho ou subscrição não está protegido pelo Azure Defender. Para utilizar as funcionalidades FIM, a sua subscrição deve ser protegida pelo Azure Defender. Para mais informações, consulte o [Security Center free vs Azure Defender ativado](security-center-pricing.md#security-center-free-vs-azure-defender-enabled).
 
     - ![Ativar o ícone][3] Ativar o FIM em todas as máquinas no espaço de trabalho e configurar as opções FIM. Este ícone indica que o FIM não está ativado para o espaço de trabalho.
 
@@ -257,7 +257,7 @@ Pode desativar o FIM. A FIM utiliza a solução Azure Change Tracking para rastr
 
 4. Selecione **Remover** para desativar.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Neste artigo, aprendeu a utilizar a monitorização da integridade dos ficheiros (FIM) no Centro de Segurança. Para saber mais sobre o Centro de Segurança, consulte as seguintes páginas:
 
 * [Definição de políticas de segurança](tutorial-security-policy.md) -- Saiba como configurar políticas de segurança para as suas subscrições e grupos de recursos Azure.

@@ -4,15 +4,15 @@ description: Compreenda as definições de proxy e firewall do Azure File Sync. 
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/30/2020
+ms.date: 3/02/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 01ac42cce29f941a90631936ece025f02afedeaf
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: f0dbe7f32f14eb4da3d591811d619eb2e9bea397
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98673625"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101729645"
 ---
 # <a name="azure-file-sync-proxy-and-firewall-settings"></a>As definições do proxy e da firewall do Azure File Sync
 O Azure File Sync liga os seus servidores no local aos Ficheiros Azure, permitindo a sincronização de vários locais e funcionalidades de tiering em nuvem. Como tal, um servidor no local deve ser ligado à internet. Um administrador de TI precisa decidir o melhor caminho para o servidor chegar aos serviços de cloud Azure.
@@ -21,7 +21,7 @@ Este artigo fornecerá informações sobre requisitos e opções específicos di
 
 Recomendamos que se leia [considerações de networking do Azure File Sync](storage-sync-files-networking-overview.md) antes de ler este como orientar.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 O Azure File Sync funciona como um serviço de orquestração entre o seu Windows Server, a sua partilha de ficheiros Azure e vários outros serviços Azure para sincronizar dados como descrito no seu grupo de sincronização. Para que o Azure File Sync funcione corretamente, terá de configurar os seus servidores para comunicar com os seguintes serviços Azure:
 
 - Storage do Azure
@@ -50,6 +50,30 @@ comandos do PowerShell para configurar definições de proxy específicas da apl
 ```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
 Set-StorageSyncProxyConfiguration -Address <url> -Port <port number> -ProxyCredential <credentials>
+```
+Por exemplo, se o seu servidor proxy necessitar de autenticação com um nome de utilizador e senha, execute os seguintes comandos PowerShell:
+
+```powershell
+# IP address or name of the proxy server.
+$Address="127.0.0.1"  
+
+# The port to use for the connection to the proxy.
+$Port=8080
+
+# The user name for a proxy.
+$UserName="user_name" 
+
+# Please type or paste a string with a password for the proxy.
+$SecurePassword = Read-Host -AsSecureString
+
+$Creds = New-Object System.Management.Automation.PSCredential ($UserName, $SecurePassword)
+
+# Please verify that you have entered the password correctly.
+Write-Host $Creds.GetNetworkCredential().Password
+
+Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
+
+Set-StorageSyncProxyConfiguration -Address $Address -Port $Port -ProxyCredential $Creds
 ```
 **As definições de procuração em toda** a máquina são transparentes para o agente Azure File Sync, uma vez que todo o tráfego do servidor é encaminhado através do proxy.
 
@@ -99,8 +123,8 @@ A tabela a seguir descreve os domínios necessários para a comunicação:
 | **Azure Active Directory** | https://secure.aadcdn.microsoftonline-p.com | Use o URL do ponto final público. | Este URL é acedido pela biblioteca de autenticação ative Diretório que o UI do servidor Azure File Sync utiliza para iniciar sessão no administrador. |
 | **Armazenamento do Azure** | &ast;.core.windows.net | &ast;.core.usgovcloudapi.net | Quando o servidor descarrega um ficheiro, o servidor executa esse movimento de dados de forma mais eficiente quando fala diretamente para a partilha de ficheiros Azure na Conta de Armazenamento. O servidor tem uma chave SAS que apenas permite o acesso de partilha de ficheiros direcionado. |
 | **Azure File Sync** | &ast;.one.microsoft.com<br>&ast;.afs.azure.net | &ast;.afs.azure.us | Após o registo inicial do servidor, o servidor recebe um URL regional para a instância do serviço Azure File Sync naquela região. O servidor pode utilizar o URL para comunicar de forma direta e eficiente com a instância que manuseia a sua sincronização. |
-| **Microsoft PKI** | https://www.microsoft.com/pki/mscorp/cps<br><http://ocsp.msocsp.com> | https://www.microsoft.com/pki/mscorp/cps<br><http://ocsp.msocsp.com> | Uma vez instalado o agente Azure File Sync, o URL PKI é utilizado para descarregar certificados intermédios necessários para comunicar com o serviço Azure File Sync e a partilha de ficheiros Azure. O URL OCSP é utilizado para verificar o estado de um certificado. |
-| **Microsoft Update** | &ast;.update.microsoft.com<br>&ast;.download.windowsupdate.com<br>&ast;.dl.delivery.mp.microsoft.com<br>&ast;.emdl.ws.microsoft.com | &ast;.update.microsoft.com<br>&ast;.download.windowsupdate.com<br>&ast;.dl.delivery.mp.microsoft.com<br>&ast;.emdl.ws.microsoft.com | Uma vez instalado o agente Azure File Sync, os URLs da Microsoft Update são utilizados para descarregar atualizações do agente Azure File Sync. |
+| **Microsoft PKI** |  https://www.microsoft.com/pki/mscorp/cps<br>http://crl.microsoft.com/pki/mscorp/crl/<br>http://mscrl.microsoft.com/pki/mscorp/crl/<br>http://ocsp.msocsp.com<br>http://ocsp.digicert.com/<br>http://crl3.digicert.com/ | https://www.microsoft.com/pki/mscorp/cps<br>http://crl.microsoft.com/pki/mscorp/crl/<br>http://mscrl.microsoft.com/pki/mscorp/crl/<br>http://ocsp.msocsp.com<br>http://ocsp.digicert.com/<br>http://crl3.digicert.com/ | Uma vez instalado o agente Azure File Sync, o URL PKI é utilizado para descarregar certificados intermédios necessários para comunicar com o serviço Azure File Sync e a partilha de ficheiros Azure. O URL OCSP é utilizado para verificar o estado de um certificado. |
+| **Microsoft Update** | &ast;.update.microsoft.com<br>&ast;.download.windowsupdate.com<br>&ast;.ctldl.windowsupdate.com<br>&ast;.dl.delivery.mp.microsoft.com<br>&ast;.emdl.ws.microsoft.com | &ast;.update.microsoft.com<br>&ast;.download.windowsupdate.com<br>&ast;.ctldl.windowsupdate.com<br>&ast;.dl.delivery.mp.microsoft.com<br>&ast;.emdl.ws.microsoft.com | Uma vez instalado o agente Azure File Sync, os URLs da Microsoft Update são utilizados para descarregar atualizações do agente Azure File Sync. |
 
 > [!Important]
 > Ao permitir o tráfego &ast; de .afs.azure.net, o tráfego só é possível para o serviço de sincronização. Não existem outros serviços da Microsoft que utilizem este domínio.
@@ -110,10 +134,10 @@ Se &ast; .afs.azure.net ou &ast; .one.microsoft.com for demasiado amplo, pode li
 
 Por razões de continuidade de negócios e recuperação de desastres (BCDR), pode ter especificado as suas ações de ficheiroS Azure numa conta de armazenamento globalmente redundante (GRS). Se for esse o caso, as suas ações de ficheiroS Azure falharão na região emparelhada em caso de uma paragem regional duradoura. O Azure File Sync utiliza os mesmos emparelhamentos regionais que o armazenamento. Por isso, se utilizar contas de armazenamento GRS, tem de ativar URLs adicionais para permitir que o seu servidor fale com a região emparelhada para o Azure File Sync. A tabela abaixo chama a esta "região emparelhada". Além disso, há um URL de perfil de gestor de tráfego que precisa ser ativado também. Isto garantirá que o tráfego de rede pode ser reencaminhado perfeitamente para a região emparelhada em caso de falha e é chamado de "DISCOVERY URL" na tabela abaixo.
 
-| Cloud  | Região | URL de ponto final primário | Região emparelhada | URL de descoberta |
+| Cloud  | Region | URL de ponto final primário | Região emparelhada | URL de descoberta |
 |--------|--------|----------------------|---------------|---------------|
-| Público |Leste da Austrália | https: \/ /australiaeast01.afs.azure.net<br>https: \/ /kailani-aue.one.microsoft.com | Sudeste da Austrália | https: \/ /tm-australiaeast01.afs.azure.net<br>https: \/ /tm-kailani-aue.one.microsoft.com |
-| Público |Sudeste da Austrália | https: \/ /australiasoutheast01.afs.azure.net<br>https: \/ /kailani-aus.one.microsoft.com | Leste da Austrália | https: \/ /tm-australiasoutheast01.afs.azure.net<br>https: \/ /tm-kailani-aus.one.microsoft.com |
+| Público |Leste da Austrália | https: \/ /australiaeast01.afs.azure.net<br>https: \/ /kailani-aue.one.microsoft.com | Austrália Sudeste | https: \/ /tm-australiaeast01.afs.azure.net<br>https: \/ /tm-kailani-aue.one.microsoft.com |
+| Público |Austrália Sudeste | https: \/ /australiasoutheast01.afs.azure.net<br>https: \/ /kailani-aus.one.microsoft.com | Leste da Austrália | https: \/ /tm-australiasoutheast01.afs.azure.net<br>https: \/ /tm-kailani-aus.one.microsoft.com |
 | Público | Sul do Brasil | https: \/ /brazilsouth01.afs.azure.net | E.U.A. Centro-Sul | https: \/ /tm-brazilsouth01.afs.azure.net |
 | Público | Canadá Central | https: \/ /canadacentral01.afs.azure.net<br>https: \/ /kailani-cac.one.microsoft.com | Leste do Canadá | https: \/ /tm-canadacentral01.afs.azure.net<br>https: \/ /tm-kailani-cac.one.microsoft.com |
 | Público | Leste do Canadá | https: \/ /canadaeast01.afs.azure.net<br>https: \/ /kailani-cae.one.microsoft.com | Canadá Central | https: \/ /tm-canadaeast01.afs.azure.net<br>https: \/ /tm-kailani.cae.one.microsoft.com |

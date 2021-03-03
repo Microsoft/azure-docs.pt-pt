@@ -5,16 +5,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 08/15/2019
-ms.openlocfilehash: de5fa6c881f808bcd580f6fae3329d579573d876
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: eae5b5e1430f4e9bf1db62a4413e3b7abe3744cc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98931537"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101699322"
 ---
 # <a name="troubleshoot-a-slow-or-failing-job-on-a-hdinsight-cluster"></a>Resolver problemas de um trabalho lento ou com falhas num cluster HDInsight
 
-Se um dado de processamento de aplicação num cluster HDInsight estiver a funcionar lentamente ou a falhar com um código de erro, tem várias opções de resolução de problemas. Se os seus empregos estão a demorar mais tempo do que o esperado, ou se está a assistir a tempos de resposta lentos em geral, pode haver falhas a montante do seu cluster, como os serviços em que o cluster funciona. No entanto, a causa mais comum destes abrandamentos é a escalação insuficiente. Quando criar um novo cluster HDInsight, selecione os [tamanhos de máquinas virtuais apropriados](hdinsight-component-versioning.md#default-node-configuration-and-virtual-machine-sizes-for-clusters).
+Se um dado de processamento de aplicação num cluster HDInsight estiver a funcionar lentamente ou a falhar com um código de erro, tem várias opções de resolução de problemas. Se os seus empregos estão a demorar mais tempo do que o esperado, ou se está a assistir a tempos de resposta lentos em geral, pode haver falhas a montante do seu cluster, como os serviços em que o cluster funciona. No entanto, a causa mais comum destes abrandamentos é a escalação insuficiente. Quando criar um novo cluster HDInsight, selecione os [tamanhos de máquinas virtuais apropriados](hdinsight-supported-node-configuration.md).
 
 Para diagnosticar um cluster lento ou em falha, recolha informações sobre todos os aspetos do ambiente, tais como serviços azure associados, configuração de cluster e informação de execução de emprego. Um diagnóstico útil é tentar reproduzir o estado de erro em outro cluster.
 
@@ -256,7 +256,7 @@ Para ajudar a diagnosticar a origem de um erro de cluster, inicie um novo cluste
 5. Continue até que todos os passos corram sem erros.
 6. Quando terminar de depurar o cluster de teste, elimine-o.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Manage HDInsight clusters by using the Apache Ambari Web UI](hdinsight-hadoop-manage-ambari.md) (Gerir clusters do HDInsight através da IU da Web do Apache Ambari)
 * [Analisar registos HDInsight](./hdinsight-troubleshoot-guide.md)

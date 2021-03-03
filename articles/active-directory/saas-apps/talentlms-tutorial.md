@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/25/2021
 ms.author: jeedes
-ms.openlocfilehash: 1b65191e97402f2fb352c56664dad085c448242c
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 84d50d19a8356418a5cbf1f93784e5b8816d4be5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101650634"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101689356"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-talentlms"></a>Tutorial: Integração do Azure Ative Directory com o TalentLMS
 
@@ -170,11 +170,11 @@ Para permitir que os utilizadores de Azure AD inscrevam-se no TalentLMS, devem s
 
     ![Adicionar utilizador](./media/talentlms-tutorial/IC777299.png "Adicionar Utilizador")  
 
-    a. Na caixa de texto do **primeiro nome,** insira o primeiro nome de utilizador como **Britta**.
+    a. Na caixa de texto do **primeiro nome,** insira o primeiro nome do utilizador como `Britta` .
 
-    b. Na caixa de texto **do último nome,** insira o último nome de utilizador como **Simon**.
+    b. Na caixa de texto **do último nome,** insira o último nome do utilizador como `Simon` .
  
-    c. Na caixa de texto **do endereço de e-mail,** insira o e-mail do utilizador como `brittasimon\@contoso.com` .
+    c. Na caixa de texto **do endereço de e-mail,** insira o e-mail do utilizador como `brittasimon@contoso.com` .
 
     d. Clique em **Adicionar Utilizador**.
 

@@ -860,87 +860,71 @@
                   href: windows/disks-enable-double-encryption-at-rest-powershell.md
                 - name: CLI
                   href: linux/disks-enable-double-encryption-at-rest-cli.md
-        - name: Cenários de encriptação do disco Azure
+        - name: Azure Disk Encryption
           items:
-            - name: Visão geral da encriptação do disco Azure
-              items:
-                - name: Windows
-                - name: Linux
             - name: Linux
-              href: ./linux/disk-encryption-linux.md
-            - name: Windows
-              href: ./windows/disk-encryption-windows.md
-            - name: CLI
               items:
-                - name: Linux
-                  href: ./linux/disk-encryption-cli-quickstart.md
-                - name: Windows
-                  href: ./windows/disk-encryption-cli-quickstart.md
-            - name: PowerShell
-              items:
-                - name: Linux
-                  href: ./linux/disk-encryption-powershell-quickstart.md
-                - name: Windows
-                  href: ./windows/disk-encryption-powershell-quickstart.md
-            - name: Portal
-              items:
-                - name: Linux
-                  href: ./linux/disk-encryption-portal-quickstart.md
-                - name: Windows
-                  href: ./windows/disk-encryption-portal-quickstart.md
-            - name: Cofre de chaves para o Azure Disk Encryption
-              items:
-                - name: Linux
-                  href: ./linux/disk-encryption-key-vault.md
-                - name: Windows
-                  href: ./windows/disk-encryption-key-vault.md
-            - name: Scripts de exemplo
-              items:
-                - name: Linux
-                  href: ./linux/disk-encryption-sample-scripts.md
-                - name: Windows
-                  href: ./windows/disk-encryption-sample-scripts.md
-            - name: Encriptação do disco Azure numa rede isolada
-              href: ./linux/disk-encryption-isolated-network.md
-            - name: Como verificar o estado de encriptação
-              href: ./linux/how-to-verify-encryption-status.md
-            - name: Como configurar LVM e RAID em crypt
-              href: ./linux/how-to-configure-lvm-raid-on-crypt.md
-            - name: Como redimensionar volumes LVM encriptados
-              href: ./linux/how-to-resize-encrypted-lvm.md
-            - name: Redimensionar as divisórias LINUX GPT OS
-              href: linux/resize-os-disk-gpt-partition.md
-            - name: resolução de problemas
-              items:
-                - name: Linux
-                  href: ./linux/disk-encryption-troubleshooting.md
-                - name: Windows
-                  href: ./windows/disk-encryption-troubleshooting.md
-            - name: FAQ
-              items:
-                - name: Linux
-                  href: ./linux/disk-encryption-faq.md
-                - name: Windows
-                  href: ./windows/disk-encryption-faq.md
-            - name: Encriptação do Disco Azure - versão anterior
-              items:
-                - name: Descrição Geral
+                - name: Descrição geral
+                  href: ./linux/disk-encryption-overview.md
+                - name: Guias de Início Rápido
                   items:
-                    - name: Linux
-                      href: ./linux/disk-encryption-overview-aad.md
-                    - name: Windows
-                      href: ./windows/disk-encryption-overview-aad.md
+                    - name: CLI do Azure
+                      href: ./linux/disk-encryption-cli-quickstart.md
+                    - name: Azure PowerShell
+                      href: ./linux/disk-encryption-powershell-quickstart.md
+                    - name: Portal do Azure
+                      href: ./linux/disk-encryption-portal-quickstart.md
                 - name: Cofre de chaves para o Azure Disk Encryption
+                  href: ./linux/disk-encryption-key-vault.md
+                - name: Scripts de exemplo de encriptação de discos
+                  href: ./linux/disk-encryption-sample-scripts.md
+                - name: Encriptação de discos numa rede isolada
+                  href: ./linux/disk-encryption-isolated-network.md
+                - name: Como verificar o estado de encriptação
+                  href: ./linux/how-to-verify-encryption-status.md
+                - name: Como configurar LVM e RAID em crypt
+                  href: ./linux/how-to-configure-lvm-raid-on-crypt.md
+                - name: Como redimensionar volumes LVM encriptados
+                  href: ./linux/how-to-resize-encrypted-lvm.md
+                - name: Resolução de problemas de encriptação de discos
+                  href: ./linux/disk-encryption-troubleshooting.md
+                - name: FAQ de encriptação de discos
+                  href: ./linux/disk-encryption-faq.md
+                - name: Encriptação de discos - versão anterior
                   items:
-                    - name: Linux
+                    - name: Descrição geral
+                      href: ./linux/disk-encryption-overview-aad.md
+                    - name: Cofre de chaves para o Azure Disk Encryption
                       href: ./linux/disk-encryption-key-vault-aad.md
-                    - name: Windows
-                      href: ./windows/disk-encryption-key-vault-aad.md
-                - name: Cenários de encriptação de discos
-                  items:
-                    - name: Linux
+                    - name: Cenários de encriptação de discos para Linux
                       href: ./linux/disk-encryption-linux-aad.md
-                    - name: Windows
+            - name: Windows
+              items:
+                - name: Cenários de encriptação de discos para Windows
+                  href: ./windows/disk-encryption-windows.md
+                - name: Guias de Início Rápido
+                  items:
+                    - name: CLI do Azure
+                      href: ./windows/disk-encryption-cli-quickstart.md
+                    - name: Azure PowerShell
+                      href: ./windows/disk-encryption-powershell-quickstart.md
+                    - name: Portal do Azure
+                      href: ./windows/disk-encryption-portal-quickstart.md
+                - name: Cofre de chaves para o Azure Disk Encryption
+                  href: ./windows/disk-encryption-key-vault.md
+                - name: Scripts de exemplo de encriptação de discos
+                  href: ./windows/disk-encryption-sample-scripts.md
+                - name: Resolução de problemas de encriptação de discos
+                  href: ./windows/disk-encryption-troubleshooting.md
+                - name: FAQ de encriptação de discos
+                  href: ./windows/disk-encryption-faq.md
+                - name: Encriptação de discos - versão anterior
+                  items:
+                    - name: Descrição geral
+                      href: ./windows/disk-encryption-overview-aad.md
+                    - name: Cofre de chaves para o Azure Disk Encryption
+                      href: ./windows/disk-encryption-key-vault-aad.md
+                    - name: Cenários de encriptação de discos para Windows
                       href: ./windows/disk-encryption-windows-aad.md
     - name: Otimização de desempenho e custos
       items:

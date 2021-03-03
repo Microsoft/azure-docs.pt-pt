@@ -1,25 +1,25 @@
 ---
-title: Monitor Azure para alertas de saúde de hóspedes VMs (pré-visualização)
-description: Descreve os alertas criados pelo Azure Monitor para a saúde dos hóspedes VMs, incluindo como habilitar e configurar notificações.
+title: VM insights alertas de saúde dos hóspedes (pré-visualização)
+description: Descreve os alertas criados pela VM insights saúde dos hóspedes, incluindo como habilitar e configurar notificações.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/10/2020
-ms.openlocfilehash: 30025f387768aaf1e4d642292c21d5b15ccc7451
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: a32ba9f1c4cf5d6bb9de69e1a6860c858e3ee2a6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100620631"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101707511"
 ---
-# <a name="azure-monitor-for-vms-guest-health-alerts-preview"></a>Monitor Azure para alertas de saúde de hóspedes VMs (pré-visualização)
-O Azure Monitor para a saúde dos hóspedes em VMs permite-lhe visualizar a saúde de uma máquina virtual, tal como definida por um conjunto de medições de desempenho que são amostradas a intervalos regulares. Um alerta pode ser criado quando uma máquina virtual ou monitor muda para um estado pouco saudável. Pode ver e gerir estes alertas com [os criados pelas regras de alerta no Azure Monitor](../platform/alerts-overview.md) e optar por ser notificado proativamente quando um novo alerta for criado.
+# <a name="vm-insights-guest-health-alerts-preview"></a>VM insights alertas de saúde dos hóspedes (pré-visualização)
+A saúde do hóspede permite-lhe ver a saúde de uma máquina virtual como definida por um conjunto de medições de desempenho que são amostradas a intervalos regulares. Um alerta pode ser criado quando uma máquina virtual ou monitor muda para um estado pouco saudável. Pode ver e gerir estes alertas com [os criados pelas regras de alerta no Azure Monitor](../alerts/alerts-overview.md) e optar por ser notificado proativamente quando um novo alerta for criado.
 
 ## <a name="configure-alerts"></a>Configurar alertas
-Não é possível criar uma regra de alerta explícita para o Azure Monitor para a saúde dos hóspedes em VMs enquanto esta funcionalidade estiver em pré-visualização. Por predefinição, serão criados alertas para cada máquina virtual, mas não para cada monitor.  Isto significa que se um monitor muda para um estado que não afeta o estado atual da máquina virtual, então nenhum alerta é criado porque o estado da máquina virtual não mudou. 
+Não é possível criar uma regra de alerta explícita para a saúde dos hóspedes em VM enquanto esta funcionalidade estiver em pré-visualização. Por predefinição, serão criados alertas para cada máquina virtual, mas não para cada monitor.  Isto significa que se um monitor muda para um estado que não afeta o estado atual da máquina virtual, então nenhum alerta é criado porque o estado da máquina virtual não mudou. 
 
-Pode desativar alertas para uma determinada máquina virtual ou para um determinado monitor numa máquina virtual a partir da definição de **estado de Alerta** na configuração para a máquina virtual no portal Azure. Consulte [a monitorização de configuração no Azure Monitor para a saúde dos hóspedes VMs (pré-visualização)](vminsights-health-configure.md) para obter detalhes sobre monitores de configuração no portal Azure. Consulte a monitorização de [configuração no Azure Monitor para a saúde dos hóspedes em VMs utilizando regras de recolha de dados (pré-visualização)](vminsights-health-configure-dcr.md) para obter detalhes sobre monitores de configuração através de um conjunto de máquinas virtuais.
+Pode desativar alertas para uma determinada máquina virtual ou para um determinado monitor numa máquina virtual a partir da definição de **estado de Alerta** na configuração para a máquina virtual no portal Azure. Consulte [a monitorização de configuração em informações VM para a saúde dos hóspedes (pré-visualização)](vminsights-health-configure.md) para obter detalhes sobre monitores de configuração no portal Azure. Consulte [a monitorização de configuração em informações VM para a saúde dos hóspedes utilizando regras de recolha de dados (pré-visualização)](vminsights-health-configure-dcr.md) para obter detalhes sobre a configuração de monitores através de um conjunto de máquinas virtuais.
 
 ## <a name="alert-severity"></a>Gravidade do alerta
 A gravidade do alerta criado pela saúde dos hóspedes mapeia diretamente a gravidade da máquina virtual ou monitor que desencadeia o alerta.
@@ -31,12 +31,12 @@ A gravidade do alerta criado pela saúde dos hóspedes mapeia diretamente a grav
 | Bom estado de funcionamento  | Sev4 |
 
 ## <a name="alert-lifecycle"></a>Ciclo de vida de alerta
-Será criado um [alerta Azure](../platform/alerts-overview.md) para cada máquina virtual sempre que este se alterar para um estado **de Aviso** ou **Crítico.** Veja o alerta a partir de **Alertas** no menu **Azure Monitor** ou no menu da máquina virtual no portal Azure.
+Será criado um [alerta Azure](../alerts/alerts-overview.md) para cada máquina virtual sempre que este se alterar para um estado **de Aviso** ou **Crítico.** Veja o alerta a partir de **Alertas** no menu **Azure Monitor** ou no menu da máquina virtual no portal Azure.
 
 Se um alerta já estiver em estado **de Despedimento** quando o estado da máquina virtual mudar, então não será criado um segundo alerta, mas a gravidade do mesmo alerta será alterada para corresponder ao estado da máquina virtual. Por exemplo, se a máquina virtual mudar para o estado **crítico** quando um alerta de **aviso** já estava em estado **de Despedimento,** a gravidade desse alerta será alterada para **Sev1**. Se a máquina virtual mudar para um estado **de aviso** quando um alerta **Sev1** já estava em estado **de Despedimento,** a gravidade desse alerta será alterada para **Sev2**. Se a máquina virtual voltar para um estado **saudável,** então o alerta será resolvido com a severidade alterada para **Sev4**.
 
 ## <a name="viewing-alerts"></a>Alertas de visualização
-Ver alertas criados pelo Azure Monitor para a saúde dos hóspedes com [outros alertas no portal Azure](../platform/alerts-overview.md#alerts-experience). Pode selecionar **Alertas** do menu **Azure Monitor** para visualizar alertas para todos os recursos monitorizados ou selecionar **Alertas** do menu de uma máquina virtual para visualizar alertas apenas para essa máquina virtual.
+Ver alertas criados pela VM insights saúde dos hóspedes com [outros alertas no portal Azure](../platform/alerts-overview.md#alerts-experience). Pode selecionar **Alertas** do menu **Azure Monitor** para visualizar alertas para todos os recursos monitorizados ou selecionar **Alertas** do menu de uma máquina virtual para visualizar alertas apenas para essa máquina virtual.
 
 ## <a name="alert-properties"></a>Propriedades do alerta
 
@@ -106,6 +106,6 @@ Em **Definir neste âmbito,** selecione **Action group** e, em seguida, selecion
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Ativar a saúde dos hóspedes no Azure Monitor para VMs e agentes a bordo.](vminsights-health-enable.md)
+- [Capacitar a saúde dos hóspedes em insights VM e agentes a bordo.](vminsights-health-enable.md)
 - [Configure os monitores utilizando o portal Azure.](vminsights-health-configure.md)
 - [Configure os monitores utilizando as regras de recolha de dados.](vminsights-health-configure-dcr.md)

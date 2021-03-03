@@ -5,17 +5,26 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 11/20/2020
+ms.date: 02/18/2021
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 241a2be834d7828cdb56f59313c0c1a9c478ff77
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 7151c110fd50f7485aa0b130832aace4f3143ad9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96016536"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101751109"
 ---
 - Atualmente esta funcionalidade é suportada apenas para SSDs premium.
 - Tem de fazer negócios com o seu VM ou separar o disco de um VM em execução antes de poder alterar o nível do disco.
 - Os níveis de desempenho P60, P70 e P80 só podem ser utilizados por discos superiores a 4.096 GiB.
 - O nível de desempenho de um disco só pode ser desclassificado uma vez a cada 12 horas.
+
+## <a name="change-performance-tier-without-downtime-preview"></a>Alterar o nível de desempenho sem tempo de inatividade (pré-visualização)
+
+Normalmente, teria de negociar o seu VM ou desvincular o seu disco para alterar o seu nível de desempenho. Mas se ativar esta funcionalidade de pré-visualização, não precisa de negociar o seu VM ou desvincular o disco para alterar o nível. Pode inscrever-se para a pré-visualização [aqui.](https://aka.ms/liveperftiersignup)
+
+A pré-visualização tem as seguintes limitações:
+- Disponível apenas na região eastUS2EUAP.
+- Não disponível para discos partilhados
+- Deve utilizar os modelos do Gestor de Recursos Azure com a `2020-12-01` API para alterar os níveis de desempenho sem tempo de inatividade.

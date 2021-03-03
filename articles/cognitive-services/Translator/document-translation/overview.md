@@ -6,23 +6,23 @@ manager: nitinme
 ms.author: lajanuar
 author: laujan
 ms.date: 02/11/2021
-ms.openlocfilehash: 255de7d6739691c479e1ae98e37bc6d3e01a6710
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: fc75bfc3b79cd6aed51a44fc47787532a9d61e8b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100643634"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713019"
 ---
 # <a name="what-is-document-translation-preview"></a>O que é Tradução de Documentos (Pré-visualização)?
 
-Document Translation é uma característica baseada na nuvem do serviço [Azure Tradutor](../translator-info-overview.md) e faz parte da família Azure Cognitive Service das APIs REST. A API de Tradução documental traduz documentos de e para mais de 70 línguas, preservando simultaneamente a estrutura documental e o formato de dados.
+Document Translation é uma característica baseada na nuvem do serviço [Azure Tradutor](../translator-info-overview.md) e faz parte da família Azure Cognitive Service das APIs REST. A API de Tradução documental traduz documentos de e para 90 línguas e dialetos, preservando a estrutura documental e o formato de dados.
 
 ## <a name="document-translation-key-features"></a>Características-chave da tradução de documentos
 
 | Funcionalidade | Descrição |
 | ---------| -------------|
 | **Traduzir ficheiros grandes**| Traduza documentos inteiros assíncronosamente.|
-|**Traduzir inúmeros ficheiros**|Traduza vários ficheiros de e para mais de 70 idiomas.|
+|**Traduzir inúmeros ficheiros**|Traduza vários ficheiros para e a partir de 90 idiomas e dialetos.|
 |**Preservar apresentação de ficheiros de origem**| Traduza os ficheiros preservando o layout e o formato originais.|
 |**Aplicar tradução personalizada**| Traduza documentos utilizando modelos de tradução geral e [personalizado.](../customization.md#custom-translator)|
 |**Aplicar glossários personalizados**|Traduza documentos utilizando glossários personalizados.|
@@ -38,7 +38,7 @@ No nosso guia de como fazer, aprenderá a começar rapidamente a usar o Document
 
 Os seguintes tipos de ficheiros de documentos são suportados pela Tradução documental:
 
-| Tipo de arquivo| Extensão de nome de ficheiro|Description|
+| Tipo de arquivo| Extensão de nome de ficheiro|Descrição|
 |---|---|--|
 |Adobe PDF|.pdf|Adobe Acrobat formato de documento portátil|
 |HTML|.html|Linguagem de marcação de texto hiper.|
@@ -55,7 +55,7 @@ Os seguintes tipos de ficheiros de documentos são suportados pela Tradução do
 
 Os seguintes tipos de ficheiros glossários são suportados pela Tradução documental:
 
-| Tipo de arquivo| Extensão de nome de ficheiro|Description|
+| Tipo de arquivo| Extensão de nome de ficheiro|Descrição|
 |---|---|--|
 |Formato de ficheiro de intercâmbio de localização|.xlf. , xliff| Um formato documental paralelo, exportação de sistemas de memória de tradução. As línguas utilizadas são definidas dentro do ficheiro.|
 |Separados valores/SEPARADOS|.tsv/.tab| um ficheiro de dados brutos delimitado por separadores utilizado por programas de folha de cálculo.|

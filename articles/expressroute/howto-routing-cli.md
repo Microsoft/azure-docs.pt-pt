@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/09/2020
 ms.author: duau
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 7a482e268137946222f1c8b427424598bd78f935
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 2c56e847e3b112d50285cd2c116c8f22efbc507f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92735092"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101715535"
 ---
 # <a name="tutorial-create-and-modify-peering-for-an-expressroute-circuit-using-cli"></a>Tutorial: Criar e modificar o espreitamento para um circuito ExpressRoute usando OCli
 
@@ -23,7 +23,7 @@ Este tutorial mostra-lhe como criar e gerir a configuração/observação de enc
 > * [Portal do Azure](expressroute-howto-routing-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-routing-arm.md)
 > * [CLI do Azure](howto-routing-cli.md)
-> * [Olhando público](about-public-peering.md)
+> * [Peering público](about-public-peering.md)
 > * [Vídeo - Peering privado](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
 > * [Vídeo - Microsoft a espreitar](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit)
 > * [PowerShell (clássico)](expressroute-howto-routing-classic.md)
@@ -44,7 +44,7 @@ Estas instruções aplicam-se apenas aos circuitos criados com fornecedores de s
 
 Pode configurar o seu olhar privado e a Microsoft a espreitar por um circuito ExpressRoute. Os seus pares podem ser configurados em qualquer ordem que escolherem. No entanto, tem de confirmar que conclui a configuração de cada peering, um de cada vez. Para obter mais informações sobre domínios de encaminhamento e observação, consulte [os domínios de encaminhamento ExpressRoute](expressroute-circuit-peerings.md).
 
-## <a name="microsoft-peering"></a><a name="msft"></a>Peering da Microsoft
+## <a name="microsoft-peering"></a><a name="msft"></a>Microsoft a espreitar
 
 Esta secção ajuda-o a criar, obter, atualizar e eliminar a configuração de espreitar a Microsoft para um circuito ExpressRoute.
 
@@ -243,8 +243,10 @@ Esta secção ajuda-o a criar, obter, atualizar e eliminar a configuração de o
 
 1. Configure o peering privado do Azure para o circuito. Certifique-se de que tem os seguintes itens antes de continuar com os próximos passos:
 
-   * Uma sub-rede /30 para a ligação primária. A sub-rede não deve fazer parte de qualquer espaço de endereço reservado para redes virtuais.
-   * Uma sub-rede /30 para a ligação secundária. A sub-rede não deve fazer parte de qualquer espaço de endereço reservado para redes virtuais.
+   * Um par de sub-redes que não fazem parte de qualquer espaço de endereço reservado para redes virtuais. Uma sub-rede será usada para a ligação primária, enquanto a outra será usada para a ligação secundária. A partir de cada uma destas sub-redes, irá atribuir o primeiro endereço IP utilizável ao seu router, uma vez que a Microsoft utiliza o segundo IP utilizável para o seu router. Tem três opções para este par de sub-redes:
+       * IPv4: Duas sub-redes /30.
+       * IPv6: Duas sub-redes /126.
+       * Ambas: Duas sub-redes /30 e duas sub-redes /126.
    * Um ID de VLAN válido para estabelecer este peering. Assegure que nenhum peering no circuito utiliza o mesmo ID de VLAN.
    * Número AS para peering. Pode utilizar números AS de 2 e 4 bytes. Pode utilizar um número AS privado para este peering. Certifique-se de que não está a usar o 65515.
    * **Opcional -** Um haxixe MD5 se optar por usar um.

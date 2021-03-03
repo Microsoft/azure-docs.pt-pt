@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: reference
-ms.date: 01/13/2021
-ms.openlocfilehash: 4ed5a26e1f871f7ac5fd8f29f0a66bc39a8013a1
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.date: 02/18/2021
+ms.openlocfilehash: 484ee9e67aa2adc11529f8a2239a813b3b12f7b2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99507253"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702492"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Guia de referência para a utilização de funções em expressões para Apps lógicas Azure e Automatização de Energia
 
@@ -282,7 +282,7 @@ Para obter a referência completa sobre cada função, consulte a [lista alfabé
 | [multipartBody](../logic-apps/workflow-definition-language-functions-reference.md#multipartBody) | Devolva o corpo para uma parte específica na saída de uma ação que tenha várias partes. |
 | [saídas](../logic-apps/workflow-definition-language-functions-reference.md#outputs) | Devolva a saída de uma ação em tempo de execução. |
 | [parâmetros](../logic-apps/workflow-definition-language-functions-reference.md#parameters) | Devolva o valor para um parâmetro descrito na definição de fluxo de trabalho. |
-| [resultado](../logic-apps/workflow-definition-language-functions-reference.md#result) | Retornar as entradas e saídas de todas as ações dentro da ação especificada, tais `For_each` `Until` como, e `Scope` . |
+| [resultado](../logic-apps/workflow-definition-language-functions-reference.md#result) | Retornar as entradas e saídas das ações de nível superior dentro da ação especificada, tais `For_each` `Until` como, e `Scope` . |
 | [gatilho](../logic-apps/workflow-definition-language-functions-reference.md#trigger) | Devolva a saída de um gatilho em tempo de execução, ou de outros pares de nome e valor JSON. Consulte também [os gatilhosOutputs](#triggerOutputs) e [triggerBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody). |
 | [triggerBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody) | Devolva a saída de um gatilho `body` em tempo de execução. Ver [gatilho](../logic-apps/workflow-definition-language-functions-reference.md#trigger). |
 | [triggerFormDataValue](../logic-apps/workflow-definition-language-functions-reference.md#triggerFormDataValue) | Devolva um único valor correspondente a um *nome-chave em saídas de gatilho codificadas* por formulários ou *por formulários.* |
@@ -3451,7 +3451,12 @@ Aqui está o objeto JSON atualizado:
 
 ### <a name="result"></a>result
 
-Devolva as entradas e saídas de todas as ações que estão dentro da ação especificada, como, `For_each` `Until` por exemplo, ou `Scope` ação. Esta função é útil devolvendo os resultados de uma ação falhada para que possa diagnosticar e lidar com exceções. Para obter mais informações, consulte [o contexto e os resultados para falhas.](../logic-apps/logic-apps-exception-handling.md#get-results-from-failures)
+Devolva os resultados das ações de alto nível na ação especificada, como, por `For_each` `Until` exemplo, ou `Scope` ação. A `result()` função aceita um único parâmetro, que é o nome do âmbito, e devolve uma matriz que contém informações das ações de primeiro nível nesse âmbito. Estes objetos de ação incluem os mesmos atributos que os devolvidos pela `actions()` função, tais como a hora de início da ação, o tempo final, o estado, as entradas, os IDs de correlação e as saídas.
+
+> [!NOTE]
+> Esta função retorna a informação *apenas* das ações de primeiro nível na ação de âmbito e não de ações aninhadas mais profundas, tais como ações de comutação ou condição.
+
+Por exemplo, pode utilizar esta função para obter os resultados de ações falhadas para que possa diagnosticar e lidar com exceções. Para obter mais informações, consulte [o contexto e os resultados para falhas.](../logic-apps/logic-apps-exception-handling.md#get-results-from-failures)
 
 ```
 result('<scopedActionName>')
@@ -3459,17 +3464,17 @@ result('<scopedActionName>')
 
 | Parâmetro | Necessário | Tipo | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*nome de aplicação de âmbito*> | Sim | String | O nome da ação a partir da qual devolver as entradas e saídas de todas as ações internas |
+| <*nome de aplicação de âmbito*> | Sim | String | O nome da ação de âmbito onde você quer as entradas e saídas das ações de alto nível dentro desse âmbito |
 ||||
 
 | Valor devolvido | Tipo | Descrição |
 | ------------ | ---- | ----------- |
-| <*conjunto de objeto*> | Objeto de matriz | Uma matriz que contém matrizes de entradas e saídas de cada ação que aparece dentro da ação especificada |
+| <*conjunto de objeto*> | Objeto de matriz | Uma matriz que contém matrizes de entradas e saídas de cada ação de nível superior dentro do âmbito especificado |
 ||||
 
 *Exemplo*
 
-Este exemplo devolve as entradas e saídas de cada iteração de uma ação HTTP no interior que está dentro de um `For_each` loop utilizando a `result()` função na `Compose` ação:
+Este exemplo devolve as entradas e saídas de cada iteração de uma ação HTTP no interior que está em `For_each` loop utilizando a `result()` função na `Compose` ação:
 
 ```json
 {

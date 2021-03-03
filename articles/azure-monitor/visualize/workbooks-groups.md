@@ -9,12 +9,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: lagayhar
-ms.openlocfilehash: 2614117d153b1db50d4487bf4045a63af430f3ac
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: b36dec79e5d60d97c11b9f8c74790527e1bd19fb
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100615601"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731362"
 ---
 # <a name="how-to-use-groups-in-workbooks"></a>Como usar grupos em livros
 
@@ -143,5 +143,5 @@ Para transformar um modelo maior em vários sub-modelos:
 6. Em seguida, pode alterar o passo de grupo para carregar a partir do modelo e definir o campo de identificação do modelo para o livro/modelo que criou no passo 5. Para trabalhar com os IDs dos livros, a fonte precisa de ser um ID de recursos de um livro partilhado. Prima *a Carga* e o conteúdo desse grupo serão agora carregados a partir desse sub-modelo em vez de serem guardados dentro deste livro exterior.
 
 ## <a name="next-steps"></a>Passos seguintes
-- [Visão geral dos livros](../platform/workbooks-overview.md)
+- [Visão geral dos livros](./workbooks-overview.md)
 - [Utilização de JSONPath com livros de trabalho](workbooks-jsonpath.md)

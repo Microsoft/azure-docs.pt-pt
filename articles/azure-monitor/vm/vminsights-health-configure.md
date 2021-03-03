@@ -1,20 +1,20 @@
 ---
-title: Configure monitorização no Azure Monitor para a saúde dos hóspedes VMs (pré-visualização)
-description: Descreve como modificar a monitorização predefinida para o Azure Monitor para a saúde do hóspede VMs (pré-visualização) utilizando o portal Azure.
+title: Configure a monitorização em Saúde dos hóspedes (pré-visualização)
+description: Descreve como modificar a monitorização predefinida para a saúde do hóspede (pré-visualização) utilizando o portal Azure.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/14/2020
-ms.openlocfilehash: 427bdec2b5e5ab14d566375d5ad8f9da9dc3e81b
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 8c15a44fc086c9c686e75879b3086436ea327560
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100620602"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719598"
 ---
-# <a name="configure-monitoring-in-azure-monitor-for-vms-guest-health-preview"></a>Configure monitorização no Azure Monitor para a saúde dos hóspedes VMs (pré-visualização)
-O Azure Monitor para a saúde dos hóspedes em VMs permite-lhe visualizar a saúde de uma máquina virtual, tal como definida por um conjunto de medições de desempenho que são amostradas a intervalos regulares. Este artigo descreve como pode modificar a monitorização predefinida utilizando o portal Azure. Descreve também conceitos fundamentais de monitores necessários para [configurar a monitorização utilizando uma regra de recolha de dados.](vminsights-health-configure-dcr.md)
+# <a name="configure-monitoring-in-vm-insights-guest-health-preview"></a>Configure a monitorização em Saúde dos hóspedes (pré-visualização)
+A saúde do hóspede permite-lhe ver a saúde de uma máquina virtual como definida por um conjunto de medições de desempenho que são amostradas a intervalos regulares. Este artigo descreve como pode modificar a monitorização predefinida utilizando o portal Azure. Descreve também conceitos fundamentais de monitores necessários para [configurar a monitorização utilizando uma regra de recolha de dados.](vminsights-health-configure-dcr.md)
 
 ## <a name="open-monitor-configuration"></a>Configuração do monitor aberto
 Abra a configuração do monitor, desabrose o portal Azure selecionando o monitor e, em seguida, o **separador Configuração.**

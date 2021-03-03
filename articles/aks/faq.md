@@ -3,12 +3,13 @@ title: Perguntas frequentes para o Serviço Azure Kubernetes (AKS)
 description: Encontre respostas para algumas das perguntas comuns sobre o Serviço Azure Kubernetes (AKS).
 ms.topic: conceptual
 ms.date: 08/06/2020
-ms.openlocfilehash: 6c2eddf3b7002b101fed8face4a58f2d2b2f4878
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.custom: references_regions
+ms.openlocfilehash: 6d7ea48722e6604fe67d7a4ddcb12870623d9354
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99820267"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101739632"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Perguntas mais frequentes acerca do Azure Kubernetes Service (AKS)
 
@@ -134,7 +135,7 @@ O suporte do Windows Server para o conjunto de nós inclui algumas limitações 
 
 A AKS fornece garantias SLA como um recurso de complemento opcional com [Uptime SLA][uptime-sla]. 
 
-O SLA gratuito oferecido por padrão não garante um ponto final altamente disponível do Servidor API (o nosso Objetivo de Nível de Serviço é de 99,5%). Pode acontecer que os problemas transitórios de conectividade sejam observados em caso de upgrades, nóns de subalentes pouco saudáveis, manutenção de plataformas, etc... Se a sua carga de trabalho não tolerar o reinício do APIServer, então sugerimos que use o Uptime SLA.
+O SKU gratuito oferecido por padrão não tem um *Acordo* de Nível de Serviço associado, mas tem um *Objetivo* de Nível de Serviço de 99,5%. Pode acontecer que os problemas transitórios de conectividade sejam observados em caso de upgrades, nóns de subalentes pouco saudáveis, manutenção de plataformas, aplicação que sobrecarrega o Servidor API com pedidos, etc. Se a sua carga de trabalho não tolerar o reinício do Servidor API, então sugerimos que utilize o Uptime SLA.
 
 ## <a name="can-i-apply-azure-reservation-discounts-to-my-aks-agent-nodes"></a>Posso aplicar descontos de reserva Azure aos meus nós de agente AKS?
 
@@ -202,7 +203,7 @@ O agente Log Analytics é suportado porque é uma extensão gerida pela Microsof
 
 ## <a name="does-aks-store-any-customer-data-outside-of-the-clusters-region"></a>A AKS armazena algum dado de cliente fora da região do cluster?
 
-A funcionalidade para permitir o armazenamento de dados de clientes numa única região está atualmente disponível apenas na Região do Sudeste Asiático (Singapura) da Asia Pacific Geo. Para todas as outras regiões, os dados dos clientes são armazenados na Geo.
+A funcionalidade para permitir o armazenamento de dados de clientes numa única região está atualmente disponível apenas na Região do Sudeste Asiático (Singapura) da Região De Geo pacífico asiático e Brasil Sul (Estado de São Paulo) do Brasil Geo. Para todas as outras regiões, os dados dos clientes são armazenados na Geo.
 
 ## <a name="are-aks-images-required-to-run-as-root"></a>As imagens AKS são necessárias para funcionar como raiz?
 

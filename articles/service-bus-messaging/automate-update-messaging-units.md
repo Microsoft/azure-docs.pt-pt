@@ -3,12 +3,12 @@ title: Azure Service Bus - Atualizar automaticamente as unidades de mensagens
 description: Este artigo mostra-lhe como pode utilizar automaticamente a atualização automática de unidades de mensagens de um espaço de nomes de Service Bus.
 ms.topic: how-to
 ms.date: 09/15/2020
-ms.openlocfilehash: 932c7bb1235cb54aefe67253e38e1683187f4d2c
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 594f9987bfa5a7a439fb862a0345d0004785b189
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100581645"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101720601"
 ---
 # <a name="automatically-update-messaging-units-of-an-azure-service-bus-namespace"></a>Atualizar automaticamente as unidades de mensagens de um espaço de nomes do Azure Service Bus 
 A autoescala permite-lhe ter a quantidade certa de recursos a correr para lidar com a carga na sua aplicação. Permite-lhe adicionar recursos para lidar com aumentos de carga e também economizar dinheiro removendo recursos que estão parados. Consulte [a visão geral da autoescala no Microsoft Azure](../azure-monitor/autoscale/autoscale-overview.md) para saber mais sobre a funcionalidade autoescala do Azure Monitor. 
@@ -57,7 +57,7 @@ Pode configurar o dimensionamento automático das unidades de mensagens utilizan
 Não é possível definir um horário para a escala automática num determinado horário de dias ou datas para uma condição predefinida. Esta condição de escala é executada quando nenhuma das outras condições de escala com horários coincidem. 
 
 ### <a name="scale-based-on-a-metric"></a>Escala com base numa métrica
-O procedimento a seguir mostra como adicionar uma condição para aumentar automaticamente as unidades de mensagens (escala) quando o uso do CPU é superior a 75% e diminuir as unidades de mensagens (escala em) quando o uso do CPU é inferior a 25%. Os incrementos são feitos de 1 a 2, 2 a 4 e 4 a 8. Da mesma forma, os decrementos são feitos de 8 a 4, 4 a 2, e 2 a 1. 
+O procedimento a seguir mostra como adicionar uma condição para aumentar automaticamente as unidades de mensagens (escala) quando o uso do CPU é superior a 75% e diminuir as unidades de mensagens (escala em) quando o uso do CPU é inferior a 25%. Os incrementos são feitos de 1 a 2, 2 a 4, 4 a 8 e 8 a 16. Da mesma forma, os decrementos são feitos de 16 a 8, 8 a 4, 4 a 2, e 2 a 1. 
 
 1. Na página **de definição de definição de escala automática,** selecione **escala automática personalizada** para a escolha de como escalar a sua opção de **recurso.** 
 1. Na secção **Predefinição** da página, especifique um **nome** para a condição predefinida. Selecione o ícone do **lápis** para editar o texto. 
@@ -74,7 +74,7 @@ O procedimento a seguir mostra como adicionar uma condição para aumentar autom
         :::image type="content" source="./media/automate-update-messaging-units/scale-rule-cpu-75.png" alt-text="Padrão - escalone se o uso do CPU for superior a 75%":::       
 
         > [!NOTE]
-        > A funcionalidade de autoescala aumenta as unidades de mensagens para o espaço de nome se o uso global do CPU for superior a 75% neste exemplo. Os incrementos são feitos de 1 a 2, 2 a 4 e 4 a 8. 
+        > A funcionalidade de autoescala aumenta as unidades de mensagens para o espaço de nome se o uso global do CPU for superior a 75% neste exemplo. Os incrementos são feitos de 1 a 2, 2 a 4, 4 a 8 e 8 a 16. 
 1. **Selecione + Adicione novamente uma regra** e siga estes passos na página regra **escala:**
     1. Selecione uma métrica da lista de drop-down de **nome métrico.** Neste exemplo, é **CPU.** 
     1. Selecione um operador e valores de limiar. Neste exemplo, são **menos de** **25** para o **limiar métrico desencadear uma ação de escala.** 
@@ -84,7 +84,7 @@ O procedimento a seguir mostra como adicionar uma condição para aumentar autom
         :::image type="content" source="./media/automate-update-messaging-units/scale-rule-cpu-25.png" alt-text="Padrão - escala em se o uso do CPU for inferior a 25%":::       
 
         > [!NOTE]
-        > A funcionalidade de autoescala diminui as unidades de mensagens para o espaço de nome se o uso global do CPU for inferior a 25% neste exemplo. Os decrementos são feitos de 8 a 4, 4 a 2, e 2 a 1. 
+        > A funcionalidade de autoescala diminui as unidades de mensagens para o espaço de nome se o uso global do CPU for inferior a 25% neste exemplo. Os decrementos são feitos de 16 a 8, 8 a 4, 4 a 2, e 2 a 1. 
 1. Desafine o número **mínimo** e **máximo** e **predefinido** das unidades de mensagens.
 
     :::image type="content" source="./media/automate-update-messaging-units/default-scale-metric-based.png" alt-text="Regra padrão baseada numa métrica":::

@@ -3,12 +3,12 @@ title: Integração de Item de Trabalho (pré-visualização) - Insights de Apli
 description: Saiba como criar itens de trabalho no GitHub ou Azure DevOps com dados de Insights de Aplicação incorporados nos mesmos.
 ms.topic: conceptual
 ms.date: 02/9/2021
-ms.openlocfilehash: 0c1d6ffd6a5a39fa49eadc558aa80f365f856df2
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: ba0a67bad3ba47191414d6b406ab6cb4e6b7da78
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100101487"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731923"
 ---
 # <a name="work-item-integration-preview"></a>Integração de Artigos de Trabalho (pré-visualização)
 
@@ -53,7 +53,7 @@ Para editar o seu modelo, aceda ao separador **Itens de Trabalho** em *Configura
 
 :::image type="content" source="./media/work-item-integration/edit-template.png" alt-text=" Screenshot do separador de item de trabalho com o ícone de lápis de edição selecionado.":::
 
-Selecione ![ editar o ícone de edição ](./media/work-item-integration/edit-icon.png) na parte superior para começar a editar o modelo. Os modelos de item de trabalho são baseados em [livros de trabalho do Monitor Azure](../platform/workbooks-overview.md). A informação do item de trabalho é gerada utilizando o idioma de consulta de palavras-chave. Pode modificar as consultas para adicionar mais contexto essencial à sua equipa. Quando terminar a edição, guarde o livro selecionando o ![ ícone de guardar o ícone de poupança na barra de ](./media/work-item-integration/save-icon.png) ferramentas superior.
+Selecione ![ editar o ícone de edição ](./media/work-item-integration/edit-icon.png) na parte superior para começar a editar o modelo. Os modelos de item de trabalho são baseados em [livros de trabalho do Monitor Azure](../visualize/workbooks-overview.md). A informação do item de trabalho é gerada utilizando o idioma de consulta de palavras-chave. Pode modificar as consultas para adicionar mais contexto essencial à sua equipa. Quando terminar a edição, guarde o livro selecionando o ![ ícone de guardar o ícone de poupança na barra de ](./media/work-item-integration/save-icon.png) ferramentas superior.
 
 :::image type="content" source="./media/work-item-integration/edit-workbook.png" alt-text=" Screenshot do livro de trabalho do modelo de artigo de trabalho no modo de edição." lightbox="./media/work-item-integration/edit-workbook.png":::
 

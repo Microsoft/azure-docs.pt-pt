@@ -5,13 +5,13 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: how-to
-ms.date: 12/16/2020
-ms.openlocfilehash: 242980ac1b89345ed9d8ff903e65129cff3cb917
-ms.sourcegitcommit: f6f928180504444470af713c32e7df667c17ac20
+ms.date: 02/23/2021
+ms.openlocfilehash: dc309e85373193e4f5d431f543ff3e59ea5bebc7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97964104"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101739267"
 ---
 # <a name="share-and-receive-data-from-azure-blob-storage-and-azure-data-lake-storage"></a>Partilhar e receber dados do Armazenamento de Blobs do Azure e do Azure Data Lake Storage
 
@@ -24,6 +24,7 @@ O Azure Data Share suporta a partilha de ficheiros, pastas e sistemas de ficheir
 Quando os sistemas de ficheiros, contentores ou pastas são partilhados na partilha baseada em instantâneos, os consumidores de dados podem optar por fazer uma cópia completa dos dados da partilha. Ou podem usar a capacidade de instantâneo incremental para copiar apenas ficheiros novos ou atualizados. A capacidade de instantâneo incremental baseia-se no último tempo modificado dos ficheiros. 
 
 Os ficheiros existentes com o mesmo nome são substituídos durante uma snapshot. Um ficheiro que é eliminado da fonte não é eliminado no alvo. As sub-dobradeiras vazias na fonte não são copiadas para o alvo. 
+
 ## <a name="share-data"></a>Partilhar dados
 
 Utilize as informações nas seguintes secções para partilhar dados utilizando a Azure Data Share. 
@@ -109,7 +110,7 @@ Crie um recurso Azure Data Share num grupo de recursos Azure.
 
 1. Selecione **Continuar**.
 
-1. No **separador 'Rever + Criar',** revê os conteúdos, configurações, destinatários e definições de sincronização do seu pacote. Em seguida, selecione **Create** (Criar).
+1. No **separador 'Rever + Criar',** revê os conteúdos, configurações, destinatários e definições de sincronização do seu pacote. Em seguida, selecione **Criar**.
 
 Criou agora a sua partilha de dados Azure. O destinatário da sua partilha de dados pode aceitar o seu convite. 
 
@@ -184,7 +185,7 @@ Siga os passos nesta secção para configurar um local para receber dados.
 ### <a name="trigger-a-snapshot"></a>Desencadear um instantâneo
 Os passos desta secção aplicam-se apenas à partilha baseada em instantâneos.
 
-1. Pode ativar uma fotografia a partir do separador **Detalhes.** No separador, selecione **Trigger snapshot**. Pode optar por desencadear uma imagem instantânea completa ou incremental dos seus dados. Se estiver a receber dados do seu fornecedor de dados pela primeira vez, selecione **Full copy**. 
+1. Pode ativar uma fotografia a partir do separador **Detalhes.** No separador, selecione **Trigger snapshot**. Pode optar por desencadear uma imagem instantânea completa ou incremental dos seus dados. Se estiver a receber dados do seu fornecedor de dados pela primeira vez, selecione **Full copy**. Quando um instantâneo está a ser executado, as imagens subsequentes não começam até que a anterior esteja completa.
 
    ![Screenshot mostrando a seleção de instantâneo do Gatilho.](./media/trigger-snapshot.png "Trigger snapshot.") 
 
@@ -194,6 +195,14 @@ Os passos desta secção aplicam-se apenas à partilha baseada em instantâneos.
 
 ### <a name="view-history"></a>Ver histórico
 Pode ver a história das suas fotos apenas na partilha baseada em instantâneos. Para ver a história, abra o **separador História.** Aqui você vê a história de todos os instantâneos que foram gerados nos últimos 30 dias. 
+
+## <a name="storage-snapshot-performance"></a>Desempenho do instantâneo de armazenamento
+O desempenho do snapshot de armazenamento é impactado por uma série de fatores, além do número de ficheiros e tamanho dos dados partilhados. É sempre recomendado realizar o seu próprio teste de desempenho. Abaixo estão alguns fatores de exemplo que impactam o desempenho.
+
+* Acesso simultâneo às lojas de dados de origem e alvo.  
+* Localização das lojas de dados de origem e alvo. 
+* Para uma snapshot incremental, o número de ficheiros no conjunto de dados partilhados pode ter impacto no tempo necessário para encontrar a lista de ficheiros com o último tempo modificado após o último instantâneo bem sucedido. 
+
 
 ## <a name="next-steps"></a>Passos seguintes
 Aprendeu a partilhar e a receber dados de uma conta de armazenamento utilizando o serviço Azure Data Share. Para saber mais sobre a partilha de outras fontes de dados, consulte lojas de [dados suportadas.](supported-data-stores.md)

@@ -4,16 +4,16 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: 3830025d761c94e2b0b0bc3e66389d66794b946c
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 4a9454abc2c4e41d711a4aef6a30438a72d27edb
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101661560"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101749945"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuita.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+- Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuita.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 
 - Um recurso de Serviços de Comunicação implantado. [Criar um recurso de Serviços de Comunicação.](../../create-communication-resource.md)
 - A `User Access Token` para ativar o cliente de chamada. Para mais informações sobre [como obter um `User Access Token` ](../../access-tokens.md)
 - Opcional: Complete o quickstart para [começar com a adição de chamadas à sua aplicação](../getting-started-with-calling.md)
@@ -63,7 +63,7 @@ const deviceManager = await callClient.getDeviceManager()
 
 ## <a name="place-an-outgoing-call"></a>Fazer uma chamada de saída
 
-Para criar e iniciar uma chamada, precisa de utilizar uma das APIs na CallAgent e fornecer um utilizador que criou através da biblioteca de clientes de identidade dos Serviços de Comunicação.
+Para criar e iniciar uma chamada, precisa de utilizar uma das APIs na CallAgent e fornecer um utilizador que criou através da biblioteca de clientes da administração de Serviços de Comunicação.
 
 A criação de chamadas e o início são sincronizados. A instância de Chamada permite-lhe subscrever eventos de chamadas.
 
@@ -254,10 +254,10 @@ Para silenciar ou desativar o ponto final local, pode utilizar as `mute` `unmute
 
 ```js
 
-//mute local device
+//mute local device 
 await call.mute();
 
-//unmute local device
+//unmute local device 
 await call.unmute();
 
 ```
@@ -401,7 +401,7 @@ Para listar os streams de vídeo e a partilha de ecrãs de participantes remotos
 const remoteVideoStream: RemoteVideoStream = call.remoteParticipants[0].videoStreams[0];
 const streamType: MediaStreamType = remoteVideoStream.mediaStreamType;
 ```
-
+ 
 Para fazer `RemoteVideoStream` um, tem de subscrever um `isAvailableChanged` evento.
 Se a `isAvailable` propriedade mudar `true` para, um participante remoto está enviando um fluxo.
 Uma vez que isso aconteça, crie uma nova instância de `Renderer` , e, em seguida, crie um novo `RendererView` exemplo usando o método assíncronos. `createView`  Em seguida, pode `view.target` ligar-se a qualquer elemento UI.
@@ -581,7 +581,7 @@ const isRecordingActiveChangedHandler = () => {
 };
 
 callRecordingApi.on('isRecordingActiveChanged', isRecordingActiveChangedHandler);
-
+               
 ```
 
 ## <a name="call-transfer-management"></a>Gestão de Transferência de Chamadas

@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 ms.date: 03/02/2021
 ms.author: gahllevy
-ms.openlocfilehash: 4d7dcc829f25b7f1b7c6cb6b1d13a664d301bfe6
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: f319db76c8aee5a2a35ff8ca9670c42089350ede
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101663655"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101692475"
 ---
 # <a name="use-multi-document-transactions-in-azure-cosmos-db-api-for-mongodb"></a>Utilizar transações multi-documentos em Azure Cosmos DB API para a MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -32,11 +32,13 @@ As transações multi-documentos seguem a semântica **acid:**
 
 ## <a name="requirements"></a>Requisitos
 
-As transações multi-documentos são suportadas numa coleção nãohardificada na versão 4.0. As transações multi-documentos não são suportadas através de coleções ou em coleções de fragmentos.
+As transações multi-documentos são suportadas numa coleção nãohardificada na versão API 4.0. As transações multi-documentos não são suportadas através de coleções ou em coleções de fragmentos em 4.0. O tempo limite para transações é de 5 segundos fixos.
 
 Todos os controladores que suportam a versão 4.0 ou superior do protocolo de fio suportarão a Azure Cosmos DB API para transações multi-documentos mongoDB.
 
 ## <a name="run-multi-document-transactions-in-mongodb-shell"></a>Executar transações de vários documentos na concha de MongoDB
+> [!Note]
+> Este exemplo não funciona na beta (concha) da MongoSH incorporada na Bússola MongoDB.
 
 1. Abra um pedido de comando, vá ao diretório onde a versão 4.0 da mongo shell e superior:
 

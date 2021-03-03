@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/09/2019
 ms.author: kumud
-ms.openlocfilehash: 654c883498e724d10104133f99ef1664f72fe09d
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 9f3ea595c3cfacc479deea7b7db7689785e3b520
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98223487"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101694959"
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions-and-azure-active-directory-tenants"></a>Criar um espreitamento de rede virtual - Gestor de Recursos, diferentes subscrições e inquilinos do Azure Ative Directory
 
@@ -55,7 +55,7 @@ Os seguintes passos utilizam contas diferentes para cada subscrição. Se estive
     - **Assinatura**: Selecione subscrição A.
     - **Grupo de recursos**: Selecione **Criar novo** e insira *o myResourceGroupA*
     - **Localização**: *Leste dos EUA*
-4. Na caixa **de recursos de busca** no topo do portal, *digite myVnetA*. Selecione **myVnetA** quando aparecer nos resultados da pesquisa. 
+4. Na caixa **de recursos de busca** no topo do portal, *digite myVnetA*. Selecione **myVnetA** quando aparecer nos resultados da pesquisa.
 5. Selecione o controlo de **acesso (IAM)** da lista vertical de opções no lado esquerdo.
 6. No **âmbito do myVnetA - Controlo de acesso (IAM)**, selecione **+ Adicionar a atribuição de funções**.
 7. Selecione o **contribuinte de rede** na caixa **Role.**
@@ -99,7 +99,7 @@ Os seguintes passos utilizam contas diferentes para cada subscrição. Se estive
 
 ## <a name="create-peering---azure-cli"></a><a name="cli"></a>Criar olhando - Azure CLI
 
-Este tutorial utiliza contas diferentes para cada subscrição. Se estiver a utilizar uma conta que tenha permissões para ambas as subscrições, pode utilizar a mesma conta para todas as etapas, saltar os passos para iniciar sessão fora do Azure e remover as linhas de script que criam atribuições de funções de utilizador. Substitua UserA@azure.com e em todos os UserB@azure.com seguintes scripts pelos nomes de utilizador que está a utilizar para UserA e UserB. 
+Este tutorial utiliza contas diferentes para cada subscrição. Se estiver a utilizar uma conta que tenha permissões para ambas as subscrições, pode utilizar a mesma conta para todas as etapas, saltar os passos para iniciar sessão fora do Azure e remover as linhas de script que criam atribuições de funções de utilizador. Substitua UserA@azure.com e em todos os UserB@azure.com seguintes scripts pelos nomes de utilizador que está a utilizar para UserA e UserB.
 
 Os seguintes scripts:
 
@@ -165,7 +165,7 @@ Em vez de instalar o CLI e as suas dependências, pode utilizar a Azure Cloud Sh
 
 8. Faça login userA a partir de Azure e faça login no Azure como UserB.
 9. Crie o espreitamento do myVnetB para o myVnetA. Copie os conteúdos do script no passo 6 para um editor de texto no seu PC. `<SubscriptionB-Id>`Substitua-se pelo ID para SubscriçãoA e altere tudo o que é Para B e todos os Bs para A. Depois de então, copie o script modificado, cole-o na sessão de CLI e prima `Enter` .
-10. Veja o estado de observação do myVnetB. Copie os conteúdos do script no passo 7 para um editor de texto no seu PC. Altere A para B para o grupo de recursos e nomes de rede virtuais, copie o script, cole o script modificado na sua sessão de CLI e, em seguida, prima `Enter` . O estado de observação está **ligado.** O estado de observação do myVnetA muda para **Connected** depois de ter criado o espreitamento do myVnetB para o myVnetA. Pode iniciar o registo do UserA no Azure e completar o passo 7 novamente para verificar o estado de observação da myVnetA. 
+10. Veja o estado de observação do myVnetB. Copie os conteúdos do script no passo 7 para um editor de texto no seu PC. Altere A para B para o grupo de recursos e nomes de rede virtuais, copie o script, cole o script modificado na sua sessão de CLI e, em seguida, prima `Enter` . O estado de observação está **ligado.** O estado de observação do myVnetA muda para **Connected** depois de ter criado o espreitamento do myVnetB para o myVnetA. Pode iniciar o registo do UserA no Azure e completar o passo 7 novamente para verificar o estado de observação da myVnetA.
 
     > [!NOTE]
     > O espreitamento não é estabelecido até que o estado de observação esteja **ligado** para ambas as redes virtuais.
@@ -181,7 +181,7 @@ Quaisquer recursos Azure que crie em qualquer rede virtual são agora capazes de
 
 Este tutorial utiliza contas diferentes para cada subscrição. Se estiver a utilizar uma conta que tenha permissões para ambas as subscrições, pode utilizar a mesma conta para todas as etapas, saltar os passos para iniciar sessão fora do Azure e remover as linhas de script que criam atribuições de funções de utilizador. Substitua UserA@azure.com e em todos os UserB@azure.com seguintes scripts pelos nomes de utilizador que está a utilizar para UserA e UserB.
 
-1. Confirme que tem a versão 1.0.0 ou superior do Azure PowerShell. Pode fazê-lo executando o `Get-Module -Name Az` Recomendamos a instalação da versão mais recente do módulo PowerShell [Az](/powershell/azure/install-az-ps). Se não estiver familiarizado com o Azure PowerShell, consulte a [Descrição geral do Azure PowerShell](/powershell/azure/?toc=%2fazure%2fvirtual-network%2ftoc.json). 
+1. Confirme que tem a versão 1.0.0 ou superior do Azure PowerShell. Pode fazê-lo executando o `Get-Module -Name Az` Recomendamos a instalação da versão mais recente do módulo PowerShell [Az](/powershell/azure/install-az-ps). Se não estiver familiarizado com o Azure PowerShell, consulte a [Descrição geral do Azure PowerShell](/powershell/azure/?toc=%2fazure%2fvirtual-network%2ftoc.json).
 2. Inicie uma sessão PowerShell.
 3. Em PowerShell, faça login no Azure como UserA inserindo o `Connect-AzAccount` comando. A conta com que inicia sessão deve ter as permissões necessárias para criar uma rede virtual de observação. Para obter uma lista de permissões, consulte [permissões de espreitar rede virtual](virtual-network-manage-peering.md#permissions).
 4. Crie um grupo de recursos e rede virtual A. Copie o seguinte script para um editor de texto no seu PC. `<SubscriptionA-Id>`Substitua-o pelo ID da SubscriçãoA. Se não conhece o seu ID de assinatura, insira o `Get-AzSubscription` comando para o visualizar. O valor **para id** na saída devolvida é o seu ID de subscrição. Para executar o script, copie o script modificado, cole-o no PowerShell e, em seguida, prima `Enter` .
@@ -276,7 +276,7 @@ Este tutorial utiliza contas diferentes para cada subscrição. Se estiver a uti
    }
    ```
 
-3. Faça login no Azure como UserA e implemente o modelo utilizando o [portal](../azure-resource-manager/templates/deploy-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-resources-from-custom-template), [PowerShell](../azure-resource-manager/templates/deploy-powershell.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-local-template), ou o [Azure CLI](../azure-resource-manager/templates/deploy-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-local-template). Especifique o nome do ficheiro que guardou o texto de exemplo json no passo 2 para.
+3. Faça login no Azure como UserA e implemente o modelo utilizando o [portal](../azure-resource-manager/templates/deploy-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-resources-from-custom-template), [PowerShell](../azure-resource-manager/templates/deploy-powershell.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-local-template), ou o [Azure CLI](../azure-resource-manager/templates/deploy-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-local-template-or-bicep-file). Especifique o nome do ficheiro que guardou o texto de exemplo json no passo 2 para.
 4. Copie o exemplo json do passo 2 para um ficheiro no seu computador e faça alterações nas linhas que começam com:
    - **nome**: Altere *myVnetA/myVnetAToMyVnetB* para *myVnetB/myVnetBToMyVnetA*.
    - **id**: `<subscription ID>` Substitua-se pelo ID de subscrição do UtilizadorB e altere *o myVnetB* para *myVnetA*.
@@ -287,7 +287,7 @@ Este tutorial utiliza contas diferentes para cada subscrição. Se estiver a uti
 ## <a name="delete-resources"></a><a name="delete"></a>Eliminar recursos
 Quando terminar este tutorial, talvez queira apagar os recursos que criou no tutorial, para não incorrer em taxas de utilização. A eliminação de um grupo de recursos também elimina todos os recursos que estão no grupo de recursos.
 
-### <a name="azure-portal"></a><a name="delete-portal"></a>Portal do Azure
+### <a name="azure-portal"></a><a name="delete-portal"></a>Portal Azure
 
 1. Faça login no portal Azure como UserA.
 2. Na caixa de pesquisa do portal, insira **o myResourceGroupA**. Nos resultados da pesquisa, selecione **myResourceGroupA**.

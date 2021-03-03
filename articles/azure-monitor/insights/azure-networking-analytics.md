@@ -1,17 +1,16 @@
 ---
 title: Solução Azure Networking Analytics em Azure Monitor | Microsoft Docs
 description: Pode utilizar a solução Azure Networking Analytics no Azure Monitor para rever os registos do grupo de segurança da rede Azure e os registos do Gateway de Aplicações Azure.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/21/2018
-ms.openlocfilehash: cdb43bd8b91881905b1734d0c0b36c33fb27d232
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: b8b03378e82810bc2b9680805bacf8360f322a94
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100577503"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708140"
 ---
 # <a name="azure-networking-monitoring-solutions-in-azure-monitor"></a>Soluções de monitorização da rede Azure no Azure Monitor
 

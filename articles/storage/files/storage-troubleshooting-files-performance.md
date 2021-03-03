@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 11/16/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 54b92c24b5a50ef1674dcb47df555b27259a350b
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 388a4f06d79116c42bf80cb25d0b133474c02192
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100393858"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737635"
 ---
 # <a name="troubleshoot-azure-file-shares-performance-issues"></a>Resolução de problemas Azure partilha problemas de desempenho
 
@@ -50,7 +50,7 @@ Para confirmar se a sua parte está a ser acelerada, pode aceder e utilizar mét
     - ClientShareIngressThrottlingError
     - ClientShareIopsThrottlingError
 
-    Para saber mais sobre cada tipo de resposta, consulte [as dimensões métricas.](https://docs.microsoft.com/azure/storage/files/storage-files-monitoring-reference#metrics-dimensions)
+    Para saber mais sobre cada tipo de resposta, consulte [as dimensões métricas.](./storage-files-monitoring-reference.md#metrics-dimensions)
 
     ![Screenshot das opções de métricas para ações de ficheiros premium, mostrando um filtro de propriedade "Tipo resposta".](media/storage-troubleshooting-premium-fileshares/metrics.png)
 
@@ -258,13 +258,12 @@ Para confirmar, pode utilizar a Azure Metrics no portal -
    > [!NOTE]
    > Se os tipos de resposta não estiverem listados na redução dos valores de **dimensão,** isto significa que o recurso não foi estrangulado. Para adicionar os valores de dimensão, junto à lista de valores de **Dimensão,** selecione **Adicionar valor personalizado,** introduzir o tipo de respone (por exemplo, **SuccessWithThrottling),** selecionar **OK**, e, em seguida, repetir estes passos para adicionar todos os tipos de resposta aplicáveis para a sua partilha de ficheiros.
 
-8. Clique no **drop-down** do nome Dimension e selecione A partilha **de ficheiros**.
-9. Clique nos **valores** de Dimension drop-down e selecione as ações de ficheiros em que pretende alertar.
-
+8. Para **ações de ficheiros premium,** clique no **nome Dimension** drop-down e selecione File **Share**. Para **ações de ficheiros padrão**, salte para **o passo #10**. .
 
    > [!NOTE]
-   > Se a partilha de ficheiros for uma partilha de ficheiros padrão, selecione **Todos os valores atuais e futuros**. Os valores de dimensão não listam as ações de ficheiros porque as métricas por ação não estão disponíveis para ações de ficheiros padrão. Os alertas de estrangulamento para as ações de ficheiros padrão serão desencadeados se alguma parte do ficheiro dentro da conta de armazenamento for acelerada e o alerta não identificar qual a partilha de ficheiros que foi acelerada. Uma vez que as métricas por ação não estão disponíveis para ações de ficheiros padrão, a recomendação é ter uma ação de ficheiro por conta de armazenamento.
+   > Se a partilha de ficheiros for uma partilha de ficheiros padrão, a dimensão de Partilha de **Ficheiros** não listará a(s) partilha de ficheiros porque as métricas por partilha não estão disponíveis para ações de ficheiros padrão. Os alertas de estrangulamento para as ações de ficheiros padrão serão desencadeados se alguma parte do ficheiro dentro da conta de armazenamento for acelerada e o alerta não identificar qual a partilha de ficheiros que foi acelerada. Uma vez que as métricas por ação não estão disponíveis para ações de ficheiros padrão, a recomendação é ter uma ação de ficheiro por conta de armazenamento.
 
+9. Clique nos **valores** de Dimension drop-down e selecione as ações de ficheiros em que pretende alertar.
 10. Defina os **parâmetros** de alerta (valor limiar, operador, granularidade de agregação e frequência de avaliação) e clique em **Fazer**.
 
     > [!TIP]

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Ative Directy integração única (SSO) com BlueJeans para Azure AD / Microsoft Docs'
+title: 'Tutorial: Azure Ative Directory integração única de sign-on (SSO) com BlueJeans para Azure AD | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o BlueJeans para a Azure AD.
 services: active-directory
 author: jeevansd
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/09/2020
 ms.author: jeedes
-ms.openlocfilehash: 4026bd9c5b4d73953509617fe4a8623987d22341
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: a920abacb0df030f7d38aed11e04a693cfa352a6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92456947"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101686602"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-bluejeans-for-azure-ad"></a>Tutorial: Azure Ative Directory integração única de sign-on (SSO) com BlueJeans para Azure AD
 
@@ -130,7 +130,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
 
 Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso a BlueJeans para Azure AD.
 
-1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de candidaturas, selecione **BlueJeans para Azure AD**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 
@@ -150,7 +150,7 @@ Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concede
 
 2. Vá para **ADMIN \> DEFINIÇÕES \> DE SEGURANÇA**.
 
-    ![O screenshot mostra parte de uma janela do navegador com o separador Admin selecionado, com definição de grupo e segurança selecionadas.](./media/bluejeans-tutorial/ic785868.png "Administrador")
+    ![O screenshot mostra parte de uma janela do navegador com o separador Admin selecionado, com definição de grupo e segurança selecionadas.](./media/bluejeans-tutorial/ic785868.png "Admin")
 
 3. Na secção **SEGURANÇA,** execute os seguintes passos:
 
@@ -192,7 +192,7 @@ O objetivo desta secção é criar um utilizador chamado B.Simon em BlueJeans pa
 
 2. VÁ ao **ADMIN \> GERIR UTILIZADORES \> ADICIONAR UTILIZADOR**.
 
-    ![O Screenshot mostra parte de uma janela do navegador com o separador Admin selecionado, com utilizadores de gestão e utilizadores de adicionar selecionados.](./media/bluejeans-tutorial/ic785877.png "Administrador")
+    ![O Screenshot mostra parte de uma janela do navegador com o separador Admin selecionado, com utilizadores de gestão e utilizadores de adicionar selecionados.](./media/bluejeans-tutorial/ic785877.png "Admin")
 
     > [!IMPORTANT]
     > O **separador UTILIZADOR ADD** só está disponível se, no **separador SECUTIRY,** permitir que o **provisionamento automático** não seja verificado.
@@ -211,7 +211,7 @@ O objetivo desta secção é criar um utilizador chamado B.Simon em BlueJeans pa
 
     e. Na caixa de texto **da Empresa,** insira a sua Empresa.
 
-    f. Na caixa de texto **do Endereço de E-mail,** insira o e-mail do utilizador como `b.simon\@contoso.com` .
+    f. Na caixa de texto **do Endereço de E-mail,** insira o e-mail do utilizador como `b.simon@contoso.com` .
 
     exemplo, In **Create a BlueJeans for Azure AD Meeting ID,** insira o seu ID de reunião.
 

@@ -1,17 +1,16 @@
 ---
 title: Solução de gestão do Office 365 em Azure
 description: Este artigo fornece detalhes sobre a configuração e utilização da solução Office 365 em Azure.  Inclui uma descrição detalhada dos registos do Office 365 criados no Azure Monitor.
-ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2020
-ms.openlocfilehash: d031b64b36bd7ff91c64960642cfbf00fb1682ab
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: be5409f7130f0e79b77871a2657609e8ddb76e36
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100587302"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728642"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Solução de gestão do Office 365 em Azure (Pré-visualização)
 
@@ -462,7 +461,7 @@ Estes registos são criados em resposta às operações de ficheiros no SharePoi
 
 A tabela seguinte fornece consultas de registo de amostras para registos de atualização recolhidos por esta solução.
 
-| Consulta | Description |
+| Consulta | Descrição |
 | --- | --- |
 |Conte de todas as operações na subscrição do seu Office 365 |OfficeActivity &#124; resumir a contagem() por Operação |
 |Utilização de sites SharePoint|OfficeActivity &#124; onde OfficeWorkload =~ "sharepoint" &#124; resumir a contagem() por SiteUrl \| sortido por Count asc|

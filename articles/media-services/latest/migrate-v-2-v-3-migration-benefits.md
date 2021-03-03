@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: media
 ms.date: 1/14/2020
 ms.author: inhenkel
-ms.openlocfilehash: 70f64813546c66c0f9e3533e09de192315f75600
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: fb3e09cefa7f87fe2eb1e5013854c7965ea9330e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98955076"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101698846"
 ---
 # <a name="step-1---understand-the-benefits-of-migrating-to-media-services-api-v3"></a>Passo 1 - Compreender os benefícios da migração para a API V3 dos Serviços de Comunicação Social
 
@@ -38,7 +38,7 @@ Houve melhorias significativas nos Serviços de Comunicação social com a V3.
 | Atualizações do portal Azure | O portal Azure foi atualizado para incluir a gestão de entidades da V3 API. Permite que os clientes utilizem o portal para iniciar o streaming ao vivo, submeter empregos de transformação V3, gerir políticas de proteção de conteúdos, transmitir pontos finais, ter acesso a API, gerir contas de armazenamento ligadas e executar tarefas de monitorização. |
 | **Contas e Armazenamento** | |
 | Controlo de acesso baseado em funções Azure (RBAC) | Os clientes podem agora definir as suas próprias funções e controlar o acesso a cada entidade na API dos Serviços de Comunicação Social. Isto ajuda a controlar o acesso aos recursos através de contas AAD. |
-| Identidades geridas | Identidades geridas eliminam a necessidade de os desenvolvedores gerirem as credenciais fornecendo uma identidade para o recurso Azure em Azure AD. Consulte [aqui](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)detalhes sobre identidades geridas. |
+| Identidades geridas | Identidades geridas eliminam a necessidade de os desenvolvedores gerirem as credenciais fornecendo uma identidade para o recurso Azure em Azure AD. Consulte [aqui](../../active-directory/managed-identities-azure-resources/overview.md)detalhes sobre identidades geridas. |
 | Suporte de ligação privada | Os clientes acederão aos pontos finais dos Serviços de Comunicação social para entrega de chaves, LiveEvents e StreamingEndpoints através de um PrivateEndpoint no seu VNet. |
 | [Chaves de maneio do cliente](concept-use-customer-managed-keys-byok.md) ou traga o seu próprio suporte chave (BYOK) | Os clientes podem encriptar os dados na sua conta de Serviços de Mídia usando uma chave no seu Cofre chave Azure. |
 | **Recursos** | |

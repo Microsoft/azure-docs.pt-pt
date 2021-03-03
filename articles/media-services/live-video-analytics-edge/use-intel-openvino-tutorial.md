@@ -4,12 +4,12 @@ description: Neste tutorial, utilizará um servidor de modelo de IA fornecido pe
 ms.topic: tutorial
 ms.date: 09/08/2020
 titleSuffix: Azure
-ms.openlocfilehash: db018c5c8d8f3990fd465f4d586ef4dc70980542
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 68b5b7561cc31e156a745bcfb07e3203de10d425
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98955720"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702220"
 ---
 # <a name="tutorial-analyze-live-video-by-using-openvino-model-server--ai-extension-from-intel"></a>Tutorial: Analise o vídeo ao vivo utilizando o OpenVINO™ Model Server – Extensão de IA da Intel 
 
@@ -88,11 +88,11 @@ Como parte dos pré-requisitos, descarregou o código de amostra para uma pasta.
 
 1. Aceda à pasta *src/cloud-to-device-app.* Aqui vê a sua *appsettings.jsno* ficheiro e alguns outros ficheiros:
 
-    * ***c2d-console-app.csproj** _ - O ficheiro do projeto para Visual Studio Code.
-    _ ***operations.jsem** _ - Uma lista das operações que pretende que o programa seja executado.
-    _ ***Program.cs** _ - O código do programa de amostra. Este código:
+    * ***c2d-console-app.csproj*** - O ficheiro do projeto para Visual Studio Code.
+    * ***operations.jsem*** - Uma lista das operações que quer que o programa seja executado.
+    * ***Program.cs*** - O código do programa de amostra. Este código:
 
-        _ Carrega as definições da aplicação.
+        * Carrega as definições da aplicação.
         * Invoca métodos diretos que o live video analytics no módulo IoT Edge expõe. Pode utilizar o módulo para analisar streams de vídeo ao vivo invocando os seus [métodos diretos.](direct-methods.md)
         * Pausas para que possa examinar a saída do programa na janela **TERMINAL** e examinar os eventos que foram gerados pelo módulo na janela **OUTPUT.**
         * Invoca métodos diretos para limpar recursos.
@@ -117,7 +117,7 @@ Como parte dos pré-requisitos, descarregou o código de amostra para uma pasta.
 
     ![Gerar manifesto de implantação de borda ioT](./media/use-intel-openvino-tutorial/generate-deployment-manifest.png)  
 
-    A *deployment.yolov3.amd64.jsno* ficheiro manifesto é criada na pasta *src/edge/config.*
+    A *deployment.openvino.amd64.jsno* ficheiro manifesto é criada na pasta *src/edge/config.*
 
 1. Se tiver concluído o [movimento Detect e emitir eventos](detect-motion-emit-events-quickstart.md) de arranque rápido, então ignore este passo. 
 

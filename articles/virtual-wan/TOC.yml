@@ -74,10 +74,14 @@
           href: azure-monitor-insights.md
     - name: Site a Site
       items:
-        - name: Acerca das políticas de IPsec
+        - name: Sobre as políticas do S2S IPsec
           href: virtual-wan-ipsec.md
         - name: Várias ligações de ISP - Seleção de caminhos do Azure
           href: path-selection-multiple-links.md
+    - name: Ponto a site
+      items:
+        - name: Sobre as políticas P2S IPsec
+          href: point-to-site-ipsec.md
     - name: Segurança
       items:
         - name: Linha de base de segurança
@@ -108,6 +112,8 @@
           href: connect-virtual-network-gateway-vwan.md
         - name: Configurar política IPsec personalizada
           href: virtual-wan-custom-ipsec-portal.md
+        - name: Configurar regras NAT
+          href: nat-rules-vpn-gateway.md
     - name: VPN de Utilizador (ponto a site)
       items:
         - name: Criar uma ligação VPN de Utilizador

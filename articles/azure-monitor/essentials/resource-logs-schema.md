@@ -4,12 +4,12 @@ description: Compreenda os serviços suportados e o esquema de eventos para regi
 ms.subservice: logs
 ms.topic: reference
 ms.date: 09/01/2020
-ms.openlocfilehash: b37535b67ed1873c5a492e28e6bf4da8c67c7e5d
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 7c426074bbeb2792f152063d938e867b86dc1f6f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100616472"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717541"
 ---
 # <a name="common-and-service-specific-schema-for-azure-resource-logs"></a>Esquema comum e específico de serviço para registos de recursos Azure
 
@@ -23,7 +23,7 @@ Uma combinação do tipo de recurso (disponível na `resourceId` propriedade) e 
 
 ## <a name="top-level-common-schema"></a>Esquema comum de alto nível
 
-| Name | Obrigatório/Opcional | Description |
+| Name | Obrigatório/Opcional | Descrição |
 |---|---|---|
 | hora | Necessário | A hora de jogo (UTC) do evento. |
 | resourceId | Necessário | O ID de recursos do recurso que emitia o evento. Para os serviços de arrendamento, este é do formulário /inquilinos/inquilino-id/provedor/nome de provedor. |
@@ -73,7 +73,7 @@ O esquema para registos de recursos varia consoante a categoria de recursos e re
 | Front Door | [Registo para porta da frente](../../frontdoor/front-door-diagnostics.md) |
 | IoT Hub | [Operações do Hub IoT](../../iot-hub/monitor-iot-hub-reference.md#resource-logs) |
 | Key Vault |[Azure Key Vault Logging](../../key-vault/general/logging.md) |
-| Kubernetes Service |[Azure Kubernetes Logging](../../aks/view-master-logs.md#log-event-schema) |
+| Kubernetes Service |[Azure Kubernetes Logging](../../aks/view-control-plane-logs.md#log-event-schema) |
 | Balanceador de Carga |[Análise de registos para o Balanceador de Carga do Azure](../../load-balancer/load-balancer-monitor-log.md) |
 | Logic Apps |[Esquema de controlo personalizado B2B de Aplicações Lógicas](../../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
 | Grupos de Segurança de Rede |[Análise de registos para grupos de segurança de rede (NSGs) (Log analytics for network security groups (NSGs))](../../virtual-network/virtual-network-nsg-manage-log.md) |
@@ -82,7 +82,7 @@ O esquema para registos de recursos varia consoante a categoria de recursos e re
 | Serviços de Recuperação | [Modelo de dados para backup Azure](../../backup/backup-azure-reports-data-model.md)|
 | Pesquisar |[Ativar e utilizar a Pesquisa traffic Analytics](../../search/search-traffic-analytics.md) |
 | Service Bus |[Registos de ônibus de serviço Azure](../../service-bus-messaging/service-bus-diagnostic-logs.md) |
-| Base de Dados SQL | [Registo da base de dados Azure SQL](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md) |
+| SQL Database | [Registo da base de dados Azure SQL](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md) |
 | Stream Analytics |[Registos de trabalhos](../../stream-analytics/stream-analytics-job-diagnostic-logs.md) |
 | Gestor de Tráfego | [Esquema de registo do gestor de tráfego](../../traffic-manager/traffic-manager-diagnostic-logs.md) |
 | Redes Virtuais | Schema não está disponível. |

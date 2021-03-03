@@ -8,19 +8,19 @@ ms.author: tagore
 author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: e4b5372a2b6e9b833f3a0213d69649b75ae2589b
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 97e68d338580132b6927c4cc8b206db60fe93ba2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100578181"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703512"
 ---
 # <a name="enabling-azure-diagnostics-in-azure-cloud-services-classic"></a>Habilitar diagnósticos Azure em Azure Cloud Services (clássico)
 
 > [!IMPORTANT]
 > [Azure Cloud Services (suporte alargado)](../cloud-services-extended-support/overview.md) é um novo modelo de implementação baseado em Recursos Azure para o produto Azure Cloud Services.Com esta alteração, os Serviços Azure Cloud em execução no modelo de implementação baseado no Azure Service Manager foram renomeados como Cloud Services (clássico) e todas as novas implementações devem utilizar [os Serviços Cloud (suporte alargado)](../cloud-services-extended-support/overview.md).
 
-Consulte [a visão geral do Azure Diagnostics](../azure-diagnostics.md) para obter um fundo sobre O Diagnóstico Azure.
+Consulte [a visão geral do Azure Diagnostics](../azure-monitor/agents/diagnostics-extension-overview.md) para obter um fundo sobre O Diagnóstico Azure.
 
 ## <a name="how-to-enable-diagnostics-in-a-worker-role"></a>Como permitir diagnósticos numa função de trabalhador
 Este walkthrough descreve como implementar um papel de trabalhador Azure que emite dados de telemetria usando a classe .NET EventSource. O Azure Diagnostics é utilizado para recolher os dados de telemetria e armazená-los numa conta de armazenamento Azure. Ao criar uma função de trabalhador, o Visual Studio ativa automaticamente o Diagnóstico 1.0 como parte da solução em Azure SDKs para .NET 2.4 e anteriores. As seguintes instruções descrevem o processo de criação do papel do trabalhador, desativando o Diagnóstico 1.0 da solução e implantando os Diagnósticos 1.2 ou 1.3 para o seu papel de trabalhador.

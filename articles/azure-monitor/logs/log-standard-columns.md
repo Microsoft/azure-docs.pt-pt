@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 09/09/2020
-ms.openlocfilehash: e8d89de079a50159bbed9c38487effb0c89448c2
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.date: 02/25/2021
+ms.openlocfilehash: c479f525435139b2f92838bf15edf4563aeed4e2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100615882"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704128"
 ---
 # <a name="standard-columns-in-azure-monitor-logs"></a>Colunas padrão em Registos monitores Azure
 Os dados em Registos monitores Azure são [armazenados como um conjunto de registos num espaço de trabalho do Log Analytics ou na aplicação Application Insights](../logs/data-platform-logs.md), cada um com um determinado tipo de dados que tem um conjunto único de colunas. Muitos tipos de dados terão colunas padrão que são comuns em vários tipos. Este artigo descreve estas colunas e fornece exemplos de como pode usá-las em consultas.
@@ -20,6 +20,10 @@ Aplicações baseadas em espaço de trabalho em Application Insights armazenam o
 
 > [!NOTE]
 > Algumas das colunas padrão não aparecerão na vista de esquemas ou intellisense no Log Analytics, e não aparecerão nos resultados da consulta a menos que especifique explicitamente a coluna na saída.
+> 
+
+## <a name="tenantid"></a>TenantId
+A coluna **TenantId** detém o iD do espaço de trabalho para o espaço de trabalho Log Analytics.
 
 ## <a name="timegenerated-and-timestamp"></a>TempoGerertado e com hora
 As colunas **TimeGenerated** (Log Analytics workspace) e **timetamp** (Application Insights application) contêm a data e a hora em que o registo foi criado pela fonte de dados. Consulte [o tempo de ingestão de dados do Registo no Azure Monitor](../logs/data-ingestion-time.md) para obter mais detalhes.
@@ -49,6 +53,10 @@ exceptions
 
 ## <a name="_timereceived"></a>\_TimeReceived
 A coluna **\_ TimeReceived** contém a data e a hora em que o registo foi recebido pelo ponto de ingestão do Monitor Azure na nuvem Azure. Isto pode ser útil para identificar problemas de latência entre a fonte de dados e a nuvem. Um exemplo seria um problema de rede que causasse um atraso com o envio de dados de um agente. Consulte [o tempo de ingestão de dados do Registo no Azure Monitor](../logs/data-ingestion-time.md) para obter mais detalhes.
+
+> [!NOTE]
+> A coluna **\_ TimeReceived** é calcule cada vez que é utilizada. Este processo é intensivo em recursos. Refina-o para filtrar um grande número de registos. A utilização desta função pode levar a uma maior duração de execução de consultas.
+
 
 A seguinte consulta dá a latência média por hora para registos de eventos de um agente. Isto inclui o tempo do agente para a nuvem e o tempo total para o registo estar disponível para consultas de registo.
 
@@ -238,6 +246,6 @@ union withsource = tt *
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Leia mais sobre como [os dados de registo do Azure Monitor são armazenados](../log-query/log-query-overview.md).
-- Obtenha uma lição sobre [escrever consultas de registo](../log-query/get-started-queries.md).
+- Leia mais sobre como [os dados de registo do Azure Monitor são armazenados](./log-query-overview.md).
+- Obtenha uma lição sobre [escrever consultas de registo](./get-started-queries.md).
 - Obtenha uma lição sobre [juntar mesas em consultas de log](/azure/data-explorer/kusto/query/samples?&pivots=azuremonitor#joins).

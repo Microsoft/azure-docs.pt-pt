@@ -5,12 +5,12 @@ description: Saiba como criar e utilizar um endereço IP público estático para
 services: container-service
 ms.topic: article
 ms.date: 03/04/2019
-ms.openlocfilehash: 81b99478358ec3d670e8d783fba27603483614ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2eefeecfa550683dafcf66d936837e2a891c4c84
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87563250"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726551"
 ---
 # <a name="use-a-static-public-ip-address-for-egress-traffic-with-a-basic-sku-load-balancer-in-azure-kubernetes-service-aks"></a>Utilize um endereço IP público estático para tráfego de saída com um balanceador de carga *SKU básico* no Serviço Azure Kubernetes (AKS)
 
@@ -24,7 +24,7 @@ Este artigo pressupõe que está a utilizar o Balançador de Carga Básica Azure
 
 Este artigo pressupõe que você tem um cluster AKS existente. Se precisar de um cluster AKS, consulte o quickstart AKS [utilizando o Azure CLI][aks-quickstart-cli] ou [utilizando o portal Azure][aks-quickstart-portal].
 
-Também precisa da versão Azure CLI 2.0.59 ou posteriormente instalada e configurada. Corre  `az --version` para encontrar a versão. Se necessitar de instalar ou atualizar, consulte [instalar o Azure CLI][install-azure-cli].
+Também precisa da versão Azure CLI 2.0.59 ou posteriormente instalada e configurada. Executar `az --version` para localizar a versão. Se precisar de instalar ou atualizar, veja [Install Azure CLI (Instalar o Azure CLI)][install-azure-cli].
 
 > [!IMPORTANT]
 > Este artigo utiliza o *balanceador de* carga Basic SKU com uma única piscina de nós. Esta configuração não está disponível para várias piscinas de nós, uma vez que o *balanceador de* carga Basic SKU não é suportado com várias piscinas de nós. Consulte [um balanceador de carga padrão público no Serviço Azure Kubernetes (AKS)][slb] para obter mais detalhes sobre a utilização do balançador de carga *Standard* SKU.
@@ -33,7 +33,7 @@ Também precisa da versão Azure CLI 2.0.59 ou posteriormente instalada e config
 
 O tráfego de saída de um cluster AKS segue as [convenções do Azure Load Balancer][outbound-connections]. Antes da criação do primeiro serviço de tipo Kubernetes, os nós de `LoadBalancer` agente num cluster AKS não fazem parte de qualquer piscina Azure Load Balancer. Nesta configuração, os nós não têm endereço IP público de nível de exemplo. O Azure traduz o fluxo de saída para um endereço IP de fonte pública que não seja configurável ou determinístico.
 
-Uma vez criado um serviço de tipo Kubernetes, os nós de `LoadBalancer` agente são adicionados a uma piscina Azure Load Balancer. Para o fluxo de saída, o Azure traduz-o para o primeiro endereço IP público configurado no equilibrador de carga. Este endereço IP público é válido apenas para o tempo de vida desse recurso. Se eliminar o serviço Kubernetes LoadBalancer, o equilibrador de carga associado e o endereço IP também serão eliminados. Se pretender atribuir um endereço IP específico ou reter um endereço IP para serviços de Kubernetes redistribuídos, pode criar e utilizar um endereço IP público estático.
+Uma vez criado um serviço de tipo Kubernetes, os nós de `LoadBalancer` agente são adicionados a uma piscina Azure Load Balancer. Load Balancer Basic escolhe um único frontend para ser usado para fluxos de saída quando vários frontends IP (públicos) são candidatos para fluxos de saída. Esta seleção não é configurável, e você deve considerar o algoritmo de seleção como aleatório. Este endereço IP público é válido apenas para o tempo de vida desse recurso. Se eliminar o serviço Kubernetes LoadBalancer, o equilibrador de carga associado e o endereço IP também serão eliminados. Se pretender atribuir um endereço IP específico ou reter um endereço IP para serviços de Kubernetes redistribuídos, pode criar e utilizar um endereço IP público estático.
 
 ## <a name="create-a-static-public-ip"></a>Criar um IP público estático
 

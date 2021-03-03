@@ -2,13 +2,13 @@
 title: Planeamento da implementação da Solução VMware Azure
 description: Este artigo descreve um fluxo de trabalho de implementação de Solução VMware Azure.  O resultado final é um ambiente pronto para a criação e migração de máquinas virtuais (VM).
 ms.topic: tutorial
-ms.date: 10/16/2020
-ms.openlocfilehash: 8b1d69f3f953b43177a3b1d0611b51ca2cfb1a75
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.date: 02/22/2021
+ms.openlocfilehash: f9d49d7ff8109364c9fc1eee4388b30ccc1a61b6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98762857"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101733670"
 ---
 # <a name="planning-the-azure-vmware-solution-deployment"></a>Planeamento da implementação da Solução VMware Azure
 
@@ -51,12 +51,6 @@ Identifique os anfitriões de tamanho que pretende utilizar ao implementar a Sol
 Defina o número de anfitriões que pretende implantar na nuvem privada Azure VMware Solution.  O número mínimo de hospedeiros é de três, e o máximo é de 16 por agrupamento.  Para mais informações, consulte a documentação [privada de nuvem e clusters Azure VMware Solution.](concepts-private-clouds-clusters.md#clusters)
 
 Pode sempre estender o cluster mais tarde se precisar de ir além do número inicial de implantação.
-
-## <a name="vcenter-admin-password"></a>vCenter senha de administração
-Defina a palavra-passe de administração vCenter.  Durante a implementação, irá criar uma palavra-passe de administração vCenter. A palavra-passe é para a cloudadmin@vsphere.local conta de administração durante a construção do vCenter. Vai usá-lo para entrar no vCenter.
-
-## <a name="nsx-t-admin-password"></a>Senha de administração NSX-T
-Defina a palavra-passe de administração NSX-T.  Durante a implementação, irá criar uma senha de administração NSX-T. A palavra-passe é atribuída ao utilizador administrativo na conta NSX durante a construção do NSX. Vai usá-lo para entrar no NSX-T Manager.
 
 ## <a name="ip-address-segment"></a>Segmento de endereço IP
 
@@ -130,7 +124,7 @@ VMware HCX é uma tecnologia agregada com Azure VMware Solution. Os casos de uti
 
 [!INCLUDE [hcx-network-segments](includes/hcx-network-segments.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Agora que recolheu e documentou as informações necessárias continuam para a secção seguinte para criar a sua nuvem privada Azure VMware Solution.
 
 > [!div class="nextstepaction"]

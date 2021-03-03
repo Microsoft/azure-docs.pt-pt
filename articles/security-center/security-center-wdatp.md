@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/15/2021
 ms.author: memildin
-ms.openlocfilehash: 5a0fefd91e0aa60f6a3813513aa82a75b3557c7c
-ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
+ms.openlocfilehash: b9095d78d902bf5e44bffaba5db19bf2c26e0845
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100526974"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101727010"
 ---
 # <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>Proteja os seus pontos finais com a solução EDR integrada do Security Center: Microsoft Defender for Endpoint
 
@@ -42,8 +42,8 @@ O Microsoft Defender for Endpoint é uma solução holística de segurança de p
 |---------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Estado de libertação:                  | Geralmente disponível (GA)                                                                                                                                                                                                                                                                                      |
 | Preços:                        | Requer [Azure Defender para servidores](security-center-pricing.md)                                                                                                                                                                                                                                             |
-| Plataformas suportadas:            | Máquinas Azure executando Janelas<br>Máquinas Azure Arc executando janelas|
-| Versões suportadas do Windows:  |  • Security Center suporta deteção no Windows Server 2019, 2016, 2012 R2 e 2008 R2 SP1<br> • A monitorização do ponto final do servidor utilizando esta integração foi desativada para os clientes do Office 365 GCC<br> • [Várias sessões empresariais do Windows 10](../virtual-desktop/windows-10-multisession-faq.md) (anteriormente Enterprise for Virtual Desktops (EVD)<br> •  [Windows Virtual Desktop (WVD)](../virtual-desktop/overview.md)|
+| Plataformas suportadas:            |  • Máquinas Azure que executam o Windows<br> • Máquinas Azure Arc que executam janelas|
+| Versões suportadas do Windows:  |   • **Disponibilidade Geral (GA) -** Deteção no Windows Server 2016, 2012 R2 e 2008 R2 SP1<br> • **Pré-visualização -** Deteção no Windows Server 2019, [Windows Virtual Desktop (WVD)](../virtual-desktop/overview.md)e [várias sessões empresariais do Windows 10](../virtual-desktop/windows-10-multisession-faq.md) (anteriormente Enterprise for Virtual Desktops (EVD)<br>A monitorização do ponto final do servidor utilizando estas integrações foi desativada para os clientes do Office 365 GCC|
 | Sistemas operativos não suportados:  |  • Windows 10 (com além de EVD ou WVD)<br> • Linux|
 | Funções e permissões necessárias: | Para ativar/desativar a integração: **Administrador de segurança** ou **Proprietário**<br>Para ver alertas de MDATP no Centro de Segurança: **Leitor de segurança,** **leitor,** **contribuinte do grupo de recursos,** **proprietário do grupo de recursos,** **administrador de segurança,** **proprietário de assinatura,** ou **colaborador de subscrição**|
 | Nuvens:                         | ![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) US Gov<br>![Não](./media/icons/no-icon.png) China Gov, Outro Gov<br>![Não](./media/icons/no-icon.png) Clientes da GCC que executam cargas de trabalho em nuvens azure globais                                                        |
@@ -76,10 +76,15 @@ Depois de configurar o local, não pode mudá-lo. Se tiver a sua própria licen�
 
 ## <a name="enabling-the-microsoft-defender-for-endpoint-integration"></a>Permitir a integração do Microsoft Defender para a integração de Endpoint
 
+1. Confirme que a sua máquina satisfaz os requisitos necessários para o Defender para o Ponto Final:
+
+    - Para **todas as versões do Windows:**
+        - Configure as definições de rede descritas nas [definições de procuração de dispositivos configure e conectividade da Internet](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/configure-proxy-internet)
+        - Se estiver a implantar o Defender para endpoint para uma máquina no local, conecte-o ao Arco Azure, conforme explicado nas [máquinas híbridas Connect com servidores ativados pelo Arco Azure](../azure-arc/servers/learn/quick-enable-hybrid-vm.md)
+    - Além disso, para **as máquinas Windows Server 2019,** confirme que estão a executar um agente válido e que possuem a extensão MicrosoftMonitoringAgent
+
 1. Ativar **o Azure Defender para servidores**. Ver [Preços do Centro de Segurança Azure](security-center-pricing.md#enable-azure-defender).
 
-    > [!NOTE]
-    > Para proteger as máquinas ativadas pelo Arco Azure, utilize as instruções em [Quickstart: Ligue a máquina híbrida com servidores ativados Azure Arc](../azure-arc/servers/learn/quick-enable-hybrid-vm.md).
 
 1. Se já licenciou e implementou o Microsoft Defender para pontos finais nos seus servidores, remova-o utilizando o procedimento descrito nos [servidores do Windows offboard](/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints#offboard-windows-servers).
 1. A partir do menu do Centro de Segurança, **selecione definições de preços &**.
@@ -94,7 +99,7 @@ Depois de configurar o local, não pode mudá-lo. Se tiver a sua própria licen�
 
 ## <a name="access-the-microsoft-defender-for-endpoint-portal"></a>Aceda ao Microsoft Defender para o portal Endpoint
 
-1. Certifique-se de que a conta de utilizador tem as permissões necessárias. [Saiba mais](/windows/security/threat-protection/microsoft-defender-atp/assign-portal-access).
+1. Certifique-se de que a conta de utilizador tem as permissões necessárias. Saiba mais em [Atribuir acesso ao Microsoft Defender Security Center](/windows/security/threat-protection/microsoft-defender-atp/assign-portal-access).
 
 1. Verifique se tem um representante ou uma firewall que bloqueie o tráfego anónimo. O sensor Defender for Endpoint liga-se a partir do contexto do sistema, pelo que deve ser permitido tráfego anónimo. Para garantir o acesso sem entraves ao portal Defender para o Endpoint, siga as instruções em Permitir o [acesso aos URLs de serviço no servidor proxy](/windows/security/threat-protection/microsoft-defender-atp/configure-proxy-internet#enable-access-to-microsoft-defender-atp-service-urls-in-the-proxy-server).
 

@@ -696,7 +696,7 @@
           href: azure-ssis-integration-runtime-package-store.md
     - name: Criar acionadores
       items:
-        - name: Criar um acionador baseado em eventos
+        - name: Criar um gatilho de evento de armazenamento
           href: how-to-create-event-trigger.md
         - name: Criar um acionador de agenda
           href: how-to-create-schedule-trigger.md

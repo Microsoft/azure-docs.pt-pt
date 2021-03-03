@@ -3,14 +3,14 @@ title: Configurar relatórios do Azure Backup
 description: Configure e veja relatórios para Azure Backup usando diários de log analytics e Azure
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 78ab22bece54caa15e23021e594eaa0742505f79
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 62bb59a8a77d11e30e54298317a35e1f883a9622
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100591978"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101710622"
 ---
-# <a name="configure-azure-backup-reports-preview"></a>Configure relatórios de backup do Azure (Pré-visualização)
+# <a name="configure-azure-backup-reports"></a>Configurar relatórios do Azure Backup
 
 Um requisito comum para os administradores de backup é obter insights sobre cópias de segurança com base em dados que se estendem por um longo período de tempo. Os casos de utilização para tal solução incluem:
 
@@ -110,7 +110,7 @@ Utilize este separador para visualizar informações sobre todas as suas políti
 
 Use este separador para ganhar visibilidade em potenciais oportunidades de otimização de custos para as suas cópias de segurança. Seguem-se os cenários para os quais o separador Otimize fornece atualmente insights:
 
-###### <a name="inactive-resources"></a>Recursos Inativos
+###### <a name="inactive-resources"></a>Recursos inativos
 
 Utilizando esta vista, pode identificar os itens de backup que não tiveram uma cópia de segurança bem sucedida durante um período significativo de tempo. Isto pode significar que a máquina subjacente que está a ser apoiada já não existe (e assim está a resultar em cópias de segurança falhadas), ou há algum problema com a máquina que está a impedir que os backups sejam tomados de forma fiável.
 
@@ -139,6 +139,20 @@ Selecionando o azulejo **de Otimizações de Políticas** seguido pelo azulejo d
 O filtro **Do Tipo de Gestão de Cópias** de Segurança na parte superior do separador deve ter os itens **SQL em Azure VM** e **SAP HANA em Azure VM** selecionados, para que a grelha possa apresentar cargas de trabalho de base de dados como esperado.
 
 ![Otimizar o separador - Otimizações de Agenda de Backup](./media/backup-azure-configure-backup-reports/optimize-backup-schedule.png)
+
+###### <a name="policy-adherence"></a>Adesão política
+
+Utilizando este separador, pode identificar se todas as suas instâncias de backup tiveram pelo menos uma cópia de segurança bem sucedida todos os dias. Pode ver a adesão da política por período de tempo ou por exemplo de backup.
+
+###### <a name="email-azure-backup-reports"></a>Relatórios de backup do E-mail Azure
+
+Utilizando a funcionalidade **Relatório de E-mail** disponível em Relatórios de Cópia de Segurança, pode criar tarefas automatizadas para receber relatórios periódicos via e-mail. Esta funcionalidade funciona através da implementação de uma aplicação lógica no seu ambiente Azure que consulta dados dos seus espaços de trabalho selecionados log Analytics (LA), com base nas entradas que fornece.
+
+Uma vez criada a aplicação lógica, terá de autorizar ligações aos Registos do Monitor Azure e ao Office 365. Para isso, navegue para **Aplicações Lógicas** no portal Azure e procure o nome da tarefa que criou. A seleção do item do menu **de ligações API** abre a lista de ligações API que precisa de autorizar.
+
+###### <a name="customize-azure-backup-reports"></a>Personalizar relatórios de backup da Azure
+
+Os Relatórios de Cópia de Segurança utilizam funções nos registos do Monitor Azure. Estas funções funcionam com dados nas tabelas de backup Azure em LA e devolvem dados formatados que o ajudam a recuperar facilmente informações de todas as suas entidades relacionadas com backup, utilizando consultas simples.
 
 ## <a name="export-to-excel"></a>Exportar para o Excel
 

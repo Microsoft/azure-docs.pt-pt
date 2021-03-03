@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: quickstart
 ms.date: 11/15/2020
 ms.author: memildin
-ms.openlocfilehash: 8fa2a06b1310e7cd825c918e92ea7af9b9b488de
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 6130572cedaaabb9d63758a2bc25f6ebd0396562
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100596161"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101729866"
 ---
 # <a name="auto-provisioning-agents-and-extensions-from-azure-security-center"></a>Agentes de fornecimento automático e extensões do Azure Security Center
 
@@ -38,8 +38,8 @@ Os dados são recolhidos utilizando:
 |-------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Estado de libertação:          | **Característica**: O provisionamento automático está geralmente disponível (GA)<br>**Agente e extensões**: O agente Log Analytics para VMs Azure é GA, o agente da Microsoft Dependency está em pré-visualização, o Policy Add-on para Kubernetes é GA                |
 | Preços:                | Gratuito                                                                                                                                                                                                                         |
-| Destinos apoiados: | ![Yes](./media/icons/yes-icon.png) Máquinas Azure<br>![No](./media/icons/no-icon.png) Máquinas Azure Arc<br>![No](./media/icons/no-icon.png) Os acenos de Kubernetes<br>![No](./media/icons/no-icon.png) Conjuntos de Dimensionamento de Máquinas Virtuais |
-| Nuvens:                 | ![Yes](./media/icons/yes-icon.png) Nuvens comerciais<br>![Yes](./media/icons/yes-icon.png) EUA Gov, China Gov, Outros Gov                                                                                                      |
+| Destinos apoiados: | ![Sim](./media/icons/yes-icon.png) Máquinas virtuais do Azure<br>![Não](./media/icons/no-icon.png) Máquinas Azure Arc<br>![Não](./media/icons/no-icon.png) Os acenos de Kubernetes<br>![Não](./media/icons/no-icon.png) Conjuntos de Dimensionamento de Máquinas Virtuais |
+| Nuvens:                 | ![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) EUA Gov, China Gov, Outros Gov                                                                                                      |
 |                         |                                                                                                                                                                                                                              |
 
 
@@ -85,7 +85,7 @@ Para permitir o provisionamento automático do agente Log Analytics:
 
         Se já tiver um espaço de trabalho log analytics existente, talvez queira utilizar o mesmo espaço de trabalho (requer permissões de leitura e de escrita no espaço de trabalho). Esta opção é útil se estiver a utilizar um espaço de trabalho centralizado na sua organização e quiser usá-lo para recolha de dados de segurança. Saiba mais em [Gerir o acesso a dados de registo e espaços de trabalho no Azure Monitor.](../azure-monitor/logs/manage-access.md)
 
-        Se o seu espaço de trabalho selecionado já tiver uma solução SecurityCenterFree ativada, o preço será definido automaticamente. Caso contrário, instale uma solução do Centro de Segurança no espaço de trabalho:
+        Se o seu espaço de trabalho selecionado já tiver uma solução "SecurityCenterFree" ativada, o preço será definido automaticamente. Caso contrário, instale uma solução do Centro de Segurança no espaço de trabalho:
 
         1. A partir do menu do Security Center, abra **as definições de preços &**.
         1. Selecione o espaço de trabalho ao qual estará a ligar os agentes.
@@ -235,7 +235,7 @@ Os seguintes casos de utilização especificam como funciona a provisão automá
 
 - **O agente Log Analytics está instalado na máquina, mas não como uma extensão (Agente direto)** - Se o agente Log Analytics for instalado diretamente no VM (não como uma extensão Azure), o Security Center instalará a extensão do agente Log Analytics e poderá atualizar o agente Log Analytics para a versão mais recente.
 O agente instalado continuará a reportar ao seu espaço de trabalho já configurado, e adicionalmente reportar-se-á ao espaço de trabalho configurado no Security Center (o multi-homing é suportado em máquinas Windows).
-Se o espaço de trabalho configurado for um espaço de trabalho do utilizador (não o espaço de trabalho predefinido do Security Center), então terá de instalar a solução "security/securityFree" nele para o Security Center começar a processar eventos de VMs e computadores reportando para esse espaço de trabalho.
+Se o espaço de trabalho configurado for um espaço de trabalho do utilizador (não o espaço de trabalho predefinido do Security Center), então terá de instalar a solução "Security" ou "SecurityCenterFree" no mesmo para que o Security Center comece a processar eventos de VMs e computadores que reportem para esse espaço de trabalho.
 
     No caso das máquinas Linux, o Agente multi-homing ainda não está suportado - portanto, se for detetada uma instalação de agente existente, não o provisionamento automático não ocorrerá e a configuração da máquina não será alterada.
 
@@ -244,8 +244,8 @@ Se o espaço de trabalho configurado for um espaço de trabalho do utilizador (n
 - **O agente do Gestor de Operações do System Center está instalado na máquina** - o centro de segurança instalará a extensão do agente Log Analytics lado a lado com o gestor de operações existente. O agente gestor de operações existente continuará a reportar-se normalmente ao servidor do Gestor de Operações. O agente do Gestor de Operações e o agente Do Log Analytics partilham bibliotecas comuns de tempo de execução, que serão atualizadas para a versão mais recente durante este processo. Se o agente do Gestor de Operações for instalado na versão 2012, **não** permita o provisionamento automático.
 
 - **Está presente uma extensão VM pré-existente:**
-    - Quando o Monitor é instalado como uma extensão, a configuração da extensão permite reportar apenas a um único espaço de trabalho. O Centro de Segurança não substitui as ligações existentes aos espaços de trabalho do utilizador. O Security Center irá armazenar dados de segurança a partir do VM no espaço de trabalho já ligado, desde que a solução "security" ou "securityFree" tenha sido instalada no mesmo. O Security Center pode atualizar a versão de extensão para a versão mais recente deste processo.  
-    - Para ver para que espaço de trabalho a extensão existente está a enviar dados, executar o teste para validar a [conectividade com o Azure Security Center](/archive/blogs/yuridiogenes/validating-connectivity-with-azure-security-center). Em alternativa, pode abrir espaços de trabalho do Log Analytics, selecionar um espaço de trabalho, selecionar o VM e ver a ligação do agente Log Analytics. 
+    - Quando o Monitor é instalado como uma extensão, a configuração da extensão permite reportar apenas a um único espaço de trabalho. O Centro de Segurança não substitui as ligações existentes aos espaços de trabalho do utilizador. O Security Center irá armazenar dados de segurança a partir do VM no espaço de trabalho já ligado, desde que a solução "Security" ou "SecurityCenterFree" tenha sido instalada no mesmo. O Security Center pode atualizar a versão de extensão para a versão mais recente deste processo.
+    - Para ver para que espaço de trabalho a extensão existente está a enviar dados, executar o teste para validar a [conectividade com o Azure Security Center](/archive/blogs/yuridiogenes/validating-connectivity-with-azure-security-center). Em alternativa, pode abrir espaços de trabalho do Log Analytics, selecionar um espaço de trabalho, selecionar o VM e ver a ligação do agente Log Analytics.
     - Se tiver um ambiente onde o agente Log Analytics está instalado em postos de trabalho dos clientes e reporte a um espaço de trabalho log analytics existente, reveja a lista de [sistemas operativos suportados pelo Azure Security Center](security-center-os-coverage.md) para se certificar de que o seu sistema operativo é suportado. Para obter mais informações, consulte [os clientes de analítica de registo existentes.](./faq-azure-monitor-logs.md)
  
 

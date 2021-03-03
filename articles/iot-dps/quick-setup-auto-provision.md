@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: 644635d1ab7b0a43c8df3e10bbbd02d1ea67a94a
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: e1bd521e9798b09f7930b43ab95c7cd7ef9e693d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91297237"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737924"
 ---
 # <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-with-the-azure-portal"></a>Quickstart: Crie o serviço de provisionamento de dispositivos IoT Hub com o portal Azure
 
@@ -25,11 +25,12 @@ Neste arranque rápido, você aprenderá a configurar o Serviço de Provisioname
 * Utilizar o portal do Azure para criar um Serviço Aprovisionamento de Dispositivos no Hub IoT e obter o âmbito do ID
 * Ligar o hub IoT ao Serviço Aprovisionamento de Dispositivos
 
+## <a name="prerequisites"></a>Pré-requisitos
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Você precisará de uma assinatura Azure para começar com este artigo. Pode criar uma [conta gratuita,](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)se ainda não o fez.
 
 
-## <a name="create-an-iot-hub"></a>Criar um hub IoT
+## <a name="create-an-iot-hub"></a>Criar um hub IoT
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
@@ -74,7 +75,7 @@ Nesta secção, irá adicionar uma configuração à instância do Serviço de P
 3. Agora, deverá ver o hub selecionado no painel **Hubs IoT ligados**. Talvez precises de ir ao **Refresh** para que apareça.
 
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Outros guias de introdução desta coleção têm por base este guia de introdução. Se pretender continuar a trabalhar com guias de introdução subsequentes ou com os tutoriais, não limpe os recursos criados neste guia de introdução. Se não pretender continuar, utilize os passos seguintes para eliminar todos os recursos criados por este guia de introdução no portal do Azure.
 

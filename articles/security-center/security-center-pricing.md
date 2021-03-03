@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/14/2021
 ms.author: memildin
-ms.openlocfilehash: 845697b9d2fd8d43caa3a9992fea8a780b7d9b7c
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 8d8ef4236a9dd993faaaa2aacfd40a7592e9017f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100522874"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101698676"
 ---
 # <a name="pricing-of-azure-security-center"></a>Preços do Centro de Segurança Azure
 O Centro de Segurança do Azure oferece gestão de segurança unificada e proteção avançada contra ameaças para cargas de trabalho em execução no Azure, no local e noutras clouds. Proporciona visibilidade e controlo sobre cargas de trabalho em nuvem híbrida, defesas ativas que reduzem a sua exposição a ameaças e deteção inteligente para ajudá-lo a manter o ritmo com riscos cibernéticos em rápida evolução.
 
 
-## <a name="free-option-vs-azure-defender-enabled"></a>Opção gratuita vs Azure Defender ativado
+## <a name="security-center-free-vs-azure-defender-enabled"></a>Centro de Segurança gratuito vs Azure Defender habilitado
 
 O Centro de Segurança é oferecido em dois modos:
 

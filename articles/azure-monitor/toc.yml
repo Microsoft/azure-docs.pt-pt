@@ -97,9 +97,9 @@
           href: logs/resource-manager-log-queries.md
         - name: Livros
           href: visualize/resource-manager-workbooks.md
-        - name: Azure Monitor para contentores
+        - name: Insights de contentores
           href: containers/resource-manager-container-insights.md
-        - name: Azure Monitor para VMs
+        - name: Insights VM
           href: vm/resource-manager-vminsights.md
     - name: CLI do Azure
       href: cli-samples.md
@@ -879,8 +879,6 @@
             - name: Descrição geral
               displayname: 'user behavior analytics, user behavior, usage, behavioral analytics'
               href: app/usage-overview.md
-            - name: Enviar o contexto de utilizador
-              href: app/usage-send-user-context.md
             - name: 'Utilizadores, Sessões, Eventos'
               href: app/usage-segmentation.md
             - name: Funis
@@ -988,7 +986,7 @@
           href: app/change-analysis-visualizations.md
         - name: Resolução de problemas
           href: app/change-analysis-troubleshoot.md
-    - name: Azure Monitor para VMs
+    - name: Insights VM
       items:
         - name: Descrição geral
           href: vm/vminsights-overview.md
@@ -1042,7 +1040,7 @@
           href: vm/vminsights-workbooks.md
         - name: Desativar a monitorização
           href: vm/vminsights-optout.md
-    - name: Azure Monitor para contentores
+    - name: Insights de contentores
       items:
         - name: Descrição geral
           href: containers/container-insights-overview.md

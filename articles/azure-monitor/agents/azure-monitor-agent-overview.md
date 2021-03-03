@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/10/2020
-ms.openlocfilehash: 5c4cfe47fce07a09eeb48e2da76d3b10c1d204af
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: e4837de70e9f00308b440933e0cd433ad5b27cf9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100613482"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711540"
 ---
 # <a name="azure-monitor-agent-overview-preview"></a>Visão geral do agente do Azure Monitor (pré-visualização)
 O agente Azure Monitor (AMA) recolhe dados de monitorização do sistema operativo convidado de máquinas virtuais e entrega-os ao Azure Monitor. Estes artigos fornecem uma visão geral do agente Azure Monitor, incluindo como instalá-lo e como configurar a recolha de dados.
@@ -19,9 +19,9 @@ O agente Azure Monitor (AMA) recolhe dados de monitorização do sistema operati
 ## <a name="relationship-to-other-agents"></a>Relação com outros agentes
 O Agente monitor Azure substitui os seguintes agentes que são atualmente utilizados pelo Azure Monitor para recolher dados dos hóspedes de máquinas virtuais:
 
-- [Log Analytics agent](../platform/log-analytics-agent.md) - Envia dados para log analytics espaço de trabalho e suporta o Azure Monitor para VMs e soluções de monitorização.
-- [Extensão de diagnóstico](../platform/diagnostics-extension-overview.md) - Envia dados para Azure Monitor Metrics (apenas Windows), Azure Event Hubs e Azure Storage.
-- [Agente telegraf -](../platform/collect-custom-metrics-linux-telegraf.md) Envia dados para Azure Monitor Metrics (apenas Linux).
+- [Log Analytics agent](./log-analytics-agent.md) - Envia dados para log analytics espaço de trabalho e suporta insights VM e soluções de monitorização.
+- [Extensão de diagnóstico](./diagnostics-extension-overview.md) - Envia dados para Azure Monitor Metrics (apenas Windows), Azure Event Hubs e Azure Storage.
+- [Agente telegraf -](../essentials/collect-custom-metrics-linux-telegraf.md) Envia dados para Azure Monitor Metrics (apenas Linux).
 
 Além de consolidar esta funcionalidade num único agente, o Agente monitor Azure proporciona os seguintes benefícios sobre os agentes existentes:
 
@@ -52,7 +52,7 @@ O agente Azure Monitor coexiste com os [agentes geralmente disponíveis para o A
 ## <a name="current-limitations"></a>Limitações atuais
 As seguintes limitações aplicam-se durante a visualização pública do Agente monitor Azure:
 
-- O agente Azure Monitor não suporta soluções e insights como o Azure Monitor para VMs e o Azure Security Center. O único cenário atualmente suportado é a recolha de dados utilizando as regras de recolha de dados que configura. 
+- O agente Azure Monitor não suporta soluções e insights como insights VM e Centro de Segurança Azure. O único cenário atualmente suportado é a recolha de dados utilizando as regras de recolha de dados que configura. 
 - As regras de recolha de dados devem ser criadas na mesma região que qualquer espaço de trabalho Log Analytics utilizado como destino.
 - Máquinas virtuais Azure, conjuntos de escala de máquinas virtuais e servidores ativados a Azure Arc são atualmente suportados. O Serviço Azure Kubernetes e outros tipos de recursos computativos não são suportados atualmente.
 - A máquina virtual deve ter acesso aos seguintes pontos finais HTTPS:
@@ -64,7 +64,7 @@ As seguintes limitações aplicam-se durante a visualização pública do Agente
 ## <a name="coexistence-with-other-agents"></a>Coexistência com outros agentes
 O agente Azure Monitor pode coexistir com os agentes existentes para que possa continuar a utilizar a sua funcionalidade existente durante a avaliação ou migração. Isto é particularmente importante devido às limitações da visualização pública no apoio às soluções existentes. Deve ter cuidado na recolha de dados duplicados, uma vez que isso pode distorcer os resultados da consulta e resultar em encargos adicionais para a ingestão e retenção de dados.
 
-Por exemplo, o Azure Monitor para VMs utiliza o agente Log Analytics para enviar dados de desempenho para um espaço de trabalho do Log Analytics. Também pode ter configurado o espaço de trabalho para recolher eventos Windows e eventos Syslog de agentes. Se instalar o agente Azure Monitor e criar uma regra de recolha de dados para estes mesmos eventos e dados de desempenho, resultará em dados duplicados.
+Por exemplo, os insights VM usam o agente Log Analytics para enviar dados de desempenho para um espaço de trabalho do Log Analytics. Também pode ter configurado o espaço de trabalho para recolher eventos Windows e eventos Syslog de agentes. Se instalar o agente Azure Monitor e criar uma regra de recolha de dados para estes mesmos eventos e dados de desempenho, resultará em dados duplicados.
 
 
 ## <a name="costs"></a>Custos
@@ -76,7 +76,7 @@ A tabela que se segue lista os tipos de dados que pode recolher atualmente com o
 
 O agente Azure Monitor envia dados para as Métricas do Monitor Azure ou para um espaço de trabalho log analytics que suporta registos do Monitor Azure.
 
-| Origem de dados | Destinos | Description |
+| Origem de dados | Destinos | Descrição |
 |:---|:---|:---|
 | Desempenho        | Métricas do Azure Monitor<br>Área de trabalho do Log Analytics | Valores numéricos que medem o desempenho de diferentes aspetos do sistema operativo e cargas de trabalho. |
 | Registos do Evento Windows | Área de trabalho do Log Analytics | Informação enviada para o sistema de registo de eventos do Windows. |

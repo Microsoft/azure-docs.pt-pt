@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/21/2021
 ms.author: b-juche
-ms.openlocfilehash: ec6a03673112dfb5397f6fae947f1fbf65fd6791
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 2cb0e3829011ca9bd0f2b6f36ebf3e6744a180ec
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881423"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713410"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>PERGUNTAS Frequentes Sobre Ficheiros Azure NetApp
 
@@ -29,7 +29,7 @@ Este artigo responde a perguntas frequentes (FAQs) sobre ficheiros Azure NetApp.
 
 ### <a name="does-the-nfs-data-path-go-over-the-internet"></a>O caminho dos dados da NFS passa pela Internet?  
 
-Não. O caminho dos dados da NFS não passa pela Internet. O Azure NetApp Files é um serviço nativo do Azure que está implantado na Rede Virtual Azure (VNet) onde o serviço está disponível. O Azure NetApp Files utiliza uma sub-rede delegada e fornece uma interface de rede diretamente no VNet. 
+N.º O caminho dos dados da NFS não passa pela Internet. O Azure NetApp Files é um serviço nativo do Azure que está implantado na Rede Virtual Azure (VNet) onde o serviço está disponível. O Azure NetApp Files utiliza uma sub-rede delegada e fornece uma interface de rede diretamente no VNet. 
 
 Consulte as Diretrizes para o planeamento da [rede Azure NetApp Files](./azure-netapp-files-network-topologies.md) para obter mais detalhes.  
 
@@ -48,7 +48,7 @@ Sim, pode, se criar as entradas de DNS necessárias. A Azure NetApp Files fornec
 
 ### <a name="can-i-set-or-select-my-own-ip-address-for-an-azure-netapp-files-volume"></a>Posso definir ou selecionar o meu próprio endereço IP para um volume de Ficheiros Azure NetApp?  
 
-Não. A atribuição de IP aos volumes de Ficheiros Azure NetApp é dinâmica. A atribuição ip estática não é suportada. 
+N.º A atribuição de IP aos volumes de Ficheiros Azure NetApp é dinâmica. A atribuição ip estática não é suportada. 
 
 ### <a name="does-azure-netapp-files-support-dual-stack-ipv4-and-ipv6-vnet"></a>Os Ficheiros Azure NetApp suportam a dupla pilha (IPv4 e IPv6) VNet?
 
@@ -110,7 +110,7 @@ O Azure NetApp Files fornece métricas de desempenho de volume. Também pode uti
 
 ### <a name="whats-the-performance-impact-of-kerberos-on-nfsv41"></a>Qual é o impacto de desempenho de Kerberos na NFSv4.1?
 
-Consulte [o impacto de desempenho da Kerberos no NFSv4.1](configure-kerberos-encryption.md#kerberos_performance) para obter informações sobre opções de segurança para NFSv4.1, os vetores de desempenho testados e o impacto de desempenho esperado. 
+Consulte [o impacto de desempenho dos Kerberos nos volumes NFSv4.1](performance-impact-kerberos.md) para obter informações sobre opções de segurança para o NFSv4.1, os vetores de desempenho testados e o impacto de desempenho esperado. 
 
 ## <a name="nfs-faqs"></a>FAQ sobre NFS
 
@@ -196,7 +196,7 @@ O Azure NetApp Files fornece métricas de utilização de pool e volume de capac
 
 ### <a name="can-i-manage-azure-netapp-files-through-azure-storage-explorer"></a>Posso gerir ficheiros Azure NetApp através do Azure Storage Explorer?
 
-Não. Os ficheiros Azure NetApp não são suportados pelo Azure Storage Explorer.
+N.º Os ficheiros Azure NetApp não são suportados pelo Azure Storage Explorer.
 
 ### <a name="how-do-i-determine-if-a-directory-is-approaching-the-limit-size"></a>Como posso determinar se um diretório se aproxima do tamanho do limite?
 
@@ -253,11 +253,11 @@ Os requisitos para replicar um volume de Ficheiros Azure NetApp para outra regi�
 
 ### <a name="is-migration-with-azure-data-box-supported"></a>A migração com a Caixa de Dados Azure está suportada?
 
-Não. A Azure Data Box não suporta ficheiros Azure NetApp atualmente. 
+N.º A Azure Data Box não suporta ficheiros Azure NetApp atualmente. 
 
 ### <a name="is-migration-with-azure-importexport-service-supported"></a>A migração com o serviço Azure Import/Export é suportada?
 
-Não. O serviço Azure Import/Export não suporta atualmente ficheiros Azure NetApp.
+N.º O serviço Azure Import/Export não suporta atualmente ficheiros Azure NetApp.
 
 ## <a name="product-faqs"></a>Perguntas frequentes de produtos
 
@@ -269,7 +269,7 @@ Pode montar volumes NFS em VMs do Azure NetApp ou em VMs do Azure NetApp. Pode m
 
 A utilização de volumes NFS ou SMB de Ficheiros Azure NetApp com AVS é suportada nas seguintes regiões - Leste dos EUA, Eua Ocidental, Europa Ocidental e Austrália Oriental.
 
-## <a name="next-steps"></a>Próximos passos  
+## <a name="next-steps"></a>Passos seguintes  
 
 - [Microsoft Azure ExpressRoute FAQs](../expressroute/expressroute-faqs.md)
 - [Microsoft Azure Virtual Network FAQ](../virtual-network/virtual-networks-faq.md)

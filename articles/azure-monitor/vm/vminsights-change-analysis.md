@@ -1,31 +1,31 @@
 ---
-title: Alterar análise no Monitor Azure para VMs
-description: O Azure Monitor para integração de VMs com a integração de Análise de Alterações de Aplicação permite-lhe visualizar quaisquer alterações feitas a uma máquina virtual que possa ter afetado o seu desempenho.
+title: Alterar análises em insights de VM
+description: A integração de insights VM com a integração de Application Change Analysis permite-lhe visualizar quaisquer alterações feitas a uma máquina virtual que possa ter afetado o seu desempenho.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/23/2020
-ms.openlocfilehash: 59799a09436d5968a441f6f17655d3138a2d84d8
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 48f0f0e124040dc070bd5e31f956f75e759303d3
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100618241"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704009"
 ---
-# <a name="change-analysis-in-azure-monitor-for-vms"></a>Alterar análise no Monitor Azure para VMs
-O Azure Monitor para integração de VMs com a integração [de Análise de Alterações](../app/change-analysis.md) de Aplicação permite-lhe visualizar quaisquer alterações feitas a uma máquina virtual que possa ter afetado o seu desempenho.
+# <a name="change-analysis-in-vm-insights"></a>Alterar análises em insights de VM
+A integração de insights VM com a integração [de Application Change Analysis](../app/change-analysis.md) permite-lhe visualizar quaisquer alterações feitas a uma máquina virtual que possa ter afetado o seu desempenho.
 
 ## <a name="overview"></a>Descrição Geral
-Suponha que tem um VM que está a correr devagar e quer investigar se as recentes alterações na sua configuração podem ter afetado o seu desempenho. Vê o desempenho do VM utilizando o Azure Monitor para VMs e descobre que há um aumento no uso da memória na última hora. A análise de alteração pode ajudá-lo a determinar se quaisquer alterações de configuração efetuadas por esta altura foram a causa deste aumento.
+Suponha que tem um VM que está a correr devagar e quer investigar se as recentes alterações na sua configuração podem ter afetado o seu desempenho. Você vê o desempenho do VM usando insights VM e descobre que há um aumento no uso da memória na última hora. A análise de alteração pode ajudá-lo a determinar se quaisquer alterações de configuração efetuadas por esta altura foram a causa deste aumento.
 
 O serviço de Análise de Alterações de Aplicação agrega alterações a partir do [Azure Resource Graph,](../../governance/resource-graph/how-to/get-resource-changes.md) bem como alterações de propriedades aninhadas, tais como regras de segurança de rede do Azure Resource Manager. 
 
 ## <a name="enabling-change-analysis"></a>Permitir a análise de mudanças
-Para uma análise de mudança a bordo no Azure Monitor para VMs, tem de registar o fornecedor de recursos *Microsoft.ChangeAnalysis.* A primeira vez que lançar O Azure Monitor para VMs ou Análise de Alteração de Aplicações no portal Azure, este fornecedor de recursos será automaticamente registado para si. Application Change Analysis é um serviço gratuito que não tem um desempenho superior aos recursos.
+Para uma análise de mudança a bordo em insights VM, tem de registar o fornecedor de recursos *Microsoft.ChangeAnalysis.* A primeira vez que lançar insights VM ou Análise de Mudança de Aplicação no portal Azure, este fornecedor de recursos será automaticamente registado para si. Application Change Analysis é um serviço gratuito que não tem um desempenho superior aos recursos.
 
 ## <a name="view-change-analysis"></a>Ver análise de mudança
-A análise de alteração está disponível no **separador Performance** ou **Mapa** do Monitor Azure para VMs selecionando a opção **Alterar.** 
+A análise de alteração está disponível a partir do **separador Performance** ou **Mapa** dos insights de VM selecionando a opção **Alterar.** 
 
 [![Investigar alterações](media/vminsights-change-analysis/investigate-changes-screenshot.png)](media/vminsights-change-analysis/investigate-changes-screenshot-zoom.png#lightbox)
 

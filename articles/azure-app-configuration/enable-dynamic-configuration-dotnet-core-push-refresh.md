@@ -14,12 +14,12 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 07/25/2020
 ms.author: abarora
-ms.openlocfilehash: 553c5081947ad784a8cdae6ad0eb92fc3e2a2c85
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 977982bf1a36b4b85524df2513f2272fe4a8d1bf
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99982263"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101701523"
 ---
 # <a name="tutorial-use-dynamic-configuration-using-push-refresh-in-a-net-core-app"></a>Tutorial: Utilize configuração dinâmica utilizando atualização push numa aplicação .NET Core
 
@@ -27,7 +27,7 @@ A biblioteca de clientes de Configuração de Aplicação .NET Core suporta a at
 
 1. Modelo de sondagem: Este é o comportamento padrão que usa as sondagens para detetar alterações na configuração. Uma vez expira o valor em cache de uma definição, a próxima chamada para `TryRefreshAsync` ou envia um pedido ao servidor para verificar se a `RefreshAsync` configuração foi alterada e puxa a configuração atualizada se necessário.
 
-1. Push Model: Isto utiliza [eventos de configuração de aplicações](./concept-app-configuration-event.md) para detetar alterações na configuração. Uma vez configurada a Configuração de Aplicações para enviar eventos de alteração de valor chave para Azure Event Grid, a aplicação pode usar estes eventos para otimizar o número total de pedidos necessários para manter a configuração atualizada. As aplicações podem optar por subscrever estas diretamente a partir da Grade de Eventos, ou embora um dos manipuladores de [eventos suportados,](https://docs.microsoft.com/azure/event-grid/event-handlers) como um webhook, uma função Azure ou um tópico de Service Bus.
+1. Push Model: Isto utiliza [eventos de configuração de aplicações](./concept-app-configuration-event.md) para detetar alterações na configuração. Uma vez configurada a Configuração de Aplicações para enviar eventos de alteração de valor chave para Azure Event Grid, a aplicação pode usar estes eventos para otimizar o número total de pedidos necessários para manter a configuração atualizada. As aplicações podem optar por subscrever estas diretamente a partir da Grade de Eventos, ou embora um dos manipuladores de [eventos suportados,](../event-grid/event-handlers.md) como um webhook, uma função Azure ou um tópico de Service Bus.
 
 As aplicações podem optar por subscrever estes eventos diretamente da Grade de Eventos, ou através de um gancho web, ou reencaminhando eventos para a Azure Service Bus. A Azure Service Bus SDK fornece uma API para registar um manipulador de mensagens que simplifica este processo para aplicações que não têm um ponto final HTTP ou não querem sondar a grelha de eventos para alterações contínuas.
 
@@ -50,7 +50,7 @@ Para fazer este tutorial, instale o [.NET Core SDK](https://dotnet.microsoft.com
 
 ## <a name="set-up-azure-service-bus-topic-and-subscription"></a>Configurar o tópico e subscrição do Azure Service Bus
 
-Este tutorial utiliza a integração de Service Bus para a Grade de Eventos para simplificar a deteção de alterações de configuração para aplicações que não desejem sondar a Configuração da App para alterações contínuas. O Azure Service Bus SDK fornece uma API para registar um manipulador de mensagens que pode ser usado para atualizar a configuração quando as alterações são detetadas na Configuração da Aplicação. Siga os passos no [Quickstart: Use o portal Azure para criar um tópico de Service Bus e subscrição](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal) para criar um espaço de nome, tópico e subscrição de um serviço de ônibus.
+Este tutorial utiliza a integração de Service Bus para a Grade de Eventos para simplificar a deteção de alterações de configuração para aplicações que não desejem sondar a Configuração da App para alterações contínuas. O Azure Service Bus SDK fornece uma API para registar um manipulador de mensagens que pode ser usado para atualizar a configuração quando as alterações são detetadas na Configuração da Aplicação. Siga os passos no [Quickstart: Use o portal Azure para criar um tópico de Service Bus e subscrição](../service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal.md) para criar um espaço de nome, tópico e subscrição de um serviço de ônibus.
 
 Uma vez criados os recursos, adicione as seguintes variáveis ambientais. Estes serão utilizados para registar um manipulador de eventos para alterações de configuração no código de aplicação.
 
@@ -81,7 +81,7 @@ Uma vez criados os recursos, adicione as seguintes variáveis ambientais. Estes 
     ![Subscrições de eventos de configuração de aplicativos](./media/event-subscription-view.png)
 
 > [!NOTE]
-> Ao subscrever alterações de configuração, um ou mais filtros podem ser utilizados para reduzir o número de eventos enviados para a sua aplicação. Estes podem ser configurados quer como [filtros de subscrição de Event Grid,](https://docs.microsoft.com/azure/event-grid/event-filtering) quer [como filtros de subscrição de Service Bus.](https://docs.microsoft.com/azure/service-bus-messaging/topic-filters) Por exemplo, um filtro de subscrição só pode ser usado para subscrever eventos para alterações numa chave que começa com uma cadeia específica.
+> Ao subscrever alterações de configuração, um ou mais filtros podem ser utilizados para reduzir o número de eventos enviados para a sua aplicação. Estes podem ser configurados quer como [filtros de subscrição de Event Grid,](../event-grid/event-filtering.md) quer [como filtros de subscrição de Service Bus.](../service-bus-messaging/topic-filters.md) Por exemplo, um filtro de subscrição só pode ser usado para subscrever eventos para alterações numa chave que começa com uma cadeia específica.
 
 ## <a name="register-event-handler-to-reload-data-from-app-configuration"></a>Registar o manipulador de eventos para recarregar dados da Configuração de Aplicações
 
@@ -171,7 +171,7 @@ namespace TestConsole
 }
 ```
 
-O método [SetDirty](https://docs.microsoft.com/dotnet/api/microsoft.extensions.configuration.azureappconfiguration.iconfigurationrefresher.setdirty) é utilizado para definir o valor em cache para valores-chave registados para atualização como sujo. Isto garante que a próxima chamada para `RefreshAsync` ou `TryRefreshAsync` revalidar os valores em cache com a Configuração da Aplicação e os atualiza se necessário.
+O método [SetDirty](/dotnet/api/microsoft.extensions.configuration.azureappconfiguration.iconfigurationrefresher.setdirty) é utilizado para definir o valor em cache para valores-chave registados para atualização como sujo. Isto garante que a próxima chamada para `RefreshAsync` ou `TryRefreshAsync` revalidar os valores em cache com a Configuração da Aplicação e os atualiza se necessário.
 
 Um atraso aleatório é adicionado antes que o valor em cache seja marcado como sujo para reduzir o potencial estrangulamento no caso de várias instâncias se refrescarem ao mesmo tempo. O atraso máximo predefinido antes do valor em cache é marcado como sujo é de 30 segundos, mas pode ser ultrapassado passando um parâmetro opcional `TimeSpan` para o `SetDirty` método.
 

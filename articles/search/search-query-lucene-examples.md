@@ -1,273 +1,356 @@
 ---
 title: Use a sintaxe de consulta lucene completa
 titleSuffix: Azure Cognitive Search
-description: Lucene consulta sintaxe para pesquisa de fuzzy, pesquisa de proximidade, aumento de termo, pesquisa regular de expressão e pesquisas de wildcard em um serviço de Pesquisa Cognitiva Azure.
+description: Exemplos de consulta que demonstram a sintaxe de consulta lucene para pesquisa de fuzzy, pesquisa de proximidade, aumento de termo, pesquisa regular de expressão e pesquisas de wildcard em um índice de pesquisa cognitiva Azure.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
-tags: Lucene query analyzer syntax
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/05/2020
-ms.openlocfilehash: df26cfc3b220f40a7e73ff1c750d2b2ae37e7625
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.date: 03/03/2021
+ms.openlocfilehash: 6213efb6ba14052c6f957a6d999f48f55f65186c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97401462"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101693565"
 ---
 # <a name="use-the-full-lucene-search-syntax-advanced-queries-in-azure-cognitive-search"></a>Utilize a sintaxe de pesquisa lucene "completa" (consultas avançadas em Pesquisa Cognitiva Azure)
 
-Ao construir consultas para Azure Cognitive Search, pode substituir o [parser de consulta simples](query-simple-syntax.md) padrão pelo mais poderoso [Lucene Query Parser em Azure Cognitive Search](query-lucene-syntax.md) para formular definições de consulta especializadas e avançadas. 
+Ao construir consultas para Azure Cognitive Search, pode substituir o [parser de consulta simples](query-simple-syntax.md) padrão com o mais poderoso [parser de consulta lucene](query-lucene-syntax.md) para formular expressões de consulta especializadas e avançadas.
 
-O Lucene parser suporta construções complexas de consultas, tais como consultas de campo, pesquisa de fossa, pesquisa de sfix e sufixo wildcard, pesquisa de proximidade, aumento de termos e pesquisa regular de expressão. A potência adicional vem com requisitos adicionais de processamento, pelo que deverá esperar um tempo de execução um pouco mais longo. Neste artigo, pode passar por exemplos demonstrando operações de consulta com base em sintaxe completa.
+O Lucene parser suporta formatos de consulta complexos, tais como consultas de campo, pesquisa de fossa, pesquisa de sfix e sufixo wildcard, pesquisa de proximidade, aumento de termos e pesquisa regular de expressão. A potência adicional vem com requisitos adicionais de processamento, pelo que deverá esperar um tempo de execução um pouco mais longo. Neste artigo, pode passar por exemplos demonstrando operações de consulta com base em sintaxe completa.
 
 > [!Note]
 > Muitas das construções de consulta especializadas possibilitadas através da sintaxe de consulta lucene completa não são [analisadas por texto](search-lucene-query-architecture.md#stage-2-lexical-analysis), o que pode ser surpreendente se você espera stemming ou lematização. A análise lexical só é realizada em termos completos (consulta de termo ou consulta de frase). Os tipos de consulta com termos incompletos (consulta de prefixo, consulta wildcard, consulta regex, consulta fuzzy) são adicionados diretamente à árvore de consulta, contornando a fase de análise. A única transformação realizada em termos de consulta parcial é a redução. 
 >
 
-## <a name="nyc-jobs-examples"></a>Exemplos de empregos de NYC
+## <a name="hotels-sample-index"></a>Índice de amostra de hotéis
 
-Os exemplos a seguir aproveitam o índice de [pesquisa nyc jobs,](https://azjobsdemo.azurewebsites.net/)  composto por empregos disponíveis com base num conjunto de dados fornecido pela [City of New York OpenData Initiative](https://nycopendata.socrata.com/). Estes dados não devem ser considerados atuais ou completos. O índice encontra-se num serviço de caixa de areia fornecido pela Microsoft, o que significa que não precisa de uma subscrição Azure ou de Azure Cognitive Search para experimentar estas consultas.
+As seguintes consultas baseiam-se no índice de amostras de hotéis, que pode criar seguindo as instruções neste [arranque rápido.](search-get-started-portal.md)
 
-O que precisa é do Carteiro ou de uma ferramenta equivalente para emitir pedido HTTP no GET ou POST. Se não estiver familiarizado com estas ferramentas, consulte [Quickstart: Explore a AZure Cognitive Search REST API](search-get-started-rest.md).
+As consultas de exemplo são articuladas utilizando os pedidos REST API e POST. Pode colar e executá-los no [Carteiro](search-get-started-rest.md) ou no [Código do Estúdio Visual com a extensão de Pesquisa Cognitiva.](search-get-started-vs-code.md)
 
-## <a name="set-up-the-request"></a>Configurar o pedido
+Os cabeçalhos de pedido devem ter os seguintes valores:
 
-1. Os cabeçalhos de pedido devem ter os seguintes valores:
+| Chave | Valor |
+|-----|-------|
+| Content-Type | application/json|
+| api-chave  | `<your-search-service-api-key>`, quer a consulta ou a chave de administração |
 
-   | Chave | Valor |
-   |-----|-------|
-   | Content-Type | `application/json`|
-   | api-chave  | `252044BE3886FE4A8E3BAA4F595114BB` </br> (esta é a chave API de consulta real para o serviço de pesquisa de caixas de areia que acolhe o índice NYC Jobs) |
-
-1. Deslome o verbo para **`GET`** .
-
-1. Desa estação a URL **`https://azs-playground.search.windows.net/indexes/nycjobs/docs/search=*&api-version=2020-06-30&queryType=full`**
-
-   + A recolha de documentos no índice contém todo o conteúdo pesmável. Uma chave API de consulta fornecida no cabeçalho de pedido apenas funciona para operações de leitura direcionadas para a recolha de documentos.
-
-   + **`$count=true`** devolve uma contagem dos documentos correspondentes aos critérios de pesquisa. Numa cadeia de pesquisa vazia, a contagem será de todos os documentos do índice (cerca de 2558 no caso de NYC Jobs).
-
-   + **`search=*`** é uma consulta não especificada, equivalente a uma busca nula ou vazia. Não é especialmente útil, mas é a pesquisa mais simples que pode fazer, e mostra todos os campos recuperáveis no índice, com todos os valores.
-
-   + **`queryType=full`** invoca o analisador lucene completo.
-
-1. Como passo de verificação, cole o seguinte pedido no GET e clique em **Enviar.** Os resultados são devolvidos como documentos verbosos da JSON.
-
-   ```http
-   https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30&$count=true&search=*&queryType=full
-   ```
-
-### <a name="how-to-invoke-full-lucene-parsing"></a>Como invocar a análise completa de Lucene
-
-Adicione **`queryType=full`** para invocar a sintaxe de consulta completa, sobreprimando a sintaxe de consulta simples padrão. Todos os exemplos deste artigo especificam o **`queryType=full`** parâmetro de pesquisa, indicando que a sintaxe completa é tratada pelo Lucene Query Parser. 
+Os parâmetros URI devem incluir o seu ponto final do serviço de pesquisa com o nome de índice, coleções de docs, comando de pesquisa e versão API, semelhante ao seguinte exemplo:
 
 ```http
-POST /indexes/nycjobs/docs/search?api-version=2020-06-30
-{
-    "queryType": "full"
-}
+https://{{service-name}}.search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2020-06-30
 ```
 
-## <a name="example-1-query-scoped-to-a-list-of-fields"></a>Exemplo 1: Consulta a uma lista de campos
+O organismo de pedido deve ser formado como JSON válido:
 
-Este primeiro exemplo não é específico da parser, mas conduzimos com ele para introduzir o primeiro conceito de consulta fundamental: a contenção. Este exemplo limita tanto a execução de consultas como a resposta a apenas alguns campos específicos. Saber estruturar uma resposta JSON legível é importante quando a sua ferramenta é Carteiro ou Explorador de Pesquisa. 
-
-Esta consulta visa apenas *business_title* em **`searchFields`** , especificando através do parâmetro o mesmo **`select`** campo na resposta.
-
-```http
-POST https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-06-30
+```json
 {
-    "count": true,
-    "queryType": "full",
     "search": "*",
-    "searchFields": "business_title",
-    "select": "business_title"
+    "queryType": "full",
+    "select": "HotelId, HotelName, Category, Tags, Description",
+    "count": true
 }
 ```
 
-A resposta a esta consulta deve ser semelhante à seguinte imagem.
++ "Pesquisa" definida `*` para uma consulta não especificada, equivalente a uma busca nula ou vazia. Não é especialmente útil, mas é a pesquisa mais simples que pode fazer, e mostra todos os campos recuperáveis no índice, com todos os valores.
 
-  ![Resposta da amostra do carteiro com pontuações](media/search-query-lucene-examples/postman-sample-results.png)
++ "consultaType" definido para "full" invoca o parser de consulta lucene completo e é necessário para esta sintaxe.
 
-Deve ter reparado na pontuação da pesquisa na resposta. Pontuações uniformes de **1** ocorrem quando não há classificação, quer porque a pesquisa não foi completamente pesquisa de texto, quer porque não foram fornecidos critérios. Para uma busca vazia, as filas voltam por ordem arbitrária. Quando incluir critérios reais, verá as pontuações de pesquisa evoluir em valores significativos.
++ É utilizado um conjunto "selecionado" para uma lista de campos delimitada por vírgulas para a composição dos resultados de pesquisa, incluindo apenas os campos que são úteis no contexto dos resultados da pesquisa.
 
-## <a name="example-2-fielded-search"></a>Exemplo 2: Pesquisa de campo
++ "contagem" devolve o número de documentos correspondentes aos critérios de pesquisa. Numa cadeia de pesquisa vazia, a contagem será de todos os documentos do índice (50 no caso de hotéis-índice de amostra).
 
-A sintaxe Lucene completa suporta a deteção de expressões individuais de pesquisa para um campo específico. Este exemplo procura títulos de negócios com o termo sénior neles, mas não júnior. Pode especificar vários campos utilizando E.
+## <a name="example-1-fielded-search"></a>Exemplo 1: Pesquisa de campo
+
+Indivíduo de âmbito de pesquisa em campo, incorporado expressões de pesquisa para um campo específico. Este exemplo procura nomes de hotéis com o termo "hotel" neles, mas não "motel". Pode especificar vários campos utilizando E. 
+
+Quando utilizar esta sintaxe de consulta, pode omitir o parâmetro "searchFields" quando os campos que pretende consultar estão na própria expressão de pesquisa. Se incluir "searchFields" com pesquisa de campo, `fieldName:searchExpression` tem sempre precedência sobre "searchFields".
 
 ```http
-POST /indexes/nycjobs/docs?api-version=2020-06-30
+POST /indexes/hotel-samples-index/docs/search?api-version=2020-06-30
 {
-    "count": true,
+    "search": "HotelName:(hotel NOT motel) AND Category:'Resort and Spa'",
     "queryType": "full",
-    "search": "business_title:(senior NOT junior) AND posting_type:external",
-    "searchFields": "business_title, posting_type",
-    "select": "business_title, posting_type"
+    "select": "HotelName, Category",
+    "count": true
 }
 ```
 
-A resposta a esta consulta deve ser semelhante à seguinte imagem (não é mostrada posting_type).
+A resposta a esta consulta deve ser semelhante ao exemplo seguinte, filtrado em "Resort and Spa", retornando hotéis que incluem "hotel" ou "motel" no nome.
 
-  :::image type="content" source="media/search-query-lucene-examples/intrafieldfilter.png" alt-text="Expressão de pesquisa de resposta de amostra de carteiro" border="false":::
+```json
+"@odata.count": 4,
+"value": [
+    {
+        "@search.score": 4.481559,
+        "HotelName": "Nova Hotel & Spa",
+        "Category": "Resort and Spa"
+    },
+    {
+        "@search.score": 2.4524608,
+        "HotelName": "King's Palace Hotel",
+        "Category": "Resort and Spa"
+    },
+    {
+        "@search.score": 2.3970203,
+        "HotelName": "Triple Landscape Hotel",
+        "Category": "Resort and Spa"
+    },
+    {
+        "@search.score": 2.2953436,
+        "HotelName": "Peaceful Market Hotel & Spa",
+        "Category": "Resort and Spa"
+    }
+]
+```
 
-A expressão de pesquisa pode ser uma única palavra ou uma frase, ou uma expressão mais complexa em parênteses, opcionalmente com operadores Boolean. Alguns exemplos incluem:
+A expressão de pesquisa pode ser um único termo ou uma frase, ou uma expressão mais complexa em parênteses, opcionalmente com operadores Boolean. Alguns exemplos incluem:
 
-+ `business_title:(senior NOT junior)`
-+ `state:("New York" OR "New Jersey")`
-+ `business_title:(senior NOT junior) AND posting_type:external`
++ `HotelName:(hotel NOT motel)`
++ `Address/StateProvince:("WA" OR "CA")`
++ `Tags:("free wifi" NOT "free parking") AND "coffee in lobby"`
 
-Certifique-se de colocar várias cordas dentro das aspas se quiser que ambas as cordas sejam avaliadas como uma única entidade, como neste caso procurando dois locais distintos no `state` campo. Dependendo da ferramenta, poderá ter de escapar `\` () as aspas. 
+Certifique-se de colocar uma frase dentro das aspas se quiser que ambas as cordas sejam avaliadas como uma única entidade, como neste caso procurando dois locais distintos no campo Address/StateProvince. Dependendo do cliente, poderá ter de escapar às `\` aspas.
 
-O campo especificado no **fieldName:searchExpression** deve ser um campo pesquisável. Consulte [o Índice de Criação (Azure Cognitive Search REST API)](/rest/api/searchservice/create-index) para obter detalhes sobre como os atributos do índice são usados nas definições de campo.
+O campo especificado `fieldName:searchExpression` deve ser um campo pesmável. Consulte [o Índice de Criação (REST API)](/rest/api/searchservice/create-index) para obter mais informações sobre a forma como as definições de campo são atribuídas.
 
-> [!NOTE]
-> No exemplo acima, o **`searchFields`** parâmetro é omitido porque cada parte da consulta tem um nome de campo explicitamente especificado. No entanto, ainda pode utilizar **`searchFields`** se a consulta tiver várias partes (utilizando declarações E). Por exemplo, a consulta `search=business_title:(senior NOT junior) AND external&searchFields=posting_type` `senior NOT junior` corresponderia apenas ao `business_title` campo, enquanto que combinaria "externa" com o `posting_type` campo. O nome de campo fornecido `fieldName:searchExpression` sempre tem precedência sobre **`searchFields`** , e é por isso que, neste exemplo, podemos omitir `business_title` de **`searchFields`** .
+## <a name="example-2-fuzzy-search"></a>Exemplo 2: Pesquisa felpuda
 
-## <a name="example-3-fuzzy-search"></a>Exemplo 3: Pesquisa felpuda
-
-A sintaxe Lucene completa também suporta a pesquisa fuzzy, combinando em termos que têm uma construção semelhante. Para fazer uma pesquisa difusa, apedte o `~` símbolo de azulejos no final de uma única palavra com um parâmetro opcional, um valor entre 0 e 2, que especifica a distância de edição. Por exemplo, `blue~` ou `blue~1` voltaria azul, azul e cola.
+A pesquisa fuzzy corresponde em termos semelhantes, incluindo palavras mal escritas. Para fazer uma pesquisa difusa, apedte o `~` símbolo de azulejos no final de uma única palavra com um parâmetro opcional, um valor entre 0 e 2, que especifica a distância de edição. Por exemplo, `blue~` ou `blue~1` voltaria azul, azul e cola.
 
 ```http
-POST /indexes/nycjobs/docs?api-version=2020-06-30
+POST /indexes/hotel-samples-index/docs/search?api-version=2020-06-30
 {
-    "count": true,
+    "search": "Tags:conserge~",
     "queryType": "full",
-    "search": "business_title:asosiate~",
-    "searchFields": "business_title",
-    "select": "business_title"
+    "select": "HotelName, Category, Tags",
+    "searchFields": "HotelName, Category, Tags",
+    "count": true
 }
 ```
 
-As frases não são suportadas diretamente, mas pode especificar uma correspondência difusa em cada termo de uma frase multi-partes, como `search=business_title:asosiate~ AND comm~` .  Na imagem abaixo, a resposta inclui uma correspondência no *associado comunitário.*
+A resposta a esta consulta resolve-se a "concierge" nos documentos correspondentes, aparados para a brevidade:
 
-  :::image type="content" source="media/search-query-lucene-examples/fuzzysearch.png" alt-text="Resposta de pesquisa fuzzy" border="false":::
+```json
+"@odata.count": 12,
+"value": [
+    {
+        "@search.score": 1.1832147,
+        "HotelName": "Secret Point Motel",
+        "Category": "Boutique",
+        "Tags": [
+            "pool",
+            "air conditioning",
+            "concierge"
+        ]
+    },
+    {
+        "@search.score": 1.1819803,
+        "HotelName": "Twin Dome Motel",
+        "Category": "Boutique",
+        "Tags": [
+            "pool",
+            "free wifi",
+            "concierge"
+        ]
+    },
+    {
+        "@search.score": 1.1773309,
+        "HotelName": "Smile Hotel",
+        "Category": "Suite",
+        "Tags": [
+            "view",
+            "concierge",
+            "laundry service"
+        ]
+    },
+```
+
+As frases não são suportadas diretamente, mas pode especificar uma correspondência difusa em cada termo de uma frase multi-partes, como `search=Tags:landy~ AND sevic~` .  Esta expressão de consulta encontra 15 correspondências em "serviço de lavandaria".
 
 > [!Note]
-> As consultas fuzzy não são [analisadas.](search-lucene-query-architecture.md#stage-2-lexical-analysis) Os tipos de consulta com termos incompletos (consulta de prefixo, consulta wildcard, consulta regex, consulta fuzzy) são adicionados diretamente à árvore de consulta, contornando a fase de análise. A única transformação realizada em termos de consulta parcial é a redução.
+> As consultas fuzzy não são [analisadas.](search-lucene-query-architecture.md#stage-2-lexical-analysis) Os tipos de consulta com termos incompletos (consulta de prefixo, consulta wildcard, consulta regex, consulta fuzzy) são adicionados diretamente à árvore de consulta, contornando a fase de análise. A única transformação realizada em termos de consulta parcial é o invólucro mais baixo.
 >
 
-## <a name="example-4-proximity-search"></a>Exemplo 4: Pesquisa de proximidade
+## <a name="example-3-proximity-search"></a>Exemplo 3: Pesquisa de proximidade
 
-As pesquisas de proximidade são usadas para encontrar termos que estão próximos uns dos outros em um documento. Insira um símbolo de azulejos "~" no final de uma frase seguida do número de palavras que criam o limite de proximidade. Por exemplo, "hotel airport"~5 encontrará os termos hotel e aeroporto dentro de 5 palavras um do outro em um documento.
+A pesquisa de proximidade encontra termos que estão próximos uns dos outros em um documento. Insira um símbolo de azulejos "~" no final de uma frase seguida do número de palavras que criam o limite de proximidade.
 
-Esta consulta procura os termos "senior" e "analista", onde cada termo é separado por não mais do que uma palavra, e as aspas são escapadas para `\"` preservar a frase:
+Esta consulta procura os termos "hotel" e "aeroporto" dentro de 5 palavras um do outro num documento. As aspas escapam para `\"` preservar a frase:
 
 ```http
-POST /indexes/nycjobs/docs?api-version=2020-06-30
+POST /indexes/hotel-samples-index/docs/search?api-version=2020-06-30
 {
-    "count": true,
+    "search": "Description: \"hotel airport\"~5",
     "queryType": "full",
-    "search": "business_title:\"senior analyst\"~1",
-    "searchFields": "business_title",
-    "select": "business_title"
+    "select": "HotelName, Description",
+    "searchFields": "HotelName, Description",
+    "count": true
 }
 ```
 
-A resposta para esta consulta deve ser semelhante à seguinte screenshot 
+A resposta a esta consulta deve ser semelhante ao seguinte exemplo:
 
-  :::image type="content" source="media/search-query-lucene-examples/proximity-before.png" alt-text="Consulta de proximidade" border="false":::
+```json
+"@odata.count": 2,
+"value": [
+    {
+        "@search.score": 0.6331726,
+        "HotelName": "Trails End Motel",
+        "Description": "Only 8 miles from Downtown.  On-site bar/restaurant, Free hot breakfast buffet, Free wireless internet, All non-smoking hotel. Only 15 miles from airport."
+    },
+    {
+        "@search.score": 0.43032226,
+        "HotelName": "Catfish Creek Fishing Cabins",
+        "Description": "Brand new mattresses and pillows.  Free airport shuttle. Great hotel for your business needs. Comp WIFI, atrium lounge & restaurant, 1 mile from light rail."
+    }
+]
+```
 
-Tente novamente, eliminando qualquer distância `~0` entre os termos "analista sénior". Note que 8 documentos são devolvidos para esta consulta em oposição a 10 para a consulta anterior.
+## <a name="example-4-term-boosting"></a>Exemplo 4: Aumento de prazos
+
+O aumento de prazos refere-se à classificação de um documento mais elevado se contiver o termo aumentado, em relação a documentos que não contêm o termo. Para impulsionar um termo, use o caret, `^` símbolo com um fator de impulso (um número) no final do termo que você está procurando. O padrão do fator de impulso é 1, e embora tenha de ser positivo, pode ser inferior a 1 (por exemplo, 0.2). O aumento de prazos difere dos perfis de pontuação em que os perfis de pontuação impulsionam certos campos, em vez de termos específicos.
+
+Nesta consulta "antes", procure "acesso à praia" e note que existem sete documentos que correspondem em um ou ambos os termos.
 
 ```http
-POST /indexes/nycjobs/docs?api-version=2020-06-30
+POST /indexes/hotel-samples-index/docs/search?api-version=2020-06-30
 {
-    "count": true,
+    "search": "beach access",
     "queryType": "full",
-    "search": "business_title:\"senior analyst\"~0",
-    "searchFields": "business_title",
-    "select": "business_title"
+    "select": "HotelName, Description, Tags",
+    "searchFields": "HotelName, Description, Tags",
+    "count": true
 }
 ```
 
-## <a name="example-5-term-boosting"></a>Exemplo 5: Aumento de prazos
+Na verdade, há apenas um documento que corresponde ao "acesso", e como é o único jogo, a sua colocação é alta (segunda posição) mesmo que o documento esteja faltando o termo "praia".
 
-O aumento de prazos refere-se à classificação de um documento mais elevado se contiver o termo aumentado, em relação a documentos que não contêm o termo. Para impulsionar um termo, use o caret, `^` símbolo com um fator de impulso (um número) no final do termo que você está procurando.
-
-Nesta consulta "antes", procure empregos com o termo *analista de computadores* e note que não há resultados com ambas as palavras *computador* e *analista*, mas os empregos *informáticos* estão no topo dos resultados.
-
-```http
-POST /indexes/nycjobs/docs?api-version=2020-06-30
-{
-    "count": true,
-    "queryType": "full",
-    "search": "business_title:computer analyst",
-    "searchFields": "business_title",
-    "select": "business_title"
-}
+```json
+"@odata.count": 7,
+"value": [
+    {
+        "@search.score": 2.2723424,
+        "HotelName": "Nova Hotel & Spa",
+        "Description": "1 Mile from the airport.  Free WiFi, Outdoor Pool, Complimentary Airport Shuttle, 6 miles from the beach & 10 miles from downtown."
+    },
+    {
+        "@search.score": 1.5507699,
+        "HotelName": "Old Carrabelle Hotel",
+        "Description": "Spacious rooms, glamorous suites and residences, rooftop pool, walking access to shopping, dining, entertainment and the city center."
+    },
+    {
+        "@search.score": 1.5358944,
+        "HotelName": "Whitefish Lodge & Suites",
+        "Description": "Located on in the heart of the forest. Enjoy Warm Weather, Beach Club Services, Natural Hot Springs, Airport Shuttle."
+    },
+    {
+        "@search.score": 1.3433652,
+        "HotelName": "Ocean Air Motel",
+        "Description": "Oceanfront hotel overlooking the beach features rooms with a private balcony and 2 indoor and outdoor pools. Various shops and art entertainment are on the boardwalk, just steps away."
+    },
 ```
 
-Na consulta "depois", repita a procura, desta vez impulsionando os resultados com o termo *analista* ao longo do termo *computador* se ambas as palavras não existirem. Uma versão legível humana da consulta é `search=business_title:computer analyst^2` . Para uma consulta viável no Carteiro, `^2` é codificado como `%5E2` .
+Na consulta "depois", repita a procura, desta vez impulsionando os resultados com o termo "praia" ao longo do termo "acesso". Uma versão legível humana da consulta é `search=Description:beach^2 access` . Dependendo do seu cliente, poderá ter de expressar `^2` como `%5E2` .
 
-```http
-POST /indexes/nycjobs/docs?api-version=2020-06-30
-{
-    "count": true,
-    "queryType": "full",
-    "search": "business_title:computer analyst%5e2",
-    "searchFields": "business_title",
-    "select": "business_title"
-}
-```
+Depois de impulsionar o termo "praia", a partida no Old Carrabelle Hotel desce para o sexto lugar.
 
-A resposta a esta consulta deve ser semelhante à seguinte imagem.
+<!-- Consider a scoring profile that boosts matches in a certain field, such as "genre" in a music app. Term boosting could be used to further boost certain search terms higher than others. For example, "rock^2 electronic" will boost documents that contain the search terms in the "genre" field higher than other searchable fields in the index. Furthermore, documents that contain the search term "rock" will be ranked higher than the other search term "electronic" as a result of the term boost value (2). -->
 
-  :::image type="content" source="media/search-query-lucene-examples/termboostingafter.png" alt-text="Aumento de prazos após" border="false":::
-
-O aumento de prazos difere dos perfis de pontuação em que os perfis de pontuação impulsionam certos campos, em vez de termos específicos. O exemplo a seguir ajuda a ilustrar as diferenças.
-
-Considere um perfil de pontuação que impulsione os jogos em determinado campo, como o **género** no exemplo musicstoreindex. O aumento de prazos poderia ser usado para aumentar ainda mais certos termos de pesquisa mais elevados do que outros. Por exemplo, "rock^2 electronic" irá impulsionar documentos que contenham os termos de pesquisa no campo do **género** mais elevados do que outros campos pes pesjáveis no índice. Além disso, os documentos que contenham o termo de pesquisa "rock" serão classificados acima do outro termo de pesquisa "eletrónico" como resultado do valor de aumento do termo (2).
-
-Ao definir o nível de fator, quanto maior for o fator de impulso, mais relevante será o termo relativo a outros termos de pesquisa. Por padrão, o fator de impulso é 1. Embora o fator de impulso tenha de ser positivo, pode ser inferior a 1 (por exemplo, 0,2).
-
-## <a name="example-6-regex"></a>Exemplo 6: Regex
+## <a name="example-5-regex"></a>Exemplo 5: Regex
 
 Uma pesquisa regular de expressão encontra uma correspondência com base no conteúdo entre barras para a frente "/", como documentado na [classe RegExp](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/util/automaton/RegExp.html).
 
 ```http
-POST /indexes/nycjobs/docs?api-version=2020-06-30
+POST /indexes/hotel-samples-index/docs/search?api-version=2020-06-30
 {
-    "count": true,
+    "search": "HotelName:/(Mo|Ho)tel/",
     "queryType": "full",
-    "search": "business_title:/(Sen|Jun)ior/",
-    "searchFields": "business_title",
-    "select": "business_title"
+    "select": "HotelName",
+    "count": true
 }
 ```
 
-A resposta a esta consulta deve ser semelhante à seguinte imagem.
+A resposta a esta consulta deve ser semelhante ao seguinte exemplo:
 
-  :::image type="content" source="media/search-query-lucene-examples/regex.png" alt-text="Consulta regex" border="false":::
+```json
+    "@odata.count": 22,
+    "value": [
+        {
+            "@search.score": 1.0,
+            "HotelName": "Days Hotel"
+        },
+        {
+            "@search.score": 1.0,
+            "HotelName": "Triple Landscape Hotel"
+        },
+        {
+            "@search.score": 1.0,
+            "HotelName": "Smile Hotel"
+        },
+        {
+            "@search.score": 1.0,
+            "HotelName": "Pelham Hotel"
+        },
+        {
+            "@search.score": 1.0,
+            "HotelName": "Sublime Cliff Hotel"
+        },
+        {
+            "@search.score": 1.0,
+            "HotelName": "Twin Dome Motel"
+        },
+        {
+            "@search.score": 1.0,
+            "HotelName": "Nova Hotel & Spa"
+        },
+        {
+            "@search.score": 1.0,
+            "HotelName": "Scarlet Harbor Hotel"
+        },
+```
 
 > [!Note]
-> As consultas de Regex não são [analisadas.](./search-lucene-query-architecture.md#stage-2-lexical-analysis) A única transformação realizada em termos de consulta parcial é a redução.
+> As consultas de Regex não são [analisadas.](./search-lucene-query-architecture.md#stage-2-lexical-analysis) A única transformação realizada em termos de consulta parcial é o invólucro mais baixo.
 >
 
-## <a name="example-7-wildcard-search"></a>Exemplo 7: Pesquisa de Wildcard
+## <a name="example-6-wildcard-search"></a>Exemplo 6: Pesquisa wildcard
 
-Pode utilizar sintaxe geralmente reconhecida para pesquisas de caracteres múltiplos \* () ou simples (?) de caracteres. Note que o parser de consulta Lucene suporta o uso destes símbolos com um único termo, e não uma frase.
+Pode utilizar sintaxe geralmente reconhecida para pesquisas de caracteres múltiplos `*` () ou simples `?` () de caracteres wildcard. Note que o parser de consulta Lucene suporta o uso destes símbolos com um único termo, e não uma frase.
 
-Nesta consulta, procure empregos que contenham o prefixo 'prog' que incluiria títulos empresariais com os termos de programação e programador nele. Não é possível utilizar um `*` ou símbolo como o primeiro `?` personagem de uma pesquisa.
+Nesta consulta, procure nomes de hotéis que contenham o prefixo 'sc'. Não é possível utilizar um `*` ou símbolo como o primeiro `?` personagem de uma pesquisa.
 
 ```http
-POST /indexes/nycjobs/docs?api-version=2020-06-30
+POST /indexes/hotel-samples-index/docs/search?api-version=2020-06-30
 {
-    "count": true,
+    "search": "HotelName:sc*",
     "queryType": "full",
-    "search": "business_title:prog*",
-    "searchFields": "business_title",
-    "select": "business_title"
+    "select": "HotelName",
+    "count": true
 }
 ```
 
-A resposta a esta consulta deve ser semelhante à seguinte imagem.
+A resposta a esta consulta deve ser semelhante ao seguinte exemplo:
 
-  :::image type="content" source="media/search-query-lucene-examples/wildcard.png" alt-text="Consulta wildcard" border="false":::
+```json
+    "@odata.count": 2,
+    "value": [
+        {
+            "@search.score": 1.0,
+            "HotelName": "Scarlet Harbor Hotel"
+        },
+        {
+            "@search.score": 1.0,
+            "HotelName": "Scottish Inn"
+        }
+    ]
+```
 
 > [!Note]
-> As consultas wildcard não são [analisadas.](./search-lucene-query-architecture.md#stage-2-lexical-analysis) A única transformação realizada em termos de consulta parcial é a redução.
+> As consultas wildcard não são [analisadas.](./search-lucene-query-architecture.md#stage-2-lexical-analysis) A única transformação realizada em termos de consulta parcial é o invólucro mais baixo.
 >
 
 ## <a name="next-steps"></a>Passos seguintes
@@ -283,5 +366,5 @@ Referência de sintaxe adicional, arquitetura de consulta e exemplos podem ser e
 + [Exemplos de consulta de sintaxe lucene para a construção de consultas avançadas](search-query-lucene-examples.md)
 + [Como funciona a pesquisa em texto completo no Azure Cognitive Search](search-lucene-query-architecture.md)
 + [Sintaxe de consulta simples](query-simple-syntax.md)
-+ [Sintaxe de consulta Lucene completo](query-lucene-syntax.md)
++ [Sintaxe de consulta Lucene completa](query-lucene-syntax.md)
 + [Sintaxe de filtro](search-query-odata-filter.md)

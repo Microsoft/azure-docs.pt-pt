@@ -10,12 +10,12 @@ ms.author: wiassaf
 ms.reviewer: sstein
 ms.custom: references_regions
 ms.date: 03/02/2021
-ms.openlocfilehash: 4006cedf5f24ab2fc08e41b58f8acf90c404f668
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 9dc4d17ea95362dd915bd1dfdfd82f4cdec611b8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101680116"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101692815"
 ---
 # <a name="maintenance-window-preview"></a>Janela de manutenção (Pré-visualização)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -28,7 +28,7 @@ Para obter mais informações sobre eventos de manutenção, consulte [o Plano p
 
 O Azure executa atualizações de manutenção planeadas na Base de Dados Azure SQL e nos recursos de Instância Gerida SQL periodicamente que incluem atualizações para hardware subjacente, software incluindo sistema operativo subjacente (OS) e o motor SQL. Durante uma atualização de manutenção, os recursos estão totalmente disponíveis e acessíveis, mas algumas das atualizações de manutenção requerem uma falha, uma vez que o Azure retira instâncias offline por um curto período de tempo para aplicar as atualizações de manutenção (oito segundos de duração, em média).  As atualizações de manutenção planeadas ocorrem uma vez a cada 35 dias, em média, o que significa que o cliente pode esperar aproximadamente um evento de manutenção planeado por mês por base de dados Azure SQL ou sql de gestão, e apenas durante as ranhuras da janela de manutenção selecionadas pelo cliente.   
 
-A janela de manutenção destina-se a cargas de trabalho empresariais sensíveis às possíveis interrupções de conectividade que podem resultar de eventos de manutenção planeados durante a janela padrão.  
+A janela de manutenção destina-se a cargas de trabalho empresariais que não sejam resilientes a problemas de conectividade intermitentes que possam resultar de eventos de manutenção planeados.
 
 A janela de manutenção pode ser configurada utilizando o portal Azure, PowerShell, CLI ou AZure API. Pode ser configurado na criação ou para bases de dados SQL existentes e instâncias geridas pela SQL.
 
@@ -37,15 +37,15 @@ A janela de manutenção pode ser configurada utilizando o portal Azure, PowerSh
 Por padrão, todas as bases de dados Azure SQL e bases de dados de casos geridos são atualizadas apenas durante as 17:00 às 8:00 horas locais diariamente para evitar interrupções de horas de trabalho de pico. A hora local é determinada pela [região de Azure](https://azure.microsoft.com/global-infrastructure/geographies/) que acolhe o recurso. Pode ajustar ainda mais as atualizações de manutenção para um tempo adequado à sua base de dados, escolhendo entre duas ranhuras adicionais de janela de manutenção:
 
 * **Janela padrão,** 17:00 às 8:00 horas locais de segunda a domingo 
-* Janela do dia da semana, das 22h às 6h locais de segunda a quinta-feira: **Requer opt-in do cliente** 
-* Janela de fim de semana, das 22h às 6h locais sexta-feira - domingo: **Requer opt-in do cliente**  
+* Janela do dia da semana, das 22h às 6h locais de segunda a quinta-feira
+* Janela de fim de semana, 22:00 às 6:00 horas locais sexta-feira - domingo
 
 Uma vez feita a seleção da janela de manutenção, todas as atualizações de manutenção planeadas só ocorrerão durante a janela à sua escolha.   
 
 > [!Note]
 > Além das atualizações de manutenção planeadas, em raras circunstâncias eventos de manutenção não planeados podem causar indisponibilidade. 
 
-### <a name="cost"></a>Custo
+### <a name="cost-and-eligibility"></a>Custo e elegibilidade
 
 A escolha de uma janela de manutenção é gratuita para os [seguintes tipos](https://azure.microsoft.com/support/legal/offer-details/)de oferta de subscrição : Pay-As-You-Go, Cloud Solution Provider (CSP), Microsoft Enterprise ou Microsoft Customer Agreement.
 

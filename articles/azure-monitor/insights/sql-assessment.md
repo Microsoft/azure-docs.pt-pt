@@ -1,17 +1,16 @@
 ---
 title: Otimize o seu ambiente de servidor SQL com | do Azure Monitor Microsoft Docs
 description: Com o Azure Monitor, pode utilizar a solução SQL Health Check para avaliar o risco e a saúde dos seus ambientes num intervalo regular.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/05/2020
-ms.openlocfilehash: e0a7a5b9e19436deaed45382fe23063fa61edadf
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 0f2319ea6ba314c08a67651667837f05df5765a1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100587246"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723236"
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-azure-monitor"></a>Otimize o seu ambiente SQL com a solução SQL Server Health Check no Azure Monitor
 

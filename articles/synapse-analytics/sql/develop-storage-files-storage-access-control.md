@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 116fb10956b02b5f6fe578565b9049d9fad54837
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 1ee631e3e4a13a18bb61ee6237ff67a49f663179
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101674195"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101693905"
 ---
 # <a name="control-storage-account-access-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Acesso de conta de armazenamento de controlo para piscina SQL sem servidor em Azure Synapse Analytics
 
@@ -122,7 +122,7 @@ Siga estes passos para configurar a firewall da sua conta de armazenamento e adi
     Connect-AzAccount
     ```
 4. Defina variáveis em PowerShell: 
-    - Nome do grupo de recursos - você pode encontrá-lo no portal Azure em visão geral do espaço de trabalho synapse.
+    - Nome do grupo de recursos - pode encontrá-lo no portal Azure na visão geral da conta de Armazenamento.
     - Nome da conta - nome da conta de armazenamento que está protegida pelas regras de firewall.
     - ID do inquilino - você pode encontrar isso no portal Azure em Azure Ative Diretório em informações de inquilino.
     - Nome do espaço de trabalho - Nome do espaço de trabalho synapse.

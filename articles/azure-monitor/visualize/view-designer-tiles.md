@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/17/2018
-ms.openlocfilehash: b73fa9702a95897afbca53e2de70dcabc04a4665
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: abcd95a0c433b59df6e7a564e5db948ea2a9eaf5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100613901"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717218"
 ---
 # <a name="reference-guide-to-view-designer-tiles-in-azure-monitor"></a>Guia de referência para ver azulejos do designer no Azure Monitor
 Ao utilizar o View Designer no Azure Monitor, pode criar uma variedade de visualizações personalizadas no portal Azure que podem ajudá-lo a visualizar dados no seu espaço de trabalho Log Analytics. Este artigo é um guia de referência para as definições dos azulejos que estão disponíveis nas suas vistas personalizadas.
@@ -24,7 +24,7 @@ Para mais informações sobre o View Designer, consulte:
 
 Os azulejos disponíveis do View Designer são descritos na tabela seguinte:  
 
-| Mosaico | Description |
+| Mosaico | Descrição |
 |:--- |:--- |
 | [Number](#number-tile) |A contagem de registos de uma consulta. |
 | [Dois números](#two-numbers-tile) |As contagens de registos de duas consultas diferentes. |
@@ -36,7 +36,7 @@ Os azulejos disponíveis do View Designer são descritos na tabela seguinte:
 As secções seguintes descrevem os tipos de azulejos e as suas propriedades em detalhe.
 
 > [!NOTE]
-> Os azulejos nas vistas são [baseados](../log-query/log-query-overview.md) em consultas de registo no seu espaço de trabalho Log Analytics. Atualmente, não suportam [consultas de recursos cruzados](../log-query/cross-workspace-query.md) para obter dados da Application Insights.
+> Os azulejos nas vistas são [baseados](../logs/log-query-overview.md) em consultas de registo no seu espaço de trabalho Log Analytics. Atualmente, não suportam [consultas de recursos cruzados](../logs/cross-workspace-query.md) para obter dados da Application Insights.
 
 ## <a name="number-tile"></a>Azulejo de número
 O **azulejo Número** exibe tanto a contagem de registos de uma consulta de registo como uma etiqueta.
@@ -46,7 +46,7 @@ O **azulejo Número** exibe tanto a contagem de registos de uma consulta de regi
 | Definições | Descrição |
 |:--- |:--- |
 | Nome |O texto que é exibido no topo do azulejo. |
-| Description |O texto que é mostrado sob o nome de azulejo. |
+| Descrição |O texto que é mostrado sob o nome de azulejo. |
 | **Mosaico** | |
 | Legenda |O texto que é mostrado sob o valor. |
 | Consulta |A consulta que é executada. É apresentada a contagem dos registos que são devolvidos pela consulta. |
@@ -64,7 +64,7 @@ Este azulejo apresenta a contagem de registos de duas consultas de log diferente
 | Definições | Descrição |
 |:--- |:--- |
 | Nome |O texto que é exibido no topo do azulejo. |
-| Description |O texto que é mostrado sob o nome de azulejo. |
+| Descrição |O texto que é mostrado sob o nome de azulejo. |
 | **Primeiro azulejo** | |
 | Legenda |O texto que é mostrado sob o valor. |
 | Consulta |A consulta que é executada. É apresentada a contagem dos registos que são devolvidos pela consulta. |
@@ -85,7 +85,7 @@ O **azulejo Donut** apresenta um único número que resume uma coluna de valor n
 | Definições | Descrição |
 |:--- |:--- |
 | Nome |O texto que é exibido no topo do azulejo. |
-| Description |O texto que é mostrado sob o nome de azulejo. |
+| Descrição |O texto que é mostrado sob o nome de azulejo. |
 | **Anel** | |
 | Consulta |A consulta que é executada para o donut. A primeira propriedade é um valor de texto, e a segunda propriedade é um valor numérico. Esta consulta normalmente utiliza a palavra-chave da *medida* para resumir os resultados. |
 | **Anel** |**Centro>** |
@@ -109,7 +109,7 @@ Este azulejo é um gráfico de linha que exibe várias séries a partir de uma c
 | Definições | Descrição |
 |:--- |:--- |
 | Nome |O texto que é exibido no topo do azulejo. |
-| Description |O texto que é mostrado sob o nome de azulejo. |
+| Descrição |O texto que é mostrado sob o nome de azulejo. |
 | **Gráfico de linha** | |
 | Consulta |A consulta que é executada para o gráfico de linha. A primeira propriedade é um valor de texto, e a segunda propriedade é um valor numérico. Esta consulta normalmente utiliza a palavra-chave da *medida* para resumir os resultados. Se a consulta utilizar a palavra-chave de *intervalo,* o eixo X utiliza este intervalo de tempo. Se a consulta não utilizar a palavra-chave de *intervalo,* o eixo x utiliza intervalos de hora. |
 | **Gráfico de linha** |**> eixo Y** |
@@ -130,7 +130,7 @@ Este azulejo tem tanto um gráfico de linha que exibe várias séries a partir d
 | Definições | Descrição |
 |:--- |:--- |
 | Nome |O texto que é exibido no topo do azulejo. |
-| Description |O texto que é mostrado sob o nome de azulejo. |
+| Descrição |O texto que é mostrado sob o nome de azulejo. |
 | **Gráfico de linha** | |
 | Consulta |A consulta que é executada para o gráfico de linha. A primeira propriedade é um valor de texto, e a segunda propriedade é um valor numérico. Esta consulta normalmente utiliza a palavra-chave da *medida* para resumir os resultados. Se a consulta utilizar a palavra-chave de *intervalo,* o eixo X utiliza este intervalo de tempo. Se a consulta não utilizar a palavra-chave de *intervalo,* o eixo x utiliza intervalos de hora. |
 | **Gráfico de linha** |**> Callout** |
@@ -155,7 +155,7 @@ O azulejo **de duas linhas de tempo** exibe os resultados de duas consultas de r
 | Definições | Descrição |
 |:--- |:--- |
 | Nome |O texto que é exibido no topo do azulejo. |
-| Description |O texto que é mostrado sob o nome de azulejo. |
+| Descrição |O texto que é mostrado sob o nome de azulejo. |
 | Primeiro Gráfico | |
 | Legenda |O texto que é exibido sob a chamada para a primeira série. |
 | Cor |A cor que é usada para as colunas da primeira série. |
@@ -173,5 +173,5 @@ O azulejo **de duas linhas de tempo** exibe os resultados de duas consultas de r
 
 
 ## <a name="next-steps"></a>Passos seguintes
-* Saiba mais [sobre consultas de log](../log-query/log-query-overview.md) para apoiar as consultas em azulejos.
+* Saiba mais [sobre consultas de log](../logs/log-query-overview.md) para apoiar as consultas em azulejos.
 * Adicione [peças de visualização](view-designer-parts.md) à sua vista personalizada.

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/02/2021
-ms.openlocfilehash: 0af868f62f9bc62ee6b4b2a10d16f8eed632b6d3
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 7551ef88c2251b64cf6f6db1de4fed22db2c69e2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101680365"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101693650"
 ---
 # <a name="create-a-semantic-query-in-cognitive-search"></a>Criar uma consulta semântica na Pesquisa Cognitiva
 
@@ -82,7 +82,7 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
 
 ### <a name="formulate-the-request"></a>Formular o pedido
 
-1. Desaperte "consultaType" a "semântica" e "queryLanguage" para "en-us". Ambos os parâmetros são necessários.
+1. Definido **`"queryType"`** para "semântico" e **`"queryLanguage"`** para "en-nos" Ambos os parâmetros são necessários.
 
    A queryLanguage deve ser consistente com quaisquer [analisadores de linguagem](index-add-language-analyzers.md) atribuídos às definições de campo no esquema de índice. Se a queryLanguage for "en-us", então qualquer analisador de idiomas também deve ser uma variante inglesa ("en.microsoft" ou "en.lucene"). Quaisquer analisadores linguísticos agnósticos, tais como palavra-chave ou simples, não têm qualquer conflito com valores de dúvida.
 
@@ -90,7 +90,9 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
 
    Embora o conteúdo de um índice de pesquisa possa ser composto em vários idiomas, a entrada de consulta é mais provável em um. O motor de busca não verifica a compatibilidade da queryLanguage, do analisador de línguas e do idioma em que o conteúdo é composto, por isso certifique-se de que as consultas de âmbito em conformidade para evitar produzir resultados incorretos.
 
-1. Opcional, mas recomendado, desconte "searchFields".
+<a name="searchfields"></a>
+
+1. Conjunto **`"searchFields"`** (opcional, mas recomendado).
 
    Numa consulta semântica, a ordem dos campos em "searchFields" reflete a prioridade ou a importância relativa do campo em rankings semânticos. Apenas serão utilizados campos de cordas de nível superior (autónomos ou numa coleção). Como searchFields tem outros comportamentos em consultas de Lucene simples e completas (onde não há ordem de prioridade implícita), quaisquer campos e subcampos não-cordas não resultarão em erro, mas também não serão usados no ranking semântico.
 
@@ -104,9 +106,9 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
 
    + Se não houver campos especificados, todos os campos pescáveis serão considerados para classificação semântica de documentos. No entanto, isto não é recomendado, uma vez que pode não produzir os resultados mais ideais do seu índice de pesquisa.
 
-1. Remova as cláusulas "orderBy", se existirem num pedido existente. A pontuação semântica é usada para encomendar resultados, e se incluir lógica de classificação explícita, um erro HTTP 400 é devolvido.
+1. Remova **`"orderBy"`** as cláusulas, se existirem num pedido existente. A pontuação semântica é usada para encomendar resultados, e se incluir lógica de classificação explícita, um erro HTTP 400 é devolvido.
 
-1. Opcionalmente, adicione "respostas" definidas como "extrativas" e especifique o número de respostas se quiser mais de 1.
+1. Opcionalmente, adicione **`"answers"`** o conjunto a "extrativo" e especifique o número de respostas se quiser mais de 1.
 
 1. Opcionalmente, personalize o estilo de destaque aplicado às legendas. As legendas aplicam-se a formatação de destaque sobre as passagens-chave no documento que resumem a resposta. A predefinição é `<em>`. Se quiser especificar o tipo de formatação (por exemplo, fundo amarelo), pode definir o destaquePreTag e realçar oPostTag.
 

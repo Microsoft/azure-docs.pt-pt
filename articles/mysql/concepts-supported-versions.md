@@ -6,42 +6,28 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/3/2020
-ms.openlocfilehash: 8033117d9e3c31f8aa9bba06afb7c3b1b7bba67f
-ms.sourcegitcommit: 1bf144dc5d7c496c4abeb95fc2f473cfa0bbed43
+ms.openlocfilehash: 920f6a4fec1ec8a260a98641888268e4955bbf44
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95751033"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718782"
 ---
 # <a name="supported-azure-database-for-mysql-server-versions"></a>Banco de dados Azure suportado para versões de servidor MySQL
 
-A Azure Database for MySQL foi desenvolvida a partir da [MySQL Community Edition,](https://www.mysql.com/products/community/)utilizando o motor InnoDB.
-
-MySQL usa o esquema de nomeação X.Y.Z. X é a versão principal, Y é a versão menor, e Z é o lançamento da correção de erro. Para obter mais informações sobre o esquema, consulte a [documentação mySQL](https://dev.mysql.com/doc/refman/5.7/en/which-version.html).
-
+A Azure Database for MySQL foi desenvolvida a partir da [MySQL Community Edition,](https://www.mysql.com/products/community/)utilizando o motor de armazenamento InnoDB. O serviço suporta toda a versão principal atual suportada pela comunidade, nomeadamente MySQL 5.6, 5.7 e 8.0. MySQL usa o esquema de nomeação X.Y.Z onde X é a versão principal, Y é a versão menor, e Z é o lançamento da correção de bug. Para obter mais informações sobre o esquema, consulte a [documentação mySQL](https://dev.mysql.com/doc/refman/5.7/en/which-version.html).
 
 > [!NOTE]
-> No serviço, é utilizado um gateway para redirecionar as ligações para as instâncias de servidor. Depois de a ligação ser estabelecida, o cliente MySQL apresenta a versão do MySQL definida no gateway, não a versão real em execução na instância do servidor MySQL. Para determinar a versão da instância do servidor MySQL, utilize o comando `SELECT VERSION();` no prompt do MySQL.
+> Na opção de implementação do Servidor Único, é utilizado um gateway para redirecionar as ligações para as instâncias do servidor. Depois de a ligação ser estabelecida, o cliente MySQL apresenta a versão do MySQL definida no gateway, não a versão real em execução na instância do servidor MySQL. Para determinar a versão da instância do servidor MySQL, utilize o comando `SELECT VERSION();` no prompt do MySQL.
 
-A Azure Database for MySQL suporta atualmente as seguintes versões:
+A Azure Database for MySQL suporta atualmente as seguintes versões principais e menores do MySQL:
 
-## <a name="mysql-version-56"></a>MySQL Versão 5.6
 
-Desbloqueio de correção de erros: 5.6.47
-
-Consulte as [notas de lançamento](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-47.html) do MySQL para saber mais sobre melhorias e correções nesta versão.
-
-## <a name="mysql-version-57"></a>MySQL Versão 5.7
-
-Desbloqueio de correção de erros: 5.7.29
-
-Consulte as [notas de lançamento](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-29.html) do MySQL para saber mais sobre melhorias e correções nesta versão.
-
-## <a name="mysql-version-80"></a>MySQL Versão 8.0
-
-Desbloqueio de correção de erro: 8.0.15
-
-Consulte as [notas de lançamento](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-15.html) do MySQL para saber mais sobre melhorias e correções nesta versão.
+| Versão | Servidor Único <br/> Versão menor atual |Servidor Flexível (Pré-visualização) <br/> Versão menor atual  |
+|:-------------------|:-------------------------------------------|:---------------------------------------------|
+|MySQL Versão 5.6 |  [5.6.47](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-47.html) | Não suportado|
+|MySQL Versão 5.7 | [5.7.29](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-29.html) | [5.7.29](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-29.html)|
+|MySQL Versão 8.0 | [8.0.15](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-15.html) | [8.0.21](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-21.html)|
 
 ## <a name="managing-updates-and-upgrades"></a>Gerir atualizações e atualizações
 O serviço gere automaticamente a correção para atualizações de versões de correção de erros. Por exemplo, 5.7.20 a 5.7.21.  

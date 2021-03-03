@@ -12,12 +12,12 @@ author: emlisa
 ms.author: emlisa
 ms.reviewer: sstein, emlisa
 ms.date: 10/28/2020
-ms.openlocfilehash: 53b6b4f5d783029cb53de71fe3c47b8cb2d26968
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: 5e84831798ec1c5f42facb04a25da9d8631b9d04
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99593423"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690588"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Alta disponibilidade para Azure SQL Database e SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -52,7 +52,7 @@ Configuração redundante de zona para o nível de serviço de finalidade geral 
 
 A configuração redundante da zona para o nível de finalidade geral tem duas camadas:  
 
-- Uma camada de dados imponente com os ficheiros de base de dados (.mdf/.ldf) que são armazenados em ZRS PFS [(parte de ficheiros premium](../../storage/files/storage-how-to-create-premium-fileshare.md)de armazenamento redundante de zona . Utilizando [o armazenamento redundante de zona,](../../storage/common/storage-redundancy.md) os ficheiros de dados e registos são copiados sincronizadamente em três zonas de disponibilidade de Azure fisicamente isoladas.
+- Uma camada de dados imponente com os ficheiros de base de dados (.mdf/.ldf) que são armazenados em ZRS PFS [(parte de ficheiros premium](../../storage/files/storage-how-to-create-file-share.md)de armazenamento redundante de zona . Utilizando [o armazenamento redundante de zona,](../../storage/common/storage-redundancy.md) os ficheiros de dados e registos são copiados sincronizadamente em três zonas de disponibilidade de Azure fisicamente isoladas.
 - Uma camada de computação apátrida que executa o processo sqlservr.exe e contém apenas dados transitórios e em cache, tais como TempDB, bases de dados de modelos no SSD anexado, e cache de plano, piscina tampão e piscina de colunas na memória. Este nó apátrida é operado pela Azure Service Fabric que inicializa sqlservr.exe, controla a saúde do nó, e executa falha em outro nó, se necessário. Para bases de dados de finalidades gerais redundantes de zona, os nós com capacidade suplente estão prontamente disponíveis noutras Zonas de Disponibilidade para falha.
 
 A versão redundante da zona da arquitetura de alta disponibilidade para o nível de serviço para fins gerais é ilustrada pelo seguinte diagrama:

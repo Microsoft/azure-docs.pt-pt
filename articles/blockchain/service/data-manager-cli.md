@@ -4,12 +4,12 @@ description: Criar e gerir um Gestor de Dados blockchain para o Serviço Azure B
 ms.date: 03/30/2020
 ms.topic: how-to
 ms.reviewer: ravastra
-ms.openlocfilehash: f067f4413f6ad8541cd36a7581f9243bed4e195f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 867a51b60afa56005bbb297b345f8a9260160ab8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87023743"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101722641"
 ---
 # <a name="configure-blockchain-data-manager-using-azure-cli"></a>Configurar o Blockchain Data Manager com a CLI do Azure
 
@@ -73,9 +73,9 @@ Exemplo de configuração JSON para criar uma instância blockchain Manager na r
 
 ``` json
 {
-    "location": "eastus",
-    "properties": {
-    }
+    "location": "eastus",
+    "properties": {
+    }
 }
 ```
 
@@ -137,11 +137,11 @@ Configurar exemplo JSON para criar um recurso de entrada na região *leste dos E
 
 ``` json
 {
-    "location": "eastus",
-    "properties": {
-        "inputType": "Ethereum",
-        "dataSource": {
-            "resourceId": "/subscriptions/<Subscription ID>/resourceGroups/<Resource group>/providers/Microsoft.Blockchain/blockchainMembers/<Blockchain member>/transactionNodes/transaction-node"
+    "location": "eastus",
+    "properties": {
+        "inputType": "Ethereum",
+        "dataSource": {
+            "resourceId": "/subscriptions/<Subscription ID>/resourceGroups/<Resource group>/providers/Microsoft.Blockchain/blockchainMembers/<Blockchain member>/transactionNodes/transaction-node"
         }
     }
 }
@@ -209,11 +209,11 @@ Configurar exemplo JSON para criar um recurso de saída na região *leste dos EU
 
 ``` json
 {
-    "location": "eastus",
-    "properties": {
-        "outputType": "EventGrid",
-        "dataSource": {
-            "resourceId": "/subscriptions/<Subscription ID>/resourceGroups/<Resource group>/providers/Microsoft.EventGrid/topics/<event grid topic>"
+    "location": "eastus",
+    "properties": {
+        "outputType": "EventGrid",
+        "dataSource": {
+            "resourceId": "/subscriptions/<Subscription ID>/resourceGroups/<Resource group>/providers/Microsoft.EventGrid/topics/<event grid topic>"
         }
     }
 }
@@ -286,9 +286,9 @@ Configuração JSON exemplo para criar um recurso de aplicação na região *les
 
 ``` json
 {
-    "location": "eastus",
-    "properties": {
-        "artifactType": "EthereumSmartContract",
+    "location": "eastus",
+    "properties": {
+        "artifactType": "EthereumSmartContract",
         "content": {
             "abiFileUrl": "<ABI URL>",
             "bytecodeFileUrl": "<Bytecode URL>",
@@ -350,7 +350,7 @@ az resource invoke-action \
 | ação | Use **começar** a executar o observador. |
 | ids | Identificação de recursos de observadores. Substitua \<Subscription ID\> \<Resource group\> , e pelos \<Watcher name\> valores para o recurso do observador.|
 
-### <a name="start-instance-example"></a>Exemplo de exemplo de exemplo de exemplo de início
+### <a name="start-instance-example"></a>Exemplo de exemplo de início
 
 Inicie uma instância do Gestor de Dados blockchain chamada *mywatcher*.
 

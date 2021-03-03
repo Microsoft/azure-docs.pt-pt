@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter, devx-track-java
-ms.openlocfilehash: ed8948ddeddf25272355cd1dc06d4e95c52f7f62
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: 1edfbca2f2a16aeebc1244b298426dc46d72c6d5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98035262"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708820"
 ---
 # <a name="create-your-first-java-function-in-azure-using-intellij"></a>Crie a sua primeira função Java em Azure usando IntelliJ
 
@@ -56,13 +56,13 @@ Para criar e publicar funções Java para a Azure utilizando o IntelliJ, instale
 
    ![O browser de início de sessão de dispositivo][intellij-azure-link-ms-account]
 
-6. Na caixa de diálogo **Select Subscriptions** (Selecionar Subscrições), selecione as subscrições que pretende utilizar e clique em **OK**.
+6. Na caixa de diálogo **Select Subscriptions,** selecione as subscrições que pretende utilizar e, em seguida, clique em **Selecionar**.
 
    ![A caixa de diálogo Selecionar Subscrições][intellij-azure-login-select-subs]
    
 ## <a name="create-your-local-project"></a>Crie o seu projeto local
 
-Nesta secção, utiliza-se o Azure Toolkit para o IntelliJ para criar um projeto local de Funções Azure. Mais tarde neste artigo, publicará o seu código de função para Azure. 
+Nesta secção, utiliza-se o Azure Toolkit para o IntelliJ para criar um projeto local de Funções Azure. Mais adiante neste artigo, irá publicar o seu código de função no Azure. 
 
 1. Abra o diálogo IntelliJ Welcome, *selecione Criar Novo Projeto* para abrir um novo assistente de projeto, selecione *Azure Functions*.
 

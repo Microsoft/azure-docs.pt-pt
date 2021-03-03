@@ -4,19 +4,21 @@ description: Proteção de dados V2 de referência de segurança Azure
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/20/2020
+ms.date: 02/22/2021
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 687c344aefc70729c85fb37d615ec0a272ff4fde
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: c8d907062835f18393946b04f1f1e9d5ec345411
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97368873"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101735765"
 ---
 # <a name="security-control-v2-data-protection"></a>Controlo de Segurança V2: Proteção de Dados
 
 A Proteção de Dados cobre o controlo da proteção de dados em repouso, em trânsito e através de mecanismos de acesso autorizados. Isto inclui descobrir, classificar, proteger e monitorizar ativos de dados sensíveis usando controlo de acesso, encriptação e login no Azure.
+
+Para ver a política de Azure incorporada aplicável, consulte [detalhes da iniciativa de conformidade regulamentar de referência de segurança Azure: Proteção de dados](../../governance/policy/samples/azure-security-benchmark#data-protection)
 
 ## <a name="dp-1-discovery-classify-and-label-sensitive-data"></a>DP-1: Descobrir, classificar e etiquetar dados confidenciais
 
@@ -24,9 +26,9 @@ A Proteção de Dados cobre o controlo da proteção de dados em repouso, em tr�
 |--|--|--|--|
 | DP-1 | 13.1, 14.5, 14.7 | SC-28 |
 
-Descubra, classifique e rotule os seus dados sensíveis para que possa conceber os controlos apropriados para garantir que informações sensíveis são armazenadas, processadas e transmitidas de forma segura pelos sistemas tecnológicos da organização. 
+Descubra, classifique e rotule os seus dados sensíveis para que possa conceber os controlos apropriados para garantir que informações sensíveis são armazenadas, processadas e transmitidas de forma segura pelos sistemas tecnológicos da organização.
 
-Utilize o Azure Information Protection (e a ferramenta de análise associada do mesmo) para informações confidenciais em documentos do Office no Azure, em ambientes no local, no Office 365 e noutras localizações. 
+Utilize o Azure Information Protection (e a ferramenta de análise associada do mesmo) para informações confidenciais em documentos do Office no Azure, em ambientes no local, no Office 365 e noutras localizações.
 
 Pode utilizar o Azure SQL Information Protection para ajudar na classificação e etiquetagem das informações armazenadas nas bases de dados da Base de Dados SQL do Azure.
 
@@ -38,7 +40,7 @@ Pode utilizar o Azure SQL Information Protection para ajudar na classificação 
 
 **Stakeholders de Segurança do Cliente** [(Saiba mais):](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)
 
-- [Segurança de Aplicações e DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)  
+- [Segurança de Aplicações e DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops)
 
 - [Segurança de Dados](/azure/cloud-adoption-framework/organize/cloud-security-data-security) 
 
@@ -84,9 +86,9 @@ O Azure Information Protection (AIP) proporciona capacidades de monitorização 
 
 Se necessário para a conformidade em termos da prevenção contra perda de dados (Data Loss Prevention, DLP), pode utilizar uma solução de DLP baseada em anfitrião para impor controlos de deteção e/ou prevenção para evitar a exfiltração de dados.
 
-- [Ativar o ATP do SQL do Azure](../../azure-sql/database/threat-detection-overview.md)
+- [Azure Defender para SQL](../../azure-sql/database/azure-defender-for-sql.md)
 
-- [Ativar o ATP do Armazenamento do Azure](../../storage/common/azure-defender-storage-configure.md?tabs=azure-security-center)
+- [Azure Defender para Armazenamento](../../storage/common/azure-defender-storage-configure.md?tabs=azure-security-center)
 
 **Responsabilidade**: Partilhada
 
@@ -102,13 +104,13 @@ Se necessário para a conformidade em termos da prevenção contra perda de dado
 
 | Azure ID | Controlos do CIS v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
-| DP-4 | 14.4 | SC-8 |
+| DP-4 | 14,4 | SC-8 |
 
-Para complementar os controlos de acesso, os dados em trânsito devem ser protegidos contra ataques "fora de banda" (por exemplo, captura de tráfego) utilizando encriptação para garantir que os atacantes não podem ler ou modificar facilmente os dados. 
+Para complementar os controlos de acesso, os dados em trânsito devem ser protegidos contra ataques "fora de banda" (como a captura de tráfego) utilizando encriptação para garantir que os atacantes não podem ler ou modificar facilmente os dados.
 
-Embora isto seja facultativo para o tráfego em redes privadas, isto é fundamental para o tráfego em redes externas e públicas. Para o tráfego HTTP, certifique-se de que qualquer cliente que se conecte aos seus recursos Azure pode negociar TLS v1.2 ou maior. Para uma gestão remota, utilize SSH (para Linux) ou RDP/TLS (para Windows) em vez de um protocolo não encriptado. As versões e protocolos obsoletos de SSL, TLS e SSH, e as cifras fracas devem ser desativadas.  
+Embora isto seja facultativo para o tráfego em redes privadas, isto é fundamental para o tráfego em redes externas e públicas. Para o tráfego HTTP, certifique-se de que qualquer cliente que se conecte aos seus recursos Azure pode negociar TLS v1.2 ou maior. Para uma gestão remota, utilize SSH (para Linux) ou RDP/TLS (para Windows) em vez de um protocolo não encriptado. As versões e protocolos obsoletos de SSL, TLS e SSH, e as cifras fracas devem ser desativadas.
 
-Por padrão, o Azure fornece encriptação para dados em trânsito entre centros de dados Azure. 
+Por padrão, o Azure fornece encriptação para dados em trânsito entre centros de dados Azure.
 
 - [Compreender a encriptação em trânsito com Azure](../fundamentals/encryption-overview.md#encryption-of-data-in-transit)
 
@@ -132,7 +134,7 @@ Por padrão, o Azure fornece encriptação para dados em trânsito entre centros
 
 | Azure ID | Controlos do CIS v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
-| DP-5 | 14.8 | SC-28, SC-12 |
+| DP-5 | 14,8 | SC-28, SC-12 |
 
 Para complementar os controlos de acesso, os dados em repouso devem ser protegidos contra ataques "fora da banda" (como aceder ao armazenamento subjacente) utilizando encriptação. Isto ajuda a garantir que os atacantes não podem ler ou modificar facilmente os dados. 
 

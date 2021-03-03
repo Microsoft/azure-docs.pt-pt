@@ -7,12 +7,12 @@ services: monitoring
 ms.topic: conceptual
 ms.date: 02/16/2018
 ms.subservice: alerts
-ms.openlocfilehash: 3ca776a1869874042a6a97cdd59dc00d3a917d33
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 98558c2b1525094277dd6c165349f25ce5cd3b23
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614502"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717881"
 ---
 # <a name="sms-alert-behavior-in-action-groups"></a>Comportamento de alerta de SMS em grupos de ação
 
@@ -30,7 +30,7 @@ Um recetor SMS configurado como parte de um grupo de ação recebe um SMS quando
 * Nome curto do grupo de ação este alerta foi enviado para
 * Título do alerta
 
-| RESPONDER | Description |
+| RESPONDER | Descrição |
 | ----- | ----------- |
 | DESATIVAR `<Action Group Short name>` | Desativa mais SMS do Grupo de Ação |
 | ATIVAR `<Action Group Short name>` | Re-habilita SMS do Grupo de Ação |
@@ -42,7 +42,6 @@ Um recetor SMS configurado como parte de um grupo de ação recebe um SMS quando
 >Se um utilizador não tiver sido subscrito a partir de alertas SMS, mas for adicionado a um novo grupo de ação; receberão alertas SMS para o novo grupo de ação, mas continuam sem ser subscritos de todos os grupos de ação anteriores.
 
 ## <a name="next-steps"></a>Passos Seguintes
-Obtenha uma [visão geral dos alertas de registo de atividade e](../platform/alerts-overview.md) aprenda a ser alertado  
+Obtenha uma [visão geral dos alertas de registo de atividade e](./alerts-overview.md) aprenda a ser alertado  
 Saiba mais sobre [a limitação da taxa de SMS](alerts-rate-limiting.md)  
-Saiba mais sobre [grupos de ação](../platform/action-groups.md)
-
+Saiba mais sobre [grupos de ação](./action-groups.md)

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2021
 ms.author: terrylan
-ms.openlocfilehash: d85b1fdd433c372bb41adec6e3d33013f19363f0
-ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
+ms.openlocfilehash: f87ea1e1c9f43de4e9e0f94d1cd855615a0a880c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98747178"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101712050"
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Visão geral da gestão e monitorização da segurança da Azure
 Este artigo fornece uma visão geral das funcionalidades e serviços de segurança que a Azure fornece para ajudar na gestão e monitorização dos serviços de nuvem Azure e máquinas virtuais.
@@ -48,7 +48,7 @@ Saiba mais:
 
 * [Implementar Soluções Antimalware em Máquinas Virtuais do Azure](https://azure.microsoft.com/blog/deploying-antimalware-solutions-on-azure-virtual-machines/)
 * [Microsoft Antimalware para Azure Cloud Services e Máquinas Virtuais](antimalware.md)
-* [Como instalar e configurar a Trend Micro Deep Security como um serviço num VM do Windows](../../virtual-machines/extensions/trend.md)
+* [Como instalar e configurar a Trend Micro Deep Security como um serviço num VM do Windows](/previous-versions/azure/virtual-machines/extensions/trend)
 * [Como instalar e configurar a proteção de ponto final Symantec num VM do Windows](../../virtual-machines/extensions/symantec.md)
 * [Novas opções de antimalware para proteger máquinas virtuais do Azure](https://azure.microsoft.com/blog/new-antimalware-options-for-protecting-azure-virtual-machines/)
 

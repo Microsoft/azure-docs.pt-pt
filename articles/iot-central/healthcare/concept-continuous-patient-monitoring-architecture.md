@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: 9a38a14033fe295c36cf8ac17239b0b8e53f75dc
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: 093e069fa7a3eab06c61f796421a3253d9b92cb1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99831183"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101727503"
 ---
 # <a name="continuous-patient-monitoring-architecture"></a>Arquitetura da monitorização contínua do paciente
 
@@ -45,7 +45,7 @@ Utilize modelos de machine learning com os seus dados FHIR para gerar insights e
 
 ### <a name="provider-dashboard"></a>Painel de instrumentos do fornecedor
 
-Utilize a AZure API para obter dados de FHIR para construir um painel de insights do paciente ou integrá-lo diretamente num registo médico eletrónico utilizado pelas equipas de cuidados. As equipas de cuidados podem usar o painel de instrumentos para ajudar os pacientes e identificar sinais de alerta precoce de deterioração. Para saber mais, consulte o tutorial do [painel de instrumentos Build a Power BI.](howto-health-data-triage.md)
+Utilize a AZure API para obter dados de FHIR para construir um painel de insights do paciente ou integrá-lo diretamente num registo médico eletrónico utilizado pelas equipas de cuidados. As equipas de cuidados podem usar o painel de instrumentos para ajudar os pacientes e identificar sinais de alerta precoce de deterioração. Para saber mais, consulte o tutorial do [painel de instrumentos Build a Power BI.](tutorial-health-data-triage.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 

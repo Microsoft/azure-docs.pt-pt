@@ -1,20 +1,20 @@
 ---
-title: Linha de segurança da política Azure para referência de segurança Azure
+title: Linha de segurança Azure para a Política Azure
 description: A linha de base de segurança da Política Azure fornece orientações processuais e recursos para a implementação das recomendações de segurança especificadas no Benchmark de Segurança Azure.
 author: msmbaldwin
 ms.service: azure-policy
 ms.topic: conceptual
-ms.date: 07/02/2020
+ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: fadbed5607c7ebdd61a42ae054f431840c529d69
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 9916ad6d3b6cb1a63d34004915666226b7836490
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100573074"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101740359"
 ---
-# <a name="azure-policy-security-baseline-for-azure-security-benchmark"></a>Linha de segurança da política Azure para referência de segurança Azure
+# <a name="azure-security-baseline-for-azure-policy"></a>Linha de segurança Azure para a Política Azure
 
 Esta linha de base de segurança aplica orientações do Benchmark de [Segurança Azure](../../../security/benchmarks/overview.md) à Política Azure. A Referência de Segurança do Azure disponibiliza recomendações para proteger as suas soluções cloud no Azure. O conteúdo é agrupado pelos domínios de conformidade e **controlos de segurança** **definidos** pelo Azure Security Benchmark e pela orientação conexa aplicável à Política Azure. Foram excluídos **os controlos** não aplicáveis à Política Azure. Para ver como a Política Azure mapeia completamente para o Azure Security Benchmark, consulte o [ficheiro de mapeamento de base de segurança da Política Azure completo](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
 
@@ -22,117 +22,111 @@ Para um mapeamento dos controlos de Benchmark de Segurança Azure para definiç�
 
 A Azure Policy utiliza o termo _Propriedade_ em vez de _Responsabilidade_. Para mais informações sobre _a Propriedade_, consulte [as definições de política da Azure](./definition-structure.md#type) e [a responsabilidade partilhada na nuvem.](../../../security/fundamentals/shared-responsibility.md)
 
+## <a name="logging-and-monitoring"></a>Início de sessão e Monitorização
 
-## <a name="logging-and-monitoring"></a>Início de sessão e monitorização
-
-*Para obter mais informações, consulte [o controlo de segurança: Registar e monitorizar](../../../security/benchmarks/security-control-logging-monitoring.md).*
+*Para obter mais informações, consulte o [Benchmark de Segurança Azure: Registo e monitorização](../../../security/benchmarks/security-control-logging-monitoring.md).*
 
 ### <a name="23-enable-audit-logging-for-azure-resources"></a>2.3: Permitir a exploração de auditorias para recursos Azure
 
 **Orientação**: A Política azul usa registos de atividade, que são automaticamente habilitados, para incluir fonte de evento, data, utilizador, timetamp, endereços de origem, endereços de destino e outros elementos úteis.
 
-* [Como recolher registos e métricas da plataforma com o Azure Monitor](../../../azure-monitor/essentials/diagnostic-settings.md)
+- [Como recolher registos e métricas da plataforma com o Azure Monitor](/azure/azure-monitor/platform/diagnostic-settings)
 
-* [Compreenda o registo e diferentes tipos de registo em Azure](../../../azure-monitor/essentials/platform-logs-overview.md)
-
-
-**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
+- [Compreenda o registo e diferentes tipos de registo em Azure](/azure/azure-monitor/platform/platform-logs-overview)
 
 **Responsabilidade**: Cliente
 
-## <a name="identity-and-access-control"></a>Identidade e controlo de acesso
+**Monitorização do Centro de Segurança Azure**: Nenhum
 
-*Para obter mais informações, consulte [controlo de segurança: Identidade e controlo de acesso.](../../../security/benchmarks/security-control-identity-access-control.md)*
+## <a name="identity-and-access-control"></a>Identidade e Controlo de Acesso
+
+*Para mais informações, consulte o [Benchmark de Segurança Azure: Identidade e Controlo de Acesso.](../../../security/benchmarks/security-control-identity-access-control.md)*
 
 ### <a name="33-use-dedicated-administrative-accounts"></a>3.3: Utilizar contas administrativas dedicadas
 
-**Orientação**: Criar procedimentos operacionais padrão em torno da utilização de contas administrativas dedicadas. Utilize a Azure Security Center Identity and Access Management para monitorizar o número de contas administrativas. 
-
-Também pode ativar uma solução Just-In-Time / Just-Enough-Access utilizando funções privilegiadas de gestão de [identidade privilegiada da Azure AD](../../../active-directory/privileged-identity-management/pim-configure.md) ou [gestor de recursos Azure.](../../../azure-resource-manager/management/overview.md)
-
-
-**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
+**Orientação**: Criar procedimentos operacionais padrão em torno da utilização de contas administrativas dedicadas. Utilize a Azure Security Center Identity and Access Management para monitorizar o número de contas administrativas. Também pode ativar uma solução Just-In-Time / Just-Enough-Access utilizando [o Azure Ative Directory (Azure AD)](../../../active-directory/privileged-identity-management/pim-configure.md) Funções privilegiadas de gestão de identidade privilegiada ou [gestor de recursos Azure.](../../../azure-resource-manager/management/overview.md)
 
 **Responsabilidade**: Cliente
 
-### <a name="36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks"></a>3.6: Utilizar máquinas dedicadas (Estações de acesso privilegiadas) para todas as tarefas administrativas
+**Monitorização do Centro de Segurança Azure**: O [Azure Security Benchmark](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) é a iniciativa política padrão do Centro de Segurança e é a base para as [recomendações do Centro de Segurança.](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md) As definições da Política Azure relacionadas com este controlo são ativadas automaticamente pelo Centro de Segurança. Os alertas relacionados com este controlo podem requerer um plano [Azure Defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) para os serviços relacionados.
 
-**Orientação**: Utilize PAWs (estações de trabalho privilegiadas de acesso) com MFA configurados para iniciar sessão e configurar recursos Azure.
+**Definições incorporadas da Azure Policy - Microsoft.GuestConfiguration**:
 
-* [Saiba mais sobre estações de trabalho de acesso privilegiado](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
+[!INCLUDE [Resource Policy for Microsoft.GuestConfiguration 3.3](../../../../includes/policy/standards/asb/rp-controls/microsoft.guestconfiguration-3-3.md)]
 
-* [Como ativar o MFA no Azure](../../../active-directory/authentication/howto-mfa-getstarted.md)
+### <a name="36-use-secure-azure-managed-workstations-for-administrative-tasks"></a>3.6: Utilizar estações de trabalho seguras e geridas pelo Azure para tarefas administrativas
 
+**Orientação**: Utilize estações de trabalho de acesso privilegiada (PAWs) com autenticação multifactor configurada para iniciar sessão e configurar recursos Azure.
 
-**Monitorização do Centro de Segurança do Azure**: Não aplicável
+- [Saiba mais sobre estações de trabalho de acesso privilegiado](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
+
+- [Como permitir a autenticação multifactor em Azure](../../../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Responsabilidade**: Cliente
 
-## <a name="data-protection"></a>Proteção de dados
+**Monitorização do Centro de Segurança Azure**: Nenhum
 
-*Para obter mais informações, consulte [o controlo de segurança: proteção de dados](../../../security/benchmarks/security-control-data-protection.md).*
+## <a name="data-protection"></a>Proteção de Dados
 
-### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Utilizar o Azure RBAC para controlar o acesso aos recursos
+*Para obter mais informações, veja [Referência de Segurança do Azure: Proteção de dados](../../../security/benchmarks/security-control-data-protection.md).*
+
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Utilizar o Azure RBAC para controlar o acesso aos recursos 
 
 **Orientação**: Utilize o controlo de acesso baseado em funções Azure (Azure RBAC) para controlar o acesso à Política Azure.
 
-* [Permissões do Azure RBAC na Política Azure](../overview.md#azure-rbac-permissions-in-azure-policy)
+- [Permissões do Azure RBAC na Política Azure](https://docs.microsoft.com/azure/governance/policy/overview#azure-rbac-permissions-in-azure-policy)
 
-* [Como configurar o Azure RBAC](../../../role-based-access-control/role-assignments-portal.md)
-
-
-**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
+- [Como configurar o Azure RBAC](../../../role-based-access-control/role-assignments-portal.md)
 
 **Responsabilidade**: Cliente
+
+**Monitorização do Centro de Segurança Azure**: Nenhum
 
 ### <a name="49-log-and-alert-on-changes-to-critical-azure-resources"></a>4.9: Registar e alertar sobre alterações aos recursos críticos do Azure
 
 **Orientação**: Utilize o Monitor Azure com registos de atividade para criar alertas para quando as alterações ocorrem na Política Azure.
 
-* [Como criar alertas para eventos de registo de atividades do Azure](../../../azure-monitor/alerts/alerts-activity-log.md)
-
-
-**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
+- [Como criar alertas para eventos de registo de atividades do Azure](/azure/azure-monitor/platform/alerts-activity-log)
 
 **Responsabilidade**: Cliente
 
-## <a name="inventory-and-asset-management"></a>Gestão de recursos e inventário
+**Monitorização do Centro de Segurança Azure**: Nenhum
 
-*Para obter mais informações, consulte [controlo de segurança: Inventário e gestão de ativos.](../../../security/benchmarks/security-control-inventory-asset-management.md)*
+## <a name="inventory-and-asset-management"></a>Gestão de Recursos e Inventário
+
+*Para mais informações, consulte o [Azure Security Benchmark: Inventário e Gestão de Ativos.](../../../security/benchmarks/security-control-inventory-asset-management.md)*
 
 ### <a name="62-maintain-asset-metadata"></a>6.2: Manter metadados de ativos
 
 **Orientação**: Aplicar etiquetas aos recursos Azure, dando metadados para organizar logicamente numa taxonomia. Utilize o efeito _de modificação_ da Política Azure para informar e impor o cumprimento e a governação consistente da tag.
 
-* [Tutorial: Criar e gerir políticas](../tutorials/create-and-manage.md)
+- [Tutorial: Criar e gerir políticas](../tutorials/create-and-manage.md)
 
-* [Tutorial: Gerir a governação da tag](../tutorials/govern-tags.md)
-
-
-**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
+- [Tutorial: Gerir a governação da tag](../tutorials/govern-tags.md)
 
 **Responsabilidade**: Cliente
 
-### <a name="64-define-and-maintain-an-inventory-of-approved-azure-resources"></a>6.4: Definir e Manter um inventário dos recursos aprovados do Azure
+**Monitorização do Centro de Segurança Azure**: Nenhum
+
+### <a name="64-define-and-maintain-inventory-of-approved-azure-resources"></a>6.4: Definir e manter o inventário dos recursos aprovados da Azure
 
 **Orientação**: Crie um inventário de definições políticas aprovadas e atribuições políticas de acordo com as suas necessidades organizacionais.
 
-**Monitorização do Centro de Segurança do Azure**: Não aplicável
-
 **Responsabilidade**: Cliente
+
+**Monitorização do Centro de Segurança Azure**: Nenhum
 
 ### <a name="65-monitor-for-unapproved-azure-resources"></a>6.5: Monitor para recursos Azure não aprovados
 
 **Orientação**: Use a Política Azure para impor restrições ao tipo de recursos que podem ser criados nas suas subscrições.
 
-* [Como configurar e gerir o Azure Policy](../tutorials/create-and-manage.md)
-
-
-**Monitorização do Centro de Segurança do Azure**: Não aplicável
+- [Como configurar e gerir o Azure Policy](../tutorials/create-and-manage.md)
 
 **Responsabilidade**: Cliente
 
+**Monitorização do Centro de Segurança Azure**: Nenhum
+
 ## <a name="next-steps"></a>Passos seguintes
 
-- Consulte a [referência de segurança Azure](../../../security/benchmarks/overview.md)
-- Saiba mais sobre as [linhas de base de segurança do Azure](../../../security/benchmarks/security-baselines-overview.md)
+- Veja a [Descrição geral da Referência de Segurança do Azure v2](/azure/security/benchmarks/overview)
+- Saiba mais sobre as [linhas de base de segurança do Azure](/azure/security/benchmarks/security-baselines-overview)

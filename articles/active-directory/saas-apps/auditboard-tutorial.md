@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com o AuditBoard Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com o AuditBoard | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o AuditBoard.
 services: active-directory
 author: jeevansd
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/03/2019
 ms.author: jeedes
-ms.openlocfilehash: 28661d15cd051d2e77174fc438632d02753a4a94
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 670ceb9f342bc629ebad4630f2ecdff311e54d1b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92457508"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101689135"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-auditboard"></a>Tutorial: Integração do Diretório Ativo Azure com o AuditBoard
 
@@ -140,7 +140,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
     a. No campo **Nome** entra **BrittaSimon**.
   
-    b. No tipo de campo **do nome do utilizador** `brittasimon\@yourcompanydomain.extension` . Por exemplo, BrittaSimon@contoso.com
+    b. No tipo de campo **do nome do utilizador** `brittasimon@yourcompanydomain.extension` . Por exemplo, BrittaSimon@contoso.com
 
     c. Selecione Mostrar caixa de verificação de **palavra-passe** e, em seguida, anotar o valor que é apresentado na caixa de palavra-passe.
 
@@ -150,7 +150,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
 Nesta secção, permite que Britta Simon utilize o Azure como único sinal, concedendo acesso ao AuditBoard.
 
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **AuditBoard**.
+1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações** e, em seguida, selecione **AuditBoard**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 

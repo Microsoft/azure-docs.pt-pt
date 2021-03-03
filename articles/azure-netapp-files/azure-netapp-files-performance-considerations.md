@@ -1,5 +1,5 @@
 ---
-title: Considerações de desempenho para ficheiros Azure NetApp Microsoft Docs
+title: Considerações de desempenho para ficheiros Azure NetApp | Microsoft Docs
 description: Saiba mais sobre o desempenho dos Ficheiros Azure NetApp, incluindo a relação entre quota e limite de produção e como aumentar/diminuir dinamicamente a quota de volume.
 services: azure-netapp-files
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 02/19/2021
 ms.author: b-juche
-ms.openlocfilehash: edfebe3d9470defbe70b3694d5574e58ca3b5938
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f963c87148c08a4855befc5afb79d9c5ea0f4481
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91325526"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713393"
 ---
 # <a name="performance-considerations-for-azure-netapp-files"></a>Considerações de desempenho para o Azure NetApp Files
 
@@ -72,5 +72,6 @@ Se utilizar volumes QoS manuais, não precisa de aumentar a quota de volume para
 
 ## <a name="next-steps"></a>Passos seguintes
 
+- [Calculadora de desempenho de ficheiros Azure NetApp](https://cloud.netapp.com/azure-netapp-files/tco?hs_preview=tIKQbfoF-41214739590)
 - [Níveis de serviços do Azure NetApp Files](azure-netapp-files-service-levels.md)
 - [Testes de referência de desempenho para Linux](performance-benchmarks-linux.md)

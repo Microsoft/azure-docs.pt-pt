@@ -6,13 +6,13 @@ ms.author: dech
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 05/19/2020
-ms.openlocfilehash: 8315369d2100036a50aae770267aa04bceb2dfb0
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.date: 02/22/2021
+ms.openlocfilehash: f7002b3968e91447a26315f31347ad469aa5daca
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93339806"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690656"
 ---
 # <a name="import-notebooks-from-a-github-repo-into-azure-cosmos-db"></a>Importar cadernos de um GitHub repo para Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -57,7 +57,12 @@ No fluxo gitHub regular depois de cometer as alterações, normalmente irá empu
 
 :::image type="content" source="./media/import-github-notebooks/commit-changes-github.png" alt-text="Editar cadernos e comprometer alterações no GitHub":::
 
+Depois de editar o caderno, pode [publicá-lo na galeria do caderno.](publish-notebook-gallery.md) 
+
 ## <a name="next-steps"></a>Passos seguintes
 
 * Conheça os benefícios dos [cadernos Azure Cosmos DB Jupyter.](cosmosdb-jupyter-notebooks.md)
-
+* [Explore a galeria de amostras de cadernos](https://cosmos.azure.com/gallery.html)
+* [Publique cadernos na galeria de cadernos Azure Cosmos DB](publish-notebook-gallery.md)
+* [Use funcionalidades e comandos de caderno Python](use-python-notebook-features-and-commands.md)
+* [Use funcionalidades e comandos de caderno C#](use-csharp-notebook-features-and-commands.md)

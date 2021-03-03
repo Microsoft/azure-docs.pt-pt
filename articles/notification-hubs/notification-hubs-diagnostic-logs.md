@@ -6,12 +6,12 @@ ms.author: brjones
 ms.service: notification-hubs
 ms.topic: article
 ms.date: 01/29/2021
-ms.openlocfilehash: b532dca6ceba44a32132bf64b322e1b4764fd5fa
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: b98a04a70062461cec603bea83052c4f1224819e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100418144"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101736241"
 ---
 # <a name="enable-diagnostics-logs-for-notification-hubs"></a>Ativar registos de diagnóstico para centros de notificação
 
@@ -141,8 +141,7 @@ As novas definições fazem efeito em cerca de 10 minutos. Os registos são apre
 ## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre a configuração das definições de diagnóstico, consulte:
-* [Visão geral dos registos de diagnósticos do Azure](../azure-monitor/platform/platform-logs-overview.md).
+* [Visão geral dos registos de diagnósticos do Azure](../azure-monitor/essentials/platform-logs-overview.md).
 
 Para saber mais sobre os Hubs de Notificação Azure, consulte:
 * [O que são os Hubs de Notificação do Azure?](notification-hubs-push-notification-overview.md)
-

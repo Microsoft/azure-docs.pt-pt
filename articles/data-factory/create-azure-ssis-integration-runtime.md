@@ -3,15 +3,15 @@ title: Criar um tempo de integração Azure-SSIS na Azure Data Factory
 description: Saiba como criar um tempo de integração Azure-SSIS na Azure Data Factory para que possa implementar e executar pacotes SSIS em Azure.
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 10/13/2020
+ms.date: 02/22/2021
 author: swinarko
 ms.author: sawinark
-ms.openlocfilehash: 4e3137b08c558c8e9dfadda07f0b8bb66433ee83
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 4b26abe1d1340e4e8c5f034fad72f612f0b246a2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100389421"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101739419"
 ---
 # <a name="create-an-azure-ssis-integration-runtime-in-azure-data-factory"></a>Criar um tempo de integração Azure-SSIS na Azure Data Factory
 
@@ -74,7 +74,7 @@ Para obter uma lista das regiões de Azure em que a Data Factory e um Azure-SSIS
 
 A tabela a seguir compara certas funcionalidades de um servidor de base de dados Azure SQL e da SQL Managed Instance no que diz respeito ao Azure-SSIR IR:
 
-| Funcionalidade | Base de Dados SQL| SQL Caso gerido |
+| Funcionalidade | SQL Database| SQL Caso gerido |
 |---------|--------------|------------------|
 | **Agendamento** | O Agente de Servidor SQL não está disponível.<br/><br/>Consulte [a execução de um pacote num oleoduto da Fábrica de Dados.](/sql/integration-services/lift-shift/ssis-azure-schedule-packages#activity)| O Agente de Instância Gerida está disponível. |
 | **Autenticação** | Pode criar um caso SSISDB com um utilizador de base de dados contido que represente qualquer grupo AD Azure com a identidade gerida da sua fábrica de dados como membro na **função db_owner.**<br/><br/>Consulte [a autenticação Azure AD para criar um SSISDB no servidor base de dados Azure SQL](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database). | Pode criar um caso SSISDB com um utilizador de base de dados contido que represente a identidade gerida da sua fábrica de dados. <br/><br/>Consulte [a autenticação Azure AD para criar um SSISDB em Azure SQL Managed Instance](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-sql-managed-instance). |
@@ -147,15 +147,21 @@ Se selecionar a caixa de verificação, preencha os seguintes passos para trazer
    
       Com base no servidor de base de dados selecionado, a instância SSISDB pode ser criada em seu nome como uma única base de dados, como parte de uma piscina elástica, ou em um caso gerido. Pode ser acessível numa rede pública ou através da adesão a uma rede virtual. Para obter orientações na escolha do tipo de servidor de base de dados para hospedar o SSISDB, consulte [Compare SQL Database e SQL Managed Instance](../data-factory/create-azure-ssis-integration-runtime.md#comparison-of-sql-database-and-sql-managed-instance).   
 
-      Se selecionar um servidor de base de dados Azure SQL com regras de firewall IP/pontos finais de serviço de rede virtual ou uma instância gerida com ponto final privado para hospedar o SSISDB, ou se necessitar de acesso a dados no local sem configurar um IR auto-hospedado, tem de se juntar ao seu Azure-SSIS IR a uma rede virtual. Para obter mais informações, consulte [Criar um Azure-SSIS IR numa rede virtual.]()
+      Se selecionar um servidor de base de dados Azure SQL com regras de firewall IP/pontos finais de serviço de rede virtual ou uma instância gerida com ponto final privado para hospedar o SSISDB, ou se necessitar de acesso a dados no local sem configurar um IR auto-hospedado, tem de se juntar ao seu Azure-SSIS IR a uma rede virtual. Para obter mais informações, consulte [Junte-se a uma Azure-SSIS IR a uma rede virtual.](./join-azure-ssis-integration-runtime-virtual-network.md)
 
    1. Selecione a **autenticação Azure AD de utilização com a identidade gerida para a sua** caixa de verificação ADF para escolher o método de autenticação para o seu servidor de base de dados para hospedar o SSISDB. Você escolherá a autenticação SQL ou a autenticação AZURE AD com a identidade gerida para a sua fábrica de dados.
 
-      Se selecionar a caixa de verificação, terá de adicionar a identidade gerida para a sua fábrica de dados num grupo AD Azure com permissões de acesso ao servidor de base de dados. Para obter mais informações, consulte [Criar um IR Azure-SSIS com autenticação AD Azure]().
+      Se selecionar a caixa de verificação, terá de adicionar a identidade gerida para a sua fábrica de dados num grupo AD Azure com permissões de acesso ao servidor de base de dados. Para obter mais informações, consulte [a autenticação Azure AD para um Azure-SSIS IR](./enable-aad-authentication-azure-ssis-ir.md).
    
    1. Para **o nome de utilizador Admin,** insira o nome de utilizador de autenticação SQL para o servidor de base de dados para hospedar o SSISDB. 
 
    1. Para **a Palavra-passe de Admin,** introduza a palavra-passe de autenticação SQL para o seu servidor de base de dados para hospedar o SSISDB. 
+
+   1. Selecione o **par de runtime de integração Azure-SSIS de dupla posição com caixa de verificação de failover SSISDB** para configurar um duplo standby Azure SSIS IR pair que funciona em sincronização com Azure SQL Database/Managed Instance failover group para continuidade de negócios e recuperação de desastres (BCDR).
+   
+      Se selecionar a caixa de verificação, insira um nome para identificar o seu par de IRs Azure-SISis primários e secundários na caixa de texto de dupla dupla dupla de **espera.** Tem de introduzir o mesmo nome de pares ao criar as suas IRs Azure-SSIS primárias e secundárias.
+
+      Para mais informações, consulte [configurar o seu Azure-SSIS IR para BCDR](./configure-bcdr-azure-ssis-integration-runtime.md).
 
    1. Para **o Catálogo Database Service Tier**, selecione o nível de serviço para o seu servidor de base de dados para hospedar o SSISDB. Selecione o nível Básico, Standard ou Premium ou selecione um nome elástico da piscina.
 

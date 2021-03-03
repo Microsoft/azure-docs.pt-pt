@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 05/21/2018
 tags: connectors
-ms.openlocfilehash: 52bf42434640dc965999895549b4fa12a139dcce
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 306298e4338665ef52add7f46d6da8675c97c3e2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95999608"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101716555"
 ---
 # <a name="find-results-in-bing-search-by-using-azure-logic-apps"></a>Encontre resultados em Bing Search utilizando aplicações Azure Logic
 

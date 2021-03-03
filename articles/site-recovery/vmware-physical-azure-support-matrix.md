@@ -3,12 +3,12 @@ title: Matriz de suporte para vMware/recuperação de desastres físicos na recu
 description: Resume o suporte para a recuperação de desastres de VMware VMs e servidor físico para Azure usando a Recuperação do Site Azure.
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: aecc7ccb6e633fc9c27b254f98931d682fa3d21b
-ms.sourcegitcommit: b513b0becf878eb9a1554c26da53aa48d580bb22
+ms.openlocfilehash: 5eab1a1c8d085ab48dd54012908d40eec99ca4c7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100534686"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101705080"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matriz de suporte para recuperação de desastres de VMware VMs e servidores físicos para Azure
 
@@ -93,7 +93,7 @@ Linux: CentOS | 5.2 a 5.11</b><br/> 6.1 a 6.10</b><br/> </br> 7.0, 7.1, 7.2, 7.3
 Ubuntu | Ubuntu 14.04* servidor LTS [(versões de kernel suportadas pela revisão)](#ubuntu-kernel-versions)<br/>Ubuntu 16.04* servidor LTS [(versões de kernel suportadas pela revisão)](#ubuntu-kernel-versions) </br> Ubuntu 18.04* servidor LTS [(versões de kernel suportadas pela revisão)](#ubuntu-kernel-versions) </br> Ubuntu 20.04* servidor LTS [(versões de kernel suportadas pela revisão)](#ubuntu-kernel-versions) </br> (inclui *suporte para todos os 14.04.* x,*16.04.* x,*18.04.* x,*20.04.* versões x*
 Debian | Debian 7/Debian 8 (inclui suporte para todos os 7. *x,* 8. *versões x);* Debian 9 (inclui suporte para 9.1 a 9.13. Debian 9.0 não é suportado.), Debian 10 [(Versões de kernel suportadas por revisão)](#debian-kernel-versions)
 SUSE Linux | SUSE Linux Enterprise Server 12 SP1, SP2, SP3, SP4, [SP5](https://support.microsoft.com/help/4570609) [(versões de kernel suportadas pela revisão)](#suse-linux-enterprise-server-12-supported-kernel-versions) <br/> SUSE Linux Enterprise Server 15, 15 SP1 [(versões de kernel suportadas pela revisão)](#suse-linux-enterprise-server-15-supported-kernel-versions) <br/> SUSE Linux Enterprise Server 11 SP3. [Certifique-se de baixar o mais recente instalador de agentes de mobilidade no servidor de configuração](vmware-physical-mobility-service-overview.md#download-latest-mobility-agent-installer-for-suse-11-sp3-rhel-5-debian-7-server). </br> SUSE Linux Enterprise Server 11 SP4 </br> **Nota:** Não é suportada a atualização de máquinas replicadas do SUSE Linux Enterprise Server 11 SP3 para SP4. Para atualizar, desative a replicação e reativa após a atualização. <br/>|
-Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, [7.7](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery), [7.8](https://support.microsoft.com/help/4573888/), [7.9](https://support.microsoft.com/help/4597409/), [8.0](https://support.microsoft.com/help/4573888/), [8.1](https://support.microsoft.com/help/4573888/), [8.2](https://support.microsoft.com/help/4573888/), [8.3](https://support.microsoft.com/help/4597409/)  <br/> Executando o núcleo compatível com chapéu vermelho ou desbloqueio de kernel da empresa inquebrável 3, 4 & 5 (UEK3, UEK4, UEK5)<br/><br/>8.1<br/>Funcionando em todos os núcleos UEK e kernel RedHat <= 3.10.0-1062.* são suportados em [9.35](https://support.microsoft.com/help/4573888/) Suporte para o resto dos núcleos RedHat está disponível em [9.36](https://support.microsoft.com/help/4578241/)
+Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, [7.7](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery), [7.8](https://support.microsoft.com/help/4573888/), [7.9](https://support.microsoft.com/help/4597409/), [8.0](https://support.microsoft.com/help/4573888/), [8.1](https://support.microsoft.com/help/4573888/), [8.3](https://support.microsoft.com/help/4597409/)  <br/> Executando o núcleo compatível com chapéu vermelho ou desbloqueio de kernel da empresa inquebrável 3, 4 & 5 (UEK3, UEK4, UEK5)<br/><br/>8.1<br/>Funcionando em todos os núcleos UEK e kernel RedHat <= 3.10.0-1062.* são suportados em [9.35](https://support.microsoft.com/help/4573888/) Suporte para o resto dos núcleos RedHat está disponível em [9.36](https://support.microsoft.com/help/4578241/)
 
 > [!Note]
 >- Para cada uma das versões do Windows, a Azure Site Recovery apenas suporta [construções de Canais de Manutenção a Longo Prazo (LTSC).](/windows-server/get-started-19/servicing-channels-19#long-term-servicing-channel-ltsc)  Os lançamentos [semi-anuais do Canal](/windows-server/get-started-19/servicing-channels-19#semi-annual-channel) não são atualmente suportados neste momento.
@@ -189,10 +189,10 @@ Adicione o disco em VM replicado | Não suportado.<br/> Desative a replicação 
 Equipa NIC de rede de anfitriões | Suportado para VMware VMs. <br/><br/>Não suportado para a replicação da máquina física.
 Rede de anfitriões VLAN | Sim.
 Rede de anfitriões IPv4 | Sim.
-Rede de anfitriões IPv6 | Não.
-Rede de hóspedes/servidor NIC Teaming | Não.
+Rede de anfitriões IPv6 | N.º
+Rede de hóspedes/servidor NIC Teaming | N.º
 Rede de hóspedes/servidores IPv4 | Sim.
-Rede de hóspedes/servidores IPv6 | Não.
+Rede de hóspedes/servidores IPv6 | N.º
 IP estático de rede de hóspedes/servidor (Windows) | Sim.
 IP estático de rede de hóspedes/servidor (Linux) | Sim. <br/><br/>Os VMs estão configurados para usar o DHCP no failback.
 Rede de hóspedes/servidores múltiplos NICs | Sim.
@@ -243,7 +243,7 @@ Guest/server - excluir o disco | Sim
 Multipata de hóspedes/servidores (MPIO) | Não
 Divisórias GPT de hóspedes/servidor | Cinco divisórias são suportadas a partir do [Update Rollup 37](https://support.microsoft.com/help/4508614/) (versão 9.25 do serviço mobility) em diante. Anteriormente quatro foram apoiados.
 ReFS | O Sistema de Ficheiros Resiliente é suportado com a versão 9.23 ou superior do serviço de mobilidade
-Bota EFI/UEFI de hóspedes/servidor | - Suportado para todos os [OSes uefi do mercado Azure](../virtual-machines/generation-2.md#generation-2-vm-images-in-azure-marketplace) com a versão 9.30 do agente de mobilidade de recuperação do local. <br/> - O tipo de arranque UEFI seguro não é suportado. [Saiba mais.](../virtual-machines/generation-2.md#on-premises-vs-azure-generation-2-vms)
+Bota EFI/UEFI de hóspedes/servidor | - Suportado para todos os [sistemas operativos Azure Marketplace UEFI](../virtual-machines/generation-2.md#generation-2-vm-images-in-azure-marketplace) com a versão 9.30 do agente de mobilidade de Recuperação de Sítios. <br/> - O tipo de arranque UEFI seguro não é suportado. [Saiba mais.](../virtual-machines/generation-2.md#on-premises-vs-azure-generation-2-vms)
 
 ## <a name="replication-channels"></a>Canais de replicação
 

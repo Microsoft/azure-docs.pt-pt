@@ -7,14 +7,14 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 03/02/2021
 ms.topic: how-to
-ms.openlocfilehash: e8d00055d9a4d7355ccd8a33c8a9b811b852f5c8
-ms.sourcegitcommit: 19ffdad48bc4caca8f93c3b067d1cf29234fef47
+ms.openlocfilehash: 45ba08193d4907126bd51412805f04b7aec4fce0
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97955285"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101686398"
 ---
 # <a name="create-azure-arc-data-controller-using-kubernetes-tools"></a>Criar controlador de dados Azure Arc utilizando ferramentas Kubernetes
 
@@ -175,16 +175,27 @@ Editar o seguinte conforme necessário:
 **RECOMENDADO PARA REVER E POSSIVELMENTE ALTERAR INCUMPRIMENTOS**
 - **armazenamento.. nome classe**: a classe de armazenamento a utilizar para os dados do controlador de dados e ficheiros de registo.  Se não tiver a certeza das aulas de armazenamento disponíveis no seu cluster Kubernetes, pode executar o seguinte comando: `kubectl get storageclass` .  O padrão é `default` que pressupõe que existe uma classe de armazenamento que existe e é nomeado `default` não que haja uma classe de armazenamento que _seja_ o padrão.  Nota: Existem duas definições de nome de classe a definir para a classe de armazenamento desejada - uma para dados e outra para registos.
 - **serviçoType**: Altere o tipo de serviço para `NodePort` se não estiver a utilizar um LoadBalancer.  Nota: Existem duas definições de tipo de serviço que precisam de ser alteradas.
+- Na plataforma de contentores Azure Red Hat OpenShift ou Red Hat OpenShift, deve aplicar a restrição de contexto de segurança antes de criar o controlador de dados. Siga as instruções na [Aplicação de uma restrição de contexto de segurança para serviços de dados ativados pelo Azure Arc no OpenShift](how-to-apply-security-context-constraint.md).
+- **Segurança** Para a plataforma de contentores OpenShift ou Red Hat OpenShift do chapéu vermelho, substitua as `security:` definições pelos seguintes valores no ficheiro yaml do controlador de dados. 
+
+```yml
+  security:
+    allowDumps: true
+    allowNodeMetricsCollection: false
+    allowPodMetricsCollection: false
+    allowRunAsRoot: false
+```
 
 **OPCIONAL**
 - **nome**: O nome predefinido do controlador de dados é `arc` , mas pode alterá-lo se quiser.
 - **nome do display**: Desa esta medida para o mesmo valor que o atributo de nome na parte superior do ficheiro.
 - **registo**: O registo do contentor da Microsoft é o predefinido.  Se estiver a retirar as imagens do Registo do Contentor da Microsoft e [a empurrá-las para um registo privado de contentores,](offline-deployment.md)insira aqui o endereço IP ou o nome DNS do seu registo.
 - **estivadorRegistry**: A imagem puxa segredo para usar para retirar as imagens de um registo de contentores privados, se necessário.
-- **repositório**: O repositório predefinido no registo do contentor da Microsoft é `arcdata` .  Se estiver a utilizar um registo de contentores privados, insira o caminho que contém as imagens do contentor de serviços de dados Azure Arr.
+- **repositório**: O repositório predefinido no registo do contentor da Microsoft é `arcdata` .  Se estiver a utilizar um registo de contentores privados, insira o caminho que contém as imagens do contentor do arco Azure.
 - **imageTag**: a marca de versão mais recente está incumprida no modelo, mas pode alterá-la se quiser utilizar uma versão mais antiga.
 
-Exemplo de um ficheiro yaml do controlador de dados completo:
+O exemplo a seguir mostra um ficheiro yaml de controlador de dados completo. Atualize o exemplo para o seu ambiente, com base nos seus requisitos e nas informações acima.
+
 ```yaml
 apiVersion: arcdata.microsoft.com/v1alpha1
 kind: datacontroller
@@ -194,7 +205,7 @@ metadata:
 spec:
   credentials:
     controllerAdmin: controller-login-secret
-    #dockerRegistry: mssql-private-registry - optional if you are using a private container registry that requires authentication using an image pull secret
+    #dockerRegistry: arc-private-registry - optional if you are using a private container registry that requires authentication using an image pull secret
     serviceAccount: sa-mssql-controller
   docker:
     imagePullPolicy: Always

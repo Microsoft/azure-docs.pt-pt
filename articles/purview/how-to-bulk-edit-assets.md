@@ -7,12 +7,12 @@ ms.service: data-catalog
 ms.subservice: data-catalog-gen2
 ms.topic: conceptual
 ms.date: 11/24/2020
-ms.openlocfilehash: c42a6894c33993dc9aee5a9fdd10b1c3a3627320
-ms.sourcegitcommit: 287c20509c4cf21d20eea4619bbef0746a5cd46e
+ms.openlocfilehash: 77bfa3d22d628cf179e95cd4892ec030f22ab35f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97372210"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101693769"
 ---
 # <a name="how-to-bulk-edit-assets-to-tag-glossary-terms"></a>Como editar em massa os ativos para marcar termos glossários
 
@@ -63,11 +63,15 @@ Este artigo descreve como marcar vários termos glossários para uma lista de at
    
     :::image type="content" source="media/how-to-bulk-edit-assets/replace-list.png" alt-text="Screenshot dos termos de remoção.":::
 
-7. Uma vez concluída, feche a lâmina de edição a granel selecionando **Fechar** ou **remover tudo e fechar**. O encerramento não removerá os ativos selecionados, enquanto que remover todos e fechar removerá todos os ativos selecionados.
+7. Repita o acima para classificações, proprietários e especialistas.
+
+    :::image type="content" source="media/how-to-bulk-edit-assets/all-list.png" alt-text="Screenshot dos termos de remoção.":::
+
+8. Uma vez concluída, feche a lâmina de edição a granel selecionando **Fechar** ou **remover tudo e fechar**. O encerramento não removerá os ativos selecionados, enquanto que remover todos e fechar removerá todos os ativos selecionados.
     :::image type="content" source="media/how-to-bulk-edit-assets/close-list.png" alt-text="Imagem de perto.":::
 
    > [!Important]
-   > O número recomendado de ativos para edição a granel é de 15. A seleção de mais de 15 pode causar problemas de desempenho.
+   > O número recomendado de ativos para edição a granel é de 15. A seleção de mais de 25 pode causar problemas de desempenho.
    > A caixa **Visualizada** só será visível se houver pelo menos um ativo selecionado.
 
 

@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 04/11/2020
-ms.openlocfilehash: 66a2bf17ac7cb94dc8e1429d662d7bfe14aa196a
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: d28c45b2d0fc1a123f44020f42c4d2c59c593cb2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101096309"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101709925"
 ---
 # <a name="tutorial-migrate-postgresql-to-azure-db-for-postgresql-online-using-dms-via-the-azure-portal"></a>Tutorial: Migrar PostgreSQL para Azure DB para PostgreSQL on-line usando DMS através do portal Azure
 
@@ -63,7 +63,7 @@ Para concluir este tutorial, precisa de:
 * Configurar a sua [Firewall do Windows para acesso ao motor de bases de dados](/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 * Abra a firewall do Windows para permitir que o Serviço de Migração da Base de Dados de Azure aceda ao Servidor PostgreSQL de origem, que por padrão é a porta TCP 5432.
 * Se estiver a utilizar uma aplicação de firewall à frente da base ou bases de dados, poderá ter de adicionar regras de firewall para permitir que o Azure Database Migration Service aceda à base ou bases de dados de origem para migração.
-* Crie uma regra de [firewall](https://docs.microsoft.com/azure/postgresql/concepts-firewall-rules) ao nível do servidor para a Base de Dados Azure para PostgreSQL para permitir que o Azure Database Migration Service aceda às bases de dados-alvo. Forneça a gama de sub-redes da rede virtual utilizada para o Serviço de Migração da Base de Dados Azure.
+* Crie uma regra de [firewall](../postgresql/concepts-firewall-rules.md) ao nível do servidor para a Base de Dados Azure para PostgreSQL para permitir que o Azure Database Migration Service aceda às bases de dados-alvo. Forneça a gama de sub-redes da rede virtual utilizada para o Serviço de Migração da Base de Dados Azure.
 * Ative a replicação lógica no ficheiro postgresql.config e defina os seguintes parâmetros:
 
   * wal_level = **logical**

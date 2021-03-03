@@ -13,19 +13,19 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 33be57832d9364b859042cd38349c2437bcfcb18
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: a7735de9763f3924cd6baae6af1258f6448c874e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97358151"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690928"
 ---
 # <a name="failover-cluster-instances-with-sql-server-on-azure-virtual-machines"></a>Instâncias de cluster de failover com servidor SQL em Máquinas Virtuais Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 Este artigo introduz diferenças de funcionalidades quando está a trabalhar com instâncias de cluster failover (FCI) para SQL Server em Azure Virtual Machines (VMs). 
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 O SQL Server em VMs Azure utiliza a funcionalidade de Clustering failover do Servidor do Windows (WSFC) para fornecer alta disponibilidade local através de redundância ao nível do servidor: uma instância de cluster de failover. Um FCI é uma única instância do SQL Server que é instalado através de nós WSFC (ou simplesmente cluster) e, possivelmente, através de várias sub-redes. Na rede, um FCI parece ser um exemplo de SQL Server a funcionar num único computador. Mas o FCI fornece failover de um nó WSFC para outro se o nó atual ficar indisponível.
 
@@ -47,7 +47,7 @@ Em ambientes tradicionais agrupados no local, um cluster de failover do Windows 
 
 O SQL Server em VMs Azure oferece várias opções como solução de armazenamento partilhado para uma implementação de instâncias de cluster de failover do SQL Server: 
 
-||[Discos partilhados do Azure](../../../virtual-machines/disks-shared.md)|[Ações de ficheiros premium](../../../storage/files/storage-how-to-create-premium-fileshare.md) |[Espaços de armazenamento Direto (S2D)](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)|
+||[Discos partilhados do Azure](../../../virtual-machines/disks-shared.md)|[Ações de ficheiros premium](../../../storage/files/storage-how-to-create-file-share.md) |[Espaços de armazenamento Direto (S2D)](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)|
 |---------|---------|---------|---------|
 |**Versão mínima do SO**| Todos |Windows Server 2012|Windows Server 2016|
 |**Versão mínima do SqL Server**|Todos|SQL Server 2012|SQL Server 2016|
@@ -105,9 +105,9 @@ Para começar, consulte o [exemplo de cluster failover do SQL Server com discos 
 
 Para começar, consulte a [instância de cluster failover do SQL Server com espaços de armazenamento direto.](failover-cluster-instance-storage-spaces-direct-manually-configure.md) 
 
-### <a name="premium-file-share"></a>Partilha de ficheiros premium
+### <a name="premium-file-share"></a>Partilha de ficheiros Premium
 
-[As ações de ficheiros premium](../../../storage/files/storage-how-to-create-premium-fileshare.md) são uma característica dos [Ficheiros Azure.](../../../storage/files/index.yml) As ações de ficheiros premium são apoiadas por SSD e têm uma latência consistentemente baixa. São totalmente suportados para utilização com casos de cluster failover para SQL Server 2012 ou mais tarde no Windows Server 2012 ou mais tarde. As ações de ficheiros premium dão-lhe maior flexibilidade, pois pode redimensionar e escalar uma partilha de ficheiros sem qualquer tempo de inatividade.
+[As ações de ficheiros premium](../../../storage/files/storage-how-to-create-file-share.md) são uma característica dos [Ficheiros Azure.](../../../storage/files/index.yml) As ações de ficheiros premium são apoiadas por SSD e têm uma latência consistentemente baixa. São totalmente suportados para utilização com casos de cluster failover para SQL Server 2012 ou mais tarde no Windows Server 2012 ou mais tarde. As ações de ficheiros premium dão-lhe maior flexibilidade, pois pode redimensionar e escalar uma partilha de ficheiros sem qualquer tempo de inatividade.
 
 **SISTEMA Suportado**: Windows Server 2012 e posteriormente   
 **Versão SQL suportada**: SQL Server 2012 e mais tarde   
@@ -173,7 +173,7 @@ Nas Máquinas Virtuais Azure, o MSDTC não é suportado para Windows Server 2016
 
 Rever [as melhores práticas](hadr-cluster-best-practices.md)do cluster, e depois preparar [o seu SQL Server VM para a FCI](failover-cluster-instance-prepare-vm.md). 
 
-Para obter mais informações, veja: 
+Para obter mais informações, consulte: 
 
 - [Tecnologias de cluster windows](/windows-server/failover-clustering/failover-clustering-overview)   
 - [SQL Server falha casos de cluster](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)

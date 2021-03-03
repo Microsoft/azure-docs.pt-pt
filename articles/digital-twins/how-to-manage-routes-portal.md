@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 0f705aa61f1fe627dc0c8227242538e01ffce1d5
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.openlocfilehash: e61d2ff3807b65022d72414615af9fa729359358
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99070829"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101715722"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-portal"></a>Gerir pontos finais e rotas em Azure Digital Twins (portal)
 
@@ -76,7 +76,7 @@ Uma vez criados os recursos do ponto final, podes usá-los para um ponto final d
 1. Termine de criar o seu ponto final selecionando _Save_.
 
 >[!IMPORTANT]
-> Para utilizar com sucesso a autenticação baseada na identidade para o seu ponto final, terá de criar uma identidade gerida para o seu exemplo, seguindo os passos em [*Como-a: Habilitar uma identidade gerida para eventos de encaminhamento (pré-visualização)*](how-to-enable-managed-identities.md).
+> Para utilizar com sucesso a autenticação baseada na identidade para o seu ponto final, terá de criar uma identidade gerida para o seu exemplo, seguindo os passos em [*Como-a: Habilitar uma identidade gerida para eventos de encaminhamento (pré-visualização)*](./how-to-enable-managed-identities-portal.md).
 
 Depois de criar o seu ponto final, pode verificar se o ponto final foi criado com sucesso, verificando o ícone de notificação na barra superior do portal Azure: 
 

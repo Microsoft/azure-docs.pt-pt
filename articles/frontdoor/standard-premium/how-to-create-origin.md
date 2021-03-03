@@ -7,12 +7,12 @@ ms.service: frontdoor
 ms.topic: how-to
 ms.date: 02/18/2021
 ms.author: qixwang
-ms.openlocfilehash: 47134712bb953d9194bd943e228bae681877dcaa
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: ebc71ea2d354caf0c8f31b1231ecc1487237dd29
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101099447"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101741893"
 ---
 # <a name="set-up-an-azure-front-door-standardpremium-preview-origin"></a>Configurar uma origem padrão/premium da porta frontal Azure (Preview)
 
@@ -60,16 +60,16 @@ Antes de poder criar uma origem Azure Front Door Standard/Premium, deve ter cria
     > [!IMPORTANT]
     > Durante a configuração, as APIs não validam se a origem for inacessível dos ambientes da Porta Frontal. Certifique-se de que a Porta da Frente pode chegar à sua origem.
 
-1. **Selecione Adicionar** para criar a nova origem. A origem criada deve aparecer na lista de origem com o grupo
+1. **Selecione Adicionar** para criar a nova origem. A origem criada deve figurar na lista de origem com o grupo.
   
-    :::image type="content" source="../media/how-to-create-origin/add-origin-view.png" alt-text="Screenshot de adicionar uma página de origem.":::
+    :::image type="content" source="../media/how-to-create-origin/origin-list-view.png" alt-text="Screenshot de origem na vista da lista.":::
 
 1. **Selecione Adicionar** para adicionar o grupo de origem ao ponto final atual. O grupo de origem deve figurar no painel do grupo Origin.
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 Para eliminar um grupo Origin quando já não precisar, clique no **...** e, em seguida, selecione **Delete** from the drop-down.
 
-:::image type="content" source="../media/how-to-create-origin/add-origin-view.png" alt-text="Screenshot de como apagar um grupo de origem.":::
+:::image type="content" source="../media/how-to-create-origin/delete-origin-group.png" alt-text="Screenshot de como apagar um grupo de origem.":::
 
 Para eliminar uma origem quando já não precisar, clique no **...** e, em seguida, selecione **Delete** from the drop-down. 
 

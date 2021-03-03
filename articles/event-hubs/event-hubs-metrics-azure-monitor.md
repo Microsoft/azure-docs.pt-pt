@@ -2,13 +2,13 @@
 title: Métricas em Azure Monitor - Azure Event Hubs | Microsoft Docs
 description: Este artigo fornece informações sobre como usar o Azure Monitoring para monitorizar os Hubs de Eventos do Azure
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: a53f69030e8333dfe659b163b83983615212281f
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.date: 02/25/2021
+ms.openlocfilehash: 52ab66fe264b85be117eb8e2e21cb89f38d0fcae
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100573163"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101715586"
 ---
 # <a name="azure-event-hubs-metrics-in-azure-monitor"></a>Métricas de Hubs de Eventos do Azure no Azure Monitor
 
@@ -76,7 +76,7 @@ Para obter mais informações sobre os Hubs de Eventos, visite as seguintes liga
     - [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
     - [Java](event-hubs-java-get-started-send.md)
     - [Python](event-hubs-python-get-started-send.md)
-    - [JavaScript](event-hubs-java-get-started-send.md)
+    - [JavaScript](event-hubs-node-get-started-send.md)
 * [FAQ dos Hubs de Eventos](event-hubs-faq.md)
 * [Aplicações de exemplo que utilizam Hubs de Eventos](https://github.com/Azure/azure-event-hubs/tree/master/samples)
 

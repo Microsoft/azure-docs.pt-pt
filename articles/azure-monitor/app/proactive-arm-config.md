@@ -4,14 +4,14 @@ description: Automatizar a gestão e configuração das regras inteligentes de d
 ms.topic: conceptual
 author: harelbr
 ms.author: harelbr
-ms.date: 06/26/2019
+ms.date: 02/14/2021
 ms.reviewer: mbullwin
-ms.openlocfilehash: 169ad40e32f688ae20a9d02f61db161844b1254a
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: e3a7b71cd8975957754ba014ecc700484c27a6d7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92890518"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726126"
 ---
 # <a name="manage-application-insights-smart-detection-rules-using-azure-resource-manager-templates"></a>Gerir regras de deteção inteligentes de deteção de aplicações usando modelos de Gestor de Recursos Azure
 
@@ -21,12 +21,12 @@ Este método pode ser utilizado ao implementar novos recursos de Insights de Apl
 ## <a name="smart-detection-rule-configuration"></a>Configuração de regra de deteção inteligente
 
 Pode configurar as seguintes definições para uma regra de deteção inteligente:
-- Se a regra estiver ativada (o padrão é **verdadeiro** .)
-- Se os e-mails forem enviados aos utilizadores associados às funções de [Monitoring Reader](../../role-based-access-control/built-in-roles.md#monitoring-reader) e [Monitoring Da](../../role-based-access-control/built-in-roles.md#monitoring-contributor) subscrição quando uma deteção é encontrada (o padrão é **verdadeiro** .)
+- Se a regra estiver ativada (o padrão é **verdadeiro**.)
+- Se os e-mails forem enviados aos utilizadores associados às funções de [Monitoring Reader](../../role-based-access-control/built-in-roles.md#monitoring-reader) e [Monitoring Da](../../role-based-access-control/built-in-roles.md#monitoring-contributor) subscrição quando uma deteção é encontrada (o padrão é **verdadeiro**.)
 - Quaisquer destinatários de e-mail adicionais que devam receber uma notificação quando uma deteção é encontrada.
-    -  A configuração de e-mail não está disponível para regras de Deteção Inteligente marcadas como _pré-visualização_ .
+    -  A configuração de e-mail não está disponível para regras de Deteção Inteligente marcadas como _pré-visualização_.
 
-Para permitir configurar as definições de regras através do Azure Resource Manager, a configuração da regra de deteção inteligente está agora disponível como um recurso interno dentro do recurso Application Insights, denominado **ProactiveDetectionConfigs** .
+Para permitir configurar as definições de regras através do Azure Resource Manager, a configuração da regra de deteção inteligente está agora disponível como um recurso interno dentro do recurso Application Insights, denominado **ProactiveDetectionConfigs**.
 Para uma flexibilidade máxima, cada regra de deteção inteligente pode ser configurada com configurações de notificação únicas.
 
 ## <a name="examples"></a>Exemplos
@@ -152,7 +152,7 @@ Abaixo está uma tabela de nomes de regras de deteção inteligentes como eles a
 
 ### <a name="failure-anomalies-alert-rule"></a>Regra de alerta de anomalias de falha
 
-Este modelo de Gestor de Recursos Azure demonstra configurar uma regra de alerta de anomalias de falha com uma gravidade de 2. Esta nova versão da regra de alerta de Anomalias de Falhas faz parte da nova plataforma de alerta Azure, e substitui a versão clássica que está a ser retirada como parte do processo clássico de aposentação dos [alertas.](https://azure.microsoft.com/updates/classic-alerting-monitoring-retirement/)
+Este modelo de Gestor de Recursos Azure demonstra configurar uma regra de alerta de anomalias de falha com uma gravidade de 2.
 
 > [!NOTE]
 > Anomalias de falha são um serviço global, por isso a localização da regra é criada na localização global.

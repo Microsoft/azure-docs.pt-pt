@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: e224faca3c384ee5b3df02b015199ac5eab403bc
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 03d83d96bb58ddaf9be4e46c4b62f10e2476e549
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100370117"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101750611"
 ---
 Existem alguns limites no número de métricas e eventos por aplicação, isto é, por chave de instrumentação. Os limites dependem do [plano de preços](https://azure.microsoft.com/pricing/details/application-insights/) que escolher.
 
@@ -21,7 +21,7 @@ Existem alguns limites no número de métricas e eventos por aplicação, isto �
 | --- | --- | --- |
 | Total de dados por dia | 100 GB | Pode reduzir os dados ao definir um limite. Se precisar de mais dados, pode aumentar o limite no portal, até 1.000 GB. Para capacidades superiores a 1.000 GB, envie um e-mail para AIDataCap@microsoft.com .
 | Limitação | 32.000 eventos/segundo | O limite é mediso ao longo de um minuto.
-| Retenção de dados | [30-730 dias](../articles/azure-monitor/app/pricing.md#change-the-data-retention-period) | Este recurso é para [Pesquisa](../articles/azure-monitor/app/diagnostic-search.md), [Análise](../articles/azure-monitor/log-query/log-query-overview.md) e [Explorador de métricas](../articles/azure-monitor/platform/metrics-charts.md).
+| Retenção de dados | [30-730 dias](../articles/azure-monitor/app/pricing.md#change-the-data-retention-period) | Este recurso é para [Pesquisa](../articles/azure-monitor/app/diagnostic-search.md), [Análise](../articles/azure-monitor/logs/log-query-overview.md) e [Explorador de métricas](../articles/azure-monitor/essentials/metrics-charts.md).
 | [Teste de disponibilidade de vários passos](../articles/azure-monitor/app/availability-multistep.md) com retenção de resultados detalhados | 90 dias | Este recurso fornece resultados detalhados de cada passo.
 | Tamanho máximo do evento | 64.000 bytes |
 | Comprimento do nome da propriedade e da métrica | 150 | Ver [esquemas de tipo](https://github.com/MohanGsk/ApplicationInsights-Home/tree/master/EndpointSpecs/Schemas/Bond/).

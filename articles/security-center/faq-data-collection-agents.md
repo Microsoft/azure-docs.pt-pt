@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2020
 ms.author: memildin
-ms.openlocfilehash: 30744ab97549d585cb6893dc2e2e12009e8cd3fb
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 754e9516c5fd47668cbff5bdc64b8dfdeed050d8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100595766"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101705151"
 ---
 # <a name="faq---questions-about-data-collection-agents-and-workspaces"></a>FAQ - Perguntas sobre recolha de dados, agentes e espaços de trabalho
 
@@ -29,9 +29,9 @@ O Security Center recolhe dados das suas máquinas virtuais Azure (VMs), conjunt
 
 N.º Os espaços de trabalho criados pelo Security Center, enquanto configurados para registos do Monitor Azure por faturação de nó, não incorrem em cargas de registos do Azure Monitor. A faturação do Security Center baseia-se sempre na sua política de segurança do Security Center e nas soluções instaladas num espaço de trabalho:
 
-- **Azure Defender off** – O Security Center permite a solução 'SecurityCenterFree' no espaço de trabalho predefinido. Não será cobrado se o Azure Defender estiver fora.
+- **Azure Defender off** – O Security Center permite a solução "SecurityCenterFree" no espaço de trabalho predefinido. Não será cobrado se o Azure Defender estiver fora.
 
-- **O Azure Defender on** – Security Center permite a solução 'Security' no espaço de trabalho predefinido.
+- **O Azure Defender on** – Security Center permite a solução "Segurança" no espaço de trabalho predefinido.
 
 Para obter mais informações sobre preços, consulte [os preços do Security Center](https://azure.microsoft.com/pricing/details/security-center/).
 
@@ -146,7 +146,7 @@ Se o agente Log Analytics for instalado diretamente no VM (não como uma extens�
 
 O agente instalado continuará a reportar ao seu espaço de trabalho já configurado, e além disso reportará ao espaço de trabalho configurado no Security Center (o multi-homing é suportado em máquinas Windows).
 
-Se o espaço de trabalho configurado for um espaço de trabalho do utilizador (não o espaço de trabalho predefinido do Security Center), terá de instalar a solução "Security/SecurityCenterFree" no mesmo para que o Security Center comece a processar eventos de VMs e computadores que reportem a esse espaço de trabalho.
+Se o espaço de trabalho configurado for um espaço de trabalho do utilizador (não o espaço de trabalho predefinido do Security Center), terá de instalar a solução "Security" ou "SecurityCenterFree" no mesmo para que o Security Center comece a processar eventos de VMs e computadores que reportem a esse espaço de trabalho.
 
 No caso das máquinas Linux, o Agente multi-homing ainda não está suportado - portanto, se for detetada uma instalação de agente existente, não o provisionamento automático não ocorrerá e a configuração da máquina não será alterada.
 
@@ -207,7 +207,7 @@ Quando a migração estiver concluída, o Centro de Segurança não pode recolhe
 
 Instale manualmente a extensão do agente Log Analytics para que o Security Center possa recolher dados de segurança dos seus VMs e fornecer recomendações e alertas. Consulte [a instalação do agente para](../virtual-machines/extensions/oms-windows.md) a instalação do Windows VM ou agente para o [Linux VM](../virtual-machines/extensions/oms-linux.md) para obter orientação sobre a instalação.
 
-Pode ligar o agente a qualquer espaço de trabalho personalizado ou ao Centro de Segurança criado. Se um espaço de trabalho personalizado não tiver as soluções 'Security' ou 'SecurityCenterFree' ativadas, então terá de aplicar uma solução. Para se candidatar, selecione o espaço de trabalho personalizado ou subscrição e aplique um nível de preços através da política de Segurança – página **de nível de preços.**
+Pode ligar o agente a qualquer espaço de trabalho personalizado ou ao Centro de Segurança criado. Se um espaço de trabalho personalizado não tiver as soluções "Security" ou "SecurityCenterFree" ativadas, então terá de aplicar uma solução. Para se candidatar, selecione o espaço de trabalho personalizado ou subscrição e aplique um nível de preços através da política de Segurança – página **de nível de preços.**
 
 :::image type="content" source="./media/security-center-platform-migration-faq/pricing-tier.png" alt-text="Ativar ou desativar o Azure Defender":::
 

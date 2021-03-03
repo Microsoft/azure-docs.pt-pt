@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 09/29/2020
 ms.author: alkohli
-ms.openlocfilehash: 5cec5eda7cf398949865bf6d3d3e8be5b2d5e840
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 06d3ebae80b34d6b3c7f4a23694fd9fba34e4b76
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100549789"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101733504"
 ---
 # <a name="use-certificates-with-azure-stack-edge-pro-gpu-device"></a>Use certificados com dispositivo GPU Azure Stack Edge Pro
 
@@ -413,7 +413,7 @@ Se trouxer os seus próprios certificados, os certificados expirarão normalment
 
 Rotation of certificates is not implemented in this release. You are also not notified of the pending expiration date on your certificate. 
 
-View the certificate expiration date on the **Certificates** page in the local web UI of your device. Once the certificate expiration is approaching, create and upload new certificates as per the detailed instructions in [Create and upload certificates](azure-stack-edge-j-series-manage-certificates.md).-->
+View the certificate expiration date on the **Certificates** page in the local web UI of your device. Once the certificate expiration is approaching, create and upload new certificates as per the detailed instructions in [Create and upload certificates]().-->
 
 ## <a name="next-steps"></a>Passos seguintes
 

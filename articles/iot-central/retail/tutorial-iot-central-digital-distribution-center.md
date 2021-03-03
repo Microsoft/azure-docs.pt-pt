@@ -7,12 +7,12 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.date: 10/20/2019
-ms.openlocfilehash: 9d7c4d2afa8eaf197ec05bcb0aed654153fb8f0d
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: 40b0d7eeb77f165c50c5470e1b5869e240d36534
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99831302"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702696"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-digital-distribution-center-application-template"></a>Tutorial: Implementar e caminhar através de um modelo de aplicação de centro de distribuição digital
 
@@ -21,7 +21,8 @@ Este tutorial mostra-lhe como começar com a implementação de um modelo de apl
 Neste tutorial, aprende-se a, 
 
 > [!div class="checklist"]
-> Criar aplicação de centro de distribuição digital Caminhe pela aplicação 
+> * Criar aplicação de centro de distribuição digital 
+> * Caminhe pela aplicação 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * Não são necessários pré-requisitos específicos para implementar esta aplicação

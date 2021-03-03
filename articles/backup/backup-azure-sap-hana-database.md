@@ -3,12 +3,12 @@ title: Faça o backup de uma base de dados SAP HANA para Azure com Azure Backup
 description: Neste artigo, aprenda a fazer backup de uma base de dados SAP HANA para máquinas virtuais Azure com o serviço Azure Backup.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: 87111660983e2626d8f61ddc65fdc13394509a4f
-ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
+ms.openlocfilehash: e7735c4240529cc6fc9bb6470934dd335d22aa77
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97831640"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719615"
 ---
 # <a name="back-up-sap-hana-databases-in-azure-vms"></a>Fazer cópias de segurança de bases de dados SAP HANA nas VMs do Azure
 
@@ -63,7 +63,7 @@ Se utilizar grupos de segurança de rede (NSG), utilize a etiqueta de serviço *
 
 1. Selecione **regras de segurança de saída** em **Definições**.
 
-1. Selecione **Add** (Adicionar). Introduza todos os detalhes necessários para a criação de uma nova regra, conforme descrito nas [definições de regras de segurança](../virtual-network/manage-network-security-group.md#security-rule-settings). Certifique-se de que a opção **Destino** está definida para tag de serviço *de serviço* e de **destino** está definida para *AzureBackup*.
+1. Selecione **Adicionar**. Introduza todos os detalhes necessários para a criação de uma nova regra, conforme descrito nas [definições de regras de segurança](../virtual-network/manage-network-security-group.md#security-rule-settings). Certifique-se de que a opção **Destino** está definida para tag de serviço *de serviço* e de **destino** está definida para *AzureBackup*.
 
 1. **Selecione Adicionar** para salvar a regra de segurança de saída recém-criada.
 
@@ -172,7 +172,7 @@ Especificar as definições de política da seguinte forma:
     ![Política de backup diferencial](./media/backup-azure-sap-hana-database/differential-backup-policy.png)
 
     > [!NOTE]
-    > As cópias de segurança incrementais são agora suportadas na pré-visualização pública. Pode escolher um diferencial ou um incremental como uma cópia de segurança diária, mas não ambos.
+    > Pode escolher um diferencial ou um incremental como uma cópia de segurança diária, mas não ambos.
 1. Na **política de Cópia de Segurança Incremental,** selecione **Ativar** para abrir os controlos de frequência e retenção.
     * No máximo, pode desencadear uma cópia de segurança incremental por dia.
     * As cópias de segurança incrementais podem ser mantidas por um máximo de 180 dias. Se precisar de uma maior retenção, deve utilizar cópias de segurança completas.

@@ -3,15 +3,15 @@ title: Criar e gerir grupos de ações no portal do Azure
 description: Saiba como criar e gerir grupos de ação no portal Azure.
 author: dkamstra
 ms.topic: conceptual
-ms.date: 01/28/2021
+ms.date: 02/25/2021
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 8905c3e4dfa1053646ede5c0b62149844e21ee7d
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 50fb898e1ea55d0bcc09fc10dfee051ca7b1d809
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100617251"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101701166"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Criar e gerir grupos de ações no portal do Azure
 Um grupo de ação é uma coleção de preferências de notificação definidas pelo proprietário de uma subscrição Azure. Os alertas Azure Monitor e Service Health utilizam grupos de ação para notificar os utilizadores de que foi desencadeado um alerta. Vários alertas podem utilizar o mesmo grupo de ação ou diferentes grupos de ação, dependendo dos requisitos do utilizador. 
@@ -118,6 +118,8 @@ Consulte os limites do [serviço de subscrição Azure](../../azure-resource-man
 Você pode ter um número limitado de ações Runbook em um Grupo de Ação. 
 
 ### <a name="azure-app-push-notifications"></a>Notificações push da aplicação Azure
+Ativar notificações push para a [aplicação móvel Azure,](https://azure.microsoft.com/features/azure-portal/mobile-app/) fornecendo o endereço de e-mail que utiliza como iD da sua conta ao configurar a aplicação móvel Azure.
+
 Você pode ter um número limitado de ações de aplicativoS Azure em um Grupo de Ação.
 
 ### <a name="email"></a>E-mail
@@ -139,11 +141,11 @@ Se não estiver a receber Notificações no seu *email principal,* pode tentar s
 2. Clique em Todos os utilizadores (no painel esquerdo), verá a lista de utilizadores (no painel direito).
 3. Selecione o utilizador para o qual pretende rever as informações *de e-mail primárias.*
 
-  :::image type="content" source="media/action-groups/active-directory-user-profile.png" alt-text="Exemplo sobre como rever o perfil do utilizador."border="true":::
+  :::image type="content" source="media/action-groups/active-directory-user-profile.png" alt-text="Exemplo sobre como rever o perfil do utilizador." border="true":::
 
 4. No perfil do Utilizador em Informação de Contacto se o separador "Email" estiver em branco, clique no botão *de edição* na parte superior e adicione o seu *e-mail primário* e clique no botão *de guardar* na parte superior.
 
-  :::image type="content" source="media/action-groups/active-directory-add-primary-email.png" alt-text="Exemplo sobre como adicionar e-mail primário."border="true":::
+  :::image type="content" source="media/action-groups/active-directory-add-primary-email.png" alt-text="Exemplo sobre como adicionar e-mail primário." border="true":::
 
 Você pode ter um número limitado de ações de e-mail em um Grupo de Ação. Consulte o artigo [de informação limitativo da taxa.](./alerts-rate-limiting.md)
 
@@ -153,7 +155,7 @@ Chama um ponto final de gatilho HTTP existente em [Funções Azure](../../azure-
 Pode ter um número limitado de ações de função num Grupo de Ação.
 
 ### <a name="itsm"></a>ITSM
-A AÇÃO ITSM requer uma Ligação ITSM. Saiba como criar uma [ligação ITSM](../platform/itsmc-overview.md).
+A AÇÃO ITSM requer uma Ligação ITSM. Saiba como criar uma [ligação ITSM](./itsmc-overview.md).
 
 Poderá ter um número limitado de ações ITSM num Grupo de Ação. 
 
@@ -191,7 +193,7 @@ A ação Action Groups Webhook permite-lhe aproveitar o Azure Ative Directory pa
 Connect-AzureAD -TenantId "<provide your Azure AD tenant ID here>"
     
 # This is your Azure AD Application's ObjectId. 
-$myAzureADApplicationObjectId = "<the Object Id of your Azure AD Application>"
+$myAzureADApplicationObjectId = "<the Object ID of your Azure AD Application>"
     
 # This is the Action Groups Azure AD AppId
 $actionGroupsAppId = "461e8683-5575-4561-ac7f-899cc907d62a"
@@ -293,7 +295,7 @@ Os preços dos países/regiões apoiados constam da página de preços do [Azure
 | 31 | Países Baixos |
 | 64 | Nova Zelândia |
 | 47 | Noruega |
-| 15s | Portugal |
+| 351 | Portugal |
 | 1 | Porto Rico |
 | 40 | Roménia |
 | 65 | Singapura |
@@ -334,7 +336,7 @@ Consulte os [endereços IP do Grupo action](../app/ip-addresses.md) para obter i
 ## <a name="next-steps"></a>Passos seguintes
 * Saiba mais sobre [o comportamento do alerta por SMS.](./alerts-sms-behavior.md)  
 * Obtenha uma [compreensão do esquema de alerta de alerta de atividade webhook](./activity-log-alerts-webhook.md).  
-* Saiba mais sobre [o CONECTOR ITSM](../platform/itsmc-overview.md).
+* Saiba mais sobre [o CONECTOR ITSM](./itsmc-overview.md).
 * Saiba mais sobre [a limitação da taxa](./alerts-rate-limiting.md) em alertas.
-* Obtenha uma [visão geral dos alertas de registo de atividades](../platform/alerts-overview.md)e aprenda a receber alertas.  
+* Obtenha uma [visão geral dos alertas de registo de atividades](./alerts-overview.md)e aprenda a receber alertas.  
 * Saiba como [configurar alertas sempre que uma notificação de saúde do serviço for publicada](../../service-health/alerts-activity-log-service-notifications-portal.md).

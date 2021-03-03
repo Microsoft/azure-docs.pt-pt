@@ -4,16 +4,16 @@ description: Monitorização do desempenho da aplicação para serviços de apli
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js, devx-track-dotnet
-ms.openlocfilehash: 74b39219b3b18c8de0214367d141085f6dc5f674
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 7661066bc2666070c8b3ed9263b1223c09d6c720
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100574002"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734728"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Monitorizar o desempenho do Serviço de Aplicações do Azure
 
-Ativar a monitorização das suas aplicações web baseadas em ASP.NET e ASP.NET Core em execução nos [Serviços de Aplicações Azure](../../app-service/index.yml) é agora mais fácil do que nunca. Enquanto que anteriormente era necessário instalar manualmente uma extensão do site, a mais recente extensão/agente está agora incorporada na imagem do serviço de aplicações por padrão. Este artigo irá acompanhá-lo através da monitorização de Insights de Aplicação, bem como fornecer orientações preliminares para automatizar o processo para implementações em larga escala.
+Ativar a monitorização do seu ASP.NET, ASP.NET Core e aplicações web baseadas em Node.js em execução nos [Serviços de Aplicações Azure](../../app-service/index.yml) é agora mais fácil do que nunca. Enquanto que anteriormente era necessário instalar manualmente uma extensão do site, a mais recente extensão/agente está agora incorporada na imagem do serviço de aplicações por padrão. Este artigo irá acompanhá-lo através da monitorização de Insights de Aplicação, bem como fornecer orientações preliminares para automatizar o processo para implementações em larga escala.
 
 > [!NOTE]
 > A adição manual de uma extensão do site Application Insights através de extensões **de**  >  **ferramentas** de desenvolvimento é depreciada. Este método de instalação de extensão dependia de atualizações manuais para cada nova versão. A mais recente versão estável da extensão  [encontra-se agora pré-instalada](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions) como parte da imagem do Serviço de Aplicações. Os ficheiros `d:\Program Files (x86)\SiteExtensions\ApplicationInsightsAgent` estão localizados e são automaticamente atualizados a cada libertação estável. Se seguir as instruções baseadas no agente para ativar a monitorização abaixo, removerá automaticamente a extensão prectada para si.
@@ -61,11 +61,11 @@ Existem duas formas de permitir a monitorização de aplicações para os Servi�
         
 | Dados | Coleção Básica ASP.NET | coleção recomendada ASP.NET |
 | --- | --- | --- |
-| Adiciona tendências de utilização da CPU, memória e E/S |Yes |Yes |
-| Recolhe tendências de utilização e permite a correlação dos resultados de disponibilidade para transações | Yes |Yes |
-| Recolhe exceções sem processamento pelo processo anfitrião | Yes |Yes |
-| Melhora a precisão das métricas de APM sob carga, quando é utilizada a amostragem | Yes |Yes |
-| Correlaciona os microsserviços entre limites de pedidos/dependências | Não (apenas capacidades APM de instância única) |Yes |
+| Adiciona tendências de utilização da CPU, memória e E/S |Sim |Sim |
+| Recolhe tendências de utilização e permite a correlação dos resultados de disponibilidade para transações | Sim |Sim |
+| Recolhe exceções sem processamento pelo processo anfitrião | Sim |Sim |
+| Melhora a precisão das métricas de APM sob carga, quando é utilizada a amostragem | Sim |Sim |
+| Correlaciona os microsserviços entre limites de pedidos/dependências | Não (apenas capacidades APM de instância única) |Sim |
 
 3. Para configurar configurações como amostragem, que poderia controlar previamente através do ficheiro applicationinsights.config pode agora interagir com essas mesmas definições através de definições de Aplicação com um prefixo correspondente. 
 
@@ -97,7 +97,7 @@ O quadro completo de ASP.NET, as aplicações baseadas em Base e Linux não são
 
 # <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
-A partir da sua aplicação web do Serviço de Aplicações em **Definições**  >  **selecione Insights de aplicação**  >  **Ativar**. Node.js monitorização baseada em agentes está atualmente em pré-visualização.
+A monitorização baseada em agentes do Windows não é suportada, para permitir que o Linux visite a [ documentação do Serviço de AplicaçõesNode.js](../../app-service/configure-language-nodejs.md?pivots=platform-linux#monitor-with-application-insights).
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -170,6 +170,7 @@ Para permitir a recolha de telemetria com Insights de Aplicação, apenas as def
 |XDT_MicrosoftApplicationInsights_Mode |  Apenas no modo predefinido, as funcionalidades essenciais são ativadas de forma a garantir um desempenho ótimo. | `default` ou `recommended`. |
 |InstrumentationEngine_EXTENSION_VERSION | Controla se o motor de reescrita binária `InstrumentationEngine` for ligado. Esta definição tem implicações de desempenho e impacta o tempo de arranque/arranque a frio. | `~1` |
 |XDT_MicrosoftApplicationInsights_BaseExtensions | Controla se o SQL & texto da tabela Azure será capturado juntamente com as chamadas de dependência. Aviso de desempenho: o tempo de arranque a frio da aplicação será afetado. Esta definição requer a `InstrumentationEngine` . | `~1` |
+|XDT_MicrosoftApplicationInsights_PreemptSdk | Apenas para aplicações core ASP.NET. Permite o Interop (interoperação) com a Application Insights SDK. Carrega a extensão lado a lado com o SDK e utiliza-a para enviar telemetria (desativa o SDK application Insights). |`1`|
 
 ### <a name="app-service-application-settings-with-azure-resource-manager"></a>Configurações de aplicações de serviço de aplicativo com gestor de recursos Azure
 

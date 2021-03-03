@@ -6,12 +6,16 @@ ms.topic: quickstart
 ms.date: 11/23/2020
 ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, seodec18, contperf-fy21q1
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: d7b7d8845eda87132cbfa7981c20c39bb210aa5c
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+adobe-target: true
+adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
+adobe-target-experience: Experience B
+adobe-target-content: ./quickstart-dotnetcore-uiex
+ms.openlocfilehash: 77e0768a617ef79ab8510f88bfdcd41d5647f9bf
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97032699"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101701642"
 ---
 # <a name="quickstart-create-an-aspnet-core-web-app-in-azure"></a>Quickstart: Criar uma aplicação web core ASP.NET em Azure
 
@@ -187,7 +191,7 @@ Avance para o próximo artigo para aprender a criar uma aplicação .NET Core e 
 ::: zone-end  
 
 ::: zone pivot="platform-linux"
-[O Serviço de Aplicações no Linux](overview.md#app-service-on-linux) fornece um serviço de hospedagem web altamente escalável e auto-remendado utilizando o sistema operativo Linux. Este guia de introdução mostra como criar uma aplicação [.NET Core](/aspnet/core/) no Serviço de Aplicações no Linux. Cria a aplicação utilizando o [Azure CLI](/cli/azure/get-started-with-azure-cli)e utiliza o Git para implementar o código .NET Core para a aplicação.
+[O Serviço de Aplicações no Linux](overview.md#app-service-on-linux) fornece um serviço de hospedagem web altamente escalável e auto-remendado utilizando o sistema operativo Linux. Este quickstart mostra como criar uma aplicação [.NET Core](/aspnet/core/) e implementar para um Linux hospedado No Serviço de Aplicações usando o [Azure CLI](/cli/azure/get-started-with-azure-cli).
 
 ![Aplicação Web de exemplo em execução no Azure](media/quickstart-dotnetcore/dotnet-browse-azure.png)
 
@@ -258,7 +262,7 @@ az login
 Desloque o código na sua pasta local *(hellodotnetcore)* utilizando o `az webapp up` comando:
 
 ```azurecli
-az webapp up --sku F1 --name <app-name> --os-type linux
+az webapp up --sku F1 --name <app-name>
 ```
 
 - Se o `az` comando não for reconhecido, certifique-se de que tem o CLI Azure instalado como descrito no [Conjunto do seu ambiente inicial](#set-up-your-initial-environment).

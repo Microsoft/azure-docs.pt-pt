@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 01/26/2021
+ms.date: 02/26/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 961e30cf17bf385647f4482c6f767641c6b891af
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 0a57e45b264badffd0305eb6ac5b3c8f7c42adf3
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98791682"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101695129"
 ---
 # <a name="tutorial-create-your-first-search-app-using-the-net-sdk"></a>Tutorial: Crie a sua primeira app de pesquisa utilizando o .NET SDK
 
@@ -47,11 +47,13 @@ Apenas uma chamada consulta o índice e os resultados de retorno.
 
 :::image type="content" source="media/tutorial-csharp-create-first-app/azure-search-pool.png" alt-text="À procura de *piscina*" border="true":::
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
-Este tutorial utiliza um índice de amostra existente e hospedado para que possa focar-se na construção de uma página de pesquisa que recolhe uma cadeia de consulta para o pedido e devolução de resultados. O índice contém dados fictícios do hotel. Uma vez que tenha uma página básica, você pode realçá-lo em lições subsequentes para incluir paging, facetas e uma experiência de tipo-futuro.
+Este tutorial utiliza o índice de amostras de hotéis, que pode criar rapidamente no seu próprio serviço de pesquisa, através do [quickstart de dados de Importação.](search-get-started-portal.md) O índice contém dados fictícios do hotel, disponíveis como fonte de dados incorporados em todos os serviços de pesquisa.
 
-Uma versão acabada do código neste tutorial pode ser encontrada no seguinte projeto:
+A primeira lição deste tutorial cria uma estrutura de consulta básica e página de pesquisa, que você irá melhorar em aulas subsequentes para incluir paging, facetas e uma experiência de tipo de futuro.
+
+Uma versão acabada do código pode ser encontrada no seguinte projeto:
 
 * [1-base-pesquisa-page (GitHub)](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v11/1-basic-search-page)
 
@@ -59,7 +61,9 @@ Este tutorial foi atualizado para utilizar o pacote Azure.Search.Documents (vers
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Como está a utilizar um índice de pesquisa de amostras públicas hospedado pela Microsoft, não precisa de um serviço de pesquisa ou de uma conta Azure para este tutorial.
+* [Criar](search-create-service-portal.md) ou [encontrar um serviço de pesquisa existente.](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)
+
+* Crie o índice de amostras de hotéis utilizando as instruções em [Quickstart: Crie um índice de pesquisa](search-get-started-portal.md).
 
 * [Visual Studio](https://visualstudio.microsoft.com/)
 
@@ -103,12 +107,12 @@ Para criar este projeto do zero, e assim reforçar os conceitos de Azure Cogniti
 
 Para esta amostra, está a utilizar dados do hotel disponíveis ao público. Estes dados são uma recolha arbitrária de 50 nomes e descrições de hotéis fictícios, criados unicamente com o propósito de fornecer dados de demonstração. Para aceder a estes dados, especifique um nome e uma chave API.
 
-1. Abra **appsettings.js** e substitua as linhas predefinidos pelo seguinte nome e tecla. A chave API mostrada aqui não é um exemplo de uma chave, é *exatamente* a chave que você precisa para aceder aos dados do hotel. O seu ficheiro deve agora ser assim.
+1. Abra **appsettings.js** e substitua as linhas predefinidos pelo URL do serviço de pesquisa (no `https://<service-name>.search.windows.net` formato) e uma chave API de [administração ou consulta](search-security-api-keys.md) do seu serviço de pesquisa. Uma vez que não precisa de criar ou atualizar um índice, pode utilizar a chave de consulta para este tutorial.
 
     ```csharp
     {
-        "SearchServiceName": "azs-playground",
-        "SearchServiceQueryApiKey": "EA4510A6219E14888741FCFC19BFBB82"
+        "SearchServiceName": "<YOUR-SEARCH-SERVICE-URI>",
+        "SearchServiceQueryApiKey": "<YOUR-SEARCH-SERVICE-API-KEY>"
     }
     ```
 
@@ -569,7 +573,7 @@ Considere os seguintes takeaways deste projeto:
 * As chamadas assíncronos adicionam uma pequena quantidade de complexidade ao controlador, mas são as melhores práticas se pretende desenvolver apps de qualidade.
 * Esta aplicação realizou uma pesquisa de texto simples, definida pelo que é configurado em **searchOptions**. No entanto, esta classe pode ser povoada com muitos membros que adicionam sofisticação a uma pesquisa. Não é necessário muito trabalho adicional para tornar esta aplicação consideravelmente mais poderosa.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para melhorar a experiência do utilizador, adicione mais funcionalidades, nomeadamente paging (utilizando números de página, ou deslocamento infinito) e autocomplete/sugestões. Você também pode considerar opções de pesquisa mais sofisticadas (por exemplo, pesquisas geográficas em hotéis dentro de um determinado raio de um determinado ponto, e pedido de resultados de pesquisa).
 

@@ -3,12 +3,12 @@ title: Estrutura do modelo e sintaxe
 description: Descreve a estrutura e propriedades dos modelos Azure Resource Manager (modelos ARM) usando a sintaxe declarativa JSON.
 ms.topic: conceptual
 ms.date: 12/17/2020
-ms.openlocfilehash: 4c08612325d2776f8f1a7fe4486e6f592ca474a0
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 31576c72fb845677f132fd9cd6ee776db922d436
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97934701"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101722709"
 ---
 # <a name="understand-the-structure-and-syntax-of-arm-templates"></a>Understand the structure and syntax of ARM templates (Compreender a estrutura e a sintaxe dos modelos do Resource Manager)
 
@@ -35,14 +35,14 @@ Na sua estrutura mais simples, um modelo tem os seguintes elementos:
 
 | Nome do elemento | Obrigatório | Descrição |
 |:--- |:--- |:--- |
-| $schema |Yes |Localização do ficheiro de esquema de notação de objetos JavaScript (JSON) que descreve a versão do idioma do modelo. O número de versão que utiliza depende do âmbito da implementação e do seu editor de JSON.<br><br>Se estiver a utilizar [o Código do Estúdio Visual com a extensão de ferramentas Azure Resource Manager,](quickstart-create-templates-use-visual-studio-code.md)utilize a versão mais recente para implementações de grupos de recursos:<br>`https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#`<br><br>Outros editores (incluindo o Visual Studio) podem não ser capazes de processar este esquema. Para os editores, utilize:<br>`https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#`<br><br>Para implementações de subscrição, utilize:<br>`https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#`<br><br>Para implementações de grupos de gestão, utilize:<br>`https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#`<br><br>Para implantações de inquilinos, utilize:<br>`https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#` |
-| parte de conteúdoVersão |Yes |Versão do modelo (tal como 1.0.0.0). Pode fornecer qualquer valor para este elemento. Utilize este valor para documentar alterações significativas no seu modelo. Ao utilizar recursos utilizando o modelo, este valor pode ser usado para garantir que o modelo certo está a ser utilizado. |
-| apiProfile |No | Uma versão API que serve como uma coleção de versões API para tipos de recursos. Utilize este valor para evitar ter de especificar versões API para cada recurso no modelo. Quando especifica uma versão de perfil API e não especifica uma versão API para o tipo de recurso, o Gestor de Recursos utiliza a versão API para esse tipo de recurso que é definido no perfil.<br><br>A propriedade de perfil API é especialmente útil ao implementar um modelo para diferentes ambientes, como Azure Stack e Global Azure. Utilize a versão de perfil API para se certificar de que o seu modelo utiliza automaticamente versões suportadas em ambos os ambientes. Para obter uma lista das versões de perfil da API atuais e as versões API de recursos definidas no perfil, consulte o [Perfil da API](https://github.com/Azure/azure-rest-api-specs/tree/master/profile).<br><br>Para obter mais informações, consulte [as versões Track utilizando perfis API](templates-cloud-consistency.md#track-versions-using-api-profiles). |
-| [parâmetros](#parameters) |No |Valores que são fornecidos quando a implementação é executada para personalizar a implementação de recursos. |
-| [variáveis](#variables) |No |Valores que são usados como fragmentos de JSON no modelo para simplificar expressões de linguagem do modelo. |
-| [funções](#functions) |No |Funções definidas pelo utilizador que estão disponíveis dentro do modelo. |
-| [recursos](#resources) |Yes |Tipos de recursos que são implantados ou atualizados num grupo de recursos ou subscrição. |
-| [saídas](#outputs) |No |Valores que são devolvidos após a implantação. |
+| $schema |Sim |Localização do ficheiro de esquema de notação de objetos JavaScript (JSON) que descreve a versão do idioma do modelo. O número de versão que utiliza depende do âmbito da implementação e do seu editor de JSON.<br><br>Se estiver a utilizar [o Código do Estúdio Visual com a extensão de ferramentas Azure Resource Manager,](quickstart-create-templates-use-visual-studio-code.md)utilize a versão mais recente para implementações de grupos de recursos:<br>`https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#`<br><br>Outros editores (incluindo o Visual Studio) podem não ser capazes de processar este esquema. Para os editores, utilize:<br>`https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#`<br><br>Para implementações de subscrição, utilize:<br>`https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#`<br><br>Para implementações de grupos de gestão, utilize:<br>`https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeploymentTemplate.json#`<br><br>Para implantações de inquilinos, utilize:<br>`https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#` |
+| parte de conteúdoVersão |Sim |Versão do modelo (tal como 1.0.0.0). Pode fornecer qualquer valor para este elemento. Utilize este valor para documentar alterações significativas no seu modelo. Ao utilizar recursos utilizando o modelo, este valor pode ser usado para garantir que o modelo certo está a ser utilizado. |
+| apiProfile |Não | Uma versão API que serve como uma coleção de versões API para tipos de recursos. Utilize este valor para evitar ter de especificar versões API para cada recurso no modelo. Quando especifica uma versão de perfil API e não especifica uma versão API para o tipo de recurso, o Gestor de Recursos utiliza a versão API para esse tipo de recurso que é definido no perfil.<br><br>A propriedade de perfil API é especialmente útil ao implementar um modelo para diferentes ambientes, como Azure Stack e Global Azure. Utilize a versão de perfil API para se certificar de que o seu modelo utiliza automaticamente versões suportadas em ambos os ambientes. Para obter uma lista das versões de perfil da API atuais e as versões API de recursos definidas no perfil, consulte o [Perfil da API](https://github.com/Azure/azure-rest-api-specs/tree/master/profile).<br><br>Para obter mais informações, consulte [as versões Track utilizando perfis API](templates-cloud-consistency.md#track-versions-using-api-profiles). |
+| [parâmetros](#parameters) |Não |Valores que são fornecidos quando a implementação é executada para personalizar a implementação de recursos. |
+| [variáveis](#variables) |Não |Valores que são usados como fragmentos de JSON no modelo para simplificar expressões de linguagem do modelo. |
+| [funções](#functions) |Não |Funções definidas pelo utilizador que estão disponíveis dentro do modelo. |
+| [recursos](#resources) |Sim |Tipos de recursos que são implantados ou atualizados num grupo de recursos ou subscrição. |
+| [saídas](#outputs) |Não |Valores que são devolvidos após a implantação. |
 
 Cada elemento tem propriedades que pode definir. Este artigo descreve as secções do modelo com maior detalhe.
 
@@ -74,8 +74,8 @@ O modelo a seguir mostra o formato para os tipos de dados. Cada tipo tem um valo
       "defaultValue": 1
     },
     "boolParameter": {
-        "type": "bool",
-        "defaultValue": true
+      "type": "bool",
+      "defaultValue": true
     },
     "objectParameter": {
       "type": "object",
@@ -127,15 +127,15 @@ As propriedades disponíveis para um parâmetro são:
 
 | Nome do elemento | Obrigatório | Descrição |
 |:--- |:--- |:--- |
-| nome de parâmetro |Yes |Nome do parâmetro. Deve ser um identificador JavaScript válido. |
-| tipo |Yes |Tipo do valor do parâmetro. Os tipos e valores permitidos são **cordas,** **securestring**, **int,** **bool,** **object,** **secureObject**, e **array**. Consulte [os tipos de dados.](#data-types) |
-| padrãoValue |No |Valor predefinido para o parâmetro, se não for fornecido qualquer valor para o parâmetro. |
-| permitidosValues |No |Matriz de valores permitidos para o parâmetro para garantir que o valor certo é fornecido. |
-| minValue |No |O valor mínimo para os parâmetros do tipo int, este valor é inclusivo. |
-| maxValue |No |O valor máximo para parâmetros do tipo int, este valor é inclusivo. |
-| minLength |No |O comprimento mínimo para parâmetros de corda, corda de segurança e tipo de matriz, este valor é inclusivo. |
-| maxLength |No |O comprimento máximo para parâmetros de corda, corda segura e tipo de matriz, este valor é inclusivo. |
-| descrição |No |Descrição do parâmetro que é apresentado aos utilizadores através do portal. Para obter mais informações, consulte [comentários em modelos.](#comments) |
+| nome de parâmetro |Sim |Nome do parâmetro. Deve ser um identificador JavaScript válido. |
+| tipo |Sim |Tipo do valor do parâmetro. Os tipos e valores permitidos são **cordas,** **securestring**, **int,** **bool,** **object,** **secureObject**, e **array**. Consulte [os tipos de dados.](#data-types) |
+| padrãoValue |Não |Valor predefinido para o parâmetro, se não for fornecido qualquer valor para o parâmetro. |
+| permitidosValues |Não |Matriz de valores permitidos para o parâmetro para garantir que o valor certo é fornecido. |
+| minValue |Não |O valor mínimo para os parâmetros do tipo int, este valor é inclusivo. |
+| maxValue |Não |O valor máximo para parâmetros do tipo int, este valor é inclusivo. |
+| minLength |Não |O comprimento mínimo para parâmetros de corda, corda de segurança e tipo de matriz, este valor é inclusivo. |
+| maxLength |Não |O comprimento máximo para parâmetros de corda, corda segura e tipo de matriz, este valor é inclusivo. |
+| descrição |Não |Descrição do parâmetro que é apresentado aos utilizadores através do portal. Para obter mais informações, consulte [comentários em modelos.](#comments) |
 
 Por exemplo, como utilizar parâmetros, consulte [parâmetros nos modelos ARM](template-parameters.md).
 
@@ -210,12 +210,12 @@ Ao definir uma função de utilizador, existem algumas restrições:
 
 | Nome do elemento | Obrigatório | Descrição |
 |:--- |:--- |:--- |
-| espaço de nomes |Yes |Espaço de nome para as funções personalizadas. Utilize para evitar o nome de conflitos com funções de modelo. |
-| nome da função |Yes |Nome da função personalizada. Ao ligar para a função, combine o nome da função com o espaço de nome. Por exemplo, para chamar uma função nomeada `uniqueName` no namespace contoso, use `"[contoso.uniqueName()]"` . |
-| nome de parâmetro |No |Nome do parâmetro a utilizar na função personalizada. |
-| parâmetro-valor |No |Tipo do valor do parâmetro. Os tipos e valores permitidos são **cordas,** **securestring**, **int,** **bool,** **object,** **secureObject**, e **array**. |
-| tipo de saída |Yes |Tipo do valor de saída. Os valores de saída suportam os mesmos tipos que os parâmetros de entrada da função. |
-| valor de saída |Yes |Expressão da linguagem do modelo que é avaliada e devolvida da função. |
+| espaço de nomes |Sim |Espaço de nome para as funções personalizadas. Utilize para evitar o nome de conflitos com funções de modelo. |
+| nome da função |Sim |Nome da função personalizada. Ao ligar para a função, combine o nome da função com o espaço de nome. Por exemplo, para chamar uma função nomeada `uniqueName` no namespace contoso, use `"[contoso.uniqueName()]"` . |
+| nome de parâmetro |Não |Nome do parâmetro a utilizar na função personalizada. |
+| parâmetro-valor |Não |Tipo do valor do parâmetro. Os tipos e valores permitidos são **cordas,** **securestring**, **int,** **bool,** **object,** **secureObject**, e **array**. |
+| tipo de saída |Sim |Tipo do valor de saída. Os valores de saída suportam os mesmos tipos que os parâmetros de entrada da função. |
+| valor de saída |Sim |Expressão da linguagem do modelo que é avaliada e devolvida da função. |
 
 Por exemplo, como utilizar funções personalizadas, consulte [funções definidas pelo Utilizador no modelo ARM](template-user-defined-functions.md).
 
@@ -281,20 +281,20 @@ Define recursos com a seguinte estrutura:
 
 | Nome do elemento | Obrigatório | Descrição |
 |:--- |:--- |:--- |
-| condição | No | Valor booleano que indica se o recurso será aprovisionado durante esta implantação. Quando `true` , o recurso é criado durante a implantação. Quando `false` , o recurso é ignorado para esta implantação. Ver [condição.](conditional-resource-deployment.md) |
-| tipo |Yes |Tipo de recurso. Este valor é uma combinação do espaço de nome do fornecedor de recursos e do tipo de recurso (tal `Microsoft.Storage/storageAccounts` como). Para determinar os valores disponíveis, consulte [a referência do modelo](/azure/templates/). Para um recurso infantil, o formato do tipo depende se está aninhado no recurso principal ou definido fora do recurso principal. Consulte [o nome definido e o tipo para obter recursos para crianças.](child-resource-name-type.md) |
-| apiVersion |Yes |Versão da API REST para a criação do recurso. Ao criar um novo modelo, desloque este valor para a versão mais recente do recurso que está a implementar. Enquanto o modelo funcionar conforme necessário, continue a utilizar a mesma versão API. Ao continuar a utilizar a mesma versão API, minimiza o risco de uma nova versão API alterar o funcionamento do seu modelo. Considere atualizar a versão API apenas quando pretender utilizar uma nova funcionalidade que é introduzida numa versão posterior. Para determinar os valores disponíveis, consulte [a referência do modelo](/azure/templates/). |
-| name |Yes |Nome do recurso. O nome deve seguir as restrições de componentes URI definidas no RFC3986. Os serviços da Azure que expõem o nome de recursos a partes externas validam o nome para garantir que não é uma tentativa de falsificação de outra identidade. Para um recurso infantil, o formato do nome depende se está aninhado no recurso principal ou definido fora do recurso principal. Consulte [o nome definido e o tipo para obter recursos para crianças.](child-resource-name-type.md) |
-| comentários |No |As suas notas para documentar os recursos no seu modelo. Para obter mais informações, consulte [comentários em modelos.](template-syntax.md#comments) |
+| condição | Não | Valor booleano que indica se o recurso será aprovisionado durante esta implantação. Quando `true` , o recurso é criado durante a implantação. Quando `false` , o recurso é ignorado para esta implantação. Ver [condição.](conditional-resource-deployment.md) |
+| tipo |Sim |Tipo de recurso. Este valor é uma combinação do espaço de nome do fornecedor de recursos e do tipo de recurso (tal `Microsoft.Storage/storageAccounts` como). Para determinar os valores disponíveis, consulte [a referência do modelo](/azure/templates/). Para um recurso infantil, o formato do tipo depende se está aninhado no recurso principal ou definido fora do recurso principal. Consulte [o nome definido e o tipo para obter recursos para crianças.](child-resource-name-type.md) |
+| apiVersion |Sim |Versão da API REST para a criação do recurso. Ao criar um novo modelo, desloque este valor para a versão mais recente do recurso que está a implementar. Enquanto o modelo funcionar conforme necessário, continue a utilizar a mesma versão API. Ao continuar a utilizar a mesma versão API, minimiza o risco de uma nova versão API alterar o funcionamento do seu modelo. Considere atualizar a versão API apenas quando pretender utilizar uma nova funcionalidade que é introduzida numa versão posterior. Para determinar os valores disponíveis, consulte [a referência do modelo](/azure/templates/). |
+| name |Sim |Nome do recurso. O nome deve seguir as restrições de componentes URI definidas no RFC3986. Os serviços da Azure que expõem o nome de recursos a partes externas validam o nome para garantir que não é uma tentativa de falsificação de outra identidade. Para um recurso infantil, o formato do nome depende se está aninhado no recurso principal ou definido fora do recurso principal. Consulte [o nome definido e o tipo para obter recursos para crianças.](child-resource-name-type.md) |
+| comentários |Não |As suas notas para documentar os recursos no seu modelo. Para obter mais informações, consulte [comentários em modelos.](template-syntax.md#comments) |
 | localização |Varia |Geo-localizações suportadas do recurso fornecido. Pode selecionar qualquer um dos locais disponíveis, mas normalmente faz sentido escolher um que esteja próximo dos seus utilizadores. Normalmente, também faz sentido colocar recursos que interagem uns com os outros na mesma região. A maioria dos tipos de recursos requer uma localização, mas alguns tipos (como uma atribuição de funções) não requerem uma localização. Ver [localização do recurso definido](resource-location.md). |
-| dependsOn |No |Recursos que devem ser utilizados antes deste recurso ser implantado. O Gestor de Recursos avalia as dependências entre recursos e implementa-os na ordem correta. Quando os recursos não dependem uns dos outros, são implantados em paralelo. O valor pode ser uma lista separada por vírgula de um nome de recurso ou identificadores únicos de recursos. Apenas enumerar recursos que são implantados neste modelo. Os recursos que não estão definidos neste modelo já devem existir. Evite adicionar dependências desnecessárias pois podem retardar a sua implantação e criar dependências circulares. Para obter orientações sobre a definição das dependências, consulte [definir a ordem para a implantação de recursos nos modelos ARM](define-resource-dependency.md). |
-| etiquetas |No |Etiquetas que estão associadas ao recurso. Aplique tags para organizar logicamente recursos em toda a sua subscrição. |
-| sku | No | Alguns recursos permitem que valores que definem o SKU implementem. Por exemplo, pode especificar o tipo de redundância para uma conta de armazenamento. |
-| tipo | No | Alguns recursos permitem um valor que define o tipo de recurso que implementa. Por exemplo, pode especificar o tipo de Cosmos DB para criar. |
-| Cópia |No |Se for necessário mais do que uma instância, o número de recursos a criar. O modo predefinido é paralelo. Especifique o modo de série quando não quiser que todos ou os recursos implementem ao mesmo tempo. Para obter mais informações, consulte [Criar várias instâncias de recursos no Azure Resource Manager.](copy-resources.md) |
-| plano | No | Alguns recursos permitem valores que definem o plano a implementar. Por exemplo, pode especificar a imagem do mercado para uma máquina virtual. |
-| propriedades |No |Definições de configuração específicas de recursos. Os valores para as propriedades são os mesmos que os valores que fornece no organismo de pedido para a operação REST API (método PUT) para criar o recurso. Também pode especificar um conjunto de cópias para criar várias instâncias de uma propriedade. Para determinar os valores disponíveis, consulte [a referência do modelo](/azure/templates/). |
-| resources |No |Recursos infantis que dependem do recurso que está a ser definido. Apenas forneça tipos de recursos que sejam permitidos pelo esquema do recurso principal. A dependência do recurso dos pais não está implícita. Tens de definir explicitamente essa dependência. Consulte [o nome definido e o tipo para obter recursos para crianças.](child-resource-name-type.md) |
+| dependsOn |Não |Recursos que devem ser utilizados antes deste recurso ser implantado. O Gestor de Recursos avalia as dependências entre recursos e implementa-os na ordem correta. Quando os recursos não dependem uns dos outros, são implantados em paralelo. O valor pode ser uma lista separada por vírgula de um nome de recurso ou identificadores únicos de recursos. Apenas enumerar recursos que são implantados neste modelo. Os recursos que não estão definidos neste modelo já devem existir. Evite adicionar dependências desnecessárias pois podem retardar a sua implantação e criar dependências circulares. Para obter orientações sobre a definição das dependências, consulte [definir a ordem para a implantação de recursos nos modelos ARM](define-resource-dependency.md). |
+| etiquetas |Não |Etiquetas que estão associadas ao recurso. Aplique tags para organizar logicamente recursos em toda a sua subscrição. |
+| sku | Não | Alguns recursos permitem que valores que definem o SKU implementem. Por exemplo, pode especificar o tipo de redundância para uma conta de armazenamento. |
+| tipo | Não | Alguns recursos permitem um valor que define o tipo de recurso que implementa. Por exemplo, pode especificar o tipo de Cosmos DB para criar. |
+| Cópia |Não |Se for necessário mais do que uma instância, o número de recursos a criar. O modo predefinido é paralelo. Especifique o modo de série quando não quiser que todos ou os recursos implementem ao mesmo tempo. Para obter mais informações, consulte [Criar várias instâncias de recursos no Azure Resource Manager.](copy-resources.md) |
+| plano | Não | Alguns recursos permitem valores que definem o plano a implementar. Por exemplo, pode especificar a imagem do mercado para uma máquina virtual. |
+| propriedades |Não |Definições de configuração específicas de recursos. Os valores para as propriedades são os mesmos que os valores que fornece no organismo de pedido para a operação REST API (método PUT) para criar o recurso. Também pode especificar um conjunto de cópias para criar várias instâncias de uma propriedade. Para determinar os valores disponíveis, consulte [a referência do modelo](/azure/templates/). |
+| resources |Não |Recursos infantis que dependem do recurso que está a ser definido. Apenas forneça tipos de recursos que sejam permitidos pelo esquema do recurso principal. A dependência do recurso dos pais não está implícita. Tens de definir explicitamente essa dependência. Consulte [o nome definido e o tipo para obter recursos para crianças.](child-resource-name-type.md) |
 
 ## <a name="outputs"></a>Saídas
 
@@ -318,11 +318,11 @@ O exemplo a seguir mostra a estrutura de uma definição de saída:
 
 | Nome do elemento | Obrigatório | Descrição |
 |:--- |:--- |:--- |
-| nome de saída |Yes |Nome do valor de saída. Deve ser um identificador JavaScript válido. |
-| condição |No | Valor booleano que indica se este valor de saída é devolvido. Quando `true` , o valor é incluído na saída para a implantação. Quando `false` , o valor de saída é ignorado para esta implantação. Quando não especificado, o valor predefinido é `true` . |
-| tipo |Yes |Tipo do valor de saída. Os valores de saída suportam os mesmos tipos que os parâmetros de entrada do modelo. Se especificar **o tipo de** saída, o valor não é apresentado no histórico de implementação e não pode ser recuperado a partir de outro modelo. Para utilizar um valor secreto em mais de um modelo, guarde o segredo num Cofre de Chaves e refira o segredo no ficheiro do parâmetro. Para obter mais informações, consulte [use Azure Key Vault para passar o valor do parâmetro seguro durante a implementação](key-vault-parameter.md). |
-| valor |No |Expressão da linguagem do modelo que é avaliada e devolvida como valor de saída. Especificar o **valor** ou **a cópia.** |
-| Cópia |No | Costumava devolver mais do que um valor para uma saída. Especificar **valor** ou **cópia.** Para obter mais informações, consulte [a iteração de saída nos modelos ARM](copy-outputs.md). |
+| nome de saída |Sim |Nome do valor de saída. Deve ser um identificador JavaScript válido. |
+| condição |Não | Valor booleano que indica se este valor de saída é devolvido. Quando `true` , o valor é incluído na saída para a implantação. Quando `false` , o valor de saída é ignorado para esta implantação. Quando não especificado, o valor predefinido é `true` . |
+| tipo |Sim |Tipo do valor de saída. Os valores de saída suportam os mesmos tipos que os parâmetros de entrada do modelo. Se especificar **o tipo de** saída, o valor não é apresentado no histórico de implementação e não pode ser recuperado a partir de outro modelo. Para utilizar um valor secreto em mais de um modelo, guarde o segredo num Cofre de Chaves e refira o segredo no ficheiro do parâmetro. Para obter mais informações, consulte [use Azure Key Vault para passar o valor do parâmetro seguro durante a implementação](key-vault-parameter.md). |
+| valor |Não |Expressão da linguagem do modelo que é avaliada e devolvida como valor de saída. Especificar o **valor** ou **a cópia.** |
+| Cópia |Não | Costumava devolver mais do que um valor para uma saída. Especificar **valor** ou **cópia.** Para obter mais informações, consulte [a iteração de saída nos modelos ARM](copy-outputs.md). |
 
 Por exemplo, como utilizar saídas, consulte [saídas no modelo ARM](template-outputs.md).
 

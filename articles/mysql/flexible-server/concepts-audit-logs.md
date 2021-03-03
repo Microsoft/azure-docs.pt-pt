@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/21/2020
-ms.openlocfilehash: d38a0ea7307584c25ddec9389feaef7518bcf925
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 1232a0753c988f5a28ebba28f9819aa67ce28603
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100591758"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718748"
 ---
 # <a name="track-database-activity-with-audit-logs-in-azure-database-for-mysql-flexible-server"></a>Acompanhe a atividade da base de dados com registos de auditoria na base de dados Azure para o MySQL Flexible Server
 
@@ -46,7 +46,7 @@ Outros parâmetros que pode ajustar para controlar o comportamento de registo de
 | `DCL` | Consultas como "GRANT PERMISSION" |
 | `ADMIN` | Consultas como "SHOW STATUS" |
 | `GENERAL` | Tudo em DML_SELECT, DML_NONSELECT, DML, DDL, DCL e ADMIN |
-| `TABLE_ACCESS` | - Disponível apenas para MySQL 5.7 <br> - Declarações de leitura de tabelas, tais como SELECT ou INSERT INTO... SELECIONE <br> - Tabela eliminar declarações, tais como DELETE ou TABELA TRUNCATE <br> - Declarações de inserção de tabelas, tais como INSERT ou REPLACE <br> - Declarações de atualização de tabelas, tais como UPDATE |
+| `TABLE_ACCESS` | - Declarações de leitura de tabelas, tais como SELECT ou INSERT INTO... SELECIONE <br> - Tabela eliminar declarações, tais como DELETE ou TABELA TRUNCATE <br> - Declarações de inserção de tabelas, tais como INSERT ou REPLACE <br> - Declarações de atualização de tabelas, tais como UPDATE |
 
 ## <a name="access-audit-logs"></a>Aceder aos registos de auditoria
 
@@ -72,7 +72,7 @@ As secções seguintes descrevem a saída dos registos de auditoria do MySQL com
 | `OperationName` | `LogEvent` |
 | `LogicalServerName_s` | Nome do servidor |
 | `event_class_s` | `connection_log` |
-| `event_subclass_s` | `CONNECT`, `DISCONNECT` `CHANGE USER` (apenas disponível para MySQL 5.7) |
+| `event_subclass_s` | `CONNECT`, `DISCONNECT`, `CHANGE USER` |
 | `connection_id_d` | ID de ligação única gerado pelo MySQL |
 | `host_s` | Vazio |
 | `ip_s` | Endereço IP do cliente que liga ao MySQL |
@@ -116,7 +116,7 @@ O esquema abaixo aplica-se aos tipos de eventos GENERAL, DML_SELECT, DML_NONSELE
 ### <a name="table-access"></a>Acesso à mesa
 
 > [!NOTE]
-> Os registos de acesso à mesa são apenas de saída para o MySQL 5.7.<br>Para `sql_text_s` , log será truncado se exceder os caracteres de 2048.
+> Para `sql_text_s` , log será truncado se exceder os caracteres de 2048.
 
 | **Propriedade** | **Descrição** |
 |---|---|

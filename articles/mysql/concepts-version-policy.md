@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/03/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 4903f1e48eb2f33c68d62c635201474b841ed146
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 6acb3268ba40399612940b395437fde3beffda1a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94591517"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101732875"
 ---
 # <a name="azure-database-for-mysql-versioning-policy"></a>Base de dados Azure para a política de versão MySQL
 
@@ -20,13 +20,18 @@ Esta página descreve a base de dados Azure para a política de versão MySQL, e
 
 ## <a name="supported--mysql-versions"></a>Versões MySQL suportadas
 
-A Azure Database for MySQL suporta as seguintes versões de base de dados.
+A Azure Database for MySQL foi desenvolvida a partir da [MySQL Community Edition,](https://www.mysql.com/products/community/)utilizando o motor de armazenamento InnoDB. O serviço suporta toda a versão principal atual suportada pela comunidade, nomeadamente MySQL 5.6, 5.7 e 8.0. MySQL usa o esquema de nomeação X.Y.Z onde X é a versão principal, Y é a versão menor, e Z é o lançamento da correção de bug. Para obter mais informações sobre o esquema, consulte a [documentação mySQL](https://dev.mysql.com/doc/refman/5.7/en/which-version.html).
 
-| Versão | Servidor Único | Servidor Flexível (Pré-visualização) |
-| ----- | :------: | :----: |
-| MySQL 8 | X |  | 
-| MySQL 5.7 | X | X |
-| MySQL 5.6| X |  |
+> [!NOTE]
+> Na opção de implementação do Servidor Único, é utilizado um gateway para redirecionar as ligações para as instâncias do servidor. Depois de a ligação ser estabelecida, o cliente MySQL apresenta a versão do MySQL definida no gateway, não a versão real em execução na instância do servidor MySQL. Para determinar a versão da instância do servidor MySQL, utilize o comando `SELECT VERSION();` no prompt do MySQL.
+
+A Azure Database for MySQL suporta atualmente as seguintes versões principais e menores do MySQL:
+
+| Versão | Servidor Único <br/> Versão menor atual |Servidor Flexível (Pré-visualização) <br/> Versão menor atual  |
+|:-------------------|:-------------------------------------------|:---------------------------------------------|
+|MySQL Versão 5.6 |  [5.6.47](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-47.html) | Não suportado|
+|MySQL Versão 5.7 | [5.7.29](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-29.html) | [5.7.29](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-29.html)|
+|MySQL Versão 8.0 | [8.0.15](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-15.html) | [8.0.21](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-21.html)|
 
 
 ## <a name="major-version-support"></a>Suporte de versão principal
@@ -40,7 +45,7 @@ O quadro abaixo fornece os detalhes da reforma para as principais versões do My
 
 | Versão | Novidades | Data de início do suporte Azure | Data da reforma|
 | ----- | ----- | ------ | ----- |
-| [MySQL 5.6](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/)| [Funcionalidades](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-49.html)  | 20 de março de 2018 | fevereiro de 2021
+| [MySQL 5.6](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/)| [Funcionalidades](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-49.html)  | 20 de março de 2018 | Fevereiro de 2021
 | [MySQL 5.7](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/) | [Funcionalidades](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-31.html) | 20 de março de 2018 | outubro de 2023
 | [MySQL 8](https://mysqlserverteam.com/whats-new-in-mysql-8-0-generally-available/) | [Características](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-21.html)) | 11 de dezembro de 2019 | abril de 2026
 
@@ -50,7 +55,7 @@ O quadro abaixo fornece os detalhes da reforma para as principais versões do My
 Após a data de aposentadoria de cada versão da base de dados MySQL, se continuar a executar a versão aposentada, note as seguintes restrições:
 - Uma vez que a comunidade não irá lançar quaisquer correções de bugs ou correções de segurança, a Azure Database for MySQL não irá corrigir o motor de base de dados reformado para quaisquer problemas de segurança ou tomar medidas de segurança no que diz respeito ao motor de base de dados reformado. No entanto, o Azure continuará a realizar manutenção e remendos periódicos para o hospedeiro, os contentores e quaisquer outros componentes relacionados com o serviço.
 - Se algum problema de suporte que possa ter relacionado com a base de dados MySQL, poderemos não ser capazes de lhe fornecer suporte. Nesses casos, terá de atualizar a sua base de dados para que lhe forneçamos qualquer suporte.
-- Não será possível criar novos servidores de base de dados para a versão reformada. No entanto, poderá realizar recuperações pontuais e criar réplicas de leitura para os seus servidores existentes.
+<!-- - You will not be able to create new database servers for the retired version. However, you will be able to perform point-in-time recoveries and create read replicas for your existing servers. -->
 - As novas capacidades de serviço desenvolvidas pela Azure Database para o MySQL só podem estar disponíveis para versões suportadas do servidor de bases de dados.
 - As SLAs de uptime aplicar-se-ão exclusivamente à Base de Dados Azure para problemas relacionados com o serviço MySQL e não a qualquer tempo de inatividade causado por erros relacionados com o motor da base de dados.  
 - No caso extremo de uma ameaça séria ao serviço causado pela vulnerabilidade do motor de base de dados MySQL identificada na versão de base de dados aposentada, a Azure pode optar por parar o nó de computação do seu servidor de base de dados para garantir primeiro o serviço. Será solicitado que atualize o servidor antes de colocar o servidor on-line. Durante o processo de atualização, os seus dados serão sempre protegidos utilizando cópias de segurança automáticas realizadas no serviço que podem ser utilizadas para restaurar a versão mais antiga, se desejar. 

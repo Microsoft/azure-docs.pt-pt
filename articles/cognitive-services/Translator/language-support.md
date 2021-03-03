@@ -10,16 +10,16 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
 ms.author: lajanuar
-ms.openlocfilehash: 935a9e92de88c2519dc1a1042315d204e8f60099
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: b114c4f3e6646f68e7a1068be8dd52778a26fb58
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98919923"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738145"
 ---
 # <a name="language-and-region-support-for-text-and-speech-translation"></a>Apoio linguístico e regional para tradução de texto e fala
 
-Utilize o Tradutor para traduzir para e a partir de qualquer uma das mais de 70 línguas de tradução de texto. A Tradução Automática Neural (NMT) é o novo padrão para traduções automáticas alimentadas por IA de alta qualidade e está disponível como o padrão usando V3 de Tradutor quando um sistema neural está disponível.
+Utilize o Tradutor para traduzir para e a partir de qualquer uma das 90 línguas e dialetos de tradução de texto. A Tradução Automática Neural (NMT) é o novo padrão para traduções automáticas alimentadas por IA de alta qualidade e está disponível como o padrão usando V3 de Tradutor quando um sistema neural está disponível.
 
 Também pode utilizar o Tradutor em conjunto com o Custom Tradutor para construir sistemas de tradução neural que compreendam a terminologia utilizada no seu próprio negócio e indústria, e com o Microsoft Speech Service para adicionar tradução de voz à sua app.
 
@@ -37,8 +37,12 @@ O tradutor apoia as seguintes línguas para tradução de texto para texto.
 | Linguagem | Código do idioma |
 |:-|:-:|
 | Afrikaans | `af` |
+| Albanês | `sq` |
+| Amárico | `am` |
 | Árabe | `ar` |
+| Arménio | `hy` |
 | Assamese | `as` |
+| Azerbaijão | `az` |
 | Bangla | `bn` |
 | Bósnio (Latim) | `bs` |
 | Búlgaro | `bg` |
@@ -74,11 +78,13 @@ O tradutor apoia as seguintes línguas para tradução de texto para texto.
 | Japonês | `ja` |
 | Canarês | `kn` |
 | Cazaque | `kk` |
+| Rio Khmer | `km` |
 | Klingon | `tlh-Latn` |
 | Klingon (plqaD) | `tlh-Piqd` |
 | Coreano | `ko` |
 | Curdo (Central) | `ku` |
 | Curdo (Norte) | `kmr` |
+| Rio Lao | `lo` |
 | Letão | `lv` |
 | Lituano | `lt` |
 | Malgaxe | `mg` |
@@ -87,6 +93,8 @@ O tradutor apoia as seguintes línguas para tradução de texto para texto.
 | Maltês | `mt` |
 | Maori | `mi` |
 | Marata | `mr` |
+| Mianmar | `my` |
+| Nepali | `ne` |
 | Norueguês | `nb` |
 | Odia | `or` |
 | Rio Pashto | `ps` |
@@ -110,6 +118,7 @@ O tradutor apoia as seguintes línguas para tradução de texto para texto.
 | Tâmil | `ta` |
 | Telugu | `te` |
 | Tailandês | `th` |
+| Rio Tigrinya | `ti` |
 | Tongan | `to` |
 | Turco | `tr` |
 | Ucraniano | `uk` |
@@ -130,6 +139,7 @@ O tradutor deteta as seguintes línguas para tradução e transliteração.
 | Linguagem | Código do idioma |
 |:-|:-:|
 | Afrikaans | `af` |
+| Albanês | `sq` |
 | Árabe | `ar` |
 | Búlgaro | `bg` |
 | Catalão | `ca` |
@@ -152,6 +162,7 @@ O tradutor deteta as seguintes línguas para tradução e transliteração.
 | Húngaro | `hu` |
 | Islandês | `is` |
 | Indonésio | `id` |
+| Inuktitut | `iu` |
 | Irlandês | `ga` |
 | Italiano | `it` |
 | Japonês | `ja` |

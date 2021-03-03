@@ -66,6 +66,8 @@
           href: create-profile-container-adds.md
         - name: Utilizar os Ficheiros do Azure e o AD DS
           href: create-file-share.md
+        - name: Instalar Escritório com recipientes de aplicativos FSLogix
+          href: fslogix-office-app-rule-editor.md
     - name: Configurar as definições do conjunto de anfitriões
       items:
         - name: Propriedades de RDP
@@ -104,6 +106,8 @@
           href: app-attach-image-prep.md
         - name: Configurar uma partilha de ficheiros
           href: app-attach-file-share.md
+        - name: Configurar a ferramenta MSIXMGR
+          href: app-attach-msixmgr.md
     - name: Utilizar o Microsoft Teams
       href: teams-on-wvd.md
     - name: Configurar o Multi-Factor Authentication do Azure AD

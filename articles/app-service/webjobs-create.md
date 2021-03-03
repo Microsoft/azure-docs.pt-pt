@@ -8,18 +8,22 @@ ms.date: 10/16/2018
 ms.author: glenga
 ms.reviewer: msangapu;suwatch;pbatum;naren.soni
 ms.custom: seodec18
-ms.openlocfilehash: 2743efa5a9067f0667d54be0b7df75a627e60fcd
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+adobe-target: true
+adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
+adobe-target-experience: Experience B
+adobe-target-content: ./webjobs-create-ieux
+ms.openlocfilehash: 8afc8ca9b0dedb10ecdb30e8abb22a5d0986de5b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92674038"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723882"
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Executar tarefas de fundo com WebJobs no Azure App Service
 
 Este artigo mostra como implementar WebJobs utilizando o [portal Azure](https://portal.azure.com) para carregar um executável ou script. Para obter informações sobre como desenvolver e implementar WebJobs utilizando o Visual Studio, consulte [Implementar WebJobs utilizando o Visual Studio](webjobs-dotnet-deploy-vs.md).
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 WebJobs é uma funcionalidade do [Azure App Service](index.yml) que lhe permite executar um programa ou script no mesmo caso que uma aplicação web, app API ou aplicativo móvel. Não há custo adicional para usar WebJobs.
 
 > [!IMPORTANT]
@@ -49,7 +53,7 @@ São suportados os seguintes tipos de ficheiro:
 * .cmd, .bat, .exe (usando o Windows cmd)
 * .ps1 (usando PowerShell)
 * .sh (usando Bash)
-* .php (usando PHP)
+* .php (utilizando PHP)
 * .py (usando Python)
 * .js (utilizando Node.js)
 * .jar (usando Java)
@@ -66,11 +70,11 @@ when making changes in one don't forget the other two.
 
 1. No [portal Azure,](https://portal.azure.com)aceda à página de Serviço de **Aplicações** da sua aplicação web Do Serviço de Aplicações, app API ou aplicação móvel.
 
-2. Selecione **WebJobs** .
+2. Selecione **WebJobs**.
 
    ![Selecione WebJobs](./media/web-sites-create-web-jobs/select-webjobs.png)
 
-2. Na página **WebJobs,** selecione **Adicionar** .
+2. Na página **WebJobs,** selecione **Adicionar**.
 
     ![Página WebJob](./media/web-sites-create-web-jobs/wjblade.png)
 
@@ -81,17 +85,17 @@ when making changes in one don't forget the other two.
    | Definição      | Valor da amostra   | Descrição  |
    | ------------ | ----------------- | ------------ |
    | **Nome** | myContinuousWebJob | Um nome único dentro de uma aplicação do Serviço de Aplicações. Deve começar com uma letra ou um número e não pode conter caracteres especiais que não "-" e "_". |
-   | **Upload de ficheiros** | ConsoleApp.zip | Um ficheiro *.zip* que contenha o seu ficheiro executável ou script, bem como quaisquer ficheiros de suporte necessários para executar o programa ou script. Os tipos suportados de ficheiros executáveis ou script estão listados na secção [de tipos de ficheiros suportados.](#acceptablefiles) |
+   | **Upload de ficheiros** | ConsoleApp.zip | Um *ficheiro .zip* que contenha o seu ficheiro executável ou script, bem como quaisquer ficheiros de suporte necessários para executar o programa ou script. Os tipos suportados de ficheiros executáveis ou script estão listados na secção [de tipos de ficheiros suportados.](#acceptablefiles) |
    | **Tipo** | Contínuo | Os [tipos webJob](#webjob-types) são descritos anteriormente neste artigo. |
    | **Dimensionamento** | Várias instâncias | Disponível apenas para WebJobs contínuos. Determina se o programa ou o script são executados em todas as instâncias ou apenas num caso. A opção de correr em várias instâncias não se aplica aos [níveis de preços gratuitos](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)ou partilhados . | 
 
-4. Clique em **OK** .
+4. Clique em **OK**.
 
    O novo WebJob aparece na página **WebJobs.**
 
    ![Lista de WebJobs](./media/web-sites-create-web-jobs/listallwebjobs.png)
 
-2. Para parar ou reiniciar um WebJob contínuo, clique com o direito no WebJob na lista e clique em **Stop** ou **Start** .
+2. Para parar ou reiniciar um WebJob contínuo, clique com o direito no WebJob na lista e clique em **Stop** ou **Start**.
 
     ![Pare um WebJob contínuo](./media/web-sites-create-web-jobs/continuousstop.png)
 
@@ -104,11 +108,11 @@ when making changes in one don't forget the other two.
 
 1. No [portal Azure,](https://portal.azure.com)aceda à página de Serviço de **Aplicações** da sua aplicação web Do Serviço de Aplicações, app API ou aplicação móvel.
 
-2. Selecione **WebJobs** .
+2. Selecione **WebJobs**.
 
    ![Selecione WebJobs](./media/web-sites-create-web-jobs/select-webjobs.png)
 
-2. Na página **WebJobs,** selecione **Adicionar** .
+2. Na página **WebJobs,** selecione **Adicionar**.
 
     ![Página WebJob](./media/web-sites-create-web-jobs/wjblade.png)
 
@@ -119,17 +123,17 @@ when making changes in one don't forget the other two.
    | Definição      | Valor da amostra   | Descrição  |
    | ------------ | ----------------- | ------------ |
    | **Nome** | myTriggeredWebJob | Um nome único dentro de uma aplicação do Serviço de Aplicações. Deve começar com uma letra ou um número e não pode conter caracteres especiais que não "-" e "_".|
-   | **Upload de ficheiros** | ConsoleApp.zip | Um ficheiro *.zip* que contenha o seu ficheiro executável ou script, bem como quaisquer ficheiros de suporte necessários para executar o programa ou script. Os tipos suportados de ficheiros executáveis ou script estão listados na secção [de tipos de ficheiros suportados.](#acceptablefiles) |
+   | **Upload de ficheiros** | ConsoleApp.zip | Um *ficheiro .zip* que contenha o seu ficheiro executável ou script, bem como quaisquer ficheiros de suporte necessários para executar o programa ou script. Os tipos suportados de ficheiros executáveis ou script estão listados na secção [de tipos de ficheiros suportados.](#acceptablefiles) |
    | **Tipo** | Desencadeado | Os [tipos webJob](#webjob-types) são descritos anteriormente neste artigo. |
    | **Acionadores** | Manual | |
 
-4. Clique em **OK** .
+4. Clique em **OK**.
 
    O novo WebJob aparece na página **WebJobs.**
 
    ![Lista de WebJobs](./media/web-sites-create-web-jobs/listallwebjobs.png)
 
-7. Para executar o WebJob, clique com o botão direito no seu nome na lista e clique em **Executar** .
+7. Para executar o WebJob, clique com o botão direito no seu nome na lista e clique em **Executar**.
    
     ![Executar WebJob](./media/web-sites-create-web-jobs/runondemand.png)
 
@@ -142,11 +146,11 @@ when making changes in one don't forget the other two.
 
 1. No [portal Azure,](https://portal.azure.com)aceda à página de Serviço de **Aplicações** da sua aplicação web Do Serviço de Aplicações, app API ou aplicação móvel.
 
-2. Selecione **WebJobs** .
+2. Selecione **WebJobs**.
 
    ![Selecione WebJobs](./media/web-sites-create-web-jobs/select-webjobs.png)
 
-2. Na página **WebJobs,** selecione **Adicionar** .
+2. Na página **WebJobs,** selecione **Adicionar**.
 
    ![Página WebJob](./media/web-sites-create-web-jobs/wjblade.png)
 
@@ -157,12 +161,12 @@ when making changes in one don't forget the other two.
    | Definição      | Valor da amostra   | Descrição  |
    | ------------ | ----------------- | ------------ |
    | **Nome** | mySchededWebJob | Um nome único dentro de uma aplicação do Serviço de Aplicações. Deve começar com uma letra ou um número e não pode conter caracteres especiais que não "-" e "_". |
-   | **Upload de ficheiros** | ConsoleApp.zip | Um ficheiro *.zip* que contenha o seu ficheiro executável ou script, bem como quaisquer ficheiros de suporte necessários para executar o programa ou script. Os tipos suportados de ficheiros executáveis ou script estão listados na secção [de tipos de ficheiros suportados.](#acceptablefiles) |
+   | **Upload de ficheiros** | ConsoleApp.zip | Um *ficheiro .zip* que contenha o seu ficheiro executável ou script, bem como quaisquer ficheiros de suporte necessários para executar o programa ou script. Os tipos suportados de ficheiros executáveis ou script estão listados na secção [de tipos de ficheiros suportados.](#acceptablefiles) |
    | **Tipo** | Desencadeado | Os [tipos webJob](#webjob-types) são descritos anteriormente neste artigo. |
    | **Acionadores** | Agendado | Para que o agendamento funcione de forma fiável, ative a funcionalidade Always On. Always On está disponível apenas nos níveis de preços Básico, Standard e Premium.|
    | **Expressão CRON** | 0 0/20 * * * * | [As expressões cron](#ncrontab-expressions) são descritas na secção seguinte. |
 
-4. Clique em **OK** .
+4. Clique em **OK**.
 
    O novo WebJob aparece na página **WebJobs.**
 
@@ -170,7 +174,7 @@ when making changes in one don't forget the other two.
 
 ## <a name="ncrontab-expressions"></a>Expressões NCRONTAB
 
-Pode introduzir uma [expressão NCRONTAB](../azure-functions/functions-bindings-timer.md#ncrontab-expressions) no portal ou incluir um `settings.job` ficheiro na raiz do seu ficheiro WebJob.zip, como no seguinte exemplo: *.zip*
+Pode introduzir uma [expressão NCRONTAB](../azure-functions/functions-bindings-timer.md#ncrontab-expressions) no portal ou incluir um `settings.job` ficheiro na raiz do seu ficheiro WebJob *.zip,* como no seguinte exemplo:
 
 ```json
 {
@@ -196,7 +200,7 @@ Para saber mais, consulte [Agendar um WebJob desencadeado.](webjobs-dotnet-deplo
    
     ![Detalhes de execução de trabalho na Web](./media/web-sites-create-web-jobs/webjobrundetails.png)
 
-   Para ver o texto de saída numa janela separada do navegador, selecione **download** . Para descarregar o texto em si, clique no **download** e use as opções do seu navegador para guardar o conteúdo do ficheiro.
+   Para ver o texto de saída numa janela separada do navegador, selecione **download**. Para descarregar o texto em si, clique no **download** e use as opções do seu navegador para guardar o conteúdo do ficheiro.
    
 5. Selecione o link de migalhas de pão **WebJobs** no topo da página para ir a uma lista de WebJobs.
 

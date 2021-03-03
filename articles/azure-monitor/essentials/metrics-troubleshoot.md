@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: d62c4b79fcb86080649c542e34b81d3213978604
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 2a3bf022d178fbd0de3ca800e0a560235c3f33b5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100616581"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731498"
 ---
 # <a name="troubleshooting-metrics-charts"></a>Troubleshooting metrics charts (Resolução de problemas de gráficos de métricas)
 
@@ -62,7 +62,7 @@ A recolha de métricas do **SO Convidado** requer a configuração da Extensão 
 
 Este problema pode ocorrer quando o dashboard foi criado com uma métrica que foi preterida e removida do Azure posteriormente. Para verificar se é esse o caso, abra o **separador Métricas** do seu recurso e verifique as métricas disponíveis no selecionador métrico. Se a métrica não for apresentada, foi removida do Azure. Normalmente, quando uma métrica é preterida, existe uma métrica nova e melhor que oferece uma perspetiva semelhante sobre o estado de funcionamento do recurso.
 
-**Solução:** Atualize o azulejo de falha escolhendo uma métrica alternativa para o seu gráfico no painel de instrumentos. Pode [analisar uma lista de métricas disponíveis para serviços do Azure](../platform/metrics-supported.md).
+**Solução:** Atualize o azulejo de falha escolhendo uma métrica alternativa para o seu gráfico no painel de instrumentos. Pode [analisar uma lista de métricas disponíveis para serviços do Azure](./metrics-supported.md).
 
 ## <a name="chart-shows-dashed-line"></a>O gráfico mostra uma linha tracejada
 
@@ -104,5 +104,5 @@ Por predefinição, as métricas do SO convidado são armazenadas na conta de Ar
 
 * [Saiba como começar com o Metric Explorer](metrics-getting-started.md)
 * [Conheça as funcionalidades avançadas do Metric Explorer](../essentials/metrics-charts.md)
-* [See a list of available metrics for Azure services](../platform/metrics-supported.md) (Ver uma lista de métricas disponíveis para serviços do Azure)
+* [See a list of available metrics for Azure services](./metrics-supported.md) (Ver uma lista de métricas disponíveis para serviços do Azure)
 * [See examples of configured charts](../essentials/metric-chart-samples.md) (Ver exemplos de gráficos configurados)

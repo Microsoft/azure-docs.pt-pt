@@ -3,12 +3,12 @@ title: Tutorial - Apoiar bases de dados SAP HANA em VMs Azure
 description: Neste tutorial, aprenda a apoiar as bases de dados SAP HANA em execução na Azure VM até um cofre dos Serviços de Recuperação de Backup Azure.
 ms.topic: tutorial
 ms.date: 02/24/2020
-ms.openlocfilehash: ede8ebab205e814de3988a2b5c432a21f965eb55
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.openlocfilehash: 5548717b25ea3ec027ba5f588e5e28faafbb5d6f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99987783"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703686"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>Tutorial: Apoiar as bases de dados SAP HANA num Azure VM
 
@@ -105,7 +105,7 @@ As cópias de segurança (log e non-log) nos VMs SAP HANA Azure fornecidos via B
 
 O componente backint da HANA fornece os 'tubos' (um tubo para ler e um tubo para escrever), ligados a discos subjacentes onde residem os ficheiros de base de dados, que são depois lidos pelo serviço de backup Azure e transportados para o cofre dos Serviços de Recuperação de Azure. O serviço Azure Backup também executa uma função de verificação para validar os streams, além dos controlos de validação nativos de backint. Estas validações assegurarão que os dados presentes no cofre dos Serviços de Recuperação do Azure sejam de facto fiáveis e recuperáveis.
 
-Uma vez que os streams lidam principalmente com discos, é necessário compreender o desempenho do disco para medir a cópia de segurança e restaurar o desempenho. Consulte [este artigo](https://docs.microsoft.com/azure/virtual-machines/disks-performance) para obter uma compreensão aprofundada da produção e desempenho do disco em VMs Azure. Estes também são aplicáveis ao desempenho de backup e restauro.
+Uma vez que os streams lidam principalmente com discos, é necessário compreender o desempenho do disco para medir a cópia de segurança e restaurar o desempenho. Consulte [este artigo](../virtual-machines/disks-performance.md) para obter uma compreensão aprofundada da produção e desempenho do disco em VMs Azure. Estes também são aplicáveis ao desempenho de backup e restauro.
 
 **O serviço Azure Backup tenta alcançar até ~420 MBps para cópias de segurança não log (tais como completas, diferenciais e incrementais) e até 100 MBps para backups de registo para HANA**. Como mencionado acima, estas velocidades não são garantidas e dependem dos seguintes fatores:
 
@@ -267,8 +267,8 @@ Especificar as definições de política da seguinte forma:
    ![Política de backup diferencial](./media/tutorial-backup-sap-hana-db/differential-backup-policy.png)
 
    >[!NOTE]
-   >Cópias de segurança incrementais estão agora disponíveis em visualização pública. Pode escolher um diferencial ou um incremental como uma cópia de segurança diária, mas não ambos.
-   >
+   >Pode escolher um diferencial ou um incremental como uma cópia de segurança diária, mas não ambos.
+
 7. Na **política de Cópia de Segurança Incremental,** selecione **Ativar** para abrir os controlos de frequência e retenção.
     * No máximo, pode desencadear uma cópia de segurança incremental por dia.
     * As cópias de segurança incrementais podem ser mantidas por um máximo de 180 dias. Se precisar de uma maior retenção, deve utilizar cópias de segurança completas.

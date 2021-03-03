@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/08/2021
 ms.author: trbye
 ms.custom: references_regions
-ms.openlocfilehash: b4a4fa8a207320a5867b6cdf1dc347bbb2f453af
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: e5872b6ab97a47c09081cf9c26fb7f140b110c3f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99525743"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101733453"
 ---
 # <a name="text-to-speech-rest-api"></a>API REST de conversão de texto em voz
 
@@ -76,7 +76,7 @@ O `voices/list` ponto final permite-lhe obter uma lista completa de vozes para u
 
 Esta tabela lista os cabeçalhos necessários e opcionais para pedidos de texto-a-voz.
 
-| Cabeçalho | Description | Obrigatório / Opcional |
+| Cabeçalho | Descrição | Obrigatório / Opcional |
 |--------|-------------|---------------------|
 | `Ocp-Apim-Subscription-Key` | A chave de subscrição do serviço de discurso. | Ou este cabeçalho ou `Authorization` é necessário. |
 | `Authorization` | Um sinal de autorização precedido pela palavra `Bearer` . Para obter mais informações, veja [Autenticação](#authentication). | Ou este cabeçalho ou `Ocp-Apim-Subscription-Key` é necessário. |
@@ -211,7 +211,7 @@ Estas regiões são apoiadas por texto-a-voz utilizando a API REST. Certifique-s
 
 Esta tabela lista os cabeçalhos necessários e opcionais para pedidos de texto-a-voz.
 
-| Cabeçalho | Description | Obrigatório / Opcional |
+| Cabeçalho | Descrição | Obrigatório / Opcional |
 |--------|-------------|---------------------|
 | `Authorization` | Um sinal de autorização precedido pela palavra `Bearer` . Para obter mais informações, veja [Autenticação](#authentication). | Necessário |
 | `Content-Type` | Especifica o tipo de conteúdo para o texto fornecido. Valor aceite: `application/ssml+xml` . | Necessário |
@@ -279,5 +279,5 @@ Se o estado HTTP `200 OK` for, o corpo da resposta contém um ficheiro áudio no
 ## <a name="next-steps"></a>Passos seguintes
 
 - [Criar uma conta do Azure gratuita](https://azure.microsoft.com/free/cognitive-services/)
-- [Síntese assíncronea para áudio de forma longa](quickstarts/text-to-speech/async-synthesis-long-form-audio.md)
+- [Síntese assíncronea para áudio de forma longa](./long-audio-api.md)
 - [Introdução à Voz Personalizada](how-to-custom-voice.md)

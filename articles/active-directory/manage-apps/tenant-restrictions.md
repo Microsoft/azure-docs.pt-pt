@@ -12,12 +12,12 @@ ms.date: 2/23/2021
 ms.author: kenwith
 ms.reviewer: hpsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 611dd5e53ae96e06677b1c4a6a6f009e582b33af
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: b545afb370b84404d3e15f885464aabf00d2eaf2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101646270"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101687078"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Use restrições de inquilinos para gerir o acesso a aplicações em nuvem SaaS
 
@@ -109,19 +109,18 @@ Enquanto a configuração das restrições de inquilinos é feita na infraestrut
 
 O administrador para o inquilino especificado como o inquilino restrito-contexto de acesso pode usar este relatório para ver as inscrições bloqueadas devido à política de restrições do arrendatário, incluindo a identidade utilizada e o iD do directório-alvo. As inscrições estão incluídas se o arrendatário que estabelece a restrição for o inquilino do utilizador ou o inquilino de recursos para a inscrição.
 
-> [!NOTE]
-> O relatório pode conter informações limitadas, tais como identificação de diretório-alvo, quando um utilizador que esteja num inquilino que não seja o inquilino de contexto restrito assina. Neste caso, as informações identificáveis do utilizador, tais como nome e nome principal do utilizador, são mascaradas para proteger os dados dos utilizadores em outros inquilinos (" 00000000-0000-0000-0000-00000000@domain.com ") 
+O relatório pode conter informações limitadas, tais como identificação de diretório-alvo, quando um utilizador que esteja num inquilino que não seja o inquilino de contexto restrito assina. Neste caso, as informações identificáveis do utilizador, tais como nome e nome principal do utilizador, são mascaradas para proteger os dados dos utilizadores em outros inquilinos ("{PII @domain.com Removed}" ou 0000000-0000-0000-0000-0000000000000000, em vez de nomes de utilizador e IDs de objeto, conforme apropriado). 
 
 À semelhança de outros relatórios no portal Azure, pode utilizar filtros para especificar o âmbito do seu relatório. Pode filtrar num intervalo de tempo específico, utilizador, aplicação, cliente ou estado. Se selecionar o botão **Colunas,** pode optar por exibir dados com qualquer combinação dos seguintes campos:
 
-- **Utilizador**
+- **Utilizador** - este campo pode ter informações pessoalmente identificáveis removidas, onde será configurada para `00000000-0000-0000-0000-000000000000` . 
 - **Aplicação**
 - **Estado**
 - **Data**
-- **Data (UTC)** (onde UTC é tempo universal coordenado)
+- **Data (UTC)** - onde UTC é Tempo Universal Coordenado
 - **Endereço IP**
 - **Cliente**
-- **Nome de Utilizador**
+- **Nome de utilizador** - este campo pode ter informações pessoalmente identificáveis removidas, onde será definido para `{PII Removed}@domain.com`
 - **Localização**
 - **ID do inquilino alvo**
 
@@ -196,19 +195,19 @@ Dependendo das capacidades da sua infraestrutura proxy, poderá ser capaz de con
 
 Para obter detalhes específicos, consulte a documentação do seu servidor proxy.
 
-## <a name="blocking-consumer-applications"></a>Bloqueio das aplicações dos consumidores
+## <a name="blocking-consumer-applications-public-preview"></a>Bloqueio das aplicações dos consumidores (pré-visualização pública)
 
-As aplicações da Microsoft que suportam contas de consumidores e contas organizacionais, como [o OneDrive](https://onedrive.live.com/) ou o [Microsoft Learn,](https://docs.microsoft.com/learn/)podem por vezes ser hospedadas num mesmo URL.  Isto significa que os utilizadores que devem aceder a esse URL para fins de trabalho também têm acesso ao mesmo para uso pessoal, o que pode não ser permitido de acordo com as suas diretrizes operacionais.
+As aplicações da Microsoft que suportam contas de consumidores e contas organizacionais, como [o OneDrive](https://onedrive.live.com/) ou o [Microsoft Learn,](https://docs.microsoft.com/learn/)podem por vezes ser hospedadas no mesmo URL.  Isto significa que os utilizadores que devem aceder a esse URL para fins de trabalho também têm acesso ao mesmo para uso pessoal, o que pode não ser permitido de acordo com as suas diretrizes operacionais.
 
 Algumas organizações tentam corrigir isso bloqueando `login.live.com` para impedir que as contas pessoais autensem.  Isto tem várias desvantagens:
 
 1. O bloqueio `login.live.com` bloqueia o uso de contas pessoais em cenários de hóspedes B2B, o que pode intrometer-se nos visitantes e na colaboração.
 1. [Piloto automático requer `login.live.com` a utilização de](https://docs.microsoft.com/mem/autopilot/networking-requirements) a fim de implantar. Os cenários intune e autopiloto podem falhar quando `login.live.com` estão bloqueados.
-1. As atualizações de telemetria organizacional e Windows que dependem do serviço MSA para iDs do dispositivo [deixarão de funcionar](https://docs.microsoft.com/windows/deployment/update/windows-update-troubleshooting#feature-updates-are-not-being-offered-while-other-updates-are).
+1. As atualizações de telemetria organizacional e Windows que dependem do serviço login.live.com para iDs do dispositivo [deixarão de funcionar](https://docs.microsoft.com/windows/deployment/update/windows-update-troubleshooting#feature-updates-are-not-being-offered-while-other-updates-are).
 
 ### <a name="configuration-for-consumer-apps"></a>Configuração para aplicativos de consumo
 
-Embora o `Restrict-Access-To-Tenants` cabeçalho funcione como uma lista de autorizações, o bloco MSA funciona como um sinal de negação, dizendo à plataforma de conta da Microsoft para não permitir que os utilizadores inscrevam-se nas aplicações dos consumidores. Para enviar este sinal, é injetado um `sec-Restrict-Tenant-Access-Policy` cabeçalho para o tráfego que visita `login.live.com` usando o mesmo representante corporativo ou firewall como [acima](#proxy-configuration-and-requirements). O valor do cabeçalho deve ser `restrict-msa` . Quando o cabeçalho está presente e uma aplicação de consumo está a tentar assinar diretamente num utilizador, esse sinal será bloqueado.
+Embora o `Restrict-Access-To-Tenants` cabeçalho funcione como uma lista de autorizações, o bloco da conta Microsoft (MSA) funciona como um sinal de negação, dizendo à plataforma de conta da Microsoft para não permitir que os utilizadores inscrevam-se nas aplicações dos consumidores. Para enviar este sinal, o `sec-Restrict-Tenant-Access-Policy` cabeçalho é injetado no tráfego visitando `login.live.com` usando o mesmo representante corporativo ou firewall como [acima](#proxy-configuration-and-requirements). O valor do cabeçalho deve ser `restrict-msa` . Quando o cabeçalho está presente e uma aplicação de consumo está a tentar assinar diretamente num utilizador, esse sinal será bloqueado.
 
 Neste momento, a autenticação para aplicações de consumidores não aparece nos registos de [administração](#admin-experience), uma vez login.live.com é hospedado separadamente do Azure AD.
 

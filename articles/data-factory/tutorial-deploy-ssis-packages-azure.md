@@ -4,15 +4,15 @@ description: Saiba como aprovisionar o runtime de integração do Azure-SSIS no 
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 10/13/2020
+ms.date: 02/22/2021
 author: swinarko
 ms.author: sawinark
-ms.openlocfilehash: e0b84bb65e71b023121a5deae8295ddaf8879311
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 7c439d71806d2deba508ce35131f21ebfbd7a3ec
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100391359"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101740414"
 ---
 # <a name="provision-the-azure-ssis-integration-runtime-in-azure-data-factory"></a>Provisão do tempo de integração Azure-SSIS na Azure Data Factory
 
@@ -149,6 +149,12 @@ Se selecionar a caixa de verificação, preencha os seguintes passos para trazer
    1. Para **o nome de utilizador Admin,** insira o nome de utilizador de autenticação SQL para o servidor de base de dados para hospedar o SSISDB. 
 
    1. Para **a Palavra-passe de Admin,** introduza a palavra-passe de autenticação SQL para o seu servidor de base de dados para hospedar o SSISDB. 
+
+   1. Selecione o **par de runtime de integração Azure-SSIS de dupla posição com caixa de verificação de failover SSISDB** para configurar um duplo standby Azure SSIS IR pair que funciona em sincronização com Azure SQL Database/Managed Instance failover group para continuidade de negócios e recuperação de desastres (BCDR).
+   
+      Se selecionar a caixa de verificação, insira um nome para identificar o seu par de IRs Azure-SISis primários e secundários na caixa de texto de dupla dupla dupla de **espera.** Tem de introduzir o mesmo nome de pares ao criar as suas IRs Azure-SSIS primárias e secundárias.
+
+      Para mais informações, consulte [configurar o seu Azure-SSIS IR para BCDR](./configure-bcdr-azure-ssis-integration-runtime.md).
 
    1. Para **o Catálogo Database Service Tier**, selecione o nível de serviço para o seu servidor de base de dados para hospedar o SSISDB. Selecione o nível Básico, Standard ou Premium ou selecione um nome elástico da piscina.
 

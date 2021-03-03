@@ -13,10 +13,10 @@ metadata:
   ms.author: rolyon
   ms.date: 02/15/2021
   ms.openlocfilehash: c4bc7c34c2985b07e6ae72a2debec9e83e1578b8
-  ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+  ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 02/17/2021
+  ms.lasthandoff: 03/03/2021
   ms.locfileid: "100557239"
 landingContent:
 - title: Acerca do RBAC do Azure

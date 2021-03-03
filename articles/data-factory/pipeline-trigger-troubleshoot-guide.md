@@ -7,12 +7,12 @@ ms.date: 12/15/2020
 ms.topic: troubleshooting
 ms.author: susabat
 ms.reviewer: susabat
-ms.openlocfilehash: 1a5f665627da1b08ec57b04863a58f227c673af4
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 2950c175acfdda33394c93649a3e2c41d1264dd2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98944900"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101705998"
 ---
 # <a name="troubleshoot-pipeline-orchestration-and-triggers-in-azure-data-factory"></a>Resolução de problemas da orquestração e desencadeamentos de gasodutos na Fábrica de Dados do Azure
 
@@ -78,15 +78,34 @@ A Azure Data Factory avalia o resultado de todas as atividades ao nível das fol
 1. Implementar controlos ao nível da atividade seguindo [como lidar com falhas e erros](https://techcommunity.microsoft.com/t5/azure-data-factory/understanding-pipeline-failures-and-error-handling/ba-p/1630459)do gasoduto .
 1. Utilize aplicações lógicas Azure para monitorizar os gasodutos em intervalos regulares após [consulta por fábrica](/rest/api/datafactory/pipelineruns/querybyfactory).
 
-## <a name="monitor-pipeline-failures-in-regular-intervals"></a>Monitorizar falhas do gasoduto em intervalos regulares
+### <a name="how-to-monitor-pipeline-failures-in-regular-intervals"></a>Como monitorizar falhas de gasodutos em intervalos regulares
 
 Pode ser necessário monitorizar os oleodutos falhados da Data Factory em intervalos, digamos, 5 minutos. Pode consultar e filtrar o gasoduto a partir de uma fábrica de dados utilizando o ponto final. 
 
-Crie uma aplicação lógica Azure para consultar todos os oleodutos falhados a cada 5 minutos, conforme descrito em [Consulta Por Fábrica](/rest/api/datafactory/pipelineruns/querybyfactory). Então, pode reportar incidentes ao nosso sistema de bilhética.
+**Resolução** Pode configurar uma aplicação lógica Azure para consultar todos os oleodutos falhados a cada 5 minutos, conforme descrito na [Consulta By Factory](/rest/api/datafactory/pipelineruns/querybyfactory). Então, pode reportar incidentes ao seu sistema de bilhética.
 
 Para mais informações, aceda ao [Envio de Notificações da Data Factory, Parte 2](https://www.mssqltips.com/sqlservertip/5962/send-notifications-from-an-azure-data-factory-pipeline--part-2/).
 
-## <a name="next-steps"></a>Próximos passos
+### <a name="degree-of-parallelism--increase-does-not-result-in-higher-throughput"></a>O grau de aumento do paralelismo não resulta numa maior produção
+
+**Motivo** 
+
+O grau de paralelismo em *ForEach* é, na verdade, o grau máximo de paralelismo. Não podemos garantir um número específico de execuções que ocorram ao mesmo tempo, mas este parâmetro garantirá que nunca ultrapassamos o valor estabelecido. Deve ver isto como um limite, para ser alavancado ao controlar o acesso simultâneo às suas fontes e pias.
+
+Factos Conhecidos sobre *ForEach*
+ * Foreach tem uma propriedade chamada contagem de lote(n) onde o valor padrão é 20 e o máximo é de 50.
+ * A contagem de lotes, n, é usada para construir n filas. Mais tarde discutiremos alguns detalhes sobre a forma como estas filas são construídas.
+ * Cada fila corre sequencialmente, mas você pode ter várias filas correndo em paralelo.
+ * As filas são pré-criadas. Isto significa que não há reequilíbrio das filas durante o tempo de funcionamento.
+ * A qualquer momento, tem no máximo um item sendo processado por fila. Isto significa que, no máximo, n itens estão a ser processados a qualquer momento.
+ * O tempo total de processamento forifível é igual ao tempo de processamento da fila mais longa. Isto significa que a atividade do foreach depende da forma como as filas são construídas.
+ 
+**Resolução**
+
+ * Não deve utilizar a atividade *SetVariable* dentro *de cada um* que funciona em paralelo.
+ * Tendo em conta a forma como as filas são construídas, o cliente pode melhorar o desempenho do foreach, definindo *múltiplas falhas em* que cada proa terá itens com tempo de processamento semelhante. Isto assegurará que os longos prazos sejam processados paralelamente de forma bastante sequencial.
+
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter mais ajuda para resolver problemas, experimente estes recursos:
 

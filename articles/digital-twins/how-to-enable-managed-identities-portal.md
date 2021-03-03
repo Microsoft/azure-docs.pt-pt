@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 1/21/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 5c216661e45e5ed34a95e8a56002f3ad175b089a
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 1211cd306f10fb349bd42568697443ff103a171c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100545921"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703098"
 ---
 # <a name="enable-a-managed-identity-for-routing-azure-digital-twins-events-preview-azure-portal"></a>Ativar uma identidade gerida para encaminhamento de eventos Azure Digital Twins (pré-visualização): Portal Azure
 
@@ -89,8 +89,7 @@ Para mais informações sobre pontos finais, rotas e tipos de destinos suportado
 
 ### <a name="assign-the-role"></a>Atribuir o papel
 
->[!NOTE]
-> Esta secção deve ser completada por um utilizador da Azure com permissões para gerir o acesso do utilizador aos recursos Azure (incluindo a concessão e delegação de permissões). As funções comuns que satisfazem este requisito são *Proprietário,* *Administrador de Conta,* ou a combinação de Administrador de Acesso ao *Utilizador* e *Colaborador.* Para obter mais informações sobre os requisitos de permissão para as funções de Azure Digital Twins, consulte [*Como-a-fazer: Configurar instância e autenticação*](how-to-set-up-instance-portal.md#prerequisites-permission-requirements).
+[!INCLUDE [digital-twins-permissions-required.md](../../includes/digital-twins-permissions-required.md)]
 
 Para atribuir um papel à identidade, comece por abrir o [portal Azure](https://portal.azure.com).
 
@@ -116,7 +115,7 @@ Para atribuir um papel à identidade, comece por abrir o [portal Azure](https://
 
 Quando terminar de introduzir os detalhes, **selecione Save**.
 
-## <a name="create-an-endpoint-with-identity-based-authorization"></a>Criar um ponto final com autorização baseada na identidade
+## <a name="create-an-endpoint-with-identity-based-authentication"></a>Criar um ponto final com autenticação baseada na identidade
 
 Depois de configurar uma identidade gerida pelo sistema para a sua instância Azure Digital Twins e atribuindo-lhe o papel apropriado, pode criar [pontos finais](how-to-manage-routes-portal.md#create-an-endpoint-for-azure-digital-twins) Azure Digital Twins que sejam capazes de usar a identidade para autenticação. Esta opção só está disponível para pontos finais do tipo Event Hub e Service Bus (não é suportado para a Grelha de Eventos).
 

@@ -3,14 +3,14 @@ title: Visão geral do Backup Center
 description: Este artigo fornece uma visão geral do Backup Center for Azure.
 ms.topic: conceptual
 ms.date: 09/30/2020
-ms.openlocfilehash: 93f9e5dc064d264e0cc111d8ddb093639307c55b
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 0acf3a17e41b89b462a7fb07c5d3ebd55d4052af
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100592024"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101725378"
 ---
-# <a name="overview-of-backup-center-preview"></a>Visão geral do Backup Center (Pré-visualização)
+# <a name="overview-of-backup-center"></a>Visão geral do Backup Center
 
 O Backup Center proporciona uma **única experiência de gestão unificada** em Azure para que as empresas governem, monitorizem, operem e analisem backups em escala. Como tal, é consistente com as experiências de gestão nativa do Azure.
 
@@ -18,11 +18,11 @@ Alguns dos principais benefícios do Backup Center incluem:
 
 * **Painel único de vidro para gerir backups** – O Backup Center foi concebido para funcionar bem em um ambiente Azure grande e distribuído. Você pode usar backup Center para gerir eficientemente backups abrangendo vários tipos de carga de trabalho, cofres, subscrições, regiões e inquilinos [do Farol Azure.](../lighthouse/overview.md)
 * **Gestão centrada em dados** – O Backup Center fornece vistas e filtros centrados nas fontes de dados que está a fazer (por exemplo, VMs e bases de dados). Isto permite que um proprietário de recursos ou um administrador de backup monitorize e opere cópias de segurança de itens sem precisar de se concentrar no cofre a que um item está apoiado. Uma característica chave deste design é a capacidade de filtrar visualizações por propriedades específicas de fontes de dados, tais como subscrição de fontes de dados, grupo de recursos de fonte de dados e tags de fonte de dados. Por exemplo, se a sua organização seguir uma prática de atribuir diferentes tags a VMs pertencentes a diferentes departamentos, pode usar o Backup Center para filtrar informações de backup com base nas etiquetas dos VMs subjacentes que estão a ser apoiados sem precisar de se concentrar na etiqueta do cofre.
-* **Experiências conectadas** – O Backup Center proporciona integrações nativas aos serviços Azure existentes que permitem a gestão em escala. Por exemplo, o Backup Center utiliza a experiência [Azure Policy](../governance/policy/overview.md) para o ajudar a governar as suas cópias de segurança. Também aproveita os [livros de trabalho da Azure](../azure-monitor/visualize/workbooks-overview.md) e os [Registos do Monitor Azure](../azure-monitor/logs/data-platform-logs.md) para ajudá-lo a ver relatórios detalhados sobre cópias de segurança. Por isso, não precisa de aprender novos princípios para usar as funcionalidades variadas que o Backup Center oferece.
+* **Experiências conectadas** – O Backup Center proporciona integrações nativas aos serviços Azure existentes que permitem a gestão em escala. Por exemplo, o Backup Center utiliza a experiência [Azure Policy](../governance/policy/overview.md) para o ajudar a governar as suas cópias de segurança. Também aproveita os [livros de trabalho da Azure](../azure-monitor/visualize/workbooks-overview.md) e os [Registos do Monitor Azure](../azure-monitor/logs/data-platform-logs.md) para ajudá-lo a ver relatórios detalhados sobre cópias de segurança. Por isso, não precisa de aprender novos princípios para usar as funcionalidades variadas que o Backup Center oferece. Você também pode descobrir recursos comunitários a partir do Backup Center.
 
 ## <a name="supported-scenarios"></a>Cenários suportados
 
-* O Backup Center é atualmente suportado para backup Azure VM, SQL em backup Azure VM, SAP HANA em backup VM Azure, backup de Ficheiros Azure e Base de Dados Azure para backup do Servidor PostgreSQL.
+* O Backup Center é atualmente suportado para backup Azure VM, SQL em backup Azure VM, SAP HANA em backup VM Azure, backup de Ficheiros Azure, backup Azure Blobs, backup de Discos Geridos Azure e Base de Dados Azure para backup do Servidor PostgreSQL.
 * Consulte a matriz de [suporte](backup-center-support-matrix.md) para obter uma lista detalhada de cenários suportados e não apoiados.
 
 ## <a name="get-started"></a>Introdução

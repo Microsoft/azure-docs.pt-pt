@@ -2,13 +2,13 @@
 title: Funções do modelo - implantação
 description: Descreve as funções a utilizar num modelo de Gestor de Recursos Azure (modelo ARM) para recuperar informações de implantação.
 ms.topic: conceptual
-ms.date: 01/27/2021
-ms.openlocfilehash: 438afc947b07ac7425de365a2d63c427cf53e2ff
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.date: 03/02/2021
+ms.openlocfilehash: a9a073284c62efac4e77f8f9b35e8730c350e5f1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98943480"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101722726"
 ---
 # <a name="deployment-functions-for-arm-templates"></a>Funções de implantação para modelos ARM
 
@@ -323,7 +323,7 @@ Devolve um valor de parâmetro. O nome do parâmetro especificado deve ser defin
 
 | Parâmetro | Necessário | Tipo | Descrição |
 |:--- |:--- |:--- |:--- |
-| nome de parâmetroName |Yes |string |O nome do parâmetro para voltar. |
+| nome de parâmetroName |Sim |string |O nome do parâmetro para voltar. |
 
 ### <a name="return-value"></a>Valor devolvido
 
@@ -508,7 +508,7 @@ Normalmente, você usa variáveis para simplificar o seu modelo construindo valo
 # <a name="bicep"></a>[Bicep](#tab/bicep)
 
 ```bicep
-var storageName = concat('storage', uniqueString(resourceGroup().id))
+var storageName = 'storage${uniqueString(resourceGroup().id)}'
 
 resource myStorage 'Microsoft.Storage/storageAccounts@2019-06-01' = {
   name: storageName
@@ -599,6 +599,6 @@ A saída do exemplo anterior com os valores predefinidos é:
 
 Para obter mais informações sobre a utilização de variáveis, consulte [Variáveis no modelo ARM](template-variables.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para obter uma descrição das secções num modelo ARM, consulte [a estrutura e a sintaxe dos modelos ARM](template-syntax.md).

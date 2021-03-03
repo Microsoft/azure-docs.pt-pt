@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 12/20/2020
 ms.topic: conceptual
 ms.custom: how-to, automl
-ms.openlocfilehash: 1a40fe01240474c2a6df3e028b7d03f3e8bb73fc
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: d7a0832fd15df402c88e1ba565c90a24e0d6eb8a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879752"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101692424"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Criar, rever e implementar modelos automatizados de aprendizagem automática com Azure Machine Learning
 
@@ -180,6 +180,21 @@ Desa cosar em qualquer um dos modelos concluídos para ver detalhes de treino, c
 
 [![Detalhes da iteração](media/how-to-use-automated-ml-for-ml-models/iteration-details.png)](media/how-to-use-automated-ml-for-ml-models/iteration-details-expanded.png)
 
+## <a name="model-explanations"></a>Explicações do modelo
+
+Para melhor compreender o seu modelo, veja quais as características de dados (cruas ou concebidas) que influenciaram as previsões do modelo com o painel de explicações do modelo. 
+
+O painel de explicações do modelo fornece uma análise global do modelo treinado juntamente com as suas previsões e explicações. Também permite perfurar um ponto de dados individual e as suas importâncias individuais. [Saiba mais sobre as visualizações do painel de explicações e parcelas específicas.](how-to-machine-learning-interpretability-aml.md#visualizations)
+
+Para obter explicações para um modelo em particular, 
+
+1. No separador **Modelos,** selecione o modelo que pretende utilizar. 
+1. Selecione o botão **do modelo Explicar** e forneça um cálculo que possa ser usado para gerar as explicações.
+1. Verifique se a **criança executa** o separador para obter o estado. 
+1. Uma vez concluído, navegue para o separador **Explicações (pré-visualização)** que contém o painel de explicações. 
+
+    ![Painel de explicação do modelo](media/how-to-use-automated-ml-for-ml-models/model-explanation-dashboard.png)
+
 ## <a name="deploy-your-model"></a>Implemente o seu modelo
 
 Quando tem o melhor modelo em mãos, é o momento de o implementar como um serviço Web para prever novos dados.
@@ -218,7 +233,7 @@ O ML automatizado ajuda-o a implementar o modelo sem escrever código:
 
 Agora, tem um serviço Web operacional para gerar predições! Pode testar as predições ao consultar o serviço no [Suporte do Azure Machine Learning integrado no Power BI](/power-bi/connect-data/service-aml-integrate?context=azure%2fmachine-learning%2fcontext%2fml-context).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Saiba como consumir um serviço web.](how-to-consume-web-service.md)
 * [Compreenda os resultados automatizados de aprendizagem automática de máquinas.](how-to-understand-automated-ml.md)

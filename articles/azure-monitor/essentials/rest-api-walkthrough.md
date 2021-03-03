@@ -5,12 +5,12 @@ ms.subservice: metrics
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.custom: has-adal-ref
-ms.openlocfilehash: 41c2432c3c80be7d28e8f33372dea44ba108c5d3
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: b22387272ebeae7a7db8f0e0940841415e345279
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100616442"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734218"
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Instruções da API REST de Monitorização do Azure
 
@@ -462,9 +462,9 @@ Uma vez conhecidas as definições métricas disponíveis, é então possível r
 >
 >
 
-**Método**: GET
+**Método:**`GET`
 
-**Pedido URI:**`https:\//management.azure.com/subscriptions/\*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/*{resource-provider-namespace}*/*{resource-type}*/*{resource-name}*/providers/microsoft.insights/metrics?$filter=*{filter}*&api-version=*{apiVersion}*`
+**Pedido URI:**`https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider-namespace}/{resource-type}/{resource-name}/providers/microsoft.insights/metrics?$filter={filter}&api-version={apiVersion}`
 
 Por exemplo, para recuperar os pontos de dados métricos RunsSucceeded para o intervalo de tempo determinado e por um grão de tempo de 1 hora, o pedido seria o seguinte:
 
@@ -734,7 +734,6 @@ GET https://management.azure.com/subscriptions/089bd33f-d4ec-47fe-8ba5-0753aa5c5
 ## <a name="next-steps"></a>Passos seguintes
 
 * Reveja a [visão geral da monitorização.](../overview.md)
-* Ver as [métricas suportadas com o Monitor Azure](../platform/metrics-supported.md).
+* Ver as [métricas suportadas com o Monitor Azure](./metrics-supported.md).
 * Reveja a [referência API do Microsoft Azure Monitor REST](/rest/api/monitor/).
 * Reveja a [Biblioteca de Gestão Azure.](/previous-versions/azure/reference/mt417623(v=azure.100))
-

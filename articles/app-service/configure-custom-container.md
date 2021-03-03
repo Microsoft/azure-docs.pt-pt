@@ -2,14 +2,14 @@
 title: Configure um recipiente personalizado
 description: Saiba como configurar um recipiente personalizado no Azure App Service. Este artigo mostra as tarefas de configuração mais comuns.
 ms.topic: article
-ms.date: 09/22/2020
+ms.date: 02/23/2021
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: a7582bbb866a63820abbd959e06628eda5d57e29
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.openlocfilehash: 8083c3c0c88d904ccb3ec75ae69a699867bd0f25
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97007641"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704876"
 ---
 # <a name="configure-a-custom-container-for-azure-app-service"></a>Configurar um contentor personalizado para o Serviço de Aplicações do Azure
 
@@ -111,7 +111,7 @@ No PowerShell:
 Set-AzWebApp -ResourceGroupName <group-name> -Name <app-name> -AppSettings @{"DB_HOST"="myownserver.mysql.database.azure.com"}
 ```
 
-Quando a sua aplicação é executado, as definições da aplicação do Serviço de Aplicações são injetadas no processo como variáveis de ambiente automaticamente. 
+Quando a sua aplicação é executado, as definições da aplicação do Serviço de Aplicações são injetadas no processo como variáveis de ambiente automaticamente. Pode verificar variáveis ambientais de contentores com o URL `https://<app-name>.scm.azurewebsites.net/Env)` .
 
 ::: zone pivot="container-windows"
 Para recipientes baseados em IIS ou .NET Framework (4.0 ou superior), são injetados automaticamente nas `System.ConfigurationManager` definições de aplicações .NET e cadeias de ligação pelo Serviço de Aplicações. Para todas as outras línguas ou enquadramento, são fornecidas como variáveis ambientais para o processo, com um dos seguintes prefixos correspondentes:
@@ -174,7 +174,7 @@ As extremidades dianteiras estão localizadas dentro dos centros de dados Azure.
 
 ## <a name="customize-aspnet-machine-key-injection"></a>Personalize a injeção de chave de ASP.NET máquina
 
- Durante o início do recipiente, as teclas geradas automaticamente são injetadas no recipiente como as chaves da máquina para ASP.NET rotinas criptográficas. Pode [encontrar estas chaves no seu recipiente](#connect-to-the-container) procurando as seguintes variáveis ambientais: , `MACHINEKEY_Decryption` `MACHINEKEY_DecryptionKey` `MACHINEKEY_ValidationKey` . `MACHINEKEY_Validation` 
+ Durante o início do recipiente, as teclas geradas automaticamente são injetadas no recipiente como as chaves da máquina para ASP.NET rotinas criptográficas. Pode [encontrar estas chaves no seu recipiente](#connect-to-the-container) procurando as seguintes variáveis ambientais: , . `MACHINEKEY_Decryption` `MACHINEKEY_DecryptionKey` `MACHINEKEY_ValidationKey` `MACHINEKEY_Validation` . 
 
 As novas teclas de cada reinício podem reiniciar ASP.NET forma a autenticação e visualizar o estado, caso a sua aplicação dependa delas. Para evitar a regeneração automática das teclas, [defina-as manualmente como definições de aplicações do Serviço de Aplicações](#configure-environment-variables). 
 
@@ -292,44 +292,55 @@ As contas de serviço geridas pelo grupo (gMSAs) não são atualmente suportadas
 
 ## <a name="enable-ssh"></a>Ativar SSH
 
-O SSH permite a comunicação segura entre um contentor e um cliente. Para que um recipiente personalizado suporte o SSH, deve adicioná-lo ao próprio Dockerfile.
+O SSH permite a comunicação segura entre um contentor e um cliente. Para que um recipiente personalizado suporte o SSH, deve adicioná-lo à sua própria imagem docker.
 
 > [!TIP]
-> Todos os recipientes Linux incorporados adicionaram as instruções do SSH nos seus repositórios de imagem. Pode consultar as seguintes instruções com o [ repositórioNode.js 10.14](https://github.com/Azure-App-Service/node/blob/master/10.14) para ver como está ativado.
+> Todos os contentores Linux incorporados no Serviço de Aplicações adicionaram as instruções SSH nos seus repositórios de imagem. Pode consultar as seguintes instruções com o [ repositórioNode.js 10.14](https://github.com/Azure-App-Service/node/blob/master/10.14) para ver como está ativado. A configuração na imagem incorporada Node.js é ligeiramente diferente, mas a mesma em princípio.
 
-- Utilize as instruções [RUN](https://docs.docker.com/engine/reference/builder/#run) para instalar o servidor SSH e definir a palavra-passe para a conta raiz para `"Docker!"` . Por exemplo, para uma imagem baseada em [Alpine Linux,](https://hub.docker.com/_/alpine)precisa dos seguintes comandos:
+- Adicione [um ficheiro sshd_config](https://man.openbsd.org/sshd_config) ao seu repositório, como o seguinte exemplo.
 
-    ```Dockerfile
-    RUN apk add openssh \
-         && echo "root:Docker!" | chpasswd 
     ```
-
-    Esta configuração não permite ligações externas ao recipiente. O SSH só está disponível `https://<app-name>.scm.azurewebsites.net` através e autenticado com as credenciais de publicação.
-
-- Adicione [este ficheiro sshd_config](https://github.com/Azure-App-Service/node/blob/master/10.14/sshd_config) ao seu repositório de imagem e utilize a instrução [COPY](https://docs.docker.com/engine/reference/builder/#copy) para copiar o ficheiro para o */etc/ssh/diretório.* Para obter mais informações sobre *sshd_config* ficheiros, consulte [a documentação do OpenBSD](https://man.openbsd.org/sshd_config).
-
-    ```Dockerfile
-    COPY sshd_config /etc/ssh/
+    Port            2222
+    ListenAddress       0.0.0.0
+    LoginGraceTime      180
+    X11Forwarding       yes
+    Ciphers aes128-cbc,3des-cbc,aes256-cbc,aes128-ctr,aes192-ctr,aes256-ctr
+    MACs hmac-sha1,hmac-sha1-96
+    StrictModes         yes
+    SyslogFacility      DAEMON
+    PasswordAuthentication  yes
+    PermitEmptyPasswords    no
+    PermitRootLogin     yes
+    Subsystem sftp internal-sftp
     ```
 
     > [!NOTE]
-    > O ficheiro *sshd_config* tem de incluir os itens seguintes:
+    > Este ficheiro configura o OpenSSH e deve incluir os seguintes itens:
+    > - `Port` deve ser definido para 2222.
     > - `Ciphers` tem de incluir, pelo menos, um item na lista `aes128-cbc,3des-cbc,aes256-cbc`.
     > - `MACs` tem de incluir, pelo menos, um item na lista `hmac-sha1,hmac-sha1-96`.
 
-- Utilize as instruções [EXPOR](https://docs.docker.com/engine/reference/builder/#expose) para abrir a porta 2222 no recipiente. Embora a palavra-passe de raiz seja conhecida, a porta 2222 é inacessível a partir da internet. É acessível apenas por contentores dentro da rede de pontes de uma rede virtual privada.
+- No seu Dockerfile, adicione os seguintes comandos:
 
     ```Dockerfile
+    # Install OpenSSH and set the password for root to "Docker!". In this example, "apk add" is the install instruction for an Alpine Linux-based image.
+    RUN apk add openssh \
+         && echo "root:Docker!" | chpasswd 
+
+    # Copy the sshd_config file to the /etc/ssh/ directory
+    COPY sshd_config /etc/ssh/
+
+    # Open port 2222 for SSH access
     EXPOSE 80 2222
     ```
+
+    Esta configuração não permite ligações externas ao recipiente. O porto 2222 do contentor só é acessível dentro da rede de pontes de uma rede virtual privada, e não é acessível a um intruso na internet.
 
 - No script de arranque do seu recipiente, inicie o servidor SSH.
 
     ```bash
     /usr/sbin/sshd
     ```
-
-    Por exemplo, veja como o [ recipiente padrãoNode.js 10.14](https://github.com/Azure-App-Service/node/blob/master/10.14/startup/init_container.sh) começa o servidor SSH.
 
 ## <a name="access-diagnostic-logs"></a>Aceder aos registos de diagnósticos
 

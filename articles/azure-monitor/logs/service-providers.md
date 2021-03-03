@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: MeirMen
 ms.author: meirm
 ms.date: 02/03/2020
-ms.openlocfilehash: 5f69de583dea14be3c7ce3ab6779af549e95de75
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 09b5a6bd11db1a8faa29e7b3871156f9c28d1140
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100619472"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717388"
 ---
 # <a name="azure-monitor-logs-for-service-providers"></a>Registos de monitores Azure para Prestadores de Serviços
 
@@ -48,7 +48,7 @@ As vantagens da arquitetura distribuída são:
 
 As desvantagens da arquitetura distribuída são:
 
-* Visualizar e analisar dados centralmente entre os inquilinos do cliente com ferramentas como os Azure Monitor Workbooks pode resultar em experiências mais lentas, especialmente quando analisa dados em mais de 50 espaços de trabalho.
+* Visualizar e analisar dados centralmente [entre os inquilinos](cross-workspace-query.md) do cliente com ferramentas como os Livros de Trabalho do Azure Monitor pode resultar em experiências mais lentas, especialmente quando analisa dados em mais de 50 espaços de trabalho.
 * Se os clientes não estiverem a bordo para a gestão de recursos delegada da Azure, os administradores dos prestadores de serviços devem ser aprovisionados no diretório de clientes, e é mais difícil para o prestador de serviços gerir um grande número de inquilinos de um só momento.
 
 ### <a name="2-central---logs-are-stored-in-a-workspace-located-in-the-service-provider-tenant"></a>2. Central - Os registos são armazenados num espaço de trabalho localizado no arrendatário do prestador de serviços
@@ -85,7 +85,7 @@ Existem duas opções para implementar registos numa localização central:
 
 * Automatizar a criação de espaços de trabalho utilizando [o PowerShell](../logs/powershell-workspace-configuration.md)
 
-* Utilizar [alertas](../platform/alerts-overview.md) para integrar-se com os sistemas existentes
+* Utilizar [alertas](../alerts/alerts-overview.md) para integrar-se com os sistemas existentes
 
 * Gerar relatórios sumários usando [Power BI](../visualize/powerbi.md)
 

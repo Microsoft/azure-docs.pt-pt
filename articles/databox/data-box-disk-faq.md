@@ -8,12 +8,13 @@ ms.subservice: disk
 ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: alkohli
-ms.openlocfilehash: f4f1924ce19ccb0f48aa1a7c9a0515fa89505dae
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.custom: references_regions
+ms.openlocfilehash: 7212fc4113c1de0a7aee4c6c02e8fa65f9828680
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100652314"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101724834"
 ---
 # <a name="azure-data-box-disk-frequently-asked-questions"></a>Disco de caixa de dados Azure: Perguntas frequentes
 
@@ -48,7 +49,7 @@ A. Para obter informações sobre o preço dos Discos caixa de dados, [aceda](ht
 A.  Para obter discos de caixa de dados Azure, inicie sessão no portal Azure e crie uma encomenda de caixa de dados para discos. Indique as suas informações de contacto e os seus detalhes de notificação. Depois de fazer a encomenda, os discos são-lhe enviados num prazo de dez dias, com base na disponibilidade.
 
 ### <a name="q-what-is-the-maximum-amount-of-data-i-can-transfer-with-data-box-disks-in-one-instance"></a>P. Qual é a quantidade máxima de dados que posso transferir com os discos do Data Box Disk numa instância?
-A. Para 5 discos, cada um com 8 capacidade de TB (7 TB de capacidade utilizável), a capacidade máxima utilizável é de 35 TB. Para que possa transferir 35 TB de dados num só caso. Para transferir mais dados, tem de encomendar mais discos.
+A. Para cinco discos, cada um com capacidade de 8-TB (7 TB de capacidade utilizável), a capacidade máxima utilizável é de 35 TB. Para que possa transferir 35 TB de dados num só caso. Para transferir mais dados, tem de encomendar mais discos.
 
 ### <a name="q-how-can-i-check-if-data-box-disks-are-available-in-my-region"></a>P. Como posso saber se os discos do Data Box Disk estão disponíveis na minha região? 
 A.  Para ver onde os Discos de Caixa de Dados estão atualmente disponíveis, aceda à disponibilidade da [Região.](data-box-disk-overview.md#region-availability)  
@@ -72,6 +73,18 @@ Envie um [disco suportado](../import-export/storage-import-export-requirements.m
 2. Depois de os dados do servidor no local terem sido copiados para os discos, devolva-os ao datacenter Azure no Canadá utilizando etiquetas de devolução fornecidas pela Microsoft. Os dados presentes no(s) Data Box Disk(s) são depois enviados para a conta de armazenamento de destino na região do Canadá Azure escolhida durante a criação da encomenda.
 
 3. Em seguida, pode utilizar uma ferramenta como a AzCopy para copiar os dados para uma conta de armazenamento nos EUA. Este passo incorre em [cargas de armazenamento padrão](https://azure.microsoft.com/pricing/details/storage/) e [largura de banda](https://azure.microsoft.com/pricing/details/bandwidth/) que não estão incluídas na faturação do disco de caixa de dados.
+
+#### <a name="q-does-data-box-disk-store-any-customer-data-outside-of-the-service-region"></a>P. O Disco de Caixa de Dados armazena quaisquer dados do cliente fora da região de serviço?
+
+A. N.º O Disco de Caixa de Dados não armazena quaisquer dados do cliente fora da região de serviço. O cliente tem a propriedade total dos seus dados e pode guardar os dados para um local especificado com base na conta de armazenamento que selecionam durante a criação da encomenda.  
+
+Além dos dados do cliente, existem dados de Disco de Caixa de Dados que incluem metadados e registos de monitorização. Em todas as regiões (exceto Brasil Sul e Sudeste Asiático), os dados do Disco de Caixa de Dados são armazenados e replicados numa [região emparelhada](../best-practices-availability-paired-regions.md) através de uma conta de Armazenamento Geo-redundante para proteger contra a perda de dados.  
+
+Devido aos [requisitos de residência](https://azure.microsoft.com/global-infrastructure/data-residency/#more-information) de dados no Brasil Sul e Sudeste Asiático, os dados do Disco de Caixa de Dados são armazenados numa conta de armazenamento redundante (ZRS) para que seja contido numa única região. Para o Sudeste Asiático, todos os dados do Disco de Caixa de Dados são armazenados em Singapura e para o Brasil Sul, os dados são armazenados no Brasil. 
+
+Se houver uma paragem de serviço no Brasil Sul e Sudeste Asiático, os clientes podem criar novas encomendas a partir de outra região. As novas encomendas serão servidas a partir da região em que são criadas e os clientes são responsáveis pelo envio de e para o fro do Disco caixa de dados.
+
+
 
 ### <a name="q-how-can-i-recover-my-data-if-an-entire-region-fails"></a>P. Como posso recuperar os meus dados se uma região inteira falha?
 
@@ -110,7 +123,7 @@ Estes prazos são *estimativas.* O tempo para cada fase de processamento da enco
 ## <a name="configure-and-connect"></a>Configurar e ligar
  
 ### <a name="q-can-i-specify-the-number-of-data-box-disks-in-the-order"></a>P. Posso especificar o número de discos do Data Box Disk na encomenda?
-A.  N.º Obtém 8 discos de TB (um máximo de 5 discos) dependendo do tamanho dos seus dados e disponibilidade dos discos.  
+A.  N.º Obtém discos de 8-TB (um máximo de cinco discos) dependendo do tamanho dos seus dados e disponibilidade dos discos.  
 
 ### <a name="q-how-do-i-unlock-the-data-box-disks"></a>P. Como posso desbloquear os discos do Data Box Disk? 
 A.  No portal do Azure, aceda à encomenda do Data Box Disk e navegue para **Detalhes do dispositivo**. Copie a chave de acesso. Transfira e instale a ferramenta de desbloqueio do Data Box Disk do portal do Azure para o seu sistema operativo. Execute a ferramenta no computador que tem os dados que pretende copiar para os discos. Indique a chave de acesso para desbloquear os discos. A mesma chave de acesso desbloqueia todos os discos. 

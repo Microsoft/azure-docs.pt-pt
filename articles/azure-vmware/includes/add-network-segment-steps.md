@@ -4,10 +4,10 @@ description: Passos para adicionar um segmento de rede NSX-T para Azure VMware S
 ms.topic: include
 ms.date: 11/09/2020
 ms.openlocfilehash: 7db45650588d37c39e7d156fa189b3ff7da2239f
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/03/2021
 ms.locfileid: "100515038"
 ---
 <!-- Used in manage-dhcp.md and tutorial-nsx-t-network-segment.md -->

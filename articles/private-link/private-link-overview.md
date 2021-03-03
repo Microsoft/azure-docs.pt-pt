@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 01/28/2021
 ms.author: allensu
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 34223298dbf0dad9d9214676a5190bef063a8228
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 34168a02b5a2d2dfe74e2a5839e0bfddcf684222
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100577033"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101712186"
 ---
 # <a name="what-is-azure-private-link"></a>O que é a Ligação Privada do Azure? 
 O Azure Private Link permite-lhe aceder aos Serviços Azure PaaS (por exemplo, Azure Storage e SQL Database) e à Azure aloja serviços de propriedade do cliente/parceiro sobre um [ponto final privado](private-endpoint-overview.md) na sua rede virtual.
@@ -54,7 +54,7 @@ A Azure Private Link proporciona os seguintes benefícios:
 |  Base de Dados Azure para PostgreSQL - Servidor único         | Todas as regiões públicas <br/> Todas as regiões do Governo<br/>Todas as regiões da China     | Suportado para fins gerais e níveis de preços otimizados de memória | GA <br/> [Saiba como criar um ponto final privado para a Base de Dados Azure para PostgreSQL.](../postgresql/concepts-data-access-and-security-private-link.md)      |
 |  Base de Dados do Azure para MySQL         | Todas as regiões públicas<br/> Todas as regiões do Governo<br/>Todas as regiões da China      |  | GA <br/> [Saiba como criar um ponto final privado para a Base de Dados Azure para o MySQL.](../mysql/concepts-data-access-security-private-link.md)     |
 |  Azure Database for MariaDB         | Todas as regiões públicas<br/> Todas as regiões do Governo<br/>Todas as regiões da China     |  | GA <br/> [Saiba como criar um ponto final privado para a Base de Dados Azure para a MariaDB.](../mariadb/concepts-data-access-security-private-link.md)      |
-|  Azure Digital Twins         | Todas as regiões públicas apoiadas por Azure Digital Twins     |  | Pré-visualizar <br/> [Saiba como criar um ponto final privado para a Azure Digital Twins.](../digital-twins/how-to-enable-private-link.md)      |
+|  Azure Digital Twins         | Todas as regiões públicas apoiadas por Azure Digital Twins     |  | Pré-visualizar <br/> [Saiba como criar um ponto final privado para a Azure Digital Twins.](../digital-twins/how-to-enable-private-link-portal.md)      |
 |  Azure Key Vault         | Todas as regiões públicas<br/> Todas as regiões do Governo      |  | GA   <br/> [Aprenda a criar um ponto final privado para o Azure Key Vault.](../key-vault/general/private-link-service.md)   |
 |Serviço Azure Kubernetes - Kubernetes API | Todas as regiões públicas      |  | GA   <br/> [Saiba como criar um ponto final privado para o Serviço Azure Kubernetes.](../aks/private-clusters.md)   |
 |Azure Search | Todas as regiões públicas <br/> Todas as regiões do Governo | Suportado com serviço em Modo Privado | GA   <br/> [Saiba como criar um ponto final privado para a Azure Search.](../search/service-create-private-endpoint.md)    |

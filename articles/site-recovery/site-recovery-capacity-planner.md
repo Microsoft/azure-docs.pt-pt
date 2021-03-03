@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: a5764e44db31755110ac99a3e8e8e0984cdf9604
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa96845a2bd2f4659da1155c4f75281268dce76d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87490579"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737720"
 ---
 # <a name="plan-capacity-for-hyper-v-vm-disaster-recovery"></a>Planear a capacidade para recuperação após desastre da VM Hyper-V 
 
@@ -43,7 +43,7 @@ Pode executar a ferramenta em dois modos:
 
 
 ## <a name="run-the-quick-planner"></a>Executar o Planejador Rápido
-1. Descarregue e abra [o Planejador da Capacidade de Recuperação do Local.](https://aka.ms/asr-capacity-planner-excel) Tens de fazer macros. Quando for solicitado, faça seleções para ativar a edição e o conteúdo.
+1. Descarregue e abra [o Planejador da Capacidade de Recuperação do Local.](/samples/browse/?redirectedfrom=TechNet-Gallery) Tens de fazer macros. Quando for solicitado, faça seleções para ativar a edição e o conteúdo.
 
 2. Na caixa de lista **de tipo de planificador Select,** selecione **Quick Planner**.
 
@@ -81,7 +81,7 @@ Pode executar a ferramenta em dois modos:
 
 ## <a name="run-the-detailed-planner"></a>Executar o Planejador Detalhado
 
-1. Descarregue e abra [o Planejador da Capacidade de Recuperação do Local.](https://aka.ms/asr-capacity-planner-excel) Tens de fazer macros. Quando for solicitado, faça seleções para ativar a edição e o conteúdo.
+1. Descarregue e abra [o Planejador da Capacidade de Recuperação do Local.](/samples/browse/?redirectedfrom=TechNet-Gallery) Tens de fazer macros. Quando for solicitado, faça seleções para ativar a edição e o conteúdo.
 
 2. Em **Selecione um tipo de planificador,** selecione **Plano detalhado** na caixa de lista.
 
@@ -93,7 +93,7 @@ Pode executar a ferramenta em dois modos:
 
    b. Na **atribuição de memória (em MBs)**, especifique o tamanho RAM de um servidor de origem.
 
-   c. Em **Número de NICs, especifique**o número de adaptadores de rede num servidor de origem.
+   c. Em **Número de NICs, especifique** o número de adaptadores de rede num servidor de origem.
 
    d. No **Armazenamento Total (em GB)**, especifique o tamanho total do armazenamento em VM. Por exemplo, se o servidor de origem tiver três discos com 500 GB cada, o tamanho total do armazenamento é de 1.500 GB.
 
@@ -113,7 +113,7 @@ Pode executar a ferramenta em dois modos:
    * Calcula o IOPS e sugere a melhor combinação de tamanho Azure VM para cada VM que é elegível para replicação para Azure. Se não for possível detetar um tamanho adequado Azure VM, um erro aparece. Por exemplo, se o número de discos ligados for de 65, um erro aparece porque o tamanho mais alto para um Azure VM é de 64.
    * Sugere uma conta de armazenamento que pode ser usada para um VM Azure.
    * Calcula o número total de contas de armazenamento padrão e contas de armazenamento premium necessárias para a carga de trabalho. Desloque-se para baixo para ver o tipo de armazenamento Azure e a conta de armazenamento que pode ser usada para um servidor de origem.
-   * Completa e classifica o resto da tabela com base no tipo de armazenamento necessário (padrão ou premium) atribuído a um VM e ao número de discos anexados. Para todos os VMs que cumprem os requisitos para Azure, a coluna **É VM qualificada?** **Yes** Se um VM não puder ser apoiado até Azure, um erro aparece.
+   * Completa e classifica o resto da tabela com base no tipo de armazenamento necessário (padrão ou premium) atribuído a um VM e ao número de discos anexados. Para todos os VMs que cumprem os requisitos para Azure, a coluna **É VM qualificada?**  Se um VM não puder ser apoiado até Azure, um erro aparece.
 
 As colunas AA a AE são saídas e fornecem informações para cada VM.
 

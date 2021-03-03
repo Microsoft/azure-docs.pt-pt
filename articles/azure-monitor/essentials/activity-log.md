@@ -7,17 +7,17 @@ ms.topic: conceptual
 ms.date: 06/12/2020
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 200c4c536df4a3e32b59945ae4ad97d7b770f269
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 38f5743e8a80af1ec824b07833f66ad50d67b91f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100613410"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723304"
 ---
 # <a name="azure-activity-log"></a>Registo de atividades do Azure
-O Registo de atividades é um [registo de plataformas](../platform/platform-logs-overview.md) no Azure que proporciona informações sobre eventos ao nível da subscrição. Tal inclui informações como quando um recurso é modificado ou quando uma máquina virtual é iniciada. Pode visualizar o registo de Atividade no portal Azure ou recuperar entradas com PowerShell e CLI. Para obter funcionalidades adicionais, deverá criar uma definição de diagnóstico para enviar o registo de Atividade para [Registos do Monitor Azure,](../platform/data-platform-logs.md)para Azure Event Hubs para encaminhar para fora do Azure, ou para o Azure Storage para arquivar. Este artigo fornece detalhes sobre a visualização do registo de atividade e o envio para diferentes destinos.
+O Registo de atividades é um [registo de plataformas](./platform-logs-overview.md) no Azure que proporciona informações sobre eventos ao nível da subscrição. Tal inclui informações como quando um recurso é modificado ou quando uma máquina virtual é iniciada. Pode visualizar o registo de Atividade no portal Azure ou recuperar entradas com PowerShell e CLI. Para obter funcionalidades adicionais, deverá criar uma definição de diagnóstico para enviar o registo de Atividade para [Registos do Monitor Azure,](../logs/data-platform-logs.md)para Azure Event Hubs para encaminhar para fora do Azure, ou para o Azure Storage para arquivar. Este artigo fornece detalhes sobre a visualização do registo de atividade e o envio para diferentes destinos.
 
-Consulte [Configurações de diagnóstico para enviar registos e métricas da plataforma para diferentes destinos](../platform/diagnostic-settings.md) para obter detalhes sobre a criação de uma definição de diagnóstico.
+Consulte [Configurações de diagnóstico para enviar registos e métricas da plataforma para diferentes destinos](./diagnostic-settings.md) para obter detalhes sobre a criação de uma definição de diagnóstico.
 
 > [!NOTE]
 > As entradas no Registo de Atividades são geradas pelo sistemas e não podem ser alteradas nem eliminadas.
@@ -43,13 +43,13 @@ Se houver alguma alteração associada ao evento, verá uma lista de alteraçõe
 ### <a name="other-methods-to-retrieve-activity-log-events"></a>Outros métodos para recuperar eventos de registo de atividade
 Também pode aceder a eventos de registo de atividades utilizando os seguintes métodos.
 
-- Utilize o [cmdlet Get-AzLog](/powershell/module/az.monitor/get-azlog) para recuperar o Registo de Atividade da PowerShell. Consulte [as amostras powerShell do Monitor Azure](../samples/powershell-samples.md#retrieve-activity-log).
-- Utilize [log de atividade do monitor az](/cli/azure/monitor/activity-log) para recuperar o Registo de Atividade do CLI.  Consulte [as amostras do CLI do Monitor Azure](../samples/cli-samples.md#view-activity-log).
+- Utilize o [cmdlet Get-AzLog](/powershell/module/az.monitor/get-azlog) para recuperar o Registo de Atividade da PowerShell. Consulte [as amostras powerShell do Monitor Azure](../powershell-samples.md#retrieve-activity-log).
+- Utilize [log de atividade do monitor az](/cli/azure/monitor/activity-log) para recuperar o Registo de Atividade do CLI.  Consulte [as amostras do CLI do Monitor Azure](../cli-samples.md#view-activity-log).
 - Utilize a [API REST Monitor Azure](/rest/api/monitor/) para recuperar o Registo de Atividades de um cliente REST. 
 
 
 ## <a name="send-to-log-analytics-workspace"></a>Enviar para a área de trabalho do Log Analytics
- Envie o registo de Atividade para um espaço de trabalho Log Analytics para ativar as funcionalidades de [Registos do Monitor Azure,](../platform/data-platform-logs.md) que inclui o seguinte:
+ Envie o registo de Atividade para um espaço de trabalho Log Analytics para ativar as funcionalidades de [Registos do Monitor Azure,](../logs/data-platform-logs.md) que inclui o seguinte:
 
 - Correlacionar os dados de registo de atividade com outros dados de monitorização recolhidos pelo Azure Monitor.
 - Consolidar entradas de registo de várias subscrições e inquilinos do Azure num local para análise em conjunto.
@@ -59,9 +59,9 @@ Também pode aceder a eventos de registo de atividades utilizando os seguintes m
 - Não há taxas de ingestão de dados para dados de registo de atividade armazenados num espaço de trabalho do Log Analytics.
 - Não há taxas de retenção de dados até 90 dias para os dados de registo de atividade armazenados num espaço de trabalho do Log Analytics.
 
-[Crie uma definição de diagnóstico](../platform/diagnostic-settings.md) para enviar o registo de Atividade para um espaço de trabalho Log Analytics. Pode enviar o registo de Atividade de qualquer subscrição para até cinco espaços de trabalho. A recolha de registos entre inquilinos requer o [Azure Lighthouse](../../lighthouse/index.yml).
+[Crie uma definição de diagnóstico](./diagnostic-settings.md) para enviar o registo de Atividade para um espaço de trabalho Log Analytics. Pode enviar o registo de Atividade de qualquer subscrição para até cinco espaços de trabalho. A recolha de registos entre inquilinos requer o [Azure Lighthouse](../../lighthouse/index.yml).
 
-Os dados de registo de atividade num espaço de trabalho do Log Analytics são armazenados numa tabela chamada *AzureActivity* que pode obter com uma [consulta de log](../log-query/log-query-overview.md) em Log [Analytics](../log-query/log-analytics-tutorial.md). A estrutura deste quadro varia consoante a [categoria da entrada de registo](activity-log-schema.md). Para obter uma descrição das propriedades da tabela, consulte a referência de dados do [Azure Monitor](/azure/azure-monitor/reference/tables/azureactivity).
+Os dados de registo de atividade num espaço de trabalho do Log Analytics são armazenados numa tabela chamada *AzureActivity* que pode obter com uma [consulta de log](../logs/log-query-overview.md) em Log [Analytics](../logs/log-analytics-tutorial.md). A estrutura deste quadro varia consoante a [categoria da entrada de registo](activity-log-schema.md). Para obter uma descrição das propriedades da tabela, consulte a referência de dados do [Azure Monitor](/azure/azure-monitor/reference/tables/azureactivity).
 
 Por exemplo, para visualizar uma contagem de registos de atividade para cada categoria, utilize a seguinte consulta.
 
@@ -202,12 +202,12 @@ Se já existe um perfil de registo, primeiro tem de remover o perfil de registo 
 
     | Propriedade | Necessário | Descrição |
     | --- | --- | --- |
-    | Nome |Yes |O nome do seu perfil de registo. |
-    | ArmazenamentoAccountId |No |Identificação de recursos da Conta de Armazenamento onde o Registo de Atividade deve ser guardado. |
-    | serviçoBusRuleId |No |Service Bus Rule ID para o espaço de nomes do Service Bus que você gostaria de ter centros de eventos criados. Esta é uma corda com o formato: `{service bus resource ID}/authorizationrules/{key name}` . |
+    | Nome |Sim |O nome do seu perfil de registo. |
+    | ArmazenamentoAccountId |Não |Identificação de recursos da Conta de Armazenamento onde o Registo de Atividade deve ser guardado. |
+    | serviçoBusRuleId |Não |Service Bus Rule ID para o espaço de nomes do Service Bus que você gostaria de ter centros de eventos criados. Esta é uma corda com o formato: `{service bus resource ID}/authorizationrules/{key name}` . |
     | Localização |Sim |Lista de regiões separadas por vírgulas para as quais gostaria de recolher eventos de Registo de Atividade. |
-    | Retenção Dias |Yes |Número de dias para os quais os eventos devem ser mantidos na conta de armazenamento, entre 1 e 365. Um valor de zero armazena os registos indefinidamente. |
-    | Categoria |No |Lista separada por vírgula das categorias de eventos que devem ser recolhidas. Os valores possíveis são _Write,_ _Delete_ e _Action_. |
+    | Retenção Dias |Sim |Número de dias para os quais os eventos devem ser mantidos na conta de armazenamento, entre 1 e 365. Um valor de zero armazena os registos indefinidamente. |
+    | Categoria |Não |Lista separada por vírgula das categorias de eventos que devem ser recolhidas. Os valores possíveis são _Write,_ _Delete_ e _Action_. |
 
 ### <a name="example-script"></a>Script de exemplo
 Segue-se uma amostra do script PowerShell para criar um perfil de registo que escreve o Registo de Atividades tanto para uma conta de armazenamento como para um centro de eventos.
@@ -245,12 +245,12 @@ Se já existe um perfil de registo, primeiro tem de remover o perfil de registo 
 
     | Propriedade | Necessário | Descrição |
     | --- | --- | --- |
-    | name |Yes |O nome do seu perfil de registo. |
-    | armazenamento-id conta |Yes |Identificação de recursos da Conta de Armazenamento para a qual devem ser guardados registos de atividade. |
-    | Locais |Yes |Lista de regiões separadas pelo espaço para as quais gostaria de recolher eventos de Registo de Atividade. Pode ver uma lista de todas as regiões para a sua subscrição utilizando `az account list-locations --query [].name` . |
-    | Dias |Yes |Número de dias para os quais os eventos devem ser mantidos, entre 1 e 365. Um valor de zero armazenará os registos indefinidamente (para sempre).  Se zero, então o parâmetro ativado deve ser definido como falso. |
-    |ativado | Yes |Verdadeiro ou Falso.  Usado para ativar ou desativar a política de retenção.  Se for verdade, então o parâmetro dos dias deve ser um valor superior a 0.
-    | categories |Yes |Lista separada do espaço das categorias de eventos que devem ser recolhidas. Os valores possíveis são escrever, eliminar e agir. |
+    | name |Sim |O nome do seu perfil de registo. |
+    | armazenamento-id conta |Sim |Identificação de recursos da Conta de Armazenamento para a qual devem ser guardados registos de atividade. |
+    | Locais |Sim |Lista de regiões separadas pelo espaço para as quais gostaria de recolher eventos de Registo de Atividade. Pode ver uma lista de todas as regiões para a sua subscrição utilizando `az account list-locations --query [].name` . |
+    | Dias |Sim |Número de dias para os quais os eventos devem ser mantidos, entre 1 e 365. Um valor de zero armazenará os registos indefinidamente (para sempre).  Se zero, então o parâmetro ativado deve ser definido como falso. |
+    |ativado | Sim |Verdadeiro ou Falso.  Usado para ativar ou desativar a política de retenção.  Se for verdade, então o parâmetro dos dias deve ser um valor superior a 0.
+    | categories |Sim |Lista separada do espaço das categorias de eventos que devem ser recolhidas. Os valores possíveis são escrever, eliminar e agir. |
 
 
 ### <a name="log-analytics-workspace"></a>Área de trabalho do Log Analytics
@@ -400,6 +400,6 @@ Em breve deixará de ser capaz de adicionar a solução Activity Logs Analytics 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Leia uma visão geral dos registos da plataforma](../platform/platform-logs-overview.md)
+* [Leia uma visão geral dos registos da plataforma](./platform-logs-overview.md)
 * [Rever esquema de evento de log de atividade](activity-log-schema.md)
-* [Criar definição de diagnóstico para enviar registos de atividade para outros destinos](../platform/diagnostic-settings.md)
+* [Criar definição de diagnóstico para enviar registos de atividade para outros destinos](./diagnostic-settings.md)

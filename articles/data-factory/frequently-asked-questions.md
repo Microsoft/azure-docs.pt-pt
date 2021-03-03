@@ -6,12 +6,12 @@ ms.author: weetok
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: a3b892b5d92feb743d9a538c4e418b1f47e39b03
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: d0fd62c0173bec17c217ece5560119749d1a4fc6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100386310"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101739339"
 ---
 # <a name="azure-data-factory-faq"></a>Azure Data Factory FAQ (FAQ do Azure Data Factory)
 
@@ -48,7 +48,7 @@ A Data Factory oferece liberdade para modelar qualquer estilo de fluxo necessár
     - Recipientes em loop:
         * A atividade forecach irá iterar sobre uma determinada coleção de atividades em loop. 
 - Fluxos baseados no gatilho:
-    - Os gasodutos podem ser acionados a pedido ou por tempo de relógio de parede.
+    - Os gasodutos podem ser desencadeados a pedido, por tempo de relógio de parede, ou em resposta a tópicos de grelha de eventos
 - Fluxos delta:
     - Os parâmetros podem ser usados para definir a sua marca de alta água para cópia delta enquanto se movem a dimensão ou tabelas de referência de uma loja relacional, no local ou na nuvem, para carregar os dados no lago.
 

@@ -10,15 +10,15 @@ ms.subservice: develop
 ms.custom: aaddev , devx-track-azurepowershell
 ms.topic: how-to
 ms.tgt_pltfrm: multiple
-ms.date: 06/26/2020
+ms.date: 02/22/2021
 ms.author: ryanwi
 ms.reviewer: tomfitz
-ms.openlocfilehash: b07679c6dd5e03131fde1439213783893971a088
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: b27af53d615fa9c0c46699a52a004098dc46b7b2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99581827"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101688540"
 ---
 # <a name="how-to-use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>Como: Use a Azure PowerShell para criar um principal de serviço com um certificado
 
@@ -72,7 +72,7 @@ O exemplo dorme durante 20 segundos para permitir que o novo diretor de serviço
 
 Pode definir o âmbito de atribuição da função para um grupo de recursos específico, utilizando o parâmetro **ResourceGroupName**. Pode definir o âmbito para um recurso específico, utilizando também os parâmetros **ResourceType** e **ResourceName**. 
 
-Se **não tiver o Windows 10 ou o Windows Server 2016,** descarregue o [gerador de certificado auto-assinado](https://gallery.technet.microsoft.com/scriptcenter/Self-signed-certificate-5920a7c6/) do Microsoft Script Center. Extraia o respetivo conteúdo e importe o cmdlet de que precisa.
+Se **não tiver o Windows 10 ou o Windows Server 2016,** descarregue o [cmdlet New-SelfSignedCertificateEx](https://www.pkisolutions.com/tools/pspki/New-SelfSignedCertificateEx/) da PKI Solutions. Extraia o respetivo conteúdo e importe o cmdlet de que precisa.
 
 ```powershell
 # Only run if you could not use New-SelfSignedCertificate

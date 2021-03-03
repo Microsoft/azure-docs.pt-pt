@@ -197,6 +197,8 @@
               href: high-availability-guide-rhel.md
             - name: HA no Red Hat Enterprise Linux para Instância de (A)SCS com Azure NetApp Files
               href: high-availability-guide-rhel-netapp-files.md
+            - name: Grandes casos HA para SAP em RHEL
+              href: large-instance-high-availability-rhel.md
         - name: Preparação da Infraestrutura do Azure
           items:
             - name: Windows com Disco Partilhado para a Instância (A)SCS

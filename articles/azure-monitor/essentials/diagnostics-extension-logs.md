@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/14/2020
-ms.openlocfilehash: 703a5f145aee93fe7ec4ad2f8ec102f98bdd4174
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 2b7648155c28ec9b6cf2048246c17805b5f22404
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100616881"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101700733"
 ---
 # <a name="collect-data-from-azure-diagnostics-extension-to-azure-monitor-logs"></a>Recolher dados da extensão de diagnósticos do Azure para os Registos do Monitor Azure
 A extensão de diagnóstico Azure é um [agente no Azure Monitor](../agents/agents-overview.md) que recolhe dados de monitorização do sistema operativo convidado de recursos compute da Azure, incluindo máquinas virtuais. Este artigo descreve como recolher dados recolhidos pela extensão de diagnóstico de Azure Storage para Azure Monitor Logs.
@@ -63,7 +63,6 @@ Em aproximadamente 30 minutos, é possível ver dados da conta de armazenamento 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Recolher registos e métricas para serviços Azure](../platform/resource-logs.md#send-to-log-analytics-workspace) para serviços Azure suportados.
+* [Recolher registos e métricas para serviços Azure](./resource-logs.md#send-to-log-analytics-workspace) para serviços Azure suportados.
 * [Permitir soluções](../insights/solutions.md) para fornecer informações sobre os dados.
-* [Utilize consultas de pesquisa](../log-query/log-query-overview.md) para analisar os dados.
-
+* [Utilize consultas de pesquisa](../logs/log-query-overview.md) para analisar os dados.

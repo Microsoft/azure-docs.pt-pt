@@ -2,13 +2,13 @@
 title: Tutorial - Aceda à sua nuvem privada
 description: Saiba como aceder a uma nuvem privada Azure VMware Solution
 ms.topic: tutorial
-ms.date: 09/21/2020
-ms.openlocfilehash: b7f21dbba5256712607241bb1258962fc22418fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 02/22/2021
+ms.openlocfilehash: 81296223ab941633a4b0f1316e359a0eb2ff73ce
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91578428"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738485"
 ---
 # <a name="tutorial-access-an-azure-vmware-solution-private-cloud"></a>Tutorial: Aceda a uma nuvem privada Azure VMware Solution
 
@@ -30,9 +30,12 @@ Neste tutorial, ficará a saber como:
 
 1. A partir da caixa de salto, inscreva-se no vSphere Client com VMware vCenter SSO utilizando um nome de utilizador e veridade de administração em nuvem que a interface do utilizador exibe com sucesso.
 
-1. No portal Azure, selecione a sua nuvem privada e, em seguida, na **vista geral,** selecione **Identidade > Padrão**. 
+1. No portal Azure, selecione a sua nuvem privada e, em seguida, **Gerencie**  >  **a Identidade.** 
 
    Os URLs e as credenciais de utilizador para o visor privado de vCenter e NSX-T Manager.
+
+   >[!TIP]
+   >**Selecione Gere uma nova palavra-passe** para gerar novas palavras-passe vCenter e NSX-T.
 
    :::image type="content" source="media/tutorial-access-private-cloud/ss4-display-identity.png" alt-text="Exiba urls e credenciais de cloud vCenter e NSX Manager." border="true":::
 
@@ -44,13 +47,13 @@ Neste tutorial, ficará a saber como:
 
 1. No separador vCenter, introduza `cloudadmin@vmcp.local` as credenciais de utilizador do passo anterior.
 
-   :::image type="content" source="media/tutorial-access-private-cloud/ss5-vcenter-login.png" alt-text="Exiba urls e credenciais de cloud vCenter e NSX Manager." border="true":::
+   :::image type="content" source="media/tutorial-access-private-cloud/ss5-vcenter-login.png" alt-text="Inscreva-se na nuvem privada vCenter." border="true":::
 
-   :::image type="content" source="media/tutorial-access-private-cloud/ss6-vsphere-client-home.png" alt-text="Exiba urls e credenciais de cloud vCenter e NSX Manager." border="true":::
+   :::image type="content" source="media/tutorial-access-private-cloud/ss6-vsphere-client-home.png" alt-text="portal vCenter." border="true":::
 
 1. No segundo separador do navegador, inscreva-se no gestor NSX-T.
 
-   :::image type="content" source="media/tutorial-access-private-cloud/ss10-nsx-manager-home.png" alt-text="Exiba urls e credenciais de cloud vCenter e NSX Manager." border="true":::
+   :::image type="content" source="media/tutorial-access-private-cloud/ss10-nsx-manager-home.png" alt-text="No segundo separador do navegador, inscreva-se no gestor NSX-T." border="true":::
 
 
 

@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/08/2020
-ms.openlocfilehash: ac2690a5f18bb58c29b433f4a07e52096bbd268b
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.date: 03/03/2021
+ms.openlocfilehash: b2f2c8497d5365104a5ffc361b791450925d0c19
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94701590"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101694789"
 ---
 # <a name="fuzzy-search-to-correct-misspellings-and-typos"></a>Pesquisa fuzzy para corrigir erros ortográficos e erros de tipografia
 

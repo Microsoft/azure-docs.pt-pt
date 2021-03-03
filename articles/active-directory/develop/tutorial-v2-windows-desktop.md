@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: d9db845bfa4a7c0c117220b8932b370eb230f6dc
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 60a29efc4d2daa9d1bc90f00e71094da382a83b9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100102993"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101686891"
 ---
 # <a name="tutorial-call-the-microsoft-graph-api-from-a-windows-desktop-app"></a>Tutorial: Ligue para a API do Gráfico microsoft a partir de uma aplicação para desktop do Windows
 
@@ -57,7 +57,7 @@ A MSAL gere fichas de acesso de caching e refrescantes para si, para que a sua a
 
 Este guia utiliza os seguintes pacotes NuGet:
 
-|Biblioteca|Description|
+|Biblioteca|Descrição|
 |---|---|
 |[Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)|Biblioteca de Autenticação da Microsoft (MSAL.NET)|
 
@@ -141,6 +141,7 @@ Neste passo, cria-se uma classe para lidar com a interação com a MSAL, como o 
         {
             _clientApp = PublicClientApplicationBuilder.Create(ClientId)
                 .WithAuthority(AzureCloudInstance.AzurePublic, Tenant)
+                .WithDefaultRedirectUri()
                 .Build();
         }
 

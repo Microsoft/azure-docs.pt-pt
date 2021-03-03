@@ -7,14 +7,14 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 03/02/2021
 ms.topic: how-to
-ms.openlocfilehash: 50ab5a0d47292e36216a565a5bd39fbe7e850131
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: facb7db73bf7a709b9ed07e460d8653d79f1ed2f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99494023"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101687608"
 ---
 # <a name="create-azure-arc-data-controller-using-the-azure-data-cli-azdata"></a>Criar controlador de dados Azure Arc utilizando o [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]
 

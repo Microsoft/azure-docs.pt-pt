@@ -1,70 +1,62 @@
 ---
 title: Processadores de telemetria (pré-visualização) - Azure Monitor Application Insights for Java
-description: Como configurar processadores de telemetria em Azure Monitor Application Insights for Java
+description: Aprenda a configurar processadores de telemetria em Azure Monitor Application Insights for Java.
 ms.topic: conceptual
 ms.date: 10/29/2020
 author: kryalama
 ms.custom: devx-track-java
 ms.author: kryalama
-ms.openlocfilehash: c0745dd4069c64292fbcaef666d843ae2d25f7b3
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 35e53454e5b2c6265082bbedb4a8b60e82df7191
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98632585"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734575"
 ---
 # <a name="telemetry-processors-preview---azure-monitor-application-insights-for-java"></a>Processadores de telemetria (pré-visualização) - Azure Monitor Application Insights for Java
 
 > [!NOTE]
-> Esta funcionalidade ainda se encontra em pré-visualização.
+> A funcionalidade de processadores de telemetria está em pré-visualização.
 
-Java 3.0 Agente para Insights de Aplicação tem agora a capacidade de processar dados de telemetria antes de os dados serem exportados.
+O agente Java 3.0 para Insights de Aplicação pode processar dados de telemetria antes de os dados serem exportados.
 
-Seguem-se alguns casos de utilização de processadores de telemetria:
- * Mascarar dados sensíveis
- * Adicionar dimensões personalizadas condicionalmente
- * Atualize o nome que é usado para agregação e exibição no portal Azure
- * Desatenção de atributos de extensão para controlar o custo de ingestão
+Aqui estão alguns casos de utilização para processadores de telemetria:
+ * Criar dados sensíveis.
+ * Adicione sem condições as dimensões personalizadas.
+ * Atualize o nome de intervalo, que é usado para agregar telemetria semelhante no portal Azure.
+ * Largar atributos de intervalo para controlar os custos de ingestão.
 
 ## <a name="terminology"></a>Terminologia
 
-Antes de entrarmos em processadores de telemetria, é importante entender a que se refere o termo.
+Antes de aprender sobre processadores de telemetria, deve entender o termo *período*. Um período de tempo é um termo geral para:
 
-Um período é um termo geral para qualquer uma destas três coisas:
+* Um pedido de entrada.
+* Uma dependência de saída (por exemplo, uma chamada remota para outro serviço).
+* Uma dependência em processo (por exemplo, trabalho a ser feito por subcomponentes do serviço).
 
-* Um pedido de entrada
-* Uma dependência de saída (por exemplo, uma chamada remota para outro serviço)
-* Uma dependência em curso (por exemplo, trabalho a ser feito por subcomponentes do serviço)
+Para os processadores de telemetria, estes componentes de extensão são importantes:
 
-Para efeitos de transformadores de telemetria, os componentes importantes de um vão são:
-
-* Nome
+* Name
 * Atributos
 
-O nome de envergadura é o visor principal utilizado para pedidos e dependências no portal Azure.
-
-Os atributos de envergadura representam propriedades padrão e personalizadas de um dado pedido ou dependência.
+O nome de extensão é o principal visor para pedidos e dependências no portal Azure. Os atributos de extensão representam propriedades padrão e personalizadas de um dado pedido ou dependência.
 
 ## <a name="telemetry-processor-types"></a>Tipos de processadores de telemetria
 
-Existem atualmente dois tipos de processadores de telemetria.
+Atualmente, os dois tipos de processadores de telemetria são processadores de atributos e processadores de extensão.
 
-#### <a name="attribute-processor"></a>Processador de atributos
+Um processador de atributos pode inserir, atualizar, eliminar ou atributos de haxixe.
+Também pode usar uma expressão regular para extrair um ou mais novos atributos de um atributo existente.
 
-Um processador de atributos tem a capacidade de inserir, atualizar, eliminar ou atributos de haxixe.
-Também pode extrair (através de uma expressão regular) um ou mais novos atributos de um atributo existente.
-
-#### <a name="span-processor"></a>Processador de extensão
-
-Um processador de intervalo tem a capacidade de atualizar o nome da telemetria.
-Também pode extrair (através de uma expressão regular) um ou mais novos atributos do nome de extensão.
+Um processador de intervalo pode atualizar o nome da telemetria.
+Também pode usar uma expressão regular para extrair um ou mais novos atributos do nome de extensão.
 
 > [!NOTE]
-> Note que atualmente os processadores de telemetria apenas processam atributos de tipo de cadeia, e não processam atributos do tipo boolean ou número.
+> Atualmente, os processadores de telemetria processam apenas atributos de cadeia tipo. Não processam atributos do tipo Boolean ou número.
 
 ## <a name="getting-started"></a>Introdução
 
-Crie um ficheiro de configuração chamado `applicationinsights.json` , e coloque-o no mesmo diretório `applicationinsights-agent-*.jar` que , com o seguinte modelo.
+Para começar, crie um ficheiro de configuração nomeado *applicationinsights.jsem*. Guarde-o no mesmo diretório que *o \* agente-agente de aplicações .jar*. Utilize o modelo seguinte.
 
 ```json
 {
@@ -88,29 +80,27 @@ Crie um ficheiro de configuração chamado `applicationinsights.json` , e coloqu
 }
 ```
 
-## <a name="includeexclude-criteria"></a>Incluir/excluir critérios
+## <a name="include-criteria-and-exclude-criteria"></a>Incluir critérios e excluir critérios
 
 Tanto os processadores de atributos como os processadores de span suportam `include` critérios e `exclude` critérios opcionais.
-Um transformador só será aplicado aos períodos que correspondam aos seus `include` critérios (se fornecidos) _e_ não correspondam aos seus `exclude` critérios (se fornecidos).
+Um processador é aplicado apenas a vãos que correspondam aos seus `include` critérios (se for fornecido) _e_ não correspondem aos seus `exclude` critérios (se for fornecido).
 
-Para configurar esta opção, em `include` baixo e/ou `exclude` pelo menos um e um de ou é `matchType` `spanNames` `attributes` necessário.
-A configuração de incluir/excluir é suportada para ter mais de uma condição especificada.
-Todas as condições especificadas devem avaliar a verdade para que ocorra uma correspondência. 
+Para configurar esta opção, em `include` ou `exclude` em ambos, especifique pelo menos uma `matchType` e qualquer um ou `spanNames` `attributes` .
+A configuração de excluir incluído permite mais de uma condição especificada.
+Todas as condições especificadas devem avaliar-se de forma verdadeira para resultar em uma correspondência. 
 
-**Campo obrigatório:** 
-* `matchType` controla a forma como os itens `spanNames` e `attributes` matrizes são interpretados. Os valores possíveis são `regexp` ou `strict`. 
+* **Campo obrigatório**: `matchType` controla a interpretação dos itens em `spanNames` matrizes e `attributes` matrizes. Os valores possíveis são `regexp` `strict` e. 
 
-**Campos opcionais:** 
-* `spanNames` deve corresponder a pelo menos um dos itens. 
-* `attributes` especifica a lista de atributos a condizer. Todos estes atributos devem corresponder exatamente para que um jogo ocorra.
-
+* **Campos opcionais:** 
+    * `spanNames` deve corresponder a pelo menos um dos itens. 
+    * `attributes` especifica a lista de atributos a condizer. Todos estes atributos devem corresponder exatamente para resultar em uma partida.
+    
 > [!NOTE]
-> Se ambos `include` e `exclude` forem especificados, as `include` propriedades são verificadas antes das `exclude` propriedades.
+> Se ambos `include` e `exclude` forem especificados, as `include` propriedades são verificadas antes de as propriedades `exclude` serem verificadas.
 
-#### <a name="sample-usage"></a>Utilização de Exemplo
+### <a name="sample-usage"></a>Utilização de amostras
 
 ```json
-
 "processors": [
   {
     "type": "attribute",
@@ -143,15 +133,20 @@ Todas as condições especificadas devem avaliar a verdade para que ocorra uma c
   }
 ]
 ```
-Para obter mais compreensão, consulte a documentação do [processador de telemetria exemplos.](./java-standalone-telemetry-processors-examples.md)
+Para obter mais informações, consulte [exemplos do processador de Telemetria](./java-standalone-telemetry-processors-examples.md).
 
 ## <a name="attribute-processor"></a>Processador de atributos
 
-O processador de atributos modifica atributos de um vão. Suporta opcionalmente a capacidade de incluir/excluir vãos. Requer uma lista de ações que são realizadas por ordem especificada no ficheiro de configuração. As ações apoiadas são:
+O processador de atributos modifica atributos de um vão. Pode suportar a capacidade de incluir ou excluir vãos. Requer uma lista de ações que são realizadas na ordem que o ficheiro de configuração especifica. O processador suporta estas ações:
 
+- `insert`
+- `update`
+- `delete`
+- `hash`
+- `extract`
 ### `insert`
 
-Insere um novo atributo em vãos onde a chave já não existe.   
+A `insert` ação insere um novo atributo em vãos onde a chave já não existe.   
 
 ```json
 "processors": [
@@ -167,14 +162,14 @@ Insere um novo atributo em vãos onde a chave já não existe.
   }
 ]
 ```
-Para a `insert` ação, são necessários seguintes
-  * `key`
-  * um dos `value` ou `fromAttribute`
-  * `action`:`insert`
+A `insert` ação requer as seguintes definições:
+* `key`
+* Ou `value` ou `fromAttribute`
+* `action`: `insert`
 
 ### `update`
 
-Atualiza um atributo em vãos onde a chave existe
+A `update` ação atualiza um atributo em vãos onde a chave já existe.
 
 ```json
 "processors": [
@@ -190,15 +185,15 @@ Atualiza um atributo em vãos onde a chave existe
   }
 ]
 ```
-Para a `update` ação, são necessários seguintes
-  * `key`
-  * um dos `value` ou `fromAttribute`
-  * `action`:`update`
+A `update` ação requer as seguintes definições:
+* `key`
+* Ou `value` ou `fromAttribute`
+* `action`: `update`
 
 
 ### `delete` 
 
-Elimina um atributo de um vão
+A `delete` ação elimina um atributo de um período de tempo.
 
 ```json
 "processors": [
@@ -213,13 +208,13 @@ Elimina um atributo de um vão
   }
 ]
 ```
-Para a `delete` ação, são necessários seguintes
-  * `key`
-  * `action`: `delete`
+A `delete` ação requer as seguintes definições:
+* `key`
+* `action`: `delete`
 
 ### `hash`
 
-Hashes (SHA1) um valor de atributo existente
+O `hash` hashes de ação (SHA1) um valor de atributo existente.
 
 ```json
 "processors": [
@@ -234,16 +229,16 @@ Hashes (SHA1) um valor de atributo existente
   }
 ]
 ```
-Para a `hash` ação, são necessários seguintes
+A `hash` ação requer as seguintes definições:
 * `key`
-* `action` : `hash`
+* `action`: `hash`
 
 ### `extract`
 
 > [!NOTE]
-> Esta característica é apenas em 3.0.2 e mais tarde
+> A `extract` funcionalidade encontra-se disponível apenas na versão 3.0.2 e posterior.
 
-Extrai valores utilizando uma regra de expressão regular da chave de entrada para as teclas-alvo especificadas na regra. Se já existe uma chave-alvo, será ultrapassada. Comporta-se de forma semelhante à definição [do Processador de Esversar](#extract-attributes-from-span-name) `toAttributes` com o atributo existente como fonte.
+A `extract` ação extrai valores utilizando uma regra de expressão regular da chave de entrada para as teclas-alvo que a regra especifica. Se uma chave-alvo já existe, está ultrapassada. Esta ação comporta-se como a definição do [processador de envergadura,](#extract-attributes-from-the-span-name) `toAttributes` onde o atributo existente é a fonte.
 
 ```json
 "processors": [
@@ -259,28 +254,24 @@ Extrai valores utilizando uma regra de expressão regular da chave de entrada pa
   }
 ]
 ```
-Para a `extract` ação, são necessários seguintes
+A `extract` ação requer as seguintes definições:
 * `key`
 * `pattern`
-* `action` : `extract`
+* `action`: `extract`
 
-Para obter mais compreensão, consulte a documentação do [processador de telemetria exemplos.](./java-standalone-telemetry-processors-examples.md)
+Para obter mais informações, consulte [exemplos do processador de Telemetria](./java-standalone-telemetry-processors-examples.md).
 
 ## <a name="span-processor"></a>Processador de extensão
 
-O processador de envergadura modifica o nome de extensão ou atributos de um vão baseado no nome da extensão. Suporta opcionalmente a capacidade de incluir/excluir vãos.
+O processador de envergadura modifica o nome de extensão ou atributos de um vão baseado no nome da extensão. Pode suportar a capacidade de incluir ou excluir vãos.
 
 ### <a name="name-a-span"></a>Diga um vão
 
-É necessária a seguinte definição como parte da secção de nomes:
+A `name` secção requer a `fromAttributes` definição. Os valores destes atributos são usados para criar um novo nome, concatenado na ordem que a configuração especifica. O processador só mudará o nome de intervalo se todos estes atributos estiverem presentes no intervalo.
 
-* `fromAttributes`: O valor de atributo para as teclas é utilizado para criar um novo nome na ordem especificada na configuração. Todas as teclas de atributos devem ser especificadas no intervalo para que o processador o rebatize.
-
-A seguinte definição pode ser configurada opcionalmente:
-
-* `separator`: Uma corda, que é especificada, será usada para dividir valores
+A `separator` definição é opcional. Esta definição é uma corda. Está especificado para valores divididos.
 > [!NOTE]
-> Se o renomeamento depender da modificação dos atributos pelos atributos do processador, certifique-se de que o processador de envergadura é especificado após o processador de atributos na especificação do pipeline.
+> Se a renomeação depender do processador de atributos para modificar atributos, certifique-se de que o processador de envergadura é especificado após o processador de atributos na especificação do pipeline.
 
 ```json
 "processors": [
@@ -297,16 +288,26 @@ A seguinte definição pode ser configurada opcionalmente:
 ] 
 ```
 
-### <a name="extract-attributes-from-span-name"></a>Extrair atributos do nome de extensão
+### <a name="extract-attributes-from-the-span-name"></a>Extrair atributos do nome de extensão
 
-Pega numa lista de expressões regulares para combinar o nome de extensão com o do mesmo e extrair atributos do mesmo com base em subexpressões. Deve ser especificado na `toAttributes` secção.
+A `toAttributes` secção lista as expressões regulares para corresponder ao nome de intervalo. Extrai atributos baseados em subexpressões.
 
-São necessárias as seguintes definições:
+A `rules` definição é necessária. Esta definição lista as regras que são usadas para extrair valores de atributos do nome de intervalo. 
 
-`rules` : Uma lista de regras para extrair valores de atributos do nome de intervalo. Os valores do nome de intervalo são substituídos por nomes de atributos extraídos. Cada regra da lista é a cadeia de padrão regex. O nome do span é verificado contra o regex. Se o regex corresponder, todas as subexpressões nomeadas do regex são extraídas como atributos e adicionadas ao intervalo. Cada nome de subexpressão torna-se um nome de atributo e a porção de subexpressão corresponde ao valor do atributo. A parte combinada no nome da extensão é substituída pelo nome de atributo extraído. Se os atributos já existirem no espaço, serão substituídos. O processo é repetido para todas as regras na ordem em que são especificadas. Cada regra subsequente funciona com o nome de intervalo que é a saída após o processamento da regra anterior.
+Os valores do nome de intervalo são substituídos por nomes de atributos extraídos. Cada regra da lista é uma expressão regular (regex) cadeia de padrão. 
+
+Eis como os valores são substituídos por nomes de atributos extraídos:
+
+1. O nome da span é verificado contra o regex. 
+1. Se o regex corresponder, todas as subexpressões nomeadas do regex são extraídas como atributos. 
+1. Os atributos extraídos são adicionados ao vão. 
+1. Cada nome de subexpressão torna-se um nome de atributo. 
+1. A parte de subexpressão igualada torna-se o valor do atributo. 
+1. A parte combinada no nome da extensão é substituída pelo nome do atributo extraído. Se os atributos já existem no espaço, são substituídos. 
+ 
+Este processo é repetido para todas as regras na ordem em que são especificados. Cada regra subsequente funciona no nome de extensão que é a saída da regra anterior.
 
 ```json
-
 "processors": [
   {
     "type": "span",
@@ -324,26 +325,26 @@ São necessárias as seguintes definições:
 
 ```
 
-## <a name="list-of-attributes"></a>Lista de Atributos
+## <a name="common-span-attributes"></a>Atributos de extensão comum
 
-Seguem-se a lista de alguns atributos de envergadura comuns que podem ser utilizados nos processadores de telemetria.
+Esta secção lista alguns atributos de intervalo comum que os processadores de telemetria podem usar.
 
-### <a name="http-spans"></a>PERÍODOS HTTP
+### <a name="http-spans"></a>Extensões HTTP
 
 | Atributo  | Tipo | Description | 
 |---|---|---|
 | `http.method` | cadeia (de carateres) | Método de pedido HTTP.|
-| `http.url` | string | URL de pedido completo http no formulário `scheme://host[:port]/path?query[#fragment]` . Normalmente, o fragmento não é transmitido em HTTP, mas se for conhecido, deve ser incluído no entanto.|
+| `http.url` | string | URL de pedido completo http no formulário `scheme://host[:port]/path?query[#fragment]` . O fragmento não é normalmente transmitido através de HTTP. Mas se o fragmento for conhecido, deve ser incluído.|
 | `http.status_code` | número | [Código de estado de resposta HTTP](https://tools.ietf.org/html/rfc7231#section-6).|
-| `http.flavor` | string | Tipo de protocolo HTTP usado |
+| `http.flavor` | string | Tipo de protocolo HTTP. |
 | `http.user_agent` | string | Valor do [cabeçalho http-user-agent](https://tools.ietf.org/html/rfc7231#section-5.5.3) enviado pelo cliente. |
 
-### <a name="jdbc-spans"></a>JDBC Spans
+### <a name="jdbc-spans"></a>Extensões JDBC
 
 | Atributo  | Tipo | Description  |
 |---|---|---|
-| `db.system` | cadeia (de carateres) | Está a ser utilizado um identificador para o sistema de gestão da base de dados (DBMS). |
-| `db.connection_string` | string | A cadeia de ligação usada para ligar à base de dados. Recomenda-se a remoção de credenciais embutidas.|
+| `db.system` | cadeia (de carateres) | Identificador para o sistema de gestão de bases de dados (DBMS) produto que está a ser utilizado. |
+| `db.connection_string` | string | Cadeia de ligação usada para ligar à base de dados. É recomendado para remover credenciais embutidas.|
 | `db.user` | string | Nome de utilizador para aceder à base de dados. |
-| `db.name` | string | Este atributo é utilizado para reportar o nome da base de dados que está a ser acedida. Para comandos que alterem a base de dados, este deve ser definido para a base de dados alvo (mesmo que o comando falhe).|
-| `db.statement` | string | A declaração da base de dados está a ser executada.|
+| `db.name` | string | O String costumava reportar o nome da base de dados a ser acedida. Para comandos que comutem a base de dados, esta cadeia deve ser definida para a base de dados alvo, mesmo que o comando falhe.|
+| `db.statement` | string | Declaração de base de dados que está a ser executada.|

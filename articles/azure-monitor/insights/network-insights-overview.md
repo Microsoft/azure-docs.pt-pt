@@ -1,17 +1,16 @@
 ---
 title: Azure Monitor para Redes
 description: Uma visão geral do Azure Monitor for Networks, que proporciona uma visão abrangente da saúde e métricas para todos os recursos de rede implantados sem qualquer configuração.
-ms.subservice: ''
 ms.topic: conceptual
 author: KumudD
 ms.author: kumud
 ms.date: 11/25/2020
-ms.openlocfilehash: 0616d14a890cfd5dd1a486dd21670c7c58dbeebc
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 20f61ad92307a16515156151b816494e9aa289f7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100573523"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717473"
 ---
 # <a name="azure-monitor-for-networks"></a>Azure Monitor para Redes
 

@@ -11,17 +11,17 @@ ms.topic: include
 ms.date: 10/15/2020
 ms.author: erhopf
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 58ce8dc67488c42485f2fac73e514c5639b11cf9
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 895943b00ef2c2541b7de6cc81648877c9a73c0d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100552215"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101750519"
 ---
 Este guia mostra como instalar o [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) for [Unitity](https://unity3d.com/).
 
 > [!NOTE]
-> O Speech SDK for Unitity suporta o Windows Desktop (x86 e x64) ou a Plataforma Universal windows (x86, x64, ARM/ARM64), Android (x86, ARM32/64) e iOS (simulador x64, ARM32 e ARM64)
+> O Speech SDK for Unitity suporta o Windows Desktop (x86 e x64) ou a Plataforma Universal windows (x86, x64, ARM/ARM64), Android (x86, ARM32/64) e iOS (simulador x64 e ARM64)
 
 [!INCLUDE [License Notice](~/includes/cognitive-services-speech-service-license-notice.md)]
 

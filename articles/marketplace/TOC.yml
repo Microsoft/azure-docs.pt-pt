@@ -47,12 +47,19 @@
       items:
         - name: Os seus benefícios do marketplace
           href: gtm-your-marketplace-benefits.md
-        - name: Compromisso entre parceiros para venda conjunta
-          href: marketplace-co-sell.md
-        - name: Opção de venda conjunta no Centro de Parceiros
-          href: commercial-marketplace-co-sell.md
-        - name: Migrar soluções de venda conjunta a partir do OCP GTM
-          href: co-sell-solution-migration.md
+          items: null
+        - name: Co-sell with Microsoft (Venda conjunta com a Microsoft)
+          items:
+            - name: Visão geral de co-venda
+              href: marketplace-co-sell.md
+            - name: Requisitos de co-venda
+              href: co-sell-requirements.md
+            - name: Conigure co-venda
+              href: commercial-marketplace-co-sell.md
+            - name: Verificar estado de co-venda
+              href: co-sell-status.md
+            - name: Migrar soluções de venda conjunta a partir do OCP GTM
+              href: co-sell-solution-migration.md
         - name: Revenda através de Parceiros CSP
           href: cloud-solution-providers.md
         - name: Ligar guia de inclusão do Programa
@@ -203,6 +210,8 @@
           href: partner-center-portal/azure-iot-edge-module-creation.md
         - name: Preparar recursos técnicos do módulo do IoT Edge
           href: partner-center-portal/create-iot-edge-module-asset.md
+        - name: Lista de verificação pré-certificação
+          href: iot-edge-checklist.md
     - name: Ofertas do Serviço Gerido
       items:
         - name: Planear uma oferta de Serviço Gerido
@@ -395,6 +404,8 @@
       href: commercial-marketplace-co-sell-countries.md
     - name: Códigos de distrito de venda conjunta
       href: commercial-marketplace-co-sell-states.md
+    - name: Diagrama de Arquitetura de Referência
+      href: reference-architecture-diagram.md
     - name: Categorias e subcategorias
       href: categories.md
     - name: Etiquetas HTML suportadas

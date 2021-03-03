@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 12/17/2020
 ms.topic: conceptual
-ms.openlocfilehash: 4c37fe107d9256461e5aa632f859ae02c5dc42f5
-ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
+ms.openlocfilehash: 3ca1dec1b6139f3192edb09f8748c8f23a9d399e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97683417"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101701506"
 ---
 # <a name="manage-pre-scripts-and-post-scripts"></a>Gerir pré-scripts e pós-scripts
 
@@ -59,31 +59,31 @@ Além dos parâmetros padrão do livro de correr, o `SoftwareUpdateConfiguration
 O exemplo a seguir é uma cadeia JSON transmitida para o parâmetro **SoftwareUpdateConfigurationRunContext:**
 
 ```json
-"SoftwareUpdateConfigurationRunContext":{
-      "SoftwareUpdateConfigurationName":"sampleConfiguration",
-      "SoftwareUpdateConfigurationRunId":"00000000-0000-0000-0000-000000000000",
-      "SoftwareUpdateConfigurationSettings":{
-         "operatingSystem":"Windows",
-         "duration":"PT2H0M",
-         "windows":{
-            "excludedKbNumbers":[
-               "168934",
-               "168973"
-            ],
-            "includedUpdateClassifications":"Critical",
-            "rebootSetting":"IfRequired"
-         },
-         "azureVirtualMachines":[
-            "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresources/providers/Microsoft.Compute/virtualMachines/vm-01",
-            "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresources/providers/Microsoft.Compute/virtualMachines/vm-02",
-            "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresources/providers/Microsoft.Compute/virtualMachines/vm-03"
-         ],
-         "nonAzureComputerNames":[
-            "box1.contoso.com",
-            "box2.contoso.com"
-         ]
-      }
-   }
+"SoftwareUpdateConfigurationRunContext": {
+    "SoftwareUpdateConfigurationName": "sampleConfiguration",
+    "SoftwareUpdateConfigurationRunId": "00000000-0000-0000-0000-000000000000",
+    "SoftwareUpdateConfigurationSettings": {
+      "operatingSystem": "Windows",
+      "duration": "PT2H0M",
+      "windows": {
+        "excludedKbNumbers": [
+          "168934",
+          "168973"
+        ],
+        "includedUpdateClassifications": "Critical",
+        "rebootSetting": "IfRequired"
+      },
+      "azureVirtualMachines": [
+        "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresources/providers/Microsoft.Compute/virtualMachines/vm-01",
+        "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresources/providers/Microsoft.Compute/virtualMachines/vm-02",
+        "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresources/providers/Microsoft.Compute/virtualMachines/vm-03"
+      ],
+      "nonAzureComputerNames": [
+        "box1.contoso.com",
+        "box2.contoso.com"
+      ]
+    }
+  }
 ```
 
 Um exemplo completo com todas as propriedades pode ser encontrado em: [Obtenha configuração de atualização de software pelo nome](/rest/api/automation/softwareupdateconfigurations/getbyname#examples).
@@ -244,6 +244,6 @@ $variable = Get-AutomationVariable -Name $runId
 > [!NOTE]
 > Para livros de execução powershell não gráficos, `Add-AzAccount` e `Add-AzureRMAccount` são pseudónimos para [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount). Pode utilizar estes cmdlets ou [atualizar os seus módulos](../automation-update-azure-modules.md) na sua conta Automation para as versões mais recentes. Poderá ter de atualizar os seus módulos mesmo que tenha acabado de criar uma nova conta Automation.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para obter detalhes sobre a gestão da atualização, consulte [Gerir atualizações e patches para os seus VMs](manage-updates-for-vm.md).

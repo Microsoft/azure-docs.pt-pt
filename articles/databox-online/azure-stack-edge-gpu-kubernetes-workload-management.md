@@ -1,19 +1,19 @@
 ---
-title: Compreenda a gestão da carga de trabalho da Kubernetes no dispositivo Azure Stack Edge Pro Microsoft Docs
+title: Compreenda a gestão da carga de trabalho da Kubernetes no dispositivo Azure Stack Edge Pro| Microsoft Docs
 description: Descreve como as cargas de trabalho de Kubernetes podem ser geridas no seu dispositivo Azure Stack Edge Pro.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 03/01/2021
 ms.author: alkohli
-ms.openlocfilehash: ef840b3d9db4e82eeecea37079a08ccb0858a77b
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: aac4278c6ce03c43418e99978cd039e24dc01194
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96448527"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719275"
 ---
 # <a name="kubernetes-workload-management-on-your-azure-stack-edge-pro-device"></a>Gestão da carga de trabalho da Kubernetes no seu dispositivo Azure Stack Edge Pro
 
@@ -54,6 +54,17 @@ Há três formas primárias de implantar as suas cargas de trabalho. Cada uma de
 - **Azure Arc permitiu a implantação de Kubernetes**: Azure Arc habilitado a Kubernetes é uma ferramenta de gestão híbrida que lhe permitirá implementar aplicações nos seus clusters Kubernetes. Liga-se ao cluster Kubernetes no seu dispositivo Azure Stack Edge Pro através do `azure-arc namespace` . Os agentes implantados neste espaço de nome são responsáveis pela conectividade com o Azure. Aplica-se a configuração de implementação utilizando a gestão de configuração baseada em GitOps. 
     
     Azure Arc ativado Kubernetes também lhe permitirá usar o Azure Monitor para os recipientes para visualizar e monitorizar o seu cluster. Para mais informações, vá ao [Que é que o Azure Arc está habilitado a Kubernetes?](../azure-arc/kubernetes/overview.md)
+    
+    A partir de março de 2021, a Azure Arc habilitada a Kubernetes estará geralmente disponível para os utilizadores e aplicam-se os custos de utilização padrão. Como cliente de pré-visualização valorizado, o Azure Arc habilitado a Kubernetes estará disponível gratuitamente para dispositivos Azure Stack Edge. Para aproveitar a oferta de pré-visualização, crie um [pedido de apoio](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest):
+
+    1. Em **Tipo de questão**, selecione **Faturação**.
+    2. Em **Subscrição**, selecione a sua subscrição.
+    3. Em **Serviço**, selecione **Os meus serviços** e, em seguida, selecione **Azure Stack Edge**.
+    4. Em **Recurso,** selecione o seu recurso.
+    5. Em **Resumo,** escreva uma descrição do seu problema.
+    6. No **tipo Problema**, selecione Tarifas **Inesperadas**.
+    7. Sob **o subtipo de problemas,** selecione **Ajude-me a entender as acusações no meu julgamento gratuito**.
+
 
 ## <a name="choose-the-deployment-type"></a>Escolha o tipo de implementação
 

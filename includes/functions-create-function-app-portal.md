@@ -9,10 +9,10 @@ ms.date: 03/04/2020
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: 9ec5920295117b1726a684bcd08534cd6917f7e5
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/03/2021
 ms.locfileid: "100569797"
 ---
 1. A partir do menu do portal do Azure ou a partir da **Home page**, selecione **Criar um recurso**.

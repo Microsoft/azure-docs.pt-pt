@@ -4,12 +4,12 @@ description: Saiba como escalar o seu recurso Web App, Cloud Service, Virtual Ma
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: 6ac3ebb4cf007141967786f51243c741a6045c83
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 081e06fbd6506c76a068d7207e29efb66502a9dd
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100617661"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726058"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Introdução ao dimensionamento automático no Azure
 Este artigo descreve como configurar as suas definições de Autoscale para o seu recurso no portal Microsoft Azure.
@@ -128,7 +128,7 @@ Esta secção descreve como mover a autoescala do Azure para outra região sob a
 ### <a name="move"></a>Mover
 Utilize [a API REST](/rest/api/monitor/autoscalesettings/createorupdate) para criar uma definição de autoescala no novo ambiente. A definição de autoescala criada na região de destino será uma cópia da definição de autoescala na região de origem.
 
-[As definições de diagnóstico](../platform/diagnostic-settings.md) que foram criadas em associação com a definição de autoescala na região de origem não podem ser movidas. Terá de recriar definições de diagnóstico na região de destino, após a criação de definições de auto-venda. 
+[As definições de diagnóstico](../essentials/diagnostic-settings.md) que foram criadas em associação com a definição de autoescala na região de origem não podem ser movidas. Terá de recriar definições de diagnóstico na região de destino, após a criação de definições de auto-venda. 
 
 ### <a name="learn-more-about-moving-resources-across-azure-regions"></a>Saiba mais sobre a movimentação de recursos em todas as regiões de Azure
 Para saber mais sobre a movimentação de recursos entre regiões e recuperação de desastres em Azure, consulte a [Move resources to a new resource group or subscription](../../azure-resource-manager/management/move-resource-group-and-subscription.md)

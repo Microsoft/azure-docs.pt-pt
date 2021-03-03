@@ -1,5 +1,5 @@
 ---
-title: Criar e eliminar pontos finais privados num cluster Azure Stream Analytics
+title: Criar e eliminar pontos finais privados geridos num cluster Azure Stream Analytics
 description: Aprenda a gerir pontos finais privados num cluster Azure Stream Analytics.
 author: sidramadoss
 ms.author: sidram
@@ -7,28 +7,28 @@ ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc
 ms.date: 09/22/2020
-ms.openlocfilehash: cff02bb4b7d0f7e969589a9977a89f89e2674ffc
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 9939130782594c03a497d98ce6cd9b33b28eadec
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98019419"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718408"
 ---
-# <a name="create-and-delete-private-endpoints-in-an-azure-stream-analytics-cluster"></a>Criar e eliminar pontos finais privados num cluster Azure Stream Analytics
+# <a name="create-and-delete-managed-private-endpoints-in-an-azure-stream-analytics-cluster"></a>Criar e eliminar pontos finais privados geridos num cluster Azure Stream Analytics
 
-Pode ligar os trabalhos do Azure Stream Analytics em execução num cluster a recursos de entrada e saída que estão atrás de uma firewall ou de uma Rede Virtual (VNet) do Azure. Primeiro, crie um ponto final privado para um recurso, como o Hub de Eventos do Azure ou a Base de Dados SQL do Azure, no cluster do Stream Analytics. Em seguida, aprove a ligação do ponto final privado de entrada ou saída.
+Pode ligar os trabalhos do Azure Stream Analytics em execução num cluster a recursos de entrada e saída que estão atrás de uma firewall ou de uma Rede Virtual (VNet) do Azure. Em primeiro lugar, cria um ponto final privado gerido para um recurso, como o Azure Event Hub ou o Azure SQL Database, no seu cluster Stream Analytics. Em seguida, aprove a ligação do ponto final privado de entrada ou saída.
 
 Uma vez aprovada a ligação, qualquer trabalho em execução no seu cluster Stream Analytics pode aceder ao recurso através do ponto final privado. Este artigo mostra como criar e eliminar pontos finais privados num cluster do Stream Analytics. Você pode criar pontos finais privados para Azure SQL Database, Azure Storage, Azure Data Lake Storage Gen2, Azure Event Hub e Azure Service Bus. Os pontos finais privados para outros serviços serão adicionados em breve. 
 
-## <a name="create-private-endpoint-in-stream-analytics-cluster"></a>Criar ponto final privado no cluster Stream Analytics
+## <a name="create-managed-private-endpoint-in-stream-analytics-cluster"></a>Criar ponto final privado gerido no cluster Stream Analytics
 
 Nesta secção, aprende-se a criar um ponto final privado num cluster Stream Analytics.
 
 1. No portal Azure, localize e selecione o seu cluster Stream Analytics.
 
-1. Em **Definições**, selecione **pontos finais privados**.
+1. Em **Definições**, selecione **Pontos finais privados geridos**.
 
-1. **Selecione Adicionar ponto final privado** e introduzir as seguintes informações para escolher o recurso que pretende aceder de forma segura através de um ponto final privado.
+1. Selecione **New** e introduza as seguintes informações para escolher o recurso que pretende aceder de forma segura através de um ponto final privado.
 
    |Definição|Valor|
    |---|---|
@@ -47,17 +47,17 @@ Nesta secção, aprende-se a criar um ponto final privado num cluster Stream Ana
 
 1. Pode voltar ao seu cluster Stream Analytics para ver a alteração do estado de **aprovação** pendente do cliente para **configuração de DNS pendente** para **configurar completa** dentro de alguns minutos.
 
-## <a name="delete-a-private-endpoint-in-a-stream-analytics-cluster"></a>Elimine um ponto final privado num cluster Stream Analytics
+## <a name="delete-a-managed-private-endpoint-in-a-stream-analytics-cluster"></a>Eliminar um ponto final privado gerido num cluster Stream Analytics
 
 1. No portal Azure, localize e selecione o seu cluster Stream Analytics.
 
-1. Em **Definições**, selecione **pontos finais privados**.
+1. Em **Definições**, selecione **Pontos finais privados geridos**.
 
 1. Escolha o ponto final privado que pretende eliminar e selecione **Delete**.
 
    ![eliminar ponto final privado](./media/private-endpoints/delete-private-endpoint.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Tem agora uma visão geral de como gerir pontos finais privados num cluster Azure Stream Analytics. Em seguida, você pode aprender a escalar seus clusters e executar empregos no seu cluster:
 

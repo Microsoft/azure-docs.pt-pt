@@ -7,18 +7,25 @@ ms.date: 05/13/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 429400bb6cb41ede89597dc739a612d1bf9893f2
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: e56142dfc68767945cd0d08c87f14e19551a156e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99831268"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101741468"
 ---
 # <a name="tutorial---use-mqtt-to-develop-an-iot-plug-and-play-device-client"></a>Tutorial - Use mQTT para desenvolver um cliente de dispositivo ioT plug e play
 
 Deverá utilizar um dos SDKs de dispositivoS Azure IoT para construir os seus clientes ioT plug e play, se possível. No entanto, em cenários como a utilização de um dispositivo constrangido à memória, poderá ser necessário utilizar uma biblioteca MQTT para comunicar com o seu hub IoT.
 
 A amostra deste tutorial utiliza a biblioteca [Eclipse Mosquitto](http://mosquitto.org/) MQTT e o Visual Studio. Os passos neste tutorial assumem que está a usar o Windows na sua máquina de desenvolvimento.
+
+Neste tutorial, ficará a saber como:
+
+> [!div class="checklist"]
+> * Faça o download e construa a biblioteca Eclipse Mosquitto.
+> * Modifique o código de amostra MQTT baseado em C para tornar o dispositivo um dispositivo IoT Plug and Play.
+> * Identifique os tópicos MQTT que um dispositivo IoT Plug and Play utiliza.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

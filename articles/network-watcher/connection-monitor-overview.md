@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: vinigam
 ms.custom: mvc
-ms.openlocfilehash: ccc2b6baba0e97320a5352013dbecfc121188457
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 7abaae033d2dbdb329a1f99d8f9845e5965d806c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100361031"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101712322"
 ---
 # <a name="network-connectivity-monitoring-with-connection-monitor"></a>Monitorização da conectividade da rede com monitor de ligação
 
@@ -89,7 +89,7 @@ Para as máquinas Linux, os portNumbers devem ser utilizados manualmente.
 
  Note que os números de porta utilizados devem ser os mesmos em todos os agentes utilizados num espaço de trabalho. 
 
-O script cria chaves de registo necessárias pela solução. Também cria regras do Windows Firewall para permitir que os agentes criem ligações TCP entre si. As teclas de registo criadas pelo script especificam se registam os registos de depurg e o caminho para o ficheiro de registos. O script também define a porta TCP do agente utilizada para a comunicação. Os valores destas teclas são automaticamente definidos pelo script. Não mude manualmente estas chaves. A porta aberta por defeito é 8084. Pode utilizar uma porta personalizada fornecendo o parâmetro portNumber ao script. Use a mesma porta em todos os computadores onde o script é executado. [Leia mais](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#network-requirements) sobre os requisitos de rede para agentes do Log Analytics
+O script cria chaves de registo necessárias pela solução. Também cria regras do Windows Firewall para permitir que os agentes criem ligações TCP entre si. As teclas de registo criadas pelo script especificam se registam os registos de depurg e o caminho para o ficheiro de registos. O script também define a porta TCP do agente utilizada para a comunicação. Os valores destas teclas são automaticamente definidos pelo script. Não mude manualmente estas chaves. A porta aberta por defeito é 8084. Pode utilizar uma porta personalizada fornecendo o parâmetro portNumber ao script. Use a mesma porta em todos os computadores onde o script é executado. [Leia mais](../azure-monitor/agents/log-analytics-agent.md#network-requirements) sobre os requisitos de rede para agentes do Log Analytics
 
 O script configura apenas o Windows Firewall localmente. Se tiver uma firewall de rede, certifique-se de que permite o tráfego destinado à porta TCP utilizada pelo Network Performance Monitor.
 
@@ -287,7 +287,7 @@ Nos monitores de ligação que foram criados antes da experiência do Monitor de
 
 Quando utilizar métricas, desenhe o tipo de recurso como Microsoft.Network/networkWatchers/connectionMonitors
 
-| Metric | Nome a apresentar | Unidade | Tipo de agregação | Description | Dimensões |
+| Metric | Nome a apresentar | Unidade | Tipo de agregação | Descrição | Dimensões |
 | --- | --- | --- | --- | --- | --- |
 | ProbesFailedPercent (clássico) | % Sondas Falhadas (clássica) | Percentagem | Média | A percentagem de sondas de monitorização de conectividade falhou. | Sem dimensões |
 | MédiasRoundtripMs (clássico) | Avg. Tempo de ida e volta (ms) (clássico) | Milissegundos | Média | Rede média RTT para sondas de monitorização de conectividade enviadas entre a fonte e o destino. |             Sem dimensões |

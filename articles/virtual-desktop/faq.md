@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 10/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: b915445b74e202f010c5505cc240b6f36e9da77c
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 3bdb38b8a9590cf6191c75fdef024543c2b1c190
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108512"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101720278"
 ---
 # <a name="windows-virtual-desktop-faq"></a>FAQ do Windows Virtual Desktop
 
@@ -136,3 +136,7 @@ O Azure Lighthouse não suporta totalmente a gestão de ambientes de ambientes d
 Também não pode utilizar subscrições de caixa de areia CSP com o serviço De Ambiente de Trabalho Virtual do Windows. Para saber mais, consulte [a conta de caixa de areia Integração.](/partner-center/develop/set-up-api-access-in-partner-center#integration-sandbox-account)
 
 Finalmente, se for habilitado o fornecedor de recursos a partir da conta do proprietário da CSP, as contas de clientes da CSP não poderão modificar o fornecedor de recursos.
+
+## <a name="how-often-should-i-turn-my-vms-on-to-prevent-registration-issues"></a>Com que frequência devo ligar os meus VM para evitar problemas de registo?
+
+Depois de registar um VM num pool de anfitriões dentro do serviço de ambiente de trabalho virtual do Windows, o agente atualiza regularmente o sinal do VM sempre que o VM estiver ativo. O certificado para o token de inscrição é válido por 90 dias. Devido a este limite de 90 dias, recomendamos que comece os seus VM a cada 90 dias. Ligar o seu VM dentro deste prazo evitará que o seu token de registo expire ou se torne inválido. Se iniciou o seu VM após 90 dias e tiver problemas de registo, siga as instruções no [guia de resolução de problemas](troubleshoot-agent.md#your-issue-isnt-listed-here-or-wasnt-resolved) do agente virtual do Windows para remover o VM da piscina hospedeira, reinstalar o agente e reregistá-lo na piscina.

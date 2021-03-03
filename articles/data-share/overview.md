@@ -5,13 +5,14 @@ author: jifems
 ms.author: jife
 ms.service: data-share
 ms.topic: overview
-ms.date: 10/30/2020
-ms.openlocfilehash: b9fb5d6537d2c8dffef397c56128dd4891c939b7
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.date: 02/23/2021
+ms.custom: references_regions
+ms.openlocfilehash: 3a7c73e4a5ba00155ab905f28edbcb0eb42c0539
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94578132"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101724868"
 ---
 # <a name="what-is-azure-data-share"></a>O que é o Azure Data Share?
 
@@ -19,7 +20,7 @@ No mundo de hoje, os dados são vistos como um ativo estratégico chave que muit
 
 Muitas organizações precisam de ser responsabilizadas pelos dados que partilharam. Além da prestação de contas, muitas organizações gostariam de ser capazes de controlar, gerir e monitorizar toda a sua partilha de dados de uma forma simples. No mundo de hoje, onde se espera que os dados continuem a crescer a um ritmo exponencial, as organizações precisam de uma forma simples de partilhar grandes dados. Os clientes exigem os dados mais atualizados para garantir que são capazes de obter insights oportunos.
 
-O Azure Data Share permite que as organizações partilhem dados de forma simples e segura com vários clientes e parceiros. Em apenas alguns cliques, pode providenciar uma nova conta de partilha de dados, adicionar conjuntos de dados e convidar os seus clientes e parceiros para a sua partilha de dados. Os fornecedores de dados controlam sempre os dados que partilharam. A Azure Data Share torna simples gerir e monitorizar os dados partilhados, quando e por quem. 
+O Azure Data Share permite que as organizações partilhem dados de forma simples e segura com vários clientes e parceiros. Com apenas alguns cliques, pode aprovisionar uma nova conta de partilha de dados, adicionar conjuntos de dados e convidar os seus clientes e parceiros para a sua partilha de dados. Os fornecedores de dados estão sempre no controlo dos dados que partilharam. O Azure Data Share simplifica a gestão e a monitorização dos dados que foram partilhados, quando e por quem. 
 
 Um fornecedor de dados pode manter-se no controlo da forma como os seus dados são tratados, especificando termos de utilização para a sua partilha de dados. O consumidor dos dados tem de aceitar esses termos para os poder receber. Os fornecedores de dados podem especificar a frequência com que os consumidores dos dados recebem atualizações. O acesso a novas atualizações pode ser revogado a qualquer momento pelo fornecedor de dados. 
 
@@ -47,7 +48,7 @@ Os fornecedores de dados podem oferecer aos seus consumidores de dados atualiza�
 
 Quando um consumidor de dados aceita uma partilha de dados, pode receber os dados numa loja de dados à sua escolha. Por exemplo, se o fornecedor de dados partilhar dados usando o Azure Blob Storage, o consumidor de dados pode receber estes dados na Azure Data Lake Store. Da mesma forma, se o fornecedor de dados partilhar dados de um Azure Synapse Analytics, o consumidor de dados pode escolher se quer receber os dados numa Loja de Data Lake Azure, numa Base de Dados Azure SQL ou numa Azure Synapse Analytics. No caso de partilha de fontes baseadas em SQL, o consumidor de dados também pode escolher se recebe dados em parquet ou csv. 
 
-Com a partilha no local, os fornecedores de dados podem partilhar dados onde residem sem copiar os dados. Após a partilha da relação é estabelecida através do fluxo de convites, é criada uma ligação simbólica entre a loja de dados de origem do fornecedor de dados e a loja de dados-alvo do consumidor de dados. O consumidor de dados pode ler e consultar os dados em tempo real utilizando a sua própria loja de dados. As alterações na loja de dados de origem estão imediatamente disponíveis para o consumidor de dados. A partilha no local está atualmente em pré-visualização para o Azure Data Explorer.
+Com a partilha no local, os fornecedores de dados podem partilhar dados onde residem sem copiar os dados. Após a partilha da relação é estabelecida através do fluxo de convites, é criada uma ligação simbólica entre a loja de dados de origem do fornecedor de dados e a loja de dados-alvo do consumidor de dados. O consumidor de dados pode ler e consultar os dados em tempo real utilizando a sua própria loja de dados. As alterações na loja de dados de origem estão imediatamente disponíveis para o consumidor de dados. A partilha no local está atualmente disponível para o Azure Data Explorer.
 
 ## <a name="key-capabilities"></a>Principais capacidades
 
@@ -81,7 +82,7 @@ Todas as capacidades-chave listadas acima são suportadas através do portal Azu
 
 Para obter uma lista de regiões do Azure que disponibilizam a Azure Data Share, consulte os [produtos disponíveis por página da região](https://azure.microsoft.com/global-infrastructure/services/?products=data-share) e procure a Azure Data Share. 
 
-A Azure Data Share não armazena uma cópia dos dados em si. Os dados são armazenados na loja de dados subjacente que está a ser partilhada. Por exemplo, se um produtor de dados armazenar os seus dados numa conta Azure Data Lake Store localizada no Oeste dos EUA, é aí que os dados são armazenados. Se estiverem a partilhar dados com uma conta de Armazenamento Azure localizada na Europa Ocidental através de snapshot, normalmente os dados são transferidos diretamente para a conta de Armazenamento Azure localizada na Europa Ocidental.
+Para metadados armazenados pela Azure Data Share, no Sudeste Asiático (Singapura), é armazenado dentro da região e para todas as outras regiões apoiadas, está armazenado no geo. A Azure Data Share não armazena uma cópia dos dados partilhados em si. Os dados são armazenados na loja de dados subjacente que está a ser partilhada. Por exemplo, se um fornecedor de dados armazenar os seus dados numa conta de armazenamento de data lake localizada no Oeste dos EUA, é aí que os dados são armazenados. Se estiverem a partilhar dados com uma conta de Armazenamento Azure localizada na Europa Ocidental através de snapshot, normalmente os dados são transferidos diretamente para a conta de Armazenamento Azure localizada na Europa Ocidental. 
 
 O serviço Azure Data Share não precisa de estar disponível na sua região para alavancar o serviço. Por exemplo, se tiver dados armazenados numa conta de Armazenamento Azure localizada numa região onde o Azure Data Share ainda não está disponível, ainda pode aproveitar o serviço para partilhar os seus dados. 
 

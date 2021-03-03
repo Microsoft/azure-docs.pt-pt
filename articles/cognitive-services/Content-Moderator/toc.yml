@@ -116,14 +116,8 @@
       href: 'https://info.microsoft.com/cognitive-services-content-moderator-ondemand.html'
     - name: Preços e limites
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/content-moderator'
-    - name: UserVoice
-      href: 'https://cognitive.uservoice.com/forums/559960-content-moderator'
-    - name: Base de Dados de Conhecimento
-      href: 'https://cognitive.uservoice.com/knowledgebase/topics/132073-content-moderator'
     - name: Suporte de idiomas
       href: language-support.md
-    - name: Stack Overflow
-      href: 'https://stackoverflow.com/questions/tagged/microsoft-cognitive'
     - name: Disponibilidade regional
       href: 'https://azure.microsoft.com/global-infrastructure/services/'
     - name: Roteiro do Azure

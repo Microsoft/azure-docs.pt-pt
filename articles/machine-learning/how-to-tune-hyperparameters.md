@@ -8,15 +8,15 @@ ms.reviewer: sgilley
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.date: 01/29/2021
+ms.date: 02/26/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperf-fy21q1
-ms.openlocfilehash: a4be95561c097191803f2faa271c5d6bba875869
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 0212ed1378dbb1d2165e9333a38fa911598c4c6d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99430364"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691489"
 ---
 # <a name="hyperparameter-tuning-a-model-with-azure-machine-learning"></a>Hiperparametro afinando um modelo com Azure Machine Learning
 
@@ -25,7 +25,7 @@ Automatizar uma afinação eficiente do hiperparametro utilizando o pacote Azure
 1. Definir o espaço de pesquisa de parâmetros
 1. Especifique uma métrica primária para otimizar  
 1. Especificar a política de rescisão antecipada para execuções de baixo desempenho
-1. Alocar recursos
+1. Criar e atribuir recursos
 1. Lançar uma experiência com a configuração definida
 1. Visualizar as corridas de treino
 1. Selecione a melhor configuração para o seu modelo
@@ -119,7 +119,7 @@ param_sampling = RandomParameterSampling( {
 
 [A amostragem da](/python/api/azureml-train-core/azureml.train.hyperdrive.gridparametersampling?preserve-view=true&view=azure-ml-py) grelha suporta hiperparímetros discretos. Use amostras de grelha se puder orçamentar para pesquisar exaustivamente o espaço de pesquisa. Suporta a rescisão precoce de execuções de baixo desempenho.
 
-Realiza uma pesquisa de grelha simples sobre todos os valores possíveis. A amostragem da grelha só pode ser utilizada com `choice` hiperparímetros. Por exemplo, o seguinte espaço tem seis amostras:
+A amostragem da grelha faz uma pesquisa simples da grelha sobre todos os valores possíveis. A amostragem da grelha só pode ser utilizada com `choice` hiperparímetros. Por exemplo, o seguinte espaço tem seis amostras:
 
 ```Python
 from azureml.train.hyperdrive import GridParameterSampling
@@ -133,7 +133,7 @@ param_sampling = GridParameterSampling( {
 
 #### <a name="bayesian-sampling"></a>Amostragem bayesiana
 
-[A amostragem bayesiana](/python/api/azureml-train-core/azureml.train.hyperdrive.bayesianparametersampling?preserve-view=true&view=azure-ml-py) baseia-se no algoritmo de otimização bayesiano. Recolhe amostras com base na forma como as amostras anteriores foram realizadas, de modo que novas amostras melhoram a métrica primária.
+[A amostragem bayesiana](/python/api/azureml-train-core/azureml.train.hyperdrive.bayesianparametersampling?preserve-view=true&view=azure-ml-py) baseia-se no algoritmo de otimização bayesiano. Recolhe amostras com base em como as amostras anteriores fizeram, de modo que novas amostras melhoram a métrica primária.
 
 Recomenda-se a amostragem bayesiana se tiver orçamento suficiente para explorar o espaço do hiperparímetro. Para obter melhores resultados, recomendamos um número máximo de corridas superiores ou iguais a 20 vezes o número de hiperparímetros a ser afinado. 
 
@@ -203,7 +203,7 @@ A Azure Machine Learning apoia as seguintes políticas de rescisão antecipada:
 
 ### <a name="bandit-policy"></a>Política de bandidos
 
-[A política de bandidos](/python/api/azureml-train-core/azureml.train.hyperdrive.banditpolicy?preserve-view=true&view=azure-ml-py#&preserve-view=truedefinition) baseia-se no fator de folga/tempo de avaliação. O bandit termina em execuções em que a métrica primária não está dentro do fator de folga especificado/quantidade de folga em comparação com o melhor desempenho.
+[A política de bandidos](/python/api/azureml-train-core/azureml.train.hyperdrive.banditpolicy?preserve-view=true&view=azure-ml-py#&preserve-view=truedefinition) baseia-se no fator de folga/tempo de avaliação. O bandit termina quando a métrica primária não está dentro da quantidade de slack/slack especificado da corrida mais bem sucedida.
 
 > [!NOTE]
 > A amostragem bayesiana não suporta a rescisão antecipada. Quando utilizar a amostragem bayesiana, coloque em conjunto `early_termination_policy = None` .
@@ -226,7 +226,7 @@ Neste exemplo, a política de rescisão antecipada é aplicada em todos os inter
 
 ### <a name="median-stopping-policy"></a>Política de paragem mediana
 
-[A paragem mediana](/python/api/azureml-train-core/azureml.train.hyperdrive.medianstoppingpolicy?preserve-view=true&view=azure-ml-py) é uma política de rescisão antecipada baseada nas médias de execução das métricas primárias reportadas pelas corridas. Esta política calcula as médias de execução em todas as pistas de treino e termina com valores métricos primários piores do que a mediana das médias.
+[A paragem mediana](/python/api/azureml-train-core/azureml.train.hyperdrive.medianstoppingpolicy?preserve-view=true&view=azure-ml-py) é uma política de rescisão antecipada baseada nas médias de execução das métricas primárias reportadas pelas corridas. Esta política calcula as médias de execução em todas as pistas de treino e para as corridas cujo valor métrico primário é pior do que a mediana das médias.
 
 Esta política requer os seguintes parâmetros de configuração:
 * `evaluation_interval`: a frequência de aplicação da política (parâmetro opcional).
@@ -238,7 +238,7 @@ from azureml.train.hyperdrive import MedianStoppingPolicy
 early_termination_policy = MedianStoppingPolicy(evaluation_interval=1, delay_evaluation=5)
 ```
 
-Neste exemplo, a política de rescisão antecipada é aplicada em todos os intervalos a partir do intervalo de avaliação 5. Uma corrida é terminada ao intervalo 5 se a sua melhor métrica primária for pior do que a mediana das médias de corrida em intervalos 1:5 em todas as pistas de treino.
+Neste exemplo, a política de rescisão antecipada é aplicada em todos os intervalos a partir do intervalo de avaliação 5. Uma corrida é interrompida ao intervalo 5 se a sua melhor métrica primária for pior do que a mediana das médias de corrida em intervalos 1:5 em todas as pistas de treino.
 
 ### <a name="truncation-selection-policy"></a>Política de seleção de truncação
 
@@ -271,7 +271,7 @@ policy=None
 * Para uma política conservadora que proporcione poupanças sem acabar com empregos promissores, considere uma Política de Paragem Mediana com `evaluation_interval` 1 e `delay_evaluation` 5. Estas são configurações conservadoras, que podem fornecer cerca de 25%-35% de poupança sem perda na métrica primária (com base nos nossos dados de avaliação).
 * Para uma poupança mais agressiva, utilize a Política de Bandit com uma menor folga admissível ou política de seleção de truncação com uma maior percentagem de truncação.
 
-## <a name="allocate-resources"></a>Alocar recursos
+## <a name="create-and-assign-resources"></a>Criar e atribuir recursos
 
 Controle o seu orçamento de recursos especificando o número máximo de treinos.
 
@@ -302,18 +302,28 @@ Para configurar a sua experiência [de afinação de hiperparímetros,](/python/
 * A sua política de rescisão antecipada
 * A métrica primária
 * Definições de atribuição de recursos
-* ScriptRunConfig `src`
+* ScriptRunConfig `script_run_config`
 
 O ScriptRunConfig é o script de treino que será executado com os hiperparímetros amostrados. Define os recursos por trabalho (single ou multi-nó), e o objetivo de computação a utilizar.
 
 > [!NOTE]
->O alvo do cálculo especificado `src` deve ter recursos suficientes para satisfazer o seu nível de concordância. Para obter mais informações sobre scriptRunConfig, consulte [as corridas de treino](how-to-set-up-training-targets.md)de Configuração .
+>O alvo de computação utilizado `script_run_config` deve ter recursos suficientes para satisfazer o seu nível de concordância. Para obter mais informações sobre scriptRunConfig, consulte [as corridas de treino](how-to-set-up-training-targets.md)de Configuração .
 
 Configure a sua experiência de afinação de hiperparímetros:
 
 ```Python
 from azureml.train.hyperdrive import HyperDriveConfig
-hd_config = HyperDriveConfig(run_config=src,
+from azureml.train.hyperdrive import RandomParameterSampling, BanditPolicy, uniform, PrimaryMetricGoal
+
+param_sampling = RandomParameterSampling( {
+        'learning_rate': uniform(0.0005, 0.005),
+        'momentum': uniform(0.9, 0.99)
+    }
+)
+
+early_termination_policy = BanditPolicy(slack_factor=0.15, evaluation_interval=1, delay_evaluation=10)
+
+hd_config = HyperDriveConfig(run_config=script_run_config,
                              hyperparameter_sampling=param_sampling,
                              policy=early_termination_policy,
                              primary_metric_name="accuracy",
@@ -321,6 +331,36 @@ hd_config = HyperDriveConfig(run_config=src,
                              max_total_runs=100,
                              max_concurrent_runs=4)
 ```
+
+Os `HyperDriveConfig` conjuntos os parâmetros passaram para o `ScriptRunConfig script_run_config` . O `script_run_config` , por sua vez, passa parâmetros para o roteiro de treino. O corte de código acima é retirado do portátil de amostra [Train, hiperparameter tune, e implementar com PyTorch](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/pytorch/train-hyperparameter-tune-deploy-with-pytorch). Nesta amostra, os `learning_rate` parâmetros e `momentum` parâmetros serão afinados. A paragem precoce das corridas será determinada por um `BanditPolicy` , que impede uma corrida cuja métrica primária cai fora da `slack_factor` (ver referência da classe [BanditPolicy).](python/api/azureml-train-core/azureml.train.hyperdrive.banditpolicy?view=azure-ml-py) 
+
+O seguinte código da amostra mostra como os valores afinados são recebidos, analisados e passados para a função do script de `fine_tune_model` treino:
+
+```python
+# from pytorch_train.py
+def main():
+    print("Torch version:", torch.__version__)
+
+    # get command-line arguments
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--num_epochs', type=int, default=25,
+                        help='number of epochs to train')
+    parser.add_argument('--output_dir', type=str, help='output directory')
+    parser.add_argument('--learning_rate', type=float,
+                        default=0.001, help='learning rate')
+    parser.add_argument('--momentum', type=float, default=0.9, help='momentum')
+    args = parser.parse_args()
+
+    data_dir = download_data()
+    print("data directory is: " + data_dir)
+    model = fine_tune_model(args.num_epochs, data_dir,
+                            args.learning_rate, args.momentum)
+    os.makedirs(args.output_dir, exist_ok=True)
+    torch.save(model, os.path.join(args.output_dir, 'model.pt'))
+```
+
+> [!Important]
+> Cada hiperparímetro reinicia o treino do zero, incluindo a reconstrução do modelo e _de todos os carregadores de dados_. Pode minimizar este custo utilizando um pipeline de Aprendizagem automática Azure ou um processo manual para fazer o máximo de preparação de dados possível antes do seu treino. 
 
 ## <a name="submit-hyperparameter-tuning-experiment"></a>Submeter experiência de afinação de hiperparímetros
 
@@ -335,7 +375,6 @@ hyperdrive_run = experiment.submit(hd_config)
 ## <a name="warm-start-hyperparameter-tuning-optional"></a>Sintonização hiperparítnica de início quente (opcional)
 
 Encontrar os melhores valores de hiperparímetro para o seu modelo pode ser um processo iterativo. Pode reutilizar o conhecimento das cinco corridas anteriores para acelerar a afinação do hiperparímetro.
-
 
 O arranque quente é manuseado de forma diferente, dependendo do método de amostragem:
 - **Amostragem bayesiana**: Os ensaios da corrida anterior são usados como conhecimento prévio para recolher novas amostras, e para melhorar a métrica primária.
@@ -368,7 +407,7 @@ Pode configurar a sua experiência de afinação de hiperparímetro para aquecer
 ```Python
 from azureml.train.hyperdrive import HyperDriveConfig
 
-hd_config = HyperDriveConfig(run_config=src,
+hd_config = HyperDriveConfig(run_config=script_run_config,
                              hyperparameter_sampling=param_sampling,
                              policy=early_termination_policy,
                              resume_from=warmstart_parents_to_resume_from,

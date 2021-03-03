@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/07/2021
 ms.author: vinigam
-ms.openlocfilehash: ff4882f2146a8b978047df2fcf6c52734534979f
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: d4ab5361d245ad1ee10d43184cc0a2d65fed2054
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99833988"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101730036"
 ---
 # <a name="migrate-to-connection-monitor-from-connection-monitor-classic"></a>Migrar para o Monitor de Ligação a partir do Monitor de Ligação (Clássico)
 
@@ -32,7 +32,7 @@ A migração ajuda a produzir os seguintes resultados:
 
 * Agentes e definições de firewall funcionam como está. Não são necessárias alterações. 
 * Os monitores de ligação existentes estão mapeados para o > grupo de teste do Grupo de Teste de Ligação >. Ao selecionar **Editar,** pode visualizar e modificar as propriedades do novo Monitor de Ligação, descarregar um modelo para escoar alterações no Monitor de Ligação e submetê-lo através do Azure Resource Manager. 
-* As máquinas virtuais Azure com a extensão do Observador de Rede enviam dados tanto para o espaço de trabalho como para as métricas. O Monitor de Ligação disponibiliza os dados através das novas métricas (ChecksFailedPercent e RoundTripTimeMs) em vez das métricas antigas (ProbesFailedPercent e AverageRoundtripMs). 
+* As máquinas virtuais Azure com a extensão do Observador de Rede enviam dados tanto para o espaço de trabalho como para as métricas. O Monitor de Ligação disponibiliza os dados através das novas métricas (ChecksFailedPercent e RoundTripTimeMs) em vez das métricas antigas (ProbesFailedPercent e AverageRoundtripMs). As métricas antigas serão migradas para novas métricas como ProbesFailedPercent -> ChecksFailedPercent e AverageRoundtripMs -> RoundTripTimeMs.
 * Monitorização de dados:
    * **Alertas**: Migrar automaticamente para as novas métricas.
    * **Dashboards e integrações**: Requerer a edição manual do conjunto de métricas. 
@@ -49,7 +49,7 @@ Se estiver a utilizar um espaço de trabalho personalizado, certifique-se de que
     
 1. Selecione a sua subscrição e os monitores de ligação que pretende migrar e, em seguida, **selecione Migrar selecionado**. 
 
-Com apenas alguns cliques, emigrou os monitores de ligação existentes para o Monitor de Ligação. 
+Com apenas alguns cliques, emigrou os monitores de ligação existentes para o Monitor de Ligação. Uma vez migrado de CM (Clássico) para CM, não poderá ver o monitor sob CM (Clássico)
 
 Agora pode personalizar as propriedades do Connection Monitor, alterar o espaço de trabalho predefinido, os modelos de descarregamento e verificar o estado de migração. 
 

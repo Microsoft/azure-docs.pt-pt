@@ -8,12 +8,12 @@ ms.date: 11/19/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 47883c742d77a88adb662e8dded0723f0e105385
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 3a5c98b3fad76d2206d1fcba79663063e22ecdbc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98044191"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737975"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Consulta o gráfico gémeo Azure Digital Twins
 
@@ -21,7 +21,7 @@ Este artigo oferece exemplos de consulta e instruções mais detalhadas para usa
 
 Este artigo começa com consultas de amostra que ilustram a estrutura linguística de consulta e operações de consulta comuns para gémeos digitais. Em seguida, descreve como executar as suas consultas depois de as ter escrito, utilizando a [API](/rest/api/digital-twins/dataplane/query) de Consulta de Gémeos Digitais Azure ou um [SDK](how-to-use-apis-sdks.md#overview-data-plane-apis).
 
-> [!TIP]
+> [!NOTE]
 > Se estiver a executar as consultas de amostra abaixo com uma chamada API ou SDK, terá de condensar o texto de consulta numa única linha.
 
 ## <a name="show-all-digital-twins"></a>Mostre todos os gémeos digitais
@@ -36,8 +36,8 @@ Obtenha gémeos digitais por **propriedades** (incluindo ID e metadados):
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryByProperty1":::
 
-> [!TIP]
-> A identificação de um gémeo digital é consultada utilizando o campo de `$dtId` metadados.
+> [!NOTE]
+> O ID de um duplo digital é consultado através do campo de metadados `$dtId`.
 
 Você também pode obter gémeos com base em **se uma determinada propriedade é definida**. Aqui está uma consulta que obtém gémeos que têm uma propriedade *de Localização* definida:
 
@@ -50,6 +50,10 @@ Isto pode ajudá-lo a obter gémeos pelas suas propriedades de *tags,* como desc
 Você também pode obter gémeos com base no **tipo de propriedade.** Aqui está uma consulta que recebe gémeos cuja propriedade *temperatura* é um número:
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryByProperty3":::
+
+>[!TIP]
+> Se uma propriedade for do `Map` tipo, pode utilizar as chaves e valores do mapa diretamente na consulta, como esta:
+> :::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryByProperty4":::
 
 ## <a name="query-by-model"></a>Consulta por modelo
 
@@ -88,10 +92,10 @@ Aqui está um exemplo de consulta especificando um valor para os três parâmetr
 
 Ao consultar com base nas **relações** dos gémeos digitais, a linguagem de consulta Azure Digital Twins tem uma sintaxe especial.
 
-As relações são puxadas para o âmbito de consulta na `FROM` cláusula. Uma distinção importante das línguas "clássicas" do tipo SQL é que cada expressão nesta `FROM` cláusula não é uma tabela; pelo contrário, a cláusula expressa uma relação transversal `FROM` transversal, e é escrita com uma versão Azure Digital Twins de `JOIN` .
+As relações são solicitadas para o âmbito de pesquisa na cláusula `FROM`. Uma distinção importante das línguas "clássicas" do tipo SQL é que cada expressão nesta `FROM` cláusula não é uma tabela; pelo contrário, a cláusula expressa uma relação transversal `FROM` transversal, e é escrita com uma versão Azure Digital Twins de `JOIN` .
 
-Recorde-se que com as capacidades do [modelo](concepts-models.md) Azure Digital Twins, as relações não existem independentemente dos gémeos. Isto significa que a linguagem de consulta Azure Digital Twins `JOIN` é um pouco diferente da SQL geral, uma vez que as `JOIN` relações aqui não podem ser consultadas de forma independente e devem ser ligadas a um gémeo.
-Para incorporar esta diferença, a palavra-chave `RELATED` é usada na cláusula para `JOIN` referenciar o conjunto de relacionamentos de um gémeo.
+Recorde-se que com as capacidades do [modelo](concepts-models.md) Azure Digital Twins, as relações não existem independentemente dos gémeos. Isto significa que o `JOIN` da linguagem de consulta do Azure Digital Twins é um pouco diferente do `JOIN` do SQL, uma vez que as relações não podem ser consultadas de forma independente e têm de estar ligadas a um duplo.
+Para incorporar esta diferença, a palavra-chave `RELATED` é utilizada na cláusula `JOIN` para fazer referência a um conjunto de relações de um duplo.
 
 A secção seguinte dá vários exemplos do que isto parece.
 
@@ -107,11 +111,11 @@ Aqui está uma consulta baseada em relacionamentos. Este código seleciona todos
 :::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryByRelationship1":::
 
 > [!NOTE]
-> O desenvolvedor não precisa de correlacionar isto `JOIN` com um valor chave na cláusula `WHERE` (ou especificar um valor chave em linha com a `JOIN` definição). Esta correlação é calculada automaticamente pelo sistema, uma vez que as propriedades da própria relação identificam a entidade-alvo.
+> O desenvolvedor não precisa de correlacionar isto `JOIN` com um valor chave na cláusula `WHERE` (ou especificar um valor chave em linha com a `JOIN` definição). Esta correlação é calculada automaticamente pelo sistema, uma vez que as próprias propriedades de relação identificam a entidade de destino.
 
 ### <a name="query-the-properties-of-a-relationship"></a>Consultar as propriedades de uma relação
 
-Da mesma forma que os gémeos digitais têm propriedades descritas via DTDL, as relações também podem ter propriedades. Pode consultar gémeos **com base nas propriedades das suas relações.**
+Da mesma forma que os duplos digitais têm propriedades descritas através de DTDL, as relações também podem ter propriedades. Pode consultar gémeos **com base nas propriedades das suas relações.**
 A linguagem de consulta Azure Digital Twins permite filtrar e projeção de relacionamentos, atribuindo um pseudónimo à relação dentro da `JOIN` cláusula.
 
 Como exemplo, considere uma relação *servicedBy* que tenha uma propriedade *reportada deCondição.* Na consulta abaixo, esta relação é dada um pseudónimo de 'R' a fim de referenciar a sua propriedade.
@@ -220,7 +224,12 @@ O seguinte código snippet ilustra a chamada [.NET (C#) SDK](/dotnet/api/overvie
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/queries.cs" id="RunQuery":::
 
-Esta consulta de retorna de chamada resulta na forma de um objeto [BasicDigitalTwin.](/dotnet/api/azure.digitaltwins.core.basicdigitaltwin?view=azure-dotnet&preserve-view=true)
+A consulta utilizada nesta chamada devolve uma lista de gémeos digitais, que o exemplo acima representa com objetos [BasicDigitalTwin.](/dotnet/api/azure.digitaltwins.core.basicdigitaltwin?view=azure-dotnet&preserve-view=true) O tipo de devolução dos seus dados para cada consulta dependerá dos termos especificados com a `SELECT` declaração:
+* As consultas que começam com `SELECT * FROM ...` uma lista de gémeos digitais (que podem ser serializados como `BasicDigitalTwin` objetos, ou outros tipos de gémeos digitais personalizados que possa ter criado).
+* As consultas que começam no formato `SELECT <A>, <B>, <C> FROM ...` devolverão um dicionário com teclas, `<A>` e `<B>` `<C>` .
+* Outros formatos de `SELECT` declarações podem ser concebidos para devolver dados personalizados. Pode considerar criar as suas próprias aulas para lidar com conjuntos de resultados muito personalizados. 
+
+### <a name="query-with-paging"></a>Consulta com paging
 
 Consulta chama de suporte de paging. Aqui está um exemplo completo usando `BasicDigitalTwin` como tipo de resultado de consulta com manipulação de erros e paging:
 

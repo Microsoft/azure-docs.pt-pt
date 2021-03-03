@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 0430f8efedbcefba551ce3ee81d0db8a654f5b13
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 882c9e50c344b792d70d09017aeca3a2874cb106
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100617131"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101700750"
 ---
 # <a name="metric-chart-examples"></a>Exemplos de gráficos métricos 
 
-A plataforma Azure oferece [mais de mil métricas, muitas](../platform/metrics-supported.md)das quais têm dimensões. Ao utilizar [filtros de dimensão,](./metrics-charts.md)aplicando [a divisão, controlando](./metrics-charts.md)o tipo de gráfico e ajustando as definições do gráfico, pode criar vistas e dashboards de diagnóstico poderosos que fornecem informações sobre a saúde da sua infraestrutura e aplicações. Este artigo mostra alguns exemplos dos gráficos que pode construir usando o [Metrics Explorer](./metrics-charts.md) e explica os passos necessários para configurar cada um destes gráficos.
+A plataforma Azure oferece [mais de mil métricas, muitas](./metrics-supported.md)das quais têm dimensões. Ao utilizar [filtros de dimensão,](./metrics-charts.md)aplicando [a divisão, controlando](./metrics-charts.md)o tipo de gráfico e ajustando as definições do gráfico, pode criar vistas e dashboards de diagnóstico poderosos que fornecem informações sobre a saúde da sua infraestrutura e aplicações. Este artigo mostra alguns exemplos dos gráficos que pode construir usando o [Metrics Explorer](./metrics-charts.md) e explica os passos necessários para configurar cada um destes gráficos.
 
 Queres partilhar os teus grandes exemplos com o mundo? Contribua para esta página no GitHub e partilhe aqui os seus próprios exemplos de gráficos!
 
@@ -54,4 +54,3 @@ No selecionador métrico, selecione a sua conta de armazenamento e a métrica **
 
 * Saiba mais sobre os [livros de trabalho do](../visualize/workbooks-overview.md) Monitor Azure
 * Saiba mais sobre [o Explorador Métrico](metrics-charts.md)
-

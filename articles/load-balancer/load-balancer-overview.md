@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 1/25/2021
 ms.author: allensu
-ms.openlocfilehash: 716acec51226e9e4ff47605c3ee2bd9a86be1933
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: a514edef1ef1f67fba3efae883ceb46dee249d6e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100588562"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101705505"
 ---
 # <a name="what-is-azure-load-balancer"></a>O que é o Balanceador de Carga do Azure?
 
@@ -56,7 +56,7 @@ Os cenários-chave que pode realizar usando o Balancer de Carga Padrão incluem:
 
 - Ativar o suporte para **[o equilíbrio](../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md)** de carga do **[IPv6](../virtual-network/ipv6-overview.md)**.
 
-- O Balanceador de Carga Padrão fornece métricas multidimensionais através do [Azure Monitor.](../azure-monitor/overview.md)  Estas métricas podem ser filtradas, agrupadas e partidas para uma determinada dimensão.  Fornecem insights atuais e históricos sobre o desempenho e saúde do seu serviço. [Insights for Azure Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-insights) oferece um dashboard pré-configurado com visualizações úteis para estas métricas.  A Saúde dos Recursos também é apoiada. Reveja **[o Diagnóstico Padrão do Balanceador de Carga](load-balancer-standard-diagnostics.md)** para mais detalhes.
+- O Balanceador de Carga Padrão fornece métricas multidimensionais através do [Azure Monitor.](../azure-monitor/overview.md)  Estas métricas podem ser filtradas, agrupadas e partidas para uma determinada dimensão.  Fornecem insights atuais e históricos sobre o desempenho e saúde do seu serviço. [Insights for Azure Load Balancer](./load-balancer-insights.md) oferece um dashboard pré-configurado com visualizações úteis para estas métricas.  A Saúde dos Recursos também é apoiada. Reveja **[o Diagnóstico Padrão do Balanceador de Carga](load-balancer-standard-diagnostics.md)** para mais detalhes.
 
 - Carregue os serviços de balanço em **[várias portas, vários endereços IP, ou ambos](./load-balancer-multivip-overview.md)**.
 

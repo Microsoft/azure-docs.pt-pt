@@ -6,12 +6,12 @@ ms.author: bahusse
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 1/28/2021
-ms.openlocfilehash: 765ff76578e48135d2e7d4d9200c1868d2501df4
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 9b5a2c5d004e63c602a30f7808586e97a0e436e8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99581453"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101720941"
 ---
 # <a name="compute-and-storage-options-in-azure-database-for-mysql---flexible-server-preview"></a>Opções de computação e armazenamento em Azure Database para MySQL - Servidor Flexível (Pré-visualização)
 
@@ -72,7 +72,7 @@ As especificações detalhadas dos tipos de servidores disponíveis são as segu
 Para obter mais detalhes sobre a série computacional disponível, consulte a documentação Azure VM para [Burstable (série B)](../../virtual-machines/sizes-b-series-burstable.md), [Final Geral (série Ddsv4)](../../virtual-machines/ddv4-ddsv4-series.md)e [Memory Optimized (série Edsv4)](../../virtual-machines/edv4-edsv4-series.md).
 
 >[!NOTE]
->Para [o nível de cálculo Burstable (série B)](../../virtual-machines/sizes-b-series-burstable.md) se o VM for iniciado/parado ou reiniciado, os créditos podem ser perdidos. Para obter mais informações, consulte [as FAQ burstable (Série B).](https://docs.microsoft.com/azure/virtual-machines/sizes-b-series-burstable#q-why-is-my-remaining-credit-set-to-0-after-a-redeploy-or-a-stopstart)
+>Para [o nível de cálculo Burstable (série B)](../../virtual-machines/sizes-b-series-burstable.md) se o VM for iniciado/parado ou reiniciado, os créditos podem ser perdidos. Para obter mais informações, consulte [as FAQ burstable (Série B).](../../virtual-machines/sizes-b-series-burstable.md#q-why-is-my-remaining-credit-set-to-0-after-a-redeploy-or-a-stopstart)
 
 ## <a name="storage"></a>Armazenamento
 
@@ -83,7 +83,7 @@ O armazenamento que você providenciar é a quantidade de capacidade de armazena
 
 Pode monitorizar o seu consumo de armazenamento no portal Azure (com o Azure Monitor) utilizando o limite de armazenamento, percentagem de armazenamento e métricas usadas de armazenamento. Consulte o [artigo de monitorização](./concepts-monitoring.md) para saber mais sobre as métricas. 
 
-### <a name="reaching-the-storage-limit"></a>Atingindo o limite de armazenamento
+### <a name="reaching-the-storage-limit"></a>Atingir o limite de armazenamento
 
 Quando o armazenamento consumido no servidor está perto de atingir o limite previsto, o servidor é colocado no modo apenas de leitura para proteger quaisquer escritas perdidas no servidor. Os servidores com menos de 100 giB de armazenamento provisitado só são marcados de leitura se o armazenamento gratuito for inferior a 5% do tamanho de armazenamento a provisionado. Os servidores com mais de 100 armazenamentos com giB são marcados apenas quando o armazenamento gratuito é inferior a 5 GiB.
 

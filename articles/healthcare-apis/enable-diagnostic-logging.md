@@ -7,23 +7,30 @@ ms.subservice: fhir
 ms.topic: conceptual
 ms.reviewer: dseven
 ms.author: cavoeg
-author: CaitlinV39
-ms.date: 02/03/2021
-ms.openlocfilehash: 220618f93d23ec71ee3246e8bd68bfd724860696
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+author: zxue
+ms.date: 02/24/2021
+ms.openlocfilehash: 73e1db2754749e1fb1142231e7179771bcce8e76
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100581975"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101712781"
 ---
 # <a name="enable-diagnostic-logging-in-azure-api-for-fhir"></a>Ativar o registo de diagnóstico na API Azure para FHIR
 
 Neste artigo, você vai aprender como ativar o login de diagnóstico em AZure API para FHIR e ser capaz de rever algumas consultas de amostra para estes registos. O acesso aos registos de diagnóstico é essencial para qualquer serviço de saúde onde o cumprimento dos requisitos regulamentares (como o HIPAA) é obrigatório. A funcionalidade em Azure API para FHIR que permite registos de diagnóstico são as [**definições de Diagnóstico**](../azure-monitor/essentials/diagnostic-settings.md) no portal Azure. 
 
+## <a name="view-and-download-fhir-metrics-data"></a>Ver e baixar dados de métricas FHIR
+
+Pode ver as métricas em Monitorização | Métricas do portal. As métricas incluem Número de Pedidos, Latência Média, Número de Erros, Tamanho dos Dados, RUs Utilizados, Número de pedidos que excederam a capacidade, e Disponibilidade (em %). A imagem abaixo mostra RUs usados para um ambiente de amostra com muito poucas atividades nos últimos 7 dias. Pode descarregar os dados no formato Json.
+
+   :::image type="content" source="media/diagnostic-logging/fhir-metrics-rus-screen.png" alt-text="Azure API para métricas FHIR do portal" lightbox="media/diagnostic-logging/fhir-metrics-rus-screen.png":::
+
 ## <a name="enable-audit-logs"></a>Ativar registos de auditoria
 1. Para ativar a sessão de diagnóstico em Azure API para FHIR, selecione a sua API Azure para o serviço FHIR no portal Azure 
-2. Navegar para **definições de**  
- ![ diagnóstico Definições de diagnóstico](media/diagnostic-logging/diagnostic-settings-screen.png) 
+2. Navegue para **definições de Diagnóstico** 
+
+   :::image type="content" source="media/diagnostic-logging/diagnostic-settings-screen.png" alt-text="Adicione as definições de diagnóstico Azure FHIR." lightbox="media/diagnostic-logging/diagnostic-settings-screen.png":::
 
 3. Selecione **+ Adicionar definição de diagnóstico**
 
@@ -35,7 +42,7 @@ Neste artigo, você vai aprender como ativar o login de diagnóstico em AZure AP
     2. **Transmita para o centro** de eventos para ingestão por um serviço de terceiros ou solução analítica personalizada. Você precisará criar um espaço de nome de eventos e política de centro de eventos antes de configurar este passo.
     3. **Transmita para o** espaço de trabalho Log Analytics no Azure Monitor. Terá de criar o seu Espaço de Trabalho de Analítica de Logs antes de poder selecionar esta opção.
 
-6. Selecione **AuditLogs** e/ou **AllMetrics**. As métricas incluem nome de serviço, disponibilidade, tamanho de dados, latência total, pedidos totais, erros totais e marcação de tempo.
+6. Selecione **AuditLogs** e/ou **AllMetrics**. As métricas incluem nome de serviço, disponibilidade, tamanho de dados, latência total, pedidos totais, erros totais e marcação de tempo. Pode encontrar mais detalhes sobre [métricas suportadas.](https://docs.microsoft.com/azure/azure-monitor/essentials/metrics-supported#microsofthealthcareapisservices) 
 
    :::image type="content" source="media/diagnostic-logging/fhir-diagnostic-setting.png" alt-text="Definições de diagnóstico Azure FHIR. Selecione AuditLogs e/ou AllMetrics." lightbox="media/diagnostic-logging/fhir-diagnostic-setting.png":::
 

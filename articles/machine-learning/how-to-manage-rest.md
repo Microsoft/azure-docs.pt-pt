@@ -10,12 +10,12 @@ ms.subservice: core
 ms.date: 01/31/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 09a0580adbe6d51e4de811a57ee17203d65a2435
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: bf1d6f5838e467c5f44a0090a4f1a15cd9d4ac77
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93316907"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101692458"
 ---
 # <a name="create-run-and-delete-azure-ml-resources-using-rest"></a>Criar, executar e eliminar recursos Azure ML usando REST
 
@@ -79,7 +79,7 @@ A resposta deve fornecer um sinal de acesso bom para uma hora:
 Tome nota do símbolo, pois irá usá-lo para autenticar todos os pedidos administrativos subsequentes. Fá-lo-á definindo um cabeçalho de autorização em todos os pedidos:
 
 ```bash
-curl -h "Authentication: Bearer {your-access-token}" ...more args...
+curl -h "Authorization:Bearer {your-access-token}" ...more args...
 ```
 
 Note que o valor começa com a cadeia "Bearer", incluindo um único espaço antes de adicionar o token.

@@ -1,5 +1,5 @@
 ---
-title: Azure API Management cruza políticas de domínios Microsoft Docs
+title: Azure API Management cruza políticas de domínio | Microsoft Docs
 description: Conheça as políticas de domínio transversal disponíveis para utilização na Azure API Management.
 services: api-management
 documentationcenter: ''
@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 07/14/2020
+ms.date: 03/01/2021
 ms.author: apimpm
-ms.openlocfilehash: 77d9d20f3321aa5bb6c5ea47a3949a82bdd1ad75
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 85abf30d792b24b92685e191f5b460a42dc29142
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131246"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101688421"
 ---
 # <a name="api-management-cross-domain-policies"></a>Políticas entre domínios da API Management
 Este tópico fornece uma referência para as seguintes políticas de Gestão da API. Para obter informações sobre políticas de adição e configuração, consulte [Políticas em Gestão de API.](./api-management-policies.md)
@@ -62,7 +62,10 @@ Esta política pode ser utilizada nas [seguintes secções](./api-management-how
 - **Âmbitos de política:** todos os âmbitos
 
 ## <a name="cors"></a><a name="CORS"></a> CORS
-A `cors` política adiciona suporte de partilha de recursos de origem cruzada (CORS) a uma operação ou a uma API para permitir chamadas de domínio transversal de clientes baseados no navegador.
+A `cors` política adiciona suporte de partilha de recursos de origem cruzada (CORS) a uma operação ou a uma API para permitir chamadas de domínio transversal de clientes baseados no navegador. 
+
+> [!NOTE]
+> Se o pedido corresponder a uma operação com um método OPTIONS definido na API, a lógica de processamento de pedidos de pré-voo associada às políticas CORS não será executada. Por conseguinte, tais operações podem ser utilizadas para implementar uma lógica de processamento personalizado antes do voo.
 
 O CORS permite que um navegador e um servidor interajam e determinem se permitem ou não pedidos específicos de origem cruzada (ou seja, chamadas XMLHttpRequests feitas a partir de JavaScript numa página web para outros domínios). Isto permite uma maior flexibilidade do que apenas permitir pedidos de origem do mesmo, mas é mais seguro do que permitir todos os pedidos de origem cruzada.
 
@@ -71,7 +74,7 @@ O CORS permite que um navegador e um servidor interajam e determinem se permitem
 ### <a name="policy-statement"></a>Declaração política
 
 ```xml
-<cors allow-credentials="false|true">
+<cors allow-credentials="false|true" terminate-unmatched-request="true|false">
     <allowed-origins>
         <origin>origin uri</origin>
     </allowed-origins>
@@ -138,6 +141,7 @@ Este exemplo demonstra como apoiar pedidos de pré-voo, tais como aqueles com ca
 |Nome|Descrição|Obrigatório|Predefinição|
 |----------|-----------------|--------------|-------------|
 |permitir credenciais|O `Access-Control-Allow-Credentials` cabeçalho na resposta de pré-voo será definido para o valor deste atributo e afetará a capacidade do cliente de apresentar credenciais em pedidos de domínio cruzado.|Não|false|
+|pedido de fim-de-jogo|Este atributo controla o processamento de pedidos de origem cruzada que não correspondem às definições da política do CORS. Quando o pedido options é processado como um pedido pré-voo e não corresponde às definições da política cors: Se o atributo for definido `true` para, imediatamente, rescindir o pedido com uma resposta vazia de 200 OK; Se o atributo estiver definido para , verifique a `false` entrada para outras políticas cors de âmbito que são crianças diretas do elemento de entrada e aplique-as.  Se não forem encontradas políticas CORS, encerre o pedido com uma resposta vazia de 200 OK. Quando o pedido GET ou HEAD inclui o cabeçalho Origin (e, portanto, é processado como um pedido de origem cruzada) e não corresponde às definições de política do CORS: Se o atributo estiver definido `true` para, imediatamente, rescindir o pedido com uma resposta vazia de 200 OK; Se o atributo estiver definido para `false` , permita que o pedido proceda normalmente e não adicione cabeçalhos CORS à resposta.|Não|true|
 |pré-voo-resultado-má-idade|O `Access-Control-Max-Age` cabeçalho na resposta de pré-voo será definido para o valor deste atributo e afetará a capacidade do agente utilizador de cache resposta antes do voo.|Não|0|
 
 ### <a name="usage"></a>Utilização
@@ -190,4 +194,4 @@ Para obter mais informações sobre as políticas, consulte:
 + [Políticas em Gestão de API](api-management-howto-policies.md)
 + [Transformar APIs](transform-api.md)
 + [Referência política](./api-management-policies.md) para uma lista completa de declarações políticas e suas definições
-+ [Amostras de política](./policy-reference.md)
++ [Exemplos de Políticas](./policy-reference.md)

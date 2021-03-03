@@ -3,14 +3,15 @@ title: Aprenda a auditar o conteúdo das máquinas virtuais
 description: Saiba como a Azure Policy utiliza o cliente de Configuração de Convidados para auditar as definições dentro de máquinas virtuais.
 ms.date: 01/14/2021
 ms.topic: conceptual
-ms.openlocfilehash: 5d1503680ea2ca7d0ff7c8adae19c05abfe441c0
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 33a492eb3c8c175bfcdc6a13cb467ed2f180c1e1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100104812"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702883"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Compreender a Configuração de Convidado do Azure Policy
+
 
 A Azure Policy pode auditar as definições dentro de uma máquina, tanto para máquinas que executam em Azure como [arc connected Machines](../../../azure-arc/servers/overview.md). A validação é executada pela extensão da Configuração de Convidado e pelo cliente. A extensão, através do cliente, valida as definições, como:
 
@@ -20,13 +21,15 @@ A Azure Policy pode auditar as definições dentro de uma máquina, tanto para m
 
 Neste momento, a maioria das definições de política de configuração de convidados de política de política de Azure Policy apenas auditam as definições dentro da máquina. Não se aplica às configurações. A exceção é uma política incorporada [referida abaixo.](#applying-configurations-using-guest-configuration)
 
+[Está disponível um vídeo deste documento](https://youtu.be/Y6ryD3gTHOs).
+
 ## <a name="enable-guest-configuration"></a>Ativar a configuração do hóspede
 
 Para auditar o estado das máquinas no seu ambiente, incluindo máquinas em Azure e Arc Connected Machines, reveja os seguintes detalhes.
 
 ## <a name="resource-provider"></a>Fornecedor de recursos
 
-Antes de poder utilizar a Configuração do Convidado, tem de registar o fornecedor de recursos. O fornecedor de recursos é registado automaticamente se a atribuição de uma política de Configuração de Hóspedes for feita através do portal. Pode registar-se manualmente através do [portal](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal) [, Azure PowerShell,](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-powershell)ou [Azure CLI](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-cli).
+Antes de poder utilizar a Configuração do Convidado, tem de registar o fornecedor de recursos. Se a atribuição de uma política de Configuração de Hóspedes for feita através do portal, ou se a subscrição estiver inscrita no Azure Security Center, o fornecedor de recursos é registado automaticamente. Pode registar-se manualmente através do [portal](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal) [, Azure PowerShell,](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-powershell)ou [Azure CLI](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-cli).
 
 ## <a name="deploy-requirements-for-azure-virtual-machines"></a>Implementar requisitos para máquinas virtuais Azure
 
@@ -62,13 +65,13 @@ As definições de política de configuração de hóspedes incluem novas versõ
 
 |Publisher|Name|Versões|
 |-|-|-|
-|Canónico|Ubuntu Server|14.04 - 18.04|
-|Credativ|Debian|8 e mais tarde|
-|Microsoft|Windows Server|2012 e mais tarde|
+|Canónico|Ubuntu Server|14.04 - 20.04|
+|Credativ|Debian|8 - 10|
+|Microsoft|Windows Server|2012 - 2019|
 |Microsoft|Cliente Windows|Windows 10|
-|OpenLogic|CentOS|7.3 e mais tarde|
-|Red Hat|Red Hat Enterprise Linux|7.4 - 7.8|
-|Suse|SLES|12 SP3-SP5|
+|OpenLogic|CentOS|7.3 -8|
+|Red Hat|Red Hat Enterprise Linux|7.4 - 8|
+|Suse|SLES|12 SP3-SP5, 15|
 
 As imagens de máquinas virtuais personalizadas são suportadas pelas definições de política de Configuração de Hóspedes, desde que sejam um dos sistemas operativos da tabela acima.
 
@@ -114,9 +117,26 @@ As definições de política de configuração do hóspede utilizam o efeito **A
 As definições de política **auditIfNotExists** não devolverão os resultados de conformidade até que todos os requisitos sejam cumpridos na máquina. Os requisitos são descritos na secção [Implementar requisitos para máquinas virtuais Azure](#deploy-requirements-for-azure-virtual-machines)
 
 > [!IMPORTANT]
-> Num lançamento prévio da Configuração de Convidados, foi necessária uma iniciativa para combinar definições **de DeployIfNoteExists** e **AuditIfNotExists.** As definições **de DeployIfNotExists** já não são necessárias. As definições e os intiaitivos estão `[Deprecated]` rotulados, mas as atribuições existentes continuarão a funcionar. Para obter informações consulte o post do blog: [Alteração importante lançada para as políticas de auditoria de Configuração de Hóspedes](https://techcommunity.microsoft.com/t5/azure-governance-and-management/important-change-released-for-guest-configuration-audit-policies/ba-p/1655316)
+> Num lançamento prévio da Configuração de Convidados, foi necessária uma iniciativa para combinar definições **de DeployIfNoteExists** e **AuditIfNotExists.** As definições **de DeployIfNotExists** já não são necessárias. As definições e iniciativas estão `[Deprecated]` rotuladas, mas as atribuições existentes continuarão a funcionar. Para obter informações consulte o post do blog: [Alteração importante lançada para as políticas de auditoria de Configuração de Hóspedes](https://techcommunity.microsoft.com/t5/azure-governance-and-management/important-change-released-for-guest-configuration-audit-policies/ba-p/1655316)
 
-A Azure Policy utiliza a conformidade do fornecedor de recursos de configuração do **hóspedeSse** a propriedade para reportar a conformidade no nó **compliance.** Para obter mais informações, consulte [obter dados de conformidade.](../how-to/get-compliance-data.md)
+### <a name="what-is-a-guest-assignment"></a>O que é uma missão de hóspedes?
+
+Quando uma Política Azure é atribuída, se estiver na categoria "Configuração de Hóspedes" há metadados incluídos para descrever uma Atribuição de Hóspedes.
+Você pode pensar numa atribuição de hóspedes como uma ligação entre uma máquina e um cenário de Política Azure.
+Por exemplo, o snippet abaixo associa a configuração Azure Windows Baseline com a versão mínima `1.0.0` a qualquer máquina no âmbito da apólice. Por predefinição, a Atribuição de Hóspedes apenas realizará uma auditoria da máquina.
+
+```json
+"metadata": {
+    "category": "Guest Configuration",
+    "guestConfiguration": {
+        "name": "AzureWindowsBaseline",
+        "version": "1.*"
+    }
+//additional metadata properties exist
+```
+
+As atribuições dos hóspedes são criadas automaticamente por máquina pelo serviço de Configuração do Hóspede. O tipo de recurso é `Microsoft.GuestConfiguration/guestConfigurationAssignments`.
+A Azure Policy utiliza a **propriedade complianceStatus** do recurso de atribuição de hóspedes para reportar o estado de conformidade. Para obter mais informações, consulte [obter dados de conformidade.](../how-to/get-compliance-data.md)
 
 #### <a name="auditing-operating-system-settings-following-industry-baselines"></a>Auditoria das definições do sistema operativo seguindo as linhas de base da indústria
 
@@ -201,6 +221,12 @@ As amostras de política incorporadas da Configuração do Hóspede estão dispo
 - [Definições de política incorporadas - Configuração de hóspedes](../samples/built-in-policies.md#guest-configuration)
 - [Iniciativas incorporadas - Configuração de Hóspedes](../samples/built-in-initiatives.md#guest-configuration)
 - [Azure Policy amostras GitHub repo](https://github.com/Azure/azure-policy/tree/master/built-in-policies/policySetDefinitions/Guest%20Configuration)
+
+### <a name="video-overview"></a>Descrição geral em vídeo
+
+A seguinte visão geral da Configuração de Convidados de Política Azure é da ITOps Talks 2021.
+
+[Regem as linhas de base em ambientes de servidores híbridos usando a configuração do convidado da política do Azure](https://techcommunity.microsoft.com/t5/itops-talk-blog/ops114-governing-baselines-in-hybrid-server-environments-using/ba-p/2109245)
 
 ## <a name="next-steps"></a>Passos seguintes
 

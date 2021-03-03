@@ -4,12 +4,16 @@ description: Aprenda a criar uma função C# e, em seguida, publique o projeto l
 ms.topic: quickstart
 ms.date: 11/03/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0068a9cbf99117a0a2432a02c9be934eb749f19a
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+adobe-target: true
+adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
+adobe-target-experience: Experience B
+adobe-target-content: ./create-first-function-vs-code-csharp-ieux
+ms.openlocfilehash: b0c659c1b3bf373b7754dd9b058c74da35cc2e0a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99493690"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704791"
 ---
 # <a name="quickstart-create-a-c-function-in-azure-using-visual-studio-code"></a>Quickstart: Criar uma função C# em Azure utilizando o Código do Estúdio Visual
 

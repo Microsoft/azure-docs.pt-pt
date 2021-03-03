@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: 0650a173b02e1b8f1f829953be1dd852024e6f65
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 541448f08e4ce9961d34063dcc225bf89d969a73
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99524520"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703376"
 ---
 # <a name="create-a-custom-voice"></a>Criar uma voz personalizada
 
@@ -60,7 +60,7 @@ Considere voltar a registar quaisquer expressões com pontuações baixas de pro
 
 > [!NOTE]
 > É necessário que, se estiver a utilizar a Voz Neural Personalizada, tenha de registar o seu talento de voz no separador **Voice Talent.** Ao preparar o seu script de gravação, certifique-se de que inclui a frase abaixo para adquirir o reconhecimento de talento de voz de usar os seus dados de voz para criar um modelo de voz TTS e gerar voz sintética. "Eu [declaro o seu primeiro e último nome] estou ciente de que as gravações da minha voz serão usadas [pelo nome da empresa] para criar e usar uma versão sintética da minha voz."
-Esta frase será usada para verificar se as gravações nos seus conjuntos de dados de treino são feitas pela mesma pessoa que faz o consentimento. [Leia mais sobre como os seus dados serão processados e como a verificação de talentos de voz é feita aqui.](https://aka.ms/CNV-data-privacy) 
+Esta frase será usada para verificar se as gravações nos seus conjuntos de dados de treino são feitas pela mesma pessoa que faz o consentimento. [Leia mais sobre como os seus dados serão processados e como a verificação de talentos de voz é feita aqui.](/legal/cognitive-services/speech-service/custom-neural-voice/data-privacy-security-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext) 
 
 ## <a name="build-your-custom-voice-model"></a>Construa o seu modelo de voz personalizado
 
@@ -87,7 +87,7 @@ Depois de o conjunto de dados ter sido validado, pode usá-lo para construir o s
 5. Selecione o **método de treino** no passo seguinte. 
 
     > [!NOTE]
-    > Se quiser treinar uma voz neural, deve especificar um perfil de talento de voz com o ficheiro de consentimento áudio fornecido pelo talento de voz, reconhecendo usar os seus dados de fala para treinar um modelo de voz personalizado. A Voz Neural Personalizada está disponível com acesso limitado. Certifique-se de compreender os [requisitos responsáveis da IA](https://aka.ms/gating-overview) e [aplicar o acesso aqui.](https://aka.ms/customneural) 
+    > Se quiser treinar uma voz neural, deve especificar um perfil de talento de voz com o ficheiro de consentimento áudio fornecido pelo talento de voz, reconhecendo usar os seus dados de fala para treinar um modelo de voz personalizado. A Voz Neural Personalizada está disponível com acesso limitado. Certifique-se de compreender os [requisitos responsáveis da IA](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext) e [aplicar o acesso aqui.](https://aka.ms/customneural) 
     
     Nesta página também pode selecionar para carregar o seu script para testes. O script de teste deve ser um ficheiro Txt, inferior a 1Mb. O formato de codificação suportado inclui ANSI/ASCII, UTF-8, UTF-8-BOM, UTF-16-LE ou UTF-16-BE. Cada parágrafo da expressão resultará num áudio separado. Se quiser combinar todas as frases num único áudio, faça-as num parágrafo. 
 
@@ -126,7 +126,7 @@ Cada treino gerará 100 ficheiros áudio de amostras automaticamente para ajudá
 
 3.  Na página de detalhes do modelo, pode encontrar os ficheiros de áudio da amostra no **separador Teste.** 
 
-A qualidade da voz depende de uma série de fatores, incluindo o tamanho dos dados de treino, a qualidade da gravação, a precisão do ficheiro de transcrição, quão bem a voz gravada nos dados de treino corresponde à personalidade da voz desenhada para o seu caso de uso pretendido, e muito mais. [Consulte aqui para saber mais sobre as capacidades e limites da nossa tecnologia e as melhores práticas para melhorar a qualidade do seu modelo.](https://aka.ms/CNV-limits) 
+A qualidade da voz depende de uma série de fatores, incluindo o tamanho dos dados de treino, a qualidade da gravação, a precisão do ficheiro de transcrição, quão bem a voz gravada nos dados de treino corresponde à personalidade da voz desenhada para o seu caso de uso pretendido, e muito mais. [Consulte aqui para saber mais sobre as capacidades e limites da nossa tecnologia e as melhores práticas para melhorar a qualidade do seu modelo.](/legal/cognitive-services/speech-service/custom-neural-voice/characteristics-and-limitations-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext) 
 
 ## <a name="create-and-use-a-custom-voice-endpoint"></a>Criar e usar um ponto final de voz personalizado
 

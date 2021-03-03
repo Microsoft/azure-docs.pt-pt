@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/27/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: b69e701177c6f017388521ed05c37de1271c7e60
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 4e933000c8e700d8bfd193b542e3855b2fca26f8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101650163"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101689339"
 ---
 # <a name="tutorial-develop-a-sample-scim-endpoint"></a>Tutorial: Desenvolver uma amostra scim ponto final
 
@@ -57,6 +57,8 @@ Os passos aqui implantam o ponto final do SCIM para um serviço utilizando [o Vi
     ![Screenshot que mostra a criação de um novo serviço de aplicações.](media/use-scim-to-build-users-and-groups-endpoints/cloud-publish-3.png)
 
 1. Selecione o grupo de recursos para utilizar e **selecione Publicar.**
+
+    ![Screenshot que mostra a publicação de um novo serviço de aplicações.](media/use-scim-to-build-users-and-groups-endpoints/cloud-publish-4.png)
 
 1. Aceda à aplicação na Configuração **do Serviço de Aplicações Azure**  >   e selecione nova definição de **aplicação** para adicionar a definição *Token__TokenIssuer* com o valor `https://sts.windows.net/<tenant_id>/` . `<tenant_id>`Substitua-se pela sua identificação de inquilino Azure AD. Se pretender testar o ponto final do SCIM utilizando o [Carteiro,](https://github.com/AzureAD/SCIMReferenceCode/wiki/Test-Your-SCIM-Endpoint)adicione uma definição *de ASPNETCORE_ENVIRONMENT* com o valor `Development` .
 

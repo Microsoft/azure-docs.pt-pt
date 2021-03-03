@@ -7,12 +7,12 @@ ms.author: normesta
 ms.date: 02/17/2021
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: d6897a863a0fd399d3c963d876404680026682dd
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: b67c3ccebefc178ddebc2b4a7fd49043bc0776b8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100654439"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101735425"
 ---
 # <a name="tutorials-that-use-azure-services-with-azure-data-lake-storage-gen2"></a>Tutoriais que usam serviços Azure com Azure Data Lake Storage Gen2
 
@@ -22,6 +22,7 @@ Este artigo contém links para tutoriais que mostram como usar vários serviços
 
 | Serviço do Azure | Guia passo a passo | 
 |---------------|-------------------|
+| Azure Synapse Analytics | [Começar com Azure Synapse Analytics](../../synapse-analytics/get-started.md) |
 | Azure Data Factory | [Carregue os dados no Azure Data Lake Storage Gen2 com a Azure Data Factory](../../data-factory/load-azure-data-lake-storage-gen2.md) |
 | Azure Databricks | [Utilizar com o Azure Databricks](https://docs.azuredatabricks.net/data/data-sources/azure/azure-datalake-gen2.html) |
 | Azure Databricks | [Extrair, transformar e carregar dados utilizando dados Azure Databricks](/azure/databricks/scenarios/databricks-extract-load-sql-data-warehouse) |
@@ -29,7 +30,6 @@ Este artigo contém links para tutoriais que mostram como usar vários serviços
 | Azure Event Grid | [Implemente o padrão de captura do lago de dados para atualizar uma tabela Delta databricks](data-lake-storage-events.md) |
 | Azure Machine Learning | [Dados de acesso nos serviços de armazenamento Azure](../../machine-learning/how-to-access-data.md) |
 | Azure Data Box | [Utilize a Caixa de Dados Azure para migrar dados de uma loja HDFS no local para o Azure Storage](data-lake-storage-migrate-on-premises-hdfs-cluster.md) |
-| Azure Synapse Analytics | [Começar com Azure Synapse Analytics](../../synapse-analytics/get-started.md) |
 | HDInsight | [Utilizar o Azure Data Lake Storage Gen2 com clusters do Azure HDInsight](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md) |
 | HDInsight | [Extrair, transformar e carregar dados utilizando a Colmeia Apache em Azure HDInsight](data-lake-storage-tutorial-extract-transform-load-hive.md) |
 | Power BI | [Analise os dados em Data Lake Storage Gen2 usando Power BI](/power-query/connectors/datalakestorage) |

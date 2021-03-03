@@ -4,12 +4,12 @@ description: Este artigo fornece detalhes das informações de rede exigidas pel
 ms.author: magoedte
 ms.topic: conceptual
 ms.date: 01/26/2021
-ms.openlocfilehash: 0add7eed6abbe6c137d423ee4a7ef5f0f60072e3
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 36331e9c07926d4d3ffff136aefa2f9a77d47cb4
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98900330"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708888"
 ---
 # <a name="azure-automation-network-configuration-details"></a>Detalhes da configuração da rede Azure Automation
 
@@ -26,7 +26,7 @@ São necessários os seguintes portos e URLs para o Trabalhador de Runbook Híbr
 
 ### <a name="network-planning-for-hybrid-runbook-worker"></a>Planeamento de rede para trabalhador de runbook híbrido
 
-Para que um sistema ou utilizador Hybrid Runbook Worker se conecte e registe com a Azure Automation, deve ter acesso ao número de porta e URLs descritos nesta secção. O trabalhador também deve ter acesso às [portas e URLs necessários para que o agente Log Analytics](../azure-monitor/platform/agent-windows.md) se conecte ao espaço de trabalho Azure Monitor Log Analytics.
+Para que um sistema ou utilizador Hybrid Runbook Worker se conecte e registe com a Azure Automation, deve ter acesso ao número de porta e URLs descritos nesta secção. O trabalhador também deve ter acesso às [portas e URLs necessários para que o agente Log Analytics](../azure-monitor/agents/agent-windows.md) se conecte ao espaço de trabalho Azure Monitor Log Analytics.
 
 Se tiver uma conta Automation que está definida para uma região específica, pode restringir a comunicação do Trabalhador Do Runbook Híbrido a esse datacenter regional. Reveja os [registos DNS utilizados pela Azure Automation](how-to/automation-region-dns-records.md) para obter os registos DNS necessários.
 
@@ -53,7 +53,7 @@ A comunicação a estes endereços utiliza a **porta 443**.
 
 Quando criar regras de segurança do grupo de rede ou configurar o Azure Firewall para permitir o tráfego para o serviço de Automação e para o espaço de trabalho Log Analytics, utilize as [etiquetas](../virtual-network/service-tags-overview.md#available-service-tags) de serviço **GuestAndHybridManagement** e **AzureMonitor**. Isto simplifica a gestão contínua das suas regras de segurança de rede. Para ligar ao serviço Demômes a partir dos seus VMs Azure de forma segura e privada, reveja [o Link Privado Use Azure](./how-to/private-link-security.md). Para obter a etiqueta de serviço atual e informações de alcance para incluir como parte das configurações de firewall no local, consulte [ficheiros JSON descarregados](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Saiba mais sobre [a visão geral da Gestão da Atualização de Automação.](update-management\overview.md)
 * Saiba mais sobre [o Trabalhador de Runbook Híbrido.](automation-hybrid-runbook-worker.md)

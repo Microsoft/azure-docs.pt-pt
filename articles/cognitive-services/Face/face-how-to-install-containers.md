@@ -9,15 +9,15 @@ ms.custom: seodec18, cog-serv-seo-aug-2020
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 07/16/2020
+ms.date: 02/23/2021
 ms.author: aahi
 keywords: no local, Docker, contentor, identificar
-ms.openlocfilehash: 64169069bc0a1ccd126d1b79ee89a5666e1caeb1
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: 36cbd7bd24304871593b107f9b8ed9be02ce46de
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97861046"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101706797"
 ---
 # <a name="install-and-run-face-containers-preview"></a>Instalar e executar recipientes face (pré-visualização)
 

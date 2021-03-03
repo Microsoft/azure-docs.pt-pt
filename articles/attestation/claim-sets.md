@@ -7,29 +7,30 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: eb08bb262806cb662822a75898196546a5c1058e
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 23bcfcb92a7fa642e111a67bf92c1306a606bb2a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98762542"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704808"
 ---
 # <a name="claim-sets"></a>Conjuntos de afirmações
 
 As reclamações geradas no processo de atestar enclaves utilizando o Microsoft Azure Attestation podem ser divididas nas categorias abaixo:
 
-- **Reclamações recebidas**: Reclamações geradas pela Microsoft Azure Attestation após analisar as provas do atestado e podem ser usadas por autores de políticas para definir regras de autorização numa política personalizada
+- **Alegações recebidas**: As alegações geradas pela Microsoft Azure Attestation após analisar as provas do atestado e podem ser usadas por autores de políticas para definir regras de autorização numa política personalizada
 
-- **Reclamações cessantes**: Reclamações geradas pela Azure Attestation e contém todas as reclamações que acabam no token do atestado
+- **Reclamações cessantes**: As alegações geradas pela Azure Attestation e contém todas as reclamações que acabam no token do atestado
 
-- **Reclamações de propriedade**: Reclamações criadas como uma saída pela Azure Attestation. Contém todas as alegações que representam propriedades do token do atestado, tais como a codificação do relatório, a duração da validade do relatório, e assim por diante.
+- **Reclamações de propriedade**: As reclamações criadas como uma saída pela Azure Attestation. Contém todas as alegações que representam propriedades do token do atestado, tais como a codificação do relatório, a duração da validade do relatório, e assim por diante.
 
 ### <a name="common-incoming-claims-across-all-attestation-types"></a>Reclamações comuns de entrada em todos os tipos de atestado
 
-Abaixo as reclamações são geradas pela Azure Attestation e podem ser usadas para definir regras de autorização numa política personalizada:
+Abaixo as reclamações são geradas pela Azure Attestation e podem ser usadas por autores de políticas para definir regras de autorização numa política personalizada para todos os tipos de atestados.
+
 - **x-ms-ver**: versão do esquema JWT (espera-se que seja "1.0")
 - **x-ms-attestation-type**: Valor de corda que representa o tipo de atestado 
-- **x-ms-policy-hash**: Política de avaliação do azure atestado calculada como BASE64URL(SHA256(UTF8(BASE64URL(UTF8(texto de política)
+- **x-ms-policy-hash**: Política de avaliação do azure atestado calculada como BASE64URL(SHA256(UTF8(BASE64URL(UTF8(texto de política))))
 - **x-ms-policy-signer**: Objeto JSON com um membro "jwk" representando a chave que um cliente usou para assinar a sua política, quando o cliente envia uma política assinada
 
 Abaixo as reclamações são consideradas depreciadas, mas são totalmente apoiadas. Recomenda-se a utilização dos nomes de reclamações não depreciados.
@@ -44,7 +45,9 @@ policy_signer | x-ms-política-signer
 
 ### <a name="common-outgoing-claims-across-all-attestation-types"></a>Reivindicações comuns de saída em todos os tipos de atestado
 
-Abaixo afirmações definidas pelo [IETF JWT](https://tools.ietf.org/html/rfc7519) e utilizadas pela Azure Attestation no objeto de resposta:
+Abaixo as reclamações estão incluídas no token atestado para todos os tipos de atestado pelo serviço.
+
+Fonte: Conforme definido pelo [IETF JWT](https://tools.ietf.org/html/rfc7519)
 
 - **"jti" (JWT ID) Reivindicação**
 - **"iss" (Emitente) Reivindicação**
@@ -52,20 +55,23 @@ Abaixo afirmações definidas pelo [IETF JWT](https://tools.ietf.org/html/rfc751
 - **Reivindicação "exp" (tempo de expiração)**
 - **"nbf" (Não Antes) Reivindicação**
 
-Abaixo afirmações definidas pelo [IETF EAT](https://tools.ietf.org/html/draft-ietf-rats-eat-03#page-9) e utilizadas pela Azure Attestation no objeto de resposta:
+Fonte: Conforme definido pelo [IETF EAT](https://tools.ietf.org/html/draft-ietf-rats-eat-03#page-9)
+
 - **"Nonce claim" (nonce)**
 
-Abaixo as reclamações são geradas por incumprimento com base nos créditos recebidos
+As reclamações abaixo estão incluídas no atestado por defeito com base nos pedidos de entrada:
+
 - **x-ms-ver**: versão do esquema JWT (espera-se que seja "1.0")
 - **x-ms-attestation-type**: Valor de corda que representa o tipo de atestado 
-- **x-ms-policy-hash**: Valor de corda contendo hash SHA256 do texto de política calculado por BASE64URL(SHA256(UTF8 (BASE64URL(TEXTO DE POLÍTICA)
+- **x-ms-policy-hash**: Valor de corda contendo hash SHA256 do texto de política calculado por BASE64URL(SHA256(UTF8 (BASE64URL(TEXTO DE POLÍTICA))))
 - **x-ms-policy-signer**: Contém um JWK com a chave pública ou a cadeia de certificados presente no cabeçalho de política assinado. x-ms-política-signer só é adicionado se a política é assinada
 
 ## <a name="claims-specific-to-sgx-enclaves"></a>Reclamações específicas dos enclaves da SGX
 
 ### <a name="incoming-claims-specific-to-sgx-attestation"></a>Reclamações de entrada específicas para atestado SGX
 
-Abaixo as reclamações são geradas pelo serviço para atestado SGX e podem ser usadas para definir regras de autorização numa política personalizada:
+Abaixo as reclamações são geradas pela Azure Attestation e podem ser usadas por autores de políticas para definir regras de autorização numa política personalizada para atestado SGX.
+
 - **x-ms-sgx-is-debuggable**: A Boolean, que indica se o enclave tem ou não depuração ativado
 - **x-ms-sgx-produto-id**
 - **x-ms-sgx-mrsigner**: valor codificado hex do campo "mrsigner" da citação
@@ -74,7 +80,8 @@ Abaixo as reclamações são geradas pelo serviço para atestado SGX e podem ser
 
 ### <a name="outgoing-claims-specific-to-sgx-attestation"></a>Reclamações de saída específicas para atestado SGX
 
-As reclamações abaixo são geradas pelo serviço e incluídas no objeto de resposta para atestado SGX:
+Abaixo as reclamações são geradas e incluídas no token atestado pelo serviço para atestado SGX.
+
 - **x-ms-sgx-is-debuggable**: A Boolean, que indica se o enclave tem ou não depuração ativado
 - **x-ms-sgx-produto-id**
 - **x-ms-sgx-mrsigner**: valor codificado hex do campo "mrsigner" da citação
@@ -145,6 +152,6 @@ As reclamações emitidas pela Azure Attestation para atestado VBS são para al�
   - **Valor máximo(tempo)**: Um ano em minutos.
 - **omit_x5c**: Uma alegação booleana que indique se o Azure Attestation deve omitir o certificado utilizado para fornecer um comprovativo da autenticidade do serviço. Se for verdade, x5t será adicionado ao token do atestado. Se falso(predefinitivo), x5c será adicionado ao token do atestado.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - [Como autor e assinar uma política de atestado](author-sign-policy.md)
 - [Configurar a Azure Attestation usando o PowerShell](quickstart-powershell.md)

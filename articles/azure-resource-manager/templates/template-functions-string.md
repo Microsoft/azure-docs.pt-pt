@@ -2,13 +2,13 @@
 title: Funções do modelo - cadeia
 description: Descreve as funções a utilizar num modelo de Gestor de Recursos Azure (modelo ARM) para trabalhar com cordas.
 ms.topic: conceptual
-ms.date: 11/18/2020
-ms.openlocfilehash: a70aaff91f701c0ba8d26db2488b82e052dd905d
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.date: 03/02/2021
+ms.openlocfilehash: e823acc07ce0618c064f30e103ec52b7133cea18
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96920005"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731124"
 ---
 # <a name="string-functions-for-arm-templates"></a>Funções de corda para modelos ARM
 
@@ -37,9 +37,9 @@ O Gestor de Recursos fornece as seguintes funções para trabalhar com cordas no
 * [saltar](#skip)
 * [divisão](#split)
 * [começacom](#startswith)
-* [cadeia](#string)
+* [string](#string)
 * [substring](#substring)
-* [take](#take)
+* [tomar](#take)
 * [toLower](#tolower)
 * [toupper](#toupper)
 * [guarnição](#trim)
@@ -306,6 +306,8 @@ A saída do exemplo anterior com os valores predefinidos é:
 
 Combina múltiplos valores de cordas e devolve a corda concatenated, ou combina várias matrizes e devolve a matriz concatenated.
 
+Para simplificar a concatenação das cordas, bicep suporta uma sintaxe de interpolação de [cordas.](https://en.wikipedia.org/wiki/String_interpolation#)
+
 ### <a name="parameters"></a>Parâmetros
 
 | Parâmetro | Necessário | Tipo | Descrição |
@@ -351,6 +353,14 @@ O [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/mast
 param prefix string = 'prefix'
 
 output concatOutput string = concat(prefix, '-', uniqueString(resourceGroup().id))
+```
+
+ou
+
+```bicep
+param prefix string = 'prefix'
+
+output concatOutput string = '${prefix}-${uniqueString(resourceGroup().id)}'
 ```
 
 ---
@@ -1530,7 +1540,7 @@ O exemplo a seguir utiliza a função newGuid para criar um nome único para uma
 ```bicep
 param guidValue string = newGuid()
 
-var storageName = concat('storage', uniqueString(guidValue))
+var storageName = 'storage${uniqueString(guidValue)}'
 
 resource myStorage 'Microsoft.Storage/storageAccounts@2018-07-01' = {
   name: storageName
@@ -2468,7 +2478,7 @@ O exemplo a seguir mostra como criar um nome único para uma conta de armazename
 
 ```bicep
 resource mystorage 'Microsoft.Storage/storageAccounts@@2018-07-01' = {
-  name: concat('storage, uniqueString(resourceGroup().id)')
+  name: 'storage${uniqueString(resourceGroup().id)}'
   ...
 }
 ```

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 07/16/2020
+ms.date: 02/17/2021
 ms.author: aahi
-ms.openlocfilehash: 463e3d594013f2c6fe8ee3ec52d1351ff208f8ac
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: 278c8a48d2d0644f63a3e265ea81d3f62c68bae2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99225230"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101725310"
 ---
 # <a name="model-versioning-in-the-text-analytics-api"></a>Versão de modelo na API de Análise de Texto
 
@@ -32,7 +32,7 @@ Utilize a tabela abaixo para saber quais as versões do modelo suportadas por ca
 | `/languages`                    | `2019-10-01`, `2020-07-01`, `2020-09-01`, `2021-01-05` | `2021-01-05`   |
 | `/entities/linking`             | `2019-10-01`, `2020-02-01`                             | `2020-02-01`   |
 | `/entities/recognition/general` | `2019-10-01`, `2020-02-01`, `2020-04-01`,`2021-01-15`  | `2021-01-15`   |
-| `/entities/recognition/pii`     | `2019-10-01`, `2020-02-01`, `2020-04-01`,`2020-07-01`  | `2020-07-01`   |
+| `/entities/recognition/pii`     | `2019-10-01`, `2020-02-01`, `2020-04-01`,`2020-07-01`, `2021-01-15`  | `2021-01-15`   |
 | `/entities/health`              | `2020-09-03`                           | `2020-09-03`   |
 | `/keyphrases`                   | `2019-10-01`, `2020-07-01`                             | `2020-07-01`   |
 
@@ -55,5 +55,5 @@ O [recipiente Text Analytics for Health](../how-tos/text-analytics-for-health.md
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Descrição geral da Análise de Texto](../overview.md)
-* [Análise de sentimento](../how-tos/text-analytics-how-to-sentiment-analysis.md)
+* [Análise de sentimentos](../how-tos/text-analytics-how-to-sentiment-analysis.md)
 * [Reconhecimento de entidades](../how-tos/text-analytics-how-to-entity-linking.md)

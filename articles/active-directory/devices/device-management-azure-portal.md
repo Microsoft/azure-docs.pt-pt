@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: hafowler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 92a0cc93b4d159a4ba87c1cadc2d0dedc0a28b2d
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 0aea468c64f70bd7f35dd25206faa9ea33459999
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98683815"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101688914"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Gerir identidades de dispositivos com o portal do Azure
 
@@ -161,7 +161,7 @@ Deve ser-lhe atribuída uma das seguintes funções para visualizar ou gerir as 
 - **Os utilizadores podem juntar-se a dispositivos para Azure AD** - Esta definição permite selecionar os utilizadores que podem registar os seus dispositivos como dispositivos aderentes Azure AD. O padrão é **All**.
 
 > [!NOTE]
-> **Os utilizadores podem aderir a dispositivos à definição de AD do Azure apenas** é aplicável à junção AZure AD no Windows 10.
+> **Os utilizadores podem aderir a dispositivos à definição de AD do Azure apenas** é aplicável à junção AZure AD no Windows 10. Esta definição não se aplica aos dispositivos híbridos Azure AD, [a Azure AD juntou VMs em Azure](./howto-vm-sign-in-azure-ad-windows.md#enabling-azure-ad-login-in-for-windows-vm-in-azure) e Azure AD dispositivos que utilizam [o modo de auto-implantação do Windows Autopilot,](/mem/autopilot/self-deploying) uma vez que estes métodos funcionam num contexto sem utilizador.
 
 - **Administradores locais adicionais em dispositivos aderidos a Azure AD** - Pode selecionar os utilizadores a quem são concedidos direitos de administrador local num dispositivo. Estes utilizadores são adicionados à função *de Administradores de Dispositivos* no Azure AD. Administradores globais em Azure AD e proprietários de dispositivos recebem direitos de administrador local por defeito. Esta opção é uma capacidade de edição premium disponível através de produtos como o Azure AD Premium ou o Enterprise Mobility Suite (EMS).
 - **Os utilizadores podem registar os seus dispositivos com Azure AD** - É necessário configurar esta definição para permitir que os dispositivos pessoais, iOS, Android e macOS do Windows 10 sejam registados com Azure AD. Se selecionar **Nenhum,** os dispositivos não podem registar-se no Azure AD. A inscrição com o Microsoft Intune ou Mobile Device Management (MDM) para o Microsoft 365 requer registo. Se tiver configurado algum destes serviços, **ALL** está selecionado e **nenhum** está disponível.

@@ -2,14 +2,14 @@
 title: Criar uma conta no portal Azure
 description: Saiba como criar uma conta do Azure Batch no portal do Azure a executar cargas de trabalho paralelas em grande escala na nuvem
 ms.topic: how-to
-ms.date: 01/26/2021
+ms.date: 02/23/2021
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bd9dd9b6d6d3a8d6938427b83528746ae5d09318
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 36759a0caef41af9307bf621a1b6b634ddf586cc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100368511"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703669"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Criar uma conta do Batch com portal do Azure
 
@@ -101,7 +101,7 @@ No modo de subscrição do utilizador, é necessário um [Cofre de Chaves Azure.
 
 Ao criar a conta Batch no modo de subscrição do utilizador, especifique a **subscrição do Utilizador** como o modo de atribuição da piscina, selecione o Cofre-Chave que criou e verifique a caixa para conceder acesso ao Cofre de Chaves.
 
-Se preferir conceder acesso manualmente ao Cofre de Chaves, aceda à secção de **políticas** de acesso do Cofre de Chaves e selecione **Adicionar Política de Acesso**. Selecione o link ao lado **de Select principal** e procure o Microsoft **Azure Batch** (Aplicação **ID ddbf3205-c6bd-46ae-8127-60eb93363864).** Selecione o principal e, em seguida, configuure as **permissões Secret** usando o menu suspenso. O Lote Azure deve receber um mínimo de permissões **Get**, **List,** **set** e **Delete.**
+Se preferir conceder acesso manualmente ao Cofre de Chaves, aceda à secção de **políticas** de acesso do Cofre de Chaves e selecione **Adicionar Política de Acesso**. Selecione o link ao lado **de Select principal** e procure o Microsoft **Azure Batch** (Aplicação **ID ddbf3205-c6bd-46ae-8127-60eb93363864).** Selecione o principal e, em seguida, configuure as **permissões Secret** usando o menu suspenso. O Lote Azure deve receber um mínimo de permissões **Get**, **List,** **set** e **Delete.** Para [cofres-chave com soft-delete ativado,](../key-vault/general/soft-delete-overview.md)o Azure Batch também deve ter permissão **de Recuperação.**
 
 :::image type="content" source="media/batch-account-create-portal/secret-permissions.png" alt-text="Screenshot das permissões secretas seleções para Azure Batch":::
 

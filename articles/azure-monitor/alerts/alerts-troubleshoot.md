@@ -6,18 +6,18 @@ ms.author: ofmanor
 ms.topic: reference
 ms.date: 03/16/2020
 ms.subservice: alerts
-ms.openlocfilehash: 3ee29e6c65dcd2b2226dc4dc7844b3b02a571a4f
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: d3f8da7e985e62ce0b40c6dddcd137cce8561e59
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614482"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717864"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-alerts"></a>Problemas de resolução de problemas nos alertas do Monitor Azure
 
 Este artigo discute problemas comuns no alerta e notificações do Azure Monitor.
 
-Os alertas do Azure Monitor notificam-no proativamente quando forem encontradas condições importantes nos seus dados de monitorização. Permitem identificar e resolver problemas antes que os utilizadores do seu sistema os notem. Para obter mais informações sobre o alerta, consulte [a visão geral dos alertas no Microsoft Azure](../platform/alerts-overview.md).
+Os alertas do Azure Monitor notificam-no proativamente quando forem encontradas condições importantes nos seus dados de monitorização. Permitem identificar e resolver problemas antes que os utilizadores do seu sistema os notem. Para obter mais informações sobre o alerta, consulte [a visão geral dos alertas no Microsoft Azure](./alerts-overview.md).
 
 Se tiver algum problema com um disparo de alerta ou não disparar quando esperado, consulte os artigos abaixo. Pode ver alertas "disparados" no portal Azure.
 
@@ -36,7 +36,7 @@ Se vir um alerta acionado no portal do Azure, mas não tiver recebido o e-mail q
 
 1. **O e-mail foi suprimido por uma [regra de ação?](../alerts/alerts-action-rules.md)**
 
-    Verifique no portal ao clicar no alerta acionado e veja no separador Histórico os [grupos de ações](../platform/action-groups.md) suprimidos:
+    Verifique no portal ao clicar no alerta acionado e veja no separador Histórico os [grupos de ações](./action-groups.md) suprimidos:
 
     ![Histórico de supressão de regras de ação de alerta](media/alerts-troubleshoot/history-action-rule.png)
 
@@ -92,7 +92,7 @@ Se vir um alerta acionado no portal, mas não tiver recebido o SMS, a chamada de
 
 1. **A ação foi suprimida por uma [regra de ação?](../alerts/alerts-action-rules.md)**
 
-    Verifique no portal ao clicar no alerta acionado e veja no separador Histórico os [grupos de ações](../platform/action-groups.md) suprimidos: 
+    Verifique no portal ao clicar no alerta acionado e veja no separador Histórico os [grupos de ações](./action-groups.md) suprimidos: 
 
     ![Histórico de supressão de regras de ação de alerta](media/alerts-troubleshoot/history-action-rule.png)
 
@@ -125,7 +125,7 @@ Se vir um alerta acionado no portal, mas a ação configurada não tiver sido ac
 
 1. **A ação foi suprimida por uma regra de ação?**
 
-    Verifique no portal ao clicar no alerta acionado e veja no separador Histórico os [grupos de ações](../platform/action-groups.md) suprimidos:
+    Verifique no portal ao clicar no alerta acionado e veja no separador Histórico os [grupos de ações](./action-groups.md) suprimidos:
 
     ![Histórico de supressão de regras de ação de alerta](media/alerts-troubleshoot/history-action-rule.png)
  
@@ -135,13 +135,13 @@ Se vir um alerta acionado no portal, mas a ação configurada não tiver sido ac
 
     1. **Os endereços IP de origem foram bloqueados?**
     
-       Adicione os [endereços IP](../platform/action-groups.md#action-specific-information) de que o webhook é chamado para a sua lista de admissões.
+       Adicione os [endereços IP](./action-groups.md#action-specific-information) de que o webhook é chamado para a sua lista de admissões.
 
-    1. **O seu ponto final webhook funciona corretamente?**
+    1. **O ponto final do webhook funciona corretamente?**
 
        Confirme que o ponto final de webhook que configurou está correto e a funcionar devidamente. Verifique os registos do webhook ou instrumente o código para que possa ser analisado (por exemplo, registe o payload de entrada).
 
-    1. **Estás a ligar para o Slack ou para a Microsoft?**  
+    1. **Está a chamar o Slack ou o Microsoft Teams?**  
     Cada um destes pontos finais espera um formato JSON específico. Siga [estas instruções](../alerts/action-groups-logic-app.md) para configurar uma ação da aplicação lógica como alternativa.
 
     1. **O teu webhook tornou-se insío e devolveu erros?** 
@@ -180,12 +180,12 @@ Se tiver recebido o alerta, mas acredita que alguns dos campos estão em falta o
 
     Verifique se o formato especificado ao nível da ação é o esperado. Por exemplo, pode ter desenvolvido um código que responde a alertas (webhook, função, aplicação lógica, etc.) e esperar um formato, mas posteriormente na ação você ou outra pessoa especifica um formato diferente.  
 
-    Adicionalmente, verifique o formato do payload (JSON) dos [alertas de registo de atividade](../alerts/activity-log-alerts-webhook.md), dos [alertas de pesquisa de registo](../alerts/alerts-log-webhook.md) (tanto para o Application Insights como para o Log analytics), dos [alertas de métricas](alerts-metric-near-real-time.md#payload-schema), do [esquema de alertas comuns](../alerts/alerts-common-schema-definitions.md) e dos [alertas de métricas clássicas](../platform/alerts-webhooks.md) preteridos.
+    Adicionalmente, verifique o formato do payload (JSON) dos [alertas de registo de atividade](../alerts/activity-log-alerts-webhook.md), dos [alertas de pesquisa de registo](../alerts/alerts-log-webhook.md) (tanto para o Application Insights como para o Log analytics), dos [alertas de métricas](alerts-metric-near-real-time.md#payload-schema), do [esquema de alertas comuns](../alerts/alerts-common-schema-definitions.md) e dos [alertas de métricas clássicas](./alerts-webhooks.md) preteridos.
 
  
 1. **Alertas de registo de atividade: A informação está disponível no registo de atividades?** 
 
-    [Os alertas de registo de atividade](../platform/activity-log-alerts.md) são alertas baseados em eventos escritos para o Registo de Atividades do Azure, tais como eventos sobre a criação, atualização ou eliminação de recursos Azure, eventos de saúde de serviço e recursos, ou resultados de Azure Advisor e Azure Policy. Se tiver recebido um alerta baseado no registo de atividades, mas alguns dos campos necessários estiverem em falta ou incorretos, verifique primeiro os eventos no próprio registo de atividades. Se o recurso do Azure não tiver gravado os campos de que está à procura no evento de registo de atividades, estes campos não serão incluídos no alerta correspondente. 
+    [Os alertas de registo de atividade](./activity-log-alerts.md) são alertas baseados em eventos escritos para o Registo de Atividades do Azure, tais como eventos sobre a criação, atualização ou eliminação de recursos Azure, eventos de saúde de serviço e recursos, ou resultados de Azure Advisor e Azure Policy. Se tiver recebido um alerta baseado no registo de atividades, mas alguns dos campos necessários estiverem em falta ou incorretos, verifique primeiro os eventos no próprio registo de atividades. Se o recurso do Azure não tiver gravado os campos de que está à procura no evento de registo de atividades, estes campos não serão incluídos no alerta correspondente. 
 
 ## <a name="action-rule-is-not-working-as-expected"></a>A regra de ação não está a funcionar conforme o esperado 
 
@@ -250,4 +250,4 @@ Se tiver recebido um erro ao tentar criar, atualizar ou eliminar uma [regra de a
 
 ## <a name="next-steps"></a>Passos seguintes
 - Se utilizar um alerta de registo, consulte também [alertas de registo de resolução de problemas](./alerts-troubleshoot-log.md).
-- Volte ao [portal Azure](https://portal.azure.com) para verificar se resolveu o seu problema com orientação acima 
+- Volte ao [portal Azure](https://portal.azure.com) para verificar se resolveu o seu problema com orientação acima

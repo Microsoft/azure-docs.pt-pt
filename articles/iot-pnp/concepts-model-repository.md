@@ -1,26 +1,26 @@
 ---
-title: Compreender conceitos do repositório do modelo do dispositivo Microsoft Docs
-description: Como desenvolvedor de soluções ou profissional de TI, conheça os conceitos básicos do repositório do modelo do dispositivo.
+title: Compreenda os conceitos dos modelos do dispositivo repositório | Microsoft Docs
+description: Como desenvolvedor de soluções ou profissional de TI, conheça os conceitos básicos do repositório de modelos de dispositivos.
 author: rido-min
 ms.author: rmpablos
 ms.date: 11/17/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: b567efe2541bb33c905def73bb78398799b4ed69
-ms.sourcegitcommit: 03c0a713f602e671b278f5a6101c54c75d87658d
+ms.openlocfilehash: 1a58a2f69b9c6c6742c4b9daf32dd0e13341aac1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94920547"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101742148"
 ---
-# <a name="device-model-repository"></a>Repositório de modelo de dispositivo
+# <a name="device-models-repository"></a>Repositório de modelos de dispositivo
 
-O repositório de modelos do dispositivo (DMR) permite aos construtores de dispositivos gerir e partilhar modelos de dispositivos IoT Plug e Play. Os modelos do dispositivo são documentos JSON LD definidos utilizando a [Linguagem de Modelação Digital Twins (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
+O repositório de modelos de dispositivos (DMR) permite aos construtores de dispositivos gerir e partilhar modelos de dispositivos IoT Plug e Play. Os modelos do dispositivo são documentos JSON LD definidos utilizando a [Linguagem de Modelação Digital Twins (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
 
 O DMR define um padrão para armazenar interfaces DTDL numa estrutura de pasta baseada no identificador de modelos duplos do dispositivo (DTMI). Pode localizar uma interface no DMR convertendo o DTMI num caminho relativo. Por exemplo, o `dtmi:com:example:Thermostat;1` DTMI traduz-se para `/dtmi/com/example/thermostat-1.json` .
 
-## <a name="public-device-model-repository"></a>Repositório de modelo de dispositivo público
+## <a name="public-device-models-repository"></a>Repositório de modelos de dispositivos públicos
 
 A Microsoft acolhe um DMR público com estas características:
 
@@ -28,7 +28,7 @@ A Microsoft acolhe um DMR público com estas características:
 - Imutabilidade.  Depois de publicado, uma interface não pode ser atualizada.
 - Hiperescala. A Microsoft fornece a infraestrutura necessária para criar um ponto final seguro e escalável onde pode publicar e consumir modelos de dispositivos.
 
-## <a name="custom-device-model-repository"></a>Repositório de modelo de dispositivo personalizado
+## <a name="custom-device-models-repository"></a>Repositório de modelos de dispositivo personalizado
 
 Utilize o mesmo padrão DMR para criar um DMR personalizado em qualquer meio de armazenamento, como sistema de ficheiros local ou servidores web HTTP personalizados. Pode recuperar os modelos do dispositivo a partir do DMR personalizado da mesma forma que a partir do DMR público, alterando o URL base utilizado para aceder ao DMR.
 
@@ -37,9 +37,9 @@ Utilize o mesmo padrão DMR para criar um DMR personalizado em qualquer meio de 
 
 ## <a name="public-models"></a>Modelos públicos
 
-Os modelos de dispositivos públicos armazenados no repositório de modelos estão disponíveis para todos consumirem e integrarem nas suas aplicações. Os modelos de dispositivos públicos permitem um ecossistema aberto para os construtores de dispositivos e desenvolvedores de soluções partilharem e reutilizarem os seus modelos de dispositivos IoT Plug e Play.
+Os modelos de dispositivos públicos armazenados nos modelos estão disponíveis para todos consumirem e integrarem nas suas aplicações. Os modelos de dispositivos públicos permitem um ecossistema aberto para os construtores de dispositivos e desenvolvedores de soluções partilharem e reutilizarem os seus modelos de dispositivos IoT Plug e Play.
 
-Consulte a secção de [modelos](#publish-a-model) para obter instruções sobre como publicar um modelo no repositório do modelo para torná-lo público.
+Consulte a secção de [modelos](#publish-a-model) para obter instruções sobre como publicar um modelo no repositório dos modelos para torná-lo público.
 
 Os utilizadores podem navegar, pesquisar e ver interfaces públicas a partir do [repositório](https://github.com/Azure/iot-plugandplay-models)oficial do GitHub.
 

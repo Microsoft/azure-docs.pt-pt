@@ -1,53 +1,57 @@
 ---
 title: Compreenda a recolha proativa de registo no dispositivo Azure Stack Edge Pro
-description: Descreve como a recolha de registos proactiva é feita num dispositivo Azure Stack Edge Pro.
+description: Descreve como a recolha de registos proactiva é feita num dispositivo Azure Stack Edge Pro e como desativá-la.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 11/03/2020
+ms.date: 02/23/2021
 ms.author: alkohli
-ms.openlocfilehash: f79de47ec0ffad11f650054b581dbbaae030edbf
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 064af116112f0b530ac0cc9b5755dcec2cf0bd07
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96466961"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101722083"
 ---
 # <a name="proactive-log-collection-on-your-azure-stack-edge-device"></a>Coleção de registos proactivos no seu dispositivo Azure Stack Edge
 
-Pode ativar a recolha proativa de registos no seu dispositivo Azure Stack Edge com base nos indicadores de saúde do sistema para ajudar a resolver eficazmente quaisquer problemas do dispositivo. Este artigo descreve o que é a recolha proativa de registos, como capacitá-lo e como os dados são tratados quando a recolha proativa de registos está ativada.
-   
+A recolha proativa de registos recolhe indicadores de saúde do sistema no seu dispositivo Azure Stack Edge para ajudá-lo a resolver eficazmente qualquer problema do dispositivo. A recolha proativa de registos é ativada por padrão. Este artigo descreve o que é registado, como a Microsoft lida com os dados e como desativar ou permitir a recolha de registos proativa. 
+
 As informações deste artigo aplicam-se aos dispositivos Azure Stack Edge Pro GPU, Azure Stack Edge Pro R e Azure Stack Edge Mini R.
 
 ## <a name="about-proactive-log-collection"></a>Sobre a coleção de registos pró-ativos
 
-As equipas de Suporte ao Cliente e Engenharia da Microsoft utilizam registos de sistemas a partir do seu dispositivo Azure Stack Edge para identificar e corrigir eficazmente problemas que possam surgir durante o funcionamento. A recolha proactiva de registos é um método que alerta a Microsoft de que foi detetado um problema/evento (ver secção de indicadores de recolha de registos proactivos para eventos a serem rastreados) pelo aparelho Azure Stack Edge do cliente. Os registos de suporte relativos ao problema são automaticamente enviados para uma conta de Armazenamento Azure gerida e controlada pela Microsoft. Os engenheiros do Microsoft Support e da Microsoft analisam estes registos de suporte para determinar o melhor curso de ação para resolver o problema com o cliente.    
+As equipas de Suporte ao Cliente e Engenharia da Microsoft utilizam registos de sistemas a partir do seu dispositivo Azure Stack Edge para identificar e corrigir eficazmente problemas que possam surgir durante o funcionamento. A recolha de registos proactivos é um método que alerta a Microsoft de que um problema/evento foi detetado pelo aparelho Azure Stack Edge do cliente. Consulte [indicadores de recolha de registos proactivos](#proactive-log-collection-indicators) para eventos que sejam rastreados. Os registos de suporte relativos ao problema são automaticamente enviados para uma conta de Armazenamento Azure que a Microsoft gere e controla. Os engenheiros do Microsoft Support e da Microsoft analisam estes registos de suporte para determinar o melhor curso de ação para resolver o problema com o cliente.
 
 > [!NOTE]
-> Estes registos são utilizados apenas para depurar e prestar apoio aos clientes em caso de problemas. 
+> Estes registos são utilizados apenas para depurar e para prestar apoio aos clientes em caso de problemas.
 
 
 ## <a name="enabling-proactive-log-collection"></a>Habilitação de recolha de registos proativos
 
-Pode ativar a recolha de registos proactivos ao tentar ativar o dispositivo através da UI local. 
+A recolha proativa de registos é ativada por padrão. Pode desativar a recolha de registos proactivos ao tentar ativar o dispositivo através da UI local. 
 
-1. Na uI web local do dispositivo, vá para **começar** a página.
+1. Na uI web local do dispositivo, vá para a página **Get start.**
+
 2. No azulejo de **ativação,** **selecione Ativar**. 
 
     ![Web local UI "Cloud details" página 1](./media/azure-stack-edge-pro-r-deploy-activate/activate-1.png)
-    
+
 3. No painel **Ativar:**
-    1. Introduza a **tecla de ativação** que obteve em [Obter a chave de ativação para Azure Stack Edge Pro R](azure-stack-edge-pro-r-deploy-prep.md#get-the-activation-key).
 
-    1. Pode permitir que a recolha proativa de registos permita à Microsoft recolher registos com base no estado de saúde do dispositivo. Os registos recolhidos desta forma são enviados para uma conta de Armazenamento Azure.
-    
-    1. Selecione **Aplicar**.
+   1. Introduza a **tecla de ativação** que obteve em [Obter a chave de ativação para Azure Stack Edge Pro R](azure-stack-edge-pro-r-deploy-prep.md#get-the-activation-key).
 
-    ![Web local UI "Cloud details" página 2](./media/azure-stack-edge-pro-r-deploy-activate/activate-2.png)
+      Uma vez ativada, a recolha de registos proactivos é ativada por padrão, permitindo à Microsoft recolher registos com base no estado de saúde do dispositivo. Estes registos são enviados para uma conta de Armazenamento Azure. 
 
+      Pode desativar a recolha de registos proactivos para impedir que a Microsoft recolha registos.
 
+   1. Se pretender desativar a recolha de registos proactivos no dispositivo, **selecione Desativar**.
+
+   1. **Selecione Ativar**.
+
+   ![Web local UI "Cloud details" página 2](./media/azure-stack-edge-pro-r-deploy-activate/activate-2.png)
 
 ## <a name="proactive-log-collection-indicators"></a>Indicadores proactivos de recolha de registos
 
@@ -66,11 +70,11 @@ A Microsoft continuará a adicionar novos eventos à lista anterior. Não é nec
 
 ## <a name="other-log-collection-methods"></a>Outros métodos de recolha de registos
 
-Além da recolha proativa de registos, que recolhe registos específicos relativos a um problema específico detetado, existem outras coleções de registos que podem fornecer uma compreensão muito mais profunda da saúde e comportamento do sistema. Normalmente, estas outras recolhas de registos podem ser executadas durante um pedido de suporte ou desencadeadas pela Microsoft com base em dados de telemetria que o dispositivo fornece.  
+Além da recolha proativa de registos, que recolhe registos específicos relativos a um problema específico detetado, outras coleções de registos podem dar uma compreensão muito mais profunda da saúde e comportamento do sistema. Normalmente, estes outros registos podem ser recolhidos durante um pedido de suporte ou desencadeados pela Microsoft com base em dados de telemetria do dispositivo.
 
 ## <a name="handling-data"></a>Tratamento de dados
 
-Se um cliente ativar a recolha de registos proactivos, concorda com a Microsoft a recolher registos do dispositivo Azure Stack Edge, tal como descrito aqui. O cliente também reconhece e consente no upload e retenção desses registos numa conta de Armazenamento Azure gerida e controlada pela Microsoft.
+Quando a recolha de registos proactivos está ativada, o cliente concorda com a Microsoft a recolher registos do dispositivo Azure Stack Edge, tal como descrito aqui. O cliente também reconhece e consente no upload e retenção desses registos numa conta de Armazenamento Azure gerida e controlada pela Microsoft.
 
 A Microsoft utiliza os dados para resolver problemas de saúde do sistema e apenas problemas. Os dados não são utilizados para marketing, publicidade ou quaisquer outros fins comerciais sem o consentimento do cliente. 
 

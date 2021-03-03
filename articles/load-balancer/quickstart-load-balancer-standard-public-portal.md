@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/22/2020
+ms.date: 02/22/2021
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 8827171788bd83a202b3607537204c71c34f29e0
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 13726009e07172c9038bc8b45001e390c5b7ad70
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97511846"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101709795"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Quickstart: Criar um equilibrador de carga público para carregar VMs de equilíbrio utilizando o portal Azure
 
@@ -49,26 +49,29 @@ Nesta secção, cria-se um equilibrador de carga que equilibra as máquinas virt
 
 Quando cria um equilibrador de carga público, cria um novo endereço IP público configurado como frontend (denominado **LoadBalancerFrontend** por padrão) para o equilibrador de carga.
 
-1. No lado superior esquerdo do ecrã, selecione **Criar um**  >  equilibrador de carga de **rede de** recursos  >  .
-
-2. No separador Básicos da página **'Criar balançador** de carga', insira ou selecione as **seguintes** informações: 
+1. Selecione **Criar um recurso**. 
+2. Na caixa de pesquisa, insira o **balançador de carga**. Selecione **o balanceador de carga** nos resultados da pesquisa.
+3. Na página **do balançador de carga,** selecione **Criar**.
+4. Na página do **balanceador de carga,** ou selecione as seguintes informações: 
 
     | Definição                 | Valor                                              |
     | ---                     | ---                                                |
     | Subscrição               | Selecione a sua subscrição.    |    
     | Grupo de recursos         | **Selecione Criar novo** e introduza **CreatePubLBQS-rg** na caixa de texto.|
-    | Nome                   | Insira **o myLoadBalancer**                                   |
-    | Região         | Selecione **Europa Ocidental**.                                        |
+    | Name                   | Insira **o myLoadBalancer**                                   |
+    | Region         | Selecione **(Europa) Europa Ocidental**.                                        |
     | Tipo          | Selecione **Público**.                                        |
-    | SKU           | Selecione **Standard** |
+    | SKU           | Deixe o **padrão padrão**. |
+    | Escalão de serviço          | Deixe o **padrão Regional**. |
     | Endereço IP público | Selecione **Criar novo**. Se tiver um IP público existente que gostaria de utilizar, selecione **Utilizar a existência**. |
     | Nome do endereço IP público | Digite **o myPublicIP** na caixa de texto.|
     | Zona de disponibilidade | Selecione **Zona redundante** para criar um equilibrador de carga resistente. Para criar um equilibrador de carga zonal, selecione uma zona específica a partir de 1, 2 ou 3 |
     | Adicionar um endereço IPv6 público | Selecione **Não**. </br> Para obter mais informações sobre endereços IPv6 e balanceador de carga, consulte [o que é o IPv6 para a Rede Virtual Azure?](../virtual-network/ipv6-overview.md)  |
+    | Preferência de encaminhamento | Deixe o padrão da **rede Microsoft**. </br> Para obter mais informações sobre a preferência de encaminhamento, consulte [o que é a preferência de encaminhamento (pré-visualização)?](./routing-preference-overview.md) |
 
-3. Aceite as predefinições para as definições restantes e, em seguida, selecione **Review + create**.
+5. Aceite as predefinições para as definições restantes e, em seguida, selecione **Review + create**.
 
-4. No **separador 'Rever + criar',** selecione **Criar.**   
+6. No **separador 'Rever + criar',** selecione **Criar.**   
     
     :::image type="content" source="./media/quickstart-load-balancer-standard-public-portal/create-standard-load-balancer.png" alt-text="Criar um balanceador de carga standard" border="true":::
  
@@ -171,7 +174,7 @@ Nesta secção, irá criar uma rede virtual e uma sub-rede.
     | Grupo de Recursos   | **Selecione CreatePubLBQS-rg** |
     | **Detalhes da instância** |                                                                 |
     | Name             | Insira **myVNet**                                    |
-    | Região           | Selecione **Europa Ocidental** |
+    | Region           | Selecione **Europa Ocidental** |
 
 3. Selecione o separador **endereços IP** ou selecione o botão **Seguinte: Endereços IP** na parte inferior da página.
 
@@ -224,7 +227,7 @@ Estes VMs são adicionados ao pool de backend do equilibrador de carga que foi c
     | Grupo de Recursos | **Selecione CreatePubLBQS-rg** |
     | **Detalhes da instância** |  |
     | Nome da máquina virtual | Insira **o myVM1** |
-    | Região | Selecione **Europa Ocidental** |
+    | Region | Selecione **Europa Ocidental** |
     | Opções de Disponibilidade | Selecione **zonas de disponibilidade** |
     | Zona de disponibilidade | Selecione **1** |
     | Imagem | Selecione **o Centro de Dados 2019 do Windows Server 2019** |
@@ -273,7 +276,7 @@ Estes VMs são adicionados ao pool de backend do equilibrador de carga que foi c
 
     | Definição | VM 2| VM 3|
     | ------- | ----- |---|
-    | Nome |  **myVM2** |**myVM3**|
+    | Name |  **myVM2** |**myVM3**|
     | Zona de disponibilidade | **2** |**3**|
     | Grupo de segurança de rede | Selecione o **myNSG** existente| Selecione o **myNSG** existente|
 
@@ -334,16 +337,17 @@ Nesta secção, cria-se um equilibrador de carga que equilibra as máquinas virt
 
 Quando cria um equilibrador de carga público, cria um novo endereço IP público configurado como frontend (denominado **LoadBalancerFrontend** por padrão) para o equilibrador de carga.
 
-1. No lado superior esquerdo do ecrã, selecione **Criar um**  >  equilibrador de carga de **rede de** recursos  >  .
-
-2. No separador Básicos da página **'Criar balançador** de carga', insira ou selecione as **seguintes** informações: 
+1. Selecione **Criar um recurso**. 
+2. Na caixa de pesquisa, insira o **balançador de carga**. Selecione **o balanceador de carga** nos resultados da pesquisa.
+3. Na página **do balançador de carga,** selecione **Criar**.
+4. Na página do **balanceador de carga,** ou selecione as seguintes informações: 
 
     | Definição                 | Valor                                              |
     | ---                     | ---                                                |
     | Subscrição               | Selecione a sua subscrição.    |    
     | Grupo de recursos         | **Selecione Criar novo** e **escreva CreatePubLBQS-rg** na caixa de texto.|
-    | Nome                   | Insira **o myLoadBalancer**                                   |
-    | Região         | Selecione **Europa Ocidental**.                                        |
+    | Name                   | Insira **o myLoadBalancer**                                   |
+    | Region         | Selecione **Europa Ocidental**.                                        |
     | Tipo          | Selecione **Público**.                                        |
     | SKU           | Selecione **Basic** |
     | Endereço IP público | Selecione **Criar novo**. Se tiver um IP público existente que gostaria de utilizar, selecione **Utilizar a existência**. |
@@ -351,9 +355,9 @@ Quando cria um equilibrador de carga público, cria um novo endereço IP públic
     | Atribuição | Selecione **Dynamic** |
     | Adicionar um endereço IPv6 público | Selecione **Não**. </br> Para obter mais informações sobre endereços IPv6 e balanceador de carga, consulte [o que é o IPv6 para a Rede Virtual Azure?](../virtual-network/ipv6-overview.md)  |
 
-3. Aceite as predefinições para as definições restantes e, em seguida, selecione **Review + create**.
+5. Aceite as predefinições para as definições restantes e, em seguida, selecione **Review + create**.
 
-4. No **separador 'Rever + criar',** selecione **Criar.**   
+6. No **separador 'Rever + criar',** selecione **Criar.**   
 
     :::image type="content" source="./media/quickstart-load-balancer-standard-public-portal/create-basic-load-balancer.png" alt-text="Criar um equilibrador de carga básico" border="true":::
 
@@ -381,7 +385,7 @@ Nesta secção, irá criar uma rede virtual e uma sub-rede.
     | Grupo de Recursos   | **Selecione CreatePubLBQS-rg** |
     | **Detalhes da instância** |                                                                 |
     | Name             | Insira **myVNet**                                    |
-    | Região           | Selecione **Europa Ocidental** |
+    | Region           | Selecione **Europa Ocidental** |
 
 3. Selecione o separador **endereços IP** ou selecione o botão **Seguinte: Endereços IP** na parte inferior da página.
 
@@ -515,7 +519,7 @@ Estes VMs são adicionados ao pool de backend do equilibrador de carga que foi c
     | Grupo de Recursos | **Selecione CreatePubLBQS-rg** |
     | **Detalhes da instância** |  |
     | Nome da máquina virtual | Insira **o myVM1** |
-    | Região | Selecione **Europa Ocidental** |
+    | Region | Selecione **Europa Ocidental** |
     | Opções de Disponibilidade | Selecione **Conjunto de disponibilidade** |
     | Conjunto de disponibilidade | Selecione **Criar novo**. </br> Insira **o mySilabilitySet** no **nome**. </br> Selecione **OK** |
     | Imagem | **Windows Server 2019 Datacenter** |
@@ -558,7 +562,7 @@ Estes VMs são adicionados ao pool de backend do equilibrador de carga que foi c
 
     | Definição | VM 2| VM 3|
     | ------- | ----- |---|
-    | Nome |  **myVM2** |**myVM3**|
+    | Name |  **myVM2** |**myVM3**|
     | Conjunto de disponibilidade| Selecione **mySIlabilitySet** | Selecione **mySIlabilitySet**|
     | Grupo de segurança de rede | Selecione o **myNSG** existente| Selecione o **myNSG** existente|
 

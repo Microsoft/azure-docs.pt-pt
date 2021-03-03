@@ -6,33 +6,33 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.subservice: alerts
-ms.openlocfilehash: 88643663c2f14cb7d8883eb1210bdee07b00eece
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 5e7909725f5e390f4e42a7d62e80f90f897c840f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614431"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101714158"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Alertas de registo no Monitor Azure
 
 ## <a name="overview"></a>Descrição Geral
 
-Os alertas de registo são um dos tipos de alerta que são suportados em [Alertas Azure](../platform/alerts-overview.md). Os alertas de registo permitem que os utilizadores utilizem uma consulta [log Analytics](../log-query/log-analytics-tutorial.md) para avaliar os registos de recursos em cada frequência definida e disparem um alerta com base nos resultados. As regras podem desencadear uma ou mais ações utilizando [grupos de ação.](../platform/action-groups.md)
+Os alertas de registo são um dos tipos de alerta que são suportados em [Alertas Azure](./alerts-overview.md). Os alertas de registo permitem que os utilizadores utilizem uma consulta [log Analytics](../logs/log-analytics-tutorial.md) para avaliar os registos de recursos em cada frequência definida e disparem um alerta com base nos resultados. As regras podem desencadear uma ou mais ações utilizando [grupos de ação.](./action-groups.md)
 
 > [!NOTE]
-> Os dados de registo de um espaço de [trabalho log Analytics](../log-query/log-analytics-tutorial.md) podem ser enviados para a loja de métricas do Azure Monitor. Os alertas de métricas têm [um comportamento diferente,](alerts-metric-overview.md)o que pode ser mais desejável dependendo dos dados com que está a trabalhar. Para obter informações sobre o que e como pode encaminhar os registos para métricas, consulte [o Alerta Métrico de Registos](alerts-metric-logs.md).
+> Os dados de registo de um espaço de [trabalho log Analytics](../logs/log-analytics-tutorial.md) podem ser enviados para a loja de métricas do Azure Monitor. Os alertas de métricas têm [um comportamento diferente,](alerts-metric-overview.md)o que pode ser mais desejável dependendo dos dados com que está a trabalhar. Para obter informações sobre o que e como pode encaminhar os registos para métricas, consulte [o Alerta Métrico de Registos](alerts-metric-logs.md).
 
 > [!NOTE]
 > Atualmente, não existem taxas adicionais para a versão API `2020-05-01-preview` e alertas de registo centrados em recursos.  Os preços das funcionalidades que estão em pré-visualização serão anunciados no futuro e um aviso fornecido antes do início da faturação. Caso opte por continuar a utilizar novas versões API e alertas de registo centrados em recursos após o período de pré-aviso, será faturado à taxa aplicável.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Os alertas de registo executam consultas nos dados do Log Analytics. Primeiro deve começar [a recolher dados de registo](../platform/resource-logs.md) e consultar os dados de registo para problemas. Pode utilizar o tópico de [exemplos de consulta de alerta](../log-query/example-queries.md) no Log Analytics para entender o que pode descobrir ou começar a escrever a sua própria [consulta.](../log-query/log-analytics-tutorial.md)
+Os alertas de registo executam consultas nos dados do Log Analytics. Primeiro deve começar [a recolher dados de registo](../essentials/resource-logs.md) e consultar os dados de registo para problemas. Pode utilizar o tópico de [exemplos de consulta de alerta](../logs/example-queries.md) no Log Analytics para entender o que pode descobrir ou começar a escrever a sua própria [consulta.](../logs/log-analytics-tutorial.md)
 
-[O Azure Monitoring Contributor](../platform/roles-permissions-security.md) é um papel comum que é necessário para criar, modificar e atualizar alertas de registo. O acesso & direitos de execução de consultas para os registos de recursos também são necessários. O acesso parcial aos registos de recursos pode falhar consultas ou devolver resultados parciais. [Saiba mais sobre a configuração dos alertas de registo em Azure](./alerts-log.md).
+[O Azure Monitoring Contributor](../roles-permissions-security.md) é um papel comum que é necessário para criar, modificar e atualizar alertas de registo. O acesso & direitos de execução de consultas para os registos de recursos também são necessários. O acesso parcial aos registos de recursos pode falhar consultas ou devolver resultados parciais. [Saiba mais sobre a configuração dos alertas de registo em Azure](./alerts-log.md).
 
 > [!NOTE]
-> Os alertas de registo para o Log Analytics costumavam ser geridos utilizando a [aPI](../platform/api-alerts.md)de alerta de log analytics legado . [Saiba mais sobre a mudança para a atual API de Placas DeQueryRules.](../alerts/alerts-log-api-switch.md)
+> Os alertas de registo para o Log Analytics costumavam ser geridos utilizando a [aPI](./api-alerts.md)de alerta de log analytics legado . [Saiba mais sobre a mudança para a atual API de Placas DeQueryRules.](../alerts/alerts-log-api-switch.md)
 
 ## <a name="query-evaluation-definition"></a>Definição de avaliação de consultas
 
@@ -44,17 +44,17 @@ Regras de pesquisa de registo a definição de condição começa a partir de:
 As secções seguintes descrevem os diferentes parâmetros que pode utilizar para definir a lógica acima.
 
 ### <a name="log-query"></a>Consulta de registo
-A consulta [Log Analytics](../log-query/log-analytics-tutorial.md) usada para avaliar a regra. Os resultados devolvidos por esta consulta são usados para determinar se um alerta deve ser desencadeado. A consulta pode ser consultada para:
+A consulta [Log Analytics](../logs/log-analytics-tutorial.md) usada para avaliar a regra. Os resultados devolvidos por esta consulta são usados para determinar se um alerta deve ser desencadeado. A consulta pode ser consultada para:
 
 - Um recurso específico, como uma máquina virtual.
 - Um recurso à escala, como um grupo de subscrição ou de recursos.
-- Múltiplos recursos utilizando [consulta de recursos cruzados.](../log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights) 
+- Múltiplos recursos utilizando [consulta de recursos cruzados.](../logs/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights) 
  
 > [!IMPORTANT]
 > As consultas de alerta têm constrangimentos para garantir o melhor desempenho e a relevância dos resultados. [Saiba mais aqui](./alerts-log-query.md).
 
 > [!IMPORTANT]
-> A consulta centrada em recursos e [os recursos cruzados](../log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights) só são suportadas utilizando a atual API de Regras Desconsecção. Se utilizar o legado [Log Analytics Alert API,](../platform/api-alerts.md)terá de mudar. [Saiba mais sobre a mudança](./alerts-log-api-switch.md)
+> A consulta centrada em recursos e [os recursos cruzados](../logs/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights) só são suportadas utilizando a atual API de Regras Desconsecção. Se utilizar o legado [Log Analytics Alert API,](./api-alerts.md)terá de mudar. [Saiba mais sobre a mudança](./alerts-log-api-switch.md)
 
 #### <a name="query-time-range"></a>Intervalo de tempo de consulta
 
@@ -154,7 +154,7 @@ Por exemplo, pretende monitorizar erros para várias máquinas virtuais que exec
 Esta regra monitoriza se alguma máquina virtual tiver erros nos últimos 15 minutos. Cada máquina virtual é monitorizada separadamente e irá desencadear ações individualmente.
 
 > [!NOTE]
-> Dividido por dimensões de alerta só está disponível para a atual API de Regras Desíparos. Se utilizar o legado [Log Analytics Alert API,](../platform/api-alerts.md)terá de mudar. [Saiba mais sobre a troca.](./alerts-log-api-switch.md) O alerta centrado em recursos em escala só é suportado na versão API `2020-05-01-preview` e acima.
+> Dividido por dimensões de alerta só está disponível para a atual API de Regras Desíparos. Se utilizar o legado [Log Analytics Alert API,](./api-alerts.md)terá de mudar. [Saiba mais sobre a troca.](./alerts-log-api-switch.md) O alerta centrado em recursos em escala só é suportado na versão API `2020-05-01-preview` e acima.
 
 ## <a name="alert-logic-definition"></a>Definição lógica de alerta
 
@@ -197,17 +197,17 @@ As informações sobre preços estão localizadas na página de preços do [Azur
 
 - Alertas de registo em Informações de aplicação apresentados com o nome exato do recurso, juntamente com o grupo de recursos e propriedades de alerta.
 - Alertas de registo no Log Analytics apresentados com o nome exato do recurso, juntamente com as propriedades do grupo de recursos e de alerta; quando criado usando [a API deQueryRules programada](/rest/api/monitor/scheduledqueryrules).
-- Os alertas de registo criados a partir do [legado Log Analytics API](../platform/api-alerts.md) não são rastreados [Recursos Azure](../../azure-resource-manager/management/overview.md) e não têm nomes de recursos únicos forçados. Estes alertas ainda são criados `microsoft.insights/scheduledqueryrules` como recursos ocultos, que têm esta estrutura de nomeação de `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>` recursos. Os alertas de log na API legado são mostrados com o nome de recurso acima escondido, juntamente com o grupo de recursos e propriedades de alerta.
+- Os alertas de registo criados a partir do [legado Log Analytics API](./api-alerts.md) não são rastreados [Recursos Azure](../../azure-resource-manager/management/overview.md) e não têm nomes de recursos únicos forçados. Estes alertas ainda são criados `microsoft.insights/scheduledqueryrules` como recursos ocultos, que têm esta estrutura de nomeação de `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>` recursos. Os alertas de log na API legado são mostrados com o nome de recurso acima escondido, juntamente com o grupo de recursos e propriedades de alerta.
 
 > [!NOTE]
 > Os caracteres de recursos não suportados, tais como `<, >, %, &, \, ?, /` são substituídos `_` nos nomes de recursos ocultos, o que também refletirá nas informações de faturação.
 
 > [!NOTE]
-> Os alertas de registo para o Log Analytics costumavam ser geridos utilizando o legado [Log Analytics Alert API](../platform/api-alerts.md) e modelos legados de [Log Analytics guardados pesquisas e alertas](../insights/solutions.md). [Saiba mais sobre a mudança para a atual API de Placas DeQueryRules.](../alerts/alerts-log-api-switch.md) Qualquer gestão de regras de alerta deve ser feita usando [o legado Log Analytics API](../platform/api-alerts.md) até que você decida mudar e você não pode usar os recursos ocultos.
+> Os alertas de registo para o Log Analytics costumavam ser geridos utilizando o legado [Log Analytics Alert API](./api-alerts.md) e modelos legados de [Log Analytics guardados pesquisas e alertas](../insights/solutions.md). [Saiba mais sobre a mudança para a atual API de Placas DeQueryRules.](../alerts/alerts-log-api-switch.md) Qualquer gestão de regras de alerta deve ser feita usando [o legado Log Analytics API](./api-alerts.md) até que você decida mudar e você não pode usar os recursos ocultos.
 
 ## <a name="next-steps"></a>Passos seguintes
 
 * Saiba como [criar em alertas de registo em Azure](./alerts-log.md).
 * Compreenda [os webhooks em alertas de registo em Azure](../alerts/alerts-log-webhook.md).
-* Saiba mais sobre [alertas Azure](../platform/alerts-overview.md).
-* Saiba mais sobre [o Log Analytics.](../log-query/log-query-overview.md)
+* Saiba mais sobre [alertas Azure](./alerts-overview.md).
+* Saiba mais sobre [o Log Analytics.](../logs/log-query-overview.md)

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/29/2020
-ms.openlocfilehash: a319dbce2502f35272cf9b70da2022f581d64275
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 6af183c16238c6630b194b112f0c09fd4399d443
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96554827"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101694075"
 ---
 # <a name="azure-purview-data-catalog-lineage-user-guide"></a>Guia de utilizadores do catálogo de dados Azure Purview
 
@@ -74,39 +74,47 @@ O Azure Purview suporta a linhagem do nível de ativos para os conjuntos de dado
 
    :::image type="content" source="./media/catalog-lineage-user-guide/view-columns-from-lineage.png" alt-text="Screenshot mostrando como selecionar Ver colunas na página de linhagem" border="true":::
 
-## <a name="column-level-lineage"></a>Linhagem ao nível da coluna
+## <a name="dataset-column-lineage"></a>Linhagem da coluna dataset
 
-O Azure Purview suporta a linhagem ao nível da coluna para os conjuntos de dados. Para ver a linhagem ao nível da coluna, vá ao **separador lineage** do ativo atual no catálogo e siga os passos abaixo:
+Para ver a linhagem ao nível da coluna de um conjunto de dados, aceda ao **separador linhagem** do ativo atual no catálogo e siga os passos abaixo:
 
 1. Uma vez que esteja no separador de linhagem, no painel esquerdo, selecione a caixa de verificação ao lado de cada coluna que pretende exibir na linhagem de dados.
 
    :::image type="content" source="./media/catalog-lineage-user-guide/select-columns-to-show-in-lineage.png" alt-text="Screenshot mostrando como selecionar colunas para visualizar na página de linhagem." lightbox="./media/catalog-lineage-user-guide/select-columns-to-show-in-lineage.png":::
 
-1. Passe sobre uma coluna selecionada no painel esquerdo ou no conjunto de dados da tela de linhagem para ver o mapeamento da coluna. Todas as instâncias da coluna são destacadas.
+2. Passe sobre uma coluna selecionada no painel esquerdo ou no conjunto de dados da tela de linhagem para ver o mapeamento da coluna. Todas as instâncias da coluna são destacadas.
 
    :::image type="content" source="./media/catalog-lineage-user-guide/show-column-flow-in-lineage.png" alt-text="Screenshot mostrando como pairar sobre um nome de coluna para realçar o fluxo da coluna em um caminho de linhagem de dados." lightbox="./media/catalog-lineage-user-guide/show-column-flow-in-lineage.png":::
 
-1. Se o número de colunas for maior do que o que pode ser visualizado no painel esquerdo, utilize a opção de filtro para selecionar uma coluna específica pelo nome. Em alternativa, pode utilizar o rato para percorrer a lista.
+3. Se o número de colunas for maior do que o que pode ser visualizado no painel esquerdo, utilize a opção de filtro para selecionar uma coluna específica pelo nome. Em alternativa, pode utilizar o rato para percorrer a lista.
 
    :::image type="content" source="./media/catalog-lineage-user-guide/filter-columns-by-name.png" alt-text="Screenshot mostrando como filtrar colunas por nome de coluna na página de linhagem." lightbox="./media/catalog-lineage-user-guide/filter-columns-by-name.png":::
 
-1. Se a tela de linhagem contiver mais nós e arestas, utilize o filtro para selecionar o ativo de dados ou processar nós pelo nome. Em alternativa, pode utilizar o rato para fazer uma panorâmica à volta da janela da linhagem.
+4. Se a tela de linhagem contiver mais nós e arestas, utilize o filtro para selecionar o ativo de dados ou processar nós pelo nome. Em alternativa, pode utilizar o rato para fazer uma panorâmica à volta da janela da linhagem.
 
    :::image type="content" source="./media/catalog-lineage-user-guide/filter-assets-by-name.png" alt-text="Screenshot mostrando os nós do ativo de dados pelo nome na página de linhagem." lightbox="./media/catalog-lineage-user-guide/filter-assets-by-name.png":::
 
-1. Utilize o toggle no painel esquerdo para realçar a lista de conjuntos de dados na tela de linhagem. Se desligar o toggle, qualquer ativo que contenha pelo menos uma das colunas selecionadas é apresentado. Se ligar o toggle, apenas são apresentados conjuntos de dados que contenham todas as colunas.
+5. Utilize o toggle no painel esquerdo para realçar a lista de conjuntos de dados na tela de linhagem. Se desligar o toggle, qualquer ativo que contenha pelo menos uma das colunas selecionadas é apresentado. Se ligar o toggle, apenas são apresentados conjuntos de dados que contenham todas as colunas.
 
    :::image type="content" source="./media/catalog-lineage-user-guide/use-toggle-to-filter-nodes.png" alt-text="Screenshot mostrando como usar o toggle para filtrar a lista de nós na página de linhagem." lightbox="./media/catalog-lineage-user-guide/use-toggle-to-filter-nodes.png":::
 
+## <a name="process-column-lineage"></a>Linhagem de coluna de processo
+O processo de dados pode levar um ou mais conjuntos de dados de entrada para produzir uma ou mais saídas. Em Purview, a linhagem do nível da coluna está disponível para nós de processo. 
+1. Altere entre os conjuntos de dados de entrada e de saída a partir de uma queda no painel de colunas.
+2. Selecione colunas de uma ou mais tabelas para ver a linhagem fluindo do conjunto de dados de entrada para o conjunto de dados de saída correspondente.
+
+   :::image type="content" source="./media/catalog-lineage-user-guide/process-column-lineage.png" alt-text="Screenshot mostrando linhagem de colunas de um nó de processo." lightbox="./media/catalog-lineage-user-guide/process-column-lineage.png":::
+
+## <a name="browse-assets-in-lineage"></a>Procurar ativos em linhagem
 1. Selecione **Switch para ativo** em qualquer ativo para ver os metadados correspondentes a partir da vista de linhagem. Fazê-lo é uma forma eficaz de navegar para outro ativo no catálogo a partir da vista da linhagem.
 
    :::image type="content" source="./media/catalog-lineage-user-guide/select-switch-to-asset.png" alt-text="Screenshot como selecionar Switch para ativo num ativo de dados de linhagem." lightbox="./media/catalog-lineage-user-guide/select-switch-to-asset.png":::
 
-1. A tela de linhagem pode tornar-se complexa para conjuntos de dados populares. Para evitar a confusão, a vista padrão só mostrará cinco níveis de linhagem para o ativo em foco. O resto da linhagem pode ser expandido clicando nas bolhas na tela de linhagem. Os consumidores de dados também podem esconder os ativos na tela que não têm qualquer interesse. Para reduzir ainda mais a desordem, desligue o toggle **More Lineage** no topo da tela de linhagem. Esta ação esconderá todas as bolhas em tela de linhagem.
+2. A tela de linhagem pode tornar-se complexa para conjuntos de dados populares. Para evitar a confusão, a vista padrão só mostrará cinco níveis de linhagem para o ativo em foco. O resto da linhagem pode ser expandido clicando nas bolhas na tela de linhagem. Os consumidores de dados também podem esconder os ativos na tela que não têm qualquer interesse. Para reduzir ainda mais a desordem, desligue o toggle **More Lineage** no topo da tela de linhagem. Esta ação esconderá todas as bolhas em tela de linhagem.
 
    :::image type="content" source="./media/catalog-lineage-user-guide/use-toggle-to-hide-bubbles.png" alt-text="Screenshot mostrando como alternar Mais linhagem." lightbox="./media/catalog-lineage-user-guide/use-toggle-to-hide-bubbles.png":::
 
-1. Utilize os botões inteligentes na tela de linhagem para obter uma visão ótima da linhagem. O layout automático, zoom para caber, Zoom in/out, ecrã completo e mapa de navegação estão disponíveis para uma experiência de linhagem imersiva no catálogo.
+3. Utilize os botões inteligentes na tela de linhagem para obter uma visão ótima da linhagem. O layout automático, zoom para caber, Zoom in/out, ecrã completo e mapa de navegação estão disponíveis para uma experiência de linhagem imersiva no catálogo.
 
    :::image type="content" source="./media/catalog-lineage-user-guide/use-lineage-smart-buttons.png" alt-text="Screenshot mostrando como selecionar os botões inteligentes de linhagem." lightbox="./media/catalog-lineage-user-guide/use-lineage-smart-buttons.png":::
 

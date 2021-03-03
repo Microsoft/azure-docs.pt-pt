@@ -6,12 +6,12 @@ ms.author: chugu
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 4/15/2020
-ms.openlocfilehash: 43b118b8f3f7444cd3c4d0cfa31b72a3522d6d84
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: c268dba51ecf2c2b246c54574ecf3838533b017e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100392583"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101710214"
 ---
 # <a name="use-azure-sql-managed-instance-with-sql-server-integration-services-ssis-in-azure-data-factory"></a>Utilize a Azure SQL Managed Instance com serviços de integração de servidores SQL (SSIS) na Azure Data Factory
 
@@ -22,7 +22,7 @@ Agora pode mover os seus projetos, pacotes e cargas de trabalho dos Seus Serviç
 - [Fornecimento de um Azure-SSIS IR com catálogo SSIS (SSISDB) hospedado pela Azure SQL Managed Instance](#provision-azure-ssis-ir-with-ssisdb-hosted-by-azure-sql-managed-instance)
 - [Execute pacotes SSIS por Azure SQL Trabalho de Agente de Instância Gerido](how-to-invoke-ssis-package-managed-instance-agent.md)
 - [Limpe os registos SSISDB por Azure SQL Trabalho de Agente de Instância Gerido](#clean-up-ssisdb-logs)
-- [Falha do Azure-SSIS IR com Azure SQL Gestd instance](configure-bcdr-azure-ssis-integration-runtime.md#azure-ssis-ir-failover-with-a-sql-managed-instance)
+- [Falha do Azure-SSIS IR com Azure SQL Gestd instance](configure-bcdr-azure-ssis-integration-runtime.md)
 - [Migrar no local cargas de trabalho SSIS para SSIS em ADF com Azure SQL Instância gerida como destino de carga de trabalho de base de dados](scenario-ssis-migration-overview.md#azure-sql-managed-instance-as-database-workload-destination)
 
 ## <a name="provision-azure-ssis-ir-with-ssisdb-hosted-by-azure-sql-managed-instance"></a>Provision Azure-SSIS IR com SSISDB hospedado por Azure SQL Gerenciada Instância

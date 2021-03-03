@@ -4,14 +4,14 @@ description: Saiba como criar uma ação lógica de aplicação para processar a
 author: dkamstra
 ms.author: dukek
 ms.topic: conceptual
-ms.date: 07/18/2018
+ms.date: 02/19/2021
 ms.subservice: alerts
-ms.openlocfilehash: d74d77abbc0d105e6772240b8a6d7f463e8d94f7
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: adef1f729cbecd08b2cf99231423287bdc4c6ae0
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100620312"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101701183"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Como desencadear ações complexas com alertas do Azure Monitor
 
@@ -19,7 +19,7 @@ Este artigo mostra-lhe como configurar e desencadear uma aplicação lógica par
 
 ## <a name="overview"></a>Descrição Geral
 
-Quando um alerta do Monitor Azure dispara, chama um [grupo de ação](../platform/action-groups.md). Os grupos de ação permitem-lhe desencadear uma ou mais ações para notificar os outros sobre um alerta e também remediar o mesmo.
+Quando um alerta do Monitor Azure dispara, chama um [grupo de ação](./action-groups.md). Os grupos de ação permitem-lhe desencadear uma ou mais ações para notificar os outros sobre um alerta e também remediar o mesmo.
 
 O processo geral é:
 
@@ -35,29 +35,15 @@ O processo é semelhante se quiser que a aplicação lógica realize uma ação 
 
 ## <a name="create-an-activity-log-alert-administrative"></a>Criar um alerta de registo de atividade: Administrativo
 
-1.  No portal Azure, **selecione Criar um recurso** no canto superior esquerdo.
+1. [Criar uma app lógica](~/articles/logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-2.  Procure e selecione **a Aplicação Lógica** e, em seguida, selecione **Criar**.
+2.  Selecione o gatilho: **Quando um pedido HTTP for recebido**.
 
-3.  Dê à sua aplicação lógica um **Nome,** escolha um **grupo de Recursos,** e assim por diante.
+1. No diálogo para **quando for recebido um pedido HTTP**, selecione Utilize a carga útil da amostra para gerar **esquema**.
 
-    ![Criar uma aplicação lógica](media/action-groups-logic-app/create-logic-app-dialog.png "Criar uma aplicação lógica")
+    ![Screenshot que mostra a caixa de diálogo de pedido de H T T P e a carga útil da amostra de utilização para gerar esquema opion selecionado. ](~/articles/app-service/media/tutorial-send-email/generate-schema-with-payload.png)
 
-4.  Selecione **Criar** para criar a aplicação lógica. Uma mensagem pop-up indica que a aplicação lógica é criada. Selecione **Recurso de lançamento** para abrir o Logic Apps **Designer**.
-
-5.  Selecione o gatilho: **Quando um pedido HTTP for recebido**.
-
-    ![Acionadores da aplicação lógica](media/action-groups-logic-app/logic-app-triggers.png "Acionadores da aplicação lógica")
-
-6.  **Selecione editar** para alterar o gatilho de pedido HTTP.
-
-    ![Detonadores de pedidos HTTP](media/action-groups-logic-app/http-request-trigger-shape.png "Detonadores de pedidos HTTP")
-
-7.  Selecione **Utilizar o payload de exemplo para gerar esquema**.
-
-    ![Use uma carga útil de amostra](media/action-groups-logic-app/use-sample-payload-button.png "Use uma carga útil de amostra")
-
-8.  Copiar e colar a seguinte carga útil da amostra na caixa de diálogo:
+3.  Copiar e colar a seguinte carga útil da amostra na caixa de diálogo:
 
     ```json
         {
@@ -128,7 +114,7 @@ O processo é semelhante se quiser que a aplicação lógica realize uma ação 
 
 14. No topo do **Logic Apps Designer,** selecione **Save** para guardar a sua aplicação lógica.
 
-15. Abra o seu grupo de ação existente e adicione uma ação para fazer referência à aplicação lógica. Se não tiver um grupo de ação existente, consulte [Criar e gerir grupos de ação no portal Azure](../platform/action-groups.md) para criar um. Não se esqueça de guardar as suas mudanças.
+15. Abra o seu grupo de ação existente e adicione uma ação para fazer referência à aplicação lógica. Se não tiver um grupo de ação existente, consulte [Criar e gerir grupos de ação no portal Azure](./action-groups.md) para criar um. Não se esqueça de guardar as suas mudanças.
 
     ![Atualizar o grupo de ação](media/action-groups-logic-app/update-action-group.png "Atualizar o grupo de ação")
 
@@ -138,8 +124,8 @@ Da próxima vez que um alerta chamar o seu grupo de ação, a sua aplicação l�
 
 As entradas no Serviço Azure são parte do registo de atividades. O processo de criação do alerta é semelhante à criação de [um alerta de registo de atividade,](#create-an-activity-log-alert-administrative)mas com algumas alterações:
 
-- Os passos 1 a 7 são os mesmos.
-- Para o passo 8, utilize a seguinte carga útil da amostra para o gatilho do pedido HTTP:
+- Os passos 1 a 3 são os mesmos.
+- Para o passo 4, utilize a seguinte carga útil da amostra para o gatilho do pedido HTTP:
 
     ```json
     {
@@ -183,8 +169,8 @@ As entradas no Serviço Azure são parte do registo de atividades. O processo de
     }
     ```
 
--  Os passos 9 e 10 são os mesmos.
--  Para os passos 11 a 14, utilize o seguinte processo:
+-  Os passos 5 e 6 são os mesmos.
+-  Para os passos 7 a 11, utilize o seguinte processo:
 
    1. Selecione **+** **Novo passo** e, em seguida, escolha **Adicionar uma condição**. Desaprote as seguintes condições para que a aplicação lógica execute apenas quando os dados de entrada correspondem aos valores abaixo.  Ao introduzir o valor da versão na caixa de texto, coloque aspas à sua volta ("0.1.1") para se certificar de que é avaliada como uma corda e não como um tipo numérico.  O sistema não mostra as cotações se voltar à página, mas o código subjacente ainda mantém o tipo de corda.   
        - `schemaId == Microsoft.Insights/activityLogs`
@@ -226,8 +212,8 @@ As entradas no Serviço Azure são parte do registo de atividades. O processo de
 
 O processo de criação de um alerta métrico é semelhante à criação de [um alerta de registo de atividade,](#create-an-activity-log-alert-administrative)mas com algumas alterações:
 
-- Os passos 1 a 7 são os mesmos.
-- Para o passo 8, utilize a seguinte carga útil da amostra para o gatilho do pedido HTTP:
+- Os passos 1 a 3 são os mesmos.
+- Para o passo 4, utilize a seguinte carga útil da amostra para o gatilho do pedido HTTP:
 
     ```json
     {
@@ -271,8 +257,8 @@ O processo de criação de um alerta métrico é semelhante à criação de [um 
     }
     ```
 
-- Os passos 9 e 10 são os mesmos.
-- Para os passos 11 a 14, utilize o seguinte processo:
+- Os passos 5 e 6 são os mesmos.
+- Para os passos 7 a 11, utilize o seguinte processo:
 
   1. Selecione **+** **Novo passo** e, em seguida, escolha **Adicionar uma condição**. Desaprote as seguintes condições para que a aplicação lógica execute apenas quando os dados de entrada correspondem a estes valores abaixo. Ao introduzir o valor da versão na caixa de texto, coloque aspas à sua volta ("2.0") para garantir que é avaliada como uma corda e não como um tipo numérico.  O sistema não mostra as cotações se voltar à página, mas o código subjacente ainda mantém o tipo de corda. 
      - `schemaId == AzureMonitorMetricAlert`
@@ -294,7 +280,6 @@ O processo de criação de um alerta métrico é semelhante à criação de [um 
 A Logic Apps tem uma série de conectores diferentes que permitem desencadear ações numa vasta gama de aplicações e bases de dados. Slack, SQL Server, Oracle, Salesforce, são apenas alguns exemplos. Para obter mais informações sobre conectores, consulte [os conectores Logic App](../../connectors/apis-list.md).  
 
 ## <a name="next-steps"></a>Passos seguintes
-* Obtenha uma [visão geral dos alertas de registo de atividades do Azure](../platform/alerts-overview.md) e aprenda a receber alertas.  
+* Obtenha uma [visão geral dos alertas de registo de atividades do Azure](./alerts-overview.md) e aprenda a receber alertas.  
 * Saiba como [configurar alertas quando for publicada uma notificação de Saúde do Serviço Azure](../../service-health/alerts-activity-log-service-notifications-portal.md).
-* Saiba mais sobre [grupos de ação.](../platform/action-groups.md)
-
+* Saiba mais sobre [grupos de ação.](./action-groups.md)

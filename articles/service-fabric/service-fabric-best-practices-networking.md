@@ -5,14 +5,14 @@ author: chrpap
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: chrpap
-ms.openlocfilehash: b8db69792b31fd82646757423e669e39e8539d06
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: caba864e77822ccab649f694df7e63e0ee5d6e51
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91630707"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101732569"
 ---
-# <a name="networking"></a>Redes
+# <a name="networking"></a>Rede
 
 À medida que cria e gere os clusters Azure Service Fabric, está a fornecer conectividade de rede para os seus nós e aplicações. Os recursos de rede incluem intervalos de endereços IP, redes virtuais, equilibradores de carga e grupos de segurança de rede. Neste artigo, aprenderá as melhores práticas para estes recursos.
 
@@ -39,7 +39,7 @@ Maximize o desempenho da sua Máquina Virtual com rede acelerada, declarando ati
 ```
 O cluster de tecido de serviço pode ser a provisionado em [Linux com Rede Acelerada](../virtual-network/create-vm-accelerated-networking-cli.md)e [Windows com Rede Acelerada](../virtual-network/create-vm-accelerated-networking-powershell.md).
 
-A Rede Acelerada é suportada para SKUs da Série de Máquinas Virtuais Azure: D/DSv2, D/DSv3, E/ESv3, F/FS, FSv2 e Ms/Mms. O Accelerated Networking foi testado com sucesso utilizando o SKU Standard_DS8_v3 em 01/23/2019 para um Service Fabric Windows Cluster, e utilizando Standard_DS12_v2 em 01/29/2019 para um Cluster de Tecidos de Serviço Linux.
+A Rede Acelerada é suportada para SKUs da Série de Máquinas Virtuais Azure: D/DSv2, D/DSv3, E/ESv3, F/FS, FSv2 e Ms/Mms. O Accelerated Networking foi testado com sucesso utilizando o SKU Standard_DS8_v3 em 01/23/2019 para um Service Fabric Windows Cluster, e utilizando Standard_DS12_v2 em 01/29/2019 para um Cluster de Tecidos de Serviço Linux. Por favor, note que a rede acelerada requer pelo menos 4 vCPUs. 
 
 Para ativar o networking acelerado num cluster de tecido de serviço existente, é necessário [primeiro escalar um cluster de tecido de serviço adicionando um Conjunto de Balança de Máquina Virtual,](./virtual-machine-scale-set-scale-node-type-scale-out.md)para executar o seguinte:
 1. Provisionar um NodeType com rede acelerada ativada
@@ -62,7 +62,7 @@ A escala da infraestrutura é necessária para permitir a rede acelerada num clu
 As regras básicas aqui são o mínimo para um bloqueio de segurança de um cluster de tecido de serviço gerido Azure. A não abertura das seguintes portas ou a aprovação do IP/URL impedirá o bom funcionamento do cluster e poderá não ser suportada. Com esta regra definida é estritamente necessário utilizar [atualizações automáticas](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md)de imagem de SO, caso contrário, portas adicionais terão de ser abertas.
 
 ### <a name="inbound"></a>Entrada 
-|Prioridade   |Nome               |Porta        |Protocolo  |Origem             |Destino       |Ação   
+|Prioridade   |Name               |Porta        |Protocolo  |Origem             |Destino       |Ação   
 |---        |---                |---         |---       |---                |---               |---
 |3900       |Azure              |19080       |TCP       |Internet           |VirtualNetwork    |Permitir
 |3910       |Cliente             |19000       |TCP       |Internet           |VirtualNetwork    |Permitir
@@ -97,7 +97,7 @@ Mais informações sobre as regras de segurança de entrada:
 
 ### <a name="outbound"></a>Saída
 
-|Prioridade   |Nome               |Porta        |Protocolo  |Origem             |Destino       |Ação   
+|Prioridade   |Name               |Porta        |Protocolo  |Origem             |Destino       |Ação   
 |---        |---                |---         |---       |---                |---               |---
 |3900       |Rede            |Qualquer         |TCP       |VirtualNetwork     |VirtualNetwork    |Permitir
 |3910       |Fornecedor de Recursos  |443         |TCP       |VirtualNetwork     |ServiceFabric     |Permitir

@@ -2,15 +2,15 @@
 title: Criar e implementar especificações de modelo
 description: Descreve como criar especificações de modelo e partilhá-las com outros utilizadores na sua organização.
 ms.topic: conceptual
-ms.date: 01/14/2021
+ms.date: 03/02/2021
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 762c483883d391c436065b13b54f127f1618d7f9
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: e4efc63ffa49b1c8ca44fc806e37e4aa91cd76c8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98734920"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101700393"
 ---
 # <a name="azure-resource-manager-template-specs-preview"></a>Especificações do modelo do Gestor de Recursos Azure (Visualização)
 
@@ -246,6 +246,78 @@ az deployment group create \
 
 ---
 
+## <a name="versioning"></a>Controlo de versões
+
+Quando cria uma especificação de modelo, fornece-se um nome de versão para o mesmo. Ao iterar no código do modelo, pode atualizar uma versão existente (para hotfixes) ou publicar uma nova versão. A versão é uma cadeia de texto. Pode optar por seguir qualquer sistema de versão, incluindo a versão semântica. Os utilizadores da especificação do modelo podem fornecer o nome da versão que pretendem usar ao implantá-lo.
+
+## <a name="use-tags"></a>Utilizar etiquetas
+
+[As etiquetas](../management/tag-resources.md) ajudam-no a organizar logicamente os seus recursos. Pode adicionar tags às especificações do modelo utilizando a Azure PowerShell e a Azure CLI:
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+New-AzTemplateSpec `
+  -Name storageSpec `
+  -Version 1.0a `
+  -ResourceGroupName templateSpecsRg `
+  -Location westus2 `
+  -TemplateFile ./mainTemplate.json `
+  -Tag @{Dept="Finance";Environment="Production"}
+```
+
+# <a name="cli"></a>[CLI](#tab/azure-cli)
+
+```azurecli
+az ts create \
+  --name storageSpec \
+  --version "1.0a" \
+  --resource-group templateSpecRG \
+  --location "westus2" \
+  --template-file "./mainTemplate.json" \
+  --tags Dept=Finance Environment=Production
+```
+
+---
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+```azurepowershell
+Set-AzTemplateSpec `
+  -Name storageSpec `
+  -Version 1.0a `
+  -ResourceGroupName templateSpecsRg `
+  -Location westus2 `
+  -TemplateFile ./mainTemplate.json `
+  -Tag @{Dept="Finance";Environment="Production"}
+```
+
+# <a name="cli"></a>[CLI](#tab/azure-cli)
+
+```azurecli
+az ts update \
+  --name storageSpec \
+  --version "1.0a" \
+  --resource-group templateSpecRG \
+  --location "westus2" \
+  --template-file "./mainTemplate.json" \
+  --tags Dept=Finance Environment=Production
+```
+
+---
+
+Ao criar ou modificar uma especificação do modelo com o parâmetro de versão especificado, mas sem o parâmetro tag/tags:
+
+- Se a especificação do modelo existe e tem tags, mas a versão não existe, a nova versão herda as mesmas etiquetas que a especificação do modelo existente.
+
+Ao criar ou modificar uma especificação do modelo com o parâmetro tag/tags e o parâmetro da versão especificado:
+
+- Se a especificação do modelo e a versão não existirem, as etiquetas são adicionadas tanto à nova especificação do modelo como à nova versão.
+- Se a especificação do modelo existir, mas a versão não existir, as tags são adicionadas apenas à nova versão.
+- Se existirem tanto a especificação do modelo como a versão, as tags aplicam-se apenas à versão.
+
+Ao modificar um modelo com o parâmetro tag/tags especificado, mas sem o parâmetro de versão especificado, as etiquetas só são adicionadas à especificação do modelo.
+
 ## <a name="create-a-template-spec-with-linked-templates"></a>Crie uma especificação de modelo com modelos ligados
 
 Se o modelo principal para as referências de especificação do seu modelo ligar modelos, os comandos PowerShell e CLI podem automaticamente encontrar e embalar os modelos ligados a partir da sua unidade local. Não precisa configurar manualmente contas de armazenamento ou repositórios para hospedar as especificações do modelo - tudo é autossuficiente no recurso de especificação do modelo.
@@ -332,11 +404,7 @@ O exemplo a seguir é semelhante ao exemplo anterior, mas você usa a `id` propr
 
 Para obter mais informações sobre as especificações do modelo de ligação, consulte [Tutorial: Implemente uma especificação do modelo como um modelo ligado](template-specs-deploy-linked-template.md).
 
-## <a name="versioning"></a>Controlo de versões
-
-Quando cria uma especificação de modelo, fornece-se um nome de versão para o mesmo. Ao iterar no código do modelo, pode atualizar uma versão existente (para hotfixes) ou publicar uma nova versão. A versão é uma cadeia de texto. Pode optar por seguir qualquer sistema de versão, incluindo a versão semântica. Os utilizadores da especificação do modelo podem fornecer o nome da versão que pretendem usar ao implantá-lo.
-
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Para criar e implementar uma especificação de modelo, consulte [Quickstart: Criar e implementar a especificação do modelo](quickstart-create-template-specs.md).
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: b484873f6c118c49712cbcd66eeb6a63d8aa05f6
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 5367fbcb88e19253eead58d8f99933fdadc41898
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100591551"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101714719"
 ---
 # <a name="azure-security-baseline-for-azure-storage"></a>Linha de base de segurança Azure para armazenamento Azure
 
@@ -190,7 +190,7 @@ Também pode utilizar definições de política incorporadas relacionadas com a 
 
 **Orientação**: A Azure Storage Analytics fornece registos para bolhas, filas e mesas. Pode utilizar o portal Azure para configurar quais os registos registados para a sua conta. 
 
-- [Como configurar a monitorização para a sua conta de Armazenamento Azure](./storage-monitor-storage-account.md#configure-monitoring-for-a-storage-account)
+- [Como configurar a monitorização para a sua conta de Armazenamento Azure](./manage-storage-analytics-logs.md)
 
 **Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
@@ -208,7 +208,7 @@ Também pode utilizar definições de política incorporadas relacionadas com a 
 
 **Orientação**: Ao armazenar registos de eventos de segurança na conta de armazenamento Azure ou no espaço de trabalho Log Analytics, poderá definir a política de retenção de acordo com os requisitos da sua organização. 
 
-- [Como configurar a política de retenção para os registos de conta de armazenamento Azure](./storage-monitor-storage-account.md#configure-logging)
+- [Como configurar a política de retenção para os registos de conta de armazenamento Azure](./manage-storage-analytics-logs.md#configure-logging)
 
 - [Alterar o período de retenção de dados em Log Analytics](../../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
@@ -414,7 +414,7 @@ Uma forma eficaz de reduzir o risco de acesso insuspeito à conta de utilizador 
 
 - [Gerir o acesso de leitura anónimo a contentores e blobs](../blobs/anonymous-read-access-configure.md)
 
-- [Monitorizar uma conta de armazenamento no portal do Azure](./storage-monitor-storage-account.md)
+- [Monitorizar uma conta de armazenamento no portal do Azure](./manage-storage-analytics-logs.md)
 
 - [Gerir chaves de acesso à conta de armazenamento](./storage-account-keys-manage.md)
 
@@ -432,7 +432,7 @@ Criar Definições de Diagnóstico para contas de utilizadores do Azure Ative Di
 
 - [Como integrar os Registos de Atividades do Azure no Azure Monitor](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-- [Como configurar alertas de métricas para contas de armazenamento Azure](./storage-monitor-storage-account.md)
+- [Como configurar alertas de métricas para contas de armazenamento Azure](./manage-storage-analytics-logs.md)
 
 **Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 
@@ -576,7 +576,7 @@ Além disso, utilize políticas de ponto final do serviço de rede virtual para 
 
 - [Azure Storage analytics logging](./storage-analytics-logging.md) (Registo de análise do Armazenamento do Azure)
 
-- [Como configurar alertas de métricas para contas de armazenamento Azure](./storage-monitor-storage-account.md)
+- [Como configurar alertas de métricas para contas de armazenamento Azure](./manage-storage-analytics-logs.md)
 
 **Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
 

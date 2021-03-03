@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 04/18/2019
+ms.date: 02/23/2021
 ms.author: sbowles
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 81a5f771e141639b2dcf33afe603fe53428bf88a
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 3a15cce45c527a92c99e0488661e0b67bb8e2371
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98943598"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713070"
 ---
 # <a name="get-face-detection-data"></a>Obtenha dados de deteção facial
 
@@ -76,7 +76,7 @@ Em seguida, obtenha referências aos dados devolvidos e faça mais operações d
 
 Para saber mais sobre cada um dos atributos, consulte a [deteção](../concepts/face-detection.md) do Rosto e atribui o guia conceptual.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste guia, aprendeu a utilizar as várias funcionalidades de deteção facial. Em seguida, integre estas funcionalidades na sua app seguindo um tutorial aprofundado.
 

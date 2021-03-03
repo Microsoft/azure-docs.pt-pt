@@ -5,20 +5,20 @@ author: vhorne
 ms.service: web-application-firewall
 services: web-application-firewall
 ms.topic: tutorial
-ms.date: 09/15/2020
+ms.date: 02/18/2021
 ms.author: victorh
-ms.openlocfilehash: ba344c3b1570c041e1602bdfcde1b3a4055dc396
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 8b1d1007e817bafe3d75f0f0d7c3fc6eb5470854
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132759"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101729475"
 ---
 # <a name="tutorial-create-a-web-application-firewall-policy-on-azure-front-door-using-the-azure-portal"></a>Tutorial: Criar uma política de Firewall de aplicação web na porta frontal do Azure usando o portal Azure
 
 Este tutorial mostra-lhe como criar uma política básica de Firewall de Aplicação Web (WAF) e aplicá-la a um anfitrião frontal na Azure Front Door.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Criar uma política de WAF
@@ -62,21 +62,23 @@ Em primeiro lugar, crie uma política de WAF básica com o Conjunto de Regras Pa
 Quando cria uma política WAF, pela política padrão de WAF está no modo **deteção.** No modo **deteção,** a WAF não bloqueia quaisquer pedidos, em vez disso, os pedidos correspondentes às regras WAF são registados nos registos WAF.
 Para ver o WAF em ação, pode alterar as definições de modo de **Deteção** para **Prevenção**. No modo **prevenção,** os pedidos que correspondam às regras definidas no Conjunto de Regras Predefinidas (DRS) são bloqueados e registados nos registos WAF.
 
- :::image type="content" source="../media/waf-front-door-create-portal/policy.png" alt-text="Screenshot da página de política Create a F, com um Review + criar caixas de botão e lista para a subscrição, grupo de recursos e nome de política." border="false":::
+ :::image type="content" source="../media/waf-front-door-create-portal/policy.png" alt-text="Screenshot da secção de definições de Política. O alternador de modo está definido para Prevenção." border="false":::
 
 ### <a name="custom-rules"></a>Regras personalizadas
 
 Pode criar uma regra personalizada selecionando a **regra personalizada De** acordo com a secção de **regras personalizadas.** Isto lança a página de configuração de regras personalizadas. Abaixo está um exemplo de configuração de uma regra personalizada para bloquear um pedido se a cadeia de consulta contiver **blockme**.
 
-:::image type="content" source="../media/waf-front-door-create-portal/customquerystring2.png" alt-text="Screenshot da página de política Create a F, com um Review + criar caixas de botão e lista para a subscrição, grupo de recursos e nome de política." border="false":::
+:::image type="content" source="../media/waf-front-door-create-portal/customquerystring2.png" alt-text="Screenshot da página de configuração de regras personalizadas mostrando definições para uma regra que verifica se a variável QueryString contém o bloco de valor." border="false":::
 
 ### <a name="default-rule-set-drs"></a>Conjunto de regras predefinidos (DRS)
 
-O Conjunto de Regras Predefinidas geridos pelo Azure é ativado por padrão. Para desativar uma regra individual dentro de um grupo de regras, expanda as regras dentro desse grupo de regras, selecione a caixa de **verificação** à frente do número de regras e selecione **Desativar** o separador acima. Para alterar tipos de ações para regras individuais dentro do conjunto de regras, selecione a caixa de verificação à frente do número de regra e, em seguida, selecione o separador **de ação Change** acima.
+O Conjunto de Regras Predefinidas geridos pelo Azure é ativado por padrão. A versão padrão atual é DefaultRuleSet_1.0. De **acordo com as regras** da WAF Managed , **Atribua,** o ruleset Microsoft_DefaultRuleSet_1.1 recentemente disponível está disponível na lista de drop down.
 
- :::image type="content" source="../media/waf-front-door-create-portal/managed2.png" alt-text="Screenshot da página de política Create a F, com um Review + criar caixas de botão e lista para a subscrição, grupo de recursos e nome de política." border="false":::
+Para desativar uma regra individual dentro de um grupo de regras, expanda as regras dentro desse grupo de regras, selecione a caixa de **verificação** à frente do número de regras e selecione **Desativar** o separador acima. Para alterar tipos de ações para regras individuais dentro do conjunto de regras, selecione a caixa de verificação à frente do número de regra e, em seguida, selecione o separador **de ação Change** acima.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+ :::image type="content" source="../media/waf-front-door-create-portal/managed2.png" alt-text="Screenshot da página de regras geridas mostrando um conjunto de regras, grupos de regras, regras e botões de Ativação, Desativação e Alteração de Ação. Uma regra é verificada." border="false":::
+
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Quando já não for necessário, remova o grupo de recursos e todos os recursos relacionados.
 

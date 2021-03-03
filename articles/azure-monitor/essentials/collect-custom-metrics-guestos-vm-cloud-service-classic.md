@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 971a3063ff86e2a6b7d1b11f72ff0a257f459da0
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: d6866361b78656d99888c4df70cc0c92ed096425
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100613288"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737074"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-classic-cloud-services"></a>Envie métricas de SO para a loja métrica Azure Monitor clássico Cloud Services 
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Com a extensão Azure Monitor [Diagnostics,](../agents/diagnostics-extension-overview.md)pode recolher métricas e registos do sistema operativo convidado (Guest OS) em funcionamento como parte de uma máquina virtual, serviço de nuvem ou cluster de Tecido de Serviço. A extensão pode enviar telemetria para [vários locais diferentes.](../platform/data-platform.md?toc=/azure/azure-monitor/toc.json)
+Com a extensão Azure Monitor [Diagnostics,](../agents/diagnostics-extension-overview.md)pode recolher métricas e registos do sistema operativo convidado (Guest OS) em funcionamento como parte de uma máquina virtual, serviço de nuvem ou cluster de Tecido de Serviço. A extensão pode enviar telemetria para [vários locais diferentes.](../data-platform.md?toc=%2fazure%2fazure-monitor%2ftoc.json)
 
 Este artigo descreve o processo de envio de métricas de desempenho do Guest OS para a Azure classic Cloud Services para a loja métrica Azure Monitor. A partir da versão 1.11 do Diagnostics, pode escrever métricas diretamente na loja de métricas do Azure Monitor, onde já são recolhidas métricas padrão da plataforma. 
 
@@ -34,7 +34,7 @@ O processo que está delineado neste artigo funciona apenas para contadores de d
 
 - Precisa de ter [a Azure PowerShell](/powershell/azure) ou [a Azure Cloud Shell](../../cloud-shell/overview.md) instaladas.
 
-- O seu Serviço cloud deve estar numa [região que suporte métricas personalizadas.](../platform/metrics-custom-overview.md#supported-regions)
+- O seu Serviço cloud deve estar numa [região que suporte métricas personalizadas.](./metrics-custom-overview.md#supported-regions)
 
 ## <a name="provision-a-cloud-service-and-storage-account"></a>Fornecimento de um serviço em nuvem e conta de armazenamento 
 
@@ -191,4 +191,4 @@ Utiliza-se a capacidade de filtragem e divisão de dimensões para visualizar a 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre [métricas personalizadas.](../platform/metrics-custom-overview.md)
+- Saiba mais sobre [métricas personalizadas.](./metrics-custom-overview.md)

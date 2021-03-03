@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: dc301cf7149ad9fcd5bd5c02226afedc4df5e3ee
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 63db8375379144b2ede78d9e7010a350b3f69b12
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94833100"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726415"
 ---
 # <a name="orchestrator-function-code-constraints"></a>Restrições do código de função do orquestrador
 
@@ -31,7 +31,7 @@ A tabela que se segue mostra exemplos de APIs que deve evitar porque *não* são
 | Categoria API | Razão | Solução |
 | ------------ | ------ | ---------- |
 | Datas e horas  | As APIs que devolvem a data ou hora corrente não são desdeterministas porque o valor devolvido é diferente para cada repetição. | Utilize a propriedade [CurrentUtcDateTime](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableorchestrationcontext.currentutcdatetime) em .NET, a `currentUtcDateTime` API em JavaScript ou a `current_utc_datetime` API em Python, que são seguras para repetição. |
-| GUIDs e UUIDs  | As APIs que devolvem um GUID ou UUID aleatórios não são desdeterministas porque o valor gerado é diferente para cada repetição. | Utilize [o NewGuid](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableorchestrationcontext.newguid) em .NET ou `newGuid` em JavaScript para gerar GUIDs aleatórios de forma segura. |
+| GUIDs e UUIDs  | As APIs que devolvem um GUID ou UUID aleatórios não são desdeterministas porque o valor gerado é diferente para cada repetição. | Utilize [o NewGuid](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.idurableorchestrationcontext.newguid) em .NET, `newGuid` em JavaScript e em Python para gerar `new_guid` GUIDs aleatórios de forma segura. |
 | Números aleatórios | As APIs que devolvem números aleatórios não são desdeterministas porque o valor gerado é diferente para cada repetição. | Utilize uma função de atividade para devolver números aleatórios a uma orquestração. Os valores de retorno das funções de atividade são sempre seguros para a repetição. |
 | Enlaces | As ligações de entrada e saída normalmente fazem E/S e não são desdeterminísticas. Uma função orquestradora não deve utilizar diretamente nem mesmo as ligações do [cliente de orquestração](durable-functions-bindings.md#orchestration-client) e [da entidade](durable-functions-bindings.md#entity-client) cliente. | Utilize encadernações de entrada e saída dentro das funções de cliente ou de atividade. |
 | Rede | As chamadas de rede envolvem sistemas externos e não são desdeterminais. | Utilize funções de atividade para escamar chamadas de rede. Se necessitar de fazer uma chamada HTTP da função do seu orquestrador, também pode utilizar as [APIS HTTP duráveis.](durable-functions-http-features.md#consuming-http-apis) |

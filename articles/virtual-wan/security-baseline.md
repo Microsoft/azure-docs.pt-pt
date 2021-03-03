@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/24/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 6f487467b08332eea4ee19a7fb8836d843bd254f
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: e4bbc1565cec2c356e916f813a6a334648d82754
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100582646"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726738"
 ---
 # <a name="azure-security-baseline-for-virtual-wan"></a>Linha de segurança Azure para VIRTUAL WAN
 
@@ -384,7 +384,7 @@ A segurança Azure Virtual WAN é fornecida através do Azure Firewall.
 
 - [Alterar o período de retenção de dados em Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
-- [Como configurar a política de retenção para os registos de conta de armazenamento Azure](../storage/common/storage-monitor-storage-account.md#configure-logging)
+- [Como configurar a política de retenção para os registos de conta de armazenamento Azure](../storage/common/manage-storage-analytics-logs.md#configure-logging)
 
 - [Alertas e recomendações do Centro de Segurança Azure](../security-center/continuous-export.md)
 

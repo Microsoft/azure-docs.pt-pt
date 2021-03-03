@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 023b0f4d7f0367882e0a5bb2be89c485c18bc03c
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 490b9d54aa3b661124699a472b453f80d9c39963
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897837"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101705369"
 ---
 # <a name="live-event-low-latency-settings"></a>Configurações de baixa latência do Evento Ao Vivo
 
@@ -34,28 +34,11 @@ Para utilizar a nova função **LowLatency,** define o **StreamOptionsFlag** par
 
 O exemplo .NET a seguir mostra como definir **a LowLatency** no **LiveEvent**:
 
-```csharp
-LiveEvent liveEvent = new LiveEvent(
-            location: mediaService.Location, 
-            description: "Sample LiveEvent for testing",
-            vanityUrl: false,
-            encoding: new LiveEventEncoding(
-                        // Set this to Standard to enable a transcoding LiveEvent, and None to enable a pass-through LiveEvent
-                        encodingType:LiveEventEncodingType.None, 
-                        presetName:null
-                    ),
-            input: new LiveEventInput(LiveEventInputProtocol.RTMP,liveEventInputAccess), 
-            preview: liveEventPreview,
-            streamOptions: new List<StreamOptionsFlag?>()
-            {
-                // Set this to Default or Low Latency
-                // To use low latency optimally, you should tune your encoder settings down to 1 second "Group Of Pictures" (GOP) length instead of 2 seconds.
-                StreamOptionsFlag.LowLatency
-            }
-        );
-```                
+[!code-csharp[Main](../../../media-services-v3-dotnet/blob/main/Live/LiveEventWithDVR/Program.cs#NewLiveEvent)]
 
-Veja o exemplo completo: [MediaV3LiveApp](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/blob/master/NETCore/Live/MediaV3LiveApp/Program.cs#L126).
+        
+
+Veja o exemplo completo: [Live Event com DVR](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/main/Live/LiveEventWithDVR/Program.cs).
 
 ## <a name="live-events-latency"></a>Latência de Eventos Ao Vivo
 
@@ -66,19 +49,19 @@ As tabelas que se seguem mostram resultados típicos de latência (quando a band
 ||2s GOP baixa latência habilitada|1s GOP baixa latência habilitada|
 |---|---|---|
 |**DASH em AMP**|10|8s|
-|**HLS no jogador nativo do iOS**|14s|10|
+|**HLS no jogador nativo do iOS**|341|10|
 
 ### <a name="live-encoding"></a>Live Encoding
 
 ||2s GOP baixa latência habilitada|1s GOP baixa latência habilitada|
 |---|---|---|
-|**DASH em AMP**|14s|10|
+|**DASH em AMP**|341|10|
 |**HLS no jogador nativo do iOS**|18s|13s|
 
 > [!NOTE]
 > A latência de ponta a ponta pode variar dependendo das condições da rede local ou introduzindo uma camada de caching CDN. Deve testar as configurações exatas.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Visão geral do streaming ao vivo](live-streaming-overview.md)
 - [Tutorial de streaming ao vivo](stream-live-tutorial-with-api.md)

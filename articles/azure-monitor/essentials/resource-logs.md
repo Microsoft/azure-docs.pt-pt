@@ -7,27 +7,27 @@ ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 3560152ce5e3185e79c7a7ff34e5360f10236980
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: dcd6522c46b6ca35031092c634803267a8486647
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100616461"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731464"
 ---
 # <a name="azure-resource-logs"></a>Registos de recursos do Azure
-Os registos de recursos Azure são [registos de plataformas](../essentials/platform-logs-overview.md) que fornecem informações sobre operações que foram realizadas dentro de um recurso Azure. O conteúdo dos registos de recursos varia consouros e de tipo de recurso. Os registos de recursos não são recolhidos por predefinição. Tem de criar uma definição de diagnóstico para cada recurso Azure para enviar os seus registos de recursos para um espaço de trabalho do Log Analytics para utilizar com [registos do Monitor Azure,](../platform/data-platform-logs.md)Azure Event Hubs para encaminhar para fora do Azure, ou para o Azure Storage para arquivar.
+Os registos de recursos Azure são [registos de plataformas](../essentials/platform-logs-overview.md) que fornecem informações sobre operações que foram realizadas dentro de um recurso Azure. O conteúdo dos registos de recursos varia consouros e de tipo de recurso. Os registos de recursos não são recolhidos por predefinição. Tem de criar uma definição de diagnóstico para cada recurso Azure para enviar os seus registos de recursos para um espaço de trabalho do Log Analytics para utilizar com [registos do Monitor Azure,](../logs/data-platform-logs.md)Azure Event Hubs para encaminhar para fora do Azure, ou para o Azure Storage para arquivar.
 
 Consulte [Criar definições de diagnóstico para enviar registos e métricas da plataforma para diferentes destinos](../essentials/diagnostic-settings.md) para obter detalhes sobre a criação de uma definição de diagnóstico e [implementar o Monitor Azure em escala utilizando a Política Azure](../deploy-scale.md) para obter detalhes sobre a utilização da Política Azure para criar automaticamente uma definição de diagnóstico para cada recurso Azure que criar.
 
 ## <a name="send-to-log-analytics-workspace"></a>Enviar para a área de trabalho do Log Analytics
- Envie registos de recursos para um espaço de trabalho do Log Analytics para permitir as funcionalidades dos Registos do [Monitor Azure,](../platform/data-platform-logs.md) que inclui os seguintes:
+ Envie registos de recursos para um espaço de trabalho do Log Analytics para permitir as funcionalidades dos Registos do [Monitor Azure,](../logs/data-platform-logs.md) que inclui os seguintes:
 
 - Correlacionar os dados de registo de recursos com outros dados de monitorização recolhidos pelo Azure Monitor.
 - Consolidar entradas de registo de múltiplos recursos Azure, subscrições e inquilinos em um local para análise em conjunto.
 - Use consultas de registo para realizar análises complexas e obtenha informações profundas sobre dados de registo.
 - Utilize alertas de registo com lógica de alerta complexa.
 
-[Crie uma definição de diagnóstico](../essentials/diagnostic-settings.md) para enviar registos de recursos para um espaço de trabalho Log Analytics. Estes dados são armazenados em tabelas conforme descrito na [Estrutura de Registos monitores Azure](../platform/data-platform-logs.md). As tabelas utilizadas pelos registos de recursos dependem do tipo de recolha que o recurso está a utilizar:
+[Crie uma definição de diagnóstico](../essentials/diagnostic-settings.md) para enviar registos de recursos para um espaço de trabalho Log Analytics. Estes dados são armazenados em tabelas conforme descrito na [Estrutura de Registos monitores Azure](../logs/data-platform-logs.md). As tabelas utilizadas pelos registos de recursos dependem do tipo de recolha que o recurso está a utilizar:
 
 - Diagnósticos Azure - Todos os dados escritos são para a tabela _AzureDiagnostics._
 - Específico de recursos - Os dados são escritos para tabela individual para cada categoria do recurso.
@@ -90,7 +90,7 @@ A maioria dos recursos Azure escreverá dados para o espaço de trabalho no modo
    ![Seletor de modo definições de diagnóstico](media/resource-logs/diagnostic-settings-mode-selector.png)
 
 > [!NOTE]
-> Para um exemplo, definindo o modo de recolha utilizando um modelo de gestor de recursos, consulte [as amostras do modelo do Gestor de Recursos para definições de diagnóstico no Azure Monitor](../samples/resource-manager-diagnostic-settings.md#diagnostic-setting-for-recovery-services-vault).
+> Para um exemplo, definindo o modo de recolha utilizando um modelo de gestor de recursos, consulte [as amostras do modelo do Gestor de Recursos para definições de diagnóstico no Azure Monitor](./resource-manager-diagnostic-settings.md#diagnostic-setting-for-recovery-services-vault).
 
 
 Pode modificar uma definição de diagnóstico existente para o modo específico de recursos. Neste caso, os dados já recolhidos permanecerão na tabela _AzureDiagnostics_ até que seja removido de acordo com a sua definição de retenção para o espaço de trabalho. Novos dados serão recolhidos na tabela dedicada. Utilize o operador [sindical](/azure/kusto/query/unionoperator) para consultar dados em ambas as tabelas.

@@ -1,21 +1,24 @@
 ---
-title: Ativar o Snapshot Debugger para aplicações .NET no Azure App Service [ Microsoft Docs
+title: Ative o Snapshot Debugger para aplicações .NET no Azure App Service | Microsoft Docs
 description: Ativar o Snapshot Debugger para aplicações .NET no Azure App Service
 ms.topic: conceptual
 author: cweining
 ms.author: cweining
 ms.date: 03/26/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 421f80493a9cb88e8bbbddc06aa9a24042b64b17
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.openlocfilehash: 291f06bea0744c991c71640272ee341b7273472b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97695459"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728999"
 ---
 # <a name="enable-snapshot-debugger-for-net-apps-in-azure-app-service"></a>Ativar o Snapshot Debugger para aplicações .NET no Azure App Service
 
-A Snapshot Debugger trabalha atualmente para aplicações ASP.NET e ASP.NET Core que estão a ser executadas no Azure App Service em planos de serviço do Windows. Recomendamos que execute a sua aplicação no nível de serviço Basic ou superior ao utilizar o depurar instantâneo. Para a maioria das aplicações, os níveis de serviço Gratuito e Partilhado não têm memória ou espaço de disco suficiente para guardar instantâneos.
+A Snapshot Debugger suporta atualmente aplicações ASP.NET e ASP.NET Core que estão a ser executadas no Azure App Service em planos de serviço do Windows.
+
+Recomendamos que execute a sua aplicação no nível de serviço Basic ou superior ao utilizar o depurar instantâneo.
+Para a maioria das aplicações, os níveis de serviço Gratuito e Partilhado não têm memória ou espaço de disco suficiente para guardar instantâneos.
 
 ## <a name="enable-snapshot-debugger"></a><a id="installation"></a> Ativar Snapshot Debugger
 Para ativar o Snapshot Debugger para uma aplicação, siga as instruções abaixo.
@@ -28,7 +31,10 @@ Se estiver a executar um tipo diferente de serviço Azure, aqui estão as instru
 * [Máquinas virtuais ou físicas no local](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json)
 
 > [!NOTE]
-> Se estiver a utilizar uma versão de pré-visualização de .NET Core ou das referências de aplicação Application Insights SDK, direta ou indiretamente através de um conjunto dependente, siga as instruções para [Enable Snapshot Debugger para outros ambientes](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) primeiro para incluir o pacote [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet com a aplicação e, em seguida, preencha as restantes instruções abaixo. 
+> Se estiver a utilizar uma versão de pré-visualização de .NET Core, ou as referências à sua aplicação Application Insights SDK, direta ou indiretamente através de um conjunto dependente, siga as instruções para [Enable Snapshot Debugger para outros ambientes](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) que incluam o pacote [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet com a aplicação e, em seguida, preencha as restantes instruções abaixo. 
+>
+> A instalação sem código do Application Insights Snapshot Debugger segue a política de suporte .NET Core.
+> Para obter mais informações sobre os tempos de funcionação suportados, consulte [a Política de Suporte do Núcleo .NET](https://dotnet.microsoft.com/platform/support/policy/dotnet-core).
 
 O Snapshot Debugger está pré-instalado como parte do tempo de funcionação dos Serviços de Aplicações, mas precisa de o ligar para obter fotografias para a sua aplicação de Serviço de Aplicações.
 

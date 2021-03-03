@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 05/26/2020
 ms.author: lajanuar
 ms.custom: devx-track-csharp
-ms.openlocfilehash: dd5b83908ae7c6d62acd3391933028685facf755
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 0665dcbc8de518c5759c52a8fc3aec26859566d6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98927481"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728013"
 ---
 # <a name="tutorial-create-a-translation-app-with-wpf"></a>Tutorial: Criar uma aplicação de tradução com o WPF
 
@@ -41,7 +41,7 @@ Esta lista inclui os Serviços Cognitivos utilizados neste tutorial. Siga o link
 | Serviço | Funcionalidade | Descrição |
 |---------|---------|-------------|
 | Tradutor | [Obter Línguas](./reference/v3-0-languages.md) | Recupere uma lista completa de idiomas suportados para tradução de texto. |
-| Tradutor | [Traduzir](./reference/v3-0-translate.md) | Traduza o texto em mais de 70 línguas. |
+| Tradutor | [Traduzir](./reference/v3-0-translate.md) | Traduza o texto em 90 línguas e dialetos. |
 | Tradutor | [Detetar](./reference/v3-0-detect.md) | Detetar a linguagem do texto de entrada. Inclui pontuação de confiança para deteção. |
 | Verificação Ortográfica do Bing | [Verificação ortográfica](/rest/api/cognitiveservices/bing-spell-check-api-v7-reference) | Erros ortográficos corretos para melhorar a precisão da tradução. |
 
@@ -264,7 +264,7 @@ Por último, adicionámos código para chamar métodos para recuperar idiomas pa
 
 ## <a name="get-supported-languages"></a>Obter idiomas suportados
 
-O Tradutor suporta atualmente mais de 70 línguas. Uma vez que o novo suporte linguístico será adicionado ao longo do tempo, recomendamos chamar o recurso idiomas exposto pelo Tradutor em vez de codificar a lista de idiomas na sua app.
+O Tradutor suporta atualmente 90 línguas e dialetos. Uma vez que o novo suporte linguístico será adicionado ao longo do tempo, recomendamos chamar o recurso idiomas exposto pelo Tradutor em vez de codificar a lista de idiomas na sua app.
 
 Nesta secção, vamos criar um `GET` pedido ao recurso Idiomas, especificando que queremos uma lista de idiomas disponíveis para tradução.
 
@@ -578,7 +578,7 @@ O código-fonte para este projeto está disponível no GitHub.
 
 * [Explore o código fonte](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp-Tutorial)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Referência do Tradutor da Microsoft](./reference/v3-0-reference.md)

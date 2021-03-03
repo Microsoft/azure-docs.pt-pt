@@ -7,12 +7,12 @@ ms.service: load-balancer
 ms.topic: how-to
 ms.date: 01/23/2020
 ms.author: irenehua
-ms.openlocfilehash: 3bf910d3309285c8b700c39af68fb90715f8863a
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.openlocfilehash: 0f8476a8759dd445500c2eb6c029cd618a7ff8ce
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99987721"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718986"
 ---
 # <a name="upgrade-azure-public-load-balancer"></a>Upgrade Azure Public Load Balancer
 [O Azure Standard Load Balancer](load-balancer-overview.md) oferece um rico conjunto de funcionalidades e alta disponibilidade através da redundância de zona. Para saber mais sobre o Balancer de Carga SKU, consulte [a tabela de comparação](./skus.md#skus).
@@ -23,7 +23,7 @@ Há duas etapas numa atualização:
 2. Execute o script PowerShell para completar a atualização e a migração de tráfego.
 
 > [!IMPORTANT]
-> O guião está atualmente em manutenção. Pode consultar aqui [instruções](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address-upgrade?tabs=option-upgrade-cli%2Coption-migrate-powershell#tabpanel_CeZOj-G++Q_option-upgrade-cli) sobre como atualizar endereços IP públicos a partir de SKU Básico e SKU Padrão.
+> O guião está atualmente em manutenção. Pode consultar aqui [instruções](../virtual-network/virtual-network-public-ip-address-upgrade.md?tabs=option-upgrade-cli%2coption-migrate-powershell#tabpanel_CeZOj-G++Q_option-upgrade-cli) sobre como atualizar endereços IP públicos a partir de SKU Básico e SKU Padrão.
 
 ## <a name="upgrade-overview"></a>Descrição geral da atualização
 

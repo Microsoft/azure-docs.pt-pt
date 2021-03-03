@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/13/2019
-ms.openlocfilehash: 2e103bb3cce364aeb5c25dcc2b54bf78c6993ca0
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 2dda18232e0cf3afa63a01814e776b90988e0b10
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100618681"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704349"
 ---
 # <a name="application-insights-connector-management-solution-deprecated"></a>Solução de gestão de Conector de Insights de Aplicação (Deprecada)
 
@@ -22,7 +22,7 @@ ms.locfileid: "100618681"
 >
 >As ligações existentes continuarão a funcionar até 30 de junho de 2019.  Com a depreciação do portal OMS, não existe forma de configurar e remover as ligações existentes do portal. Consulte [remover o conector com PowerShell](#removing-the-connector-with-powershell) abaixo para obter um script sobre a utilização do PowerShell para remover as ligações existentes.
 >
->Para obter orientações sobre a consulta de dados de registo de insights de aplicações para várias aplicações, consulte [os múltiplos recursos de Insights de Aplicação do Monitor Azure](../log-query/unify-app-resource-data.md). Para obter mais informações sobre a depreciação do portal OMS, consulte [o portal OMS movendo-se para Azure](../platform/oms-portal-transition.md).
+>Para obter orientações sobre a consulta de dados de registo de insights de aplicações para várias aplicações, consulte [os múltiplos recursos de Insights de Aplicação do Monitor Azure](./unify-app-resource-data.md). Para obter mais informações sobre a depreciação do portal OMS, consulte [o portal OMS movendo-se para Azure](./oms-portal-transition.md).
 >
 > 
 
@@ -42,12 +42,12 @@ Quando se utiliza a solução, pode:
 
 Ao contrário da maioria das outras soluções de Log Analytics, os dados não são recolhidos para o Conector de Insights de Aplicação por agentes. Todos os dados utilizados pela solução provêm diretamente do Azure.
 
-| Origem Ligada | Suportado | Description |
+| Origem Ligada | Suportado | Descrição |
 | --- | --- | --- |
-| [Agentes do Windows](./../agents/agent-windows.md) | No | A solução não recolhe informações de agentes do Windows. |
-| [Agentes do Linux](../vm/quick-collect-linux-computer.md) | No | A solução não recolhe informações dos agentes linux. |
-| [Grupo de gestão SCOM](../agents/om-agents.md) | No | A solução não recolhe informações de agentes de um grupo de gestão SCOM ligado. |
-| [Conta de armazenamento Azure](../essentials/resource-logs.md#send-to-log-analytics-workspace) | No | A solução não ressoou informações do armazenamento da Azure. |
+| [Agentes do Windows](./../agents/agent-windows.md) | Não | A solução não recolhe informações de agentes do Windows. |
+| [Agentes do Linux](../vm/quick-collect-linux-computer.md) | Não | A solução não recolhe informações dos agentes linux. |
+| [Grupo de gestão SCOM](../agents/om-agents.md) | Não | A solução não recolhe informações de agentes de um grupo de gestão SCOM ligado. |
+| [Conta de armazenamento Azure](../essentials/resource-logs.md#send-to-log-analytics-workspace) | Não | A solução não ressoou informações do armazenamento da Azure. |
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -318,5 +318,4 @@ ApplicationInsights | summarize by ApplicationName
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Utilize [a Pesquisa de Registo](../log-query/log-query-overview.md) para ver informações detalhadas para as suas aplicações Application Insights.
-
+- Utilize [a Pesquisa de Registo](./log-query-overview.md) para ver informações detalhadas para as suas aplicações Application Insights.

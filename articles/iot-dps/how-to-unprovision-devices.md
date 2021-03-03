@@ -7,12 +7,12 @@ ms.date: 05/11/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 37099b551e004ebfc702dce37c2a1499aa46ff10
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 7c91cd8cbb1a927a88f05fcea603c6a4ed6e1c14
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94950735"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719037"
 ---
 # <a name="how-to-deprovision-devices-that-were-previously-auto-provisioned"></a>Como desprovisionar dispositivos que foram previamente auto-aprovisionados 
 
@@ -23,7 +23,7 @@ Em geral, a desprovisionamento de um dispositivo envolve dois passos:
 1. Desenrem o dispositivo do seu serviço de fornecimento, para evitar o fornecimento automático futuro. Dependendo se pretende revogar o acesso temporariamente ou permanentemente, pode querer desativar ou apagar uma inscrição. Para dispositivos que utilizem atestado X.509, é possível desativar/eliminar uma entrada na hierarquia dos seus grupos de inscrição existentes.  
  
    - Para aprender a desinsusar um dispositivo, consulte [como desinsualar um dispositivo do Serviço de Provisionamento de Dispositivos Azure IoT Hub](how-to-revoke-device-access-portal.md).
-   - Para aprender a desinsutorar um dispositivo programáticamente utilizando um dos serviços de fornecimento SDKs, consulte Gerir as inscrições dos [dispositivos com SDKs de serviço](how-to-manage-enrollments-sdks.md).
+   - Para aprender a desinsutorar um dispositivo programáticamente utilizando um dos serviços de fornecimento SDKs, consulte Gerir as inscrições dos [dispositivos com SDKs de serviço](./quick-enroll-device-x509-java.md).
 
 2. Desregralar o dispositivo do seu Hub IoT, para evitar futuras comunicações e transferência de dados. Mais uma vez, pode desativar ou eliminar permanentemente a entrada do dispositivo no registo de identidade do Hub IoT onde foi previsto. Consulte [dispositivos de desativação](../iot-hub/iot-hub-devguide-identity-registry.md#disable-devices) para saber mais sobre o desactivamento. Consulte "Device Management / IoT Devices" para o seu recurso IoT Hub, no [portal Azure](https://portal.azure.com).
 

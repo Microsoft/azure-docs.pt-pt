@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla, rarayudu
 ms.topic: conceptual
-ms.date: 02/12/2021
-ms.openlocfilehash: d7ed3fb268920d6f4d015886c560b2d9fcbdc632
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.date: 02/18/2021
+ms.openlocfilehash: 642fa044b3272e311769ddbcc5462cb396563652
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100104506"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702560"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Acesso seguro e dados em Azure Logic Apps
 
@@ -349,9 +349,9 @@ No [portal Azure,](https://portal.azure.com)este filtro afeta tanto os *gatilhos
 
 No seu modelo ARM, especifique os intervalos de endereço IP de entrada permitidos na definição de recursos da sua aplicação lógica utilizando a `accessControl` secção. Nesta secção, utilize as `triggers` `actions` secções , e as `contents` secções opcionais, conforme apropriado, incluindo a `allowedCallerIpAddresses` secção com a propriedade e `addressRange` desavere o valor da propriedade para a gama IP permitida em formato *x.x.x.x/x.x.x.x* 
 
-* Se a sua aplicação lógica aninhada utilizar a opção **Only other Logic Apps,** que permite chamadas de entrada apenas de outras aplicações lógicas que usam a ação Azure Logic Apps, definir a `addressRange` propriedade para um conjunto vazio **([]**).
+* Se a sua aplicação lógica aninhada utilizar a opção **Only other Logic Apps,** que permite chamadas de entrada apenas de outras aplicações lógicas que usam a ação de Azure Logic Apps incorporadas, coloque a `allowedCallerIpAddresses` propriedade numa matriz vazia **([]**- e *omita* a `addressRange` propriedade.
 
-* Se a sua aplicação lógica aninhada utilizar a opção **de gamas IP específica** para outras chamadas de entrada, como outras aplicações lógicas que utilizam a ação HTTP, desaprote a propriedade para a gama IP `addressRange` permitida.
+* Se a sua aplicação lógica aninhada utilizar a opção **de gamas IP específica** para outras chamadas de entrada, como outras aplicações lógicas que utilizam a ação HTTP, inclua a secção e define a propriedade para a gama IP `allowedCallerIpAddresses` `addressRange` permitida.
 
 Este exemplo mostra uma definição de recurso para uma aplicação lógica aninhada que permite chamadas de entrada apenas a partir de aplicações lógicas que usam a ação de Azure Logic Apps incorporadas:
 
@@ -378,18 +378,14 @@ Este exemplo mostra uma definição de recurso para uma aplicação lógica anin
             },
             "accessControl": {
                "triggers": {
-                  "allowedCallerIpAddresses": [
-                     {
-                        "addressRange": []
-                     }
-                  ]
+                  "allowedCallerIpAddresses": []
                },
                "actions": {
-                  "allowedCallerIpAddresses": [
-                     {
-                        "addressRange": []
-                     }
-                  ]
+                  "allowedCallerIpAddresses": []
+               },
+               // Optional
+               "contents": {
+                  "allowedCallerIpAddresses": []
                }
             },
             "endpointsConfiguration": {}

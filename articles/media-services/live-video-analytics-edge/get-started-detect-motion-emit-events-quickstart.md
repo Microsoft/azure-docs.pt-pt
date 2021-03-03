@@ -3,12 +3,12 @@ title: Começar com Live Video Analytics em IoT Edge - Azure
 description: Este quickstart mostra como começar com live video analytics em IoT Edge. Aprenda a detetar movimento num vídeo transmitido ao vivo.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: d9f2637166c3807e36f4304e9394bf2ecf91d88c
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 57edf1721249f839f5c781756b3e09bf59888dab
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99573811"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101730291"
 ---
 # <a name="quickstart-get-started---live-video-analytics-on-iot-edge"></a>Quickstart: Get start - Live Video Analytics on IoT Edge
 
@@ -69,10 +69,10 @@ Para este arranque rápido, recomendamos que utilize o [script de configuração
     1. **Interface de rede** - Isto permite que uma Máquina Virtual Azure comunique com internet, Azure e outros recursos.
     1. **Ligação de bastião** - Isto permite-lhe ligar-se à sua máquina virtual utilizando o seu navegador e o portal Azure.
     1. **Endereço IP público** - Isto permite que os recursos do Azure comuniquem à Internet e aos serviços Azure virados para o público
-    1. **Rede virtual** - Isto permite que muitos tipos de recursos Azure, como a sua máquina virtual, comuniquem de forma segura entre si, a internet e as redes no local. Saiba mais sobre [redes Virtuais.](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)
+    1. **Rede virtual** - Isto permite que muitos tipos de recursos Azure, como a sua máquina virtual, comuniquem de forma segura entre si, a internet e as redes no local. Saiba mais sobre [redes Virtuais.](../../virtual-network/virtual-networks-overview.md)
     1. **IoT Hub** - Este funciona como um centro de mensagens central para comunicação bidis entre a sua aplicação IoT, os módulos IoT Edge e os dispositivos que gere.
     1. **Conta de serviço de** mídia - Isto ajuda na gestão e streaming de conteúdos de mídia em Azure.
-    1. **Conta de armazenamento** - Tem de ter uma conta de armazenamento primário e pode ter qualquer número de contas de armazenamento secundária associadas à sua conta de Serviços de Comunicação Social. Para mais informações, consulte [as contas do Azure Storage com as contas da Azure Media Services](https://docs.microsoft.com/azure/media-services/latest/storage-account-concept).
+    1. **Conta de armazenamento** - Tem de ter uma conta de armazenamento primário e pode ter qualquer número de contas de armazenamento secundária associadas à sua conta de Serviços de Comunicação Social. Para mais informações, consulte [as contas do Azure Storage com as contas da Azure Media Services](../latest/storage-account-concept.md).
     1. **Registo de contentores** - Isto ajuda a armazenar e gerir as imagens privadas do seu contentor Docker e artefactos relacionados.
 
 Na saída do script, uma tabela de recursos lista o nome do hub IoT. Procure o tipo de recurso **`Microsoft.Devices/IotHubs`** e anotar o nome. Vai precisar deste nome no próximo passo.  

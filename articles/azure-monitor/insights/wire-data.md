@@ -1,17 +1,16 @@
 ---
 title: Solução de dados de fio em Azure Monitor | Microsoft Docs
 description: Os dados de fio são dados consolidados de rede e desempenho de computadores com agentes do Log Analytics. Os dados de rede são combinados com os seus dados de registo para ajudá-lo a correlacionar os dados.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/29/2020
-ms.openlocfilehash: 563104a82da3b6b2263fce46792cf4f627c8f6ad
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 5981a5f136d613ffcedda86797d807d2eecfab0d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100572347"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713631"
 ---
 # <a name="wire-data-20-preview-solution-in-azure-monitor"></a>Solução de Dados de Fio 2.0 (Pré-visualização) no Monitor Azure
 
@@ -26,7 +25,7 @@ Além do agente Log Analytics, a solução Wire Data utiliza agentes de dependê
 > 
 >Os clientes existentes que utilizam a solução Wire Data podem continuar a usá-la. Publicaremos orientações para uma linha temporal de migração para a mudança para o Mapa de Serviços.
 >
->Os novos clientes devem instalar a [solução De Mapa](../vm/service-map.md) de Serviço ou [monitor Azure para VMs](../vm/vminsights-overview.md).  O conjunto de dados do Mapa de Serviço é comparável aos dados de fio.  O Azure Monitor para VMs inclui o conjunto de dados do Mapa de Serviço com dados de desempenho adicionais e funcionalidades para análise. 
+>Os novos clientes devem instalar a [solução De Mapa](../vm/service-map.md) de Serviço ou [insights VM](../vm/vminsights-overview.md).  O conjunto de dados do Mapa de Serviço é comparável aos dados de fio.  Os insights VM incluem o conjunto de dados do Mapa de Serviço com dados de desempenho adicionais e funcionalidades para análise. 
 
 
 Por predefinição, o Azure Monitor regista dados de CPU, memória, disco e dados de desempenho da rede a partir de contadores incorporados no Windows e Linux, bem como outros contadores de desempenho que pode especificar. A recolha de redes e outros dados é realizada em tempo real para cada agente, incluindo sub-redes e protocolos ao nível das aplicações que estão a ser utilizados pelo computador.  O Wire Data analisa os dados de rede ao nível das aplicações e não na camada de transporte de TCP.  A solução não procura ACKs nem SYNs individuais.  Após a conclusão do handshake, é considerada uma ligação em direto e marcada como Ligada. Esta ligação permanece ativa enquanto ambos os lados aceitarem que o socket esteja aberto e que os dados possam circular entre ambos.  Uma vez que ambos os lados fecham a ligação, está marcado como Desligado.  Desta forma, contabiliza apenas a largura de banda dos pacotes concluídos com êxito, não reporta os reenvios nem os pacotes com falhas.
@@ -56,10 +55,10 @@ O Wire Data obtém os dados através do Agente de Dependência da Microsoft. O A
 
 | **Origem ligada** | **Suportado** | **Descrição** |
 | --- | --- | --- |
-| Agentes do Windows | Yes | O Wire Data analisa e recolhe dados de computadores de agentes do Windows. <br><br> Além do [agente Log Analytics para windows,](../agents/agent-windows.md)os agentes do Windows requerem o agente Microsoft Dependency. Veja os [sistemas operativos suportados](../vm/vminsights-enable-overview.md#supported-operating-systems) para obter uma lista completa das versões do sistema operativo. |
-| Agentes do Linux | Yes | O Wire Data analisa e recolhe dados de computadores de agentes Linux.<br><br> Além do [agente Log Analytics para o Linux,](../vm/quick-collect-linux-computer.md)os agentes Linux requerem o agente da Microsoft Dependency. Veja os [sistemas operativos suportados](../vm/vminsights-enable-overview.md#supported-operating-systems) para obter uma lista completa das versões do sistema operativo. |
-| Grupo de gestão do System Center Operations Manager | Yes | O Wire Data analisa e recolhe dados dos agentes do Windows e Linux num [grupo de gestão do System Center Operations Manager](../agents/om-agents.md) ligado. <br><br> É necessária uma ligação direta do computador do Gestor de Operações do Centro de Sistema ao Monitor Azure. |
-| Conta de armazenamento do Azure | No | O Wire Data recolhe dados dos computadores de agentes, pelo que não existem dados para o mesmo recolher do Armazenamento do Microsoft Azure. |
+| Agentes do Windows | Sim | O Wire Data analisa e recolhe dados de computadores de agentes do Windows. <br><br> Além do [agente Log Analytics para windows,](../agents/agent-windows.md)os agentes do Windows requerem o agente Microsoft Dependency. Veja os [sistemas operativos suportados](../vm/vminsights-enable-overview.md#supported-operating-systems) para obter uma lista completa das versões do sistema operativo. |
+| Agentes do Linux | Sim | O Wire Data analisa e recolhe dados de computadores de agentes Linux.<br><br> Além do [agente Log Analytics para o Linux,](../vm/quick-collect-linux-computer.md)os agentes Linux requerem o agente da Microsoft Dependency. Veja os [sistemas operativos suportados](../vm/vminsights-enable-overview.md#supported-operating-systems) para obter uma lista completa das versões do sistema operativo. |
+| Grupo de gestão do System Center Operations Manager | Sim | O Wire Data analisa e recolhe dados dos agentes do Windows e Linux num [grupo de gestão do System Center Operations Manager](../agents/om-agents.md) ligado. <br><br> É necessária uma ligação direta do computador do Gestor de Operações do Centro de Sistema ao Monitor Azure. |
+| Conta de armazenamento do Azure | Não | O Wire Data recolhe dados dos computadores de agentes, pelo que não existem dados para o mesmo recolher do Armazenamento do Microsoft Azure. |
 
 No Windows, o Microsoft Monitoring Agent (MMA) é utilizado tanto pelo Gestor de Operações do System Center como pelo Azure Monitor para recolher e enviar dados. Dependendo do contexto, o agente é chamado de Agente de Operações do Centro de Sistema, Agente De Registo, MMA ou Agente Direto. System Center Operations Manager e Azure Monitor fornecem versões ligeiramente diferentes do MMA. Estas versões podem reportar-se ao Gestor de Operações do Centro de Sistema, ao Azure Monitor ou a ambas.
 

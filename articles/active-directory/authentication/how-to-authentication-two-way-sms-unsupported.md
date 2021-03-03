@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 02/25/2021
+ms.date: 03/02/2021
 ms.author: justinha
 author: rhicock
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1e90a6060a9c8202f7f743a0ee433f89b9dc9fdd
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: d25ed1e46823ec6d820addf3944c96c97fcabcb8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101662760"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101689033"
 ---
 # <a name="two-way-sms-unsupported"></a>SMS bidirecciona sem suporte
 
@@ -27,7 +27,7 @@ As notificações por email e as notificações do portal Azure Service Health (
 ## <a name="required-actions"></a>Ações necessárias
 
 1. Ativar a aplicação móvel para os seus utilizadores, caso ainda não o tenha feito. Para obter mais informações, consulte [Ativar a autenticação de aplicações móveis com o MFA Server](howto-mfaserver-deploy-mobileapp.md).
-1. Notifique os seus utilizadores finais para visitar o [seu portal de utilizador do](howto-mfaserver-deploy-userportal.md) servidor MFA para ativar a aplicação móvel. A [aplicação Microsoft Authenticator](https://www.microsoft.com/account/authenticator) é a opção de verificação recomendada, uma vez que é mais segura do que SMS bidireccionada. Para mais informações, consulte [a hora de desligar nos transportes telefónicos para autenticação.](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/it-s-time-to-hang-up-on-phone-transports-for-authentication/ba-p/1751752)
+1. Notifique os seus utilizadores finais para visitar o [seu portal de utilizador do](howto-mfaserver-deploy-userportal.md) servidor MFA para ativar a aplicação móvel. A [aplicação Microsoft Authenticator](https://www.microsoft.com/en-us/account/authenticator) é a opção de verificação recomendada, uma vez que é mais segura do que SMS bidireccionada. Para mais informações, consulte [a hora de desligar nos transportes telefónicos para autenticação.](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/it-s-time-to-hang-up-on-phone-transports-for-authentication/ba-p/1751752)
 1. Altere as definições do utilizador de mensagem de texto bidirecionais para aplicação móvel como método padrão.
 
 ## <a name="faq"></a>FAQ

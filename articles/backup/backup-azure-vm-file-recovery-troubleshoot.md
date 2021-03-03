@@ -3,12 +3,12 @@ title: Resolução de problemas Recuperação de ficheiros Azure VM
 description: Problemas de resolução de problemas ao recuperar ficheiros e pastas de uma cópia de segurança do Azure VM.
 ms.topic: troubleshooting
 ms.date: 07/12/2020
-ms.openlocfilehash: c4d0d233237cb477d72efea0b91d4e5288e2a302
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 0ee856b10c6a5fbea6f6f76b2082949ab9c1e0db
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98735882"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101700308"
 ---
 # <a name="troubleshoot-issues-in-file-recovery-of-an-azure-vm-backup"></a>Problemas de resolução de problemas na recuperação de ficheiros de uma cópia de segurança do Azure VM
 
@@ -36,7 +36,7 @@ Esta secção fornece passos para resolver mensagens de erro que possa ver.
 
 **Ação recomendada:** 12 horas após o download do script, torna-se inválido e não pode ser executado. Vá ao portal e, em seguida, baixe um novo script para continuar com a recuperação de ficheiros.
 
-### <a name="iscsi_tcp-module-cant-be-loaded-or-iscsi_tcp_module-not-found"></a>iscsi_tcp módulo não pode ser carregado (ou) iscsi_tcp_module não encontrado
+### <a name="iscsi_tcp-module-cant-be-loaded-or-iscsi_tcp_module-not-found"></a>Não é possível carregar o módulo iscsi_tcp (ou) módulo iscsi_tcp não encontrado
 
 **Ação recomendada**: Para resolver este problema, siga os passos nas [transferências do script com sucesso, mas não é executado](#the-script-downloads-successfully-but-fails-to-run).
 
@@ -88,7 +88,7 @@ Resolva este problema seguindo os passos para o seu sistema operativo.
 Quando executar o script pela primeira vez no Windows Server 2012 R2 e Windows Server 2016 (com piscinas de armazenamento), o pool de armazenamento pode ser anexado ao VM apenas para leitura.
 
 >[!Tip]
-> Certifique-se de que tem a [máquina certa para executar o script](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script).
+> Certifique-se de que tem a [máquina certa para executar o script](./backup-azure-restore-files-from-vm.md#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script).
 
 Para resolver este problema, atribua manualmente o acesso de leitura-escrita à piscina de armazenamento e anexe os discos virtuais:
 
@@ -108,7 +108,7 @@ Para resolver este problema, atribua manualmente o acesso de leitura-escrita à 
 
 Durante a recuperação de ficheiros, o serviço de cópia de segurança deteta volumes e montagem automática. No entanto, se os discos com suporte têm divisórias cruas, esses discos não estão montados automaticamente e não se pode ver o disco de dados para recuperação.
 
-Para resolver este problema, vá a [recuperar ficheiros da cópia de segurança da máquina virtual Azure](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#lvmraid-arrays-for-linux-vms).
+Para resolver este problema, vá a [recuperar ficheiros da cópia de segurança da máquina virtual Azure](./backup-azure-restore-files-from-vm.md#lvmraid-arrays-for-linux-vms).
 
 #### <a name="linux-file-recovery-fails-because-the-os-couldnt-identify-the-file-system"></a>A recuperação do ficheiro Linux falha porque o SISTEMA não conseguiu identificar o sistema de ficheiros
 
@@ -122,7 +122,7 @@ Para resolver este problema, verifique se o volume está encriptado com uma apli
 
    ![Screenshot mostrando os resultados do comando para listar dispositivos de bloqueio.](./media/backup-azure-restore-files-from-vm/disk-without-volume-5.png)
 
-1. Verifique o sistema de ficheiros e a encriptação. Se o volume estiver encriptado, a recuperação do ficheiro não é suportada. Saiba mais na [matriz de suporte para a cópia de segurança Azure VM](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas#support-for-file-level-restore).
+1. Verifique o sistema de ficheiros e a encriptação. Se o volume estiver encriptado, a recuperação do ficheiro não é suportada. Saiba mais na [matriz de suporte para a cópia de segurança Azure VM](./backup-support-matrix-iaas.md#support-for-file-level-restore).
 
 ### <a name="disks-are-attached-but-the-volumes-arent-mounted"></a>Os discos estão ligados, mas os volumes não estão montados
 
@@ -139,7 +139,7 @@ Quando executar o script de recuperação de ficheiros para o Windows, vê uma m
 Para identificar e resolver esta questão, execute os seguintes passos:
 
 >[!Tip]
->Certifique-se de que tem a [máquina certa para executar o script](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script).
+>Certifique-se de que tem a [máquina certa para executar o script](./backup-azure-restore-files-from-vm.md#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script).
 
 1. Na janela **cmd,** executar **o diskmgmt** para abrir a **Gestão do Disco**.
 1. Procure por mais discos. No exemplo seguinte, **o Disco 2** é um disco adicional.
@@ -159,9 +159,9 @@ Para identificar e resolver esta questão, execute os seguintes passos:
 #### <a name="linux"></a>Linux
 
 >[!Tip]
->Certifique-se de que tem a [máquina certa para executar o script](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script).
+>Certifique-se de que tem a [máquina certa para executar o script](./backup-azure-restore-files-from-vm.md#step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script).
 
-Se o Linux VM protegido utilizar matrizes LVM ou RAID, siga os passos em [recuperar ficheiros da cópia de segurança da máquina virtual Azure](https://docs.microsoft.com/azure/backup/backup-azure-restore-files-from-vm#lvmraid-arrays-for-linux-vms).
+Se o Linux VM protegido utilizar matrizes LVM ou RAID, siga os passos em [recuperar ficheiros da cópia de segurança da máquina virtual Azure](./backup-azure-restore-files-from-vm.md#lvmraid-arrays-for-linux-vms).
 
 ### <a name="you-cant-copy-the-files-from-mounted-volumes"></a>Não é possível copiar os ficheiros de volumes montados
 
@@ -169,6 +169,6 @@ A cópia pode falhar com o erro "0x80070780: O ficheiro não pode ser acedido pe
 
 Verifique se o servidor de origem tem deduplicação de disco ativada. Se o fizer, certifique-se de que o servidor de restauro também tem deduplica ativação ativada nas unidades. Pode deixar a desduplicação não configurada para não desduplicar as unidades do servidor de restauro.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Recuperar ficheiros e pastas da cópia de segurança da máquina virtual Azure](backup-azure-restore-files-from-vm.md)

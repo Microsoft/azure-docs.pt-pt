@@ -11,12 +11,12 @@ author: peterclu
 ms.date: 10/06/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, references_regions, contperf-fy21q1
-ms.openlocfilehash: 857fba6dfa6191163c06c423cefb42d57f25dc1d
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 1a73988b66ba7b47f18ecaaa07df59e9047a933b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99980580"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691829"
 ---
 # <a name="virtual-network-isolation-and-privacy-overview"></a>Isolamento de rede virtual e visão geral da privacidade
 
@@ -71,7 +71,7 @@ Use os seguintes passos para garantir o seu espaço de trabalho e recursos assoc
 1. Crie um [espaço de trabalho com ligações privadas](how-to-secure-workspace-vnet.md#secure-the-workspace-with-private-endpoint) para permitir a comunicação entre o seu VNet e o espaço de trabalho.
 1. Adicione o Cofre da Chave Azure à rede virtual com um [ponto final](../key-vault/general/overview-vnet-service-endpoints.md) de serviço ou um ponto [final privado](../key-vault/general/private-link-service.md). Definir o Cofre da Chave para ["Permitir que serviços confiáveis da Microsoft contornem esta firewall".](how-to-secure-workspace-vnet.md#secure-azure-key-vault)
 1. Adicione-lhe conta de armazenamento Azure à rede virtual com um [ponto final](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints) de serviço ou um ponto [final privado.](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints)
-1. [Configure o registo do contentor Azure para utilizar um ponto final privado](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr) e permitir a [delegação de sub-redes em instâncias de contentores de Azure](how-to-secure-inferencing-vnet.md#enable-azure-container-instances-aci).
+1. [Configure o registo do contentor Azure para utilizar um ponto final privado](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr).
 
 ![Diagrama de arquitetura mostrando como o espaço de trabalho e os recursos associados comunicam uns aos outros sobre pontos finais de serviço ou pontos finais privados dentro de um VNet](./media/how-to-network-security-overview/secure-workspace-resources.png)
 

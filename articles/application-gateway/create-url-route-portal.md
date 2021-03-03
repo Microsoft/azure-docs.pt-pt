@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 08/13/2020
+ms.date: 02/23/2021
 ms.author: victorh
-ms.openlocfilehash: 407bd5679c6afebf26c2e6b768e0f8513ac39123
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: b0ab3cbd2891ef1677c0d4ba7a00821d67714b6d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397591"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708956"
 ---
 # <a name="tutorial-create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>Tutorial: Criar uma porta de aplicação com regras de encaminhamento baseadas em caminhos usando o portal Azure
 
@@ -29,27 +29,28 @@ Neste artigo, vai aprender a:
 
 ![Exemplo de encaminhamento de URL](./media/application-gateway-create-url-route-portal/scenario.png)
 
-Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
+Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="create-virtual-machines"></a>Criar máquinas virtuais
 
 Neste exemplo, cria-se três máquinas virtuais para serem utilizadas como servidores de backend para o gateway de aplicações. Também instala iIS nas máquinas virtuais para verificar se o gateway de aplicações funciona como esperado.
 
+1. Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
 1. No portal Azure, selecione **Criar um recurso**.
 2. Selecione **o Centro de Dados do Windows Server 2016** na lista Popular.
 3. Introduza estes valores para a máquina virtual:
 
-    - **Grupo de recursos** , selecione **Criar novo** e, em seguida, digitar *myResourceGroupAG*.
-    - **Nome da máquina virtual** : *myVM1*
-    - **Região** : *(EUA) Leste dos EUA*
-    - **Nome de utilizador** : *azureuser*
-    - **Senha** : *Azure123456!*
+    - **Subscrição** - Selecione a sua subscrição.
+    - **Grupo de recursos**, selecione **Criar novo** e, em seguida, digitar *myResourceGroupAG*.
+    - **Nome da máquina virtual**: *myVM1*
+    - **Região**: *(EUA) Leste dos EUA*
+    - **Nome de utilizador**: Digite um nome de utilizador
+    - **Senha**: Digite uma senha
 
 
 4. Selecione **Seguinte:Discos**.
@@ -64,9 +65,9 @@ Neste exemplo, cria-se três máquinas virtuais para serem utilizadas como servi
    - *10.0.0.0/24* - para o espaço de endereço da sub-rede.
 7. Selecione **OK**.
 
-8. Certifique-se de que, em **Interface de Rede,** **o myBackendSubnet** é selecionado para a sub-rede e, em seguida, selecione **Seguinte: Gestão**.
-9. Selecione **Off** para desativar os diagnósticos de arranque.
-10. Clique **em Rever + Criar,** rever as definições na página do resumo e, em seguida, selecione **Criar**.
+8. Certifique-se de que, na **sub-rede,** **o myBackendSubnet** é selecionado para a sub-rede e, em seguida, selecione **Seguinte: Gestão**.
+9. **Selecione Desativar** para desativar os diagnósticos de arranque.
+10. Selecione **Rever + Criar,** rever as definições na página do resumo e, em seguida, selecione **Criar**.
 11. Crie mais duas máquinas virtuais, *myVM2* e *myVM3* e coloque-as na rede virtual *MyVNet* e na sub-rede *myBackendSubnet.*
 
 ### <a name="install-iis"></a>Instalar o IIS
@@ -91,7 +92,7 @@ Neste exemplo, cria-se três máquinas virtuais para serem utilizadas como servi
          -Settings $publicSettings
     ```
 
-3. Crie mais duas máquinas virtuais e instale o IIS utilizando os passos que acabou de terminar. Introduza os nomes do *myVM2* e *do myVM3* para os nomes e para os valores do VMName em Set-AzVMExtension.
+3. Instale o IIS nas outras máquinas virtuais utilizando os passos que acabou de terminar. Utilize *o myVM2* e *o myVM3* para valores VMName em Set-AzVMExtension.
 
 ## <a name="create-an-application-gateway"></a>Criar um gateway de aplicação
 
@@ -103,8 +104,9 @@ Neste exemplo, cria-se três máquinas virtuais para serem utilizadas como servi
 
 1. No separador **Básicos, insira** estes valores para as seguintes definições de gateway de aplicação:
 
-   - **Grupo de recursos** : Selecione **myResourceGroupAG** para o grupo de recursos.
-   - **Nome do gateway de aplicação** : Introduza *o myAppGateway* para o nome do gateway de aplicação.
+   - **Subscrição**: selecione a sua subscrição.
+   - **Grupo de recursos**: Selecione **myResourceGroupAG** para o grupo de recursos.
+   - **Nome do gateway de aplicação**: *Digite myAppGateway* para o nome do gateway de aplicação.
    - **Região** - Selecione **(EUA) Leste DOS EUA**.
 
         ![Criar novo gateway de aplicações: Básicos](./media/application-gateway-create-gateway-portal/application-gateway-create-basics.png)
@@ -120,22 +122,22 @@ Neste exemplo, cria-se três máquinas virtuais para serem utilizadas como servi
    > [!NOTE]
    > Para o Gateway de Aplicação v2 SKU, só pode escolher a configuração IP frontal **do público.** A configuração IP do frontend privado não está ativada para este V2 SKU.
 
-2. Escolha **Criar novo** para o endereço IP **público** e insira o *myAGPublicIPAddress* para o nome do endereço IP público e, em seguida, selecione **OK**. 
+2. **Selecione Adicionar novo** para o endereço IP **público** e insira *o myAGPublicIPAddress* para o nome do endereço IP público e, em seguida, selecione **OK**. 
 3. Selecione **Seguinte: Backends**.
 
 ### <a name="backends-tab"></a>Separador backends
 
 O pool backend é usado para encaminhar pedidos para os servidores backend que servem o pedido. As piscinas backend podem ser compostas por NICs, conjuntos de escala de máquinas virtuais, IPs públicos, IPs internos, nomes de domínio totalmente qualificados (FQDN) e back-ends multi-inquilinos como O Azure App Service.
 
-1. No **separador Backends,** selecione **+Adicione uma piscina de backend**.
+1. No **separador Backends,** **selecione Adicione uma piscina de backend**.
 
 2. Na janela **de piscina de backend** que se abre, introduza os seguintes valores para criar uma piscina de backend vazia:
 
-    - **Nome** : *Insira o myBackendPool* para o nome da piscina de backend.
-3. Em **Alvos de Backend** , **Tipo de alvo,** selecione a máquina **virtual** da lista de drop-down.
+    - **Nome**: *Insira o myBackendPool* para o nome da piscina de backend.
+3. No **tipo Target,** selecione **a máquina virtual** da lista de drop-down.
 
 5. No **Target** selecione a interface de rede para **o myVM1**.
-6. Selecione **Add** (Adicionar).
+6. Selecione **Adicionar**.
 7. Repita para adicionar uma piscina de backend *Images* com *o myVM2* como alvo, e uma piscina de backend *vídeo* com *o myVM3* como alvo.
 8. **Selecione Adicionar** para guardar a configuração da piscina de backend e voltar ao **separador Backends.**
 
@@ -145,28 +147,28 @@ O pool backend é usado para encaminhar pedidos para os servidores backend que s
 
 No separador **Configuração,** irá ligar o frontend e o pool de backend que criou usando uma regra de encaminhamento.
 
-1. **Selecione Adicione uma regra** na coluna de **regras de encaminhamento.**
+1. **Selecione Adicione uma regra de encaminhamento** na coluna de **regras de encaminhamento.**
 
 2. Na janela de **regra de encaminhamento Adicionar uma** janela de regra de encaminhamento que se abre, *introduza o myRoutingRule* para o **nome regra**.
 
-3. Uma regra de encaminhamento requer um ouvinte. No **separador Ouvinte** dentro da janela De regra de encaminhamento Adicionar uma regra **de encaminhamento,** introduza os seguintes valores para o ouvinte:
+3. Uma regra de encaminhamento requer um ouvinte. No **separador Ouvinte** dentro da janela De regra de encaminhamento Adicionar uma regra **de encaminhamento,** digite os seguintes valores para o ouvinte:
 
-    - **Nome do ouvinte** : *Insira o meu Número* para o nome do ouvinte.
-    - **FRONTend IP** : Selecione **Público** para escolher o IP público que criou para o frontend.
-    - **Porta** : Tipo *8080*
+    - **Nome do ouvinte**: *Insira o meu Número* para o nome do ouvinte.
+    - **FRONTend IP**: Selecione **Público** para escolher o IP público que criou para o frontend.
+    - **Porta**: Tipo *8080*
   
         Aceite os valores predefinidos para as outras definições no **separador Listener** e, em seguida, selecione o separador **alvos de Backend** para configurar o resto da regra de encaminhamento.
 
 4. No separador **alvos de Backend,** selecione **myBackendPool** para o **alvo Backend**.
 
-5. Para a **definição HTTP** , selecione **Criar novo** para criar uma nova definição HTTP. A definição HTTP determinará o comportamento da regra de encaminhamento. 
+5. Para a **definição HTTP**, selecione **Adicione novo** para criar uma nova definição HTTP. A definição HTTP determinará o comportamento da regra de encaminhamento. 
 
 6. Na janela **de definição HTTP** que se abre, introduza *o myHTTPSetting* para o **nome de definição HTTP**. Aceite os valores predefinidos para as outras definições na janela **de definição HTTP** e, em seguida, selecione **Adicionar** para voltar à janela de regra **de encaminhamento Adicionar uma.**
-7. No **roteamento baseado em Path** , selecione Adicione **vários alvos para criar uma regra baseada em caminhos**.
+7. No **roteamento baseado em Path**, selecione Adicione **vários alvos para criar uma regra baseada em caminhos**.
 8. Para **Caminho,** tipo */imagens/* \* .
-9. Para **o nome da regra do caminho,** escreva *Imagens*.
-10. Para **a definição HTTP** , selecione **myHTTPSetting**
-11. Para **o alvo backend** , selecione **Images**.
+9. Para **o nome alvo,** escreva *Imagens*.
+10. Para **a definição HTTP**, selecione **myHTTPSetting**
+11. Para **o alvo backend**, selecione **Images**.
 12. **Selecione Adicionar** para guardar a regra do caminho e voltar ao **separador Adicionar uma regra de encaminhamento.**
 13. Repita para adicionar outra regra para Vídeo.
 14. **Selecione Adicionar** para adicionar a regra de encaminhamento e voltar ao **separador Configuração.**

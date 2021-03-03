@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: MVC
-ms.openlocfilehash: e57084dab00210802edbd46e3380313e034eb036
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.openlocfilehash: c1c56edacbc777b5e8b53da588bc763201379964
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98566750"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718833"
 ---
 # <a name="tutorial-assess-vmware-vms-for-migration-to-avs"></a>Tutorial: Avaliar VMware VMs para migração para AVS
 
@@ -20,7 +20,7 @@ Como parte da sua viagem de migração para Azure, você avalia as suas cargas d
 
 Este artigo mostra-lhe como avaliar máquinas virtuais VMware (VMs) descobertas para migração para Azure VMware Solution (AVS), utilizando a ferramenta Azure Migrate: Server Assessment. O AVS é um serviço gerido que lhe permite executar a plataforma VMware em Azure.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 > [!div class="checklist"]
 - Executar uma avaliação com base em metadados de máquina e informações de configuração.
 - Executar uma avaliação com base em dados de desempenho.
@@ -50,6 +50,9 @@ Decida se pretende executar uma avaliação utilizando critérios de dimensionam
 **Como está no local** | Avaliar com base em dados de configuração da máquina/metadados.  | O tamanho recomendado do nó em AVS baseia-se no tamanho VM no local, juntamente com as definições que especifica na avaliação para o tipo de nó, tipo de armazenamento e definição de falha de toleração.
 **Com base no desempenho** | Avaliar com base em dados de desempenho dinâmicos recolhidos. | O tamanho recomendado do nó em AVS baseia-se em dados de CPU e utilização da memória, juntamente com as definições que especifica na avaliação para o tipo de nó, tipo de armazenamento e definição de falha de toleração.
 
+> [!NOTE]
+> A avaliação da Solução VMware (AVS) do Azure VMware pode ser criada apenas para VMware VMs.
+
 ## <a name="run-an-assessment"></a>Executar uma avaliação
 
 E executar uma avaliação da seguinte forma:
@@ -60,7 +63,7 @@ E executar uma avaliação da seguinte forma:
 
 1. Em **Azure Migrate: Avaliação do servidor,** clique em **Avaliar**.
 
-1. No tipo de avaliação **de servidores,**  >  selecione **Azure VMware Solution (AVS) (Preview)**.
+1. No tipo de avaliação **de servidores,**  >  selecione **Azure VMware Solution (AVS)**.
 
 1. Na **fonte discovery:**
 
@@ -76,14 +79,14 @@ E executar uma avaliação da seguinte forma:
 
     - Na **localização do alvo,** especifique a região de Azure para a qual pretende migrar.
        - As recomendações de tamanho e custo baseiam-se na localização que especifica.
-       - Atualmente, pode avaliar quatro regiões (Austrália Oriental, Leste dos EUA, Europa Ocidental, Eua Ocidentais)
    - O **tipo de armazenamento** é predefinido para **vSAN**. Este é o tipo de armazenamento padrão para uma nuvem privada AVS.
    - **Os casos reservados** não são atualmente suportados para nós AVS.
 1. Em **tamanho VM:**
     - O **tipo nó** é predefinido para **AV36**. Azure Migrate recomenda o nó de nós necessários para migrar os VMs para AVS.
     - Na **definição FTT, nível RAID**, selecione a combinação Falha em Tolerar e RAID.  A opção FTT selecionada, combinada com o requisito do disco VM no local, determina o armazenamento total de vSAN exigido em AVS.
     - Na **subscrição excessiva do CPU, especifique** a relação de núcleos virtuais associados a um núcleo físico no nó AVS. A subscrição excessiva de mais de 4:1 pode causar degradação do desempenho, mas pode ser usada para cargas de trabalho do tipo web do servidor.
-
+    - No **fator sobrecompromisso de memória,** especifique a relação de memória sobre o compromisso no cluster. Um valor de 1 representa 100% de uso de memória, 0,5 por exemplo é 50%, e 2 usaria 200% da memória disponível. Só pode adicionar valores de 0,5 a 10 até uma casa decimal.
+    - No **fator Dedupe e compressão,** especifique o fator de dedupe e compressão previsto para as suas cargas de trabalho. O valor real pode ser obtido a partir de vSAN ou config de armazenamento no local, o que pode variar por carga de trabalho. Um valor de 3 significaria 3x, pelo que para o disco de 300GB apenas seria usado um armazenamento de 100GB. Um valor de 1 significaria não dedupe ou compressão. Só é possível adicionar valores de 1 a 10 até uma casa decimal.
 1. No **tamanho do nó:** 
     - No **critério Sizing**, selecione se pretende basear a avaliação em metadados estáticos ou em dados baseados no desempenho. Se utilizar dados de desempenho:
         - No **histórico de desempenho**, indique a duração dos dados em que pretende basear a avaliação
@@ -127,7 +130,6 @@ Uma avaliação avs descreve:
 - Número de nós AVS: Número estimado de nós AVS necessários para executar os VMs.
 - Utilização através de nós AVS: CPU projetado, memória e utilização de armazenamento em todos os nós.
     - A utilização inclui factoring inicial nas seguintes despesas de gestão de clusters, tais como o vCenter Server, NSX Manager (grande), NSX Edge, se o HCX for implantado também o HCX Manager e o aparelho IX consumindo ~ 44vCPU (11 CPU), 75GB de RAM e 722GB de armazenamento antes da compressão e desinsutilação. 
-    - A memória, a dedupe e a compressão estão atualmente definidas para uma utilização de 100% para a memória e 1,5 dedupe e compressão, que será uma entrada definida pelo utilizador nas próximas versões, permitindo ao utilizador afinar ainda mais o seu tamanho necessário.
 - Estimativa mensal dos custos: Os custos mensais estimados para todos os nós da Azure VMware Solution (AVS) que executam os VMs no local.
 
 ## <a name="view-an-assessment"></a>Ver uma avaliação
@@ -155,7 +157,7 @@ Para visualizar uma avaliação:
 
 3. Reveja a ferramenta sugerida.
 
-    - VMware HCX ou Enterprise: Para máquinas VMware, a solução VMWare Hybrid Cloud Extension (HCX) é a ferramenta de migração sugerida para migrar a sua carga de trabalho no local para a sua nuvem privada Azure VMware Solution (AVS). Saiba mais.
+    - VMware HCX ou Enterprise: Para máquinas VMware, a solução VMware Hybrid Cloud Extension (HCX) é a ferramenta de migração sugerida para migrar a sua carga de trabalho no local para a sua nuvem privada Azure VMware Solution (AVS). Saiba mais.
     - Desconhecida: para as máquinas virtuais importadas através de um ficheiro CSV, a ferramenta de migração predefinida é desconhecida. Embora para máquinas VMware, é sugerido que utilize a solução VMware Hybrid Cloud Extension (HCX).
 4. Clique num estado de prontidão AVS. Pode ver detalhes de prontidão em VM e perfurar para ver detalhes de VM, incluindo configurações de computação, armazenamento e rede.
 
@@ -167,7 +169,7 @@ O resumo da avaliação mostra o custo estimado do cálculo e armazenamento dos 
 
     - As estimativas de custos baseiam-se no número de nós AVS necessários, tendo em conta os requisitos de recursos de todos os VMs no total.
     - Como o preço do AVS é por nó, o custo total não tem custo de computação e distribuição de custos de armazenamento.
-    - A estimativa de custos é para a execução dos VMs no local em AVS. A avaliação do servidor Azure Migrate não considera os custos do PaaS ou do SaaS.
+    - A estimativa de custos é para a execução dos VMs no local em AVS. A avaliação do AVS não considera os custos do PaaS ou do SaaS.
 
 2. Reveja as estimativas mensais de armazenamento. A vista mostra os custos de armazenamento agregados para o grupo avaliado, divididos sobre diferentes tipos de discos de armazenamento. 
 3. Você pode perfurar para ver detalhes de custos para VMs específicos.

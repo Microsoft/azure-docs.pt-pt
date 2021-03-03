@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/05/2020
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 9f01961ec7c7f8e0a4e2d72e28e6def50e93ad5d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b75e6e0a8b79f374900e6cb2dfc49680d3d0190
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91854312"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101739063"
 ---
 # <a name="tutorial-configure-a-virtual-network-gateway-for-expressroute-using-powershell"></a>Tutorial: Configurar uma porta de rede virtual para ExpressRoute usando PowerShell
 > [!div class="op_single_selector"]
@@ -46,12 +46,17 @@ Os passos para esta tarefa utilizam um VNet com base nos valores da seguinte lis
 | Nome subneta1 | *FrontEnd* |
 | Nome da sub-rede Gateway | *GatewaySubnet* |    
 | Espaço de endereço da Sub-rede Gateway | *192.168.200.0/26* |
-| Região | *E.U.A. Leste* |
+| Region | *E.U.A. Leste* |
 | Nome do Gateway | *GW* |   
 | Nome IP gateway | *GWIP* |
 | Nome de configuração IP gateway | *gwipconf* |
 | Tipo | *ExpressRoute* |
 | Gateway Nome IP Público  | *gwpip* |
+
+> [!IMPORTANT]
+> O apoio iPv6 ao peering privado está atualmente em **Visualização Pública**. Se pretender ligar a sua rede virtual a um circuito ExpressRoute com o espremo privado com base no IPv6, certifique-se de que a sua rede virtual é dupla pilha e segue as diretrizes [descritas aqui.](https://docs.microsoft.com/azure/virtual-network/ipv6-overview)
+> 
+> 
 
 ## <a name="add-a-gateway"></a>Adicionar um gateway
 
@@ -76,6 +81,11 @@ Os passos para esta tarefa utilizam um VNet com base nos valores da seguinte lis
 
    ```azurepowershell-interactive
    Add-AzVirtualNetworkSubnetConfig -Name GatewaySubnet -VirtualNetwork $vnet -AddressPrefix 192.168.200.0/26
+   ```
+    Se estiver a utilizar uma rede virtual de pilha dupla e planeie utilizar o espreitamento privado baseado no IPv6 sobre o ExpressRoute, crie uma sub-rede de gateway de pilha dupla.
+
+   ```azurepowershell-interactive
+   Add-AzVirtualNetworkSubnetConfig -Name GatewaySubnet -VirtualNetwork $vnet -AddressPrefix "10.0.0.0/26","ace:daa:daaa:deaa::/64"
    ```
 1. Defina a configuração.
 
@@ -102,6 +112,10 @@ Os passos para esta tarefa utilizam um VNet com base nos valores da seguinte lis
    ```azurepowershell-interactive
    New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG -Location $Location -IpConfigurations $ipconf -GatewayType Expressroute -GatewaySku Standard
    ```
+> [!IMPORTANT]
+> Se planeia utilizar o peering privado baseado no IPv6 sobre o ExpressRoute, certifique-se de selecionar um AZ SKU (ErGw1AZ, ErGw2AZ, ErGw3AZ) para **-GatewaySku**.
+> 
+> 
 
 ## <a name="verify-the-gateway-was-created"></a>Verifique se o portal foi criado
 Utilize os seguintes comandos para verificar se o gateway foi criado:

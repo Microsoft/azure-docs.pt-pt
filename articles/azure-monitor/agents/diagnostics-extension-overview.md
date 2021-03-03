@@ -1,17 +1,16 @@
 ---
 title: Descrição geral da extensão do Diagnóstico do Azure
 description: Utilize diagnósticos Azure para depuração, medição de desempenho, monitorização, análise de tráfego em serviços na nuvem, máquinas virtuais e tecido de serviço
-ms.subservice: diagnostic-extension
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/14/2020
-ms.openlocfilehash: f3cde32178449169b07f57d4abbc346d8ca89df4
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 3c0e348e62184f839ce38e4c364fb5c6b81f1131
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100617342"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726228"
 ---
 # <a name="azure-diagnostics-extension-overview"></a>Descrição geral da extensão do Diagnóstico do Azure
 A extensão Azure Diagnostics é um [agente no Azure Monitor](../agents/agents-overview.md) que recolhe dados de monitorização do sistema operativo convidado de recursos compute da Azure, incluindo máquinas virtuais. Este artigo fornece uma visão geral da extensão do Azure Diagnostics, incluindo funcionalidade específica que suporta e opções de instalação e configuração. 
@@ -33,8 +32,8 @@ O agente Log Analytics no Azure Monitor também pode ser utilizado para recolher
 As principais diferenças a ter em conta são:
 
 - A extensão de diagnóstico Azure só pode ser usada com máquinas virtuais Azure. O agente Log Analytics pode ser utilizado com máquinas virtuais em Azure, outras nuvens e no local.
-- A extensão Azure Diagnostics envia dados para Azure Storage, [Azure Monitor Metrics (apenas](../platform/data-platform-metrics.md) Windows) e Centros de Eventos. O agente Log Analytics recolhe dados para os [registos do Monitor Azure](../platform/data-platform-logs.md).
-- O agente Log Analytics é necessário para [soluções](../monitor-reference.md#insights-and-core-solutions), [Azure Monitor para VMs, e outros serviços](../insights/vminsights-overview.md)como [o Azure Security Center](../../security-center/index.yml).
+- A extensão Azure Diagnostics envia dados para Azure Storage, [Azure Monitor Metrics (apenas](../essentials/data-platform-metrics.md) Windows) e Centros de Eventos. O agente Log Analytics recolhe dados para os [registos do Monitor Azure](../logs/data-platform-logs.md).
+- O agente Log Analytics é necessário para [soluções,](../monitor-reference.md#insights-and-core-solutions) [insights VM,](../vm/vminsights-overview.md)e outros serviços como [o Azure Security Center](../../security-center/index.yml).
 
 ## <a name="costs"></a>Custos
 Não há custo para a Extensão de Diagnóstico Azure, mas pode incorrer em encargos para os dados ingeridos. Verifique [os preços do Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/) para o destino onde está a recolher dados.
@@ -44,7 +43,7 @@ As tabelas que se seguem listam os dados que podem ser recolhidos pela extensão
 
 ### <a name="windows-diagnostics-extension-wad"></a>Extensão de diagnóstico do Windows (WAD)
 
-| Origem de dados | Description |
+| Origem de dados | Descrição |
 | --- | --- |
 | Registos do Evento Windows   | Eventos do registo de eventos do Windows. |
 | Contadores de desempenho | Valores numéricos que medem o desempenho de diferentes aspetos do sistema operativo e cargas de trabalho. |
@@ -59,7 +58,7 @@ As tabelas que se seguem listam os dados que podem ser recolhidos pela extensão
 
 ### <a name="linux-diagnostics-extension-lad"></a>Extensão de diagnóstico linux (LAD)
 
-| Origem de dados | Description |
+| Origem de dados | Descrição |
 | --- | --- |
 | Syslog | Eventos enviados para o sistema de registo de eventos Linux.   |
 | Contadores de desempenho  | Valores numéricos que medem o desempenho de diferentes aspetos do sistema operativo e cargas de trabalho. |
@@ -72,9 +71,9 @@ Configure um ou mais *sumidouros de dados* para enviar dados para outros destino
 
 ### <a name="windows-diagnostics-extension-wad"></a>Extensão de diagnóstico do Windows (WAD)
 
-| Destino | Description |
+| Destino | Descrição |
 |:---|:---|
-| Métricas do Azure Monitor | Recolher dados de desempenho para Azure Monitor Metrics. Consulte [as métricas do Guest OS para a base de dados métrica do Azure Monitor](../platform/collect-custom-metrics-guestos-resource-manager-vm.md).  |
+| Métricas do Azure Monitor | Recolher dados de desempenho para Azure Monitor Metrics. Consulte [as métricas do Guest OS para a base de dados métrica do Azure Monitor](../essentials/collect-custom-metrics-guestos-resource-manager-vm.md).  |
 | Hubs de Eventos | Utilize os Hubs de Eventos Azure para enviar dados para fora do Azure. Ver [dados de streaming Azure Diagnostics para Centros de Eventos](diagnostics-extension-stream-event-hubs.md) |
 | Bolhas de armazenamento Azure | Escreva para os dados para bolhas no Azure Storage, além de tabelas. |
 | Application Insights | Recolher dados de aplicações em execução no seu VM para Application Insights para integrar-se com outra monitorização de aplicações. Consulte [Enviar dados de diagnóstico para Insights de Aplicação](diagnostics-extension-to-application-insights.md). |
@@ -85,11 +84,11 @@ Também pode recolher dados do WAD do armazenamento num espaço de trabalho do L
 ### <a name="linux-diagnostics-extension-lad"></a>Extensão de diagnóstico linux (LAD)
 Lad escreve dados para tabelas no Azure Storage. Suporta os lavatórios na mesa seguinte.
 
-| Destino | Description |
+| Destino | Descrição |
 |:---|:---|
 | Hubs de Eventos | Utilize os Hubs de Eventos Azure para enviar dados para fora do Azure. |
 | Bolhas de armazenamento Azure | Escreva para os dados para bolhas no Azure Storage, além de tabelas. |
-| Métricas do Azure Monitor | Instale o agente Telegraf para além do LAD. Consulte [recolher métricas personalizadas para um Linux VM com o agente InfluxData Telegraf](../platform/collect-custom-metrics-linux-telegraf.md).
+| Métricas do Azure Monitor | Instale o agente Telegraf para além do LAD. Consulte [recolher métricas personalizadas para um Linux VM com o agente InfluxData Telegraf](../essentials/collect-custom-metrics-linux-telegraf.md).
 
 
 ## <a name="installation-and-configuration"></a>Instalação e configuração

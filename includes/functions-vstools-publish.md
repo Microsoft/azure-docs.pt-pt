@@ -9,10 +9,10 @@ ms.date: 09/30/2020
 ms.author: glenga
 ms.custom: include file
 ms.openlocfilehash: 5b537b88052ce4042e346732f3dc63aaec6621cc
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2021
+ms.lasthandoff: 03/03/2021
 ms.locfileid: "100529673"
 ---
 1. No **Solution Explorer,** clique com o botão direito no projeto e selecione **Publicar** e no **Target**, selecione **Azure** em **seguida, Next**.
@@ -32,7 +32,7 @@ ms.locfileid: "100529673"
     | **[Grupo de recursos](../articles/azure-resource-manager/management/overview.md)** | Nome do seu grupo de recursos |  O grupo de recursos para criar a sua aplicação de função. Selecione um grupo de recursos existente da lista de drop-down ou escolha **Novo** para criar um novo grupo de recursos.|
     | **[Tipo de Plano](../articles/azure-functions/functions-scale.md)** | Consumo | Quando publica o seu projeto numa aplicação de função que funciona num [plano de Consumo,](../articles/azure-functions/consumption-plan.md)paga apenas para execuções da sua aplicação de funções. Outros planos de hospedagem incorrem em custos mais elevados. |
     | **Localização** | Localização do serviço de aplicações | Escolha uma **Localização** numa [região](https://azure.microsoft.com/regions/) próxima ou noutros serviços a que as suas funções acedam. |
-    | **[Storage do Azure](../articles/azure-functions/storage-considerations.md)** | Conta de armazenamento para fins gerais | Uma conta de Armazenamento Azure é exigida pelo tempo de funcionamento das Funções. Selecione **Novo** para configurar uma conta de armazenamento para fins gerais. Também pode escolher uma conta existente que satisfaça os requisitos da [conta de armazenamento.](../articles/azure-functions/storage-considerations.md#storage-account-requirements)  |
+    | **[Armazenamento do Azure](../articles/azure-functions/storage-considerations.md)** | Conta de armazenamento para fins gerais | Uma conta de Armazenamento Azure é exigida pelo tempo de funcionamento das Funções. Selecione **Novo** para configurar uma conta de armazenamento para fins gerais. Também pode escolher uma conta existente que satisfaça os requisitos da [conta de armazenamento.](../articles/azure-functions/storage-considerations.md#storage-account-requirements)  |
 
     ![Caixa de diálogo Criar App Service](./media/functions-vstools-publish/functions-visual-studio-publish.png)
 

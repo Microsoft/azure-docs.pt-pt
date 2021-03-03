@@ -6,15 +6,15 @@ ms.topic: quickstart
 author: bwren
 ms.author: bwren
 ms.date: 06/25/2020
-ms.openlocfilehash: 2e6dc55b54bc3abaea22544d457f98307596c5dd
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 1316512badd69b545e39a47ea5da3ca6a0902482
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100628903"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734286"
 ---
 # <a name="send-azure-activity-log-to-log-analytics-workspace-using-azure-portal"></a>Enviar log de atividade azure para log analytics espaço de trabalho usando o portal Azure
-O Registo de atividades é um registo de plataformas no Azure que proporciona informações sobre eventos ao nível da subscrição. Tal inclui informações como quando um recurso é modificado ou quando uma máquina virtual é iniciada. Pode visualizar o registo de Atividade no portal Azure ou recuperar entradas com PowerShell e CLI. Este quickstart mostra como usar o portal Azure para criar um espaço de trabalho log Analytics e uma definição de diagnóstico para enviar o registo de Atividade para Registos do Monitor Azure, onde pode analisá-lo usando [consultas de registo](../log-query/log-query-overview.md) e ativar [outras funcionalidades,](../alerts/alerts-log-query.md) tais como alertas de registo e livros de [trabalho.](../visualize/workbooks-overview.md) 
+O Registo de atividades é um registo de plataformas no Azure que proporciona informações sobre eventos ao nível da subscrição. Tal inclui informações como quando um recurso é modificado ou quando uma máquina virtual é iniciada. Pode visualizar o registo de Atividade no portal Azure ou recuperar entradas com PowerShell e CLI. Este quickstart mostra como usar o portal Azure para criar um espaço de trabalho log Analytics e uma definição de diagnóstico para enviar o registo de Atividade para Registos do Monitor Azure, onde pode analisá-lo usando [consultas de registo](../logs/log-query-overview.md) e ativar [outras funcionalidades,](../alerts/alerts-log-query.md) tais como alertas de registo e livros de [trabalho.](../visualize/workbooks-overview.md) 
 
 ## <a name="sign-in-to-azure-portal"></a>Iniciar sessão no portal do Azure
 Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.azure.com). 
@@ -73,7 +73,7 @@ Experimente uma consulta mais complexa, como `AzureActivity | summarize count() 
 
 
 ## <a name="next-steps"></a>Passos seguintes
-Neste arranque rápido, configuraste o registo de Atividade para ser enviado para um espaço de trabalho do Log Analytics. Pode agora configurar outros dados a serem recolhidos no espaço de trabalho onde pode analisá-los em conjunto usando [consultas de registo](../log-query/log-query-overview.md) no Azure Monitor e funcionalidades de alavancagem, tais como [alertas](../alerts/alerts-log-query.md) de registo e livros de [trabalho.](../visualize/workbooks-overview.md) Em seguida, deverá recolher [registos](../essentials/resource-logs.md) de recursos dos seus recursos Azure que complementam os dados no registo de Atividade fornecendo informações sobre as operações que foram realizadas dentro de cada recurso.
+Neste arranque rápido, configuraste o registo de Atividade para ser enviado para um espaço de trabalho do Log Analytics. Pode agora configurar outros dados a serem recolhidos no espaço de trabalho onde pode analisá-los em conjunto usando [consultas de registo](../logs/log-query-overview.md) no Azure Monitor e funcionalidades de alavancagem, tais como [alertas](../alerts/alerts-log-query.md) de registo e livros de [trabalho.](../visualize/workbooks-overview.md) Em seguida, deverá recolher [registos](../essentials/resource-logs.md) de recursos dos seus recursos Azure que complementam os dados no registo de Atividade fornecendo informações sobre as operações que foram realizadas dentro de cada recurso.
 
 
 > [!div class="nextstepaction"]

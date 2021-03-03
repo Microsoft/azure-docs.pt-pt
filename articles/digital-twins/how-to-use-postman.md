@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: how-to
 ms.date: 11/10/2020
-ms.openlocfilehash: 96872a067d2414254aec3f212542dadabdf2bd6f
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: d99ec80308152ce9e4870da809acaa25c663d98d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98791746"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101715705"
 ---
 # <a name="how-to-use-postman-to-send-requests-to-the-azure-digital-twins-apis"></a>Como usar o Carteiro para enviar pedidos para as APIs das Gémeas Digitais do Azure
 
@@ -140,7 +140,7 @@ Para proceder a uma consulta de exemplo, este artigo utilizará a API de Consult
 1. Verifique se os cabeçalhos indicados para o pedido no *separador Cabeçalhos* correspondem aos descritos na documentação de referência. Para este pedido, vários cabeçalhos foram preenchidos automaticamente. Para a API de consulta, nenhuma das opções do cabeçalho é necessária, pelo que este passo está feito.
 1. Verifique se o corpo indicado para o pedido no separador *Corpo* corresponde às necessidades descritas na documentação de referência. Para a API de consulta, é necessário um organismo JSON para fornecer o texto de consulta. Aqui está um órgão de exemplo para este pedido que consulta para todos os gémeos digitais no caso:
 
-   :::image type="content" source="media/how-to-use-postman/postman-request-body.png" alt-text="Nos detalhes do novo pedido, é indicado o separador Corpo. Contém um corpo JSON cru com uma consulta de 'SELECT * FROM DIGITALTWINS'."lightbox="media/how-to-use-postman/postman-request-body.png":::
+   :::image type="content" source="media/how-to-use-postman/postman-request-body.png" alt-text="Nos detalhes do novo pedido, é indicado o separador Corpo. Contém um corpo JSON cru com uma consulta de 'SELECT * FROM DIGITALTWINS'." lightbox="media/how-to-use-postman/postman-request-body.png":::
 
    Para obter mais informações sobre a criação de consultas Azure Digital Twins, consulte [*Como fazer: Consultar o gráfico gémeo*](how-to-query-graph.md).
 
@@ -154,6 +154,6 @@ Após o envio do pedido, os detalhes da resposta aparecerão na janela do Cartei
 
 Também pode comparar a resposta com os dados de resposta esperados na documentação de referência, para verificar o resultado ou saber mais sobre quaisquer erros que surjam.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre as APIs das Gémeas Digitais, leia [*Como fazer: Use as APIs e SDKs de gémeos digitais Azure,*](how-to-use-apis-sdks.md)ou consulte a [documentação de referência para as APIs REST](/rest/api/azure-digitaltwins/).

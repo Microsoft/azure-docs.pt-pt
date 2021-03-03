@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com a Corptax Microsoft Docs'
+title: 'Tutorial: Integração do Azure Ative Directory com a Corptax | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Corptax.
 services: active-directory
 author: jeevansd
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/02/2019
 ms.author: jeedes
-ms.openlocfilehash: dfb18281ad558832e4b06d1c0d24654d351ed01d
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 4209e609420e610b9f3456da26b0afe0bf839d43
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92455192"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101689084"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-corptax"></a>Tutorial: Integração do Diretório Ativo Azure com a Corptax
 
@@ -129,8 +129,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
     a. No campo **Nome,** **insira BrittaSimon**.
 
-    b. No campo **nome do utilizador,** escreva `brittasimon\@yourcompanydomain.extension`  
-    Por exemplo, BrittaSimon@contoso.com
+    b. No campo **nome do utilizador,** escreva `brittasimon@<yourcompanydomain.extension>` . Por exemplo: `brittasimon@contoso.com`.
 
     c. Selecione Mostrar caixa de verificação de **palavra-passe** e, em seguida, anotar o valor que é apresentado na caixa de palavra-passe.
 
@@ -140,7 +139,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
 Nesta secção, você permite que Britta Simon use Azure single sign-on, concedendo acesso à Corptax.
 
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Corptax**.
+1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações** e, em seguida, selecione **Corptax**.
 
     ![Painel Aplicações empresariais](common/enterprise_applications.png)
 

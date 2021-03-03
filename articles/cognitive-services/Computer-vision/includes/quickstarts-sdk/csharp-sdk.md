@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 12/15/2020
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8bb0c8e58c7b5eb1a0ba8a8ca4006ef04b2e2423
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: a00ea22ee0d9125588f2bb97505d7a4c0ba9a1ec
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99531335"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101750976"
 ---
 <a name="HOLTop"></a>
 
@@ -106,7 +106,7 @@ No método da `Main` aplicação, adicione chamadas para os métodos utilizados 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_extracttextinmain)]
 
 > [!div class="nextstepaction"]
-> [Criei o cliente](?success=set-up-client#object-model) [que encontrei um problema.](https://www.research.net/r/7QYZKHL?issue=set-up-client)
+> [Criei o cliente](?success=set-up-client#object-model) [que encontrei um problema.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Section=set-up-client)
 
 ## <a name="object-model"></a>Modelo de objeto
 
@@ -136,7 +136,7 @@ Num novo método, instantaneamente um cliente com o seu ponto final e chave. Cri
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_auth)]
 
 > [!div class="nextstepaction"]
-> [Autensei o cliente](?success=authenticate-client#analyze-an-image) [que encontrei num problema.](https://www.research.net/r/7QYZKHL?issue=authenticate-client)
+> [Autensei o cliente](?success=authenticate-client#analyze-an-image) [que encontrei num problema.](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Section=authenticate-client)
 
 ## <a name="analyze-an-image"></a>Analisar uma imagem
 
@@ -238,7 +238,7 @@ O código que se segue imprime informações sobre o tipo de &mdash; imagem, sej
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ComputerVision/ComputerVisionQuickstart.cs?name=snippet_type)]
 
 > [!div class="nextstepaction"]
-> [Analisei uma imagem](?success=analyze-image#read-printed-and-handwritten-text) [que encontrei num problema](https://www.research.net/r/7QYZKHL?issue=analyze-image)
+> [Analisei uma imagem](?success=analyze-image#read-printed-and-handwritten-text) [que encontrei num problema](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Csharp&Section=analyze-image)
 
 ## <a name="read-printed-and-handwritten-text"></a>Ler texto impresso e manuscrito
 

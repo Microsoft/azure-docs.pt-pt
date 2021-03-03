@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: pafarley
-ms.openlocfilehash: c7b6586f02d14d4e49ce9a5024b19ea15c8d2267
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: f194f0bc7ec8d0bf2265c0863f93bfd11337b5f4
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100364697"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703393"
 ---
 # <a name="whats-new-in-form-recognizer"></a>Novidades no Reconhecedor de Formato?
 
@@ -91,7 +91,7 @@ O serviço Form Recogniser é atualizado de forma contínua. Utilize este artigo
 * **Suporte cambial** - Deteção e extração de símbolos de moeda global.
 * **Azure Gov** - Form Recogniser também está disponível em Azure Gov.
 * **Características de segurança reforçadas:** 
-   * **Traga a sua própria chave** - O Form Recogniser encripta automaticamente os seus dados quando persistido na nuvem para protegê-los e ajudá-lo a cumprir os seus compromissos de segurança organizacional e conformidade. Por predefinição, a subscrição utiliza chaves de encriptação geridas pela Microsoft. Agora também pode gerir a sua subscrição com as suas próprias chaves de encriptação. [As teclas geridas pelo cliente, também conhecidas como trazer a sua própria chave (BYOK),](./form-recognizer-encryption-of-data-at-rest.md)oferecem uma maior flexibilidade para criar, rodar, desativar e revogar os controlos de acesso. Também pode auditar as chaves de encriptação utilizadas para proteger os dados.  
+   * **Traga a sua própria chave** - O Form Recogniser encripta automaticamente os seus dados quando persistido na nuvem para protegê-los e ajudá-lo a cumprir os seus compromissos de segurança organizacional e conformidade. Por predefinição, a subscrição utiliza chaves de encriptação geridas pela Microsoft. Agora também pode gerir a sua subscrição com as suas próprias chaves de encriptação. [As teclas geridas pelo cliente, também conhecidas como trazer a sua própria chave (BYOK),](./encrypt-data-at-rest.md)oferecem uma maior flexibilidade para criar, rodar, desativar e revogar os controlos de acesso. Também pode auditar as chaves de encriptação utilizadas para proteger os dados.  
    * **Pontos finais privados** – Permite-lhe aceder de forma segura a [dados por uma Ligação Privada.](../../private-link/private-link-overview.md)
 
 
@@ -123,7 +123,7 @@ O serviço Form Recogniser é atualizado de forma contínua. Utilize este artigo
 
 ### <a name="security-improvements"></a>Melhoramentos de segurança
 
-* Customer-Managed Keys estão agora disponíveis para FormRecognizer. Para obter mais informações, consulte [a encriptação de dados em repouso para o Reconhecimento de Formulários](./form-recognizer-encryption-of-data-at-rest.md).
+* Customer-Managed Keys estão agora disponíveis para FormRecognizer. Para obter mais informações, consulte [a encriptação de dados em repouso para o Reconhecimento de Formulários](./encrypt-data-at-rest.md).
 * Utilize identidades geridas para acesso aos recursos Azure com o Azure Ative Directory. Para mais informações, consulte [Autoriza o acesso a identidades geridas.](../authentication.md#authorize-access-to-managed-identities)
 
 ## <a name="march-2020"></a>Março de 2020 

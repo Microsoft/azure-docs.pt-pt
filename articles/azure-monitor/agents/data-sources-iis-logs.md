@@ -6,18 +6,18 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/13/2020
-ms.openlocfilehash: 089c0739ff091d49734cad048c2bfb10d857617c
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 96eab2d93ae0212568f8ef23e32a35016cb17248
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100616901"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101732059"
 ---
 # <a name="collect-iis-logs-with-log-analytics-agent-in-azure-monitor"></a>Recolher registos IIS com agente Log Analytics no Azure Monitor
-O Serviço de Informação da Internet (IIS) armazena a atividade do utilizador em ficheiros de registo que podem ser recolhidos pelo agente Log Analytics e armazenados em [Registos do Monitor Azure](../platform/data-platform.md).
+O Serviço de Informação da Internet (IIS) armazena a atividade do utilizador em ficheiros de registo que podem ser recolhidos pelo agente Log Analytics e armazenados em [Registos do Monitor Azure](../data-platform.md).
 
 > [!IMPORTANT]
-> Este artigo abrange a recolha de registos IIS com o [agente Log Analytics,](../platform/log-analytics-agent.md) que é um dos agentes utilizados pelo Azure Monitor. Outros agentes recolhem dados diferentes e são configurados de forma diferente. Consulte [a visão geral dos agentes do Azure Monitor](../agents/agents-overview.md) para obter uma lista dos agentes disponíveis e os dados que podem recolher.
+> Este artigo abrange a recolha de registos IIS com o [agente Log Analytics,](./log-analytics-agent.md) que é um dos agentes utilizados pelo Azure Monitor. Outros agentes recolhem dados diferentes e são configurados de forma diferente. Consulte [a visão geral dos agentes do Azure Monitor](../agents/agents-overview.md) para obter uma lista dos agentes disponíveis e os dados que podem recolher.
 
 ![Registos do IIS](media/data-sources-iis-logs/overview.png)
 
@@ -65,7 +65,7 @@ Os registos do IIS têm um tipo de **W3CIISLog** e têm as propriedades na tabel
 ## <a name="log-queries-with-iis-logs"></a>Registar consultas com registos IIS
 A tabela seguinte fornece diferentes exemplos de consultas de registo que recuperam registos de registos IIS.
 
-| Consulta | Description |
+| Consulta | Descrição |
 |:--- |:--- |
 | W3CIISLog |Todos os registos do IIS. |
 | W3CIISLog &#124; onde scStatus==500 |Todos os registos do IIS com um estado de devolução de 500. |
@@ -75,4 +75,4 @@ A tabela seguinte fornece diferentes exemplos de consultas de registo que recupe
 
 ## <a name="next-steps"></a>Passos seguintes
 * Configure O Monitor Azure para recolher [outras fontes de dados](../agents/agent-data-sources.md) para análise.
-* Saiba mais [sobre consultas de registo](../log-query/log-query-overview.md) para analisar os dados recolhidos a partir de fontes de dados e soluções.
+* Saiba mais [sobre consultas de registo](../logs/log-query-overview.md) para analisar os dados recolhidos a partir de fontes de dados e soluções.

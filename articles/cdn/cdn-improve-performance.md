@@ -1,5 +1,5 @@
 ---
-title: Melhorar o desempenho comprimindo ficheiros no Azure CDN Microsoft Docs
+title: Melhorar o desempenho comprimindo ficheiros em Azure CDN | Microsoft Docs
 description: Saiba como melhorar a velocidade de transferência de ficheiros e aumentar o desempenho da carga de página comprimindo os seus ficheiros em Azure CDN.
 services: cdn
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 02/28/2018
 ms.author: allensu
-ms.openlocfilehash: ceed62d466627d6a23554229bd6f4b96c674c7e9
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 7c84d8129e1d0d88601495dec41883077784bb71
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95993674"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728200"
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>Improve performance by compressing files in Azure CDN (Comprimir ficheiros na CDN do Azure para melhorar o desempenho)
 A compressão de ficheiros é um método simples e eficaz para melhorar a velocidade de transferência de ficheiros e aumentar o desempenho da carga de página, reduzindo o tamanho de um ficheiro antes de ser enviado do servidor. A compressão de ficheiros pode reduzir os custos de largura de banda e proporcionar uma experiência mais responsiva para os seus utilizadores.
@@ -153,10 +153,10 @@ As seguintes tabelas descrevem o comportamento de compressão Azure CDN para cad
 ### <a name="compression-is-enabled-and-file-is-eligible-for-compression"></a>A compressão está ativada e o ficheiro é elegível para compressão
 | Formato solicitado pelo cliente (via Accept-Encoding cabeçalho) | Formato de ficheiro em cache | Resposta da CDN ao cliente | Notas |
 | --- | --- | --- | --- |
-| Comprimidos |Comprimidos |Comprimidos |Os transcos da CDN entre formatos suportados. |
+| Comprimidos |Comprimidos |Comprimidos |Os transcos da CDN entre formatos suportados. <br/>**O Azure CDN da Microsoft** não suporta a transcodagem entre formatos e, em vez disso, recolhe dados de origem, compressas e caches separadamente para o formato. |
 | Comprimidos |Descomprimido |Comprimidos |A CDN executa uma compressão. |
 | Comprimidos |Não em cache |Comprimidos |A CDN executa uma compressão se a origem devolver um ficheiro não comprimido. <br/>**O Azure CDN da Verizon** passa o ficheiro não comprimido no primeiro pedido e, em seguida, comprime e caches o ficheiro para pedidos subsequentes. <br/>Os ficheiros com o `Cache-Control: no-cache` cabeçalho nunca são comprimidos. |
-| Descomprimido |Comprimidos |Descomprimido |A CDN executa uma descompressão. |
+| Descomprimido |Comprimidos |Descomprimido |A CDN executa uma descompressão. <br/>**O Azure CDN da Microsoft** não suporta a descompressão e, em vez disso, recolhe dados da origem e caches separadamente para clientes não comprimidos. |
 | Descomprimido |Descomprimido |Descomprimido | |
 | Descomprimido |Não em cache |Descomprimido | |
 

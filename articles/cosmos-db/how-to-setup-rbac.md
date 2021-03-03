@@ -4,14 +4,14 @@ description: Saiba como configurar o controlo de acesso baseado em funções com
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 02/22/2021
+ms.date: 03/02/2021
 ms.author: thweiss
-ms.openlocfilehash: 49bf67a6703147ed31279e7af8145192d996c1cb
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: d83109f380a3044073cf2dd8d10f29027ebb9f41
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101663167"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690911"
 ---
 # <a name="configure-role-based-access-control-with-azure-active-directory-for-your-azure-cosmos-db-account-preview"></a>Configure o controlo de acesso baseado em funções com o Azure Ative Directory para a sua conta DB Azure Cosmos (Preview)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -101,6 +101,11 @@ Ao criar uma definição de papel, você precisa fornecer:
     - `/` (nível de conta),
     - `/dbs/<database-name>` (nível de base de dados),
     - `/dbs/<database-name>/colls/<container-name>` (nível de contentor).
+
+> [!NOTE]
+> As operações descritas abaixo estão atualmente disponíveis em:
+> - Azure PowerShell: [Az.CosmosDB versão 2.0.1-pré-visualização](https://www.powershellgallery.com/packages/Az.CosmosDB/2.0.1-preview)
+> - Azure CLI: [versão de extensão 'cosmosdb-preview' 0.4.0](https://github.com/Azure/azure-cli-extensions/tree/master/src/cosmosdb-preview)
 
 ### <a name="using-azure-powershell"></a>Utilizar o Azure PowerShell
 
@@ -279,6 +284,11 @@ Uma vez criadas as definições de papel, podes associá-las às tuas identidade
 > [!NOTE]
 > Se pretender criar uma atribuição de funções para um diretor de serviço, certifique-se de que utiliza o seu **ID de Objeto,** tal como encontrado na secção de **aplicações da Enterprise** da lâmina do portal **Azure Ative.**
 
+> [!NOTE]
+> As operações descritas abaixo estão atualmente disponíveis em:
+> - Azure PowerShell: [Az.CosmosDB versão 2.0.1-pré-visualização](https://www.powershellgallery.com/packages/Az.CosmosDB/2.0.1-preview)
+> - Azure CLI: [versão de extensão 'cosmosdb-preview' 0.4.0](https://github.com/Azure/azure-cli-extensions/tree/master/src/cosmosdb-preview)
+
 ### <a name="using-azure-powershell"></a>Utilizar o Azure PowerShell
 
 Atribuir um papel a uma identidade:
@@ -354,6 +364,12 @@ Esta informação adicional flui na categoria **dataPlaneRequests** e consiste e
 
 - `aadPrincipalId_g` mostra o iD principal da identidade AAD que foi usado para autenticar o pedido.
 - `aadAppliedRoleAssignmentId_g` mostra a [atribuição de papel](#role-assignments) que foi honrada ao autorizar o pedido.
+
+## <a name="limits"></a>Limites
+
+- Você pode criar até 100 definições de papel e 2.000 atribuições de papel por conta DB Azure Cosmos.
+- A resolução do grupo AZure AD não é atualmente apoiada para identidades que pertencem a mais de 200 grupos.
+- O token AD AZure é atualmente passado como um cabeçalho com cada pedido individual enviado para o serviço DB Azure Cosmos, aumentando o tamanho total da carga útil.
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 

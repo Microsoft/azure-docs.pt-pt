@@ -1,20 +1,20 @@
 ---
-title: Ativar o Monitor Azure para VMs utilizando a política do Azure
-description: Descreve como ativa o Azure Monitor para VMs para várias máquinas virtuais Azure ou conjuntos de balanças de máquinas virtuais utilizando a Política Azure.
+title: Ativar os conhecimentos de VM utilizando a Política Azure
+description: Descreve como ativa insights VM para várias máquinas virtuais Azure ou conjuntos de escala de máquina virtual usando a Política Azure.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: 4da0610de1f71cd422ec684ea633a4474c078862
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: a63a647f3d76e3cc2616f05fe96d86dbdd36e74d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100619831"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101707545"
 ---
-# <a name="enable-azure-monitor-for-vms-by-using-azure-policy"></a>Ativar o Monitor Azure para VMs utilizando a política do Azure
-Este artigo explica como permitir o Azure Monitor para VMs para máquinas virtuais Azure ou máquina virtual híbrida ligada ao Arco Azure (pré-visualização) utilizando a Política Azure. A Azure Policy permite-lhe atribuir definições de política que instalam os agentes necessários para O Azure Monitor para VMs em todo o seu ambiente Azure e ativar automaticamente a monitorização de VMs à medida que cada máquina virtual é criada. O Azure Monitor for VMs fornece uma funcionalidade que lhe permite descobrir e remediar VMs não conformes no seu ambiente. Utilize esta funcionalidade em vez de trabalhar diretamente com a Azure Policy.
+# <a name="enable-vm-insights-by-using-azure-policy"></a>Ativar os conhecimentos de VM utilizando a Política Azure
+Este artigo explica como permitir insights em VM para máquinas virtuais Azure ou máquina virtual híbrida ligada ao Arco Azure (pré-visualização) usando a Azure Policy. A Azure Policy permite-lhe atribuir definições de política que instalam os agentes necessários para insights VM em todo o seu ambiente Azure e ativar automaticamente a monitorização de VMs à medida que cada máquina virtual é criada. Os conhecimentos VM fornecem uma funcionalidade que lhe permite descobrir e remediar VMs não conformes no seu ambiente. Utilize esta funcionalidade em vez de trabalhar diretamente com a Azure Policy.
 
 Se não estiver familiarizado com a Política Azure, obtenha uma breve introdução [no Deploy Azure Monitor em escala utilizando a Política Azure](../deploy-scale.md).
 
@@ -22,15 +22,15 @@ Se não estiver familiarizado com a Política Azure, obtenha uma breve introduç
 > Para utilizar a Política Azure com conjuntos de balanças de máquinas virtuais Azure ou para trabalhar diretamente com a Azure Policy para ativar máquinas virtuais Azure, consulte [o Monitor de Implantação em escala utilizando a Política Azure](../deploy-scale.md#azure-monitor-for-vms).
 
 ## <a name="prerequisites"></a>Pré-requisitos
-- [Criar e configurar um espaço de trabalho Log Analytics](../insights/vminsights-configure-workspace.md).
-- Consulte [sistemas operativos suportados](../insights/vminsights-enable-overview.md#supported-operating-systems) para garantir que o sistema operativo da máquina virtual ou da balança de máquinas virtuais que está a ativar é suportado. 
+- [Criar e configurar um espaço de trabalho Log Analytics](./vminsights-configure-workspace.md).
+- Consulte [sistemas operativos suportados](./vminsights-enable-overview.md#supported-operating-systems) para garantir que o sistema operativo da máquina virtual ou da balança de máquinas virtuais que está a ativar é suportado. 
 
 
-## <a name="azure-monitor-for-vms-initiative"></a>Azure Monitor para a iniciativa VMs
-O Azure Monitor for VMs fornece definições de política construídas para instalar o agente Log Analytics e o agente de dependência em máquinas virtuais Azure. A iniciativa **Enable Azure Monitor for VMs** inclui cada uma destas definições políticas. Atribua esta iniciativa a um grupo de gestão, subscrição ou grupo de recursos para instalar automaticamente os agentes em quaisquer máquinas virtuais Windows ou Linux Azure nesse âmbito.
+## <a name="vm-insights-initiative"></a>Iniciativa de insights VM
+Os insights VM fornecem definições de política construídas para instalar o agente Log Analytics e o agente de dependência em máquinas virtuais Azure. A iniciativa **Enable VM insights** inclui cada uma destas definições políticas. Atribua esta iniciativa a um grupo de gestão, subscrição ou grupo de recursos para instalar automaticamente os agentes em quaisquer máquinas virtuais Windows ou Linux Azure nesse âmbito.
 
 ## <a name="open-policy-coverage-feature"></a>Funcionalidade de Cobertura de Política Aberta
-Para aceder ao **Azure Monitor para cobertura de política de VMs,** vá às **máquinas Virtuais** no menu **Azure Monitor** no portal Azure. Selecione **Outras opções de embarque** e, em seguida, **Ative** em Enable **using policy**.
+Para aceder a **Cobertura de Política de Insights VM,** vá às **máquinas Virtuais** no menu **Azure Monitor** no portal Azure. Selecione **Outras opções de embarque** e, em seguida, **Ative** em Enable **using policy**.
 
 [![Monitor Azure da VMs Get Started tab](./media/vminsights-enable-policy/get-started-page.png)](./media/vminsights-enable-policy/get-started-page.png#lightbox)
 
@@ -39,7 +39,7 @@ Se ainda não tiver uma atribuição, crie uma nova clicando em **'Atribuir' Pol
 
 [![Criar atribuição](media/vminsights-enable-policy/create-assignment.png)](media/vminsights-enable-policy/create-assignment.png#lightbox)
 
-Esta é a mesma página para atribuir uma iniciativa na Política Azure, exceto que é codificada com o âmbito que selecionou e o Enable Azure Monitor para a definição de iniciativa **VMs.** Pode alterar opcionalmente o **nome de atribuição** e adicionar uma **Descrição**. Selecione **Exclusões** se quiser fornecer uma exclusão ao âmbito. Por exemplo, o seu âmbito pode ser um grupo de gestão, e você pode especificar uma subscrição nesse grupo de gestão para ser excluído da atribuição.
+Esta é a mesma página para atribuir uma iniciativa na Política Azure, exceto que é codificada com o âmbito que selecionou e a definição de iniciativa **de insights de vídeo Enable VM.** Pode alterar opcionalmente o **nome de atribuição** e adicionar uma **Descrição**. Selecione **Exclusões** se quiser fornecer uma exclusão ao âmbito. Por exemplo, o seu âmbito pode ser um grupo de gestão, e você pode especificar uma subscrição nesse grupo de gestão para ser excluído da atribuição.
 
 [![Atribuir iniciativa](media/vminsights-enable-policy/assign-initiative.png)](media/vminsights-enable-policy/assign-initiative.png#lightbox)
 
@@ -48,14 +48,14 @@ Na página **Parâmetros,** selecione um **espaço de trabalho Log Analytics** p
    > [!NOTE]
    > Se o espaço de trabalho estiver fora do âmbito da atribuição, conceda permissões *ao Log Analytics Contributor* para o ID principal da atribuição de políticas. Se não fizeres isto, podes ver uma falha de implantação como `The client '343de0fe-e724-46b8-b1fb-97090f7054ed' with object id '343de0fe-e724-46b8-b1fb-97090f7054ed' does not have authorization to perform action 'microsoft.operationalinsights/workspaces/read' over scope ...`
 
-[![Área de trabalho](media/vminsights-enable-policy/assignment-workspace.png)](media/vminsights-enable-policy/assignment-workspace.png#lightbox)
+[![Espaço de trabalho](media/vminsights-enable-policy/assignment-workspace.png)](media/vminsights-enable-policy/assignment-workspace.png#lightbox)
 
 Clique **em 'Rever + Criar'** para rever os detalhes da atribuição antes de clicar em **Criar** para criá-la. Não crie uma tarefa de reparação neste momento, uma vez que provavelmente necessitará de múltiplas tarefas de reparação para ativar as máquinas virtuais existentes. Consulte os resultados de conformidade de [Remediato](#remediate-compliance-results) abaixo.
 
 ## <a name="review-compliance"></a>Conformidade de revisão
-Uma vez criada uma atribuição, pode rever e gerir a cobertura da iniciativa **Enable Azure Monitor for VMs** através dos seus grupos de gestão e subscrições. Isto mostrará quantas máquinas virtuais existem em cada um dos grupos de gestão ou subscrições e o seu estado de conformidade.
+Uma vez criada uma atribuição, pode rever e gerir a cobertura para a iniciativa **enable VM insights** através dos seus grupos de gestão e subscrições. Isto mostrará quantas máquinas virtuais existem em cada um dos grupos de gestão ou subscrições e o seu estado de conformidade.
 
-[![Monitor Azure para página de Política de Gestão de VMs](media/vminsights-enable-policy/manage-policy-page-01.png)](media/vminsights-enable-policy/manage-policy-page-01.png#lightbox)
+[![VM insights Gerir página de política](media/vminsights-enable-policy/manage-policy-page-01.png)](media/vminsights-enable-policy/manage-policy-page-01.png#lightbox)
 
 
 A tabela a seguir fornece uma descrição das informações neste ponto de vista.
@@ -105,11 +105,11 @@ Clique **em Remediar** para criar a tarefa de remediação e, em seguida, **Reme
 [![A screenshot mostra o painel de remediação da política para monitor | Máquinas Virtuais.](media/vminsights-enable-policy/remediation.png)](media/vminsights-enable-policy/remediation.png#lightbox)
 
 
-Uma vez concluídas as tarefas de reparação, os seus VMs devem estar em conformidade com os agentes instalados e ativados para O Monitor Azure para VMs. 
+Uma vez concluídas as tarefas de reparação, os seus VMs devem estar em conformidade com os agentes instalados e ativados para insights VM. 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Agora que a monitorização está ativada para as suas máquinas virtuais, esta informação está disponível para análise com o Azure Monitor para VMs. 
+Agora que a monitorização está ativada para as suas máquinas virtuais, esta informação está disponível para análise com insights VM. 
 
-- Para ver as dependências de aplicações descobertas, consulte [o Monitor do Azure para o Mapa de VMs](vminsights-maps.md). 
-- Para identificar estrangulamentos e utilização global com o desempenho do seu VM, consulte o desempenho do [See Azure VM](vminsights-performance.md). 
+- Para ver as dependências de aplicações descobertas, consulte [o Mapa de insights VM da Vista.](vminsights-maps.md) 
+- Para identificar estrangulamentos e utilização global com o desempenho do seu VM, consulte o desempenho do [See Azure VM](vminsights-performance.md).

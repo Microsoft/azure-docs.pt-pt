@@ -8,12 +8,12 @@ ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 5e0c2541c398f2e135b8763cc753ec8c20c3967d
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: a6355a08a936c74ae6a05f163a93a991ba82ab4d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98953755"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702917"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-portal"></a>Configurar uma instância e autenticação Azure Digital Twins (portal)
 
@@ -56,8 +56,8 @@ Se quiser configurar mais detalhes para o seu exemplo, a secção seguinte descr
 
 Aqui estão as opções adicionais que pode configurar durante a configuração, utilizando os outros separadores no processo **Criar Recursos.**
 
-* **Networking**: Neste separador, pode permitir que pontos finais privados com [Azure Private Link](../private-link/private-link-overview.md) eliminem a exposição da rede pública ao seu caso. Para obter instruções, consulte [*Como fazer: Ative o acesso privado com o Link Privado (pré-visualização)*](how-to-enable-private-link.md#add-a-private-endpoint-during-instance-creation).
-* **Avançado**: Neste separador, pode ativar uma [identidade gerida pelo sistema,](../active-directory/managed-identities-azure-resources/overview.md) para o seu exemplo, que pode ser utilizada ao encaminhar eventos para [pontos finais](concepts-route-events.md). Para obter instruções, consulte [*Como fazer: Ative as identidades geridas para eventos de encaminhamento (pré-visualização)*](how-to-enable-managed-identities.md#add-a-system-managed-identity-during-instance-creation).
+* **Networking**: Neste separador, pode permitir que pontos finais privados com [Azure Private Link](../private-link/private-link-overview.md) eliminem a exposição da rede pública ao seu caso. Para obter instruções, consulte [*Como fazer: Ative o acesso privado com o Link Privado (pré-visualização)*](./how-to-enable-private-link-portal.md#add-a-private-endpoint-during-instance-creation).
+* **Avançado**: Neste separador, pode ativar uma [identidade gerida pelo sistema,](../active-directory/managed-identities-azure-resources/overview.md) para o seu exemplo, que pode ser utilizada ao encaminhar eventos para [pontos finais](concepts-route-events.md). Para obter instruções, consulte [*Como fazer: Ative as identidades geridas para eventos de encaminhamento (pré-visualização)*](./how-to-enable-managed-identities-portal.md#add-a-system-managed-identity-during-instance-creation).
 * **Tags**: Neste separador, pode adicionar tags ao seu caso para ajudá-lo a organizá-lo entre os seus recursos Azure. Para obter mais informações sobre as etiquetas de recursos da Azure, consulte [*os recursos tag, grupos de recursos e subscrições para organização lógica.*](../azure-resource-manager/management/tag-resources.md)
 
 ### <a name="verify-success-and-collect-important-values"></a>Verifique o sucesso e colete valores importantes

@@ -7,14 +7,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 02/09/2021
+ms.date: 03/01/2021
 ms.reviewer: sngun
-ms.openlocfilehash: ee05cbdfb2634ed7c299f736b3343ce2dfbd3520
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 979194efc5ea956c99943cba15efc4a5e3fea2f9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100548408"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691608"
 ---
 # <a name="change-feed-pull-model-in-azure-cosmos-db"></a>Alterar modelo de puxar feed em Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -91,7 +91,7 @@ while (iteratorForTheEntireContainer.HasMoreResults)
     }
     catch {
         Console.WriteLine($"No new changes");
-        Thread.Sleep(5000);
+        await Task.Delay(TimeSpan.FromSeconds(5));
     }
 }
 ```
@@ -120,7 +120,7 @@ while (iteratorForThePartitionKey.HasMoreResults)
     catch (CosmosException exception) when (exception.StatusCode == System.Net.HttpStatusCode.NotModified)
     {
         Console.WriteLine($"No new changes");
-        Thread.Sleep(5000);
+        await Task.Delay(TimeSpan.FromSeconds(5));
     }
 }
 ```
@@ -163,7 +163,7 @@ while (iteratorA.HasMoreResults)
     catch (CosmosException exception) when (exception.StatusCode == System.Net.HttpStatusCode.NotModified)
     {
         Console.WriteLine($"No new changes");
-        Thread.Sleep(5000);
+        await Task.Delay(TimeSpan.FromSeconds(5));
     }
 }
 ```
@@ -185,7 +185,7 @@ while (iteratorB.HasMoreResults)
     catch (CosmosException exception) when (exception.StatusCode == System.Net.HttpStatusCode.NotModified)
     {
         Console.WriteLine($"No new changes");
-        Thread.Sleep(5000);
+        await Task.Delay(TimeSpan.FromSeconds(5));
     }
 }
 ```
@@ -213,7 +213,7 @@ while (iterator.HasMoreResults)
     catch (CosmosException exception) when (exception.StatusCode == System.Net.HttpStatusCode.NotModified)
     {
         Console.WriteLine($"No new changes");
-        Thread.Sleep(5000);
+        await Task.Delay(TimeSpan.FromSeconds(5));
     }   
 }
 

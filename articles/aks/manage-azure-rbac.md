@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 09/21/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: aa1693ba2b17c344475b96db42fa55514cf6b4db
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 9d967884193ee228b67ab094059ce4e050f4c7ca
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100380581"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101741247"
 ---
 # <a name="use-azure-rbac-for-kubernetes-authorization-preview"></a>Utilizar o RBAC do Azure para Autorização do Kubernetes (pré-visualização)
 
@@ -113,7 +113,7 @@ Uma criação bem sucedida de um cluster com integração AD AZure e Azure RBAC 
 A AKS fornece as seguintes quatro funções incorporadas:
 
 
-| Função                                | Description  |
+| Função                                | Descrição  |
 |-------------------------------------|--------------|
 | Azure Kubernetes Service RBAC Reader  | Permite o acesso apenas à leitura para ver a maioria dos objetos num espaço de nome. Não permite visualizar papéis ou encadernações de papéis. Esta função não permite a `Secrets` visualização, uma vez que a leitura do conteúdo dos Segredos permite o acesso às credenciais do ServiceAccount no espaço de nomes, o que permitiria o acesso da API como qualquer ServiceAccount no espaço de nomes (uma forma de escalada de privilégio)  |
 | Azure Kubernetes Service RBAC Writer | Permite ler/escrever o acesso à maioria dos objetos num espaço de nome. Esta função não permite visualizar ou modificar papéis ou encadernações de papéis. No entanto, esta função permite aceder `Secrets` e executar Pods como qualquer ServiceAccount no espaço de nomes, para que possa ser usado para obter os níveis de acesso API de qualquer ServiceAccount no espaço de nomes. |
@@ -159,12 +159,12 @@ Copie o json abaixo num ficheiro chamado `deploy-view.json` .
     "Actions": [],
     "NotActions": [],
     "DataActions": [
-        "Microsoft.ContainerService/managedClusters/apps/deployments/read"  
+        "Microsoft.ContainerService/managedClusters/apps/deployments/read"
     ],
     "NotDataActions": [],
     "assignableScopes": [
         "/subscriptions/<YOUR SUBSCRIPTION ID>"
-    ]   
+    ]
 }
 ```
 

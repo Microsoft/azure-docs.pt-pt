@@ -2,13 +2,13 @@
 title: Copiar aplicações e dados para juntar os nosdes
 description: Saiba como copiar aplicações e dados para juntar nós.
 ms.topic: how-to
-ms.date: 02/10/2021
-ms.openlocfilehash: a5933a1c52e2848b6b414f1750bb24515fb9f28a
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 02/18/2021
+ms.openlocfilehash: 0109171fd78dc11058daa30bf4604bebc1eeb857
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100378507"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703652"
 ---
 # <a name="copy-applications-and-data-to-pool-nodes"></a>Copiar aplicações e dados para juntar os nosdes
 
@@ -33,10 +33,6 @@ Se cada trabalho que funciona na piscina executa uma aplicação (.exe) que deve
 Para aplicações ou dados que precisam de ser instalados em todos os nós da piscina, considere a utilização de [pacotes de aplicações](batch-application-packages.md). Não existe um comando de instalação associado a um pacote de aplicações, mas pode utilizar uma tarefa inicial para executar qualquer comando de instalação. Se a sua aplicação não necessitar de instalação, ou consistir num grande número de ficheiros, pode utilizar este método.
 
 Os pacotes de aplicações são úteis quando você tem um grande número de ficheiros, porque eles podem combinar muitas referências de arquivo em uma pequena carga útil. Se tentar incluir mais de 100 ficheiros de recursos separados numa única tarefa, o serviço Batch poderá encontrar limitações internas do sistema para uma única tarefa. Os pacotes de aplicações também são úteis quando você tem muitas versões diferentes da mesma aplicação e precisa escolher entre eles.
-
-## <a name="extensions"></a>Extensões
-
-[As extensões](create-pool-extensions.md) são pequenas aplicações que facilitam a configuração pós-provisão e a configuração nos nós de computação batch. Quando criar uma piscina, pode selecionar uma extensão suportada para ser instalada nos nós de computação à medida que forem a provisionadas. Depois disso, a extensão pode executar o funcionamento pretendido.
 
 ## <a name="job-preparation-task-resource-files"></a>Ficheiros de recursos de tarefa de preparação de emprego
 

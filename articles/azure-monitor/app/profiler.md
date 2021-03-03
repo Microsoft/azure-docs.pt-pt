@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: b1158a614da9ba32f628aba5dd2ed2cc71b4b455
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: b743b5be195f44c03adbee75c3108f4908d8d4e8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98947038"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717762"
 ---
 # <a name="profile-live-azure-app-service-apps-with-application-insights"></a>Perfil ao vivo Aplicativos Azure App Service com Insights de Aplicações
 
@@ -25,8 +25,12 @@ Para ativar o Profiler para uma aplicação, siga as instruções abaixo. Se est
 
 O Application Insights Profiler está pré-instalado como parte do tempo de funcionamento dos Serviços de Aplicação. Os passos abaixo mostrar-lhe-ão como capacitá-lo para o seu Serviço de Aplicações. Siga estes passos mesmo que tenha incluído a App Insights SDK na sua aplicação no momento de construção.
 
+> [!NOTE]
+> A instalação sem código do Application Insights Profiler segue a política de suporte .NET Core.
+> Para obter mais informações sobre os tempos de funcionação suportados, consulte [a Política de Suporte do Núcleo .NET](https://dotnet.microsoft.com/platform/support/policy/dotnet-core).
+
 1. Navegue no painel de controlo Azure para o seu Serviço de Aplicações.
-1. Ativar a definição "Always On" para o seu serviço de aplicações. Pode encontrar esta definição em **Definições**, página **de configuração** (ver screenshot no passo seguinte) e clicar no **separador Definições Gerais.**
+1. Ativar a definição "Always On" para o seu serviço de aplicações. Pode encontrar esta definição em **Definições**, página **de configuração** (ver screenshot no passo seguinte) e selecionar o separador **Definições Gerais.**
 1. Navegue para Definições > página **de Insights de Aplicação.**
 
    ![Ativar insights de aplicativos no portal de serviços de aplicações](./media/profiler/AppInsights-AppServices.png)
@@ -63,7 +67,7 @@ Se pretender ativar o perfil para outras nuvens, pode utilizar as definições d
 
 ## <a name="disable-profiler"></a>Perfil de desativação
 
-Para parar ou reiniciar profiler para uma aplicação individual, no **WebJobs** e parar o webjob chamado ApplicationInsightsProfiler3. Mesmo que o perfilador seja desativado utilizando o interruptor na página 'Insights de aplicação' como descrito acima, o processo do perfil ainda será executado. O perfis verificará se está ativado. Se estiver desativado, irá dormir por um período de tempo antes de verificar novamente. Não faz perfis se for desativado. Se desativar este webjob, o processo do profiler não funcionará de todo, mesmo para verificar se está ativado.
+Para parar ou reiniciar profiler para uma instância individual de uma aplicação, na barra lateral esquerda, selecione **WebJobs** e pare o webjob denominado `ApplicationInsightsProfiler3` .
 
   ![Desativar o Profiler para um trabalho na web][disable-profiler-webjob]
 
@@ -72,7 +76,7 @@ Recomendamos que tenha o Profiler habilitado em todas as suas aplicações para 
 Os ficheiros do profiler podem ser eliminados quando utilizar o WebDeploy para implementar alterações na sua aplicação web. Pode evitar a eliminação excluindo a pasta App_Data de ser eliminada durante a colocação. 
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Trabalhar com o Application Insights no Visual Studio](./visual-studio.md)
 

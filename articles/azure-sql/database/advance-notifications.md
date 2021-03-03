@@ -1,6 +1,6 @@
 ---
 title: Notificações antecipadas (Pré-visualização) para eventos de manutenção planeados
-description: Receba a notificação antes da manutenção planeada para a Base de Dados Azure SQL ou para a Azure SQL Gerenciada.
+description: Receba a notificação antes da manutenção planeada para a Base de Dados Azure SQL.
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: service
@@ -11,24 +11,26 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/02/2021
-ms.openlocfilehash: 3f63a8d2f75a58a771d837128c2b2498c28948ef
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 07f6267a14a4604e1a43dd1a1a9930d63a419336
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101663619"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690894"
 ---
 # <a name="advance-notifications-for-planned-maintenance-events-preview"></a>Notificações antecipadas para eventos de manutenção planeados (Pré-visualização)
-[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Notificações antecipadas (Pré-visualização), estão disponíveis para bases de dados configuradas para [Janela de Manutenção (Pré-visualização)](maintenance-window.md). As notificações antecipadas permitem aos clientes configurar notificações até 24 horas antes de qualquer evento planeado.
 
 As notificações podem ser configuradas para que possa receber mensagens, e-mails, notificações push Azure e mensagens de voz quando a manutenção planeada começar nas próximas 24 horas. Notificações adicionais são enviadas quando a manutenção começa e quando a manutenção termina.
 
+> [!Note]
+> Embora a capacidade de escolher uma janela de manutenção esteja disponível para instâncias geridas Azure SQL, as notificações antecipadas não estão atualmente disponíveis para instâncias geridas pelo Azure SQL.
 
 ## <a name="create-an-advance-notification"></a>Criar uma notificação antecipada
 
-Estão disponíveis notificações antecipadas para bases de dados Azure SQL e casos geridos que tenham a sua janela de manutenção configurada. 
+Estão disponíveis notificações antecipadas para bases de dados Azure SQL que tenham a sua janela de manutenção configurada. 
 
 Complete os seguintes passos para permitir uma notificação.  
 

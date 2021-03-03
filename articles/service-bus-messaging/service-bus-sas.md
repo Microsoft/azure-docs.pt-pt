@@ -4,12 +4,12 @@ description: Visão geral do controlo de acesso do Service Bus utilizando a vis�
 ms.topic: article
 ms.date: 01/19/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6bdc167c437a79d609db25a2e3c48b71e0a748b2
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: d210da4b653a20dd273dfce723f0bf9d5dbf743b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98598831"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737822"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Controlo de acesso de ônibus de serviço com assinaturas de acesso compartilhado
 
@@ -130,9 +130,9 @@ Se souber ou suspeitar que uma chave está comprometida e tiver de revogar as ch
 
 ## <a name="shared-access-signature-authentication-with-service-bus"></a>Autenticação de assinatura de acesso compartilhado com ônibus de serviço
 
-Os cenários descritos da seguinte forma incluem configuração de regras de autorização, geração de fichas SAS e autorização do cliente.
+O cenário descrito da seguinte forma inclui a configuração das regras de autorização, geração de fichas SAS e autorização do cliente.
 
-Para obter uma amostra completa de uma aplicação Service Bus que ilustra a configuração e utiliza a autorização SAS, consulte [a autenticação assinatura de acesso partilhado com o Service Bus.](https://code.msdn.microsoft.com/Shared-Access-Signature-0a88adf8) Uma amostra relacionada que ilustra a utilização de regras de autorização SAS configuradas em espaços de nome ou tópicos para garantir subscrições de Service Bus está disponível aqui: [Usando a autenticação de Assinatura de Acesso Partilhado (SAS) com assinaturas de autocarros de serviço.](https://code.msdn.microsoft.com/Using-Shared-Access-e605b37c)
+Para obter uma amostra de uma aplicação Service Bus que ilustra a configuração e utiliza a autorização SAS, consulte [a autenticação assinatura de acesso partilhado com o Service Bus](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/ManagingEntities/SASAuthorizationRule).
 
 ## <a name="access-shared-access-authorization-rules-on-an-entity"></a>Aceder às regras de Autorização de Acesso Partilhado a uma entidade
 

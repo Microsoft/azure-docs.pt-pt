@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 03/02/2021
 ms.author: thweiss
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: c684bd38f5e82cc53da002278495c2d4a859edc2
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: d21943c90e1f77bd4a43cdfd27b183df018f6cc7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101661295"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690673"
 ---
 # <a name="configure-azure-private-link-for-an-azure-cosmos-account"></a>Configure Azure Private Link para uma conta Azure Cosmos
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]

@@ -12,12 +12,12 @@ metadata:
   ms.author: kumud
   manager: mtillman
   ms.date: 09/28/2020
-  ms.openlocfilehash: 0f0536c259bb8b4168ab5fcf3e05016a281b05d5
-  ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
-  ms.translationtype: HT
+  ms.openlocfilehash: 40effbde3ad1c0676eae4c79f72b84d04dbd62e7
+  ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+  ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 01/15/2021
-  ms.locfileid: "98233955"
+  ms.lasthandoff: 03/03/2021
+  ms.locfileid: "101698659"
 highlightedContent:
   items:
   - title: O que é a Rede do Azure?
@@ -159,20 +159,20 @@ conceptualContent:
     footerLink:
       url: ../application-gateway/index.yml
       text: Ver mais
-  - title: Balanceador de carga global
+  - title: CDN de nuvem segura e equilibrador de carga global
     links:
     - url: ../frontdoor/front-door-overview.md
       itemType: overview
       text: O que é o Azure Front Door Service?
+    - url: ../frontdoor/standard-premium/overview.md
+      itemType: overview
+      text: O que é Azure Front Door Standard/Premium (Preview)?
     - url: ../frontdoor/front-door-custom-domain.md
       itemType: how-to-guide
       text: Adicionar um domínio personalizado ao Azure Front Door Service
     - url: ../frontdoor/front-door-how-to-redirect-https.md
       itemType: how-to-guide
       text: Redirecionamento HTTP para HTTPS
-    - url: ../frontdoor/front-door-troubleshoot-routing.md
-      itemType: how-to-guide
-      text: Resolver problemas de encaminhamento
     footerLink:
       url: ../frontdoor/index.yml
       text: Ver mais

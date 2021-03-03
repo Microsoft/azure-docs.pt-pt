@@ -4,12 +4,12 @@ description: Saiba como utilizar as informações recolhidas na fase de planeame
 ms.topic: tutorial
 ms.custom: contperf-fy21q3
 ms.date: 02/17/2021
-ms.openlocfilehash: bfd057a19ebe26a66d11b52ddf17c285a1f9a308
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 6f1e587894d51eae2af4e9f76114f53f27ffefe1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100652739"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703867"
 ---
 # <a name="deploy-and-configure-azure-vmware-solution"></a>Implementar e configurar a solução VMware Azure
 
@@ -62,7 +62,14 @@ Neste exemplo, a rede 10.74.72.0/22 foi a entrada durante a implantação deriva
 
 Inicie sessão na caixa de salto que criou no passo anterior. Uma vez iniciado o login, abra um navegador web e navegue para e inicie sessão no vCenter e no NSX-T Manager.  
 
-Pode identificar os endereços IP e credenciais ip da consola VSX-T Manager no portal Azure.  Selecione a sua nuvem privada e, em seguida, na **vista geral,** selecione **Identidade > Padrão**. 
+Pode identificar os endereços IP e credenciais ip da consola VSX-T Manager no portal Azure.  Selecione a sua nuvem privada e, em seguida, **Gerencie**  >  **a identidade**.
+
+>[!TIP]
+>**Selecione Gere uma nova palavra-passe** para gerar novas palavras-passe vCenter e NSX-T.
+
+:::image type="content" source="media/tutorial-access-private-cloud/ss4-display-identity.png" alt-text="Exiba urls e credenciais de cloud vCenter e NSX Manager." border="true":::
+
+
 
 ## <a name="create-a-network-segment-on-azure-vmware-solution"></a>Criar um segmento de rede na Solução VMware Azure
 

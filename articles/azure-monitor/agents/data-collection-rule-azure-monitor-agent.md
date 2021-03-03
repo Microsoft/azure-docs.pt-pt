@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/19/2020
-ms.openlocfilehash: 6e65b828e2cf86614707c8a859abc0c4f2395899
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 93e244706d6d478155ac001d20fa3ce74fa6a887
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100616362"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723644"
 ---
 # <a name="configure-data-collection-for-the-azure-monitor-agent-preview"></a>Configure a recolha de dados para o agente Azure Monitor (pré-visualização)
 
@@ -82,7 +82,7 @@ Siga os passos abaixo para criar uma regra de recolha de dados e associações u
 
 ## <a name="create-association-using-resource-manager-template"></a>Criar associação usando o modelo de Gestor de Recursos
 
-Não é possível criar uma regra de recolha de dados utilizando um modelo de Gestor de Recursos, mas pode criar uma associação entre uma máquina virtual Azure ou um servidor ativado pelo Azure Arc utilizando um modelo de Gestor de Recursos. Consulte [as amostras de modelo do Gestor de Recursos para as regras de recolha de dados no Azure Monitor](../samples/resource-manager-data-collection-rules.md) para modelos de amostras.
+Não é possível criar uma regra de recolha de dados utilizando um modelo de Gestor de Recursos, mas pode criar uma associação entre uma máquina virtual Azure ou um servidor ativado pelo Azure Arc utilizando um modelo de Gestor de Recursos. Consulte [as amostras de modelo do Gestor de Recursos para as regras de recolha de dados no Azure Monitor](./resource-manager-data-collection-rules.md) para modelos de amostras.
 
 ## <a name="next-steps"></a>Passos seguintes
 

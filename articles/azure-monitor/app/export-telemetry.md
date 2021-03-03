@@ -2,16 +2,20 @@
 title: Exportação contínua de telemetria a partir de | de Insights de Aplicação Microsoft Docs
 description: Exporte dados de diagnóstico e utilização para armazenamento no Microsoft Azure, e descarregue-os a partir daí.
 ms.topic: conceptual
-ms.date: 05/26/2020
-ms.openlocfilehash: 23405faeb7d2151ce0f6492c0d522e0a7f9b84a8
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.date: 02/19/2021
+ms.custom: references_regions
+ms.openlocfilehash: e7831123834df9186310453106c50261373160ec
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100584235"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737040"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Exportar telemetria a partir do Application Insights
 Deseja manter a sua telemetria por mais tempo do que o período padrão de retenção? Ou processá-lo de uma forma especializada? Exportação Contínua é ideal para isso. Os eventos que vê no portal Application Insights podem ser exportados para armazenamento no Microsoft Azure em formato JSON. A partir daí, pode descarregar os seus dados e escrever qualquer código necessário para os processar.  
+
+> [!IMPORTANT]
+> As exportações contínuas foram depreciadas. [Migrar para um recurso de Aplicações Insights baseado em espaço de trabalho](convert-classic-resource.md) para utilizar [definições](#diagnostic-settings-based-export) de diagnóstico para exportar telemetria.
 
 > [!NOTE]
 > A Exportação contínua só é suportada para os recursos clássicos do Application Insights. [Os recursos do Application Insights baseados na área de trabalho](./create-workspace-resource.md) têm de utilizar [definições de diagnóstico](./create-workspace-resource.md#export-telemetry).
@@ -27,6 +31,44 @@ Antes de configurar a exportação contínua, há algumas alternativas que talve
 * Também pode aceder à exportação contínua de configuração [via PowerShell](/powershell/module/az.applicationinsights/new-azapplicationinsightscontinuousexport).
 
 Depois de a Exportação Contínua copia os seus dados para armazenamento (onde pode ficar o tempo que quiser), ainda está disponível em Application Insights para o período de [retenção](./data-retention-privacy.md)habitual.
+
+## <a name="supported-regions"></a>Regiões apoiadas
+
+As exportações contínuas são suportadas nas seguintes regiões:
+
+* Sudeste Asiático
+* Canadá Central
+* Índia Central
+* Europa do Norte
+* Sul do Reino Unido
+* Leste da Austrália
+* Leste do Japão
+* Coreia do Sul Central
+* França Central
+* Ásia Leste
+* E.U.A. Oeste
+* E.U.A. Central
+* E.U.A. Leste 2
+* E.U.A. Centro-Sul
+* E.U.A. Oeste 2
+* Norte da África do Sul
+* E.U.A. Centro-Norte
+* Sul do Brasil
+* Suíça Norte
+* Austrália Sudeste
+* Oeste do Reino Unido
+* Alemanha Centro-Oeste
+* Suíça Oeste
+* Austrália Central 2
+* Centro dos Emirados Árabes Unidos
+* Sudeste do Brasil
+* Austrália Central
+* Uae Norte
+* Leste da Noruega
+* Oeste do Japão
+
+> [!NOTE]
+> As candidaturas já configuradas na **Europa Ocidental** e **nos EUA** são apoiadas, mas não é apoiado o embarque de novas aplicações nessas regiões.
 
 ## <a name="continuous-export-advanced-storage-configuration"></a>Configuração avançada de armazenamento de exportação contínua
 

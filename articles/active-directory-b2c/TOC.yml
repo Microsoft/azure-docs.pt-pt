@@ -121,10 +121,14 @@
           href: add-sign-up-and-sign-in-policy.md
         - name: Política de início de sessão
           href: add-sign-in-policy.md
-        - name: Política de reposição de palavra-passe
-          href: add-password-reset-policy.md
-        - name: Política de alteração de palavra-passe
-          href: add-password-change-policy.md
+        - name: Políticas de reposição de palavra-passe
+          items:
+            - name: Reposição personalizada de palavra-passe
+              href: add-password-reset-policy.md
+            - name: Alteração da palavra-passe de autosserviço
+              href: add-password-change-policy.md
+            - name: Redefinição da palavra-passe da força
+              href: force-password-reset.md
         - name: Política de edição de perfil
           href: add-profile-editing-policy.md
         - name: Política de credenciais de palavra-passe do proprietário do recurso
@@ -520,4 +524,4 @@
       href: ../active-directory/fundamentals/active-directory-troubleshooting-support-howto.md?bc=%2fazure%2factive-directory-b2c%2fbread%2ftoc.json&toc=%2fazure%2factive-directory-b2c%2fTOC.json
       displayName: technical
     - name: Vídeos
-      href: 'https://azure.microsoft.com/documentation/videos/index/?services=active-directory-b2c'
+      href: azure-ad-external-identities-videos.md

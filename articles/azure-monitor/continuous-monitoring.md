@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/12/2018
-ms.openlocfilehash: 89ce214ef9686d2704878304b8b324871ad9473f
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 0ca6185d829e5941145905e1bc63cc2fb9ac781e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100579497"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731651"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>Monitorização contínua com monitor azure
 
@@ -36,7 +36,7 @@ Para obter a observabilidade em todo o seu ambiente, precisa de ativar a monitor
 As aplicações são tão fiáveis quanto as suas infraestruturas subjacentes. Ter a monitorização ativada em toda a sua infraestrutura irá ajudá-lo a alcançar a plena observabilidade e facilitar a descoberta de uma potencial causa de raiz quando algo falha. O Azure Monitor ajuda-o a acompanhar a saúde e o desempenho de toda a sua infraestrutura híbrida, incluindo recursos como VMs, contentores, armazenamento e rede.
 
 - Obtém automaticamente [métricas de plataforma, registos de atividades e registos](agents/data-sources.md) de diagnóstico da maioria dos seus recursos Azure sem configuração.
-- Ativar uma monitorização mais profunda dos VMs com [monitores Azure para VMs](vm/vminsights-overview.md).
+- Ativar uma monitorização mais profunda dos VMs com [insights VM](vm/vminsights-overview.md).
 -  Ativar uma monitorização mais profunda dos aglomerados AKS com [o Azure Monitor para contentores](containers/container-insights-overview.md).
 - Adicione [soluções de monitorização](./monitor-reference.md) para diferentes aplicações e serviços no seu ambiente.
 

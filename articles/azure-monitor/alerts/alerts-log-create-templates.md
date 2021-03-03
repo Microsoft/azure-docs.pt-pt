@@ -6,18 +6,18 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.subservice: alerts
-ms.openlocfilehash: 6b1403b12c05420c6296cbafd0d4ee0bc02f8dd4
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 665137688a000433a9101a77342fa6f9350d7141
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100618121"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101714328"
 ---
 # <a name="create-a-log-alert-with-a-resource-manager-template"></a>Criar um alerta de registo com um modelo do Resource Manager
 
-Os alertas de registo permitem que os utilizadores utilizem uma consulta [log Analytics](../log-query/log-analytics-tutorial.md) para avaliar os registos de recursos em cada frequência definida e disparem um alerta com base nos resultados. As regras podem desencadear uma ou mais ações utilizando [grupos de ação](../platform/action-groups.md). [Saiba mais sobre funcionalidade e terminologia de alertas de registo.](../platform/alerts-unified-log.md)
+Os alertas de registo permitem que os utilizadores utilizem uma consulta [log Analytics](../logs/log-analytics-tutorial.md) para avaliar os registos de recursos em cada frequência definida e disparem um alerta com base nos resultados. As regras podem desencadear uma ou mais ações utilizando [grupos de ação](./action-groups.md). [Saiba mais sobre funcionalidade e terminologia de alertas de registo.](./alerts-unified-log.md)
 
-Este artigo mostra como pode utilizar um [modelo de Gestor de Recursos Azure](../../azure-resource-manager/templates/template-syntax.md) para configurar [alertas de registo](../platform/alerts-unified-log.md) no Azure Monitor. Os modelos de Gestor de Recursos permitem-lhe configurar programáticamente alertas de forma consistente e reprodutível em todos os seus ambientes. Os alertas de registo são criados no `Microsoft.Insights/scheduledQueryRules` fornecedor de recursos. Consulte a referência da API para [a API de Regras de Consulta Programadas](/rest/api/monitor/scheduledqueryrules/).
+Este artigo mostra como pode utilizar um [modelo de Gestor de Recursos Azure](../../azure-resource-manager/templates/template-syntax.md) para configurar [alertas de registo](./alerts-unified-log.md) no Azure Monitor. Os modelos de Gestor de Recursos permitem-lhe configurar programáticamente alertas de forma consistente e reprodutível em todos os seus ambientes. Os alertas de registo são criados no `Microsoft.Insights/scheduledQueryRules` fornecedor de recursos. Consulte a referência da API para [a API de Regras de Consulta Programadas](/rest/api/monitor/scheduledqueryrules/).
 
 Os passos básicos são os seguintes:
 
@@ -26,15 +26,15 @@ Os passos básicos são os seguintes:
 4. Implemente o modelo utilizando qualquer método de implementação.
 
 > [!NOTE]
-> Os dados de registo de um espaço de [trabalho log Analytics](../log-query/log-analytics-tutorial.md) podem ser enviados para a loja de métricas do Azure Monitor. Os alertas de métricas têm [um comportamento diferente,](../platform/alerts-metric-overview.md)o que pode ser mais desejável dependendo dos dados com que está a trabalhar. Para obter informações sobre o que e como pode encaminhar os registos para métricas, consulte [o Alerta Métrico de Registos](../platform/alerts-metric-logs.md).
+> Os dados de registo de um espaço de [trabalho log Analytics](../logs/log-analytics-tutorial.md) podem ser enviados para a loja de métricas do Azure Monitor. Os alertas de métricas têm [um comportamento diferente,](./alerts-metric-overview.md)o que pode ser mais desejável dependendo dos dados com que está a trabalhar. Para obter informações sobre o que e como pode encaminhar os registos para métricas, consulte [o Alerta Métrico de Registos](./alerts-metric-logs.md).
 
 > [!NOTE]
-> Os alertas de registo para o Log Analytics costumavam ser geridos utilizando o legado [Log Analytics Alert API](../platform/api-alerts.md) e modelos legados de [Log Analytics guardados pesquisas e alertas](../insights/solutions.md). [Saiba mais sobre a mudança para a atual API de Placas DeQueryRules.](alerts-log-api-switch.md)
+> Os alertas de registo para o Log Analytics costumavam ser geridos utilizando o legado [Log Analytics Alert API](./api-alerts.md) e modelos legados de [Log Analytics guardados pesquisas e alertas](../insights/solutions.md). [Saiba mais sobre a mudança para a atual API de Placas DeQueryRules.](alerts-log-api-switch.md)
 
 
 ## <a name="simple-template-up-to-api-version-2018-04-16"></a>Modelo simples (até à versão API 2018-04-16)
 
-[Modelo de criação de regras](/rest/api/monitor/scheduledqueryrules/createorupdate) de consulta agendadas com base no [número de alerta de registo de resultados](../platform/alerts-unified-log.md#count-of-the-results-table-rows) (conjunto de dados da amostra como variáveis):
+[Modelo de criação de regras](/rest/api/monitor/scheduledqueryrules/createorupdate) de consulta agendadas com base no [número de alerta de registo de resultados](./alerts-unified-log.md#count-of-the-results-table-rows) (conjunto de dados da amostra como variáveis):
 
 ```json
 {
@@ -109,7 +109,7 @@ Este JSON pode ser guardado e implantado utilizando [o Gestor de Recursos Azure 
 
 ## <a name="template-with-cross-resource-query-up-to-api-version-2018-04-16"></a>Modelo com consulta de recursos cruzados (até a versão API 2018-04-16)
 
-[Modelo de criação de regras](/rest/api/monitor/scheduledqueryrules/createorupdate) de consulta agendadas com base na [medição métrica](../platform/alerts-unified-log.md#calculation-of-measure-based-on-a-numeric-column-such-as-cpu-counter-value) que questiona [os recursos cruzados](../log-query/cross-workspace-query.md) (conjunto de dados da amostra como variáveis):
+[Modelo de criação de regras](/rest/api/monitor/scheduledqueryrules/createorupdate) de consulta agendadas com base na [medição métrica](./alerts-unified-log.md#calculation-of-measure-based-on-a-numeric-column-such-as-cpu-counter-value) que questiona [os recursos cruzados](../logs/cross-workspace-query.md) (conjunto de dados da amostra como variáveis):
 
 ```json
 {
@@ -432,7 +432,7 @@ Este JSON pode ser guardado e implantado utilizando [o Gestor de Recursos Azure 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Saiba mais sobre [alertas de registo](../platform/alerts-unified-log.md)
-* Saiba mais [sobre a gestão de alertas de registos](../platform/alerts-log.md)
-* Compreenda [as ações do webhook para alertas de registo](../platform/alerts-log-webhook.md)
-* Saiba mais sobre [consultas de registo.](../log-query/log-query-overview.md)
+* Saiba mais sobre [alertas de registo](./alerts-unified-log.md)
+* Saiba mais [sobre a gestão de alertas de registos](./alerts-log.md)
+* Compreenda [as ações do webhook para alertas de registo](./alerts-log-webhook.md)
+* Saiba mais sobre [consultas de registo.](../logs/log-query-overview.md)

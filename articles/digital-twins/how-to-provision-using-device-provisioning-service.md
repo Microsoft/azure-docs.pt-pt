@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/1/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: e783e5dd3b0f1952928d1c36c682c5be1cba2599
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 924397c9c81d2a38ae74b95a8f7133ced8bde0d4
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98044395"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101736547"
 ---
 # <a name="auto-manage-devices-in-azure-digital-twins-using-device-provisioning-service-dps"></a>Dispositivos de gestão automática em Gémeos Digitais Azure utilizando o Serviço de Provisionamento de Dispositivos (DPS)
 
@@ -89,7 +89,7 @@ No ficheiro de código de função recém-criado, cole no seguinte código.
 
 Guarde o ficheiro e, em seguida, re-publique a sua aplicação de função. Para obter instruções sobre a publicação da aplicação de funções, consulte a secção de [*aplicações*](tutorial-end-to-end.md#publish-the-app) do tutorial de ponta a ponta.
 
-### <a name="configure-your-function"></a>Configure a sua função
+### <a name="configure-your-function"></a>Configurar a função
 
 Em seguida, terá de definir variáveis ambientais na sua aplicação de função anteriormente, contendo a referência à instância Azure Digital Twins que criou. Se utilizar o tutorial de ponta a ponta [*(Tutorial: Conecte uma solução de ponta a ponta),*](tutorial-end-to-end.md)a definição já estará configurada.
 
@@ -174,7 +174,7 @@ Ver os passos descritos no [*Centro de Eventos um*](../event-hubs/event-hubs-cre
 
 ### <a name="create-an-azure-function"></a>Criar uma função do Azure
 
-Em seguida, irá criar uma função desencadeada por Event Hubs dentro de uma aplicação de função. Pode utilizar a aplicação de função criada no tutorial de ponta a ponta [*(Tutorial: Conecte uma solução de ponta a ponta),*](tutorial-end-to-end.md)ou a sua própria. 
+Em seguida, criará uma função acionada por Hubs de Eventos numa aplicação de funções. Pode utilizar a aplicação de função criada no tutorial de ponta a ponta [*(Tutorial: Conecte uma solução de ponta a ponta),*](tutorial-end-to-end.md)ou a sua própria. 
 
 Nomeie o seu centro de eventos para desencadear *eventos de ciclo de vida* e ligue o gatilho do centro de eventos ao centro de eventos que criou no passo anterior. Se usou um nome de hub de evento diferente, altere-o para corresponder ao nome do gatilho abaixo.
 
@@ -186,7 +186,7 @@ Dentro da sua aplicação de função publicada, adicione uma nova classe de fun
 
 Guarde o projeto e, em seguida, publique novamente a aplicação de função. Para obter instruções sobre a publicação da aplicação de funções, consulte a secção de [*aplicações*](tutorial-end-to-end.md#publish-the-app) do tutorial de ponta a ponta.
 
-### <a name="configure-your-function"></a>Configure a sua função
+### <a name="configure-your-function"></a>Configurar a função
 
 Em seguida, terá de definir variáveis ambientais na sua app de função anteriormente, contendo a referência à instância Azure Digital Twins que criou e ao centro de eventos. Se utilizar o tutorial de ponta a ponta [*(Tutorial: Conecte uma solução de ponta a ponta),*](./tutorial-end-to-end.md)a primeira definição já estará configurada.
 
@@ -223,7 +223,7 @@ Para desencadear o processo de aposentadoria, é necessário eliminar manualment
 
 Na [primeira metade deste artigo,](#auto-provision-device-using-device-provisioning-service)criou-se um dispositivo no IoT Hub e um gémeo digital correspondente. 
 
-Agora, vá ao IoT Hub e elimine esse dispositivo (pode fazê-lo com um [comando Azure CLI](/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest&preserve-view=true#ext-azure-cli-iot-ext-az-iot-hub-device-identity-delete) ou no [portal Azure).](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Devices%2FIotHubs) 
+Agora, vá ao IoT Hub e elimine esse dispositivo (pode fazê-lo com um [comando Azure CLI](/cli/azure/ext/azure-iot/iot/hub/module-identity?view=azure-cli-latest#ext_azure_iot_az_iot_hub_module_identity_delete) ou no [portal Azure).](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Devices%2FIotHubs) 
 
 O dispositivo será automaticamente removido da Azure Digital Twins. 
 

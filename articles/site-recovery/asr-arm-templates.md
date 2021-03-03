@@ -8,21 +8,21 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/04/2021
 ms.author: rishjai
-ms.openlocfilehash: 0477045ac48ee2746e3d6a1dd95051673412ffee
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: efd5c1ab3e23348373be76c79d1b9689bc5f4941
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99551331"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101720533"
 ---
 # <a name="azure-resource-manager-templates-for-azure-site-recovery"></a>Modelos de gestor de recursos Azure para recuperação do site Azure
 
 A tabela seguinte inclui links para modelos do Gestor de Recursos Azure para a utilização de funcionalidades de Recuperação do Site Azure.
 
-| Modelo | Description |
+| Modelo | Descrição |
 |---|---|
 |**Azure para o Azure** | |
-| [Criar um cofre dos Serviços de Recuperação](https://docs.microsoft.com/azure/site-recovery/quickstart-create-vault-template)| Crie um cofre dos Serviços de Recuperação. O cofre pode ser utilizado no Azure Backup e no Azure Site Recovery. |
+| [Criar um cofre dos Serviços de Recuperação](./quickstart-create-vault-template.md)| Crie um cofre dos Serviços de Recuperação. O cofre pode ser utilizado no Azure Backup e no Azure Site Recovery. |
 | [Ativar a replicação de VMs Azure](https://aka.ms/asr-arm-enable-replication) | Ativar a replicação dos VMs Azure utilizando o cofre existente e as definições de alvo personalizadas.|
 | [Trigger Failover e Reprotect](https://aka.ms/asr-arm-failover-reprotect) | Desencadeie uma operação Failover e Reprotect para um conjunto de VMs Azure. |
 | [Executar um fluxo dr final para VMs Azure](https://aka.ms/asr-arm-e2e-flow) | Inicie um fluxo completo de recuperação de desastres (Ativar a replicação + failover e Reprotect + Failback e Reprotect) para VMs Azure, também chamado de fluxo de 540°.|

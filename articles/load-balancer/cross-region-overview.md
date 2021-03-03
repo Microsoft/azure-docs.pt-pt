@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: allensu
 ms.custom: references_regions
-ms.openlocfilehash: 89bf920a5a5dd833425f1b41bd206beaae9d30fd
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 64432e2717057c1ff6bb09e0158ddb779d5b5373
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98946253"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101742607"
 ---
 # <a name="cross-region-load-balancer-preview"></a>Balanceador de carga transversal (Pré-visualização)
 
@@ -35,7 +35,7 @@ O Azure Standard Load Balancer suporta o equilíbrio da carga entre regiões, pe
 * [Baseie-se na](#build-cross-region-solution-on-existing-azure-load-balancer) solução existente do balanceador de carga sem curva de aprendizagem
 
 > [!IMPORTANT]
-> O equilibrador de carga cross-region está atualmente em pré-visualização e pode ser implantado no Portal. Iniciar sposição **https://preview.portal.azure.com** para visualizar e implementar a funcionalidade.. </br> </br>
+> O equilibrador de carga transversal está atualmente em pré-visualização.
 > Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 O equilíbrio entre regiões de carga oferece os mesmos benefícios de alto desempenho e baixa latência que o balanceador regional de carga padrão. 
@@ -79,7 +79,7 @@ Para obter mais informações, consulte [configurar o modo de distribuição par
 
 ### <a name="ability-to-scale-updown-behind-a-single-endpoint"></a>Capacidade de escalar para cima/para baixo atrás de um único ponto final
 
-Quando expõe o ponto final global de um balanceador de carga cross-region aos clientes, pode adicionar ou remover implementações regionais por trás do ponto final global sem impacto do cliente. 
+Quando expõe o ponto final global de um equilibrador de carga entre regiões aos clientes, pode adicionar ou remover as implementações regionais atrás do ponto final global sem interrupção. 
 
 <!---To learn about how to add or remove a regional deployment from the backend, read more [here](TODO: Insert CLI doc here).--->
 
@@ -94,7 +94,7 @@ O pool de backend do balanceador de carga transversal contém um ou mais equilib
 
 Adicione as suas implementações existentes do balanceador de carga a um equilibrador de carga entre regiões para uma implantação transnacentes altamente disponível.
 
-**A região natal** é onde o equilibrador de carga transversal é implantado. Esta região não afeta a forma como o tráfego será encaminhado. Se uma região de origem cair, não afeta o fluxo de tráfego.
+**A região natal** é onde o equilibrador de carga transversal é implantado. Esta região não afeta a forma como o tráfego será encaminhado. Se uma região natal diminuir, o fluxo de tráfego não é afetado.
 
 ### <a name="home-regions"></a>Regiões de origem
 * E.U.A. Leste 2
@@ -137,19 +137,19 @@ O balançador de carga transversal encaminha o tráfego para o equilibrador regi
 
 * As configurações IP frontend cross-region são apenas públicas. Atualmente, não é suportado um frontend interno.
 
-* O equilibrador de carga privado ou interno não pode ser adicionado ao pool de backend do balançador de carga trans-regional 
+* O equilibrador de carga privado ou interno não pode ser adicionado ao pool de backend de um equilibrador de carga transversal 
 
 * As configurações IP frontend IPv6 de região cruzada não são suportadas. 
 
 * Uma sonda de saúde não pode ser configurada atualmente. Uma sonda de saúde predefinida recolhe automaticamente informações de disponibilidade sobre o balançador regional de carga a cada 20 segundos. 
 
-* A Azure kubernetes Service (AKS) não pode atualmente ser integrado com o Balancer de Carga cross-region. A perda de conectividade deve ser esperada ao criar um Balanceador de Carga cross-region em frente a um Balanceador de Carga Pública implantado com AKS.
+* A integração com o Serviço Azure Kubernetes (AKS) não está disponível atualmente. A perda de conectividade ocorrerá ao implantar um equilibrador de carga transversal com o equilibrador de carga público AKS.
 
 ## <a name="pricing-and-sla"></a>Preços e SLA
 Balanceador de carga transversal, partilha o [SLA](https://azure.microsoft.com/support/legal/sla/load-balancer/v1_0/ ) do balanceador de carga padrão.
 
  
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Ver [Tutorial: Criar um equilibrador de carga transversal utilizando o portal Azure](tutorial-cross-region-portal.md) para criar um equilibrador de carga transversal.
 - Consulte [Criar um equilibrador de carga padrão público](quickstart-load-balancer-standard-public-portal.md) para criar um balanceador regional de carga padrão.

@@ -1,18 +1,18 @@
 ---
-title: Configure Monitor Azure para recolha de dados de agente de contentores | Microsoft Docs
-description: Este artigo descreve como pode configurar o Monitor Azure para o agente de contentores controlar a recolha de registos de variáveis stdout/stderr e ambiente.
+title: Configure a recolha de dados do agente de informação do contentor | Microsoft Docs
+description: Este artigo descreve como pode configurar o agente de insights do Recipiente para controlar a recolha de registos de variáveis stdout/stderr e ambiente.
 ms.topic: conceptual
 ms.date: 10/09/2020
-ms.openlocfilehash: f21b841bc129012b684d2a1c59eb72989fe9e0e0
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: d866fec2013daf9b8edfdbfd703c7b1098ae91bd
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100620201"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708395"
 ---
-# <a name="configure-agent-data-collection-for-azure-monitor-for-containers"></a>Configurar a recolha de dados do agente para o Azure Monitor para contentores
+# <a name="configure-agent-data-collection-for-container-insights"></a>Configure a recolha de dados do agente para insights de contentores
 
-O Monitor Azure para contentores recolhe stdout, stderr e variáveis ambientais a partir de cargas de trabalho de contentores implantadas para gerir aglomerados kubernetes do agente contentorizado. Pode configurar as definições de recolha de dados de agentes criando um Kubernetes ConfigMaps personalizado para controlar esta experiência. 
+Os insights dos contentores recolhem variáveis stdout, stderr e ambientais a partir de cargas de trabalho de contentores implantadas para os aglomerados de Kubernetes geridos a partir do agente contentorizado. Pode configurar as definições de recolha de dados de agentes criando um Kubernetes ConfigMaps personalizado para controlar esta experiência. 
 
 Este artigo demonstra como criar a ConfigMap e configurar a recolha de dados com base nos seus requisitos.
 
@@ -142,8 +142,8 @@ A saída apresentará semelhantes às seguintes com as versões de esquema de an
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- O Monitor Azure para contentores não inclui um conjunto de alertas predefinidos. Reveja os [alertas de desempenho da Create com o Azure Monitor para que os recipientes](./container-insights-log-alerts.md) aprendam a criar alertas recomendados para alta utilização de CPU e memória para suportar os seus DevOps ou processos e procedimentos operacionais.
+- As informações do recipiente não incluem um conjunto de alertas predefinidos. Reveja os [alertas de desempenho da Create com insights](./container-insights-log-alerts.md) de Contentores para aprender a criar alertas recomendados para alta utilização de CPU e memória para suportar os seus DevOps ou processos e procedimentos operacionais.
 
-- Com a monitorização habilitada a recolher a saúde e a utilização de recursos do seu cluster AKS ou híbrido e cargas de trabalho a funcionar sobre eles, aprenda [a utilizar o](container-insights-analyze.md) Azure Monitor para recipientes.
+- Com a monitorização habilitada a recolher a saúde e a utilização de recursos do seu cluster AKS ou híbrido e cargas de trabalho em execução, [aprenda a usar](container-insights-analyze.md) insights de contentores.
 
 - Consulte [exemplos de consulta](container-insights-log-search.md#search-logs-to-analyze-data) de registos para ver consultas e exemplos pré-definidos para avaliar ou personalizar para alertar, visualizar ou analisar os seus clusters.

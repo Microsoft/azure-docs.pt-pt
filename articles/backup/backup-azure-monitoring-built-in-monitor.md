@@ -4,12 +4,12 @@ description: Neste artigo, conheça as capacidades de monitorização e notifica
 ms.topic: conceptual
 ms.date: 03/05/2019
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: 74669a1347fac9f61d028d9cb1f3da174bb71f96
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 2273b66be88cb22a15d0779ed2918ba3d94da1ce
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99550353"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713376"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Monitorização das cargas de trabalho de backup do Azure
 
@@ -119,6 +119,18 @@ Se a frequência foi definida para uma digestão de hora a hora e um alerta foi 
 Para inativar/resolver um alerta ativo, pode selecionar o item da lista correspondente ao alerta que pretende inativar. Isto abre um ecrã que exibe informações detalhadas sobre o alerta, com um botão **Inativado** na parte superior. A seleção deste botão alterará o estado do alerta para **Inativo**. Pode também inativar um alerta clicando à direita no item da lista correspondente a esse alerta e selecionando **Inativado**.
 
 ![Inativação de alerta RS Vault](media/backup-azure-monitoring-laworkspace/vault-alert-inactivation.png)
+
+## <a name="azure-monitor-alerts-for-azure-backup-preview"></a>Alertas do Azure Monitor para Azure Backup (pré-visualização)
+
+O Azure Backup também fornece alertas via Azure Monitor, para permitir que os utilizadores tenham uma experiência consistente de gestão de alerta em diferentes serviços Azure, incluindo backup. Com alertas do Azure Monitor, pode encaminhar alertas para qualquer canal de notificação suportado por Azure Backup, como e-mail, ITSM, Webhook, Logic App e assim por diante.
+
+Atualmente, esta funcionalidade está disponível para bases de dados Azure para Servidor Pós-SQL, Blobs Azure e Discos Geridos Azure. Os alertas são gerados para os seguintes cenários e podem ser acedidos navegando para um cofre de reserva e clicando no item do menu **Alertas:**
+
+- Eliminar dados de backup
+- Falha de backup (para obter alertas para falha de backup, precisa de registar a bandeira AFEC chamada **EnableAzureBackupJobFailureAlertsToAzureMonitor** através do portal de pré-visualização)
+- Restaurar falha (para obter alertas para restaurar a falha, precisa de registar a bandeira da AFEC chamada **EnableAzureBackupJobFailureAlertsToAzureMonitor** através do portal de pré-visualização)
+
+Para obter mais informações sobre os alertas do Azure Monitor, consulte [a visão geral dos alertas em Azure](https://docs.microsoft.com/azure/azure-monitor/alerts/alerts-overview).
 
 ## <a name="next-steps"></a>Passos seguintes
 

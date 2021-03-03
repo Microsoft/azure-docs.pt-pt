@@ -1,22 +1,10 @@
 ---
-title: Localização - Azure Ative Directory B2C
-description: Especificar o elemento de localização de uma política personalizada no Azure Ative Directory B2C.
-services: active-directory-b2c
-author: msmimart
-manager: celestedg
-ms.service: active-directory
-ms.workload: identity
-ms.topic: reference
-ms.date: 10/15/2020
-ms.author: mimart
-ms.subservice: B2C
-ms.openlocfilehash: 88244ec3ba4bbebe7d6096fa3ac49bd4f1b8f661
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
-ms.translationtype: MT
-ms.contentlocale: pt-PT
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97108625"
+título: Localização - Azure Ative Directory B2C descrição: Especificar o elemento de localização de uma política personalizada em Azure Ative Directory B2C.
+serviços: autor ativo-directório-b2c: gestor msmimart: celestedg
+
+ms.service: active-directy ms.workload: identity ms.topic: reference ms.date: 10/15/2020 ms.author: mimart ms.subservice: B2C ms.custom:"b2c-support"
 ---
+
 # <a name="localization-element"></a>Elemento de localização
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
@@ -335,7 +323,7 @@ O valor UxElement é utilizado para localizar um dos elementos de interface do u
 
 ### <a name="displaycontrol"></a>DisplayControl
 
-O valor DisplayControl é utilizado para localizar um dos elementos de interface do utilizador do controlo do [ecrã.](display-controls.md) O exemplo a seguir mostra como localizar os botões de envio e verificação. 
+O valor DisplayControl é utilizado para localizar um dos elementos de interface do utilizador do controlo do [ecrã.](display-controls.md) Quando ativado, o controlo de visualização localizadoStrings assume a **precedência*** sobre alguns dos _ *UxElement** StringIDs como **ver_but_send**, **ver_but_edit,** **ver_but_resend** e **ver_but_verify**. O exemplo a seguir mostra como localizar os botões de envio e verificação. 
 
 ```xml
 <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_send_code">Send verification code</LocalizedString>

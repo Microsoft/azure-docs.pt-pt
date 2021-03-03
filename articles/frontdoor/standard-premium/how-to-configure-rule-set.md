@@ -7,24 +7,19 @@ ms.service: frontdoor
 ms.topic: how-to
 ms.date: 02/18/2021
 ms.author: yuajia
-ms.openlocfilehash: e2fe475b171a99ec27ed162511db289891066e00
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 6863c492059ccee152ecf3d03a09e61793576bcb
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101099454"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101715603"
 ---
-# <a name="configure-a-rule-set"></a>Configurar um conjunto de regras
+# <a name="configure-a-rule-set-with-azure-front-door-standardpremium-preview"></a>Configure um conjunto de regras com Azure Front Door Standard/Premium (Pré-visualização)
 
 > [!Note]
 > Esta documentação destina-se ao Azure Front Door Standard/Premium (Preview). À procura de informações sobre a Porta da Frente Azure? Ver [aqui](../front-door-overview.md).
 
-Este tutorial mostra como criar um Conjunto de Regras e o seu primeiro conjunto de regras no portal Azure. 
-
-Neste tutorial, ficará a saber como:
-> [!div class="checklist"]
-> - Configurar regras usando o portal.
-> - Eliminar Regra definida do seu perfil AFD utilizando o portal
+Este artigo mostra como criar um Conjunto de Regras e o seu primeiro conjunto de regras no portal Azure. Em seguida, aprenderá a associar o Conjunto de Regras a uma rota a partir da página Rule set ou do Endpoint Manager.
 
 > [!IMPORTANT]
 > Azure Front Door Standard/Premium (Preview) está atualmente em pré-visualização pública.
@@ -33,7 +28,7 @@ Neste tutorial, ficará a saber como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Antes de completar os passos neste tutorial, tem primeiro de criar um Azure Front Door Standard/Premium. Para obter mais informações, consulte [Quickstart: Crie um perfil Standard/Premium da Porta Frontal Azure](create-front-door-portal.md).
+* Antes de configurar um Conjunto de Regras, tem primeiro de criar um Standard/Premium da Porta Frontal Azure. Para obter mais informações, consulte [Quickstart: Crie um perfil Standard/Premium da Porta Frontal Azure](create-front-door-portal.md).
 
 ## <a name="configure-rule-set-in-azure-portal"></a>Configurar regra definida no portal Azure
 
@@ -65,11 +60,11 @@ Neste tutorial, ficará a saber como:
     1. Selecione *o link não associado.*
      
 
-    1. Em seguida, no Associar uma lâmina **de rota,** selecione o ponto final e rota que pretende associar ao Conjunto de Regras. 
+    1. Em seguida, na página **de rota Do Associado,** selecione o ponto final e rota que pretende associar ao Conjunto de Regras. 
     
         :::image type="content" source="../media/how-to-configure-rule-set/front-door-associate-rule-set.png" alt-text="Screenshot de criar uma página de rota.":::    
         
-    1. Clique *em seguir* para alterar as ordens definidas por regras se houver vários conjuntos de regras na rota selecionada. A regra definida será executada de cima para baixo. Pode alterar as ordens selecionando a regra definida e movê-la para cima ou para baixo. Em seguida, selecione *Associate*.
+    1. Selecione *Seguinte* para alterar ordens definidas regras se houver vários conjuntos de regras na rota selecionada. A regra definida será executada de cima para baixo. Pode alterar as ordens selecionando a regra definida e movê-la para cima ou para baixo. Em seguida, selecione *Associate*.
     
         > [!Note]
         > Só pode associar uma regra definida com uma única rota nesta página. Para associar um Conjunto de Regras a várias rotas, utilize o Gestor de Pontos Finais.
@@ -86,15 +81,15 @@ Neste tutorial, ficará a saber como:
     
         :::image type="content" source="../media/how-to-configure-rule-set/front-door-associate-rule-set-endpoint-manager-1.png" alt-text="Screenshot de selecionar o ponto final no Endpoint Manager." lightbox="../media/how-to-configure-rule-set/front-door-associate-rule-set-endpoint-manager-1-expanded.png":::
 
-    1. Clique *em Editar ponto final*  
+    1. *Selecione Editar ponto final*.  
     
         :::image type="content" source="../media/how-to-configure-rule-set/front-door-associate-rule-set-endpoint-manager-2.png" alt-text="Screenshot de selecionar o ponto final de edição no Endpoint Manager." lightbox="../media/how-to-configure-rule-set/front-door-associate-rule-set-endpoint-manager-2-expanded.png":::
 
-    1. Clique na Rota. 
+    1. Selecione a Rota. 
     
          :::image type="content" source="../media/how-to-configure-rule-set/front-door-associate-rule-set-endpoint-manager-3.png" alt-text="Screenshot de selecionar uma rota.":::
     
-    1. Na lâmina de *rota 'Actualização',* em *Regras*, selecione as Regras que pretende associar à rota a partir do dropdown. Em seguida, pode alterar as ordens movendo a regra configurada para cima e para baixo. 
+    1. Na página *'Rota',* nas *Regras,* selecione as Regras que pretende associar à rota a partir do dropdown. Em seguida, pode alterar as ordens movendo a regra configurada para cima e para baixo. 
     
         :::image type="content" source="../media/how-to-configure-rule-set/front-door-associate-rule-set-endpoint-manager-4.png" alt-text="Screenshot da atualização de uma página de rota.":::
     
@@ -106,7 +101,7 @@ Nos passos anteriores, configura e associou uma Regra Definida à sua Rota. Se j
 
 1. Aceda à **página 'Conjunto de** **Regras'** em Definições para dissociar o Conjunto de Regras de todas as rotas associadas.
 
-1. Expandir para a Rota, clique nos três pontos *selecione Editar a rota*.
+1. Expandir a Rota, selecionar os três pontos. Em seguida, *selecione Editar a rota*.
 
    :::image type="content" source="../media/how-to-configure-rule-set/front-door-disassociate-rule-set-1.png" alt-text="Screenshot da rota expandida em conjunto de regras.":::
 
@@ -126,13 +121,4 @@ Nos passos anteriores, configura e associou uma Regra Definida à sua Rota. Se j
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste tutorial, ficou a saber como:
-
-* Criar um conjunto de regras
-* Associe uma regra definida à sua rota AFD.
-* Elimine uma regra definida no seu perfil AFD
-
-Para aprender a adicionar cabeçalhos de segurança com Regra Definida, continue para o próximo tutorial.
-
-> [!div class="nextstepaction"]
-> [Cabeçalhos de segurança com conjunto de regras]()
+Saiba como adicionar [cabeçalhos de segurança com regras definidas](how-to-add-security-headers.md).

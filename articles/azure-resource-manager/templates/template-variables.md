@@ -2,13 +2,13 @@
 title: Variáveis em modelos
 description: Descreve como definir variáveis num modelo de Gestor de Recursos Azure (modelo ARM) e ficheiro Bicep.
 ms.topic: conceptual
-ms.date: 02/12/2021
-ms.openlocfilehash: cafd42112e5d296cb73f88e292a66ca2203f3810
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 02/19/2021
+ms.openlocfilehash: e00a9e8e1801725707bac2abdc67512477e2cf07
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100364465"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101700342"
 ---
 # <a name="variables-in-arm-templates"></a>Variáveis em modelos ARM
 
@@ -70,10 +70,6 @@ var concatToParam = '${inputValue}-addtoparam'
 
 Pode utilizar [funções de modelo](template-functions.md) para construir o valor variável.
 
-Nos modelos JSON, não é possível utilizar a função de [referência](template-functions-resource.md#reference) ou qualquer uma das funções da [lista](template-functions-resource.md#list) na declaração variável. Estas funções obtêm o estado de funcionamento de um recurso, e não podem ser executadas antes da implementação quando as variáveis são resolvidas.
-
-As funções de referência e lista são válidas quando se declara uma variável num ficheiro Bicep.
-
 O exemplo a seguir cria um valor de cadeia para um nome de conta de armazenamento. Ele usa várias funções de modelo para obter um valor de parâmetro, e concatena-lo para uma corda única.
 
 # <a name="json"></a>[JSON](#tab/json)
@@ -92,6 +88,10 @@ var storageName = '${toLower(storageNamePrefix)}${uniqueString(resourceGroup().i
 
 ---
 
+Nos modelos JSON, não é possível utilizar a função de [referência](template-functions-resource.md#reference) ou qualquer uma das funções da [lista](template-functions-resource.md#list) na declaração variável. Estas funções obtêm o estado de funcionamento de um recurso, e não podem ser executadas antes da implementação quando as variáveis são resolvidas.
+
+Nos ficheiros Bicep, as funções de referência e lista são válidas quando se declara uma variável.
+
 ## <a name="use-variable"></a>Utilizar variável
 
 O exemplo a seguir mostra como usar a variável para uma propriedade de recurso.
@@ -101,6 +101,9 @@ O exemplo a seguir mostra como usar a variável para uma propriedade de recurso.
 Num modelo JSON, refere-se o valor da variável utilizando a função [de variáveis.](template-functions-deployment.md#variables)
 
 ```json
+"variables": {
+  "storageName": "[concat(toLower(parameters('storageNamePrefix')), uniqueString(resourceGroup().id))]"
+},
 "resources": [
   {
     "type": "Microsoft.Storage/storageAccounts",
@@ -115,6 +118,8 @@ Num modelo JSON, refere-se o valor da variável utilizando a função [de variá
 Num ficheiro Bicep, refere-se o valor da variável fornecendo o nome variável.
 
 ```bicep
+var storageName = '${toLower(storageNamePrefix)}${uniqueString(resourceGroup().id)}'
+
 resource demoAccount 'Microsoft.Storage/storageAccounts@2019-06-01' = {
   name: storageName
 ```

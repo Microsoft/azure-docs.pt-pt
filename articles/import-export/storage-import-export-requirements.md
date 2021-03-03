@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: conceptual
-ms.date: 01/14/2021
+ms.date: 02/22/2021
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 99521a746a16a2d0de310fc6cfb2d2272e7b2593
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 0bfc09a372584a25c23060cef33d1f698e6d5ff3
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98706752"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101712611"
 ---
 # <a name="azure-importexport-system-requirements"></a>Requisitos do sistema do sistema Importar/Exportar do Microsoft Azure
 
@@ -43,7 +43,10 @@ O serviço Azure Import/Export suporta os seguintes tipos de contas de armazenam
 
 - Contas de armazenamento v2 de finalidade geral (recomendadas para a maioria dos cenários)
 - Contas de Armazenamento de blobs
-- Contas de armazenamento De Finalidade Geral v1 (tanto as implementações clássicas como as do Gestor de Recursos Azure),
+- Contas de armazenamento De Fins Gerais v1 (implementações clássicas ou azure de gestores de recursos)
+
+> [!IMPORTANT]
+> O suporte do protocolo 3.0 do Sistema de Ficheiros de Rede (NFS) 3.0 no armazenamento da Azure Blob não é suportado com Azure Import/Export.
 
 Para obter mais informações sobre contas de armazenamento, consulte [a visão geral das contas de armazenamento do Azure.](../storage/common/storage-account-overview.md)
 
@@ -92,6 +95,6 @@ Um grande número de unidades de unidades pode ser distribuída por vários post
 
 Ao preparar discos rígidos e copiar os dados utilizando a ferramenta WAImportExport, pode utilizar adaptadores USB externos. A maioria dos adaptadores USB 3.0 ou posteriormente fora da prateleira devem funcionar.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Transferir dados com o utilitário de linha de comando AzCopy](../storage/common/storage-use-azcopy-v10.md)

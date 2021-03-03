@@ -3,16 +3,16 @@ title: Obtenha insights usando o Backup Center
 description: Aprenda a analisar tendências históricas e a obter informações mais profundas sobre as suas cópias de segurança com o Backup Center.
 ms.topic: conceptual
 ms.date: 09/01/2020
-ms.openlocfilehash: 3086224e4dbb1be2ccfadbfcfcb7441b68a5ff6b
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 47158e53e6248b2b9cef4ff6fd6b5da5972786eb
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100592007"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719462"
 ---
-# <a name="obtain-insights-using-backup-center-preview"></a>Obtenha insights usando o Backup Center (Pré-visualização)
+# <a name="obtain-insights-using-backup-center"></a>Obtenha insights usando o Backup Center
 
-Para analisar tendências históricas e obter informações mais profundas sobre as suas cópias de segurança, o Backup Center fornece uma interface para [Relatórios de Backup (Preview)](configure-reports.md)que utiliza [registos de monitores Azure](../azure-monitor/logs/data-platform-logs.md) e [livros de trabalho Azure.](../azure-monitor/visualize/workbooks-overview.md) Os Relatórios de Cópia de Segurança oferecem as seguintes capacidades:
+Para analisar tendências históricas e obter informações mais profundas sobre as suas cópias de segurança, o Backup Center fornece uma interface para [Relatórios de Backup](configure-reports.md), que utiliza [registos de monitores Azure](../azure-monitor/logs/data-platform-logs.md) e [livros de trabalho Azure.](../azure-monitor/visualize/workbooks-overview.md) Os Relatórios de Cópia de Segurança oferecem as seguintes capacidades:
 
 - Alocação e previsão de armazenamento em nuvem consumido.
 
@@ -24,7 +24,7 @@ Para analisar tendências históricas e obter informações mais profundas sobre
 
 ## <a name="supported-scenarios"></a>Cenários suportados
 
-- Os Relatórios de Cópia de Segurança (Pré-visualização) não estão atualmente disponíveis para a Base de Dados Azure para cópia de segurança do servidor PostgreSQL.
+- Os Relatórios de Cópia de Segurança não estão atualmente disponíveis para a Base de Dados Azure para cópia de segurança do servidor PostgreSQL.
 
 - Consulte a matriz de [suporte](backup-center-support-matrix.md) para obter uma lista detalhada de cenários suportados e não apoiados.
 
@@ -53,6 +53,8 @@ Seguem-se as vistas disponíveis:
 1. **Políticas** - Utilize este separador para visualizar informações sobre todas as suas políticas ativas, tais como o número de itens associados e o armazenamento total de nuvem consumido por itens apoiados por uma determinada política. [Saiba mais](./configure-reports.md#policies)
 
 1. **Otimize** - Use este separador para ganhar visibilidade em potenciais oportunidades de otimização de custos para as suas cópias de segurança. [Saiba mais](./configure-reports.md#optimize)
+
+1. **Adesão à política** - Utilize este separador para ganhar visibilidade para saber se cada instância de backup teve pelo menos uma cópia de segurança bem sucedida por dia.
 
 ## <a name="next-steps"></a>Passos seguintes
 

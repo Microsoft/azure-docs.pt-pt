@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 53763e62e8d7aa5b77ae451ef6427c1e09bff9f0
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: bb28f415b7d08b4c4430ed90a7ccbfe3a333416d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96742702"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101689050"
 ---
 # <a name="configure-mfa-server-settings"></a>Configurar as definições do Servidor MFA
 
@@ -44,7 +44,7 @@ Para criar um bypass único, complete os seguintes passos:
 1. Procure e selecione **O Diretório Ativo Azure,** em seguida, navegue pelo bypass de **segurança**  >  **MFA**  >  **uma vez**.
 1. Selecione **Adicionar**.
 1. Se necessário, selecione o grupo de replicação para o bypass.
-1. Introduza o nome de utilizador como `username\@domain.com` . Introduza o número de segundos que o bypass deve durar e o motivo do bypass.
+1. Introduza o nome de utilizador como `username@domain.com` . Introduza o número de segundos que o bypass deve durar e o motivo do bypass.
 1. Selecione **Adicionar**. O prazo entra em vigor imediatamente. O utilizador tem de fazer o seu sedudo antes de expirar o bypass único.
 
 Também pode ver o relatório de bypass único a partir desta mesma janela.
@@ -60,7 +60,7 @@ O caching é usado principalmente quando sistemas no local, como VPN, enviam mú
 
 Para configurar o caching, complete os seguintes passos:
 
-1. Consulte as regras **de**  >  **Security**  >  **MFA**  >  **Caching** MFA de Segurança do Diretório Ativo Azure .
+1. Consulte as regras **de**  >    >    >  **Caching** MFA de Segurança do Diretório Ativo Azure .
 1. Selecione **Adicionar**.
 1. Selecione o **tipo de cache** da lista de drop-down. Introduza o número máximo de **segundos** de cache .
 1. Se necessário, selecione um tipo de autenticação e especifique uma aplicação.

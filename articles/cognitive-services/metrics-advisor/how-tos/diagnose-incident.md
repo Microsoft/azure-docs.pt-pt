@@ -10,12 +10,12 @@ ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: mbullwin
-ms.openlocfilehash: d1f792859aa5407cfaceda0e3ed1b5c21ee160f0
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: ecbfb2d9acf6c62f95c264a14e306442db25e483
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92043379"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703427"
 ---
 # <a name="how-to-diagnose-an-incident-using-metrics-advisor"></a>Como: Diagnosticar um incidente usando o Advisor Métrico
 
@@ -37,17 +37,17 @@ A secção **geral** contém resultados de deteção, incluindo as contagens das
 
 Incidentes detetados dentro da métrica selecionada e intervalo de tempo estão listados na **lista de Incidentes.** Existem opções para filtrar e encomendar os incidentes. Por exemplo, por gravidade. Clique num dos incidentes para ir à página **'Incidente'** para mais diagnósticos.
 
-:::image type="content" source="../media/diagnostics/incident-list.png" alt-text="Centro de incidentes" lightbox="../media/diagnostics/incident-list.png":::
+:::image type="content" source="../media/diagnostics/incident-list.png" alt-text="Lista de incidentes" lightbox="../media/diagnostics/incident-list.png":::
 
 A secção **de Diagnóstico** permite-lhe realizar análises aprofundadas sobre um incidente e ferramentas para identificar as causas de raiz.
 
-:::image type="content" source="../media/diagnostics/diagnose-incident.png" alt-text="Centro de incidentes" lightbox="../media/diagnostics/diagnose-incident.png" :::
+:::image type="content" source="../media/diagnostics/diagnose-incident.png" alt-text="Diagnosticar um incidente" lightbox="../media/diagnostics/diagnose-incident.png" :::
 
 ## <a name="root-cause-advice"></a>Conselhos de causa de raiz
 
 Quando um grupo de anomalias é detetado numa métrica e causa um incidente, o Metrics Advisor tentará analisar a causa principal do incidente. **Os conselhos de causa** raiz fornecem sugestões automáticas para as causas prováveis de um incidente. Esta funcionalidade só está disponível se houver um valor agregado dentro da dimensão. Se a métrica não tiver dimensão, a causa raiz será a própria. As causas das raízes estão listadas no painel do lado direito e pode haver várias razões listadas. Se não houver dados na tabela, significa que a sua dimensão não satisfaz os requisitos para realizar a análise.
 
-:::image type="content" source="../media/diagnostics/root-cause-advice.png" lightbox="../media/diagnostics/root-cause-advice.png" alt-text="Centro de incidentes":::
+:::image type="content" source="../media/diagnostics/root-cause-advice.png" lightbox="../media/diagnostics/root-cause-advice.png" alt-text="Conselhos de causa de raiz":::
 
 
 Quando a métrica da causa da raiz é fornecida com dimensões específicas, você pode clicar **em ir à métrica** para ver mais detalhes da métrica.
@@ -60,7 +60,7 @@ A árvore de diagnóstico rápido é para diagnosticar um incidente atual, e o n
 
 A árvore interativa permite diagnosticar incidentes atuais, bem como incidentes mais antigos, e os que estão relacionados. Ao utilizar a árvore interativa, clique em um nó para abrir um menu de ação, onde pode escolher uma dimensão para perfurar através dos nós de raiz, e uma dimensão para perfurar para cada nó. Ao clicar no botão de cancelamento da lista de dimensões no topo, pode remover a perfuração para cima ou para baixo a partir desta dimensão. clique num nó para selecioná-lo e mostrar a sua série juntamente com as séries de incidentes atuais na tabela.
 
-:::image type="content" source="../media/diagnostics/incident-tree.png" alt-text="Centro de incidentes" lightbox="../media/diagnostics/incident-tree.png" :::
+:::image type="content" source="../media/diagnostics/incident-tree.png" alt-text="Árvore incidente" lightbox="../media/diagnostics/incident-tree.png" :::
 
 ## <a name="anomaly-drill-down"></a>Perfuração de anomalia para baixo
 
@@ -68,7 +68,7 @@ Ao visualizar informações sobre incidentes, poderá precisar de obter informa�
 
 Para utilizar a função de perfuração para baixo, clique no **separador de perfuração métrica** no **centro incidente**. 
 
-:::image type="content" source="../media/diagnostics/metric-drilling.png" lightbox="../media/diagnostics/metric-drilling.png" alt-text="Centro de incidentes":::
+:::image type="content" source="../media/diagnostics/metric-drilling.png" lightbox="../media/diagnostics/metric-drilling.png" alt-text="Perfuração métrica ":::
 
 A definição **de Dimensões** é uma lista de dimensões para um incidente, pode selecionar outros valores de dimensão disponíveis para cada um. Depois de alterados os valores de dimensão. A **definição de Timestamp** permite-lhe visualizar o incidente atual em diferentes momentos do tempo.
 
@@ -80,25 +80,25 @@ Existem dois tipos de opções de perfuração: **Perfurar para baixo** e **comp
 > 1. Para aprofundar, pode explorar os dados de diferentes valores de dimensão, exceto as dimensões selecionadas. 
 > 2. Para comparação horizontal, pode explorar os dados de diferentes valores de dimensão, exceto as dimensões all-up.
 
-:::image type="content" source="../media/diagnostics/drill-down-dimension.png"  lightbox="../media/diagnostics/drill-down-dimension.png" alt-text="Centro de incidentes":::
+:::image type="content" source="../media/diagnostics/drill-down-dimension.png" lightbox="../media/diagnostics/drill-down-dimension.png" alt-text="Aprofundar a dimensão":::
 
 ### <a name="value-comparison-for-different-dimension-values"></a>Comparação de valor para diferentes valores de dimensão
 
 A segunda secção da aba para baixo da broca é uma tabela com comparações para valores de dimensão diferentes. Inclui o valor, valor base, valor de diferença, valor delta e se é uma anomalia.
  
-:::image type="content" source="../media/diagnostics/drill-down-comparison.png" alt-text="Centro de incidentes" lightbox="../media/diagnostics/drill-down-comparison.png":::
+:::image type="content" source="../media/diagnostics/drill-down-comparison.png" alt-text="Aprofundar a comparação" lightbox="../media/diagnostics/drill-down-comparison.png":::
 
 
 ### <a name="value-and-expected-value-comparisons-for-different-dimension-value"></a>Valor e comparações de valor esperado para diferentes valor de dimensão
 
 A terceira secção da aba para baixo é uma histograma com os valores e valores esperados, para valores de dimensão diferentes. O histograma é classificado pela diferença entre valor e valor esperado. Você pode encontrar o valor inesperado com o maior impacto facilmente. Por exemplo, na imagem acima, podemos descobrir que, exceto o valor total, **US7** contribui mais para a anomalia.
 
-:::image type="content" source="../media/diagnostics/drill-down-table.png" alt-text="Centro de incidentes" lightbox="../media/diagnostics/drill-down-table.png":::
+:::image type="content" source="../media/diagnostics/drill-down-table.png" alt-text="Perfurar a mesa" lightbox="../media/diagnostics/drill-down-table.png":::
 
 ### <a name="raw-value-visualization"></a>Visualização de valor bruto
 A última parte da aba de perfuração é um gráfico de linha dos valores brutos. Com este gráfico fornecido, não precisa navegar para a página métrica para ver detalhes.
 
-:::image type="content" source="../media/diagnostics/drill-down-line-chart.png" alt-text="Centro de incidentes" lightbox="../media/diagnostics/drill-down-line-chart.png":::
+:::image type="content" source="../media/diagnostics/drill-down-line-chart.png" alt-text="Perfurar gráfico de linha para baixo" lightbox="../media/diagnostics/drill-down-line-chart.png":::
 
 ## <a name="view-similar-anomalies-using-time-series-clustering"></a>Ver anomalias semelhantes usando clustering de séries de tempo
 
@@ -109,13 +109,13 @@ Ao visualizar um incidente, pode utilizar o **separador de agrupamento de série
 
 As dimensões disponíveis estão listadas no topo do separador, e pode fazer uma seleção para especificar a série.
 
-:::image type="content" source="../media/diagnostics/series-group.png" lightbox="../media/diagnostics/series-group.png"alt-text="Centro de incidentes":::
+:::image type="content" source="../media/diagnostics/series-group.png" lightbox="../media/diagnostics/series-group.png" alt-text="Grupo de séries":::
 
 ## <a name="compare-time-series"></a>Comparar séries de tempo
 
 Às vezes, quando uma anomalia é detetada numa série de tempo específica, é útil compará-la com várias outras séries numa única visualização. Clique no **separador 'Comparar ferramentas'** e, em seguida, clique no botão azul **+ Adicionar.** 
 
-:::image type="content" source="../media/diagnostics/add-series.png" alt-text="Centro de incidentes" lightbox="../media/diagnostics/add-series.png":::
+:::image type="content" source="../media/diagnostics/add-series.png" alt-text="Adicionar séries para comparar" lightbox="../media/diagnostics/add-series.png":::
 
 Selecione uma série a partir do seu feed de dados. Pode escolher a mesma granularidade ou outra. Selecione as dimensões do alvo e carregue a tendência da série e, em seguida, clique em **Ok** para compará-la com uma série anterior. A série será montada numa única visualização. Pode continuar a adicionar mais séries para comparação e obter mais informações. Clique no menu drop down no topo do separador **ferramentas Compare** para comparar os dados da série de tempo durante um período alterado no tempo.  
 
@@ -133,7 +133,7 @@ Depois de selecionar uma comparação de mudança de tempo, pode selecionar se d
 
 Por vezes, pode ser necessário verificar os incidentes de diferentes métricas ao mesmo tempo, ou incidentes relacionados noutras métricas. Pode encontrar uma lista de incidentes relacionados na secção **de Análise de Métricas Cruzadas.** 
 
-:::image type="content" source="../media/graph/metrics-graph-cross-metrics-analysis.png" alt-text="Centro de incidentes":::
+:::image type="content" source="../media/graph/metrics-graph-cross-metrics-analysis.png" alt-text="incidentes relacionados através de métricas":::
 
 Antes de ver incidentes relacionados para a métrica atual, precisa adicionar uma relação entre métricas. Clique em **Definições de Gráficos métricas** para adicionar uma relação. Só podem estar relacionadas métricas com nomes de dimensão igual. Utilize os parâmetros seguintes.
 

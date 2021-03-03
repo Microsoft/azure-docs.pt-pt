@@ -7,15 +7,15 @@ author: bwren
 ms.author: bwren
 ms.date: 10/05/2018
 ms.custom: mvc
-ms.openlocfilehash: e790486758d6a5e3181df01f85e1213cca3fa12d
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 67d03636b118db71502a6245e60f71c94afdddf6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100628280"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101701013"
 ---
 # <a name="respond-to-events-with-azure-monitor-alerts"></a>Responder a eventos com Alertas do Azure Monitor
-Os alertas no Azure Monitor podem identificar informações importantes no repositório do Log Analytics. Estes são criados pelas regras de alerta que executam automaticamente pesquisas de registos em intervalos regulares, e se os resultados da pesquisa de registos corresponderem a critérios de específicos, então será criado um registo de alerta que poderá ser configurado para efetuar uma resposta automática.  Este tutorial é uma continuação do tutorial [Criar e partilhar dashboards de dados do Log Analytics](../learn/tutorial-logs-dashboards.md).   
+Os alertas no Azure Monitor podem identificar informações importantes no repositório do Log Analytics. Estes são criados pelas regras de alerta que executam automaticamente pesquisas de registos em intervalos regulares, e se os resultados da pesquisa de registos corresponderem a critérios de específicos, então será criado um registo de alerta que poderá ser configurado para efetuar uma resposta automática.  Este tutorial é uma continuação do tutorial [Criar e partilhar dashboards de dados do Log Analytics](../visualize/tutorial-logs-dashboards.md).   
 
 Neste tutorial, ficará a saber como:
 
@@ -31,7 +31,7 @@ Inicie sessão no Portal do Azure em [https://portal.azure.com](https://portal.a
 ## <a name="create-alerts"></a>Criar alertas
 Os alertas são criados por regras de alerta no Azure Monitor e podem executar automaticamente consultas guardadas ou pesquisa de registos personalizadas em intervalos regulares.  Pode criar alertas com base em métricas de desempenho específicas ou quando determinados eventos são criados, ausência de um evento ou um número de eventos é criado numa janela de tempo específica.  Por exemplo, os alertas podem ser utilizados para notificar quando a utilização da CPU excede determinado limiar, quando é detetada uma atualização em falta ou quando é gerado um evento depois da deteção que determinado serviço Windows ou Linux daemon não está a ser executado.  Se os resultados da pesquisa de registos corresponderem a critérios específicos, será criado um alerta. A regra pode, em seguida, executar automaticamente uma ou mais ações, como notificá-lo do alerta proativamente ou invocar outro processo. 
 
-No exemplo seguinte, o utilizador cria uma regra de alerta de medição métrica com base na consulta *Azure VMs – Utilização do Processador* guardada em [Visualizar tutorial de dados](../learn/tutorial-logs-dashboards.md).  É criado um alerta para cada máquina virtual que excede um limiar de 90%.  
+No exemplo seguinte, o utilizador cria uma regra de alerta de medição métrica com base na consulta *Azure VMs – Utilização do Processador* guardada em [Visualizar tutorial de dados](../visualize/tutorial-logs-dashboards.md).  É criado um alerta para cada máquina virtual que excede um limiar de 90%.  
 
 1. No portal do Azure, clique em **Todos os serviços**. Na lista de recursos, escreva **Log Analytics**. À medida que começa a escrever, a lista filtra com base na sua entrada. Selecione o **Log Analytics**.
 2. No painel da esquerda, selecione **Alertas** e, em seguida, clique em **Nova Regra de Alerta** na parte superior da página para criar um novo alerta.<br><br> ![Criar nova regra de alerta](./media/tutorial-response/alert-rule-02.png)<br>
@@ -69,4 +69,4 @@ Neste tutorial, aprendeu como as regras de alertas podem identificar e responder
 Siga esta ligação para ver os exemplos de scripts do Log Analytics pré-criados.  
 
 > [!div class="nextstepaction"]
-> [Exemplos do script do Log Analytics](../samples/powershell-samples.md)
+> [Exemplos do script do Log Analytics](../powershell-samples.md)

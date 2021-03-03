@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: db410133bab530db731eee58048d1f9d26a1a3fb
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 65f18a21be48b6f78605b10950a2b38709b66f2d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100613341"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713665"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine-scale-set"></a>Envie métricas de SO para a loja métrica do Azure Monitor utilizando um modelo de Gestor de Recursos Azure para um conjunto de escala de máquina virtual Windows
 
@@ -30,7 +30,7 @@ Se você é novo em modelos de Gestor de Recursos, aprenda sobre [implementaçõ
 
 - Você precisa ter [Azure PowerShell](/powershell/azure) instalado, ou você pode usar [Azure Cloud Shell](../../cloud-shell/overview.md). 
 
-- O seu recurso VM deve estar numa [região que suporte métricas personalizadas.](../platform/metrics-custom-overview.md#supported-regions)
+- O seu recurso VM deve estar numa [região que suporte métricas personalizadas.](./metrics-custom-overview.md#supported-regions)
 
 ## <a name="set-up-azure-monitor-as-a-data-sink"></a>Configurar o Azure Monitor como um sumidouro de dados 
 A extensão Azure Diagnostics utiliza uma funcionalidade chamada **sumidouros de dados** para encaminhar métricas e registos para diferentes locais. Os passos a seguir mostram como utilizar um modelo de Gestor de Recursos e PowerShell para implantar um VM utilizando o novo lava-dados do Azure Monitor. 
@@ -252,7 +252,7 @@ Para implementar o modelo de Gestor de Recursos, utilize a Azure PowerShell:
    ```
 
    > [!NOTE]  
-   > Lembre-se de usar uma região Azure que está habilitada para métricas personalizadas. Lembre-se de usar uma [região Azure que está habilitada para métricas personalizadas.](../platform/metrics-custom-overview.md#supported-regions)
+   > Lembre-se de usar uma região Azure que está habilitada para métricas personalizadas. Lembre-se de usar uma [região Azure que está habilitada para métricas personalizadas.](./metrics-custom-overview.md#supported-regions)
  
 1. Executar os seguintes comandos para implantar o VM:  
 
@@ -292,4 +292,4 @@ Em seguida, também pode optar por utilizar as dimensões desta métrica para ca
 
 
 ## <a name="next-steps"></a>Passos seguintes
-- Saiba mais sobre [métricas personalizadas.](../platform/metrics-custom-overview.md)
+- Saiba mais sobre [métricas personalizadas.](./metrics-custom-overview.md)

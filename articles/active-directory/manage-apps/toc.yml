@@ -150,8 +150,10 @@
           href: disable-user-sign-in-portal.md
         - name: Configurar a atribuição de aplicações personalizada
           href: manage-self-service-access.md
-        - name: Deteção de Território Doméstica
+        - name: Force a auto-aceleração através da política home realm Discovery
           href: configure-authentication-for-federated-users-portal.md
+        - name: Evitar a aceleração automática de inscrição utilizando a política home realm Discovery
+          href: prevent-domain-hints-with-home-realm-discovery.md
     - name: Migrar a gestão de identidades para o Azure AD
       items:
         - name: Recursos de migração

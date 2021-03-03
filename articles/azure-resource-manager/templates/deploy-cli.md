@@ -1,18 +1,18 @@
 ---
 title: Implementar recursos com CLI E modelo Azure
-description: Utilize o Azure Resource Manager e o Azure CLI para mobilizar recursos para a Azure. Os recursos são definidos num modelo do Resource Manager.
+description: Utilize o Azure Resource Manager e o Azure CLI para mobilizar recursos para a Azure. Os recursos são definidos num modelo de Gestor de Recursos ou num ficheiro Bicep.
 ms.topic: conceptual
-ms.date: 01/26/2021
-ms.openlocfilehash: 6a8efcebcd6ae18eaf91c6ec1e7df184db8c244c
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 03/02/2021
+ms.openlocfilehash: 547b860869738f3cfe12d6a22262829ef132a671
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100378677"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101741128"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-cli"></a>Implementar recursos com modelos ARM e Azure CLI
 
-Este artigo explica como usar o Azure CLI com modelos de Gestor de Recursos Azure (modelos ARM) para implantar os seus recursos no Azure. Se não está familiarizado com os conceitos de implantação e gestão das suas soluções Azure, consulte a [visão geral da implementação do modelo](overview.md).
+Este artigo explica como usar o CLI Azure com modelos de Gestor de Recursos Azure (modelos ARM) ou ficheiro Bicep para implantar os seus recursos no Azure. Se não estiver familiarizado com os conceitos de implantação e gestão das suas soluções Azure, consulte a [visão geral da implementação do modelo](overview.md) ou [a visão geral do Bicep](bicep-overview.md).
 
 Os comandos de implantação foram alterados na versão 2.2.0 do Azure CLI. Os exemplos deste artigo requerem a versão 2.2.0 ou posterior do Azure CLI.
 
@@ -27,13 +27,13 @@ Pode direcionar a sua implementação para um grupo de recursos, subscrição, g
 * Para implementar num **grupo de recursos,** utilize [o grupo de implantação az create](/cli/azure/deployment/group#az-deployment-group-create):
 
   ```azurecli-interactive
-  az deployment group create --resource-group <resource-group-name> --template-file <path-to-template>
+  az deployment group create --resource-group <resource-group-name> --template-file <path-to-template-or-bicep>
   ```
 
 * Para implementar uma **subscrição,** utilize [o sub-utilização az create](/cli/azure/deployment/sub#az-deployment-sub-create):
 
   ```azurecli-interactive
-  az deployment sub create --location <location> --template-file <path-to-template>
+  az deployment sub create --location <location> --template-file <path-to-template-or-bicep>
   ```
 
   Para obter mais informações sobre as implementações do nível de subscrição, consulte [Criar grupos de recursos e recursos ao nível da subscrição.](deploy-to-subscription.md)
@@ -41,7 +41,7 @@ Pode direcionar a sua implementação para um grupo de recursos, subscrição, g
 * Para implantar num **grupo de gestão,** utilize [a az deployment mg create](/cli/azure/deployment/mg#az-deployment-mg-create):
 
   ```azurecli-interactive
-  az deployment mg create --location <location> --template-file <path-to-template>
+  az deployment mg create --location <location> --template-file <path-to-template-or-bicep>
   ```
 
   Para obter mais informações sobre as implementações de nível de grupo de gestão, consulte [Criar recursos ao nível do grupo de gestão.](deploy-to-management-group.md)
@@ -49,14 +49,14 @@ Pode direcionar a sua implementação para um grupo de recursos, subscrição, g
 * Para implantar para um **inquilino,** use [az inusitário de implantação criar:](/cli/azure/deployment/tenant#az-deployment-tenant-create)
 
   ```azurecli-interactive
-  az deployment tenant create --location <location> --template-file <path-to-template>
+  az deployment tenant create --location <location> --template-file <path-to-template-or-bicep>
   ```
 
   Para obter mais informações sobre as implementações de nível de inquilino, consulte [Criar recursos ao nível do arrendatário.](deploy-to-tenant.md)
 
-Para cada âmbito, o utilizador que implementa o modelo deve ter as permissões necessárias para criar recursos.
+Para cada âmbito, o utilizador que implementa o modelo ou o ficheiro Bicep deve ter as permissões necessárias para criar recursos.
 
-## <a name="deploy-local-template"></a>Implementar um modelo local
+## <a name="deploy-local-template-or-bicep-file"></a>Implementar modelo local ou arquivo Bicep
 
 Pode implementar um modelo a partir da sua máquina local ou um que seja armazenado externamente. Esta secção descreve a implementação de um modelo local.
 
@@ -66,13 +66,13 @@ Se estiver a implantar para um grupo de recursos que não existe, crie o grupo d
 az group create --name ExampleGroup --location "Central US"
 ```
 
-Para implementar um modelo local, utilize o `--template-file` parâmetro no comando de implantação. O exemplo a seguir também mostra como definir um valor de parâmetro que vem do modelo.
+Para implementar um modelo local ou um ficheiro Bicep, utilize o `--template-file` parâmetro no comando de implantação. O exemplo a seguir também mostra como definir um valor de parâmetro.
 
 ```azurecli-interactive
 az deployment group create \
   --name ExampleDeployment \
   --resource-group ExampleGroup \
-  --template-file azuredeploy.json \
+  --template-file <path-to-template-or-bicep> \
   --parameters storageAccountType=Standard_GRS
 ```
 
@@ -83,6 +83,9 @@ A implementação pode demorar alguns minutos a concluir. Quando terminar, vê-s
 ```
 
 ## <a name="deploy-remote-template"></a>Implementar o modelo remoto
+
+> [!NOTE]
+> Atualmente, o Azure CLI não suporta a implementação de ficheiros Bicep.
 
 Em vez de armazenar modelos ARM na sua máquina local, pode preferir guardá-los num local externo. Pode armazenar modelos num repositório de controlo de código fonte (como o GitHub). Em alternativa, pode armazená-los numa conta de armazenamento do Azure para acesso partilhado na sua organização.
 
@@ -144,6 +147,9 @@ Para evitar conflitos com implementações simultâneas e para garantir entradas
 
 ## <a name="deploy-template-spec"></a>Implementar especificação de modelo
 
+> [!NOTE]
+> Atualmente, o Azure CLI não suporta a criação de especificações de modelos fornecendo ficheiros Bicep. No entanto, pode criar um modelo ARM ou um ficheiro Bicep com o recurso [Microsoft.Resources/templateSpecs](/azure/templates/microsoft.resources/templatespecs) para implementar uma especificação de modelo. Aqui está um [exemplo.](https://github.com/Azure/azure-docs-json-samples/blob/master/create-template-spec-using-template/azuredeploy.bicep)
+
 Em vez de implementar um modelo local ou remoto, pode criar uma [especificação de modelo](template-specs.md). A especificação do modelo é um recurso na sua subscrição Azure que contém um modelo ARM. Torna-se fácil partilhar o modelo de forma segura com os utilizadores da sua organização. Você usa o controlo de acesso baseado em funções Azure (Azure RBAC) para conceder acesso à especificação do modelo. Esta funcionalidade encontra-se atualmente em pré-visualização.
 
 Os exemplos a seguir mostram como criar e implementar uma especificação de modelo.
@@ -186,7 +192,7 @@ Para passar parâmetros inline, forneça os valores em `parameters` . Por exempl
 ```azurecli-interactive
 az deployment group create \
   --resource-group testgroup \
-  --template-file demotemplate.json \
+  --template-file <path-to-template-or-bicep> \
   --parameters exampleString='inline string' exampleArray='("value1", "value2")'
 ```
 
@@ -197,7 +203,7 @@ Também pode obter o conteúdo do ficheiro e fornecer esse conteúdo como um par
 ```azurecli-interactive
 az deployment group create \
   --resource-group testgroup \
-  --template-file demotemplate.json \
+  --template-file <path-to-template-or-bicep> \
   --parameters exampleString=@stringContent.txt exampleArray=@arrayContent.json
 ```
 
@@ -236,7 +242,7 @@ Use citações duplas em torno do JSON que pretende passar para o objeto.
 
 ### <a name="parameter-files"></a>Ficheiros de parâmetros
 
-Em vez de transmitir parâmetros como valores inline no seu script, poderá considerar mais fácil utilizar um ficheiro JSON que contenha os valores dos parâmetros. O ficheiro do parâmetro deve ser um ficheiro local. Os ficheiros de parâmetros externos não são suportados com O Azure CLI.
+Em vez de transmitir parâmetros como valores inline no seu script, poderá considerar mais fácil utilizar um ficheiro JSON que contenha os valores dos parâmetros. O ficheiro do parâmetro deve ser um ficheiro local. Os ficheiros de parâmetros externos não são suportados com O Azure CLI. Tanto o modelo ARM como o ficheiro Bicep utilizam ficheiros de parâmetros JSON.
 
 Para obter mais informações sobre o ficheiro de parâmetros, veja [Criar ficheiro de parâmetros do Resource Manager](parameter-files.md).
 
@@ -274,7 +280,7 @@ Para implementar um modelo com cordas ou comentários multi-linhas utilizando o 
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Para voltar a uma implementação bem sucedida quando tiver um erro, consulte [o Reversão do erro para uma implementação bem sucedida](rollback-on-error.md).
-- Para especificar como lidar com os recursos que existem no grupo de recursos mas não estão definidos no modelo, consulte os [modos de implementação do Gestor de Recursos Azure](deployment-modes.md).
-- Para entender como definir parâmetros no seu modelo, consulte [a estrutura e sintaxe dos modelos ARM](template-syntax.md).
-- Para obter dicas sobre a resolução de erros comuns de implementação, consulte [os erros comuns de implementação do Azure com o Azure Resource Manager](common-deployment-errors.md).
+* Para voltar a uma implementação bem sucedida quando tiver um erro, consulte [o Reversão do erro para uma implementação bem sucedida](rollback-on-error.md).
+* Para especificar como lidar com os recursos que existem no grupo de recursos mas não estão definidos no modelo, consulte os [modos de implementação do Gestor de Recursos Azure](deployment-modes.md).
+* Para entender como definir parâmetros no seu modelo, consulte [a estrutura e sintaxe dos modelos ARM](template-syntax.md).
+* Para obter dicas sobre a resolução de erros comuns de implementação, consulte [os erros comuns de implementação do Azure com o Azure Resource Manager](common-deployment-errors.md).

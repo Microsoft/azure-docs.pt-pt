@@ -1,5 +1,5 @@
 ---
-title: Remova servidores e desativar a proteção Microsoft Docs
+title: Remova servidores e desative a proteção | Microsoft Docs
 description: Este artigo descreve como não registar servidores a partir de um cofre de recuperação de locais e desativar a proteção para máquinas virtuais e servidores físicos.
 author: Sharmistha-Rai
 manager: rochakm
@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 06/18/2019
 ms.author: sharrai
-ms.openlocfilehash: a4f6c318a7521e1fbc03ff3a47e34e992cce44df
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1356deabd13db1dd2f29ac1b1f088db2120353fe
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89424791"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738859"
 ---
 # <a name="remove-servers-and-disable-protection"></a>Remover servidores e desativar proteção
 
@@ -30,11 +30,11 @@ Se replicar VMware VMs ou servidores físicos Windows/Linux para Azure, pode nã
 ## <a name="unregister-a-vmm-server"></a>Desconserte um servidor VMM
 
 1. Pare de replicar máquinas virtuais em nuvens no servidor VMM que pretende remover.
-2. Elimine quaisquer mapeamentos de rede utilizados por nuvens no servidor VMM que pretenda eliminar. Na **infraestrutura de recuperação do local**para o  >  **mapeamento da rede VMM do Centro de Sistema,** clique com o  >  **Network Mapping**botão direito para o mapeamento da rede > **Eliminar**.
+2. Elimine quaisquer mapeamentos de rede utilizados por nuvens no servidor VMM que pretenda eliminar. Na **infraestrutura de recuperação do local** para o  >  **mapeamento da rede VMM do Centro de Sistema,** clique com o  >  botão direito para o mapeamento da rede > **Eliminar**.
 3. Note o ID do servidor VMM.
-4. Desassociar as políticas de replicação das nuvens no servidor VMM que pretende remover.  Na **Infraestrutura de Recuperação de Sítios**  >  para Políticas de Replicação do Centro de**Sistemas VMM,** clique  >   **Replication Policies**duas vezes na política associada. Clique com > **nuvem.**
-5. Elimine o servidor VMM ou o nó ativo. Na **infraestrutura de recuperação do local**para  >  servidores**VMM do Centro de Sistema**  >  **VMM,** clique com o botão direito no servidor > **Eliminar**.
-6. Se o seu servidor VMM estava num estado desligado, em seguida, descarregue e execute o [script de limpeza](https://aka.ms/asr-cleanup-script-vmm) no servidor VMM. Abrir PowerShell com a opção **Executar como Administrador,** para alterar a política de execução para o âmbito padrão (LocalMachine). No script, especifique o ID do servidor VMM que pretende remover. O script remove as informações de registo e emparelhamento em nuvem do servidor.
+4. Desassociar as políticas de replicação das nuvens no servidor VMM que pretende remover.  Na **Infraestrutura de Recuperação de Sítios**  >  para Políticas de Replicação do Centro de **Sistemas VMM,** clique  >   duas vezes na política associada. Clique com > **nuvem.**
+5. Elimine o servidor VMM ou o nó ativo. Na **infraestrutura de recuperação do local** para  >  servidores **VMM do Centro de Sistema**  >  **VMM,** clique com o botão direito no servidor > **Eliminar**.
+6. Se o seu servidor VMM estava num estado desligado, em seguida, descarregue e execute o [script de limpeza](/samples/browse/?redirectedfrom=TechNet-Gallery) no servidor VMM. Abrir PowerShell com a opção **Executar como Administrador,** para alterar a política de execução para o âmbito padrão (LocalMachine). No script, especifique o ID do servidor VMM que pretende remover. O script remove as informações de registo e emparelhamento em nuvem do servidor.
 5. Execute o script de limpeza em qualquer servidor de VMM secundário.
 6. Executar o script de limpeza em quaisquer outros nós de cluster VMM passivos que tenham o Fornecedor instalado.
 7. Desinstale manualmente o Fornecedor no servidor VMM. Se tiver um aglomerado, retire de todos os nós.
@@ -45,9 +45,9 @@ Se replicar VMware VMs ou servidores físicos Windows/Linux para Azure, pode nã
 Os anfitriões hiper-V que não são geridos pelo VMM são recolhidos num site de Hiper-V. Remova um hospedeiro num site de Hiper-V da seguinte forma:
 
 1. Desative a replicação de Hiper-VMs localizados no hospedeiro.
-2. Desassociar as políticas para o site Hiper-V. Na **Infraestrutura de Recuperação de Sítios**  >  Para Políticas de Replicação de Sites**Hiper-V,** clique  >   **Replication Policies**duas vezes na política associada. Clique com o botão direito no site > **Disassociate**.
-3. Apague os anfitriões Hiper-V. Na **infraestrutura de recuperação do local**para  >  **For Hyper-V Sites**  >  **anfitriões hiper-V,** clique com o botão direito no servidor > **eliminar**.
-4. Elimine o site Hyper-V depois de todos os anfitriões terem sido removidos do mesmo. Na **infraestrutura de recuperação do local**para sites  >  **hiper-V,** clique com o  >  **Hyper-V Sites**botão direito no site > **Eliminar**.
+2. Desassociar as políticas para o site Hiper-V. Na **Infraestrutura de Recuperação de Sítios**  >  Para Políticas de Replicação de Sites **Hiper-V,** clique  >   duas vezes na política associada. Clique com o botão direito no site > **Disassociate**.
+3. Apague os anfitriões Hiper-V. Na **infraestrutura de recuperação do local** para  >    >  **anfitriões hiper-V,** clique com o botão direito no servidor > **eliminar**.
+4. Elimine o site Hyper-V depois de todos os anfitriões terem sido removidos do mesmo. Na **infraestrutura de recuperação do local** para sites  >  **hiper-V,** clique com o  >  botão direito no site > **Eliminar**.
 5. Se o seu anfitrião Hyper-V estava num estado **desligado,** então execute o seguinte script em cada anfitrião Hiper-V que removeu. O script limpa as definições no servidor e não o registra do cofre.
 
 

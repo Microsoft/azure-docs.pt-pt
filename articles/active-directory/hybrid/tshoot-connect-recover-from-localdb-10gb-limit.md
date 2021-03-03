@@ -1,5 +1,5 @@
 ---
-title: 'Azure AD Connect: Como recuperar da emissão limite localDB 10GB / Microsoft Docs'
+title: 'Azure AD Connect: Como recuperar da emissão de limite localDB de 10GB | Microsoft Docs'
 description: Este tópico descreve como recuperar o Serviço de Sincronização AZure AD Connect Quando encontra o problema de limite localDB de 10GB.
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 07/17/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b45decd2f2cf9c99cffb0e08d4d6a5c5cfafc67
-ms.sourcegitcommit: 21c3363797fb4d008fbd54f25ea0d6b24f88af9c
+ms.openlocfilehash: e10aa5d96722b414d7384ceb81f393575d57e2a2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/08/2020
-ms.locfileid: "96858404"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101688778"
 ---
 # <a name="azure-ad-connect-how-to-recover-from-localdb-10-gb-limit"></a>Azure AD Connect: como recuperar do limite de 10 GB da LocalDB
 O Azure AD Connect necessita de uma base de dados do SQL Server para armazenar dados de identidade. Pode utilizar a predefinição da LocalDB do SQL Server 2012 Express instalada com o Azure AD Connect ou utilizar o seu SQL completo. O SQL Server Express impõe um limite de tamanho de 10 GB. Ao utilizar a LocalDB e este limite ser atingido, o Serviço de Sincronização do Azure AD Connect já não pode iniciar ou sincronizar corretamente. Este artigo fornece os passos de recuperação.
@@ -74,7 +74,7 @@ O nome da base de dados criada para Azure AD Connect é **ADSync**. Para realiza
 
 4. Inicie a utilidade **sqlcmd** executando o `./SQLCMD.EXE -S "(localdb)\.\ADSync" -U <Username> -P <Password>` comando, utilizando a credencial de um sysadmin ou da base de dados DBO.
 
-5. Para encolher a base de dados, na 2lcmd (1>), `DBCC Shrinkdatabase(ADSync,1);` entre, seguida `GO` da linha seguinte.
+5. Para encolher a base de dados, na introdução do sqlcmd `1>` ( ), `DBCC Shrinkdatabase(ADSync,1);` insira, seguida `GO` da linha seguinte.
 
 6. Se a operação for bem sucedida, tente recomeçar o Serviço de Sincronização. Se conseguir iniciar o Serviço de Sincronização, vá para eliminar o passo de dados de histórico de [execução.](#delete-run-history-data) Caso contrário, contacte o Suporte.
 

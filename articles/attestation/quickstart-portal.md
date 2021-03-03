@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: a8ab7195958a6c2d5a730c38232eb348d505deda
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: d1310e3c4b4a56a27219cce613e8f6109d32c8c2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99593608"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101729401"
 ---
 # <a name="quickstart-set-up-azure-attestation-by-using-the-azure-portal"></a>Quickstart: Configurar a Azure Attestation utilizando o portal Azure
 
@@ -90,7 +90,7 @@ Siga os passos desta secção para visualizar, adicionar e eliminar certificados
 1. Aceda ao menu do portal Azure ou à página inicial e selecione **Todos os recursos**.
 1. Na caixa de filtro, insira o nome do provedor de atestado.
 1. Selecione o provedor de atestado e vá para a página geral.
-1. Selecione **os certificados de sinalização** de política no menu de recursos no lado esquerdo da janela ou no painel inferior.
+1. Selecione **os certificados de sinalização** de política no menu de recursos no lado esquerdo da janela ou no painel inferior. Consulte um pedido para selecionar certificado para autenticação. Por favor, escolha a opção apropriada para prosseguir.
 1. Selecione **Os certificados de sinalização de política de descarregamento**. O botão será desativado para os fornecedores de atestados criados sem o requisito de assinatura de políticas.
 1. O ficheiro de texto descarregado terá todos os certificados em formato JWS.
 1. Verifique a contagem de certificados e os certificados descarregados.
@@ -122,7 +122,7 @@ Esta secção descreve como ver uma política de atestado e como configurar pol�
 1.  Aceda ao menu do portal Azure ou à página inicial e selecione **Todos os recursos**.
 1.  Na caixa de filtro, insira o nome do provedor de atestado.
 1.  Selecione o provedor de atestado e vá para a página geral.
-1.  Selecione **Política** no menu de recursos no lado esquerdo da janela ou no painel inferior.
+1.  Selecione **Política** no menu de recursos no lado esquerdo da janela ou no painel inferior. Consulte um pedido para selecionar certificado para autenticação. Por favor, escolha a opção apropriada para prosseguir.
 1.  Selecione o **Tipo de Attestation** preferido e veja a **política atual**.
 
 ### <a name="configure-an-attestation-policy"></a>Configure uma política de atestado
@@ -144,6 +144,7 @@ Siga estes passos para fazer o upload de uma política em JWT ou formato de text
    Para a opção de upload de ficheiros, a pré-visualização da política é mostrada no formato de texto e não é editável.
 
 1. Selecione **Refresh** no menu superior para ver a política configurada.
+
 
 Se o fornecedor de atestado foi criado com um requisito de assinatura de política, siga estes passos para carregar uma política em formato JWT.
 

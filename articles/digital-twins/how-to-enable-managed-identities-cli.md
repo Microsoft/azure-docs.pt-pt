@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 02/09/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 32cbe31f95c03f9b0b5eb1a31a28033dce18b112
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 035d782321feb5d467638159fc191f65573b1042
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100418323"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101716130"
 ---
 # <a name="enable-a-managed-identity-for-routing-azure-digital-twins-events-preview-azure-cli"></a>Ativar uma identidade gerida para encaminhamento de eventos Azure Digital Twins (pré-visualização): Azure CLI
 
@@ -87,8 +87,7 @@ Para mais informações sobre pontos finais, rotas e tipos de destinos suportado
 
 ### <a name="assign-the-role"></a>Atribuir o papel
 
->[!NOTE]
-> Esta secção deve ser completada por um utilizador da Azure com permissões para gerir o acesso do utilizador aos recursos Azure (incluindo a concessão e delegação de permissões). As funções comuns que satisfazem este requisito são *Proprietário,* *Administrador de Conta,* ou a combinação de Administrador de Acesso ao *Utilizador* e *Colaborador.* Para obter mais informações sobre os requisitos de permissão para as funções de Azure Digital Twins, consulte [*Como-a-fazer: Configurar instância e autenticação*](how-to-set-up-instance-portal.md#prerequisites-permission-requirements).
+[!INCLUDE [digital-twins-permissions-required.md](../../includes/digital-twins-permissions-required.md)]
 
 Pode adicionar o `--scopes` parâmetro ao comando de forma a atribuir a identidade a um ou mais `az dt create` âmbitos com uma função especificada. Isto pode ser usado quando primeiro cria o caso, ou mais tarde passando em nome de um caso que já existe.
 
@@ -102,7 +101,7 @@ Para mais exemplos de atribuições de funções com este comando, consulte o [ 
 
 Em alternativa, também pode utilizar o grupo de comando [**de atribuição de funções az**](/cli/azure/role/assignment?view=azure-cli-latest&preserve-view=true) para criar e gerir funções. Isto pode ser usado para suportar cenários adicionais onde você não quer agrupar a atribuição de funções com o comando criar.
 
-## <a name="create-an-endpoint-with-identity-based-authorization"></a>Criar um ponto final com autorização baseada na identidade
+## <a name="create-an-endpoint-with-identity-based-authentication"></a>Criar um ponto final com autenticação baseada na identidade
 
 Depois de configurar uma identidade gerida pelo sistema para a sua instância Azure Digital Twins e atribuindo-lhe o papel apropriado, pode criar [pontos finais](how-to-manage-routes-portal.md#create-an-endpoint-for-azure-digital-twins) Azure Digital Twins que sejam capazes de usar a identidade para autenticação. Esta opção só está disponível para pontos finais do tipo Event Hub e Service Bus (não é suportado para a Grelha de Eventos).
 

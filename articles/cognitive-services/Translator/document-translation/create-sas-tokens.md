@@ -6,12 +6,12 @@ manager: nitinme
 ms.author: lajanuar
 author: laujan
 ms.date: 02/11/2021
-ms.openlocfilehash: 1425be4fc4e462185f9fee573dc87b04a68bfea4
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 104329928c507c288537704fbbef4e35b65cb445
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100650750"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101739441"
 ---
 # <a name="create-sas-tokens-for-document-translation"></a>Criar fichas SAS para tradução de documentos
 
@@ -21,8 +21,8 @@ Neste artigo, você vai aprender como criar fichas de acesso compartilhado (SAS)
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-* Você precisará de uma aplicação [**Azure Storage Explorer**](/azure/vs-azure-tools-storage-manage-with-storage-explorer) instalada no seu ambiente de desenvolvimento Windows, macOS ou Linux. O Azure Storage Explorer é uma ferramenta gratuita que lhe permite gerir facilmente os seus recursos de armazenamento em nuvem Azure.
-* Depois da aplicação Azure Storage Explorer ser instalada, [conecte-a à conta de armazenamento](/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows#connect-to-a-storage-account-or-service) que está a utilizar para tradução de documentos.
+* Você precisará de uma aplicação [**Azure Storage Explorer**](../../../vs-azure-tools-storage-manage-with-storage-explorer.md) instalada no seu ambiente de desenvolvimento Windows, macOS ou Linux. O Azure Storage Explorer é uma ferramenta gratuita que lhe permite gerir facilmente os seus recursos de armazenamento em nuvem Azure.
+* Depois da aplicação Azure Storage Explorer ser instalada, [conecte-a à conta de armazenamento](../../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#connect-to-a-storage-account-or-service) que está a utilizar para tradução de documentos.
 
 ### <a name="create-your-tokens"></a>Crie os seus tokens
 
@@ -65,7 +65,7 @@ Neste artigo, você vai aprender como criar fichas de acesso compartilhado (SAS)
 ## <a name="create-sas-tokens-for-blobs-in-the-azure-portal"></a>Criar fichas SAS para bolhas no portal Azure
 
 > [!NOTE]
-> A criação de fichas SAS para contentores diretamente no portal Azure não é suportada. No entanto, pode criar um token SAS com [**o Azure Storage Explorer**](#create-sas-tokens-with-azure-storage-explorer) ou completar a tarefa [programáticamente](/azure/storage/blobs/sas-service-create).
+> A criação de fichas SAS para contentores diretamente no portal Azure não é suportada. No entanto, pode criar um token SAS com [**o Azure Storage Explorer**](#create-sas-tokens-with-azure-storage-explorer) ou completar a tarefa [programáticamente](../../../storage/blobs/sas-service-create.md).
 
 <!-- markdownlint-disable MD024 -->
 ### <a name="prerequisites"></a>Pré-requisitos
@@ -104,7 +104,7 @@ Vá ao [portal Azure](https://ms.portal.azure.com/#home) e navegue da seguinte f
 
 ## <a name="learn-more"></a>Saber mais
 
-* [Criar fichas SAS para bolhas ou contentores programáticamente](/azure/storage/blobs/sas-service-create)
+* [Criar fichas SAS para bolhas ou contentores programáticamente](../../../storage/blobs/sas-service-create.md)
 * [Permissões para um diretório, contentor ou bolha](/rest/api/storageservices/create-service-sas#permissions-for-a-directory-container-or-blob)
 
 ## <a name="next-steps"></a>Passos seguintes

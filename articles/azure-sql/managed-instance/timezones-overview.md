@@ -11,12 +11,12 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: ''
 ms.date: 10/12/2020
-ms.openlocfilehash: 8a4c1b2ac53679153c8d9485443a231b817df77a
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: b4ba5f50f5c66b404ec76128a828a1060328f81c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98734584"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690996"
 ---
 # <a name="time-zones-in-azure-sql-managed-instance"></a>Fusos horários em Azure SQL Gestded Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -51,7 +51,7 @@ Quando introduzir parâmetros para uma nova instância, selecione um fuso horár
 
 ### <a name="azure-resource-manager-template"></a>Modelo Azure Resource Manager
 
-Especifique a propriedade timezoneId no seu [modelo de Gestor de Recursos](./scripts/create-powershell-azure-resource-manager-template.md) para definir o fuso horário durante a criação do exemplo.
+Especifique a propriedade timezoneId no seu [modelo de Gestor de Recursos](./create-template-quickstart.md) para definir o fuso horário durante a criação do exemplo.
 
 ```json
 "properties": {
@@ -241,7 +241,7 @@ Usar o mesmo fuso horário através de uma instância primária e secundária nu
 | Tempo Padrão de Samoa | (UTC+13:00) Samoa |
 | Tempo padrão das ilhas da linha | (UTC+14:00) Ilha Kiritimati |
 
-## <a name="see-also"></a>Veja também 
+## <a name="see-also"></a>Ver também 
 
 - [CURRENT_TIMEZONE (Transact-SQL)](/sql/t-sql/functions/current-timezone-transact-sql)
 - [CURRENT_TIMEZONE_ID (Transact-SQL)](/sql/t-sql/functions/current-timezone-id-transact-sql)

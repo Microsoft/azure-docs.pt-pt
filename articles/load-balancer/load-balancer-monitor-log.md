@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2020
 ms.author: allensu
-ms.openlocfilehash: 7a456057bc088264cefb91be9f3e5069b29474a1
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 36937ace82d2bd8d4317f90a375042de10fe719f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100596808"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101709823"
 ---
 # <a name="azure-monitor-logs-for-azure-standard-load-balancer"></a>Registos do Monitor Azure para O Equilibrador de Carga Padrão Azure
 
@@ -74,7 +74,7 @@ O registo de atividades é ativado automaticamente para todos os recursos do Res
 
 ## <a name="view-and-analyze-the-activity-log"></a>Ver e analisar o registo de atividades
 
-O registo de atividade é gerado por padrão. Pode configurá-lo a ser exportado a nível de subscrição [seguindo as instruções deste artigo.](../azure-monitor/platform/activity-log.md) Saiba mais sobre estes registos lendo os [registos de atividades](../azure-resource-manager/management/view-activity-logs.md) do Ver para monitorizar as ações no artigo de recursos.
+O registo de atividade é gerado por padrão. Pode configurá-lo a ser exportado a nível de subscrição [seguindo as instruções deste artigo.](../azure-monitor/essentials/activity-log.md) Saiba mais sobre estes registos lendo os [registos de atividades](../azure-resource-manager/management/view-activity-logs.md) do Ver para monitorizar as ações no artigo de recursos.
 
 Pode visualizar e analisar dados de registo de atividade utilizando qualquer um dos seguintes métodos:
 
@@ -113,4 +113,4 @@ A funcionalidade de exportação de métricas para registos para o Balanceador d
 
 ## <a name="next-steps"></a>Passos seguintes
 * [Reveja as métricas disponíveis para o seu balanceador de carga](./load-balancer-standard-diagnostics.md)
-* [Criar e testar consultas seguindo as instruções do Monitor Azure](../azure-monitor/log-query/log-query-overview.md)
+* [Criar e testar consultas seguindo as instruções do Monitor Azure](../azure-monitor/logs/log-query-overview.md)

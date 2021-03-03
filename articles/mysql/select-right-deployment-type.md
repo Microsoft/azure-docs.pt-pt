@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/26/2020
-ms.openlocfilehash: 000de084cf9375347704cc4d3905ca36bdd77ff8
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 125431e6630ccfdd9e0e5d6b2a4ec5fa9b9e58fd
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92926194"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101736190"
 ---
 # <a name="choose-the-right-mysql-server-option-in-azure"></a>Escolha a opção right MySQL Server em Azure
 
@@ -19,7 +19,7 @@ Com o Azure, as cargas de trabalho do seu servidor MySQL podem funcionar numa in
 
 Ao tomar a sua decisão, considere as seguintes duas opções:
 
-- **Base de Dados Azure para o MySQL** . Esta opção é um motor de base de dados MySQL totalmente gerido com base na versão estável da edição comunitária mySQL. Esta base de dados relacional como um serviço (DBaaS), hospedado na plataforma cloud Azure, insere-se na categoria industrial do PaaS.
+- **Base de Dados Azure para o MySQL**. Esta opção é um motor de base de dados MySQL totalmente gerido com base na versão estável da edição comunitária mySQL. Esta base de dados relacional como um serviço (DBaaS), hospedado na plataforma cloud Azure, insere-se na categoria industrial do PaaS.
 
   Com uma instância gerida do MySQL em Azure, pode utilizar funcionalidades incorporadas viz patching automatizado, alta disponibilidade, backups automatizados, escala elástica, segurança de nível empresarial, conformidade e governação, monitorização e alerta que de outra forma requerem uma configuração extensiva quando o MySQL Server está no local ou num VM Azure. Ao utilizar o MySQL como serviço, paga-se à medida que vai, com opções para escalar ou escalar para um maior controlo sem interrupção.
   
@@ -35,7 +35,7 @@ Ao tomar a sua decisão, considere as seguintes duas opções:
   - Zona redundante alta disponibilidade
   - Janelas de manutenção geridas
 
-- **MySQL em Azure VMs** . Esta opção insere-se na categoria industrial do IaaS. Com este serviço, pode executar o MySQL Server dentro de uma máquina virtual gerida na plataforma cloud Azure. Todas as versões e edições recentes do MySQL podem ser instaladas na máquina virtual.
+- **MySQL em Azure VMs**. Esta opção insere-se na categoria industrial do IaaS. Com este serviço, pode executar o MySQL Server dentro de uma máquina virtual gerida na plataforma cloud Azure. Todas as versões e edições recentes do MySQL podem ser instaladas na máquina virtual.
 
 ## <a name="comparing-the-mysql-deployment-options-in-azure"></a>Comparar as opções de implantação do MySQL em Azure
 
@@ -43,17 +43,19 @@ As principais diferenças entre estas opções constam do quadro seguinte:
 
 | Atributo          | Base de Dados do Azure para MySQL<br/>Servidor Único |Base de Dados do Azure para MySQL<br/>Servidor Flexível  |MySQL em VMs Azure                      |
 |:-------------------|:-------------------------------------------|:---------------------------------------------|:---------------------------------------|
-| Suporte da versão MySQL | 5.6, 5.7 & 8.0| 5.7 | Qualquer versão|
+| Suporte da versão MySQL | 5.6, 5.7 & 8.0| 5.7 & 8.0 | Qualquer versão|
 | Escalagem de cálculo | Suportado (A escala de e para o nível básico não é suportada)| Suportado | Suportado|
 | Tamanho do armazenamento | 5 GiB a 16 TiB| 5 GiB a 16 TiB | 32 GiB a 32.767 GiB|
 | Escala de armazenamento on-line | Suportado| Suportado| Não suportado|
 | Dimensionamento de armazenamento automático | Suportado| Não suportado na pré-visualização| Não suportado|
+| Escala adicional de IOPs | Não suportado| Suportado| Não suportado|
 | Conectividade da rede | - Pontos finais públicos com firewall do servidor.<br/> - Acesso privado com suporte private link.|- Pontos finais públicos com firewall do servidor.<br/> - Acesso privado com integração de Rede Virtual.| - Pontos finais públicos com firewall do servidor.<br/> - Acesso privado com suporte private link.|
 | Contrato de nível de serviço (SLA) | 99,99% de disponibilidade SLA |Sem SLA na pré-visualização| 99,99% usando Zonas de Disponibilidade|
 | Patching do sistema operativo| Automático  | Automático com controlo de janela de manutenção personalizada | Gerido por utilizadores finais |
 | Patching MySQL     | Automático  | Automático com controlo de janela de manutenção personalizada | Gerido por utilizadores finais |
 | Elevada disponibilidade | HA incorporado dentro de uma única zona de disponibilidade| HA incorporado dentro e em todas as zonas de disponibilidade | Gerido sob medida usando clustering, replicação, etc.|
 | Redundância entre zonas | Não suportado | Suportado | Suportado|
+| Colocação de zona | Não suportado | Suportado | Suportado|
 | Cenários híbridos | Suportado com [replicação de dados](./concepts-data-in-replication.md)| Não disponível na pré-visualização | Gerido por utilizadores finais |
 | Réplicas de leitura | Suportado (até 5 réplicas)| Suportado (até 10 réplicas)| Gerido por utilizadores finais |
 | Backup | Automatizado com retenção de 7-35 dias | Automatizado com retenção de 1-35 dias | Gerido por utilizadores finais |

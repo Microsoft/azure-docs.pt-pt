@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/30/2020
-ms.openlocfilehash: 540ca293afdd7514793b8eec390b4751885859df
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: f2d2670b974555b83ec622b22eb2dae8f3c9899b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100618461"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101710984"
 ---
 # <a name="connect-configuration-manager-to-azure-monitor"></a>Ligue o Gestor de Configuração ao Monitor Azure
 Pode ligar o ambiente do Microsoft Endpoint Configuration Manager ao Azure Monitor para sincronizar os dados de recolha de dispositivos e fazer referência a estas coleções no Azure Monitor e na Azure Automation.  
@@ -44,7 +44,7 @@ Os passos seguintes resumem os passos para configurar a integração do Gestor d
 
 ## <a name="grant-configuration-manager-with-permissions-to-log-analytics"></a>Grant Configuration Manager com permissões para Registar Analytics
 
-No procedimento seguinte, concede o papel *de Contribuinte* no seu espaço de trabalho Log Analytics ao responsável pela aplicação e serviço de AD que criou anteriormente para o Gestor de Configuração. Se ainda não tiver um espaço de trabalho, consulte [Criar um espaço de trabalho no Azure Monitor](../learn/quick-create-workspace.md) antes de prosseguir. Isto permite que o Gestor de Configuração autuça e ligue ao seu espaço de trabalho Log Analytics.  
+No procedimento seguinte, concede o papel *de Contribuinte* no seu espaço de trabalho Log Analytics ao responsável pela aplicação e serviço de AD que criou anteriormente para o Gestor de Configuração. Se ainda não tiver um espaço de trabalho, consulte [Criar um espaço de trabalho no Azure Monitor](./quick-create-workspace.md) antes de prosseguir. Isto permite que o Gestor de Configuração autuça e ligue ao seu espaço de trabalho Log Analytics.  
 
 > [!NOTE]
 > Tem de especificar permissões no espaço de trabalho do Log Analytics para o Gestor de Configurações. Caso contrário, recebe uma mensagem de erro quando utiliza o assistente de configuração no Gestor de Configurações.
@@ -148,9 +148,8 @@ Depois de importadas as coleções, pode ver quantos computadores com membros de
 
 ![Screenshot dos Grupos de Computadores definições avançadas para S C C M mostrando a opção para membros de coleção de gestor de configuração de importação selecionados.](./media/collect-sccm/sccm-computer-groups02.png)
 
-Quando clica em qualquer um, o editor de consulta de registos abre a exibição de todos os grupos importados ou de todos os computadores que pertencem a cada grupo. Utilizando [a Pesquisa de Registo,](../log-query/log-query-overview.md)pode efetuar uma análise mais aprofundada dos dados de membros da recolha.
+Quando clica em qualquer um, o editor de consulta de registos abre a exibição de todos os grupos importados ou de todos os computadores que pertencem a cada grupo. Utilizando [a Pesquisa de Registo,](./log-query-overview.md)pode efetuar uma análise mais aprofundada dos dados de membros da recolha.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Utilize [a Pesquisa de Registo](../log-query/log-query-overview.md) para ver informações detalhadas sobre os dados do seu Gestor de Configuração.
-
+Utilize [a Pesquisa de Registo](./log-query-overview.md) para ver informações detalhadas sobre os dados do seu Gestor de Configuração.

@@ -1,5 +1,5 @@
 ---
-title: Criar Filtros com Serviços de Media Azure REST API ; Microsoft Docs
+title: Criar filtros com serviços de mídia Azure REST API | Microsoft Docs
 description: Este tópico descreve como criar filtros para que o seu cliente possa usá-los para transmitir secções específicas de um fluxo. A API dos Serviços de Mídia REST cria manifestos dinâmicos para alcançar este streaming seletivo.
 services: media-services
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewr: cenkdin
-ms.openlocfilehash: 04a9776ca2686aebbb7668c86f5afcd61f5f9238
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b0271edbbd119e1d60f30cc149ba7772fd0cfa9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90530187"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101730223"
 ---
 # <a name="creating-filters-with-azure-media-services-rest-api"></a>Criar filtros com Azure Media Services REST API
 
@@ -32,7 +32,7 @@ ms.locfileid: "90530187"
 > 
 > 
 
-A partir do lançamento 2.17, os Serviços de Media permitem definir filtros para os seus ativos. Estes filtros são regras do lado do servidor que permitem aos seus clientes optar por fazer coisas como: reproduzir apenas uma secção de um vídeo (em vez de reproduzir todo o vídeo), ou especificar apenas um subconjunto de representações áudio e vídeo que o dispositivo do seu cliente pode suportar (em vez de todas as representações que estão associadas ao ativo). Esta filtragem dos seus ativos é arquivada através do **Dynamic Manifest**s que são criados a pedido do seu cliente para transmitir um vídeo com base em filtros especificados.
+A partir do lançamento 2.17, os Serviços de Media permitem definir filtros para os seus ativos. Estes filtros são regras do lado do servidor que permitem aos seus clientes optar por fazer coisas como: reproduzir apenas uma secção de um vídeo (em vez de reproduzir todo o vídeo), ou especificar apenas um subconjunto de representações áudio e vídeo que o dispositivo do seu cliente pode suportar (em vez de todas as representações que estão associadas ao ativo). Esta filtragem dos seus ativos é arquivada através do **Dynamic Manifest** s que são criados a pedido do seu cliente para transmitir um vídeo com base em filtros especificados.
 
 Para obter informações mais detalhadas relacionadas com filtros e Manifesto Dinâmico, consulte [a visão geral dos manifestos dinâmicos.](media-services-dynamic-manifest-overview.md)
 
@@ -174,7 +174,7 @@ HTTP/1.1 201 Created
 ```
 
 ## <a name="list-filters"></a>Filtros de lista
-### <a name="get-all-global-filters-in-the-ams-account"></a>Obtenha todos os **Filtros**Globais na conta AMS
+### <a name="get-all-global-filters-in-the-ams-account"></a>Obtenha todos os **Filtros** Globais na conta AMS
 Para listar filtros, utilize os seguintes pedidos HTTP: 
 
 #### <a name="http-request"></a>Pedido de HTTP
@@ -190,7 +190,7 @@ x-ms-version: 2.19
 Host: media.windows.net 
 ```
 
-### <a name="get-assetfilters-associated-with-an-asset"></a>Obtenha **o AssetFilter**associado a um ativo
+### <a name="get-assetfilters-associated-with-an-asset"></a>Obtenha **o AssetFilter** associado a um ativo
 #### <a name="http-request"></a>Pedido de HTTP
 
 ```console
@@ -363,7 +363,7 @@ Os exemplos a seguir mostram como adicionar filtros aos seus URLs de streaming.
 
 **Transmissão em Fluxo Uniforme**
 
-`http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(filter=MyFilter)`
+`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(filter=MyFilter)`
 
     
 ## <a name="media-services-learning-paths"></a>Percursos de aprendizagem dos Media Services

@@ -1,5 +1,5 @@
 ---
-title: Ofertas de conformidade de armazenamento Azure / Microsoft Docs
+title: Ofertas de conformidade de armazenamento Azure | Microsoft Docs
 description: Leia um resumo das ofertas de conformidade sobre o Armazenamento Azure para requisitos nacionais, regionais e específicos da indústria que regem a recolha e utilização de dados.
 services: storage
 author: fhryo-msft
@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: ca0e95d311adedf613ed168927491dfa85b1cabd
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: 7ec938a13d04cf3400e4d3df0eeda051c61d35ad
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97095326"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101724273"
 ---
 # <a name="azure-storage-compliance-offerings"></a>Ofertas de conformidade de armazenamento Azure
 
 Para ajudar as organizações a cumprirem os requisitos nacionais, regionais e específicos da indústria que regem a recolha e utilização de dados individuais, o Microsoft Azure & Azure Storage oferecem o conjunto mais abrangente de certificações e atestados de qualquer prestador de serviços na nuvem.
 
-Pode encontrar abaixo as ofertas de conformidade no Azure Storage para garantir que o seu serviço seja regulado na utilização do serviço de Armazenamento Azure. Aplicam-se às seguintes ofertas de Armazenamento Azure: Blobs, Ficheiros, Filas, Tabelas, Discos, Armazenamento Cool e Armazenamento Premium.
+Pode encontrar abaixo as ofertas de conformidade no Azure Storage para garantir que o seu serviço seja regulado na utilização do serviço de Armazenamento Azure. Aplicam-se às seguintes ofertas de Armazenamento Azure: Blobs (ADLS Gen2), Ficheiros, Filas, Tabelas, Discos, Armazenamento Cool e Armazenamento Premium.
 
 ## <a name="global"></a>Global
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Private Link frequentemente fez perguntas (FAQ)
+title: Perguntas mais frequentes (FAQ) sobre o Azure Private Link
 description: Saiba mais sobre a Azure Private Link.
 services: private-link
 author: malopMSFT
@@ -7,16 +7,16 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 10/05/2019
 ms.author: allensu
-ms.openlocfilehash: b56c57a0b803a41c095f6f25f69a18a815d182f1
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 4e81d8f88a7c01b6d302bcdaa88559159bed04ea
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99582014"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101709414"
 ---
-# <a name="azure-private-link-frequently-asked-questions-faq"></a>Azure Private Link frequentemente fez perguntas (FAQ)
+# <a name="azure-private-link-frequently-asked-questions-faq"></a>Perguntas mais frequentes (FAQ) sobre o Azure Private Link
 
-## <a name="private-link"></a>Private Link
+## <a name="private-link"></a>Ligação Privada
 
 ### <a name="what-is-azure-private-endpoint-and-azure-private-link-service"></a>O que é Azure Private Endpoint e Azure Private Link Service?
 
@@ -65,6 +65,12 @@ Pode escalar o seu serviço Private Link de várias maneiras:
 - Adicione VMs de backend à piscina atrás do seu Balanceador de Carga Padrão 
 - Adicione um IP ao serviço Private Link. Permitimos até 8 IPs por serviço private Link.  
 - Adicione o novo serviço de Ligação Privada ao Balanceador de Carga Padrão. Permitimos até oito serviços de Ligação Privada por balançador de carga.   
+
+### <a name="what-is-natnetwork-address-translation-ip-configuration-used-in-private-link-service-how-can-i-scale-in-terms-of-available-ports-and-connections"></a>O que é a configuração IP DA NAT (Tradução de Endereços de Rede) utilizada no Serviço de Ligação Privada? Como posso escalar em termos de portas e ligações disponíveis? 
+
+A configuração NAT IP garante que não existe um conflito IP entre o espaço de endereço de origem (lado do consumidor) e o destino (prestador de serviços), fornecendo a origem NAT no tráfego de Ligação Privada no lado do destino (lado do prestador de serviços). O endereço NAT IP aparecerá como SOURCE IP para todos os pacotes recebidos pelo seu serviço e destino IP para todos os pacotes enviados pelo seu serviço.  O NAT IP pode ser escolhido a partir de qualquer sub-rede da rede virtual de um prestador de serviços. 
+
+Cada NAT IP fornece ligações TCP de 64k (portas de 64k) por VM atrás do Balanceador de Carga Padrão. Para escalar e adicionar mais ligações, pode adicionar novos IPs NAT ou adicionar mais VMs atrás do Balanceador de Carga Padrão. Ao fazê-lo, irá escalar a disponibilidade da porta e permitir mais ligações. As ligações serão distribuídas por IPs e VMs NAT por trás do Balanceador de Carga Padrão.
 
 ### <a name="can-i-connect-my-service-to-multiple-private-endpoints"></a>Posso ligar o meu serviço a vários Pontos Finais Privados?
 Sim. Um serviço de Ligação Privada pode receber ligações de vários Pontos Finais Privados. No entanto, um Ponto Final Privado só pode ligar-se a um serviço de Ligação Privada.  

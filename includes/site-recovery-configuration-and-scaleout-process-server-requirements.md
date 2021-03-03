@@ -10,10 +10,10 @@ ms.date: 07/08/2020
 ms.author: raynew
 ms.custom: include file
 ms.openlocfilehash: 61aa5ffcbab493109371067b1eb9d199a29cb852
-ms.sourcegitcommit: b513b0becf878eb9a1554c26da53aa48d580bb22
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2021
+ms.lasthandoff: 03/03/2021
 ms.locfileid: "100551392"
 ---
 **Requisitos de configuração e servidor de processo**

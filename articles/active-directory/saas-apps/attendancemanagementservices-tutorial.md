@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com Serviços de Gestão de Atendimentos Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com Serviços de Gestão de Atendimento | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e os Serviços de Gestão de Atendimento.
 services: active-directory
 author: jeevansd
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/15/2019
 ms.author: jeedes
-ms.openlocfilehash: ec07d36ad544f293064e877520bb4a7a4c9b269d
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 1f404d3613f9de8daadc4bb2ceb39282cf3b619e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92457644"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101688999"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-attendance-management-services"></a>Tutorial: Integração do Diretório Ativo Azure com Serviços de Gestão de Atendimento
 
@@ -216,7 +216,7 @@ Para permitir que os utilizadores da Azure AD inscrevam-se nos Serviços de Gest
 
     ![A screenshot mostra a janela onde pode executar as tarefas descritas.](./media/attendancemanagementservices-tutorial/user4.png)
 
-    a. Na caixa de texto **OBCiD,** escreva o e-mail do utilizador como `BrittaSimon\@contoso.com` .
+    a. Na caixa de texto **OBCiD,** escreva o e-mail do utilizador como `BrittaSimon@contoso.com` .
 
     b. Na caixa de texto **da palavra-passe,** digite a palavra-passe do utilizador.
 

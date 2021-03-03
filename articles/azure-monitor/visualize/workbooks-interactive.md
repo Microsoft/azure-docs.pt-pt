@@ -7,12 +7,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/20/2020
-ms.openlocfilehash: a70f2cff1df5d0f5d1d4a36bbc2a440518ce5ed4
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 2cb284e1978ad6c890835318c51c6095891397cd
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100616082"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723015"
 ---
 # <a name="interactive-workbooks"></a>Livros Interativos
 
@@ -188,5 +188,5 @@ Embora o comportamento padrão seja exportar um parâmetro como texto, se souber
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Começar a](../platform/workbooks-overview.md#visualizations) aprender mais sobre livros de trabalho muitas opções de visualizações ricas.
-* [Controle](../platform/workbooks-access-control.md) e partilhe o acesso aos seus recursos do livro.
+* [Começar a](./workbooks-overview.md#visualizations) aprender mais sobre livros de trabalho muitas opções de visualizações ricas.
+* [Controle](./workbooks-access-control.md) e partilhe o acesso aos seus recursos do livro.

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c4ed5dfee80c33009874361ae6b4d23ec00bc26
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 419823086fd7ba05ba5023216be302576350e30a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99573335"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101687294"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Como: Planeie o seu Azure Ative Directory híbrido junte-se à implementação
 
@@ -95,6 +95,7 @@ Como primeiro passo de planeamento, deve rever o seu ambiente e determinar se pr
 Se os dispositivos associados ao domínio do Windows 10 forem [Azure AD registados no nome](overview.md#getting-devices-in-azure-ad) do seu inquilino, poderá levar a um duplo estado de ad AD Híbrido Azure e dispositivo registado Azure AD. Recomendamos o upgrade para o Windows 10 1803 (com KB4489894 aplicado) ou acima para abordar automaticamente este cenário. Nas versões pré-1803, terá de remover manualmente o estado registado Azure AD antes de permitir a junção do AD Híbrido Azure. Em 1803 e acima de 1803, foram efetuadas as seguintes alterações para evitar este duplo estado:
 
 - Qualquer estado registado em Azure AD existente para um utilizador seria automaticamente removido <i>após o dispositivo ser híbrido Azure AD e os mesmos registos de utilizador dentro</i> Por exemplo, se o Utilizador A tiver um estado AD AD Azure registado no dispositivo, o duplo estado do Utilizador A só é limpo quando o Utilizador A entra no dispositivo. Se houver vários utilizadores no mesmo dispositivo, o estado duplo é limpo individualmente quando estes utilizadores fazem login. Além de remover o estado registado Azure AD, o Windows 10 também irá desinsupear o dispositivo do Intune ou de outros MDM, se a inscrição ocorrer como parte do registo AD Azure através de inscrição automática.
+- O estado registado da Azure AD em quaisquer contas locais no dispositivo não é afetado por esta alteração. Só é aplicável às contas de domínio. Assim, o estado registado Azure AD nas contas locais não é removido automaticamente mesmo após a súmã do utilizador, uma vez que o utilizador não é um utilizador de domínio. 
 - Pode evitar que o seu dispositivo de alistamento de domínio seja registado a Azure AD adicionando o seguinte valor de registo à HKLM\SOFTWARE\Policies\Microsoft\Microsoft\Windows\WorkplaceJoin: "BlockAADWorkplaceJoin"=dword:00000001.
 - No Windows 10 1803, se tiver o Windows Hello para o Negócios configurado, o utilizador precisa de reen configurar o Windows Hello para o Negócios após a limpeza do duplo estado. Esta questão foi abordada com o KB4512509
 
@@ -166,7 +167,7 @@ Por vezes, os seus utilizadores de AD no local, UPNs, podem ser diferentes dos s
 
 O quadro abaixo fornece detalhes sobre o suporte para estes UPNs AD no local no Windows 10 Hybrid AD
 
-| Tipo de UPN AD no local | Tipo de domínio | Versão do Windows 10 | Description |
+| Tipo de UPN AD no local | Tipo de domínio | Versão do Windows 10 | Descrição |
 | ----- | ----- | ----- | ----- |
 | Roteável | Federados | A partir de 1703 lançamento | Disponível em Geral |
 | Não-encaminhável | Federados | A partir de 1803 lançamento | Disponível em Geral |

@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/1/2020
-ms.openlocfilehash: b4f828c675df9625d6d4889dbc31bbc4b9f887ed
-ms.sourcegitcommit: ea17e3a6219f0f01330cf7610e54f033a394b459
+ms.openlocfilehash: 9b18b24686908ac92f97ea0cae892369919ae4d6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97386719"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101721025"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Limitações na Base de Dados Azure para o MySQL
 As secções seguintes descrevem capacidade, suporte ao motor de armazenamento, suporte ao privilégio, suporte à declaração de manipulação de dados e limites funcionais no serviço de base de dados. Consulte também [as limitações gerais](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) aplicáveis ao motor de base de dados MySQL.
@@ -29,7 +29,7 @@ Os plugins de palavras-passe como "validate_password" e "caching_sha2_password" 
 
 ## <a name="storage-engines"></a>Motores de armazenamento
 
-O MySQL suporta muitos motores de armazenamento. Na Base de Dados Azure para o MySQL Flexible Server, os seguintes motores de armazenamento são suportados e não suportados:
+O MySQL suporta muitos motores de armazenamento. Na Base de Dados Azure para o MySQL, os seguintes motores de armazenamento são suportados e não suportados:
 
 ### <a name="supported"></a>Suportado
 - [InnoDB](https://dev.mysql.com/doc/refman/5.7/en/innodb-introduction.html)
@@ -82,6 +82,6 @@ Os seguintes não são suportados:
 ## <a name="current-known-issues"></a>Questões conhecidas atuais
 - A instância do servidor MySQL exibe a versão errada do servidor após a ligação ser estabelecida. Para obter a versão correta do motor de instância do servidor, utilize o `select version();` comando.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 - [O que está disponível em cada nível de serviço](concepts-pricing-tiers.md)
 - [Versões de base de dados do MySQL suportadas](concepts-supported-versions.md)

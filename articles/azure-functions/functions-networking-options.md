@@ -5,12 +5,12 @@ author: cachai2
 ms.topic: conceptual
 ms.date: 1/21/2021
 ms.author: cachai
-ms.openlocfilehash: 2c3f207e98f574bb6c43f87d34b0a404e263e83c
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: ceef827f7406f8915d205349372a43626c917e4b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98806985"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101729237"
 ---
 # <a name="azure-functions-networking-options"></a>Opções de rede das Funções do Azure
 
@@ -87,7 +87,7 @@ Para saber mais, consulte [os pontos finais do serviço de rede Virtual.](../vir
 
 ## <a name="restrict-your-storage-account-to-a-virtual-network"></a>Restringir a sua conta de armazenamento a uma rede virtual 
 
-Quando criar uma aplicação de função, deve criar ou ligar para uma conta de Armazenamento Azure de uso geral que suporte o armazenamento de Blob, Queue e Table.  Pode substituir esta conta de armazenamento por uma que esteja segura com pontos finais de serviço ou ponto final privado.  Atualmente, esta funcionalidade apenas funciona com planos do Windows Premium.  Para criar uma função com uma conta de armazenamento restrita a uma rede privada:
+Quando criar uma aplicação de função, deve criar ou ligar para uma conta de Armazenamento Azure de uso geral que suporte o armazenamento de Blob, Queue e Table.  Pode substituir esta conta de armazenamento por uma que esteja segura com pontos finais de serviço ou ponto final privado.  Atualmente, esta funcionalidade funciona apenas para todos os skus suportados pela Vnet, que inclui Standard e Premium, com exceção dos selos flex onde a Vnet está disponível apenas para sku Premium. Para criar uma função com uma conta de armazenamento restrita a uma rede privada:
 
 1. Crie uma função com uma conta de armazenamento que não tenha pontos finais de serviço ativados.
 1. Configure a função para ligar à sua rede virtual.
@@ -184,7 +184,7 @@ As seguintes APIs permitem gerir programáticamente integrações de redes virtu
 
 [!INCLUDE [app-service-web-vnet-troubleshooting](../../includes/app-service-web-vnet-troubleshooting.md)]
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Para saber mais sobre networking e Funções Azure:
 

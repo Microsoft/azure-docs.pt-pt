@@ -7,12 +7,16 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 08/25/2020
 ms.custom: mvc, seodec18
-ms.openlocfilehash: eea42ab17311b85bdce429e22e8d0ed694e2f0ec
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+adobe-target: true
+adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
+adobe-target-experience: Experience B
+adobe-target-content: ./app-service-web-tutorial-custom-domain-uiex
+ms.openlocfilehash: b3ff1b344852d57f0effbd978c06aa617682ea4f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100096349"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101720332"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Tutorial: Mapeie um nome DNS personalizado existente para o Azure App Service
 

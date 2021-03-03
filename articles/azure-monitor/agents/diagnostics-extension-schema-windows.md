@@ -1,17 +1,16 @@
 ---
 title: Esquema de extensão de diagnóstico do Windows
 description: Referência de esquema de configuração para extensão de diagnóstico do Windows (WAD) no Azure Monitor.
-ms.subservice: diagnostic-extension
 ms.topic: reference
 author: bwren
 ms.author: bwren
 ms.date: 01/20/2020
-ms.openlocfilehash: eccd4010d796e541e4a0a2c0b0c485b5f18f0366
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 4b4b893b222a62619a36d59c2cf042f1aa5590bc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100618171"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708633"
 ---
 # <a name="windows-diagnostics-extension-schema"></a>Esquema de extensão de diagnóstico do Windows
 A extensão Azure Diagnostics é um agente no Azure Monitor que recolhe dados de monitorização do sistema operativo convidado e cargas de trabalho dos recursos de computação Azure. Este artigo detalha o esquema utilizado para a configuração da extensão de diagnóstico em máquinas virtuais do Windows e outros recursos computacional.
@@ -43,7 +42,7 @@ O elemento de nível superior do ficheiro de configuração de diagnóstico.
 `http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration`
 
 
-|Elementos Subordinados|Description|  
+|Elementos Subordinados|Descrição|  
 |--------------------|-----------------|  
 |**Config público**|Obrigatório. Consulte a descrição em outro lugar nesta página.|  
 |**Config Privado**|Opcional. Consulte a descrição em outro lugar nesta página.|  
@@ -54,7 +53,7 @@ O elemento de nível superior do ficheiro de configuração de diagnóstico.
 
  Descreve a configuração de diagnóstico público.  
 
-|Elementos Subordinados|Description|  
+|Elementos Subordinados|Descrição|  
 |--------------------|-----------------|  
 |**WadCfg**|Obrigatório. Consulte a descrição em outro lugar nesta página.|  
 |**StorageAccount**|O nome da conta de Armazenamento Azure para armazenar os dados dentro Também pode ser especificado como um parâmetro ao executar o Set-AzureServiceDiagnosticsExtension cmdlet.|  
@@ -72,7 +71,7 @@ O elemento de nível superior do ficheiro de configuração de diagnóstico.
 
  Necessário
 
-|Atributos|Description|  
+|Atributos|Descrição|  
 |----------------|-----------------|  
 | **globalQuotaInMB** | A quantidade máxima de espaço em disco local que pode ser consumida pelos vários tipos de dados de diagnóstico recolhidos pela Azure Diagnostics. A definição predefinida é de 4096 MB.<br />
 |**useProxyServer** | Configure Azure Diagnostics para utilizar as definições do servidor proxy como definido nas definições de IE.|
@@ -81,7 +80,7 @@ O elemento de nível superior do ficheiro de configuração de diagnóstico.
 
 <br /> <br />
 
-|Elementos Subordinados|Description|  
+|Elementos Subordinados|Descrição|  
 |--------------------|-----------------|  
 |**CrashDumps**|Consulte a descrição em outro lugar nesta página.|  
 |**DiagnósticoInfrastructureLogs**|Ativar a recolha de registos gerados pela Azure Diagnostics. Os registos de infraestrutura de diagnóstico são úteis para resolver problemas no próprio sistema de diagnóstico. Os atributos opcionais são:<br /><br /> - **ProgramadoTransferLogLevelFilter** - Configura o nível mínimo de gravidade dos registos recolhidos.<br /><br /> - **ProgramadoTransferPeriod** - O intervalo entre transferências programadas para armazenamento arredondado até ao minuto mais próximo. O valor é um [XML "Tipo de Dados de Duração".](https://www.w3schools.com/xml/schema_dtypes_date.asp) |  
@@ -99,13 +98,13 @@ O elemento de nível superior do ficheiro de configuração de diagnóstico.
 
  Habilitar a recolha de depósitos de colisão.  
 
-|Atributos|Description|  
+|Atributos|Descrição|  
 |----------------|-----------------|  
 |**nome de contentor**|Opcional. O nome do recipiente blob na sua conta de armazenamento Azure para ser usado para armazenar depósitos de acidentes.|  
 |**crashDumpType**|Opcional.  Configura a Azure Diagnostics para recolher mini ou lixeiras completas.|  
 |**directyQuotaPercentage**|Opcional.  Configura a percentagem de **GlobalQuotaInMB** a ser reservada para despejos de colisão no VM.|  
 
-|Elementos Subordinados|Description|  
+|Elementos Subordinados|Descrição|  
 |--------------------|-----------------|  
 |**CrashDumpConfiguration**|Obrigatório. Define valores de configuração para cada processo.<br /><br /> É igualmente necessário o seguinte atributo:<br /><br /> **nome de processo** - O nome do processo para o quais pretende que o Azure Diagnostics recolha uma lixeira de colisão.|  
 
@@ -116,7 +115,7 @@ O elemento de nível superior do ficheiro de configuração de diagnóstico.
 
  Atributo **opcional Deperiod programado.** Veja a explicação mais cedo.  
 
-|Elementos Subordinados|Description|  
+|Elementos Subordinados|Descrição|  
 |--------------------|-----------------|  
 |**IISLogs**|A inclusão deste elemento na configuração permite a recolha de registos IIS:<br /><br /> **containerName** - O nome do recipiente blob na sua conta de armazenamento Azure para ser utilizado para armazenar os registos IIS.|   
 |**RequestLogs falhados**|A inclusão deste elemento na configuração permite a recolha de registos sobre pedidos falhados a um site ou aplicação do IIS. Também deve ativar opções de rastreio no **sistema. WebServer** em **Web.config**.|  
@@ -130,7 +129,7 @@ O elemento de nível superior do ficheiro de configuração de diagnóstico.
 
  Uma lista de diretórios para monitorizar.  
 
-|Elementos Subordinados|Description|  
+|Elementos Subordinados|Descrição|  
 |--------------------|-----------------|  
 |**Configuação do Diretório**|Obrigatório. Atributo requerido:<br /><br /> **containerName** - O nome do recipiente blob na sua conta de Armazenamento Azure que deve ser utilizado para armazenar os ficheiros de registo.|  
 
@@ -143,7 +142,7 @@ O elemento de nível superior do ficheiro de configuração de diagnóstico.
 
  Pode incluir o elemento **Absolute** ou **LocalResource,** mas não ambos.  
 
-|Elementos Subordinados|Description|  
+|Elementos Subordinados|Descrição|  
 |--------------------|-----------------|  
 |**Absoluto**|O caminho absoluto para o diretório para monitorizar. São necessários os seguintes atributos:<br /><br /> - **Caminho** - O caminho absoluto para o diretório para monitorizar.<br /><br /> - **expandEnvironment** - Configura se as variáveis ambientais em Path são expandidas.|  
 |**Fonte local**|O caminho relativo a um recurso local para monitorizar. Os atributos necessários são:<br /><br /> - **Nome** - O recurso local que contém o diretório para monitorizar<br /><br /> - **relativaPath** - O caminho relativo ao Nome que contém o diretório para monitorizar|  
@@ -155,7 +154,7 @@ O elemento de nível superior do ficheiro de configuração de diagnóstico.
 
  Configura a recolha de eventos ETW de fornecedores baseados em EventSource e/ou ETW Manifest.  
 
-|Elementos Subordinados|Description|  
+|Elementos Subordinados|Descrição|  
 |--------------------|-----------------|  
 |**EtwEventSourceProviderConfiguration**|Configura a recolha de eventos gerados a partir da [Classe EventSource.](/dotnet/api/system.diagnostics.tracing.eventsource) Atributo requerido:<br /><br /> **fornecedor** - O nome de classe do evento EventSource.<br /><br /> Os atributos opcionais são:<br /><br /> - **ProgramadoTransferLogLevelFilter** - O nível mínimo de gravidade para transferir para a sua conta de armazenamento.<br /><br /> - **ProgramadoTransferPeriod** - O intervalo entre transferências programadas para armazenamento arredondado até ao minuto mais próximo. O valor é um [XML "Tipo de Dados de Duração".](https://www.w3schools.com/xml/schema_dtypes_date.asp) |  
 |**EtwManifestProviderConfiguration**|Atributo requerido:<br /><br /> **fornecedor** - O GUIA do fornecedor de eventos<br /><br /> Os atributos opcionais são:<br /><br /> - **ProgramadoTransferLogLevelFilter** - O nível mínimo de gravidade para transferir para a sua conta de armazenamento.<br /><br /> - **ProgramadoTransferPeriod** - O intervalo entre transferências programadas para armazenamento arredondado até ao minuto mais próximo. O valor é um [XML "Tipo de Dados de Duração".](https://www.w3schools.com/xml/schema_dtypes_date.asp) |  
@@ -167,7 +166,7 @@ O elemento de nível superior do ficheiro de configuração de diagnóstico.
 
  Configura a recolha de eventos gerados a partir da [Classe EventSource.](/dotnet/api/system.diagnostics.tracing.eventsource)  
 
-|Elementos Subordinados|Description|  
+|Elementos Subordinados|Descrição|  
 |--------------------|-----------------|  
 |**DefaultEvents**|Atributo opcional:<br/><br/> **eventDestination** - O nome da mesa para armazenar os eventos em|  
 |**Evento**|Atributo requerido:<br /><br /> **Id** - O id do evento.<br /><br /> Atributo opcional:<br /><br /> **eventDestination** - O nome da mesa para armazenar os eventos em|  
@@ -177,7 +176,7 @@ O elemento de nível superior do ficheiro de configuração de diagnóstico.
 ## <a name="etwmanifestproviderconfiguration-element"></a>Elemento deConfiguação EtwManifestProvider  
  *Árvore: Raiz - Confirmação de Diagnóstico - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - EtwProviders - EtwManifestProviderConfiguration*
 
-|Elementos Subordinados|Description|  
+|Elementos Subordinados|Descrição|  
 |--------------------|-----------------|  
 |**DefaultEvents**|Atributo opcional:<br /><br /> **eventDestination** - O nome da mesa para armazenar os eventos em|  
 |**Evento**|Atributo requerido:<br /><br /> **Id** - O id do evento.<br /><br /> Atributo opcional:<br /><br /> **eventDestination** - O nome da mesa para armazenar os eventos em|  
@@ -191,7 +190,7 @@ O elemento de nível superior do ficheiro de configuração de diagnóstico.
 
  O atributo **resourceId** é necessário.  O ID de recursos da Máquina Virtual ou do Conjunto de Escala de Máquina Virtual para o que está a implementar Azure Diagnostics. Obtenha os **recursosID** do [portal Azure.](https://portal.azure.com) **Selecione**  ->  **Grupos de Recursos de**  ->  **Navegação<Nome \>**. Clique no azulejo **propriedades** e copie o valor do campo **ID.**  Esta propriedade de recursosID é usada tanto para o envio de métricas personalizadas como para adicionar uma propriedade de RECURSOSID aos dados enviados para Os Centros de Eventos. Note que precisa adicionar a propriedade *resourceId* sob o elemento *Metrics* se quiser que os eventos enviados para Os Centros de Eventos tenham um ID de recursos.
 
-|Elementos Subordinados|Description|  
+|Elementos Subordinados|Descrição|  
 |--------------------|-----------------|  
 |**MétricaAggregação**|Atributo requerido:<br /><br /> **ProgramadoTransferPeriod** - O intervalo entre transferências programadas para armazenamento arredondado até ao minuto mais próximo. O valor é um [XML "Tipo de Dados de Duração".](https://www.w3schools.com/xml/schema_dtypes_date.asp) |  
 
@@ -206,7 +205,7 @@ O elemento de nível superior do ficheiro de configuração de diagnóstico.
 
  Atributo **opcional Deperiod programado.** Veja a explicação mais cedo.
 
-|Elemento infantil|Description|  
+|Elemento infantil|Descrição|  
 |-------------------|-----------------|  
 |**Realização de DesempenhoConiguration**|São necessários os seguintes atributos:<br /><br /> - **contraSpecificador** - O nome do contador de desempenho. Por exemplo, `\Processor(_Total)\% Processor Time`. Para obter uma lista de contadores de desempenho no seu anfitrião, faça o comando `typeperf` .<br /><br /> - **sampleRate** - Com que frequência o contador deve ser amostrado.<br /><br /> Atributo opcional:<br /><br /> **unidade** - A unidade de medida do balcão. Os valores estão disponíveis na [Classe UnitType](/dotnet/api/microsoft.azure.management.sql.models.unittype) |
 |**pias** | Adicionado em 1,5. Opcional. Aponta para um local de pia para também enviar dados de diagnóstico. Por exemplo, Azure Monitor ou Centros de Eventos. Note que precisa adicionar a propriedade *resourceId* sob o elemento *Metrics* se quiser que os eventos enviados para Os Centros de Eventos tenham um ID de recursos.|    
@@ -221,7 +220,7 @@ O elemento de nível superior do ficheiro de configuração de diagnóstico.
 
  Atributo **opcional Deperiod programado.** Veja a explicação mais cedo.  
 
-|Elemento infantil|Description|  
+|Elemento infantil|Descrição|  
 |-------------------|-----------------|  
 |**Fonte de Dados**|Os registos do Evento Windows para recolher. Atributo requerido:<br /><br /> **nome** - A consulta XPath que descreve os eventos das janelas a recolher. Por exemplo:<br /><br /> `Application!*[System[(Level <=3)]], System!*[System[(Level <=3)]], System!*[System[Provider[@Name='Microsoft Antimalware']]], Security!*[System[(Level <= 3)]`<br /><br /> Para recolher todos os eventos, especifique "*" |
 |**pias** | Adicionado em 1,5. Opcional. Aponta para um local de pia para também enviar dados de diagnóstico para todos os elementos infantis que suportam pias. O exemplo da pia é Application Insights ou Event Hubs.|  
@@ -234,7 +233,7 @@ O elemento de nível superior do ficheiro de configuração de diagnóstico.
 
  Define a configuração do tampão para registos Azure básicos.  
 
-|Atributo|Tipo|Description|  
+|Atributo|Tipo|Descrição|  
 |---------------|----------|-----------------|  
 |**bufferQuotaInMB**|**Não assinadoInt**|Opcional. Especifica a quantidade máxima de armazenamento do sistema de ficheiros disponível para os dados especificados.<br /><br /> A predefinição é 0.|  
 |**ProgramadoTransferLogLevelFilter**|**string**|Opcional. Especifica o nível mínimo de gravidade para as entradas de registo que são transferidas. O valor **predefinido é Indefinido,** que transfere todos os registos. Outros valores possíveis (por ordem da maioria das informações menores) são **Verbose,** **Informação,** **Aviso,** **Erro** e **Crítico**.|  
@@ -246,7 +245,7 @@ O elemento de nível superior do ficheiro de configuração de diagnóstico.
 
  Adicionado em 1.9.
 
-|Nome do Elemento|Description|  
+|Nome do Elemento|Descrição|  
 |------------------|-----------------|  
 |**Estatísticas**|Diz ao sistema para recolher estatísticas para os contentores do Docker|  
 
@@ -255,7 +254,7 @@ O elemento de nível superior do ficheiro de configuração de diagnóstico.
 
  Uma lista de locais para enviar dados de diagnóstico e a configuração associada a esses locais.  
 
-|Nome do Elemento|Description|  
+|Nome do Elemento|Descrição|  
 |------------------|-----------------|  
 |**Sink**|Consulte a descrição em outro lugar nesta página.|  
 
@@ -266,11 +265,11 @@ O elemento de nível superior do ficheiro de configuração de diagnóstico.
 
  Define localizações para enviar dados de diagnóstico para. Por exemplo, o serviço Application Insights.  
 
-|Atributo|Tipo|Description|  
+|Atributo|Tipo|Descrição|  
 |---------------|----------|-----------------|  
 |**nome**|string|Uma corda que identifica o nome da pia.|  
 
-|Elemento|Tipo|Description|  
+|Elemento|Tipo|Descrição|  
 |-------------|----------|-----------------|  
 |**Application Insights**|string|Utilizado apenas no envio de dados para Insights de Aplicação. Contiver a Chave de Instrumentação para uma conta de Insights de Aplicação ativa a que tenha acesso.|  
 |**Channels** (Canais)|string|Um para cada filtragem adicional que o fluxo que você|  
@@ -282,7 +281,7 @@ O elemento de nível superior do ficheiro de configuração de diagnóstico.
 
  Define filtros para fluxos de dados de registo que passam por uma pia.  
 
-|Elemento|Tipo|Description|  
+|Elemento|Tipo|Descrição|  
 |-------------|----------|-----------------|  
 |**Canal**|string|Consulte a descrição em outro lugar nesta página.|  
 
@@ -293,7 +292,7 @@ O elemento de nível superior do ficheiro de configuração de diagnóstico.
 
  Define localizações para enviar dados de diagnóstico para. Por exemplo, o serviço Application Insights.  
 
-|Atributos|Tipo|Description|  
+|Atributos|Tipo|Descrição|  
 |----------------|----------|-----------------|  
 |**logLevel**|**string**|Especifica o nível mínimo de gravidade para as entradas de registo que são transferidas. O valor **predefinido é Indefinido,** que transfere todos os registos. Outros valores possíveis (por ordem da maioria das informações menores) são **Verbose,** **Informação,** **Aviso,** **Erro** e **Crítico**.|  
 |**nome**|**string**|Um nome único do canal a que se refere|  
@@ -308,7 +307,7 @@ O elemento de nível superior do ficheiro de configuração de diagnóstico.
 
  Armazena os detalhes privados da conta de armazenamento (nome, chave e ponto final). Esta informação é enviada para a máquina virtual, mas não pode ser recuperada daí.  
 
-|Elementos Subordinados|Description|  
+|Elementos Subordinados|Descrição|  
 |--------------------|-----------------|  
 |**StorageAccount**|A conta de armazenamento a utilizar. São necessários os seguintes atributos<br /><br /> - **nome** - O nome da conta de armazenamento.<br /><br /> - **chave** - A chave da conta de armazenamento.<br /><br /> - **ponto final** - O ponto final para aceder à conta de armazenamento. <br /><br /> -**sasToken** (adicionado 1.8.1)- Pode especificar um token SAS em vez de uma chave de conta de armazenamento no config privado. Se for fornecida, a chave da conta de armazenamento é ignorada. <br />Requisitos para o Token SAS: <br />- Suporta apenas o token sas da conta SAS <br />- *b* são necessários tipos de serviço *t.* <br /> - *a*, *c,* *u,* *w* permissões são necessárias. <br /> - *c*, *o* tipos de recursos são necessários. <br /> - Suporta apenas o protocolo HTTPS <br /> - O tempo de início e validade deve ser válido.|  
 

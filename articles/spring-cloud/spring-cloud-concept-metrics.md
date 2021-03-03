@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 5506d2da0ccf09de7db7aff744984ae93c59fd32
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 8c375c3dc9f4c5fdb20270797eb55b3a20a6e214
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100571704"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101698285"
 ---
 # <a name="understand-metrics-for-azure-spring-cloud"></a>Compreenda as métricas para Azure Spring Cloud
 
@@ -99,7 +99,7 @@ As tabelas que se seguem mostram as métricas e detalhes disponíveis.
 >|----|----|----|------------|
 >| system.cpu.usage | system.cpu.usage | Percentagem | Utilização recente do CPU para todo o sistema (Obsoleto e não sugiro a sua utilização). Este valor é um duplo no intervalo [0.0,1.0]. Um valor de 0,0 significa que todos os CPUs estiveram inativos durante o período de tempo observado recentemente, enquanto um valor de 1.0 significa que todas as CPUs estavam a funcionar ativamente a 100% do tempo durante o período recente observado.|
 >| process.cpu.usage | Percentagem de Utilização cpu de aplicação | Percentagem | Utilização recente do CPU para o processo java Virtual Machine (Obsoleto e não sugere a sua utilização). Este valor é um duplo no intervalo [0.0,1.0]. Um valor de 0.0 significa que nenhum dos CPUs estava a executar fios do processo JVM durante o recente período de tempo observado, enquanto um valor de 1.0 significa que todos os CPUs estavam a executar ativamente fios a partir do JVM 100% do tempo durante o período recente observado. Os fios do JVM incluem os fios de aplicação, bem como os fios internos JVM.|
->| AppCpuUsage | Utilização do CPU da aplicação (pré-visualização) | Percentagem | Utilização recente do CPU do processo JVM contra o CPU atribuído a esta app, valor duplo do tipo entre [0.0,1.0]. Um valor de 0.0 significa que nenhum dos CPUs estava a executar fios do processo JVM durante o recente período de tempo observado, enquanto um valor de 1.0 significa que todos os CPUs estavam a executar ativamente fios a partir do JVM 100% do tempo durante o período recente observado. Os fios do JVM incluem os fios de aplicação, bem como os fios internos JVM.|
+>| AppCpuUsage | Utilização da CPU da Aplicação | Percentagem | Utilização recente do CPU do processo JVM contra o CPU atribuído a esta app, valor duplo do tipo entre [0.0,1.0]. Um valor de 0.0 significa que nenhum dos CPUs estava a executar fios do processo JVM durante o recente período de tempo observado, enquanto um valor de 1.0 significa que todos os CPUs estavam a executar ativamente fios a partir do JVM 100% do tempo durante o período recente observado. Os fios do JVM incluem os fios de aplicação, bem como os fios internos JVM.|
 >| jvm.memory.committed | jvm.memory.committed | Bytes | Representa a quantidade de memória que é garantida para ser usada pelo JVM. O JVM pode libertar memória para o sistema e comprometido pode ser menor do que o init. comprometido será sempre maior ou igual a usado. |
 >| jvm.memory.usado | jvm.memory.usado | Bytes | Representa a quantidade de memória atualmente utilizada nos bytes. |
 >| jvm.memória.max | jvm.memória.max | Bytes | Representa a quantidade máxima de memória que pode ser usada para a gestão da memória. A quantidade de memória usada e comprometida será sempre inferior ou igual ao máximo se o máximo for definido. Uma atribuição de memória pode falhar se tentar aumentar a memória usada de tal forma que usou > cometida mesmo que usada <= max ainda seria verdade (por exemplo, quando o sistema é baixo na memória virtual). |

@@ -1,19 +1,19 @@
 ---
-title: Microsoft Azure Stack Edge Mini R especificações técnicas e conformidade Microsoft Docs
+title: Especificações técnicas e conformidade do Microsoft Azure Stack Edge Mini R| Microsoft Docs
 description: Conheça as especificações técnicas e a conformidade com o seu dispositivo Azure Stack Edge Mini R
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 03/01/2021
 ms.author: alkohli
-ms.openlocfilehash: e6dff06e92126e2fc4538273e229dcb0904e3101
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 3a0b87f04e60fd56d543c7c7a752cd788e087c78
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96467451"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101727486"
 ---
 # <a name="azure-stack-edge-mini-r-technical-specifications"></a>Especificações técnicas Azure Stack Edge Mini R
 
@@ -80,9 +80,9 @@ O quadro a seguir mostra as especificações da unidade de alimentação:
 
 ## <a name="included-battery"></a>Bateria incluída
 
-O dispositivo Azure Stack Edge Mini R também inclui uma bateria a bordo que é carregada pela fonte de alimentação. 
+O dispositivo Azure Stack Edge Mini R também inclui uma bateria a bordo que é carregada pela fonte de alimentação.
 
-Uma bateria adicional do tipo 2590 pode ser utilizada em conjunto com a bateria de bordo para prolongar a utilização do dispositivo entre as cargas. Esta bateria deve estar em conformidade com todas as normas de segurança, transporte e ambiente aplicáveis no país de utilização.
+Uma [bateria adicional do Tipo 2590](https://www.bren-tronics.com/bt-70791ck.html) pode ser utilizada em conjunto com a bateria de bordo para prolongar a utilização do dispositivo entre as cargas. Esta bateria deve estar em conformidade com todas as normas de segurança, transporte e ambiente aplicáveis no país de utilização.
 
 
 | Especificação           | Valor                      |

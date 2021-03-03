@@ -7,18 +7,17 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: laobri
 author: lobrien
-ms.date: 02/01/2021
+ms.date: 02/26/2021
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy20q4, devx-track-python, data4ml
-ms.openlocfilehash: 894b0fcddaead6ce60e1becc7221c4f5e608de48
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 5a83211654ad1abafff59d5968c191ec1fa63616
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99492302"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101692407"
 ---
 # <a name="moving-data-into-and-between-ml-pipeline-steps-python"></a>Mover dados para e entre os passos de pipeline de ML (Python)
-
 
 Este artigo fornece código para importar, transformar e mover dados entre etapas num oleoduto de Aprendizagem automática Azure. Para uma visão geral de como os dados funcionam no Azure Machine Learning, consulte [os dados do Access nos serviços de armazenamento Azure](how-to-access-data.md). Para os benefícios e estrutura dos oleodutos Azure Machine Learning, veja [o que são os oleodutos Azure Machine Learning?](concept-ml-pipelines.md)
 
@@ -29,7 +28,7 @@ Este artigo irá mostrar-lhe como:
 - Dividir `Dataset` dados em subconjuntos, tais como subconjuntos de treino e validação
 - Criar `OutputFileDatasetConfig` objetos para transferir dados para o próximo passo do pipeline
 - Use `OutputFileDatasetConfig` objetos como entrada para passos de gasoduto
-- Crie novos `Dataset` objetos a partir do `OutputFileDatasetConfig` seu desejo de persistir
+- Crie novos `Dataset` objetos a partir de `OutputFileDatasetConfig` si para persistir
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -64,10 +63,12 @@ Há muitas formas de criar e registar `Dataset` objetos. Os conjuntos de dados t
 datastore = Datastore.get(workspace, 'training_data')
 iris_dataset = Dataset.Tabular.from_delimited_files(DataPath(datastore, 'iris.csv'))
 
-cats_dogs_dataset = Dataset.File.from_files(
-    paths='https://download.microsoft.com/download/3/E/1/3E1C3F21-ECDB-4869-8368-6DEBA77B919F/kagglecatsanddogs_3367a.zip',
-    archive_options=ArchiveOptions(archive_type=ArchiveType.ZIP, entry_glob='**/*.jpg')
-)
+datastore_path = [
+    DataPath(datastore, 'animals/dog/1.jpg'),
+    DataPath(datastore, 'animals/dog/2.jpg'),
+    DataPath(datastore, 'animals/cat/*.jpg')
+]
+cats_dogs_dataset = Dataset.File.from_files(path=datastore_path)
 ```
 
 Para mais opções sobre a criação de conjuntos de dados com diferentes opções e de diferentes fontes, registá-los e revê-los na UI de Aprendizagem de Máquinas Azure, compreender como o tamanho dos dados interage com a capacidade de computação, e ver [conjuntos de dados de Aprendizagem de Máquinas Azure.](how-to-create-register-datasets.md) 
@@ -200,7 +201,7 @@ with open(args.output_path, 'w') as f:
 
 Após o passo inicial do pipeline escrever alguns dados para o `OutputFileDatasetConfig` caminho e torna-se uma saída desse passo inicial, pode ser usado como uma entrada para um passo posterior. 
 
-No seguinte código, 
+No seguinte código: 
 
 * `step1_output_data` indica que a saída do PythonScriptStep é escrita para a loja de `step1` dados ADLS Gen 2, `my_adlsgen2` no modo de acesso ao upload. Saiba mais sobre como [configurar permissões](how-to-access-data.md#azure-data-lake-storage-generation-2) de função para escrever dados de volta para as datas da ADLS Gen 2. 
 
@@ -223,7 +224,7 @@ step2 = PythonScriptStep(
     script_name="step2.py",
     compute_target=compute,
     runconfig = aml_run_config,
-    arguments = ["--pd", step1_output_data.as_input]
+    arguments = ["--pd", step1_output_data.as_input()]
 
 )
 
@@ -239,6 +240,15 @@ step1_output_ds = step1_output_data.register_on_complete(name='processed_data',
                                                          description = 'files from step1`)
 ```
 
+## <a name="delete-outputfiledatasetconfig-contents-when-no-longer-needed"></a>Eliminar `OutputFileDatasetConfig` conteúdos quando já não for necessário
+
+O Azure não apaga automaticamente os dados intermédios escritos com `OutputFileDatasetConfig` . Para evitar encargos de armazenamento de grandes quantidades de dados não sofridos, deve:
+
+* Excluir programaticamente dados intermédios no final de uma corrida de gasodutos, quando já não é necessário
+* Utilize o armazenamento de bolhas com uma política de armazenamento de curto prazo para dados intermédios (ver [otimizar os custos automatizando os níveis de acesso ao armazenamento Azure Blob](../storage/blobs/storage/blobs/storage-lifecycle-management-concepts.md)) 
+* Reveja e elimine regularmente os dados já não necessários
+
+Para obter mais informações, consulte [Plano e gerencie os custos para a Azure Machine Learning.](concept-plan-manage-cost.md)
 
 ## <a name="next-steps"></a>Passos seguintes
 

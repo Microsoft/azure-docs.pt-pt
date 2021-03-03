@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/14/2020
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: 59329fccda77f16e4a595e9b1789ef684c5cbf95
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 44245bc3cd9fd1afcfe9a74d60e2f51135a247ee
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98256426"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734098"
 ---
 ### <a name="networking-limits---azure-resource-manager"></a><a name="azure-resource-manager-virtual-networking-limits"></a>Limites de rede - Gestor de Recursos Azure
 Os seguintes limites aplicam-se apenas aos recursos de rede geridos através **do Azure Resource Manager** por região por subscrição. Saiba como ver o [uso do seu recurso atual contra os limites de subscrição.](../articles/networking/check-usage-against-limits.md)
@@ -69,7 +69,7 @@ Os seguintes limites só se aplicam aos recursos de rede geridos através do Azu
 | Recurso                                | Limite         |
 |-----------------------------------------|-------------------------------|
 | Balanceadores de carga                          | 1,000                         |
-| Regras por recurso                      | 1500                         |
+| Regras (Balanceador de Carga + NAT de entrada) por recurso                      | 1500                         |
 | Regras por NIC (em todos os IPs de um NIC) | 300                           |
 | Configurações IP frontend              | 600                           |
 | Tamanho da piscina backend                       | 1.000 configurações IP, rede virtual única |
@@ -87,10 +87,12 @@ Os seguintes limites só se aplicam aos recursos de rede geridos através do Azu
 | Balanceadores de carga                          | 1,000                        |
 | Regras por recurso                      | 250                          |
 | Regras por NIC (em todos os IPs de um NIC) | 300                          |
-| Configurações IP frontend              | 200                          |
+| Configurações IP frontend <sup> 2<sup>  | 200                          |
 | Tamanho da piscina backend                       | 300 configurações IP, conjunto de disponibilidade única |
 | Conjuntos de disponibilidade por balanceador de carga     | 1                            |
 | Balançadores de carga por VM                   | 2 (1 Público e 1 interno)  |
+
+<sup>2</sup> O limite para um único recurso discreto num pool de backend (máquina virtual autónoma, conjunto de disponibilidade ou grupo de colocação de escala de máquina virtual) é ter até 250 configurações IP frontend através de um único Balancer de Carga Pública Básica e Balancer de Carga Interna Básica.
 
 <a name="virtual-networking-limits-classic"></a>Os seguintes limites aplicam-se apenas aos recursos de networking geridos através do modelo **clássico** de implementação por subscrição. Saiba como ver o [uso do seu recurso atual contra os limites de subscrição.](../articles/networking/check-usage-against-limits.md)
 

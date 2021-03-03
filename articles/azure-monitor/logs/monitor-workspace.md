@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/20/2020
-ms.openlocfilehash: bef7db19142f0387077af1487230e7891c255aa1
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 09df1c2ecb94089f23a88dd36c5343bb4cf2feea
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100617522"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101710945"
 ---
 # <a name="monitor-health-of-log-analytics-workspace-in-azure-monitor"></a>Monitorizar a saúde do espaço de trabalho log Analytics no Azure Monitor
 Para manter o desempenho e disponibilidade do seu espaço de trabalho Log Analytics no Azure Monitor, é necessário ser capaz de detetar proativamente quaisquer problemas que surjam. Este artigo descreve como monitorizar a saúde do seu espaço de trabalho Log Analytics utilizando dados na tabela [Operação.](/azure/azure-monitor/reference/tables/operation) Esta tabela está incluída em todos os espaços de trabalho do Log Analytics e contém erros e avisos que ocorrem no seu espaço de trabalho. Deve rever regularmente estes dados e criar alertas para ser notificado proativamente quando houver incidentes importantes no seu espaço de trabalho.
@@ -58,10 +58,10 @@ As operações de ingestão são questões que ocorreram durante a ingestão de 
 | Tronco personalizado | Erro   | Limite de coluna de campos personalizados alcançado. | [Limites de serviço do Azure Monitor](../service-limits.md#log-analytics-workspaces) |
 | Tronco personalizado | Erro   | A ingestão de registos personalizados falhou. | |
 | Metadados. | Erro | Erro de configuração detetado. | |
-| Recolha de dados | Erro   | Os dados foram retirados porque o pedido foi criado mais cedo do que o número de dias definidos. | [Gerir a utilização e os custos com Registos do Azure Monitor](../platform/manage-cost-storage.md#alert-when-daily-cap-reached)
+| Recolha de dados | Erro   | Os dados foram retirados porque o pedido foi criado mais cedo do que o número de dias definidos. | [Gerir a utilização e os custos com Registos do Azure Monitor](./manage-cost-storage.md#alert-when-daily-cap-reached)
 | Recolha de dados | Informações    | A configuração da máquina de recolha é detetada.| |
-| Recolha de dados | Informações    | A recolha de dados começou devido ao novo dia. | [Gerir a utilização e os custos com Registos do Azure Monitor](../platform/manage-cost-storage.md#alert-when-daily-cap-reached) |
-| Recolha de dados | Aviso | A recolha de dados parou devido ao limite diário atingido.| [Gerir a utilização e os custos com Registos do Azure Monitor](../platform/manage-cost-storage.md#alert-when-daily-cap-reached) |
+| Recolha de dados | Informações    | A recolha de dados começou devido ao novo dia. | [Gerir a utilização e os custos com Registos do Azure Monitor](./manage-cost-storage.md#alert-when-daily-cap-reached) |
+| Recolha de dados | Aviso | A recolha de dados parou devido ao limite diário atingido.| [Gerir a utilização e os custos com Registos do Azure Monitor](./manage-cost-storage.md#alert-when-daily-cap-reached) |
 | Processamento de dados | Erro   | Formato JSON inválido. | [Envie dados de registo para O Monitor de Azure com a API do Colecionador de Dados HTTP (pré-visualização pública)](../logs/data-collector-api.md#request-body) | 
 | Processamento de dados | Aviso | O valor foi aparado até ao tamanho máximo permitido. | [Limites de serviço do Azure Monitor](../service-limits.md#log-analytics-workspaces) |
 | Processamento de dados | Aviso | Valor de campo aparado à medida que o limite de tamanho atingido. | [Limites de serviço do Azure Monitor](../service-limits.md#log-analytics-workspaces) | 
@@ -125,4 +125,4 @@ O exemplo a seguir cria um alerta quando a recolha de dados atingiu o limite di�
 ## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [os alertas de registo.](../alerts/alerts-log.md)
-- [Recolher dados de auditoria](../log-query/query-audit.md) de consulta para o seu espaço de trabalho.
+- [Recolher dados de auditoria](./query-audit.md) de consulta para o seu espaço de trabalho.

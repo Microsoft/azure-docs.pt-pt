@@ -1,104 +1,82 @@
 ---
-title: Linha de Base de Segurança do Azure para HDInsight
-description: Linha de Base de Segurança do Azure para HDInsight
+title: Linha de base de segurança Azure para HDInsight
+description: A linha de base de segurança HDInsight fornece orientações processuais e recursos para a implementação das recomendações de segurança especificadas no Benchmark de Segurança Azure.
 author: msmbaldwin
-ms.service: security
+ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 04/09/2020
+ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 5174c3bf2150c4671f1034eba6e661a10c222aec
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: bf2360bda55735aa8ef4258da5ae47f673f4d71b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807687"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738927"
 ---
-# <a name="azure-security-baseline-for-hdinsight"></a>Linha de Base de Segurança do Azure para HDInsight
+# <a name="azure-security-baseline-for-hdinsight"></a>Linha de base de segurança Azure para HDInsight
 
-A Linha de Base de Segurança Azure para HDInsight contém recomendações que o ajudarão a melhorar a postura de segurança da sua implementação.
+Esta linha de base de segurança aplica orientações da [versão 1.0 do Benchmark de Segurança Azure](../security/benchmarks/overview-v1.md) a HDInsight. A Referência de Segurança do Azure disponibiliza recomendações para proteger as suas soluções cloud no Azure.
+O conteúdo é agrupado pelos **controlos de segurança definidos** pelo Azure Security Benchmark e pela orientação conexa aplicável ao HDInsight. Foram excluídos **os controlos** não aplicáveis ao HDInsight.
 
-A linha de base para este serviço é extraída da [versão 1.0 do Azure Security Benchmark,](../security/benchmarks/overview.md)que fornece recomendações sobre como pode garantir as suas soluções em nuvem no Azure com a nossa orientação de boas práticas.
-
-Para obter mais informações, consulte [a visão geral da Azure Security Baselines](../security/benchmarks/security-baselines-overview.md).
+ 
+Para ver como o HDInsight mapeia completamente para o Benchmark de Segurança Azure, consulte o [ficheiro de mapeamento de base de segurança HDInsight completo](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines).
 
 ## <a name="network-security"></a>Segurança de Rede
 
-*Para obter mais informações, consulte [Controlo de Segurança: Segurança da Rede](../security/benchmarks/security-control-network-security.md).*
+*Para obter mais informações, veja [Referência de Segurança do Azure: Segurança de Rede](../security/benchmarks/security-control-network-security.md).*
 
-### <a name="11-protect-resources-using-network-security-groups-or-azure-firewall-on-your-virtual-network"></a>1.1: Proteger recursos utilizando grupos de segurança de rede ou firewall Azure na sua Rede Virtual
+### <a name="11-protect-azure-resources-within-virtual-networks"></a>1.1: Proteger os recursos do Azure nas redes virtuais
 
 **Orientação**: A segurança do perímetro em Azure HDInsight é conseguida através de redes virtuais. Um administrador da empresa pode criar um cluster dentro de uma rede virtual e usar um grupo de segurança de rede (NSG) para restringir o acesso à rede virtual. Apenas os endereços IP permitidos nas regras do Grupo de Segurança da Rede de Entrada poderão comunicar com o cluster Azure HDInsight. Esta configuração proporciona segurança no perímetro. Todos os clusters implantados numa rede virtual também terão um ponto final privado que resolve um endereço IP privado dentro da Rede Virtual para acesso privado HTTP aos gateways de cluster.
 
 Para reduzir o risco de perda de dados através da exfiltração, restringir o tráfego de rede de saída para clusters Azure HDInsight utilizando a Firewall Azure.
 
-Como implementar o Azure HDInsight dentro de uma rede virtual e garantir com um Grupo de Segurança de Rede: https://docs.microsoft.com/azure/hdinsight/hdinsight-create-virtual-network
+- [Como implementar o Azure HDInsight dentro de uma rede virtual e garantir com um Grupo de Segurança de Rede](hdinsight-create-virtual-network.md)
 
-Como restringir o tráfego de saída para clusters Azure HDInsight com Azure Firewall: https://docs.microsoft.com/azure/hdinsight/hdinsight-restrict-outbound-traffic
-
-**Monitorização do Centro de Segurança do Azure**: Sim
+- [Como restringir o tráfego de saída para clusters Azure HDInsight com Azure Firewall](hdinsight-restrict-outbound-traffic.md)
 
 **Responsabilidade**: Cliente
 
-### <a name="12-monitor-and-log-the-configuration-and-traffic-of-vnets-subnets-and-nics"></a>1.2: Monitorar e registar a configuração e o tráfego de Vnets, Subnetas e NICs
+**Monitorização do Centro de Segurança Azure**: Nenhum
 
-**Orientação**: Utilize o Azure Security Center e remedia as recomendações de proteção da rede para a rede virtual, sub-rede e grupo de segurança de rede que está a ser utilizado para proteger o seu cluster Azure HDInsight. Ativar os registos de fluxo do grupo de segurança da rede (NSG) e enviar registos para uma Conta de Armazenamento Azure para auditoria de tráfego. Também pode enviar registos de fluxo NSG para um espaço de trabalho Azure Log Analytics e utilizar o Azure Traffic Analytics para fornecer informações sobre o fluxo de tráfego na sua nuvem Azure. Algumas vantagens da Azure Traffic Analytics são a capacidade de visualizar a atividade da rede e identificar pontos quentes, identificar ameaças de segurança, compreender padrões de fluxo de tráfego e identificar configurações erradas da rede.
+### <a name="12-monitor-and-log-the-configuration-and-traffic-of-virtual-networks-subnets-and-network-interfaces"></a>1.2: Monitorizar e registar a configuração e o tráfego de redes virtuais, sub-redes e interfaces de rede
 
-Como ativar os registos de fluxo NSG:
+**Orientação**: Utilize o Azure Security Center e remedia as recomendações de proteção da rede para a rede virtual, sub-rede e grupo de segurança de rede que está a ser utilizado para proteger o seu cluster Azure HDInsight. Ativar os registos de fluxo do grupo de segurança da rede (NSG) e enviar registos numa Conta de Armazenamento Azure para auditoria de tráfego. Também pode enviar registos de fluxo NSG para um espaço de trabalho Azure Log Analytics e utilizar o Azure Traffic Analytics para fornecer informações sobre o fluxo de tráfego na sua nuvem Azure. Algumas vantagens da Azure Traffic Analytics são a capacidade de visualizar a atividade da rede e identificar pontos quentes, identificar ameaças de segurança, compreender padrões de fluxo de tráfego e identificar configurações erradas da rede.
 
-https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal
+- [Como ativar registos de fluxo NSG](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
-Como Ativar e utilizar a Azure Traffic Analytics:
+- [Como Ativar e utilizar a Azure Traffic Analytics](../network-watcher/traffic-analytics.md)
 
-https://docs.microsoft.com/azure/network-watcher/traffic-analytics
-
-Compreender a Segurança da Rede fornecida pelo Azure Security Center:
-
-https://docs.microsoft.com/azure/security-center/security-center-network-recommendations
-
-**Monitorização do Centro de Segurança do Azure**: Sim
+- [Compreender a Segurança da Rede fornecida pelo Azure Security Center](../security-center/security-center-network-recommendations.md)
 
 **Responsabilidade**: Cliente
 
-### <a name="13-protect-critical-web-applications"></a>1.3: Proteger aplicações web críticas
-
-**Orientação**: Não aplicável; o benchmark destina-se ao Azure Apps Service ou a computar recursos que hospedam aplicações web.
-
-**Monitorização do Centro de Segurança do Azure**: Não aplicável
-
-**Responsabilidade**: Não aplicável
+**Monitorização do Centro de Segurança Azure**: Nenhum
 
 ### <a name="14-deny-communications-with-known-malicious-ip-addresses"></a>1.4: Negar comunicações com endereços IP maliciosos conhecidos
 
 **Orientação**: Para proteções contra ataques DDoS, ative a proteção padrão Azure DDoS na rede virtual onde o seu Azure HDInsight está implantado. Use o Azure Security Center integrado em inteligência de ameaça para negar comunicações com endereços IP de Internet maliciosos ou não utilizados.
 
-Como configurar a proteção DDoS:
+- [Como configurar a proteção DDoS](/azure/virtual-network/manage-ddos-protection)
 
-https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection
-
-Compreenda a Inteligência Integrada de Ameaças do Centro de Segurança Azure:
-
-https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer
-
-**Monitorização do Centro de Segurança do Azure**: Sim
+- [Compreender a Azure Security Center Integrada Desespionagem de Ameaças](/azure/security-center/security-center-alerts-service-layer)
 
 **Responsabilidade**: Cliente
 
-### <a name="15-record-network-packets-and-flow-logs"></a>1.5: Pacotes de rede de registos e registos de fluxo
+**Monitorização do Centro de Segurança Azure**: Nenhum
 
-**Orientação**: Ative os registos de flog do grupo de segurança da rede (NSG) para o NSG ligado à sub-rede que está a ser utilizada para proteger o seu cluster Azure HDInsight. Grave os registos de fluxo NSG numa Conta de Armazenamento Azure para gerar registos de fluxo. Se necessário para investigar atividades anómalas, ative a captura de pacotes do Azure Network Watcher.
+### <a name="15-record-network-packets"></a>1.5: Pacotes de rede de registos
 
-Como ativar os registos de fluxo NSG:
+**Orientação**: Ative os registos de fluxo do grupo de segurança da rede (NSG) para o NSG ligado à sub-rede que está a ser utilizada para proteger o seu cluster Azure HDInsight. Grave os registos de fluxo NSG numa Conta de Armazenamento Azure para gerar registos de fluxo. Se necessário para investigar atividades anómalas, ative a captura de pacotes do Azure Network Watcher.
 
-https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal
+- [Como ativar registos de fluxo NSG](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
-Como ativar o Observador de Rede:
-
-https://docs.microsoft.com/azure/network-watcher/network-watcher-create
-
-**Monitorização do Centro de Segurança do Azure**: Sim
+- [Como ativar o Observador de Redes](../network-watcher/network-watcher-create.md)
 
 **Responsabilidade**: Cliente
+
+**Monitorização do Centro de Segurança Azure**: Nenhum
 
 ### <a name="16-deploy-network-based-intrusion-detectionintrusion-prevention-systems-idsips"></a>1.6: Implementar sistemas de deteção/prevenção de intrusões baseados em rede (IDS/IPS)
 
@@ -108,55 +86,41 @@ Existem várias dependências para a Azure HDInsight que requerem tráfego de en
 
 Para reduzir o risco de perda de dados através da exfiltração, restringir o tráfego de rede de saída para clusters Azure HDInsight utilizando a Firewall Azure.
 
-Como implementar o HDInsight dentro de uma rede virtual e proteger com um Grupo de Segurança de Rede: https://docs.microsoft.com/azure/hdinsight/hdinsight-create-virtual-network
+- [Como implementar o HDInsight dentro de uma rede virtual e garantir com um Grupo de Segurança de Rede](hdinsight-create-virtual-network.md)
 
-Compreenda as dependências hdInsight e o uso de firewall: https://docs.microsoft.com/azure/hdinsight/hdinsight-restrict-outbound-traffic
+- [Compreender as dependências de HDInsight e o uso de firewall](hdinsight-restrict-outbound-traffic.md)
 
-Endereços IP de gestão HDInsight: https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses
-
-**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
+- [Gestão de endereços IP do HDInsight](hdinsight-management-ip-addresses.md)
 
 **Responsabilidade**: Cliente
 
-### <a name="17-manage-traffic-to-web-applications"></a>1.7: Gerir o tráfego para aplicações web
-
-**Orientação**: Não aplicável; o benchmark destina-se ao Azure Apps Service ou a computar recursos que hospedam aplicações web.
-
-**Monitorização do Centro de Segurança do Azure**: Não aplicável
-
-**Responsabilidade**: Não aplicável
+**Monitorização do Centro de Segurança Azure**: Nenhum
 
 ### <a name="18-minimize-complexity-and-administrative-overhead-of-network-security-rules"></a>1.8: Minimizar a complexidade e a sobrecarga administrativa das regras de segurança da rede
 
 **Orientação**: Utilize tags de serviço de rede virtuais para definir controlos de acesso à rede em grupos de segurança de rede (NSG) que estejam ligados à sub-rede onde o seu cluster Azure HDInsight é implantado. Ao criar regras de segurança, pode utilizar etiquetas de serviço em vez de endereços IP específicos. Ao especificar o nome da etiqueta de serviço (por exemplo, ApiManagement) no campo de origem ou destino adequado de uma regra, pode permitir ou negar o tráfego para o serviço correspondente. A Microsoft gere os prefixos de endereços englobados pela etiqueta de serviço e atualiza automaticamente a etiqueta de serviço à medida que os endereços mudam.
 
-Compreender e utilizar tags de serviço para Azure HDInsight:
-
-https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags
-
-**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
+- [Compreender e utilizar tags de serviço para Azure HDInsight](/azure/virtual-network/security-overview#service-tags)
 
 **Responsabilidade**: Cliente
+
+**Monitorização do Centro de Segurança Azure**: Nenhum
 
 ### <a name="19-maintain-standard-security-configurations-for-network-devices"></a>1.9: Manter configurações de segurança padrão para dispositivos de rede
 
 **Orientação**: Defina e implemente configurações de segurança padrão para recursos de rede relacionados com o seu cluster Azure HDInsight. Utilize pseudónimos da Azure Policy nos espaços de nome "Microsoft.HDInsight" e "Microsoft.Network" para criar políticas personalizadas para auditar ou impor a configuração de rede do seu cluster Azure HDInsight.
 
-Também pode usar plantas Azure para simplificar as implementações de Azure em larga escala através de artefactos de ambiente chave de embalagem, tais como modelos de gestor de recursos Azure, controlos rbac azure, e políticas, numa única definição de planta. Aplique facilmente o projeto em novas subscrições e ambientes, e afinar o controlo e a gestão através da versão.
+Também pode usar plantas Azure para simplificar as implementações de Azure em larga escala através de artefactos de ambiente chave de embalagem, tais como modelos de Gestor de Recursos Azure, controlos e políticas do Azure RBAC, e políticas, numa única definição de planta. Aplique facilmente o projeto em novas subscrições e ambientes, e afinar o controlo e a gestão através da versão.
 
-Como visualizar pseudónimos disponíveis da Política Azure:
+- [Como ver pseudónimos disponíveis da Política Azure](/powershell/module/az.resources/get-azpolicyalias)
 
-https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias Como configurar e gerir a Política de Azure:
+- [Como configurar e gerir o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
-
-Como criar uma Planta Azure:
-
-https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal
-
-**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
+- [Como criar uma Planta Azure](../governance/blueprints/create-blueprint-portal.md)
 
 **Responsabilidade**: Cliente
+
+**Monitorização do Centro de Segurança Azure**: Nenhum
 
 ### <a name="110-document-traffic-configuration-rules"></a>1.10: Regras de configuração do tráfego documental
 
@@ -166,407 +130,313 @@ Utilize qualquer uma das definições de Política Azure incorporadas relacionad
 
 Pode utilizar a interface de linha de comando Azure PowerShell ou Azure (CLI) para procurar ou executar ações em recursos baseados nas suas Tags.
 
-Como criar e utilizar Tags:
+- [Como criar e usar Tags](/azure/azure-resource-manager/resource-group-using-tags)
 
-https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
+- [Como criar uma rede virtual](../virtual-network/quick-create-portal.md)
 
-Como criar uma rede virtual:
-
-https://docs.microsoft.com/azure/virtual-network/quick-create-portal
-
-Como criar um NSG com um Config de Segurança:
-
-https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic
-
-**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
+- [Como criar um NSG com um Config de Segurança](../virtual-network/tutorial-filter-network-traffic.md)
 
 **Responsabilidade**: Cliente
+
+**Monitorização do Centro de Segurança Azure**: Nenhum
 
 ### <a name="111-use-automated-tools-to-monitor-network-resource-configurations-and-detect-changes"></a>1.11: Utilize ferramentas automatizadas para monitorizar as configurações de recursos de rede e detetar alterações
 
 **Orientação**: Utilize o Registo de Atividades Azure para monitorizar as configurações de recursos de rede e detetar alterações para os recursos de rede relacionados com as suas implementações Azure HDInsight. Crie alertas dentro do Azure Monitor que irão desencadear quando ocorrerem alterações nos recursos críticos da rede.
 
-Como visualizar e recuperar eventos de Registo de Atividades Azure:
+- [Como visualizar e recuperar eventos de Registo de Atividades Azure](/azure/azure-monitor/platform/activity-log-view)
 
-https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view
-
-Como criar alertas no Azure Monitor: https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
-
-**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
+- [Como criar alertas no Azure Monitor](/azure/azure-monitor/platform/alerts-activity-log)
 
 **Responsabilidade**: Cliente
 
+**Monitorização do Centro de Segurança Azure**: Nenhum
+
 ## <a name="logging-and-monitoring"></a>Início de sessão e Monitorização
 
-*Para obter mais informações, consulte [Controlo de Segurança: Registo e monitorização](../security/benchmarks/security-control-logging-monitoring.md).*
-
-### <a name="21-use-approved-time-synchronization-sources"></a>2.1: Utilizar fontes de sincronização de tempo aprovadas
-
-**Orientação**: A Microsoft mantém fontes de tempo para os componentes do cluster Azure HDInsight, pode atualizar a sincronização de tempo para as suas implementações de computação.
-
-Como configurar a sincronização temporal para os recursos computativos Azure:
-
-https://docs.microsoft.com/azure/virtual-machines/windows/time-sync
-
-**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
-
-**Responsabilidade**: Microsoft
+*Para obter mais informações, consulte o [Benchmark de Segurança Azure: Registo e monitorização](../security/benchmarks/security-control-logging-monitoring.md).*
 
 ### <a name="22-configure-central-security-log-management"></a>2.2: Configurar a gestão central dos registos de segurança
 
 **Orientação**: Pode embarcar o seu cluster Azure HDInsight para o Azure Monitor para agregar dados de segurança gerados pelo cluster. Aproveite as consultas personalizadas para detetar e responder a ameaças no ambiente. 
 
-Como embarcar num cluster Azure HDInsight para o Azure Monitor:
+- [Como embarcar um cluster Azure HDInsight para O Azure Monitor](hdinsight-hadoop-oms-log-analytics-tutorial.md)
 
-https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-oms-log-analytics-tutorial
-
-Como criar consultas personalizadas para um cluster Azure HDInsight:
-
-https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-oms-log-analytics-use-queries
-
-**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
+- [Como criar consultas personalizadas para um cluster Azure HDInsight](hdinsight-hadoop-oms-log-analytics-use-queries.md)
 
 **Responsabilidade**: Cliente
+
+**Monitorização do Centro de Segurança Azure**: Nenhum
 
 ### <a name="23-enable-audit-logging-for-azure-resources"></a>2.3: Permitir a exploração de auditorias para recursos Azure
 
 **Orientação**: Ativar o Monitor Azure para o cluster HDInsight, direcioná-lo para um espaço de trabalho Log Analytics. Isto registará informações relevantes do cluster e métricas de SO para todos os nós de cluster Azure HDInsight.
 
-Como permitir a sessão de registo para o HdInsight Cluster:
+- [Como permitir a sessão de registo para o HDInsight Cluster](hdinsight-hadoop-oms-log-analytics-tutorial.md)
 
- https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-oms-log-analytics-tutorial
-
-Como consultar os registos HDInsight:
-
-https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-oms-log-analytics-use-queries
-
-**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
+- [Como consultar os registos HDInsight](hdinsight-hadoop-oms-log-analytics-use-queries.md)
 
 **Responsabilidade**: Cliente
+
+**Monitorização do Centro de Segurança Azure**: Nenhum
 
 ### <a name="24-collect-security-logs-from-operating-systems"></a>2.4: Recolher registos de segurança dos sistemas operativos
 
 **Orientação**: A bordo Azure HDInsight cluster para Azure Monitor. Certifique-se de que o espaço de trabalho Log Analytics utilizado tem o período de retenção de registo definido de acordo com os regulamentos de conformidade da sua organização.
 
-Como embarcar num Cluster Azure HDInsight para Azure Monitor:
+- [Como embarcar num Cluster Azure HDInsight para Azure Monitor](hdinsight-hadoop-oms-log-analytics-tutorial.md)
 
-https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-oms-log-analytics-tutorial
-
-Como configurar o período de retenção do espaço de trabalho do Log Analytics:
-
-https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage
-
-**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
+- [Como configurar o período de retenção do espaço de trabalho do Log Analytics](/azure/azure-monitor/platform/manage-cost-storage)
 
 **Responsabilidade**: Cliente
+
+**Monitorização do Centro de Segurança Azure**: Nenhum
 
 ### <a name="25-configure-security-log-storage-retention"></a>2.5: Configurar a retenção de armazenamento de registos de segurança
 
 **Orientação**: A bordo Azure HDInsight cluster para Azure Monitor. Certifique-se de que o espaço de trabalho Azure Log Analytics utilizado tem o período de retenção de registo definido de acordo com os regulamentos de conformidade da sua organização.
 
-Como embarcar num Cluster Azure HDInsight para Azure Monitor:
+- [Como embarcar num Cluster Azure HDInsight para Azure Monitor](hdinsight-hadoop-oms-log-analytics-tutorial.md)
 
-https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-oms-log-analytics-tutorial
-
-Como configurar o período de retenção do espaço de trabalho do Log Analytics:
-
-https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage
-
-**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
+- [Como configurar o período de retenção do espaço de trabalho do Log Analytics](/azure/azure-monitor/platform/manage-cost-storage)
 
 **Responsabilidade**: Cliente
 
-### <a name="26-monitor-and-review-logs"></a>2.6: Monitor e revisão de Registos
+**Monitorização do Centro de Segurança Azure**: Nenhum
+
+### <a name="26-monitor-and-review-logs"></a>2.6: Registos de monitorização e revisão
 
 **Orientação**: Utilize consultas de espaço de trabalho Azure Log Analytics para consultar os registos Azure HDInsight:
 
-Como criar consultas personalizadas para clusters Azure HDInsight:
-
-https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-oms-log-analytics-use-queries
-
-**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
+- [Como criar consultas personalizadas para clusters Azure HDInsight](hdinsight-hadoop-oms-log-analytics-use-queries.md)
 
 **Responsabilidade**: Cliente
 
-### <a name="27-enable-alerts-for-anomalous-activity"></a>2.7: Permitir alertas para atividades anómalas
+**Monitorização do Centro de Segurança Azure**: Nenhum
+
+### <a name="27-enable-alerts-for-anomalous-activities"></a>2.7: Permitir alertas para atividades anómalas
 
 **Orientação**: Utilize o espaço de trabalho Azure Log Analytics para monitorizar e alertar sobre atividades anómalas em registos de segurança e eventos relacionados com o seu cluster Azure HDInsight.
 
-Como gerir alertas no Centro de Segurança Azure:
+- [Como gerir alertas no Centro de Segurança Azure](../security-center/security-center-managing-and-responding-alerts.md)
 
-https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts
-
-Como alertar os dados do registo de registos de registos de registos de registos:
-
-https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response
-
-**Monitorização do Centro de Segurança do Azure**: Sim
+- [Como alertar nos dados de registo de registo de registos de registos](/azure/azure-monitor/learn/tutorial-response)
 
 **Responsabilidade**: Cliente
+
+**Monitorização do Centro de Segurança Azure**: Nenhum
 
 ### <a name="28-centralize-anti-malware-logging"></a>2.8: Centralizar a sessão anti-malware
 
 **Orientação**: Azure HDInsight vem com clamscan pré-instalado e habilitado para as imagens do nó de cluster, no entanto deve gerir o software e agregar/monitorizar manualmente quaisquer registos que o Clamscan produz.
 
-Compreenda o Clamscan:
-
-https://docs.microsoft.com/azure/hdinsight/hdinsight-faq#security-and-certificates
-
-**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
+- [Compreenda o Clamscan](https://docs.microsoft.com/azure/hdinsight/hdinsight-faq#security-and-certificates)
 
 **Responsabilidade**: Cliente
+
+**Monitorização do Centro de Segurança Azure**: Nenhum
 
 ### <a name="29-enable-dns-query-logging"></a>2.9: Ativar a sessão de consulta de DNS
 
-**Orientação**: Implementar solução de terceiros para a sessão de registo de dns.
-
-**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
+**Orientação**: Implementar solução de terceiros para a sessão de registo de DNS.
 
 **Responsabilidade**: Cliente
+
+**Monitorização do Centro de Segurança Azure**: Nenhum
 
 ### <a name="210-enable-command-line-audit-logging"></a>2.10: Permitir a exploração de auditoria de linha de comando
 
 **Orientação**: Configurar manualmente o registo da consola numa base por nó.
 
-**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
-
 **Responsabilidade**: Cliente
+
+**Monitorização do Centro de Segurança Azure**: Nenhum
 
 ## <a name="identity-and-access-control"></a>Identidade e Controlo de Acesso
 
-*Para mais informações, consulte [Controlo de Segurança: Identidade e Controlo de Acesso.](../security/benchmarks/security-control-identity-access-control.md)*
+*Para mais informações, consulte o [Benchmark de Segurança Azure: Identidade e Controlo de Acesso.](../security/benchmarks/security-control-identity-access-control.md)*
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: Manter um inventário das contas administrativas
 
-**Orientação**: Mantenha o registo da conta administrativa local que é criada durante o a provisionamento do cluster Azure HDInsight, bem como quaisquer outras contas que crie. Além disso, se a integração AZURE AD for usada, a Azure AD tem funções incorporadas que devem ser explicitamente atribuídas e, portanto, são questionáveis. Utilize o módulo Azure AD PowerShell para realizar consultas de adhoc para descobrir contas que são membros de grupos administrativos.
+**Orientação**: Mantenha o registo da conta administrativa local que é criada durante o a provisionamento do cluster Azure HDInsight, bem como quaisquer outras contas que crie. Além disso, se a integração do Azure Ative Directory (Azure AD), a Azure AD tem funções incorporadas que devem ser explicitamente atribuídas e, portanto, são questionáveis. Utilize o módulo Azure AD PowerShell para realizar consultas de adhoc para descobrir contas que são membros de grupos administrativos.
 
 Além disso, pode utilizar recomendações de Gestão de Identidade e Acesso do Centro de Segurança Azure.
 
-Como obter um papel de diretório em Azure AD com PowerShell:
+- [Como obter um papel de diretório em Azure AD com PowerShell](/powershell/module/azuread/get-azureaddirectoryrole)
 
-https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole
+- [Como obter membros de um papel de diretório em Azure AD com PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
-Como obter membros de um papel de diretório em Azure AD com PowerShell:
-
-https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember
-
-Como monitorizar a identidade e o acesso com o Azure Security Center:
-
-https://docs.microsoft.com/azure/security-center/security-center-identity-access
-
-**Monitorização do Centro de Segurança do Azure**: Sim
+- [Como monitorizar a identidade e o acesso com o Azure Security Center](../security-center/security-center-identity-access.md)
 
 **Responsabilidade**: Cliente
+
+**Monitorização do Centro de Segurança Azure**: Nenhum
 
 ### <a name="32-change-default-passwords-where-applicable"></a>3.2: Alterar palavras-passe padrão quando aplicável
 
 **Orientação**: Ao providenciar um cluster, o Azure exige que crie novas palavras-passe para o portal web e acesso Secure Shell (SSH). Não existem senhas padrão para alterar, no entanto pode especificar diferentes palavras-passe para SSH e acesso ao portal web.
 
-Como definir palavras-passe ao forer um cluster Azure HDInsight:
-
-https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-use-ssh-unix
-
-**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
+- [Como definir palavras-passe ao forer um cluster Azure HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)
 
 **Responsabilidade**: Cliente
+
+**Monitorização do Centro de Segurança Azure**: Nenhum
 
 ### <a name="33-use-dedicated-administrative-accounts"></a>3.3: Utilizar contas administrativas dedicadas
 
-**Orientação**: Integrar autenticação para cluster Azure HDInsight com diretório ativo Azure. Criar políticas e procedimentos em torno da utilização de contas administrativas dedicadas.
+**Orientação**: Integrar a autenticação para o cluster Azure HDInsight com o Azure Ative Directory (Azure AD). Criar políticas e procedimentos em torno da utilização de contas administrativas dedicadas.
 
 Além disso, pode utilizar recomendações de Gestão de Identidade e Acesso do Centro de Segurança Azure.
 
-Como integrar a autenticação Azure HDInsight com o Azure Ative Directory:
+- [Como integrar a autenticação Azure HDInsight com Azure AD](domain-joined/apache-domain-joined-configure-using-azure-adds.md)
 
-https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds
-
-Como monitorizar a identidade e o acesso com o Azure Security Center:
-
-https://docs.microsoft.com/azure/security-center/security-center-identity-access
-
-**Monitorização do Centro de Segurança do Azure**: Sim
+- [Como monitorizar a identidade e o acesso com o Azure Security Center](../security-center/security-center-identity-access.md)
 
 **Responsabilidade**: Cliente
 
-### <a name="34-use-single-sign-on-sso-with-azure-active-directory"></a>3.4: Utilize um único sinal de sso com o Azure Ative Directory
+**Monitorização do Centro de Segurança Azure**: Nenhum
 
-**Orientação**: Utilize o Azure HDInsight ID Broker para iniciar sedutação nos clusters do Pacote de Segurança Empresarial (ESP) utilizando a autenticação multi-factor, sem fornecer quaisquer palavras-passe. Se já assinou contrato com outros serviços Azure, como o portal Azure, pode iniciar sômposição no seu cluster Azure HDInsight com uma única experiência de sso de assinatura.
+### <a name="34-use-azure-active-directory-single-sign-on-sso"></a>3.4: Utilize o Azure Ative Directory single sign-on (SSO)
 
-Como ativar o Corretor de ID Azure HDInsight:
+**Orientação**: Utilize o Azure HDInsight ID Broker para iniciar sedutação nos clusters do Pacote de Segurança Empresarial (ESP) utilizando a autenticação multifactor, sem fornecer quaisquer palavras-passe. Se já assinou contrato com outros serviços Azure, como o portal Azure, pode iniciar sômposição no seu cluster Azure HDInsight com uma única experiência de sso de assinatura.
 
-https://docs.microsoft.com/azure/hdinsight/domain-joined/identity-broker#enable-hdinsight-id-broker
-
-**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
+- [Como ativar o Corretor de ID Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/domain-joined/identity-broker#enable-hdinsight-id-broker)
 
 **Responsabilidade**: Cliente
 
-### <a name="35-use-multi-factor-authentication-for-all-azure-active-directory-based-access"></a>3.5: Utilize a autenticação multi-factor para todos os acessos baseados no Azure Ative Directory
+**Monitorização do Centro de Segurança Azure**: Nenhum
 
-**Orientação**: Ativar O Azure AD MFA e seguir as recomendações do Azure Security Center Identity and Access Management. Os clusters Azure HDInsight com o Pacote de Segurança Empresarial configurados podem ser ligados a um domínio para que os utilizadores de domínio possam usar as suas credenciais de domínio para autenticar com os clusters e executar grandes trabalhos de dados. Ao autenticar com autenticação multi-factor (MFA) ativada, os utilizadores serão desafiados a fornecer um segundo fator de autenticação.
+### <a name="35-use-multi-factor-authentication-for-all-azure-active-directory-based-access"></a>3.5: Utilizar a autenticação de vários fatores para todos os acessos baseados no Diretório Ativo Azure
 
-Como permitir o MFA em Azure:
+**Orientação**: Ativar a autenticação multifactora Azure Ative (Azure AD) e seguir as recomendações do Azure Security Center Identity and Access Management. Os clusters Azure HDInsight com o Pacote de Segurança Empresarial configurados podem ser ligados a um domínio para que os utilizadores de domínio possam usar as suas credenciais de domínio para autenticar com os clusters e executar grandes trabalhos de dados. Ao autenticar com autenticação multifactor ativada, os utilizadores serão desafiados a fornecer um segundo fator de autenticação.
 
-https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
+- [Como permitir a autenticação multifactor em Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
-Como monitorizar a identidade e o acesso dentro do Centro de Segurança Azure:
-
-https://docs.microsoft.com/azure/security-center/security-center-identity-access
-
-**Monitorização do Centro de Segurança do Azure**: Sim
+- [Como monitorizar a identidade e o acesso dentro do Centro de Segurança Azure](../security-center/security-center-identity-access.md)
 
 **Responsabilidade**: Cliente
+
+**Monitorização do Centro de Segurança Azure**: Nenhum
 
 ### <a name="36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks"></a>3.6: Utilizar máquinas dedicadas (Estações de acesso privilegiadas) para todas as tarefas administrativas
 
-**Orientação**: Utilize PAWs (estações de trabalho privilegiadas de acesso) com autenticação multi-factor (MFA) configurada para iniciar sessão e configurar os seus clusters Azure HDInsight e recursos conexos.
+**Orientação**: Utilize PAWs (estações de trabalho privilegiadas de acesso) com autenticação multifactor configurada para iniciar sessão e configurar os seus clusters Azure HDInsight e recursos conexos.
 
-Saiba mais sobre estações de acesso privilegiadas:
+- [Saiba mais sobre estações de trabalho de acesso privilegiado](https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/)
 
-https://4sysops.com/archives/understand-the-microsoft-privileged-access-workstation-paw-security-model/
-
-Como permitir o MFA em Azure:
-
-https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted
-
-**Monitorização do Centro de Segurança do Azure**: Não aplicável
+- [Como permitir a autenticação multifactor em Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Responsabilidade**: Cliente
 
-### <a name="37-log-and-alert-on-suspicious-activity-from-administrative-accounts"></a>3.7: Registar e alertar sobre atividades suspeitas a partir de contas administrativas
+**Monitorização do Centro de Segurança Azure**: Nenhum
 
-**Orientação**: Os clusters Azure HDInsight com o Pacote de Segurança Empresarial configurados podem ser ligados a um domínio para que os utilizadores de domínio possam utilizar as suas credenciais de domínio para autenticar. Pode utilizar relatórios de segurança do Azure Ative Directory (AAD) para a geração de registos e alertas quando ocorrem atividades suspeitas ou inseguras no ambiente AAD. Utilize o Centro de Segurança Azure para monitorizar a atividade de identidade e acesso.
+### <a name="37-log-and-alert-on-suspicious-activities-from-administrative-accounts"></a>3.7: Registar e alertar sobre atividades suspeitas a partir de contas administrativas
 
-Como identificar utilizadores da AAD sinalizados para atividade de risco:
+**Orientação**: Os clusters Azure HDInsight com o Pacote de Segurança Empresarial configurados podem ser ligados a um domínio para que os utilizadores de domínio possam utilizar as suas credenciais de domínio para autenticar. Pode utilizar relatórios de segurança do Azure Ative Directory (Azure AD) para a geração de registos e alertas quando ocorrem atividades suspeitas ou inseguras no ambiente Azure AD. Utilize o Centro de Segurança Azure para monitorizar a atividade de identidade e acesso.
 
-https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-user-at-risk
+- [Como identificar utilizadores do Azure AD sinalizados por atividade de risco](/azure/active-directory/reports-monitoring/concept-user-at-risk)
 
-Como monitorizar a identidade e a atividade de acesso dos utilizadores no Centro de Segurança Azure:
-
-https://docs.microsoft.com/azure/security-center/security-center-identity-access
-
-**Monitorização do Centro de Segurança do Azure**: Sim
+- [Como monitorizar a identidade e a atividade de acesso dos utilizadores no Azure Security Center](../security-center/security-center-identity-access.md)
 
 **Responsabilidade**: Cliente
+
+**Monitorização do Centro de Segurança Azure**: Nenhum
 
 ### <a name="38-manage-azure-resources-from-only-approved-locations"></a>3.8: Gerir os recursos do Azure a partir de locais aprovados apenas
 
 **Orientação**: Os clusters Azure HDInsight com o Pacote de Segurança Empresarial configurados podem ser ligados a um domínio para que os utilizadores de domínio possam utilizar as suas credenciais de domínio para autenticar. Utilize locais nomeados de acesso condicional para permitir o acesso a partir de agrupamentos lógicos específicos de intervalos de endereços IP ou países/regiões.
 
-Como configurar localizações nomeadas em Azure:
-
-https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations
-
-**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
+- [Como configurar localizações nomeadas em Azure](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
 **Responsabilidade**: Cliente
+
+**Monitorização do Centro de Segurança Azure**: Nenhum
 
 ### <a name="39-use-azure-active-directory"></a>3.9: Utilizar o Diretório Ativo Azure
 
-**Orientação**: Utilize o Azure Ative Directory (AAD) como sistema central de autenticação e autorização. AAD protege os dados utilizando uma encriptação forte para dados em repouso e em trânsito. AAD também sai, hashes e armazena seguramente credenciais de utilizador.
+**Orientação**: Utilize o Azure Ative Directory (Azure AD) como sistema central de autenticação e autorização. A Azure AD protege os dados utilizando uma encriptação forte para dados em repouso e em trânsito. A Azure AD também sai, hashes e armazena seguramente as credenciais dos utilizadores.
 
 Os clusters Azure HDInsight com Pacote de Segurança Empresarial (ESP) configurados podem ser ligados a um domínio para que os utilizadores de domínio possam usar as suas credenciais de domínio para autenticar com os clusters.
 
-Como criar e configurar um caso AAD:
+- [Como criar e configurar instâncias do Azure AD](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
-https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant
-
-Como configurar o Pacote de Segurança Empresarial com os Serviços de Domínio do Diretório Ativo Azure em Azure HDInsight:
-
-https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds
-
-**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
+- [Como configurar pacote de segurança empresarial com serviços de domínio Ad AD Azure em Azure HDInsight](domain-joined/apache-domain-joined-configure-using-azure-adds.md)
 
 **Responsabilidade**: Cliente
+
+**Monitorização do Centro de Segurança Azure**: Nenhum
 
 ### <a name="310-regularly-review-and-reconcile-user-access"></a>3.10: Reveja e reconciliar regularmente o acesso dos utilizadores
 
-**Orientação**: Utilize a autenticação do Azure Ative Directory (AAD) com o seu cluster Azure HDInsight. AAD fornece registos para ajudar a descobrir contas velhas. Além disso, utilize a Azure Identity Access Reviews para gerir eficientemente os membros do grupo, o acesso a aplicações empresariais e atribuições de funções. O acesso do utilizador pode ser revisto regularmente para garantir que apenas os Utilizadores certos tenham acesso continuado. 
+**Orientação**: Utilize a autenticação do Azure Ative Directory (Azure AD) com o seu cluster Azure HDInsight. A Azure AD fornece registos para ajudar a descobrir contas velhas. Além disso, utilize a Azure Identity Access Reviews para gerir eficientemente os membros do grupo, o acesso a aplicações empresariais e atribuições de funções. O acesso do utilizador pode ser revisto regularmente para garantir que apenas os Utilizadores certos tenham acesso continuado.
 
-Como utilizar comentários sobre o acesso à identidade do Azure:
-
-https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview
-
-**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
+- [Como utilizar comentários sobre acesso à identidade do Azure](../active-directory/governance/access-reviews-overview.md)
 
 **Responsabilidade**: Cliente
 
-### <a name="311-monitor-attempts-to-access-deactivated-accounts"></a>3.11: Monitorização das tentativas de acesso a contas desativadas
+**Monitorização do Centro de Segurança Azure**: Nenhum
 
-**Orientação**: Utilize registos de inscrição e auditoria do Azure Ative Para monitorizar as tentativas de acesso a contas desativadas; estes registos podem ser integrados em qualquer ferramenta siem/monitorização de terceiros.
+### <a name="311-monitor-attempts-to-access-deactivated-credentials"></a>3.11: Monitorização tenta aceder a credenciais desativadas
 
-Pode agilizar este processo criando Definições de Diagnóstico para contas de utilizadores AAD, enviando os registos de auditoria e registos de login para um espaço de trabalho Azure Log Analytics. Configure os alertas desejados dentro do espaço de trabalho Azure Log Analytics.
+**Orientação**: Utilize registos de inscrição e auditoria do Azure Ative (Azure AD) para monitorizar as tentativas de acesso a contas desativadas; estes registos podem ser integrados em qualquer ferramenta siem/monitorização de terceiros.
 
-Como integrar os Registos de Atividade do Azure no Monitor Azure:
+Pode agilizar este processo criando Definições de Diagnóstico para contas de utilizadores AZure, enviando os registos de auditoria e registos de login para um espaço de trabalho Azure Log Analytics. Configure os alertas desejados dentro do espaço de trabalho Azure Log Analytics.
 
-https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics
-
-**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
+- [Como integrar os Registos de Atividades do Azure no Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 **Responsabilidade**: Cliente
 
-### <a name="312-alert-on-account-login-behavior-deviation"></a>3.12: Alerta sobre desvio de comportamento de login de conta
+**Monitorização do Centro de Segurança Azure**: Nenhum
 
-**Orientação**: Os clusters Azure HDInsight com Pacote de Segurança Empresarial (ESP) configurados podem ser ligados a um domínio para que os utilizadores de domínio possam usar as suas credenciais de domínio para autenticar com os clusters.  Utilize o recurso Azure Ative Directory (AAD) deteções de riscos e proteção de identidade para configurar respostas automatizadas para detetar ações suspeitas relacionadas com identidades do utilizador. Além disso, você pode ingerir dados em Azure Sentinel para mais investigação.
+### <a name="312-alert-on-account-sign-in-behavior-deviation"></a>3.12: Alerta sobre desvio de comportamento de inscrição na conta
 
-Como visualizar as entradas de risco da AAD:
+**Orientação**: Os clusters Azure HDInsight com Pacote de Segurança Empresarial (ESP) configurados podem ser ligados a um domínio para que os utilizadores de domínio possam usar as suas credenciais de domínio para autenticar com os clusters. Utilize o Azure Ative Directory (Azure AD) Deteções de Riscos e Proteção de Identidade para configurar respostas automatizadas para detetar ações suspeitas relacionadas com identidades dos utilizadores. Além disso, você pode ingerir dados em Azure Sentinel para mais investigação.
 
-https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins
+- [Como ver os inícios de sessão de risco do Azure AD](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
 
-Como configurar e permitir políticas de risco de proteção de identidade:
-
-https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies
-
-**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
+- [Como configurar e permitir políticas de risco de proteção de identidade](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
 **Responsabilidade**: Cliente
+
+**Monitorização do Centro de Segurança Azure**: Nenhum
 
 ### <a name="313-provide-microsoft-with-access-to-relevant-customer-data-during-support-scenarios"></a>3.13: Fornecer à Microsoft acesso aos dados relevantes dos clientes durante cenários de suporte
 
 **Orientação**: Não disponível; O Lockbox do cliente ainda não suportado para a Azure HDInsight.
 
-Lista de serviços suportados pelo Customer Lockbox: https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability
-
-
-
-**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
+- [Lista de serviços suportados pelo Bloqueio do Cliente](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability)
 
 **Responsabilidade**: Cliente
 
+**Monitorização do Centro de Segurança Azure**: Nenhum
+
 ## <a name="data-protection"></a>Proteção de Dados
 
-*Para obter mais informações, consulte [Controlo de Segurança: Proteção de Dados](../security/benchmarks/security-control-data-protection.md).*
+*Para obter mais informações, veja [Referência de Segurança do Azure: Proteção de dados](../security/benchmarks/security-control-data-protection.md).*
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1: Manter um inventário de informação sensível
 
 **Orientação**: Utilize etiquetas em recursos relacionados com as suas implementações Azure HDInsight para ajudar a rastrear os recursos da Azure que armazenam ou processam informações sensíveis.
 
-Como criar e utilizar tags:
-
-https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
-
-**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
+- [Como criar e usar tags](/azure/azure-resource-manager/resource-group-using-tags)
 
 **Responsabilidade**: Cliente
+
+**Monitorização do Centro de Segurança Azure**: Nenhum
 
 ### <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4.2: Isolar sistemas de armazenamento ou tratamento de informações sensíveis
 
 **Orientação**: Implementar subscrições separadas e/ou grupos de gestão para desenvolvimento, teste e produção. Os clusters Azure HDInsight e quaisquer contas de armazenamento associadas devem ser separados por rede/sub-rede virtuais, marcados adequadamente e protegidos dentro de um grupo de segurança de rede (NSG) ou Azure Firewall. Os dados do cluster devem ser contidos numa conta de armazenamento Azure ou no Azure Data Lake Storage (Gen1 ou Gen2).
 
-Escolha opções de armazenamento para o seu cluster Azure HDInsight:
+- [Escolha opções de armazenamento para o seu cluster Azure HDInsight](hdinsight-hadoop-compare-storage-options.md)
 
-https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-compare-storage-options
+- [Como garantir o armazenamento do Lago de Dados Azure](../data-lake-store/data-lake-store-security-overview.md)
 
-Como garantir o armazenamento do Lago de Dados Azure:
-
-https://docs.microsoft.com/azure/data-lake-store/data-lake-store-security-overview
-
-Como garantir contas de armazenamento Azure:
-
-https://docs.microsoft.com/azure/storage/common/storage-security-guide
-
-**Monitorização do Centro de Segurança do Azure**: Sim
+- [Como garantir contas de armazenamento Azure](/azure/storage/common/storage-security-guide)
 
 **Responsabilidade**: Cliente
+
+**Monitorização do Centro de Segurança Azure**: Nenhum
 
 ### <a name="43-monitor-and-block-unauthorized-transfer-of-sensitive-information"></a>4.3: Monitor e bloquear transferência não autorizada de informações sensíveis
 
@@ -574,33 +444,25 @@ https://docs.microsoft.com/azure/storage/common/storage-security-guide
 
 Para a plataforma subjacente, gerida pela Microsoft, a Microsoft trata todos os conteúdos dos clientes como sensíveis e faz grandes esforços para se proteger contra a perda e exposição de dados dos clientes. Para garantir que os dados dos clientes dentro do Azure permanecem seguros, a Microsoft implementou e mantém um conjunto de controlos e capacidades robustos de proteção de dados.
 
-Como restringir o tráfego de saída para clusters Azure HDInsight com Azure Firewall:
+- [Como restringir o tráfego de saída para clusters Azure HDInsight com Azure Firewall](hdinsight-restrict-outbound-traffic.md)
 
-https://docs.microsoft.com/azure/hdinsight/hdinsight-restrict-outbound-traffic
-
-Compreender a proteção de dados do cliente em Azure:
-
-https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
-
-**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
+- [Compreender a proteção dos dados dos clientes no Azure](../security/fundamentals/protection-customer-data.md)
 
 **Responsabilidade**: Partilhada
+
+**Monitorização do Centro de Segurança Azure**: Nenhum
 
 ### <a name="44-encrypt-all-sensitive-information-in-transit"></a>4.4: Criptografar todas as informações sensíveis em trânsito
 
 **Orientação**: Criptografe todas as informações sensíveis em trânsito. Certifique-se de que quaisquer clientes que se conectem ao seu cluster Azure HDInsight ou lojas de dados de cluster (Contas de Armazenamento Azure ou Azure Data Lake Storage Gen1/Gen2) são capazes de negociar TLS 1.2 ou maior. Os recursos da Microsoft Azure negociarão tLS 1.2 por padrão. 
 
-Compreenda a encriptação de armazenamento do Lago de Dados Azure em trânsito:
+- [Compreenda a encriptação de armazenamento do Lago de Dados Azure em trânsito](../data-lake-store/data-lake-store-security-overview.md)
 
-https://docs.microsoft.com/azure/data-lake-store/data-lake-store-security-overview
-
-Compreenda a encriptação da conta de armazenamento Azure em trânsito:
-
-https://docs.microsoft.com/azure/storage/common/storage-security-guide#encryption-in-transit
-
-**Monitorização do Centro de Segurança do Azure**: Sim
+- [Compreender encriptação da conta de armazenamento Azure em trânsito](../storage/blobs/security-recommendations.md)
 
 **Responsabilidade**: Partilhada
+
+**Monitorização do Centro de Segurança Azure**: Nenhum
 
 ### <a name="45-use-an-active-discovery-tool-to-identify-sensitive-data"></a>4.5: Utilize uma ferramenta de descoberta ativa para identificar dados sensíveis
 
@@ -608,33 +470,25 @@ https://docs.microsoft.com/azure/storage/common/storage-security-guide#encryptio
 
 Para a plataforma subjacente, gerida pela Microsoft, a Microsoft trata todos os conteúdos dos clientes como sensíveis e faz grandes esforços para se proteger contra a perda e exposição de dados dos clientes. Para garantir que os dados dos clientes dentro do Azure permanecem seguros, a Microsoft implementou e mantém um conjunto de controlos e capacidades robustos de proteção de dados.
 
-Compreender a proteção de dados do cliente em Azure:
-
-https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
-
-**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
+- [Compreender a proteção dos dados dos clientes no Azure](../security/fundamentals/protection-customer-data.md)
 
 **Responsabilidade**: Partilhada
 
-### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Utilizar o Azure RBAC para controlar o acesso aos recursos
+**Monitorização do Centro de Segurança Azure**: Nenhum
+
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Utilizar o Azure RBAC para controlar o acesso aos recursos 
 
 **Orientação**: Com o Azure HDInsight Enterprise Security Package (ESP), pode utilizar o Apache Ranger para criar e gerir políticas de controlo de acessos finos e de obfuscção de dados para os seus dados armazenados em ficheiros, pastas, bases de dados, tabelas e linhas/colunas. O administrador hadoop pode configurar o controlo de acesso baseado em funções (RBAC) para garantir a Hive Apache, HBase, Kafka e Spark usando esses plugins em Apache Ranger.
 
 Configurar as políticas do RBAC com o Apache Ranger permite-lhe associar permissões com um papel na organização. Esta camada de abstração facilita a garantia de que as pessoas têm apenas as permissões necessárias para desempenhar as suas responsabilidades de trabalho.
 
-Configurações do Pacote de Segurança Empresarial com Serviços de Domínio do Diretório Ativo Azure em HDInsight:
+- [Configurações de pacotes de segurança da empresa com Azure Ative Directory (Azure AD) Serviços de Domínio em HDInsight](domain-joined/apache-domain-joined-configure-using-azure-adds.md)
 
-https://docs.microsoft.com/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds
-
-Visão geral da segurança da empresa em Azure HDInsight:
-
-https://docs.microsoft.com/azure/hdinsight/domain-joined/hdinsight-security-overview
-
-
-
-**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
+- [Visão geral da segurança da empresa em Azure HDInsight](domain-joined/hdinsight-security-overview.md)
 
 **Responsabilidade**: Cliente
+
+**Monitorização do Centro de Segurança Azure**: Nenhum
 
 ### <a name="47-use-host-based-data-loss-prevention-to-enforce-access-control"></a>4.7: Utilizar a prevenção da perda de dados baseada no hospedeiro para impor o controlo do acesso
 
@@ -642,57 +496,43 @@ https://docs.microsoft.com/azure/hdinsight/domain-joined/hdinsight-security-over
 
 Para a plataforma subjacente, gerida pela Microsoft, a Microsoft trata todos os conteúdos dos clientes como sensíveis e faz grandes esforços para se proteger contra a perda e exposição de dados dos clientes. Para garantir que os dados dos clientes dentro do Azure permanecem seguros, a Microsoft implementou e mantém um conjunto de controlos e capacidades robustos de proteção de dados.
 
-Compreender a proteção de dados do cliente em Azure:
-
-https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
-
-**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
+- [Compreender a proteção dos dados dos clientes no Azure](../security/fundamentals/protection-customer-data.md)
 
 **Responsabilidade**: Partilhada
+
+**Monitorização do Centro de Segurança Azure**: Nenhum
 
 ### <a name="48-encrypt-sensitive-information-at-rest"></a>4.8: Criptografe informação sensível em repouso
 
 **Orientação**: Se utilizar a Base de Dados Azure SQL para armazenar metadados Apache Hive e Apache Oozie, certifique-se de que os dados SQL permanecem sempre encriptados. Para contas de armazenamento Azure e armazenamento de data lake (Gen1 ou Gen2), é aconselhável permitir que a Microsoft gere as suas chaves de encriptação, no entanto, tem a opção de gerir as suas próprias chaves.
 
-Como gerir chaves de encriptação para contas de armazenamento Azure:
+- [Como gerir chaves de encriptação para contas de armazenamento Azure](/azure/storage/common/storage-encryption-keys-portal)
 
-https://docs.microsoft.com/azure/storage/common/storage-encryption-keys-portal
+- [Como criar o Azure Data Lake Storage utilizando chaves de encriptação geridas pelo cliente](../data-lake-store/data-lake-store-get-started-portal.md)
 
-Como criar o Azure Data Lake Storage utilizando chaves de encriptação geridas pelo cliente:
+- [Compreender encriptação para Azure SQL Database](/azure/sql-database/sql-database-technical-overview#data-encryption)
 
-https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal
-
-Compreender a encriptação para a Base de Dados Azure SQL:
-
-https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview#data-encryption
-
-Como configurar encriptação de dados transparentes para base de dados SQL utilizando chaves geridas pelo cliente:
-
-https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql?tabs=azure-portal
-
-**Monitorização do Centro de Segurança do Azure**: Sim
+- [Como configurar encriptação de dados transparentes para base de dados SQL utilizando chaves geridas pelo cliente](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql?tabs=azure-portal)
 
 **Responsabilidade**: Partilhada
+
+**Monitorização do Centro de Segurança Azure**: Nenhum
 
 ### <a name="49-log-and-alert-on-changes-to-critical-azure-resources"></a>4.9: Registar e alertar sobre alterações aos recursos críticos do Azure
 
 **Orientação**: Configurações de diagnóstico configuradas para contas de armazenamento Azure associadas a clusters Azure HDInsight para monitorizar e registar todas as operações CRUD contra dados de cluster. Ativar a auditoria de quaisquer Contas de Armazenamento ou Lojas data lake associadas ao cluster Azure HDInsight.
 
-Como permitir a registo/auditoria adicional de uma Conta de Armazenamento Azure:
+- [Como permitir a registo/auditoria adicional de uma Conta de Armazenamento Azure](/azure/storage/common/storage-monitor-storage-account)
 
-https://docs.microsoft.com/azure/storage/common/storage-monitor-storage-account
-
-Como permitir a exploração/auditoria adicional para o armazenamento do Lago de Dados Azure:
-
-https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-diagnostic-logs
-
-**Monitorização do Centro de Segurança do Azure**: Sim
+- [Como permitir a exploração/auditoria adicional para o armazenamento do Lago de Dados Azure](../data-lake-analytics/data-lake-analytics-diagnostic-logs.md)
 
 **Responsabilidade**: Cliente
 
+**Monitorização do Centro de Segurança Azure**: Nenhum
+
 ## <a name="vulnerability-management"></a>Gestão de Vulnerabilidades
 
-*Para obter mais informações, consulte [Controlo de Segurança: Gestão de Vulnerabilidades.](../security/benchmarks/security-control-vulnerability-management.md)*
+*Para mais informações, consulte o [Azure Security Benchmark: Vulnerability Management](../security/benchmarks/security-control-vulnerability-management.md).*
 
 ### <a name="51-run-automated-vulnerability-scanning-tools"></a>5.1: Executar ferramentas automatizadas de digitalização de vulnerabilidades
 
@@ -700,21 +540,15 @@ https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-diagnos
 
 Opcionalmente, se tiver uma subscrição de Plataforma De Gestão de Vulnerabilidades Rapid7, Qualys ou qualquer outra subscrição da plataforma de gestão de vulnerabilidades, poderá utilizar ações de script para instalar agentes de avaliação de vulnerabilidade nos seus nós de cluster Azure HDInsight e gerir os nós através do respetivo portal.
 
-Como instalar manualmente o Agente Rapid7:
+- [Como instalar o agente Rapid7 manualmente](https://insightvm.help.rapid7.com/docs/install)
 
-https://insightvm.help.rapid7.com/docs/install
+- [Como instalar o Agente Qualys manualmente](https://www.qualys.com/docs/qualys-cloud-agent-linux-install-guide.pdf)
 
-Como instalar manualmente o Agente Qualys:
-
-https://www.qualys.com/docs/qualys-cloud-agent-linux-install-guide.pdf
-
-Como utilizar as ações de script:
-
-https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux
-
-**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
+- [Como usar as ações de script](hdinsight-hadoop-customize-cluster-linux.md)
 
 **Responsabilidade**: Cliente
+
+**Monitorização do Centro de Segurança Azure**: Nenhum
 
 ### <a name="52-deploy-automated-operating-system-patch-management-solution"></a>5.2: Implementar solução automatizada de gestão de correção do sistema operativo
 
@@ -722,327 +556,264 @@ https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-li
 
 Microsoft para manter e atualizar as imagens do nó de azure HDInsight base.
 
-Como configurar o calendário de remendos de SISTEMAS para clusters HDInsight:
-
-https://docs.microsoft.com/azure/hdinsight/hdinsight-os-patching
-
-**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
+- [Como configurar o calendário de remendos de SISTEMAS para clusters HDInsight](hdinsight-os-patching.md)
 
 **Responsabilidade**: Partilhada
 
-### <a name="53-deploy-automated-third-party-software-patch-management-solution"></a>5.3: Implementar solução automatizada de gestão de patchs de software de terceiros
+**Monitorização do Centro de Segurança Azure**: Nenhum
+
+### <a name="53-deploy-automated-patch-management-solution-for-third-party-software-titles"></a>5.3: Implementar solução automatizada de gestão de patchs para títulos de software de terceiros
 
 **Orientação**: Utilize ações de script ou outros mecanismos para corrigir os seus clusters Azure HDInsight. Os clusters recém-criados terão sempre as últimas atualizações disponíveis, incluindo os mais recentes patches de segurança.
 
-Como configurar o calendário de remendos de SISTEMAS para clusters Azure HDInsight baseados em Linux:
+- [Como configurar o calendário de remendos de SISTEMA para clusters Azure HDInsight baseados em Linux](hdinsight-os-patching.md)
 
-https://docs.microsoft.com/azure/hdinsight/hdinsight-os-patching
-
-Como utilizar as ações de script:
-
-https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-customize-cluster-linux
-
-**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
+- [Como usar as ações de script](hdinsight-hadoop-customize-cluster-linux.md)
 
 **Responsabilidade**: Cliente
+
+**Monitorização do Centro de Segurança Azure**: Nenhum
 
 ### <a name="54-compare-back-to-back-vulnerability-scans"></a>5.4: Comparar digitalizações de vulnerabilidades consecutivas
 
 **Orientação**: Implementar uma solução de gestão de vulnerabilidades de terceiros que tenha a capacidade de comparar digitalizações de vulnerabilidades ao longo do tempo. Se tiver uma subscrição Rapid7 ou Qualys, poderá utilizar o portal desse fornecedor para visualizar e comparar as verificações de vulnerabilidades de trás para a outra.
 
-**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
-
 **Responsabilidade**: Cliente
+
+**Monitorização do Centro de Segurança Azure**: Nenhum
 
 ### <a name="55-use-a-risk-rating-process-to-prioritize-the-remediation-of-discovered-vulnerabilities"></a>5.5: Utilize um processo de classificação de risco para priorizar a reparação de vulnerabilidades descobertas
 
 **Orientação**: Utilize um programa comum de pontuação de risco (por exemplo, sistema comum de pontuação de vulnerabilidade) ou as classificações de risco padrão fornecidas pela sua ferramenta de digitalização de terceiros.
 
-**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
-
 **Responsabilidade**: Cliente
+
+**Monitorização do Centro de Segurança Azure**: Nenhum
 
 ## <a name="inventory-and-asset-management"></a>Gestão de Recursos e Inventário
 
-*Para mais informações, consulte [Controlo de Segurança: Inventário e Gestão de Ativos.](../security/benchmarks/security-control-inventory-asset-management.md)*
+*Para mais informações, consulte o [Azure Security Benchmark: Inventário e Gestão de Ativos.](../security/benchmarks/security-control-inventory-asset-management.md)*
 
-### <a name="61-use-azure-asset-discovery"></a>6.1: Use a Azure Asset Discovery
+### <a name="61-use-automated-asset-discovery-solution"></a>6.1: Utilize uma solução automatizada de descoberta de ativos
 
-**Orientação**: Utilize o Azure Resource Graph para consultar/descobrir todos os recursos (tais como computação, armazenamento, rede, portas e protocolos, etc.), incluindo clusters Azure HDInsight, dentro da sua subscrição(s).  Certifique-se de que tem permissões (de leitura) adequadas no seu inquilino e é capaz de enumerar todas as subscrições da Azure, bem como recursos dentro das suas subscrições.
+**Orientação**: Utilize o Azure Resource Graph para consultar e descobrir todos os recursos (tais como computação, armazenamento, rede, portas e protocolos, etc.), incluindo clusters Azure HDInsight, dentro das suas subscrições. Certifique-se de que tem permissões (de leitura) adequadas no seu inquilino e é capaz de enumerar todas as subscrições da Azure, bem como recursos dentro das suas subscrições.
 
-Embora os recursos clássicos do Azure possam ser descobertos através do Gráfico de Recursos, é altamente recomendado criar e utilizar recursos do Azure Resource Manager.
+Embora os recursos clássicos do Azure possam ser descobertos através do Azure Resource Graph, é altamente recomendado criar e utilizar recursos do Azure Resource Manager.
 
-Como criar consultas com gráfico de recursos Azure:
+- [Como criar consultas com gráfico de recursos Azure](../governance/resource-graph/first-query-portal.md)
 
-https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+- [Como ver as suas Subscrições Azure](/powershell/module/az.accounts/get-azsubscription)
 
-Como ver as suas Subscrições Azure:
-
-https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription
-
-Compreenda Azure RBAC:
-
-https://docs.microsoft.com/azure/role-based-access-control/overview
-
-**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
+- [Compreender Azure RBAC](../role-based-access-control/overview.md)
 
 **Responsabilidade**: Cliente
+
+**Monitorização do Centro de Segurança Azure**: Nenhum
 
 ### <a name="62-maintain-asset-metadata"></a>6.2: Manter metadados de ativos
 
 **Orientação**: Aplicar etiquetas aos recursos Azure, dando metadados para organizar logicamente numa taxonomia.
 
-Como criar e utilizar tags:
-
-https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
-
-**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
+- [Como criar e usar tags](/azure/azure-resource-manager/resource-group-using-tags)
 
 **Responsabilidade**: Cliente
+
+**Monitorização do Centro de Segurança Azure**: Nenhum
 
 ### <a name="63-delete-unauthorized-azure-resources"></a>6.3: Eliminar recursos azure não autorizados
 
 **Orientação**: Utilize marcação, grupos de gestão e assinaturas separadas, se for caso disso, para organizar e rastrear ativos. Conciliar o inventário regularmente e garantir que os recursos não autorizados sejam eliminados da subscrição em tempo útil.
 
-Como criar subscrições adicionais do Azure:
+- [Como criar subscrições adicionais do Azure](/azure/billing/billing-create-subscription)
 
-https://docs.microsoft.com/azure/billing/billing-create-subscription
+- [Como criar Grupos de Gestão](/azure/governance/management-groups/create)
 
-Como criar Grupos de Gestão:
-
-https://docs.microsoft.com/azure/governance/management-groups/create
-
-Como criar e utilizar tags:
-
-https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
-
-**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
+- [Como criar e usar tags](/azure/azure-resource-manager/resource-group-using-tags)
 
 **Responsabilidade**: Cliente
 
-### <a name="64-maintain-an-inventory-of-approved-azure-resources-and-software-titles"></a>6.4: Manter um inventário dos recursos aprovados da Azure e dos títulos de software
+**Monitorização do Centro de Segurança Azure**: Nenhum
+
+### <a name="64-define-and-maintain-inventory-of-approved-azure-resources"></a>6.4: Definir e manter o inventário dos recursos aprovados da Azure
 
 **Orientação**: Defina a lista de recursos aprovados da Azure e software aprovado para os seus recursos de computação
 
-**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
-
 **Responsabilidade**: Cliente
+
+**Monitorização do Centro de Segurança Azure**: Nenhum
 
 ### <a name="65-monitor-for-unapproved-azure-resources"></a>6.5: Monitor para recursos Azure não aprovados
 
-**Orientação**: Utilize a Política Azure para impor restrições ao tipo de recursos que podem ser criados na subscrição(s) de subscrição de clientes, utilizando as seguintes definições de política incorporada:
+**Orientação**: Utilize a Política Azure para impor restrições ao tipo de recursos que podem ser criados em subscrições de clientes utilizando as seguintes definições de política incorporada:
 
 - Tipos de recursos não permitidos
 
 - Tipos de recursos permitidos
 
-Utilize o Gráfico de Recursos Azure para consultar/descobrir recursos dentro da sua subscrição.s. Certifique-se de que todos os recursos Azure presentes no ambiente são aprovados.
+Utilize o Gráfico de Recursos Azure para consultar e descobrir recursos dentro das suas subscrições. Certifique-se de que todos os recursos Azure presentes no ambiente são aprovados.
 
-Como configurar e gerir a Política de Azure: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+- [Como configurar e gerir o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-Como criar consultas com O Gráfico Azure: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
-
-
-
-**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
+- [Como criar consultas com gráfico de recursos Azure](../governance/resource-graph/first-query-portal.md)
 
 **Responsabilidade**: Cliente
+
+**Monitorização do Centro de Segurança Azure**: Nenhum
 
 ### <a name="66-monitor-for-unapproved-software-applications-within-compute-resources"></a>6.6: Monitor para aplicações de software não aprovadas dentro dos recursos computacional
 
 **Orientação**: Implementar uma solução de terceiros para monitorizar os nós de cluster para aplicações de software não aprovadas.
 
-**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
-
 **Responsabilidade**: Cliente
+
+**Monitorização do Centro de Segurança Azure**: Nenhum
 
 ### <a name="67-remove-unapproved-azure-resources-and-software-applications"></a>6.7: Remover recursos e aplicações de software não aprovados
 
-**Orientação**: Utilize o Azure Resource Graph para consultar/descobrir todos os recursos (tais como computação, armazenamento, rede, portas e protocolos, etc.), incluindo clusters Azure HDInsight, dentro da sua subscrição(s).  Remova quaisquer recursos não aprovados do Azure que descobrir. Para os nós de cluster Azure HDInsight, implemente uma solução de terceiros para remover ou alertar em software não aprovado.
+**Orientação**: Utilize o Azure Resource Graph para consultar e descobrir todos os recursos (tais como computação, armazenamento, rede, portas e protocolos, etc.), incluindo clusters Azure HDInsight, dentro das suas subscrições.  Remova quaisquer recursos não aprovados do Azure que descobrir. Para os nós de cluster Azure HDInsight, implemente uma solução de terceiros para remover ou alertar em software não aprovado.
 
-Como criar consultas com O Gráfico Azure:
-
-https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
-
-**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
+- [Como criar consultas com gráfico de recursos Azure](../governance/resource-graph/first-query-portal.md)
 
 **Responsabilidade**: Cliente
+
+**Monitorização do Centro de Segurança Azure**: Nenhum
 
 ### <a name="68-use-only-approved-applications"></a>6.8: Utilizar apenas aplicações aprovadas
 
 **Orientação**: Para os nós de cluster Azure HDInsight, implemente uma solução de terceiros para impedir a execução de software não autorizado.
 
-
-**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
-
 **Responsabilidade**: Cliente
+
+**Monitorização do Centro de Segurança Azure**: Nenhum
 
 ### <a name="69-use-only-approved-azure-services"></a>6.9: Utilizar apenas serviços Azure aprovados
 
-**Orientação**: Utilize a Política Azure para impor restrições ao tipo de recursos que podem ser criados na subscrição(s) de subscrição de clientes, utilizando as seguintes definições de política incorporada:
-
+**Orientação**: Utilize a Política Azure para impor restrições ao tipo de recursos que podem ser criados em subscrições de clientes utilizando as seguintes definições de política incorporada:
 - Tipos de recursos não permitidos
 
 - Tipos de recursos permitidos
 
-Como configurar e gerir a Política de Azure: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Para obter mais informações, veja as seguintes referências:
 
-Como negar um tipo específico de recurso com a Política Azure: https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
+- [Como configurar e gerir o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-
-**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
+- [Como negar um tipo específico de recurso com a Política Azure](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#general)
 
 **Responsabilidade**: Cliente
 
-### <a name="610-implement-approved-application-list"></a>6.10: Implementar lista de candidaturas aprovada
+**Monitorização do Centro de Segurança Azure**: Nenhum
+
+### <a name="610-maintain-an-inventory-of-approved-software-titles"></a>6.10: Manter um inventário de títulos de software aprovados
 
 **Orientação**: Para os nós de cluster Azure HDInsight, implemente uma solução de terceiros para impedir a execução de tipos de ficheiros não autorizados.
 
-
-**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
-
 **Responsabilidade**: Cliente
 
-### <a name="611-limit-users-ability-to-interact-with-azure-resources-manager-via-scripts"></a>6.11: Limitar a capacidade dos utilizadores de interagirem com o Gestor de Recursos Azure através de scripts
+**Monitorização do Centro de Segurança Azure**: Nenhum
+
+### <a name="611-limit-users-ability-to-interact-with-azure-resource-manager"></a>6.11: Limitar a capacidade dos utilizadores de interagirem com o Gestor de Recursos Azure
 
 **Orientação**: Utilize o Acesso Condicional Azure para limitar a capacidade dos utilizadores de interagirem com o Azure Resource Manager, configurando o "Acesso ao Bloco" para a app "Microsoft Azure Management".
 
-Como configurar o Acesso Condicional para bloquear o acesso ao Gestor de Recursos Azure: https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
-
-
-**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
+- [Como configurar o Acesso Condicional para bloquear o acesso ao Gestor de Recursos Azure](../role-based-access-control/conditional-access-azure-management.md)
 
 **Responsabilidade**: Cliente
 
-### <a name="612-limit-users-ability-to-execute-scripts-within-compute-resources"></a>6.12: Limitar a capacidade dos utilizadores de executar scripts dentro dos recursos computacional
-
-**Orientação**: Não aplicável; Isto não é aplicável ao Azure HDInsight, uma vez que os utilizadores (não administradores) do cluster não precisam de acesso aos nós individuais para executarem empregos. O administrador do cluster tem acesso de raiz a todos os nós de cluster.
-
-**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
-
-**Responsabilidade**: Não aplicável
-
-### <a name="613-physically-or-logically-segregate-high-risk-applications"></a>6.13: Segregar física ou logicamente aplicações de alto risco
-
-**Orientação**: Não aplicável; o benchmark destina-se ao Azure Apps Service ou a computar recursos que hospedam aplicações web.
-
-**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
-
-**Responsabilidade**: Não aplicável
+**Monitorização do Centro de Segurança Azure**: Nenhum
 
 ## <a name="secure-configuration"></a>Configuração Segura
 
-*Para obter mais informações, consulte [Controlo de Segurança: Configuração Segura](../security/benchmarks/security-control-secure-configuration.md).*
+*Para obter mais informações, consulte o [Benchmark de Segurança Azure: Configuração Segura](../security/benchmarks/security-control-secure-configuration.md).*
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7.1: Estabelecer configurações seguras para todos os recursos da Azure
 
 **Orientação**: Utilize pseudónimos da Política Azure no espaço de nomes "Microsoft.HDInsight" para criar políticas personalizadas para auditar ou impor a configuração de rede do seu cluster HDInsight.
 
-Como visualizar pseudónimos disponíveis da Política Azure:
+- [Como ver pseudónimos disponíveis da Política Azure](/powershell/module/az.resources/get-azpolicyalias)
 
-https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias
-
-Como configurar e gerir a Política de Azure:
-
-https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
-
-**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
+- [Como configurar e gerir o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 **Responsabilidade**: Cliente
+
+**Monitorização do Centro de Segurança Azure**: Nenhum
 
 ### <a name="72-establish-secure-operating-system-configurations"></a>7.2: Estabelecer configurações seguras do sistema operativo
 
-**Orientação**: Imagens do sistema operativo Azure HDInsight geridas e mantidas pela Microsoft. Cliente responsável pela implementação de configurações seguras para o sistema operativo dos seus nós de cluster. 
-
-
-**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
+**Orientação**: Imagens do sistema operativo Azure HDInsight geridas e mantidas pela Microsoft. Cliente responsável pela implementação de configurações seguras para o sistema operativo dos seus nós de cluster.
 
 **Responsabilidade**: Cliente
+
+**Monitorização do Centro de Segurança Azure**: Nenhum
 
 ### <a name="73-maintain-secure-azure-resource-configurations"></a>7.3: Manter configurações seguras de recursos Azure
 
 **Orientação**: Use a Política Azure [negar] e [implementar se não existir] para impor definições seguras para os seus clusters Azure HDInsight e recursos relacionados.
 
-Como configurar e gerir a Política de Azure:
+- [Como configurar e gerir o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
-
-Compreenda os efeitos da política do Azure:
-
-https://docs.microsoft.com/azure/governance/policy/concepts/effects
-
-**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
+- [Compreender efeitos da política do Azure](../governance/policy/concepts/effects.md)
 
 **Responsabilidade**: Cliente
+
+**Monitorização do Centro de Segurança Azure**: Nenhum
 
 ### <a name="74-maintain-secure-operating-system-configurations"></a>7.4: Manter configurações seguras do sistema operativo
 
 **Orientação**: Imagens do sistema operativo Azure HDInsight geridas e mantidas pela Microsoft. Cliente responsável pela implementação da configuração do estado de nível oss.
 
-
-**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
-
 **Responsabilidade**: Partilhada
+
+**Monitorização do Centro de Segurança Azure**: Nenhum
 
 ### <a name="75-securely-store-configuration-of-azure-resources"></a>7.5: Armazenar de forma segura a configuração dos recursos Azure
 
 **Orientação**: Se utilizar definições personalizadas da Política Azure, utilize Azure DevOps ou Azure Repos para armazenar e gerir o seu código de forma segura.
 
-[Como armazenar código em Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops&preserve-view=true)
+- [Tutorial de Azure Repos Git](/azure/devops/repos/git/gitworkflow)
 
-[Documentação de Azure Repos](/azure/devops/repos/index?view=azure-devops&preserve-view=true)
-
-**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
+- [Documentação de Azure Repos](/azure/devops/repos/index)
 
 **Responsabilidade**: Cliente
 
-### <a name="76-securely-store-custom-operating-system-images"></a>7.6: Armazenar de forma segura imagens do sistema operativo personalizado
+**Monitorização do Centro de Segurança Azure**: Nenhum
 
-**Orientação**: Não aplicável; imagens personalizadas não aplicáveis ao Azure HDInsight.
-
-**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
-
-**Responsabilidade**: Não aplicável
-
-### <a name="77-deploy-system-configuration-management-tools"></a>7.7: Implementar ferramentas de gestão de configuração do sistema
+### <a name="77-deploy-configuration-management-tools-for-azure-resources"></a>7.7: Implementar ferramentas de gestão de configuração para recursos Azure
 
 **Orientação**: Utilize pseudónimos da Política Azure no espaço de nomes "Microsoft.HDInsight" para criar políticas personalizadas para alertar, auditar e impor configurações do sistema. Além disso, desenvolva um processo e um oleoduto para gerir exceções políticas.
 
-Como configurar e gerir a Política de Azure:
-
-https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
-
-**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
+- [Como configurar e gerir o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 **Responsabilidade**: Cliente
 
-### <a name="78-deploy-system-configuration-management-tools-for-operating-systems"></a>7.8: Implementar ferramentas de gestão de configuração do sistema para sistemas operativos
+**Monitorização do Centro de Segurança Azure**: Nenhum
+
+### <a name="78-deploy-configuration-management-tools-for-operating-systems"></a>7.8: Implementar ferramentas de gestão de configuração para sistemas operativos
 
 **Orientação**: Implementar uma solução de terceiros para manter o estado desejado para os sistemas operativos do nó de cluster.
 
-**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
-
 **Responsabilidade**: Cliente
 
-### <a name="79-implement-automated-configuration-monitoring-for-azure-services"></a>7.9: Implementar monitorização automatizada de configuração para serviços Azure
+**Monitorização do Centro de Segurança Azure**: Nenhum
+
+### <a name="79-implement-automated-configuration-monitoring-for-azure-resources"></a>7.9: Implementar monitorização automatizada de configuração para recursos Azure
 
 **Orientação**: Utilize pseudónimos da Política Azure no espaço de nomes "Microsoft.HDInsight" para criar políticas personalizadas para auditar ou impor a configuração do seu cluster HDInsight.
 
-[Como ver pseudónimos disponíveis da Política Azure](/powershell/module/az.resources/get-azpolicyalias)
+- [Como ver pseudónimos disponíveis da Política Azure](/powershell/module/az.resources/get-azpolicyalias)
 
-[Como configurar e gerir o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
-
-**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
+- [Como configurar e gerir o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 **Responsabilidade**: Cliente
+
+**Monitorização do Centro de Segurança Azure**: Nenhum
 
 ### <a name="710-implement-automated-configuration-monitoring-for-operating-systems"></a>7.10: Implementar monitorização automatizada de configuração para sistemas operativos
 
 **Orientação**: Implementar uma solução de terceiros para monitorizar o estado dos seus sistemas operativos de nó de cluster.
 
-**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
-
 **Responsabilidade**: Cliente
+
+**Monitorização do Centro de Segurança Azure**: Nenhum
 
 ### <a name="711-manage-azure-secrets-securely"></a>7.11: Gerir os segredos do Azure de forma segura
 
@@ -1052,57 +823,47 @@ Todos os discos geridos em Azure HDInsight estão protegidos com encriptação d
 
 O Key Vault também pode ser utilizado com implementações Azure HDInsight para gerir chaves para armazenamento de clusters (Contas de Armazenamento Azure e Armazenamento de Dados Azure)
 
-Como trazer a sua própria chave para Apache Kafka em Azure HDInsight:
+- [Como trazer a sua própria chave para Apache Kafka em Azure HDInsight](/azure/hdinsight/kafka/apache-kafka-byok)
 
-https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-byok
-
-Como gerir chaves de encriptação para contas de armazenamento Azure:
-
-https://docs.microsoft.com/azure/storage/common/storage-encryption-keys-portal
-
-**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
+- [Como gerir chaves de encriptação para contas de armazenamento Azure](/azure/storage/common/storage-encryption-keys-portal)
 
 **Responsabilidade**: Cliente
+
+**Monitorização do Centro de Segurança Azure**: Nenhum
 
 ### <a name="712-manage-identities-securely-and-automatically"></a>7.12: Gerir as identidades de forma segura e automática
 
-**Orientação**: Identidades geridas podem ser usadas no Azure HDInsight para permitir que os seus clusters acedam aos serviços de domínio do Azure Ative Directory, acedam ao Cofre da Chave Azure ou acedam a ficheiros no Azure Data Lake Storage Gen2.
+**Orientação**: Identidades geridas podem ser usadas em Azure HDInsight para permitir que os seus clusters acedam aos serviços de domínio do Azure Ative Directory (Azure AD), acedam ao Cofre da Chave Azure ou acedam a ficheiros em Azure Data Lake Storage Gen2.
 
-Compreender identidades geridas com Azure HDInsight:
-
-https://docs.microsoft.com/azure/hdinsight/hdinsight-managed-identities
-
-**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
+- [Compreender identidades geridas com Azure HDInsight](hdinsight-managed-identities.md)
 
 **Responsabilidade**: Cliente
+
+**Monitorização do Centro de Segurança Azure**: Nenhum
 
 ### <a name="713-eliminate-unintended-credential-exposure"></a>7.13: Eliminar a exposição credencial não intencional
 
 **Orientação**: Se utilizar qualquer código relacionado com a sua implementação Azure HDInsight, poderá implementar o Scanner Credencial para identificar credenciais dentro do código. O Scanner de Credenciais também vai incentivar a movimentação das credenciais descobertas para localizações mais seguras, por exemplo, o Azure Key Vault. 
 
-Como configurar o Scanner Credencial:
-
-https://secdevtools.azurewebsites.net/helpcredscan.html
-
-**Monitorização do Centro de Segurança do Azure**: Não aplicável
+- [Como configurar o Scanner Credencial](https://secdevtools.azurewebsites.net/helpcredscan.html)
 
 **Responsabilidade**: Cliente
+
+**Monitorização do Centro de Segurança Azure**: Nenhum
 
 ## <a name="malware-defense"></a>Defesa contra Software maligno
 
-*Para mais informações, consulte [Controlo de Segurança: Defesa de Malware.](../security/benchmarks/security-control-malware-defense.md)*
+*Para mais informações, consulte a [Referência de Segurança Azure: Defesa contra malware.](../security/benchmarks/security-control-malware-defense.md)*
 
-### <a name="81-use-centrally-managed-anti-malware-software"></a>8.1: Utilize software anti-malware gerido centralmente
+### <a name="81-use-centrally-managed-anti-malware-software"></a>8.1: Utilizar software anti-malware gerido centralmente
 
 **Orientação**: Azure HDInsight vem com clamscan pré-instalado e habilitado para as imagens do nó de cluster, no entanto deve gerir o software e agregar/monitorizar manualmente quaisquer registos que o Clamscan produz.
 
-Compreenda o Clamscan para Azure HDInsight:
-
-https://docs.microsoft.com/azure/hdinsight/hdinsight-faq#security-and-certificates
-
-**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
+- [Compreenda o Clamscan para Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-faq#security-and-certificates)
 
 **Responsabilidade**: Cliente
+
+**Monitorização do Centro de Segurança Azure**: Nenhum
 
 ### <a name="82-pre-scan-files-to-be-uploaded-to-non-compute-azure-resources"></a>8.2: Ficheiros de pré-digitalização a serem enviados para recursos Azure não computados
 
@@ -1110,183 +871,159 @@ https://docs.microsoft.com/azure/hdinsight/hdinsight-faq#security-and-certificat
 
 Pré-digitalize quaisquer ficheiros que sejam enviados para quaisquer recursos Azure relacionados com a sua implementação do cluster Azure HDInsight, tais como Armazenamento de Data Lake, Armazenamento de Blob, etc. A Microsoft não pode aceder aos dados dos clientes nestes casos.
 
-Compreenda o Antimalware da Microsoft para serviços em nuvem Azure e máquinas virtuais:
-
- https://docs.microsoft.com/azure/security/fundamentals/antimalware
-
-**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
+- [Compreenda o Antimalware da Microsoft para serviços em nuvem Azure e máquinas virtuais](../security/fundamentals/antimalware.md)
 
 **Responsabilidade**: Partilhada
+
+**Monitorização do Centro de Segurança Azure**: Nenhum
 
 ### <a name="83-ensure-anti-malware-software-and-signatures-are-updated"></a>8.3: Garantir que o software e assinaturas anti-malware são atualizados
 
 **Orientação**: Azure HDInsight vem com clamscan pré-instalado e ativado para as imagens do nó de cluster. O Clamscan realizará atualizações de motor e definição automaticamente, no entanto, a agregação e gestão de troncos terá de ser executada manualmente.
 
-Compreenda o Clamscan para Azure Azure HDInsight:
-
-https://docs.microsoft.com/azure/hdinsight/hdinsight-faq#security-and-certificates
-
-**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
+- [Compreenda o Clamscan para Azure Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-faq#security-and-certificates)
 
 **Responsabilidade**: Cliente
+
+**Monitorização do Centro de Segurança Azure**: Nenhum
 
 ## <a name="data-recovery"></a>Recuperação de Dados
 
-*Para obter mais informações, consulte [Controlo de Segurança: Recuperação de Dados](../security/benchmarks/security-control-data-recovery.md).*
+*Para obter mais informações, consulte o [Benchmark de Segurança Azure: Recuperação de Dados](../security/benchmarks/security-control-data-recovery.md).*
 
-### <a name="91-ensure-regular-automated-back-ups"></a>9.1: Garantir back ups automáticos regulares
+### <a name="91-ensure-regular-automated-back-ups"></a>9.1: Garantir cópias de back-ups automáticas regulares
 
 **Orientação**: Quando utilizar uma Conta de Armazenamento Azure para a loja de dados do cluster HDInsight, escolha a opção de despedimento adequada (LRS, ZRS, GRS, RA-GRS).  Ao utilizar uma Base de Dados Azure SQL para a loja de dados do cluster Azure HDInsight, configuure a replicação de geo-replicação ativa.
 
-Como configurar a redundância de armazenamento para as contas de armazenamento da Azure:
+- [Como configurar a redundância de armazenamento para contas de armazenamento Azure](../storage/common/storage-redundancy.md)
 
-https://docs.microsoft.com/azure/storage/common/storage-redundancy
-
-Como configurar a redundância para a Base de Dados Azure SQL:
-
-https://docs.microsoft.com/azure/sql-database/sql-database-active-geo-replication
-
-**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
+- [Como configurar a redundância para a Base de Dados Azure SQL](/azure/sql-database/sql-database-active-geo-replication)
 
 **Responsabilidade**: Cliente
+
+**Monitorização do Centro de Segurança Azure**: Nenhum
 
 ### <a name="92-perform-complete-system-backups-and-backup-any-customer-managed-keys"></a>9.2: Execute cópias de segurança completas do sistema e faça backups de backups de qualquer tecla gerida pelo cliente
 
 **Orientação**: Quando utilizar uma conta de armazenamento Azure para a loja de dados do cluster Azure HDInsight, escolha a opção de redundância adequada (LRS, ZRS, GRS, RA-GRS). Se utilizar o Azure Key Vault para qualquer parte da sua implantação Azure HDInsight, certifique-se de que as suas chaves estão apoiadas.
 
-Escolha opções de armazenamento para o seu cluster Azure HDInsight:
+- [Escolha opções de armazenamento para o seu cluster Azure HDInsight](hdinsight-hadoop-compare-storage-options.md)
 
-https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-compare-storage-options
+- [Como configurar a redundância de armazenamento para contas de armazenamento Azure](../storage/common/storage-redundancy.md)
 
-Como configurar a redundância de armazenamento para as contas de armazenamento da Azure:
-
-https://docs.microsoft.com/azure/storage/common/storage-redundancy
-
-Como apoiar as chaves do Cofre chave em Azure:
-
-https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey
-
-**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
+- [Como apoiar chaves do Cofre chave em Azure](/powershell/module/az.keyvault/backup-azkeyvaultkey)
 
 **Responsabilidade**: Cliente
 
-### <a name="93-validate-all-backups-including-customer-managed-keys"></a>9.3: Validar todas as cópias de segurança, incluindo as chaves geridas pelo cliente
+**Monitorização do Centro de Segurança Azure**: Nenhum
 
-**Orientação**: Se o Azure Key Vault estiver a ser utilizado com a sua implantação Azure HDInsight, teste a restauração das teclas geridas pelo cliente.
+### <a name="93-validate-all-backups-including-customer-managed-keys"></a>9.3: Validar todas as cópias de segurança, incluindo chaves geridas pelo cliente
 
-Como trazer a sua própria chave para Apache Kafka em Azure HDInsight:
+**Orientação**: Se o Azure Key Vault estiver a ser utilizado com a sua implantação Azure HDInsight, teste a restauração de chaves geridas pelo cliente.
 
-https://docs.microsoft.com/azure/hdinsight/kafka/apache-kafka-byok
+- [Como trazer a sua própria chave para Apache Kafka em Azure HDInsight](/azure/hdinsight/kafka/apache-kafka-byok)
 
-Como restaurar as chaves do cofre chave em Azure:
-
-https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey
-
-**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
+- [Como restaurar chaves chave do cofre em Azure](/powershell/module/az.keyvault/restore-azkeyvaultkey)
 
 **Responsabilidade**: Cliente
+
+**Monitorização do Centro de Segurança Azure**: Nenhum
 
 ### <a name="94-ensure-protection-of-backups-and-customer-managed-keys"></a>9.4: Garantir a proteção das cópias de segurança e das chaves geridas pelo cliente
 
-**Orientação**: Se o Cofre da Chave Azure estiver a ser utilizado com a sua implantação Azure HDInsight, ative Soft-Delete no Cofre de Chaves para proteger as chaves contra a eliminação acidental ou maliciosa.
+**Orientação**: Se o Cofre da Chave Azure estiver a ser utilizado com a sua implementação Azure HDInsight, ative a eliminação suave no Cofre de Chaves para proteger as chaves contra a eliminação acidental ou maliciosa.
 
-Como permitir Soft-Delete no Cofre da Chave Azure:
-
-https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal
-
-**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
+- [Como permitir o soft delete Azure Key Vault](/azure/key-vault/key-vault-ovw-soft-delete)
 
 **Responsabilidade**: Cliente
+
+**Monitorização do Centro de Segurança Azure**: Nenhum
 
 ## <a name="incident-response"></a>Resposta a Incidentes
 
-*Para obter mais informações, consulte [Controlo de Segurança: Resposta a incidentes.](../security/benchmarks/security-control-incident-response.md)*
+*Para obter mais informações, veja [Referência de Segurança do Azure: Resposta a Incidentes](../security/benchmarks/security-control-incident-response.md).*
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1: Criar um guia de resposta a incidentes
 
-**Orientação**: Certifique-se de que existem planos escritos de resposta a incidentes que definem funções de pessoal, bem como fases de tratamento/gestão de incidentes.
+**Orientação**: Desenvolva um guia de resposta a incidentes para a sua organização. Certifique-se de que existem planos escritos de resposta a incidentes que definem todas as funções do pessoal, bem como as fases de tratamento e gestão de incidentes, desde a deteção até à revisão pós-incidente. 
 
-Como configurar automatizações de fluxo de trabalho dentro do Centro de Segurança Azure:
+- [Orientação para a construção do seu próprio processo de resposta a incidentes de segurança](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/) 
 
-https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide
+- [Anatomia de um incidente do Microsoft Security Response Center](https://msrc-blog.microsoft.com/2019/06/27/inside-the-msrc-anatomy-of-a-ssirp-incident/) 
 
-**Monitorização do Centro de Segurança do Azure**: Não aplicável
+- [Utilize o Guia de Tratamento de Incidentes de Segurança Informática da NIST para ajudar na criação do seu próprio plano de resposta a incidentes](https://csrc.nist.gov/publications/detail/sp/800-61/rev-2/final)
 
 **Responsabilidade**: Cliente
+
+**Monitorização do Centro de Segurança Azure**: Nenhum
 
 ### <a name="102-create-an-incident-scoring-and-prioritization-procedure"></a>10.2: Criar um procedimento de pontuação e priorização de incidentes
 
-**Orientação**: O Centro de Segurança atribui uma gravidade aos alertas, para o ajudar a priorizar a ordem em que atende a cada alerta, para que quando um recurso estiver comprometido, possa chegar imediatamente ao mesmo. A gravidade baseia-se na confiança que o Centro de Segurança está na descoberta ou no analítico utilizado para emitir o alerta, bem como no nível de confiança de que havia intenção maliciosa por trás da atividade que levou ao alerta.
-
-**Monitorização do Centro de Segurança do Azure**: Sim
+**Orientação**: O Centro de Segurança atribui uma gravidade aos alertas, para o ajudar a priorizar a ordem em que atende a cada alerta, para que quando um recurso estiver comprometido, possa chegar imediatamente ao mesmo. A gravidade baseia-se na confiança que o Centro de Segurança está na descoberta ou na análise usada para emitir o alerta, bem como no nível de confiança de que havia intenção maliciosa por trás da atividade que levou ao alerta.
 
 **Responsabilidade**: Cliente
+
+**Monitorização do Centro de Segurança Azure**: Nenhum
 
 ### <a name="103-test-security-response-procedures"></a>10.3: Procedimentos de resposta à segurança do teste
 
-**Orientação**: Realize exercícios para testar as capacidades de resposta a incidentes dos seus sistemas numa cadência regular. Identifique pontos fracos e lacunas e reveja o plano conforme necessário. Consulte a publicação do NIST: Guide to Test, Training e Exercise Programs for IT Plans and Capabilities:https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf
+**Orientação**: Realize exercícios para testar as capacidades de resposta a incidentes dos seus sistemas numa cadência regular. Identifique pontos fracos e lacunas e reavalie o plano, conforme necessário.
 
-**Monitorização do Centro de Segurança do Azure**: Não aplicável
+- [Consulte a publicação do NIST: Guia para testar, treinar e exercitar programas para planos e capacidades de TI](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf)
 
 **Responsabilidade**: Cliente
+
+**Monitorização do Centro de Segurança Azure**: Nenhum
 
 ### <a name="104-provide-security-incident-contact-details-and-configure-alert-notifications-for-security-incidents"></a>10.4: Fornecer dados de contacto com incidentes de segurança e configurar notificações de alerta para incidentes de segurança
 
 **Orientação**: As informações de contacto com incidentes de segurança serão utilizadas pela Microsoft para o contactar se o Microsoft Security Response Center (MSRC) descobrir que os seus dados foram acedidos por uma parte ilegal ou não autorizada.
 
-Como definir o Contacto de Segurança do Centro de Segurança Azure:
-
-https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details
-
-**Monitorização do Centro de Segurança do Azure**: Sim
+- [Como definir o Contacto de Segurança do Centro de Segurança Azure](../security-center/security-center-provide-security-contact-details.md)
 
 **Responsabilidade**: Cliente
+
+**Monitorização do Centro de Segurança Azure**: Nenhum
 
 ### <a name="105-incorporate-security-alerts-into-your-incident-response-system"></a>10.5: Incorporar alertas de segurança no seu sistema de resposta a incidentes
 
 **Orientação**: Exporte os alertas e recomendações do Centro de Segurança Azure utilizando a função exportação contínua. A Exportação Contínua permite-lhe exportar alertas e recomendações manualmente ou de forma contínua e contínua. Pode utilizar o conector de dados do Azure Security Center para transmitir os alertas ao Azure Sentinel.
 
-Como configurar a exportação contínua:
+- [Como configurar a exportação contínua](../security-center/continuous-export.md)
 
-https://docs.microsoft.com/azure/security-center/continuous-export
-
-Como transmitir alertas para Azure Sentinel:
-
-https://docs.microsoft.com/azure/sentinel/connect-azure-security-center
-
-**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
+- [Como transmitir alertas para o Azure Sentinel](../sentinel/connect-azure-security-center.md)
 
 **Responsabilidade**: Cliente
+
+**Monitorização do Centro de Segurança Azure**: Nenhum
 
 ### <a name="106-automate-the-response-to-security-alerts"></a>10.6: Automatizar a resposta aos alertas de segurança
 
 **Orientação**: Utilize a função de automatização do fluxo de trabalho no Centro de Segurança Azure para desencadear automaticamente respostas através de "Aplicações Lógicas" em alertas e recomendações de segurança.
 
-Como configurar a automatização do fluxo de trabalho e as aplicações lógicas:
-
-https://docs.microsoft.com/azure/security-center/workflow-automation
-
-**Monitorização do Centro de Segurança do Azure**: Não disponível atualmente
+- [Como configurar a automatização do fluxo de trabalho e as aplicações lógicas](../security-center/workflow-automation.md)
 
 **Responsabilidade**: Cliente
 
+**Monitorização do Centro de Segurança Azure**: Nenhum
+
 ## <a name="penetration-tests-and-red-team-exercises"></a>Testes de Penetração e Exercícios de Red Team
 
-*Para obter mais informações, consulte [Controlo de Segurança: Testes de penetração e exercícios da equipa vermelha.](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md)*
+*Para obter mais informações, consulte o [Azure Security Benchmark: Testes de penetração e exercícios da equipa vermelha](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md).*
 
-### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings-within-60-days"></a>11.1: Realizar testes regulares de penetração dos seus recursos Azure e garantir a reparação de todos os resultados críticos de segurança no prazo de 60 dias
+### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11.1: Realizar testes regulares de penetração dos seus recursos Azure e garantir a reparação de todas as conclusões críticas de segurança
 
-**Orientação**: Siga as Regras de Engajamento da Microsoft para garantir que os seus Testes de Penetração não violam as políticas da Microsoft:
+**Orientação**: Siga as regras de teste de penetração da Microsoft cloud para garantir que os seus testes de penetração não violam as políticas da Microsoft. Utilize a estratégia e a execução de "Equipas de Ataque" e os testes de penetração no local em direto da Microsoft na infraestrutura, nos serviços e nas aplicações cloud geridas pela Microsoft. 
 
-https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1.
+- [Regras de Interação para os Testes de Penetração](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1) 
 
-Pode encontrar mais informações sobre a estratégia e execução da Red Teaming e testes de penetração em sites ao vivo contra infraestruturas, serviços e aplicações geridos pela Microsoft na nuvem, aqui: https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
-
-**Monitorização do Centro de Segurança do Azure**: Não aplicável
+- ["Equipa de Ataque" da Microsoft Cloud](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
 **Responsabilidade**: Partilhada
 
+**Monitorização do Centro de Segurança Azure**: Nenhum
+
 ## <a name="next-steps"></a>Passos seguintes
 
-- Consulte o [Azure Security Benchmark](../security/benchmarks/overview.md)
-- Saiba mais sobre [as Linhas de Base de Segurança Azure](../security/benchmarks/security-baselines-overview.md)
+- Veja a [Descrição geral da Referência de Segurança do Azure v2](/azure/security/benchmarks/overview)
+- Saiba mais sobre as [linhas de base de segurança do Azure](/azure/security/benchmarks/security-baselines-overview)

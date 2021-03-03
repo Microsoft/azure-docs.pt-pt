@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/05/2020
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 843d0b8cfd75e8cbdf45ac535cc9486aa42442d6
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 56e35c23eacdf98db283ba5d8c2e32687cbe0ea8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "91761837"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101740907"
 ---
 # <a name="tutorial-configure-a-virtual-network-gateway-for-expressroute-using-the-azure-portal"></a>Tutorial: Configurar uma porta de rede virtual para ExpressRoute usando o portal Azure
 > [!div class="op_single_selector"]
@@ -50,6 +50,11 @@ Os passos para esta tarefa utilizam um VNet com base nos valores da seguinte lis
 
 Pode ver um [vídeo](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-vpn-gateway-for-your-virtual-network) destes passos antes de iniciar a sua configuração.
 
+> [!IMPORTANT]
+> O apoio iPv6 ao peering privado está atualmente em **Visualização Pública**. Se quiser ligar a sua rede virtual a um circuito ExpressRoute com o espresto privado com base no IPv6, certifique-se de que a sua rede virtual é dupla pilha e segue as diretrizes para o [IPv6 para Azure VNet](https://docs.microsoft.com/azure/virtual-network/ipv6-overview).
+> 
+> 
+
 ## <a name="create-the-gateway-subnet"></a>Criar a sub-rede de gateway
 
 1. No [portal,](https://portal.azure.com)navegue para a rede virtual Do Gestor de Recursos para a qual pretende criar um gateway de rede virtual.
@@ -58,9 +63,13 @@ Pode ver um [vídeo](https://azure.microsoft.com/documentation/videos/azure-expr
    
     :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/add-gateway-subnet.png" alt-text="Adicionar a sub-rede do gateway":::
 
-1. O **Nome** da sub-rede é preenchido automaticamente com o valor "GatewaySubnet". Este valor é obrigatório para que o Azure reconheça a sub-rede como a sub-rede do gateway. Ajuste os valores de **gama de endereços** preenchidos automaticamente de modo a corresponder aos seus requisitos de configuração. Recomendamos a criação de uma sub-rede de gateway com um /27 ou maior (/26, /25, e assim por diante.). Em seguida, selecione **OK** para guardar os valores e criar a sub-rede gateway.
+1. O **Nome** da sub-rede é preenchido automaticamente com o valor "GatewaySubnet". Este valor é obrigatório para que o Azure reconheça a sub-rede como a sub-rede do gateway. Ajuste os valores de **gama de endereços** preenchidos automaticamente de modo a corresponder aos seus requisitos de configuração. Recomendamos a criação de uma sub-rede de gateway com um /27 ou maior (/26, /25, e assim por diante.).
 
-    :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/add-subnet-gateway.png" alt-text="Adicionar a sub-rede":::
+    Se estiver a utilizar uma rede virtual de pilha dupla e planeie utilizar o peering privado baseado no IPv6 sobre o ExpressRoute, clique em **Adicionar espaço de endereço IP6** e inserir valores de intervalo de **endereços IPv6.**
+
+Em seguida, selecione **OK** para guardar os valores e criar a sub-rede gateway.
+
+    :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/add-subnet-gateway.png" alt-text="Adding the subnet":::
 
 ## <a name="create-the-virtual-network-gateway"></a>Criar o gateway de rede virtual
 
@@ -72,12 +81,17 @@ Pode ver um [vídeo](https://azure.microsoft.com/documentation/videos/azure-expr
     | Subscrição | Verifique se a subscrição correta está selecionada. |
     | Grupo de Recursos | O grupo de recursos será automaticamente escolhido assim que selecionar a rede virtual. | 
     | Name | Diga o seu portal. Isto não é o mesmo que nomear uma sub-rede de gateway. É o nome do objeto de porta de entrada que estás a criar.|
-    | Região | Altere o campo **Região** para indicar o local onde está localizada a sua rede virtual. Se a localização não estiver a apontar para a região onde está a sua rede virtual, a rede virtual não aparecerá no dropdown 'Escolha uma rede virtual'. |
+    | Region | Altere o campo **Região** para indicar o local onde está localizada a sua rede virtual. Se a localização não estiver a apontar para a região onde está a sua rede virtual, a rede virtual não aparecerá no dropdown 'Escolha uma rede virtual'. |
     | Tipo de gateway | Selecione **ExpressRoute**|
     | SKU | Selecione o gateway SKU a partir do dropdown. |
     | Rede virtual | Selecione *TestVNet*. |
     | Endereço IP público | Selecione **Criar novo**.|
     | Nome do endereço IP público | Forneça um nome para o endereço IP público. |
+
+    > [!IMPORTANT]
+    > Se planeia utilizar o peering privado baseado no IPv6 sobre o ExpressRoute, certifique-se de selecionar um AZ SKU (ErGw1AZ, ErGw2AZ, ErGw3AZ) para **SKU**.
+    > 
+    > 
 
 1. Selecione **'Rever + Criar'** e, em seguida, **criar** para começar a criar o gateway. As definições são validadas e o gateway será implementado. A criação de uma porta de rede virtual pode demorar até 45 minutos para ser concluída.
 

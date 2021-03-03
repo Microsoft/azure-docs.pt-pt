@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c59e164d67a665a5e99cb5045b3b0cf38e33dc87
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: ec04000e678cd3fc55f4681781f91b6d98ea41f5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100364278"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101730869"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Processar conjuntos de dados em larga escala utilizando a Data Factory e o Batch
 > [!NOTE]
@@ -575,9 +575,7 @@ Neste passo, cria um serviço ligado para a sua conta Batch que é utilizado par
    d. Introduza o lote URI para a propriedade **batchUri** JSON.
 
       > [!IMPORTANT]
-      > O URL da lâmina **de conta de lote** está no seguinte formato: \<accountname\> \<region\> . batch.azure.com. Para a propriedade **batchUri** no script JSON, você precisa remover o nome de conta a88." ** da URL. Um exemplo é `"batchUri": "https://eastus.batch.azure.com"`.
-      >
-      >
+      > O URL da lâmina **de conta de lote** encontra-se no seguinte formato: `<accountname>.<region>.batch.azure.com` . Para a `batchUri` propriedade no script JSON, você precisa remover `<accountname>.` do URL. Um exemplo é `"batchUri": "https://eastus.batch.azure.com"`.
 
       ![Lâmina de conta de lote](./media/data-factory-data-processing-using-batch/image9.png)
 

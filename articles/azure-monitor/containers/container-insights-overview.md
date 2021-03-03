@@ -1,18 +1,18 @@
 ---
-title: Visão geral do Monitor Azure para contentores | Microsoft Docs
-description: Este artigo descreve o Azure Monitor para recipientes que monitorizam a solução AKS Container Insights e o valor que fornece através da monitorização da saúde dos seus agrupamentos AKS e Instâncias de Contentores em Azure.
+title: Visão geral dos insights do contentor | Microsoft Docs
+description: Este artigo descreve insights de contentores que monitorizam a solução AKS Container Insights e o valor que fornece através da monitorização da saúde dos seus clusters AKS e Instâncias de Contentores em Azure.
 ms.topic: conceptual
 ms.date: 09/08/2020
-ms.openlocfilehash: a9b9e155884b20c19b9b82994a3b9b1bdf53f27a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 1055e2228c6625ae24e6bf388cf297e3e3363666
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100621191"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723389"
 ---
-# <a name="azure-monitor-for-containers-overview"></a>Descrição geral do Azure Monitor para contentores
+# <a name="container-insights-overview"></a>Visão geral do contentor
 
-O Azure Monitor para contentores é uma característica concebida para monitorizar o desempenho das cargas de trabalho dos contentores implantadas para:
+Os insights do contentor são uma característica concebida para monitorizar o desempenho das cargas de trabalho dos contentores implantadas para:
 
 - Agrupamentos geridos de Kubernetes hospedados no [Serviço Azure Kubernetes (AKS)](../../aks/intro-kubernetes.md)
 - Clusters Kubernetes auto-geridos hospedados em Azure usando [motor AKS](https://github.com/Azure/aks-engine)
@@ -21,17 +21,17 @@ O Azure Monitor para contentores é uma característica concebida para monitoriz
 - [Azure Red Hat OpenShift](../../openshift/intro-openshift.md)
 - [Azure Arc ativou Kubernetes](../../azure-arc/kubernetes/overview.md) (pré-visualização)
 
-O Azure Monitor para contentores suporta clusters que executam o sistema operativo Linux e Windows Server 2019. Os tempos de funcionação do contentor que suporta são Docker, Moby, e qualquer tempo de execução compatível com CRI como CRI-O e ContainerD.
+Os insights de contentores suportam clusters que executam o sistema operativo Linux e Windows Server 2019. Os tempos de funcionação do contentor que suporta são Docker, Moby, e qualquer tempo de execução compatível com CRI como CRI-O e ContainerD.
 
 Monitorizar os seus contentores é fundamental, especialmente quando se está a executar um cluster de produção, em escala, com múltiplas aplicações.
 
-O Azure Monitor para recipientes dá-lhe visibilidade de desempenho recolhendo métricas de memória e processador de controladores, nós e recipientes disponíveis em Kubernetes através da API métricas. Os registos do contentor também são recolhidos.  Depois de ativar a monitorização dos clusters kubernetes, as métricas e os registos são automaticamente recolhidos para si através de uma versão contentorizada do agente Log Analytics para o Linux. As métricas são escritas para a loja de métricas e os dados de registo são escritos na loja de registos associados ao seu espaço de trabalho [Log Analytics.](../log-query/log-query-overview.md)
+As introspeções de recipientes dão-lhe visibilidade de desempenho recolhendo métricas de memória e processador de controladores, nós e contentores disponíveis em Kubernetes através da API métricas. Os registos do contentor também são recolhidos.  Depois de ativar a monitorização dos clusters kubernetes, as métricas e os registos são automaticamente recolhidos para si através de uma versão contentorizada do agente Log Analytics para o Linux. As métricas são escritas para a loja de métricas e os dados de registo são escritos na loja de registos associados ao seu espaço de trabalho [Log Analytics.](../logs/log-query-overview.md)
 
-![Monitor Azure para arquitetura de contentores](./media/container-insights-overview/azmon-containers-architecture-01.png)
+![Arquitetura de insights de contentores](./media/container-insights-overview/azmon-containers-architecture-01.png)
 
-## <a name="what-does-azure-monitor-for-containers-provide"></a>O que o Azure Monitor fornece para os contentores?
+## <a name="what-does-container-insights-provide"></a>O que os insights do contentor fornecem?
 
-O Azure Monitor para contentores proporciona uma experiência de monitorização abrangente utilizando diferentes características do Azure Monitor. Estas funcionalidades permitem-lhe compreender o desempenho e a saúde do seu cluster Kubernetes que executa o sistema operativo Linux e Windows Server 2019 e as cargas de trabalho dos contentores. Com o Azure Monitor para contentores, pode:
+Os conhecimentos do contentor proporcionam uma experiência de monitorização abrangente utilizando diferentes características do Azure Monitor. Estas funcionalidades permitem-lhe compreender o desempenho e a saúde do seu cluster Kubernetes que executa o sistema operativo Linux e Windows Server 2019 e as cargas de trabalho dos contentores. Com insights do contentor pode:
 
 * Identifique os recipientes AKS que estão a funcionar no nó e o seu processador médio e utilização da memória. Este conhecimento pode ajudá-lo a identificar estrangulamentos de recursos.
 * Identifique o processador e a utilização da memória dos grupos de contentores e dos seus contentores alojados em Instâncias de Contentores Azure.
@@ -56,19 +56,18 @@ As principais diferenças na monitorização de um cluster do Windows Server em 
 - Apenas ambientes de pod são monitorizados, não ambientes Docker.
 - Com o lançamento da pré-visualização, um máximo de 30 contentores do Windows Server são suportados. Esta limitação não se aplica aos contentores Linux.
 
-Confira o seguinte vídeo que proporciona um mergulho profundo de nível intermédio para ajudá-lo a aprender sobre a monitorização do seu cluster AKS com o Azure Monitor para recipientes.
+Confira o seguinte vídeo que proporciona um mergulho profundo de nível intermédio para ajudá-lo a aprender sobre a monitorização do seu cluster AKS com insights de Contentores.
 
-> [!VIDEO https://www.youtube.com/embed/RjsNmapggPU]
+> [!VIDEO https://youtu.be/XEdwGvS2AwA]
 
 ## <a name="how-do-i-access-this-feature"></a>Como acesso a esta funcionalidade?
 
-Pode aceder ao Azure Monitor para obter recipientes de duas maneiras, a partir do Azure Monitor ou diretamente do cluster AKS selecionado. A partir do Azure Monitor, tem uma perspetiva global de todos os recipientes implantados, que são monitorizados e que não são, permitindo-lhe pesquisar e filtrar através das suas assinaturas e grupos de recursos, e depois perfurar no Azure Monitor para obter recipientes a partir do recipiente selecionado.  Caso contrário, pode aceder diretamente à funcionalidade a partir de um recipiente AKS selecionado a partir da página AKS.
+Pode aceder ao Container insights de duas maneiras, a partir do Azure Monitor ou diretamente do cluster AKS selecionado. A partir do Azure Monitor, tem uma perspetiva global de todos os recipientes implantados, que são monitorizados e que não são, permitindo-lhe pesquisar e filtrar através das suas assinaturas e grupos de recursos, e depois perfurar as informações do Contentor a partir do recipiente selecionado.  Caso contrário, pode aceder diretamente à funcionalidade a partir de um recipiente AKS selecionado a partir da página AKS.
 
-![Panorâmica dos métodos de acesso ao Monitor Azure para contentores](./media/container-insights-overview/azmon-containers-experience.png)
+![Visão geral dos métodos de acesso aos insights do contentor](./media/container-insights-overview/azmon-containers-experience.png)
 
-Se estiver interessado em monitorizar e gerir os seus anfitriões de contentores Docker e Windows que estão fora da AKS para visualizar a configuração, auditoria e utilização de recursos, consulte a [solução de Monitorização](../insights/containers.md)do Contentor .
+Se estiver interessado em monitorizar e gerir os seus anfitriões de contentores Docker e Windows que estão fora da AKS para visualizar a configuração, auditoria e utilização de recursos, consulte a [solução de Monitorização](./containers.md)do Contentor .
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para começar a monitorizar o seu cluster Kubernetes, [reveja como permitir que o Monitor Azure para os recipientes](container-insights-onboard.md) compreendam os requisitos e métodos disponíveis para permitir a monitorização.
-
+Para começar a monitorizar o seu cluster Kubernetes, [reveja como permitir que os insights](container-insights-onboard.md) do Contentor compreendam os requisitos e métodos disponíveis para permitir a monitorização.

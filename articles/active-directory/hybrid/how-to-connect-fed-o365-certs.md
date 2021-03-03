@@ -1,5 +1,5 @@
 ---
-title: Renovação de certificados para utilizadores microsoft 365 e AD Azure Microsoft Docs
+title: Renovação de certificados para utilizadores de AD Microsoft 365 e Azure | Microsoft Docs
 description: Este artigo explica aos utilizadores da Microsoft 365 como resolver problemas com e-mails que os notificam sobre a renovação de um certificado.
 services: active-directory
 documentationcenter: ''
@@ -16,15 +16,15 @@ ms.date: 10/20/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 78dcd9d020923251439a05316569b559c19057d1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: effdd156858caf5717aac92433e8bc5f4f6147ad
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89661457"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101686874"
 ---
 # <a name="renew-federation-certificates-for-microsoft-365-and-azure-active-directory"></a>Renovar certificados da federação para Microsoft 365 e Azure Ative Directory
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 Para uma federação bem sucedida entre o Azure Ative Directory (Azure AD) e o Ative Directory Federation Services (AD FS), os certificados utilizados pela AD FS para assinar fichas de segurança para a Azure AD devem corresponder ao que está configurado no Azure AD. Qualquer incompatibilidade pode levar a uma quebra de confiança. O Azure AD garante que estas informações são mantidas sincronizadas quando implementa o AD FS e o Proxy da Aplicação Web (para acesso à extranet).
 
 Este artigo fornece-lhe informações adicionais para gerir os seus certificados de assinatura simbólica e mantê-los em sintonia com a Azure AD, nos seguintes casos:
@@ -157,7 +157,7 @@ Por outro lado, se o **AutoCertificateRollover** estiver definido para **True**,
    >
 3. Veja a saída de comando em quaisquer certificados listados. Se a AD FS tiver gerado um novo certificado, deverá ver dois certificados na saída: um para o qual o valor **Do IsPrimary** é **Verdadeiro** e a data **notAfter** é dentro de 5 dias, e um para o qual **o IsPrimary** é **Falso** e **NotAfter** é de cerca de um ano no futuro.
 4. Se vir apenas um certificado, e a data **"Não Depois"** for dentro de 5 dias, terá de gerar um novo certificado.
-5. Para gerar um novo certificado, execute o seguinte comando num pedido de comando PowerShell: `PS C:\>Update-ADFSCertificate –CertificateType token-signing` .
+5. Para gerar um novo certificado, execute o seguinte comando num pedido de comando PowerShell: `PS C:\Update-ADFSCertificate –CertificateType token-signing` .
 6. Verifique novamente a atualização executando o seguinte comando: PS C: \> Get-ADFSCertificate –CertificateType token-signing
 
 Dois certificados devem ser listados agora, um dos quais tem uma data **de NotAfter** de aproximadamente um ano no futuro, e para o qual o valor Do Ensino **Superior** é **Falso**.

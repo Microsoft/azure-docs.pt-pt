@@ -1,5 +1,5 @@
 ---
-title: Pipeline CI/CD com Azure DevOps Starter - Azure IoT Edge / Microsoft Docs
+title: Pipeline CI/CD com Azure DevOps Starter - Azure IoT Edge | Microsoft Docs
 description: O Azure DevOps Starter facilita o arranque do Azure. Ajuda-o a lançar uma aplicação Azure IoT Edge à sua escolha em poucos passos rápidos.
 author: kgremban
 ms.author: kgremban
@@ -7,12 +7,12 @@ ms.date: 08/25/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 97dc0fe5a3720a41dd63583c222762d832d636ea
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: 933ddfb5fa5d58231e954dfd54bcc069b53dfe56
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96437002"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101721519"
 ---
 # <a name="create-a-cicd-pipeline-for-iot-edge-with-azure-devops-starter"></a>Criar um pipeline CI/CD para IoT Edge com Azure DevOps Starter
 
@@ -29,6 +29,16 @@ DevOps Starter cria um oleoduto CI/CD em Azure DevOps. Pode criar uma nova organ
 1. No painel esquerdo, **selecione Criar um recurso** e, em seguida, procurar por **DevOps Starter**.  
 
 1. Selecione **Criar**.
+
+1. Por padrão, o DevOps Starter é configurado com GitHub. Para utilizar as funcionalidades deste como fazer, troque o DevOps Starter para configurar utilizando Azure DevOps. Siga as **definições** de alteração aqui link.
+
+   ![Selecione configurações de alteração aqui para mudar de GitHub para Azure DevOps](./media/how-to-devops-starter/create-with-github-change-settings.png)
+
+1. No painel direito, escolha o azulejo **Azure DevOps** e selecione **Feito**.
+
+   ![Selecione Azure DevOps para configurar o seu DevOps Starter](./media/how-to-devops-starter/select-azure-devops.png)
+
+   Deve agora ver se o DevOps Starter está a preparar-se com a Azure DevOps.
 
 ## <a name="create-a-new-application-pipeline"></a>Criar um novo pipeline de aplicações
 

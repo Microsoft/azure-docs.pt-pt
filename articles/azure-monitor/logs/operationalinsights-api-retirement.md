@@ -6,17 +6,17 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/29/2020
-ms.openlocfilehash: 6564e7263639f0a78df6f2674ce7a4b610fb0fc1
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 03e534564b4a32f112c2aaff44a187b10eb2a537
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100617482"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723117"
 ---
 # <a name="operationalinsights-api-version-retirement"></a>OperacionalInsights API versão reforma
 A Microsoft fornece a notificação com pelo menos 12 meses de antecedência para retirar uma API de forma a suavizar a transição para uma versão mais recente/suportada. Lançámos uma nova versão (2020-08-01) para o fornecedor de recursos **OperationalInsights** APIs e reformaremos quaisquer versões anteriores da API a 29 de fevereiro de 2024.
 
-Encorajamo-lo a começar a usar a versão 2020-08-01 agora para obter os benefícios de novas funcionalidades, tais como [cluster dedicado,](../log-query/logs-dedicated-clusters.md) [chaves geridas pelo cliente,](../logs/customer-managed-keys.md) [link privado](./private-link-security.md) e exportação de [dados.](./logs-data-export.md) Além disso, novas funcionalidades e funcionalidades e otimizações são adicionadas apenas à API atual.
+Encorajamo-lo a começar a usar a versão 2020-08-01 agora para obter os benefícios de novas funcionalidades, tais como [cluster dedicado,](./logs-dedicated-clusters.md) [chaves geridas pelo cliente,](../logs/customer-managed-keys.md) [link privado](./private-link-security.md) e exportação de [dados.](./logs-data-export.md) Além disso, novas funcionalidades e funcionalidades e otimizações são adicionadas apenas à API atual.
 
 Depois de 29 de fevereiro de 2024, o Azure Monitor deixará de suportar versões APIs anteriores do que 2020-08-01. Se preferir não fazer upgrade, os pedidos enviados de versões anteriores continuarão a ser servidos pelo serviço Azure Monitor até 29 de fevereiro de 2024.
 

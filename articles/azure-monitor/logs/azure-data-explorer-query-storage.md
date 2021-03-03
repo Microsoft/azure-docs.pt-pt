@@ -7,12 +7,12 @@ ms.author: bwren
 ms.reviewer: bwren
 ms.topic: conceptual
 ms.date: 10/13/2020
-ms.openlocfilehash: 5a26e5d045be78772ee5dc940fcfecd3cfde9dc7
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: f24947eba71588d8b97afafea35f9a0bcab33c86
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100618521"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711013"
 ---
 # <a name="query-exported-data-from-azure-monitor-using-azure-data-explorer-preview"></a>Consulta dados exportados do Azure Monitor usando Azure Data Explorer (pré-visualização)
 A exportação de dados do Azure Monitor para uma conta de armazenamento Azure permite a retenção de baixo custo e a capacidade de realocar registos para diferentes regiões. Utilize o Azure Data Explorer para consultar dados que foram exportados dos seus espaços de trabalho Log Analytics. Uma vez configuradas, as tabelas suportadas que são enviadas dos seus espaços de trabalho para uma conta de armazenamento Azure estarão disponíveis como fonte de dados para o Azure Data Explorer.
@@ -30,9 +30,9 @@ O fluxo de processo é o seguinte:
 ## <a name="send-data-to-azure-storage"></a>Enviar dados para o armazenamento da Azure
 Os registos do Azure Monitor podem ser exportados para uma Conta de Armazenamento Azure utilizando qualquer uma das seguintes opções.
 
-- Para exportar todos os dados do seu espaço de trabalho Log Analytics para uma conta de armazenamento Azure ou centro de eventos, utilize a funcionalidade de exportação de dados do log Analytics do Monitor Azure. Ver [Log Analytics exportação de dados do espaço de trabalho no Azure Monitor (pré-visualização)](../platform/logs-data-export.md)
-- Exportação programada de uma consulta de log utilizando uma App Lógica. Isto é semelhante ao recurso de exportação de dados, mas permite-lhe enviar dados filtrados ou agregados para o armazenamento do Azure. Este método, no entanto, está sujeito a [limites](../service-limits.md#log-analytics-workspaces)  de consulta de log Ver [dados do Arquivo do Log Analytics para o armazenamento Azure usando a Logic App](../platform/logs-export-logic-app.md).
-- Uma vez exportar usando uma App Lógica. Consulte [o conector de registos Azure Monitor para aplicações lógicas e automatização de energia](../platform/logicapp-flow-connector.md).
+- Para exportar todos os dados do seu espaço de trabalho Log Analytics para uma conta de armazenamento Azure ou centro de eventos, utilize a funcionalidade de exportação de dados do log Analytics do Monitor Azure. Ver [Log Analytics exportação de dados do espaço de trabalho no Azure Monitor (pré-visualização)](./logs-data-export.md)
+- Exportação programada de uma consulta de log utilizando uma App Lógica. Isto é semelhante ao recurso de exportação de dados, mas permite-lhe enviar dados filtrados ou agregados para o armazenamento do Azure. Este método, no entanto, está sujeito a [limites](../service-limits.md#log-analytics-workspaces)  de consulta de log Ver [dados do Arquivo do Log Analytics para o armazenamento Azure usando a Logic App](./logs-export-logic-app.md).
+- Uma vez exportar usando uma App Lógica. Consulte [o conector de registos Azure Monitor para aplicações lógicas e automatização de energia](./logicapp-flow-connector.md).
 - Uma vez exporta para máquina local usando o script PowerShell. Consulte [Invoke-AzOperationalInsightsQueryExport](https://www.powershellgallery.com/packages/Invoke-AzOperationalInsightsQueryExport).
 
 > [!TIP]

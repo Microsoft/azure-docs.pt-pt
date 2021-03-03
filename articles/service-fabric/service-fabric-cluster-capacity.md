@@ -4,12 +4,12 @@ description: Tipos de nó, durabilidade, fiabilidade e outras coisas a ter em co
 ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: pepogors
-ms.openlocfilehash: 03ec9b411f13f22a74b864a745acfed922e78b12
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: b3361337bb0cf60e47efe198aad7aa8cc20ae7b3
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98790703"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101714940"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Considerações de planeamento da capacidade do cluster de tecidos de serviço
 
@@ -39,21 +39,21 @@ O tipo de nó primário é configurado utilizando o `isPrimary` atributo sob a d
 
 O número de tipos de nós iniciais depende da finalidade do seu agrupamento e das aplicações e serviços que o executam. Considere as perguntas seguintes:
 
-* ***A sua aplicação tem vários serviços, e algum deles precisa de ser público ou com a internet?** _
+* ***A sua aplicação tem vários serviços, e algum deles precisa de ser público ou com a internet?***
 
     As aplicações típicas contêm um serviço de gateway frontal que recebe entrada de um cliente, e um ou mais serviços de back-end que comunicam com os serviços front-end, com ligação em rede separada entre os serviços front-end e back-end. Estes casos normalmente requerem três tipos de nó: um tipo de nó primário e dois tipos de nó não primário (um para o serviço frontal e traseiro).
 
-_ ***Os serviços que compõem a sua aplicação têm diferentes necessidades de infraestrutura, tais como ciclos de RAM maiores ou ciclos de CPU mais elevados?** _
+* ***Os serviços que compõem a sua aplicação têm diferentes necessidades de infraestrutura, como maiores ciclos de RAM ou CPU mais elevados?***
 
-    Often, front-end service can run on smaller VMs (VM sizes like D2) that have ports open to the internet.  Computationally intensive back-end services might need to run on larger VMs (with VM sizes like D4, D6, D15) that are not internet-facing. Defining different node types for these services allow you to make more efficient and secure use of underlying Service Fabric VMs, and enables them to scale them independently. For more on estimating the amount of resources you'll need, see [Capacity planning for Service Fabric applications](service-fabric-capacity-planning.md)
+    Muitas vezes, o serviço frontal pode funcionar em VMs menores (tamanhos VM como D2) que têm portas abertas para a internet.  Os serviços de back-end computacionalmente intensivos podem ter de funcionar em VMs maiores (com tamanhos VM como D4, D6, D15) que não são virados para a Internet. A definição de diferentes tipos de nós para estes serviços permite-lhe fazer uma utilização mais eficiente e segura dos VMs de tecido de serviço subjacentes, e permite-lhes dimensioná-los de forma independente. Para obter mais informações sobre a quantidade de recursos que precisará, consulte [o planeamento da capacidade para aplicações de Tecidos de Serviço](service-fabric-capacity-planning.md)
 
-_ ***Algum dos seus serviços de candidatura terá de ultrapassar os 100 nós?** _
+* ***Algum dos seus serviços de candidatura terá de ultrapassar os 100 nós?***
 
-    A single node type can't reliably scale beyond 100 nodes per virtual machine scale set for Service Fabric applications. Running more than 100 nodes requires additional virtual machine scale sets (and therefore additional node types).
+    Um único tipo de nó não pode escalar de forma fiável para além de 100 nós por escala de máquina virtual definida para aplicações de Tecido de Serviço. A execução de mais de 100 nós requer conjuntos de escala de máquinas virtuais adicionais (e, portanto, tipos adicionais de nós).
 
-_ ***O seu cluster irá percorrer as Zonas de Disponibilidade?** _
+* ***O seu cluster vai percorrer as Zonas de Disponibilidade?***
 
-    Service Fabric supports clusters that span across [Availability Zones](../availability-zones/az-overview.md) by deploying node types that are pinned to specific zones, ensuring high-availability of your applications. Availability Zones require additional node type planning and minimum requirements. For details, see [Recommended topology for primary node type of Service Fabric clusters spanning across Availability Zones](service-fabric-cross-availability-zones.md#recommended-topology-for-primary-node-type-of-azure-service-fabric-clusters-spanning-across-availability-zones). 
+    O Service Fabric suporta clusters que se estendem por [zonas de disponibilidade,](../availability-zones/az-overview.md) implantando tipos de nós que estão presos a zonas específicas, garantindo uma elevada disponibilidade das suas aplicações. As Zonas de Disponibilidade requerem planeamento adicional do tipo de nó e requisitos mínimos. Para mais detalhes, consulte [topologia recomendada para o tipo de nó primário de conjuntos de tecido de serviço que se estendem por zonas de disponibilidade.](service-fabric-cross-availability-zones.md#recommended-topology-for-primary-node-type-of-azure-service-fabric-clusters-spanning-across-availability-zones) 
 
 Ao determinar o número e as propriedades dos tipos de nós para a criação inicial do seu cluster, tenha em mente que pode sempre adicionar, modificar ou remover tipos de nó (não primários) uma vez que o seu cluster é implantado. [Os tipos de nó primários também podem ser modificados](service-fabric-scale-up-primary-node-type.md) em clusters de execução (embora tais operações exijam muito planeamento e cautela em ambientes de produção).
 
@@ -61,7 +61,7 @@ Uma outra consideração para as propriedades do tipo nó é o nível de durabil
 
 ## <a name="durability-characteristics-of-the-cluster"></a>Características de durabilidade do cluster
 
-O nível _durability* designa os privilégios que os seus VMs de tecido de serviço têm com a infraestrutura Azure subjacente. Este privilégio permite que o Service Fabric faça uma pausa em qualquer pedido de infraestrutura de nível VM (como reiniciar, reimagem ou migração) que impacte os requisitos do quórum para os serviços de sistema service fabric e seus serviços estatais.
+O *nível de durabilidade* designa os privilégios que os seus VMs de tecido de serviço têm com a infraestrutura Azure subjacente. Este privilégio permite que o Service Fabric faça uma pausa em qualquer pedido de infraestrutura de nível VM (como reiniciar, reimagem ou migração) que impacte os requisitos do quórum para os serviços de sistema service fabric e seus serviços estatais.
 
 > [!IMPORTANT]
 > O nível de durabilidade é definido por tipo de nó. Se não houver nenhuma especificada, o nível *de bronze* será usado, no entanto não fornece upgrades automáticos de SO. *A* durabilidade prateada ou *dourada* é recomendada para cargas de trabalho de produção.
@@ -73,6 +73,9 @@ A tabela abaixo lista os níveis de durabilidade do Tecido de Serviço, os seus 
 | Gold             | 5                              | Tamanhos de nó completo dedicados a um único cliente (por exemplo, L32s, GS5, G5, DS15_v2, D15_v2) | Pode ser adiado até ser aprovado pelo cluster de Tecido de Serviço | Pode ser pausado por 2 horas por domínio de upgrade para permitir que as réplicas recuperem de falhas anteriores |
 | Silver           | 5                              | VMs de núcleo único ou superior com pelo menos 50 GB de SSD local                      | Pode ser adiado até ser aprovado pelo cluster de Tecido de Serviço | Não pode ser adiado por um período significativo de tempo                                                    |
 | Bronze          | 1                              | VMs com pelo menos 50 GB de SSD local                                              | Não será adiado pelo cluster de tecido de serviço           | Não pode ser adiado por um período significativo de tempo                                                    |
+
+> [!NOTE]
+> O número mínimo de VM acima mencionado é um requisito necessário para cada nível de durabilidade. Dispomos de validações que impedirão a criação ou modificação de conjuntos de escalas de máquinas virtuais existentes que não satisfaçam estes requisitos.
 
 > [!WARNING]
 > Com a durabilidade do Bronze, a atualização automática de imagem de SO não está disponível. Embora [a Aplicação de Orquestração patch](service-fabric-patch-orchestration-application.md) (destinada apenas a clusters hospedados não-Azure) não seja *recomendada* para níveis de prata ou maior durabilidade, é a sua única opção para automatizar atualizações do Windows no que diz respeito aos domínios de upgrade do Service Fabric.
@@ -181,7 +184,7 @@ Para cargas de trabalho de produção imponentes utilizando coleções fiáveis 
 
 Para as cargas de trabalho de produção apátridas, o tamanho mínimo suportado do nó não primário é três para manter o quórum, no entanto é recomendado um tamanho do tipo nó de cinco.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Antes de configurar o seu cluster, reveja as `Not Allowed` [políticas de atualização](service-fabric-cluster-fabric-settings.md) do cluster para atenuar ter de recriar o seu cluster mais tarde devido a definições de configuração do sistema imutáveis.
 

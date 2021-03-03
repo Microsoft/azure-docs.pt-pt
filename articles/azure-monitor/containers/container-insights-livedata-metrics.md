@@ -1,19 +1,19 @@
 ---
-title: Ver métricas em tempo real com o Azure Monitor para recipientes | Microsoft Docs
-description: Este artigo descreve a visão em tempo real das métricas sem usar kubectl com Azure Monitor para recipientes.
+title: Ver métricas em tempo real com insights de contentores | Microsoft Docs
+description: Este artigo descreve a visão em tempo real das métricas sem usar kubectl com insights de contentores.
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.custom: references_regions
-ms.openlocfilehash: 81d7210778fd6b5d75fb4b4fa8e066d2e015174f
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 2e3a8a417a934374c2c0b256bb65a471d98fdebe
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100616201"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731855"
 ---
 # <a name="how-to-view-metrics-in-real-time"></a>Como ver métricas em tempo real
 
-O Azure Monitor para recipientes Live Data (pré-visualização) permite visualizar métricas sobre o nó e o estado da pod num cluster em tempo real. Emula o acesso direto ao `kubectl top nodes` , e ordena para `kubectl get pods –all-namespaces` `kubectl get nodes` ligar, analisar e visualizar os dados em gráficos de desempenho que estão incluídos com este Insight.
+O recurso "Dados ao Vivo" (pré-visualização) permite visualizar métricas sobre o nó e o estado da pod num cluster em tempo real. Emula o acesso direto ao `kubectl top nodes` , e ordena para `kubectl get pods –all-namespaces` `kubectl get nodes` ligar, analisar e visualizar os dados em gráficos de desempenho que estão incluídos com este Insight.
 
 Este artigo fornece uma visão geral detalhada e ajuda-o a entender como usar esta funcionalidade.
 
@@ -26,7 +26,7 @@ Para obter ajuda na configuração ou resolução de problemas da funcionalidade
 
 A funcionalidade Dados Ao Vivo (pré-visualização) acede diretamente à API de Kubernetes, e informações adicionais sobre o modelo de autenticação podem ser [encontradas aqui](https://kubernetes.io/docs/concepts/overview/kubernetes-api/).
 
-Esta funcionalidade realiza uma operação de sondagem contra os pontos finais das métricas (incluindo, `/api/v1/nodes` e ), que é a cada cinco `/apis/metrics.k8s.io/v1beta1/nodes` `/api/v1/pods` segundos por defeito. Estes dados estão em cache no seu navegador e são cartografados nos quatro gráficos de desempenho incluídos no Azure Monitor para contentores no **separador Cluster** selecionando **Go Live (pré-visualização)**. Cada sondagem subsequente é traçada numa janela de visualização rolante de cinco minutos.
+Esta funcionalidade realiza uma operação de sondagem contra os pontos finais das métricas (incluindo, `/api/v1/nodes` e ), que é a cada cinco `/apis/metrics.k8s.io/v1beta1/nodes` `/api/v1/pods` segundos por defeito. Estes dados estão em cache no seu navegador e são cartografados nos quatro gráficos de desempenho incluídos nos insights do Contentor no **separador Cluster,** selecionando **Go Live (pré-visualização)**. Cada sondagem subsequente é traçada numa janela de visualização rolante de cinco minutos.
 
 ![Go Ao vivo na vista Cluster](./media/container-insights-livedata-metrics/cluster-view-go-live-example-01.png)
 

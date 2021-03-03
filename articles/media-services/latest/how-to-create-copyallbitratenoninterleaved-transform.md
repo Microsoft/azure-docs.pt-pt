@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 10/23/2020
 ms.author: inhenkel
-ms.openlocfilehash: 727b0ee1d16528df3becbda10206d85a9b10e59c
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: f977585a16e1ad3f8eba0a589c603f0125d46fd5
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94918235"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101721111"
 ---
 # <a name="create-a-copyallbitratenoninterleaved-transform"></a>Criar uma transformação CopyAllBitrateNonInterleaved
 
@@ -37,7 +37,6 @@ Siga os passos na [Criar uma conta de Serviços](./create-account-howto.md) de C
 
 [!INCLUDE [task-create-copyallbitratenoninterleaved.md](./includes/task-create-copyallbitratenoninterleaved.md)]
 
-
 ## <a name="next-steps"></a>Passos seguintes
 
-[Visão geral dos serviços de mídia](media-services-overview.md)
+[!INCLUDE [transforms next steps](./includes/transforms-next-steps.md)]

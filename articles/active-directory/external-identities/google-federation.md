@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9e7ec5569dd0de3b0535c3b0e3b3304848a5207
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 5a397c17821d16594ccfb48175a8a141cb9f390b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101653327"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101687826"
 ---
 # <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>Adicione o Google como um fornecedor de identidade para utilizadores convidados B2B
 
@@ -46,13 +46,7 @@ Os utilizadores convidados que vejam um erro de "cabeçalho demasiado longo" pod
 
 ## <a name="sign-in-endpoints"></a>Pontos finais de inscrição
 
-Os utilizadores de hóspedes do Google podem agora iniciar sômposição nas suas aplicações multi-inquilinas ou na Microsoft, utilizando um [ponto final comum](redemption-experience.md#redemption-and-sign-in-through-a-common-endpoint) (por outras palavras, um URL de aplicações gerais que não inclui o contexto do seu inquilino). Seguem-se exemplos de pontos finais comuns:
-
-- `https://teams.microsoft.com`
-- `https://myapps.microsoft.com`
-- `https://portal.azure.com`
-
-Durante o processo de entrada, o utilizador convidado escolhe **as opções de Inscrição** e, em seguida, seleciona **Iniciar sação para uma organização**. Em seguida, o utilizador escreve o nome da sua organização e continua a iniciar sessão com as suas credenciais google.
+Os utilizadores de hóspedes do Google podem agora iniciar sômposição nas suas aplicações multi-inquilinas ou na Microsoft, utilizando um [ponto final comum](redemption-experience.md#redemption-and-sign-in-through-a-common-endpoint) (por outras palavras, um URL de aplicações gerais que não inclui o contexto do seu inquilino). Durante o processo de entrada, o utilizador convidado escolhe **as opções de Inscrição** e, em seguida, seleciona **Iniciar sação para uma organização**. Em seguida, o utilizador escreve o nome da sua organização e continua a iniciar sessão com as suas credenciais google.
 
 Os utilizadores de hóspedes do Google também podem usar pontos finais de aplicações que incluem informações do seu inquilino, por exemplo:
 

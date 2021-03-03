@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: how-to
 ms.date: 01/13/2021
-ms.openlocfilehash: 22974a47a6b1e9d49e5055a85f46286497cfe149
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: 29ac0c5991964de48cedd15622d15e929bc9d733
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98250537"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101709551"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>Como configurar a base de dados Azure para a replicação de dados do MySQL
 
@@ -101,9 +101,23 @@ Os passos seguintes preparam e configuram o servidor MySQL alojado no local, num
    ```
 
    Se a variável [`log_bin`](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_log_bin) for devolvida com o valor "ON", a sessão binária está ativada no seu servidor.
-
-   Se `log_bin` for devolvido com o valor "OFF", ligue a sessão binária editando o seu ficheiro my.cnf de modo a que e `log_bin=ON` reinicie o seu servidor para que a alteração entre em vigor.
-
+   
+   Se `log_bin` for devolvido com o valor "OFF", 
+   1. Localize o seu ficheiro de configuração MySQL (my.cnf) no servidor de origem. Por exemplo: /etc/my.cnf
+   2. Abra o ficheiro de configuração para editá-lo e localize a secção **mysqld** no ficheiro.
+   3.  Na secção mysqld, adicione a seguinte linha
+   
+       ```bash
+       log-bin=mysql-bin.log
+       ```
+     
+   4. Reinicie o servidor de origem MySQL para que as alterações produzam efeitos.
+   5. Uma vez reiniciado o servidor, verifique se a sessão de registo binário está ativada executando a mesma consulta que antes:
+   
+      ```sql
+      SHOW VARIABLES LIKE 'log_bin';
+      ```
+   
 4. Definições de servidor de origem
 
    A replicação de dados requer que o parâmetro `lower_case_table_names` seja consistente entre os servidores de origem e réplica. Este parâmetro é 1 por padrão na Base de Dados Azure para o MySQL.

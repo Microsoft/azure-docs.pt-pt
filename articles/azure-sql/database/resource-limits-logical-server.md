@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan,moslake,josack
 ms.date: 02/02/2021
-ms.openlocfilehash: aa18baf9739663c7132a49d3d07434b9d187f02b
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 34613633b6b27fc3387e6a9fa63caf4a194ba963
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100588747"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691234"
 ---
 # <a name="resource-limits-for-azure-sql-database-and-azure-synapse-analytics-servers"></a>Limites de recursos para a Azure SQL Database e para os servidores Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -70,7 +70,7 @@ Ao encontrar uma utilização de alto espaço, as opções de mitigação inclue
 - Aumentando o tamanho máximo da base de dados ou piscina elástica, ou adicionando mais armazenamento. Consulte [os recursos de base de dados únicos escala](single-database-scale.md) e recursos de piscina elástica em [escala.](elastic-pool-scale.md)
 - Se a base de dados estiver numa piscina elástica, então, em alternativa, a base de dados pode ser movida para fora da piscina para que o seu espaço de armazenamento não seja partilhado com outras bases de dados.
 - Encolher uma base de dados para recuperar o espaço não used. Para obter mais informações, consulte [Gerir o espaço de ficheiros na Base de Dados Azure SQL](file-space-manage.md).
-- Verifique se a utilização do espaço é devido a um pico no tamanho da Loja de Versão Persistente (PVS). O PVS faz parte de cada base de dados e é usado para implementar a [Recuperação acelerada da Base de Dados.](../accelerated-database-recovery.md) Para determinar o tamanho atual do PVS, consulte [a resolução de problemas do PVS](https://docs.microsoft.com/sql/relational-databases/accelerated-database-recovery-management#troubleshooting). Uma razão comum para o tamanho de PVS grande é uma transação que está aberta por um longo período de tempo (horas), impedindo a limpeza de versões mais antigas em PVS.
+- Verifique se a utilização do espaço é devido a um pico no tamanho da Loja de Versão Persistente (PVS). O PVS faz parte de cada base de dados e é usado para implementar a [Recuperação acelerada da Base de Dados.](../accelerated-database-recovery.md) Para determinar o tamanho atual do PVS, consulte [a resolução de problemas do PVS](/sql/relational-databases/accelerated-database-recovery-management#troubleshooting). Uma razão comum para o tamanho de PVS grande é uma transação que está aberta por um longo período de tempo (horas), impedindo a limpeza de versões mais antigas em PVS.
 
 ### <a name="sessions-and-workers-requests"></a>Sessões e trabalhadores (pedidos)
 
@@ -97,7 +97,7 @@ Ao encontrar erros fora da memória, as opções de mitigação incluem:
 - Aumentar o nível de serviço ou o tamanho do cálculo da base de dados ou piscina elástica. Consulte [os recursos de base de dados únicos escala](single-database-scale.md) e recursos de piscina elástica em [escala.](elastic-pool-scale.md)
 - Otimização de consultas e configuração para reduzir a utilização da memória. As soluções comuns são descritas no quadro seguinte.
 
-|Solução|Description|
+|Solução|Descrição|
 | :----- | :----- |
 |Reduzir o tamanho das bolsas de memória|Para obter mais informações sobre subsídios de memória, consulte o post de blog [de concessão de memória Understanding SQL Server.](https://techcommunity.microsoft.com/t5/sql-server/understanding-sql-server-memory-grant/ba-p/383595) Uma solução comum para evitar subsídios de memória excessivamente grandes é manter [as estatísticas](/sql/relational-databases/statistics/statistics) atualizadas. Isto resulta em estimativas mais precisas do consumo de memória pelo motor de consulta, evitando subvenções de memória desnecessariamente grandes.</br></br>Em bases de dados utilizando o nível de compatibilidade 140 e posteriormente, o motor da base de dados pode ajustar automaticamente o tamanho do subsídio de memória utilizando [o feedback do subsídio de memória do modo Lote](/sql/relational-databases/performance/intelligent-query-processing#batch-mode-memory-grant-feedback). Em bases de dados utilizando o nível de compatibilidade 150 e posteriormente, o motor da base de dados utiliza igualmente [o feedback do subsídio de memória do modo Row](/sql/relational-databases/performance/intelligent-query-processing#row-mode-memory-grant-feedback), para consultas de modo de linha mais comuns. Esta funcionalidade incorporada ajuda a evitar erros fora da memória devido a grandes subsídios de memória desnecessariamente grandes.|
 |Reduzir o tamanho da cache do plano de consulta|O motor de base de dados caches planos de consulta na memória, para evitar compilar um plano de consulta para cada execução de consulta. Para evitar o inchaço do cache do plano de consulta causado por planos de cache que só são utilizados uma vez, ative a configuração OTIMIZE_FOR_AD_HOC_WORKLOADS [com âmbito de base de dados](/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql).|

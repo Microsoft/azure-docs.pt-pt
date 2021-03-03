@@ -156,7 +156,7 @@
             - name: SDK de .NET (C#)
               href: /dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet
             - name: SDK Java
-              href: /azure/developer/java/sdk/
+              href: /java/api/overview/azure/digitaltwins/resourcemanagement?view=azure-java-stable
         - name: Plano de dados
           items:
             - name: SDK de .NET (C#)

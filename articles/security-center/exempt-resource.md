@@ -7,12 +7,12 @@ ms.date: 01/22/2021
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 4012c7417345678717800f4fdede95947e00b828
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 374ddaa088fba9ae7035f170562e06b7f07eae47
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98756733"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101709381"
 ---
 # <a name="exempting-resources-and-recommendations-from-your-secure-score"></a>Isenção de recursos e recomendações da sua pontuação segura 
 
@@ -110,9 +110,9 @@ Como explicado anteriormente nesta página, as regras de isenção são uma ferr
 
 Para acompanhar como os seus utilizadores estão a exercer esta capacidade, criámos um modelo Azure Resource Manager (ARM) que implementa um Playbook de Aplicação lógica e todas as ligações API necessárias para o notificar quando uma isenção foi criada.
 
-- Para saber mais sobre o livro de jogadas, consulte este post nos [blogs](https://techcommunity.microsoft.com/t5/azure-security-center/how-to-keep-track-of-resource-exemptions-in-azure-security/ba-p/1770580) da comunidade tecnológica
+- Para saber mais sobre o livro de jogadas, consulte o blog da comunidade tecnológica [post Como acompanhar as Isenções de Recursos no Azure Security Center](https://techcommunity.microsoft.com/t5/azure-security-center/how-to-keep-track-of-resource-exemptions-in-azure-security/ba-p/1770580)
 - Você encontrará o modelo ARM no [repositório do Centro de Segurança Azure GitHub](https://github.com/Azure/Azure-Security-Center/tree/master/Workflow%20automation/Notify-ResourceExemption)
-- Pode clicar [aqui](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Security-Center%2Fmaster%2FWorkflow%2520automation%2FNotify-ResourceExemption%2Fazuredeploy.json) para implementar todos os componentes necessários 
+- Para implementar todos os componentes necessários, [utilize este processo automatizado](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Security-Center%2Fmaster%2FWorkflow%2520automation%2FNotify-ResourceExemption%2Fazuredeploy.json)
 
 
 ## <a name="find-recommendations-with-exemptions-using-azure-resource-graph"></a>Encontre recomendações com isenções usando o Gráfico de Recursos Azure
@@ -180,7 +180,7 @@ Se tentar criar uma isenção para esta recomendação, verá uma das duas mensa
     *Tem permissões limitadas para aplicar a isenção em todas as iniciativas políticas, as isenções serão criadas apenas com autorizações suficientes.*
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu a isentar um recurso de uma recomendação para que não tenha impacto na sua pontuação segura. Para obter mais informações sobre a pontuação segura, consulte:
 

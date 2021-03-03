@@ -6,13 +6,13 @@ author: kromerm
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/04/2020
-ms.openlocfilehash: 5b2197950d5dbb95bd0a90f15506756ee3ed0b2d
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 02/19/2021
+ms.openlocfilehash: 0aa472aca40acbaf3f8c8a09469d08fe6b37187a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100369837"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101699764"
 ---
 # <a name="mapping-data-flow-debug-mode"></a>Mapeamento do fluxo de dados Modo Debug
 
@@ -39,9 +39,9 @@ Na maioria dos casos, é uma boa prática construir os seus Fluxos de Dados em m
 
 ## <a name="cluster-status"></a>Estado do cluster
 
-O indicador de estado do cluster na parte superior da superfície de design fica verde quando o cluster está pronto para depurar. Se o seu aglomerado já estiver quente, o indicador verde aparecerá quase instantaneamente. Se o seu cluster já não estava a funcionar quando entrou no modo de depuração, então terá de esperar 5-7 minutos para que o cluster girasse. O indicador girará até estar pronto.
+O indicador de estado do cluster na parte superior da superfície de design fica verde quando o cluster está pronto para depurar. Se o seu aglomerado já estiver quente, o indicador verde aparecerá quase instantaneamente. Se o seu cluster já não estava a funcionar quando entrou no modo de depuração, então o cluster Spark executará uma bota fria. O indicador girará até que o ambiente esteja pronto para depuração interativa.
 
-Quando terminar a depuração, desligue o depurador Debug para que o seu cluster Azure Databricks possa terminar e deixará de ser cobrado para a atividade de depuração.
+Quando terminar a depuração, desligue o depuração de Debug para que o seu cluster Spark possa terminar e deixará de ser cobrado para a atividade de depuração.
 
 ## <a name="debug-settings"></a>Definições de depurar
 
@@ -50,6 +50,8 @@ Assim que ligar o modo de depurar, pode editar como um fluxo de dados pré-visua
 ![Definições de depurar](media/data-flow/debug-settings.png "Definições de depurar")
 
 Se tiver parâmetros no seu Fluxo de Dados ou em qualquer um dos seus conjuntos de dados referenciados, pode especificar quais os valores a utilizar durante a depuragem selecionando o separador **Parâmetros.**
+
+Utilize as definições de amostragem aqui para indicar ficheiros de amostras ou tabelas de amostras de dados para que não tenha de alterar os seus conjuntos de dados de origem. Ao utilizar um ficheiro de amostra ou tabela aqui, pode manter a mesma lógica e definições de propriedade no fluxo de dados enquanto testa contra um subconjunto de dados.
 
 ![Parâmetros de definição de depurar](media/data-flow/debug-settings2.png "Parâmetros de definição de depurar")
 

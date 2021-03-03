@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,seoapr2020
 ms.topic: conceptual
 ms.date: 11/20/2019
-ms.openlocfilehash: 13282962886d8682b6056d10f8f0cc5a7f626d60
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 84124f33f6aa02f63c0c47a24bd7d2a71ced2d11
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98946017"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101699305"
 ---
 # <a name="azure-hdinsight-frequently-asked-questions"></a>Azure HDInsight: Frequently asked questions (Autenticação Pass-through: Perguntas mais frequentes)
 
@@ -55,13 +55,13 @@ Consulte [os tipos de recursos nos clusters Azure HDInsight](hdinsight-virtual-n
 
 ### <a name="can-i-install-additional-components-on-my-cluster"></a>Posso instalar componentes adicionais no meu cluster?
 
-Yes. Para instalar componentes adicionais ou personalizar a configuração do cluster, utilize:
+Sim. Para instalar componentes adicionais ou personalizar a configuração do cluster, utilize:
 
 - Scripts durante ou após a criação. Os scripts são invocados através da [ação do script](./hdinsight-hadoop-customize-cluster-linux.md). A ação do script é uma opção de configuração que pode utilizar a partir do portal Azure, cmdlets HDInsight Windows PowerShell ou o HDInsight .NET SDK. Esta opção de configuração pode ser utilizada a partir do portal Azure, cmdlets HDInsight Windows PowerShell ou HDInsight .NET SDK.
 
 - [Plataforma de Aplicação HDInsight](https://azure.microsoft.com/services/hdinsight/partner-ecosystem/) para instalar aplicações.
 
-Para uma lista de componentes suportados consulte [quais são os componentes e versões Apache Hadoop disponíveis com HDInsight?](./hdinsight-component-versioning.md#apache-components-available-with-different-hdinsight-versions)
+Para uma lista de componentes suportados consulte [quais são os componentes e versões Apache Hadoop disponíveis com HDInsight?](./hdinsight-component-versioning.md)
 
 ### <a name="can-i-upgrade-the-individual-components-that-are-pre-installed-on-the-cluster"></a>Posso atualizar os componentes individuais que estão pré-instalados no cluster?
 
@@ -234,7 +234,7 @@ Faça uma das seguintes ações:
 
 ### <a name="how-can-i-set-up-auditing-for-my-blob-storage-account"></a>Como posso fazer auditoria para a minha conta de armazenamento de bolhas?
 
-Para auditar as contas de armazenamento de bolhas, configurar a monitorização utilizando o procedimento no [Monitor uma conta de armazenamento no portal Azure](../storage/common/storage-monitor-storage-account.md). Um registo de auditoria HDFS fornece apenas informações de auditoria para o sistema de ficheiros HDFS local (hdfs://mycluster).  Não inclui operações que são feitas em armazenamento remoto.
+Para auditar as contas de armazenamento de bolhas, configurar a monitorização utilizando o procedimento no [Monitor uma conta de armazenamento no portal Azure](../storage/common/manage-storage-analytics-logs.md). Um registo de auditoria HDFS fornece apenas informações de auditoria para o sistema de ficheiros HDFS local (hdfs://mycluster).  Não inclui operações que são feitas em armazenamento remoto.
 
 ### <a name="how-can-i-transfer-files-between-a-blob-container-and-an-hdinsight-head-node"></a>Como posso transferir ficheiros entre um recipiente de bolhas e um nó de cabeça HDInsight?
 
@@ -261,7 +261,7 @@ Pode atribuir políticas de acesso a dados aos grupos de segurança dos seus uti
 
 ### <a name="can-i-increase-hdfs-storage-on-a-cluster-without-increasing-the-disk-size-of-worker-nodes"></a>Posso aumentar o armazenamento de HDFS num cluster sem aumentar o tamanho do disco dos nós dos trabalhadores?
 
-Não. Não se pode aumentar o tamanho do disco de qualquer nó de trabalhador. Assim, a única maneira de aumentar o tamanho do disco é largar o cluster e recriá-lo com VMs maiores. Não utilize o HDFS para armazenar nenhum dos seus dados HDInsight, porque os dados são eliminados se eliminar o seu cluster. Em vez disso, guarde os seus dados em Azure. A ampliação do cluster também pode adicionar capacidade adicional ao seu cluster HDInsight.
+N.º Não se pode aumentar o tamanho do disco de qualquer nó de trabalhador. Assim, a única maneira de aumentar o tamanho do disco é largar o cluster e recriá-lo com VMs maiores. Não utilize o HDFS para armazenar nenhum dos seus dados HDInsight, porque os dados são eliminados se eliminar o seu cluster. Em vez disso, guarde os seus dados em Azure. A ampliação do cluster também pode adicionar capacidade adicional ao seu cluster HDInsight.
 
 ## <a name="edge-nodes"></a>Nós periféricos
 

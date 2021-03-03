@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/25/2021
+ms.date: 02/17/2021
 ms.author: memildin
-ms.openlocfilehash: a2c29049decc056f0d3c8083d21574456610c124
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: 375e8a748e8833e9483d92353ed04add287e90fb
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99555141"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101705097"
 ---
 # <a name="important-upcoming-changes-to-azure-security-center"></a>Mudanças importantes para o Centro de Segurança Azure
 
@@ -31,9 +31,25 @@ Se procura as últimas notas de lançamento, vai encontrá-las no [What's new in
 
 ## <a name="planned-changes"></a>Alterações planeadas
 
+- [Duas recomendações antigas deixarão de escrever dados diretamente para o registo de atividades do Azure](#two-legacy-recommendations-will-no-longer-write-data-directly-to-azure-activity-log)
 - [Duas recomendações do controlo de segurança "Aplicar atualizações do sistema" que estão a ser depreciadas](#two-recommendations-from-apply-system-updates-security-control-being-deprecated)
 - [Melhorias à recomendação de classificação de dados sql](#enhancements-to-sql-data-classification-recommendation)
 - [Depreciação de 11 alertas do Azure Defender](#deprecation-of-11-azure-defender-alerts)
+
+
+### <a name="two-legacy-recommendations-will-no-longer-write-data-directly-to-azure-activity-log"></a>Duas recomendações antigas deixarão de escrever dados diretamente para o registo de atividades do Azure 
+
+**Data estimada para a alteração:** março de 2021
+
+O Centro de Segurança transmite os dados de quase todas as recomendações de segurança ao Azure Advisor que, por sua vez, os escreve para o [registo de atividades do Azure.](../azure-monitor/essentials/activity-log.md)
+
+Para duas recomendações, os dados são simultaneamente escritos diretamente no registo de atividades do Azure. Com esta alteração, o Security Center deixará de escrever dados para estas recomendações de segurança antigas diretamente para o Registo de Atividade. Em vez disso, exportaremos os dados para o Azure Advisor, como fazemos para todas as outras recomendações. 
+
+As duas recomendações antigas são:
+- Problemas de saúde de proteção de ponto final devem ser resolvidos nas suas máquinas
+- As vulnerabilidades na configuração de segurança das suas máquinas devem ser remediadas
+
+Se tem acedido a informações para estas duas recomendações na categoria "Recomendação do tipo TaskDiscovery" do registo de atividades, esta deixará de estar disponível.
 
 ### <a name="two-recommendations-from-apply-system-updates-security-control-being-deprecated"></a>Duas recomendações do controlo de segurança "Aplicar atualizações do sistema" que estão a ser depreciadas 
 

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 7/14/2020
 ms.author: raynew
-ms.openlocfilehash: 79558bd2c8e9bfec0aff47d254944977d271a762
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 8d748f93337a770e0d565bab79fdfb3625bda70d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97587819"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101735527"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Matriz de apoio à recuperação de desastres de Hiper-V VMs para Azure
 
@@ -71,7 +71,7 @@ Rede VM do hóspede: IP estático (Windows) | Sim | Sim
 Rede VM convidada: IP estático (Linux) | Não | Não
 Rede VM convidada: Multi-NIC | Sim | Sim
 Procuração https | Não | Não
-Acesso de ligação privada ao serviço de Recuperação de Sítios | Yes. [Saiba mais](hybrid-how-to-enable-replication-private-endpoints.md). | Yes. [Saiba mais](hybrid-how-to-enable-replication-private-endpoints.md).
+Acesso de ligação privada ao serviço de Recuperação de Sítios | Sim. [Saiba mais](hybrid-how-to-enable-replication-private-endpoints.md). | Sim. [Saiba mais](hybrid-how-to-enable-replication-private-endpoints.md).
 
 
 
@@ -141,9 +141,9 @@ Dupla encriptação em repouso <br></br> (Apenas para falhas a gerir discos) <br
 Armazenamento Premium | Sim | Sim
 Armazenamento Standard | Sim | Sim
 Serviço de importação/exportação | Não | Não
-Contas de Armazenamento Azure com firewall ativadas | Yes. Para armazenamento de alvo e cache. | Yes. Para armazenamento de alvo e cache.
+Contas de Armazenamento Azure com firewall ativadas | Sim. Para armazenamento de alvo e cache. | Sim. Para armazenamento de alvo e cache.
 Modificar a conta de armazenamento | N.º A conta de armazenamento Azure alvo não pode ser modificada após permitir a replicação. Para modificar, desativar e, em seguida, reativar a recuperação de desastres. | Não
-Opção de transferência segura | Sim
+Opção de transferência segura | Sim | Sim
 
 
 ## <a name="azure-compute-features"></a>Características do cálculo Azure

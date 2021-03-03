@@ -9,16 +9,16 @@ ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
 ms.date: 02/01/2021
 tags: connectors
-ms.openlocfilehash: cbbc0edf710b8823c1a36daa66bc01d89acf63da
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: e52c4acb4b59414e89e87bf5a6ee2cfae8207cae
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99575488"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101712458"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Ligar-se a sistemas SAP a partir de Azure Logic Apps
 
-Este artigo explica como pode aceder aos seus recursos SAP a partir de Aplicações Lógicas utilizando o [conector SAP.](https://docs.microsoft.com/connectors/sap/)
+Este artigo explica como pode aceder aos seus recursos SAP a partir de Aplicações Lógicas utilizando o [conector SAP.](/connectors/sap/)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -547,14 +547,14 @@ Para as versões de gateway de dados no local a partir de abril de 2020 e anteri
 
 Se utilizar um [portal de dados no local para aplicações lógicas,](../logic-apps/logic-apps-gateway-install.md)pode configurar um ficheiro de registo alargado para o conector SAP. Pode utilizar a porta de dados no local para redirecionar o Rastreio de Eventos para eventos do Windows (ETW) em ficheiros de registo rotativos que estão incluídos nos ficheiros de .zip de registo do seu gateway. 
 
-Pode [exportar todos os registos de configuração e serviço do seu gateway](https://docs.microsoft.com/data-integration/gateway/service-gateway-tshoot#collect-logs-from-the-on-premises-data-gateway-app) para um ficheiro .zip a partir das definições da aplicação Gateway.
+Pode [exportar todos os registos de configuração e serviço do seu gateway](/data-integration/gateway/service-gateway-tshoot#collect-logs-from-the-on-premises-data-gateway-app) para um ficheiro .zip a partir das definições da aplicação Gateway.
 
 > [!NOTE]
 > A realização de registos prolongados pode afetar o desempenho das suas aplicações lógicas quando sempre ativadas. É uma boa prática desligar ficheiros de registos prolongados depois de terminar de analisar e resolver problemas.
 
 #### <a name="capture-etw-events"></a>Capture eventos da ETW
 
-Opcionalmente, os utilizadores avançados podem capturar eventos ETW diretamente. Em seguida, pode [consumir os seus dados em Azure Diagnostics em Centros de Eventos](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-stream-event-hubs) ou [recolher os seus dados para registos do Monitor Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-logs). Para mais informações, consulte as [melhores práticas para recolher e armazenar dados.](https://docs.microsoft.com/azure/architecture/best-practices/monitoring#collecting-and-storing-data) Pode utilizar [o PerfView](https://github.com/Microsoft/perfview/blob/master/README.md) para trabalhar com os ficheiros ETL resultantes, ou pode escrever o seu próprio programa. Este walkthrough usa PerfView:
+Opcionalmente, os utilizadores avançados podem capturar eventos ETW diretamente. Em seguida, pode [consumir os seus dados em Azure Diagnostics em Centros de Eventos](../azure-monitor/agents/diagnostics-extension-stream-event-hubs.md) ou [recolher os seus dados para registos do Monitor Azure](/azure/azure-monitor/agents/diagnostics-extension-logs). Para mais informações, consulte as [melhores práticas para recolher e armazenar dados.](/azure/architecture/best-practices/monitoring#collecting-and-storing-data) Pode utilizar [o PerfView](https://github.com/Microsoft/perfview/blob/master/README.md) para trabalhar com os ficheiros ETL resultantes, ou pode escrever o seu próprio programa. Este walkthrough usa PerfView:
 
 1. No menu PerfView, **selecione Collect** &gt; **Collect** para capturar os eventos.
 
@@ -1336,7 +1336,7 @@ Para obter exemplos detalhados de como utilizar a ação Call BAPI, consulte as 
 
 ### <a name="send-idoc-action"></a>Enviar ação IDoc
 
-A ação [Send IDoc `SendIDoc` ()](https://docs.microsoft.com/connectors/sap/#send-idoc-(preview)) envia a mensagem IDoc para o seu servidor SAP.
+A ação [Send IDoc `SendIDoc` ()](/connectors/sap/) envia a mensagem IDoc para o seu servidor SAP.
 
 Deve utilizar os seguintes parâmetros com a sua chamada: 
 

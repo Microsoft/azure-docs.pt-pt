@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/29/2020
 ms.author: irenehua
-ms.openlocfilehash: 1228462dc6437ecce7718c4747d2acb9ae7332cb
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 952889777e4236d7fa03fad5b1bdbf98499f7066
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100593032"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101721315"
 ---
 # <a name="update-or-delete-a-load-balancer-used-by-virtual-machine-scale-sets"></a>Atualizar ou eliminar um equilibrador de carga utilizado por conjuntos de escala de máquina virtual
 
@@ -111,6 +111,52 @@ Para adicionar várias configurações IP:
 1. Na página de **endereço IP frontend,** insira os valores e selecione **OK**.
 1. Siga [o passo 5](./load-balancer-multiple-ip.md#step-5-configure-the-health-probe) e [o passo 6](./load-balancer-multiple-ip.md#step-5-configure-the-health-probe) neste tutorial se forem necessárias novas regras de equilíbrio de carga.
 1. Crie um novo conjunto de regras NAT de entrada utilizando as configurações IP de extremidade frontal recém-criadas, se necessário. Um exemplo encontra-se na secção anterior.
+
+## <a name="multiple-virtual-machine-scale-sets-behind-a-single-load-balancer"></a>Conjuntos de escala de máquinas virtuais múltiplos atrás de um único balanceador de carga
+
+Crie o NAT Pool de entrada no Balanceador de Carga, faça referência ao pool NAT de entrada no perfil de rede de um Conjunto de Escala de Máquina Virtual e, finalmente, atualize as instâncias para que as alterações produzam efeitos. Repita os passos para todos os conjuntos de balanças de máquinas virtuais.
+
+Certifique-se de criar piscinas NAT de entrada separadas com gamas de portas frontais não sobrepostas.
+  
+```azurecli-interactive
+  az network lb inbound-nat-pool create 
+          -g MyResourceGroup 
+          --lb-name MyLb
+          -n MyNatPool 
+          --protocol Tcp 
+          --frontend-port-range-start 80 
+          --frontend-port-range-end 89 
+          --backend-port 80 
+          --frontend-ip-name MyFrontendIpConfig
+  az vmss update 
+          -g MyResourceGroup 
+          -n myVMSS 
+          --add virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].loadBalancerInboundNatPools "{'id':'/subscriptions/mySubscriptionId/resourceGroups/MyResourceGroup/providers/Microsoft.Network/loadBalancers/MyLb/inboundNatPools/MyNatPool'}"
+            
+  az vmss update-instances
+          -–instance-ids *
+          --resource-group MyResourceGroup
+          --name MyVMSS
+          
+  az network lb inbound-nat-pool create 
+          -g MyResourceGroup 
+          --lb-name MyLb
+          -n MyNatPool2
+          --protocol Tcp 
+          --frontend-port-range-start 100 
+          --frontend-port-range-end 109 
+          --backend-port 80 
+          --frontend-ip-name MyFrontendIpConfig2
+  az vmss update 
+          -g MyResourceGroup 
+          -n myVMSS2 
+          --add virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].loadBalancerInboundNatPools "{'id':'/subscriptions/mySubscriptionId/resourceGroups/MyResourceGroup/providers/Microsoft.Network/loadBalancers/MyLb/inboundNatPools/MyNatPool2'}"
+            
+  az vmss update-instances
+          -–instance-ids *
+          --resource-group MyResourceGroup
+          --name MyVMSS2
+```
 
 ## <a name="delete-the-front-end-ip-configuration-used-by-the-virtual-machine-scale-set"></a>Elimine a configuração IP frontal utilizada pelo conjunto de escala de máquina virtual
 

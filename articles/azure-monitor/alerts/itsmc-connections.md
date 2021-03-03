@@ -6,26 +6,26 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/12/2020
-ms.openlocfilehash: 7ac842df17e80b49990d89d1623330c4e31ab566
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: a372cdcd05267f3bdb093f676948a79c473ad955
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100617932"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734779"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Ligar os produtos/serviços do ITSM ao Conector de Gestão de Serviços de TI
-Este artigo fornece informações sobre como configurar a ligação entre o seu produto/serviço ITSM e o It Service Management Connector (ITSMC) no Log Analytics para gerir centralmente os seus itens de trabalho. Para obter mais informações sobre o ITSMC, consulte [a Visão Geral.](../platform/itsmc-overview.md)
+Este artigo fornece informações sobre como configurar a ligação entre o seu produto/serviço ITSM e o It Service Management Connector (ITSMC) no Log Analytics para gerir centralmente os seus itens de trabalho. Para obter mais informações sobre o ITSMC, consulte [a Visão Geral.](./itsmc-overview.md)
 
 São suportados os seguintes produtos/serviços ITSM. Selecione o produto para ver informações detalhadas sobre como ligar o produto ao ITSMC.
 
-- [ServiceNow](../platform/itsmc-connections-servicenow.md)
-- [System Center Service Manager](../platform/itsmc-connections-scsm.md)
-- [Cherwell](../platform/itsmc-connections-cherwell.md)
-- [Provance](../platform/itsmc-connections-provance.md)
+- [ServiceNow](./itsmc-connections-servicenow.md)
+- [System Center Service Manager](./itsmc-connections-scsm.md)
+- [Cherwell](./itsmc-connections-cherwell.md)
+- [Provance](./itsmc-connections-provance.md)
 
 > [!NOTE]
-> Propomos aos nossos clientes Cherwell e Provance que utilizem a [ação Webhook](../platform/action-groups.md#webhook) para cherwell e provance como outra solução para a integração.
+> Propomos aos nossos clientes Cherwell e Provance que utilizem a [ação Webhook](./action-groups.md#webhook) para cherwell e provance como outra solução para a integração.
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Resolver problemas do Conector do ITSM](../platform/itsmc-resync-servicenow.md)
+* [Resolver problemas do Conector do ITSM](./itsmc-resync-servicenow.md)

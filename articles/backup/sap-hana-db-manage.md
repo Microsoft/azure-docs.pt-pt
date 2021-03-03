@@ -3,12 +3,12 @@ title: Gerir bases de dados SAP HANA em VMs Azure
 description: Neste artigo, aprenda tarefas comuns para gerir e monitorizar bases de dados SAP HANA que estão a funcionar em máquinas virtuais Azure.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: 4c8dc80c7b48217e40d5325b75752e21174ecaae
-ms.sourcegitcommit: 6a770fc07237f02bea8cc463f3d8cc5c246d7c65
+ms.openlocfilehash: 54d3341a83873ad3cc50815f04a0b252bb44438e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95811955"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703771"
 ---
 # <a name="manage-and-monitor-backed-up-sap-hana-databases"></a>Gerir e monitorizar bases de dados do SAP HANA guardadas em cópia de segurança
 
@@ -70,7 +70,7 @@ Por padrão, a retenção de backups a pedido é de 45 dias.
 
 ### <a name="hana-native-client-integration"></a>Integração de clientes nativos HANA
 
-#### <a name="backup"></a>Cópia de segurança
+#### <a name="backup"></a>Backup
 
 Cópias de segurança a pedido desencadeadas por qualquer um dos clientes nativos da HANA (para **Backint)** aparecerão na lista de backup na página **de Itens de Cópia de Segurança.**
 
@@ -149,8 +149,6 @@ Pode alterar a política subjacente a um item de backup SAP HANA.
 
 >[!NOTE]
 > Qualquer alteração no período de retenção será aplicada retrospetivamente a todos os pontos de recuperação mais antigos, além dos novos.
->
-> As políticas incrementais de backup não podem ser usadas para bases de dados SAP HANA. A cópia de segurança incremental não é suportada para estas bases de dados.
 
 ### <a name="modify-policy"></a>Alterar Política
 

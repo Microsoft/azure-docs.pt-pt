@@ -3,12 +3,12 @@ title: Azure Service Bus duplica a deteção de mensagens | Microsoft Docs
 description: Este artigo explica como pode detetar duplicados em mensagens de autocarro da Azure Service. A mensagem duplicada pode ser ignorada e deixada.
 ms.topic: article
 ms.date: 01/13/2021
-ms.openlocfilehash: 8ff98b3a052be6004a2dc070f10d6f8c9ca0617f
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 527c2dea34b02733907372b6e75a40a5ef5fc289
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98684813"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711931"
 ---
 # <a name="duplicate-detection"></a>Deteção de duplicados
 
@@ -48,7 +48,7 @@ No portal, a funcionalidade é ativada durante a criação de entidades com a ca
 
 Programáticamente, você definiu a bandeira com a [FilaDescription.requerDuplicateDetection](/dotnet/api/microsoft.servicebus.messaging.queuedescription.requiresduplicatedetection#Microsoft_ServiceBus_Messaging_QueueDescription_RequiresDuplicateDetection) property on the full framework .NET API. Com a AZure Resource Manager API, o valor é definido com as [propriedades de substituição de filas.requer propriedade DeduplicateDetection.](/azure/templates/microsoft.servicebus/namespaces/queues#property-values)
 
-O histórico de tempo de deteção duplicado é de 30 segundos para filas e tópicos, com um valor máximo de sete dias. Pode alterar esta definição na janela de propriedades de fila e tópico no portal Azure.
+O histórico de tempo de deteção duplicado é de 10 minutos para filas e tópicos, com um valor mínimo de 20 segundos para o valor máximo de 7 dias. Pode alterar esta definição na janela de propriedades de fila e tópico no portal Azure.
 
 ![Screenshot da funcionalidade Service Bus com a definição de Propriedades realçada e a opção de histórico de deteção duplicado delineada a vermelho.][2]
 

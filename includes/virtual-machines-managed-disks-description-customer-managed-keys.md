@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 06/05/2020
+ms.date: 03/02/2021
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: ba50def51bcea4f477bea5cecbe5b1ed0409b01a
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 52b9bee1d43c0f136889a6a54277d4bb45dd4a45
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98792403"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101750131"
 ---
 Pode optar por gerir a encriptação ao nível de cada disco gerido, com as suas próprias chaves. A encriptação do lado do servidor para discos geridos com chaves geridas pelo cliente oferece uma experiência integrada com o Azure Key Vault. Pode importar [as chaves RSA](../articles/key-vault/keys/hsm-protected-keys.md) para o cofre de chaves ou gerar novas chaves RSA no Cofre da Chave Azure. 
 
@@ -43,3 +43,7 @@ A seguinte lista explica o diagrama com mais detalhes:
 1. Para ler ou escrever dados, os discos geridos enviam pedidos ao Azure Key Vault para encriptar (embrulhar) e desencriptar (desembrulhar) a chave de encriptação de dados de forma a realizar encriptação e desencriptação dos dados. 
 
 Para revogar o acesso às chaves geridas pelo cliente, consulte [o Azure Key Vault PowerShell](/powershell/module/azurerm.keyvault/) e [o Azure Key Vault CLI](/cli/azure/keyvault). A revogação do acesso bloqueia eficazmente o acesso a todos os dados na conta de armazenamento, uma vez que a chave de encriptação é inacessível pela Azure Storage.
+
+#### <a name="automatic-key-rotation-of-customer-managed-keys-preview"></a>Rotação automática das chaves geridas pelo cliente (pré-visualização)
+
+Pode optar por ativar a rotação automática da chave para a versão chave mais recente. Um disco faz referência a uma chave através do seu conjunto de encriptação de disco. Quando ativa a rotação automática para um conjunto de encriptação de disco, o sistema atualizará automaticamente todos os discos, instantâneos e imagens geridos que referenciam o conjunto de encriptação do disco para utilizar a nova versão da chave dentro de uma hora. A funcionalidade encontra-se atualmente disponível em regiões limitadas em pré-visualização. Para disponibilidade regional, consulte a secção [Regiões Apoiadas.](#supported-regions)

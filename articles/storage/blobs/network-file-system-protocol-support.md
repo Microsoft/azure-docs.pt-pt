@@ -5,27 +5,48 @@ author: normesta
 ms.subservice: blobs
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/04/2020
+ms.date: 02/19/2021
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: 52f7b328b013fd520787fca420a45ffdc5e9d9b1
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: a49c51d2afd464e7bea910ae0abe3dd02e939dbc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98250813"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718504"
 ---
 # <a name="network-file-system-nfs-30-protocol-support-in-azure-blob-storage-preview"></a>Suporte ao protocolo do Sistema de Ficheiros de Rede (NFS) 3.0 no armazenamento do Azure Blob (pré-visualização)
 
-O armazenamento blob suporta agora o protocolo Sistema de Ficheiros de Rede (NFS) 3.0. Este suporte permite que os clientes Windows ou Linux montem um recipiente no armazenamento Blob a partir de uma Máquina Virtual Azure (VM) ou um computador no local. 
+O armazenamento blob suporta agora o protocolo Sistema de Ficheiros de Rede (NFS) 3.0. Este suporte proporciona compatibilidade do sistema de ficheiros Linux à escala e preços de armazenamento de objetos e permite que os clientes do Windows ou Linux montem um recipiente no armazenamento Blob a partir de uma Máquina Virtual Azure (VM) ou um computador no local. 
 
 > [!NOTE]
 > O suporte do protocolo NFS 3.0 no armazenamento Azure Blob está em pré-visualização pública. Suporta contas de armazenamento GPV2 com desempenho de nível padrão nas seguintes regiões: Austrália Leste, Coreia Central e South Central EUA. A pré-visualização também suporta blob de bloco com nível de desempenho premium em todas as regiões públicas.
 
+Sempre foi um desafio executar cargas de trabalho antigas em larga escala, como High Performance Computing (HPC) na nuvem. Uma das razões é que as aplicações usam frequentemente protocolos de ficheiros tradicionais, como NFS ou Server Message Block (SMB) para aceder a dados. Além disso, os serviços nativos de armazenamento em nuvem focaram-se no armazenamento de objetos que têm um espaço de nome plano e metadados extensos em vez de sistemas de ficheiros que fornecem um espaço hierárquico de nomes e operações eficientes de metadados. 
+
+Blob Storage agora suporta um espaço hierárquico de nomes, e quando combinado com suporte ao protocolo NFS 3.0, Azure torna muito mais fácil executar aplicações antigas em cima do armazenamento de objetos em nuvem em larga escala. 
+
+## <a name="applications-and-workloads-suited-for-this-feature"></a>Aplicações e cargas de trabalho adequadas para esta funcionalidade
+
+A funcionalidade de protocolo NFS 3.0 é mais adequada para o processamento de alta produção, alta escala, ler cargas de trabalho pesadas como processamento de mídia, simulações de risco e sequenciação genómica. Deve considerar a utilização desta funcionalidade para qualquer outro tipo de carga de trabalho que utilize vários leitores e muitos fios, que requerem alta largura de banda. 
+
+## <a name="nfs-30-and-the-hierarchical-namespace"></a>NFS 3.0 e o espaço hierárquico de nomes
+
+O suporte ao protocolo NFS 3.0 requer que as bolhas sejam organizadas num espaço hierárquico. Pode ativar um espaço hierárquico quando criar uma conta de armazenamento. A capacidade de usar um espaço hierárquico foi introduzida pela Azure Data Lake Storage Gen2. Organiza objetos (ficheiros) numa hierarquia de diretórios e subdiretórios da mesma forma que o sistema de ficheiros no seu computador está organizado.  O espaço hierárquico de nomes escala linearmente e não degrada a capacidade ou desempenho dos dados. Protocolos diferentes estendem-se a partir do espaço hierárquico. O protocolo NFS 3.0 é um destes protocolos disponíveis.   
+
+> [!div class="mx-imgBorder"]
+> ![espaço de nome hierárquico](./media/network-protocol-support/hierarchical-namespace-and-nfs-support.png)
+  
+## <a name="data-stored-as-block-blobs"></a>Dados armazenados como bolhas de bloco
+
+Se ativar o suporte ao protocolo NFS 3.0, todos os dados da sua conta de armazenamento serão armazenados como blobs de bloco. As bolhas de bloco são otimizadas para processar eficientemente grandes quantidades de dados pesados de leitura. As bolhas de bloco são compostas por blocos. Cada bloco é identificado por uma identificação de bloco. Uma bolha de bloco pode incluir até 50.000 blocos. Cada bloco numa bolha de bloco pode ter um tamanho diferente, até ao tamanho máximo permitido para a versão de serviço que a sua conta utiliza.
+
+Quando a sua aplicação faz um pedido utilizando o protocolo NFS 3.0, esse pedido é traduzido em combinação de operações de blob de bloco. Por exemplo, os pedidos de chamada de procedimento remoto (RPC) NFS 3.0 são traduzidos para a operação [Get Blob.](/rest/api/storageservices/get-blob) NFS 3.0 escrever pedidos de RPC são traduzidos numa combinação de [Get Block List](/rest/api/storageservices/get-block-list), Put [Block](/rest/api/storageservices/put-block), e Put [Block List](/rest/api/storageservices/put-block-list).
+
 ## <a name="general-workflow-mounting-a-storage-account-container"></a>Fluxo de trabalho geral: Montagem de um recipiente de conta de armazenamento
 
-Para montar um contentor de conta de armazenamento, terá que fazer estas coisas.
+Os seus clientes Windows ou Linux podem montar um contentor no armazenamento Blob a partir de uma Máquina Virtual Azure (VM) ou de um computador no local. Para montar um contentor de conta de armazenamento, terá que fazer estas coisas.
 
 1. Registe a função de protocolo NFS 3.0 com a sua assinatura.
 
@@ -58,7 +79,7 @@ Um cliente pode ligar-se através de um ponto final público ou [privado,](../co
 
 - O VNet que configura para a sua conta de armazenamento. 
 
-  Para efeitos deste artigo, vamos referir-nos ao VNet como o *VNet primário.* Para saber mais, consulte [o Acesso grant a partir de uma rede virtual.](../common/storage-network-security.md#grant-access-from-a-virtual-network)
+  Neste artigo, referimo-nos ao VNet como o *VNet primário.* Para saber mais, consulte [o Acesso grant a partir de uma rede virtual.](../common/storage-network-security.md#grant-access-from-a-virtual-network)
 
 - Um VNet espreitado que está na mesma região que o VNet primário.
 
@@ -97,7 +118,7 @@ As seguintes funcionalidades NFS 3.0 ainda não são suportadas com a Azure Data
 
 - Bloquear ficheiros com o Network Lock Manager (NLM). Os comandos de montagem devem incluir o `-o nolock` parâmetro.
 
-- Montagem de sub-directórios. Só é possível montar o diretório de raiz (Recipiente).
+- Subdiretivas de montagem. Só é possível montar o diretório de raiz (Recipiente).
 
 - Suportes de listagem (por exemplo: utilizando o `showmount -a` comando)
 
@@ -115,4 +136,6 @@ Uma transação não é cobrada durante a pré-visualização. Os preços das tr
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para começar, consulte [o armazenamento do Mount Blob utilizando o protocolo Network File System (NFS) 3.0 (pré-visualização)](network-file-system-protocol-support-how-to.md).
+- Para começar, consulte [o armazenamento do Mount Blob utilizando o protocolo Network File System (NFS) 3.0 (pré-visualização)](network-file-system-protocol-support-how-to.md).
+
+- Para otimizar o desempenho, consulte [o Sistema de Ficheiros de Rede (NFS) 3.0 considerações de desempenho no armazenamento Azure Blob (pré-visualização)](network-file-system-protocol-support-performance.md).

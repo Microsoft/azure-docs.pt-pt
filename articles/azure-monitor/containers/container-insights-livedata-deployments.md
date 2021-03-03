@@ -1,19 +1,19 @@
 ---
-title: Ver Monitor Azure para contentores As implementações (pré-visualização) | Microsoft Docs
-description: Este artigo descreve a visão em tempo real das Implementações de Kubernetes sem usar kubectl em Azure Monitor para contentores.
+title: Ver insights de contentores Implementações (pré-visualização) | Microsoft Docs
+description: Este artigo descreve a visão em tempo real das Implementações de Kubernetes sem usar kubectl em insights de contentores.
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.custom: references_regions
-ms.openlocfilehash: 2f1eac82ce67818c7bf86ce3ca8924155d8ee2aa
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: c6eaac209234f7352395502c6761312cf258108f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100616262"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713920"
 ---
 # <a name="how-to-view-deployments-preview-in-real-time"></a>Como visualizar implementações (pré-visualização) em tempo real
 
-Com o Azure Monitor para contentores, a função de visualização Implementações (pré-visualização) imita o acesso direto aos objetos de implantação de Kubernetes em tempo real expondo os `kubeclt get deployments` comandos e `kubectl describe deployment {your deployment}` comandos.
+Com os insights do Contentor, a função De visualização de Implementações (pré-visualização) imita o acesso direto aos objetos de implantação de Kubernetes em tempo real expondo os `kubeclt get deployments` comandos e `kubectl describe deployment {your deployment}` comandos.
 
 >[!NOTE]
 >Os clusters AKS ativados como [clusters privados](https://azure.microsoft.com/updates/aks-private-cluster/) não são suportados com esta funcionalidade. Esta funcionalidade depende do acesso direto à API Kubernetes através de um servidor proxy do browser. A ativação da segurança de rede para bloquear a API Kubernetes deste proxy bloqueará este tráfego.
@@ -56,7 +56,7 @@ Quando seleciona uma implementação da lista, um painel de propriedade aparece 
 
 Ao rever os detalhes da implementação, pode ver registos de contentores e eventos em tempo real. Selecione a **consola ao vivo** e o painel de consola Live Data (pré-visualização) aparecerá abaixo da grelha de dados de implementações onde pode ver dados de registo ao vivo num fluxo contínuo. Se o indicador de estado de busca mostrar uma marca de verificação verde, que está na extrema direita do painel, significa que os dados podem ser recuperados e começa a transmitir para a sua consola.
 
-Também pode filtrar por eventos de espaço de nome ou cluster. Para saber mais sobre os dados de visualização em tempo real na consola, consulte [Ver Dados Ao Vivo (pré-visualização) com o Azure Monitor para recipientes](container-insights-livedata-overview.md).
+Também pode filtrar por eventos de espaço de nome ou cluster. Para saber mais sobre os dados de visualização em tempo real na consola, consulte [Ver Dados Ao Vivo (pré-visualização) com insights do Contentor](container-insights-livedata-overview.md).
 
 ![Implementações visualizam dados ao vivo na consola](./media/container-insights-livedata-deployments/deployments-console-view-events.png)
 

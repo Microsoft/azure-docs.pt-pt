@@ -6,13 +6,13 @@ author: dcstwh
 ms.author: weetok
 ms.reviewer: maghan
 ms.topic: conceptual
-ms.date: 12/17/2020
-ms.openlocfilehash: c0d3ba8d9bea9fade58ed4a65c6d3ae43ef6acb3
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 02/18/2021
+ms.openlocfilehash: 2fd8911ca11ee6dfcf795347e1fe7f2c36a2b636
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100383607"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101716541"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Integração e entrega contínuas no Azure Data Factory
 
@@ -20,9 +20,9 @@ ms.locfileid: "100383607"
 
 ## <a name="overview"></a>Descrição Geral
 
-A integração contínua é a prática de testar cada alteração feita na sua base de código automaticamente e o mais cedo possível. A entrega contínua segue o teste que acontece durante a integração contínua e empurra alterações para um sistema de encenação ou produção.
+A integração contínua é a prática de testar cada alteração feita na sua base de código automaticamente e o mais cedo possível. A entrega contínua segue os testes que ocorrem durante a integração contínua e emite as alterações para um sistema de teste ou de produção.
 
-Na Azure Data Factory, integração e entrega contínuas (CI/CD) significa mover os gasodutos data factory de um ambiente (desenvolvimento, teste, produção) para outro. A Azure Data Factory utiliza [modelos do Azure Resource Manager](../azure-resource-manager/templates/overview.md) para armazenar a configuração das suas várias entidades ADF (pipelines, conjuntos de dados, fluxos de dados, e assim por diante). Existem dois métodos sugeridos para promover uma fábrica de dados para outro ambiente:
+No Azure Data Factory, a integração contínua e entrega contínua (CI/CD) significa mover pipelines do Data Factory de um ambiente (desenvolvimento, teste, produção) para outro. A Azure Data Factory utiliza [modelos do Azure Resource Manager](../azure-resource-manager/templates/overview.md) para armazenar a configuração das suas várias entidades ADF (pipelines, conjuntos de dados, fluxos de dados, e assim por diante). Existem dois métodos sugeridos para promover uma fábrica de dados para outro ambiente:
 
 -    Implantação automatizada utilizando a integração da Data Factory com [a Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines)
 -    Carre faça o upload manual de um modelo de Gestor de Recursos utilizando a integração UX da Data Factory com o Azure Resource Manager.
@@ -199,7 +199,7 @@ A equipa de fábrica de dados forneceu uma [amostra de script pré e pós-implan
 
 ## <a name="use-custom-parameters-with-the-resource-manager-template"></a>Utilizar parâmetros personalizados com o modelo do Resource Manager
 
-Se a sua fábrica de desenvolvimento tiver um repositório de git associado, pode anular os parâmetros padrão do modelo do Gestor de Recursos do modelo do Gestor de Recursos gerado pela publicação ou exportação do modelo. É possível que queira anular o modelo de parametrização padrão nestes cenários:
+Se a sua fábrica de desenvolvimento tiver um repositório de git associado, pode anular os parâmetros padrão do modelo do Gestor de Recursos do modelo do Gestor de Recursos gerado pela publicação ou exportação do modelo. É possível que queira anular a configuração de parâmetros padrão do Gestor de Recursos nestes cenários:
 
 * Utiliza CI/CD automatizado e pretende alterar algumas propriedades durante a implementação do Gestor de Recursos, mas as propriedades não são parametrizadas por padrão.
 * A sua fábrica é tão grande que o modelo de Gestor de Recursos predefinido é inválido porque tem mais do que os parâmetros máximos permitidos (256).
@@ -210,11 +210,14 @@ Se a sua fábrica de desenvolvimento tiver um repositório de git associado, pod
     * A lógica do refactor no fluxo de dados para reduzir parâmetros, por exemplo, os parâmetros do pipeline todos têm o mesmo valor, pode apenas usar parâmetros globais em vez disso.
     * Divida uma fábrica de dados em vários fluxos de dados.
 
-Para anular o modelo de parametrização padrão, vá ao centro de gestão e selecione o **modelo de parametrização** na secção de controlo de origem. Selecione **o modelo de edição** para abrir o editor de código de modelo de parâmetros. 
+Para anular a configuração de parâmetros predefinido do Gestor de Recursos, vá ao hub **'Gerir'** e selecione o **modelo ARM** na secção "Controlo de origem". Na secção de **configuração do parâmetro ARM,** clique em **Editar** o ícone em "Editar a configuração do parâmetro" para abrir o editor de código de configuração do modelo do Gestor de Recursos.
 
 ![Gerir parâmetros personalizados](media/author-management-hub/management-hub-custom-parameters.png)
 
-A criação de um modelo de parametrização personalizado cria um ficheiro nomeado **arm-template-parameters-definition.jsna** pasta raiz do seu ramo de git. Tens de usar esse nome exato do ficheiro.
+> [!NOTE]
+> **A configuração do parâmetro ARM** só está ativada no modo GIT. Atualmente está desativado no modo "modo vivo" ou no modo "Data Factory".
+
+A criação de uma configuração de parâmetros personalizado do Gestor de Recursos cria um ficheiro nomeado **arm-template-parameters-definition.jsna** pasta raiz do seu ramo git. Tens de usar esse nome exato do ficheiro.
 
 ![Arquivo de parâmetros personalizados](media/continuous-integration-deployment/custom-parameters.png)
 
@@ -223,7 +226,7 @@ Ao publicar a partir do ramo de colaboração, a Data Factory lerá este ficheir
 Ao exportar um modelo de Gestor de Recursos, a Data Factory lê este ficheiro a partir de qualquer ramo em que esteja a trabalhar, e não no ramo de colaboração. Pode criar ou editar o ficheiro a partir de uma sucursal privada, onde pode testar as suas alterações selecionando o **Modelo ARM de Exportação** na UI. Em seguida, pode fundir o ficheiro no ramo de colaboração.
 
 > [!NOTE]
-> Um modelo de parametrização personalizado não altera o limite de parâmetro do modelo ARM de 256. Permite-lhe escolher e diminuir o número de propriedades parametrizadas.
+> Uma configuração de parâmetros personalizado do Gestor de Recursos não altera o limite de parâmetro do modelo ARM de 256. Permite-lhe escolher e diminuir o número de propriedades parametrizadas.
 
 ### <a name="custom-parameter-syntax"></a>Sintaxe de parâmetro personalizado
 
@@ -244,7 +247,7 @@ Seguem-se algumas diretrizes a seguir quando criar o ficheiro de parâmetros per
  
 ### <a name="sample-parameterization-template"></a>Modelo de parametrização da amostra
 
-Aqui está um exemplo de como um modelo de parametrização pode parecer:
+Aqui está um exemplo de como uma configuração de parâmetro de gestor de recursos pode parecer:
 
 ```json
 {

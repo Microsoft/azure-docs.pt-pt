@@ -4,12 +4,12 @@ description: Aprenda a usar a Azure Custom Vision para construir um modelo conte
 ms.topic: tutorial
 ms.date: 09/08/2020
 zone_pivot_groups: ams-lva-edge-programming-languages
-ms.openlocfilehash: 0b5d011ac7832436edf1f5c898b1fe1e239d0aea
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: e6b911ad555c4ce10a9576861e1c2e650e63cd94
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99055369"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101698812"
 ---
 # <a name="tutorial-analyze-live-video-with-live-video-analytics-on-iot-edge-and-azure-custom-vision"></a>Tutorial: Analise vídeo ao vivo com vídeo ao vivo analíticos em IoT Edge e Azure Custom Vision
 
@@ -221,7 +221,7 @@ Se abrir a topologia do gráfico para este tutorial num browser, verá que o val
         
    ```
         {
-          "@apiVersion": "1.0",
+          "@apiVersion": "2.0",
           "name": "Sample-Graph-1",
           "properties": {
             "topologyName": "CustomVisionWithHttpExtension",

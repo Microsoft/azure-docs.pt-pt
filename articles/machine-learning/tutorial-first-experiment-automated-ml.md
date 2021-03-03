@@ -11,12 +11,12 @@ ms.author: sacartac
 ms.reviewer: nibaccam
 ms.date: 12/21/2020
 ms.custom: automl
-ms.openlocfilehash: f0bb354bce0c4696f60e2be5c6186760518c7431
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: ad8a9f7af9ddabe969d090f80378ba5ff891d7f1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99549190"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691948"
 ---
 # <a name="tutorial-create-a-classification-model-with-automated-ml-in-azure-machine-learning"></a>Tutorial: Criar um modelo de classificação com ML automatizado em Aprendizagem automática de máquinas
 
@@ -159,7 +159,7 @@ Depois de carregar e configurar os seus dados, pode configurar a sua experiênci
 
     1. Selecione **Ver as definições de configuração adicionais** e povoar os campos da seguinte forma. Estas configurações são para controlar melhor o trabalho de treino. Caso contrário, os padrão são aplicados com base na seleção de experiências e dados.
 
-        &nbsp;Configurações adicionais|Description|Valor &nbsp; para &nbsp; tutorial
+        &nbsp;Configurações adicionais|Descrição|Valor &nbsp; para &nbsp; tutorial
         ------|---------|---
         Métrica primária| Métrica de avaliação pela que o algoritmo de aprendizagem automática será medido.|AUC_weighted
         Explicar o melhor modelo| Mostra automaticamente a explicabilidade do melhor modelo criado pela ML automatizada.| Ativar
@@ -187,6 +187,30 @@ Os seguintes navegam através dos separadores **Detalhes** e **Métricas** para 
 
 ![Executar detalhes de iteração](./media/tutorial-first-experiment-automated-ml/run-detail.gif)
 
+## <a name="model-explanations"></a>Explicações do modelo
+
+Enquanto espera que os modelos sejam concluídos, também pode olhar para as explicações do modelo e ver quais as características de dados (cruas ou concebidas) que influenciaram as previsões de um determinado modelo. 
+
+Estas explicações do modelo podem ser geradas a pedido, e são resumidas no painel de explicações do modelo que faz parte do separador **Explicações (pré-visualização).**
+
+Para gerar explicações de modelos, 
+ 
+1. Selecione **Executar 1** na parte superior para navegar de volta para o ecrã **dos Modelos.** 
+1. Selecione o **separador Modelos.**
+1. Para este tutorial, selecione o primeiro modelo **MaxAbsScaler, LightGBM.**
+1. Selecione o botão **do modelo Explicar** na parte superior. À direita, aparece o painel **de modelos Explain.** 
+1. Selecione o **cálculo deml automático** que criou anteriormente. Este cluster computacional inicia uma corrida infantil para gerar as explicações do modelo.
+1. **Selecione Criar** na parte inferior. Uma mensagem de sucesso verde aparece no topo do seu ecrã. 
+    >[!NOTE]
+    > A execução de explicabilidade leva cerca de 2-5 minutos para ser concluída.
+1. Selecione o botão **Explicações (pré-visualização).** Este separador povoa uma vez que o funcionamento da explicação esteja concluído.
+1. Do lado esquerdo, expanda o painel e selecione a linha que diz **cru** em **Funcionalidades**. 
+1. Selecione o **separador de importância de característica agregada** à direita. Este gráfico mostra quais as características dos dados que influenciaram as previsões do modelo selecionado. 
+
+    Neste exemplo, a *duração* parece ter mais influência nas previsões deste modelo.
+    
+    ![Painel de explicação do modelo](media/tutorial-first-experiment-automated-ml/model-explanation-dashboard.png)
+
 ## <a name="deploy-the-best-model"></a>Implementar o melhor modelo
 
 A interface automatizada de machine learning permite-lhe implementar o melhor modelo como serviço web em alguns passos. A implementação é a integração do modelo para que possa prever novos dados e identificar potenciais áreas de oportunidade. 
@@ -211,7 +235,7 @@ Implementamos este modelo, mas seja avisado, a implantação leva cerca de 20 mi
     Descrição da implantação| A minha primeira implementação automatizada de experiências de aprendizagem automática
     Tipo de computação | Selecione Azure Compute Instance (ACI)
     Ative a autenticação| Desativar. 
-    Use implementações personalizadas| Desativar. Permite que o ficheiro do controlador predefinido (script de pontuação) e o ficheiro ambiente sejam autogeridos. 
+    Use implementações personalizadas| Desativar. Permite que o ficheiro do controlador predefinido (script de pontuação) e o ficheiro ambiente sejam gerados automaticamente. 
     
     Para este exemplo, utilizamos os predefinidos fornecidos no menu *Advanced.* 
 

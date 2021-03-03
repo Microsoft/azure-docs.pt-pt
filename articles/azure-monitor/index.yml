@@ -8,12 +8,12 @@ metadata:
   author: rboucher
   ms.author: robb
   ms.date: 10/08/2019
-  ms.openlocfilehash: 788515589c4e250d6837a189d3cfcfac9e55d2ec
-  ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+  ms.openlocfilehash: 4753e4bb7fca1dadf0266c8fae11313872b29a3b
+  ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 02/17/2021
-  ms.locfileid: "100577543"
+  ms.lasthandoff: 03/03/2021
+  ms.locfileid: "101725718"
 landingContent:
 - title: Acerca do Azure Monitor
   linkLists:
@@ -22,7 +22,7 @@ landingContent:
     - text: O que é o Azure Monitor?
       url: overview.md
     - text: O que são registos/análises de registos do Azure Monitor?
-      url: platform/data-platform-logs.md
+      url: ./logs/data-platform-logs.md
     - text: O que é o Application Insights?
       url: app/app-insights-overview.md
     - text: Página de hub de conteúdo do Application Insights
@@ -34,7 +34,7 @@ landingContent:
     - text: Descrição geral das Origens de dados
       url: agents/data-sources.md
     - text: Descrição geral da Plataforma de dados
-      url: platform/data-platform.md
+      url: ./data-platform.md
 - title: Inícios rápidos de 10 minutos
   linkLists:
   - linkListType: quickstart
@@ -42,15 +42,15 @@ landingContent:
     - text: Monitorizar e criar alertas sobre métricas
       url: alerts/alerts-metric.md
     - text: Analisar registos
-      url: ./log-query/log-analytics-tutorial.md
+      url: ./logs/log-analytics-tutorial.md
     - text: VMs do Azure no Log Analytics
-      url: learn/quick-collect-azurevm.md
+      url: ./vm/quick-collect-azurevm.md
     - text: VMs do Linux no Log Analytics
-      url: learn/quick-collect-linux-computer.md
+      url: ./vm/quick-collect-linux-computer.md
     - text: VMs do Windows no Log Analytics
-      url: learn/quick-collect-windows-computer.md
+      url: ./vm/quick-collect-windows-computer.md
     - text: Alerta sobre Eventos de subscrição
-      url: platform/alerts-activity-log.md
+      url: ./alerts/alerts-activity-log.md
 - title: Monitorizar aplicações
   linkLists:
   - linkListType: get-started
@@ -60,9 +60,9 @@ landingContent:
     - text: .NET Core
       url: app/asp-net-core.md
     - text: Node.js
-      url: learn/nodejs-quick-start.md
+      url: ./app/nodejs-quick-start.md
     - text: Telemóvel
-      url: learn/mobile-center-quickstart.md
+      url: ./app/mobile-center-quickstart.md
     - text: Web site
       url: app/website-monitoring.md
 - title: Formação

@@ -6,18 +6,18 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 11/23/2020
-ms.openlocfilehash: 25572a4cc342277289459891c9bee2fa7f1cccd7
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 0656a9eabb692453331c5c4b229ce26f41ecfdf3
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100589096"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101730206"
 ---
 # <a name="create-and-manage-azure-migrate-projects"></a>Criar e gerir projetos de migrações do Azure Migrate
 
 Este artigo descreve como criar, gerir e eliminar projetos [da Azure Migrate.](migrate-services-overview.md) 
 
-O clássico Azure Migrate vai reformar-se em fevereiro de 2024. Depois de fevereiro de 2024, a versão clássica do Azure Migrate deixará de ser suportada e os metadados de inventário no projeto clássico serão eliminados. Se estiver a utilizar projetos clássicos da Azure Migrate, elimine esses projetos e siga os passos para criar um novo projeto Azure Migrate. Não é possível atualizar projetos ou componentes clássicos do Azure Migrate para o Azure Migrate. Ver [FAQ](https://docs.microsoft.com/azure/migrate/resources-faq#i-have-a-project-with-the-previous-classic-experience-of-azure-migrate-how-do-i-start-using-the-new-version) antes de iniciar o processo de criação.
+O clássico Azure Migrate vai reformar-se em fevereiro de 2024. Depois de fevereiro de 2024, a versão clássica do Azure Migrate deixará de ser suportada e os metadados de inventário no projeto clássico serão eliminados. Se estiver a utilizar projetos clássicos da Azure Migrate, elimine esses projetos e siga os passos para criar um novo projeto Azure Migrate. Não é possível atualizar projetos ou componentes clássicos do Azure Migrate para o Azure Migrate. Ver [FAQ](./resources-faq.md#i-have-a-project-with-the-previous-classic-experience-of-azure-migrate-how-do-i-start-using-the-new-version) antes de iniciar o processo de criação.
 
 Um projeto Azure Migrate é usado para armazenar metadados de descoberta, avaliação e migração recolhidos do ambiente que está a avaliar ou migrar. Num projeto é possível rastrear ativos descobertos, criar avaliações e orquestrar migrações para Azure.  
 

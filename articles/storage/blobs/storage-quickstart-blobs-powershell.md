@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 03/31/2020
 ms.author: tamram
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b051a4ffe4d24e1ef0e69ab7c18a8ed3388b57e5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 21fc7e6de38a98e4f0853cf513f9f3441c7e2106
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89078287"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101735357"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-with-powershell"></a>Quickstart: Upload, download e list blobs com PowerShell
 
@@ -26,6 +26,8 @@ Utilizar o módulo do Azure PowerShell para criar e gerir recursos do Azure. Pod
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para aceder ao Azure Storage, precisará de uma subscrição do Azure. Se ainda não tem uma subscrição, então crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+
+Também necessitará da função de Contribuinte de Dados de Armazenamento blob para ler, escrever e eliminar recipientes e bolhas de armazenamento Azure.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -113,7 +115,7 @@ Get-AzStorageBlobContent -Blob "Image002.png" `
 
 ## <a name="data-transfer-with-azcopy"></a>Transferência de dados com o AzCopy
 
-O utilitário da linha de comando AzCopy oferece transferência de dados scriptable de alto desempenho para armazenamento Azure. Pode utilizar o AzCopy para transferir dados de e para o armazenamento blob e ficheiros Azure. Para mais informações sobre a AzCopy v10, a versão mais recente do AzCopy, consulte [Começar com a AzCopy](../common/storage-use-azcopy-v10.md). Para saber sobre a utilização do AzCopy v10 com armazenamento Blob, consulte [os dados de Transferência com armazenamento AzCopy e Blob](../common/storage-use-azcopy-blobs.md).
+O utilitário da linha de comando AzCopy oferece transferência de dados scriptable de alto desempenho para armazenamento Azure. Pode utilizar o AzCopy para transferir dados de e para o armazenamento blob e ficheiros Azure. Para mais informações sobre a AzCopy v10, a versão mais recente do AzCopy, consulte [Começar com a AzCopy](../common/storage-use-azcopy-v10.md). Para saber sobre a utilização do AzCopy v10 com armazenamento Blob, consulte [os dados de Transferência com armazenamento AzCopy e Blob](../common/storage-use-azcopy-v10.md#transfer-data).
 
 O exemplo a seguir utiliza o AzCopy para enviar um ficheiro local para uma bolha. Lembre-se de substituir os valores da amostra pelos seus próprios valores:
 
@@ -122,7 +124,7 @@ azcopy login
 azcopy copy 'C:\myDirectory\myTextFile.txt' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt'
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Remova todos os recursos que criou. A forma mais fácil de remover os recursos é eliminar o grupo de recursos. Remover o grupo de recursos também elimina todos os recursos incluídos no grupo. No exemplo seguinte, remover o grupo de recursos remove a conta de armazenamento e o próprio grupo de recursos.
 

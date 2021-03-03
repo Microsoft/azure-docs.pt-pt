@@ -5,15 +5,15 @@ services: logic-apps
 ms.suite: integration
 author: dereklee
 ms.author: deli
-ms.reviewer: klam, estfan, logicappspm
-ms.date: 01/11/2020
+ms.reviewer: estfan, logicappspm, azla
+ms.date: 02/18/2021
 ms.topic: article
-ms.openlocfilehash: a0c8286b2fb36642723ae28b8bc88e9e49f8a8fb
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: fbe797937021763bb97ca09e1da792d9a7010f9a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100577944"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702509"
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Processar erros e exceções no Azure Logic Apps
 
@@ -27,7 +27,7 @@ Para obter a exceção mais básica e o tratamento de erros, pode utilizar uma *
 
 Aqui estão os tipos de política de relíndi:
 
-| Tipo | Description |
+| Tipo | Descrição |
 |------|-------------|
 | **Predefinição** | Esta política envia até quatro retrações em intervalos *exponencialmente crescentes,* que escalam 7,5 segundos, mas estão limitadas entre 5 e 45 segundos. |
 | **Intervalo exponencial**  | Esta política aguarda um intervalo aleatório selecionado a partir de um intervalo exponencialmente crescente antes de enviar o próximo pedido. |
@@ -69,7 +69,7 @@ Ou, pode especificar manualmente a política de repetição na `inputs` secção
 
 *Obrigatório*
 
-| Valor | Tipo | Description |
+| Valor | Tipo | Descrição |
 |-------|------|-------------|
 | <*retrip-política tipo*> | String | O tipo de política de regata que pretende utilizar: `default` `none` , , `fixed` ou `exponential` |
 | <*retrip-intervalo*> | String | O intervalo de repetição em que o valor deve utilizar [o formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). O intervalo mínimo predefinido é `PT5S` e o intervalo máximo é `PT1D` . Quando utilizar a política de intervalo exponencial, pode especificar valores mínimos e máximos diferentes. |
@@ -78,7 +78,7 @@ Ou, pode especificar manualmente a política de repetição na `inputs` secção
 
 *Opcional*
 
-| Valor | Tipo | Description |
+| Valor | Tipo | Descrição |
 |-------|------|-------------|
 | <*intervalo mínimo*> | String | Para a política de intervalo exponencial, o intervalo mais pequeno para o intervalo selecionado aleatoriamente no [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) |
 | <*intervalo máximo*> | String | Para a política de intervalo exponencial, o maior intervalo para o intervalo selecionado aleatoriamente no [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) |
@@ -263,13 +263,14 @@ Para limites de âmbitos, consulte [Limites e config](../logic-apps/logic-apps-l
 
 ### <a name="get-context-and-results-for-failures"></a>Obtenha contexto e resultados para falhas
 
-Embora as falhas de captura de um âmbito sejam úteis, também pode querer que o contexto o ajude a entender exatamente quais as ações falhadas, além de quaisquer erros ou códigos de estado que foram devolvidos.
+Embora as falhas de captura de um âmbito sejam úteis, também pode querer que o contexto o ajude a entender exatamente quais as ações falhadas, além de quaisquer erros ou códigos de estado que foram devolvidos. A [ `result()` função](../logic-apps/workflow-definition-language-functions-reference.md#result) devolve os resultados das ações de alto nível numa ação de âmbito, aceitando um único parâmetro, que é o nome do âmbito, e devolvendo um conjunto que contém os resultados dessas ações de primeiro nível. Estes objetos de ação incluem os mesmos atributos que os devolvidos pela `actions()` função, tais como a hora de início da ação, o tempo final, o estado, as entradas, os IDs de correlação e as saídas. 
 
-A [`result()`](../logic-apps/workflow-definition-language-functions-reference.md#result) função proporciona contexto sobre os resultados de todas as ações num âmbito. A `result()` função aceita um único parâmetro, que é o nome do âmbito, e devolve uma matriz que contém todos os resultados de ação dentro desse âmbito. Estes objetos de ação incluem os mesmos atributos que o `actions()` objeto, tais como a hora de início da ação, tempo final, estado, entradas, IDs de correlação e saídas. Para enviar contexto para quaisquer ações que falharam dentro de um âmbito, você pode facilmente emparelhar uma `@result()` expressão com a `runAfter` propriedade.
+> [!NOTE]
+> A `result()` função devolve os resultados *apenas* das ações de primeiro nível e não de ações aninhadas mais profundas, tais como ações de comutação ou condição.
 
-Para executar uma ação para cada ação num âmbito que tenha um `Failed` resultado, e filtrar a matriz de resultados até às ações falhadas, pode emparelhar uma `@result()` expressão com uma ação Filter [**Array**](logic-apps-perform-data-operations.md#filter-array-action) e um [**For cada**](../logic-apps/logic-apps-control-flow-loops.md) loop. Pode pegar na matriz de resultados filtrada e efetuar uma ação para cada falha utilizando o `For_each` laço.
+Para obter contexto sobre as ações que falharam num âmbito, você pode usar a `@result()` expressão com o nome do âmbito e a `runAfter` propriedade. Para filtrar a matriz devolvida a ações com `Failed` estado, pode adicionar a ação [ **Filter Array**](logic-apps-perform-data-operations.md#filter-array-action). Para executar uma ação para uma ação falhada devolvida, pegue na matriz filtrada devolvida e use um [ **Para cada** loop](../logic-apps/logic-apps-control-flow-loops.md).
 
-Aqui está um exemplo, seguido de uma explicação detalhada, que envia um pedido HTTP POST com o organismo de resposta para quaisquer ações que falharam no âmbito "My_Scope":
+Aqui está um exemplo, seguido de uma explicação detalhada, que envia um pedido HTTP POST com o organismo de resposta para quaisquer ações que falharam no âmbito da ação denominada "My_Scope":
 
 ```json
 "Filter_array": {

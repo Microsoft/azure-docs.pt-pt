@@ -7,15 +7,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: sample
-ms.date: 05/29/2019
+ms.date: 02/23/2021
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: fe9cc44542e97880b076d871dde82f5a02a58957
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cec466fc420e435159e2882d7b39ef6d03eeea7c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88928977"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101733487"
 ---
 # <a name="use-the-headpose-attribute"></a>Utilizar o atributo HeadPose
 
@@ -29,7 +29,7 @@ A aplicação de amostra [de WPF dos Serviços Cognitivos](https://github.com/Az
 
 ### <a name="explore-the-sample-code"></a>Explore o código de amostra
 
-Pode rodar programáticamente o retângulo facial utilizando o atributo HeadPose. Se especificar este atributo ao detetar rostos (ver [como detetar rostos),](HowtoDetectFacesinImage.md)poderá questioná-lo mais tarde. O seguinte método da aplicação [Cognitive Services Face WPF](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/Cognitive-Services-Face-WPF) pega numa lista de objetos **DetectedFace** e devolve uma lista de objetos **[Face.](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/app-samples/Cognitive-Services-Face-WPF/Sample-WPF/Controls/Face.cs)** **Face** aqui é uma classe personalizada que armazena dados de rosto, incluindo as coordenadas de retângulo atualizado. Os novos valores são calculados para **cima,** **à esquerda,** **à largura**e **à altura,** e um novo campo **FaceAngle** especifica a rotação.
+Pode rodar programáticamente o retângulo facial utilizando o atributo HeadPose. Se especificar este atributo ao detetar rostos (ver [como detetar rostos),](HowtoDetectFacesinImage.md)poderá questioná-lo mais tarde. O seguinte método da aplicação [Cognitive Services Face WPF](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/Cognitive-Services-Face-WPF) pega numa lista de objetos **DetectedFace** e devolve uma lista de objetos **[Face.](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/app-samples/Cognitive-Services-Face-WPF/Sample-WPF/Controls/Face.cs)** **Face** aqui é uma classe personalizada que armazena dados de rosto, incluindo as coordenadas de retângulo atualizado. Os novos valores são calculados para **cima,** **à esquerda,** **à largura** e **à altura,** e um novo campo **FaceAngle** especifica a rotação.
 
 ```csharp
 /// <summary>

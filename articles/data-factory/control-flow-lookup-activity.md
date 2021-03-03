@@ -5,28 +5,32 @@ author: linda33wj
 ms.author: jingwang
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 10/14/2020
-ms.openlocfilehash: 5f46e2871aa0017f0a4b33df04a8ae9058c59e17
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 02/25/2021
+ms.openlocfilehash: 4b2fb49899b6a676520fe0912dd122dd72cce023
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100385477"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101712917"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Atividade de procura na Fábrica de Dados Azure
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-A atividade de procura pode recuperar um conjunto de dados de qualquer uma das fontes de dados suportadas pela Azure Data Factory. Utilize-o no seguinte cenário:
-- Determinar dinamicamente quais os objetos a operar numa atividade subsequente, em vez de codificar duramente o nome do objeto. Alguns exemplos de objetos são ficheiros e tabelas.
+A atividade de procura pode recuperar um conjunto de dados de qualquer uma das fontes de dados suportadas pela Azure Data Factory. pode usá-lo para determinar dinamicamente quais os objetos a operar numa atividade subsequente, em vez de codificar duramente o nome do objeto. Alguns exemplos de objetos são ficheiros e tabelas.
 
-A atividade de procura lê e devolve o conteúdo de um ficheiro ou tabela de configuração. Também devolve o resultado da execução de uma consulta ou procedimento armazenado. A saída da atividade de Lookup pode ser usada numa atividade de cópia ou transformação subsequente se for um valor singleton. A saída pode ser usada numa atividade ForEach se for uma variedade de atributos.
+A atividade de procura lê e devolve o conteúdo de um ficheiro ou tabela de configuração. Também devolve o resultado da execução de uma consulta ou procedimento armazenado. A saída pode ser um valor singleton ou uma variedade de atributos, que podem ser consumidos em uma cópia subsequente, transformação ou atividades de fluxo de controle como a atividade forEach.
 
 ## <a name="supported-capabilities"></a>Capacidades suportadas
 
-As seguintes fontes de dados são suportadas para a atividade de Procura. 
+Tenha em atenção o seguinte:
 
-A atividade de Lookup pode voltar até 5000 linhas; se o conjunto de resultados contiver mais registos, as primeiras 5000 linhas serão devolvidas. A produção da atividade do Lookup suporta até cerca de 4 MB de tamanho, a atividade falhará se o tamanho exceder o limite. Atualmente, a duração mais longa para a atividade de Lookup antes do intervalo é de 24 horas.
+- A atividade de Lookup pode voltar até **5000 linhas;** se o conjunto de resultados contiver mais registos, as primeiras 5000 linhas serão devolvidas.
+- A produção da atividade do Lookup suporta até **4 MB** de tamanho, a atividade falhará se o tamanho exceder o limite. 
+- A duração mais longa da atividade de Lookup antes do intervalo é **de 24 horas**.
+- Quando utilizar a consulta ou o procedimento armazenado para procurar dados, certifique-se de que devolve um conjunto de resultados exato. Caso contrário, a atividade de procura falha.
+
+As seguintes fontes de dados são suportadas para a atividade de Procura. 
 
 [!INCLUDE [data-factory-v2-supported-data-stores](../../includes/data-factory-v2-supported-data-stores-for-lookup-activity.md)]
 
@@ -53,8 +57,8 @@ A atividade de Lookup pode voltar até 5000 linhas; se o conjunto de resultados 
 
 Nome | Descrição | Tipo | Necessário?
 ---- | ----------- | ---- | --------
-conjunto de dados | Fornece a referência de conjunto de dados para a procura. Obtenha detalhes da secção **de propriedades do Dataset** em cada artigo de conector correspondente. | Par chave/valor | Yes
-source | Contém propriedades de origem específicas do conjunto de dados, as mesmas que a fonte de Atividade de Cópia. Obtenha detalhes da secção **de propriedades da Atividade de Cópia** em cada artigo de conector correspondente. | Par chave/valor | Yes
+conjunto de dados | Fornece a referência de conjunto de dados para a procura. Obtenha detalhes da secção **de propriedades do Dataset** em cada artigo de conector correspondente. | Par chave/valor | Sim
+source | Contém propriedades de origem específicas do conjunto de dados, as mesmas que a fonte de Atividade de Cópia. Obtenha detalhes da secção **de propriedades da Atividade de Cópia** em cada artigo de conector correspondente. | Par chave/valor | Sim
 firstRowOnly | Indica se deve voltar apenas a primeira linha ou todas as linhas. | Booleano | N.º A predefinição é `true`.
 
 > [!NOTE]
@@ -381,7 +385,7 @@ Aqui estão algumas limitações da atividade de Lookup e soluções alternativa
 
 | Limitação | Solução |
 |---|---|
-| A atividade de Lookup tem um máximo de 5.000 linhas, e um tamanho máximo de 2 MB. | Desenhe um oleoduto de dois níveis onde o gasoduto exterior itera sobre um gasoduto interior, que recupera dados que não excedam as linhas máximas ou o tamanho. |
+| A atividade de Lookup tem um máximo de 5.000 linhas, e um tamanho máximo de 4 MB. | Desenhe um oleoduto de dois níveis onde o gasoduto exterior itera sobre um gasoduto interior, que recupera dados que não excedam as linhas máximas ou o tamanho. |
 | | |
 
 ## <a name="next-steps"></a>Passos seguintes

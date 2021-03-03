@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, seoapr2020, devx-track-csharp
 ms.date: 04/28/2020
-ms.openlocfilehash: 6948491091f558aa7f317d519b0f92c63cac4788
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 6e2758fd650547978924c25f8f3faf1e3e7194f6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98946637"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101699390"
 ---
 # <a name="use-c-with-mapreduce-streaming-on-apache-hadoop-in-hdinsight"></a>Use C# com mapReduce streaming em Apache Hadoop em HDInsight
 
@@ -20,7 +20,7 @@ O streaming Apache Hadoop permite-lhe executar trabalhos MapReduce usando um scr
 
 ## <a name="net-on-hdinsight"></a>.NET em HDInsight
 
-Os clusters HDInsight utilizam [Mono (para https://mono-project.com) ](https://mono-project.com) executar aplicações .NET. A versão mono 4.2.1 está incluída na versão HDInsight 3.6. Para obter mais informações sobre a versão de Mono incluída com HDInsight, consulte [os componentes Apache Hadoop disponíveis com diferentes versões HDInsight](../hdinsight-component-versioning.md#apache-components-available-with-different-hdinsight-versions).
+Os clusters HDInsight utilizam [Mono (para https://mono-project.com) ](https://mono-project.com) executar aplicações .NET. A versão mono 4.2.1 está incluída na versão HDInsight 3.6. Para obter mais informações sobre a versão de Mono incluída com HDInsight, consulte [os componentes Apache Hadoop disponíveis com as versões HDInsight](../hdinsight-component-versioning.md).
 
 Para obter mais informações sobre a compatibilidade do Mono com as versões .NET Framework, consulte [Mono compatibilidade](https://www.mono-project.com/docs/about-mono/compatibility/).
 
@@ -264,7 +264,7 @@ yourselves      3
 youth   17
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Use MapReduce em Apache Hadoop em HDInsight](hdinsight-use-mapreduce.md).
 * [Utilize uma função C# definida pelo utilizador com a Colmeia Apache e o Porco Apache](apache-hadoop-hive-pig-udf-dotnet-csharp.md).

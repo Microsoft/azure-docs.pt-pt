@@ -1,18 +1,18 @@
 ---
-title: Alertas de registo do Monitor Azure para contentores | Microsoft Docs
-description: Este artigo descreve como criar alertas de registo personalizados para memória e utilização de CPU do Azure Monitor para recipientes.
+title: Registar alertas a partir de insights de contentores | Microsoft Docs
+description: Este artigo descreve como criar alertas de registo personalizados para memória e utilização de CPU a partir de insights de contentores.
 ms.topic: conceptual
 ms.date: 01/05/2021
-ms.openlocfilehash: 4239567c60afda6ca165e097562cb888c731f15a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 64d499d69194ac338d367ae094e42f4c8af23bef
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614311"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711200"
 ---
-# <a name="how-to-create-log-alerts-from-azure-monitor-for-containers"></a>Como criar alertas de registo do Azure Monitor para contentores
+# <a name="how-to-create-log-alerts-from-container-insights"></a>Como criar alertas de registo a partir de insights de contentores
 
-O Azure Monitor para contentores monitoriza o desempenho das cargas de trabalho dos contentores que são implantados para clusters kubernetes geridos ou auto-geridos. Para alertar sobre o que importa, este artigo descreve como criar alertas baseados em log para as seguintes situações com clusters AKS:
+Os conhecimentos dos contentores monitorizam o desempenho das cargas de trabalho dos contentores que são implantados para clusters kubernetes geridos ou auto-geridos. Para alertar sobre o que importa, este artigo descreve como criar alertas baseados em log para as seguintes situações com clusters AKS:
 
 - Quando a utilização do CPU ou da memória nos nos nóns de cluster excede um limiar
 - Quando a utilização da CPU ou da memória em qualquer recipiente dentro de um controlador excede um limiar em comparação com um limite fixado no recurso correspondente
@@ -20,9 +20,9 @@ O Azure Monitor para contentores monitoriza o desempenho das cargas de trabalho 
 - *Falhado,* *pendente*, *desconhecido,* *execução* ou *contagem de* fase de pod bem sucedida
 - Quando o espaço livre do disco nos nos nos acenos de cluster excede um limiar
 
-Para alertar para uma utilização elevada do CPU ou da memória, ou para um baixo espaço de disco livre nos nós do cluster, utilize as consultas fornecidas para criar um alerta métrico ou um alerta de medição métrica. Embora os alertas métricos tenham uma latência mais baixa do que os alertas de log, os alertas de log fornecem consulta avançada e maior sofisticação. As consultas de alerta de registo comparam uma data com a presente, utilizando o operador *agora* e recuando uma hora. (Monitor azul para contentores armazena todas as datas no formato Tempo Universal Coordenado (UTC).)
+Para alertar para uma utilização elevada do CPU ou da memória, ou para um baixo espaço de disco livre nos nós do cluster, utilize as consultas fornecidas para criar um alerta métrico ou um alerta de medição métrica. Embora os alertas métricos tenham uma latência mais baixa do que os alertas de log, os alertas de log fornecem consulta avançada e maior sofisticação. As consultas de alerta de registo comparam uma data com a presente, utilizando o operador *agora* e recuando uma hora. (Insights de contentores armazena todas as datas no formato Tempo Universal Coordenado (UTC).)
 
-Se não estiver familiarizado com os alertas do Azure Monitor, consulte [a visão geral dos alertas no Microsoft Azure](../platform/alerts-overview.md) antes de começar. Para saber mais sobre os alertas que utilizam consultas de registo, consulte [alertas de registo no Azure Monitor](../alerts/alerts-unified-log.md). Para obter mais informações sobre alertas métricos, consulte [alertas métricos no Azure Monitor](../alerts/alerts-metric-overview.md).
+Se não estiver familiarizado com os alertas do Azure Monitor, consulte [a visão geral dos alertas no Microsoft Azure](../alerts/alerts-overview.md) antes de começar. Para saber mais sobre os alertas que utilizam consultas de registo, consulte [alertas de registo no Azure Monitor](../alerts/alerts-unified-log.md). Para obter mais informações sobre alertas métricos, consulte [alertas métricos no Azure Monitor](../alerts/alerts-metric-overview.md).
 
 ## <a name="resource-utilization-log-search-queries"></a>Consultas de pesquisa de registo de utilização de recursos
 
@@ -275,7 +275,7 @@ InsightsMetrics
 
 ## <a name="create-an-alert-rule"></a>Criar uma regra de alerta
 
-Esta secção percorre a criação de uma regra de alerta de medição métrica utilizando dados de desempenho do Azure Monitor para contentores. Você pode usar este processo básico com uma variedade de consultas de log para alertar em diferentes contadores de desempenho. Utilize uma das consultas de pesquisa de registo fornecidas anteriormente para começar. Para criar usando um modelo ARM, consulte [amostras de criação de alerta de registo usando o modelo de recurso Azure.](../alerts/alerts-log-create-templates.md)
+Esta secção percorre a criação de uma regra de alerta de medição métrica utilizando dados de desempenho a partir de insights do Contentor. Você pode usar este processo básico com uma variedade de consultas de log para alertar em diferentes contadores de desempenho. Utilize uma das consultas de pesquisa de registo fornecidas anteriormente para começar. Para criar usando um modelo ARM, consulte [amostras de criação de alerta de registo usando o modelo de recurso Azure.](../alerts/alerts-log-create-templates.md)
 
 >[!NOTE]
 >O procedimento a seguir para criar uma regra de alerta para a utilização de recursos de contentores requer que você mude para um novo registo alerta API como descrito na [preferência da API da Switch para alertas de registo](../alerts/alerts-log-api-switch.md).
@@ -283,7 +283,7 @@ Esta secção percorre a criação de uma regra de alerta de medição métrica 
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 2. No portal Azure, procure e selecione **espaços de trabalho do Log Analytics**.
-3. Na sua lista de espaços de trabalho Log Analytics, selecione o espaço de trabalho que suporta o Azure Monitor para contentores. 
+3. Na sua lista de espaços de trabalho Log Analytics, selecione as introspeções de suporte do espaço de trabalho. 
 4. No painel do lado esquerdo, selecione **Logs** para abrir a página de registos do Monitor Azure. Utilize esta página para escrever e executar consultas de registo Azure.
 5. Na página **'Registares',** cole uma das [consultas fornecidas](#resource-utilization-log-search-queries) anteriormente no campo **de consulta de Pesquisa** e, em seguida, selecione **Executar** para validar os resultados. Se não realizar este passo, a opção **+Novo alerta** não está disponível para selecionar.
 6. Selecione **+Novo alerta** para criar um alerta de registo.

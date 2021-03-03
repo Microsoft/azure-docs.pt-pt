@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/25/2021
-ms.openlocfilehash: ffdafbe991d3cd78e45c4804fd6cc5377099acbc
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 29164bbb205e9f3ad59ac28200b5c6cd1e47bf39
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100589417"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101707579"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Visualizar dados do Azure Monitor
 Este artigo fornece um resumo dos métodos disponíveis para visualizar os dados de registo e métrica armazenados no Azure Monitor.
@@ -138,7 +138,7 @@ Pode aceder aos dados em registo e dados métricos no Azure Monitor através da 
 - As consultas são limitadas no tamanho da resposta a 8MB e o tempo de execução de consulta de 110 segundos.
 
 ## <a name="next-steps"></a>Passos seguintes
-- Conheça os [dados recolhidos pelo Azure Monitor.](/data-platform.md)
+- Conheça os [dados recolhidos pelo Azure Monitor.](data-platform.md)
 - Saiba mais [sobre os dashboards Azure](../azure-portal/azure-portal-dashboards.md).
 - Saiba mais [sobre o Explorador de Métricas](essentials/metrics-getting-started.md)
 - Conheça [os Livros de Trabalho.](./visualize/workbooks-overview.md)

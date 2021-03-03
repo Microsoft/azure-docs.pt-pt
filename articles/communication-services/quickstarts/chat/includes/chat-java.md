@@ -10,12 +10,12 @@ ms.date: 9/1/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 72e00306563e8cccdd476cf0ae5bfb4ddaa63ecf
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: b402dec76f88bfdb0bc4758f94cc6e8e279d8040
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101661652"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101751019"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -66,7 +66,7 @@ Para a autenticação, o seu cliente necessita de fazer referência ao `azure-co
 <dependency>
     <groupId>com.azure</groupId>
     <artifactId>azure-communication-common</artifactId>
-    <version>1.0.0</version> 
+    <version>1.0.0-beta.4</version> 
 </dependency>
 ```
 
@@ -141,11 +141,11 @@ A resposta `chatThreadClient` é usada para realizar operações no fio de chat 
 List<ChatParticipant> participants = new ArrayList<ChatParticipant>();
 
 ChatParticipant firstThreadParticipant = new ChatParticipant()
-    .setUser(firstUser)
+    .setCommunicationIdentifier(firstUser)
     .setDisplayName("Participant Display Name 1");
     
 ChatParticipant secondThreadParticipant = new ChatParticipant()
-    .setUser(secondUser)
+    .setCommunicationIdentifier(secondUser)
     .setDisplayName("Participant Display Name 2");
 
 participants.add(firstThreadParticipant);
@@ -207,13 +207,15 @@ chatThreadClient.listMessages().iterableByPage().forEach(resp -> {
 
 `listMessages` retorna diferentes tipos de mensagens que podem ser identificadas por `chatMessage.getType()` . Estes tipos são:
 
-- `Text`: Mensagem de chat regular enviada por um participante de thread.
+- `text`: Mensagem de chat regular enviada por um participante de thread.
 
-- `ThreadActivity/TopicUpdate`: Mensagem do sistema que indica que o tópico foi atualizado.
+- `html`: Mensagem de chat HTML enviada por um participante de thread.
 
-- `ThreadActivity/AddMember`: Mensagem do sistema que indica que um ou mais membros foram adicionados ao fio de conversação.
+- `topicUpdated`: Mensagem do sistema que indica que o tópico foi atualizado.
 
-- `ThreadActivity/DeleteMember`: Mensagem do sistema que indica que um membro foi removido do fio de conversação.
+- `participantAdded`: Mensagem do sistema que indica que um ou mais participantes foram adicionados ao fio de conversação.
+
+- `participantRemoved`: Mensagem do sistema que indica que um participante foi removido do fio de conversação.
 
 Para mais detalhes, consulte [os Tipos de Mensagens](../../../concepts/chat/concepts.md#message-types).
 
@@ -224,7 +226,7 @@ Uma vez criado um fio de chat, pode adicionar e remover os utilizadores do mesmo
 Utilize `addParticipants` o método para adicionar os participantes ao fio identificado pelo threadId.
 
 - Utilize `listParticipants` para listar os participantes a adicionar ao fio de chat.
-- `user`, necessário, é o ComunicadoRIdentifier que criou pela Entidade ComunicaçãoClient no quickstart [do User Access Token.](../../access-tokens.md)
+- `communicationIdentifier`, é necessário, é o Identificador de Comunicação que criou pela Entidade ComunicaçãoClient no quickstart [do User Access Token.](../../access-tokens.md)
 - `display_name`, opcional, é o nome de exibição do participante do thread.
 - `share_history_time`, opcional, é o momento a partir do qual a história do chat é partilhada com o participante. Para partilhar a história desde o início do fio de chat, coloque esta propriedade em qualquer data igual ou inferior ao tempo de criação de fios. Para não partilhar nenhuma história anterior à data da adição do participante, desafete-a para a data atual. Para partilhar o histórico parcial, desemafete-o para a data exigida.
 
@@ -232,11 +234,11 @@ Utilize `addParticipants` o método para adicionar os participantes ao fio ident
 List<ChatParticipant> participants = new ArrayList<ChatParticipant>();
 
 ChatParticipant firstThreadParticipant = new ChatParticipant()
-    .setUser(user1)
+    .setCommunicationIdentifier(identity1)
     .setDisplayName("Display Name 1");
 
 ChatParticipant secondThreadParticipant = new ChatParticipant()
-    .setUser(user2)
+    .setCommunicationIdentifier(identity2)
     .setDisplayName("Display Name 2");
 
 participants.add(firstThreadParticipant);
@@ -247,14 +249,14 @@ AddChatParticipantsOptions addChatParticipantsOptions = new AddChatParticipantsO
 chatThreadClient.addParticipants(addChatParticipantsOptions);
 ```
 
-## <a name="remove-user-from-a-chat-thread"></a>Remova o utilizador de um fio de chat
+## <a name="remove-participant-from-a-chat-thread"></a>Remova o participante de um fio de chat
 
-Similar a adicionar um utilizador a um fio, pode remover os utilizadores de um fio de chat. Para isso, é necessário rastrear as identidades dos utilizadores dos participantes que adicionou.
+Semelhante a adicionar um participante a um fio, você pode remover os participantes de um fio de chat. Para isso, é necessário rastrear as identidades dos participantes que adicionou.
 
-Use, `removeParticipant` onde `user` está o Comunicador de Comunicação que criou.
+Use, `removeParticipant` onde `identifier` está o identificador de comunicação que criou.
 
 ```Java
-chatThreadClient.removeParticipant(user);
+chatThreadClient.removeParticipant(identity);
 ```
 
 ## <a name="run-the-code"></a>Executar o código

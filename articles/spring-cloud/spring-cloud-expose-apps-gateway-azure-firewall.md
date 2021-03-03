@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 11/17/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: d5bd62dad5be7f6a6df5b6b037e8eeae13ee48e3
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 6c22d1bae4f1d116aa52846880498c7c2a425174
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98887269"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738723"
 ---
 # <a name="expose-applications-to-the-internet-using-application-gateway-and-azure-firewall"></a>Expor aplicações à Internet utilizando o Gateway de Aplicações e a Azure Firewall
 
@@ -20,7 +20,7 @@ Este documento explica como expor aplicações à Internet usando o Application 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- [Versão Azure CLI 2.0.4 ou posterior](https://docs.microsoft.com/cli/azure/install-azure-cli).
+- [Versão Azure CLI 2.0.4 ou posterior](/cli/azure/install-azure-cli).
 
 ## <a name="define-variables"></a>Definir variáveis
 
@@ -137,7 +137,7 @@ Copie e cole o endereço IP público na barra de endereço do seu navegador.
 
   ![App em IP público](media/spring-cloud-expose-apps-gateway-az-firewall/app-gateway-public-ip.png)
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Ver também
 
 - [Resolução de problemas Azure Spring Cloud em VNET](spring-cloud-troubleshooting-vnet.md)
 - [Responsabilidades do cliente para correr Azure Spring Cloud em VNET](spring-cloud-vnet-customer-responsibilities.md)

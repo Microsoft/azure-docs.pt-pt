@@ -4,19 +4,21 @@ description: Segurança V2 Endpoint de referência de segurança Azure
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/20/2020
+ms.date: 02/22/2021
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 937d0b379c4f669e5b57e5053d5e3bffeb091e78
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: 7672f4eb4530dbfb5d039b066fe7cf6eaf79e5a7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97368958"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718646"
 ---
 # <a name="security-control-v2-endpoint-security"></a>Controlo de Segurança V2: Segurança de ponto final
 
 A Endpoint Security cobre os controlos na deteção e resposta do ponto final. Isto inclui a utilização de deteção e resposta de pontos finais (EDR) e serviço anti-malware para pontos finais em ambientes Azure.
+
+Para ver a política de Azure incorporada aplicável, consulte [detalhes da iniciativa de conformidade regulamentar de referência de segurança Azure: Endpoint Security](../../governance/policy/samples/azure-security-benchmark#endpoint-security)
 
 ## <a name="es-1-use-endpoint-detection-and-response-edr"></a>ES-1: Utilizar deteção e resposta de ponto final (EDR)
 
@@ -26,13 +28,13 @@ A Endpoint Security cobre os controlos na deteção e resposta do ponto final. I
 
 Ativar as capacidades de Deteção e Resposta de Pontos Finais (EDR) para servidores e clientes e integrar-se com processos siem e operações de segurança.
 
-O Microsoft Defender Advanced Threat Protection fornece a capacidade EDR como parte de uma plataforma de segurança de ponto final da empresa para prevenir, detetar, investigar e responder a ameaças avançadas. 
+O Microsoft Defender for Endpoint fornece a capacidade EDR como parte de uma plataforma de segurança de ponto final da empresa para prevenir, detetar, investigar e responder a ameaças avançadas.
 
-- [Visão geral da proteção de ameaças avançadas do Microsoft Defender](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection)
+- [Microsoft Defender para visão geral do ponto final](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection)
 
-- [Serviço ATP Microsoft Defender para servidores Windows](/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints)
+- [Microsoft Defender para Endpoint para servidores Windows](/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints)
 
-- [Serviço ATP microsoft Defender para servidores não Windows](/windows/security/threat-protection/microsoft-defender-atp/configure-endpoints-non-windows)
+- [Microsoft Defender para Endpoint para servidores não Windows](/windows/security/threat-protection/microsoft-defender-atp/configure-endpoints-non-windows)
 
 **Responsabilidade**: Cliente
 
@@ -40,7 +42,7 @@ O Microsoft Defender Advanced Threat Protection fornece a capacidade EDR como pa
 
 - [Segurança de infraestrutura e pontos finais](/azure/cloud-adoption-framework/organize/cloud-security)
 
-- [Informações sobre ameaças](/azure/cloud-adoption-framework/organize/cloud-security-threat-intelligence)
+- [Inteligência de ameaça](/azure/cloud-adoption-framework/organize/cloud-security-threat-intelligence)
 
 - [Gestão de Conformidade de Segurança](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
 
@@ -56,7 +58,7 @@ Utilize uma solução anti-malware gerida centralmente capaz de digitalização 
 
 O Azure Security Center pode identificar automaticamente o uso de várias soluções anti-malware populares para as suas máquinas virtuais e reportar o estado de funcionamento da proteção de ponto final e fazer recomendações. 
 
-O Microsoft Antimalware para Azure Cloud Services é o anti-malware padrão para máquinas virtuais do Windows (VMs). Para os VMs Linux, utilize soluções antimalware de terceiros.  Além disso, pode utilizar a deteção de ameaças do Azure Security Center para detetar malware enviado para contas de Armazenamento Azure. 
+O Microsoft Antimalware para Azure Cloud Services é o anti-malware padrão para máquinas virtuais do Windows (VMs). Para os VMs Linux, utilize soluções antimalware de terceiros. Além disso, pode utilizar a deteção de ameaças do Azure Security Center para detetar malware enviado para contas de Armazenamento Azure. 
 
 - [Como configurar o Microsoft Antimalware para serviços em nuvem e máquinas virtuais](../fundamentals/antimalware.md)
 
@@ -68,7 +70,7 @@ O Microsoft Antimalware para Azure Cloud Services é o anti-malware padrão para
 
 - [Segurança de infraestrutura e pontos finais](/azure/cloud-adoption-framework/organize/cloud-security)
 
-- [Informações sobre ameaças](/azure/cloud-adoption-framework/organize/cloud-security-threat-intelligence)
+- [Inteligência de ameaça](/azure/cloud-adoption-framework/organize/cloud-security-threat-intelligence)
 
 - [Gestão de Conformidade de Segurança](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
 
@@ -80,9 +82,9 @@ O Microsoft Antimalware para Azure Cloud Services é o anti-malware padrão para
 |--|--|--|--|
 | ES-3 | 8.2 | SI-2, SI-3 |
 
-Certifique-se de que as assinaturas anti-malware são atualizadas de forma rápida e consistente. 
+Certifique-se de que as assinaturas anti-malware são atualizadas de forma rápida e consistente.
 
-Siga as recomendações no Azure Security Center: "Compute &amp; Apps" para garantir que todos os pontos finais estão atualizados com as assinaturas mais recentes. O Microsoft Antimalware instalará automaticamente as mais recentes assinaturas e atualizações do motor por predefinição. Para o Linux, utilize uma solução antimalware de terceiros.
+Siga as recomendações no Azure Security Center: "Compute & Apps" para garantir que todos os pontos finais estão atualizados com as assinaturas mais recentes. O Microsoft Antimalware instalará automaticamente as mais recentes assinaturas e atualizações do motor por predefinição. Para o Linux, certifique-se de que as assinaturas são atualizadas na solução antimalware de terceiros.
 
 - [Como implementar o Microsoft Antimalware para serviços em nuvem azure e máquinas virtuais](../fundamentals/antimalware.md)
 
@@ -92,7 +94,7 @@ Siga as recomendações no Azure Security Center: "Compute &amp; Apps" para gara
 
 - [Segurança de infraestrutura e pontos finais](/azure/cloud-adoption-framework/organize/cloud-security)
 
-- [Informações sobre ameaças](/azure/cloud-adoption-framework/organize/cloud-security-threat-intelligence)
+- [Inteligência de ameaça](/azure/cloud-adoption-framework/organize/cloud-security-threat-intelligence)
 
 - [Gestão de Conformidade de Segurança](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
 

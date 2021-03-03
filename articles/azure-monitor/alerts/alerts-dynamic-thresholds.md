@@ -5,12 +5,12 @@ author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
 ms.date: 01/04/2021
-ms.openlocfilehash: 31a034a7f52efd915b7a07e1abb953a14839892e
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 9cf4caf77d14dd1296276ca48827c170ef265e9b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614711"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718068"
 ---
 # <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor"></a>Alertas métricos com limiares dinâmicos no Monitor Azure
 
@@ -22,7 +22,7 @@ Adoraríamos ouvir o seu feedback, mantê-lo <azurealertsfeedback@microsoft.com>
 
 ## <a name="why-and-when-is-using-dynamic-condition-type-recommended"></a>Porquê e quando é recomendado o tipo de condição dinâmica?
 
-1. **Alerta escalável** – As regras dinâmicas de alerta de limiares podem criar limiares adaptados para centenas de séries métricas de cada vez, mas proporcionando a mesma facilidade de definir uma regra de alerta numa única métrica. Dão-lhe menos alerta para criar e gerir. Pode utilizar o portal Azure ou a API do Gestor de Recursos Azure para os criar. A abordagem escalável é especialmente útil quando se lida com dimensões métricas ou quando se aplica a múltiplos recursos, tais como todos os recursos de subscrição.  [Saiba mais sobre como configurar alertas métricos com limiares dinâmicos usando modelos.](../platform/alerts-metric-create-templates.md)
+1. **Alerta escalável** – As regras dinâmicas de alerta de limiares podem criar limiares adaptados para centenas de séries métricas de cada vez, mas proporcionando a mesma facilidade de definir uma regra de alerta numa única métrica. Dão-lhe menos alerta para criar e gerir. Pode utilizar o portal Azure ou a API do Gestor de Recursos Azure para os criar. A abordagem escalável é especialmente útil quando se lida com dimensões métricas ou quando se aplica a múltiplos recursos, tais como todos os recursos de subscrição.  [Saiba mais sobre como configurar alertas métricos com limiares dinâmicos usando modelos.](./alerts-metric-create-templates.md)
 
 1. **Reconhecimento de Padrões Métricos Inteligentes** – Utilizando a nossa tecnologia ML, somos capazes de detetar automaticamente padrões métricos e adaptar-nos a mudanças métricas ao longo do tempo, que podem muitas vezes incluir sazonalidade (hora/dia/semana). Adaptar-se ao comportamento das métricas ao longo do tempo e alertar com base em desvios do seu padrão alivia o fardo de conhecer o limiar "certo" para cada métrica. O algoritmo ML utilizado em Limiares Dinâmicos é projetado para prevenir limiares ruidosos (de baixa precisão) ou largos (baixa recuperação) que não têm um padrão esperado.
 
@@ -75,7 +75,7 @@ Para desencadear um alerta quando houve uma violação de um Limiar Dinâmico em
 
 ## <a name="how-do-you-find-out-why-a-dynamic-thresholds-alert-was-triggered"></a>Como é que descobres porque é que um alerta dynamic thresholds foi acionado?
 
-Pode explorar casos de alerta desencadeados na visualização de alertas, clicando no link no e-mail ou mensagem de texto, ou no navegador para ver a vista de alertas no portal Azure. [Saiba mais sobre a vista de alertas.](../platform/alerts-overview.md#alerts-experience)
+Pode explorar casos de alerta desencadeados na visualização de alertas, clicando no link no e-mail ou mensagem de texto, ou no navegador para ver a vista de alertas no portal Azure. [Saiba mais sobre a vista de alertas.](./alerts-overview.md#alerts-experience)
 
 A vista de alerta apresenta:
 
@@ -188,4 +188,4 @@ Utilize as seguintes informações para interpretar o gráfico anterior.
 - **Ponto vermelho com um círculo preto** - Mostra o primeiro valor métrico fora do alcance permitido. Este é o valor que dispara um alerta métrico e o coloca em estado ativo.
 - **Pontos vermelhos**- Indicar valores adicionais medidos fora do intervalo permitido. Não vão disparar alertas métricos adicionais, mas o alerta permanece no ativo.
 - **Área vermelha** - Mostra a época em que o valor métrico estava fora do alcance permitido. O alerta permanece no estado ativo enquanto os valores medidos subsequentes estiverem fora do alcance permitido, mas não são disparados novos alertas.
-- **Fim da área vermelha** - Quando a linha azul está de volta dentro dos valores permitidos, a área vermelha para e a linha de valor medida torna-se azul. O estado do alerta métrico disparado no momento do ponto vermelho com contorno preto está definido para ser resolvido. 
+- **Fim da área vermelha** - Quando a linha azul está de volta dentro dos valores permitidos, a área vermelha para e a linha de valor medida torna-se azul. O estado do alerta métrico disparado no momento do ponto vermelho com contorno preto está definido para ser resolvido.

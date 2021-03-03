@@ -251,6 +251,8 @@
       href: how-to-create-test-certificates.md
     - name: Scripts de gestão de dispositivos Windows
       href: reference-windows-scripts.md
+    - name: IoT Edge para Linux em scripts Windows
+      href: reference-iot-edge-for-linux-on-windows-scripts.md
     - name: CLI do Azure
       href: /cli/azure/azure-cli-reference-for-IoT
 - name: Recursos

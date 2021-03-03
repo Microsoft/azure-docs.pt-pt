@@ -8,12 +8,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 9/04/2020
 ms.author: lagayhar
-ms.openlocfilehash: 3bcbd2a58764003c174c02ec637050b57632048a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 9a02299853174192c6963cbb382ceb1aa06ac088
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100618872"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728608"
 ---
 # <a name="composite-bar-renderer"></a>Renderizador de barras compósitos
 
@@ -193,4 +193,4 @@ A vista de barras composta para gráfico com as definições acima será assim:
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Implementar](../visualize/workbooks-automate.md) livros de trabalho com o Gestor de Recursos Azure.
-* [Controle](../platform/workbooks-access-control.md) e partilhe o acesso aos seus recursos do livro.
+* [Controle](./workbooks-access-control.md) e partilhe o acesso aos seus recursos do livro.

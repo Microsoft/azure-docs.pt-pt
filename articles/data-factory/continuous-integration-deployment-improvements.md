@@ -7,12 +7,12 @@ ms.author: abnarain
 ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 02/02/2021
-ms.openlocfilehash: b5becd8ddaf74ab2acd059054a095ce9d21c178f
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 49ec43e59989f3fdad8f5731867953cc7cbb5757
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100366845"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101699713"
 ---
 # <a name="automated-publishing-for-continuous-integration-and-delivery"></a>Publicação automatizada para integração e entrega contínuas
 
@@ -22,7 +22,7 @@ ms.locfileid: "100366845"
 
 A integração contínua é a prática de testar cada alteração feita automaticamente na sua base de código e o mais cedo possível a entrega contínua segue o teste que ocorre durante a integração contínua e empurra alterações para um sistema de preparação ou produção.
 
-Na Azure Data Factory, integração e entrega contínuas (CI/CD) significa mover os gasodutos data factory de um ambiente (desenvolvimento, teste, produção) para outro. A Azure Data Factory utiliza [modelos do Azure Resource Manager](../azure-resource-manager/templates/overview.md) para armazenar a configuração das suas várias entidades ADF (pipelines, conjuntos de dados, fluxos de dados, e assim por diante). Existem dois métodos sugeridos para promover uma fábrica de dados para outro ambiente:
+No Azure Data Factory, a integração contínua e entrega contínua (CI/CD) significa mover pipelines do Data Factory de um ambiente (desenvolvimento, teste, produção) para outro. A Azure Data Factory utiliza [modelos do Azure Resource Manager](../azure-resource-manager/templates/overview.md) para armazenar a configuração das suas várias entidades ADF (pipelines, conjuntos de dados, fluxos de dados, e assim por diante). Existem dois métodos sugeridos para promover uma fábrica de dados para outro ambiente:
 
 - Implantação automatizada utilizando a integração da Data Factory com [a Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines).
 - Carre faça o upload manual de um modelo de Gestor de Recursos utilizando a integração UX da Data Factory com o Azure Resource Manager.
@@ -119,7 +119,7 @@ Siga os passos abaixo para começar:
             "build":"node node_modules/@microsoft/azure-data-factory-utilities/lib/index"
         },
         "dependencies":{
-            "@microsoft/azure-data-factory-utilities":"^0.1.2"
+            "@microsoft/azure-data-factory-utilities":"^0.1.3"
         }
     } 
     ```

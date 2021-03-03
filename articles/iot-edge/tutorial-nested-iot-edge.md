@@ -4,17 +4,17 @@ description: Este tutorial mostra-lhe como criar uma estrutura hierárquica de d
 author: v-tcassi
 manager: philmea
 ms.author: v-tcassi
-ms.date: 11/10/2020
+ms.date: 2/26/2021
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: a7f82ec5a4ef918b1bc7ab0fd6813199c0a1d772
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: f1b1a94dc1d96e625947eef5730c24f080fc155a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100366397"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101721417"
 ---
 # <a name="tutorial-create-a-hierarchy-of-iot-edge-devices-preview"></a>Tutorial: Criar uma hierarquia de dispositivos IoT Edge (Pré-visualização)
 
@@ -35,15 +35,17 @@ Para atingir este objetivo, este tutorial acompanha-o através da criação de u
 > * Configure o tempo de funcionamento do IoT Edge nos dispositivos da sua hierarquia.
 > * Instale certificados consistentes em toda a hierarquia do seu dispositivo.
 > * Adicione cargas de trabalho aos dispositivos da sua hierarquia.
-> * Utilize um módulo de procuração API para encaminhar de forma segura o tráfego HTTP sobre uma única porta a partir dos seus dispositivos de camada inferior.
+> * Utilize o [módulo IoT Edge API Proxy](https://azuremarketplace.microsoft.com/marketplace/apps/azure-iot.azureiotedge-api-proxy?tab=Overview) para encaminhar de forma segura o tráfego HTTP sobre uma única porta a partir dos seus dispositivos de camada inferior.
 
 Neste tutorial, são definidas as seguintes camadas de rede:
 
 * **Camada superior**: Os dispositivos IoT Edge nesta camada podem ligar-se diretamente à nuvem.
 
-* **Camada inferior**: Os dispositivos IoT Edge nesta camada não podem ligar-se diretamente à nuvem. Precisam de passar por um ou mais dispositivos IoT Edge intermediários para enviar e receber dados.
+* **Camadas inferiores**: Os dispositivos IoT Edge em camadas abaixo da camada superior não podem ligar-se diretamente à nuvem. Precisam de passar por um ou mais dispositivos IoT Edge intermediários para enviar e receber dados.
 
-Este tutorial usa uma hierarquia de dois dispositivos para a simplicidade. Um dispositivo, **topLayerDevice,** representa um dispositivo na camada superior da hierarquia, que pode ligar-se diretamente à nuvem. Este dispositivo também será referido como o **dispositivo principal**. O outro dispositivo, **o LowerLayerDevice,** representa um dispositivo na camada inferior da hierarquia, que não consegue ligar-se diretamente à nuvem. Este aparelho também será referido como o **dispositivo infantil**. Pode adicionar dispositivos adicionais de camada inferior para representar o seu ambiente de produção. A configuração de quaisquer dispositivos adicionais de camada inferior seguirá a configuração do **LowerLayerDevice.**
+Este tutorial usa uma hierarquia de dois dispositivos para a simplicidade, retratada abaixo. Um dispositivo, o **dispositivo de camada superior,** representa um dispositivo na camada superior da hierarquia, que pode ligar-se diretamente à nuvem. Este dispositivo também será referido como o **dispositivo principal**. O outro dispositivo, o **dispositivo de camada inferior,** representa um dispositivo na camada inferior da hierarquia, que não consegue ligar-se diretamente à nuvem. Pode adicionar dispositivos adicionais de camada inferior para representar o seu ambiente de produção, conforme necessário. Os dispositivos em camadas mais baixas também serão referidos como **dispositivos infantis**. A configuração de quaisquer dispositivos adicionais de camada inferior seguirá a configuração do dispositivo de **camada inferior.**
+
+![Estrutura da hierarquia tutorial, contendo dois dispositivos: o dispositivo de camada superior e o dispositivo de camada inferior](./media/tutorial-nested-iot-edge/tutorial-hierarchy-diagram.png)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -53,7 +55,8 @@ Para criar uma hierarquia de dispositivos IoT Edge, você precisará:
 * Uma conta Azure com uma subscrição válida. Se não tiver uma [subscrição do Azure,](../guides/developer/azure-developer-guide.md#understanding-accounts-subscriptions-and-billing)crie uma [conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 * Um [hub IoT](../iot-hub/iot-hub-create-through-portal.md) de nível gratuito ou padrão em Azure.
 * Azure CLI v2.3.1 com a extensão Azure IoT v0.10.6 ou superior instalada. Este tutorial usa a [Azure Cloud Shell.](../cloud-shell/overview.md) Se não está familiarizado com a Azure Cloud Shell, [consulte um quickstart para obter detalhes.](./quickstart-linux.md#prerequisites)
-* Dois dispositivos Linux para configurar como dispositivos IoT Edge. Se não tiver dispositivos disponíveis, pode criar duas máquinas virtuais Azure substituindo o texto reservado no seguinte comando e executando-o duas vezes:
+  * Para ver as versões atuais dos módulos e extensões Azure CLI, executar [a versão az](/cli/azure/reference-index?#az_version).
+* Um dispositivo Linux para configurar como um dispositivo IoT Edge para cada dispositivo na sua hierarquia. Este tutorial usa dois dispositivos. Se não tiver dispositivos disponíveis, pode criar máquinas virtuais Azure para cada dispositivo da sua hierarquia, substituindo o texto do espaço reservado no seguinte comando e executando-o:
 
    ```azurecli-interactive
    az vm create \
@@ -71,13 +74,18 @@ Para criar uma hierarquia de dispositivos IoT Edge, você precisará:
 
   Para obter mais informações, veja [How to open ports to a virtual machine with the Azure portal](../virtual-machines/windows/nsg-quickstart-portal.md) (Como abrir portas para uma máquina virtual com o portal do Azure).
 
-Você também pode experimentar este cenário seguindo a amostra de [IoT Azure IoT](https://aka.ms/iotedge-nested-sample)scripted, que implementa máquinas virtuais Azure como dispositivos pré-configurados para simular um ambiente de fábrica.
+>[!TIP]
+>Se você quiser um olhar automatizado para a criação de uma hierarquia de dispositivos IoT Edge, você pode seguir a amostra de [IoT IoT scripted.](https://aka.ms/iotedge-nested-sample) Este cenário scripted implementa máquinas virtuais Azure como dispositivos pré-configurados para simular um ambiente de fábrica.
+>
+>Se quiser prosseguir com a criação da hierarquia da amostra passo a passo, continue com os passos tutoriais abaixo.
 
 ## <a name="configure-your-iot-edge-device-hierarchy"></a>Configure a sua hierarquia de dispositivo IoT Edge
 
 ### <a name="create-a-hierarchy-of-iot-edge-devices"></a>Criar uma hierarquia de dispositivos IoT Edge
 
-O primeiro passo, criando os seus dispositivos IoT Edge, pode ser feito através do portal Azure ou do Azure CLI. Este tutorial criará uma hierarquia de dois dispositivos IoT Edge: **topLayerDevice** e seu **filho inferiorLayerDevice**.
+Os dispositivos IoT Edge compõem as camadas da sua hierarquia. Este tutorial criará uma hierarquia de dois dispositivos IoT Edge: o **dispositivo de camada superior** e o seu filho, o dispositivo de camada **inferior**. Pode criar dispositivos infantis adicionais, conforme necessário.
+
+Para criar os seus dispositivos IoT Edge, pode utilizar o portal Azure ou o Azure CLI.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -87,7 +95,7 @@ O primeiro passo, criando os seus dispositivos IoT Edge, pode ser feito através
 
 1. **Selecione + Adicione um dispositivo IoT Edge**. Este dispositivo será o dispositivo de camada superior, por isso introduza um ID exclusivo apropriado para dispositivos. Selecione **Guardar**.
 
-1. **Selecione + Adicione novamente um dispositivo IoT Edge.** Este dispositivo será o dispositivo de camada inferior de borda, por isso introduza um ID de dispositivo único apropriado.
+1. **Selecione + Adicione novamente um dispositivo IoT Edge.** Este dispositivo será um dispositivo de camada inferior, por isso introduza um ID exclusivo apropriado para dispositivos.
 
 1. Escolha **Definir um dispositivo-mãe,** escolha o seu dispositivo de camada superior na lista de dispositivos e selecione **Ok**. Selecione **Guardar**.
 
@@ -101,15 +109,27 @@ O primeiro passo, criando os seus dispositivos IoT Edge, pode ser feito através
    az iot hub device-identity create --device-id {top_layer_device_id} --edge-enabled --hub-name {hub_name}
    ```
 
-1. Insira o seguinte comando para criar o dispositivo IoT Edge da sua criança e criar a relação pai-filho entre dispositivos:
+   Uma criação bem sucedida do dispositivo irá descodundo a configuração JSON do dispositivo.
 
-    ```azurecli-interactive
-    az iot hub device-identity create --device-id {lower_layer_device_id} --edge-enabled --pd {top_layer_device_id} --hub-name {iothub_name}
-    ```
+   ![Saída JSON de uma criação de dispositivos de sucesso](./media/tutorial-nested-iot-edge/json-success-output.png)
+
+1. Introduza o seguinte comando para criar um dispositivo IoT Edge de camada inferior. Pode criar mais do que um dispositivo de camada inferior se quiser mais camada na sua hierarquia. Certifique-se de fornecer identidades únicas do dispositivo a cada um.
+
+   ```azurecli-interactive
+   az iot hub device-identity create --device-id {lower_layer_device_id} --edge-enabled --hub-name {hub_name}
+   ```
+
+1. Introduza o seguinte comando para definir cada relação pai-filho entre o dispositivo de **camada superior** e cada dispositivo de **camada inferior**. Certifique-se de que funciona este comando para cada dispositivo de camada inferior na sua hierarquia.
+
+   ```azurecli-interactive
+   az iot hub device-identity parent set --device-id {lower_layer_device_id} --parent-device-id {top_layer_device_id} --hub-name {hub_name}
+   ```
+
+   Este comando não tem saída explícita.
 
 ---
 
-Tome nota da cadeia de ligação de cada dispositivo IoT Edge. Serão usados mais tarde.
+Em seguida, tome nota da cadeia de ligação de cada dispositivo IoT Edge. Serão usados mais tarde.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -130,6 +150,48 @@ Tome nota da cadeia de ligação de cada dispositivo IoT Edge. Serão usados mai
    ```
 
 ---
+
+Se tiver completado corretamente os passos acima, pode utilizar os seguintes passos para verificar se as suas relações pai-filho estão corretas no portal Azure ou no Azure CLI.
+
+# <a name="portal"></a>[Portal](#tab/azure-portal)
+
+1. No [portal Azure,](https://ms.portal.azure.com/)navegue para a secção **IoT Edge** do seu Hub IoT.
+
+1. Clique no ID do dispositivo de um dispositivo de **camada inferior** na lista de dispositivos.
+
+1. Na página de detalhes do dispositivo, deverá ver a identidade do **seu dispositivo** de camada superior listada ao lado do campo do dispositivo **Parent.**
+
+   [Dispositivo parental reconhecido por dispositivo infantil](./media/tutorial-nested-iot-edge/lower-layer-device-parent.png)
+
+Também pode fazer uma criança a sua relação com a hierarquia através do seu dispositivo de **camada superior.**
+
+1. Clique no ID do dispositivo de um dispositivo de **camada superior** na lista de dispositivos.
+
+1. Selecione o **separador 'Gerir dispositivos para crianças'** na parte superior.
+
+1. Na lista de dispositivos, deverá ver o seu **dispositivo de camada inferior.**
+
+   [Dispositivo infantil reconhecido pelo dispositivo dos pais](./media/tutorial-nested-iot-edge/top-layer-device-child.png)
+
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
+1. No [Azure Cloud Shell](https://shell.azure.com/) pode verificar se qualquer um dos seus dispositivos infantis estabeleceu com sucesso a sua relação com o dispositivo principal obtendo a identidade do dispositivo parental reconhecido do dispositivo infantil. Isto irá desausa a configuração JSON do dispositivo-mãe, na imagem acima:
+
+   ```azurecli-interactive
+   az iot hub device-identity parent show --device-id {lower_layer_device_id} --hub-name {hub_name}
+   ```
+
+Também pode ter a sua relação com a hierarquia através da consulta do seu dispositivo de **camada superior**.
+
+1. Listar os dispositivos para crianças que o dispositivo principal sabe:
+
+    ```azurecli-interactive
+    az iot hub device-identity children list --device-id {top_layer_device_id} --hub-name {hub_name}
+    ```
+
+---
+
+Uma vez que esteja satisfeito que a sua hierarquia esteja corretamente estruturada, está pronto para prosseguir.
 
 ### <a name="create-certificates"></a>Criar certificados
 
@@ -165,11 +227,11 @@ Para criar certificados de demonstração num dispositivo Linux, é necessário 
 1. Crie dois conjuntos de certificados CA do dispositivo IoT Edge e teclas privadas com o seguinte comando: um conjunto para o dispositivo de camada superior e um conjunto para o dispositivo de camada inferior. Forneça nomes memoráveis para os certificados de CA para distingui-los uns dos outros.
 
    ```bash
-   ./certGen.sh create_edge_device_ca_certificate "top-layer-device"
-   ./certGen.sh create_edge_device_ca_certificate "lower-layer-device"
+   ./certGen.sh create_edge_device_ca_certificate "{top_layer_certificate_name}"
+   ./certGen.sh create_edge_device_ca_certificate "{lower_layer_certificate_name}"
    ```
 
-   Este comando de script cria vários certificados e ficheiros chave, mas estamos a usar o seguinte certificado e par de chaves em cada dispositivo IoT Edge e referenciado no ficheiro config.yaml:
+   Este comando de script cria vários certificados e ficheiros chave, mas estamos a usar o seguinte certificado e par de chaves em cada dispositivo IoT Edge e referenciado no ficheiro config:
 
    * `<WRKDIR>/certs/iot-edge-device-<CA cert name>-full-chain.cert.pem`
    * `<WRKDIR>/private/iot-edge-device-<CA cert name>.key.pem`
@@ -183,11 +245,35 @@ Cada dispositivo necessita de uma cópia do certificado de CA raiz e de uma cóp
    sudo update-ca-certificates
    ```
 
-   Este comando deve ser descoduado que um certificado foi adicionado em /etc/ssl/certs.
+   Este comando deve ser desemolado em que um certificado foi adicionado em `/etc/ssl/certs` .
+
+   [Mensagem de instalação de certificado bem sucedida](./media/tutorial-nested-iot-edge/certificates-success-output.png)
+
+Se tiver completado corretamente os passos acima, pode verificar se os seus certificados estão instalados `/etc/ssl/certs` navegando para esse diretório e procurando os seus certificados instalados.
+
+1. Navegue `/etc/ssl/certs` para:
+
+   ```bash
+   cd /etc/ssl/certs
+   ```
+
+1. Listar os certificados instalados e `grep` `azure` para:
+
+   ```bash
+   ll | grep azure
+   ```
+
+   Deverá ver um haxixe de certificado ligado ao seu certificado de CA raiz e ao seu certificado de CA raiz ligado à cópia do seu `usr/local/share` diretório.
+
+   [Resultados da pesquisa de certificados Azure](./media/tutorial-nested-iot-edge/certificate-list-results.png)
+
+Uma vez satisfeitos que os seus certificados sejam instalados em cada dispositivo, está pronto para prosseguir.
 
 ### <a name="install-iot-edge-on-the-devices"></a>Instalar ioT Edge nos dispositivos
 
-Instale o IoT Edge seguindo estes passos em ambos os dispositivos.
+A instalação da versão IoT Edge 1.2 imagens de tempo de execução dá aos seus dispositivos acesso às funcionalidades necessárias para funcionarem como uma hierarquia de dispositivos.
+
+Para instalar o IoT Edge, é necessário instalar a configuração adequada do repositório, instalar pré-requisitos e instalar os ativos de desbloqueio necessários.
 
 1. Instale a configuração do repositório que corresponda ao sistema operativo do dispositivo.
 
@@ -215,7 +301,7 @@ Instale o IoT Edge seguindo estes passos em ambos os dispositivos.
    curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
    sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
    ```
-   
+
 1. Atualize as listas de pacotes no seu dispositivo.
 
    ```bash
@@ -228,111 +314,142 @@ Instale o IoT Edge seguindo estes passos em ambos os dispositivos.
    sudo apt-get install moby-engine
    ```
 
-1. Instale o daemon hsmlib e IoT Edge. Para ver os ativos para outras distribuições do Linux, [visite o lançamento do GitHub.](https://github.com/Azure/azure-iotedge/releases/tag/1.2.0-rc1) <!-- Update with proper image links on release -->
+1. Instale o IoT Edge e o serviço de identidade IoT.
 
    ```bash
-   curl -L https://github.com/Azure/azure-iotedge/releases/download/1.2.0-rc1/libiothsm-std_1.2.0_rc1-1-1_debian9_amd64.deb -o libiothsm-std.deb
-   curl -L https://github.com/Azure/azure-iotedge/releases/download/1.2.0-rc1/iotedge_1.2.0_rc1-1_debian9_amd64.deb -o iotedge.deb
-   sudo dpkg -i ./libiothsm-std.deb
-   sudo dpkg -i ./iotedge.deb
+   sudo apt-get install aziot-edge
    ```
+
+Se tiver completado corretamente os passos acima, viu a mensagem de banner Azure IoT Edge solicitando que atualize o ficheiro de configuração Azure IoT Edge, `/etc/aziot/config.toml` em cada dispositivo da sua hierarquia. Em caso afirmativo, está pronto para prosseguir.
 
 ### <a name="configure-the-iot-edge-runtime"></a>Configurar o runtime do IoT Edge
 
-Configure o tempo de execução IoT Edge seguindo estes passos em ambos os dispositivos. A configuração do tempo de execução IoT Edge para os seus dispositivos consiste em quatro etapas, todas realizadas através da edição do ficheiro de configuração IoT Edge:
+Além do fornecimento dos seus dispositivos, os passos de configuração estabelecem uma comunicação fidedigna entre os dispositivos da sua hierarquia utilizando os certificados que criou anteriormente. Os passos também começam a estabelecer a estrutura de rede da sua hierarquia. O dispositivo de camada superior manterá a conectividade da internet, permitindo-lhe retirar imagens para o seu tempo de funcionaamento a partir da nuvem, enquanto dispositivos de camada inferior irão percorrer o dispositivo de camada superior para aceder a estas imagens.
 
-1. Disponibilizando manualmente cada dispositivo adicionando a cadeia de ligação do dispositivo ao ficheiro de configuração.
+Para configurar o tempo de funcionamento do IoT Edge, é necessário modificar vários componentes do ficheiro de configuração. As configurações diferem ligeiramente entre o dispositivo de **camada superior** e um dispositivo de **camada inferior**, por isso tenha em atenção qual o ficheiro de configuração do dispositivo que está a editar para cada passo. A configuração do tempo de execução IoT Edge para os seus dispositivos consiste em quatro etapas, todas realizadas através da edição do ficheiro de configuração IoT Edge:
 
-1. Termine a configuração dos certificados do seu dispositivo apontando o ficheiro de configuração para o certificado ca do dispositivo, a chave privada do dispositivo CA e o certificado de CA raiz.
+* Disponibilizando manualmente cada dispositivo adicionando a cadeia de ligação do dispositivo ao ficheiro de configuração.
 
-1. Atrate as botas do sistema utilizando o agente IoT Edge.
+* Termine a configuração dos certificados do seu dispositivo apontando o ficheiro de configuração para o certificado ca do dispositivo, a chave privada do dispositivo CA e o certificado de CA raiz.
 
-1. Atualize o parâmetro **do nome de anfitrião** para o seu dispositivo **de camada superior** e atualize o parâmetro do **nome anfitrião** e **parent_hostname** parâmetro para os seus dispositivos de **camada inferior.**
+* Atrate as botas do sistema utilizando o agente IoT Edge.
+
+* Atualize o parâmetro **do nome de anfitrião** para o seu dispositivo **de camada superior** e atualize o parâmetro do **nome anfitrião** e **parent_hostname** parâmetro para os seus dispositivos de **camada inferior.**
 
 Complete estes passos e reinicie o serviço IoT Edge para configurar os seus dispositivos.
 
-1. Em cada dispositivo, abra o ficheiro de configuração IoT Edge.
+>[!TIP]
+>Ao navegar no ficheiro de configuração em Nano, pode utilizar **Ctrl + W** para procurar palavras-chave no ficheiro.
+
+1. Em cada dispositivo, crie um ficheiro de configuração baseado no modelo incluído.
 
    ```bash
-   sudo nano /etc/iotedge/config.yaml
+   sudo cp /etc/aziot/config.toml.edge.template /etc/aziot/config.toml
+
+1. On each device, open the IoT Edge configuration file.
+
+   ```bash
+   sudo nano /etc/aziot/config.toml
    ```
 
-1. Encontre as configurações de provisionamento do ficheiro e descompromete **a configuração manual de provisionamento utilizando uma secção de cadeia de ligação.**
+1. Para o seu dispositivo **de camada superior,** encontre a secção **hostname.** Descomprimir a linha com o `hostname` parâmetro e atualizar o valor para ser o nome de domínio totalmente qualificado (FQDN) ou endereço IP do dispositivo IoT Edge. Utilize o valor que escolher de forma consistente em todos os dispositivos da sua hierarquia.
 
-1. Atualize o valor de **device_connection_string** com a cadeia de ligação do seu dispositivo IoT Edge. Certifique-se de que quaisquer outras secções de provisionamento são comentadas. Certifique-se de que o **provisionamento: a** linha não tem espaço branco anterior e que os itens aninhados são recortados por dois espaços.
-
-   ```yml
-   # Manual provisioning configuration using a connection string
-   provisioning:
-     source: "manual"
-     device_connection_string: "<ADD DEVICE CONNECTION STRING HERE>"
-     dynamic_reprovisioning: false
+   ```toml
+   hostname = "<device fqdn or IP>"
    ```
 
    >[!TIP]
    >Para colar o conteúdo da prancheta em Nano `Shift+Right Click` ou premir `Shift+Insert` .
 
-1. Encontre a secção **de certificados.** Descomprimir e atualizar os três campos de certificados para apontar para os certificados que criou na secção anterior e mudou-se para o dispositivo IoT Edge. Forneça os caminhos URI de ficheiro, que tomam o formato `file:///<path>/<filename>` .
+1. Para qualquer dispositivo IoT Edge em **camadas inferiores,** encontre a secção **de nome de anfitrião dos pais.** Descomprimir a linha com o `parent_hostname` parâmetro e atualizar o valor para apontar para o FQDN ou IP do dispositivo-mãe. Use o valor exato que coloca no campo de **nome de anfitrião** do dispositivo principal. Para o dispositivo IoT Edge na **camada superior,** deixe este parâmetro comentado.
 
-   ```yml
-   certificates:
-     device_ca_cert: "<File URI path to the device CA certificate unique to this device.>"
-     device_ca_pk: "<File URI path to the device CA private key unique to this device.>"
-     trusted_ca_certs: "<File URI path to the root CA certificate shared by all devices in the gateway hierarchy.>"
-   ```
-
-1. Para o seu dispositivo **de camada superior,** encontre o parâmetro **do nome hospedeiro.** Atualize o valor para ser o nome de domínio totalmente qualificado (FQDN) ou endereço IP do dispositivo IoT Edge. Utilize o valor que escolher de forma consistente em todos os dispositivos da sua hierarquia.
-
-   ```yml
-   hostname: <device fqdn or IP>
-   ```
-
-1. Para dispositivos IoT Edge em **camadas mais baixas,** atualize o ficheiro config para apontar para o FQDN ou IP do dispositivo principal, correspondendo ao que estiver no campo de nome de hospedeiro do dispositivo **principal.** Para dispositivos IoT Edge na **camada superior,** deixe este parâmetro comentado.
-
-   ```yml
-   parent_hostname: <parent device fqdn or IP>
+   ```toml
+   parent_hostname = "<parent device fqdn or IP>"
    ```
 
    > [!NOTE]
    > Para hierarquias com mais de uma camada inferior, atualize o campo *parent_hostname* com o FQDN do dispositivo na camada imediatamente acima.
 
-1. Para o seu dispositivo **de camada superior,** encontre a secção yaml do **agente** e atualize o valor de imagem para a versão correta do agente IoT Edge. Neste caso, vamos apontar o agente IoT Edge da camada superior no Registo de Contentores Azure com a versão pública de pré-visualização da imagem do agente IoT Edge disponível.
+1. Encontre a secção de **cert do pacote Trust** do ficheiro. Descompromete a linha com o `trust_bundle_cert` parâmetro e atualize o valor com o caminho URI de ficheiro para o certificado de CA raiz partilhado por todos os dispositivos na hierarquia gateway.
 
-   ```yml
-   agent:
-     name: "edgeAgent"
-     type: "docker"
-     env: {}
-     config:
-       image: "mcr.microsoft.com/azureiotedge-agent:1.2.0-rc2"
-       auth: {}
+   ```toml
+   trust_bundle_cert = "<root CA certificate>"
    ```
 
-1. Para dispositivos IoT Edge em **camadas mais baixas,** atualize o nome de domínio do valor da imagem para apontar para o FQDN ou IP do dispositivo-mãe seguido pela porta de procuração API, 8000. Irá adicionar o módulo de procuração API na secção seguinte.
+1. Encontre a secção **de Provisionamento** do ficheiro. Descompromessar as linhas de **provisionamento manual com fio de ligação**. Para cada dispositivo na sua hierarquia, atualize o valor de **connection_string** com a cadeia de ligação do seu dispositivo IoT Edge.
+
+   ```toml
+   # Manual provisioning with connection string
+   [provisioning]
+   source = "manual"
+   connection_string: "<Device connection string>"
+   ```
+
+1. Encontre a secção **"Agente de borda predefinido".**
+
+   * Para o seu dispositivo **de camada superior,** atualize o valor de imagem edgeAgent para a versão pública de pré-visualização do módulo no Registo do Contentor Azure.
+   
+     ```toml
+     [agent.config]
+     image = "mcr.microsoft.com/azureiotedge-agent:1.2.0-rc4"
+     ```
+
+   * Para cada dispositivo IoT Edge em **camadas mais baixas,** atualize a imagem edgeAgent para apontar para o dispositivo-mãe seguido pela porta que o representante da API está a ouvir. Irá colocar o módulo de procuração API no dispositivo principal na secção seguinte.
+   
+     ```toml
+     [agent.config]
+     image = "<parent hostname value>:8000/azureiotedge-agent:1.2.0-rc4"
+     ```
+
+1. Encontre a secção de **certificados Edge CA.** Descomprimir as três primeiras linhas desta secção. Em seguida, atualize os dois parâmetros para apontar para o certificado ca do dispositivo e dispositivo ficheiros de chaves ca privados que criou na secção anterior e mudou-se para o dispositivo IoT Edge. Forneça os caminhos URI de ficheiro, que tomam o `file:///<path>/<filename>` formato, tais como `file:///certs/iot-edge-device-ca-top-layer-device.key.pem` .
 
    ```yml
-   agent:
-     name: "edgeAgent"
-     type: "docker"
-     env: {}
-     config:
-       image: "<parent_device_fqdn_or_ip>:8000/azureiotedge-agent:1.2.0-rc2"
-       auth: {}
+   [edge_ca]
+   cert = "<File URI path to the device full chain CA certificate unique to this device.>"
+   pk = "<File URI path to the device CA private key unique to this device.>"
    ```
+
+   >[!NOTE]
+   >Certifique-se de que utiliza a via de certificado ca e o nome de arquivo de **cadeia completa** para preencher o `device_ca_cert` campo.
 
 1. Guarde e feche o ficheiro.
 
    `CTRL + X`, `Y`, `Enter`
 
-1. Depois de introduzir as informações de provisionamento no ficheiro de configuração, reinicie o daemon:
+1. Depois de introduzir as informações de provisionamento no ficheiro de configuração, aplique as alterações:
 
    ```bash
-   sudo systemctl restart iotedge
+   sudo iotedge config apply
    ```
+
+Antes de continuar, certifique-se de que atualizou o ficheiro de configuração de cada dispositivo na hierarquia. Dependendo da sua estrutura hierárquica, configura um **dispositivo de camada superior** e um ou mais **dispositivos de camada inferior.**
+
+Se tiver completado corretamente os passos acima, pode verificar se os seus dispositivos estão configurados corretamente.
+
+1. Execute as verificações de configuração e conectividade nos seus dispositivos:
+
+   ```bash
+   sudo iotedge check
+   ```
+
+No seu **dispositivo de camada superior,** espere ver uma saída com várias avaliações de passagem e pelo menos um aviso. A verificação do `latest security daemon` will warn you that another IoT Edge version is the latest stable version, because IoT Edge version 1.2 is in public preview. Pode ver avisos adicionais sobre políticas de registos e, dependendo da sua rede, as políticas de DNS.
+
+Num **dispositivo de camada inferior,** espere ver uma saída semelhante ao dispositivo de camada superior, mas com um aviso adicional indicando que o módulo EdgeAgent não pode ser puxado a montante. Isto é aceitável, uma vez que o módulo Proxy IoT Edge API e o módulo de registo de contentores Docker, que os dispositivos de camada inferior irão retirar imagens, ainda não estão implantados no **dispositivo de camada superior**.
+
+Abaixo é apresentada uma amostra de `iotedge check` produção:
+
+[Configuração da amostra e resultados de conectividade](./media/tutorial-nested-iot-edge/configuration-and-connectivity-check-results.png)
+
+Uma vez que esteja satisfeito que as suas configurações estejam corretas em cada dispositivo, está pronto para prosseguir.
 
 ## <a name="deploy-modules-to-the-top-layer-device"></a>Implementar módulos para o dispositivo de camada superior
 
-Os passos restantes para completar a configuração do tempo de execução do IoT Edge e das cargas de trabalho de implantação são feitos a partir da Cloud, quer através do portal Azure ou do Azure CLI.
+Os módulos servem para completar a implementação e o tempo de execução IoT Edge para os seus dispositivos e definir ainda mais a estrutura da sua hierarquia. O módulo IoT Edge API Proxy despende de forma segura o tráfego HTTP sobre uma única porta a partir dos seus dispositivos de camada inferior. O módulo de registo Docker permite um repositório de imagens Docker que os seus dispositivos de camada inferior podem aceder através do encaminhamento de imagens puxa para o dispositivo de camada superior.
+
+Para implantar módulos no seu dispositivo de camada superior, pode utilizar o portal Azure ou O CLI Azure.
+
+>[!NOTE]
+>Os passos restantes para completar a configuração do tempo de execução do IoT Edge e das cargas de trabalho de implantação não são feitos nos seus dispositivos IoT Edge.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -348,7 +465,7 @@ No [portal Azure:](https://ms.portal.azure.com/)
 
 1. Selecione **Definições de tempo de execução,** ao lado do ícone da engrenagem.
 
-1. Sob **o Edge Hub,** no campo de imagens, `mcr.microsoft.com/azureiotedge-hub:1.2.0-rc2` entre.
+1. Sob **o Edge Hub,** no campo de imagens, `mcr.microsoft.com/azureiotedge-hub:1.2.0-rc4` entre.
 
    ![Editar a imagem do Edge Hub](./media/tutorial-nested-iot-edge/edge-hub-image.png)
 
@@ -361,7 +478,7 @@ No [portal Azure:](https://ms.portal.azure.com/)
 
    ![Editar as variáveis ambientais do Edge Hub](./media/tutorial-nested-iot-edge/edge-hub-environment-variables.png)
 
-1. Sob **o Edge Agent,** no campo de imagem, insira `mcr.microsoft.com/azureiotedge-agent:1.2.0-rc2` . Selecione **Guardar**.
+1. Sob **o Edge Agent,** no campo de imagem, insira `mcr.microsoft.com/azureiotedge-agent:1.2.0-rc4` . Selecione **Guardar**.
 
 1. Adicione o módulo de registo Docker ao seu dispositivo de camada superior. **Selecione + Adicione** e escolha o Módulo de Borda **IoT** a partir do dropdown. Forneça o nome `registry` do seu módulo de registo Docker e introduza para a imagem `registry:latest` URI. Em seguida, adicione variáveis ambientais e crie opções para apontar o seu módulo de registo local no registo do contentor da Microsoft para descarregar imagens de contentores de e para servir estas imagens no registo:5000.
 
@@ -456,14 +573,14 @@ No [portal Azure:](https://ms.portal.azure.com/)
                    "systemModules": {
                        "edgeAgent": {
                            "settings": {
-                               "image": "mcr.microsoft.com/azureiotedge-agent:1.2.0-rc2",
+                               "image": "mcr.microsoft.com/azureiotedge-agent:1.2.0-rc4",
                                "createOptions": ""
                            },
                            "type": "docker"
                        },
                        "edgeHub": {
                            "settings": {
-                               "image": "mcr.microsoft.com/azureiotedge-hub:1.2.0-rc2",
+                               "image": "mcr.microsoft.com/azureiotedge-hub:1.2.0-rc4",
                                "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}]}}}"
                            },
                            "type": "docker",
@@ -504,9 +621,13 @@ No [portal Azure:](https://ms.portal.azure.com/)
 
 ---
 
+Se tiver completado corretamente os passos acima, o seu **dispositivo de camada superior** deverá reportar os quatro módulos: o Módulo de Procuração IoT Edge API, o módulo de registo do contentor Docker e os módulos do sistema, conforme especificado na **implementação.** Pode levar alguns minutos para o dispositivo receber a sua nova implementação e iniciar os módulos. Refresque a página até ver o módulo de sensor de temperatura listado como **Reportado pelo Dispositivo**. Assim que os módulos forem comunicados pelo dispositivo, está pronto para continuar.
+
 ## <a name="deploy-modules-to-the-lower-layer-device"></a>Implementar módulos para o dispositivo de camada inferior
 
-Pode utilizar tanto o portal Azure como o Azure CLI para implementar cargas de trabalho da Cloud para os seus dispositivos **de camada inferior.**
+Os módulos também servem como cargas de trabalho dos seus dispositivos de camada inferior. O módulo sensor de temperatura simulada cria dados de telemetria de amostra para fornecer um fluxo funcional de dados através da sua hierarquia de dispositivos.
+
+Para implantar módulos nos seus dispositivos de camada inferior, pode utilizar o portal Azure ou o Azure CLI.
 
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
@@ -522,7 +643,7 @@ No [portal Azure:](https://ms.portal.azure.com/)
 
 1. Selecione **Definições de tempo de execução,** ao lado do ícone da engrenagem.
 
-1. Sob **o Edge Hub,** no campo de imagens, `$upstream:8000/azureiotedge-hub:1.2.0-rc2` entre.
+1. Sob **o Edge Hub,** no campo de imagens, `$upstream:8000/azureiotedge-hub:1.2.0-rc4` entre.
 
 1. Adicione as seguintes variáveis ambientais ao seu módulo Edge Hub:
 
@@ -531,7 +652,7 @@ No [portal Azure:](https://ms.portal.azure.com/)
     | `experimentalFeatures__enabled` | `true` |
     | `experimentalFeatures__nestedEdgeEnabled` | `true` |
 
-1. Sob **o Edge Agent,** no campo de imagem, insira `$upstream:8000/azureiotedge-agent:1.2.0-rc2` . Selecione **Guardar**.
+1. Sob **o Edge Agent,** no campo de imagem, insira `$upstream:8000/azureiotedge-agent:1.2.0-rc4` . Selecione **Guardar**.
 
 1. Adicione o módulo de sensor de temperatura. **Selecione + Adicione** e escolha o Módulo **Marketplace** a partir do dropdown. Procure `Simulated Temperature Sensor` e selecione o módulo.
 
@@ -578,14 +699,14 @@ No [portal Azure:](https://ms.portal.azure.com/)
                    "systemModules": {
                        "edgeAgent": {
                            "settings": {
-                               "image": "$upstream:8000/azureiotedge-agent:1.2.0-rc2",
+                               "image": "$upstream:8000/azureiotedge-agent:1.2.0-rc4",
                                "createOptions": ""
                            },
                            "type": "docker"
                        },
                        "edgeHub": {
                            "settings": {
-                               "image": "$upstream:8000/azureiotedge-hub:1.2.0-rc2",
+                               "image": "$upstream:8000/azureiotedge-hub:1.2.0-rc4",
                                "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}]}}}"
                            },
                            "type": "docker",
@@ -627,9 +748,9 @@ No [portal Azure:](https://ms.portal.azure.com/)
 
 Notice that the image URI that we used for the simulated temperature sensor module pointed to `$upstream:8000` instead of to a container registry. We configured this device to not have direct connections to the cloud, because it's in a lower layer. To pull container images, this device requests the image from its parent device instead. At the top layer, the API proxy module routes this container request to the registry module, which handles the image pull.
 
-On the device details page for your lower layer IoT Edge device, you should now see the temperature sensor module listed along the system modules as **Specified in deployment**. It may take a few minutes for the device to receive its new deployment, request the container image, and start the module. Refresh the page until you see the temperature sensor module listed as **Reported by device**.
+If you completed the above steps correctly, your **lower layer device** should report three modules: the temperature sensor module and the system modules, as **Specified in Deployment**. It may take a few minutes for the device to receive its new deployment, request the container image, and start the module. Refresh the page until you see the temperature sensor module listed as **Reported by Device**. Once the modules are reported by the device, you are ready to continue.
 
-## IotEdge check
+## Troubleshooting
 
 Run the `iotedge check` command to verify the configuration and to troubleshoot errors.
 
@@ -640,17 +761,17 @@ When you run `iotedge check` from the lower layer, the program tries to pull the
 In this tutorial, we use port 8000, so we need to specify it:
 
 ```bash
-sudo iotedge check --diagnostics-image-name <parent_device_fqdn_or_ip>:8000/azureiotedge-diagnostics:1.2.0-rc2
+sudo iotedge check --diagnostics-image-name <parent_device_fqdn_or_ip>:8000/azureiotedge-diagnostics:1.2.0-rc4
 ```
-   
+
 O `azureiotedge-diagnostics` valor é retirado do registo do contentor que está ligado ao módulo de registo. Este tutorial tem definido por padrão para https://mcr.microsoft.com:
 
 | Name | Valor |
 | - | - |
 | `REGISTRY_PROXY_REMOTEURL` | `https://mcr.microsoft.com` |
 
-Se estiver a utilizar um registo de contentores privados, certifique-se de que todas as imagens (por exemplo, IoTEdgeAPIProxy, edgeAgent, edgeHub e diagnósticos) estão presentes no registo do contentor.    
-    
+Se estiver a utilizar um registo de contentores privados, certifique-se de que todas as imagens (por exemplo, IoTEdgeAPIProxy, edgeAgent, edgeHub e diagnósticos) estão presentes no registo do contentor.
+
 ## <a name="view-generated-data"></a>Ver os dados gerados
 
 O módulo **de sensor de temperatura simulado** que empurrou gera dados do ambiente da amostra. Envia mensagens que incluem temperatura ambiente e humidade, temperatura e pressão da máquina e um tempotando.

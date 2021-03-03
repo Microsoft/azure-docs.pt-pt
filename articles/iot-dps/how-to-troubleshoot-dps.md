@@ -6,14 +6,14 @@ manager: nberdy
 ms.service: iot-dps
 services: iot-dps
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 02/14/2021
 ms.author: xujing
-ms.openlocfilehash: 2d27c4eb1ea4586e0f2eac48930d86217052b2d8
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: ba81be54592e591f734b05235bb3ce183a07a11c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100585445"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101709891"
 ---
 # <a name="troubleshooting-with-azure-iot-hub-device-provisioning-service"></a>Resolução de problemas com serviço de provisionamento de dispositivos de hub Azure IoT
 
@@ -32,7 +32,7 @@ O procedimento a seguir descreve como visualizar e configurar alerta na métrica
 4. Selecione a métrica desejada. 
    <br />Atualmente existem três métricas para DPS:
 
-    | Nome da Métrica | Description |
+    | Nome da Métrica | Descrição |
     |-------|------------|
     | Tentativas de atestado | Número de dispositivos que tentaram autenticar com o Serviço de Provisionamento de Dispositivos|
     | Tentativas de registo | Número de dispositivos que tentaram registar-se no IoT Hub após autenticação bem sucedida|
@@ -44,7 +44,7 @@ O procedimento a seguir descreve como visualizar e configurar alerta na métrica
 
 7. **Selecione Adicionar a condição,** em seguida, selecione a métrica e o limiar desejados seguindo as indicações.
 
-Para saber mais, veja [quais são os alertas clássicos no Microsoft Azure?](../azure-monitor/alerts/alerts-overview.md)
+Para saber mais, consulte [alertas no Azure Monitor.](../azure-monitor/platform/alerts-overview.md)
 
 ## <a name="using-log-analytic-to-view-and-resolve-errors"></a>Utilizar Log Analytic para ver e resolver erros
 
@@ -58,7 +58,7 @@ Para saber mais, veja [quais são os alertas clássicos no Microsoft Azure?](../
 
 5. Ativar os registos desejados para serem recolhidos.
 
-    | Nome do registo | Description |
+    | Nome do registo | Descrição |
     |-------|------------|
     | Operações de Dispositivos | Registos relacionados com eventos de ligação do dispositivo |
     | Operações de Serviço | Registos de eventos relacionados com a utilização do serviço SDK (por exemplo, criar ou atualizar grupos de inscrição)|
@@ -75,7 +75,7 @@ Para saber mais, veja [quais são os alertas clássicos no Microsoft Azure?](../
 ## <a name="common-error-codes"></a>Códigos de erro comuns
 Use esta tabela para compreender e resolver erros comuns.
 
-| Código de Erro| Description | Código de Estado HTTP |
+| Código de Erro| Descrição | Código de Estado HTTP |
 |-------|------------|------------|
 | 400 | O corpo do pedido não é válido; por exemplo, não pode ser analisado, ou o objeto não pode ser validado.| 400 Mau formato |
 | 401 | O símbolo de autorização não pode ser validado; por exemplo, expira ou não se aplica ao URI do pedido. Este código de erro também é devolvido aos dispositivos como parte do fluxo de atestado TPM. | 401 Não Autorizado|

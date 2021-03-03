@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 06/18/2020
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
 zone_pivot_groups: qnamaker-quickstart
-ms.openlocfilehash: de237c1bba699165e63fc0b2e4bfb58d25518bd9
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 5fd200fcd1d48b533e629fe4429f5bafb5fde817
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98701296"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731015"
 ---
 # <a name="quickstart-qna-maker-client-library"></a>Quickstart: Biblioteca de clientes QnA Maker
 
@@ -53,10 +53,10 @@ Se pretender limpar e remover uma subscrição dos Serviços Cognitivos, pode el
 * [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [CLI do Azure](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
->[Tutorial: Teste a sua base de conhecimento com um ficheiro de lote](../index.yml)
+>[Tutorial: Teste a sua base de conhecimento com um ficheiro de lote](../how-to/test-knowledge-base.md#batch-test-with-tool)
 
 * [O que é a API do Fabricante QNA?](../Overview/overview.md)
 * [Editar uma base de dados de conhecimento](../how-to/edit-knowledge-base.md)

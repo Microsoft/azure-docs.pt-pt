@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Ative Directy integração única (SSO) com o Spotinst Microsoft Docs'
+title: 'Tutorial: Azure Ative Directory integração única de sign-on (SSO) com spotinst | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Spotinst.
 services: active-directory
 author: jeevansd
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/03/2020
 ms.author: jeedes
-ms.openlocfilehash: d9c9ac87e655cf9178d58f04b502f7e781d1fef7
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 402b5a975b3ded8327edcea81b680e9990bac39e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96181414"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101686593"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-spotinst"></a>Tutorial: Azure Ative Directory integração única (SSO) com o Spotinst
 
@@ -171,9 +171,9 @@ O objetivo desta secção é criar um utilizador chamado Britta Simon em Spotins
 
     ![A screenshot mostra a secção de utilizador Adicionar onde pode introduzir os valores descritos.](./media/spotinst-tutorial/adduser2.png)
 
-    * Na caixa de texto **'Nome Completo',** insira o nome completo do utilizador como **BrittaSimon**.
+    * Na caixa de texto **'Nome Completo',** insira o nome completo do utilizador como `BrittaSimon` .
 
-    * Na caixa de sms **do Email,** insira o endereço de e-mail do utilizador como `brittasimon\@contoso.com` .
+    * Na caixa de sms **do Email,** insira o endereço de e-mail do utilizador como `brittasimon@contoso.com` .
 
     * Selecione os detalhes específicos da organização para o **Papel da Organização, Função de Conta e Contas.**
 

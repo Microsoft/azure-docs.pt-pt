@@ -3,14 +3,14 @@ author: aahill
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 01/20/2021
+ms.date: 02/09/2021
 ms.author: aahi
-ms.openlocfilehash: fc66cf75101d38ed1deac3b5368ee823dfdab821
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: a4c38b7ad92ebc1e42db31ea0c6e478bcfab50b8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100515158"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101750333"
 ---
 <a name="HOLTop"></a>
 
@@ -21,10 +21,6 @@ ms.locfileid: "100515158"
 # <a name="version-30"></a>[Versão 3.0](#tab/version-3)
 
 [v3 Documentação](/python/api/azure-ai-textanalytics/azure.ai.textanalytics)  |  de referência [v3 Código](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics)  |  fonte da biblioteca [v3 Pacote (PiPy)](https://pypi.org/project/azure-ai-textanalytics/)  |  [v3 Amostras](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/textanalytics/azure-ai-textanalytics/samples)
-
-# <a name="version-21"></a>[Versão 2.1](#tab/version-2)
-
-[v2 Documentação](/python/api/overview/azure/cognitiveservices/textanalytics)  |  de referência [v2 Código](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-language-textanalytics)  |  fonte da biblioteca [v2 Pacote (PiPy)](https://pypi.org/project/azure-cognitiveservices-language-textanalytics/)  |  [v2 Amostras](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
 
 ---
 
@@ -62,15 +58,6 @@ pip install --upgrade azure-ai-textanalytics
 > Quer ver todo o ficheiro de código de arranque rápido de uma vez? Pode encontrá-lo [no GitHub,](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/TextAnalytics/python-v3-client-library.py)que contém os exemplos de código neste arranque rápido. 
 
 
-# <a name="version-21"></a>[Versão 2.1](#tab/version-2)
-
-```console
-pip install --upgrade azure-cognitiveservices-language-textanalytics
-```
-
-> [!TIP]
-> Quer ver todo o ficheiro de código de arranque rápido de uma vez? Pode encontrá-lo [no GitHub,](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/language/text_analytics_samples.py)que contém os exemplos de código neste arranque rápido. 
-
 ---
 
 ### <a name="create-a-new-python-application"></a>Criar uma nova aplicação python
@@ -103,12 +90,6 @@ Quando o texto de processamento de lote é enviado para a API como uma lista de 
 
 O objeto de resposta é uma lista que contém a informação analisada para cada documento. 
 
-# <a name="version-21"></a>[Versão 2.1](#tab/version-2)
-
-O cliente Text Analytics é um objeto [TextAnalyticsClient](/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient) que autentica a Azure usando a sua chave. O cliente fornece vários métodos para analisar texto, como uma única corda, ou um lote. 
-
-O texto é enviado para a API como uma lista de `documents` , que são `dictionary` objetos que contêm uma combinação de `id` , e `text` `language` atributos dependendo do método utilizado. O `text` atributo armazena o texto a ser analisado na origem , e `language` pode ser qualquer `id` valor. 
-
 ---
 
 ## <a name="code-examples"></a>Exemplos de código
@@ -128,15 +109,6 @@ Estes snippets de código mostram-lhe como fazer as seguintes tarefas com a bibl
 
 
 # <a name="version-30"></a>[Versão 3.0](#tab/version-3)
-
-* [Autenticar o cliente](#authenticate-the-client)
-* [Análise de Sentimentos](#sentiment-analysis)
-* [Deteção linguística](#language-detection)
-* [Reconhecimento de entidade nomeada](#named-entity-recognition-ner) 
-* [Ligação de entidades](#entity-linking)
-* [Extração de frase-chave](#key-phrase-extraction)
-
-# <a name="version-21"></a>[Versão 2.1](#tab/version-2)
 
 * [Autenticar o cliente](#authenticate-the-client)
 * [Análise de Sentimentos](#sentiment-analysis)
@@ -203,14 +175,6 @@ def authenticate_client():
    
 client = authenticate_client()
 ```
-
-# <a name="version-21"></a>[Versão 2.1](#tab/version-2)
-
-[!code-python[imports statements](~/samples-cognitive-services-python-sdk/samples/language/text_analytics_samples.py?name=imports)]
-
-Crie uma função para instantaneaizar o `TextAnalyticsClient` objeto com o seu E criado `key` `endpoint` acima. Então crie um novo cliente. 
-
-[!code-python[version 2 authentication](~/samples-cognitive-services-python-sdk/samples/language/text_analytics_samples.py?name=authentication)]
 
 --- 
 
@@ -421,21 +385,6 @@ Neutral=0.77
 Negative=0.02
 ```
 
-# <a name="version-21"></a>[Versão 2.1](#tab/version-2)
-
-Autenticar um objeto de cliente e chamar a função [de sentimento.).](/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient#sentiment-show-stats-none--documents-none--custom-headers-none--raw-false----operation-config-) Iterar através dos resultados, e imprimir o ID de cada documento, e pontuação de sentimento. Uma pontuação mais próxima de 0 indica um sentimento negativo, enquanto uma pontuação mais próxima de 1 indica um sentimento positivo.
-
-[!code-python[sentiment analysis](~/samples-cognitive-services-python-sdk/samples/language/text_analytics_samples.py?name=sentimentAnalysis)]
-
-### <a name="output"></a>Saída
-
-```console
-Document ID: 1 , Sentiment Score: 0.87
-Document ID: 2 , Sentiment Score: 0.11
-Document ID: 3 , Sentiment Score: 0.44
-Document ID: 4 , Sentiment Score: 1.00
-```
-
 ---
 
 ## <a name="language-detection"></a>Deteção de idioma
@@ -492,20 +441,6 @@ language_detection_example(client)
 Language:  French
 ```
 
-# <a name="version-21"></a>[Versão 2.1](#tab/version-2)
-
-Utilizando o cliente criado anteriormente, ligue para [detect_language](/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient#detect-language-show-stats-none--documents-none--custom-headers-none--raw-false----operation-config-) e obtenha o resultado. Em seguida, iterar através dos resultados, e imprimir o ID de cada documento, e o primeiro idioma devolvido.
-
-[!code-python[language detection](~/samples-cognitive-services-python-sdk/samples/language/text_analytics_samples.py?name=languageDetection)]
-
-
-### <a name="output"></a>Saída
-
-```console
-Document ID: 1 , Language: English
-Document ID: 2 , Language: Spanish
-Document ID: 3 , Language: Chinese_Simplified
-```
 
 ---
 
@@ -789,54 +724,6 @@ Linked Entities:
                 Confidence Score: 0.33
 ```
 
-# <a name="version-21"></a>[Versão 2.1](#tab/version-2)
-
-> [!NOTE]
-> Na versão 2.1, a ligação da entidade está incluída na resposta NER.
-
-Utilizando o cliente criado anteriormente, ligue para a função [de entidades](/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient#entities-show-stats-none--documents-none--custom-headers-none--raw-false----operation-config-) e obtenha o resultado. Em seguida, iterar através dos resultados, e imprimir o ID de cada documento, e as entidades nele contidas.
-
-[!code-python[Entity recognition](~/samples-cognitive-services-python-sdk/samples/language/text_analytics_samples.py?name=entityRecognition)]
-
-### <a name="output"></a>Saída
-
-```console
-Document ID: 1
-        Name: Microsoft,        Type: Organization,     Sub-Type: N/A
-        Offset: 0, Length: 9,   Score: 1.0
-
-        Name: Bill Gates,       Type: Person,   Sub-Type: N/A
-        Offset: 25, Length: 10, Score: 0.999847412109375
-
-        Name: Paul Allen,       Type: Person,   Sub-Type: N/A
-        Offset: 40, Length: 10, Score: 0.9988409876823425
-
-        Name: April 4,  Type: Other,    Sub-Type: N/A
-        Offset: 54, Length: 7,  Score: 0.8
-
-        Name: April 4, 1975,    Type: DateTime, Sub-Type: Date
-        Offset: 54, Length: 13, Score: 0.8
-
-        Name: BASIC,    Type: Other,    Sub-Type: N/A
-        Offset: 89, Length: 5,  Score: 0.8
-
-        Name: Altair 8800,      Type: Other,    Sub-Type: N/A
-        Offset: 116, Length: 11,        Score: 0.8
-
-Document ID: 2
-        Name: Microsoft,        Type: Organization,     Sub-Type: N/A
-        Offset: 21, Length: 9,  Score: 0.999755859375
-
-        Name: Redmond (Washington),     Type: Location, Sub-Type: N/A
-        Offset: 60, Length: 7,  Score: 0.9911284446716309
-
-        Name: 21 kilómetros,    Type: Quantity, Sub-Type: Dimension
-        Offset: 71, Length: 13, Score: 0.8
-
-        Name: Seattle,  Type: Location, Sub-Type: N/A
-        Offset: 88, Length: 7,  Score: 0.9998779296875
-```
-
 ---
 
 ### <a name="key-phrase-extraction"></a>Extração de expressões-chave
@@ -909,33 +796,6 @@ key_phrase_extraction_example(client)
          veterinarian
 ```
 
-# <a name="version-21"></a>[Versão 2.1](#tab/version-2)
-
-Utilizando o cliente criado anteriormente, ligue para a função [key_phrases()](/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient#key-phrases-show-stats-none--documents-none--custom-headers-none--raw-false----operation-config-) e obtenha o resultado. Em seguida, iterar através dos resultados, e imprimir o ID de cada documento, e as frases-chave contidas nele.
-
-[!code-python[key phrase extraction](~/samples-cognitive-services-python-sdk/samples/language/text_analytics_samples.py?name=keyPhrases)]
-
-
-### <a name="output"></a>Saída
-
-```console
-Document ID: 1
-         Key phrases:
-                幸せ
-Document ID: 2
-         Key phrases:
-                Stuttgart
-                Hotel
-                Fahrt
-                Fu
-Document ID: 3
-         Key phrases:
-                cat
-                veterinarian
-Document ID: 4
-         Key phrases:
-                fútbol
-```
 
 ---
 
@@ -1003,9 +863,5 @@ Também pode utilizar a operação De analisar para detetar pii e extração de 
 # <a name="version-30"></a>[Versão 3.0](#tab/version-3)
 
 Esta funcionalidade não está disponível na versão 3.0.
-
-# <a name="version-21"></a>[Versão 2.1](#tab/version-2)
-
-Esta funcionalidade não está disponível na versão 2.1.
 
 ---

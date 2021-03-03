@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: overview
 ms.date: 12/17/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 496b315e23beeb97d08befca13e05c4797268f36
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 8b1c4077c036cbb75738115437d29ffd14b160ff
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85341562"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723678"
 ---
 # <a name="entity-functions"></a>Funções de entidade
 
@@ -24,7 +24,10 @@ As entidades fornecem um meio para escalonar as aplicações distribuindo o trab
 
 As entidades comportam-se um pouco como pequenos serviços que comunicam através de mensagens. Cada entidade tem uma identidade única e um estado interno (se existir). Como serviços ou objetos, as entidades realizam operações quando solicitadas a fazê-lo. Quando uma operação executa, pode atualizar o estado interno da entidade. Pode também chamar os serviços externos e aguardar uma resposta. As entidades comunicam com outras entidades, orquestrações e clientes utilizando mensagens que são implicitamente enviadas através de filas fiáveis. 
 
-Para evitar conflitos, todas as operações numa única entidade são garantidas para executar em série, isto é, uma após a outra. 
+Para evitar conflitos, todas as operações numa única entidade são garantidas para executar em série, isto é, uma após a outra.
+
+> [!NOTE]
+> Quando uma entidade é invocada, processa a sua carga útil até à conclusão e, em seguida, agenda uma nova execução para ativar assim que as futuras entradas chegarem. Como resultado, os registos de execução da sua entidade podem apresentar uma execução extra após cada invocação de entidade; isto é esperado.
 
 ### <a name="entity-id"></a>ID de entidade
 As entidades são acedidas através de um identificador único, o ID da *entidade.* Um ID de entidade é simplesmente um par de cordas que identifica unicamente uma instância de entidade. Consiste em:
@@ -149,7 +152,48 @@ module.exports = df.entity(function(context) {
     }
 });
 ```
+# <a name="python"></a>[Python](#tab/python)
 
+### <a name="example-python-entity"></a>Exemplo: Entidade Python
+
+O seguinte código é a `Counter` entidade implementada como uma função durável escrita em Python.
+
+**Contador/function.jsligado**
+```json
+{
+  "scriptFile": "__init__.py",
+  "bindings": [
+    {
+      "name": "context",
+      "type": "entityTrigger",
+      "direction": "in"
+    }
+  ]
+}
+```
+
+**Contador/__init__.py**
+```Python
+import azure.functions as func
+import azure.durable_functions as df
+
+
+def entity_function(context: df.DurableEntityContext):
+    current_value = context.get_state(lambda: 0)
+    operation = context.operation_name
+    if operation == "add":
+        amount = context.get_input()
+        current_value += amount
+    elif operation == "reset":
+        current_value = 0
+    elif operation == "get":
+        context.set_result(current_value)
+    context.set_state(current_value)
+
+
+
+main = df.Entity.create(entity_function)
+```
 ---
 
 ## <a name="access-entities"></a>Entidades de acesso
@@ -201,6 +245,19 @@ module.exports = async function (context) {
 };
 ```
 
+# <a name="python"></a>[Python](#tab/python)
+
+```Python
+from azure.durable_functions import DurableOrchestrationClient
+import azure.functions as func
+
+
+async def main(req: func.HttpRequest, starter: str, message):
+    client = DurableOrchestrationClient(starter)
+    entityId = df.EntityId("Counter", "myCounter")
+    await client.signal_entity(entityId, "add", 1)
+```
+
 ---
 
 O termo *sinal* significa que a invocação da API da entidade é unidireccionária e assíncrono. Não é possível que um cliente funcione saber quando a entidade processou a operação. Além disso, a função do cliente não pode observar quaisquer valores de resultados ou exceções. 
@@ -235,6 +292,11 @@ module.exports = async function (context) {
     return stateResponse.entityState;
 };
 ```
+
+# <a name="python"></a>[Python](#tab/python)
+
+> [!NOTE]
+> A Python não suporta atualmente estados de entidades de leitura de um cliente. Use o de um `callEntity` orquestrador.
 
 ---
 
@@ -279,6 +341,21 @@ module.exports = df.orchestrator(function*(context){
 > [!NOTE]
 > O JavaScript não suporta atualmente a sinalização de uma entidade de um orquestrador. Em vez disso, utilize `callEntity`.
 
+# <a name="python"></a>[Python](#tab/python)
+
+```Python
+import azure.functions as func
+import azure.durable_functions as df
+
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    entityId = df.EntityId("Counter", "myCounter")
+    current_value = yield context.call_entity(entityId, "get")
+    if current_value < 10:
+        context.signal_entity(entityId, "add", 1)
+    return state
+```
+
 ---
 
 Apenas as orquestrações são capazes de chamar entidades e obter uma resposta, o que pode ser um valor de retorno ou uma exceção. As funções do cliente que utilizam a [ligação](durable-functions-bindings.md#entity-client) ao cliente só podem sinalizar entidades.
@@ -318,6 +395,11 @@ Por exemplo, podemos modificar o exemplo da entidade anterior `Counter` para que
         context.df.setState(currentValue + amount);
         break;
 ```
+
+# <a name="python"></a>[Python](#tab/python)
+
+> [!NOTE]
+> Python ainda não suporta sinais de entidade-para-entidade. Por favor, use um orquestrador para entidades de sinalização.
 
 ---
 
@@ -421,7 +503,6 @@ Há algumas diferenças importantes que merecem ser notantes:
 * Os padrões de resposta de pedido nas entidades limitam-se a orquestrações. De dentro das entidades, apenas mensagens unidirecionais (também conhecidas como sinalização) são permitidas, como no modelo de ator original, e ao contrário dos grãos em Orleães. 
 * Entidades duradouras não estão num impasse. Em Orleães, os impasses podem ocorrer e não se resolvem até que as mensagens se esusem.
 * Entidades duradouras podem ser usadas em conjunto com orquestrações duradouras e mecanismos de bloqueio distribuídos. 
-
 
 ## <a name="next-steps"></a>Passos seguintes
 

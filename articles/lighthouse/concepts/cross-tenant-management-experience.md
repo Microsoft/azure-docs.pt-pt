@@ -3,12 +3,12 @@ title: Experiências de gestão entre inquilinos
 description: A gestão de recursos delegados Azure permite uma experiência de gestão de inquilinos cruzados.
 ms.date: 02/08/2021
 ms.topic: conceptual
-ms.openlocfilehash: 97b28409a7f180ffbf4f8766ee281710d6226019
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 644cac70ef6459a1b0be45e9ab8f2757fafddeed
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100573086"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101699254"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiências de gestão entre inquilinos
 
@@ -97,8 +97,8 @@ A maioria das tarefas e serviços podem ser realizados em recursos delegados ent
 
 - Ver alertas para subscrições delegadas, com a capacidade de visualizar e atualizar alertas em todas as subscrições
 - Ver detalhes do registo de atividade para subscrições delegadas
-- [Análise de registos](../../azure-monitor/platform/service-providers.md): Os dados de consulta de espaços de trabalho remotos em vários inquilinos (note que as contas de automação utilizadas para aceder a dados de espaços de trabalho em inquilinos de clientes devem ser criadas no mesmo inquilino)
-- [Criar, ver e gerir alertas de registo de atividades](../../azure-monitor/platform/alerts-activity-log.md) nos inquilinos dos clientes
+- [Análise de registos](../../azure-monitor/logs/service-providers.md): Os dados de consulta de espaços de trabalho remotos em vários inquilinos (note que as contas de automação utilizadas para aceder a dados de espaços de trabalho em inquilinos de clientes devem ser criadas no mesmo inquilino)
+- [Criar, ver e gerir alertas de registo de atividades](../../azure-monitor/alerts/alerts-activity-log.md) nos inquilinos dos clientes
 - Crie alertas em inquilinos de clientes que desencadeiem a automação, como os runbooks da Azure Automation ou as Funções Azure, no inquilino gerente através de webhooks
 - Criar [definições de diagnóstico](../..//azure-monitor/essentials/diagnostic-settings.md) nos inquilinos dos clientes para enviar registos de recursos para espaços de trabalho no inquilino gerente
 - Para cargas de trabalho SAP, [monitorize as métricas da SAP Solutions com uma visão agregada entre os inquilinos do cliente](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/using-azure-lighthouse-and-azure-monitor-for-sap-solutions-to/ba-p/1537293)

@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: sample
 ms.date: 05/18/2020
 ms.subservice: ''
-ms.openlocfilehash: 0791ccf10c76f2a1781bf373c674f606ca365fff
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 9218886ded7827d4b7a1e2413f1470ee5cd1563d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100628382"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101733963"
 ---
 # <a name="resource-manager-template-samples-for-azure-monitor"></a>Amostras de modelo de gestor de recursos para monitor Azure
 
@@ -54,7 +54,7 @@ az deployment group create \
 - [Consultas de registo](logs/resource-manager-log-queries.md) - Crie consultas de registos guardados num espaço de trabalho log analytics.
 - [Log Analytics Workspace](logs/resource-manager-workspace.md) - Criar log analytics workspace e configurar a recolha de diferentes fontes de dados do agente Log Analytics.
 - [Livros de trabalho](visualize/resource-manager-workbooks.md) - Criar livros de trabalho.
-- [Monitor azul para contentores](containers/resource-manager-container-insights.md) - Aglomerados a bordo para Azure Monitor para contentores.
+- [Insights do recipiente](containers/resource-manager-container-insights.md) - Aglomerados a bordo para insights de contentores.
 - [Monitor Azure para VMs](vm/resource-manager-vminsights.md) - Máquinas virtuais a bordo para Azure Monitor para VMs.
 
 

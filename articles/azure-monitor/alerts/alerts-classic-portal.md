@@ -1,24 +1,24 @@
 ---
 title: Criar e gerir alertas métricos clássicos usando o Azure Monitor
-description: Saiba como usar o portal Azure, CLI ou Powershell para criar, ver e gerir regras clássicas de alerta métrico.
+description: Saiba como usar o portal Azure, CLI ou PowerShell para criar, ver e gerir as regras clássicas de alerta métrico.
 author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
-ms.date: 09/18/2018
-ms.openlocfilehash: 015a84ab6f81875407f460c4a45423f3f5e22b7f
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.date: 02/14/2021
+ms.openlocfilehash: 854867bb6f40bdd8f0fac28e69d936a4027760b5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100620972"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101714379"
 ---
 # <a name="create-view-and-manage-classic-metric-alerts-using-azure-monitor"></a>Criar, ver e gerir alertas métricos clássicos usando o Azure Monitor
 
 > [!WARNING]
-> Este artigo descreve como criar alertas métricos clássicos mais antigos. O Azure Monitor suporta agora [novos alertas métricos em tempo real e uma nova experiência de alertas.](../platform/alerts-overview.md) Os alertas clássicos são [retirados](../platform/monitoring-classic-retirement.md) para os utilizadores da nuvem pública, embora ainda em uso limitado para recursos que ainda não suportam os novos alertas.
+> Este artigo descreve como criar alertas métricos clássicos mais antigos. O Azure Monitor suporta agora [novos alertas métricos em tempo real e uma nova experiência de alertas.](./alerts-overview.md) Os alertas clássicos são [retirados](./monitoring-classic-retirement.md) para utilizadores de nuvem pública, embora ainda em uso limitado até **31 de maio de 2021**. Os alertas clássicos para a nuvem do Governo Azure e para o Azure China 21Vianet vão reformar-se a **29 de fevereiro de 2024**.
 >
 
-Os alertas métricos clássicos no Azure Monitor fornecem uma forma de ser notificado quando uma das suas métricas cruza um limiar. Os alertas métricos clássicos são uma funcionalidade mais antiga que permite alertar apenas em métricas não dimensionais. Existe uma funcionalidade mais recente existente chamada alertas métricos que tem melhorado a funcionalidade em relação aos alertas métricos clássicos. Pode saber mais sobre a nova funcionalidade de alertas métricos na [visão geral dos alertas métricos.](../platform/alerts-metric-overview.md) Neste artigo, descreveremos como criar, ver e gerir regras clássicas de alerta métrico através do portal Azure, Azure CLI e Powershell.
+Os alertas métricos clássicos no Azure Monitor fornecem uma forma de ser notificado quando uma das suas métricas cruza um limiar. Os alertas métricos clássicos são uma funcionalidade mais antiga que permite alertar apenas em métricas não dimensionais. Existe uma funcionalidade mais recente existente chamada alertas métricos que tem melhorado a funcionalidade em relação aos alertas métricos clássicos. Pode saber mais sobre a nova funcionalidade de alertas métricos na [visão geral dos alertas métricos.](./alerts-metric-overview.md) Neste artigo, descreveremos como criar, visualizar e gerir regras clássicas de alerta métrico através do portal Azure, Azure CLI e PowerShell.
 
 ## <a name="with-azure-portal"></a>Com portal Azure
 
@@ -134,6 +134,5 @@ Estas secções mostram como usar os comandos PowerShell criam, vêem e gerem al
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Crie um alerta métrico clássico com um modelo de Gestor de Recursos.](../platform/alerts-enable-template.md)
-- [Tenha um alerta métrico clássico que notifique um sistema não-Azure utilizando um webhook](../platform/alerts-webhooks.md).
-
+- [Crie um alerta métrico clássico com um modelo de Gestor de Recursos.](./alerts-enable-template.md)
+- [Tenha um alerta métrico clássico que notifique um sistema não-Azure utilizando um webhook](./alerts-webhooks.md).

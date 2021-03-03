@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/04/2021
 ms.author: allensu
-ms.openlocfilehash: 22d7af4f307a99d2d2e29bc1f494d327394e4f10
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: 2d8d5d84d32cdb8cc813d033f3f3fbb453b538fe
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99594287"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101739921"
 ---
 # <a name="configure-the-distribution-mode-for-azure-load-balancer"></a>Configure o modo de distribuição para o Balançador de Carga Azure
 
@@ -62,7 +62,7 @@ Utilize o PowerShell para alterar as definições de distribuição do balancead
 
 ```azurepowershell-interactive
 $lb = Get-AzLoadBalancer -Name MyLoadBalancer -ResourceGroupName MyResourceGroupLB
-$lb.LoadBalancingRules[0].LoadDistribution = 'sourceIp'
+$lb.LoadBalancingRules[0].LoadDistribution = 'default'
 Set-AzLoadBalancer -LoadBalancer $lb
 ```
 
@@ -83,7 +83,7 @@ Utilize o CLI azul para alterar as definições de distribuição do balanceador
 ```azurecli-interactive
 az network lb rule update \
     --lb-name myLoadBalancer \
-    --load-distribution SourceIP \
+    --load-distribution Default \
     --name myHTTPRule \
     --resource-group myResourceGroupLB 
 ```

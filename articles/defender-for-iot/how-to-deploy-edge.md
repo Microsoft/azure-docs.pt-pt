@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/30/2020
 ms.author: mlottner
-ms.openlocfilehash: 9ac283721526488f587fcabc68348dafac1835db
-ms.sourcegitcommit: c4c554db636f829d7abe70e2c433d27281b35183
+ms.openlocfilehash: cd79c928afdb3563b47374869cff577f9221d360
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98033358"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101705777"
 ---
 # <a name="deploy-a-security-module-on-your-iot-edge-device"></a>Implemente um módulo de segurança no seu dispositivo IoT Edge
 
@@ -34,7 +34,7 @@ Utilize os seguintes passos para implantar um módulo de segurança Defender par
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-1. No seu Hub IoT, certifique-se de que o seu dispositivo está [registado como um dispositivo IoT Edge](../iot-edge/how-to-manual-provision-symmetric-key.md#register-a-new-device).
+1. No seu Hub IoT, certifique-se de que o seu dispositivo está [registado como um dispositivo IoT Edge](../iot-edge/how-to-register-device.md#register-a-new-device).
 
 1. O módulo Defender for IoT Edge requer que a [estrutura AuditD](https://linux.die.net/man/8/auditd) esteja instalada no dispositivo IoT Edge.
 
@@ -179,7 +179,7 @@ Se encontrar um problema, os registos de contentores são a melhor forma de apre
 
 1. Verifique se os seguintes recipientes estão em funcionamento:
 
-   | Nome | IMAGEM |
+   | Name | IMAGEM |
    | --- | --- |
    | azureiotsecurity | mcr.microsoft.com/ascforiot/azureiotsecurity:1.0.2 |
    | edgeHub | mcr.microsoft.com/azureiotedge-hub:1.0.8.3 |

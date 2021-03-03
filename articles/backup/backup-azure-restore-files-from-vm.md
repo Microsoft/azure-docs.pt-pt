@@ -4,12 +4,12 @@ description: Neste artigo, aprenda a recuperar ficheiros e pastas a partir de um
 ms.topic: conceptual
 ms.date: 03/12/2020
 ms.custom: references_regions
-ms.openlocfilehash: 9bd66c1e3c89c8974adc3970f8595e5100878088
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.openlocfilehash: c5a027773a55347b71c1e6a66d24d7fdb99220d0
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98567134"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101725514"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Recuperar ficheiros a partir da cópia de segurança de máquinas virtuais do Azure
 
@@ -76,6 +76,11 @@ Não é possível executar o executável descarregado no VM que está configurad
 ### <a name="virtual-machine-backups-having-large-disks"></a>Backups de máquinas virtuais com discos grandes
 
 Se a máquina de apoio tiver um grande número de discos (>16) ou discos grandes (> 4 TB cada) não é aconselhável executar o script na mesma máquina para restauro, uma vez que terá um impacto significativo no VM. Em vez disso, recomenda-se ter um VM separado apenas para recuperação de ficheiros (Azure VM D2v3 VMs) e, em seguida, desligá-lo quando não for necessário. 
+
+Consulte os requisitos para restaurar ficheiros de VMs com disco grande:<br>
+[SO Windows](#for-backed-up-vms-with-large-disks-windows)<br>
+[Linux OS](#for-backed-up-vms-with-large-disks-linux)
+
 
 ## <a name="step-3-os-requirements-to-successfully-run-the-script"></a>Passo 3: Requisitos de SO para executar com sucesso o script
 

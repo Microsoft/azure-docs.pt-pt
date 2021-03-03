@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/04/2017
-ms.openlocfilehash: db83e24931ec91449ac8c08bf4ce476e0f527b26
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: f924bcdce0937c74c3deeab96f3d4b2a85e3944d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100616882"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704451"
 ---
 # <a name="collect-performance-counters-for-linux-applications-in-azure-monitor"></a>Recolha balcões de desempenho para aplicações Linux no Azure Monitor 
 
@@ -167,4 +167,4 @@ Uma vez configurado o agente Log Analytics para o Linux enviar dados para o Azur
 
 ## <a name="next-steps"></a>Passos seguintes
 * [Recolha contadores](data-sources-performance-counters.md) de desempenho de agentes Linux.
-* Saiba mais [sobre consultas de registo](../log-query/log-query-overview.md) para analisar os dados recolhidos a partir de fontes de dados e soluções. 
+* Saiba mais [sobre consultas de registo](../logs/log-query-overview.md) para analisar os dados recolhidos a partir de fontes de dados e soluções.

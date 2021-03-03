@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/24/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: a2f57fd6a369fba4a78799f768eb3fd2f3d27050
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: 6f4e43efeb1882f52bd335d83a3660a94040ab8a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98071481"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101729220"
 ---
 # <a name="azure-cosmos-db-trigger-for-azure-functions-2x-and-higher"></a>Azure Cosmos DB gatilho para funções Azure 2.x e superior
 
@@ -163,7 +163,7 @@ No ficheiro _run.ps1,_ tem acesso ao documento que desencadeia a função atrav�
 ```powershell
 param($Documents, $TriggerMetadata) 
 
-Write-Host "First document Id modified : $($Documents[0].id)" 
+Write-Host "First document Id modified : $($Documents[0].id)" 
 ```
 
 # <a name="python"></a>[Python](#tab/python)
@@ -249,7 +249,7 @@ A tabela seguinte explica as propriedades de configuração de encadernação qu
 |---------|---------|----------------------|
 |**tipo** | n/a | Deve ser definido para `cosmosDBTrigger` . |
 |**direção** | n/a | Deve ser definido para `in` . Este parâmetro é definido automaticamente quando cria o gatilho no portal Azure. |
-|**name** | n/a | O nome variável usado no código de função que representa a lista de documentos com alterações. |
+|**nome** | n/a | O nome variável usado no código de função que representa a lista de documentos com alterações. |
 |**conexãoStringSetting**|**ConexãoStringSetting** | O nome de uma definição de aplicação que contém a cadeia de ligação usada para ligar à conta DB Azure Cosmos que está a ser monitorizada. |
 |**base de dados Nome**|**DatabaseName**  | O nome da base de dados DB Azure Cosmos com a recolha a ser monitorizada. |
 |**coleçãoName** |**CollectionName** | O nome da coleção está a ser monitorizado. |

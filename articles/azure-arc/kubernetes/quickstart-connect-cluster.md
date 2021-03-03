@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 02/24/2021
 ms.custom: template-quickstart
 keywords: Kubernetes, Arc, Azure, cluster
-ms.openlocfilehash: 8eb177f0c80d7ed2df70c75ca476a1dfe33c8425
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: c50266ce0afd6dd3f5860e3259d2b22af817834c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101665596"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101689254"
 ---
 # <a name="quickstart-connect-an-existing-kubernetes-cluster-to-azure-arc"></a>Quickstart: Ligue um cluster Kubernetes existente ao Arco de Azure 
 
@@ -25,7 +25,7 @@ Neste arranque rápido, colheremos os benefícios do Azure Arc ativado pela Kube
 
 * Verifique se tem:
     * Um aglomerado kubernetes em funcionamento.
-    * Um `kubeconfig` ficheiro.
+    * Um `kubeconfig` ficheiro que aponta para o cluster que pretende ligar ao Arco Azure.
     * Permissões de 'Ler' e 'Escrever' para o utilizador ou principal de serviço que liga a criação do tipo de recurso de recurso Azure Arc ativado por Kubernetes ( `Microsoft.Kubernetes/connectedClusters` ).
 * Instale o [último lançamento do Helm 3](https://helm.sh/docs/intro/install).
 * Instale as seguintes extensões CLI ativadas por Kubernetes de versões >= 1.0.0:
@@ -68,16 +68,6 @@ Neste arranque rápido, colheremos os benefícios do Azure Arc ativado pela Kube
 | `https://login.microsoftonline.com`                                                                            | Necessário para buscar e atualizar fichas do Azure Resource Manager.                                                                                    |  
 | `https://mcr.microsoft.com`                                                                            | Obrigado a retirar imagens de contentores para agentes do Azure Arc.                                                                  |  
 | `https://eus.his.arc.azure.com`, `https://weu.his.arc.azure.com`, `https://wcus.his.arc.azure.com`, `https://scus.his.arc.azure.com`, `https://sea.his.arc.azure.com`, `https://uks.his.arc.azure.com`, `https://wus2.his.arc.azure.com`, `https://ae.his.arc.azure.com`, `https://eus2.his.arc.azure.com`, `https://ne.his.arc.azure.com` |  Necessário para retirar certificados de identidade de serviço gerido (MSI) atribuídos pelo sistema.                                                                  |
-
-
-## <a name="install-the-azure-arc-enabled-kubernetes-cli-extensions"></a>Instale as extensões CLI ativadas pelo Arco Azure
-
-Introduza os seguintes comandos:  
-
-    ```azurecli
-    az extension add --name connectedk8s
-    az extension add --name k8s-configuration
-    ```
 
 ## <a name="register-the-two-providers-for-azure-arc-enabled-kubernetes"></a>Registar os dois fornecedores da Azure Arc habilitado a Kubernetes
 
@@ -147,6 +137,9 @@ eastus      AzureArcTest
       "type": "Microsoft.Kubernetes/connectedClusters"
     }
     ```
+
+> [!TIP]
+> O comando acima referido sem o parâmetro de localização especificado cria o recurso Azure Arc ativado kubernetes no mesmo local que o grupo de recursos. Para criar o Arco Azure ativou o recurso Kubernetes num local diferente, especifique `--location <region>` ou quando executa o `-l <region>` `az connectedk8s connect` comando.
 
 ## <a name="verify-cluster-connection"></a>Verifique a ligação do cluster
 

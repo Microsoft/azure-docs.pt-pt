@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/31/2020
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 5cde7e677bd0121954b01cf9bb8defe45111a5b2
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 8d518d540e50d96486fa98eea3c3267685776668
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94369193"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101706287"
 ---
 # <a name="natural-language-support-for-azure-cognitive-services"></a>Apoio linguístico natural aos Serviços Cognitivos do Azure
 
@@ -24,7 +24,7 @@ Os Serviços Cognitivos Azure permitem-lhe construir aplicações que vejam, ou�
 Estes Serviços Cognitivos são agnósticos linguísticos e não têm limitações baseadas na linguagem humana.
 
 * [Detetor de Anomalias (Pré-visualização)](./anomaly-detector/index.yml)
-* [Visão Personalizada](./Custom-Vision-Service/index.yml)
+* [Visão Personalizada](./custom-vision-service/index.yml)
 * [Face](./face/index.yml)
 * [Personalizador](./personalizer/index.yml)
 
@@ -32,7 +32,7 @@ Estes Serviços Cognitivos são agnósticos linguísticos e não têm limitaçõ
 
 * [Imagem Digitalizada](./computer-vision/language-support.md)
 * [Reconhecedor de Formato (Pré-visualização)](./form-recognizer/language-support.md)
-* [Reconhecedor de Tinta Digital (Pré-visualização)](./ink-recognizer/language-support.md)
+* [Reconhecedor de Tinta Digital (Pré-visualização)](/previous-versions/azure/cognitive-services/Ink-Recognizer/language-support)
 * [Indexador de Vídeos](../media-services/video-indexer/language-identification-model.md#guidelines-and-limitations)
 
 ## <a name="language"></a>Linguagem

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/24/2020
-ms.openlocfilehash: f9418b9a4bac9c458c530b246f7400ac067f5623
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 9c20994c27680aaccb68db2ff78deb6b6bf9f8cf
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100618142"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718136"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>Connect Operations Manager ao Azure Monitor
 
@@ -40,8 +40,8 @@ Antes de começar, reveja os seguintes requisitos.
 * O Azure Monitor só suporta o Gestor de Operações do Centro de Sistema 2016 ou posteriormente, Gestor de Operações 2012 SP1 UR6 ou posterior, e Gestor de Operações 2012 R2 UR2 ou mais tarde. Foi adicionado suporte de proxy ao Operations Manager 2012 SP1 UR7 e ao Operations Manager 2012 R2 UR3.
 * Integrar o System Center Operations Manager 2016 com a nuvem do Governo dos EUA requer um pacote de gestão de conselheiros atualizado incluído com Update Rollup 2 ou mais tarde. System Center Operations Manager 2012 R2 requer um pacote de gestão de conselheiros atualizado incluído com Update Rollup 3 ou mais tarde.
 * Todos os agentes do Operations Manager têm de cumprir os requisitos mínimos de suporte. Certifique-se de que os agentes estão na atualização mínima, caso contrário a comunicação do agente Windows pode falhar e gerar erros no registo de eventos do Gestor de Operações.
-* Uma área de trabalho do Log Analytics. Para mais informações, [reveja a visão geral do espaço de trabalho do Log Analytics](../platform/design-logs-deployment.md).
-* Autentica a Azure com uma conta que é membro da [função Dedudo De Log Analytics](../platform/manage-access.md#manage-access-using-azure-permissions).
+* Uma área de trabalho do Log Analytics. Para mais informações, [reveja a visão geral do espaço de trabalho do Log Analytics](../logs/design-logs-deployment.md).
+* Autentica a Azure com uma conta que é membro da [função Dedudo De Log Analytics](../logs/manage-access.md#manage-access-using-azure-permissions).
 
 * Regiões Apoiadas - Apenas as seguintes regiões de Azure são apoiadas pelo Gestor de Operações do Centro de Sistema para se ligarem a um espaço de trabalho log analytics:
     - E.U.A. Centro-Oeste
@@ -72,15 +72,15 @@ As informações abaixo listam as informações de configuração de procuraçã
 |Recurso | Número da porta| Inspeção de HTTP Direto|  
 |---------|------|-----------------------|  
 |**Agente**|||  
-|\*.ods.opinsights.azure.com| 443 |Yes|  
-|\*.oms.opinsights.azure.com| 443|Yes|  
-|\*.blob.core.windows.net| 443|Yes|  
-|\*.azure-automation.net| 443|Yes|  
+|\*.ods.opinsights.azure.com| 443 |Sim|  
+|\*.oms.opinsights.azure.com| 443|Sim|  
+|\*.blob.core.windows.net| 443|Sim|  
+|\*.azure-automation.net| 443|Sim|  
 |**Servidor de gestão**|||  
 |\*.service.opinsights.azure.com| 443||  
-|\*.blob.core.windows.net| 443| Yes|  
-|\*.ods.opinsights.azure.com| 443| Yes|  
-|*.azure-automation.net | 443| Yes|  
+|\*.blob.core.windows.net| 443| Sim|  
+|\*.ods.opinsights.azure.com| 443| Sim|  
+|*.azure-automation.net | 443| Sim|  
 |**Consola do Gestor de Operações para o Azure Monitor**|||  
 |service.systemcenteradvisor.com| 443||  
 |\*.service.opinsights.azure.com| 443||  
@@ -95,7 +95,7 @@ As informações abaixo listam as informações de configuração de procuraçã
 
 ### <a name="tls-12-protocol"></a>Protocolo TLS 1.2
 
-Para garantir a segurança dos dados em trânsito para o Azure Monitor, encorajamo-lo a configurar o agente e o grupo de gestão para utilizar pelo menos a Segurança da Camada de Transporte (TLS) 1.2. Versões mais antigas da camada de tomadas TLS/Secure Sockets (SSL) foram consideradas vulneráveis e, embora ainda atualmente trabalhem para permitir retrocompatibilidade, não são **recomendadas**. Para obter informações adicionais, [reveja o envio de dados de forma segura utilizando o TLS 1.2](../platform/data-security.md#sending-data-securely-using-tls-12).
+Para garantir a segurança dos dados em trânsito para o Azure Monitor, encorajamo-lo a configurar o agente e o grupo de gestão para utilizar pelo menos a Segurança da Camada de Transporte (TLS) 1.2. Versões mais antigas da camada de tomadas TLS/Secure Sockets (SSL) foram consideradas vulneráveis e, embora ainda atualmente trabalhem para permitir retrocompatibilidade, não são **recomendadas**. Para obter informações adicionais, [reveja o envio de dados de forma segura utilizando o TLS 1.2](../logs/data-security.md#sending-data-securely-using-tls-12).
 
 ## <a name="connecting-operations-manager-to-azure-monitor"></a>Gestor de Operações de Ligação ao Monitor Azure
 
@@ -345,4 +345,3 @@ No futuro, se planeia reconectar o seu grupo de gestão a um espaço de trabalho
 ## <a name="next-steps"></a>Passos seguintes
 
 Para adicionar funcionalidade e recolher dados, consulte [as soluções Add Azure Monitor da Galeria soluções.](../insights/solutions.md)
-

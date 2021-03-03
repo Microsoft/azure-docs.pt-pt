@@ -1,26 +1,26 @@
 ---
-title: Configure a preferência de encaminhamento da rede (pré-visualização)
+title: Preferência de encaminhamento de rede
 titleSuffix: Azure Storage
-description: Configure a preferência de encaminhamento de rede (pré-visualização) para a sua conta de armazenamento Azure para especificar como o tráfego de rede é encaminhado para a sua conta a partir de clientes através da Internet.
+description: A preferência de encaminhamento de rede permite especificar como o tráfego de rede é encaminhado para a sua conta a partir de clientes através da internet.
 services: storage
 author: santoshc
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/12/2020
+ms.date: 02/11/2021
 ms.author: santoshc
-ms.reviewer: tamram
+ms.reviewer: normesta
 ms.subservice: common
 ms.custom: references_regions
-ms.openlocfilehash: 601c8dfb4b4e2f16da5c560f67e2d251a5d3072a
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 6b6c90259c552895360281b393e15773c6e101e3
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100362748"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726942"
 ---
-# <a name="configure-network-routing-preference-for-azure-storage-preview"></a>Configure a preferência de encaminhamento de rede para armazenamento Azure (pré-visualização)
+# <a name="network-routing-preference-for-azure-storage"></a>Preferência de encaminhamento de rede para armazenamento Azure
 
-Pode configurar a preferência de [encaminhamento de](../../virtual-network/routing-preference-overview.md) rede (pré-visualização) para a sua conta de armazenamento Azure para especificar como o tráfego de rede é encaminhado para a sua conta a partir de clientes através da Internet. Por padrão, o tráfego da Internet é encaminhado para o ponto final público da sua conta de armazenamento através da rede global da [Microsoft.](../../networking/microsoft-global-network.md) O Azure Storage fornece opções adicionais para configurar como o tráfego é encaminhado para a sua conta de armazenamento.
+Pode configurar a preferência de [encaminhamento de](../../virtual-network/routing-preference-overview.md) rede para a sua conta de armazenamento Azure para especificar como o tráfego de rede é encaminhado para a sua conta a partir de clientes através da internet. Por padrão, o tráfego da internet é encaminhado para o ponto final público da sua conta de armazenamento através da rede global da [Microsoft.](../../networking/microsoft-global-network.md) O Azure Storage fornece opções adicionais para configurar como o tráfego é encaminhado para a sua conta de armazenamento.
 
 Configurar a preferência de encaminhamento dá-lhe a flexibilidade para otimizar o seu tráfego, quer para o desempenho da rede premium, quer para o custo. Ao configurar uma preferência de encaminhamento, especifica como o tráfego será direcionado para o ponto final público para a sua conta de armazenamento por padrão. Também pode publicar pontos finais específicos da rota para a sua conta de armazenamento.
 
@@ -37,11 +37,13 @@ O seguinte diagrama mostra como o tráfego flui entre o cliente e a conta de arm
 
 ![Visão geral das opções de encaminhamento para o Armazenamento Azure](media/network-routing-preference/routing-options-diagram.png)
 
-Para obter mais informações sobre a preferência de encaminhamento em Azure, consulte [o que é a preferência de encaminhamento (pré-visualização)?](../../virtual-network/routing-preference-overview.md)
+Para obter mais informações sobre a preferência de encaminhamento em Azure, veja [qual é a preferência de encaminhamento?](../../virtual-network/routing-preference-overview.md)
 
 ## <a name="routing-configuration"></a>Configuração de encaminhamento
 
-Pode escolher entre a rede global da Microsoft e o encaminhamento da Internet como a preferência por padrão de encaminhamento para o ponto final público da sua conta de armazenamento. A preferência por roteamento padrão aplica-se a todo o tráfego de clientes fora de Azure e afeta os pontos finais para Azure Data Lake Storage Gen2, blob storage, Azure Files e websites estáticos. A preferência de configuração do encaminhamento não é suportada para filas Azure ou tabelas Azure.
+Para obter orientações passo a passo que lhe mostram como configurar a preferência de encaminhamento e pontos finais específicos da rota, consulte [a preferência de encaminhamento de rede Configure para o Armazenamento Azure](configure-network-routing-preference.md).
+
+Pode escolher entre a rede global da Microsoft e o encaminhamento de internet como a preferência por padrão de encaminhamento para o ponto final público da sua conta de armazenamento. A preferência por roteamento padrão aplica-se a todo o tráfego de clientes fora de Azure e afeta os pontos finais para Azure Data Lake Storage Gen2, blob storage, Azure Files e websites estáticos. A preferência de configuração do encaminhamento não é suportada para filas Azure ou tabelas Azure.
 
 Também pode publicar pontos finais específicos da rota para a sua conta de armazenamento. Ao publicar pontos finais específicos da rota, o Azure Storage cria novos pontos finais públicos para a sua conta de armazenamento que encaminha o tráfego através do caminho pretendido. Esta flexibilidade permite-lhe direcionar o tráfego para a sua conta de armazenamento numa rota específica sem alterar a sua preferência de encaminhamento padrão.
 
@@ -65,7 +67,7 @@ Se tiver uma conta de armazenamento geo-redundante de acesso de leitura (RA-GRS)
 
 As cadeias de ligação para os pontos finais específicos da rota publicadas podem ser copiadas através do [portal Azure](https://portal.azure.com). Estas cordas de conexão podem ser usadas para a autorização de Chave Partilhada com todos os SDKs e APIs de armazenamento Azure existentes.
 
-## <a name="about-the-preview"></a>Sobre a pré-visualização
+## <a name="regional-availability"></a>Disponibilidade regional
 
 A preferência de encaminhamento para o Armazenamento Azure está disponível nas seguintes regiões:
 
@@ -100,16 +102,17 @@ A preferência de encaminhamento para o Armazenamento Azure está disponível na
 - Leste da Austrália 
 - Austrália Sudeste 
 
-Os seguintes problemas conhecidos afetam a pré-visualização da preferência de encaminhamento para o Armazenamento Azure:
+As seguintes questões conhecidas afetam a preferência de encaminhamento para o armazenamento Azure:
 
 - Os pedidos de acesso para o ponto final específico da rota para a rede global da Microsoft falham com o erro HTTP 404 ou equivalente. O encaminhamento sobre a rede global da Microsoft funciona como esperado quando é definido como a preferência por padrão de encaminhamento para o ponto final público.
 
 ## <a name="pricing-and-billing"></a>Preços e faturação
 
-Para obter detalhes sobre preços e faturação, consulte a secção **de preços** em Qual é a preferência [de encaminhamento (pré-visualização)?](../../virtual-network/routing-preference-overview.md#pricing)
+Para obter detalhes sobre preços e faturação, consulte a secção **de preços** em Qual é a preferência [por encaminhamento?](../../virtual-network/routing-preference-overview.md#pricing)
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [O que é a preferência de encaminhamento (pré-visualização)?](../../virtual-network/routing-preference-overview.md)
+- [O que é a preferência de encaminhamento?](../../virtual-network/routing-preference-overview.md)
+- [Configurar preferência de encaminhamento de rede](configure-network-routing-preference.md)
 - [Configurar as firewalls e as redes virtuais do Armazenamento do Microsoft Azure](storage-network-security.md)
 - [Recomendações de segurança para armazenamento blob](../blobs/security-recommendations.md)

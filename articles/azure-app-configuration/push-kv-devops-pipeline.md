@@ -5,14 +5,14 @@ services: azure-app-configuration
 author: AlexandraKemperMS
 ms.service: azure-app-configuration
 ms.topic: how-to
-ms.date: 07/27/2020
+ms.date: 02/23/2021
 ms.author: alkemper
-ms.openlocfilehash: c5e0cc3eb29fb612460b16d8de9dee62949b5bd2
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 7d343e07414dd1c3f9786c1684eb6f14d5f45e51
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99979611"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718187"
 ---
 # <a name="push-settings-to-app-configuration-with-azure-pipelines"></a>Push configurações para configuração de aplicativos com pipelines Azure
 
@@ -80,7 +80,7 @@ Os seguintes parâmetros são utilizados pela tarefa De pressão de configuraç�
 
 - **Subscrição Azure**: Uma entrega contendo as suas ligações de serviço Azure disponíveis. Para atualizar e atualizar a sua lista de ligações de serviço Azure disponíveis, prima o botão **de subscrição Refresh Azure** à direita da caixa de texto.
 - **Nome de configuração da aplicação**: Um drop-down que carrega as suas lojas de configuração disponíveis sob a subscrição selecionada. Para atualizar e atualizar a sua lista de lojas de configuração disponíveis, prima o botão 'Atualizar o **Nome de Configuração da aplicação'** à direita da caixa de texto.
-- **Caminho do ficheiro de configuração**: O caminho para o seu ficheiro de configuração. Pode navegar através do seu artefacto de construção para selecionar um ficheiro de configuração. `...`(botão à direita da caixa de texto).
+- **Caminho do ficheiro de configuração**: O caminho para o seu ficheiro de configuração. Pode navegar através do seu artefacto de construção para selecionar um ficheiro de configuração. `...`(botão à direita da caixa de texto). Os formatos de ficheiro suportado são: yaml, json, propriedades.
 - **Separador**: O separador que é usado para achatar ficheiros .json e .yml.
 - **Profundidade**: A profundidade a que os ficheiros .json e .yml serão achatados.
 - **Prefixo**: Uma corda anexada ao início de cada tecla empurrada para a loja de Configuração de Aplicações.

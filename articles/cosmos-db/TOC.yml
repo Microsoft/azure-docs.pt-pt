@@ -818,6 +818,8 @@
               href: enable-notebooks.md
             - name: Importar blocos de notas do GitHub
               href: import-github-notebooks.md
+            - name: Publique cadernos na galeria
+              href: publish-notebook-gallery.md
             - name: Utilizar comandos de bloco de notas Python incorporados
               href: use-python-notebook-features-and-commands.md
             - name: Utilizar comandos de bloco de notas C# incorporados

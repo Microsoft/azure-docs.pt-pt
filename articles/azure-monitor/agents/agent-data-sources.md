@@ -6,18 +6,18 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/21/2020
-ms.openlocfilehash: 2947f1c484f013c2d0bef9899b849f7ea761d89e
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 8b0debed6e0865f39cd42c7003347b2510600f81
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100613599"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101720023"
 ---
 # <a name="log-analytics-agent-data-sources-in-azure-monitor"></a>Log Analytics fontes de dados de agente no Azure Monitor
-Os dados que o Azure Monitor recolhe de máquinas virtuais com o agente [Log Analytics](../platform/log-analytics-agent.md) são definidos pelas fontes de dados que configura no espaço de trabalho do [Log Analytics](../platform/data-platform-logs.md).   Cada fonte de dados cria registos de um tipo específico com cada tipo com o seu próprio conjunto de propriedades.
+Os dados que o Azure Monitor recolhe de máquinas virtuais com o agente [Log Analytics](./log-analytics-agent.md) são definidos pelas fontes de dados que configura no espaço de trabalho do [Log Analytics](../logs/data-platform-logs.md).   Cada fonte de dados cria registos de um tipo específico com cada tipo com o seu próprio conjunto de propriedades.
 
 > [!IMPORTANT]
-> Este artigo abrange fontes de dados para o [agente Log Analytics,](../platform/log-analytics-agent.md) que é um dos agentes utilizados pelo Azure Monitor. Outros agentes recolhem dados diferentes e são configurados de forma diferente. Consulte [a visão geral dos agentes do Azure Monitor](agents-overview.md) para obter uma lista dos agentes disponíveis e os dados que podem recolher.
+> Este artigo abrange fontes de dados para o [agente Log Analytics,](./log-analytics-agent.md) que é um dos agentes utilizados pelo Azure Monitor. Outros agentes recolhem dados diferentes e são configurados de forma diferente. Consulte [a visão geral dos agentes do Azure Monitor](agents-overview.md) para obter uma lista dos agentes disponíveis e os dados que podem recolher.
 
 ![Recolha de dados de registo](media/agent-data-sources/overview.png)
 
@@ -51,7 +51,7 @@ Qualquer configuração é entregue a todos os agentes ligados a esse espaço de
 ## <a name="data-collection"></a>Recolha de dados
 As configurações de origem de dados são entregues a agentes que estão diretamente ligados ao Azure Monitor dentro de poucos minutos.  Os dados especificados são recolhidos do agente e entregues diretamente ao Azure Monitor em intervalos específicos de cada fonte de dados.  Consulte a documentação de cada fonte de dados para estas especificidades.
 
-Para os agentes do Gestor de Operações do System Center num grupo de gestão conectado, as configurações de fonte de dados são traduzidas em pacotes de gestão e entregues ao grupo de gestão a cada 5 minutos por padrão.  O agente descarrega o pacote de gestão como qualquer outro e recolhe os dados especificados. Dependendo da fonte de dados, os dados serão enviados para um servidor de gestão que reencaminha os dados para o Azure Monitor, ou o agente enviará os dados para o Azure Monitor sem passar pelo servidor de gestão. Consulte [os detalhes da recolha de dados para obter soluções de monitorização em Azure](../monitor-reference.md) para obter mais detalhes.  Pode ler sobre detalhes de ligar o Gestor de Operações e o Monitor Azure e modificar a frequência que a configuração é entregue na [Integração Configure com o Gestor de Operações do Centro de Sistema.](../platform/om-agents.md)
+Para os agentes do Gestor de Operações do System Center num grupo de gestão conectado, as configurações de fonte de dados são traduzidas em pacotes de gestão e entregues ao grupo de gestão a cada 5 minutos por padrão.  O agente descarrega o pacote de gestão como qualquer outro e recolhe os dados especificados. Dependendo da fonte de dados, os dados serão enviados para um servidor de gestão que reencaminha os dados para o Azure Monitor, ou o agente enviará os dados para o Azure Monitor sem passar pelo servidor de gestão. Consulte [os detalhes da recolha de dados para obter soluções de monitorização em Azure](../monitor-reference.md) para obter mais detalhes.  Pode ler sobre detalhes de ligar o Gestor de Operações e o Monitor Azure e modificar a frequência que a configuração é entregue na [Integração Configure com o Gestor de Operações do Centro de Sistema.](./om-agents.md)
 
 Se o agente não conseguir ligar-se ao Azure Monitor ou ao Gestor de Operações, continuará a recolher dados que irá fornecer quando estabelecer uma ligação.  Os dados podem ser perdidos se a quantidade de dados atingir o tamanho máximo de cache para o cliente, ou se o agente não for capaz de estabelecer uma ligação dentro de 24 horas.
 
@@ -60,5 +60,5 @@ Todos os dados de registo recolhidos pelo Azure Monitor são armazenados no espa
 
 ## <a name="next-steps"></a>Passos seguintes
 * Saiba mais [sobre soluções de monitorização](../insights/solutions.md) que adicionam funcionalidade ao Azure Monitor e também recolha dados no espaço de trabalho.
-* Saiba mais [sobre as consultas de registo](../log-query/log-query-overview.md) para analisar os dados recolhidos a partir de fontes de dados e soluções de monitorização.  
-* Configure [alertas](../platform/alerts-overview.md) para notificá-lo proativamente de dados críticos recolhidos de fontes de dados e soluções de monitorização.
+* Saiba mais [sobre as consultas de registo](../logs/log-query-overview.md) para analisar os dados recolhidos a partir de fontes de dados e soluções de monitorização.  
+* Configure [alertas](../alerts/alerts-overview.md) para notificá-lo proativamente de dados críticos recolhidos de fontes de dados e soluções de monitorização.

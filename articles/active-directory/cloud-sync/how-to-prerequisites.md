@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/11/2020
+ms.date: 03/02/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b83c9b0ece933ad71810c50e89ae296aa218ec75
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: ac247b9dc70c565621d3544d14e2f76ff12fda47
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98614155"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101689322"
 ---
 # <a name="prerequisites-for-azure-ad-connect-cloud-sync"></a>Pré-requisitos para sincronização de nuvem AZure AD Connect
 Este artigo fornece orientações sobre como escolher e usar o Azure Ative Directory (Azure AD) Conecte a sincronização de nuvem como solução de identidade.
@@ -26,22 +26,22 @@ Precisa do seguinte para utilizar a sincronização de nuvem AD Connect Azure:
 
 - Credenciais de Administrador de Domínio ou Administrador Empresarial para criar o Azure AD Connect Cloud Sync gMSA (conta de serviço gerido do grupo) para executar o serviço de agente. 
 - Um administrador de identidade híbrido conta para o seu inquilino AZure AD que não é um utilizador convidado.
-- Um servidor no local para o agente de provisionamento com o Windows 2012 R2 ou mais tarde.  Este servidor deve ser um servidor de nível 0 baseado no [modelo de nível administrativo ative directory](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material).
+- Um servidor no local para o agente de provisionamento com o Windows 2016 ou mais tarde.  Este servidor deve ser um servidor de nível 0 baseado no [modelo de nível administrativo ative directory](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material).
 - Configurações de firewall no local.
 
 ## <a name="group-managed-service-accounts"></a>Contas de Serviço Geridas de Grupo
 Um grupo Managed Service Account é uma conta de domínio gerida que fornece gestão automática de passwords, gestão de nome principal de serviço simplificado (SPN), a capacidade de delegar a gestão a outros administradores, e também estende esta funcionalidade a vários servidores.  Azure AD Connect Cloud Sync suporta e utiliza um gMSA para executar o agente.  Serão solicitados credenciais administrativas durante a configuração, de forma a criar esta conta.  A conta aparecerá como (domínio\provAgentgMSA$).  Para obter mais informações sobre um gMSA, consulte [contas de serviço geridas pelo grupo](/windows-server/security/group-managed-service-accounts/group-managed-service-accounts-overview) 
 
 ### <a name="prerequisites-for-gmsa"></a>Pré-requisitos para a GMSA:
-1.  O esquema de Diretório Ativo na floresta do domínio gMSA precisa de ser atualizado para o Windows Server 2012
+1.  O esquema de Ative Directory na floresta do domínio gMSA precisa de ser atualizado para o Windows Server 2012.
 2.  [Módulos PowerShell RSAT](/windows-server/remote/remote-server-administration-tools) num controlador de domínio
-3.  Pelo menos um controlador de domínio no domínio deve estar a executar o Windows Server 2012.
+3.  Pelo menos um controlador de domínio no domínio deve estar a executar o Windows Server 201.
 4.  Um servidor de união de domínios onde o agente está a ser instalado precisa de ser o Windows Server 2012 ou mais tarde.
 
 ### <a name="custom-gmsa-account"></a>Conta gMSA personalizada
 Se estiver a criar uma conta gMSA personalizada, tem de garantir que a conta tem as seguintes permissões.
 
-|Tipo |Nome |Access |Aplica-se A| 
+|Tipo |Name |Access |Aplica-se A| 
 |-----|-----|-----|-----|
 |Permitir |conta gMSA |Ler todas as propriedades |Objetos de dispositivo descendente| 
 |Permitir |conta gMSA|Ler todas as propriedades |Objetos inetOrgperson descendentes| 
@@ -65,7 +65,7 @@ Executar a [ferramenta IdFix](/office365/enterprise/prepare-directory-attributes
 
 ### <a name="in-your-on-premises-environment"></a>No seu ambiente no local
 
-1. Identifique um servidor anfitrião ligado a domínio que executa o Windows Server 2012 R2 ou superior com um mínimo de 4-GB de RAM e .NET 4.7.1+ tempo de execução.
+1. Identifique um servidor anfitrião ligado a domínio que executa o Windows Server 2016 ou superior com um mínimo de 4-GB de RAM e .NET 4.7.1+ tempo de execução.
 
 2. A política de execução PowerShell no servidor local deve ser definida para Undefined ou RemoteSigned.
 

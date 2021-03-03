@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 09/06/2019
+ms.date: 02/22/2021
 ms.author: nitinme
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b2b3ebdf61349d88d088ebeff5443a9c3e947d73
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: c8d3c5b10c670e7aa4f1fd00f47ef47e772416cc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98943622"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101706865"
 ---
 # <a name="migrate-your-face-data-to-a-different-face-subscription"></a>Migrar os dados do seu rosto para uma subscrição diferente do Face
 
@@ -229,7 +229,7 @@ Depois de terminar os dados do rosto migratório, elimine manualmente o objeto i
 await FaceClientEastAsia.Snapshot.DeleteAsync(snapshotId);
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Em seguida, consulte a documentação de referência da API relevante, explore uma aplicação de amostra que utiliza a funcionalidade Snapshot ou siga um guia de como começar a usar as outras operações da API aqui mencionadas:
 

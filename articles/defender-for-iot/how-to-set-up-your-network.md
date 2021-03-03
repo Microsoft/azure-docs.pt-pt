@@ -4,15 +4,15 @@ description: Conheça a arquitetura de soluções, preparação de rede, pré-re
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 01/03/2021
+ms.date: 02/18/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 4ceedf4d05c6f92e5c32da95f8b54fc6c95de01c
-ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
+ms.openlocfilehash: 0f85eebbfa8fcdfd9ad6e31a564f27b5d9bfbdfc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100526515"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101733249"
 ---
 # <a name="about-azure-defender-for-iot-network-setup"></a>Sobre o Azure Defender para a configuração da rede IoT
 
@@ -22,7 +22,7 @@ O Azure Defender for IoT fornece monitorização contínua de ameaças ics e des
 
 **Consola de gestão IoT no local**: A consola de gestão no local proporciona uma visão consolidada de todos os dispositivos de rede. Ele oferece uma visão em tempo real dos principais indicadores de risco OT e IoT e alertas em todas as suas instalações. Fortemente integrado com os seus fluxos de trabalho e playbooks SOC, permite uma priorização fácil de atividades de mitigação e correlação de ameaças entre locais. 
 
-**Defender para IoT para portal IoT:** A aplicação Defender for IoT pode ajudá-lo a comprar aparelhos de solução, instalar e atualizar software e atualizar pacotes TI. 
+**Defender para o portal IoT:** A aplicação Defender for IoT pode ajudá-lo a comprar aparelhos de solução, instalar e atualizar software e atualizar pacotes TI. 
 
 Este artigo fornece informações sobre arquitetura de soluções, preparação de rede, pré-requisitos e muito mais para ajudá-lo a configurar com sucesso a sua rede para trabalhar com o Defender para aparelhos IoT. Os leitores que trabalham com a informação neste artigo devem ser experientes na operação e gestão de redes OT e IoT. Exemplos incluem engenheiros de automação, gestores de fábricas, fornecedores de serviços de infraestrutura de rede OT, equipas de cibersegurança, CISOs ou CIOs.
 

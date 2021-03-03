@@ -4,12 +4,12 @@ description: Este tutorial descreve como expor um serviço WCF REST no local a u
 ms.topic: tutorial
 ms.custom: devx-track-dotnet
 ms.date: 06/23/2020
-ms.openlocfilehash: bb2b9b5ed7c263762cc24b8eb2e6d66215147c4c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7669bc07ad91933cd31bd2ccd10eaf830d98de7c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88935709"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101710792"
 ---
 # <a name="tutorial-expose-an-on-premises-wcf-rest-service-to-external-client-by-using-azure-wcf-relay"></a>Tutorial: Exponha um serviço WCF REST no local a cliente externo utilizando o Azure WCF Relay
 
@@ -60,7 +60,7 @@ O contrato de prestação de serviços especifica quais as operações que o ser
 
    ![Criar uma aplicação de consola][2]
 
-1. No **Solution Explorer,** clique com o botão direito no projeto e selecione **Gerir pacotes NuGet**. No Gestor de **Pacotes NuGet**, selecione **Procurar**e, em seguida, procurar e escolher **WindowsAzure.ServiceBus**. Selecione **Instalar**e aceite os termos de utilização.
+1. No **Solution Explorer,** clique com o botão direito no projeto e selecione **Gerir pacotes NuGet**. No Gestor de **Pacotes NuGet**, selecione **Procurar** e, em seguida, procurar e escolher **WindowsAzure.ServiceBus**. Selecione **Instalar** e aceite os termos de utilização.
 
     ![Pacote de ônibus de serviço][3]
 
@@ -180,12 +180,12 @@ A criação de um relé Azure requer que crie primeiro o contrato utilizando uma
 
 O ficheiro de configuração é semelhante a um ficheiro de configuração WCF. Inclui o nome de serviço, ponto final e encadernação. O ponto final é a localização que a Azure Relay expõe para clientes e anfitriões comunicarem entre si. A ligação é o tipo de protocolo que é usado para comunicar. A principal diferença é que este ponto final de serviço configurado refere-se a uma ligação [NetTcpRelayBinding,](/dotnet/api/microsoft.servicebus.nettcprelaybinding) que não faz parte do Quadro .NET. [NetTcpRelayBinding](/dotnet/api/microsoft.servicebus.nettcprelaybinding) é uma das encadernações definidas pelo serviço.
 
-1. No **Solution Explorer,** clique duas ** vezesApp.config** para abrir o ficheiro no editor do Estúdio Visual.
+1. No **Solution Explorer,** clique duas **vezesApp.config** para abrir o ficheiro no editor do Estúdio Visual.
 1. No elemento`<appSettings>`, substitua os marcadores de posição pelo nome do seu espaço de nomes do serviço e a chave SAS que copiou num passo anterior.
 1. Dentro das etiquetas `<system.serviceModel>`, adicione um elemento `<services>`. Pode definir várias aplicações de retransmissão num único ficheiro de configuração. No entanto, este tutorial define apenas um.
 
     ```xml
-    <?xmlversion="1.0"encoding="utf-8"?>
+    <?xmlversion="1.0" encoding="utf-8"?>
     <configuration>
       <system.serviceModel>
         <services>
@@ -435,7 +435,7 @@ namespace Microsoft.ServiceBus.Samples
 
 ## <a name="create-a-wcf-client-for-the-service-contract"></a>Criar um cliente WCF para o contrato de serviço
 
-A próxima tarefa é criar uma aplicação ao cliente e definir o contrato de serviço que implementará mais tarde. Estes passos assemelham-se aos passos utilizados para criar um serviço: definir um contrato, editar um ficheiro *App.config, * usar credenciais para ligar ao serviço de retransmissão, e assim por diante. O código utilizado para estas tarefas surge no exemplo que segue o procedimento.
+A próxima tarefa é criar uma aplicação ao cliente e definir o contrato de serviço que implementará mais tarde. Estes passos assemelham-se aos passos utilizados para criar um serviço: definir um contrato, editar um ficheiro *App.config,* usar credenciais para ligar ao serviço de retransmissão, e assim por diante. O código utilizado para estas tarefas surge no exemplo que segue o procedimento.
 
 1. Criar um novo projeto na atual solução Visual Studio para o cliente:
 
@@ -448,7 +448,7 @@ A próxima tarefa é criar uma aplicação ao cliente e definir o contrato de se
 1. Instale o [pacote Service Bus NuGet](https://www.nuget.org/packages/WindowsAzure.ServiceBus):
 
    1. No **Solution Explorer,** clique com o botão direito **EchoClient** e, em seguida, selecione **Gerir pacotes NuGet**.
-   1. **Selecione Procurar**e, em seguida, procurar e selecionar **WindowsAzure.ServiceBus**. Selecione **Instalar**e aceite os termos de utilização.
+   1. **Selecione Procurar** e, em seguida, procurar e selecionar **WindowsAzure.ServiceBus**. Selecione **Instalar** e aceite os termos de utilização.
 
       ![Instalar pacote de ônibus de serviço][4]
 
@@ -506,14 +506,14 @@ namespace Microsoft.ServiceBus.Samples
 
 ## <a name="configure-the-wcf-client"></a>Configurar o cliente de WCF
 
-Neste passo, cria-se um ficheiro *App.config* para uma aplicação básica do cliente que acede ao serviço criado anteriormente neste tutorial. Este * ficheiroApp.config* define o contrato, vinculativo e o nome do ponto final. O código utilizado para estas tarefas surge no exemplo que segue o procedimento.
+Neste passo, cria-se um ficheiro *App.config* para uma aplicação básica do cliente que acede ao serviço criado anteriormente neste tutorial. Este *ficheiroApp.config* define o contrato, vinculativo e o nome do ponto final. O código utilizado para estas tarefas surge no exemplo que segue o procedimento.
 
 1. No **Solution Explorer,** no projeto **EchoClient,** clique duas vezes **App.config** para abrir o ficheiro no editor do Estúdio Visual.
 1. No elemento`<appSettings>`, substitua os marcadores de posição pelo nome do seu espaço de nomes do serviço e a chave SAS que copiou num passo anterior.
 1. Dentro do `system.serviceModel` elemento, adicione um `<client>` elemento.
 
     ```xml
-    <?xmlversion="1.0"encoding="utf-8"?>
+    <?xmlversion="1.0" encoding="utf-8"?>
     <configuration>
       <system.serviceModel>
         <client>
@@ -534,11 +534,11 @@ Neste passo, cria-se um ficheiro *App.config* para uma aplicação básica do cl
 
     Este código define o nome do ponto final. Define ainda o contrato definido no serviço e o facto de a aplicação do cliente utilizar a TCP para comunicar com a Azure Relay. O nome do ponto final é utilizado no próximo passo para ligar esta configuração de ponto final com o URI do serviço.
 
-1. Selecione **guardar todos**os  >  **ficheiros**.
+1. Selecione **guardar todos** os  >  **ficheiros**.
 
 ### <a name="example-of-the-appconfig-file"></a>Exemplo do ficheiro App.config
 
-O seguinte código mostra o * ficheiroApp.config* para o cliente Echo.
+O seguinte código mostra o *ficheiroApp.config* para o cliente Echo.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>

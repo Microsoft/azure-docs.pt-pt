@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 01/12/2020
 ms.subservice: metrics
-ms.openlocfilehash: c47c316c82d8c510b4446e4335a219f400d476e4
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: a88a52163f03d2bffb0c9c4eab53fd814d9554fb
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100615231"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101725871"
 ---
 # <a name="azure-monitor-metrics-metrics-aggregation-and-display-explained"></a>Agregação e visualização de métricas Azure Monitor métricas explicadas
 
@@ -101,7 +101,7 @@ As métricas são capturadas para cada recurso individual. No entanto, o nível 
 
 Quando se traça uma métrica no explorador métrico, tem-se a opção de "dividir" o gráfico por uma dimensão.  Dividir um gráfico significa que está a analisar os dados subjacentes para obter mais detalhes e ver esses dados mapeados ou filtrados no explorador métrico.
 
-Por exemplo, [o Microsoft.ApiManagement/service](../platform/metrics-supported.md#microsoftapimanagementservice) tem *a Localização* como uma dimensão para muitas métricas. 
+Por exemplo, [o Microsoft.ApiManagement/service](./metrics-supported.md#microsoftapimanagementservice) tem *a Localização* como uma dimensão para muitas métricas. 
 
 - **A capacidade** é uma dessas métricas. Ter a dimensão *localização* implica que o sistema subjacente está a armazenar um registo métrico para a capacidade de cada local, em vez de apenas um para a quantidade agregada. Em seguida, pode recuperar ou dividir essa informação num gráfico métrico.  
 
@@ -109,7 +109,7 @@ Por exemplo, [o Microsoft.ApiManagement/service](../platform/metrics-supported.m
 
 - Uma das métricas mais flexíveis, **Requests,** tem 7 dimensões diferentes. 
  
-Consulte o artigo [suportado pelas métricas](../platform/metrics-supported.md) do Monitor Azure para obter mais informações sobre cada métrica e as dimensões disponíveis. Além disso, a documentação de cada fornecedor de recursos e tipo pode fornecer informações adicionais sobre as dimensões e o que medem.
+Consulte o artigo [suportado pelas métricas](./metrics-supported.md) do Monitor Azure para obter mais informações sobre cada métrica e as dimensões disponíveis. Além disso, a documentação de cada fornecedor de recursos e tipo pode fornecer informações adicionais sobre as dimensões e o que medem.
 
 Pode utilizar a divisão e a filtragem juntas para se resolver um problema. Abaixo está um exemplo de um gráfico que mostra os *Avg Disk Write Bytes* para um grupo de VMs em um grupo de recursos. Temos um rollup de todos os VMs com esta métrica, mas podemos querer descobrir quais são realmente responsáveis pelos picos por volta das 6h. São a mesma máquina? Quantas máquinas estão envolvidas?  
 

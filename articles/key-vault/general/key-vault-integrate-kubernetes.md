@@ -7,27 +7,26 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/25/2020
-ms.openlocfilehash: f4981036ca92f6efe2d3e23ea1f507a3a1f3c70a
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: defe546c008f741040c78e639d5bc4b9c6e02fb8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98234261"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101741451"
 ---
 # <a name="tutorial-configure-and-run-the-azure-key-vault-provider-for-the-secrets-store-csi-driver-on-kubernetes"></a>Tutorial: Configurar e executar o fornecedor Azure Key Vault para o motorista CSI Secrets Store em Kubernetes
 
 > [!IMPORTANT]
-> O CSI Driver é um projeto de código aberto que não é suportado pelo suporte técnico da Azure. Por favor, informe todos os comentários e questões relacionadas com a integração do CSI Driver Key Vault no link github [aqui.](https://github.com/Azure/secrets-store-csi-driver-provider-azure/issues) Esta ferramenta é fornecida para que os utilizadores se auto-instalem em clusters e recolham feedback da nossa comunidade.
-
+> Secrets Store CSI Driver é um projeto de código aberto que não é suportado pelo suporte técnico da Azure. Por favor, informe todos os comentários e problemas relacionados com a integração do CSI Driver Key Vault no link github na parte inferior da página. Esta ferramenta é fornecida para que os utilizadores se auto-instalem em clusters e recolham feedback da nossa comunidade.
 
 Neste tutorial, você acede e obtém segredos do seu cofre de chaves Azure usando o controlador Secrets Store Container Storage Interface (CSI) para montar os segredos em cápsulas Kubernetes.
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 > * Use identidades geridas.
 > * Implementar um cluster Azure Kubernetes Service (AKS) utilizando o Azure CLI.
-> * Instale o leme e o controlador CSI Secrets Store.
+> * Instale helm, o controlador CSI Secrets Store e o Fornecedor de Cofre de Chaves Azure para o controlador CSI.
 > * Crie um cofre de chaves Azure e desconfiem dos vossos segredos.
 > * Crie o seu próprio objeto SecretProviderClass.
 > * Desdobre a sua cápsula com segredos montados do cofre das chaves.
@@ -38,7 +37,7 @@ Neste tutorial, vai aprender a:
 
 * Antes de iniciar este tutorial, instale o [Azure CLI](/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
 
-Este tutorial pressupõe que você runnig Azure Kubernetes Service em nós Linux.
+Este tutorial pressupõe que você dirige o Serviço Azure Kubernetes em nós Linux.
 
 ## <a name="use-managed-identities"></a>Utilizar identidades geridas
 
@@ -53,22 +52,22 @@ Não precisas de usar a Azure Cloud Shell. O seu pedido de comando (terminal) co
 Complete as secções "Criar um grupo de recursos", "Criar cluster AKS" e "Ligar ao cluster" em [Implementar um cluster de serviço Azure Kubernetes utilizando o CLI Azure](../../aks/kubernetes-walkthrough.md). 
 
 > [!NOTE] 
-> Se pretender utilizar uma identidade de vagem, certifique-se de que o ativa quando criar o cluster Kubernetes, como mostra o seguinte comando:
+> Se pretender utilizar a identidade do casulo, o plugin de rede recomendado é `azure` . Consulte o [doc](https://azure.github.io/aad-pod-identity/docs/configure/aad_pod_identity_on_kubenet/) para mais detalhes. Crie o cluster Kubernetes, como mostra o seguinte comando:
 >
 > ```azurecli
 > az aks create -n contosoAKSCluster -g contosoResourceGroup --kubernetes-version 1.16.9 --node-count 1 --enable-managed-identity
 > ```
 
 1. [Desfie a variável ambiente PATH](https://www.java.com/en/download/help/path.xml) para o ficheiro *kubectl.exe* que descarregou.
-1. Verifique a sua versão Kubernetes utilizando o seguinte comando, que produz a versão do cliente e do servidor. A versão do cliente é o *ficheirokubectl.exe* que instalou, e a versão do servidor é o Azure Kubernetes Services (AKS) em que o seu cluster está a funcionar.
+2. Verifique a sua versão Kubernetes utilizando o seguinte comando, que produz a versão do cliente e do servidor. A versão do cliente é o *ficheirokubectl.exe* que instalou, e a versão do servidor é o Azure Kubernetes Services (AKS) em que o seu cluster está a funcionar.
     ```azurecli
     kubectl version
     ```
-1. Certifique-se de que a sua versão Kubernetes é 1.16.0 ou mais tarde. Para os agrupamentos de janelas, certifique-se de que a sua versão Kubernetes é 1.18.0 ou mais tarde. O comando seguinte atualiza tanto o cluster Kubernetes como o conjunto de nós. O comando pode levar alguns minutos para ser executado. Neste exemplo, o grupo de recursos é *o ContosoResourceGroup,* e o cluster Kubernetes é *contosoAKSCluster*.
+3. Certifique-se de que a sua versão Kubernetes é 1.16.0 ou mais tarde. Para os agrupamentos de janelas, certifique-se de que a sua versão Kubernetes é 1.18.0 ou mais tarde. O comando seguinte atualiza tanto o cluster Kubernetes como o conjunto de nós. O comando pode levar alguns minutos para ser executado. Neste exemplo, o grupo de recursos é *o ContosoResourceGroup,* e o cluster Kubernetes é *contosoAKSCluster*.
     ```azurecli
     az aks upgrade --kubernetes-version 1.16.9 --name contosoAKSCluster --resource-group contosoResourceGroup
     ```
-1. Para exibir os metadados do cluster AKS que criou, utilize o seguinte comando. Copie o **principalId,** **clientId,** **subscriçãoId** e **nodeResourceGroup** para posterior utilização. Se o cluster AKS não foi criado com identidades geridas ativadas, o **principalid** e **clienteid** será nulo. 
+4. Para exibir os metadados do cluster AKS que criou, utilize o seguinte comando. Copie o **principalId,** **clientId,** **subscriçãoId** e **nodeResourceGroup** para posterior utilização. Se o cluster AKS não foi criado com identidades geridas ativadas, o **principalid** e **clienteid** será nulo. 
 
     ```azurecli
     az aks show --name contosoAKSCluster --resource-group contosoResourceGroup
@@ -80,11 +79,11 @@ Complete as secções "Criar um grupo de recursos", "Criar cluster AKS" e "Ligar
     
 ## <a name="install-helm-and-the-secrets-store-csi-driver"></a>Instale o leme e o controlador CSI secrets Store
 > [!NOTE]
-> Abaixo a instalação funciona apenas em AKS em Linux. Para obter mais informações sobre a instalação do controlador CSI Secrets Store, consulte [o Fornecedor de Cofres chave Azure para o controlador CSI Secrets Store](https://github.com/Azure/secrets-store-csi-driver-provider-azure) 
+> Abaixo a instalação funciona apenas em AKS em Linux. Para obter mais informações sobre a instalação do controlador CSI Secrets Store, consulte [o Fornecedor de Cofres chave Azure para o controlador CSI Secrets Store](https://azure.github.io/secrets-store-csi-driver-provider-azure/getting-started/installation/) 
 
-Para instalar o controlador CSI Secrets Store, primeiro tem de instalar [o Helm](https://helm.sh/docs/intro/install/).
+Para instalar o controlador CSI Secrets Store e o fornecedor Azure Key Vault, primeiro tem de instalar [o Helm](https://helm.sh/docs/intro/install/).
 
-Com a interface do controlador [CSI Secrets Store,](https://github.com/Azure/secrets-store-csi-driver-provider-azure/blob/master/charts/csi-secrets-store-provider-azure/README.md) pode obter os segredos que estão armazenados na sua instância de cofre de chave Azure e, em seguida, usar a interface do condutor para montar os conteúdos secretos em cápsulas Kubernetes.
+Com a interface do controlador [CSI Secrets Store,](https://azure.github.io/secrets-store-csi-driver-provider-azure/) pode obter os segredos que estão armazenados na sua instância Azure Key Vault e, em seguida, usar a interface do condutor para montar os conteúdos secretos em cápsulas Kubernetes.
 
 1. Verifique se a versão Helm é v3 ou posterior:
     ```azurecli
@@ -96,6 +95,8 @@ Com a interface do controlador [CSI Secrets Store,](https://github.com/Azure/sec
 
     helm install csi-secrets-store-provider-azure/csi-secrets-store-provider-azure --generate-name
     ```
+> [!NOTE] 
+> Se planeia utilizar o controlador CSI da Secrets Store e o fornecedor Azure Key Vault nos nos acenos das janelas, ative o condutor e o fornecedor nos nos acenos do windows utilizando os [valores de configuração](https://github.com/Azure/secrets-store-csi-driver-provider-azure/tree/master/charts/csi-secrets-store-provider-azure#configuration) do leme
 
 ## <a name="create-an-azure-key-vault-and-set-your-secrets"></a>Crie um cofre de chaves Azure e desconfiem dos seus segredos
 
@@ -106,25 +107,22 @@ Para criar o seu próprio cofre-chave e definir os seus segredos, siga as instru
 
 ## <a name="create-your-own-secretproviderclass-object"></a>Crie o seu próprio objeto SecretProviderClass
 
-Para criar o seu próprio objeto SecretProviderClass personalizado com parâmetros específicos do fornecedor para o controlador CSI Secrets Store, [utilize este modelo](https://github.com/Azure/secrets-store-csi-driver-provider-azure/blob/master/examples/v1alpha1_secretproviderclass_service_principal.yaml). Este objeto fornecerá acesso de identidade ao seu cofre de chaves.
+Para criar o seu próprio objeto SecretProviderClass personalizado com parâmetros específicos do fornecedor para o controlador CSI Secrets Store, [utilize este modelo](https://raw.githubusercontent.com/Azure/secrets-store-csi-driver-provider-azure/master/examples/pod-identity/v1alpha1_secretproviderclass_pod_identity.yaml). Este objeto fornecerá acesso de identidade ao seu cofre de chaves.
 
 Na amostra, o ficheiro IML da SecretProviderClass preenche os parâmetros em falta. São necessários os seguintes parâmetros:
 
-* **utilizadorAssignedIdentityID**: # [REQUIRED] Se o valor estiver vazio, é por defeito utilizar a identidade atribuída ao sistema no VM 
 * **keyvaultName**: O nome do seu cofre chave
-* **objetos**: O recipiente para todo o conteúdo secreto que pretende montar
+* **objetos**: lista de todos os conteúdos secretos que pretende montar
     * **nome do objeto**: O nome do conteúdo secreto
     * **objectType**: O tipo de objeto (segredo, chave, certificado)
-* **grupo** de recursos : O nome do grupo de recursos # [OBRIGATÓRIO para a versão < 0.0.4] o grupo de recursos do KeyVault
-* **subscriçãoId**: O ID de subscrição do seu cofre-chave # [OBRIGATÓRIO para a versão < 0.0.4] o ID de subscrição do KeyVault
 * **tenantID**: O ID do inquilino, ou iD diretório, do seu cofre chave
 
-Documentação de todos os campos necessários está disponível aqui: [Link](https://github.com/Azure/secrets-store-csi-driver-provider-azure#create-a-new-azure-key-vault-resource-or-use-an-existing-one)
+Documentação de todos os campos necessários e configurações suportadas está disponível aqui: [Link](https://azure.github.io/secrets-store-csi-driver-provider-azure/getting-started/usage/#create-your-own-secretproviderclass-object)
 
 O modelo atualizado é mostrado no seguinte código. Descarregue-o como um ficheiro YAML e preencha os campos necessários. Neste exemplo, o cofre chave é **contosoKeyVault5**. Tem dois segredos, **o segredo1** e **o segredo2.**
 
 > [!NOTE] 
-> Se estiver a utilizar identidades geridas, desaprote o valor **da entidade usePodId** como *verdadeiro*, e desaprote o **valoridárioidídeo** do utilizador como um par de aspas **(""**). 
+> Se estiver a utilizar identidades de pod, desaprote o valor **da utilizaçãoPodIdentity** como *verdadeiro*, e desaprote o valor **de IMU do utilizador** como um par de aspas **(""**). Se estiver a utilizar identidades geridas, desajuste o valor **da entidade utilizaVMManagedId como** *verdadeiro*, e desajuste o valor **de IMSindentityID** do utilizador como clienteID da identidade atribuída ao utilizador.
 
 ```yaml
 apiVersion: secrets-store.csi.x-k8s.io/v1alpha1
@@ -134,39 +132,36 @@ metadata:
 spec:
   provider: azure
   parameters:
-    usePodIdentity: "false"                   # [REQUIRED] Set to "true" if using managed identities
-    useVMManagedIdentity: "false"             # [OPTIONAL] if not provided, will default to "false"
-    userAssignedIdentityID: "servicePrincipalClientID"       # [REQUIRED]  If you're using a user-assigned identity as the VM's managed identity, specify the identity's client id. If the value is empty, it defaults to use the system-assigned identity on the VM
-                                                         
-    keyvaultName: "contosoKeyVault5"          # [REQUIRED] the name of the key vault
-                                              #     az keyvault show --name contosoKeyVault5
-                                              #     the preceding command will display the key vault metadata, which includes the subscription ID, resource group name, key vault 
-    cloudName: ""                                # [OPTIONAL for Azure] if not provided, Azure environment will default to AzurePublicCloud
+    usePodIdentity: "false"                                                 # [OPTIONAL] if not provided, will default to "false". Set to "true" if using pod identities.
+    useVMManagedIdentity: "false"                                           # [OPTIONAL] if not provided, will default to "false". Set to "true" if using managed identities.
+    userAssignedIdentityID: "<clientID of user-assigned managed identity"   # [OPTIONAL] If you're using managed identities, use the client id to specify which user-assigned managed identity to use. If the value is empty, it defaults to use the system-assigned identity on the VM
+    keyvaultName: "contosoKeyVault5"                                        # [REQUIRED] the name of the key vault
+                                                                            #     az keyvault show --name contosoKeyVault5
+                                                                            #     the preceding command will display the key vault metadata, which includes the subscription ID, resource group name, key vault 
+    cloudName: ""                                                           # [OPTIONAL] if not provided, Azure environment will default to AzurePublicCloud
     objects:  |
       array:
         - |
-          objectName: secret1                 # [REQUIRED] object name
-                                              #     az keyvault secret list --vault-name "contosoKeyVault5"
-                                              #     the above command will display a list of secret names from your key vault
-          objectType: secret                  # [REQUIRED] object types: secret, key, or cert
-          objectVersion: ""                   # [OPTIONAL] object versions, default to latest if empty
+          objectName: secret1                                               # [REQUIRED] object name
+                                                                            #     az keyvault secret list --vault-name "contosoKeyVault5"
+                                                                            #     the above command will display a list of secret names from your key vault
+          objectType: secret                                                # [REQUIRED] object types: secret, key, or cert
+          objectVersion: ""                                                 # [OPTIONAL] object versions, default to latest if empty
         - |
           objectName: secret2
           objectType: secret
           objectVersion: ""
-    resourceGroup: "contosoResourceGroup"     # [REQUIRED] the resource group name of the key vault
-    subscriptionId: "subscriptionID"          # [REQUIRED] the subscription ID of the key vault
-    tenantId: "tenantID"                      # [REQUIRED] the tenant ID of the key vault
+    tenantId: "tenantID"                                                    # [REQUIRED] the tenant ID of the key vault
 ```
 A imagem a seguir mostra a saída da consola para **a az keyvault show -- nome contosoKeyVault5** com os metadados destacados relevantes:
 
 ![Screenshot mostrando a saída da consola para "az keyvault show -- nome contosoKeyVault5"](../media/kubernetes-key-vault-4.png)
 
-## <a name="assign-managed-identity"></a>Atribuir identidade gerida
+## <a name="install-azure-active-directory-azure-ad-pod-identity"></a>Instalar a identidade do Casulo Azure Ative (Azure AD)
 
-Atribua funções específicas ao cluster AKS que criou. 
+1. Atribua funções específicas ao cluster AKS que criou. 
 
-1. Para criar, listar ou ler uma identidade gerida atribuída pelo utilizador, o seu cluster AKS precisa de ser atribuído à função [de Operador de Identidade Gerida.](../../role-based-access-control/built-in-roles.md#managed-identity-operator) Certifique-se de que o **$clientId** é o cliente do cluster Kubernetes. Para o âmbito, estará sob o seu serviço de subscrição Azure, especificamente o grupo de recursos de nó que foi feito quando o cluster AKS foi criado. Este âmbito garantirá que apenas os recursos dentro desse grupo sejam afetados pelas funções abaixo atribuídas. 
+    Documentação para todas as atribuições de funções necessárias com a identidade do pod do Azure Ative (Azure AD) aqui: [Link](https://azure.github.io/aad-pod-identity/docs/getting-started/role-assignment/)
 
     ```azurecli
     RESOURCE_GROUP=contosoResourceGroup
@@ -176,24 +171,27 @@ Atribua funções específicas ao cluster AKS que criou.
     az role assignment create --role "Virtual Machine Contributor" --assignee $clientId --scope /subscriptions/<SUBID>/resourcegroups/$RESOURCE_GROUP
     ```
 
-1. Instale a identidade do Azure Ative Directory (Azure AD) em AKS.
+2. Instale a identidade do Azure Ative Directory (Azure AD) em AKS.
+
+    > [!NOTE] 
+    > Se utilizar um cluster AKS com plugin de rede kubenet, reveja este [doc](https://azure.github.io/aad-pod-identity/docs/configure/aad_pod_identity_on_kubenet/) sobre como implantar a identidade do casulo no cluster.
+
     ```azurecli
     helm repo add aad-pod-identity https://raw.githubusercontent.com/Azure/aad-pod-identity/master/charts
 
     helm install pod-identity aad-pod-identity/aad-pod-identity
     ```
 
-1. Criar uma identidade AD Azure. Na saída, copie o **clienteId** e **o principalid** para posterior utilização.
+3. Criar uma identidade gerida User-Assigned. Na saída, copie o **clienteId** para utilização posterior.
     ```azurecli
     az identity create -g $resourceGroupName -n $identityName
     ```
 
-1. Atribua o papel de *Leitor* à identidade AD AZure que criou no passo anterior para o seu cofre chave e, em seguida, conceda as permissões de identidade para obter segredos do seu cofre chave. Use o **clienteId** e **o principalid** da identidade AD Azure.
+4. Conceda as permissões de identidade para obter segredos do seu cofre. Utilize o **clientId** a partir da identidade gerida atribuída pelo Utilizador.
     ```azurecli
-    az role assignment create --role "Reader" --assignee $principalId --scope /subscriptions/<SUBID>/resourceGroups/contosoResourceGroup/providers/Microsoft.KeyVault/vaults/contosoKeyVault5
-
     az keyvault set-policy -n contosoKeyVault5 --secret-permissions get --spn $clientId
     az keyvault set-policy -n contosoKeyVault5 --key-permissions get --spn $clientId
+    az keyvault set-policy -n contosoKeyVault5 --certificate-permissions get --spn $clientId
     ```
 
 ## <a name="deploy-your-pod-with-mounted-secrets-from-your-key-vault"></a>Desdobre a sua cápsula com segredos montados a partir do seu cofre de chaves
@@ -205,17 +203,17 @@ kubectl apply -f secretProviderClass.yaml
 
 ### <a name="use-managed-identities"></a>Utilizar identidades geridas
 
-Se estiver a utilizar identidades geridas, crie uma *AzureIdentity* no seu cluster que refira a identidade que criou anteriormente. Em seguida, crie uma *AzureIdentityBinding* que faz referência à entidade AzureId que criou. Preencha os parâmetros no modelo seguinte e, em seguida, guarde-os como *podIdentityAndBinding.yaml*.  
+Se estiver a usar identidades de pod, crie uma *entidade AzureId* no seu cluster que refira a identidade que criou anteriormente. Em seguida, crie uma *AzureIdentityBinding* que faz referência à entidade AzureId que criou. Preencha os parâmetros no modelo seguinte e, em seguida, guarde-os como *podIdentityAndBinding.yaml*.  
 
 ```yml
 apiVersion: aadpodidentity.k8s.io/v1
 kind: AzureIdentity
 metadata:
-    name: "azureIdentityName"               # The name of your Azure identity
+    name: azureIdentityName                 # The name of your Azure identity
 spec:
-    type: 0                                 # Set type: 0 for managed service identity
+    type: 0                                 # Set type: 0 for managed identity
     resourceID: /subscriptions/<SUBID>/resourcegroups/<RESOURCEGROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<AZUREIDENTITYNAME>
-    clientID: "managedIdentityClientId"     # The clientId of the Azure AD identity that you created earlier
+    clientID: "<managed identity clientID>"   # The clientId of the User-assigned managed identity that you created earlier
 ---
 apiVersion: aadpodidentity.k8s.io/v1
 kind: AzureIdentityBinding
@@ -226,7 +224,7 @@ spec:
     selector: azure-pod-identity-binding-selector
 ```
     
-Execute o seguinte comando para executar a ligação:
+Executar o seguinte comando para configurar a ligação:
 
 ```azurecli
 kubectl apply -f podIdentityAndBinding.yaml
@@ -240,7 +238,7 @@ kind: Pod
 metadata:
   name: nginx-secrets-store-inline
   labels:
-    aadpodidbinding: azure-pod-identity-binding-selector
+    aadpodidbinding: azure-pod-identity-binding-selector # The selector defined in AzureIdentityBinding in the previous step
 spec:
   containers:
     - name: nginx
@@ -284,12 +282,12 @@ Depois de verificares que a cápsula está a funcionar, podes verificar se a cá
 
 Para mostrar todos os segredos que estão contidos na cápsula, executar o seguinte comando:
 ```azurecli
-kubectl exec -it nginx-secrets-store-inline -- ls /mnt/secrets-store/
+kubectl exec nginx-secrets-store-inline -- ls /mnt/secrets-store/
 ```
 
 Para exibir o conteúdo de um segredo específico, executar o seguinte comando:
 ```azurecli
-kubectl exec -it nginx-secrets-store-inline -- cat /mnt/secrets-store/secret1
+kubectl exec nginx-secrets-store-inline -- cat /mnt/secrets-store/secret1
 ```
 
 Verifique se o conteúdo do segredo está exposto.

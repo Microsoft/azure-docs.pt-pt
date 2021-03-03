@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 2afe3e29c5717eb8d4921f82f35083ecbb14828c
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: e8d8300d2be7a2a48cb48a51b0f81c96f68c45aa
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99532015"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101750732"
 ---
 1. Clone o repo a partir deste local: https://github.com/Azure-Samples/live-video-analytics-iot-edge-csharp .
 1. No Código do Estúdio Visual, abra a pasta onde o repo foi descarregado.
@@ -31,7 +31,7 @@ ms.locfileid: "99532015"
     AAD_TENANT_ID="<AAD Tenant ID>"  
     AAD_SERVICE_PRINCIPAL_ID="<AAD SERVICE_PRINCIPAL ID>"  
     AAD_SERVICE_PRINCIPAL_SECRET="<AAD SERVICE_PRINCIPAL ID>"  
-    VIDEO_INPUT_FOLDER_ON_DEVICE="/home/lvaadmin/samples/input"  
+    VIDEO_INPUT_FOLDER_ON_DEVICE="/home/lvaedgeuser/samples/input"  
     VIDEO_OUTPUT_FOLDER_ON_DEVICE="/var/media"
     APPDATA_FOLDER_ON_DEVICE="/var/local/mediaservices"
     CONTAINER_REGISTRY_USERNAME_myacr="<your container registry username>"  

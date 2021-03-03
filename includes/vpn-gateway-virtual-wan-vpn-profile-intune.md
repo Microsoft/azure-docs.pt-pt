@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/04/2021
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 8fc3ad3e1597d9b38bd095875c8a6f11260e8711
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: f64bb0dd0841e89d05a4399db4373a9eaaec48a2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100514961"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101750652"
 ---
 Pode implementar perfis para clientes Azure VPN (Windows 10) utilizando o Microsoft Intune. Este artigo ajuda-o a criar um perfil Intune utilizando configurações personalizadas.
 
@@ -30,7 +30,7 @@ Nos seguintes passos, utilizamos uma amostra de XML para um perfil OMA-URI perso
 * Ligação automática ON
 * Deteção de rede fidedigna ativada.
 
-Para outras opções apoiadas, consulte o artigo [do VPNv2 CSP.](https://docs.microsoft.com/windows/client-management/mdm/vpnv2-csp)
+Para outras opções apoiadas, consulte o artigo [do VPNv2 CSP.](/windows/client-management/mdm/vpnv2-csp)
 
 1. Descarregue o perfil VPN do portal Azure e extraia o ficheiro *azurevpnconfig.xml* do pacote.
 1. Copie e cole o texto abaixo num novo ficheiro de editor de texto.
@@ -82,4 +82,4 @@ Nesta secção, cria-se um perfil Microsoft Intune com definições personalizad
 1. Na página **'Rever + criar',** selecione **Criar.**
 
     :::image type="content" source="./media/vpn-gateway-virtual-wan-vpn-profile-intune/create-profile.png" alt-text="Criar perfil":::
-1. O seu perfil personalizado está agora criado. Para que os passos do Microsoft Intune implementem este perfil, consulte [perfils de utilizador e dispositivo de atribuição](https://docs.microsoft.com/mem/intune/configuration/device-profile-assign).
+1. O seu perfil personalizado está agora criado. Para que os passos do Microsoft Intune implementem este perfil, consulte [perfils de utilizador e dispositivo de atribuição](/mem/intune/configuration/device-profile-assign).

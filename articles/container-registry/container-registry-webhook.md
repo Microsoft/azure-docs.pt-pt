@@ -3,16 +3,18 @@ title: Webhooks para responder a ações de registo
 description: Aprenda a usar webhooks para desencadear eventos quando as ações de pressão ou de puxar ocorrem nos repositórios de registo.
 ms.topic: article
 ms.date: 05/24/2019
-ms.openlocfilehash: 1db1098da81e6cf9ecb262c99f705b77af2efd26
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 5374b58ba72727500294a173c26e9a131b29fe34
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96004488"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101722250"
 ---
 # <a name="using-azure-container-registry-webhooks"></a>Usando webhooks de registo de contentores Azure
 
 Os registos de contentores do Azure armazenam e gerem imagens de contentores do Docker privadas, de forma semelhante a como o Docker Hub armazena imagens do Docker públicas. Também pode acolher repositórios para [gráficos Helm](container-registry-helm-repos.md) (pré-visualização), um formato de embalagem para implementar aplicações para Kubernetes. Você pode usar webhooks para desencadear eventos quando certas ações ocorrem em um dos seus repositórios de registo. Os webhooks podem responder a eventos ao nível do registo, ou podem ser examinados até uma etiqueta de repositório específica. Com um registo  [geo-replicado,](container-registry-geo-replication.md) configura cada webhook para responder a eventos numa réplica regional específica.
+
+O ponto final de um webhook deve ser acessível ao público a partir do registo. Pode configurar pedidos de webhook de registo para autenticar para um ponto final seguro.
 
 Para obter mais informações sobre os pedidos do webhook, consulte [a referência do esquema do webhook do registo do contentor Azure.](container-registry-webhook-reference.md)
 

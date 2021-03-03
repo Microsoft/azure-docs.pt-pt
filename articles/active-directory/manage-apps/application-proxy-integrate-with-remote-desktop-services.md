@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 11/30/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: b6879d4869604af5232088063a6153a01208e7d0
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 5e5d5370057449d1877c31b249d3fe47fd60bf2a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99259343"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101687673"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Publicar o Ambiente de Trabalho Remoto com o Proxy de Aplicações do Azure AD
 
@@ -57,7 +57,7 @@ Depois de configurar o RDS e o Azure AD Application Proxy para o seu ambiente, s
 ### <a name="publish-the-rd-host-endpoint"></a>Publique o ponto final do anfitrião RD
 
 1. [Publique uma nova aplicação Proxy de aplicação](application-proxy-add-on-premises-application.md) com os seguintes valores:
-   - URL interno: `https://\<rdhost\>.com/` , onde está a raiz comum que RD Web e RD Gateway `\<rdhost\>` partilham.
+   - URL interno: `https://<rdhost>.com/` , onde está a raiz comum que RD Web e RD Gateway `<rdhost>` partilham.
    - URL externo: Este campo é automaticamente povoado com base no nome da aplicação, mas pode modificá-lo. Os seus utilizadores irão a este URL quando acederem a RDS.
    - Método de pré-autorização: Azure Ative Directory
    - Traduzir cabeçalhos URL: Não
@@ -69,7 +69,7 @@ Depois de configurar o RDS e o Azure AD Application Proxy para o seu ambiente, s
 
 4. Selecione **Azure Ative Directory** e, em seguida, **Registos de Aplicações**. Escolha a sua aplicação na lista.
 5. Under **Manage**, selecione **Branding**.
-6. Atualize o campo **URL da página inicial** para apontar para o seu ponto final da Web RD (como `https://\<rdhost\>.com/RDWeb` ).
+6. Atualize o campo **URL da página inicial** para apontar para o seu ponto final da Web RD (como `https://<rdhost>.com/RDWeb` ).
 
 ### <a name="direct-rds-traffic-to-application-proxy"></a>Tráfego RDS direto para Application Proxy
 

@@ -4,19 +4,18 @@ description: Saiba como criar a sua primeira Função do Azure para execução s
 ms.topic: how-to
 ms.date: 03/26/2020
 ms.custom: devx-track-csharp, mvc, devcenter, cc996988-fb4f-47
-ms.openlocfilehash: 63e9c87d1d94d6b803c27862bc9f2755e02f3111
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 8d394a6f71fc5d31bd72a67a876a24a500a7cf01
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99980957"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101732198"
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Criar a sua primeira função no portal do Azure
 
 As Funções Azure permitem executar o seu código num ambiente sem servidor sem ter de criar primeiro uma máquina virtual (VM) ou publicar uma aplicação web. Neste artigo, aprende a usar as Funções Azure para criar uma função de gatilho HTTP "hello world" no portal Azure.
 
->[!NOTE]
->A edição no portal é suportada apenas para funções de JavaScript, PowerShell, TypeScript e C# Script.<br><br>Para as funções de classe C#, Java e Python, pode criar a aplicação de função no portal, mas também deve criar as funções localmente e depois publicá-las no Azure. 
+[!INCLUDE [functions-in-portal-editing-note](../../includes/functions-in-portal-editing-note.md)] 
 
 Em vez disso, recomendamos que [desenvolva as suas funções localmente](functions-develop-local.md) e publique numa aplicação de função em Azure.  
 Use um dos seguintes links para começar com o seu ambiente de desenvolvimento local escolhido e linguagem:

@@ -7,12 +7,12 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.date: 10/20/2019
-ms.openlocfilehash: 4bade4cfe5bf82aefcc967d86362e27605a005f3
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: 3dbb6ca64451cb60d5a8ec67ecdc528865a4438c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99832186"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719088"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-smart-inventory-management-application-template"></a>Tutorial: Implementar e caminhar através de um modelo de aplicação de gestão de inventário inteligente
 
@@ -21,7 +21,8 @@ Este tutorial mostra-lhe como começar com a implementação de um modelo de apl
 Neste tutorial, aprende-se a,
 
 > [!div class="checklist"]
-> criar aplicação de gestão de inventário inteligente caminhar através da aplicação 
+> * criar aplicação inteligente de gestão de inventário 
+> * andar através da aplicação 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

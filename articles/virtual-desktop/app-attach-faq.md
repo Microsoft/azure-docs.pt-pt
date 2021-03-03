@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 78c21e9515965f1c15315967f6a19a0df2838dc2
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 395c274630131c2ae5f451443913e1e69c7c422a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97591200"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738706"
 ---
 # <a name="msix-app-attach-faq"></a>App MSIX anexa FAQ
 
@@ -53,7 +53,7 @@ Para que duas versões das mesmas aplicações MSIX sejam executadas simultaneam
 
 ## <a name="should-i-disable-auto-update-when-using-msix-app-attach"></a>Devo desativar a atualização automática quando utilizar o anexo de aplicações MSIX?
 
-Yes. O anexo de aplicações MSIX não suporta a atualização automática para aplicações MSIX.
+Sim. O anexo de aplicações MSIX não suporta a atualização automática para aplicações MSIX.
 
 ## <a name="how-do-permissions-work-with-msix-app-attach"></a>Como funcionam as permissões com o anexo de aplicações MSIX?
 
@@ -61,15 +61,15 @@ Todas as máquinas virtuais (VMs) num pool de anfitriões que utiliza o anexo de
 
 ## <a name="can-i-use-msix-app-attach-for-http-or-https"></a>Posso utilizar o anexo de aplicativo MSIX para HTTP ou HTTPs?
 
-Todos os VMs que fazem parte de um conjunto de anfitriões que utiliza o anexo de aplicações MSIX devem ter lido permissões na partilha de ficheiros onde as imagens MSIX são armazenadas. Se os Ficheiros Azure estiverem a ser utilizados, devem ser concedidas permissões DESCC e NTFS.
+A utilização da aplicação MSIX anexada sobre HTTP ou HTTPs não é suportada.
 
 ## <a name="can-i-restage-the-same-msix-application"></a>Posso reesitar a mesma aplicação MSIX?
 
-Yes. Pode reencerar aplicações que já reencenou, e isso não deve causar erros.
+Sim. Pode reencerar aplicações que já reencenou, e isso não deve causar erros.
 
 ## <a name="does-msix-app-attach-support-self-signed-certificates"></a>A aplicação MSIX anexa certificados auto-assinados de suporte?
 
-A utilização da aplicação MSIX anexada sobre HTTP ou HTTPs não é suportada.
+Sim. É necessário instalar o certificado auto-assinado em todos os VMs do anfitrião da sessão onde o anexo de aplicações MSIX é utilizado para acolher a aplicação auto-assinada.
 
 
 ## <a name="next-steps"></a>Passos seguintes

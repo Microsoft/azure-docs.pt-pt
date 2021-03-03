@@ -1,15 +1,15 @@
 ---
 title: Integração contínua com os Pipelines do Azure
 description: Aprenda a construir, testar e implementar continuamente modelos de Gestor de Recursos Azure (modelos ARM).
-ms.date: 02/16/2021
+ms.date: 03/02/2021
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: d367da33d6b9997d77606e9a77a961808d66ff99
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 3ff98c1c033c6da4b6bdf40c3b8ecb3347601741
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100560899"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101722817"
 ---
 # <a name="tutorial-continuous-integration-of-arm-templates-with-azure-pipelines"></a>Tutorial: Integração contínua de modelos ARM com Pipelines Azure
 
@@ -83,8 +83,8 @@ A pasta _CreateWebApp_ é a pasta onde o modelo é armazenado. O `pwd` comando m
 
 Em vez de criar os modelos, pode descarregar os modelos e guardá-los para a pasta _CreateWebApp._
 
-* O modelo principal: https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/pipeline/azuredeploy.json
-* O modelo ligado: https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/pipeline/linkedStorageAccount.json
+* O modelo principal: https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/azuredeploy.json
+* O modelo ligado: https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-deployment/linked-template/linkedStorageAccount.json
 
 Tanto o nome da pasta como os nomes dos ficheiros são utilizados como estão na calha. Se alterar estes nomes, tem de atualizar os nomes utilizados no oleoduto.
 
@@ -106,7 +106,7 @@ O _azuredeploy.js_ foi adicionado ao repositório local. Em seguida, faça o upl
     Pode receber um aviso sobre a LF. Pode ignorar o aviso. **principal** é o ramo principal.  Normalmente cria-se um ramo para cada atualização. Para simplificar o tutorial, usa-se diretamente o ramo principal.
 
 1. Navegue pelo seu repositório GitHub a partir de um browser. A URL `https://github.com/[YourAccountName]/[YourGitHubRepository]` é. Verá a pasta _CreateWebApp_ e os dois ficheiros dentro da pasta.
-1. Selecione _linkedStorageAccount.js_ para abrir o modelo.
+1. Selecione _azuredeploy.js_ para abrir o modelo.
 1. Selecione o botão **Raw.** A URL começa `https://raw.githubusercontent.com` com.
 1. Faça uma cópia do URL. Você precisa fornecer este valor quando configurar o oleoduto mais tarde no tutorial.
 
@@ -174,10 +174,10 @@ Para criar um oleoduto com um passo para implementar um modelo:
     * **Ação**: Selecione a ação **do Grupo de Recursos de Criar ou Atualizar** faz 2 ações - 1. criar um grupo de recursos se for fornecido um novo nome de grupo de recursos; 2. implementar o modelo especificado.
     * **Grupo de recursos**: Introduza um novo nome de grupo de recursos. Por exemplo, **AzureRmPipeline-rg**.
     * **Localização**: Selecione uma localização para o grupo de recursos, por exemplo, **Central US**.
-    * **Localização do modelo**: Selecione **artefacto ligado,** o que significa que a tarefa procura o ficheiro do modelo diretamente do repositório ligado.
-    * **Modelo**: _Introduza CreateWebApp/azuredeploy.jsem_. Se alterar o nome da pasta e o nome do ficheiro, tem de alterar este valor.
-    * **Parâmetros do modelo**: Deixe este campo em branco. Especificará os valores dos parâmetros nos parâmetros do **modelo de substituição**.
-    * **Sobrepõe os parâmetros do modelo**: Introduza `-projectName [EnterAProjectName] -linkedTemplateUri [EnterTheLinkedTemplateURL]` . Substitua o nome do projeto e o URL do modelo ligado. O URL de modelo ligado é o que você escreveu no final do [repositório Criar um GitHub](#create-a-github-repository). Começa `https://raw.githubusercontent.com` com.
+    * **Localização do modelo**: Selecione **URL do ficheiro**, o que significa que a tarefa procura o ficheiro do modelo utilizando o URL. Como o _ParentePath_ é usado no modelo principal e o _ParentePath_ é suportado apenas em implementações baseadas em URI, você deve usar URL aqui.
+    * **Link do modelo**: Introduza o URL que obteve no final da secção de [repositório GitHub.](#prepare-a-github-repository) Começa `https://raw.githubusercontent.com` com.
+    * **Ligação dos parâmetros do modelo**: Deixe este campo em branco. Especificará os valores dos parâmetros nos parâmetros do **modelo de substituição**.
+    * **Sobrepõe os parâmetros do modelo**: Introduza `-projectName [EnterAProjectName]` .
     * **Modo de implantação**: Selecione **Incremental**.
     * **Nome de implementação**: Enter **DeployPipelineTemplate**. Selecione **Avançado** antes de ver **o nome de Implementação**.
 

@@ -4,12 +4,12 @@ description: Utilização de APIs do Serviço de Injeção de Falhas e Análise 
 ms.topic: conceptual
 ms.date: 02/05/2018
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8ff3c88b7f86294badb76ec1e8dde0c34b942509
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 72b8f7e9e4934b516f843ae8bc9bb7adc1c349ec
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100588982"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101720515"
 ---
 # <a name="induce-controlled-chaos-in-service-fabric-clusters"></a>Induzir o caos controlado nos clusters de tecido de serviço
 Sistemas distribuídos em larga escala, como infraestruturas em nuvem, são inerentemente pouco fiáveis. O Azure Service Fabric permite que os desenvolvedores escrevam serviços distribuídos fiáveis em cima de uma infraestrutura pouco fiável. Para escrever serviços robustos distribuídos em cima de uma infraestrutura pouco fiável, os desenvolvedores precisam de ser capazes de testar a estabilidade dos seus serviços enquanto a infraestrutura subjacente não confiável está a passar por transições complicadas do Estado devido a falhas.
@@ -40,7 +40,7 @@ O caos induz falhas das seguintes categorias:
 
 O caos corre em várias iterações. Cada iteração consiste em falhas e validação do cluster para o período especificado. Pode configurar o tempo gasto para o cluster estabilizar e validar para ter sucesso. Se uma falha for encontrada na validação do cluster, o Caos gera e persiste num Evento De ValidaçãoFailedEvent com o timetamp UTC e os detalhes da falha. Por exemplo, considere um caso de Caos que está programado para funcionar durante uma hora com um máximo de três falhas simultâneas. O caos induz três falhas e, em seguida, valida a saúde do cluster. Itera através do passo anterior até que seja explicitamente parado através da API StopChaosAsync ou passes de uma hora. Se o cluster se tornar insalubre em qualquer iteração (isto é, não estabiliza ou não se torna saudável dentro do MaxClusterStabilizationTimeout passado), o Caos gera um Evento De ValidaçãoFailed. Este evento indica que algo correu mal e pode precisar de mais investigação.
 
-Para obter quais falhas O Caos induzido, pode utilizar a API GetChaosReport (powershell, C#ou REST). A API obtém o próximo segmento do relatório Caos com base no token de continuação passado ou no intervalo de tempo passado. Pode especificar o ContinuationToken para obter o próximo segmento do relatório Caos ou pode especificar o intervalo de tempo através do StartTimeUtc e endTimeUtc, mas não pode especificar tanto o ContinuationToken como o intervalo de tempo na mesma chamada. Quando há mais de 100 eventos caos, o relatório Caos é devolvido em segmentos onde um segmento não contém mais de 100 eventos caos.
+Para obter quais falhas O Caos induzido, pode utilizar a API GetChaosReport (PowerShell, C#ou REST). A API obtém o próximo segmento do relatório Caos com base no token de continuação passado ou no intervalo de tempo passado. Pode especificar o ContinuationToken para obter o próximo segmento do relatório Caos ou pode especificar o intervalo de tempo através do StartTimeUtc e endTimeUtc, mas não pode especificar tanto o ContinuationToken como o intervalo de tempo na mesma chamada. Quando há mais de 100 eventos caos, o relatório Caos é devolvido em segmentos onde um segmento não contém mais de 100 eventos caos.
 
 ## <a name="important-configuration-options"></a>Opções de configuração importantes
 * **TimeToRun**: Tempo total que o Caos corre antes de terminar com sucesso. Pode parar o Caos antes de ter sido executado durante o período TimeToRun através da API StopChaos.

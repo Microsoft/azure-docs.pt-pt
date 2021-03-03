@@ -3,12 +3,12 @@ title: Sobre o processo de restauro da Máquina Virtual Azure
 description: Saiba como o serviço Azure Backup restaura máquinas virtuais Azure
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: 436859bfb3cee37501e0605465d8e19856a846d6
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 62d1ff7973693f29c77c77fe2ad4fbbb598a5fa4
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98806836"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738417"
 ---
 # <a name="about-azure-vm-restore"></a>Acerca do restauro de VMs do Azure
 
@@ -48,8 +48,8 @@ Este artigo descreve como o [serviço Azure Backup](./backup-overview.md) restau
 | [Restaurar um VM encriptado](./backup-azure-vms-encryption.md) | A partir do portal, restaurar os discos e, em seguida, usar PowerShell para criar o VM | <li> [VM encriptado com Diretório Ativo Azure](../virtual-machines/windows/disk-encryption-windows-aad.md)  <li> [VM encriptado sem Azure AD](../virtual-machines/windows/disk-encryption-windows.md) <li> [VM encriptado *com AD Azure* migrado para *sem Azure AD*](../virtual-machines/windows/disk-encryption-faq.md#can-i-migrate-vms-that-were-encrypted-with-an-azure-ad-app-to-encryption-without-an-azure-ad-app) |
 | [Restauro da Região Transversal](./backup-azure-arm-restore-vms.md#cross-region-restore) | Criar um novo VM ou restaurar discos para uma região secundária (região emparelhada Azure) | <li> **Paralisação total**: Com a função de restauro da região transversal, não há tempo de espera para recuperar dados na região secundária. Pode iniciar restauros na região secundária mesmo antes de Azure declarar uma paragem. <li> **Interrupção parcial**: O tempo de paragem pode ocorrer em clusters de armazenamento específicos onde o Azure Backup armazena os seus dados de backup ou mesmo na rede, ligando o Azure Backup e os clusters de armazenamento associados aos seus dados de backup. Com o Cross Region Restore, você pode realizar um restauro na região secundária usando uma réplica de dados apoiados na região secundária. <li> **Sem interrupção**: Pode realizar exercícios de continuidade de negócios e recuperação de desastres (BCDR) para fins de auditoria ou conformidade com os dados da região secundária. Isto permite-lhe realizar uma restauração de dados com cópia de segurança na região secundária, mesmo que não haja uma paragem total ou parcial na região primária para exercícios de continuidade de negócios e recuperação de desastres.  |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
-- [Perguntas frequentes sobre restauro de VM](https://docs.microsoft.com/azure/backup/backup-azure-vm-backup-faq#restore)
+- [Perguntas frequentes sobre restauro de VM](/azure/backup/backup-azure-vm-backup-faq#restore)
 - [Métodos de restauro apoiados](./backup-support-matrix-iaas.md#supported-restore-methods)
 - [Problemas de recuperação de problemas](./backup-azure-vms-troubleshoot.md#restore)

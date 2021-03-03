@@ -7,12 +7,12 @@ ms.service: route-server
 ms.topic: quickstart
 ms.date: 03/02/2021
 ms.author: duau
-ms.openlocfilehash: 518baa47fd16d69bf935cd3253f5bebeb413b513
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: c24d88e47569da430153dedfd1ff68a584083775
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101680632"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101695248"
 ---
 # <a name="quickstart-create-and-configure-route-server-using-azure-cli"></a>Quickstart: Criar e configurar o Servidor de Rota usando o Azure CLI 
 
@@ -33,7 +33,23 @@ Este artigo ajuda-o a configurar o Azure Route Server para fazer par com aparelh
 
 ###  <a name="sign-in-to-your-azure-account-and-select-your-subscription"></a>Inicie sessão na sua conta do Azure e selecione a sua subscrição. 
 
-[!INCLUDE [sign in](../../includes/expressroute-cloud-shell-connect.md)] 
+Para iniciar a sua configuração, inicie sação na sua conta Azure. Se utilizar a Cloud Shell "Try It", está assinado automaticamente. Utilize os seguintes exemplos para o ajudar a ligar:
+
+```azurecli-interactive
+az login
+```
+
+Verifique as subscrições da conta.
+
+```azurecli-interactive
+az account list
+```
+
+Selecione a subscrição para a qual pretende criar um circuito ExpressRoute.
+
+```azurecli-interactive
+az account set --subscription "<subscription ID>"
+```
 
 ### <a name="create-a-resource-group-and-virtual-network"></a>Criar um grupo de recursos e uma rede virtual 
 

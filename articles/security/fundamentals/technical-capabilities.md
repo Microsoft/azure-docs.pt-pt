@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/04/2021
 ms.author: terrylan
-ms.openlocfilehash: 6e0642a2124d58bb3af483313ac824568b6bbb39
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 00a44bd0a6176270e70eca030fcfada46effe3a5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99585148"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101735782"
 ---
 # <a name="azure-security-technical-capabilities"></a>Capacidades técnicas da segurança do Azure
 Este artigo fornece uma introdução aos serviços de segurança em Azure que o ajudam a proteger os seus dados, recursos e aplicações na nuvem e a atender às necessidades de segurança do seu negócio.
@@ -37,7 +37,7 @@ Com o Microsoft Azure, pode:
 
 - Proteger os seus negócios.
 
-## <a name="security-technical-capabilities-to-fulfil-your-responsibility"></a>Capacidades técnicas de segurança para cumprir a sua responsabilidade
+## <a name="security-technical-capabilities-to-fulfill-your-responsibility"></a>Capacidades técnicas de segurança para cumprir a sua responsabilidade
 
 A Microsoft Azure fornece serviços que o ajudam a satisfazer as suas necessidades de segurança, privacidade e conformidade. A imagem a seguir ajuda a explicar vários serviços Azure disponíveis para construir uma infraestrutura de aplicação segura e conforme com base nos padrões da indústria.
 
@@ -143,7 +143,7 @@ A Azure AD Gestão de Identidade Privilegiada permite-lhe:
 
 #### <a name="identity-protection"></a>Proteção de identidade
 
-[A Azure AD Identity Protection](../../active-directory/identity-protection/overview-identity-protection.md) é um serviço de segurança que fornece uma visão consolidada de deteções de riscos e potenciais vulnerabilidades que afetam as identidades da sua organização. A Proteção de Identidade utiliza as capacidades de deteção de anomalias do Azure Ative Directory (disponíveis através dos Relatórios de Atividade Anómalas da Azure AD), e introduz novos tipos de deteção de riscos que podem detetar anomalias em tempo real.
+[A Azure AD Identity Protection](../../active-directory/identity-protection/overview-identity-protection.md) é um serviço de segurança que fornece uma visão consolidada de deteções de riscos e potenciais vulnerabilidades que afetam as identidades da sua organização. A Proteção de Identidade utiliza as capacidades de deteção de anomalias do Azure Ative Directory existentes (disponíveis através dos Relatórios de Atividade Anómalas da Azure AD), e introduz novos tipos de deteção de riscos que podem detetar anomalias em tempo real.
 
 ## <a name="secure-resource-access"></a>Acesso seguro a recursos
 
@@ -184,7 +184,7 @@ Para as organizações que precisam de garantir o acesso de uma estação de tra
 
 Conjuntos de dados maiores podem ser movidos sobre uma ligação WAN dedicada de alta velocidade, como [o ExpressRoute.](https://azure.microsoft.com/services/expressroute/) Se optar por utilizar o ExpressRoute, também pode encriptar os dados ao nível da aplicação utilizando [SSL/TLS](https://web.archive.org/web/20150221085231/http://support.microsoft.com:80/kb/257591) ou outros protocolos para uma proteção adicional.
 
-Se estiver a interagir com o Azure Storage através do Portal Azure, todas as transações ocorrem através de HTTPS. [A API de armazenamento](/rest/api/storageservices/) REST sobre HTTPS também pode ser usada para interagir com [o Azure Storage](https://azure.microsoft.com/services/storage/) e a [Azure SQL Database](https://azure.microsoft.com/services/sql-database/).
+Se estiver a interagir com o Azure Storage através do portal Azure, todas as transações ocorrem através de HTTPS. [A API de armazenamento](/rest/api/storageservices/) REST sobre HTTPS também pode ser usada para interagir com [o Azure Storage](https://azure.microsoft.com/services/storage/) e a [Azure SQL Database](https://azure.microsoft.com/services/sql-database/).
 
 As organizações que não protegem os dados em trânsito são mais suscetíveis a [ataques man-in-the-middle](/previous-versions/office/skype-server-2010/gg195821(v=ocs.14)), escutas e [sequestros](/previous-versions/office/skype-server-2010/gg195641(v=ocs.14))de sessão. Esses ataques podem ser o primeiro passo para obter acesso a dados confidenciais.
 
@@ -192,9 +192,9 @@ Você pode saber mais sobre a opção Azure VPN lendo o artigo [Planeamento e de
 
 ### <a name="enforce-file-level-data-encryption"></a>Impor encriptação de dados de nível de ficheiro
 
-[O Azure RMS](/azure/information-protection/what-is-azure-rms) utiliza políticas de encriptação, identidade e autorização para ajudar a proteger os seus ficheiros e e-mails. O Azure RMS funciona em vários dispositivos — telefones, tablets e Computadores, protegendo tanto dentro da sua organização como fora da sua organização. Esta capacidade é possível porque o Azure RMS adiciona um nível de proteção que permanece com os dados, mesmo quando deixa os limites da sua organização.
+[O Azure RMS](/azure/information-protection/what-is-azure-rms) utiliza políticas de encriptação, identidade e autorização para ajudar a proteger os seus ficheiros e e-mails. O Azure RMS funciona em vários dispositivos - telefones, tablets e Computadores protegendo tanto dentro da sua organização como fora da sua organização. Esta capacidade é possível porque o Azure RMS adiciona um nível de proteção que permanece com os dados, mesmo quando deixa os limites da sua organização.
 
-Quando utiliza o Azure RMS para proteger os seus ficheiros, está a utilizar a criptografia padrão da indústria com o apoio total do [FIPS 140-2](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.140-2.pdf). Quando alavanca o Azure RMS para proteção de dados, tem a garantia de que a proteção permanece com o ficheiro, mesmo que seja copiado para armazenamento que não esteja sob o controlo de TI, como um serviço de armazenamento em nuvem. O mesmo ocorre para ficheiros partilhados via e-mail, o ficheiro é protegido como anexo a uma mensagem de correio eletrónico, com instruções sobre como abrir o anexo protegido.
+Quando utiliza o Azure RMS para proteger os seus ficheiros, está a utilizar a criptografia padrão da indústria com o apoio total do [FIPS 140-2](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.140-2.pdf). Quando utiliza o Azure RMS para proteção de dados, tem a garantia de que a proteção permanece com o ficheiro, mesmo que seja copiado para armazenamento que não esteja sob o controlo de TI, como um serviço de armazenamento em nuvem. O mesmo ocorre para ficheiros partilhados via e-mail, o ficheiro é protegido como anexo a uma mensagem de correio eletrónico, com instruções sobre como abrir o anexo protegido.
 Ao planear a adoção do Azure RMS recomendamos o seguinte:
 
 - Instale a [aplicação de partilha RMS](/azure/information-protection/rms-client/sharing-app-windows). Esta aplicação integra-se com as aplicações do Office, instalando um add-in do Office para que os utilizadores possam proteger facilmente os ficheiros diretamente.
@@ -278,6 +278,8 @@ A rede Azure suporta a capacidade de personalizar o comportamento de encaminhame
 
 O Azure suporta a conectividade de ligação DEDICADA WAN à sua rede de instalações e a uma Rede Virtual Azure com [o ExpressRoute.](../../expressroute/expressroute-introduction.md) A ligação entre a Azure e o seu site utiliza uma ligação dedicada que não passa pela Internet pública. Se a sua aplicação Azure estiver a funcionar em vários datacenters, pode utilizar [o Azure Traffic Manager](../../traffic-manager/traffic-manager-overview.md) para encaminhar pedidos dos utilizadores de forma inteligente em todas as instâncias da aplicação. Também pode encaminhar o tráfego para serviços que não estão a funcionar em Azure se estiverem acessíveis a partir da Internet.
 
+O Azure também suporta conectividade privada e segura aos seus recursos PaaS (por exemplo, Azure Storage e SQL Database) da sua Rede Virtual Azure com [Ligação Privada Azure](https://docs.microsoft.com/azure/private-link/private-link-overview). O recurso PaaS está mapeado para um [ponto final privado](https://docs.microsoft.com/azure/private-link/private-endpoint-overview) na sua rede virtual. A ligação entre o ponto final privado na sua rede virtual e o seu recurso PaaS utiliza a rede de espinha dorsal da Microsoft e não passa pela Internet pública. Expor o seu serviço à internet pública já não é necessário. Também pode utilizar o Azure Private Link para aceder aos serviços de clientes e parceiros hospedados no Azure na sua rede virtual.  Além disso, o Azure Private Link permite-lhe criar o seu próprio [serviço de ligação privada](https://docs.microsoft.com/azure/private-link/private-link-service-overview) na sua rede virtual e entregá-lo aos seus clientes em particular nas suas redes virtuais. A configuração e consumo usando o Azure Private Link é consistente em todos os serviços Azure PaaS, propriedade do cliente e parceiros partilhados.
+
 ## <a name="virtual-machine-security"></a>Segurança da máquina virtual
 
 [A Azure Virtual Machines](../../virtual-machines/index.yml) permite-lhe implementar uma vasta gama de soluções de computação de forma ágil. Com suporte para serviços Microsoft Windows, Linux, Microsoft SQL Server, Oracle, IBM, SAP e Azure BizTalk, pode implementar qualquer carga de trabalho e qualquer idioma em quase qualquer sistema operativo.
@@ -304,7 +306,7 @@ Além disso, a lista de verificação:
 
 - Expõe tópicos-chave de discussão para os decisores no início do processo de adoção em nuvem.
 
-- Apoia discussões detalhadas sobre regulamentos e objetivos próprios da organização para a privacidade, informações pessoalmente identificáveis (PII) e segurança de dados.
+- Apoia discussões detalhadas sobre regulamentos e objetivos próprios da organização para a privacidade, informações pessoais e segurança de dados.
 
 - Ajuda as organizações a identificar quaisquer problemas potenciais que possam afetar um projeto em nuvem.
 
@@ -316,7 +318,7 @@ Além disso, a lista de verificação:
 
 ![validação de segurança (detetar)](./media/technical-capabilities/azure-security-technical-capabilities-fig7.png)
 
-O Azure Operational Security baseia-se num quadro que incorpora o conhecimento adquirido através de várias capacidades exclusivas da Microsoft, incluindo o Microsoft Security Development Lifecycle (SDL), o programa Microsoft Security Response Centre e uma profunda consciência do panorama da ameaça à cibersegurança.
+O Azure Operational Security baseia-se numa estrutura que incorpora o conhecimento adquirido através de várias capacidades que são únicas para a Microsoft, incluindo o Microsoft Security Development Lifecycle (SDL), o programa Microsoft Security Response Center e uma profunda consciência do panorama da ameaça à cibersegurança.
 
 ### <a name="microsoft-azure-monitor"></a>Microsoft Azure Monitor
 
@@ -383,7 +385,7 @@ A auditoria da segurança da sua rede é vital para detetar vulnerabilidades de 
 
 ### <a name="application-insights"></a>Application Insights
 
-[Application Insights](../../azure-monitor/app/app-insights-overview.md) é um serviço extensível de Gestão de Desempenho de Aplicações (APM) para desenvolvedores web em várias plataformas. Utilize-o para monitorizar a sua aplicação Web online. Além de detetar automaticamente anomalias de desempenho, Inclui poderosas ferramentas de análise para ajudá-lo a diagnosticar problemas e a entender o que os utilizadores fazem com a sua aplicação. Foi concebido para o ajudar a melhorar continuamente o desempenho e a usabilidade. Funciona para apps em uma grande variedade de plataformas, incluindo .NET, Node.js e Java EE, hospedados no local ou na nuvem. Integra-se com o seu processo de devOps, e tem pontos de ligação para várias ferramentas de desenvolvimento.
+[Application Insights](../../azure-monitor/app/app-insights-overview.md) é um serviço extensível de Gestão de Desempenho de Aplicações (APM) para desenvolvedores web em várias plataformas. Utilize-o para monitorizar a sua aplicação Web online. Além de detetar automaticamente anomalias de desempenho, Inclui poderosas ferramentas de análise para ajudá-lo a diagnosticar problemas e a entender o que os utilizadores fazem com a sua aplicação. Foi concebido para o ajudar a melhorar continuamente o desempenho e a usabilidade. Funciona para apps em uma grande variedade de plataformas, incluindo .NET, Node.js e Java EE, hospedados no local ou na nuvem. Integra-se com o seu processo DevOps e tem pontos de ligação para várias ferramentas de desenvolvimento.
 
 Monitoriza:
 

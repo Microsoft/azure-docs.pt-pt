@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 02/09/2021
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: 328bfe57c675d49aa951388e2808fcecfe8da8b5
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: ae0112292994fdcf88e80abff8ab52e5971cb0ed
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100096536"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731090"
 ---
 # <a name="how-to-improve-your-custom-vision-model"></a>Como melhorar o seu modelo de Visão Personalizada
 
-Neste guia, aprenderá a melhorar a qualidade do seu modelo de Serviço de Visão Personalizada. A qualidade do seu [detetor](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/get-started-build-detector) de [classificador](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) ou objeto depende da quantidade, qualidade e variedade dos dados rotulados que fornece e do equilíbrio do conjunto de dados. Um bom modelo tem um conjunto de dados de formação equilibrado que é representativo do que lhe será submetido. O processo de construção de tal modelo é iterativo; é comum fazer algumas rondas de treino para alcançar os resultados esperados.
+Neste guia, aprenderá a melhorar a qualidade do seu modelo de Serviço de Visão Personalizada. A qualidade do seu [detetor](./get-started-build-detector.md) de [classificador](./getting-started-build-a-classifier.md) ou objeto depende da quantidade, qualidade e variedade dos dados rotulados que fornece e do equilíbrio do conjunto de dados. Um bom modelo tem um conjunto de dados de formação equilibrado que é representativo do que lhe será submetido. O processo de construção de tal modelo é iterativo; é comum fazer algumas rondas de treino para alcançar os resultados esperados.
 
 O seguinte é um padrão geral para ajudá-lo a treinar um modelo mais preciso:
 

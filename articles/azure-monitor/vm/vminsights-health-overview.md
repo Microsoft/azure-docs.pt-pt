@@ -1,26 +1,26 @@
 ---
-title: Monitor Azure para saúde dos hóspedes VMs (pré-visualização)
-description: Visão geral da funcionalidade de saúde no Azure Monitor para VMs, incluindo como pode ver a saúde das suas máquinas virtuais e receber alertas quando uma máquina virtual fica insalubre.
+title: VM insights saúde dos hóspedes (pré-visualização)
+description: Visão geral da funcionalidade de saúde em insights de VM, incluindo como você pode ver a saúde das suas máquinas virtuais e receber alertas quando uma máquina virtual fica insalubre.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/27/2020
-ms.openlocfilehash: 96bed9f3b04e54e2e9a5234d78f9a2660126742e
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 3db6c2f4da28bba2d12aacc90b2fa8e420aa6fbf
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614892"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101707460"
 ---
-# <a name="azure-monitor-for-vms-guest-health-preview"></a>Monitor Azure para saúde dos hóspedes VMs (pré-visualização)
-O Azure Monitor para a saúde dos hóspedes em VMs permite-lhe visualizar a saúde das máquinas virtuais com base num conjunto de medições de desempenho que são amostradas a intervalos regulares do sistema operativo do hóspede. Pode verificar rapidamente a saúde de todas as máquinas virtuais num grupo de subscrição ou de recursos, aprofundar a saúde detalhada de uma determinada máquina virtual ou ser notificado proativamente quando uma máquina virtual fica insalubre. 
+# <a name="vm-insights-guest-health-preview"></a>VM insights saúde dos hóspedes (pré-visualização)
+A saúde dos hóspedes permite-lhe visualizar a saúde das máquinas virtuais com base num conjunto de medições de desempenho que são amostradas a intervalos regulares do sistema operativo do hóspede. Pode verificar rapidamente a saúde de todas as máquinas virtuais num grupo de subscrição ou de recursos, aprofundar a saúde detalhada de uma determinada máquina virtual ou ser notificado proativamente quando uma máquina virtual fica insalubre. 
 
 ## <a name="enable-virtual-machine-health"></a>Permitir a saúde da máquina virtual
-Consulte [Enable Azure Monitor para saúde de hóspedes VMs (pré-visualização)](vminsights-health-enable.md) para obter detalhes sobre como permitir a funcionalidade de saúde do hóspede e máquinas virtuais de bordo.
+Consulte [o Enable VM insights guest health (preview)](vminsights-health-enable.md) para obter detalhes sobre como ativar a funcionalidade de saúde do hóspede e as máquinas virtuais de bordo.
 
 ## <a name="pricing"></a>Preços
-Não há custos diretos para a funcionalidade de saúde do hóspede, mas há um custo para a ingestão e armazenamento de dados do estado de saúde no espaço de trabalho Log Analytics. Todos os dados são armazenados na tabela *HealthStateChangeEvent.* Consulte [Gerir a utilização e os custos com os Registos do Monitor Azure](../platform/manage-cost-storage.md) para obter detalhes sobre os modelos e custos de preços.
+Não há custos diretos para a funcionalidade de saúde do hóspede, mas há um custo para a ingestão e armazenamento de dados do estado de saúde no espaço de trabalho Log Analytics. Todos os dados são armazenados na tabela *HealthStateChangeEvent.* Consulte [Gerir a utilização e os custos com os Registos do Monitor Azure](../logs/manage-cost-storage.md) para obter detalhes sobre os modelos e custos de preços.
 
 ## <a name="view-virtual-machine-health"></a>Ver saúde da máquina virtual
 A coluna **Guest VM Health** na página **Get Started** dá-lhe uma visão rápida da saúde de cada máquina virtual numa determinada subscrição ou grupo de recursos. A saúde atual de cada máquina virtual é exibida enquanto os ícones de cada grupo mostram o número de máquinas virtuais atualmente em cada estado desse grupo.
@@ -35,7 +35,7 @@ Clique no estado de saúde de uma máquina virtual para ver o estado detalhado d
 
 A tabela que se segue lista os monitores agregados e unitários atualmente disponíveis para cada máquina virtual. 
 
-| Monitor | Tipo | Description |
+| Monitor | Tipo | Descrição |
 |:---|:---|:---|
 | Utilização da CPU | Unidade | Utilização percentual do processador. |
 | Sistemas de ficheiros | Agregação | Saúde agregada de todos os sistemas de ficheiros em Linux VM. |
@@ -53,7 +53,7 @@ Cada monitor tem uma janela de olhar e analisa quaisquer amostras recolhidas den
 
 Os monitores têm os potenciais estados de saúde na tabela seguinte e estarão em um e único em cada momento. Quando um monitor é inicializado, começa em um estado saudável.
 
-| Estado de Funcionamento | Description |
+| Estado de Funcionamento | Descrição |
 |:---|:---|
 | Bom estado de funcionamento  | O monitor não excede atualmente o limiar de advertência ou crítico. |
 | Aviso  | O monitor excedeu o limiar de aviso (se definido). |
@@ -66,7 +66,7 @@ Os monitores têm os potenciais estados de saúde na tabela seguinte e estarão 
 
 Existem dois tipos de monitores, como mostrado na tabela seguinte.
 
-| Monitor | Description |
+| Monitor | Descrição |
 |:---|:---|
 | Monitor de unidade | Mede algum aspeto de um recurso ou aplicação. Pode estar a verificar um contador de desempenho para determinar o desempenho do recurso ou a sua disponibilidade. |
 | Monitor de Agregação | Agrupa vários monitores para proporcionar um único estado de funcionamento agregado. Um monitor agregado pode conter um ou mais monitores de unidade e outros monitores agregados. |
@@ -95,7 +95,7 @@ Selecione um monitor para ver o seu detalhe que inclui os seguintes separadores.
 [![Monitorize o histórico de detalhes](media/vminsights-health-overview/monitor-details-history.png)](media/vminsights-health-overview/monitor-details-history.png#lightbox)
 
 ### <a name="configuration"></a>Configuração
-Ver e modificar a configuração do monitor para o VM selecionado. Consulte [a monitorização configurante no Azure Monitor para a saúde dos hóspedes VMs (pré-visualização)](vminsights-health-enable.md) para obter mais detalhes.
+Ver e modificar a configuração do monitor para o VM selecionado. Consulte [a monitorização do Configure em informações VM para obter informações sobre a saúde dos hóspedes (pré-visualização)](vminsights-health-enable.md) para obter mais detalhes.
 
 [![Configuração de detalhes do monitor](media/vminsights-health-overview/monitor-details-configuration.png)](media/vminsights-health-overview/monitor-details-configuration.png#lightbox)
 
@@ -104,6 +104,6 @@ Ver e modificar a configuração do monitor para o VM selecionado. Consulte [a m
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Ativar a saúde dos hóspedes no Azure Monitor para VMs e agentes a bordo.](vminsights-health-enable.md)
+- [Capacitar a saúde dos hóspedes em insights VM e agentes a bordo.](vminsights-health-enable.md)
 - [Configure os monitores utilizando o portal Azure.](vminsights-health-configure.md)
 - [Configure os monitores utilizando as regras de recolha de dados.](vminsights-health-configure-dcr.md)

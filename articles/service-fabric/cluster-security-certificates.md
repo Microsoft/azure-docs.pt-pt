@@ -3,12 +3,12 @@ title: Autenticação baseada em certificado X.509 num Cluster de Tecidos de Ser
 description: Saiba mais sobre a autenticação baseada em certificados em clusters de Tecidos de Serviço e como detetar, mitigar e corrigir problemas relacionados com certificados.
 ms.topic: conceptual
 ms.date: 03/16/2020
-ms.openlocfilehash: 8af0246e0e576f9877c4c5e3b1f1a4314ae29827
-ms.sourcegitcommit: 5e762a9d26e179d14eb19a28872fb673bf306fa7
+ms.openlocfilehash: 2d94e5cc78afbabde38eb38e0c4f89381bd67167
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97901254"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101729696"
 ---
 # <a name="x509-certificate-based-authentication-in-service-fabric-clusters"></a>X.509 Autenticação baseada em certificados em clusters de tecido de serviço
 
@@ -182,7 +182,7 @@ Foi mencionado anteriormente que as definições de segurança de um cluster de 
 
 Como mencionado, a validação do certificado implica sempre a construção e avaliação da cadeia do certificado. Para os certificados emitidos pela AC, esta chamada aparentemente simples da API do SO implica várias chamadas de saída para vários pontos finais do PKI emissor, caching de respostas e assim por diante. Dada a prevalência de chamadas de validação de certificados num cluster de Tecido de Serviço, quaisquer problemas nos pontos finais do PKI podem resultar numa disponibilidade reduzida do cluster, ou numa desagregação total. Embora as chamadas de saída não possam ser suprimidas (ver abaixo na secção FAQ para mais informações sobre esta matéria), as seguintes definições podem ser usadas para mascarar erros de validação causados pela falha das chamadas DE CRL.
 
-  * CrlCheckingFlag - sob a secção 'Security', corda convertida para UINT. O valor desta definição é utilizado pela Service Fabric para mascarar erros de estado da cadeia de certificados alterando o comportamento da construção em cadeia; é passado para a chamada Win32 CryptoAPI [CertGetCertificateChain](/windows/win32/api/wincrypt/nf-wincrypt-certgetcertificatechain) como o parâmetro 'dwFlags', e pode ser definido para qualquer combinação válida de bandeiras aceites pela função. Um valor de 0 obriga o tempo de execução do Tecido de Serviço a ignorar quaisquer erros de estado de confiança - tal não é recomendado, uma vez que a sua utilização constituiria uma exposição significativa à segurança. O valor predefinido é de 0x400000000 (CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT).
+  * CrlCheckingFlag - sob a secção "Segurança", corda convertida para UINT. O valor desta definição é utilizado pela Service Fabric para mascarar erros de estado da cadeia de certificados alterando o comportamento da construção em cadeia; é passado para a chamada Win32 CryptoAPI [CertGetCertificateChain](/windows/win32/api/wincrypt/nf-wincrypt-certgetcertificatechain) como o parâmetro 'dwFlags', e pode ser definido para qualquer combinação válida de bandeiras aceites pela função. Um valor de 0 obriga o tempo de execução do Tecido de Serviço a ignorar quaisquer erros de estado de confiança - tal não é recomendado, uma vez que a sua utilização constituiria uma exposição significativa à segurança. O valor predefinido é 0x40000000 (CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT).
 
   Quando utilizar: para testes locais, com certificados auto-assinados ou certificados de desenvolvimento que não estejam totalmente formados/não tenham uma infraestrutura chave pública adequada para suportar os certificados. Pode também utilizar como mitigação em ambientes com lacunas de ar durante a transição entre PKIs.
 
@@ -197,7 +197,7 @@ Como mencionado, a validação do certificado implica sempre a construção e av
     </Section>
   ```
 
-  * IgnoreCrlOfflineError - na secção 'Security', boolean com um valor padrão de 'falso'. Representa um atalho para suprimir um estado de erro de construção em cadeia de "revogação offline" (ou um subsequente estado de erro de validação da política de cadeia).
+  * IgnoreCrlOfflineError - na secção "Segurança", boolean com um valor padrão de 'falso'. Representa um atalho para suprimir um estado de erro de construção em cadeia de "revogação offline" (ou um subsequente estado de erro de validação da política de cadeia).
 
   Quando utilizar: testes locais ou com certificados de desenvolvimento não apoiados por um PKI adequado. Utilize como mitigação em ambientes com lacunas de ar ou quando o PKI é conhecido por ser inacessível.
 
@@ -208,7 +208,7 @@ Como mencionado, a validação do certificado implica sempre a construção e av
     </Section>
   ```
 
-  Outras definições notáveis (todas na secção 'Segurança):
+  Outras definições notáveis (todas na secção "Segurança):):
   * AcceptExpiredPinnedClusterCertificate - discutido na secção dedicada à validação de certificados baseados em impressão digital; permite aceitar certificados de cluster auto-assinados expirados. 
   * CertificadoExpirySafetyMargin - intervalo, expresso em minutos anteriores ao prazo de tempo do certificado NotAfter, e durante o qual o certificado é considerado em risco de expiração. O Service Fabric monitoriza os certificados de cluster e emite periodicamente relatórios de saúde sobre a sua disponibilidade remanescente. Dentro do intervalo de "segurança", estes relatórios de saúde são elevados ao estado de "advertência". O padrão é de 30 dias.
   * CertificateHealthReportingInterval - controla a frequência dos relatórios de saúde relativos à validade do tempo remanescente dos certificados de cluster. Os relatórios só serão emitidos uma vez por este intervalo. O valor é expresso em segundos, com um defeito de 8 horas.
@@ -296,7 +296,7 @@ Cada um dos sintomas pode ser causado por diferentes problemas, e a mesma causa 
     0x8009030d  -2146893043 SEC_E_UNKNOWN_CREDENTIALS
     0x8009030e  -2146893042 SEC_E_NO_CREDENTIALS
     ```
-    Para remediar, verifique a existência da chave privada; verificar se os SFAdmins têm acesso "read/execute" à chave privada.
+    Para remediar, verifique a existência da chave privada; verificar se os SFAdmins têm acesso "read|execute" à chave privada.
 
   - tipo de mau fornecedor - indica um certificado Crypto New Generation (CNG) ("Microsoft Software Key Storage Provider"); neste momento, a Service Fabric suporta apenas certificados CAPI1. Normalmente acompanhado por código de erro:
     ```C++

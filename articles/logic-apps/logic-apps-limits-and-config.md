@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 02/05/2021
-ms.openlocfilehash: 19c7d37d62ec54e57127f5993e8bae4d4e9a2908
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 02/18/2021
+ms.openlocfilehash: b80c5cb469f881ee0950d618c3bae5fa1fc1e026
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100388537"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101699050"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limites e informações de configuração para o Azure Logic Apps
 
@@ -139,7 +139,7 @@ Aqui estão os limites para uma definição de aplicação lógica única:
 
 | Name | Limite | Notas |
 | ---- | ----- | ----- |
-| Ação: Execuções por 5 minutos | 100.000 é o limite de incumprimento, mas 300.000 é o limite máximo. | Para elevar o limite padrão ao máximo para a sua aplicação lógica, consulte [Executar em modo de produção elevado](#run-high-throughput-mode), que está em pré-visualização. Ou, pode [distribuir a carga de trabalho por mais do que uma aplicação lógica,](../logic-apps/handle-throttling-problems-429-errors.md#logic-app-throttling) se necessário. |
+| Ação: Execuções por intervalo de 5 minutos | - 100.000 execuções (padrão) <p><p>- 300.000 execuções (máxima em modo de produção elevada)  | Para elevar o limite padrão para o limite máximo para a sua aplicação lógica, consulte [Executar em modo de produção elevado](#run-high-throughput-mode), que está em pré-visualização. Ou, pode [distribuir a carga de trabalho por mais do que uma aplicação lógica,](../logic-apps/handle-throttling-problems-429-errors.md#logic-app-throttling) se necessário. |
 | Ação: Chamadas de saída simultâneas | ~2500 | Pode reduzir o número de pedidos simultâneos ou reduzir a duração, se necessário. |
 | Ponto final de tempo de execução: Chamadas de entrada simultâneas | ~1.000 | Pode reduzir o número de pedidos simultâneos ou reduzir a duração, se necessário. |
 | Ponto final de tempo de execução: Ler chamadas por 5 minutos  | 60 000 | Este limite aplica-se a chamadas que obtêm as entradas e saídas brutas do histórico de execução de uma aplicação lógica. Pode distribuir a carga de trabalho por mais de uma aplicação, se necessário. |
@@ -151,7 +151,7 @@ Aqui estão os limites para uma definição de aplicação lógica única:
 
 #### <a name="run-in-high-throughput-mode"></a>Correr em modo de produção alta
 
-Para uma definição de aplicação lógica única, o número de ações que executam a cada 5 minutos tem um [limite padrão](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). Para elevar o limite padrão ao máximo para a sua aplicação lógica, pode ativar o modo de produção elevado, que está em pré-visualização. Ou, pode [distribuir a carga de trabalho por mais do que uma aplicação lógica,](../logic-apps/handle-throttling-problems-429-errors.md#logic-app-throttling) se necessário.
+Para uma definição de aplicação lógica única, o número de ações que executam a cada 5 minutos tem um [limite padrão](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). Para elevar o limite padrão para o [limite máximo](../logic-apps/logic-apps-limits-and-config.md#throughput-limits) para a sua aplicação lógica, que é três vezes o limite padrão, pode ativar o modo de produção elevado, que está em pré-visualização. Ou, pode [distribuir a carga de trabalho por mais do que uma aplicação lógica,](../logic-apps/handle-throttling-problems-429-errors.md#logic-app-throttling) se necessário.
 
 1. No portal Azure, no menu de aplicações lógicas, em **Definições,** selecione **Definições de Fluxo de Trabalho**.
 

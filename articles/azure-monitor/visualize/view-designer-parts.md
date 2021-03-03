@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2018
-ms.openlocfilehash: 7b670cafa4d643e37fae068a4c0033fc97a96ccd
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 074c5dda8ff8d5f837e8ea2a85c183c69421bedb
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100613942"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101710877"
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-azure-monitor"></a>Guia de referência para ver peças de visualização do designer no Azure Monitor
 Ao utilizar o View Designer no Azure Monitor, pode criar uma variedade de visualizações personalizadas no portal Azure que podem ajudá-lo a visualizar dados no seu espaço de trabalho Log Analytics. Este artigo é um guia de referência para as definições das peças de visualização que estão disponíveis nas suas vistas personalizadas.
@@ -24,7 +24,7 @@ Para mais informações sobre o View Designer, consulte:
 
 Os tipos de azulejos disponíveis do View Designer são descritos na tabela seguinte:
 
-| Tipo de visualização | Description |
+| Tipo de visualização | Descrição |
 |:--- |:--- |
 | [Lista de consultas](#list-of-queries-part) |Apresenta uma lista de consultas de registo. Pode selecionar cada consulta para mostrar os seus resultados. |
 | [Número e lista](#number-and-list-part) |O cabeçalho apresenta um único número que mostra uma contagem de registos de uma consulta de registo. A lista apresenta os dez primeiros resultados de uma consulta, com um gráfico que indica o valor relativo de uma coluna numérica ou a sua alteração ao longo do tempo. |
@@ -39,7 +39,7 @@ Os tipos de azulejos disponíveis do View Designer são descritos na tabela segu
 As secções seguintes descrevem os tipos de azulejos e as suas propriedades em detalhe.
 
 > [!NOTE]
-> As partes nas vistas baseiam-se em [consultas de registo](../log-query/log-query-overview.md) no seu espaço de trabalho Log Analytics. Atualmente, não suportam [consultas de recursos cruzados](../log-query/cross-workspace-query.md) para obter dados da Application Insights.
+> As partes nas vistas baseiam-se em [consultas de registo](../logs/log-query-overview.md) no seu espaço de trabalho Log Analytics. Atualmente, não suportam [consultas de recursos cruzados](../logs/cross-workspace-query.md) para obter dados da Application Insights.
 
 ## <a name="list-of-queries-part"></a>Parte da parte das consultas
 A lista de consultas por parte apresenta uma lista de consultas de registo. Pode selecionar cada consulta para mostrar os seus resultados. A vista inclui uma única consulta por predefinição, e pode selecionar **+ Consulta** para adicionar consultas adicionais.
@@ -318,7 +318,7 @@ O separador de nome e valor é o delimiter de caracteres únicos para usar para 
 Por exemplo, considere uma propriedade chamada *Localização* que incluiu valores como *Redmond-Building 41* e *Bellevue-Building 12*. Pode especificar um traço (-) para o nome e separador de valor e *city-building* para o nome. Esta abordagem analisa cada valor em duas propriedades chamadas *Cidade* e *Edifício.*
 
 ### <a name="click-through-navigation"></a><a name="click-through-navigation"></a>Navegação click-through
-A navegação por clique define que ação será tomada quando clicar num cabeçalho ou listar um item numa vista.  Isto abrirá uma consulta no [Log Analytics](../log-query/log-query-overview.md) ou lançará outra vista.
+A navegação por clique define que ação será tomada quando clicar num cabeçalho ou listar um item numa vista.  Isto abrirá uma consulta no [Log Analytics](../logs/log-query-overview.md) ou lançará outra vista.
 
 A tabela seguinte descreve as definições para a navegação por clique.
 
@@ -357,4 +357,4 @@ O quadro que se segue descreve as definições dos limiares:
 | Cor |A cor que indica o valor limiar. |
 
 ## <a name="next-steps"></a>Passos seguintes
-* Saiba mais [sobre consultas de registo](../log-query/log-query-overview.md) para suportar as consultas em peças de visualização.
+* Saiba mais [sobre consultas de registo](../logs/log-query-overview.md) para suportar as consultas em peças de visualização.

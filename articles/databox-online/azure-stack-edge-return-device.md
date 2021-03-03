@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 07/27/2020
+ms.date: 02/26/2021
 ms.author: alkohli
-ms.openlocfilehash: 0c35bde40cac9629f084d69d52f119651b5655f7
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 6c9e8938feb3c3444d01f9d37476589776707425
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98784482"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703189"
 ---
 # <a name="return-your-azure-stack-edge-pro-device"></a>Devolva o seu dispositivo Azure Stack Edge Pro
 
@@ -30,26 +30,16 @@ Neste artigo, vai aprender a:
 
 ## <a name="erase-data-from-the-device"></a>Apague os dados do dispositivo
 
-Para eliminar os dados dos discos de dados do seu dispositivo, é necessário reiniciar o seu dispositivo. Pode reiniciar o seu dispositivo utilizando a UI web local ou a interface PowerShell.
+Para eliminar os dados dos discos de dados do seu dispositivo, é necessário reiniciar o seu dispositivo.
 
-Antes de reiniciar, crie uma cópia dos dados locais do dispositivo, se necessário. Pode copiar os dados do dispositivo para um recipiente de armazenamento Azure.
+Antes de reiniciar, crie uma cópia dos dados locais do dispositivo, se necessário. Pode copiar os dados do dispositivo para um recipiente de armazenamento Azure. 
 
-Pode iniciar a reposição do dispositivo mesmo antes de o dispositivo ser reiniciado. 
+Pode iniciar a reposição do dispositivo mesmo antes de o dispositivo ser reiniciado.
 
-Para reiniciar o seu dispositivo utilizando a UI web local, tome os seguintes passos.
+Pode redefinir o seu dispositivo na UI web local ou no PowerShell. Para obter instruções powerShell, consulte [reiniciar o seu dispositivo](./azure-stack-edge-connect-powershell-interface.md#reset-your-device).
 
-1. Na UI web local, vá ao **reset do Dispositivo de Manutenção >**.
-2. Selecione **o dispositivo Reset**.
 
-    ![Repor dispositivo](media/azure-stack-edge-return-device/device-reset-1.png)
-
-3. Quando solicitado para confirmação, reveja o aviso e selecione **Sim** para continuar.
-
-    ![Confirmar reset](media/azure-stack-edge-return-device/device-reset-2.png)  
-
-O reset apaga os dados dos discos de dados do dispositivo. Dependendo da quantidade de dados no seu dispositivo, este processo demora cerca de 30 a 40 minutos.
-
-Em alternativa, ligue-se à interface PowerShell do dispositivo e utilize o `Reset-HcsAppliance` cmdlet para apagar os dados dos discos de dados. Para obter mais informações, consulte [redefinir o seu dispositivo](azure-stack-edge-connect-powershell-interface.md#reset-your-device).
+[! INCLUIR] [Redefinir dados do dispositivo](../../includes/azure-stack-edge-device-reset.md)
 
 > [!NOTE]
 > - Se estiver a trocar ou a atualizar para um novo dispositivo, recomendamos que reinicie o seu dispositivo apenas depois de receber o novo dispositivo.
@@ -67,15 +57,15 @@ Para iniciar o processo de devolução, tome os seguintes passos.
 
     1. Forneça o número de série do dispositivo. Para obter o número de série do dispositivo, vá à uI web local do dispositivo e, em seguida, vá ao **Overview**.  
     
-    ![Série do dispositivo número 1](media/azure-stack-edge-return-device/device-serial-number-1.png) 
+       ![Série do dispositivo número 1](media/azure-stack-edge-return-device/device-serial-number-1.png) 
 
-    2. Introduza o número da etiqueta de serviço que é um identificador de cinco ou mais caracteres que é exclusivo do seu dispositivo. A etiqueta de serviço está localizada no canto inferior direito do dispositivo (à medida que se encontra virado para o dispositivo). Retire a etiqueta de informação (é um painel de etiqueta de deslizamento). Este painel contém informações do sistema, tais como etiqueta de serviço, endereço NIC, MAC, e assim por diante. 
+    2. Introduza o número da etiqueta de serviço. O número da etiqueta de serviço é um identificador com cinco ou mais caracteres, que é exclusivo do seu dispositivo. A etiqueta de serviço está localizada no canto inferior direito do dispositivo (à medida que se encontra virado para o dispositivo). Retire a etiqueta de informação (é um painel de etiqueta de deslizamento). Este painel contém informações do sistema, tais como etiqueta de serviço, endereço NIC, MAC, e assim por diante. 
     
-    ![Etiqueta de serviço número 1](media/azure-stack-edge-return-device/service-tag-number-1.png)
+       ![Etiqueta de serviço número 1](media/azure-stack-edge-return-device/service-tag-number-1.png)
 
     3. Da lista de desistes, escolha uma razão para a devolução.
 
-    ![Dispositivo de devolução 2](media/azure-stack-edge-return-device/return-device-2.png) 
+       ![Dispositivo de devolução 2](media/azure-stack-edge-return-device/return-device-2.png) 
 
 3. Sob **detalhes do envio:**
 
@@ -84,7 +74,7 @@ Para iniciar o processo de devolução, tome os seguintes passos.
 
     ![Dispositivo de devolução 3](media/azure-stack-edge-return-device/return-device-3.png)
 
-4. Reveja os **termos de Privacidade** e selecione a caixa de verificação contra a nota que reviu e concorde com os termos de privacidade.
+4. Reveja os **termos de Privacidade** e selecione a caixa de verificação pela nota que reviu e concorde com os termos de privacidade.
 
 5. Selecione **Iniciar a devolução**.
 
@@ -109,7 +99,7 @@ Para agendar uma recolha, tome os seguintes passos.
 
     1. Ligue para o ponto UPS local (número gratuito específico do seu país/região).
     2. Na sua chamada, cite o número de rastreio de envio invertido como mostrado na sua etiqueta impressa.
-    3. Se o número de rastreio não for citado, a UPS exigirá que pague uma taxa adicional durante a recolha.
+    3. Se o número de rastreio não for citado, a UPS exigirá que pague uma taxa extra durante a recolha.
 
     Em vez de agendar a recolha, também pode deixar o Azure Stack Edge Pro no local de entrega mais próximo.
 
@@ -123,8 +113,8 @@ Depois de o dispositivo ser recebido no centro de dados Azure, o dispositivo é 
 
 Pode eliminar o dispositivo no portal Azure:
 
-- Depois de ter feito a encomenda e antes de o dispositivo ser preparado pela Microsoft.
-- Depois de ter devolvido o dispositivo à Microsoft, passa a inspeção física no datacenter Azure e a equipa de operações do Azure Stack Edge Pro liga para confirmar que o dispositivo foi devolvido.
+- Depois de escruissá-lo, e antes de o dispositivo ser preparado pela Microsoft.
+- Depois de devolver um dispositivo à Microsoft, a equipa de operações do Azure Stack Edge Pro ligou para confirmar que o dispositivo foi devolvido. A equipa de operações não liga até que o dispositivo devolvido passe a inspeção física no centro de dados Azure.
 
 Se ativou o dispositivo contra outra subscrição ou localização, a Microsoft irá mover a sua encomenda para a nova subscrição ou localização dentro de um dia útil. Depois de a encomenda ser movida, pode eliminar este recurso.
 
@@ -142,6 +132,6 @@ Tome as seguintes medidas para eliminar o dispositivo e o recurso no portal Azur
 É notificado após o dispositivo e o recurso associado ser eliminado com sucesso.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba como [obter um dispositivo Azure Stack Edge Pro de substituição](azure-stack-edge-replace-device.md).

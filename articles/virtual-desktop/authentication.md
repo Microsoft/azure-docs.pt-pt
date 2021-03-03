@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 09/04/2020
+ms.date: 02/26/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 5681228e5da2708912d69f16a4b09a4a93d8bb04
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 04a4366bfee6b1d9c5f52d649910163269962684
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89500305"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101709262"
 ---
 # <a name="supported-authentication-methods"></a>Métodos de autenticação suportados
 
@@ -21,14 +21,14 @@ Neste artigo, vamos dar-lhe uma breve visão geral dos tipos de autenticação q
 
 ## <a name="session-host-authentication"></a>Autenticação do anfitrião da sessão
 
-O Windows Virtual Desktop suporta tanto o NT LAN Manager (NTLM) como o Kerberos para a autenticação do anfitrião da sessão. No entanto, para utilizar kerberos, o cliente precisa de obter bilhetes de segurança Kerberos de um serviço do Key Distribution Center (KDC) em execução num controlador de domínio. Para conseguir bilhetes, o cliente precisa de uma linha de visão direta para o controlador de domínio. Pode obter uma linha de visão direta usando a sua rede corporativa. Também pode utilizar uma ligação VPN à sua rede corporativa.
+O Windows Virtual Desktop suporta tanto o NT LAN Manager (NTLM) como o Kerberos para a autenticação do anfitrião da sessão. No entanto, para utilizar kerberos, o cliente precisa de obter bilhetes de segurança Kerberos de um serviço do Key Distribution Center (KDC) em execução num controlador de domínio. Para conseguir bilhetes, o cliente precisa de uma linha de visão direta para o controlador de domínio. Pode obter uma linha de visão direta usando a sua rede corporativa. Também pode utilizar uma ligação VPN à sua rede corporativa ou configurar um [servidor KDC Proxy](key-distribution-center-proxy.md).
 
 Estes são os métodos de inscrição atualmente suportados:
 
 - Cliente do Ambiente de Trabalho do Windows
     - Nome de utilizador e palavra-passe
     - Smartcard
-    - Windows Hello
+    - Windows Hello for Business (apenas confiança de certificado)
 - Cliente da Windows Store
     - Nome de utilizador e palavra-passe
 - Cliente Web
@@ -41,7 +41,7 @@ Estes são os métodos de inscrição atualmente suportados:
     - Nome de utilizador e palavra-passe
 
 >[!NOTE]
->Smartcard e Windows Hello só podem usar Kerberos para iniciar sinsus. A inscrição com kerberos requer uma linha de visão para o controlador de domínio.
+>Smartcard e Windows Hello para Negócios só podem usar Kerberos para iniciar sinse. A sessão com kerberos requer uma linha de visão para o controlador de domínio ou um [servidor KDC Proxy](key-distribution-center-proxy.md).
 
 ## <a name="hybrid-identity"></a>Identidade híbrida
 

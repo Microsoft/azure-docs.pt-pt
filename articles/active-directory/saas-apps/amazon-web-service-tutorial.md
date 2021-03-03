@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/08/2020
 ms.author: jeedes
-ms.openlocfilehash: 286dc20ba70c78f8248f611abd75e0acc303c068
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 81b57563899fe4babecbdb66cf1dbd876ec5bdf9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736192"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101689016"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-amazon-web-services-aws"></a>Tutorial: Azure Ative Directory integração única (SSO) com a Amazon Web Services (AWS)
 
@@ -26,9 +26,26 @@ Neste tutorial, você vai aprender a integrar a Amazon Web Services (AWS) com o 
 * Capacitar os seus utilizadores a serem automaticamente inscritos na Amazon Web Services (AWS) com as suas contas AD Azure.
 * Gerencie as suas contas numa localização central - o portal Azure.
 
-> [!Note]
-> A Azure AD não suporta uma única integração de sign-on com a AWS SSO, é um produto diferente da AWS. Embora a AWS mencione sobre o mesmo [aqui,](https://docs.aws.amazon.com/singlesignon/latest/userguide/azure-ad-idp.html)a Azure AD recomenda aos clientes que utilizem a integração AWS IAM, em vez disso, para que possa obter melhores controlos de segurança usando políticas de Acesso Condicional em contas individuais e também fazer uma melhor governação destas aplicações.
+## <a name="understanding-the-different-aws-applications-in-the-azure-ad-application-gallery"></a>Compreender as diferentes aplicações AWS na galeria de aplicações AZure AD
+Utilize as informações abaixo para tomar uma decisão entre a utilização das aplicações AWS Single Sign-On e AWS Single-Account Access na galeria de aplicações Azure AD.
 
+**AWS único sign-on**
+
+[O AWS Single Sign-On](https://docs.microsoft.com/azure/active-directory/saas-apps/aws-single-sign-on-tutorial) foi adicionado à galeria de aplicações AZure AD em fevereiro de 2021. Torna-se fácil gerir o acesso central a várias contas AWS e aplicações AWS, com entrada através do Microsoft Azure AD. Federate Microsoft Azure AD com AWS SSO uma vez, e use AWS SSO para gerir permissões em todas as suas contas AWS de um lugar. A AWS SSO provisões automaticamente e mantém-nas atualizadas à medida que atualiza políticas e atribuições de acesso. Os utilizadores finais podem autenticar com as suas credenciais AD Azure para aceder às aplicações integradas AWS Consola, Interface de Linha de Comando e AWS SSO.
+
+**Acesso Single-Account AWS**
+
+[O AWS Single-Account Access](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial) tem sido utilizado pelos clientes ao longo dos últimos anos e permite-lhe federar a AD AD a uma única conta AWS e utilizar a Azure AD para gerir o acesso às funções AWS IAM. Os administradores da AWS IAM definem funções e políticas em cada conta AWS. Para cada conta AWS, os administradores da AD Azure federam-se à AWS IAM, atribuem utilizadores ou grupos à conta e configuram a AZure AD para enviar afirmações que autorizem o acesso à função.  
+
+| Funcionalidade | AWS Single Sign-On | Acesso Single-Account AWS |
+|:--- |:---:|:---:|
+|Acesso condicional| Suporta uma única política de acesso condicional para todas as contas AWS. | Suporta uma única política de acesso condicional para todas as contas ou políticas personalizadas por conta|
+| Acesso ao CLI | Suportado | Suportado|
+| Gestão de Identidade Privilegiada | Ainda não suportado | Ainda não suportado |
+| Centralizar a gestão de contas | Centralizar a gestão de conta na AWS. | Centralizar a gestão de conta em Azure AD (provavelmente exigirá um pedido de empresa AZure AD por conta). |
+| Certificado SAML| Certificado único| Certificados separados por app/conta | 
+
+## <a name="aws-single-account-access-architecture"></a>Arquitetura AWS Single-Account Access
 ![Diagrama da relação Azure AD e AWS](./media/amazon-web-service-tutorial/tutorial_amazonwebservices_image.png)
 
 Pode configurar vários identificadores em vários casos. Por exemplo:
@@ -394,7 +411,7 @@ Também pode utilizar o Microsoft Access Panel para testar a aplicação em qual
 
 * 01/12/2020 - Aumento do limite de comprimento de função de 119 caracteres para 239 caracteres. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Assim que configurar a Amazon Web Services (AWS) pode impor o Session Control, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O Controlo de Sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com a Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)
 

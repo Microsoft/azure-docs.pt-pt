@@ -1,24 +1,24 @@
 ---
-title: Ativar o Azure Monitor para a saúde dos hóspedes VMs (pré-visualização)
-description: Descreve como ativar o Azure Monitor para a saúde dos hóspedes em VMs na sua subscrição e como embarcar em VMs.
+title: Ativar a saúde dos hóspedes (pré-visualização)
+description: Descreve como ativar a saúde dos hóspedes em VM na sua subscrição e como embarcar VMs.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/16/2020
 ms.custom: references_regions
-ms.openlocfilehash: 5a65a986e95f333b6179c71a46edc69ca61acdea
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 3747e9190010bd3c0b88dfdbe9da01009316c275
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100617072"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101733725"
 ---
-# <a name="enable-azure-monitor-for-vms-guest-health-preview"></a>Ativar o Azure Monitor para a saúde dos hóspedes VMs (pré-visualização)
-O Azure Monitor para a saúde dos hóspedes em VMs permite-lhe visualizar a saúde de uma máquina virtual, tal como definida por um conjunto de medições de desempenho que são amostradas a intervalos regulares. Este artigo descreve como ativar esta funcionalidade na sua subscrição e como ativar a monitorização do hóspede para cada máquina virtual.
+# <a name="enable-vm-insights-guest-health-preview"></a>Ativar a saúde dos hóspedes (pré-visualização)
+A saúde do hóspede permite-lhe ver a saúde de uma máquina virtual como definida por um conjunto de medições de desempenho que são amostradas a intervalos regulares. Este artigo descreve como ativar esta funcionalidade na sua subscrição e como ativar a monitorização do hóspede para cada máquina virtual.
 
 ## <a name="current-limitations"></a>Limitações atuais
-O Azure Monitor para a saúde dos hóspedes VMs tem as seguintes limitações na pré-visualização pública:
+A saúde dos hóspedes tem as seguintes limitações na visualização pública:
 
 - Apenas máquinas virtuais Azure são suportadas atualmente. Neste momento, não há suporte para o Azure Arc para servidores.
 
@@ -36,19 +36,25 @@ A máquina virtual deve estar localizada numa das seguintes regiões:
 - Austrália Central
 - Leste da Austrália
 - Austrália Sudeste
+- Canadá Central
 - Índia Central
 - E.U.A. Central
 - Ásia Leste
 - E.U.A. Leste
 - E.U.A. Leste 2
 - Leste DOS EUA 2
+- França Central
 - Alemanha Centro-Oeste
 - Leste do Japão
+- Coreia do Sul Central
 - E.U.A. Centro-Norte
 - Europa do Norte
 - E.U.A. Centro-Sul
+- Norte da África do Sul
 - Sudeste Asiático
+- Suíça Norte
 - Sul do Reino Unido
+- Oeste do Reino Unido
 - E.U.A. Centro-Oeste
 - Europa Ocidental
 - E.U.A. Oeste
@@ -57,24 +63,36 @@ A máquina virtual deve estar localizada numa das seguintes regiões:
 
 O espaço de trabalho log Analytics deve estar localizado numa das seguintes regiões:
 
+- Austrália Central
+- Leste da Austrália
+- Austrália Sudeste
+- Canadá Central
+- Canadá Índia
 - E.U.A. Central
+- Ásia Leste
 - E.U.A. Leste
 - E.U.A. Leste 2
 - Leste DOS EUA 2
+- França Central
+- Leste do Japão
+- E.U.A. Centro-Norte
 - Europa do Norte
+- E.U.A. Centro-Sul
 - Sudeste Asiático
+- Suíça Norte
 - Sul do Reino Unido
 - Região da Europa Ocidental
+- E.U.A. Oeste
 - E.U.A. Oeste 2
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- A máquina virtual deve ser a bordo do Azure Monitor para VMs.
+- A máquina virtual deve ser a bordo de insights VM.
 - A execução dos passos de embarque do utilizador deve ter um acesso mínimo ao nível do Contribuinte à subscrição onde está localizada a máquina virtual e a regra de recolha de dados.
 - Os fornecedores de recursos Azure necessários devem estar registados como descrito na secção seguinte.
 
 ## <a name="register-required-azure-resource-providers"></a>Registar os fornecedores de recursos Azure necessários
-Os seguintes fornecedores de recursos Azure estão registados para a sua subscrição para permitir a Saúde do Hóspede do Azure Monitor para a saúde dos hóspedes VMs. 
+Os seguintes fornecedores de recursos Azure serão registados para a sua subscrição para permitir a saúde dos hóspedes de informações VM. 
 
 - Microsoft.WorkloadMonitor
 - Microsoft.Insights
@@ -90,7 +108,7 @@ POST https://management.azure.com/subscriptions/[subscriptionId]/providers/Micro
 ## <a name="enable-a-virtual-machine-using-the-azure-portal"></a>Ativar uma máquina virtual com o portal do Azure
 Quando ativa o estado de funcionamento dos convidados para uma máquina virtual no portal do Azure, toda a configuração necessária é executada automaticamente. Isto inclui a criação da regra de recolha de dados requere, a instalação da extensão de saúde do hóspede na máquina virtual e a criação de uma associação com a regra de recolha de dados.
 
-A partir da vista **Get Started** no Monitor Azure para VMs, clique no link ao lado da mensagem de atualização para uma máquina virtual e, em seguida, clique no botão **Deabos.** Também pode selecionar várias máquinas virtuais para as atualizar em conjunto.
+A partir da visualização **Get Started** nos insights VM, clique no link ao lado da mensagem de atualização para uma máquina virtual e, em seguida, clique no botão **Deabos.** Também pode selecionar várias máquinas virtuais para as atualizar em conjunto.
 
 ![Ativar a funcionalidade de saúde na máquina virtual](media/vminsights-health-enable/enable-agent.png)
 
@@ -107,10 +125,10 @@ São necessários três passos para permitir a utilização de máquinas virtuai
 > [!NOTE]
 > Se ativar uma máquina virtual utilizando o portal Azure, a regra de recolha de dados descrita aqui é criada para si. Neste caso, não precisa de executar este passo.
 
-A configuração para os monitores no Azure Monitor para a saúde dos hóspedes VMs é armazenada nas [Regras de Recolha de Dados (DCR)](../agents/data-collection-rule-overview.md). Cada máquina virtual com a extensão de saúde do hóspede necessitará de uma associação com esta regra.
+A configuração para os monitores em informações VM a saúde dos hóspedes é armazenada nas [Regras de Recolha de Dados (DCR)](../agents/data-collection-rule-overview.md). Cada máquina virtual com a extensão de saúde do hóspede necessitará de uma associação com esta regra.
 
 > [!NOTE]
-> Pode criar regras adicionais de recolha de dados para modificar a configuração padrão dos monitores, tal como descrito na [monitorização configure no Azure Monitor para a saúde dos hóspedes VMs (pré-visualização)](vminsights-health-configure.md).
+> Pode criar regras adicionais de recolha de dados para modificar a configuração padrão dos monitores, tal como descrito na [monitorização de configuração em Saúde dos hóspedes de informações VM (pré-visualização)](vminsights-health-configure.md).
 
 O modelo requer valores para os seguintes parâmetros:
 
@@ -414,4 +432,4 @@ az deployment group create --name GuestHealthDeployment --resource-group my-reso
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Personalizar monitores ativados pelo Azure Monitor para VMs](vminsights-health-configure.md)
+- [Personalizar monitores ativados por insights VM](vminsights-health-configure.md)

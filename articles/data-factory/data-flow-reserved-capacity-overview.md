@@ -6,12 +6,12 @@ author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.date: 02/05/2021
-ms.openlocfilehash: d41646ef1ef964db38245009717554eaeb783824
-ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
+ms.openlocfilehash: c4d6ebc8d57857deeb2a5cc71867484bd3519ea6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100526311"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101699696"
 ---
 # <a name="save-costs-for-resources-with-reserved-capacity---azure-data-factory-data-flows"></a>Poupar custos para recursos com capacidade reservada - Fluxos de dados da Azure Data Factory
 
@@ -21,12 +21,12 @@ Poupe dinheiro com os custos de fluxo de dados da Azure Data Factory comprometen
 
 Não precisa de atribuir a reserva a uma determinada fábrica ou tempo de execução de integração. As fábricas existentes ou as fábricas recém-implantadas obtêm automaticamente o benefício. Ao comprar uma reserva, compromete-se a usar os custos de cálculo do fluxo de dados por um período de um ou três anos. Assim que comprar uma reserva, os encargos computacional que correspondam aos atributos da reserva já não são cobrados nas tarifas pagas. 
 
-Pode comprar [capacidade reservada](https://portal.azure.com) escolhendo reservas [adiantada ou com pagamentos mensais.](https://docs.microsoft.com/azure/cost-management-billing/reservations/prepare-buy-reservation.md) Para comprar capacidade de reserva:
+Pode comprar [capacidade reservada](https://portal.azure.com) escolhendo reservas [adiantada ou com pagamentos mensais.](../cost-management-billing/reservations/prepare-buy-reservation.md) Para comprar capacidade de reserva:
 
 - Você deve estar na função de proprietário para pelo menos uma Enterprise ou subscrição individual com taxas pay-as-you-go.
 - Para subscrições Enterprise, **Adicionar Instâncias Reservadas** tem de estar ativada no [EA Portal](https://ea.azure.com). Ou, se essa definição estiver desativada, deve ser um Administrador EA na subscrição. Capacidade reservada.
 
-Para obter mais informações sobre como os clientes da empresa e os clientes Pay-As-You-Go são cobrados para compras de reservas, consulte [o uso da reserva Understand Azure para a sua inscrição na Enterprise](https://docs.microsoft.com/azure/cost-management-billing/reservations/understand-reserved-instance-usage-ea) e [compreenda o uso da reserva para a sua subscrição Pay-As-You-Go.](https://docs.microsoft.com/azure/cost-management-billing/reservations/understand-reserved-instance-usage)
+Para obter mais informações sobre como os clientes da empresa e os clientes Pay-As-You-Go são cobrados para compras de reservas, consulte [o uso da reserva Understand Azure para a sua inscrição na Enterprise](../cost-management-billing/reservations/understand-reserved-instance-usage-ea.md) e [compreenda o uso da reserva para a sua subscrição Pay-As-You-Go.](../cost-management-billing/reservations/understand-reserved-instance-usage.md)
 
 > [!NOTE]
 > A aquisição de capacidade reservada não pré-aloca ou reserva recursos específicos de infraestrutura (máquinas virtuais ou clusters) para a sua utilização.
@@ -49,7 +49,7 @@ Por exemplo, suponhamos que está a executar um oleoduto de hora a hora usando m
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>Cancelar, trocar ou reembolsar reservas
 
-Pode cancelar, trocar ou reembolsar reservas com determinadas limitações. Para obter mais informações, veja [Trocas e reembolsos personalizados das Reservas do Azure](https://docs.microsoft.com/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations).
+Pode cancelar, trocar ou reembolsar reservas com determinadas limitações. Para obter mais informações, veja [Trocas e reembolsos personalizados das Reservas do Azure](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
 
 ## <a name="need-help-contact-us"></a>Precisa de ajuda? Contacte-nos
 

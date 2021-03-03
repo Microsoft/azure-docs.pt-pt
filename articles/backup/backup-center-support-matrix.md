@@ -3,12 +3,12 @@ title: Matriz de suporte para backup center
 description: Este artigo resume os cenários que o Backup Center suporta para cada tipo de carga de trabalho
 ms.topic: conceptual
 ms.date: 09/07/2020
-ms.openlocfilehash: 672f0e127f173260f25978497198fd7b554aa390
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: aedf2d071c4f38d2d873383409c11abdf3c0c72d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98893597"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101700240"
 ---
 # <a name="support-matrix-for-backup-center"></a>Matriz de suporte para backup center
 
@@ -18,16 +18,16 @@ O Backup Center fornece um único painel de vidro para as empresas [governarem, 
 
 | **Categoria** | **Cenário**  | **Cargas de trabalho suportadas**  | **Limites** |
 | -------------| ------------- | ----------------------- |------------|
-| Monitorização   | Ver todos os trabalhos | <li> Máquina Virtual do Azure <br><br> <li> Base de Dados Azure para servidor PostgreSQL <br><br> <li> SQL em Azure VM <br><br> <li> SAP HANA em Azure VM <br><br> <li> Arquivos Azure | <li> 7 dias de empregos disponíveis fora da caixa. <br> <li> Cada filtro/drop-down suporta um máximo de 1000 itens. Assim, o Backup Center pode ser usado para monitorizar um máximo de 1000 assinaturas e 1000 cofres através dos inquilinos. |
-| Monitorização | Ver todas as instâncias de backup | <li> Máquina Virtual do Azure <br><br> <li> Base de Dados Azure para servidor PostgreSQL <br><br> <li> SQL em Azure VM <br><br> <li> SAP HANA em Azure VM <br><br> <li> Ficheiros do Azure | Mesmo que acima |
-| Monitorização | Ver todas as políticas de backup | <li> Máquina Virtual do Azure <br><br> <li> Base de Dados Azure para servidor PostgreSQL <br><br> <li> SQL em Azure VM <br><br> <li> SAP HANA em Azure VM <br><br> <li> Ficheiros do Azure | Mesmo que acima |
-| Monitorização | Ver todos os cofres | <li> Máquina Virtual do Azure <br><br> <li> Base de Dados Azure para servidor PostgreSQL <br><br> <li> SQL em Azure VM <br><br> <li> SAP HANA em Azure VM <br><br> <li> Ficheiros do Azure | Mesmo que acima |
-| Ações | Configurar a cópia de segurança | <li> Máquina Virtual do Azure <br><br> <li> Base de Dados Azure para servidor PostgreSQL <br><br> <li> SQL em Azure VM <br><br> <li> SAP HANA em Azure VM <br><br> <li> Ficheiros do Azure | Consulte as matrizes de suporte para cópia de [segurança Azure VM](./backup-support-matrix-iaas.md) e [Base de Dados Azure para cópia de segurança do Servidor PostgreSQL](backup-azure-database-postgresql.md#support-matrix) |
-| Ações | Restaurar a instância de backup | <li> Máquina Virtual do Azure <br><br> <li> Base de Dados Azure para servidor PostgreSQL <br><br> <li> SQL em Azure VM <br><br> <li> SAP HANA em Azure VM <br><br> <li> Ficheiros do Azure | Consulte as matrizes de suporte para cópia de [segurança Azure VM](./backup-support-matrix-iaas.md) e [Base de Dados Azure para cópia de segurança do Servidor PostgreSQL](backup-azure-database-postgresql.md#support-matrix) |
-| Ações | Criar cofre | <li> Máquina Virtual do Azure <br><br> <li> Base de Dados Azure para servidor PostgreSQL <br><br> <li> SQL em Azure VM <br><br> <li> SAP HANA em Azure VM <br><br> <li> Ficheiros do Azure | Consulte as matrizes de suporte para [o cofre dos Serviços de Recuperação](./backup-support-matrix.md#vault-support) |
-| Ações | Criar política de backup | <li> Máquina Virtual do Azure <br><br> <li> Base de Dados Azure para servidor PostgreSQL <br><br> <li> SQL em Azure VM <br><br> <li> SAP HANA em Azure VM <br><br> <li> Ficheiros do Azure | Consulte as matrizes de suporte para [o cofre dos Serviços de Recuperação](./backup-support-matrix.md#vault-support) |
-| Ações | Execute backup a pedido para uma instância de backup | <li> Máquina Virtual do Azure <br><br> <li> Base de Dados Azure para servidor PostgreSQL <br><br> <li> SQL em Azure VM <br><br> <li> SAP HANA em Azure VM <br><br> <li> Ficheiros do Azure | Consulte as matrizes de suporte para cópia de [segurança Azure VM](./backup-support-matrix-iaas.md) e [Base de Dados Azure para cópia de segurança do Servidor PostgreSQL](backup-azure-database-postgresql.md#support-matrix) |
-| Ações | Pare o backup para uma instância de backup | <li> Máquina Virtual do Azure <br><br> <li> Base de Dados Azure para servidor PostgreSQL <br><br> <li> SQL em Azure VM <br><br> <li> SAP HANA em Azure VM <br><br> <li> Ficheiros do Azure | Consulte as matrizes de suporte para cópia de [segurança Azure VM](./backup-support-matrix-iaas.md) e [Base de Dados Azure para cópia de segurança do Servidor PostgreSQL](backup-azure-database-postgresql.md#support-matrix) |
+| Monitorização   | Ver todos os trabalhos | <li> Máquina Virtual do Azure <br><br> <li> Base de Dados Azure para servidor PostgreSQL <br><br> <li> SQL em Azure VM <br><br> <li> SAP HANA em Azure VM <br><br> <li> Ficheiros do Azure<br/><br/> <li>Blobs do Azure<br/><br/> <li>Managed Disks do Azure | <li> 7 dias de empregos disponíveis fora da caixa. <br> <li> Cada filtro/drop-down suporta um máximo de 1000 itens. Assim, o Backup Center pode ser usado para monitorizar um máximo de 1000 assinaturas e 1000 cofres através dos inquilinos. |
+| Monitorização | Ver todas as instâncias de backup | <li> Máquina Virtual do Azure <br><br> <li> Base de Dados Azure para servidor PostgreSQL <br><br> <li> SQL em Azure VM <br><br> <li> SAP HANA em Azure VM <br><br> <li> Ficheiros do Azure<br/><br/> <li>Blobs do Azure<br/><br/> <li>Managed Disks do Azure | Mesmo que acima |
+| Monitorização | Ver todas as políticas de backup | <li> Máquina Virtual do Azure <br><br> <li> Base de Dados Azure para servidor PostgreSQL <br><br> <li> SQL em Azure VM <br><br> <li> SAP HANA em Azure VM <br><br> <li> Ficheiros do Azure<br/><br/> <li>Blobs do Azure<br/><br/> <li>Managed Disks do Azure | Mesmo que acima |
+| Monitorização | Ver todos os cofres | <li> Máquina Virtual do Azure <br><br> <li> Base de Dados Azure para servidor PostgreSQL <br><br> <li> SQL em Azure VM <br><br> <li> SAP HANA em Azure VM <br><br> <li> Ficheiros do Azure<br/><br/> <li>Blobs do Azure<br/><br/> <li>Managed Disks do Azure | Mesmo que acima |
+| Ações | Configurar a cópia de segurança | <li> Máquina Virtual do Azure <br><br> <li> Base de Dados Azure para servidor PostgreSQL <br><br> <li> SQL em Azure VM <br><br> <li> SAP HANA em Azure VM <br><br> <li> Ficheiros do Azure<br/><br/> <li>Blobs do Azure<br/><br/> <li>Managed Disks do Azure | Consulte as matrizes de suporte para cópia de [segurança Azure VM](./backup-support-matrix-iaas.md) e [Base de Dados Azure para cópia de segurança do Servidor PostgreSQL](backup-azure-database-postgresql.md#support-matrix) |
+| Ações | Restaurar a instância de backup | <li> Máquina Virtual do Azure <br><br> <li> Base de Dados Azure para servidor PostgreSQL <br><br> <li> SQL em Azure VM <br><br> <li> SAP HANA em Azure VM <br><br> <li> Ficheiros do Azure<br/><br/> <li>Blobs do Azure<br/><br/> <li>Managed Disks do Azure | Consulte as matrizes de suporte para cópia de [segurança Azure VM](./backup-support-matrix-iaas.md) e [Base de Dados Azure para cópia de segurança do Servidor PostgreSQL](backup-azure-database-postgresql.md#support-matrix) |
+| Ações | Criar cofre | <li> Máquina Virtual do Azure <br><br> <li> Base de Dados Azure para servidor PostgreSQL <br><br> <li> SQL em Azure VM <br><br> <li> SAP HANA em Azure VM <br><br> <li> Ficheiros do Azure<br/><br/> <li>Blobs do Azure<br/><br/> <li>Managed Disks do Azure | Consulte as matrizes de suporte para [o cofre dos Serviços de Recuperação](./backup-support-matrix.md#vault-support) |
+| Ações | Criar política de backup | <li> Máquina Virtual do Azure <br><br> <li> Base de Dados Azure para servidor PostgreSQL <br><br> <li> SQL em Azure VM <br><br> <li> SAP HANA em Azure VM <br><br> <li> Ficheiros do Azure<br/><br/> <li>Blobs do Azure<br/><br/> <li>Managed Disks do Azure | Consulte as matrizes de suporte para [o cofre dos Serviços de Recuperação](./backup-support-matrix.md#vault-support) |
+| Ações | Execute backup a pedido para uma instância de backup | <li> Máquina Virtual do Azure <br><br> <li> Base de Dados Azure para servidor PostgreSQL <br><br> <li> SQL em Azure VM <br><br> <li> SAP HANA em Azure VM <br><br> <li> Ficheiros do Azure<br/><br/> <li>Blobs do Azure<br/><br/> <li>Managed Disks do Azure | Consulte as matrizes de suporte para cópia de [segurança Azure VM](./backup-support-matrix-iaas.md) e [Base de Dados Azure para cópia de segurança do Servidor PostgreSQL](backup-azure-database-postgresql.md#support-matrix) |
+| Ações | Pare o backup para uma instância de backup | <li> Máquina Virtual do Azure <br><br> <li> Base de Dados Azure para servidor PostgreSQL <br><br> <li> SQL em Azure VM <br><br> <li> SAP HANA em Azure VM <br><br> <li> Ficheiros do Azure<br/><br/> <li>Blobs do Azure<br/><br/> <li>Managed Disks do Azure | Consulte as matrizes de suporte para cópia de [segurança Azure VM](./backup-support-matrix-iaas.md) e [Base de Dados Azure para cópia de segurança do Servidor PostgreSQL](backup-azure-database-postgresql.md#support-matrix) |
 | Informações | Ver Relatórios de Backup | <li> Máquina Virtual do Azure <br><br> <li> SQL em Azure Virtual Machine <br><br> <li> SAP HANA em Azure Virtual Machine <br><br> <li> Ficheiros do Azure <br><br> <li> System Center Data Protection Manager <br><br> <li> Agente de reserva Azure (MARS) <br><br> <li> Servidor do Backup do Azure (MABS) | Consulte [os cenários suportados para relatórios de backup](./configure-reports.md#supported-scenarios) |
 | Governação | Ver e atribuir políticas de Azure integradas e personalizadas na categoria 'Backup' | N/D | N/D |
 | Governação | Ver fontes de dados não configuradas para cópia de segurança | <li> Máquina Virtual do Azure <br><br> <li> Base de Dados Azure para servidor PostgreSQL | N/D |
@@ -40,7 +40,7 @@ O Backup Center fornece um único painel de vidro para as empresas [governarem, 
 | Ações | Configurar as definições do cofre em escala |
 | Ações | Execute o trabalho de restauro de região cruzada do Backup Center |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Reveja a matriz de suporte para Azure Backup](./backup-support-matrix.md)
 * [Reveja a matriz de suporte para backup Azure VM](./backup-support-matrix-iaas.md)

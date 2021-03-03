@@ -3,18 +3,18 @@ title: Criar uma aplicação de função no Linux a partir do portal Azure
 description: Saiba como criar a sua primeira Função Azure no Linux utilizando o portal Azure.
 ms.topic: how-to
 ms.date: 04/29/2020
-ms.openlocfilehash: 34a93795b5e041ccef8e9576f97092e16c429444
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: d6787e1dd8312e368964a1f555025beff9a06a23
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97937183"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101732263"
 ---
 # <a name="create-a-function-app-on-linux-in-an-azure-app-service-plan"></a>Criar uma aplicação de função no Linux num plano de Serviço de Aplicações Azure
 
 As Funções do Azure permitem-lhe alojar as suas funções no Linux num contentor predefinido do Serviço de Aplicações do Azure. Este artigo percorre a forma de utilizar o [portal Azure](https://portal.azure.com) para criar uma aplicação de função hospedada em Linux que funciona num [plano de Serviço de Aplicações.](dedicated-plan.md) Também pode [trazer o seu próprio contentor personalizado](functions-create-function-linux-custom-image.md).
 
-![Criar uma aplicação de função no portal do Azure](./media/create-function-app-linux-app-service-plan/function-app-in-portal-editor.png)
+[!INCLUDE [functions-in-portal-editing-note](../../includes/functions-in-portal-editing-note.md)] 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 

@@ -5,30 +5,30 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, sneshaf, pinath, logicappspm
 ms.topic: conceptual
-ms.date: 01/20/2021
-ms.openlocfilehash: a90f75db6961ea06b1cf9c2958556c1c2ef24805
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 02/22/2021
+ms.openlocfilehash: f2b4e09ec9b50bb6993c89d90b0f33c0c905cbf0
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100380139"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101699101"
 ---
 # <a name="export-flows-from-power-automate-and-deploy-to-azure-logic-apps"></a>Exportar fluxos do Power Automate e implementá-los no Azure Logic Apps
 
-> Para os fluxos criados a partir de outubro de 2020, já não é possível exportar da Power Automamate e implementar para a Azure Logic Apps.
-
 Para alargar e expandir as capacidades do seu fluxo, pode migrar esse fluxo de [Power Automamate](https://flow.microsoft.com) para [Azure Logic Apps](../logic-apps/logic-apps-overview.md). Você pode exportar o seu fluxo como um modelo de Gestor de Recursos Azure para uma aplicação lógica, implementar esse modelo de aplicação lógica para um grupo de recursos Azure e, em seguida, abrir essa aplicação lógica no Logic App Designer.
 
-> [!NOTE]
-> Nem todos os conectores Power Automate estão disponíveis em Azure Logic Apps. Só pode migrar fluxos Power Automamate que tenham os conectores equivalentes em Azure Logic Apps. Por exemplo, o gatilho do botão, o conector de aprovação e o conector de notificação são específicos do Automatismo de Energia. Atualmente, os fluxos baseados no OpenAPI no Power Automamate não são suportados para exportação e implementação como modelos de aplicações lógicas.
->
-> * Para descobrir quais os conectores Power Automamate que não têm equivalentes de Aplicações Lógicas, consulte [conectores Power Automamate](/connectors/connector-reference/connector-reference-powerautomate-connectors).
->
-> * Para descobrir quais os conectores de Aplicações Lógicas que não possuem equivalentes power automate, consulte [conectores de Aplicações Lógicas](/connectors/connector-reference/connector-reference-logicapps-connectors).
+> [!IMPORTANT]
+> As aplicações de exportação para a Logic não estão disponíveis para os fluxos Power Automamate criados a seguir a agosto de 2020. Em outubro de 2020, a Power Automamate padronizou a criação de novos fluxos no [protocolo OpenAPI 2.0](https://swagger.io/specification/v2/). Novos fluxos baseados neste protocolo são incompatíveis com os fluxos de trabalho da Logic Apps, pelo que exportar estes fluxos para a Logic Apps foi desativado. Em vez disso, deve criar manualmente [aplicações lógicas](quickstart-create-first-logic-app-workflow.md) para estes fluxos.
+
+Nem todos os conectores Power Automate estão disponíveis em Azure Logic Apps. Só pode migrar fluxos Power Automamate que tenham os conectores equivalentes em Azure Logic Apps. Por exemplo, o gatilho do botão, o conector de aprovação e o conector de notificação são específicos do Automatismo de Energia. 
+
+* Para descobrir quais os conectores Power Automamate que não têm equivalentes de Aplicações Lógicas, consulte [conectores Power Automamate](/connectors/connector-reference/connector-reference-powerautomate-connectors).
+
+* Para descobrir quais os conectores de Aplicações Lógicas que não possuem equivalentes power automate, consulte [conectores de Aplicações Lógicas](/connectors/connector-reference/connector-reference-logicapps-connectors).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma subscrição do Azure. Se não tiver uma subscrição do Azure, [inscreva-se para obter uma conta do Azure gratuita](https://azure.microsoft.com/free/).
+* Uma conta e subscrição do Azure. Se não tiver uma subscrição do Azure, [inscreva-se para obter uma conta do Azure gratuita](https://azure.microsoft.com/free/).
 
 * O fluxo que pretende exportar da Power Automamate
 

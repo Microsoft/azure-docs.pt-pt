@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 01/03/2021
-ms.openlocfilehash: 6c5d758f94a4ad4e70a8b02a02c7c61097725f63
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: b02572f8f6f6531afba9e24af1d2eab53f5cb6ad
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101094835"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101742114"
 ---
 # <a name="tutorial-migrate-sql-server-to-azure-sql-database-offline-using-dms"></a>Tutorial: Migrar o SQL Server para a Base de Dados SQL do Azure offline com o DMS
 
@@ -33,10 +33,6 @@ Vai aprender a:
 > - Crie um projeto de migração utilizando o Serviço de Migração da Base de Dados Azure.
 > - Executar a migração.
 > - Monitorizar a migração.
-
-[!INCLUDE [online-offline](../../includes/database-migration-service-offline-online.md)]
-
-Este artigo descreve uma migração offline do SQL Server para uma base de dados na Base de Dados Azure SQL. Para uma migração online, veja [Migrar o SQL Server para a Base de Dados SQL do Azure online com o DMS](tutorial-sql-server-azure-sql-online.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -275,7 +271,5 @@ Após a criação do serviço, localize-o no portal do Azure, abra-o e crie um p
 
 ### <a name="additional-resources"></a>Recursos adicionais
 
-- [Migração SQL usando O Serviço de Migração de Dados Azure.](https://www.microsoft.com/handsonlabs/SelfPacedLabs/?storyGuid=3b671509-c3cd-4495-8e8f-354acfa09587)
-- Para obter informações sobre questões e limitações conhecidas ao realizar migrações on-line para Azure SQL Database, consulte o artigo [Questões conhecidas e soluções alternativas com migrações on-line Azure SQL Database](known-issues-azure-sql-online.md).
 - Para obter informações sobre o Serviço de Migração da Base de Dados Azure, consulte o artigo [O que é o Serviço de Migração da Base de Dados Azure?](./dms-overview.md)
 - Para obter informações sobre a Base de Dados Azure SQL, consulte o artigo [O que é o serviço de Base de Dados Azure SQL?](../azure-sql/database/sql-database-paas-overview.md)

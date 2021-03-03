@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: erhopf
-ms.openlocfilehash: db3d8f4424f59d8432221753af776a5b55859882
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: af6ced49071b7fbae983508e68964aa064ef38e1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100388860"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101700036"
 ---
 # <a name="how-to-create-human-labeled-transcriptions"></a>Como criar transcrições com rótulo humano
 
 Se procura melhorar a precisão do reconhecimento, especialmente os problemas que são causados quando as palavras são eliminadas ou substituídas incorretamente, irá querer utilizar transcrições com rótulo humano juntamente com os seus dados áudio. O que são transcrições com rótulo humano? É fácil, são transcrições verbais de um ficheiro áudio.
 
-Uma grande amostra de dados de transcrição é necessária para melhorar o reconhecimento, sugerimos fornecer entre 10 a 20 horas de dados de transcrição. Nesta página, vamos rever as diretrizes desenhadas para ajudá-lo a criar transcrições de alta qualidade. Este guia é dividido por localidade, com secções para inglês americano, mandarim chinês e alemão.
+Uma grande amostra de dados de transcrição é necessária para melhorar o reconhecimento, sugerimos fornecer entre 1 e 20 horas de dados de transcrição. O serviço De Discurso utilizará até 20 horas de áudio para treino. Nesta página, vamos rever as diretrizes desenhadas para ajudá-lo a criar transcrições de alta qualidade. Este guia é dividido por localidade, com secções para inglês americano, mandarim chinês e alemão.
 
 > [!NOTE]
 > Nem todos os modelos base suportam a personalização com ficheiros áudio. Se um modelo base não o suportar, a formação utilizará apenas o texto das transcrições da mesma forma que o texto relacionado é utilizado. Consulte [o suporte linguístico](language-support.md#speech-to-text) para uma lista de modelos base que suportam a formação com dados áudio.

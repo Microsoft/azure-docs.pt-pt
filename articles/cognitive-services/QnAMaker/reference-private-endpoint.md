@@ -5,18 +5,18 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 01/12/2021
-ms.openlocfilehash: 5a7ddcf25993ab4ce87bdc47c5e0ae32fa24b07f
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 7907c81e45680de49f6653891fb4204a59db1002
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98956537"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101710554"
 ---
 # <a name="private-endpoints"></a>Pontos Finais Privados
 
 O Ponto Final Privado do Azure é uma interface de rede que o liga a um serviço de forma privada e segura com a tecnologia Azure Private Link. Agora, o QnA Maker fornece-lhe suporte para criar pontos finais privados para o Serviço de Pesquisa Azure. Esta funcionalidade encontra-se disponível na QnA Maker gerida. 
 
-Os pontos finais privados são fornecidos pela [Azure Private Link,](https://docs.microsoft.com/azure/private-link/private-link-overview)como um serviço separado. Para obter mais informações sobre os custos, consulte [a página de preços.](https://azure.microsoft.com/pricing/details/private-link/) 
+Os pontos finais privados são fornecidos pela [Azure Private Link,](../../private-link/private-link-overview.md)como um serviço separado. Para obter mais informações sobre os custos, consulte [a página de preços.](https://azure.microsoft.com/pricing/details/private-link/) 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 > [!div class="checklist"]

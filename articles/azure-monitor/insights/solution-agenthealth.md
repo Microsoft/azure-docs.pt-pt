@@ -1,17 +1,16 @@
 ---
 title: Solução de Saúde do Agente em Azure Monitor | Microsoft Docs
 description: Este artigo destina-se a ajudá-lo a entender como usar esta solução para monitorizar a saúde dos seus agentes reportando diretamente ao Log Analytics ou System Center Operations Manager.
-ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/06/2020
-ms.openlocfilehash: a498c229acce9359acfb4593ec5f833000ca2c39
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 171230dc2ce6189e36c601c6c7d3b3612fce160c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100573377"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711064"
 ---
 #  <a name="agent-health-solution-in-azure-monitor"></a>Solução de saúde do agente no Monitor Azure
 A solução Agent Health em Azure ajuda-o a compreender, para todos os agentes que reportam diretamente ao espaço de trabalho do Log Analytics no Azure Monitor ou um grupo de gestão de operações do System Center, ligado ao Azure Monitor, que não respondem e submetem dados operacionais.  Também pode controlar a quantidade de agentes que estão implementados, onde estão distribuídos geograficamente e fazer outras consultas, para estar a par da distribuição dos agentes implementados no Azure, noutros ambientes na cloud ou no local.    
@@ -38,10 +37,10 @@ Adicione a solução Agent Health ao seu espaço de trabalho Log Analytics utili
 ### <a name="supported-agents"></a>Agentes suportados
 A tabela seguinte descreve as origens ligadas que são suportadas por esta solução.
 
-| Origem Ligada | Suportado | Description |
+| Origem Ligada | Suportado | Descrição |
 | --- | --- | --- |
-| Agentes do Windows | Yes | Os eventos de heartbeat são recolhidos de agentes do Windows diretos.|
-| Grupo de gestão do System Center Operations Manager | Yes | Os eventos de batimentos cardíacos são recolhidos de agentes que reportam ao grupo de gestão a cada 60 segundos e depois encaminhados para o Azure Monitor. Não é necessária uma ligação direta dos agentes do Gestor de Operações ao Azure Monitor. Os dados do evento heartbeat são reencaminhados do grupo de gestão para o espaço de trabalho Log Analytics.|
+| Agentes do Windows | Sim | Os eventos de heartbeat são recolhidos de agentes do Windows diretos.|
+| Grupo de gestão do System Center Operations Manager | Sim | Os eventos de batimentos cardíacos são recolhidos de agentes que reportam ao grupo de gestão a cada 60 segundos e depois encaminhados para o Azure Monitor. Não é necessária uma ligação direta dos agentes do Gestor de Operações ao Azure Monitor. Os dados do evento heartbeat são reencaminhados do grupo de gestão para o espaço de trabalho Log Analytics.|
 
 ## <a name="using-the-solution"></a>Utilizar a solução
 Quando adicionar a solução ao seu espaço de trabalho Log Analytics, o azulejo **do Agente Saúde** será adicionado ao seu painel de instrumentos. Esse mosaico mostra o número total de agentes e o número de agentes sem resposta nas últimas 24 horas.<br><br> ![Mosaico Solução Funcionamento de Agente no dashboard](./media/solution-agenthealth/agenthealth-solution-tile-homepage.png)
@@ -90,7 +89,7 @@ Cada agente que reporte a um servidor de gestão de Gestor de Operações enviar
 ## <a name="sample-log-searches"></a>Pesquisas de registo de exemplo
 A tabela seguinte disponibiliza pesquisas de registos de exemplo para registos que esta solução recolhe.
 
-| Consulta | Description |
+| Consulta | Descrição |
 |:---|:---|
 | Heartbeat &#124; distinct Computer |Número total de agentes |
 | Heartbeat &#124; summarize LastCall = max(TimeGenerated) by Computer &#124; where LastCall < ago(24h) |Contagem de agentes sem resposta nas últimas 24 horas |

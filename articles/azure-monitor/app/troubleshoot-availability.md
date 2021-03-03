@@ -4,14 +4,14 @@ description: Testes web de resolução de problemas em Azure Application Insight
 ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
-ms.date: 11/19/2020
+ms.date: 02/14/2021
 ms.reviewer: sdash
-ms.openlocfilehash: 849701caf73a4fb289773c67bccaab2e0f39dbd1
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 940a70de81df60f7b6c1545c992e1ee10e69fa9f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100583732"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728931"
 ---
 # <a name="troubleshooting"></a>Resolução de problemas
 
@@ -58,7 +58,7 @@ O Relatório de Resolução de Problemas permite-lhe diagnosticar facilmente pro
 
 ### <a name="i-did-not-get-an-email-when-the-alert-triggered-or-resolved-or-both"></a>Não recebi um e-mail quando o alerta foi disparado, ou resolvido ou ambos?
 
-Consulte a configuração de alertas clássicos para confirmar que o seu e-mail está listado diretamente, ou uma lista de distribuição em que está está configurada para receber notificações. Se for, verifique a configuração da lista de distribuição para confirmar que pode receber e-mails externos. Verifique também se o seu administrador de correio pode ter alguma política configurada que possa causar este problema.
+Consulte a configuração do grupo de ação dos alertas para confirmar que o seu e-mail está listado diretamente, ou uma lista de distribuição em que está configurado está configurada para receber notificações. Se for, verifique a configuração da lista de distribuição para confirmar que pode receber e-mails externos. Verifique também se o seu administrador de correio pode ter alguma política configurada que possa causar este problema.
 
 ### <a name="i-did-not-receive-the-webhook-notification"></a>Não recebi a notificação do webhook?
 
@@ -110,21 +110,6 @@ Existe um limite de 100 pedidos por teste. Além disso, o teste é interrompido 
 ### <a name="how-can-i-run-a-test-with-client-certificates"></a>Como executar um teste com certificados de cliente?
 
 Atualmente, isto não é apoiado.
-
-## <a name="who-receives-the-classic-alert-notifications"></a>Quem recebe as notificações de alerta (clássicas)?
-
-Esta secção aplica-se apenas a alertas clássicos e irá ajudá-lo a otimizar as suas notificações de alerta para garantir que apenas os seus destinatários pretendidos recebem notificações. Para saber mais sobre a diferença entre [alertas clássicos](../alerts/alerts-classic.overview.md)e a experiência dos novos alertas consulte o artigo Visão geral dos [alertas.](../alerts/alerts-overview.md) Para controlar a notificação de alerta nos novos alertas, utilize [grupos de ação](../alerts/action-groups.md).
-
-* Recomendamos a utilização de destinatários específicos para notificações de alerta clássicas.
-
-* Para alertas sobre falhas de X fora de locais Y, a opção de caixa de **verificação a granel/grupo,** se ativada, envia para utilizadores com funções de administração/coadministração.  _Essencialmente, todos os_ administradores da _subscrição_ receberão notificações.
-
-* Para alertas sobre métricas de disponibilidade, a opção de caixa de **verificação a granel/grupo,** se ativada, envia para os utilizadores com funções de proprietário, colaborador ou leitor na subscrição. Com efeito, _todos os_ utilizadores com acesso à subscrição o recurso Application Insights estão no âmbito e receberão notificações. 
-
-> [!NOTE]
-> Se utilizar atualmente a opção caixa de **verificação a granel/grupo** e desativá-la, não poderá reverter a alteração.
-
-Utilize os novos alertas de experiência de alerta/quase em tempo real se necessitar de notificar os utilizadores com base nas suas funções. Com [grupos de ação,](../alerts/action-groups.md)pode configurar notificações de e-mail para os utilizadores com qualquer uma das funções de contribuinte/proprietário/leitor (não combinados como uma única opção).
 
 ## <a name="next-steps"></a>Passos seguintes
 

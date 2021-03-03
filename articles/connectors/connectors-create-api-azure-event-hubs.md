@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: conceptual
 ms.date: 04/23/2019
 tags: connectors
-ms.openlocfilehash: 198a5da63ed90937c53f7f12f3559f15100e8f19
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 65da8e07c01561577fe7eff449bfc10348c7f277
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88031428"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101716606"
 ---
 # <a name="monitor-receive-and-send-events-with-azure-event-hubs-and-azure-logic-apps"></a>Monitorizar, receber e enviar eventos com Hubs de Eventos do Azure e Azure Logic Apps
 
@@ -35,7 +35,7 @@ Para se certificar de que a sua aplicação lógica pode aceder ao seu Event Hub
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
-1. Vá ao seu espaço de *nomes*do Event Hubs, não um Centro de Eventos específico. 
+1. Vá ao seu espaço de *nomes* do Event Hubs, não um Centro de Eventos específico. 
 
 1. No menu namespace, em **Definições,** selecione **Políticas de acesso partilhado**. Em **Sinistros,** verifique se tem permissões **de Gestão** para esse espaço de nome.
 
@@ -50,7 +50,7 @@ Para se certificar de que a sua aplicação lógica pode aceder ao seu Event Hub
       ![Copy Event Hubs linha de conexão de espaço de nome](media/connectors-create-api-azure-event-hubs/find-event-hub-namespace-connection-string.png)
 
       > [!TIP]
-      > Para confirmar se a sua cadeia de ligação está associada ao espaço de nomes do Event Hubs ou a um centro de eventos específico, certifique-se de que a cadeia de ligação não tem o `EntityPath`   parâmetro. Se encontrar este parâmetro, a cadeia de ligação destina-se a uma "entidade" específica do Event Hub e não é a cadeia correta para usar com a sua aplicação lógica.
+      > Para confirmar se a sua cadeia de ligação está associada ao espaço de nomes do Event Hubs ou a um centro de eventos específico, certifique-se de que a cadeia de ligação não tem o `EntityPath` parâmetro. Se encontrar este parâmetro, a cadeia de ligação destina-se a uma "entidade" específica do Event Hub e não é a cadeia correta para usar com a sua aplicação lógica.
 
 1. Agora continue com [adicionar um gatilho de Centros de Eventos](#add-trigger) ou Adicionar uma [ação de Event Hubs](#add-action).
 

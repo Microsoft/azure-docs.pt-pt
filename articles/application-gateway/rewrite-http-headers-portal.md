@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: absha
 ms.custom: mvc
-ms.openlocfilehash: 79314db13531f1fcf518c7931d4a1aa9158a172b
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: a77476086d6100cbaf49d54791972940cca0644f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93397200"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708939"
 ---
 # <a name="rewrite-http-request-and-response-headers-with-azure-application-gateway---azure-portal"></a>Reescreva os cabeçalhos de pedido e resposta HTTP com gateway de aplicação Azure - portal Azure
 
@@ -31,17 +31,17 @@ Para configurar a reescrita do cabeçalho HTTP, é necessário completar estes p
 
 1. Crie os objetos necessários para reescrever o cabeçalho HTTP:
 
-   - **Ação de reescrita** : Usado para especificar os campos de pedido e pedido que pretende reescrever e o novo valor para os cabeçalhos. Pode associar uma ou mais condições de reescrita com uma ação de reescrita.
+   - **Ação de reescrita**: Usado para especificar os campos de pedido e pedido que pretende reescrever e o novo valor para os cabeçalhos. Pode associar uma ou mais condições de reescrita com uma ação de reescrita.
 
-   - **Condição de reescrita** : Uma configuração opcional. As condições de reescrita avaliam o conteúdo dos pedidos e respostas HTTP(S). A ação de reescrita ocorrerá se o pedido http(S) ou a resposta corresponder à condição de reescrita.
+   - **Condição de reescrita**: Uma configuração opcional. As condições de reescrita avaliam o conteúdo dos pedidos e respostas HTTP(S). A ação de reescrita ocorrerá se o pedido http(S) ou a resposta corresponder à condição de reescrita.
 
      Se associar mais do que uma condição a uma ação, a ação ocorre apenas quando todas as condições estão reunidas. Por outras palavras, a operação é uma operação lógica.
 
-   - **Regra de reescrita** : Contém combinações de condição de reescrita múltiplas/ reescrita.
+   - **Regra de reescrita**: Contém combinações de condição de reescrita múltiplas/ reescrita.
 
    - **Sequência de** regras : Ajuda a determinar a ordem pela qual as regras de reescrita executam. Esta configuração é útil quando tem várias regras de reescrita num conjunto de reescrita. Uma regra de reescrita que tem um valor de sequência de regras mais baixo corre primeiro. Se atribuir o mesmo valor de sequência de regras a duas regras de reescrita, a ordem de execução não é determinística.
 
-   - **Conjunto de reescrita** : Contém várias regras de reescrita que serão associadas a uma regra de encaminhamento de pedidos.
+   - **Conjunto de reescrita**: Contém várias regras de reescrita que serão associadas a uma regra de encaminhamento de pedidos.
 
 2. Fixe o conjunto de reescrita a uma regra de encaminhamento. A configuração de reescrita é anexada ao ouvinte de origem através da regra de encaminhamento. Quando utiliza uma regra de encaminhamento básico, a configuração de reescrita do cabeçalho está associada a um ouvinte de origem e é uma reescrita global do cabeçalho. Quando utiliza uma regra de encaminhamento baseada no caminho, a configuração de reescrita do cabeçalho é definida no mapa do caminho URL. Nesse caso, aplica-se apenas à área específica do percurso de um sítio.
 
@@ -59,7 +59,7 @@ Neste exemplo, vamos modificar um URL de reorientação reescrevendo o cabeçalh
 
 2. **Selecione Reescreve** no painel esquerdo.
 
-3. Selecione **Conjunto de reescrita** :
+3. Selecione **Conjunto de reescrita**:
 
    ![Adicione conjunto de reescrita](media/rewrite-http-headers-portal/add-rewrite-set.png)
 
@@ -83,7 +83,7 @@ Neste exemplo, vamos modificar um URL de reorientação reescrevendo o cabeçalh
 
 6. Neste exemplo, só reescrevemos o cabeçalho de localização quando contiver uma referência a azurewebsites.net. Para isso, adicione uma condição para avaliar se o cabeçalho de localização na resposta contém azurewebsites.net:
 
-   - **Selecione Adicione a condição** e, em seguida, selecione a caixa que contém as instruções para expandi-la. **If**
+   - **Selecione Adicione a condição** e, em seguida, selecione a caixa que contém as instruções para expandi-la. 
 
      ![Adicionar uma condição](media/rewrite-http-headers-portal/add-condition.png)
 
@@ -99,7 +99,7 @@ Neste exemplo, vamos modificar um URL de reorientação reescrevendo o cabeçalh
 
    - Na lista **do Operador,** selecione **igual (=)**.
 
-   - Introduza um padrão de expressão regular. Neste exemplo, vamos usar o  `(https?):\/\/.*azurewebsites\.net(.*)$` padrão.
+   - Introduza um padrão de expressão regular. Neste exemplo, vamos usar o `(https?)://.*azurewebsites.net(.*)$` padrão.
 
    - Selecione **OK**.
 
@@ -111,7 +111,7 @@ Neste exemplo, vamos modificar um URL de reorientação reescrevendo o cabeçalh
 
    - Na lista de **tipos do cabeçalho,** selecione **Response**.
 
-   - No **nome do cabeçalho** , selecione **Common header**.
+   - No **nome do cabeçalho**, selecione **Common header**.
 
    - Na lista **de cabeçalhos comuns,** selecione **Localização**.
 

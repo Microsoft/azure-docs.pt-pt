@@ -13,18 +13,16 @@ ms.tgt_pltfrm: na
 ms.date: 01/13/2021
 ms.author: jenhayes
 ms.custom: include file
-ms.openlocfilehash: 08e7463f4657b2ae5d6da1017c14226e97af7605
-ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
+ms.openlocfilehash: c625253585cc99c035852b8b9042f939284bad19
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98165744"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101750711"
 ---
 ### <a name="general-requirements"></a>Requisitos gerais
 
 * A VNet tem de estar na mesma subscrição e região da conta do Batch utilizada para criar o conjunto.
-
-* O conjunto que utiliza a VNet pode ter um máximo de 4096 nós.
 
 * A sub-rede especificada para o conjunto deve ter endereços IP não atribuídos suficientes para acomodar o número de VMs direcionadas para o conjunto; ou seja, a soma de propriedades `targetDedicatedNodes` e `targetLowPriorityNodes` do conjunto. Se a sub-rede não tiver endereços IP não atribuídos suficientes, o conjunto atribui parcialmente os nós de computação e ocorre um erro de redimensionamento.
 
@@ -67,23 +65,29 @@ Não é preciso especificar NSGs ao nível da sub-rede de rede virtual, porque o
 
 Configure o tráfego de entrada na porta 3389 (Windows) ou 22 (Linux) apenas se tiver de permitir acesso remoto aos nós de computação fora das origens. Se precisar de suporte para tarefas de multi-instâncias com determinados runtimes MPI, poderá ter de ativar as regras da porta 22 no Linux. Não é estritamente obrigatório permitir o tráfego nestas portas para que os nós de computação do conjunto podem ser utilizáveis.
 
+> [!WARNING]
+> Os endereços IP do serviço Batch podem ser alterados ao longo do tempo. Por isso, recomendamos vivamente que utilize a etiqueta de `BatchNodeManagement` serviço (ou uma variante regional) para as regras NSG indicadas nas tabelas seguintes. Evite povoar as regras NSG com endereços IP de serviço de lote específicos.
+
 **Regras de segurança de entrada**
 
 | Endereços IP de origem | Etiqueta de serviço de origem | Portas de origem | Destino | Portas de destino | Protocolo | Ação |
 | --- | --- | --- | --- | --- | --- | --- |
-| N/D | `BatchNodeManagement` [Etiqueta de serviço](../articles/virtual-network/network-security-groups-overview.md#service-tags) (se estiver a ser utilizada uma variante regional, na mesma região da sua conta do Batch) | * | Qualquer | 29876-29877 | TCP | Permitir |
+| N/D | `BatchNodeManagement`[tag de serviço](../articles/virtual-network/network-security-groups-overview.md#service-tags) (se utilizar uma variante regional, na mesma região que a sua conta Batch) | * | Qualquer | 29876-29877 | TCP | Permitir |
 | IPs de origem do utilizador para aceder remotamente aos nós de computação e/ou à sub-rede dos nós de computação para tarefas de multi-instâncias em Linux, se necessário. | N/D | * | Qualquer | 3389 (Windows), 22 (Linux) | TCP | Permitir |
-
-> [!WARNING]
-> Os endereços IP do serviço Batch podem ser alterados ao longo do tempo. Por isso, é altamente recomendado utilizar a etiqueta de `BatchNodeManagement` serviço (ou variante regional) para as regras NSG. Evite povoar as regras NSG com endereços IP de serviço de lote específicos.
 
 **Regras de segurança de saída**
 
 | Origem | Portas de origem | Destino | Etiqueta do serviço de destino | Portas de destino | Protocolo | Ação |
 | --- | --- | --- | --- | --- | --- | --- |
 | Qualquer | * | [Etiqueta de serviço](../articles/virtual-network/network-security-groups-overview.md#service-tags) | `Storage` (se estiver a ser utilizada uma variante regional, na mesma região da sua conta do Batch) | 443 | TCP | Permitir |
+| Qualquer | * | [Etiqueta de serviço](../articles/virtual-network/network-security-groups-overview.md#service-tags) | `BatchNodeManagement` (se estiver a ser utilizada uma variante regional, na mesma região da sua conta do Batch) | 443 | TCP | Permitir |
+
+A saída `BatchNodeManagement` é necessária para contactar o serviço Batch a partir dos nós de computação, tais como para tarefas de Gestor de Emprego.
 
 ### <a name="pools-in-the-cloud-services-configuration"></a>Conjuntos na configuração dos Serviços Cloud
+
+> [!WARNING]
+> As piscinas de configuração do serviço de nuvem são depreciadas. Utilize, em vez disso, piscinas de configuração de máquinas virtuais.
 
 **VNets suportadas** - Apenas VNets clássicas
 

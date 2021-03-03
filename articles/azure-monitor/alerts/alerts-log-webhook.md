@@ -7,16 +7,16 @@ services: monitoring
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.subservice: alerts
-ms.openlocfilehash: f90709431ea54a640554b642b96a63c7edac472e
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 19cf900b8e943b4f9ee69a6241ebc7ddb5a3dba6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100616731"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704400"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Ações de webhook para regras de alerta de registo
 
-[O alerta de](alerts-log.md) registo suporta [a configuração de grupos de ação webhook](../platform/action-groups.md#webhook). Neste artigo, descreveremos quais as propriedades disponíveis e como configurar um webhook JSON personalizado.
+[O alerta de](alerts-log.md) registo suporta [a configuração de grupos de ação webhook](./action-groups.md#webhook). Neste artigo, descreveremos quais as propriedades disponíveis e como configurar um webhook JSON personalizado.
 
 > [!NOTE]
 > Webhook baseado em JSON personalizado não é atualmente suportado na versão API `2020-05-01-preview`
@@ -47,7 +47,7 @@ Propriedades de ação webhook padrão e os seus nomes de parâmetros JSON perso
 | *SearchQuery* |#searchquery |Consulta de pesquisa de registo utilizada pela regra de alerta. |
 | *SearchResults* |"IncludeSearchResults": verdadeiro|Os registos devolvidos pela consulta como uma tabela JSON, limitados aos primeiros 1.000 registos. "IncludeSearchResults": o verdadeiro é adicionado numa definição personalizada de webhook JSON como uma propriedade de alto nível. |
 | *Dimensões* |"IncluirDimensionais": verdadeiro|As combinações de valor de dimensões que desencadearam o alerta como secção JSON. "IncludeDimensions": o verdadeiro é adicionado numa definição personalizada de webhook JSON como uma propriedade de alto nível. |
-| *Tipo de alerta*| #alerttype | O tipo de regra de alerta de registo configurado como [medição métrica ou número de resultados](../platform/alerts-unified-log.md#measure).|
+| *Tipo de alerta*| #alerttype | O tipo de regra de alerta de registo configurado como [medição métrica ou número de resultados](./alerts-unified-log.md#measure).|
 | *WorkspaceID* |#workspaceid |ID do seu espaço de trabalho Log Analytics. |
 | *ID da Aplicação* |#applicationid |ID da sua aplicação Application Insights. |
 | *ID da Subscrição* |#subscriptionid |ID da sua assinatura Azure usada. |
@@ -84,7 +84,7 @@ Esta secção mostra cargas de amostra para webhooks para alertas de registo. As
 A seguinte carga útil da amostra é para uma ação padrão webhook que é usada para alertas baseados em Log Analytics:
 
 > [!NOTE]
-> O valor de campo "Severidade" muda se [tiver mudado para a API de Regras De Registo atuais](../alerts/alerts-log-api-switch.md) do legado Log Analytics Alert [API](../platform/api-alerts.md).
+> O valor de campo "Severidade" muda se [tiver mudado para a API de Regras De Registo atuais](../alerts/alerts-log-api-switch.md) do legado Log Analytics Alert [API](./api-alerts.md).
 
 ```json
 {
@@ -318,8 +318,8 @@ A seguinte carga útil da amostra destina-se a uma ação personalizada do webho
 ```
 
 ## <a name="next-steps"></a>Passos seguintes
-- Saiba mais sobre [os alertas de registo em alertas Azure](../platform/alerts-unified-log.md).
+- Saiba mais sobre [os alertas de registo em alertas Azure](./alerts-unified-log.md).
 - Entenda como [gerir os alertas de registo em Azure](alerts-log.md).
-- Criar e gerir [grupos de ação em Azure.](../platform/action-groups.md)
-- Saiba mais sobre [a Aplicação Insights](../log-query/log-query-overview.md).
-- Saiba mais sobre [consultas de registo.](../log-query/log-query-overview.md) 
+- Criar e gerir [grupos de ação em Azure.](./action-groups.md)
+- Saiba mais sobre [a Aplicação Insights](../logs/log-query-overview.md).
+- Saiba mais sobre [consultas de registo.](../logs/log-query-overview.md)

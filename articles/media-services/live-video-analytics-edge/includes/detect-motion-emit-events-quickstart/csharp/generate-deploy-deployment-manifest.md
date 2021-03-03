@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 32027695f914257ef245d920f00fc1d1976fa791
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 94044e95e83742487a0d4d650814a5324f07011a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98956341"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101749969"
 ---
 O manifesto de implantação define quais os módulos que são implantados num dispositivo de borda. Também define definições de configuração para esses módulos. 
 
@@ -42,9 +42,9 @@ O módulo simulador RTSP simula uma transmissão de vídeo ao vivo utilizando um
 > Se estiver a utilizar o seu próprio dispositivo de borda em vez do previsto no nosso script de configuração, vá ao seu dispositivo de borda e execute os seguintes comandos com **direitos de administração**, para puxar e armazenar o ficheiro de vídeo de amostra utilizado para este arranque rápido:  
 
 ```
-mkdir /home/lvaadmin/samples      
-mkdir /home/lvaadmin/samples/input    
-curl https://lvamedia.blob.core.windows.net/public/camera-300s.mkv > /home/lvaadmin/samples/input/camera-300s.mkv  
-chown -R lvaadmin /home/lvaadmin/samples/  
+mkdir /home/lvaedgeuser/samples      
+mkdir /home/lvaedgeuser/samples/input    
+curl https://lvamedia.blob.core.windows.net/public/camera-300s.mkv > /home/lvaedgeuser/samples/input/camera-300s.mkv  
+chown -R lvalvaedgeuser:localusergroup /home/lvaedgeuser/samples/  
 ```
 Nesta fase, os módulos são implantados, mas nenhum gráfico de mídia está ativo.

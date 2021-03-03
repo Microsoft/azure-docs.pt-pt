@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: pafarley
-ms.openlocfilehash: 875fa2ad5a3a18c0e2582425a6528730234ac8ed
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: adcfef19de5987b9b4c54f6765589f2ae9868c11
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99585080"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101736751"
 ---
 # <a name="form-recognizer-prebuilt-invoice-model"></a>Modelo de fatura pré-construído do Reconhecimento de Formulário
 
@@ -41,7 +41,7 @@ Você precisará de uma subscrição Azure[(crie uma gratuitamente](https://azur
 
 ### <a name="input-requirements"></a>Requisitos de entrada 
 
-[!INCLUDE [input reqs](./includes/input-requirements-receipts.md)]
+[!INCLUDE [input requirements](./includes/input-requirements-receipts.md)]
 
 ## <a name="the-analyze-invoice-operation"></a>A operação de Análise de Fatura
 
@@ -74,14 +74,14 @@ A saída JSON tem 3 partes:
 
 O serviço de Fatura extrairá o texto, as tabelas e 26 campos de fatura. Seguem-se os campos extraídos de uma fatura na resposta de saída JSON (a saída abaixo utiliza esta [fatura de amostra)](./media/sample-invoice.jpg)  
 
-|Nome| Tipo | Description | Texto | Valor (saída padronizada) |
+|Nome| Tipo | Descrição | Texto | Valor (saída padronizada) |
 |:-----|:----|:----|:----| :----|
 | CustomerName | string | Cliente a ser faturado | Microsoft Corp |  |
 | CustomerId | string | ID de referência para o cliente | CID-12345 |  |
 | Pedido de Compra | string | Um número de referência de pedido de compra | PO-3333 | |  |
 | InvoiceId | string | ID para esta fatura específica (muitas vezes "Número de fatura") | INV-100 | |  |
-| DataDaFatura | data | Data em que a fatura foi emitida | 11/15/2019 | 
-| DueDate | data | O pagamento da data desta fatura é devido | 12/15/2019 | 2019-12-15 | 2019-11-15 |
+| DataDaFatura | data | Data em que a fatura foi emitida | 11/15/2019 | 2019-11-15 |
+| DueDate | data | O pagamento da data desta fatura é devido | 12/15/2019 | 2019-12-15 |
 | Nome do fornecedor | string | Fornecedor que criou esta fatura | CONTOSO LTD. | |
 | Pagamento de Fornecedores | string | Endereço de correio para o Fornecedor | 123 456th St New York, NY, 10001 | |
 | FornecedorAddressRecipient | string | Nome associado ao VendorAddress | Sede do Contoso | |

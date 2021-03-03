@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: quickstart
 ms.date: 02/17/2021
 ms.author: jushiman
-ms.openlocfilehash: 6e0e582ed37230ba3f379f193a229cfec06f066c
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: d00a9c6012da7ad8d1566ef82bce628c7d47e7a7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101648038"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101687001"
 ---
 # <a name="quickstart-enable-azure-automanage-for-virtual-machines-in-the-azure-portal"></a>Quickstart: Ativar a auto-produção do Azure para máquinas virtuais no portal Azure
 
@@ -43,11 +43,11 @@ Inicie sessão no [portal do Azure](https://aka.ms/AutomanagePortal-Ignite21).
 
 3. **Selecione Começar**.
 
-    :::image type="content" source="media\quick-create-virtual-machine-portal\VMManage-GetStarted.png" alt-text="Começa o VM único.":::
+    :::image type="content" source="media\quick-create-virtual-machine-portal\vmmanage-getstartedbutton.png" alt-text="Começa o VM único.":::
 
 4. Escolha as definições de auto-produção (Ambiente, Preferências, Conta de Auto-Produção) e **acerte ativar**.
 
-    :::image type="content" source="media\quick-create-virtual-machine-portal\VMManage-Enable.png" alt-text="Ative em VM único.":::
+    :::image type="content" source="media\quick-create-virtual-machine-portal\vmmanage-enablepane.png" alt-text="Ative em VM único.":::
 
 ## <a name="enable-automanage-for-multiple-vms"></a>Ativar a auto-mutilação para vários VMs
 
@@ -64,42 +64,39 @@ Inicie sessão no [portal do Azure](https://aka.ms/AutomanagePortal-Ignite21).
 
     :::image type="content" source="media\quick-create-virtual-machine-portal\existing-vm-select-machine.png" alt-text="Selecione vM existente da lista de VMs disponíveis.":::
 
-4. No **perfil de Configuração,** clique **em procurar e altere perfis e preferências.**
+4. Em **Ambiente**, selecione o seu tipo de ambiente: **Dev/Test** ou **Production**. 
 
-    :::image type="content" source="media\quick-create-virtual-machine-portal\existing-vm-quick-create.png" alt-text="Navegue e altere perfis e preferências.":::
+    :::image type="content" source="media\quick-create-virtual-machine-portal\existing-vm-quick-create.png" alt-text="Selecione ambientes.":::
 
-5. No **perfil de configuração Select + preferências** lâmina:
-    1. Selecione um perfil à esquerda: *Dev/Teste* para testes, *Prod* para produção.
-    1. Clique no botão **Seleção.**
+   Clique **em Comparar Detalhes do Ambiente** para ver as diferenças entre os ambientes.
+    1. Selecione um ambiente sobre o dropdown: *Dev/Test* para testes, *Produção* para produção.
+    1. Clique no botão **OK.**
 
-    :::image type="content" source="media\quick-create-virtual-machine-portal\browse-production-profile.png" alt-text="Navegue no perfil de configuração de produção.":::
+    :::image type="content" source="media\quick-create-virtual-machine-portal\browse-production-profile.png" alt-text="Navegue pelo ambiente de produção.":::
+
+5. Por padrão, a preferência **Azure Best Practices** é selecionada para as preferências de configuração. Para alterar isto, crie uma nova preferência ou selecione uma existente. 
+
+    :::image type="content" source="media\quick-create-virtual-machine-portal\create-preference.png" alt-text="Criar preferência.":::
 
 6. Clique no botão **Ativar**.
 
 
 ## <a name="enable-automanage-for-a-new-vm"></a>Permitir a auto-produção para um novo VM
 
-Inscreva-se [aqui](https://aka.ms/AutomanagePortal-Ignite21) no portal Azure para criar um novo VM e ativar a auto-gestão.
+Inscreva-se [aqui](https://aka.ms/AzureAutomanagePreview) no portal Azure para criar um novo VM e ativar a auto-gestão.
 
-1. Selecione **Criar um recurso** no canto superior esquerdo do portal do Azure.
-
-2. Na caixa de pesquisa acima da lista de recursos do Azure Marketplace, procure e selecione a imagem que deseja usar, em seguida, escolha **Criar**.
+1. Preencha o separador Básicos com os seus **dados** VM.
 
 > [!NOTE]
-> Verifique as [versões de distros e](automanage-linux.md#supported-linux-distributions-and-versions) servidor do Windows suportadas por [auto-gestão](automanage-windows-server.md#supported-windows-server-versions).
+> Verifique as [regiões apoiadas por](automanage-virtual-machines#supported-regions) auto-gestão e as [versões de distros](automanage-linux.md#supported-linux-distributions-and-versions) e servidor do Windows suportadas por [auto-gestão](automanage-windows-server.md#supported-windows-server-versions).
 
-3. Preencha o separador Básicos com os seus **dados** VM.
+2. Navegue no separador **Gestão** e escolha o seu **Ambiente de Auto-gestão.**
 
-> [!NOTE]
-> Verifique as [regiões apoiadas pela](automanage-virtual-machines#supported-regions)Automanagem.
+    :::image type="content" source="media\quick-create-virtual-machine-portal\vmcreate-managementtab.png" alt-text="Ativar a auto-gestão no Separador de Gestão.":::
 
-4. Navegue no separador **Gestão** e escolha o seu **Ambiente de Auto-gestão.**
+3. Mantenha as restantes predefinições e, em seguida, selecione o botão **Rever + criar** na parte inferior da página.
 
-    :::image type="content" source="media\quick-create-virtual-machine-portal\VMCreate-Management-Tab.png" alt-text="Ativar a auto-gestão no Separador de Gestão.":::
-
-5. Mantenha as restantes predefinições e, em seguida, selecione o botão **Rever + criar** na parte inferior da página.
-
-6. Quando vir a mensagem que a validação passou, **selecione Criar**.
+4. Quando vir a mensagem que a validação passou, **selecione Criar**.
 
 ## <a name="disable-automanage-for-vms"></a>Desativar a auto-mutilação para VMs
 
@@ -131,4 +128,4 @@ Neste arranque rápido, permitiu que a Azure Automanage para VMs.
 Descubra como pode criar e aplicar preferências personalizadas ao ativar a auto-produção na sua máquina virtual.
 
 > [!div class="nextstepaction"]
-> [Azure Automanagem para VMs - perfil de configuração personalizada](virtual-machines-custom-preferences.md)
+> [Azure Automanagem para VMs - Preferências de configuração personalizada](virtual-machines-custom-preferences.md)

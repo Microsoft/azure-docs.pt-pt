@@ -4,14 +4,14 @@ description: Aprenda a criar um cluster AKS com nós confidenciais e implemente 
 author: agowdamsft
 ms.service: container-service
 ms.topic: quickstart
-ms.date: 2/8/2020
+ms.date: 2/25/2020
 ms.author: amgowda
-ms.openlocfilehash: 866c8340cf9c16d768f4035326aa2ec52dbf1401
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 51b0813849236d9335d1482019f740fc8b23749f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100653368"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703291"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-with-confidential-computing-nodes-dcsv2-using-azure-cli"></a>Quickstart: Implementar um cluster Azure Kubernetes Service (AKS) com nós de computação confidencial (DCsv2) utilizando O Azure CLI
 
@@ -26,52 +26,19 @@ Neste quickstart, você vai aprender a implementar um cluster Azure Kubernetes S
 
 ### <a name="confidential-computing-node-features-dcxs-v2"></a>Características confidenciais do nó de computação (DC <x> s-v2)
 
-1. Nóiro operário Linux suportando apenas contentores Linux
+1. Nóiro operário linux que suportam contentores Linux
 1. Geração 2 VM com Ubuntu 18.04 Nó de Máquinas Virtuais
 1. CPU baseado em Intel SGX com memória de cache de página encriptada (EPC). Leia mais [aqui](./faq.md)
 1. Suportando a versão 1.16+ de Kubernetes
-1. Controlador Intel SGX DCAP Pré-instalado nos nós AKS. Leia mais [aqui](./faq.md)
+1. Intel SGX DCAP Driver pré-instalado nos nós AKS. Leia mais [aqui](./faq.md)
 
 ## <a name="deployment-prerequisites"></a>Pré-requisitos da implementação
 O tutorial de implantação requer o seguinte:
 
 1. Uma subscrição ativa do Azure. Se não tiver uma subscrição do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar
 1. Versão Azure CLI 2.0.64 ou posteriormente instalada e configurada na sua máquina de implantação (Corra `az --version` para encontrar a versão. Se precisar de instalar ou atualizar, consulte [instalar o Azure CLI](../container-registry/container-registry-get-started-azure-cli.md)
-1. Azure [aks-preview versão](https://github.com/Azure/azure-cli-extensions/tree/master/src/aks-preview) mínima 0.5.0
 1. No mínimo, seis núcleos **<x> DC s-v2** disponíveis na sua subscrição para utilização. Por predefinição, a quota de núcleos VM para a computação confidencial por assinatura Azure 8 núcleos. Se planeia providenciar um cluster que exija mais de 8 núcleos, siga [estas](../azure-portal/supportability/per-vm-quota-requests.md) instruções para aumentar o bilhete de aumento de quota
 
-## <a name="cli-based-preparation-steps-required-for-add-on-in-preview---optional-but-recommended"></a>Etapas de preparação baseadas em CLI (necessárias para o addon em pré-visualização - opcional, mas recomendada)
-Siga as instruções abaixo para ativar o addon de computação confidencial em AKS.
-
-### <a name="step-1-installing-the-cli-prerequisites"></a>Passo 1: Instalação dos pré-requisitos do CLI
-
-Para instalar a extensão aks-preview 0.5.0 ou posterior, utilize os seguintes comandos Azure CLI:
-
-```azurecli-interactive
-az extension add --name aks-preview
-az extension list
-```
-Para atualizar a extensão CLI de pré-visualização aks, utilize os seguintes comandos Azure CLI:
-
-```azurecli-interactive
-az extension update --name aks-preview
-```
-### <a name="step-2-azure-confidential-computing-addon-feature-registration-on-azure"></a>Passo 2: Registo de recurso de addon de computação confidencial Azure no Azure
-Registar o AKS-ConfidentialComputingAddon na Assinatura Azure. Esta funcionalidade irá adicionar o plugin do dispositivo SGX, como discutido em detalhes [aqui:](./confidential-nodes-aks-overview.md#confidential-computing-add-on-for-aks)
-1. Plugin do controlador de dispositivo SGX
-```azurecli-interactive
-az feature register --name AKS-ConfidentialComputingAddon --namespace Microsoft.ContainerService
-```
-Pode levar vários minutos para que o estado apareça como Registado. Pode verificar o estado de registo utilizando o comando 'az feature list'. Esta inscrição de funcionalidade é feita apenas uma vez por subscrição. Se este foi registado anteriormente, pode saltar o passo acima:
-
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKS-ConfidentialComputingAddon')].{Name:name,State:properties.state}"
-```
-Quando o estado aparecer como registado, reaprote o registo do fornecedor de recursos Microsoft.ContainerService utilizando o comando "registo do fornecedor az":
-
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
 ## <a name="creating-new-aks-cluster-with-confidential-computing-nodes-and-add-on"></a>Criação de novo cluster AKS com nódoas de computação confidencial e add-on
 Siga as instruções abaixo para adicionar nós com capacidade de computação confidencial com suplemento.
 

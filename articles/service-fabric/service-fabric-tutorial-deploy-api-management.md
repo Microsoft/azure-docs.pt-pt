@@ -4,12 +4,12 @@ description: Saiba como começar rapidamente com a Azure API Management e encami
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: f1ae658ac4944f8d39dc11769669d32958fd14f4
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 681a1c5241743a0164d83d73753efa0b6c446109
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99491287"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101735595"
 ---
 # <a name="integrate-api-management-with-service-fabric-in-azure"></a>Integrar a Gestão da API com tecido de serviço em Azure
 
@@ -277,7 +277,7 @@ Agora, pode experimentar enviar um pedido para o serviço de back-end do Service
 
 Um cluster é constituído por outros recursos do Azure, além do próprio recurso do cluster. A forma mais simples de eliminar o cluster e todos os recursos que consome é eliminando o grupo de recursos.
 
-Faça o súmis no Azure e selecione o ID de subscrição com o qual pretende remover o cluster.  Pode encontrar o ID da subscrição ao iniciar sessão no [portal do Azure](https://portal.azure.com). Elimine o grupo de recursos e todos os recursos de cluster utilizando o [cmdlet Remove-AzResourceGroup](/en-us/powershell/module/az.resources/remove-azresourcegroup).
+Faça o súmis no Azure e selecione o ID de subscrição com o qual pretende remover o cluster.  Pode encontrar o ID da subscrição ao iniciar sessão no [portal do Azure](https://portal.azure.com). Elimine o grupo de recursos e todos os recursos de cluster utilizando o [cmdlet Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup).
 
 ```powershell
 $ResourceGroupName = "sfclustertutorialgroup"

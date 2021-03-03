@@ -3,12 +3,12 @@ title: Monitorar recursos delegados à escala
 description: Aprenda a utilizar eficazmente os Registos do Monitor Azure de forma escalável através dos inquilinos do cliente que está a gerir.
 ms.date: 02/11/2021
 ms.topic: how-to
-ms.openlocfilehash: aadd14bb3e4aad61fb2afc0735b5714deedfe301
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 98fd984492276dbdfbc2f8001bca19560764a2a7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100593111"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101742590"
 ---
 # <a name="monitor-delegated-resources-at-scale"></a>Monitorar recursos delegados à escala
 
@@ -49,7 +49,7 @@ Depois de implementar as suas políticas, os dados serão registados nos espaço
 
 Pode ver [alertas](../../azure-monitor/alerts/alerts-overview.md) para as subscrições delegadas nos inquilinos do cliente que gere.
 
-A partir do seu inquilino gerente, pode [criar, visualizar e gerir alertas de registo de atividades](../../azure-monitor/platform/alerts-activity-log.md) no portal Azure ou através de APIs e ferramentas de gestão.
+A partir do seu inquilino gerente, pode [criar, visualizar e gerir alertas de registo de atividades](../../azure-monitor/alerts/alerts-activity-log.md) no portal Azure ou através de APIs e ferramentas de gestão.
 
 Para atualizar os alertas automaticamente em vários clientes, utilize uma consulta [de Gráfico de Recursos Azure](../../governance/resource-graph/overview.md) para filtrar alertas. Pode fixar a consulta no seu painel de instrumentos e selecionar todos os clientes e subscrições apropriados. Por exemplo, a consulta abaixo apresentará alertas de severidade 0 e 1, refrescantes a cada 60 minutos.
 

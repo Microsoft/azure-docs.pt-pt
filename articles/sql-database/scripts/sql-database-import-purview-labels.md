@@ -10,12 +10,12 @@ author: davidtrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 02/17/2021
-ms.openlocfilehash: d202a931e7af1dc212e3ab688580fd38c64dbdcb
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 2eab7c535ff0c68da772e8a45ead12420734279c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100653752"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101714906"
 ---
 # <a name="classify-your-azure-sql-data-using-azure-purview-labels"></a>Classifique os seus dados Azure SQL usando etiquetas Azure Purview
 [!INCLUDE[appliesto-sqldb-asa](../../azure-sql/includes/appliesto-sqldb-asa.md)]
@@ -254,6 +254,6 @@ foreach ($referredEntity in $referredEntities.psobject.Properties.GetEnumerator(
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para obter mais informações sobre o Azure PowerShell, veja [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/).
+Para obter mais informações sobre o Azure PowerShell, veja [Documentação do Azure PowerShell](/powershell/).
 
-Para obter mais informações sobre o Azure Purview, consulte [a documentação do Azure Purview](https://docs.microsoft.com/azure/purview/).
+Para obter mais informações sobre o Azure Purview, consulte [a documentação do Azure Purview](../../purview/index.yml).

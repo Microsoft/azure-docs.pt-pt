@@ -3,15 +3,15 @@ title: Resolução de problemas Apache Kafka para Soluções de parceiros Conflu
 description: Este artigo fornece informações sobre resolução de problemas e perguntas frequentes (FAQ) para Confluent Cloud on Azure.
 ms.service: partner-services
 ms.topic: conceptual
-ms.date: 01/15/2021
+ms.date: 02/18/2021
 author: tfitzmac
 ms.author: tomfitz
-ms.openlocfilehash: cbf166086a489165e8100dafd7c212ab6c298b41
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: b1e4b06fcbecf11d7d5f58a583fe3bd6643d99ec
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98253529"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101709402"
 ---
 # <a name="troubleshooting-apache-kafka-for-confluent-cloud-solutions"></a>Resolução de problemas Apache Kafka para soluções Cloud Confluent
 
@@ -28,6 +28,16 @@ Para encontrar a oferta no Mercado Azure, utilize os seguintes passos:
 1. Selecione o azulejo da aplicação.
 
 Se a oferta não for apresentada, contacte o [suporte da Confluent](https://support.confluent.io). Sua identificação do inquilino do Azure Ative Directory deve estar na lista de inquilinos permitidos. Para aprender a encontrar a identificação do seu inquilino, veja [como encontrar o seu ID do Azure Ative Directory.](../../active-directory/fundamentals/active-directory-how-to-find-tenant.md)
+
+## <a name="purchase-errors"></a>Erros de compra
+
+* A compra falha porque um cartão de crédito válido não está ligado à subscrição do Azure ou um método de pagamento não está associado à subscrição.
+
+  Utilize uma subscrição Azure diferente. Ou, adicione ou atualize o cartão de crédito ou o método de pagamento para a subscrição. Para obter mais informações, consulte [a atualização do método de crédito e pagamento.](../../cost-management-billing/manage/change-credit-card.md)
+
+* A subscrição da EA não permite compras no Marketplace.
+
+  Use uma subscrição diferente. Ou, verifique se a subscrição da EA está ativada para a compra do Marketplace. Para mais informações, consulte [as compras do Enable Marketplace](../../cost-management-billing/manage/ea-azure-marketplace.md#enabling-azure-marketplace-purchases). Se essas opções não resolverem o problema, contacte o [Suporte Confluente](https://support.confluent.io).
 
 ## <a name="conflict-error"></a>Erro de conflito
 

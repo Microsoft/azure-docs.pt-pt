@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com bónus Microsoft Docs'
+title: 'Tutorial: Integração do Azure Ative Directory com bónus | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o Bonusly.
 services: active-directory
 author: jeevansd
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
-ms.openlocfilehash: d83a2bc4723686920b487998a2040e5be02d4e1a
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: e93d03ac9ec404a18b480a0cd1bfe289944b60d8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92456964"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101689118"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bonusly"></a>Tutorial: Integração do Azure Ative Directory com bónus
 
@@ -175,7 +175,7 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
 Nesta secção, você permite que Britta Simon use Azure single sign-on, concedendo acesso a Bonusly.
 
-1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações**e, em seguida, selecione **Bonusly**.
+1. No portal Azure, selecione **Aplicações empresariais**, selecione **Todas as aplicações** e, em seguida, selecione **Bonusly**.
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
@@ -232,7 +232,7 @@ Para permitir que os utilizadores Azure AD inscrevam-se na Bonusly, devem ser ad
 
     b. Na caixa de texto **do último nome,** insira o último nome de utilizador como **Simon**.
 
-    c. Na caixa de sms **do Email,** insira o e-mail do utilizador como `brittasimon\@contoso.com` .
+    c. Na caixa de sms **do Email,** insira o e-mail do utilizador como `brittasimon@contoso.com` .
 
     d. Clique em **Guardar**.
 

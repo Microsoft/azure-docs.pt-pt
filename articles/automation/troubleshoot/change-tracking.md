@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 02/15/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: 9fe53a343a9f6675519b60d37d077886adaf8a9d
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: dd027f94edad580836f0afb8c7293c81ca77605a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100651170"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723831"
 ---
 # <a name="troubleshoot-change-tracking-and-inventory-issues"></a>Resolver problemas do Controlo de Alterações e Inventário
 
@@ -34,7 +34,7 @@ A máquina já foi implantada noutro espaço de trabalho para o Change Tracking.
 
 ### <a name="resolution"></a>Resolução
 
-1. Certifique-se de que a sua máquina está a reportar para o espaço de trabalho correto. Para obter orientações sobre como verificar isto, consulte [verificar a conectividade do agente com o Azure Monitor](../../azure-monitor/platform/agent-windows.md#verify-agent-connectivity-to-azure-monitor). Certifique-se também de que este espaço de trabalho está ligado à sua conta Azure Automation. Para confirmar, vá à sua conta de Automação e selecione **espaço de trabalho linked** under Related **Resources**.
+1. Certifique-se de que a sua máquina está a reportar para o espaço de trabalho correto. Para obter orientações sobre como verificar isto, consulte [verificar a conectividade do agente com o Azure Monitor](../../azure-monitor/agents/agent-windows.md#verify-agent-connectivity-to-azure-monitor). Certifique-se também de que este espaço de trabalho está ligado à sua conta Azure Automation. Para confirmar, vá à sua conta de Automação e selecione **espaço de trabalho linked** under Related **Resources**.
 
 1. Certifique-se de que as máquinas aparecem no espaço de trabalho Do Log Analytics ligado à sua conta Automation. Executar a seguinte consulta no espaço de trabalho Log Analytics.
 

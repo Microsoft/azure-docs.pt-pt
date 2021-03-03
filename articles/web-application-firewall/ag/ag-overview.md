@@ -8,12 +8,12 @@ ms.service: web-application-firewall
 ms.date: 12/04/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 2de8a47b841a4a5c82aaeb92419ec3d9714268ea
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 48d4fe254f51dde932f04ef791e1109a0ced07ff
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879432"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101701625"
 ---
 # <a name="what-is-azure-web-application-firewall-on-azure-application-gateway"></a>O que é Azure Web Application Firewall no Gateway de aplicações Azure?
 
@@ -173,7 +173,7 @@ Com o livro de eventos de firewall Azure WAF incorporado, você pode obter uma v
 
 #### <a name="azure-monitor-workbook-for-waf"></a>Livro de trabalho do Monitor Azure para WAF
 
-Este livro permite visualizar personalizados eventos WAF relevantes para a segurança em vários painéis filtrantes. Funciona com todos os tipos de WAF, incluindo Porta de Aplicação, Porta Frontal e CDN, e pode ser filtrado com base no tipo WAF ou numa instância waf específica. Importar através do modelo ARM ou modelo de galeria. Para implementar este livro, consulte [o Livro de Trabalho da WAF](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20WAF/Azure%20Monitor%20Workbook).
+Este livro permite visualizar personalizados eventos WAF relevantes para a segurança em vários painéis filtrantes. Funciona com todos os tipos de WAF, incluindo Porta de Aplicação, Porta Frontal e CDN, e pode ser filtrado com base no tipo WAF ou numa instância waf específica. Importar através do modelo ARM ou modelo de galeria. Para implementar este livro, consulte [o Livro de Trabalho da WAF](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20Firewall/Workbook%20-%20Azure%20Firewall%20Monitor%20Workbook).
 
 #### <a name="logging"></a>Registo
 
@@ -225,7 +225,7 @@ Os modelos de preços são diferentes para os WAF_v1 e WAF_v2 SKUs. Consulte a p
 
 Para saber quais as novidades com o Azure Web Application Firewall, consulte as atualizações do [Azure](https://azure.microsoft.com/updates/?category=networking&query=Web%20Application%20Firewall).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Saiba mais sobre [as regras geridas pela WAF](application-gateway-crs-rulegroups-rules.md)
 - Saiba mais sobre [As Regras Personalizadas](custom-waf-rules-overview.md)

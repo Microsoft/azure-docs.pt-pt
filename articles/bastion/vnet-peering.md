@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 12/09/2020
 ms.author: cherylmc
-ms.openlocfilehash: 472261666c86b666efd09c7217d12e5a795a50d9
-ms.sourcegitcommit: 5db975ced62cd095be587d99da01949222fc69a3
+ms.openlocfilehash: f72a3739fac1e7d6afdafd2676ea6fcefe847b2a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97094905"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101710588"
 ---
 # <a name="vnet-peering-and-azure-bastion-preview"></a>VNet peering e Azure Bastion (Pré-visualização)
 
@@ -40,9 +40,15 @@ Esta figura mostra a arquitetura de um destacamento de Azure Bastion num modelo 
 **Passos:**
 
 1. Ligue-se ao portal Azure utilizando qualquer navegador HTML5.
-1. Selecione a máquina virtual para ligar.
-1. Azure Bastion é detetado perfeitamente através do VNet esprevado.
-1. Com um único clique, a sessão RDP/SSH abre no navegador. Para os limites de sessão simultânea de RDP e SSH, consulte as [sessões de RDP e SSH](bastion-faq.md#limits).
+2. Certifique-se de que **leu** o acesso ao VM alvo e ao VNet. Além disso, verifique no IAM que leu o acesso aos seguintes recursos:
+   * Papel do leitor na máquina virtual.
+   * Função do leitor no NIC com IP privado da máquina virtual.
+   * Papel do leitor no recurso Azure Bastion.
+   * Função do leitor na Rede Virtual (Não é necessária se não houver rede virtual com olhos).
+3. Para ver Bastion no menu de entrega do **Connect,** tem de selecionar os subs a que tem acesso na **subscrição > subscrição global.**
+4. Selecione a máquina virtual para ligar.
+5. Azure Bastion é detetado perfeitamente através do VNet esprevado.
+6. Com um único clique, a sessão RDP/SSH abre no navegador. Para os limites de sessão simultânea de RDP e SSH, consulte as [sessões de RDP e SSH](bastion-faq.md#limits).
 
   :::image type="content" source="../../includes/media/bastion-vm-rdp/connect-vm.png" alt-text="Ligar":::
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/04/2018
-ms.openlocfilehash: 29393126f94d77dbced0ef896616b945443184fd
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 8f6c35fd1bb6b46f512f9245d8e3d41df428692b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100620011"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101733946"
 ---
 # <a name="parse-text-data-in-azure-monitor-logs"></a>Parse os dados de texto nos registos do Azure Monitor
 Alguns dados de registo recolhidos pelo Azure Monitor incluirão várias informações numa única propriedade. Analisar estes dados em múltiplas propriedades facilita a sua utilização em consultas. Um exemplo comum é um [log personalizado](../agents/data-sources-custom-logs.md) que recolhe uma entrada de registo inteira com vários valores numa única propriedade. Ao criar propriedades separadas para os diferentes valores, pode pesquisar e agregar em cada um.
@@ -188,4 +188,4 @@ MyCustomCSVLog
 
 
 ## <a name="next-steps"></a>Passos seguintes
-* Saiba mais [sobre consultas de registo](../log-query/log-query-overview.md) para analisar os dados recolhidos a partir de fontes de dados e soluções.
+* Saiba mais [sobre consultas de registo](./log-query-overview.md) para analisar os dados recolhidos a partir de fontes de dados e soluções.

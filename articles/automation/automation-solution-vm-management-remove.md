@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/04/2021
 ms.topic: conceptual
-ms.openlocfilehash: bed9cd23abc96c51cad0a13e81ee0b64f0d433b6
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.openlocfilehash: a201274bf0c06382da790dd051bf5023337970b8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100012321"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723848"
 ---
 # <a name="remove-startstop-vms-during-off-hours-from-automation-account"></a>Remover VMs de início/paragem durante as horas fora da conta de Automação
 
@@ -94,7 +94,7 @@ Enquanto a informação é verificada e a conta é eliminada, pode acompanhar o 
 
 ## <a name="delete-the-feature"></a>Eliminar a funcionalidade
 
-Para eliminar VMs de início/paragem durante o horário de folga da sua conta Demôm automação, execute os seguintes passos. A conta de automação e o espaço de trabalho Log Analytics não são eliminados como parte deste processo. Se não quiser manter o espaço de trabalho do Log Analytics, deve eliminá-lo manualmente. Para obter mais informações sobre a eliminação do seu espaço de trabalho, consulte [Delete e recupere o espaço de trabalho do Azure Log Analytics.](../azure-monitor/platform/delete-workspace.md)
+Para eliminar VMs de início/paragem durante o horário de folga da sua conta Demôm automação, execute os seguintes passos. A conta de automação e o espaço de trabalho Log Analytics não são eliminados como parte deste processo. Se não quiser manter o espaço de trabalho do Log Analytics, deve eliminá-lo manualmente. Para obter mais informações sobre a eliminação do seu espaço de trabalho, consulte [Delete e recupere o espaço de trabalho do Azure Log Analytics.](../azure-monitor/logs/delete-workspace.md)
 
 1. Navegue para a sua conta de Automação e selecione **espaço de trabalho linked** under Related **resources**.
 

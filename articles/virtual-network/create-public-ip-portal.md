@@ -8,12 +8,12 @@ ms.subservice: ip-services
 ms.topic: how-to
 ms.date: 02/22/2021
 ms.author: allensu
-ms.openlocfilehash: 5c5650d896442f10846e16903a1231010d032a44
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: e6b7648188e2307da4ef40e0ab3daf6201f9d89d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101675225"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101694874"
 ---
 # <a name="create-a-public-ip-address-using-the-azure-portal"></a>Criar um endereço IP público utilizando o portal Azure
 
@@ -74,7 +74,6 @@ Nesta secção, crie um endereço IP público básico chamado **myBasicPublicIP*
     | Versão IP              | Selecione IPv4                 |    
     | SKU                     | Selecione **Basic**         |
     | Name                    | Insira *myBasicPublicIP*          |
-    | Preferência de encaminhamento      | Deixe o padrão da **rede Microsoft**. </br> Para obter mais informações sobre a preferência de encaminhamento, consulte [o que é a preferência de encaminhamento (pré-visualização)?](./routing-preference-overview.md) |
     | Atribuição de endereços IP   | Selecione **Estática** (ver nota abaixo)                                     |
     | Tempo de inatividade (minutos)  | Deixe o padrão de **4**.       |
     | Etiqueta de nome DNS          | Deixe o valor em branco    |
@@ -82,7 +81,7 @@ Nesta secção, crie um endereço IP público básico chamado **myBasicPublicIP*
     | Grupo de recursos          | **Selecione Criar novo,** insira **o myResourceGroup**. </br> Selecione **OK**. |
     | Localização                | Selecione **East US 2**      |
 
-:::image type="content" source="./media/create-public-ip-portal/create-standard-ip.png" alt-text="Criar endereço IP padrão no portal Azure" border="false":::
+:::image type="content" source="./media/create-public-ip-portal/create-basic-ip.png" alt-text="Criar endereço IP padrão no portal Azure" border="false":::
 
 Se for aceitável que o endereço IP seja alterado ao longo do tempo, a atribuição de IP **dinâmico** pode ser selecionada.
 

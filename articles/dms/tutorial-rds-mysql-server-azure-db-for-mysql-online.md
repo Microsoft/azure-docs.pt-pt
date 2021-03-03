@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 06/09/2020
-ms.openlocfilehash: 377341cc76e1a37d493d66790a1d6d05d010dd5c
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 3d200cd9bccecf03f5313058189e134082a1a357
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101096169"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101742624"
 ---
 # <a name="tutorial-migrate-rds-mysql-to-azure-database-for-mysql-online-using-dms"></a>Tutorial: Migrar o RDS MySQL para a Base de Dados do Azure para MySQL online com o DMS
 

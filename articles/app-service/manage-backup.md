@@ -5,12 +5,12 @@ ms.assetid: 6223b6bd-84ec-48df-943f-461d84605694
 ms.topic: article
 ms.date: 10/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: 933ac96d0cf98e0068575e5a70b0f42a157eb611
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7c00205e2931400caa64f35db962d94a732f2524
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91827465"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101714498"
 ---
 # <a name="back-up-your-app-in-azure"></a>Efetuar cópia de segurança da sua aplicação no Azure
 A funcionalidade de Backup e Restauro no [Azure App Service](overview.md) permite-lhe criar facilmente cópias de segurança de aplicações manualmente ou em horário. Pode configurar as cópias de segurança para serem mantidas até um tempo indefinido. Pode restaurar a aplicação para uma imagem instantânea de um estado anterior, sobressacando a aplicação existente ou restaurando para outra aplicação.
@@ -44,10 +44,10 @@ As seguintes soluções de base de dados são suportadas com recurso de backup:
 * A funcionalidade de Backup e Restauro requer que o plano de Serviço de Aplicações esteja no nível **Standard,** **Premium** ou **Isolado.** Para obter mais informações sobre o escalonamento do seu plano de Serviço de Aplicações para utilizar um nível mais elevado, consulte [Scale up uma aplicação em Azure](manage-scale-up.md). **Os** níveis premium e **isolado** permitem um maior número de back ups diários do que o nível **Standard.**
 * Precisa de uma conta de armazenamento Azure e de um recipiente na mesma subscrição que a aplicação que pretende fazer. Para obter mais informações sobre as contas de armazenamento da Azure, consulte [a visão geral da conta de armazenamento Azure](../storage/common/storage-account-overview.md).
 * As cópias de segurança podem chegar a 10 GB de conteúdo de aplicações e bases de dados. Se o tamanho da cópia de segurança exceder este limite, obtém-se um erro.
-* As cópias de segurança da Base de Dados Azure ativada por TLS para o MySQL não são suportadas. Se um backup estiver configurado, receberá cópias de segurança falhadas.
-* Não são suportadas cópias de segurança da Base de Dados Azure ativada por TLS para PostgreSQL. Se um backup estiver configurado, receberá cópias de segurança falhadas.
+* As cópias de segurança da Base de Dados Azure ativada por TLS para o MySQL não são suportadas. Se uma cópia de segurança estiver configurada, encontrará falhas de backup.
+* Não são suportadas cópias de segurança da Base de Dados Azure ativada por TLS para PostgreSQL. Se uma cópia de segurança estiver configurada, encontrará falhas de backup.
 * As bases de dados MySQL in-app são automaticamente apoiadas sem qualquer configuração. Se escamar configurações manuais para bases de dados MySQL na aplicação, como adicionar cordas de ligação, as cópias de segurança podem não funcionar corretamente.
-* A utilização de uma conta de armazenamento ativada por firewall, uma vez que o destino das suas cópias de segurança não é suportado. Se um backup estiver configurado, receberá cópias de segurança falhadas.
+* A utilização de uma conta de armazenamento ativada por firewall, uma vez que o destino das suas cópias de segurança não é suportado. Se uma cópia de segurança estiver configurada, encontrará falhas de backup.
 
 
 <a name="manualbackup"></a>
@@ -70,18 +70,18 @@ As seguintes soluções de base de dados são suportadas com recurso de backup:
 
 3. Na página **de Configuração de Cópia de Segurança,** clique em **Armazenamento não configurado** para configurar uma conta de armazenamento.
 
-    :::image type="content" source="./media/manage-backup/configure-storage.png" alt-text="Screenshot de um banner com uma mensagem para atualizar o plano do Serviço de Aplicações para aceder à funcionalidade de Backup e Restaurar.":::
+    :::image type="content" source="./media/manage-backup/configure-storage.png" alt-text="Screenshot da secção de armazenamento de cópia de segurança com a definição de Armazenamento não configurada selecionada.":::
 
 4. Escolha o seu destino de reserva selecionando uma **Conta de Armazenamento** e Um **Recipiente.** A conta de armazenamento deve pertencer à mesma subscrição que a aplicação que pretende fazer. Se desejar, pode criar uma nova conta de armazenamento ou um novo recipiente nas respetivas páginas. Quando terminar, clique em **Select**.
 
 5. Na página **de Configuração de Cópia de Segurança** que ainda está aberta, pode configurar a Base de **Dados de Backup,** em seguida, selecione as bases de dados que pretende incluir nas cópias de segurança (SQL Database ou MySQL), em seguida, clique em **OK**.
 
-    :::image type="content" source="./media/manage-backup/configure-database.png" alt-text="Screenshot de um banner com uma mensagem para atualizar o plano do Serviço de Aplicações para aceder à funcionalidade de Backup e Restaurar.":::
+    :::image type="content" source="./media/manage-backup/configure-database.png" alt-text="Screenshot da secção de base de dados de backup mostrando o Incluir na seleção de backup.":::
 
     > [!NOTE]
     > Para que uma base de dados apareça nesta lista, a sua cadeia de ligação deve existir na secção **de cordas de Ligação** da página de definições de **aplicação** para a sua aplicação. 
     >
-    > As bases de dados MySQL in-app são automaticamente apoiadas sem qualquer configuração. Se escamar configurações manuais para bases de dados MySQL na aplicação, como adicionar cordas de ligação, as cópias de segurança podem não funcionar corretamente.
+    > As bases de dados MySQL in-app são automaticamente apoiadas sem qualquer configuração. Se fizer definições para bases de dados MySQL na aplicação manualmente, como adicionar cadeias de ligação, as cópias de segurança podem não funcionar corretamente.
     > 
     > 
 

@@ -5,12 +5,12 @@ ms.assetid: 0f96c0e7-0901-489b-a95a-e3b66ca0a1c2
 ms.topic: article
 ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: e4d4b7e01eb5799bee604c05e1660a7a45188763
-ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
+ms.openlocfilehash: 2910ea3f896ba3920126737965ca9c9dbabcfeb3
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99223345"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101709109"
 ---
 # <a name="configure-a-custom-domain-name-in-azure-app-service-with-traffic-manager-integration"></a>Configure um nome de domínio personalizado no Azure App Service com integração de Gestor de Tráfego
 
@@ -75,7 +75,7 @@ Uma vez terminada a adição ou modificação dos registos DNS no seu fornecedor
 
 ### <a name="what-about-root-domains"></a>E os domínios das raízes?
 
-Uma vez que o Traffic Manager só suporta mapeamento de domínio personalizado com registos CNAME, e porque os padrões DNS não suportam registos CNAME para mapeamento de domínios de raiz (por exemplo, **contoso.com),** o Traffic Manager não suporta mapeamento para domínios de raiz. Para contornar este problema, utilize um redirecionamento de URL a nível da aplicação. Em ASP.NET Core, por exemplo, pode utilizar [a reescrita de URL](/aspnet/core/fundamentals/url-rewriting). Em seguida, utilize o Gestor de Tráfego para carregar o equilíbrio do subdomínio **(www.contoso.com).** Outra abordagem é que pode [criar um registo de pseudónimo para o seu nome de domínio apex para referência a um perfil de Gestor de Tráfego Azure](https://docs.microsoft.com/azure/dns/tutorial-alias-tm). Um exemplo é contoso.com. Em vez de utilizar um serviço de redirecionamento, pode configurar o Azure DNS para fazer referência a um perfil de Gestor de Tráfego diretamente da sua zona. 
+Uma vez que o Traffic Manager só suporta mapeamento de domínio personalizado com registos CNAME, e porque os padrões DNS não suportam registos CNAME para mapeamento de domínios de raiz (por exemplo, **contoso.com),** o Traffic Manager não suporta mapeamento para domínios de raiz. Para contornar este problema, utilize um redirecionamento de URL a nível da aplicação. Em ASP.NET Core, por exemplo, pode utilizar [a reescrita de URL](/aspnet/core/fundamentals/url-rewriting). Em seguida, utilize o Gestor de Tráfego para carregar o equilíbrio do subdomínio **(www.contoso.com).** Outra abordagem é que pode [criar um registo de pseudónimo para o seu nome de domínio apex para referência a um perfil de Gestor de Tráfego Azure](../dns/tutorial-alias-tm.md). Um exemplo é contoso.com. Em vez de utilizar um serviço de redirecionamento, pode configurar o Azure DNS para fazer referência a um perfil de Gestor de Tráfego diretamente da sua zona. 
 
 Para cenários de alta disponibilidade, pode implementar uma configuração de DNS de equilíbrio de carga sem Gestor de Tráfego, criando *vários registos A* que apontam do domínio raiz para o endereço IP de cada cópia de aplicações. Em seguida, [mapear o mesmo domínio raiz para todas as cópias da aplicação.](app-service-web-tutorial-custom-domain.md#map-an-a-record) Uma vez que o mesmo nome de domínio não pode ser mapeado para duas aplicações diferentes na mesma região, esta configuração só funciona quando as cópias da sua aplicação estão em diferentes regiões.
 

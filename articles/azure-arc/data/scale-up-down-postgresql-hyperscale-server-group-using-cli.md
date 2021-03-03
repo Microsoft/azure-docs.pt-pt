@@ -9,12 +9,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 303a919cc0afc9b5db49918233f3e5718a896646
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 4461fb6904d51ee8d740b633a2d0028658ac2ced
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148045"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101687554"
 ---
 # <a name="scale-up-and-down-an-azure-database-for-postgresql-hyperscale-server-group-using-cli-azdata-or-kubectl"></a>Dimensione para cima e para baixo uma base de dados de Azure para o grupo de servidores de hiperescala PostgreSQL usando CLI (azdata ou kubectl)
 
@@ -180,6 +180,21 @@ Mostrará a nova definição do grupo de servidores:
 ## <a name="scale-down-the-server-group"></a>Reduza o grupo de servidores
 
 Para reduzir o grupo de servidor executa o mesmo comando, mas define valores inferiores para as definições que pretende reduzir. Para remover os pedidos e/ou limites, especifique o seu valor como cadeia vazia.
+
+## <a name="reset-to-default-values"></a>Redefinir para valores predefinidos
+Para redefinir os parâmetros/pedidos de núcleo/memória dos seus valores predefinidos, edite-os e passe uma cadeia vazia em vez de um valor real. Por exemplo, se pretender redefinir o parâmetro limite de núcleo (cl), executar os seguintes comandos:
+- sobre um cliente Linux:
+
+```console
+    azdata arc postgres server edit -n <servergroup name> -cl ""
+```
+
+- num cliente windows: 
+ 
+```console
+    azdata arc postgres server edit -n <servergroup name> -cl '""'
+```
+
 
 ## <a name="next-steps"></a>Passos seguintes
 

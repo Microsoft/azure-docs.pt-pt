@@ -3,16 +3,16 @@ title: Ligue para os pontos finais do serviço utilizando HTTP ou HTTPS
 description: Enviar pedidos http ou HTTPS de saída para atender pontos finais a partir de Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewer: jonfan, logicappspm
+ms.reviewer: estfan, logicappspm, azla
 ms.topic: conceptual
-ms.date: 09/14/2020
+ms.date: 02/18/2021
 tags: connectors
-ms.openlocfilehash: f2835bda8ac7242b7a3ea4ea63401f26b9c8e426
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: dab5b755347e46d8d509e8014bba8f496ca9c900
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99063000"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719445"
 ---
 # <a name="call-service-endpoints-over-http-or-https-from-azure-logic-apps"></a>Chamar pontos finais de serviço através de HTTP ou HTTPS a partir do Azure Logic Apps
 
@@ -104,7 +104,7 @@ Esta ação incorporada faz uma chamada HTTP para o URL especificado para um pon
 
 Aqui está mais informações sobre as saídas de um gatilho http ou ação, que devolve esta informação:
 
-| Propriedade | Tipo | Description |
+| Propriedade | Tipo | Descrição |
 |----------|------|-------------|
 | `headers` | Objeto JSON | Os cabeçalhos do pedido |
 | `body` | Objeto JSON | O objeto com o conteúdo do corpo do pedido |
@@ -249,8 +249,8 @@ Se um gatilho ou ação HTTP incluir estes cabeçalhos, as Aplicações Lógicas
 
 * `Accept-*` cabeçalhos, exceto para `Accept-version`
 * `Allow`
-* `Content-*` cabeçalhos exceto `Content-Disposition` , e quando você usa `Content-Encoding` `Content-Type` operações POST e PUT, mas não estão incluídos para operações GET
-* `Cookie`
+* `Content-*` cabeçalhos exceto `Content-Disposition` , e , que são `Content-Encoding` `Content-Type` honrados quando você usa as operações POST e PUT. No entanto, a Logic Apps deixa cair estes cabeçalhos quando utiliza a operação GET.
+* `Cookie`cabeçalho, mas a Logic Apps honra qualquer valor que especifique usando a propriedade **Cookie.**
 * `Expires`
 * `Host`
 * `Last-Modified`

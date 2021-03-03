@@ -4,19 +4,19 @@ description: Saiba como usar um modelo de Gestor de Recursos para criar um alert
 author: rboucher
 ms.author: robb
 ms.topic: conceptual
-ms.date: 03/09/2020
+ms.date: 02/14/2021
 ms.subservice: alerts
-ms.openlocfilehash: 418dde8311c2555f8df5929dd96ce72611422ee9
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 0923be317d497e471724b7611fe6b831a4be6f37
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100618132"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718051"
 ---
 # <a name="create-a-classic-metric-alert-with-a-resource-manager-template"></a>Criar um alerta de métrica clássico com um modelo do Resource Manager
 
 > [!WARNING]
-> Este artigo descreve como criar alertas métricos clássicos mais antigos. O Azure Monitor suporta agora [novos alertas métricos em tempo real e uma nova experiência de alertas.](../platform/alerts-overview.md) Os alertas clássicos são [retirados](../platform/monitoring-classic-retirement.md) para os utilizadores da nuvem pública, embora ainda em uso limitado para recursos que ainda não suportam os novos alertas.
+> Este artigo descreve como criar alertas métricos clássicos mais antigos. O Azure Monitor suporta agora [novos alertas métricos em tempo real e uma nova experiência de alertas.](./alerts-overview.md) Os alertas clássicos são [retirados](./monitoring-classic-retirement.md) para utilizadores de nuvem pública, embora ainda em uso limitado até **31 de maio de 2021**. Os alertas clássicos para a nuvem do Governo Azure e para o Azure China 21Vianet vão reformar-se a **29 de fevereiro de 2024**.
 >
 
 Este artigo mostra como pode usar um [modelo de Gestor de Recursos Azure](../../azure-resource-manager/templates/template-syntax.md) para configurar alertas métricos clássicos do Azure. Isto permite-lhe configurar automaticamente alertas sobre os seus recursos quando estes são criados para garantir que todos os recursos são monitorizados corretamente.
@@ -399,6 +399,6 @@ Um alerta num modelo de Gestor de Recursos é mais frequentemente útil ao criar
 ```
 
 ## <a name="next-steps"></a>Passos Seguintes
-* [Ler mais sobre Alertas](../platform/alerts-overview.md)
-* [Adicione definições de diagnóstico](../samples/resource-manager-diagnostic-settings.md) ao seu modelo de Gestor de Recursos
+* [Ler mais sobre Alertas](./alerts-overview.md)
+* [Adicione definições de diagnóstico](../essentials/resource-manager-diagnostic-settings.md) ao seu modelo de Gestor de Recursos
 * Para a sintaxe e propriedades JSON, consulte a referência do modelo [Microsoft.Insights/alertrules.](/azure/templates/microsoft.insights/alertrules)

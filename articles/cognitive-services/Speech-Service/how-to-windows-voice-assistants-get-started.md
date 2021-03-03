@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: travisw
-ms.openlocfilehash: 77d756bc0c7bbdfa38bb1262638ef85b051fc234
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: b50b98095cdfe0e6ec19c89b57887ebc4a0f6317
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95026493"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713053"
 ---
 # <a name="getting-started-with-voice-assistants-on-windows"></a>Começar com assistentes de voz no Windows
 
@@ -34,7 +34,7 @@ Para começar a desenvolver um assistente de voz para o Windows, terá de se cer
 
 Alguns recursos necessários para um agente de voz completamente personalizado no Windows exigirão recursos da Microsoft. A [Amostra de Assistente de Voz UWP](windows-voice-assistants-faq.md#the-uwp-voice-assistant-sample) fornece versões de amostra destes recursos para o desenvolvimento e teste inicial, pelo que esta secção é desnecessária para o desenvolvimento inicial.
 
-- **Modelo de palavra-chave:** A ativação por voz requer um modelo de palavra-chave da Microsoft sob a forma de um ficheiro .bin. O ficheiro .bin fornecido na Amostra de Assistente de Voz da UWP é treinado na palavra-chave "Contoso".
+- **Modelo de palavra-chave:** A ativação por voz requer um modelo de palavra-chave da Microsoft sob a forma de um ficheiro .bin. O ficheiro .bin fornecido na Amostra de Assistente de Voz do UWP é treinado na palavra-chave *Contoso*.
 - **Ficha de recurso de acesso limitado:** Uma vez que as APIs do ConversationalAgent fornecem acesso ao áudio do microfone, estão protegidas sob restrições de Funcionalidade de Acesso Limitada. Para utilizar uma Funcionalidade de Acesso Limitado, terá de obter um token de Funcionalidade de Acesso Limitado ligado à identidade do pacote da sua aplicação a partir da Microsoft.
 
 ## <a name="establish-a-dialog-service"></a>Estabelecer um serviço de diálogo
@@ -59,7 +59,7 @@ Com a sua chave de subscrição de Serviços de Discurso e o bot ID do Echo Bot,
 
 Assim que receber o seu token de Funcionalidade de Acesso Limitado e ficheiro bin da Microsoft, pode começar no seu próprio assistente de voz no Windows.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 > [!div class="nextstepaction"]
 > [Leia o guia de implementação do assistente de voz](windows-voice-assistants-implementation-guide.md)

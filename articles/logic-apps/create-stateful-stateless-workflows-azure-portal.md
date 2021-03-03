@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
-ms.date: 12/07/2020
-ms.openlocfilehash: a7e19894a4688fe270422e93f7081f98e0b699a3
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.date: 03/02/2021
+ms.openlocfilehash: 3cf5047dbb79f6d8b35b0fe089069a20ab4a50a6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936537"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101736376"
 ---
 # <a name="create-stateful-and-stateless-workflows-in-the-azure-portal-with-azure-logic-apps-preview"></a>Criar fluxos de trabalho apátridas e apátridas no portal Azure com pré-visualização de apps Azure Logic
 
@@ -34,7 +34,7 @@ Este artigo mostra como construir a sua aplicação lógica e fluxo de trabalho 
 
 * Desencadeie uma fuga de fluxo de trabalho.
 
-* Veja a história do fluxo de trabalho.
+* Veja a execução do fluxo de trabalho e desencadeie a história.
 
 * Ativar ou abrir os Insights de Aplicação após a implementação.
 
@@ -51,6 +51,8 @@ Este artigo mostra como construir a sua aplicação lógica e fluxo de trabalho 
 
   > [!NOTE]
   > [Aplicações lógicas imponentes](logic-apps-overview-preview.md#stateful-stateless) realizam transações de armazenamento, tais como a utilização de filas para agendar e armazenar estados de fluxo de trabalho em mesas e bolhas. Estas transações incorrem em [encargos de armazenamento Azure](https://azure.microsoft.com/pricing/details/storage/). Para obter mais informações sobre como as aplicações lógicas imponentes armazenam dados em armazenamento externo, consulte [Stateful versus apátrida.](logic-apps-overview-preview.md#stateful-stateless)
+
+* Para se deslocar para um contentor Docker, precisa de uma imagem de contentor docker existente. Por exemplo, pode criar esta imagem através [do Registo do Contentor Azure,](../container-registry/container-registry-intro.md)do Serviço de [Aplicações](../app-service/overview.md)ou [da Instância do Contentor Azure.](../container-instances/container-instances-overview.md) 
 
 * Para construir a mesma aplicação lógica de exemplo neste artigo, precisa de uma conta de e-mail do Office 365 Outlook que utilize uma conta de trabalho ou escola da Microsoft para iniciar scontabilidade.
 
@@ -74,11 +76,11 @@ Este artigo mostra como construir a sua aplicação lógica e fluxo de trabalho 
 
    | Propriedade | Necessário | Valor | Descrição |
    |----------|----------|-------|-------------|
-   | **Subscrição** | Yes | <*Nome de subscrição Azure*> | A subscrição Azure para usar para a sua aplicação lógica. |
-   | **Grupo de recursos** | Yes | <*Nome de grupo Azure-recursos*> | O grupo de recursos Azure onde cria a sua aplicação lógica e recursos relacionados. Este nome de recurso deve ser único entre regiões e pode conter apenas letras, números, hífens **-** (, sublinha **(_ ,** parênteses (**(()**- e períodos **(.** <p><p>Este exemplo cria um grupo de recursos chamado `Fabrikam-Workflows-RG` . |
-   | **Nome de aplicativo lógico** | Yes | <*lógica-app-nome*> | O nome a usar para a sua aplicação lógica. Este nome de recurso deve ser único entre regiões e pode conter apenas letras, números, hífens **-** (, sublinha **(_ ,** parênteses (**(()**- e períodos **(.** <p><p>Este exemplo cria uma aplicação lógica chamada `Fabrikam-Workflows` . <p><p>**Nota:** O nome da sua aplicação lógica obtém automaticamente o sufixo, `.azurewebsites.net` porque o recurso Logic App **(Preview)** é alimentado por Azure Functions, que utiliza a mesma convenção de nomeação de aplicações. |
-   | **Publicar** | Yes | <*implantação-ambiente*> | O destino de implementação para a sua aplicação lógica. Pode deslocar-se para Azure selecionando **workflow** ou para um recipiente Docker. <p><p>Este exemplo utiliza **workflow**, que é o recurso **Logic App (Preview)** em Azure. <p><p>Se selecionar o **Docker Container,** [especifique o recipiente para utilizar nas definições da sua aplicação lógica](#set-docker-container). |
-   | **Região** | Yes | <*Região de Azure*> | A região de Azure deve utilizar ao criar o seu grupo de recursos e recursos. <p><p>Este exemplo usa **o Oeste dos EUA.** |
+   | **Subscrição** | Sim | <*Nome de subscrição Azure*> | A subscrição Azure para usar para a sua aplicação lógica. |
+   | **Grupo de recursos** | Sim | <*Nome de grupo Azure-recursos*> | O grupo de recursos Azure onde cria a sua aplicação lógica e recursos relacionados. Este nome de recurso deve ser único entre regiões e pode conter apenas letras, números, hífens **-** (, sublinha **(_ ,** parênteses (**(()**- e períodos **(. . . .** <p><p>Este exemplo cria um grupo de recursos chamado `Fabrikam-Workflows-RG` . |
+   | **Nome de aplicativo lógico** | Sim | <*lógica-app-nome*> | O nome a usar para a sua aplicação lógica. Este nome de recurso deve ser único entre regiões e pode conter apenas letras, números, hífens **-** (, sublinha **(_ ,** parênteses (**(()**- e períodos **(. . . .** <p><p>Este exemplo cria uma aplicação lógica chamada `Fabrikam-Workflows` . <p><p>**Nota:** O nome da sua aplicação lógica obtém automaticamente o sufixo, `.azurewebsites.net` porque o recurso Logic App **(Preview)** é alimentado por Azure Functions, que utiliza a mesma convenção de nomeação de aplicações. |
+   | **Publicar** | Sim | <*implantação-ambiente*> | O destino de implementação para a sua aplicação lógica. Pode deslocar-se para Azure selecionando **workflow** ou **Docker Container**. <p><p>Este exemplo utiliza **o Workflow,** que implementa o recurso **Logic App (Preview)** para o portal Azure. <p><p>**Nota:** Antes de selecionar **o Docker Container,** certifique-se de que cria a sua imagem do recipiente Docker. Por exemplo, pode criar esta imagem através [do Registo do Contentor Azure,](../container-registry/container-registry-intro.md)do Serviço de [Aplicações](../app-service/overview.md)ou [da Instância do Contentor Azure.](../container-instances/container-instances-overview.md) Desta forma, depois de selecionar o **Docker Container,** pode [especificar o recipiente que pretende utilizar nas definições da sua aplicação lógica](#set-docker-container). |
+   | **Região** | Sim | <*Região de Azure*> | A região de Azure deve utilizar ao criar o seu grupo de recursos e recursos. <p><p>Este exemplo usa **o Oeste dos EUA.** |
    |||||
 
    Eis um exemplo:
@@ -89,10 +91,10 @@ Este artigo mostra como construir a sua aplicação lógica e fluxo de trabalho 
 
    | Propriedade | Necessário | Valor | Descrição |
    |----------|----------|-------|-------------|
-   | **Conta de armazenamento** | Yes | <*Nome da conta de armazenamento Azure*> | A [conta de armazenamento Azure](../storage/common/storage-account-overview.md) para usar para transações de armazenamento. Este nome de recurso deve ser único em todas as regiões e ter 3-24 caracteres com apenas números e letras minúsculas. Ou selecione uma conta existente ou crie uma nova conta. <p><p>Este exemplo cria uma conta de armazenamento chamada `fabrikamstorageacct` . |
-   | **Tipo de plano** | Yes | <*Plano de acolhimento de Azure*> | O [plano de hospedagem](../app-service/overview-hosting-plans.md) para implementar a sua aplicação lógica, que é o plano de serviço [**Premium**](../azure-functions/functions-premium-plan.md) ou [**App.**](../azure-functions/dedicated-plan.md) A sua escolha afeta os níveis de preços que pode escolher mais tarde. <p><p>Este exemplo utiliza o **plano de serviço da App.** <p><p>**Nota:** Semelhante às Funções Azure, o tipo de recurso **Logic App (Preview)** requer um plano de hospedagem e um nível de preços. Os planos de hospedagem de consumo não são suportados nem disponíveis para este tipo de recurso. Para mais informações, reveja estes tópicos: <p><p>- [Escala de funções Azure e hospedagem](../azure-functions/functions-scale.md) <br>- [Detalhes dos preços do Serviço de Aplicações](https://azure.microsoft.com/pricing/details/app-service/) <p><p> |
-   | **Plano do Windows** | Yes | <*nome do plano*> | O nome do plano para usar. Ou selecione um plano existente ou forneça o nome para um novo plano. <p><p>Este exemplo usa o `Fabrikam-Service-Plan` nome. |
-   | **SKU e tamanho** | Yes | <*nível de preços*> | O [nível de preços](../app-service/overview-hosting-plans.md) a utilizar para hospedar a sua aplicação lógica. As suas escolhas são afetadas pelo tipo de plano que escolheu anteriormente. Para alterar o nível predefinido, selecione **Alterar o tamanho**. Em seguida, pode selecionar outros níveis de preços, com base na carga de trabalho de que necessita. <p><p>Este exemplo utiliza o nível de preços de **F1** gratuito para cargas de trabalho **Dev/Test.** Para mais informações, reveja [os detalhes dos preços do Serviço de Aplicações.](https://azure.microsoft.com/pricing/details/app-service/) |
+   | **Conta de armazenamento** | Sim | <*Nome da conta de armazenamento Azure*> | A [conta de armazenamento Azure](../storage/common/storage-account-overview.md) para usar para transações de armazenamento. Este nome de recurso deve ser único em todas as regiões e ter 3-24 caracteres com apenas números e letras minúsculas. Ou selecione uma conta existente ou crie uma nova conta. <p><p>Este exemplo cria uma conta de armazenamento chamada `fabrikamstorageacct` . |
+   | **Tipo de plano** | Sim | <*Plano de acolhimento de Azure*> | O [plano de hospedagem](../app-service/overview-hosting-plans.md) para implementar a sua aplicação lógica, que é ou o plano de serviço [**de funções Premium**](../azure-functions/functions-premium-plan.md) ou [ **App** (Dedicado)](../azure-functions/dedicated-plan.md). A sua escolha afeta as capacidades e os níveis de preços que mais tarde estão disponíveis para si. <p><p>Este exemplo utiliza o **plano de serviço da App.** <p><p>**Nota:** Semelhante às Funções Azure, o tipo de recurso **Logic App (Preview)** requer um plano de hospedagem e um nível de preços. Os planos de consumo não são suportados nem disponíveis para este tipo de recurso. Para mais informações, reveja estes tópicos: <p><p>- [Escala de funções Azure e hospedagem](../azure-functions/functions-scale.md) <br>- [Detalhes dos preços do Serviço de Aplicações](https://azure.microsoft.com/pricing/details/app-service/) <p><p>Por exemplo, o plano Functions Premium fornece acesso a capacidades de networking, tais como conectar e integrar-se privadamente com redes virtuais Azure, semelhantes às Funções Azure quando cria e implementa as suas aplicações lógicas. Para mais informações, reveja estes tópicos: <p><p>- [Opções de networking de funções Azure](../azure-functions/functions-networking-options.md) <br>- [Aplicativos Azure Logic Running Anywhere - Possibilidades de networking com pré-visualização de apps Azure Logic](https://techcommunity.microsoft.com/t5/integrations-on-azure/logic-apps-anywhere-networking-possibilities-with-logic-app/ba-p/2105047) |
+   | **Plano do Windows** | Sim | <*nome do plano*> | O nome do plano para usar. Ou selecione um plano existente ou forneça o nome para um novo plano. <p><p>Este exemplo usa o `Fabrikam-Service-Plan` nome. |
+   | **SKU e tamanho** | Sim | <*nível de preços*> | O [nível de preços](../app-service/overview-hosting-plans.md) a utilizar para hospedar a sua aplicação lógica. As suas escolhas são afetadas pelo tipo de plano que escolheu anteriormente. Para alterar o nível predefinido, selecione **Alterar o tamanho**. Em seguida, pode selecionar outros níveis de preços, com base na carga de trabalho de que necessita. <p><p>Este exemplo utiliza o nível de preços de **F1** gratuito para cargas de trabalho **Dev/Test.** Para mais informações, reveja [os detalhes dos preços do Serviço de Aplicações.](https://azure.microsoft.com/pricing/details/app-service/) |
    |||||
 
 1. Em seguida, se as definições de criação e implementação suportam usando [o Application Insights,](../azure-monitor/app/app-insights-overview.md)pode opcionalmente ativar o registo de diagnósticos e o rastreio da sua aplicação lógica.
@@ -107,9 +109,12 @@ Este artigo mostra como construir a sua aplicação lógica e fluxo de trabalho 
 
    ![Screenshot que mostra o portal Azure e novas configurações de recursos de aplicativos lógicos.](./media/create-stateful-stateless-workflows-azure-portal/check-logic-app-resource-settings.png)
 
+   > [!TIP]
+   > Se tiver um erro de validação depois de selecionar **Criar,** abra e reveja os detalhes de erro. Por exemplo, se a sua região selecionada atingir uma quota de recursos que está a tentar criar, poderá ter de experimentar uma região diferente.
+
    Depois de o Azure terminar a implementação, a sua aplicação lógica está automaticamente ao vivo e a funcionar, mas ainda não faz nada porque não existem fluxos de trabalho.
 
-1. Na página de conclusão da implementação, selecione **Ir para o recurso para** que possa começar a construir o seu fluxo de trabalho.
+1. Na página de conclusão da implementação, selecione **Ir para o recurso para** que possa começar a construir o seu fluxo de trabalho. Se selecionou **o Docker Container** para a implementação da sua aplicação lógica, continue com os [passos para fornecer informações sobre o contentor Docker.](#set-docker-container)
 
    ![Screenshot que mostra o portal Azure e a implementação acabada.](./media/create-stateful-stateless-workflows-azure-portal/logic-app-completed-deployment.png)
 
@@ -117,15 +122,13 @@ Este artigo mostra como construir a sua aplicação lógica e fluxo de trabalho 
 
 ## <a name="specify-docker-container-for-deployment"></a>Especificar o recipiente Docker para a implantação
 
-Se selecionou **o Docker Container** enquanto cria a sua aplicação lógica, certifique-se de que fornece informações sobre o recipiente que pretende utilizar para implantação após o portal Azure criar o seu recurso **Desempenhamento (Preview).**
+Antes de começar estes passos, precisa de uma imagem de contentor Docker. Por exemplo, pode criar esta imagem através [do Registo do Contentor Azure,](../container-registry/container-registry-intro.md)do Serviço de [Aplicações](../app-service/overview.md)ou [da Instância do Contentor Azure.](../container-instances/container-instances-overview.md) Em seguida, pode fornecer informações sobre o seu recipiente Docker depois de criar a sua aplicação lógica.
 
 1. No portal Azure, aceda ao recurso da sua aplicação lógica.
 
-1. No menu de aplicativos lógicos, em **Definições**, selecione **configurações de Recipientes**. Forneça os detalhes e a localização da sua imagem do contentor Docker.
+1. No menu de aplicativos lógicos, em **Definições,** selecione **Centro de Implementação**.
 
-   ![Screenshot que mostra o menu de aplicativos lógico com "configurações de recipiente" selecionadas.](./media/create-stateful-stateless-workflows-azure-portal/logic-app-deploy-container-settings.png)
-
-1. Quando terminar, guarde as suas definições.
+1. No painel **do Centro de Implantação,** siga as instruções para fornecer e gerir os detalhes do seu recipiente Docker.
 
 <a name="add-workflow"></a>
 
@@ -223,9 +226,9 @@ Antes de poder adicionar um gatilho a um fluxo de trabalho em branco, certifique
 
    | Propriedade | Necessário | Valor | Descrição |
    |----------|----------|-------|-------------|
-   | **Para** | Yes | <*seu endereço de e-mail*> | O destinatário do e-mail, que pode ser o seu endereço de e-mail para efeitos de teste. Este exemplo utiliza o e-mail fictício, `sophiaowen@fabrikam.com` . |
-   | **Assunto** | Yes | `An email from your example workflow` | O assunto do e-mail |
-   | **Corpo** | Yes | `Hello from your example workflow!` | O conteúdo do corpo de e-mail |
+   | **Para** | Sim | <*seu endereço de e-mail*> | O destinatário do e-mail, que pode ser o seu endereço de e-mail para efeitos de teste. Este exemplo utiliza o e-mail fictício, `sophiaowen@fabrikam.com` . |
+   | **Assunto** | Sim | `An email from your example workflow` | O assunto do e-mail |
+   | **Corpo** | Sim | `Hello from your example workflow!` | O conteúdo do corpo de e-mail |
    ||||
 
    > [!NOTE]
@@ -286,9 +289,11 @@ Neste exemplo, o fluxo de trabalho funciona quando o gatilho do Pedido recebe um
 
       ![Screenshot que mostra o email do Outlook como descrito no exemplo](./media/create-stateful-stateless-workflows-azure-portal/workflow-app-result-email.png)
 
+<a name="view-run-history"></a>
+
 ## <a name="review-run-history"></a>Rever o histórico de execuções
 
-Para um fluxo de trabalho imponente, após cada execução de fluxo de trabalho, você pode ver o histórico de execução, incluindo o estado para a execução geral, para o gatilho, e para cada ação juntamente com as suas entradas e saídas.
+Para um fluxo de trabalho imponente, após cada execução de fluxo de trabalho, você pode ver o histórico de execução, incluindo o estado para a execução geral, para o gatilho, e para cada ação juntamente com as suas entradas e saídas. No portal Azure, a história da execução e as histórias de gatilho aparecem ao nível do fluxo de trabalho, e não ao nível da aplicação lógica. Para rever as histórias do gatilho fora do contexto da história da execução, consulte [as histórias do gatilho do gatilho.](#view-trigger-histories)
 
 1. No portal Azure, no menu do seu fluxo de trabalho, selecione **Monitor**.
 
@@ -302,7 +307,7 @@ Para um fluxo de trabalho imponente, após cada execução de fluxo de trabalho,
    | Estado de execução | Descrição |
    |------------|-------------|
    | **Abortada** | A execução parou ou não terminou devido a problemas externos, por exemplo, uma falha do sistema ou subscrição do Azure caducado. |
-   | **Cancelado** | A corrida foi desencadeada e iniciada, mas recebeu um pedido de cancelamento. |
+   | **Cancelado** | A corrida foi desencadeada e começou, mas recebeu um pedido de cancelamento. |
    | **Com falhas** | Pelo menos uma ação na corrida falhou. Não foram criadas ações subsequentes no fluxo de trabalho para lidar com a falha. |
    | **Em Execução** | A corrida foi desencadeada e está em curso, mas este estatuto também pode aparecer para uma corrida que é acelerada devido a [limites](logic-apps-limits-and-config.md) de ação ou ao [atual plano de preços.](https://azure.microsoft.com/pricing/details/logic-apps/) <p><p>**Dica**: Se configurar [o registo de diagnósticos,](monitor-logic-apps-log-analytics.md)pode obter informações sobre quaisquer eventos de aceleração que ocorram. |
    | **Com êxito** | A corrida conseguiu. Se alguma ação falhou, uma ação subsequente no fluxo de trabalho tratou dessa falha. |
@@ -320,15 +325,15 @@ Para um fluxo de trabalho imponente, após cada execução de fluxo de trabalho,
 
    | Estado de ação | Ícone | Descrição |
    |---------------|------|-------------|
-   | Abortada | ![Ícone para estado de ação "abortado"][aborted-icon] | A ação parou ou não terminou devido a problemas externos, por exemplo, uma falha no sistema ou subscrição do Azure caducado. |
-   | Cancelada | ![Ícone para estado de ação "cancelado"][cancelled-icon] | A ação estava em andamento, mas recebeu um pedido de cancelamento. |
-   | Com falhas | ![Ícone para estado de ação "falhado"][failed-icon] | A ação falhou. |
-   | Em Execução | ![Ícone para o estado de ação "Running"][running-icon] | A ação está em curso. |
-   | Ignorado | ![Ícone para estado de ação "ignorado"][skipped-icon] | A ação foi ignorada porque a ação imediatamente anterior falhou. Uma ação tem uma `runAfter` condição que exige que a ação anterior termine com sucesso antes que a ação atual possa ser executada. |
-   | Com êxito | ![Ícone para o estado de ação "Bem sucedido"][succeeded-icon] | A ação foi bem sucedida. |
-   | Conseguiu com recauchutagens | ![Ícone para estatuto de ação "Bem sucedido com recauchutagens"][succeeded-with-retries-icon] | A ação foi bem sucedida, mas só depois de uma ou mais retrólmas. Para rever o histórico de relemisso, na visão de detalhes do histórico de execução, selecione essa ação para que possa ver as entradas e saídas. |
-   | Esgotado | ![Ícone para estado de ação "Timed out"][timed-out-icon] | A ação parou devido ao limite de tempo especificado pelas definições dessa ação. |
-   | Em espera | ![Ícone para estado de ação "espera"][waiting-icon] | Aplica-se a uma ação webhook que está à espera de um pedido de entrada de um chamador. |
+   | **Abortada** | ![Ícone para estado de ação "abortado"][aborted-icon] | A ação parou ou não terminou devido a problemas externos, por exemplo, uma falha no sistema ou subscrição do Azure caducado. |
+   | **Cancelado** | ![Ícone para estado de ação "cancelado"][cancelled-icon] | A ação estava a decorrer, mas recebeu um pedido de cancelamento. |
+   | **Com falhas** | ![Ícone para estado de ação "falhado"][failed-icon] | A ação falhou. |
+   | **Em Execução** | ![Ícone para o estado de ação "Running"][running-icon] | A ação está em curso. |
+   | **Ignorado** | ![Ícone para estado de ação "ignorado"][skipped-icon] | A ação foi ignorada porque a ação imediatamente anterior falhou. Uma ação tem uma `runAfter` condição que exige que a ação anterior termine com sucesso antes que a ação atual possa ser executada. |
+   | **Com êxito** | ![Ícone para o estado de ação "Bem sucedido"][succeeded-icon] | A ação foi bem sucedida. |
+   | **Conseguiu com recauchutagens** | ![Ícone para estatuto de ação "Bem sucedido com recauchutagens"][succeeded-with-retries-icon] | A ação foi bem sucedida, mas só depois de uma ou mais retrólmas. Para rever o histórico de relemisso, na visão de detalhes do histórico de execução, selecione essa ação para que possa ver as entradas e saídas. |
+   | **Esgotado** | ![Ícone para estado de ação "Timed out"][timed-out-icon] | A ação parou devido ao limite de tempo especificado pelas definições dessa ação. |
+   | **Em espera** | ![Ícone para estado de ação "espera"][waiting-icon] | Aplica-se a uma ação webhook que está à espera de um pedido de entrada de um chamador. |
    ||||
 
    [aborted-icon]: ./media/create-stateful-stateless-workflows-azure-portal/aborted.png
@@ -346,6 +351,18 @@ Para um fluxo de trabalho imponente, após cada execução de fluxo de trabalho,
    ![Screenshot que mostra as entradas e saídas na ação selecionada "Enviar um e-mail".](./media/create-stateful-stateless-workflows-azure-portal/review-step-inputs-outputs.png)
 
 1. Para rever ainda mais as entradas e saídas brutas para esse passo, selecione **Mostrar entradas brutas** ou **mostrar saídas brutas**.
+
+<a name="view-trigger-histories"></a>
+
+## <a name="review-trigger-histories"></a>Rever histórias de gatilho
+
+Para um fluxo de trabalho imponente, pode rever o histórico do gatilho para cada execução, incluindo o estado do gatilho juntamente com entradas e saídas, separadamente do contexto de história de [execução](#view-run-history). No portal Azure, o histórico de gatilhos e a história de execução aparecem ao nível do fluxo de trabalho, não ao nível da aplicação lógica. Para encontrar estes dados históricos, siga estes passos:
+
+1. No portal Azure, no menu do seu fluxo de trabalho, em **Programador,** selecione **Trigger Histories**.
+
+   O **painel De trigger Histories** mostra as histórias do gatilho para as execuções do seu fluxo de trabalho.
+
+1. Para rever um histórico específico do gatilho, selecione o ID para essa execução.
 
 <a name="enable-open-application-insights"></a>
 
@@ -365,7 +382,10 @@ Para ativar o Application Insights numa aplicação lógica implementada ou abri
 
    Se os Insights de Aplicação estiverem ativados, no painel **de Insights de Aplicação,** selecione **Ver Dados de Insights de Aplicação**.
 
-Após a abertura do Application Insights, pode rever várias métricas para a sua aplicação lógica.
+Após a abertura do Application Insights, pode rever várias métricas para a sua aplicação lógica. Para mais informações, reveja estes tópicos:
+
+* [Aplicativos Azure Logic Running Anywhere - Monitor com Insights de Aplicação - parte 1](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-monitor-with-application/ba-p/1877849)
+* [Aplicativos Azure Logic Running Anywhere - Monitor com Insights de Aplicação - parte 2](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-monitor-with-application/ba-p/2003332)
 
 <a name="enable-run-history-stateless"></a>
 

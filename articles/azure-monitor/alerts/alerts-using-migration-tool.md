@@ -4,35 +4,26 @@ description: Aprenda a usar a ferramenta de migração voluntária para migrar a
 author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
-ms.date: 03/19/2018
+ms.date: 02/14/2020
 ms.subservice: alerts
-ms.openlocfilehash: 28ccdde85f2873839fbe977c3c991177ac8bb3bb
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 644346c7355df581843fa8a838eea50cfeccefd6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614412"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101729101"
 ---
 # <a name="use-the-voluntary-migration-tool-to-migrate-your-classic-alert-rules"></a>Use a ferramenta de migração voluntária para migrar as suas regras clássicas de alerta
 
-Como [já foi anunciado](../platform/monitoring-classic-retirement.md), os alertas clássicos no Azure Monitor são retirados para os utilizadores da nuvem pública, embora ainda em uso limitado para recursos que ainda não suportam os novos alertas. Uma ferramenta de migração estava disponível no portal Azure para clientes que usavam regras clássicas de alerta e que querem desencadear a migração por si mesmos. Este artigo explica como usar a ferramenta de migração, que também será usada para permanecer alertas pendentes de novo anúncio.
+Como [anteriormente anunciado,](monitoring-classic-retirement.md)os alertas clássicos no Azure Monitor estão reformados para os utilizadores da nuvem pública, embora ainda em uso limitado até **31 de maio de 2021**. Os alertas clássicos para a nuvem do Governo Azure e para o Azure China 21Vianet vão reformar-se a **29 de fevereiro de 2024**.
 
-## <a name="benefits-of-new-alerts"></a>Benefícios de novos alertas
-
-Os alertas clássicos estão a ser substituídos por novos alertas unificados no Azure Monitor. A nova plataforma de alertas tem os seguintes benefícios:
-
-- Você pode alertar sobre uma variedade de métricas multidimensionais para [muitos mais serviços Azure](alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
-- Os novos alertas métricos [suportam regras de alerta de vários recursos](alerts-metric-overview.md#monitoring-at-scale-using-metric-alerts-in-azure-monitor) que reduzem consideravelmente a sobrecarga de gestão de muitas regras.
-- O mecanismo de notificação unificado, que suporta:
-  - [Grupos de ação](../platform/action-groups.md), um mecanismo de notificação modular que funciona com todos os novos tipos de alerta (métrica, log e log de atividade).
-  - Novos mecanismos de notificação como SMS, voz e CONECTOR ITSM.
-- A [experiência de alerta unificada](../platform/alerts-overview.md) traz todos os alertas em diferentes sinais (métrica, log e log de atividade) para um só local.
+Uma ferramenta de migração está disponível no portal Azure para clientes que usaram regras de alerta clássicas e que querem desencadear a migração por si mesmos. Este artigo explica como usar a ferramenta de migração.
 
 ## <a name="before-you-migrate"></a>Antes de migrar
 
 O processo de migração converte regras clássicas de alerta para novas regras de alerta equivalentes e cria grupos de ação. Em preparação, esteja atento aos seguintes pontos:
 
-- Tanto o formato de carga útil de notificação como as APIs para criar e gerir novas regras de alerta são diferentes das regras clássicas de alerta, uma vez que suportam mais funcionalidades. [Saiba como se preparar para a migração.](alerts-prepare-migration.md)
+- Tanto o formato de carga útil de notificação como as APIs para criar e gerir novas regras de alerta são diferentes das regras clássicas de alerta, porque suportam mais funcionalidades. [Saiba como se preparar para a migração.](alerts-prepare-migration.md)
 
 - Algumas regras clássicas de alerta não podem ser migradas utilizando a ferramenta. [Saiba quais as regras que não podem ser migradas e o que fazer com elas.](alerts-understand-migration.md#manually-migrating-classic-alerts-to-newer-alerts)
 
@@ -83,7 +74,7 @@ Quando uma subscrição estiver pronta para a migração, o proprietário da sub
 
 ### <a name="who-can-trigger-the-migration"></a>Quem pode desencadear a migração?
 
-Os utilizadores que tenham a função de Colaborador de Monitorização que lhes é atribuído ao nível da subscrição são capazes de desencadear a migração. [Saiba mais sobre o controlo de acesso baseado em funções da Azure para o processo de migração.](alerts-understand-migration.md#who-can-trigger-the-migration)
+Os utilizadores que tenham a função de Colaborador de Monitorização que lhes é atribuída ao nível da subscrição podem desencadear a migração. [Saiba mais sobre o controlo de acesso baseado em funções da Azure para o processo de migração.](alerts-understand-migration.md#who-can-trigger-the-migration)
 
 ### <a name="how-long-will-the-migration-take"></a>Quanto tempo vai demorar a migração?
 

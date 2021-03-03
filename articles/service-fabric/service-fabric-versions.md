@@ -3,12 +3,12 @@ title: Atualize a sua versão de cluster de tecido de serviço Azure
 description: Conheça as versões de cluster no Azure Service Fabric, incluindo um link para os mais recentes lançamentos do blog da equipa do Service Fabric.
 ms.topic: troubleshooting
 ms.date: 06/15/2020
-ms.openlocfilehash: 9c7e5e3778c9a38190be210ebb391bc8b0b58c76
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 7cb9a739572c667e0821a7a60f5c5d8cceb97957
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100652059"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101698387"
 ---
 # <a name="upgrade-your-azure-service-fabric-cluster-version"></a>Atualize a sua versão de cluster de tecido de serviço Azure
 
@@ -63,9 +63,9 @@ Os clusters Azure Service Fabric que funcionam em versões inalteradas mais tard
   
   - **Para os clusters que executam uma versão do Service Fabric superior a 6.3 NÃO utilizando a função Open Networking,** o cluster permanecerá em funcionamento.
 
- - **Para os clusters que executam uma versão do Service Fabric superior a 6.3 e utilizar [a funcionalidade open networking para contentores](https://docs.microsoft.com/azure/service-fabric/service-fabric-networking-modes#set-up-open-networking-mode)** , o cluster pode ficar indisponível e deixará de funcionar, o que poderá causar interrupções de serviço nas suas cargas de trabalho.
+ - **Para os clusters que executam uma versão do Service Fabric superior a 6.3 e utilizar [a funcionalidade open networking para contentores](./service-fabric-networking-modes.md#set-up-open-networking-mode)** , o cluster pode ficar indisponível e deixará de funcionar, o que poderá causar interrupções de serviço nas suas cargas de trabalho.
  
- -   **Para os clusters que executam as [versões do Windows entre 7.0.457 e 7.0.466 (ambas as versões incluídas)](https://docs.microsoft.com/azure/service-fabric/service-fabric-versions#supported-version-names) e o Windows OS tem a Funcionalidade de Contentores do Windows ativada. NOTA: As versões Linux 7.0.457, 7.0.464 e 7.0.465 NÃO são impactadas**.
+ -   **Para os clusters que executam as [versões do Windows entre 7.0.457 e 7.0.466 (ambas as versões incluídas)](#supported-version-names) e o Windows OS tem a Funcionalidade de Contentores do Windows ativada. NOTA: As versões Linux 7.0.457, 7.0.464 e 7.0.465 NÃO são impactadas**.
     - **Impacto**: O cluster deixará de funcionar, o que poderá provocar interrupções de serviço nas suas cargas de trabalho.
     
 #### <a name="required-action"></a>Ação necessária

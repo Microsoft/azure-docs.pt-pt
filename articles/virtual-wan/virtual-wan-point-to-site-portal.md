@@ -5,14 +5,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 11/09/2020
+ms.date: 02/22/2021
 ms.author: cherylmc
-ms.openlocfilehash: 1876ab86e6f4c46edc23361dd884d8b32328f36c
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 9d207e2ee0ddff49ab01094626b9af1c8505cb4e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98919074"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101732495"
 ---
 # <a name="tutorial-create-a-user-vpn-connection-using-azure-virtual-wan"></a>Tutorial: Criar uma ligação VPN do utilizador utilizando a Azure Virtual WAN
 
@@ -50,7 +50,6 @@ Uma configuração ponto-a-local (P2S) define os parâmetros para ligar clientes
 
 [!INCLUDE [Create hub](../../includes/virtual-wan-p2s-hub-include.md)]
 
-
 ## <a name="choose-p2s-client-address-pools"></a><a name="chooseclientpools"></a> Escolha piscinas de endereços de cliente P2S
 
 [!INCLUDE [Choose pools](../../includes/virtual-wan-allocating-p2s-pools.md)]
@@ -80,8 +79,6 @@ Uma vez terminada a configuração do seu cliente, pode ligar-se.
 1. Na página **'Visão Geral',** cada ponto no mapa representa um hub.
 1. Na secção **Hubs e conexões,** pode ver o estado do hub, site, região, estado de ligação VPN e bytes dentro e fora.
 
-
-
 ## <a name="clean-up-resources"></a><a name="cleanup"></a>Limpar os recursos
 
 Quando já não precisar desses recursos, pode utilizar [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) para remover o grupo de recursos e todos os recursos que o mesmo contém. Substitua "myResourceGroup" pelo nome do grupo de recursos e execute o seguinte comando do PowerShell:
@@ -90,7 +87,7 @@ Quando já não precisar desses recursos, pode utilizar [Remove-AzureRmResourceG
 Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Em seguida, para saber mais sobre O WAN Virtual, consulte:
 

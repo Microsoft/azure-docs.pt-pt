@@ -10,12 +10,13 @@ metadata:
   author: dominicbetts
   ms.author: dobett
   ms.date: 09/02/2021
-  ms.openlocfilehash: f36d2bd704a00a450385d9766fdee3ea7c1f52a6
-  ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+  ms.custom: contperf-fy21q3
+  ms.openlocfilehash: c4aca59eab9e3597e5f9a03931f5854adab5fac6
+  ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 02/14/2021
-  ms.locfileid: "100365145"
+  ms.lasthandoff: 03/03/2021
+  ms.locfileid: "101712560"
 landingContent:
 - title: Acerca do Azure IoT Central
   linkLists:

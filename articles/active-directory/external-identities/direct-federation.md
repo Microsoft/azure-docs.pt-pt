@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d07aa283c40a54ba02faa13b07e466e519bd68ae
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 598cbf303c8a87675833b8d87f05055771e46f55
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101649427"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101687248"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>Federação direta com FS AD e fornecedores de terceiros para utilizadores convidados (pré-visualização)
 
@@ -42,13 +42,7 @@ Com a federação direta, os utilizadores convidados inscrevem-se no seu inquili
 
 ## <a name="sign-in-endpoints"></a>Pontos finais de inscrição
 
-Os utilizadores de hóspedes da federação direta podem agora iniciar sposição nas suas aplicações multi-inquilinas ou na Microsoft, utilizando um [ponto final comum](redemption-experience.md#redemption-and-sign-in-through-a-common-endpoint) (por outras palavras, um URL de aplicações gerais que não inclua o contexto do seu inquilino). Seguem-se exemplos de pontos finais comuns:
-
-- `https://teams.microsoft.com`
-- `https://myapps.microsoft.com`
-- `https://portal.azure.com`
-
-Durante o processo de entrada, o utilizador convidado escolhe **as opções de Inscrição** e, em seguida, seleciona **Iniciar sação para uma organização**. Em seguida, o utilizador escreve o nome da sua organização e continua a iniciar sessão com as suas próprias credenciais.
+Os utilizadores de hóspedes da federação direta podem agora iniciar sposição nas suas aplicações multi-inquilinas ou na Microsoft, utilizando um [ponto final comum](redemption-experience.md#redemption-and-sign-in-through-a-common-endpoint) (por outras palavras, um URL de aplicações gerais que não inclua o contexto do seu inquilino). Durante o processo de entrada, o utilizador convidado escolhe **as opções de Inscrição** e, em seguida, seleciona **Iniciar sação para uma organização**. Em seguida, o utilizador escreve o nome da sua organização e continua a iniciar sessão com as suas próprias credenciais.
 
 Os utilizadores convidados da federação direta também podem usar pontos finais de aplicação que incluem informações do seu inquilino, por exemplo:
 

@@ -6,18 +6,14 @@ ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: article
 ms.custom: references_regions
-ms.openlocfilehash: 4380f14610fb0775c82aa79ec7cda9dc70cf0715
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: dd91622344263dc366a76c913ce0be95718550cd
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97722696"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101705165"
 ---
 # <a name="system-requirements"></a>Requisitos de sistema
-
-> [!IMPORTANT]
-> **A Azure Remote Rendering** está atualmente em pré-visualização pública.
-> Esta versão de pré-visualização é disponibiliza sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Algumas funcionalidades poderão não ser suportadas ou poderão ter capacidades limitadas. Para obter mais informações, veja [Termos Suplementares de Utilização para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Este capítulo enumera os requisitos mínimos do sistema para trabalhar com *a renderização remota Azure* (ARR).
 
@@ -71,7 +67,7 @@ Para resolver problemas de rede, consulte o [Guia de Resolução de Problemas](.
 
 Máquinas virtuais de renderização remota utilizam endereços IP partilhados a partir dos seguintes intervalos DE IP:
 
-| Nome             | Região         | Prefixo IP         |
+| Name             | Region         | Prefixo IP         |
 |------------------|:---------------|:------------------|
 | Leste da Austrália   | australiaeast  | 20.53.44.240/28   |
 | E.U.A. Leste          | eastus         | 20.62.129.224/28  |
@@ -94,7 +90,7 @@ Certifique-se de que as suas firewalls (no dispositivo, no interior dos routers,
 
 Certifique-se de que as suas firewalls (no dispositivo, no interior dos routers, etc.) não bloqueiem as seguintes portas:
 
-| Porta              | Protocolo | Permitir    | Description |
+| Porta              | Protocolo | Permitir    | Descrição |
 |-------------------|----------|----------|-------------|
 | 50051             | TCP      | Saída | Ligação inicial (aperto de mão HTTP) |
 | 8266              | UDP      | Saída | Transferência de dados |

@@ -4,12 +4,12 @@ description: Saiba como resolver problemas com o agente Java para Azure Monitor 
 ms.topic: conceptual
 ms.date: 11/30/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 90e0ceb6ba9d696eb446d607ed2f2f134733618e
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 286354ecf508dec7b9ba7633bf3b5c7ddc6bfd91
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881141"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737062"
 ---
 # <a name="troubleshooting-guide-azure-monitor-application-insights-for-java"></a>Guia de resolução de problemas: Azure Monitor Application Insights for Java
 
@@ -45,15 +45,23 @@ A exploração madeireira só é capturada se cumprir primeiro o limiar configur
 
 A melhor maneira de saber se uma determinada declaração de registo satisfaz o limiar configurado dos quadros de registo é confirmar que está a aparecer no seu registo normal de aplicações (por exemplo, ficheiro ou consola).
 
+Note também que se uma exceção for passada para o madeirão, então a mensagem de registo (e exceção) aparecerá no portal Azure debaixo da `exceptions` tabela em vez da `traces` tabela.
+
 Consulte a [configuração de registo de registos recolhidos automaticamente](./java-standalone-config.md#auto-collected-logging) para obter mais detalhes.
 
 ## <a name="import-ssl-certificates"></a>Certificados SSL de importação
 
 Esta secção ajuda-o a resolver problemas e possivelmente a corrigir as exceções relacionadas com os certificados SSL ao utilizar o agente Java.
 
-Há dois caminhos diferentes para resolver esta questão.
+Existem dois caminhos diferentes abaixo para resolver esta questão:
+* Se utilizar uma loja java padrão
+* Se utilizar uma loja de chaves Java personalizada
 
-### <a name="if-using-a-default-java-keystore"></a>Se utilizar uma Loja Java padrão:
+Se não tem certeza de que caminho seguir, verifique se tem um arg `-Djavax.net.ssl.trustStore=...` JVM.
+Se _não_ tiver tal arg JVM, então provavelmente está a usar a loja de chaves Java padrão.
+Se _você_ tem tal arg JVM, então você provavelmente está usando uma loja personalizada, e o arg JVM irá apontá-lo para a sua loja de chaves personalizada.
+
+### <a name="if-using-the-default-java-keystore"></a>Se utilizar a loja de chaves Java predefinido:
 
 Normalmente, a teclas java padrão já terá todos os certificados de raiz da AC. No entanto, pode haver algumas exceções, como o certificado de ponto final de ingestão pode ser assinado por um certificado de raiz diferente. Assim, recomendamos os três passos seguintes para resolver esta questão:
 
@@ -68,7 +76,7 @@ Normalmente, a teclas java padrão já terá todos os certificados de raiz da AC
     Uma vez descarregado o certificado, gere um hash SHA-1 no certificado utilizando o comando abaixo:
     > `keytool -printcert -v -file "your_downloaded_root_certificate.cer"`
  
-    Copie o valor SHA-1 e verifique se este valor está presente no ficheiro "temp.txt" que guardou anteriormente.  Se não conseguir encontrar o valor SHA-1 no ficheiro temporário, indica que o cert raiz descarregado está em falta na Loja Java Keystore predefinida.
+    Copie o valor SHA-1 e verifique se este valor está presente no ficheiro "temp.txt" que guardou anteriormente.  Se não conseguir encontrar o valor SHA-1 no ficheiro temporário, indica que o cert raiz descarregado está em falta na loja de chaves Java predefinida.
 
 
 3. Importar o certificado de raiz para a loja java padrão utilizando o seguinte comando:
@@ -79,7 +87,7 @@ Normalmente, a teclas java padrão já terá todos os certificados de raiz da AC
     > `keytool -import -file "your downloaded root cert file" -alias "some meaningful name" $JAVA_HOME/jre/lib/security/cacerts`
 
 
-### <a name="if-using-a-custom-java-keystore"></a>Se utilizar um Java Keystore personalizado:
+### <a name="if-using-a-custom-java-keystore"></a>Se utilizar uma loja de chaves Java personalizada:
 
 Se estiver a utilizar uma loja java personalizada, poderá ter de importar os certificados SSL de raiz de raiz do Ponto final do Application Insights.
 Recomendamos os dois passos seguintes para resolver esta questão:

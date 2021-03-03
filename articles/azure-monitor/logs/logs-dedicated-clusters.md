@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 09/16/2020
-ms.openlocfilehash: 818cf97a640952de79e84184c52c20575a0cc92b
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: fe7bd4b9f800b59d2c16d4aa3dadd3626c55b7e1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614042"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101707647"
 ---
 # <a name="azure-monitor-logs-dedicated-clusters"></a>Azure Monitor Logs Clusters Dedicados
 
@@ -34,7 +34,7 @@ Uma vez criado o cluster, pode ser configurado e espaços de trabalho ligados a 
 
 Os dados ingeridos em clusters dedicados estão a ser encriptados duas vezes - uma a nível de serviço utilizando chaves geridas pela Microsoft ou [chave gerida pelo cliente](../logs/customer-managed-keys.md)- e uma vez ao nível da infraestrutura usando dois algoritmos de encriptação diferentes e duas teclas diferentes. [A dupla encriptação](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) protege contra um cenário em que um dos algoritmos ou chaves de encriptação pode estar comprometido. Neste caso, a camada adicional de encriptação continua a proteger os seus dados. O cluster dedicado também permite proteger os seus dados com o controlo [Lockbox.](../logs/customer-managed-keys.md#customer-lockbox-preview)
 
-Todas as operações ao nível do cluster requerem a `Microsoft.OperationalInsights/clusters/write` permissão de ação no cluster. Esta permissão poderia ser concedida através do Proprietário ou Contribuinte que contenha a `*/write` ação ou através da função de Contribuinte Log Analytics que contenha a `Microsoft.OperationalInsights/*` ação. Para obter mais informações sobre permissões do Log Analytics, consulte [Gerir o acesso aos dados de registo e espaços de trabalho no Azure Monitor.](../platform/manage-access.md) 
+Todas as operações ao nível do cluster requerem a `Microsoft.OperationalInsights/clusters/write` permissão de ação no cluster. Esta permissão poderia ser concedida através do Proprietário ou Contribuinte que contenha a `*/write` ação ou através da função de Contribuinte Log Analytics que contenha a `Microsoft.OperationalInsights/*` ação. Para obter mais informações sobre permissões do Log Analytics, consulte [Gerir o acesso aos dados de registo e espaços de trabalho no Azure Monitor.](./manage-access.md) 
 
 
 ## <a name="cluster-pricing-model"></a>Modelo de preços de cluster
@@ -77,7 +77,7 @@ Devem ser especificadas as seguintes propriedades:
 - **ConjuntoName**: Utilizado para fins administrativos. Os utilizadores não estão expostos a este nome.
 - **Nome do Grupo de Recursos**: Quanto a qualquer recurso Azure, os clusters pertencem a um grupo de recursos. Recomendamos que use um grupo central de recursos de TI porque os clusters são geralmente partilhados por muitas equipas da organização. Para mais considerações de design, [reveja a conceção da sua implementação de Registos de Monitor Azure](../logs/design-logs-deployment.md)
 - **Localização**: Um aglomerado está localizado numa região específica de Azure. Apenas espaços de trabalho localizados nesta região podem ser ligados a este aglomerado.
-- **SkuCapacity**: Deve especificar o nível *de reserva de capacidade* (sku) ao criar um recurso de *cluster.* O nível *de reserva* de capacidade pode ser de 1.000 GB a 3.000 GB por dia. Pode atualizá-lo em passos de 100 mais tarde, se necessário. Se necessitar de um nível de reserva superior a 3.000 GB por dia, contacte-nos em LAIngestionRate@microsoft.com . Para obter mais informações sobre os custos do cluster, consulte [Gerir custos para clusters Log Analytics](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters)
+- **SkuCapacity**: Deve especificar o nível *de reserva de capacidade* (sku) ao criar um recurso de *cluster.* O nível *de reserva* de capacidade pode ser de 1.000 GB a 3.000 GB por dia. Pode atualizá-lo em passos de 100 mais tarde, se necessário. Se necessitar de um nível de reserva superior a 3.000 GB por dia, contacte-nos em LAIngestionRate@microsoft.com . Para obter mais informações sobre os custos do cluster, consulte [Gerir custos para clusters Log Analytics](./manage-cost-storage.md#log-analytics-dedicated-clusters)
 
 Depois de criar o seu recurso *Cluster,* pode editar propriedades adicionais como *sku*, *keyVaultProperties ou *BillingType*. Veja mais detalhes abaixo.
 
@@ -300,7 +300,7 @@ Depois de criar o seu recurso *Cluster* e estiver totalmente aprovisionado, pode
 - **keyVaultProperties** - Atualiza a chave no Cofre da Chave Azure. Consulte [o cluster Update com detalhes do identificador chave](../logs/customer-managed-keys.md#update-cluster-with-key-identifier-details). Contém os seguintes parâmetros: *KeyVaultUri,* *KeyName,* *KeyVersion*. 
 - **billingType** - A propriedade *do'singType* determina a atribuição de faturação para o recurso *cluster* e seus dados:
   - **Cluster** (predefinido) - Os custos de Reserva de Capacidade do seu Cluster são atribuídos ao recurso *Cluster.*
-  - **Espaços de trabalho** - Os custos de Reserva de Capacidade do seu Cluster são atribuídos proporcionalmente aos espaços de trabalho no Cluster, com o recurso *Cluster* a ser faturado parte da utilização se os dados totais ingeridos do dia estiverem sob reserva de capacidade. Consulte [Os Clusters Dedicados log Analytics](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters) para saber mais sobre o modelo de preços cluster. 
+  - **Espaços de trabalho** - Os custos de Reserva de Capacidade do seu Cluster são atribuídos proporcionalmente aos espaços de trabalho no Cluster, com o recurso *Cluster* a ser faturado parte da utilização se os dados totais ingeridos do dia estiverem sob reserva de capacidade. Consulte [Os Clusters Dedicados log Analytics](./manage-cost-storage.md#log-analytics-dedicated-clusters) para saber mais sobre o modelo de preços cluster. 
 
 > [!NOTE]
 > A propriedade *'faturação'Type* não é suportada no PowerShell.
@@ -573,5 +573,5 @@ Utilize a seguinte chamada REST para eliminar um cluster:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre [a faturação dedicada do cluster do Log Analytics](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters)
+- Saiba mais sobre [a faturação dedicada do cluster do Log Analytics](./manage-cost-storage.md#log-analytics-dedicated-clusters)
 - Conheça o [design adequado dos espaços de trabalho do Log Analytics](../logs/design-logs-deployment.md)

@@ -6,12 +6,12 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 05/18/2020
-ms.openlocfilehash: f57ff130fcf61ae8f831cda33c9510b37a5880e5
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: a908709e49bed1e07a5fdfecd165c45f8792987c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100628335"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101725599"
 ---
 # <a name="resource-manager-template-samples-for-log-analytics-workspaces-in-azure-monitor"></a>Amostras de modelo de gestor de recursos para espaços de trabalho log analytics no Monitor Azure
 Este artigo inclui [modelos de gestor de recursos Azure](../../azure-resource-manager/templates/template-syntax.md) para criar e configurar espaços de trabalho log analytics no Azure Monitor. Cada amostra inclui um ficheiro de modelo e um ficheiro de parâmetros com valores de amostra para fornecer ao modelo.
@@ -824,6 +824,6 @@ A amostra seguinte adiciona a recolha de [registos IIS](../agents/data-sources-i
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Obtenha outros modelos de amostra para Azure Monitor](../samples/resource-manager-samples.md).
-* [Saiba mais sobre os espaços de trabalho do Log Analytics.](../learn/quick-create-workspace.md)
+* [Obtenha outros modelos de amostra para Azure Monitor](../resource-manager-samples.md).
+* [Saiba mais sobre os espaços de trabalho do Log Analytics.](./quick-create-workspace.md)
 * [Saiba mais sobre fontes de dados de agentes.](../agents/agent-data-sources.md)

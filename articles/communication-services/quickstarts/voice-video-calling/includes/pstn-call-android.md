@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/14/2020
 ms.author: nikuklic
-ms.openlocfilehash: 5c20543caf5bf623738996ed01064d71a0745c04
-ms.sourcegitcommit: d9ba60f15aa6eafc3c5ae8d592bacaf21d97a871
+ms.openlocfilehash: ee48311647a73c08f8784792cc5d81cb47279c9d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91779381"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101750915"
 ---
 [!INCLUDE [Emergency Calling Notice](../../../includes/emergency-calling-notice-include.md)]
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -28,16 +28,16 @@ ms.locfileid: "91779381"
 
 ### <a name="add-pstn-functionality-to-your-app"></a>Adicione a funcionalidade PSTN à sua aplicação
 
-Adicione o `PhoneNumber` tipo à sua aplicação modificando **MainActivity.java**:
+Adicione o `PhoneNumber` tipo à sua aplicação modificando o **MainActivity.java:**
 
 
 ```java
-import com.azure.android.communication.common.PhoneNumber;
+import com.azure.android.communication.common.PhoneNumberIdentifier;
 ```
 
 <!--
 > [!TBD]
-> Namespace based on input from Komivi Agbakpem. But it does not correlates with other use namespaces in Calling Quickstart. E.g: "com.azure.communication.calling.CommunicationUser" or "com.azure.communication.common.client.CommunicationUserCredential". Double-chek this.
+> Namespace based on input from Komivi Agbakpem. But it does not correlates with other use namespaces in Calling Quickstart. E.g: "com.azure.communication.calling.CommunicationUserIdentifier" or "com.azure.communication.common.client.CommunicationTokenCredential". Double-chek this.
 -->
 
 ## <a name="start-a-call-to-phone"></a>Inicie uma ligação para o telefone.
@@ -47,19 +47,19 @@ Especifique o número de telefone que adquiriu no seu recurso de Serviços de Co
 > [!WARNING]
 > Note que os números de telefone devem ser fornecidos no formato padrão E.164. (por exemplo: +122233344444)
 
-Modificar `startCall()` o manipulador de eventos em **MainActivity.java,** de modo a que ele lide com chamadas telefónicas:
+Modificar `startCall()` o manipulador de eventos na .java **MainActivity,** de modo a que lide com chamadas telefónicas:
 
 ```java
     private void startCall() {
         EditText calleePhoneView = findViewById(R.id.callee_id);
         String calleePhone = calleePhoneView.getText().toString();
-        PhoneNumber callerPhone = new PhoneNumber("+12223334444");
+        PhoneNumberIdentifier callerPhone = new PhoneNumberIdentifier("+12223334444");
         StartCallOptions options = new StartCallOptions();
         options.setAlternateCallerId(callerPhone);
         options.setVideoOptions(new VideoOptions(null));
-        call = agent.call(
+        call = agent.startCall(
                 getApplicationContext(),
-                new PhoneNumber[] {new PhoneNumber(calleePhone)},
+                new PhoneNumberIdentifier[] {new PhoneNumberIdentifier(calleePhone)},
                 options);
     }
 ```

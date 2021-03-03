@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/13/2020
 ms.author: erhopf
-ms.openlocfilehash: a44ff15300d05713e812f5c60ad3bf00d9f13104
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 6d2ad87f6a8c79f61d62140a1549968cd88d83aa
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99526861"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101722318"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>Registar amostras de voz para criar uma voz personalizada
 
@@ -29,9 +29,9 @@ Muitos pequenos, mas importantes detalhes vão para a criação de uma gravaçã
 > Se quiser treinar uma voz neural, deve especificar um perfil de talento de voz com o ficheiro de consentimento áudio fornecido pelo talento de voz, reconhecendo usar os seus dados de fala para treinar um modelo de voz personalizado. Ao preparar o seu script de gravação, certifique-se de que inclui a frase abaixo. 
 
 > "Eu [declaro o seu primeiro e último nome] estou ciente de que as gravações da minha voz serão usadas [pelo nome da empresa] para criar e usar uma versão sintética da minha voz."
-Esta frase será usada para verificar se os dados de formação são feitos pela mesma pessoa que faz o consentimento. Leia mais sobre a [verificação](https://aka.ms/CNV-data-privacy) de talentos de voz aqui.
+Esta frase será usada para verificar se os dados de formação são feitos pela mesma pessoa que faz o consentimento. Leia mais sobre a [verificação](/legal/cognitive-services/speech-service/custom-neural-voice/data-privacy-security-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext) de talentos de voz aqui.
 
-> A Voz Neural Personalizada está disponível com acesso limitado. Certifique-se de compreender os [requisitos responsáveis da IA](https://aka.ms/gating-overview) e [aplicar o acesso aqui.](https://aka.ms/customneural) 
+> A Voz Neural Personalizada está disponível com acesso limitado. Certifique-se de compreender os [requisitos responsáveis da IA](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext) e [aplicar o acesso aqui.](https://aka.ms/customneural) 
 
 > [!TIP]
 > Para obter os resultados da mais alta qualidade, considere envolver a Microsoft para ajudar a desenvolver a sua voz personalizada. A Microsoft tem uma vasta experiência em produzir vozes de alta qualidade para os seus próprios produtos, incluindo cortana e Office.
@@ -112,7 +112,7 @@ De acordo com a lei de direitos autorais, a leitura de um ator de texto protegid
 
 Felizmente, é possível evitar totalmente estas questões. Existem muitas fontes de texto que pode usar sem permissão ou licença.
 
-|Fonte de texto|Description|
+|Fonte de texto|Descrição|
 |-|-|
 |[CmU Arctic corpus](http://festvox.org/cmu_arctic/)|Cerca de 1100 frases selecionadas de trabalhos fora de direitos autorais especificamente para uso em projetos de síntese de fala. Um excelente ponto de partida.|
 |Não funciona mais<br>sob direitos autorais|Normalmente, obras publicadas antes de 1923. Para inglês, [o Project Gutenberg](https://www.gutenberg.org/) oferece dezenas de milhares de obras deste tipo. Talvez queira focar-se em trabalhos mais recentes, já que a língua estará mais próxima do inglês moderno.|

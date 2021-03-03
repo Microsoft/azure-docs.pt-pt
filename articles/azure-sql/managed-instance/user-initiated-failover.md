@@ -9,13 +9,13 @@ ms.topic: how-to
 author: danimir
 ms.author: danil
 ms.reviewer: douglas, sstein
-ms.date: 02/23/2021
-ms.openlocfilehash: c154699b7701b584e465ebea7950d4fe50be961f
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.date: 02/27/2021
+ms.openlocfilehash: 3c969c1898e67361e37a825d7976b1c52d08dd24
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101660802"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691149"
 ---
 # <a name="user-initiated-manual-failover-on-sql-managed-instance"></a>Ativação pós-falha manual iniciada pelo utilizador no SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -151,6 +151,7 @@ A curta perda de conectividade do seu cliente durante a execução, tipicamente 
 > - Para os casos a.C. deve existir quórum de réplicas para que o pedido de caduco seja aceite.
 > - Para os casos a.C. não é possível especificar qual réplica secundária legível para iniciar a falha.
 > - A falha não será permitida até que a primeira cópia de segurança completa de uma nova base de dados seja concluída por sistemas de backup automatizados.
+> - Não será permitida a falha se houver uma recuperação da base de dados em curso.
 
 ## <a name="next-steps"></a>Passos seguintes
 - Saiba mais sobre o teste das suas aplicações para a prontidão na nuvem com [a aplicação de testes Cloud Readiness for Failover Resiliency with SQL Managed Instance](https://youtu.be/FACWYLgYDL8) video recoding.

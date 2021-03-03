@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/20/2020
 ms.author: duau
-ms.openlocfilehash: e28c995a0fb574f2e7319f8ee540f49d1bbed4dd
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 77cc509a9fac2a24b3cd70675c1ee4160ecdb24d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97656908"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101741859"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door"></a>Perguntas frequentes para Azure Front Door
 
@@ -79,7 +79,7 @@ Azure Front Door é um serviço multi-inquilino distribuído globalmente. Assim,
 
 ### <a name="is-http-https-redirection-supported"></a>Http->reorientação HTTPS suportada?
 
-Yes. Na verdade, a Porta Frontal Azure suporta a reorientação de cordas de hospedeiro, caminho e consulta, bem como parte da reorientação de URL. Saiba mais sobre [a reorientação de URL.](front-door-url-redirect.md) 
+Sim. Na verdade, a Porta Frontal Azure suporta a reorientação de cordas de hospedeiro, caminho e consulta, bem como parte da reorientação de URL. Saiba mais sobre [a reorientação de URL.](front-door-url-redirect.md) 
 
 ### <a name="in-what-order-are-routing-rules-processed"></a>Em que ordem são processadas as regras de encaminhamento?
 
@@ -97,9 +97,9 @@ Para bloquear a sua aplicação para aceitar o tráfego apenas a partir da sua p
     > [!WARNING]
     > O espaço IP backend da Porta frontal pode mudar mais tarde, no entanto, vamos garantir que, antes disso, teríamos integrado com [as Gamas IP E Tags Azure](https://www.microsoft.com/download/details.aspx?id=56519)IP . Recomendamos que subscreva as [Gamas IP E Tags Azure](https://www.microsoft.com/download/details.aspx?id=56519) para quaisquer alterações ou atualizações.
 
--    Efetue uma operação GET na sua Porta frontal com a versão API `2020-01-01` ou superior. Na chamada da API, procure `frontdoorID` campo. Filtrar no cabeçalho de entrada '**X-Azure-FDID**' enviado pela Porta da Frente para o seu backend com o valor do campo `frontdoorID` . Também pode encontrar `Front Door ID` valor na secção Overview a partir da página do portal porta da porta da frente. 
+- Procure o `Front Door ID` valor na secção 'Vista Geral' da página do portal Front Door. Em seguida, pode filtrar no cabeçalho de entrada '**X-Azure-FDID**' enviado pela Porta frontal para o seu backend com esse valor para garantir que apenas a sua própria instância da Porta Frontal específica é permitida (porque as gamas IP acima são partilhadas com outras instâncias front door de outros clientes).
 
-- Aplique a filtragem de regras no seu servidor web backend para restringir o tráfego com base no valor do cabeçalho 'X-Azure-FDID'.
+- Aplique a filtragem de regras no seu servidor web backend para restringir o tráfego com base no valor do cabeçalho 'X-Azure-FDID'. Note que alguns serviços como o Azure App Service fornecem esta capacidade [de filtragem baseada no cabeçalho](../app-service/app-service-ip-restrictions#restrict-access-to-a-specific-azure-front-door-instance-preview) sem necessidade de alterar a sua aplicação ou anfitrião.
 
   Aqui está um exemplo para os Serviços de [Informação da Internet da Microsoft (IIS)](https://www.iis.net/):
 

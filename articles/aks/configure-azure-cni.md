@@ -4,12 +4,13 @@ description: Aprenda a configurar a rede Azure CNI (avançada) no Serviço Azure
 services: container-service
 ms.topic: article
 ms.date: 06/03/2019
-ms.openlocfilehash: afb98acf903f90ead137c9b372d33ce82b89f7b5
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.custom: references_regions
+ms.openlocfilehash: 4286b3ea8f41ac5c4c494039c5d45c2332c72226
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99062222"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101742097"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>Configurar a rede CNI Azure no Serviço Azure Kubernetes (AKS)
 
@@ -22,7 +23,7 @@ Este artigo mostra-lhe como utilizar a rede *CNI Azure* para criar e utilizar um
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * A rede virtual para o cluster AKS deve permitir a conectividade de saída da Internet.
-* Os clusters AKS não podem utilizar `169.254.0.0/16` , , ou para a gama de `172.30.0.0/16` `172.31.0.0/16` `192.0.2.0/24` endereços de serviço Kubernetes, gama de endereços pod ou intervalo de endereços de rede virtual de cluster. 
+* Os clusters AKS não podem utilizar `169.254.0.0/16` , , ou para a gama de `172.30.0.0/16` `172.31.0.0/16` `192.0.2.0/24` endereços de serviço Kubernetes, gama de endereços de pod ou intervalo de endereços de rede virtual de cluster.
 * O principal de serviço utilizado pelo cluster AKS deve ter pelo menos permissões [de Contribuinte de Rede](../role-based-access-control/built-in-roles.md#network-contributor) na sub-rede dentro da sua rede virtual. Se desejar definir uma [função personalizada](../role-based-access-control/custom-roles.md) em vez de utilizar a função de contribuinte de rede incorporada, são necessárias as seguintes permissões:
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
   * `Microsoft.Network/virtualNetworks/subnets/read`
@@ -38,10 +39,10 @@ Os endereços IP para as cápsulas e os nós do cluster são atribuídos a parti
 > [!IMPORTANT]
 > O número de endereços IP necessários deve incluir considerações para operações de atualização e escala. Se definir o intervalo de endereços IP para suportar apenas um número fixo de nós, não poderá atualizar ou escalar o seu cluster.
 >
-> - Quando **atualiza o** seu cluster AKS, um novo nó é implantado no cluster. Os serviços e cargas de trabalho começam a funcionar no novo nó, e um nó mais velho é removido do cluster. Este processo de atualização contínua requer um mínimo de um bloco adicional de endereços IP para estar disponível. A sua contagem de nós é `n + 1` então.
->   - Esta consideração é particularmente importante quando utiliza piscinas de nó do Windows Server. Os nós do Windows Server em AKS não aplicam automaticamente atualizações do Windows, em vez disso executa uma atualização no conjunto de nós. Esta atualização implementa novos nós com os mais recentes patches de imagem e patches de segurança do nó de base do Window Server 2019. Para obter mais informações sobre a atualização de um conjunto de nós do Windows Server, consulte [a atualização de um conjunto de nós em AKS][nodepool-upgrade].
+> * Quando **atualiza o** seu cluster AKS, um novo nó é implantado no cluster. Os serviços e cargas de trabalho começam a funcionar no novo nó, e um nó mais velho é removido do cluster. Este processo de atualização contínua requer um mínimo de um bloco adicional de endereços IP para estar disponível. A sua contagem de nós é `n + 1` então.
+>   * Esta consideração é particularmente importante quando utiliza piscinas de nó do Windows Server. Os nós do Windows Server em AKS não aplicam automaticamente atualizações do Windows, em vez disso executa uma atualização no conjunto de nós. Esta atualização implementa novos nós com os mais recentes patches de imagem e patches de segurança do nó de base do Window Server 2019. Para obter mais informações sobre a atualização de um conjunto de nós do Windows Server, consulte [a atualização de um conjunto de nós em AKS][nodepool-upgrade].
 >
-> - Quando **escala** um cluster AKS, um novo nó é implantado no cluster. Os serviços e cargas de trabalho começam a funcionar no novo nó. O intervalo de endereços IP tem de ter em conta a forma como pretende aumentar o número de nós e cápsulas que o cluster pode suportar. Deve também ser incluído um nó adicional para as operações de atualização. A sua contagem de nós é `n + number-of-additional-scaled-nodes-you-anticipate + 1` então.
+> * Quando **escala** um cluster AKS, um novo nó é implantado no cluster. Os serviços e cargas de trabalho começam a funcionar no novo nó. O intervalo de endereços IP tem de ter em conta a forma como pretende aumentar o número de nós e cápsulas que o cluster pode suportar. Deve também ser incluído um nó adicional para as operações de atualização. A sua contagem de nós é `n + number-of-additional-scaled-nodes-you-anticipate + 1` então.
 
 Se espera que os seus nós corram o número máximo de cápsulas e destrua e implemente regularmente cápsulas, também deve ter em conta alguns endereços IP adicionais por nó. Estes endereços IP adicionais têm em conta que pode levar alguns segundos para que um serviço seja eliminado e o endereço IP lançado para um novo serviço a ser implantado e adquirir o endereço.
 
@@ -53,7 +54,7 @@ O plano de endereço IP para um cluster AKS é composto por uma rede virtual, pe
 | Sub-rede | Deve ser grande o suficiente para acomodar os nós, cápsulas e todos os recursos Kubernetes e Azure que podem ser ateados no seu cluster. Por exemplo, se implementar um Balançador de Carga Azure interno, os seus IPs frontais são atribuídos a partir da sub-rede de cluster, e não de IPs públicos. O tamanho da sub-rede também deve ter em conta as operações de atualização ou as futuras necessidades de escala.<p />Para calcular o tamanho *mínimo* da sub-rede, incluindo um nó adicional para operações de atualização: `(number of nodes + 1) + ((number of nodes + 1) * maximum pods per node that you configure)`<p/>Exemplo para um aglomerado de nó de 50: `(51) + (51  * 30 (default)) = 1,581` (/21 ou maior)<p/>Exemplo para um cluster de 50 nós que também inclui disposições para escalar mais 10 nós: `(61) + (61 * 30 (default)) = 1,891` (/21 ou maior)<p>Se não especificar um número máximo de cápsulas por nó quando criar o seu cluster, o número máximo de cápsulas por nó é definido para *30*. O número mínimo de endereços IP necessários baseia-se nesse valor. Se calcular os seus requisitos mínimos de endereço IP num valor máximo diferente, consulte [como configurar o número máximo de cápsulas por nó](#configure-maximum---new-clusters) para definir este valor quando implementar o seu cluster. |
 | Intervalo de endereços do serviço Kubernetes | Este intervalo não deve ser utilizado por nenhum elemento de rede ligado ou ligado a esta rede virtual. O endereço de serviço CIDR deve ser menor que /12. Você pode reutilizar esta gama em diferentes clusters AKS. |
 | Endereço IP do serviço DNS do Kubernetes | Endereço IP dentro da gama de endereços de serviço Kubernetes que será usado pela descoberta do serviço de cluster. Não utilize o primeiro endereço IP na gama de endereços, como .1. O primeiro endereço da sua sub-rede é utilizado para o *endereço kubernetes.default.svc.cluster.local.* |
-| Endereço de bridge do Docker | O endereço de rede de bridge do Docker representa o endereço de rede de bridge *docker0* predefinido presente em todas as instalações do Docker. Embora a ponte *Docker0* não seja usada por clusters AKS ou pelas próprias cápsulas, você deve definir este endereço para continuar a apoiar cenários como a *construção de estivadores* dentro do cluster AKS. É necessário selecionar um CIDR para o endereço de rede de ponte Docker, pois caso contrário, o Docker escolherá automaticamente uma sub-rede que possa entrar em conflito com outros CIDRs. Tem de escolher um espaço de endereço que não colida com o resto dos CIDRs nas suas redes, incluindo o serviço de serviço CIDR do cluster e o POD CIDR. Padrão de 172.17.0.1/16. Você pode reutilizar esta gama em diferentes clusters AKS. |
+| Endereço de bridge do Docker | O endereço de rede de bridge do Docker representa o endereço de rede de bridge *docker0* predefinido presente em todas as instalações do Docker. Embora a ponte *Docker0* não seja usada por clusters AKS ou pelas próprias cápsulas, você deve definir este endereço para continuar a apoiar cenários como a *construção de estivadores* dentro do cluster AKS. É necessário selecionar um CIDR para o endereço de rede de ponte Docker, pois caso contrário, o Docker escolherá automaticamente uma sub-rede, o que poderá entrar em conflito com outros CIDRs. Tem de escolher um espaço de endereço que não colida com o resto dos CIDRs nas suas redes, incluindo o serviço de serviço CIDR do cluster e o POD CIDR. Padrão de 172.17.0.1/16. Você pode reutilizar esta gama em diferentes clusters AKS. |
 
 ## <a name="maximum-pods-per-node"></a>Cápsulas máximas por nó
 
@@ -63,7 +64,7 @@ O número máximo de cápsulas por nó num cluster AKS é de 250. O número máx
 | -- | :--: | :--: | -- |
 | CLI do Azure | 110 | 30 | Sim (até 250) |
 | Modelo do Resource Manager | 110 | 30 | Sim (até 250) |
-| Portal | 110 | 110 (configurado no separador Piscinas de Nó) | No |
+| Portal | 110 | 110 (configurado no separador Piscinas de Nó) | Não |
 
 ### <a name="configure-maximum---new-clusters"></a>Configurar máximo - novos clusters
 
@@ -97,9 +98,9 @@ Quando cria um cluster AKS, os seguintes parâmetros são configuráveis para a 
 
 **Sub-rede**: A sub-rede dentro da rede virtual onde pretende implantar o cluster. Se pretender criar uma nova sub-rede na rede virtual para o seu cluster, selecione *Criar novos* e siga os passos na secção *sub-redes Criar.* Para a conectividade híbrida, a gama de endereços não deve sobrepor-se a quaisquer outras redes virtuais no seu ambiente.
 
-**Plugin de rede Azure**: Quando o plugin de rede azul é utilizado, o serviço interno LoadBalancer com "externalTrafficPolicy=Local" não pode ser acedido a partir de VMs com um IP no clusterCIDR que não pertence ao cluster AKS.
+**Plugin de rede Azure**: Quando o plugin de rede Azure é utilizado, o serviço interno LoadBalancer com "externalTrafficPolicy=Local" não pode ser acedido a partir de VMs com um IP no clusterCIDR que não pertence ao cluster AKS.
 
-Gama de endereços de **serviço Kubernetes**: Este é o conjunto de IPs virtuais que kubernetes atribui a [serviços][services] internos no seu cluster. Pode utilizar qualquer gama de endereços privados que satisfaça os seguintes requisitos:
+**Intervalo de endereços de serviço Kubernetes**: Este parâmetro é o conjunto de IPs virtuais que kubernetes atribui a [serviços][services] internos no seu cluster. Pode utilizar qualquer gama de endereços privados que satisfaça os seguintes requisitos:
 
 * Não deve estar dentro da gama de endereços IP de rede virtual do seu cluster
 * Não deve sobrepor-se a quaisquer outras redes virtuais com as quais o cluster de rede virtual pares
@@ -145,7 +146,130 @@ az aks create \
 
 A imagem a seguir do portal Azure mostra um exemplo de configuração destas definições durante a criação do cluster AKS:
 
-![Configuração avançada de rede no portal Azure][portal-01-networking-advanced]
+! [Configuração avançada de rede no portal Azure] [portal-01-networking-advanced]
+
+## <a name="dynamic-allocation-of-ips-and-enhanced-subnet-support-preview"></a>Alocação dinâmica de IPs e suporte de sub-redes melhorado (pré-visualização)
+
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
+
+> [!NOTE] 
+> Esta funcionalidade de pré-visualização encontra-se atualmente disponível nas seguintes regiões:
+>
+> * E.U.A. Centro-Oeste
+
+Um inconveniente com o CNI tradicional é o esgotamento dos endereços IP do pod à medida que o cluster AKS cresce, resultando na necessidade de reconstruir todo o cluster numa sub-rede maior. A nova capacidade dinâmica de alocação de IP no Azure CNI resolve este problema atribuindo IPs de uma sub-rede separada da sub-rede que hospeda o cluster AKS.  Oferece os seguintes benefícios:
+
+* **Melhor utilização ip**: Os IPs são atribuídos dinamicamente aos pods de cluster da sub-rede Pod. Isto leva a uma melhor utilização dos IPs no cluster em comparação com a solução tradicional de CNI, que faz a atribuição estática de IPs para cada nó.  
+
+* **Escalável e flexível:** As sub-redes de nó e pod podem ser dimensionada de forma independente. Uma única sub-rede de pod pode ser partilhada em várias piscinas de nós de um cluster ou em vários clusters AKS implantados no mesmo VNet. Também pode configurar uma sub-rede de vagem separada para uma piscina de nó.  
+
+* **Alto desempenho**: Uma vez que o pod é atribuído VNet IPs, eles têm conectividade direta com outros casulos de cluster e recursos no VNet. A solução suporta clusters muito grandes sem qualquer degradação no desempenho.
+
+* **Políticas VNet separadas para cápsulas**: Uma vez que as cápsulas têm uma sub-rede separada, pode configurar políticas VNet separadas para eles que são diferentes das políticas de nó. Isto permite muitos cenários úteis, tais como permitir a conectividade da Internet apenas para pods e não para nós, fixar o IP de origem para pod em uma piscina de nó usando um VNet Network NAT, e usar NSGs para filtrar o tráfego entre piscinas de nós.  
+
+* **Políticas de rede Kubernetes**: Tanto as Políticas de Rede Azure como a Calico trabalham com esta nova solução.  
+
+### <a name="install-the-aks-preview-azure-cli"></a>Instale o `aks-preview` Azure CLI
+
+Você precisará da extensão Azure CLI *de pré-visualização aks.* Instale a extensão Azure CLI *de pré-visualização aks* utilizando o comando [de adicionar extensão az.][az-extension-add] Ou instale quaisquer atualizações disponíveis utilizando o comando [de atualização de extensão az.][az-extension-update]
+
+```azurecli-interactive
+# Install the aks-preview extension
+az extension add --name aks-preview
+
+# Update the extension to make sure you have the latest version installed
+az extension update --name aks-preview
+```
+
+### <a name="register-the-podsubnetpreview-preview-feature"></a>Registar a `PodSubnetPreview` funcionalidade de pré-visualização
+
+Para utilizar a funcionalidade, também tem de ativar a bandeira de `PodSubnetPreview` funcionalidades na sua subscrição.
+
+Registe o `PodSubnetPreview` pavilhão de funcionalidades utilizando o comando [de registo de recursos az,][az-feature-register] como mostra o seguinte exemplo:
+
+```azurecli-interactive
+az feature register --namespace "Microsoft.ContainerService" --name "PodSubnetPreview"
+```
+
+Demora alguns minutos para que o estado seja *apresentado.* Verifique o estado de registo utilizando o comando [da lista de recursos AZ:][az-feature-list]
+
+```azurecli-interactive
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/PodSubnetPreview')].{Name:name,State:properties.state}"
+```
+
+Quando estiver pronto, reaprovi o registo do fornecedor de recursos *Microsoft.ContainerService* utilizando o comando [de registo do fornecedor az:][az-provider-register]
+
+```azurecli-interactive
+az provider register --namespace Microsoft.ContainerService
+```
+
+### <a name="additional-prerequisites"></a>Pré-requisitos adicionais
+
+Os pré-requisitos já listados para a Azure CNI ainda se aplicam, mas existem algumas limitações adicionais:
+
+* Apenas os aglomerados de nól e piscinas de nóles linux são suportados.
+* Os clusters AKS Engine e DIY não são suportados.
+
+### <a name="planning-ip-addressing"></a>Planeamento de endereço IP
+
+Ao utilizar esta funcionalidade, o planeamento é muito mais simples. Uma vez que os nós e as cápsulas escalam de forma independente, os seus espaços de endereço também podem ser planeados separadamente. Uma vez que as sub-redes de vagem podem ser configuradas para a granularidade de uma piscina de nó, os clientes podem sempre adicionar uma nova sub-rede quando adicionam uma piscina de nó. As cápsulas do sistema num cluster/piscina de nó também recebem IPs da sub-rede de vagem, pelo que este comportamento precisa de ser contabilizado.
+
+O planeamento dos IPs para os serviços K8S e a ponte Docker permanecem inalterados.
+
+### <a name="maximum-pods-per-node-in-a-cluster-with-dynamic-allocation-of-ips-and-enhanced-subnet-support"></a>Cápsulas máximas por nó num cluster com alocação dinâmica de IPs e suporte de sub-rede melhorado
+
+Os valores das cápsulas por nó ao utilizar o CNI Azure com alocação dinâmica de IPs mudaram ligeiramente do comportamento tradicional do CNI:
+
+|CNI|Método de implantação|Predefinição|Configurável na implantação|
+|--|--| :--: |--|
+|CNI tradicional de Azure|CLI do Azure|30|Sim (até 250)|
+|CNI Azure com alocação dinâmica de IPs|CLI do Azure|110|Sim (até 250)|
+
+Todas as outras orientações relacionadas com a configuração dos nós máximos por vagem permanecem as mesmas.
+
+### <a name="additional-deployment-parameters"></a>Parâmetros adicionais de implantação
+
+Os parâmetros de implantação acima descritos são ainda válidos, com uma exceção:
+
+* O parâmetro **da sub-rede** refere-se agora à sub-rede relacionada com os nós do cluster.
+* É utilizada uma **sub-rede de cápsulas** de parâmetros adicionais para especificar a sub-rede cujos endereços IP serão atribuídos dinamicamente às cápsulas.
+
+### <a name="configure-networking---cli-with-dynamic-allocation-of-ips-and-enhanced-subnet-support"></a>Configure a rede - CLI com alocação dinâmica de IPs e suporte de sub-redes melhorado
+
+A utilização dinâmica de IPs e suporte de sub-rede melhorado no seu cluster é semelhante ao método padrão para configurar um cluster Azure CNI. O exemplo a seguir passa pela criação de uma nova rede virtual com uma sub-rede para nós e uma sub-rede para cápsulas, e criando um cluster que usa O Azure CNI com alocação dinâmica de IPs e suporte de sub-rede melhorado. Certifique-se de substituir variáveis como por exemplo `$subscription` com os seus próprios valores:
+
+Primeiro, crie a rede virtual com duas sub-redes:
+
+```azurecli-interactive
+$resourceGroup="myResourceGroup"
+$vnet="myVirtualNetwork"
+
+# Create our two subnet network 
+az network vnet create -g $rg --name $vnet --address-prefixes 10.0.0.0/8 -o none 
+az network vnet subnet create -g $rg --vnet-name $vnet --name nodesubnet --address-prefixes 10.240.0.0/16 -o none 
+az network vnet subnet create -g $rg --vnet-name $vnet --name podsubnet --address-prefixes 10.241.0.0/16 -o none 
+```
+
+Em seguida, crie o cluster, referindo a sub-rede do nó utilizando `--vnet-subnet-id` e a sub-rede do pod `--pod-subnet-id` utilizando:
+
+```azurecli-interactive
+$clusterName="myAKSCluster"
+$location="eastus"
+$subscription="aaaaaaa-aaaaa-aaaaaa-aaaa"
+
+az aks create -n $clusterName -g $resourceGroup -l $location --max-pods 250 --node-count 2 --network-plugin azure --vnet-subnet-id /subscriptions/$subscription/resourceGroups/$resourceGroup/providers/Microsoft.Network/virtualNetworks/$vnet/subnets/nodesubnet --pod-subnet-id /subscriptions/$subscription/resourceGroups/$resourceGroup/providers/Microsoft.Network/virtualNetworks/$vnet/subnets/podsubnet  
+```
+
+#### <a name="adding-node-pool"></a>Adicionar piscina de nó
+
+Ao adicionar a piscina de nó, consulte a sub-rede do nó `--vnet-subnet-id` utilizando e a sub-rede do pod . `--pod-subnet-id` O exemplo a seguir cria duas novas sub-redes que são depois referenciadas na criação de uma nova piscina de nó:
+
+```azurecli-interactive
+az network vnet subnet create -g $resourceGroup --vnet-name $vnet --name node2subnet --address-prefixes 10.242.0.0/16 -o none 
+az network vnet subnet create -g $resourceGroup --vnet-name $vnet --name pod2subnet --address-prefixes 10.243.0.0/16 -o none 
+
+az aks nodepool add --cluster-name $clusterName -g $resourceGroup  -n newNodepool --max-pods 250 --node-count 2 --vnet-subnet-id /subscriptions/$subscription/resourceGroups/$resourceGroup/providers/Microsoft.Network/virtualNetworks/$vnet/subnets/node2subnet  --pod-subnet-id /subscriptions/$subscription/resourceGroups/$resourceGroup/providers/Microsoft.Network/virtualNetworks/$vnet/subnets/pod2subnet --no-wait 
+```
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
@@ -153,11 +277,11 @@ As seguintes perguntas e respostas aplicam-se à configuração de rede **Azure 
 
 * *Posso colocar VMs na minha sub-rede de cluster?*
 
-  Yes.
+  Sim.
 
 * *Que fonte ip os sistemas externos vêem para o tráfego que se origina numa cápsula ativada pelo Azure CNI?*
 
-  Os sistemas na mesma rede virtual que o cluster AKS vêem o pod IP como o endereço de origem para qualquer tráfego a partir da cápsula. Os sistemas fora da rede virtual do cluster AKS vêem o nó IP como o endereço de origem para qualquer tráfego a partir da cápsula. 
+  Os sistemas na mesma rede virtual que o cluster AKS vêem o pod IP como o endereço de origem para qualquer tráfego a partir da cápsula. Os sistemas fora da rede virtual do cluster AKS vêem o nó IP como o endereço de origem para qualquer tráfego a partir da cápsula.
 
 * *Posso configurar as políticas de rede por vagem?*
 
@@ -177,28 +301,42 @@ As seguintes perguntas e respostas aplicam-se à configuração de rede **Azure 
 
   Não é recomendado, mas esta configuração é possível. A gama de endereços de serviço é um conjunto de IPs virtuais (VIPs) que a Kubernetes atribui a serviços internos no seu cluster. O Azure Networking não tem visibilidade na gama ip de serviço do cluster Kubernetes. Devido à falta de visibilidade na gama de endereços de serviço do cluster, é possível criar mais tarde uma nova sub-rede na rede virtual do cluster que se sobreponha à gama de endereços de serviço. Se tal sobreposição ocorrer, kubernetes poderia atribuir um serviço um IP que já está em uso por outro recurso na sub-rede, causando comportamentos ou falhas imprevisíveis. Ao garantir que utiliza um intervalo de endereços fora da rede virtual do cluster, pode evitar este risco de sobreposição.
 
-## <a name="next-steps"></a>Passos seguintes
+### <a name="dynamic-allocation-of-ip-addresses-and-enhanced-subnet-support-faqs"></a>Alocação dinâmica de endereços IP e qQs de suporte de sub-redes melhorados
 
-Saiba mais sobre networking em AKS nos seguintes artigos:
+As seguintes perguntas e respostas aplicam-se à configuração da **rede CNI Azure ao utilizar a atribuição dinâmica de endereços IP e suporte de sub-rede melhorado**.
 
-- [Utilize um endereço IP estático com o equilibrador de carga Azure Kubernetes (AKS)](static-ip.md)
-- [Utilize um equilibrador interno de carga com serviço de contentores Azure (AKS)](internal-lb.md)
+* *Posso atribuir várias sub-redes de vagem a um cluster/piscina de nó?*
 
-- [Criar um controlador básico de entrada com conectividade de rede externa][aks-ingress-basic]
-- [Ativar o addon de encaminhamento de aplicações HTTP][aks-http-app-routing]
-- [Crie um controlador ingress que utilize uma rede interna, privada e endereço IP][aks-ingress-internal]
-- [Criar um controlador de entrada com um IP público dinâmico e configurar Let's Encrypt para gerar automaticamente certificados TLS][aks-ingress-tls]
-- [Criar um controlador de entrada com um IP público estático e configurar Vamos Encriptar para gerar automaticamente certificados TLS][aks-ingress-static-tls]
+  Apenas uma sub-rede pode ser atribuída a um cluster ou piscina de nó. No entanto, vários aglomerados ou agrupamentos de nós podem partilhar uma única sub-rede.
 
-### <a name="aks-engine"></a>Motor AKS
+* *Posso atribuir sub-redes pod de um VNet diferente?*
+
+  A sub-rede da cápsula deve ser do mesmo VNet que o cluster.  
+
+* *Algumas piscinas de nó num cluster podem usar o CNI tradicional enquanto outros usam o novo CNI?*
+
+  Todo o cluster deve usar apenas um tipo de CNI.
+
+## <a name="aks-engine"></a>Motor AKS
 
 [O Motor de Serviço Azure Kubernetes (Motor AKS)][aks-engine] é um projeto de código aberto que gera modelos de Gestor de Recursos Azure que pode usar para implantar clusters Kubernetes no Azure.
 
 Os clusters Kubernetes criados com suporte a motor AKS suportam os plugins [kubenet][kubenet] e [Azure CNI.][cni-networking] Como tal, ambos os cenários de networking são suportados pelo Motor AKS.
 
+## <a name="next-steps"></a>Passos seguintes
+
+Saiba mais sobre networking em AKS nos seguintes artigos:
+
+* [Utilize um endereço IP estático com o equilibrador de carga Azure Kubernetes (AKS)](static-ip.md)
+* [Utilize um equilibrador interno de carga com serviço de contentores Azure (AKS)](internal-lb.md)
+
+* [Criar um controlador básico de entrada com conectividade de rede externa][aks-ingress-basic]
+* [Ativar o addon de encaminhamento de aplicações HTTP][aks-http-app-routing]
+* [Crie um controlador ingress que utilize uma rede interna, privada e endereço IP][aks-ingress-internal]
+* [Criar um controlador de entrada com um IP público dinâmico e configurar Let's Encrypt para gerar automaticamente certificados TLS][aks-ingress-tls]
+* [Criar um controlador de entrada com um IP público estático e configurar Vamos Encriptar para gerar automaticamente certificados TLS][aks-ingress-static-tls]
 <!-- IMAGES -->
-[advanced-networking-diagram-01]: ./media/networking-overview/advanced-networking-diagram-01.png
-[portal-01-networking-advanced]: ./media/networking-overview/portal-01-networking-advanced.png
+[diagrama avançado de rede-01]: ./media/networking-overview/advanced-networking-diagram-01.png [portal-01-networking-advanced]: ./media/networking-overview/portal-01-networking-advanced.png
 
 <!-- LINKS - External -->
 [aks-engine]: https://github.com/Azure/aks-engine
@@ -217,6 +355,11 @@ Os clusters Kubernetes criados com suporte a motor AKS suportam os plugins [kube
 [aks-ingress-static-tls]: ingress-static-ip.md
 [aks-http-app-routing]: http-application-routing.md
 [aks-ingress-internal]: ingress-internal-ip.md
+[az-extension-add]: https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest&preserve-view=true#az_extension_add
+[az-extension-update]: https://docs.microsoft.com/cli/azure/extension?view=azure-cli-latest&preserve-view=true#az_extension_update
+[az-feature-register]: https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest&preserve-view=true#az_feature_register
+[az-feature-list]: https://docs.microsoft.com/cli/azure/feature?view=azure-cli-latest&preserve-view=true#az_feature_list
+[az-provider-register]: https://docs.microsoft.com/cli/azure/provider?view=azure-cli-latest&preserve-view=true#az_provider_register
 [network-policy]: use-network-policies.md
 [nodepool-upgrade]: use-multiple-node-pools.md#upgrade-a-node-pool
 [network-comparisons]: concepts-network.md#compare-network-models

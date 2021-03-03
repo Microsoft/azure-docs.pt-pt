@@ -6,12 +6,12 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 09/22/2020
-ms.openlocfilehash: 64bdbf1005f0283438777b3bb2ba1d3312b6e140
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 8dac947aea95dc79118032eb0996b6ba14f16363
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100627963"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101714127"
 ---
 # <a name="resource-manager-template-samples-for-log-alert-rules-in-azure-monitor"></a>Amostras de modelo do gestor de recursos para regras de alerta de registo no Azure Monitor
 Este artigo inclui amostras de modelos do Gestor de [Recursos Azure](../../azure-resource-manager/templates/template-syntax.md) para criar e configurar alertas de consulta de registo no Azure Monitor. Cada amostra inclui um ficheiro de modelo e um ficheiro de parâmetros com valores de amostra para fornecer ao modelo.
@@ -479,4 +479,4 @@ A amostra a seguir cria uma regra que pode visar qualquer recurso.
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Obtenha outros modelos de amostra para Azure Monitor](../resource-manager-samples.md).
-* [Saiba mais sobre as regras de alerta.](../platform/alerts-overview.md)
+* [Saiba mais sobre as regras de alerta.](./alerts-overview.md)

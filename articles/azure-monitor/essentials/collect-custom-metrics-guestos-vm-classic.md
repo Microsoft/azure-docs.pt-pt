@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: ''
-ms.openlocfilehash: 48c7323a630f5c79c7ecb16e26c9ec79ec2014a1
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: f0c97d128837e77325e68ae28161a98938510ff8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100613338"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723287"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metrics-database-for-a-windows-virtual-machine-classic"></a>Envie métricas de OS para a base de dados de métricas do Azure Monitor para uma máquina virtual do Windows (clássica)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-A extensão Azure Monitor [Diagnostics](../agents/diagnostics-extension-overview.md) (conhecida como "WAD" ou "Diagnostics") permite-lhe recolher métricas e registos do sistema operativo convidado (Guest OS) em funcionamento como parte de uma máquina virtual, serviço de nuvem ou cluster de Tecido de Serviço. A extensão pode enviar telemetria para [vários locais diferentes.](../platform/data-platform.md?toc=/azure/azure-monitor/toc.json)
+A extensão Azure Monitor [Diagnostics](../agents/diagnostics-extension-overview.md) (conhecida como "WAD" ou "Diagnostics") permite-lhe recolher métricas e registos do sistema operativo convidado (Guest OS) em funcionamento como parte de uma máquina virtual, serviço de nuvem ou cluster de Tecido de Serviço. A extensão pode enviar telemetria para [vários locais diferentes.](../data-platform.md?toc=%2fazure%2fazure-monitor%2ftoc.json)
 
 Este artigo descreve o processo de envio de métricas de desempenho do Guest OS para uma máquina virtual do Windows (clássica) para a base de dados métrica do Azure Monitor. A partir da versão 1.11 do Diagnostics, pode escrever métricas diretamente na loja de métricas do Azure Monitor, onde já são recolhidas métricas padrão da plataforma. 
 
@@ -34,7 +34,7 @@ O processo que está delineado neste artigo funciona apenas em máquinas virtuai
 
 - Precisa de ter [a Azure PowerShell](/powershell/azure) ou [a Azure Cloud Shell](../../cloud-shell/overview.md) instaladas.
 
-- O seu recurso VM deve estar numa [região que suporte métricas personalizadas.](../platform/metrics-custom-overview.md#supported-regions)
+- O seu recurso VM deve estar numa [região que suporte métricas personalizadas.](./metrics-custom-overview.md#supported-regions)
 
 ## <a name="create-a-classic-virtual-machine-and-storage-account"></a>Crie uma clássica caixa de máquinas virtuais e uma conta de armazenamento
 
@@ -203,4 +203,4 @@ Dê a esta aplicação permissões "Monitoring Metrics Publisher" ao recurso con
 
 
 ## <a name="next-steps"></a>Passos seguintes
-- Saiba mais sobre [métricas personalizadas.](../platform/metrics-custom-overview.md)
+- Saiba mais sobre [métricas personalizadas.](./metrics-custom-overview.md)

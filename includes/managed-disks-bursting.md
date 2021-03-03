@@ -8,13 +8,13 @@ ms.topic: include
 ms.date: 04/27/2020
 ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: 634deb655620f99c7b7b2b55819c58308eaa5a92
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0f85f2770b98507618d5cbfdec1b55f397c7f514
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91275167"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101749920"
 ---
-No Azure, oferecemos a capacidade de aumentar o armazenamento de discos IOPS e o desempenho de MB/s referido como estourando tanto em Máquinas Virtuais como em discos. A explosão é útil em muitos cenários, como lidar com o tráfego inesperado de discos ou processar trabalhos de lote. Pode efetivamente alavancar o VM e o nível do disco a rebentar para obter um grande desempenho de base e estourando tanto no seu VM como no disco. Desta forma, pode obter um grande desempenho de base e um desempenho de rutura tanto no seu vm como no disco. 
+O Azure oferece a capacidade de aumentar o desempenho do IOPS e do MB/s de armazenamento de discos, isto é referido como estourando tanto para máquinas virtuais (VM) como para discos. Pode efetivamente alavancar o VM e o disco a rebentar para obter um melhor desempenho de rebentamento tanto nos seus VMs como no disco.
 
-Por favor, note que as explosões nos Discos e VMs são independentes umas das outras. Se tiver um disco estourando, não precisa de um VM estou rebentando para permitir que o seu disco rebente. Se tiver um VM estourante, não precisa de um disco de rutura para permitir que o seu VM rebente. 
+Rebentar por VMs Azure e os recursos do disco não dependem uns dos outros. Não é preciso ter um VM capaz de rebentar para que um disco com capacidade de explosão se rebente. Da mesma forma, não é necessário ter um disco capaz de rebentar ao seu VM capaz de rebentar para que o VM rebente.

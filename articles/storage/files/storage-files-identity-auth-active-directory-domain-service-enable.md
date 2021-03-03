@@ -8,16 +8,16 @@ ms.date: 01/03/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: contperf-fy21q1, devx-track-azurecli
-ms.openlocfilehash: 153ffd699b22a6379758bf66b896a2b37a19fdf3
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: d75b60c715a758684e6f3a4b331c0b12d17eaf21
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97883287"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101705114"
 ---
 # <a name="enable-azure-active-directory-domain-services-authentication-on-azure-files"></a>Ativar a autenticação dos Serviços de Domínio do Diretório Ativo do Azure em Ficheiros Azure
 
-Ficheiros Azure [](storage-files-introduction.md)   suporta a autenticação baseada na identidade sobre o Bloco de Mensagens do Servidor (SMB) através de dois tipos de Serviços de Domínio: no local Serviços de Domínio de Diretório Ativo (AD DS) e Azure Ative Directory Domain Services (Azure AD DS). Recomendamos vivamente que reveja a [secção Como funciona](./storage-files-active-directory-overview.md#how-it-works) para selecionar o serviço de domínio certo para autenticação. A configuração é diferente depende do serviço de domínio que escolher. Este artigo centra-se em ativar e configurar Azure AD DS para autenticação com ações de ficheiros Azure.
+Ficheiros Azure [](storage-files-introduction.md)   suporta a autenticação baseada na identidade sobre o Bloco de Mensagens do Servidor (SMB) através de dois tipos de Serviços de Domínio: no local Serviços de Domínio de Diretório Ativo (AD DS) e Azure Ative Directory Domain Services (Azure AD DS). Recomendamos vivamente que reveja a [secção Como funciona](./storage-files-active-directory-overview.md#how-it-works) para selecionar o serviço de domínio certo para autenticação. A configuração é diferente dependendo do serviço de domínio que escolher. Este artigo centra-se em ativar e configurar Azure AD DS para autenticação com ações de ficheiros Azure.
 
 Se é novo nas ações de ficheiros Azure, recomendamos que leia o nosso [guia de planeamento](storage-files-planning.md) antes de ler a seguinte série de artigos.
 

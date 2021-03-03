@@ -7,12 +7,12 @@ ms.date: 1/10/2021
 author: sakthi-vetrivel
 ms.author: suvetriv
 keywords: aro, openshift, az aro, chapéu vermelho, cli
-ms.openlocfilehash: 2c2c8607374493aa4e1135bbef0156b9c0b66fa6
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: 742da12bd3a10cd1f541e9c43f654cfe7df04340
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100634980"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101720890"
 ---
 # <a name="upgrade-an-azure-red-hat-openshift-aro-cluster"></a>Atualize um cluster Azure Red Hat OpenShift (ARO)
 
@@ -20,7 +20,7 @@ Parte do ciclo de vida do cluster ARO envolve a realização de upgrades periód
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Este artigo requer que esteja a executar a versão 2.0.65 do Azure CLI. Execute `az --version` para encontrar a versão atual. Se precisar de instalar ou atualizar, consulte [instalar o Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)
+Este artigo requer que esteja a executar a versão 2.0.65 do Azure CLI. Execute `az --version` para encontrar a versão atual. Se precisar de instalar ou atualizar, consulte [instalar o Azure CLI](/cli/azure/install-azure-cli)
 
 Este artigo pressupõe que você tem acesso a um cluster Azure Red Hat OpenShift como um utilizador com `admin` privilégios.
 
@@ -39,4 +39,3 @@ Selecione uma versão para atualizar e selecione **Update**. Verá a alteração
 ## <a name="next-steps"></a>Passos seguintes
 - [Aprenda a atualizar um cluster ARO usando o OC CLI](https://docs.openshift.com/container-platform/4.6/updating/updating-cluster-between-minor.html)
 - Pode encontrar informações sobre os avisos e atualizações disponíveis da Plataforma de Contentores OpenShift na [secção errata](https://access.redhat.com/downloads/content/290/ver=4.6/rhel---8/4.6.0/x86_64/product-errata) do Portal do Cliente.
-  

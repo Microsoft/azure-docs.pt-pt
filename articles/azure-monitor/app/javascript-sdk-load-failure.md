@@ -6,12 +6,12 @@ author: MSNev
 ms.author: newylie
 ms.date: 06/05/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 30c7caef4143b1a7cdba959971ff7689f986cb9e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6295a56abbf3466c68b968c935936dbc10e22fb5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91333261"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711421"
 ---
 # <a name="troubleshooting-sdk-load-failure-for-javascript-web-apps"></a>Falha de carga SDK na resolução de problemas para aplicações web JavaScript
 
@@ -68,7 +68,7 @@ Para minimizar a falha intermitente de conectividade da rede, implementámos Cac
  
 ## <a name="application-insights-cdn-outage"></a>Falha do CDN de Insights de Aplicação
 
-Pode confirmar se existe uma falha de CDN do Application Insights ao tentar aceder ao ponto final do CDN diretamente do navegador (por exemplo, https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js) a partir de um local diferente do dos seus utilizadores finais, provavelmente da sua própria máquina de desenvolvimento (assumindo que a sua organização não bloqueou este domínio).
+Pode confirmar se existe uma falha de CDN do Application Insights ao tentar aceder ao ponto final do CDN diretamente do navegador (por exemplo, https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js ou a partir de um local diferente do dos seus https://js.monitor.azure.com/scripts/b/ai.2.min.js) utilizadores finais, provavelmente a partir da sua própria máquina de desenvolvimento (assumindo que a sua organização não bloqueou este domínio).
 
 Se confirmar que há uma paragem, pode [criar um novo bilhete de suporte](https://azure.microsoft.com/support/create-ticket/) ou tentar alterar o URL utilizado para descarregar o SDK.
 
@@ -106,7 +106,7 @@ Se houver exceções a serem reportadas no script SDK (por exemplo ai.2.min.js),
 
 Para verificar se há uma configuração defeituosa, altere a configuração passada para o corte (se não já for) de modo a que inclua apenas a sua chave de instrumentação como um valor de cadeia.
 
-> src: " https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js ", "<br />
+> src: " https://js.monitor.azure.com/scripts/b/ai.2.min.js ", "<br />
 > cfg:{<br />
 > instrumentaçãoKey: "INSTRUMENTATION_KEY"<br />
 > }});<br />
@@ -129,12 +129,12 @@ Assumindo que não existem exceções a serem lançadas, o próximo passo é per
 > [!NOTE]
 > Durante a inicialização, o SDK realiza alguns controlos básicos para as dependências importantes conhecidas. Se estas não forem fornecidas pelo tempo de funcionação atual, reportará as falhas como mensagens de aviso para a consola, mas apenas se a for superior a `loggingLevelConsole` zero.
 
-Se ainda não tiver sido inicializada, tente ativar a definição de ```enableDebug``` configuração. Isto fará com que todos os erros internos sejam lançados como uma exceção (o que fará com que a telemetria se perca). Como esta é uma definição de desenvolvedor apenas, provavelmente ficará ruidosa com exceções sendo lançadas como parte de algumas verificações internas, por isso terá de rever cada exceção para determinar que problema está a causar a falha do SDK. Utilize a versão não minificada do script (note a extensão abaixo é ".js" e não ".min.js") caso contrário as exceções serão ilegíveis.
+Se ainda não tiver sido inicializada, tente ativar a definição de ```enableDebug``` configuração. Isto fará com que todos os erros internos sejam lançados como uma exceção (o que fará com que a telemetria se perca). Como esta é uma definição de desenvolvedor apenas, provavelmente ficará ruidosa com exceções sendo lançadas como parte de algumas verificações internas, por isso terá de rever cada exceção para determinar que problema está a causar a falha do SDK. Utilize a versão não minificada do script (note que a extensão abaixo é ".js" e não ".min.js") caso contrário as exceções serão ilegíveis.
 
 > [!WARNING]
 > Trata-se de uma definição apenas de desenvolvedor e nunca deve ser ativada num ambiente de produção completo, uma vez que perderá a telemetria.
 
-> src: " https://az416426.vo.msecnd.net/scripts/b/ai.2.js ", "<br />
+> src: " https://js.monitor.azure.com/scripts/b/ai.2.min.js ", "<br />
 > cfg:{<br />
 > instrumentaçãoKey: "INSTRUMENTATION_KEY",<br />
 > enableDebug: verdadeiro<br />

@@ -9,20 +9,20 @@ ms.custom: seodec18, cog-serv-seo-aug-2020
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 09/28/2020
+ms.date: 02/10/2021
 ms.author: aahi
 keywords: no local, Docker, contentor, análise de sentimento, processamento de linguagem natural
-ms.openlocfilehash: f785a5e6749e46b34723af11b4d61a98b5d94384
-ms.sourcegitcommit: aeba98c7b85ad435b631d40cbe1f9419727d5884
+ms.openlocfilehash: e815ecafe5d00f92a5430fdb71bcf952bc8984c8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97862489"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101736717"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Instalar e executar contentores da Análise de Texto
 
 > [!NOTE]
-> * O recipiente para Análise de Sentimento v3 está agora geralmente disponível. Os contentores de deteção de idioma e extração de expressões-chave estão disponíveis como uma pré-visualização pública livre.
+> * O recipiente para análise de sentimento e deteção de linguagem está agora geralmente disponível. O recipiente de extração de frases-chave está disponível como uma pré-visualização pública não acompanhada.
 > * A ligação da entidade e o NER não estão atualmente disponíveis como recipiente.
 > * O acesso ao Texto Analytics para recipiente de saúde requer um [formulário de pedido](https://aka.ms/csgate). Atualmente, não será cobrado pelo seu uso.
 > * As localizações de imagem do contentor podem ter mudado recentemente. Leia este artigo para ver a localização atualizada deste recipiente.
@@ -46,7 +46,7 @@ Deve encontrar os seguintes pré-requisitos antes de utilizar os recipientes tex
 |--|--|
 |Motor do Docker| Precisa do Motor Docker instalado num [computador anfitrião.](#the-host-computer) O Docker oferece pacotes que configuram o ambiente do Docker no [macOS](https://docs.docker.com/docker-for-mac/), no [Windows](https://docs.docker.com/docker-for-windows/) e no [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para um manual de noções básicas do Docker e do contentor, veja a [descrição geral do Docker](https://docs.docker.com/engine/docker-overview/).<br><br> O Docker deve ser configurado para permitir que os contentores se conectem e enviem dados de faturação para a Azure. <br><br> **No Windows,** o Docker também deve ser configurado para suportar recipientes Linux.<br><br>|
 |Familiaridade com Docker | Você deve ter uma compreensão básica de conceitos docker, como registos, repositórios, contentores e imagens de contentores, bem como conhecimento de `docker` comandos básicos.| 
-|Recurso de análise de texto |Para utilizar o recipiente, deve ter:<br><br>Um recurso Azure [Text Analytics](../../cognitive-services-apis-create-account.md) para obter a chave API associada e ponto final URI. Ambos os valores estão disponíveis nas páginas de Análise de Texto e Chaves do portal Azure e são obrigados a iniciar o contentor.<br><br>**{API_KEY}**: Uma das duas teclas de recursos disponíveis na página **Keys**<br><br>**{ENDPOINT_URI}**: O ponto final, conforme fornecido na página **'Vista Geral',**|
+|Recurso de análise de texto |Para utilizar o recipiente, deve ter:<br><br>Um recurso Azure [Text Analytics](../../cognitive-services-apis-create-account.md) com o nível de preços gratuito (F0) ou standard [(S).](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/) Terá de obter a chave API associada e o ponto final URI navegando na página **chave e ponto final** do seu recurso no portal Azure. <br><br>**{API_KEY}**: Uma das duas teclas de recursos disponíveis. <br><br>**{ENDPOINT_URI}**: O ponto final do seu recurso. |
 
 [!INCLUDE [Gathering required parameters](../../containers/includes/container-gathering-required-parameters.md)]
 
@@ -61,7 +61,7 @@ O quadro a seguir descreve as especificações mínimas e recomendadas para os r
 |  | Especificações mínimas de anfitrião | Especificações recomendadas do anfitrião | TPS mínimos | TPS máximo|
 |---|---------|-------------|--|--|
 | **Deteção de linguagem, extração de frases-chave**   | 1 núcleo, 2GB de memória | 1 núcleo, 4GB de memória |15 | 30|
-| **Análise de Sentimento v3**   | 1 núcleo, 2GB de memória | 4 núcleos, memória de 8GB |15 | 30|
+| **Análise de Sentimentos**   | 1 núcleo, 2GB de memória | 4 núcleos, memória de 8GB |15 | 30|
 | **Análise de texto para a saúde - 1 documento/pedido**   |  4 núcleo, memória de 10GB | 6 núcleo, 12GB de memória |15 | 30|
 | **Análise de texto para saúde - 10 documentos/pedido**   |  6 núcleo, 16GB de memória | 8 núcleo, 20GB de memória |15 | 30|
 
@@ -73,7 +73,7 @@ O núcleo e a memória do CPU correspondem às `--cpus` `--memory` definições 
 
 As imagens do contentor para Análise de Texto estão disponíveis no Registo do Contentor da Microsoft.
 
-# <a name="sentiment-analysis-v3"></a>[Análise de Sentimento v3](#tab/sentiment)
+# <a name="sentiment-analysis"></a>[Análise de Sentimentos ](#tab/sentiment)
 
 [!INCLUDE [docker-pull-sentiment-analysis-container](../includes/docker-pull-sentiment-analysis-container.md)]
 
@@ -81,7 +81,7 @@ As imagens do contentor para Análise de Texto estão disponíveis no Registo do
 
 [!INCLUDE [docker-pull-key-phrase-extraction-container](../includes/docker-pull-key-phrase-extraction-container.md)]
 
-# <a name="language-detection-preview"></a>[Deteção de Idiomas (pré-visualização)](#tab/language)
+# <a name="language-detection"></a>[Deteção de Idioma](#tab/language)
 
 [!INCLUDE [docker-pull-language-detection-container](../includes/docker-pull-language-detection-container.md)]
 
@@ -89,7 +89,7 @@ As imagens do contentor para Análise de Texto estão disponíveis no Registo do
 
 [!INCLUDE [docker-pull-health-container](../includes/docker-pull-health-container.md)]
 
-**_
+***
 
 ## <a name="how-to-use-the-container"></a>Como usar o recipiente
 
@@ -103,11 +103,11 @@ Uma vez que o recipiente esteja no [computador anfitrião,](#the-host-computer)u
 Use o comando de execução do [estivador](https://docs.docker.com/engine/reference/commandline/run/) para executar os contentores. O contentor continuará a funcionar até o parar.
 
 > [!IMPORTANT]
-> _ Os comandos do estivador nas seguintes secções utilizam o corte `\` traseiro, como um carácter de continuação de linha. Substitua ou remova isto com base nos requisitos do seu sistema operativo anfitrião. 
+> * Os comandos do estivador nas seguintes secções usam o corte `\` traseiro, como um personagem de continuação de linha. Substitua ou remova isto com base nos requisitos do seu sistema operativo anfitrião. 
 > * As `Eula` `Billing` opções , e `ApiKey` opções devem ser especificadas para executar o recipiente; caso contrário, o recipiente não arranca.  Para mais informações, consulte [Billing.](#billing)
-> * O contentor v3 de análise de sentimento está agora geralmente disponível, que devolve [rótulos de sentimento](../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) na resposta. Os recipientes de extração de frases-chave e de deteção de linguagem utilizam v2 da API e estão em pré-visualização.
+> * Os recipientes de análise de sentimento e de deteção de linguagem estão geralmente disponíveis. O recipiente de extração de frase-chave utiliza v2 da API e está em pré-visualização.
 
-# <a name="sentiment-analysis-v3"></a>[Análise de Sentimento v3](#tab/sentiment)
+# <a name="sentiment-analysis"></a>[Análise de Sentimentos](#tab/sentiment)
 
 [!INCLUDE [docker-run-sentiment-analysis-container](../includes/docker-run-sentiment-analysis-container.md)]
 
@@ -115,7 +115,7 @@ Use o comando de execução do [estivador](https://docs.docker.com/engine/refere
 
 [!INCLUDE [docker-run-key-phrase-extraction-container](../includes/docker-run-key-phrase-extraction-container.md)]
 
-# <a name="language-detection-preview"></a>[Deteção de Idiomas (pré-visualização)](#tab/language)
+# <a name="language-detection"></a>[Deteção de Idioma](#tab/language)
 
 [!INCLUDE [docker-run-language-detection-container](../includes/docker-run-language-detection-container.md)]
 
@@ -162,7 +162,7 @@ Neste artigo, aprendeu conceitos e fluxo de trabalho para descarregar, instalar 
 * A Text Analytics fornece três recipientes Linux para Docker, encapsulando várias capacidades:
    * *Análise de Sentimentos*
    * *Extração de frases-chave (pré-visualização)* 
-   * *Deteção de Idiomas (pré-visualização)*
+   * *Deteção de Idioma*
    * *Análise de texto para saúde (pré-visualização)*
 * As imagens do contentor são descarregadas a partir do Registo de Contentores da Microsoft (MCR) ou do repositório de contentores de pré-visualização.
 * Imagens de contentores correm em Docker.

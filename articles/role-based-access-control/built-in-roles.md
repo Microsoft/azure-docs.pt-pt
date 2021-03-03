@@ -7,14 +7,14 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: rolyon
-ms.date: 02/15/2021
+ms.date: 02/25/2021
 ms.custom: generated
-ms.openlocfilehash: 1cd86ac2b9500c15bc32445e1866a40ca1c6b409
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 90c0be8e6df3e489595bdafed1f29d1ed0ef00f8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100576999"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101724511"
 ---
 # <a name="azure-built-in-roles"></a>Funções incorporadas do Azure
 
@@ -116,7 +116,7 @@ A tabela seguinte fornece uma breve descrição e a identificação única de ca
 > | [Recetor de dados Azure Event Hubs](#azure-event-hubs-data-receiver) | Permite ter acesso aos recursos do Azure Event Hubs. | a638d3c7-ab3a-418d-83e6-5f17a39d4fde |
 > | [Ender de dados do Azure Event Hubs](#azure-event-hubs-data-sender) | Permite enviar acesso aos recursos do Azure Event Hubs. | 2b629674-e913-4c01-ae53-ef4638d8f975 |
 > | [Contribuinte da Fábrica de Dados](#data-factory-contributor) | Criar e gerir fábricas de dados, bem como recursos infantis dentro delas. | 673868a-7521-48a0-acc6-0f60742d39f5 |
-> | [Purgador de dados](#data-purger) | Pode purgar dados de análise | 150f5e0c-0603-4f03-8c7f-cf70034c4e90 |
+> | [Purgador de dados](#data-purger) | Elimine os dados privados de um espaço de trabalho log analytics. | 150f5e0c-0603-4f03-8c7f-cf70034c4e90 |
 > | [Operador de cluster HDInsight](#hdinsight-cluster-operator) | Permite-lhe ler e modificar configurações de cluster HDInsight. | 61ed4efc-fab3-44fd-b111-e24485cc132a |
 > | [HdInsight Domain Services Colaborador](#hdinsight-domain-services-contributor) | Pode ler, criar, modificar e eliminar as operações relacionadas com os serviços de domínio necessárias para o pacote de segurança da empresa HDInsight | 8d8d5a11-05d3-4bda-a417-a08778121c7c |
 > | [Contribuidor do Log Analytics](#log-analytics-contributor) | Log Analytics Contributor pode ler todos os dados de monitorização e editar as definições de monitorização. As definições de monitorização de edição incluem a adição da extensão VM aos VM; leitura das chaves da conta de armazenamento para poder configurar a recolha de registos do Azure Storage; criar e configurar contas de automação; adição de soluções; e configurar diagnósticos Azure em todos os recursos da Azure. | 92aaf0da-9dab-42b6-94a3-d43ce8d16293 |
@@ -3944,6 +3944,10 @@ Permite-lhe gerir as contas DB da Azure Cosmos, mas não aceder aos dados nelas.
 > | [Microsoft.DocumentDB](resource-provider-operations.md#microsoftdocumentdb)/databaseAcounts/regenerateKey/* |  |
 > | [Microsoft.DocumentDB](resource-provider-operations.md#microsoftdocumentdb)/base de dadosAconse/listKeys/* |  |
 > | [Microsoft.DocumentDB](resource-provider-operations.md#microsoftdocumentdb)/base de dadosAcontas/listConnectionStrings/* |  |
+> | [Microsoft.DocumentDB](resource-provider-operations.md#microsoftdocumentdb)/databaseAccounts/sqlRoleDefinitions/write | Criar ou atualizar uma definição de função SQL |
+> | [Microsoft.DocumentDB](resource-provider-operations.md#microsoftdocumentdb)/databaseAccounts/sqlRoleDefinitions/delete | Excluir uma definição de função SQL |
+> | [Microsoft.DocumentDB](resource-provider-operations.md#microsoftdocumentdb)/databaseAccounts/sqlRoleAssignments/write | Criar ou atualizar uma atribuição de funções SQL |
+> | [Microsoft.DocumentDB](resource-provider-operations.md#microsoftdocumentdb)/databaseAccounts/sqlRoleAssignments/delete | Excluir uma atribuição de funções SQL |
 > | **DataActions** |  |
 > | *nenhum* |  |
 > | **NotDataActions** |  |
@@ -3973,7 +3977,11 @@ Permite-lhe gerir as contas DB da Azure Cosmos, mas não aceder aos dados nelas.
         "Microsoft.DocumentDB/databaseAccounts/readonlyKeys/*",
         "Microsoft.DocumentDB/databaseAccounts/regenerateKey/*",
         "Microsoft.DocumentDB/databaseAccounts/listKeys/*",
-        "Microsoft.DocumentDB/databaseAccounts/listConnectionStrings/*"
+        "Microsoft.DocumentDB/databaseAccounts/listConnectionStrings/*",
+        "Microsoft.DocumentDB/databaseAccounts/sqlRoleDefinitions/write",
+        "Microsoft.DocumentDB/databaseAccounts/sqlRoleDefinitions/delete",
+        "Microsoft.DocumentDB/databaseAccounts/sqlRoleAssignments/write",
+        "Microsoft.DocumentDB/databaseAccounts/sqlRoleAssignments/delete"
       ],
       "dataActions": [],
       "notDataActions": []
@@ -4774,7 +4782,7 @@ Criar e gerir fábricas de dados, bem como recursos infantis dentro delas. [Saib
 
 ### <a name="data-purger"></a>Purgador de dados
 
-Pode purgar dados de análise [Saiba mais](../azure-monitor/logs/personal-data-mgmt.md)
+Elimine os dados privados de um espaço de trabalho log analytics. [Saiba mais](../azure-monitor/logs/personal-data-mgmt.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |

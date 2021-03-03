@@ -221,9 +221,9 @@
         - name: Proteger os anfitriões do Docker
           displayName: containers
           href: harden-docker-hosts.md
-        - name: Utilizar o Azure Defender para SQL
-          href: defender-for-sql-usage.md
-          displayName: 'hybrid, arc'
+    - name: Utilizar o Azure Defender para SQL
+      href: defender-for-sql-usage.md
+      displayName: 'hybrid, arc'
     - name: Utilizar o Azure Defender para registos de contentores
       items:
         - name: Arquivar as imagens de registo para encontrar vulnerabilidades
@@ -269,8 +269,6 @@
     - name: Proteger cargas de trabalho do Kubernetes
       displayName: 'k8s, containers, aks'
       href: kubernetes-workload-protections.md
-    - name: Gerir dados de utilizadores de investigação
-      href: security-center-investigation-user-data.md
     - name: Obter visibilidade ao nível do inquilino
       href: security-center-management-groups.md
     - name: Personalizar a sua política de proteção de informações de SQL
@@ -292,7 +290,7 @@
           href: faq-vms.md
         - name: Utilizadores existentes do Azure Log Analytics
           href: faq-azure-monitor-logs.md
-    - name: Políticas de segurança incorporadas
+    - name: Incorporações do Azure Policy
       displayName: 'samples, policy'
       href: policy-reference.md
     - name: Blogue do mapa do Azure

@@ -3,12 +3,12 @@ title: Novidades do Azure Backup
 description: Conheça as novidades no Azure Backup.
 ms.topic: conceptual
 ms.date: 11/11/2020
-ms.openlocfilehash: 5343ec2ae04853492abbaace2432cf94c9fb5a07
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: dd9546002e63072ce9631f5b8e7ac09ab0f5352b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98762379"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728183"
 ---
 # <a name="whats-new-in-azure-backup"></a>Novidades do Azure Backup
 
@@ -18,6 +18,8 @@ Pode saber mais sobre os novos lançamentos marcando esta página ou [subscreven
 
 ## <a name="updates-summary"></a>Resumo das atualizações
 
+- Fevereiro de 2021
+  - [Backup para Azure Blobs (na pré-visualização)](#backup-for-azure-blobs-in-preview)
 - Janeiro de 2021
   - [Backup do disco Azure (na pré-visualização)](#azure-disk-backup-in-preview)
   - [Encriptação em repouso utilizando chaves geridas pelo cliente (disponibilidade geral)](#encryption-at-rest-using-customer-managed-keys)
@@ -34,6 +36,14 @@ Pode saber mais sobre os novos lançamentos marcando esta página ou [subscreven
   - [Backup SAP HANA em RHEL Azure Virtual Machines (em pré-visualização)](#backup-sap-hana-in-rhel-azure-virtual-machines-in-preview)
   - [Armazenamento redundante de zona (ZRS) para dados de backup (em pré-visualização)](#zone-redundant-storage-zrs-for-backup-data-in-preview)
   - [Excluir suave para as cargas de trabalho do SQL Server e DASA HANA em VMs Azure](#soft-delete-for-sql-server-and-sap-hana-workloads)
+
+## <a name="backup-for-azure-blobs-in-preview"></a>Backup para Azure Blobs (na pré-visualização)
+
+O backup operacional para blobs é uma solução gerida e local de proteção de dados que permite proteger as suas bolhas de bloco de vários cenários de perda de dados, como corrupçãos, eliminações de bolhas e eliminação acidental de conta de armazenamento. Os dados são armazenados localmente dentro da própria conta de armazenamento de origem e podem ser recuperados para um ponto selecionado no tempo sempre que necessário. Assim, fornece um meio simples, seguro e rentável para proteger as suas bolhas.
+
+O backup operacional para blobs integra-se com o Backup Center, entre outras capacidades de gestão de Backup, para fornecer um único painel de vidro que pode ajudá-lo a governar, monitorizar, operar e analisar backups em escala.
+
+Para obter mais informações, consulte [a visão geral da cópia de segurança operacional para Azure Blobs (em pré-visualização)](blob-backup-overview.md).
 
 ## <a name="azure-disk-backup-in-preview"></a>Backup do disco Azure (na pré-visualização)
 
@@ -121,6 +131,6 @@ Agora, além do suporte de eliminação suave para VMs Azure, sql server e carga
 
 Para obter mais informações, consulte [Soft delete para o servidor SQL em Azure VM e SAP HANA em cargas de trabalho Azure VM](soft-delete-sql-saphana-in-azure-vm.md).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Orientação de backup Azure e boas práticas](guidance-best-practices.md)

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com a SAML SSO para jira pela Resolução GmbH Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com a SAML SSO para jira pela Resolução GmbH | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o SAML SSO para a Jira por resolução GmbH.
 services: active-directory
 author: jeevansd
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/03/2018
 ms.author: jeedes
-ms.openlocfilehash: fe241a3fd74e1421f1bd3d39087fe776ee7b61d9
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: e1440feacd10935b15195110cd7ea3e20b4d523c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92891623"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101687639"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-jira-by-resolution-gmbh"></a>Tutorial: Integração do Azure Ative Directory com a SAML SSO para a Jira por resolução GmbH
 
@@ -45,15 +45,15 @@ Neste tutorial, você configura e testa Azure AD um único sinal de acesso em um
 
 ## <a name="adding-an-enterprise-application-for-single-sign-on"></a>Adicionar um pedido de empresa para um único sign-on
 
-Para configurar um único sind on em Azure AD, você precisa adicionar uma nova aplicação da empresa. Na galeria, existe uma pré-configuração de aplicação pré-configurada para este, **SAML SSO para Jira por resolução GmbH** .
+Para configurar um único sind on em Azure AD, você precisa adicionar uma nova aplicação da empresa. Na galeria, existe uma pré-configuração de aplicação pré-configurada para este, **SAML SSO para Jira por resolução GmbH**.
 
 **Para adicionar SAML SSO para Jira por resolução GmbH da galeria, execute os seguintes passos:**
 
-1. No **[portal Azure](https://portal.azure.com)** , no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.**
+1. No **[portal Azure](https://portal.azure.com)**, no painel de navegação esquerdo, clique no ícone **Azure Ative Directory.**
 
     ![O botão Azure Ative Directory](common/select-azuread.png)
 
-2. Navegue para **aplicações empresariais** e, em seguida, clique em **Todas as Aplicações** .
+2. Navegue para **aplicações empresariais** e, em seguida, clique em **Todas as Aplicações**.
 
     ![A lâmina de aplicações da Enterprise](common/enterprise-applications.png)
 
@@ -67,7 +67,7 @@ Para configurar um único sind on em Azure AD, você precisa adicionar uma nova 
 
 ## <a name="configure-and-test-single-sign-on-with-the-saml-sso-plugin-and-azure-ad"></a>Configurar e testar um único sinal com o plugin SSO SAML e a AD AZure
 
-Nesta secção, irá testar e configurar um único sinal de inscrição para jira para um utilizador AD Azure. Isto será feito para um utilizador de teste chamado **Britta Simon** .
+Nesta secção, irá testar e configurar um único sinal de inscrição para jira para um utilizador AD Azure. Isto será feito para um utilizador de teste chamado **Britta Simon**.
 Para um único sinal de trabalho, é necessário estabelecer uma relação de ligação entre um utilizador Azure AD e o utilizador relacionado na SAML SSO para a Jira por resolução.
 
 Para configurar e testar um único sinal, é necessário completar os seguintes passos:
@@ -122,7 +122,7 @@ Para configurar o único sign-on com a SAML SSO para a Jira por resolução GmbH
 
 1. Numa janela diferente do navegador web, inscreva-se na sua instância Jira como administrador.
 
-2. Passe por cima da engrenagem no lado direito e clique em **Gerir aplicações** .
+2. Passe por cima da engrenagem no lado direito e clique em **Gerir aplicações**.
     
     ![Screenshot que mostra uma seta apontando para o ícone "Cog" e "Gerir aplicações" selecionadas a partir do drop-down.](./media/samlssojira-tutorial/addon1.png)
 
@@ -140,7 +140,7 @@ Para configurar o único sign-on com a SAML SSO para a Jira por resolução GmbH
 
     ![Screenshot que mostra o "Instalado e pronto para ir!" diálogo com o botão "Fechar" selecionado.](./media/samlssojira-tutorial/store-3.png)
 
-6. Em seguida, clique em **Gerir** .
+6. Em seguida, clique em **Gerir**.
 
     ![Screenshot que mostra a aplicação "S A M L Single Sign On (S O) Jira, S A M L/S S O" com o botão "Gerir" selecionado.](./media/samlssojira-tutorial/store-4.png)
     
@@ -162,9 +162,9 @@ Para configurar o único sign-on com a SAML SSO para a Jira por resolução GmbH
     
     c. Adicione uma **descrição** (opcional) do Fornecedor de Identidade (por exemplo, Azure AD).
     
-    d. Clique em **Seguinte** .
+    d. Clique em **Seguinte**.
     
-11. Na página **de configuração do fornecedor de identidade,** clique em **Seguinte** .
+11. Na página **de configuração do fornecedor de identidade,** clique em **Seguinte**.
  
     ![Screenshot que mostra a página "Configuração do fornecedor de identidade".](./media/samlssojira-tutorial/addon5b.png)
 
@@ -200,7 +200,7 @@ Para configurar o único sign-on com a SAML SSO para a Jira por resolução GmbH
 
 O objetivo desta secção é criar um utilizador de teste no portal Azure chamado Britta Simon. Com o utilizador, irá testar um único sinal de s-on.
 
-1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory** , selecione **Utilizadores** , e, em seguida, selecione **Todos os utilizadores** .
+1. No portal Azure, no painel esquerdo, selecione **Azure Ative Directory**, selecione **Utilizadores**, e, em seguida, selecione **Todos os utilizadores**.
 
     ![Os links "Utilizadores e grupos" e "Todos os utilizadores"](common/users.png)
 
@@ -218,13 +218,13 @@ O objetivo desta secção é criar um utilizador de teste no portal Azure chamad
 
     c. Selecione a caixa **de verificação de palavra-passe Show** e, em seguida, anote o valor que é apresentado na caixa palavra-passe.
 
-    d. Clique em **Criar** .
+    d. Clique em **Criar**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Atribuir o utilizador de teste AZure AD
 
 Nesta secção, adicione Britta Simon à aplicação da empresa, que lhe permite usar um único sign-on.
 
-1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações** . 
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**. 
 
     ![Painel Aplicações empresariais](common/enterprise-applications.png)
 
@@ -272,7 +272,7 @@ Para permitir que os utilizadores da Azure AD inscrevam-se na SAML SSO para a Ji
 
     a. Na caixa de texto **do endereço de e-mail,** digite o endereço de e-mail do utilizador:  <b>BrittaSimon@contoso.com</b> .
 
-    b. Na caixa de texto **'Nome Completo',** escreva o nome completo do utilizador: **Britta Simon** .
+    b. Na caixa de texto **'Nome Completo',** escreva o nome completo do utilizador: **Britta Simon**.
 
     c. Na caixa de texto do nome de **utilizador,** digite o endereço de e-mail do utilizador: <b>BrittaSimon@contoso.com</b> . 
 
@@ -291,24 +291,24 @@ Também pode testar um único sinal de s-on, se navegar para `https://<server-ba
 
 ## <a name="enable-single-sign-on-redirection-for-jira"></a>Ativar uma única reorientação de sinal para Jira
 
-Como indicado na secção anterior, existem atualmente duas formas de ativar a única inscrição. Quer utilizando o **portal Azure,** quer utilizando **um link especial para a sua instância Jira** . O plugin SSO SAML por resolução Também permite ativar um único sinal de acesso **simplesmente a qualquer URL que indique a sua instância Jira** .
+Como indicado na secção anterior, existem atualmente duas formas de ativar a única inscrição. Quer utilizando o **portal Azure,** quer utilizando **um link especial para a sua instância Jira**. O plugin SSO SAML por resolução Também permite ativar um único sinal de acesso **simplesmente a qualquer URL que indique a sua instância Jira**.
 
 No essencial, todos os utilizadores que acedam a Jira serão redirecionados para o único sinal após ativar uma opção no plugin.
 
-Para ativar o redirecionamento SSO, faça o seguinte no **seu exemplo Jira** :
+Para ativar o redirecionamento SSO, faça o seguinte no **seu exemplo Jira**:
 
 1. Aceda à página de configuração do plugin SSO SAML em Jira.
 1. Clique em **Redirecionamento** no painel esquerdo.
 
    ![Screenshot parcial da página de configuração do plugin singleSignOn Jira SAML realçando a ligação de redirecionamento na navegação esquerda.](./media/samlssojira-tutorial/ssore1.png)
 
-1. Córique **Ativar o redirecionamento SSO** .
+1. Córique **Ativar o redirecionamento SSO**.
 
    ![Screenshot parcial da página de configuração do plugin singleSignOn Jira SAML destacando a caixa de verificação selecionada "Enable SSO Redirect".](./media/samlssojira-tutorial/ssore2.png) 
 
 1. Prima o botão **'Guardar definições'** no canto superior direito.
 
-Depois de ativar a opção, ainda pode chegar ao nome de utilizador/senha se a opção **Enable nosso** for assinalada navegando para `https://\<server-base-url>/login.jsp?nosso` . Como sempre, substitua **\<server-base-url>** o URL base.
+Depois de ativar a opção, ainda pode chegar ao nome de utilizador/senha se a opção **Enable nosso** for assinalada navegando para `https://<server-base-url>/login.jsp?nosso` . Como sempre, substitua **\<server-base-url>** o URL base.
 
 
 ## <a name="additional-resources"></a>Recursos adicionais

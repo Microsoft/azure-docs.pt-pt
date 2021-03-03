@@ -1,22 +1,21 @@
 ---
 title: Solução monitor de desempenho de rede em Azure Log Analytics | Microsoft Docs
 description: Utilize a capacidade do Monitor ExpressRoute no Monitor de Desempenho da Rede para monitorizar a conectividade e o desempenho de ponta a ponta entre as suas sucursais e a Azure, sobre o Azure ExpressRoute.
-ms.subservice: logs
 ms.topic: conceptual
 author: abshamsft
 ms.author: absha
 ms.date: 11/27/2018
-ms.openlocfilehash: 477512c0b1de8548e2aa1e2971a5d831e84d2139
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 0b005e46e9f9a740fee153e063bebf108c22b303
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100578377"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101725701"
 ---
 # <a name="expressroute-monitor"></a>ExpressRoute Monitor
 
 > [!IMPORTANT]
-> A partir de 1 de julho de 2021, não poderá adicionar novos testes num espaço de trabalho existente ou permitir um novo espaço de trabalho no Network Performance Monitor. Pode continuar a utilizar os testes criados antes de 1 de julho de 2021. Para minimizar a perturbação do serviço nas suas cargas de trabalho atuais, [migrar os seus testes do Monitor de Desempenho da Rede para o novo Monitor de Ligação](https://docs.microsoft.com/azure/network-watcher/migrate-to-connection-monitor-from-network-performance-monitor) no Azure Network Watcher antes de 29 de fevereiro de 2024.
+> A partir de 1 de julho de 2021, não poderá adicionar novos testes num espaço de trabalho existente ou permitir um novo espaço de trabalho no Network Performance Monitor. Pode continuar a utilizar os testes criados antes de 1 de julho de 2021. Para minimizar a perturbação do serviço nas suas cargas de trabalho atuais, [migrar os seus testes do Monitor de Desempenho da Rede para o novo Monitor de Ligação](../../network-watcher/migrate-to-connection-monitor-from-network-performance-monitor.md) no Azure Network Watcher antes de 29 de fevereiro de 2024.
 
 Pode utilizar a capacidade do Monitor Azure ExpressRoute no [Network Performance Monitor](network-performance-monitor.md) para monitorizar a conectividade e o desempenho de ponta a ponta entre as suas sucursais e a Azure, sobre o Azure ExpressRoute. As principais vantagens são: 
 
@@ -112,7 +111,7 @@ O Monitor de Desempenho da Rede ajuda-o a diagnosticar vários problemas de cone
 
 Pode ver os códigos de notificação e definir alertas sobre os mesmos através **do LogAnalytics**. Na página **de Diagnóstico SNPM,** pode ver descrições de cada mensagem de diagnóstico desencadeada.
 
-| Código de Notificação (Registos) | Description |
+| Código de Notificação (Registos) | Descrição |
 | --- | --- |
 | 5501 | Incapaz de atravessar através da ligação secundária do circuito ExpressRoute |
 | 5502 | Incapaz de atravessar através da ligação primária do circuito ExpressRoute |
@@ -144,4 +143,3 @@ Pode ver os códigos de notificação e definir alertas sobre os mesmos através
 
 ## <a name="next-steps"></a>Passos seguintes
 [Faça uma pesquisa de registos](../logs/log-query-overview.md) para visualizar registos de dados de desempenho detalhados da rede.
-

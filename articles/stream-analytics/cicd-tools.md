@@ -7,12 +7,12 @@ ms.author: sujie
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 09/10/2020
-ms.openlocfilehash: 3ed3ff44b927fa230dedf16387c1daca889d7c66
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: d1a0a6ad5b45af2157b960f8990574e47d10eeb2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100388707"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718425"
 ---
 # <a name="automate-builds-tests-and-deployments-of-an-azure-stream-analytics-job-using-cicd-tools"></a>Automatizar construções, testes e implementações de um trabalho Azure Stream Analytics utilizando ferramentas CI/CD
 
@@ -166,6 +166,9 @@ Se pretender que a validação do teste ignore uma determinada saída, desa um c
   ]
 }
 ```
+
+> [!NOTE]
+> Atualmente, o único valor permitido para o `ScriptType` elemento é , que é também o valor `InputMock` padrão. Se o definir para qualquer outro valor, é ignorado e o valor padrão `InputMock` () é usado. 
 
 ### <a name="run-a-unit-test"></a>Fazer um teste de unidade
 

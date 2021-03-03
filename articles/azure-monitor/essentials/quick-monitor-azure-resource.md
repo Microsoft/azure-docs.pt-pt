@@ -6,12 +6,12 @@ ms.topic: quickstart
 author: bwren
 ms.author: bwren
 ms.date: 12/15/2019
-ms.openlocfilehash: cab41c025f9f3e5b03f042a2bf5686cb08dbd0a9
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 62afc0ab4e65da53adb35510503051d39e0edc4e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100628902"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734235"
 ---
 # <a name="quickstart-monitor-an-azure-resource-with-azure-monitor"></a>Quickstart: Monitorize um recurso Azure com o Azure Monitor
 [O Azure Monitor](../overview.md) começa a recolher dados dos recursos da Azure no momento em que são criados. Este quickstart fornece uma breve passagem pelos dados que são automaticamente recolhidos para um recurso e como vê-lo no portal Azure para um determinado recurso. Mais tarde, pode adicionar configuração para recolher dados adicionais e pode ir ao menu Azure Monitor para usar as mesmas ferramentas para aceder aos dados recolhidos para todos os recursos da sua subscrição.
@@ -67,7 +67,7 @@ As métricas são valores numéricos que descrevem algum aspeto do seu recurso n
 
 
 ## <a name="next-steps"></a>Passos seguintes
-Neste arranque rápido, viu o registo de atividade e as métricas de um recurso Azure que são automaticamente recolhidos pelo Azure Monitor. Continue até ao próximo quickstart que lhe mostra como recolher o login de Atividade num espaço de trabalho log Analytics onde podem ser [analisados](../log-query/log-query-overview.md)através de consultas de registo .
+Neste arranque rápido, viu o registo de atividade e as métricas de um recurso Azure que são automaticamente recolhidos pelo Azure Monitor. Continue até ao próximo quickstart que lhe mostra como recolher o login de Atividade num espaço de trabalho log Analytics onde podem ser [analisados](../logs/log-query-overview.md)através de consultas de registo .
 
 > [!div class="nextstepaction"]
-> [Enviar log de atividade azure para log analytics espaço de trabalho](../learn/quick-collect-activity-log-portal.md)
+> [Enviar log de atividade azure para log analytics espaço de trabalho](./quick-collect-activity-log-portal.md)

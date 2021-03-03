@@ -7,12 +7,12 @@ ms.custom: references_regions, devx-track-azurecli
 author: bwren
 ms.author: bwren
 ms.date: 02/07/2021
-ms.openlocfilehash: 8de92e1f64389824e02882c02a860e9731a62b25
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: df165b83a6635fbcf72c94a4d16cbdf16c337636
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100617432"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713597"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Log Analytics exportação de dados do espaço de trabalho em Azure Monitor (pré-visualização)
 A exportação de dados do espaço de trabalho do Log Analytics no Azure Monitor permite-lhe exportar continuamente dados de tabelas selecionadas no seu espaço de trabalho Log Analytics para uma conta de armazenamento Azure ou Azure Event Hubs à medida que são recolhidos. Este artigo fornece detalhes sobre esta funcionalidade e passos para configurar a exportação de dados nos seus espaços de trabalho.
@@ -40,9 +40,11 @@ Os dados do espaço de trabalho log Analytics exportam continuamente dados de um
 - Se a regra de exportação de dados incluir uma tabela não apoiada, a operação será bem sucedida, mas nenhum dado será exportado para esse quadro até que a tabela seja apoiada. 
 - Se a regra de exportação de dados incluir uma tabela que não existe, falhará com o erro ```Table <tableName> does not exist in the workspace``` .
 - O seu espaço de trabalho Log Analytics pode estar em qualquer região, exceto no seguinte:
-  - Suíça Norte
-  - Suíça Oeste
   - Regiões do Azure Government
+  - Oeste do Japão
+  - Brasil sudeste
+  - Leste da Noruega
+  - Uae Norte
 - Você pode criar duas regras de exportação em um espaço de trabalho - em pode ser uma regra para o centro de eventos e uma regra para a conta de armazenamento.
 - A conta de armazenamento de destino ou o centro de eventos devem estar na mesma região que o espaço de trabalho Log Analytics.
 - Os nomes das tabelas a exportar não podem ser superiores a 60 caracteres para uma conta de armazenamento e não mais de 47 caracteres para um centro de eventos. As tabelas com nomes mais longos não serão exportadas.
@@ -72,6 +74,9 @@ A exportação de dados do Log Analytics pode escrever blobs de apêndice para c
 
 ### <a name="event-hub"></a>Hub de eventos
 Os dados são enviados para o seu centro de eventos em tempo quase real, à medida que chegam ao Azure Monitor. É criado um hub de eventos para cada tipo de dados que exporta com o nome *am-* seguido pelo nome da tabela. Por exemplo, a tabela *SecurityEvent* enviaria para um centro de eventos chamado *am-SecurityEvent*. Se quiser que os dados exportados cheguem a um centro de eventos específico, ou se tiver uma tabela com um nome que exceda o limite de 47 caracteres, pode fornecer o nome do seu próprio centro de eventos e exportar todos os dados para tabelas definidas para ele.
+
+> [!IMPORTANT]
+> O [número de centros de eventos suportados por espaço de nome é de 10](../../event-hubs/event-hubs-quotas#common-limits-for-all-tiers). Se exportar mais de 10 mesas, forneça o seu próprio nome de hub de eventos para exportar todas as suas mesas para o centro de eventos. 
 
 Considerações:
 1. O sku 'Basic' event hub suporta [um limite](../../event-hubs/event-hubs-quotas.md#basic-vs-standard-tiers) de tamanho de evento mais baixo e alguns registos no seu espaço de trabalho podem ultrapassá-lo e ser largados. Recomendamos a utilização do centro de eventos 'Standard' ou 'Dedicado' como destino de exportação.

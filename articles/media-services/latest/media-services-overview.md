@@ -89,6 +89,6 @@ Os guias de como fazer contêm amostras de código que demonstram como completar
 
 Consulte o artigo da [comunidade Azure Media Services](media-services-community.md) para ver diferentes formas de fazer perguntas, dar feedback e obter atualizações sobre os Media Services.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 [Conheça os conceitos fundamentais](concepts-overview.md)

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/04/2020
-ms.openlocfilehash: d63627c00f6fd06ba00a9d8a905891238ce94697
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 11a6d21a7a066d331a92453e9aaa876800da0bf4
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100613822"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101700546"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-azure-monitor"></a>Crie vistas personalizadas utilizando o View Designer no Azure Monitor
 Ao utilizar o View Designer no Azure Monitor, pode criar uma variedade de visualizações personalizadas no portal Azure que podem ajudá-lo a visualizar dados no seu espaço de trabalho Log Analytics. Este artigo apresenta uma visão geral do View Designer e procedimentos para criar e editar vistas personalizadas.
@@ -34,14 +34,14 @@ As vistas são exibidas na página **geral** do Monitor Azure no portal Azure. A
 
 As vistas que cria com o View Designer contêm os elementos descritos na tabela seguinte:
 
-| Parte | Description |
+| Parte | Descrição |
 |:--- |:--- |
 | Mosaicos | São apresentados na sua página **de visão geral do** Monitor Azure. Cada azulejo apresenta um resumo visual da vista personalizada que representa. Cada tipo de azulejo fornece uma visualização diferente dos seus registos. Selecione um azulejo para exibir uma vista personalizada. |
 | Vista personalizada | Apresentado quando seleciona um azulejo. Cada vista contém uma ou mais partes de visualização. |
-| Peças de visualização | Apresentar uma visualização de dados no espaço de trabalho Log Analytics com base numa ou mais [consultas de registo](../log-query/log-query-overview.md). A maioria das partes inclui um cabeçalho, que fornece uma visualização de alto nível, e uma lista, que apresenta os melhores resultados. Cada tipo de peça fornece uma visualização diferente dos registos no espaço de trabalho Log Analytics. Selecione elementos na peça para realizar uma consulta de registo que forneça registos detalhados. |
+| Peças de visualização | Apresentar uma visualização de dados no espaço de trabalho Log Analytics com base numa ou mais [consultas de registo](../logs/log-query-overview.md). A maioria das partes inclui um cabeçalho, que fornece uma visualização de alto nível, e uma lista, que apresenta os melhores resultados. Cada tipo de peça fornece uma visualização diferente dos registos no espaço de trabalho Log Analytics. Selecione elementos na peça para realizar uma consulta de registo que forneça registos detalhados. |
 
 ## <a name="required-permissions"></a>Permissões obrigatórias
-Necessita de pelo menos permissões de [nível de contribuinte](../platform/manage-access.md#manage-access-using-azure-permissions) no espaço de trabalho Log Analytics para criar ou modificar visualizações. Se não tiver esta permissão, a opção 'Ver Designer' não será apresentada no menu.
+Necessita de pelo menos permissões de [nível de contribuinte](../logs/manage-access.md#manage-access-using-azure-permissions) no espaço de trabalho Log Analytics para criar ou modificar visualizações. Se não tiver esta permissão, a opção 'Ver Designer' não será apresentada no menu.
 
 
 ## <a name="work-with-an-existing-view"></a>Trabalhar com uma vista existente
@@ -54,7 +54,7 @@ As opções são descritas no quadro seguinte:
 | Opção | Descrição |
 |:--|:--|
 | Atualizar   | Refresca a vista com os dados mais recentes. | 
-| Registos      | Abre o [Log Analytics](../log-query/log-query-overview.md) para analisar dados com consultas de registo. |
+| Registos      | Abre o [Log Analytics](../logs/log-query-overview.md) para analisar dados com consultas de registo. |
 | Editar       | Abre a vista no View Designer para editar os seus conteúdos e configurações.  |
 | Clone      | Cria uma nova vista e abre-a no View Designer. O nome da nova vista é o mesmo que o nome original, mas com *Copy* anexado a ele. |
 | Intervalo de datas | Desa estada o filtro de data e intervalo de tempo para os dados incluídos na vista. Este intervalo de datas é aplicado antes de qualquer intervalo de data definido em consultas na vista.  |

@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 07/03/2019
 ms.author: vitalyg
 ms.subservice: application-insights
-ms.openlocfilehash: 400f239f3e7b736196bf950e81148fa2e39aca96
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: ca19fdfa617b71b1465e4710d8ca52b18c9ebff5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100613362"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731685"
 ---
 # <a name="application-insights-log-based-metrics"></a>Métricas baseadas em registos de insights de aplicação
 
@@ -21,13 +21,13 @@ As métricas baseadas em registos do Application Insights permitem analisar a sa
 * [As métricas baseadas em log](../app/pre-aggregated-metrics-log-metrics.md#log-based-metrics) por detrás da cena são traduzidas em [consultas de Kusto](/azure/kusto/query/) de eventos armazenados.
 * [As métricas padrão](../app/pre-aggregated-metrics-log-metrics.md#pre-aggregated-metrics) são armazenadas como séries temporizadas pré-agregadas.
 
-Uma vez que *as métricas padrão* são pré-agregadas durante a recolha, têm um melhor desempenho no tempo de consulta. Isto faz deles uma escolha melhor para o dashboarding e em alerta em tempo real. As *métricas baseadas em log* têm mais dimensões, o que os torna a opção superior para análise de dados e diagnósticos ad-hoc. Utilize o [seletor de espaço](../platform/metrics-getting-started.md#create-your-first-metric-chart) de nome para alternar entre métricas baseadas em registos e métricas padrão no explorador de [métricas](../platform/metrics-getting-started.md).
+Uma vez que *as métricas padrão* são pré-agregadas durante a recolha, têm um melhor desempenho no tempo de consulta. Isto faz deles uma escolha melhor para o dashboarding e em alerta em tempo real. As *métricas baseadas em log* têm mais dimensões, o que os torna a opção superior para análise de dados e diagnósticos ad-hoc. Utilize o [seletor de espaço](./metrics-getting-started.md#create-your-first-metric-chart) de nome para alternar entre métricas baseadas em registos e métricas padrão no explorador de [métricas](./metrics-getting-started.md).
 
 ## <a name="interpret-and-use-queries-from-this-article"></a>Interpretar e usar consultas deste artigo
 
 Este artigo lista métricas com agregações e dimensões suportadas. Os detalhes sobre métricas baseadas em log incluem as declarações de consulta subjacentes de Kusto. Por conveniência, cada consulta utiliza predefinições para granularidade temporal, tipo de gráfico e, por vezes, dimensão de divisão que simplifica usando a consulta em Log Analytics sem qualquer necessidade de modificação.
 
-Quando traça a mesma métrica no [explorador de métricas](../platform/metrics-getting-started.md), não existem predefinições - a consulta é ajustada dinamicamente com base nas definições do seu gráfico:
+Quando traça a mesma métrica no [explorador de métricas](./metrics-getting-started.md), não existem predefinições - a consulta é ajustada dinamicamente com base nas definições do seu gráfico:
 
 - O **intervalo de tempo** selecionado é traduzido para um adicional *onde a hora marcada...* cláusula para escolher apenas os eventos a partir do intervalo de tempo selecionado. Por exemplo, um gráfico que mostra dados para as últimas 24 horas, a consulta inclui | onde o *relógio > (24 h)*.
 
@@ -38,7 +38,7 @@ Quando traça a mesma métrica no [explorador de métricas](../platform/metrics-
 - A dimensão do **gráfico split** selecionado é traduzida para uma propriedade de resumo extra. Por exemplo, se dividir o seu gráfico por *localização*, e traçar usando uma granularidade de 5 minutos, a cláusula *resumida* é resumida... *por bin (timetamp, 5 m), localização*.
 
 > [!NOTE]
-> Se é novo no idioma de consulta kusto, começa por copiar e colar declarações de Kusto no painel de consultas log analytics sem fazer modificações. Clique em **Executar** para ver o gráfico básico. À medida que começa a entender a sintaxe da linguagem de consulta, pode começar a fazer pequenas modificações e ver o impacto da sua mudança. Explorar os seus próprios dados é uma ótima maneira de começar a perceber a potência total do [Log Analytics](../log-query/log-analytics-tutorial.md) e [do Azure Monitor.](../overview.md)
+> Se é novo no idioma de consulta kusto, começa por copiar e colar declarações de Kusto no painel de consultas log analytics sem fazer modificações. Clique em **Executar** para ver o gráfico básico. À medida que começa a entender a sintaxe da linguagem de consulta, pode começar a fazer pequenas modificações e ver o impacto da sua mudança. Explorar os seus próprios dados é uma ótima maneira de começar a perceber a potência total do [Log Analytics](../logs/log-analytics-tutorial.md) e [do Azure Monitor.](../overview.md)
 
 ## <a name="availability-metrics"></a>Métricas de disponibilidade
 

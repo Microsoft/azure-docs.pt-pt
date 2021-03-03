@@ -7,16 +7,16 @@ ms.custom: subject-armqs, devx-track-azurecli
 author: bwren
 ms.author: bwren
 ms.date: 06/25/2020
-ms.openlocfilehash: 7465127ed9c52941d6c3ccfd40446546f0795455
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: 0a740b4c6c6e89c9a4990651779ea4f0b376c971
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100635477"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734354"
 ---
 # <a name="quickstart-send-azure-activity-log-to-log-analytics-workspace-using-an-arm-template"></a>Quickstart: Enviar log de atividade azure para log analytics espaço de trabalho usando um modelo ARM
 
-O Registo de atividades é um registo de plataformas no Azure que proporciona informações sobre eventos ao nível da subscrição. Tal inclui informações como quando um recurso é modificado ou quando uma máquina virtual é iniciada. Pode visualizar o registo de Atividade no portal Azure ou recuperar entradas com PowerShell e CLI. Este quickstart mostra como usar os modelos do Gestor de Recursos Azure (modelos ARM) para criar um espaço de trabalho do Log Analytics e uma definição de diagnóstico para enviar o registo de atividade para registos do Monitor Azure, onde pode analisá-lo usando [consultas de registo](../log-query/log-query-overview.md) e ativar [outras funcionalidades,](../alerts/alerts-log-query.md) tais como alertas de registo e livros de [trabalho.](../visualize/workbooks-overview.md)
+O Registo de atividades é um registo de plataformas no Azure que proporciona informações sobre eventos ao nível da subscrição. Tal inclui informações como quando um recurso é modificado ou quando uma máquina virtual é iniciada. Pode visualizar o registo de Atividade no portal Azure ou recuperar entradas com PowerShell e CLI. Este quickstart mostra como usar os modelos do Gestor de Recursos Azure (modelos ARM) para criar um espaço de trabalho do Log Analytics e uma definição de diagnóstico para enviar o registo de atividade para registos do Monitor Azure, onde pode analisá-lo usando [consultas de registo](../logs/log-query-overview.md) e ativar [outras funcionalidades,](../alerts/alerts-log-query.md) tais como alertas de registo e livros de [trabalho.](../visualize/workbooks-overview.md)
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -321,7 +321,7 @@ Remove-AzResourceGroup -Name my-resource-group
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Neste arranque rápido, configuraste o registo de Atividade para ser enviado para um espaço de trabalho do Log Analytics. Pode agora configurar outros dados a serem recolhidos no espaço de trabalho onde pode analisá-los em conjunto usando [consultas de registo](../log-query/log-query-overview.md) no Azure Monitor e funcionalidades de alavancagem, tais como [alertas](../alerts/alerts-log-query.md) de registo e livros de [trabalho.](../visualize/workbooks-overview.md) Em seguida, deverá recolher [registos](../essentials/resource-logs.md) de recursos dos seus recursos Azure que complementam os dados no registo de Atividade fornecendo informações sobre as operações que foram realizadas dentro de cada recurso.
+Neste arranque rápido, configuraste o registo de Atividade para ser enviado para um espaço de trabalho do Log Analytics. Pode agora configurar outros dados a serem recolhidos no espaço de trabalho onde pode analisá-los em conjunto usando [consultas de registo](../logs/log-query-overview.md) no Azure Monitor e funcionalidades de alavancagem, tais como [alertas](../alerts/alerts-log-query.md) de registo e livros de [trabalho.](../visualize/workbooks-overview.md) Em seguida, deverá recolher [registos](../essentials/resource-logs.md) de recursos dos seus recursos Azure que complementam os dados no registo de Atividade fornecendo informações sobre as operações que foram realizadas dentro de cada recurso.
 
 > [!div class="nextstepaction"]
 > [Recolher e analisar registos de recursos com o Azure Monitor](../essentials/tutorial-resource-logs.md)

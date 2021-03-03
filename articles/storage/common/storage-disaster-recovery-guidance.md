@@ -10,12 +10,12 @@ ms.date: 05/05/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 9a4453c29c52f8821643e93584666c3a6a8e6b4c
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: e00e22862121f2f974f9531a9892e32e115d6041
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100379833"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737652"
 ---
 # <a name="disaster-recovery-and-storage-account-failover"></a>Recuperação após desastre e ativação pós-falha de contas de armazenamento
 
@@ -55,7 +55,7 @@ Além disso, tenha em mente estas boas práticas para manter a alta disponibilid
 
 - **Discos:** Utilize [a Cópia de Segurança Azure](https://azure.microsoft.com/services/backup/) para fazer cópia de segurança dos discos VM utilizados pelas suas máquinas virtuais Azure. Considere também utilizar [a Recuperação do Sítio Azure](https://azure.microsoft.com/services/site-recovery/) para proteger os seus VMs em caso de desastre regional.
 - **Bolhas de bloco:** Ligue [a eliminação suave](../blobs/soft-delete-blob-overview.md) para proteger contra supressões e substituições ao nível de objetos, ou copie bolhas de blocos para outra conta de armazenamento numa região diferente usando [AzCopy](./storage-use-azcopy-v10.md), [Azure PowerShell,](/powershell/module/az.storage/)ou a [biblioteca Azure Data Movement](storage-use-data-movement-library.md).
-- **Ficheiros:** Utilize [o Azure Backup](https://docs.microsoft.com/azure/backup/azure-file-share-backup-overview) para fazer backup das suas ações de ficheiros. Também permita eliminar [suavemente](https://docs.microsoft.com/azure/storage/files/storage-files-prevent-file-share-deletion) para proteger contra eliminações acidentais de partilha de ficheiros. Para a geo-redundância quando o GRS não estiver disponível, utilize [a AzCopy](./storage-use-azcopy-v10.md) ou [a Azure PowerShell](/powershell/module/az.storage/) para copiar os seus ficheiros para outra conta de armazenamento numa região diferente.
+- **Ficheiros:** Utilize [o Azure Backup](../../backup/azure-file-share-backup-overview.md) para fazer backup das suas ações de ficheiros. Também permita eliminar [suavemente](../files/storage-files-prevent-file-share-deletion.md) para proteger contra eliminações acidentais de partilha de ficheiros. Para a geo-redundância quando o GRS não estiver disponível, utilize [a AzCopy](./storage-use-azcopy-v10.md) ou [a Azure PowerShell](/powershell/module/az.storage/) para copiar os seus ficheiros para outra conta de armazenamento numa região diferente.
 - **Quadros:** utilize [a AzCopy](./storage-use-azcopy-v10.md) para exportar dados de tabelas para outra conta de armazenamento numa região diferente.
 
 ## <a name="track-outages"></a>Interrupções nas faixas

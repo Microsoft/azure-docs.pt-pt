@@ -2,13 +2,14 @@
 title: Registo redundante de zona para elevada disponibilidade
 description: Saiba como permitir a redundância da zona no Registo de Contentores Azure. Crie um registo de contentores ou uma replicação numa zona de disponibilidade de Azure. O despedimento de zona é uma característica do nível de serviço Premium.
 ms.topic: article
-ms.date: 01/07/2021
-ms.openlocfilehash: 7de8ed101d2df9e491c475f522a56580798c49a9
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.date: 02/23/2021
+ms.custom: references_regions
+ms.openlocfilehash: 931adcf8258c48d7df42bd5927e8789d7cc871db
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98696283"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738111"
 ---
 # <a name="enable-zone-redundancy-in-azure-container-registry-for-resiliency-and-high-availability"></a>Permitir redundância de zona no Registo de Contentores de Azure para resiliência e elevada disponibilidade
 
@@ -20,7 +21,7 @@ O despedimento de zona é uma característica de **pré-visualização** do nív
 
 ## <a name="preview-limitations"></a>Limitações de pré-visualização
 
-* Atualmente apoiado nas seguintes regiões: Leste dos EUA, Leste dos EUA 2 e Oeste dos EUA 2.
+* Atualmente apoiado nas seguintes regiões: Leste dos EUA, Leste dos EUA 2, Oeste dos EUA 2, Norte da Europa, Europa Ocidental, Japão Leste.
 * As conversões da região para zonas de disponibilidade não são suportadas atualmente. Para permitir o apoio à zona de disponibilidade numa região, o registo deve ser criado na região desejada, com apoio de zona de disponibilidade ativado, ou uma região replicada deve ser adicionada com suporte de zona de disponibilidade ativado.
 * A redundância da zona não pode ser desativada numa região.
 * [As tarefas ACR](container-registry-tasks-overview.md) ainda não suportam zonas de disponibilidade.

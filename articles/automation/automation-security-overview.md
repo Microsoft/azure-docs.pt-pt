@@ -4,14 +4,14 @@ description: Este artigo fornece uma visão geral da autenticação da conta Azu
 keywords: segurança de automatização, automatização segura; autenticação de automatização
 services: automation
 ms.subservice: process-automation
-ms.date: 02/01/2021
+ms.date: 02/26/2021
 ms.topic: conceptual
-ms.openlocfilehash: e3ed14a0845d90a1b9b951dd5175acf6233f8718
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: c559a81b17b92f48b2d51b7c2d26325d6a1b1cca
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99255004"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708905"
 ---
 # <a name="automation-account-authentication-overview"></a>Descrição geral da autenticação da conta de Automatização
 
@@ -44,6 +44,8 @@ Para saber mais sobre o Gestor de Recursos Azure e os modelos de implementação
 >As assinaturas Azure Cloud Solution Provider (CSP) suportam apenas o modelo Azure Resource Manager. Os serviços não-Azure Resource Manager não estão disponíveis no programa. Quando está a utilizar uma subscrição CSP, a conta Azure Classic Run As não é criada, mas a conta Azure Run As é criada. Para saber mais sobre as subscrições da CSP, consulte [os serviços disponíveis em subscrições CSP.](/azure/cloud-solution-provider/overview/azure-csp-available-services)
 
 Quando cria uma conta Desmômes, a conta Executar Como é criada por padrão ao mesmo tempo. Se optar por não criá-la juntamente com a conta Automation, pode ser criada individualmente posteriormente. Um Azure Classic Run As Account é opcional e é criado separadamente se precisar de gerir recursos clássicos.
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RWwtF3]
 
 ### <a name="run-as-account"></a>Conta Run As
 

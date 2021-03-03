@@ -1,19 +1,19 @@
 ---
 title: Monitorize um novo cluster Azure Kubernetes Service (AKS) | Microsoft Docs
-description: Saiba como permitir a monitorização de um novo cluster do Serviço Azure Kubernetes (AKS) com o Azure Monitor para a subscrição de contentores.
+description: Saiba como permitir a monitorização de um novo cluster do Serviço Azure Kubernetes (AKS) com subscrição de insights de contentores.
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.custom: devx-track-terraform, devx-track-azurecli
-ms.openlocfilehash: 19c4a88cee8776136593b041e94dd14c7c9c28d6
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 9b6c4f8a05b8e7a350ebd5afd677e8bb2ee6e9b4
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100620052"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717575"
 ---
 # <a name="enable-monitoring-of-a-new-azure-kubernetes-service-aks-cluster"></a>Permitir a monitorização de um novo cluster Azure Kubernetes Service (AKS)
 
-Este artigo descreve como configurar o Azure Monitor para contentores para monitorizar o cluster gerido de Kubernetes hospedado no [Serviço Azure Kubernetes](../../aks/index.yml) que se prepara para implementar na sua subscrição.
+Este artigo descreve como configurar insights de Contentores para monitorizar o cluster gerido de Kubernetes hospedado no [Serviço Azure Kubernetes](../../aks/index.yml) que está a preparar-se para implementar na sua subscrição.
 
 Pode ativar a monitorização de um cluster AKS utilizando um dos métodos suportados:
 
@@ -34,14 +34,14 @@ Se estiver [a implementar um novo cluster AKS utilizando o Terraform,](/azure/de
 >[!NOTE]
 >Se optar por utilizar o Terraform, deve estar a executar a versão 1.17.0 ou superior do Fornecedor Terraform Azure RM.
 
-Para adicionar o Azure Monitor para recipientes no espaço de trabalho, consulte [azurerm_log_analytics_solution](https://www.terraform.io/docs/providers/azurerm/r/log_analytics_solution.html) e complete o perfil incluindo o [**addon_profile**](https://www.terraform.io/docs/providers/azurerm/r/kubernetes_cluster.html#addon_profile) e especifique **oms_agent**. 
+Para adicionar informações do Recipiente ao espaço de trabalho, consulte [azurerm_log_analytics_solution](https://www.terraform.io/docs/providers/azurerm/r/log_analytics_solution.html) e complete o perfil, incluindo o [**addon_profile**](https://www.terraform.io/docs/providers/azurerm/r/kubernetes_cluster.html#addon_profile) e especifique **oms_agent**. 
 
 Depois de ter ativado a monitorização e todas as tarefas de configuração concluídas com sucesso, pode monitorizar o desempenho do seu cluster de duas formas:
 
 * Diretamente no cluster AKS selecionando **Health** no painel esquerdo.
 * Selecionando o azulejo do **recipiente** monitor na página de cluster AKS para o cluster selecionado. No Monitor Azure, no painel esquerdo, selecione **Health**. 
 
-  ![Opções para selecionar O Monitor Azure para contentores em AKS](./media/container-insights-onboard/kubernetes-select-monitoring-01.png)
+  ![Opções para selecionar insights de contentores em AKS](./media/container-insights-onboard/kubernetes-select-monitoring-01.png)
 
 Depois de ter ativado a monitorização, pode demorar cerca de 15 minutos até poder ver as métricas de saúde para o cluster. 
 
@@ -117,5 +117,5 @@ Após alguns minutos, o comando completa e devolve informações formatadas com 
 
 * Se sentir problemas ao tentar embarcar na solução, reveja o [guia de resolução de problemas](container-insights-troubleshoot.md)
 
-* Com a monitorização habilitada a recolher a saúde e a utilização de recursos do seu cluster AKS e cargas de trabalho que os executam, aprenda [a utilizar o](container-insights-analyze.md) Azure Monitor para recipientes.
+* Com a monitorização habilitada a recolher a saúde e a utilização de recursos do seu cluster AKS e cargas de trabalho em execução sobre eles, [aprenda a utilizar](container-insights-analyze.md) insights de contentores.
 

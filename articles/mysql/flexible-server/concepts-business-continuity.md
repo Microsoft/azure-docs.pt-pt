@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: c29e952e22aaccf31c10de8f6e16d240b4660a23
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: 4f9cc8321d5d1d19dbcb8294ad6205b01337ee72
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93240720"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101715059"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-mysql---flexible-server-preview"></a>Visão geral da continuidade do negócio com base de dados Azure para MySQL - Servidor Flexível (Pré-visualização)
 
@@ -27,7 +27,7 @@ A tabela abaixo ilustra as funcionalidades que o servidor flexível oferece.
 | **Recuperação de & de apoio** | O servidor flexível realiza automaticamente cópias de segurança diárias dos ficheiros da sua base de dados e faz cópias de segurança contínuas dos registos de transações. As cópias de segurança podem ser mantidas por qualquer período entre 1 e 35 dias. Poderá restaurar o servidor da base de dados a qualquer ponto no tempo dentro do período de retenção de cópias de segurança. O tempo de recuperação dependerá do tamanho dos dados para restaurar + o tempo para realizar a recuperação do registo. Consulte os [Conceitos - Backup e Restaurar](./concepts-backup-restore.md) para mais detalhes. |Os dados de backup permanecem na região |
 | **Backup redundante local** | As cópias de segurança flexíveis do servidor são armazenadas automaticamente e de forma segura num armazenamento redundante local dentro de uma região e na mesma zona de disponibilidade. As cópias de segurança locais redundantes replicam os ficheiros de backup do servidor três vezes dentro de uma única localização física na região primária. O armazenamento de backup localmente redundante proporciona pelo menos 99.999999999999999% (11 noves) durabilidade de objetos durante um determinado ano. Consulte os [Conceitos - Backup e Restaurar](./concepts-backup-restore.md) para mais detalhes.| Aplicável em todas as regiões |
 | **Zona redundante alta disponibilidade** | O servidor flexível pode ser implementado em modo de alta disponibilidade, que implementa servidores primários e de espera em duas zonas de disponibilidade diferentes dentro de uma região. Isto protege contra falhas ao nível da zona e também ajuda na redução do tempo de inatividade da aplicação durante eventos de inatividade planeados e não planeados. Os dados do servidor primário são sincronizados replicados para a réplica de espera. Durante qualquer evento de tempo de inatividade, o servidor de base de dados é automaticamente falhado na réplica de espera. Consulte os [Conceitos - Alta disponibilidade](./concepts-high-availability.md) para mais detalhes. | Suportado em níveis de computação otimizados de propósito geral e memória. Disponível apenas em regiões onde existem várias zonas.|
-| **Ações de ficheiros premium** | Os ficheiros de base de dados são armazenados numa ação de ficheiro premium Azure altamente durável e fiável que fornecem redundância de dados com três cópias de réplica armazenadas dentro de uma zona de disponibilidade com capacidades automáticas de recuperação de dados. Consulte [as ações do Ficheiro Premium](../../storage/files/storage-how-to-create-premium-fileshare.md) para mais detalhes. | Dados armazenados dentro de uma zona de disponibilidade |
+| **Ações de ficheiros premium** | Os ficheiros de base de dados são armazenados numa ação de ficheiro premium Azure altamente durável e fiável que fornecem redundância de dados com três cópias de réplica armazenadas dentro de uma zona de disponibilidade com capacidades automáticas de recuperação de dados. Consulte [as ações do Ficheiro Premium](../../storage/files/storage-how-to-create-file-share.md) para mais detalhes. | Dados armazenados dentro de uma zona de disponibilidade |
 
 > [!IMPORTANT]
 > Durante o período de pré-visualização, não são oferecidos tempo de uptime, RTO e RPO SLA. Detalhes fornecidos nesta página apenas para as suas finalidades de informação e planeamento.

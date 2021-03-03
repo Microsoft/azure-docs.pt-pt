@@ -1,26 +1,26 @@
 ---
-title: Amostras de modelo do gestor de recursos para monitor Azure para contentores
-description: Experimente os modelos do Gestor de Recursos Azure para implantar e configurar o Monitor Deazure para contentores.
+title: Amostras de modelo de gestor de recursos para insights de contentores
+description: Experimente os modelos do Gestor de Recursos Azure para implementar e configurar insights doContainer.
 ms.subservice: logs
 ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 05/18/2020
-ms.openlocfilehash: e33bb6ae04f0b11a25a7ab87362bc243ee19c79c
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: f75278663abde8d4b0f47c8df1dbbdbc298bcafb
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100627945"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723338"
 ---
-# <a name="resource-manager-template-samples-for-azure-monitor-for-containers"></a>Amostras de modelo do gestor de recursos para monitor Azure para contentores
+# <a name="resource-manager-template-samples-for-container-insights"></a>Amostras de modelo de gestor de recursos para insights de contentores
 Este artigo inclui [modelos de gestor de recursos Azure](../../azure-resource-manager/templates/template-syntax.md) para implantar e configurar o agente Log Analytics para máquinas virtuais no Azure Monitor. Cada amostra inclui um ficheiro de modelo e um ficheiro de parâmetros com valores de amostra para fornecer ao modelo.
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 
 
 ## <a name="enable-for-aks-cluster"></a>Ativar o cluster AKS
-A amostra seguinte permite ao Monitor Azure para contentores num cluster AKS.
+A amostra seguinte permite insights do contentor num cluster AKS.
 
 
 ### <a name="template-file"></a>Arquivo de modelo
@@ -357,4 +357,4 @@ A amostra seguinte permite ao Monitor Azure para contentores num cluster AKS.
 ## <a name="next-steps"></a>Passos seguintes
 
 * [Obtenha outros modelos de amostra para Azure Monitor](../resource-manager-samples.md).
-* [Saiba mais sobre o Azure Monitor para recipientes.](../containers/container-insights-overview.md)
+* [Saiba mais sobre os insights do Contentor.](../containers/container-insights-overview.md)

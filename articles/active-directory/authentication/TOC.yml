@@ -176,7 +176,7 @@
     - name: Relatórios
       items:
         - name: Atividade de métodos de autenticação
-          href: howto-authentication-methods-usage-insights.md
+          href: howto-authentication-methods-activity.md
         - name: Relatórios de SSPR
           href: howto-sspr-reporting.md
         - name: Relatórios do MFA

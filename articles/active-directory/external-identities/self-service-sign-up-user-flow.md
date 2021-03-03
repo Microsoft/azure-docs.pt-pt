@@ -11,26 +11,31 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a08cc9f5b6bf7f02666406bcc541edb677196eeb
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 883e658fd3f03eb50d54e548ffac49e23b340808
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101647341"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101688639"
 ---
-# <a name="add-a-self-service-sign-up-user-flow-to-an-app"></a>Adicione um fluxo de utilizador de inscrição de autosserviço a uma aplicação
+# <a name="add-a-self-service-sign-up-user-flow-to-an-app-preview"></a>Adicione um fluxo de utilizador de inscrição de autosserviço a uma aplicação (Preview)
 
-Pode criar fluxos de utilizadores para apps que são construídas pela sua organização. Associar o fluxo do utilizador a uma aplicação permite-lhe ativar o inscrição nessa aplicação. Pode escolher mais do que uma aplicação para estar associada ao fluxo do utilizador. Uma vez associado o fluxo do utilizador a uma ou mais aplicações, os utilizadores que visitarem essa aplicação poderão inscrever-se e obter uma conta de hóspedes utilizando as opções configuradas no fluxo do utilizador.
+> [!NOTE]
+> Algumas das funcionalidades mencionadas neste artigo são características de pré-visualização públicas do Azure Ative Directory. Para obter mais informações sobre pré-visualizações, veja [Termos de Utilização Suplementares do Microsoft Azure para Pré-visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Para aplicações que constrói, pode criar fluxos de utilizador que permitam ao utilizador inscrever-se numa aplicação e criar uma nova conta de hóspedes. Um fluxo de utilizador de inscrição de autosserviço define a série de passos que o utilizador seguirá durante a inscrição, os fornecedores de identidade que permitirá a sua utilização e os atributos do utilizador que pretende recolher. Pode associar uma ou mais aplicações a um único fluxo de utilizador.
 
 > [!NOTE]
 > Pode associar fluxos de utilizadores a aplicações construídas pela sua organização. Os fluxos de utilizadores não podem ser utilizados para aplicações da Microsoft, como o SharePoint ou o Teams.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-### <a name="add-social-identity-providers-optional"></a>Adicionar fornecedores de identidade social (opcional)
+### <a name="add-identity-providers-optional"></a>Adicionar fornecedores de identidade (opcional)
 
-A Azure AD é o fornecedor de identidade padrão para a inscrição de autosserviço. Isto significa que os utilizadores são capazes de se inscrever por padrão com uma conta AZure AD. Os fornecedores de identidade social também podem ser incluídos nestes fluxos de inscrição para apoiar as contas do Google e do Facebook.
+A Azure AD é o fornecedor de identidade padrão para a inscrição de autosserviço. Isto significa que os utilizadores são capazes de se inscrever por padrão com uma conta AZure AD. Nos fluxos de utilizador de inscrição de autosserviço, também pode incluir fornecedores de identidade social como google e Facebook, Conta Microsoft (Preview) e Email One-time Passcode (Preview).
 
+- [Provedor de identidade da Conta Microsoft (Pré-visualização)](microsoft-account.md)
+- [E-mail autenticação de senha única](one-time-passcode.md)
 - [Adicione o Facebook à sua lista de fornecedores de identidade social](facebook-federation.md)
 - [Adicione o Google à sua lista de fornecedores de identidade social](google-federation.md)
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integração do Azure Ative Directory com a Replicon Microsoft Docs'
+title: 'Tutorial: Integração do Diretório Ativo Azure com replicon | Microsoft Docs'
 description: Saiba como configurar um único sinal entre o Azure Ative Directory e o Replicon.
 services: active-directory
 author: jeevansd
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/10/2019
 ms.author: jeedes
-ms.openlocfilehash: dada52dcf66db2f0d0e40f3dbf6d1a16560c2754
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 8915d780e79fa219428c54bad5458ab5966df6c1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92515033"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101688506"
 ---
 # <a name="tutorial-integrate-replicon-with-azure-active-directory"></a>Tutorial: Integrar a Replicon com o Azure Ative Directory
 
@@ -109,7 +109,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
     a. Para exibir o diálogo **EnableSAML Authentication2,** apúgue o seguinte ao SEU URL, após a tecla da empresa: `/services/SecurityService1.svc/help/test/EnableSAMLAuthentication2`
 
-    * O seguinte mostra o esquema do URL completo: `https://na2.replicon.com/\<YourCompanyKey\>/services/SecurityService1.svc/help/test/EnableSAMLAuthentication2`
+    * O seguinte mostra o esquema do URL completo: `https://na2.replicon.com/<YourCompanyKey>/services/SecurityService1.svc/help/test/EnableSAMLAuthentication2`
 
    b. Clique na **+** secção para expandir a secção **v20Configuration.**
 
@@ -135,7 +135,7 @@ Nesta secção, irá criar um utilizador de teste no portal Azure chamado B.Simo
 
 Nesta secção, você permitirá que B.Simon use a Azure single sign-on, concedendo acesso à Replicon.
 
-1. No portal Azure, selecione **Aplicações empresariais**e, em seguida, selecione **Todas as aplicações**.
+1. No portal Azure, selecione **Aplicações empresariais** e, em seguida, selecione **Todas as aplicações**.
 1. Na lista de candidaturas, selecione **Replicon**.
 1. Na página geral da aplicação, encontre a secção **Gerir** e selecione **Utilizadores e grupos**.
 
@@ -157,7 +157,7 @@ O objetivo desta secção é criar um utilizador chamado B.Simon em Replicon.
 
 1. Numa janela do navegador web, inscreva-se no site da empresa Replicon como administrador.
 
-2. Vá aos ** \> Utilizadores da Administração.**
+2. Vá aos **\> Utilizadores da Administração.**
 
     ![Utilizadores](./media/replicon-tutorial/ic777806.png "Utilizadores")
 

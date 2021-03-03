@@ -1,5 +1,5 @@
 ---
-title: Localizações pop do Azure CDN por região Microsoft Docs
+title: Localizações pop do Azure CDN por região | Microsoft Docs
 description: Este artigo lista as localizações pop do Azure CDN, classificadas por região, para produtos Azure CDN.
 services: cdn
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2020
 ms.author: allensu
-ms.openlocfilehash: 46fd9285f550b1a730b9040c46bacd7e34650b1e
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: 7db905af85a6f4c157ee6d019e8e3a3feeeb4b4a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97511676"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101722624"
 ---
 # <a name="azure-cdn-coverage-by-metro"></a>Cobertura Azure CDN by Metro 
 > [!div class="op_single_selector"]
@@ -36,7 +36,7 @@ Este artigo lista os atuais Metros que contêm localizações de ponto de presen
 > Como cada produto Azure CDN tem uma forma distinta de construir as suas infraestruturas de CDN, a Microsoft recomenda que não utilize localizações POP para decidir qual o produto Azure CDN a utilizar. Em vez disso, considere as suas funcionalidades e desempenho do utilizador final. Teste o desempenho com cada produto Azure CDN para escolher o produto certo para os seus utilizadores. 
 > 
 
-| Região | Microsoft | Verizon | Akamai |
+| Region | Microsoft | Verizon | Akamai |
 | --- | --- | --- | --- |
 | América do Norte | Toronto<br />Vancouver<br />Montreal<br />Querétaro<br />San Juan<br />Ashburn, VA, EUA<br />Atlanta, GA, EUA<br />Raleigh, NC, EUA<br />Boston, MA, EUA<br />Cheyenne, WY, EUA<br />Minneapolis, MN, EUA<br />Chicago, IL, EUA<br /> Dallas, TX, EUA<br />Denver, CO, EUA<br />Honolulu, HI, EUA<br />Houston, TX, EUA<br />Las Vegas, NV, EUA<br />Los Angeles, CA, EUA<br />Miami, FL, EUA<br />Nova Iorque, NY, EUA<br />Newark, NJ, EUA<br />Phoenix, AZ, EUA<br />Portland, OR, EUA<br />San Antonio, TX, EUA<br />San Jose, CA, EUA<br />Seattle, WA, EUA | Guadalajara<br />Cidade do México, México<br />Puebla<br />Querétaro<br />Atlanta, GA, EUA<br />Boston, MA, EUA<br />Chicago, IL, EUA<br />Dallas, TX, EUA<br />Denver, CO, EUA<br />Detroit, MI, EUA<br />Los Angeles, CA, EUA<br />Miami, FL, EUA<br />Nova Iorque, NY, EUA<br />Filadélfia, PA, EUA<br />San Jose, CA, EUA<br />Seattle, WA, EUA<br />Washington, DC, EUA <br /> Ashburn, VA, EUA <br /> Phoenix, AZ, EUA | Canadá<br />México<br />E.U.A. |
 | América do Sul | Campinas<br />Rio de Janeiro, Brasil<br />São Paulo<br />Santiago<br />Bogotá<br />Buenos Aires | Buenos Aires<br />Rio de Janeiro, Brasil<br />São Paulo<br />Valparaíso<br />Bogotá<br />Barranquilla<br />Medellin<br />Quito<br />Lima | Argentina<br />Brasil<br />Chile<br />Colômbia<br />Equador<br />Peru<br />Uruguai |
@@ -49,4 +49,4 @@ Este artigo lista os atuais Metros que contêm localizações de ponto de presen
 
 
 ## <a name="next-steps"></a>Passos seguintes
-* Para obter os mais recentes endereços IP para permitir a sua lista, consulte a [API API dos Nodes AZURE CDN Edge](/rest/api/cdn/edgenodes).
+* Para obter os mais recentes endereços IP para permitir a sua lista, consulte a [API API dos Nodes AZURE CDN Edge](https://github.com/Azure/azure-docs-rest-apis/blob/master/docs-ref-autogen/cdn/cdn/EdgeNodes/).

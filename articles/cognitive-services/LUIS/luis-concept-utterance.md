@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: 96b9754908f437ccf81e002e9e9dd17af0bab4e3
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 46004d81756809958e359c2a0b72c143599c2853
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95019080"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101706763"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>Compreenda o que são boas declarações para a sua app LUIS
 
@@ -54,7 +54,7 @@ Vejamos estas declarações de exemplo:
 |Quero um computador, como faço?|
 |Quando posso ter um computador?|
 
-O termo principal aqui, "computador", não é variado. Utilize alternativas como computador de secretária, computador portátil, estação de trabalho ou até mesmo apenas máquina. LUIS pode inferir os sinónimos de contexto, mas quando se criam expressões para o treino, é sempre melhor variar.
+O termo principal aqui, *computador,* não é variado. Utilize alternativas como computador de secretária, computador portátil, estação de trabalho ou até mesmo apenas máquina. LUIS pode inferir os sinónimos de contexto, mas quando se criam expressões para o treino, é sempre melhor variar.
 
 ## <a name="example-utterances-in-each-intent"></a>Exemplo de declarações em cada intenção
 
@@ -146,5 +146,5 @@ As seguintes declarações, a palavra `fair` é um homográfico. Escreve-se o me
 Se queria que uma entidade do evento encontrasse todos os dados do evento, rotule a palavra `fair` na primeira expressão, mas não na segunda.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 Consulte [as declarações de exemplo](./luis-how-to-add-entities.md) para obter informações sobre a formação de uma aplicação LUIS para compreender as declarações dos utilizadores.

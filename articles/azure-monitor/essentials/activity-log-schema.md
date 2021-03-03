@@ -7,21 +7,21 @@ ms.topic: reference
 ms.date: 09/30/2020
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: a050e9832537dd9b6690c7f9409bfbb5b795af2c
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: c2cea95dba3be02b9db584b0650761cb2d640283
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100613458"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728778"
 ---
 # <a name="azure-activity-log-event-schema"></a>Esquema de evento de registo de atividade azure
-O [registo de Atividades Azure](../platform/platform-logs-overview.md) fornece informações sobre quaisquer eventos de nível de subscrição que ocorreram em Azure. Este artigo descreve categorias de registo de atividade e o esquema para cada um. 
+O [registo de Atividades Azure](./platform-logs-overview.md) fornece informações sobre quaisquer eventos de nível de subscrição que ocorreram em Azure. Este artigo descreve categorias de registo de atividade e o esquema para cada um. 
 
 O esquema variará dependendo da forma como acede ao registo:
  
 - Os esquemas descritos neste artigo são quando acede ao registo de atividades da [API REST](/rest/api/monitor/activitylogs). Este é também o esquema utilizado quando seleciona a opção **JSON** ao visualizar um evento no portal Azure.
-- Consulte a secção final [Schema a partir de centros de conta de armazenamento e eventos](#schema-from-storage-account-and-event-hubs) para o esquema quando utilizar uma [definição de diagnóstico](../platform/diagnostic-settings.md) para enviar o registo de Atividade para Azure Storage ou Azure Event Hubs.
-- Consulte a referência de dados do [Azure Monitor](/azure/azure-monitor/reference/) para o esquema quando utilizar uma [definição de diagnóstico](../platform/diagnostic-settings.md) para enviar o registo de Atividade para um espaço de trabalho do Log Analytics.
+- Consulte a secção final [Schema a partir de centros de conta de armazenamento e eventos](#schema-from-storage-account-and-event-hubs) para o esquema quando utilizar uma [definição de diagnóstico](./diagnostic-settings.md) para enviar o registo de Atividade para Azure Storage ou Azure Event Hubs.
+- Consulte a referência de dados do [Azure Monitor](/azure/azure-monitor/reference/) para o esquema quando utilizar uma [definição de diagnóstico](./diagnostic-settings.md) para enviar o registo de Atividade para um espaço de trabalho do Log Analytics.
 
 ## <a name="severity-level"></a>Nível de Gravidade
 Cada entrada no registo de atividade tem um nível de gravidade. O nível de severidade pode ter um dos seguintes valores:  
@@ -36,7 +36,7 @@ Cada entrada no registo de atividade tem um nível de gravidade. O nível de sev
 Os devlopers de cada fornecedor de recursos escolhem os níveis de gravidade das suas entradas de recursos. Como resultado, a gravidade real pode variar dependendo da forma como a sua aplicação é construída. Por exemplo, os itens que são "críticos" para um determinado recurso tomado isoladamente podem não ser tão importantes como "erros" num tipo de recurso que seja central na sua aplicação Azure. Não se esqueça de considerar este facto ao decidir quais os eventos a alertar.  
 
 ## <a name="categories"></a>Categorias
-Cada evento no Registo de Atividades tem uma categoria específica que são descritas na tabela seguinte. Consulte as secções abaixo para obter mais detalhes sobre cada categoria e o seu esquema quando aceder ao registo de Atividade a partir do portal, PowerShell, CLI e REST API. O esquema é diferente quando [transmite o registo de atividade para armazenamento ou Centros de Eventos.](../platform/resource-logs.md#send-to-azure-event-hubs) Um mapeamento das propriedades para o [esquema de registos](../platform/resource-logs-schema.md) de recursos é fornecido na última secção do artigo.
+Cada evento no Registo de Atividades tem uma categoria específica que são descritas na tabela seguinte. Consulte as secções abaixo para obter mais detalhes sobre cada categoria e o seu esquema quando aceder ao registo de Atividade a partir do portal, PowerShell, CLI e REST API. O esquema é diferente quando [transmite o registo de atividade para armazenamento ou Centros de Eventos.](./resource-logs.md#send-to-azure-event-hubs) Um mapeamento das propriedades para o [esquema de registos](./resource-logs-schema.md) de recursos é fornecido na última secção do artigo.
 
 | Categoria | Descrição |
 |:---|:---|
@@ -141,7 +141,7 @@ Esta categoria contém o registo de todas as operações de criação, atualiza�
 ```
 
 ### <a name="property-descriptions"></a>Descrições de propriedade
-| Nome do Elemento | Description |
+| Nome do Elemento | Descrição |
 | --- | --- |
 | autorização |Blob of Azure RBAC propriedades do evento. Normalmente inclui as propriedades de "ação", "papel" e "âmbito". |
 | chamador |Endereço de e-mail do utilizador que realizou a operação, reclamação UPN ou reclamação SPN com base na disponibilidade. |
@@ -288,7 +288,7 @@ Esta categoria contém o registo de quaisquer eventos de saúde de recursos que 
 ```
 
 ### <a name="property-descriptions"></a>Descrições de propriedade
-| Nome do Elemento | Description |
+| Nome do Elemento | Descrição |
 | --- | --- |
 | canais | Sempre "Administrador, Operação" |
 | correlationId | Um GUID no formato de corda. |
@@ -381,7 +381,7 @@ Esta categoria contém o registo de todas as ativações dos alertas clássicos 
 ```
 
 ### <a name="property-descriptions"></a>Descrições de propriedade
-| Nome do Elemento | Description |
+| Nome do Elemento | Descrição |
 | --- | --- |
 | chamador | Sempre Microsoft.Insights/alertRules |
 | canais | Sempre "Administrador, Operação" |
@@ -407,7 +407,7 @@ Esta categoria contém o registo de todas as ativações dos alertas clássicos 
 O campo de propriedades conterá diferentes valores dependendo da origem do evento de alerta. Dois fornecedores de eventos de alerta comum são alertas de Registo de Atividade e alertas métricos.
 
 #### <a name="properties-for-activity-log-alerts"></a>Imóveis para alertas de Registo de Atividade
-| Nome do Elemento | Description |
+| Nome do Elemento | Descrição |
 | --- | --- |
 | propriedades.subscriçãoId | O ID de subscrição do evento de registo de atividade que fez com que esta regra de alerta de registo de atividade fosse ativada. |
 | properties.eventDataId | O ID de dados do evento de registo de atividade que fez com que esta regra de alerta de registo de atividade fosse ativada. |
@@ -418,7 +418,7 @@ O campo de propriedades conterá diferentes valores dependendo da origem do even
 | propriedades.status | O estado do evento de registo de atividade que fez com que esta regra de alerta de registo de atividade fosse ativada.|
 
 #### <a name="properties-for-metric-alerts"></a>Propriedades para alertas métricos
-| Nome do Elemento | Description |
+| Nome do Elemento | Descrição |
 | --- | --- |
 | propriedades. RegraUri | Identificação de recursos da regra de alerta métrico em si. |
 | propriedades. Nome de Regras | O nome da regra de alerta métrico. |
@@ -491,7 +491,7 @@ Esta categoria contém o registo de quaisquer eventos relacionados com o funcion
 ```
 
 ### <a name="property-descriptions"></a>Descrições de propriedade
-| Nome do Elemento | Description |
+| Nome do Elemento | Descrição |
 | --- | --- |
 | chamador | Sempre Microsoft.Insights/autoscaleSettings |
 | canais | Sempre "Administrador, Operação" |
@@ -581,7 +581,7 @@ Esta categoria contém o registo de quaisquer alertas gerados pelo Azure Securit
 ```
 
 ### <a name="property-descriptions"></a>Descrições de propriedade
-| Nome do Elemento | Description |
+| Nome do Elemento | Descrição |
 | --- | --- |
 | canais | Sempre "Operação" |
 | correlationId | Um GUID no formato de corda. |
@@ -662,7 +662,7 @@ Esta categoria contém o registo de quaisquer novas recomendações que sejam ge
 
 ```
 ### <a name="property-descriptions"></a>Descrições de propriedade
-| Nome do Elemento | Description |
+| Nome do Elemento | Descrição |
 | --- | --- |
 | canais | Sempre "Operação" |
 | correlationId | Um GUID no formato de corda. |
@@ -772,7 +772,7 @@ Esta categoria contém registos de todas as operações de ação de efeito real
 
 ### <a name="policy-event-property-descriptions"></a>Descrições de propriedade de eventos de política
 
-| Nome do Elemento | Description |
+| Nome do Elemento | Descrição |
 | --- | --- |
 | autorização | Matriz de propriedades RBAC Azure do evento. Para novos recursos, esta é a ação e âmbito do pedido que desencadeou a avaliação. Para os recursos existentes, a ação é "Microsoft.Resources/checkPolicyCompliance/read". |
 | chamador | Para novos recursos, a identidade que iniciou uma implantação. Para os recursos existentes, o GUID do Microsoft Azure Policy Insights RP. |
@@ -804,10 +804,10 @@ Esta categoria contém registos de todas as operações de ação de efeito real
 
 
 ## <a name="schema-from-storage-account-and-event-hubs"></a>Schema da conta de armazenamento e centros de eventos
-Ao transmitir o registo de Atividade Azure para uma conta de armazenamento ou centro de eventos, os dados seguem o [esquema de registo de recursos](../platform/resource-logs-schema.md). A tabela abaixo fornece um mapeamento de propriedades dos esquemas acima para o esquema de registos de recursos.
+Ao transmitir o registo de Atividade Azure para uma conta de armazenamento ou centro de eventos, os dados seguem o [esquema de registo de recursos](./resource-logs-schema.md). A tabela abaixo fornece um mapeamento de propriedades dos esquemas acima para o esquema de registos de recursos.
 
 > [!IMPORTANT]
-> O formato de dados de registo de atividades escritos numa conta de armazenamento alterado para JSON Lines em 1 de novembro de 2018. Consulte [Prepare-se para alterar o formato dos registos de recursos do Azure Monitor arquivados numa conta de armazenamento](../platform/resource-logs-blob-format.md) para obter detalhes sobre esta alteração de formato.
+> O formato de dados de registo de atividades escritos numa conta de armazenamento alterado para JSON Lines em 1 de novembro de 2018. Consulte [Prepare-se para alterar o formato dos registos de recursos do Azure Monitor arquivados numa conta de armazenamento](./resource-logs-blob-format.md) para obter detalhes sobre esta alteração de formato.
 
 
 | Propriedade de esquema de registos de recursos | Atividade Log REST API schema propriedade | Notas |
@@ -894,5 +894,5 @@ Segue-se um exemplo de um evento que usa este esquema..
 
 
 ## <a name="next-steps"></a>Passos seguintes
-* [Saiba mais sobre o Registo de Atividades](../platform/platform-logs-overview.md)
-* [Crie uma definição de diagnóstico para enviar Log de Atividade para Log Analytics espaço de trabalho, armazenamento de Azure ou centros de eventos](../platform/diagnostic-settings.md)
+* [Saiba mais sobre o Registo de Atividades](./platform-logs-overview.md)
+* [Crie uma definição de diagnóstico para enviar Log de Atividade para Log Analytics espaço de trabalho, armazenamento de Azure ou centros de eventos](./diagnostic-settings.md)

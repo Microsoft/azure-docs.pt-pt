@@ -4,15 +4,15 @@ description: Azure Security Benchmark V2 Governação e Estratégia
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/20/2020
+ms.date: 02/22/2021
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 935a6b41152ff914889e299b6455fbb30b2f0447
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: 277033e41ec7e02b89eca8cf74fe6854acb51cc1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97369060"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101727027"
 ---
 # <a name="security-control-v2-governance-and-strategy"></a>Controlo de Segurança V2: Governação e Estratégia
 
@@ -24,15 +24,15 @@ A governação e a estratégia fornecem orientações para assegurar uma estrat�
 |--|--|--|--|
 | GS-1 | 2, 13 | SC, AC |
 
-Certifique-se de que documenta e comunica uma estratégia clara de monitorização e proteção contínua de sistemas e dados. Priorize a descoberta, a avaliação, a proteção e a monitorização de dados e sistemas críticos para a empresa. 
+Certifique-se de que documenta e comunica uma estratégia clara de monitorização e proteção contínua de sistemas e dados. Priorize a descoberta, a avaliação, a proteção e a monitorização de dados e sistemas críticos para a empresa.
 
 Esta estratégia deve incluir orientações, políticas e normas documentadas para os seguintes elementos: 
 
 - Norma para a classificação de dados, de acordo com os riscos da atividade
 
-- Visibilidade da organização de segurança para os riscos e inventário de ativos 
+- Visibilidade da organização de segurança para os riscos e inventário de ativos
 
-- Aprovação da organização de segurança dos serviços do Azure a utilizar 
+- Aprovação da organização de segurança dos serviços do Azure a utilizar
 
 - Segurança dos ativos ao longo do ciclo de vida
 
@@ -127,9 +127,9 @@ Certifique-se de que documenta e comunica uma estratégia clara para funções e
 |--|--|--|--|
 | GS-5 | 9 | CA |
 
-Estabeleça uma abordagem de segurança da rede Azure como parte da estratégia global de controlo de acesso à segurança da sua organização.  
+Estabeleça uma abordagem de segurança da rede Azure como parte da estratégia global de controlo de acesso à segurança da sua organização.
 
-Esta estratégia deve incluir orientações, políticas e normas documentadas para os seguintes elementos: 
+Esta estratégia deve incluir orientações, políticas e normas documentadas para os seguintes elementos:
 
 - Gestão centralizada da rede e responsabilidade quanto à segurança
 
@@ -141,7 +141,7 @@ Esta estratégia deve incluir orientações, políticas e normas documentadas pa
 
 - Estratégia de interconectividade entre a cloud híbrida e o ambiente no local
 
-- Artefactos de segurança de rede atualizados (por exemplo, diagramas de rede, arquitetura de rede de referência)
+- Artefactos de segurança de rede atualizados (tais como diagramas de rede, arquitetura de rede de referência)
 
 Para obter mais informações, veja as seguintes referências:
 
@@ -165,9 +165,9 @@ Para obter mais informações, veja as seguintes referências:
 |--|--|--|--|
 | GS-6 | 16, 4 | AC, AU, SC |
 
-Estabeleça uma identidade Azure e abordagens privilegiadas de acesso como parte da estratégia global de controlo de acesso à segurança da sua organização.  
+Estabeleça uma identidade Azure e abordagens privilegiadas de acesso como parte da estratégia global de controlo de acesso à segurança da sua organização.
 
-Esta estratégia deve incluir orientações, políticas e normas documentadas para os seguintes elementos: 
+Esta estratégia deve incluir orientações, políticas e normas documentadas para os seguintes elementos:
 
 - Um sistema de identidades e autenticação centralizado e respetiva interconectividade com outros sistemas de identidades internas e externas
 
@@ -175,7 +175,7 @@ Esta estratégia deve incluir orientações, políticas e normas documentadas pa
 
 - Proteção de utilizadores com muitos privilégios
 
-- Monitorização e processamento de atividades anómalas de utilizadores  
+- Monitorização e processamento de atividades anómalas de utilizadores
 
 - Processo de revisão e reconciliação de identidades e acessos dos utilizadores
 
@@ -205,7 +205,7 @@ Estabeleça uma estratégia de resposta à exploração madeireira e a ameaças 
 
 Esta estratégia deve incluir orientações, políticas e normas documentadas para os seguintes elementos: 
 
-- As funções e as responsabilidades da organização quanto às operações de segurança (SecOps) 
+- O papel e as responsabilidades da organização das operações de segurança (SecOps) 
 
 - Processo de resposta a incidentes bem definido e alinhado com as normas da agência norte-americana NIST ou outro framework da indústria 
 

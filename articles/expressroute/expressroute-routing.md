@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/19/2019
 ms.author: duau
-ms.openlocfilehash: 436e866969d620389818bcebca3c5c37b8805309
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 0dc2b48d02eb8a69afc947891c263ef1510257a7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97629039"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101721842"
 ---
 # <a name="expressroute-routing-requirements"></a>Requisitos de encaminhamento do ExpressRoute
 Para ligar aos serviços em nuvem da Microsoft com o ExpressRoute, terá de configurar e gerir o encaminhamento. Alguns fornecedores de conectividade oferecem a configuração e a gestão do encaminhamento como um serviço gerido. Contacte o seu fornecedor de conectividade para ver se oferece este serviço. Caso contrário, terá de cumprir os seguintes requisitos:
@@ -30,13 +30,22 @@ Tem de reservar alguns blocos de endereços IP para configurar o encaminhamento 
 ### <a name="ip-addresses-used-for-azure-private-peering"></a>Endereços IP utilizados para peering privado do Azure
 Pode utilizar endereços IP privados ou endereços IP públicos para configurar os peerings. O intervalo de endereços utilizado para configurar as rotas não pode sobrepor-se aos intervalos de endereços utilizados para criar redes virtuais no Azure. 
 
-* Tem de reservar uma sub-rede /29 ou duas sub-redes /30 para as interfaces de encaminhamento.
-* As sub-redes utilizadas para encaminhamento podem ser endereços IP privados ou endereços IP públicos.
-* As sub-redes não podem estar em conflito com o intervalo reservado pelo cliente para utilização no Microsoft Cloud.
-* Se for utilizada uma sub-rede /29, está dividida em duas sub-redes /30. 
-  * A primeira sub-rede /30 é utilizada para a ligação primária e a segunda sub-rede /30 é utilizada para a ligação secundária.
-  * Para cada uma das sub-redes /30, tem de utilizar o primeiro endereço IP da sub-rede /30 do router. A Microsoft utiliza o segundo endereço IP da sub-rede /30 para configurar uma sessão de BGP.
-  * É necessário configurar as duas sessões de BGP para que o nosso [SLA de disponibilidade](https://azure.microsoft.com/support/legal/sla/) seja válido.  
+* IPv4:
+    * Tem de reservar uma sub-rede /29 ou duas sub-redes /30 para as interfaces de encaminhamento.
+    * As sub-redes utilizadas para encaminhamento podem ser endereços IP privados ou endereços IP públicos.
+    * As sub-redes não podem estar em conflito com o intervalo reservado pelo cliente para utilização no Microsoft Cloud.
+    * Se for utilizada uma sub-rede /29, está dividida em duas sub-redes /30. 
+      * A primeira sub-rede /30 é utilizada para a ligação primária e a segunda sub-rede /30 é utilizada para a ligação secundária.
+      * Para cada uma das sub-redes /30, tem de utilizar o primeiro endereço IP da sub-rede /30 do router. A Microsoft utiliza o segundo endereço IP da sub-rede /30 para configurar uma sessão de BGP.
+      * É necessário configurar as duas sessões de BGP para que o nosso [SLA de disponibilidade](https://azure.microsoft.com/support/legal/sla/) seja válido.
+* IPv6:
+    * Deve reservar uma sub-rede /125 ou duas sub-redes /126 para interfaces de encaminhamento.
+    * As sub-redes utilizadas para encaminhamento podem ser endereços IP privados ou endereços IP públicos.
+    * As sub-redes não podem estar em conflito com o intervalo reservado pelo cliente para utilização no Microsoft Cloud.
+    * Se for utilizada uma sub-rede /125, está dividida em duas sub-redes /126. 
+      * A primeira sub-rede /126 é utilizada para a ligação primária e a segunda sub-rede /30 é utilizada para a ligação secundária.
+      * Para cada uma das sub-redes /126, tem de utilizar o primeiro endereço IP da sub-rede /126 do router. A Microsoft utiliza o segundo endereço IP da sub-rede /126 para configurar uma sessão de BGP.
+      * É necessário configurar as duas sessões de BGP para que o nosso [SLA de disponibilidade](https://azure.microsoft.com/support/legal/sla/) seja válido.
 
 #### <a name="example-for-private-peering"></a>Exemplo de peering privado
 Se optar por utilizar a.b.c.d/29 para configurar o peering, este está dividido em duas sub-redes /30. No exemplo seguinte, note como é utilizada a sub-rede a.b.c.d/29:
@@ -122,7 +131,7 @@ A Microsoft utiliza AS 12076 para o peering público do Azure, o peering privado
 Não há requisitos quanto à simetria da transferência de dados. Os caminhos de reencaminhamento e do remetente podem atravessar pares de routers diferentes. Rotas idênticas devem ser publicitadas de ambos os lados através de vários pares de circuitos que lhe pertencem. Não é necessário que a métrica das rotas seja idêntica.
 
 ## <a name="route-aggregation-and-prefix-limits"></a>Agregação de rotas e limites de prefixo
-Suportamos até 4000 prefixos que nos sejam anunciados através do peering privado do Azure. Poderá ser aumentado até 10 000 prefixos se o suplemento premium do ExpressRoute estiver ativado. Aceitamos até 200 prefixos por sessão de BGP para o peering público do Azure e o peering da Microsoft. 
+Apoiamos até 4000 prefixos IPv4 e 100 prefixos IPv6 anunciados através do espremedura privada Azure. Isto pode ser aumentado até 10.000 prefixos IPv4 se o addon premium ExpressRoute estiver ativado. Aceitamos até 200 prefixos por sessão de BGP para o peering público do Azure e o peering da Microsoft. 
 
 A sessão de BGP é ignorada se o número de prefixos exceder o limite. Só aceitamos rotas predefinidas na ligação do peering privado. O fornecedor tem de filtrar a rota predefinida e os endereços IP privados (RFC 1918) nos caminhos do peering público do Azure e do peering da Microsoft. 
 
@@ -189,7 +198,7 @@ Pode comprar mais do que um circuito do ExpressRoute por região geopolítica. T
 | Oeste do Japão | 12076:51013 | 12076:52013 | 12076:53013 | 12076:54013 | 12076:55013 |
 | **Austrália** | |
 | Leste da Austrália | 12076:51015 | 12076:52015 | 12076:53015 | 12076:54015 | 12076:55015 |
-| Sudeste da Austrália | 12076:51016 | 12076:52016 | 12076:53016 | 12076:54016 | 12076:55016 |
+| Austrália Sudeste | 12076:51016 | 12076:52016 | 12076:53016 | 12076:54016 | 12076:55016 |
 | **Governo da Austrália** | |
 | Austrália Central | 12076:51032 | 12076:52032 | 12076:53032 | 12076:54032 | 12076:55032 |
 | Austrália Central 2 | 12076:51033 | 12076:52033 | 12076:53033 | 12076:54033 | 12076:55033 |

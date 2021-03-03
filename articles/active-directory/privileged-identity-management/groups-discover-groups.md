@@ -1,5 +1,5 @@
 ---
-title: Identificar um grupo para gerir em Gestão de Identidade Privilegiada - AZure AD / Microsoft Docs
+title: Identificar um grupo para gerir em Gestão de Identidade Privilegiada - Azure AD | Microsoft Docs
 description: Saiba como embarcar grupos atribuíveis para gerir como grupos privilegiados de acesso em Gestão de Identidade Privilegiada (PIM).
 services: active-directory
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.subservice: pim
 ms.date: 08/03/2020
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2ef27475509c59b3c0caf194fd85530f3fdd6c7c
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 0c9e2580d2a88fbbab755f0c3df2f923bdc45548
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367844"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101688353"
 ---
 # <a name="bring-privileged-access-groups-preview-into-privileged-identity-management"></a>Trazer grupos de acesso privilegiados (pré-visualização) para a Gestão de Identidade Privilegiada
 
@@ -44,6 +44,12 @@ Pode criar um grupo atribuível a funções em Azure AD, conforme descrito na [C
 
 > [!NOTE]
 > Uma vez que um grupo de acesso privilegiado é gerido, não pode ser retirado da gestão. Isto impede que outro administrador de recursos retire as definições de Gestão de Identidade Privilegiada.
+>
+
+> [!IMPORTANT]
+> Se um grupo de acesso privilegiado for eliminado do Azure Ative Directory, pode demorar até 24 horas para que o grupo seja removido da lâmina dos grupos de acesso privilegiados (Preview). 
+>
+
 
 ## <a name="next-steps"></a>Passos seguintes
 

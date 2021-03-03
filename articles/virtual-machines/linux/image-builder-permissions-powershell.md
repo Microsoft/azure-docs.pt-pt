@@ -3,17 +3,17 @@ title: Configure permissões do Serviço de Construtor de Imagem Azure usando Po
 description: Configure requisitos para o Azure VM Image Builder Service, incluindo permissões e privilégios usando o PowerShell
 author: danielsollondon
 ms.author: danis
-ms.date: 05/06/2020
+ms.date: 03/02/2021
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: image-builder
 ms.collection: linux
-ms.openlocfilehash: b476945677e10c4985d9e16689b109468c9f7c59
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 4b9cf3ffdb1fc6db9604098e8e5782317a8eb431
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101676186"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101695401"
 ---
 # <a name="configure-azure-image-builder-service-permissions-using-powershell"></a>Configure permissões do Serviço de Construtor de Imagem Azure usando PowerShell
 
@@ -134,7 +134,7 @@ $imageResourceGroup = "<Resource group>"
 $identityName = "aibIdentity"
 
 # Use a web request to download the sample JSON description
-$sample_uri="https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json"
+$sample_uri="https://raw.githubusercontent.com/azure/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleImageCreation.json"
 $role_definition="aibRoleImageCreation.json"
 
 Invoke-WebRequest -Uri $sample_uri -Outfile $role_definition -UseBasicParsing
@@ -182,7 +182,7 @@ $res_group = "<Resource group>"
 $identityName = "aibIdentity"
 
 # Use a web request to download the sample JSON description
-$sample_uri="https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleNetworking.json"
+$sample_uri="https://raw.githubusercontent.com/azure/azvmimagebuilder/master/solutions/12_Creating_AIB_Security_Roles/aibRoleNetworking.json"
 $role_definition="aibRoleNetworking.json"
 
 Invoke-WebRequest -Uri $sample_uri -Outfile $role_definition -UseBasicParsing

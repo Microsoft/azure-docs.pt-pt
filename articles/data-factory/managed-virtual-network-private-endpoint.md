@@ -9,12 +9,12 @@ ms.custom:
 - seo-lt-2019
 - references_regions
 ms.date: 07/15/2020
-ms.openlocfilehash: d950b05dd34788c2c5ef0b34b8ec8ac0b20ad4b6
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: b6000d8ff3eb35d678a94adc021efcadf8a77f81
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100379578"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101699665"
 ---
 # <a name="azure-data-factory-managed-virtual-network-preview"></a>Azure Data Factory Rede Virtual Gerida (pré-visualização)
 
@@ -43,7 +43,7 @@ Benefícios da utilização da Rede Virtual Gerida:
 
 ## <a name="managed-private-endpoints"></a>Pontos finais privados geridos
 
-Os pontos finais privados geridos são pontos finais privados criados na Rede Virtual Gerida pela Azure Data Factory, estabelecendo uma ligação privada com os recursos da Azure. A Azure Data Factory gere estes pontos finais privados em seu nome. 
+Os pontos finais privados geridos são pontos finais privados criados na Rede Virtual Gerida pela Azure Data Factory, estabelecendo uma ligação privada com os recursos da Azure. O Azure Data Factory gere estes pontos finais privados em seu nome. 
 
 ![Novo ponto final privado gerido](./media/tutorial-copy-data-portal-private/new-managed-private-endpoint.png)
 
@@ -108,11 +108,13 @@ Abaixo as fontes de dados são suportadas para se conectar através de ligação
 
 ### <a name="outbound-communications-through-public-endpoint-from-adf-managed-virtual-network"></a>Comunicações de saída através de ponto final público da ADF Managed Virtual Network
 - Apenas a porta 443 está aberta para comunicações de saída.
-- O Azure Storage e o Azure Data Lake Gen2 não são suportados para serem conectados através do ponto final público da ADF Managed Virtual Network.
+- O Armazenamento do Azure e o Azure Data Lake Gen2 não são suportados para serem ligados através do ponto final público da Rede Virtual Gerida do ADF.
 
 ### <a name="linked-service-creation-of-azure-key-vault"></a>Criação de serviço ligado do Cofre chave Azure 
 - Quando cria um Serviço Associado para o Azure Key Vault, não existe nenhuma referência ao Azure Integration Runtime. Então não pode criar Private Endpoint durante a criação do Azure Key Vault. Mas quando cria o Linked Service para lojas de dados que faz referência ao Azure Key Vault Linked Service e este Serviço Linked refere-se a Azure Integration Runtime com Rede Virtual Gerida ativada, então é capaz de criar um ponto final privado para o Serviço Ligado ao Cofre de Chaves Azure durante a criação. 
 - A operação de **ligação** de teste para o Serviço Ligado do Cofre de Chave Azure apenas valida o formato URL, mas não faz qualquer operação de rede.
+- A coluna **Utilizando o ponto final privado** é sempre mostrada como em branco, mesmo que crie o Private Endpoint para o Azure Key Vault.
+![Ponto final privado para AKV](./media/managed-vnet/akv-pe.png)
 
 ## <a name="next-steps"></a>Passos seguintes
 

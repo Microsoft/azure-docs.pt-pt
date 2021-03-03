@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/06/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: e7a4af2c18bfc2b8fbd6149dab12c0bcfc665341
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 7bf71f55e1b49a9280b25cfcc01090afbd0c42db
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878833"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101750780"
 ---
 ## <a name="create-an-image-gallery"></a>Criar uma galeria de imagens
 
@@ -93,10 +93,7 @@ Pode demorar um pouco a replicar a imagem em todas as regiões-alvo.
 
 Recomendamos que partilhe o acesso ao nível da galeria de imagens. O seguinte acompanha-o através da partilha da galeria que acabou de criar.
 
-1. Abra o [portal do Azure](https://portal.azure.com).
-1. No menu à esquerda, selecione **Grupos de Recursos.** 
-1. Na lista de grupos de recursos, selecione **myGalleryRG**. A lâmina do seu grupo de recursos abrir-se-á.
-1. No menu à esquerda da página **myGalleryRG,** selecione **Access control (IAM)**. 
+1. Na página para a sua nova galeria de imagens, no menu à esquerda, selecione **Access control (IAM)**. 
 1. Under **Add a role assignment**, selecione **Add**. O **painel de atribuição de funções Add a role** será aberto. 
 1. Under **Role**, selecione **Reader**.
 1. No acesso **a atribuir,** deixe o padrão do utilizador, grupo ou principal de serviço da **Azure.**

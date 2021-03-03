@@ -42,7 +42,7 @@ Para proteger os seus ativos em repouso, os ativos devem ser encriptados pela en
 
 ## <a name="storage-account-double-encryption"></a>Encriptação dupla da conta de armazenamento
 
-As contas de armazenamento suportam a dupla encriptação, mas a segunda camada deve ser explicitamente ativada. Consulte [a encriptação do Armazenamento Azure para obter dados em repouso](https://docs.microsoft.com/azure/storage/common/storage-service-encryption#doubly-encrypt-data-with-infrastructure-encryption).  
+As contas de armazenamento suportam a dupla encriptação, mas a segunda camada deve ser explicitamente ativada. Consulte [a encriptação do Armazenamento Azure para obter dados em repouso](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption).  
 
 ## <a name="storage-account-errors"></a>Erros da conta de armazenamento
 

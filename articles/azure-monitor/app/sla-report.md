@@ -3,12 +3,12 @@ title: Tempo de inatividade, SLA e livro de paragem - Insights de Aplicação
 description: Calcular e reportar SLA para teste web através de um único painel de vidro através dos recursos de Insights de Aplicação e subscrições Azure.
 ms.topic: conceptual
 ms.date: 02/8/2021
-ms.openlocfilehash: 884d65d10ab0360957360efa8bf9dc4cac59949b
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.openlocfilehash: d225627a27bffd9088956e5aee37ca543e528d4a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99989399"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101714056"
 ---
 # <a name="downtime-sla-and-outages-workbook"></a>Tempo de inatividade, SLA e paragens
 
@@ -51,13 +51,13 @@ O **separador Outages and Downtime** tem informações sobre as instâncias de p
 
 ## <a name="edit-the-report"></a>Editar o relatório
 
-Pode editar o relatório como qualquer outro [Livro de Trabalho do Monitor Azure](../platform/workbooks-overview.md). Pode personalizar as consultas ou visualizações com base nas necessidades da sua equipa.
+Pode editar o relatório como qualquer outro [Livro de Trabalho do Monitor Azure](../visualize/workbooks-overview.md). Pode personalizar as consultas ou visualizações com base nas necessidades da sua equipa.
 
 :::image type="content" source="./media/sla-report/edit.gif" alt-text=" GIF de selecionar o botão de edição para alterar a visualização para um gráfico de tartes." lightbox="./media/sla-report/edit.gif":::
 
 ### <a name="log-analytics"></a>Log Analytics
 
-As consultas podem ser executadas no [Log Analytics](../log-query/log-analytics-overview.md) e usadas em outros relatórios ou dashboards. Retire a restrição do parâmetro e reutilizá-lo na consulta do núcleo.
+As consultas podem ser executadas no [Log Analytics](../logs/log-analytics-overview.md) e usadas em outros relatórios ou dashboards. Retire a restrição do parâmetro e reutilizá-lo na consulta do núcleo.
 
 :::image type="content" source="./media/sla-report/logs.gif" alt-text=" GIF de consulta de registo." lightbox="./media/sla-report/logs.gif":::
 
@@ -69,6 +69,6 @@ O relatório pode ser partilhado com as suas equipas, liderança ou preso a um d
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Dicas de otimização de consultas de log analytics](../log-query/query-optimization.md).
-- Saiba como [criar um gráfico em livros de trabalho.](../platform/workbooks-chart-visualizations.md)
+- [Dicas de otimização de consultas de log analytics](../logs/query-optimization.md).
+- Saiba como [criar um gráfico em livros de trabalho.](../visualize/workbooks-chart-visualizations.md)
 - Saiba como monitorizar o seu website com [testes de disponibilidade.](monitor-web-app-availability.md)

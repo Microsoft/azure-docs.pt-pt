@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 08/27/2020
 author: palma21
-ms.openlocfilehash: b29f4034b12ce43e6c051e454601f196365469f3
-ms.sourcegitcommit: 295db318df10f20ae4aa71b5b03f7fb6cba15fc3
+ms.openlocfilehash: 0fc291403997cdccbfa190fcd5739e97c47eab6a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/15/2020
-ms.locfileid: "94636985"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101729441"
 ---
 # <a name="use-azure-files-container-storage-interface-csi-drivers-in-azure-kubernetes-service-aks-preview"></a>Utilize controladores da Interface de Armazenamento de Contentores de Ficheiros Azure (CSI) no Serviço Azure Kubernetes (AKS) (pré-visualização)
 
@@ -35,11 +35,11 @@ Para obter mais informações sobre volumes kubernetes, consulte [as opções de
 
 Uma classe de armazenamento é usada para definir como uma partilha de Ficheiros Azure é criada. Uma conta de armazenamento é criada automaticamente no [grupo de recursos de nó][node-resource-group] para utilização com a classe de armazenamento para deter as ações do Azure Files. Escolha um dos [seguintes SKUs de redundância de armazenamento Azure][storage-skus] para *o skuName:*
 
-* **Standard_LRS** : Armazenamento localmente redundante padrão
-* **Standard_GRS** : Armazenamento geo-redundante padrão
-* **Standard_ZRS** : Armazenamento normal de zona redundante
-* **Standard_RAGRS** : Armazenamento geo-redundante de acesso de leitura padrão
-* **Premium_LRS** : Armazenamento premium localmente redundante
+* **Standard_LRS**: Armazenamento localmente redundante padrão
+* **Standard_GRS**: Armazenamento geo-redundante padrão
+* **Standard_ZRS**: Armazenamento normal de zona redundante
+* **Standard_RAGRS**: Armazenamento geo-redundante de acesso de leitura padrão
+* **Premium_LRS**: Armazenamento premium localmente redundante
 
 > [!NOTE]
 > A Azure Files suporta o Azure Premium Storage. A quota mínima de ficheiros premium é de 100 GB.
@@ -226,7 +226,7 @@ az provider register --namespace Microsoft.Storage
 
 ### <a name="create-a-storage-account-for-the-nfs-file-share"></a>Criar uma conta de armazenamento para a partilha de ficheiros NFS
 
-[Criar uma `Premium_LRS` Conta de armazenamento Azure](../storage/files/storage-how-to-create-premium-fileshare.md) com as seguintes configurações para suportar ações NFS:
+[Criar uma `Premium_LRS` Conta de armazenamento Azure](../storage/files/storage-how-to-create-file-share.md) com as seguintes configurações para suportar ações NFS:
 - tipo de conta: FileStorage
 - transferência segura necessária (permitir apenas o tráfego HTTPS): falso
 - selecione a rede virtual dos seus nós de agente em Firewalls e redes virtuais - por isso, pode preferir criar a Conta de Armazenamento no grupo de recursos MC_.

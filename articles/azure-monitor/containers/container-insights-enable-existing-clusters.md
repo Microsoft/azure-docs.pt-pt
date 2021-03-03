@@ -1,19 +1,19 @@
 ---
 title: Monitorize um cluster do Serviço Azure Kubernetes (AKS) implantado | Microsoft Docs
-description: Saiba como permitir a monitorização de um cluster Azure Kubernetes Service (AKS) com o Azure Monitor para contentores já implantados na sua subscrição.
+description: Saiba como permitir a monitorização de um cluster do Serviço Azure Kubernetes (AKS) com insights de contentores já implantados na sua subscrição.
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.custom: devx-track-terraform, devx-track-azurecli
-ms.openlocfilehash: 547c22e4d82aa728009a2fdb42f2c3b481b7a625
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: e84e1c4ad3aa3950a433218255ccac3d91435231
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100620071"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717677"
 ---
 # <a name="enable-monitoring-of-azure-kubernetes-service-aks-cluster-already-deployed"></a>Permitir a monitorização do cluster do Serviço Azure Kubernetes (AKS) já implantado
 
-Este artigo descreve como configurar o Azure Monitor para contentores para monitorizar o cluster gerido kubernetes hospedado no [Serviço Azure Kubernetes](../../aks/index.yml) que já foram implantados na sua subscrição.
+Este artigo descreve como configurar insights de Contentores para monitorizar o cluster gerido de Kubernetes hospedado no [Serviço Azure Kubernetes](../../aks/index.yml) que já foram implantados na sua subscrição.
 
 Pode ativar a monitorização de um cluster AKS que já foi implantado utilizando um dos métodos suportados:
 
@@ -113,13 +113,13 @@ Para permitir a monitorização do seu cluster AKS no portal Azure a partir do A
 
 4. A partir da lista de aglomerados não monitorizados, encontre o recipiente na lista e clique em **Enable**.
 
-5. Na página **"Onboarding to Azure Monitor" para contentores,** se tiver um espaço de trabalho log analytics existente na mesma subscrição que o cluster, selecione-o da lista de espera.
+5. Na página de informações de **Onboarding to Container,** se tiver um espaço de trabalho log analytics existente na mesma subscrição que o cluster, selecione-o da lista de drop-down.
     A lista pré-seleciona o espaço de trabalho predefinido e a localização para a qual o contentor AKS é implantado na subscrição.
 
     ![Permitir a monitorização dos insights do contentor AKS](./media/container-insights-onboard/kubernetes-onboard-brownfield-01.png)
 
     >[!NOTE]
-    >Se pretender criar um novo espaço de trabalho log Analytics para armazenar os dados de monitorização do cluster, siga as instruções no Criar um espaço de [trabalho Log Analytics](../learn/quick-create-workspace.md). Certifique-se de criar o espaço de trabalho na mesma subscrição para a qual o contentor AKS está implantado.
+    >Se pretender criar um novo espaço de trabalho log Analytics para armazenar os dados de monitorização do cluster, siga as instruções no Criar um espaço de [trabalho Log Analytics](../logs/quick-create-workspace.md). Certifique-se de criar o espaço de trabalho na mesma subscrição para a qual o contentor AKS está implantado.
 
 Depois de ter ativado a monitorização, pode demorar cerca de 15 minutos até poder ver as métricas de saúde para o cluster.
 
@@ -137,13 +137,13 @@ Para ativar a monitorização diretamente de um dos seus clusters AKS no portal 
 
 5. Na página geral do serviço Kubernetes, selecione **Monitoring - Insights**.
 
-6. Na página **"Onboarding to Azure Monitor" para contentores,** se tiver um espaço de trabalho log analytics existente na mesma subscrição que o cluster, selecione-o na lista de espera.
+6. Na página de informações de **Onboarding to Container,** se tiver um espaço de trabalho log analytics existente na mesma subscrição que o cluster, selecione-o na lista de drop-down.
     A lista pré-seleciona o espaço de trabalho predefinido e a localização para a qual o contentor AKS é implantado na subscrição.
 
     ![Permitir a monitorização da saúde dos contentores AKS](./media/container-insights-onboard/kubernetes-onboard-brownfield-02.png)
 
     >[!NOTE]
-    >Se pretender criar um novo espaço de trabalho log Analytics para armazenar os dados de monitorização do cluster, siga as instruções no Criar um espaço de [trabalho Log Analytics](../learn/quick-create-workspace.md). Certifique-se de criar o espaço de trabalho na mesma subscrição para a qual o contentor AKS está implantado.
+    >Se pretender criar um novo espaço de trabalho log Analytics para armazenar os dados de monitorização do cluster, siga as instruções no Criar um espaço de [trabalho Log Analytics](../logs/quick-create-workspace.md). Certifique-se de criar o espaço de trabalho na mesma subscrição para a qual o contentor AKS está implantado.
 
 Depois de ter ativado a monitorização, pode demorar cerca de 15 minutos até poder visualizar os dados operacionais do cluster.
 
@@ -158,7 +158,7 @@ Este método inclui dois modelos JSON. Um modelo especifica a configuração par
 >O modelo precisa de ser implantado no mesmo grupo de recursos que o cluster.
 >
 
-O espaço de trabalho Log Analytics tem de ser criado antes de permitir a monitorização utilizando o Azure PowerShell ou o CLI. Para criar o espaço de trabalho, pode criá-lo através [do Azure Resource Manager,](../samples/resource-manager-workspace.md)através do [PowerShell,](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)ou no [portal Azure](../learn/quick-create-workspace.md).
+O espaço de trabalho Log Analytics tem de ser criado antes de permitir a monitorização utilizando o Azure PowerShell ou o CLI. Para criar o espaço de trabalho, pode criá-lo através [do Azure Resource Manager,](../logs/resource-manager-workspace.md)através do [PowerShell,](../logs/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)ou no [portal Azure](../logs/quick-create-workspace.md).
 
 Se não estiver familiarizado com o conceito de implantação de recursos utilizando um modelo, consulte:
 
@@ -380,4 +380,4 @@ Após alguns minutos, o comando completa e devolve informações formatadas com 
 
 * Se sentir problemas ao tentar embarcar na solução, reveja o [guia de resolução de problemas](container-insights-troubleshoot.md)
 
-* Com a monitorização habilitada a recolher a saúde e a utilização de recursos do seu cluster AKS e cargas de trabalho que os executam, aprenda [a utilizar o](container-insights-analyze.md) Azure Monitor para recipientes.
+* Com a monitorização habilitada a recolher a saúde e a utilização de recursos do seu cluster AKS e cargas de trabalho em execução sobre eles, [aprenda a utilizar](container-insights-analyze.md) insights de contentores.

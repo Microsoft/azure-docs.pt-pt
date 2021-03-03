@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 01/13/2021
 ms.author: pafarley
-ms.openlocfilehash: dbe0b5ac207b361a9584603bbe2d59abd5e5ca4e
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 4f5ea68102e98a9abc3e5a0a31d3153bc1bd1663
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100390407"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738230"
 ---
 # <a name="whats-new-in-computer-vision"></a>Novidades na Visão Computacional
 
@@ -50,8 +50,8 @@ Uma nova versão do recipiente de [análise espacial](spatial-analysis-container
 * **Breaking change**: O evento *personZoneEvent* foi renomeado para *personZoneEnterExitEvent*. Este evento é levantado pela operação *personcrossingpolygon* quando uma pessoa entra ou sai da zona e fornece informações direcionais com o lado numerado da zona que foi atravessada.
 * O URL de vídeo pode ser fornecido como "Parâmetro Privado/obfuscado" em todas as operações. A obfuscção é opcional agora e só funcionará se `KEY` e for fornecida como `IV` variáveis ambientais.
 * A calibração é ativada por padrão para todas as operações. `do_calibration: false`Desative-o.
-* Suporte adicional para recalibração automática (por defeito desativado) através do `enable_recalibration` parâmetro, consulte [as operações de análise espacial](https://docs.microsoft.com/azure/cognitive-services/computer-vision/spatial-analysis-operations) para mais detalhes
-* Parâmetros de calibração da câmara para o `DETECTOR_NODE_CONFIG` . Consulte [as operações de análise espacial](https://docs.microsoft.com/azure/cognitive-services/computer-vision/spatial-analysis-operations) para obter mais detalhes.
+* Suporte adicional para recalibração automática (por defeito desativado) através do `enable_recalibration` parâmetro, consulte [as operações de análise espacial](./spatial-analysis-operations.md) para mais detalhes
+* Parâmetros de calibração da câmara para o `DETECTOR_NODE_CONFIG` . Consulte [as operações de análise espacial](./spatial-analysis-operations.md) para obter mais detalhes.
 
 
 ## <a name="october-2020"></a>Outubro de 2020

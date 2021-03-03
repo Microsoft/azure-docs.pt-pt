@@ -3,18 +3,18 @@ title: Ativar automaticamente a cópia de segurança no momento da criação da 
 description: Um artigo que descreve como usar a Política Azure para permitir automaticamente a cópia de segurança para todos os VMs criados num determinado âmbito
 ms.topic: conceptual
 ms.date: 11/08/2019
-ms.openlocfilehash: 7e8195d22f54f29b36549b966322623ed0987d72
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: dfa4364eeaa9f5b60af3f5d6a19aaeb188d4f65e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896872"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101707307"
 ---
 # <a name="auto-enable-backup-on-vm-creation-using-azure-policy"></a>Ativar automaticamente a cópia de segurança no momento da criação da VM com o Azure Policy
 
 Uma das principais responsabilidades de um Administrador de Backup ou Compliance numa organização é garantir que todas as máquinas críticas de negócio sejam apoiadas com a retenção adequada.
 
-Hoje em dia, o Azure Backup fornece uma variedade de políticas incorporadas (utilizando a [Política Azure](https://docs.microsoft.com/azure/governance/policy/overview)) para ajudá-lo automaticamente a garantir que as suas máquinas virtuais Azure estão configuradas para cópias de segurança. Dependendo da forma como as suas equipas de backup e recursos são organizados, pode utilizar qualquer uma das políticas abaixo:
+Hoje em dia, o Azure Backup fornece uma variedade de políticas incorporadas (utilizando a [Política Azure](../governance/policy/overview.md)) para ajudá-lo automaticamente a garantir que as suas máquinas virtuais Azure estão configuradas para cópias de segurança. Dependendo da forma como as suas equipas de backup e recursos são organizados, pode utilizar qualquer uma das políticas abaixo:
 
 ## <a name="policy-1---configure-backup-on-vms-without-a-given-tag-to-an-existing-recovery-services-vault-in-the-same-location"></a>Política 1 - Configurar backup em VMs sem uma etiqueta dada a um cofre de serviços de recuperação existente no mesmo local
 
@@ -29,7 +29,7 @@ Se organiza aplicações em grupos de recursos dedicados e quer que sejam apoiad
 ## <a name="policy-4---preview-configure-backup-on-vms-with-a-given-tag-to-a-new-recovery-services-vault-with-a-default-policy"></a>Política 4 - [Pré-visualização] Configurar backup em VMs com uma etiqueta dada para um novo cofre de serviços de recuperação com uma política padrão
 Esta política funciona da mesma forma que a Política 3 acima, sendo que a única diferença é que pode utilizar esta política para **incluir** VMs que contenham uma determinada etiqueta, no âmbito desta política. 
 
-Além do acima, o Azure Backup também fornece uma política [apenas de auditoria](https://docs.microsoft.com/azure/governance/policy/concepts/effects#audit) - **Azure Backup deve ser ativado para máquinas virtuais**. Esta política identifica quais as máquinas virtuais que não têm backup ativado, mas não configura automaticamente cópias de segurança para estes VMs. Isto é útil quando se procura apenas avaliar a conformidade geral dos VMs, mas não pretende agir imediatamente.
+Além do acima, o Azure Backup também fornece uma política [apenas de auditoria](../governance/policy/concepts/effects.md#audit) - **Azure Backup deve ser ativado para máquinas virtuais**. Esta política identifica quais as máquinas virtuais que não têm backup ativado, mas não configura automaticamente cópias de segurança para estes VMs. Isto é útil quando se procura apenas avaliar a conformidade geral dos VMs, mas não pretende agir imediatamente.
 
 ## <a name="supported-scenarios"></a>Cenários Suportados
 

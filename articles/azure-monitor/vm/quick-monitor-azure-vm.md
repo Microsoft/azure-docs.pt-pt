@@ -7,34 +7,34 @@ ms.topic: quickstart
 author: bwren
 ms.author: bwren
 ms.date: 03/10/2020
-ms.openlocfilehash: defeeb42340cbc3203141561aa33a2b4b7b00bb1
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: fa0360d6730293f3817d63e31b24464a0e4950ce
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100628745"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101725480"
 ---
 # <a name="quickstart-monitor-an-azure-virtual-machine-with-azure-monitor"></a>Quickstart: Monitorize uma máquina virtual Azure com monitor Azure
-[O Azure Monitor](../overview.md) começa a recolher dados de máquinas virtuais Azure no momento em que são criados. Neste arranque rápido, você vai fazer uma breve caminhada através dos dados que são automaticamente recolhidos para um Azure VM e como vê-lo no portal Azure. Em seguida, irá ativar [o Azure Monitor para VMs](../vm/vminsights-overview.md) para o seu VM, o que permitirá aos agentes do VM recolher e analisar dados do sistema operativo convidado, incluindo processos e suas dependências.
+[O Azure Monitor](../overview.md) começa a recolher dados de máquinas virtuais Azure no momento em que são criados. Neste arranque rápido, você vai fazer uma breve caminhada através dos dados que são automaticamente recolhidos para um Azure VM e como vê-lo no portal Azure. Em seguida, irá ativar [informações em VM](../vm/vminsights-overview.md) para o seu VM, que permitirá aos agentes do VM recolher e analisar dados do sistema operativo convidado, incluindo processos e suas dependências.
 
 Este início rápido pressupõe que tem uma máquina virtual do Azure. Caso contrário, pode criar um [VM do Windows](../../virtual-machines/windows/quick-create-portal.md) ou criar um [VM Linux](../../virtual-machines/linux/quick-create-cli.md) seguindo os nossos quickstarts VM.
 
-Para descrições mais detalhadas dos dados de monitorização recolhidos a partir dos recursos do Azure consulte [a monitorização das máquinas virtuais Azure com o Azure Monitor](../insights/monitor-vm-azure.md).
+Para descrições mais detalhadas dos dados de monitorização recolhidos a partir dos recursos do Azure consulte [a monitorização das máquinas virtuais Azure com o Azure Monitor](./monitor-vm-azure.md).
 
 
 ## <a name="complete-the-monitor-an-azure-resource-quickstart"></a>Complete o Monitor de um quickstart de recurso Azure.
-Complete [Monitor um recurso Azure com O Monitor Azure](../learn/quick-monitor-azure-resource.md) para ver a página geral, registo de atividade e métricas para um VM na sua subscrição. Os VMs Azure recolhem os mesmos dados de monitorização que qualquer outro recurso Azure, mas este é apenas para o VM anfitrião. O resto deste quickstart irá focar-se na monitorização do sistema operativo dos hóspedes e das suas cargas de trabalho.
+Complete [Monitor um recurso Azure com O Monitor Azure](../essentials/quick-monitor-azure-resource.md) para ver a página geral, registo de atividade e métricas para um VM na sua subscrição. Os VMs Azure recolhem os mesmos dados de monitorização que qualquer outro recurso Azure, mas este é apenas para o VM anfitrião. O resto deste quickstart irá focar-se na monitorização do sistema operativo dos hóspedes e das suas cargas de trabalho.
 
 
-## <a name="enable-azure-monitor-for-vms"></a>Ativar monitor Azure para VMs
-Enquanto as métricas e registos de atividade serão recolhidos para o VM anfitrião, você precisa de um agente e alguma configuração para recolher e analisar dados de monitorização do sistema operativo do hóspede e suas cargas de trabalho. O Azure Monitor para VMs instala estes agentes e fornece funcionalidades poderosas adicionais para monitorizar as suas máquinas virtuais.
+## <a name="enable-vm-insights"></a>Ativar insights VM
+Enquanto as métricas e registos de atividade serão recolhidos para o VM anfitrião, você precisa de um agente e alguma configuração para recolher e analisar dados de monitorização do sistema operativo do hóspede e suas cargas de trabalho. A VM insights instala estes agentes e fornece funcionalidades poderosas adicionais para monitorizar as suas máquinas virtuais.
 
 1. Vá ao menu da sua máquina virtual.
 2. Clique em **'Insights'** a partir do azulejo na página **'Vista Geral',** ou clique em Insights a partir do menu **'Monitorização'.** 
 
     ![Página de descrição geral](media/quick-monitor-azure-vm/overview-insights.png)
 
-3. Se o Monitor Azure para VMs ainda não tiver sido ativado para a máquina virtual, clique em **Ativar**. 
+3. Se os conhecimentos VM ainda não estavam ativados para a máquina virtual, clique em **Ativar**. 
 
     ![Permitir insights](media/quick-monitor-azure-vm/enable-insights.png)
 
@@ -42,7 +42,7 @@ Enquanto as métricas e registos de atividade serão recolhidos para o VM anfitr
 
     ![Selecionar área de trabalho](media/quick-monitor-azure-vm/select-workspace.png)
 
-5. O embarque demorará alguns minutos à medida que as extensões estiverem ativadas e os agentes forem instalados na sua máquina virtual. Quando está completo, recebe-se uma mensagem de que as informações foram implementadas com sucesso. Clique em **Azure Monitor** para abrir o Azure Monitor para VMs.
+5. O embarque demorará alguns minutos à medida que as extensões estiverem ativadas e os agentes forem instalados na sua máquina virtual. Quando está completo, recebe-se uma mensagem de que as informações foram implementadas com sucesso. Clique em **Azure Monitor** para abrir insights em VM.
 
     ![Monitor aberto do Azure](media/quick-monitor-azure-vm/azure-monitor.png)
 
@@ -104,7 +104,7 @@ Quando cria um novo espaço de trabalho log Analytics, tem de ser configurado pa
     ![Log Analytics](media/quick-monitor-azure-vm/log-analytics.png)
 
 ## <a name="next-steps"></a>Passos seguintes
-Neste arranque rápido, permitiu que o Azure Monitor para VMs para uma máquina virtual e configurasse o espaço de trabalho log Analytics para recolher eventos para o sistema operativo convidado. Para saber como ver e analisar os dados, avance para o tutorial.
+Neste arranque rápido, permitiu insights de VM para uma máquina virtual e configuraram o espaço de trabalho Log Analytics para recolher eventos para o sistema operativo convidado. Para saber como ver e analisar os dados, avance para o tutorial.
 
 > [!div class="nextstepaction"]
-> [Ver ou analisar dados no Log Analytics](../log-query/log-analytics-tutorial.md)
+> [Ver ou analisar dados no Log Analytics](../logs/log-analytics-tutorial.md)

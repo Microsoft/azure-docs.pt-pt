@@ -1,36 +1,36 @@
 ---
-title: Alertas do Monitor Azure para VMs
-description: Descreve como criar regras de alerta a partir de dados de desempenho recolhidos pelo Azure Monitor para VMs.
+title: Alertas de insights VM
+description: Descreve como criar regras de alerta a partir de dados de desempenho recolhidos por insights VM.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/10/2020
-ms.openlocfilehash: 4ae5b12f22b0cbcef7577c2eb9d4f3e3ae737590
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: e3b5f49d9a4ed7af40afba5b267ba0c7bb9cd73a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100618261"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704060"
 ---
-# <a name="how-to-create-alerts-from-azure-monitor-for-vms"></a>Como criar alertas do Azure Monitor para VMs
-[Os alertas no Azure Monitor](../platform/alerts-overview.md) notificam-no proativamente de dados e padrões interessantes nos seus dados de monitorização. O Azure Monitor para VMs não inclui regras de alerta pré-configuradas, mas pode criar as suas próprias com base nos dados que recolhe. Este artigo fornece orientações sobre a criação de regras de alerta, incluindo um conjunto de consultas de amostra.
+# <a name="how-to-create-alerts-from-vm-insights"></a>Como criar alertas a partir de insights VM
+[Os alertas no Azure Monitor](../alerts/alerts-overview.md) notificam-no proativamente de dados e padrões interessantes nos seus dados de monitorização. Os insights de VM não incluem regras de alerta pré-configuradas, mas pode criar as suas próprias com base em dados que recolhe. Este artigo fornece orientações sobre a criação de regras de alerta, incluindo um conjunto de consultas de amostra.
 
 > [!IMPORTANT]
-> Os alertas descritos neste artigo baseiam-se em consultas de registo a partir de dados recolhidos Azure Monitor para VMs. Isto é diferente dos alertas criados pelo [Azure Monitor para a saúde dos hóspedes VM,](vminsights-health-overview.md) que é uma funcionalidade atualmente em pré-visualização pública. À medida que esta funcionalidade se aproxima da disponibilidade geral, as orientações para o alerta serão consolidadas.
+> Os alertas descritos neste artigo baseiam-se em consultas de registo a partir de dados recolhidos de informações sobre VM. Isto é diferente dos alertas criados pelo [Azure Monitor para a saúde dos hóspedes VM,](vminsights-health-overview.md) que é uma funcionalidade atualmente em pré-visualização pública. À medida que esta funcionalidade se aproxima da disponibilidade geral, as orientações para o alerta serão consolidadas.
 
 
 ## <a name="alert-rule-types"></a>Tipos de regras de alerta
-O Azure Monitor tem [diferentes tipos de regras de alerta](../platform/alerts-overview.md#what-you-can-alert-on) com base nos dados utilizados para criar o alerta. Todos os dados recolhidos pelo Azure Monitor para VMs são armazenados em Registos monitores Azure que suportam [alertas de registo .](../alerts/alerts-log.md) Não é possível utilizar [atualmente alertas métricos](../alerts/alerts-log.md) com dados de desempenho recolhidos do Azure Monitor para VMs porque os dados não são recolhidos em Métricas do Monitor Azure. Para recolher dados para alertas métricos, instale a [extensão](../agents/diagnostics-extension-overview.md) de diagnóstico para VMs do Windows ou o [agente Telegraf](../platform/collect-custom-metrics-linux-telegraf.md) para os VMs Linux para recolher dados de desempenho em Métricas.
+O Azure Monitor tem [diferentes tipos de regras de alerta](../alerts/alerts-overview.md#what-you-can-alert-on) com base nos dados utilizados para criar o alerta. Todos os dados recolhidos por informações VM são armazenados em Registos do Monitor Azure que suporta [alertas de registo .](../alerts/alerts-log.md) Não é possível utilizar [atualmente alertas métricos](../alerts/alerts-log.md) com dados de desempenho recolhidos a partir de insights VM, uma vez que os dados não são recolhidos em Métricas do Monitor Azure. Para recolher dados para alertas métricos, instale a [extensão](../agents/diagnostics-extension-overview.md) de diagnóstico para VMs do Windows ou o [agente Telegraf](../essentials/collect-custom-metrics-linux-telegraf.md) para os VMs Linux para recolher dados de desempenho em Métricas.
 
 Existem dois tipos de alertas de registo no Monitor Azure:
 
 - [O número de alertas de resultados](../alerts/alerts-unified-log.md#count-of-the-results-table-rows) cria um único alerta quando uma consulta devolve pelo menos um número especificado de registos. Estes são ideais para dados não numéricos tais e eventos Windows e Syslog recolhidos pelo [agente Log Analytics](../agents/log-analytics-agent.md) ou para analisar tendências de desempenho em vários computadores.
-- [Os alertas de medição métrica](../alerts/alerts-unified-log.md#calculation-of-measure-based-on-a-numeric-column-such-as-cpu-counter-value) criam um alerta separado para cada registo numa consulta que tem um valor que excede um limiar definido na regra de alerta. Estas regras de alerta são ideais para dados de desempenho recolhidos pelo Azure Monitor para VMs, uma vez que podem criar alertas individuais para cada computador.
+- [Os alertas de medição métrica](../alerts/alerts-unified-log.md#calculation-of-measure-based-on-a-numeric-column-such-as-cpu-counter-value) criam um alerta separado para cada registo numa consulta que tem um valor que excede um limiar definido na regra de alerta. Estas regras de alerta são ideais para dados de desempenho recolhidos por insights VM, uma vez que podem criar alertas individuais para cada computador.
 
 
 ## <a name="alert-rule-walkthrough"></a>Alerta de passagem da regra
-Esta secção percorre a criação de uma regra de alerta de medição métrica utilizando dados de desempenho do Azure Monitor para VMs. Você pode usar este processo básico com uma variedade de consultas de log para alertar em diferentes contadores de desempenho.
+Esta secção percorre a criação de uma regra de alerta de medição métrica utilizando dados de desempenho a partir de insights VM. Você pode usar este processo básico com uma variedade de consultas de log para alertar em diferentes contadores de desempenho.
 
 Comece por criar uma nova regra de alerta seguindo o procedimento em [Criar, ver e gerir alertas de registo usando o Azure Monitor](../alerts/alerts-log.md). Para o **Recurso**, selecione o espaço de trabalho Log Analytics que o Azure Monitor VMs utiliza na sua subscrição. Uma vez que o recurso alvo para regras de alerta de registo é sempre um espaço de trabalho Log Analytics, a consulta de registo deve incluir qualquer filtro para máquinas virtuais específicas ou conjuntos de escala de máquinas virtuais. 
 
@@ -44,7 +44,7 @@ A **avaliação com base na** secção define a frequência com que a consulta �
 ![Regra de alerta de medição métrica](media/vminsights-alerts/metric-measurement-alert.png)
 
 ## <a name="sample-alert-queries"></a>Consultas de alerta de amostra
-As seguintes consultas podem ser utilizadas com uma regra de alerta de medição métrica utilizando dados de desempenho recolhidos pelo Azure Monitor para VMs. Cada um resume os dados por computador de modo a que seja criado um alerta para cada computador com um valor que exceda o limiar.
+As seguintes consultas podem ser usadas com uma regra de alerta de medição métrica utilizando dados de desempenho recolhidos por insights VM. Cada um resume os dados por computador de modo a que seja criado um alerta para cada computador com um valor que exceda o limiar.
 
 ### <a name="cpu-utilization"></a>Utilização da CPU
 
@@ -200,5 +200,5 @@ or _ResourceId startswith "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/r
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre [os alertas no Azure Monitor.](../platform/alerts-overview.md)
-- Saiba mais sobre [consultas de registo utilizando dados do Azure Monitor para VMs](vminsights-log-search.md).
+- Saiba mais sobre [os alertas no Azure Monitor.](../alerts/alerts-overview.md)
+- Saiba mais sobre [consultas de registo usando dados de insights VM](vminsights-log-search.md).

@@ -10,12 +10,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: eb1891b7201d8e1d3d18b0e01817ee943ae6341f
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 9d00b6aa09ef19b1e6892e0e90536e45dd3bce79
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100548187"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718527"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-for-microsoft-azure-storage"></a>Client-Side Encryption e Azure Key Vault para o Armazenamento do Microsoft Azure
 
@@ -132,6 +132,8 @@ Existem dois pacotes necessários para a integração do Key Vault:
 * Azure.Core contém as `IKeyEncryptionKey` `IKeyEncryptionKeyResolver` interfaces e interfaces. A biblioteca de clientes de armazenamento para .NET já a define como uma dependência.
 * Azure.Security.KeyVault.Keys (v4.x) contém o cliente Key Vault REST, bem como clientes criptográficos utilizados com encriptação do lado do cliente.
 
+O Key Vault é projetado para chaves master de alto valor, e os limites de estrangulamento por Key Vault são projetados com isso em mente. A partir de Azure.Security.KeyVault.Keys 4.1.0, não existe uma `IKeyEncryptionKeyResolver` implementação que suporte o caching chave. Se o caching for necessário devido ao estrangulamento, [esta amostra](https://docs.microsoft.com/samples/azure/azure-sdk-for-net/azure-key-vault-proxy/) pode ser seguida para injetar uma camada de caching em um `Azure.Security.KeyVault.Keys.Cryptography.KeyResolver` caso.
+
 # <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
 
 Há três pacotes key vault:
@@ -140,15 +142,15 @@ Há três pacotes key vault:
 * Microsoft.Azure.KeyVault (v3.x) contém o cliente Key Vault REST.
 * Microsoft.Azure.KeyVault.Extensions (v3.x) contém código de extensão que inclui implementações de algoritmos criptográficos e um RSAKey e uma SymmetricKey. Depende dos espaços de nomes Core e KeyVault e fornece funcionalidade para definir um conjunto de resolver (quando os utilizadores querem usar vários fornecedores chave) e uma chave de caching resolver. Embora a biblioteca do cliente de armazenamento não dependa diretamente deste pacote, se os utilizadores quiserem usar o Cofre chave Azure para armazenar as suas chaves ou para usar as extensões key Vault para consumir os fornecedores criptográficos locais e em nuvem, eles vão precisar deste pacote.
 
-Mais informações sobre a utilização do Key Vault em v11 podem ser encontradas nas amostras do [código de encriptação v11](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples).
-
----
-
 O Key Vault é projetado para chaves master de alto valor, e os limites de estrangulamento por Key Vault são projetados com isso em mente. Ao executar a encriptação do lado do cliente com o Key Vault, o modelo preferido é usar chaves principais simétricas armazenadas como segredos no Cofre de Chaves e em cache localmente. Os utilizadores devem fazer o seguinte:
 
 1. Crie um segredo offline e faça o upload para o Key Vault.
 2. Use o identificador de base do segredo como um parâmetro para resolver a versão atual do segredo para encriptação e cache esta informação localmente. Utilize o CachingKeyResolver para o caching; não se espera que os utilizadores implementem a sua própria lógica de caching.
 3. Utilize o resolver do caching como uma entrada enquanto cria a política de encriptação.
+
+Mais informações sobre a utilização do Key Vault em v11 podem ser encontradas nas amostras do [código de encriptação v11](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples).
+
+---
 
 ## <a name="best-practices"></a>Melhores práticas
 

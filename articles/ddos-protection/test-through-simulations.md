@@ -11,23 +11,26 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2020
 ms.author: yitoh
-ms.openlocfilehash: e95495e48725a68ab1fe3f37d235e5765b2c8015
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 3be8682b3a12f06aa83db1791cb0ed125bbcee7e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99806244"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719241"
 ---
 # <a name="test-through-simulations"></a>Testar através de simulações
 
 É uma boa prática testar as suas suposições sobre como os seus serviços vão responder a um ataque realizando simulações periódicas. Durante os testes, valide que os seus serviços ou aplicações continuam a funcionar como esperado e não há nenhuma perturbação na experiência do utilizador. Identificar lacunas do ponto de vista da tecnologia e do processo e incorporá-las na estratégia de resposta do DDoS. Recomendamos que realize tais testes em ambientes de preparação ou em horas não de ponta para minimizar o impacto no ambiente de produção.
 
-Estabelecemos uma parceria com [a BreakingPoint Cloud](https://www.ixiacom.com/products/breakingpoint-cloud), um gerador de tráfego de autosserviço, para construir uma interface onde os clientes do Azure podem gerar tráfego contra pontos finais públicos habilitados pela DDoS Protection para simulações. Pode utilizar a simulação para:
+Estabelecemos uma parceria com a [BreakingPoint Cloud](https://www.ixiacom.com/products/breakingpoint-cloud), um gerador de tráfego self-service, para criar uma interface onde os clientes do Azure podem gerar tráfego para pontos finais públicos com o DDoS Protection ativado para simulações. Pode utilizar a simulação para:
 
-- Valide como a Azure DDoS Protection ajuda a proteger os seus recursos Azure de ataques DDoS.
-- Otimize o seu processo de resposta a incidentes sob ataque DDoS.
-- Conformidade do DDoS do documento.
-- Treine as suas equipas de segurança de rede.
+- Validar como o Azure DDoS Protection ajuda a proteger os recursos do Azure de ataques DDoS.
+- Otimizar o processo de resposta a incidentes sob ataque DDoS.
+- Documentar a conformidade do DDoS.
+- Preparar equipas de segurança de rede.
+
+> [!NOTE]
+> BreakingPoint Cloud só está disponível para a nuvem pública.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

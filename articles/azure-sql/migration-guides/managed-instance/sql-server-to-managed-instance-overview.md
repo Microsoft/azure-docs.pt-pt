@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 02/18/2020
-ms.openlocfilehash: 5485d97638679651a3890e0b7578787e481437c6
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 1f619e1eac58f70642117dabafc266d1bc250609
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101656283"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690418"
 ---
 # <a name="migration-overview-sql-server-to-sql-managed-instance"></a>Visão geral da migração: SQL Server para SQL Managed Instance
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -115,7 +115,7 @@ O quadro a seguir compara as opções de migração recomendadas:
 
 |Opção de migração  |Quando utilizar  |Considerações  |
 |---------|---------|---------|
-|[Azure Database Migration Service (DMS)](../../../dms/tutorial-sql-server-to-managed-instance.md) | - Migrar bases de dados únicas ou várias bases de dados à escala. </br> - Pode acomodar tempo de inatividade durante o processo de migração. </br> </br> Fontes apoiadas: </br> - SQL Server (2005 - 2019) no local ou Azure VM </br> - AWS EC2 </br> - AWS RDS </br> - GCP Compute SQL Server VM |  - As migrações em escala podem ser automatizadas através do [PowerShell](../../../dms/howto-sql-server-to-azure-sql-mi-powershell.md). </br> - O tempo para completar a migração depende do tamanho da base de dados e impactado pelo tempo de backup e restauro. </br> - Pode ser necessário um tempo de inatividade suficiente. |
+|[Azure Database Migration Service (DMS)](../../../dms/tutorial-sql-server-to-managed-instance.md) | - Migrar bases de dados únicas ou várias bases de dados à escala. </br> - Pode acomodar tempo de inatividade durante o processo de migração. </br> </br> Fontes apoiadas: </br> - SQL Server (2005 - 2019) no local ou Azure VM </br> - AWS EC2 </br> - AWS RDS </br> - GCP Compute SQL Server VM |  - As migrações em escala podem ser automatizadas através do [PowerShell](../../../dms/howto-sql-server-to-azure-sql-managed-instance-powershell-offline.md). </br> - O tempo para completar a migração depende do tamanho da base de dados e impactado pelo tempo de backup e restauro. </br> - Pode ser necessário um tempo de inatividade suficiente. |
 |[Backup nativo e restauro](../../managed-instance/restore-sample-database-quickstart.md) | - Migrar a base de dados de aplicações individuais em linha de negócio.  </br> - Migração rápida e fácil sem serviço ou ferramenta de migração separada.  </br> </br> Fontes apoiadas: </br> - SQL Server (2005 - 2019) no local ou Azure VM </br> - AWS EC2 </br> - AWS RDS </br> - GCP Compute SQL Server VM | - A cópia de segurança da base de dados utiliza vários fios para otimizar a transferência de dados para o armazenamento de Azure Blob, mas a largura de banda isv e o tamanho da base de dados podem ter impacto na taxa de transferência. </br> - O tempo de paragem deve acomodar o tempo necessário para efetuar uma cópia de segurança completa e restaurar (que é um tamanho de operação de dados).| 
 |[Serviço de reprodução de registo (LRs)](../../managed-instance/log-replay-service-migrate.md) | - Migrar a base de dados de aplicações individuais em linha de negócio.  </br> - É necessário mais controlo para as migrações na base de dados.  </br> </br> Fontes apoiadas: </br> - SQL Server (2008 - 2019) no local ou Azure VM </br> - AWS EC2 </br> - AWS RDS </br> - GCP Compute SQL Server VM | - A migração implica fazer cópias de dados completas no SQL Server e copiar ficheiros de backup para o Azure Blob Storage. O LRS é utilizado para restaurar ficheiros de backup do Azure Blob Storage para SQL Managed Instance. </br> - As bases de dados que estão a ser restauradas durante o processo de migração estarão em modo de restauração e não podem ser utilizadas para ler ou escrever até que o processo esteja concluído..| 
 | | | |
@@ -163,7 +163,7 @@ Para além da arquitetura de alta disponibilidade que está incluída no SQL Man
 
 #### <a name="sql-agent-jobs"></a>Empregos de agente SQL
 
-Utilize a opção offline Azure Database Migration Service (DMS) para migrar [empregos de Agentes SQL](../../../dms/howto-sql-server-to-azure-sql-mi-powershell.md#offline-migrations). Caso contrário, guie os trabalhos em Transact-SQL (T-SQL) utilizando o SQL Server Management Studio e, em seguida, recrie-os manualmente no target SQL Managed Instance. 
+Utilize a opção offline Azure Database Migration Service (DMS) para migrar [empregos de Agentes SQL](../../../dms/howto-sql-server-to-azure-sql-managed-instance-powershell-offline.md). Caso contrário, guie os trabalhos em Transact-SQL (T-SQL) utilizando o SQL Server Management Studio e, em seguida, recrie-os manualmente no target SQL Managed Instance. 
 
 > [!IMPORTANT]
 > Atualmente, a Azure DMS apenas suporta empregos com passos de subsistema T-SQL. Os postos de trabalho com os passos do pacote SSIS terão de ser migrados manualmente. 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/14/2021
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 82a8da9d2663b03d89ad0819ec6d918bebaf5f5e
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: d610e79773dabb9942352747f1f032b17730ffca
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99574789"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738757"
 ---
 # <a name="set-up-a-staging-environment-in-azure-spring-cloud"></a>Crie um ambiente de encenação em Azure Spring Cloud
 
@@ -23,7 +23,7 @@ Este artigo explica como configurar uma implementação de encenação usando o 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Exemplo de nuvem de primavera azure no **nível de preços** *padrão* .
-* Extensão da nuvem de primavera Azure CLI [Azure](https://docs.microsoft.com/cli/azure/azure-cli-extensions-overview)
+* Extensão da nuvem de primavera Azure CLI [Azure](/cli/azure/azure-cli-extensions-overview)
 
 Este artigo utiliza uma aplicação construída a partir do Inicializador de Mola. Se quiser utilizar uma aplicação diferente para este exemplo, terá de fazer uma simples alteração numa parte virada para o público da aplicação para diferenciar a sua produção.
 

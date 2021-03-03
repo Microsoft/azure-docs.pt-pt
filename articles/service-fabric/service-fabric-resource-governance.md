@@ -3,12 +3,12 @@ title: Governação de recursos para contentores e serviços
 description: O Azure Service Fabric permite especificar pedidos de recursos e limites para serviços que executam como processos ou contentores.
 ms.topic: conceptual
 ms.date: 8/9/2017
-ms.openlocfilehash: 889fce77c1a3a743e9805ec482a9c87b9bf8da65
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: d760766870c8c2be0a2d2384f6d012b75bc92fbd
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172873"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101735663"
 ---
 # <a name="resource-governance"></a>Gestão de recursos
 
@@ -95,12 +95,12 @@ Aqui está um exemplo de como instruir o Service Fabric a usar 50% do CPU dispon
 Para a maioria dos clientes e cenários, a deteção automática de capacidades de nó para CPU e memória é a configuração recomendada (a deteção automática é ativada por predefinição). No entanto, se necessitar de uma configuração manual completa das capacidades dos nó, pode configurá-las por tipo de nó utilizando o mecanismo para descrever os nós no cluster. Aqui está um exemplo de como configurar o tipo de nó com quatro núcleos e 2 GB de memória:
 
 ```xml
-    <NodeType Name="MyNodeType">
-      <Capacities>
-        <Capacity Name="servicefabric:/_CpuCores" Value="4"/>
-        <Capacity Name="servicefabric:/_MemoryInMB" Value="2048"/>
-      </Capacities>
-    </NodeType>
+    <NodeType Name="MyNodeType">
+      <Capacities>
+        <Capacity Name="servicefabric:/_CpuCores" Value="4"/>
+        <Capacity Name="servicefabric:/_MemoryInMB" Value="2048"/>
+      </Capacities>
+    </NodeType>
 ```
 
 Quando a deteção automática dos recursos disponíveis está ativada e as capacidades dos nóis são definidas manualmente no manifesto do cluster, o Service Fabric verifica se o nó tem recursos suficientes para suportar a capacidade que o utilizador definiu:
@@ -120,8 +120,8 @@ A deteção automática dos recursos disponíveis pode ser desligada se não for
 Para um melhor desempenho, a seguinte definição também deve ser ligada no manifesto do cluster:
 
 ```xml
-<Section Name="PlacementAndLoadBalancing">
-    <Parameter Name="PreventTransientOvercommit" Value="true" />
+<Section Name="PlacementAndLoadBalancing">
+    <Parameter Name="PreventTransientOvercommit" Value="true" />
     <Parameter Name="AllowConstraintCheckFixesDuringApplicationUpgrade" Value="true" />
 </Section>
 ```
@@ -249,7 +249,7 @@ Ao aplicar a governação de recursos aos seus serviços de Service Fabric garan
 * Nódes acabando num estado insalubre
 * APIs de gestão de clusters de tecido de serviço sem resposta
 
-Para evitar que estas situações ocorram, o Service Fabric permite-lhe impor os limites de *recursos para todos os serviços de utilizador do Service Fabric que executam no nó* (governado e não governado) para garantir que os serviços de utilizador nunca utilizarão mais do que a quantidade especificada de recursos. Isto é conseguido definindo o valor para as CapacidadesMétricas do Serviço De Execução config na secção PlacementAndLoadBalancing do ClusterManifest para ser verdadeiro. Esta definição é desligada por defeito.
+Para evitar que estas situações ocorram, o Service Fabric permite-lhe impor os limites de *recursos para todos os serviços de utilizador do Service Fabric que executam no nó* (governado e não governado) para garantir que os serviços de utilizador nunca utilizarão mais do que a quantidade especificada de recursos. Isto é conseguido definindo o valor para as CapacidadesMétricas do Serviço De Execução config na secção PlacementAndLoadBalancing do ClusterManifest para ser verdadeiro. Esta definição é desligada por defeito.
 
 ```xml
 <SectionName="PlacementAndLoadBalancing">
@@ -260,7 +260,7 @@ Para evitar que estas situações ocorram, o Service Fabric permite-lhe impor os
 Observações adicionais:
 
 * A aplicação do limite de recursos só se aplica às `servicefabric:/_CpuCores` métricas e aos `servicefabric:/_MemoryInMB` recursos
-* A aplicação do limite de recursos só funciona se as capacidades de nó para as métricas de recursos estiverem disponíveis para o Tecido de Serviço, seja através de mecanismos de deteção automática, quer através de utilizadores especificando manualmente as capacidades do nó (conforme explicado na configuração do Cluster para permitir a secção [de governação dos recursos).](service-fabric-resource-governance.md#cluster-setup-for-enabling-resource-governance)Se as capacidades do nó não forem configuradas, a capacidade de aplicação do limite de recursos não pode ser utilizada, uma vez que o Service Fabric não pode saber quanto recursos reserva para os serviços do utilizador.O Service Fabric emitirá um aviso sanitário se "Executar as CapacidadesMétricas do Serviço De Serviço" for verdadeiro, mas as capacidades dos nóns não estiverem configuradas.
+* A aplicação do limite de recursos só funciona se as capacidades de nó para as métricas de recursos estiverem disponíveis para o Tecido de Serviço, seja através de mecanismos de deteção automática, quer através de utilizadores especificando manualmente as capacidades do nó (conforme explicado na configuração do Cluster para permitir a secção [de governação dos recursos).](service-fabric-resource-governance.md#cluster-setup-for-enabling-resource-governance) Se as capacidades do nó não forem configuradas, a capacidade de aplicação do limite de recursos não pode ser utilizada, uma vez que o Service Fabric não pode saber quanto recursos reserva para os serviços do utilizador. O Service Fabric emitirá um aviso sanitário se "Executar as CapacidadesMétricas do Serviço De Serviço" for verdadeiro, mas as capacidades dos nóns não estiverem configuradas.
 
 ## <a name="other-resources-for-containers"></a>Outros recursos para contentores
 

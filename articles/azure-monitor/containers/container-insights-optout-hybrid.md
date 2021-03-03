@@ -1,18 +1,18 @@
 ---
 title: Como parar de monitorizar o seu cluster híbrido Kubernetes | Microsoft Docs
-description: Este artigo descreve como pode parar de monitorizar o seu cluster híbrido Kubernetes com o Azure Monitor para contentores.
+description: Este artigo descreve como pode parar de monitorizar o seu cluster híbrido Kubernetes com insights de contentores.
 ms.topic: conceptual
 ms.date: 06/16/2020
-ms.openlocfilehash: 2754649cd990b015162be158effa2b85aa1fe27e
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: e8708d6b860683cc96a806160ccc7c8e33949ab2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100621222"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713699"
 ---
 # <a name="how-to-stop-monitoring-your-hybrid-cluster"></a>Como parar de monitorizar o seu cluster híbrido
 
-Depois de ativar a monitorização do seu cluster Kubernetes, pode parar de monitorizar o cluster com o Azure Monitor para obter recipientes se decidir que já não o quer monitorizar. Este artigo mostra como fazê-lo para os seguintes ambientes:
+Depois de ativar a monitorização do seu cluster Kubernetes, pode parar de monitorizar o cluster com insights do Contentor se decidir que já não o quer monitorizar. Este artigo mostra como fazê-lo para os seguintes ambientes:
 
 - Motor AKS em Azure e Azure Stack
 - Versão OpenShift 4 e superior
@@ -25,7 +25,7 @@ Aplicam-se os seguintes passos aos seguintes ambientes:
 - Motor AKS em Azure e Azure Stack
 - Versão OpenShift 4 e superior
 
-1. Para identificar primeiro o Monitor Azure para a libertação do gráfico de leme de contentores instalado no seu cluster, executar o seguinte comando de leme.
+1. Para identificar primeiro o lançamento do gráfico de timoneiro de insights do recipiente instalado no seu cluster, executar o seguinte comando de leme.
 
     ```
     helm list
@@ -38,7 +38,7 @@ Aplicam-se os seguintes passos aos seguintes ambientes:
     azmon-containers-release-1      default         3               2020-04-21 15:27:24.1201959 -0700 PDT   deployed        azuremonitor-containers-2.7.0   7.0.0-1
     ```
 
-    *azmon-containers-release-1* representa a versão do gráfico de leme para o Monitor Azure para contentores.
+    *azmon-containers-release-1* representa a versão do gráfico de leme para insights de contentores.
 
 2. Para eliminar a versão da tabela, executar o seguinte comando de leme.
 
@@ -157,4 +157,4 @@ bash disable-monitoring.sh --resource-id $azureArcClusterResourceId --kube-conte
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Se o espaço de trabalho Log Analytics foi criado apenas para suportar a monitorização do cluster e já não é necessário, tem de o eliminar manualmente. Se não estiver familiarizado com a forma de eliminar um espaço de trabalho, consulte [Eliminar um espaço de trabalho Azure Log Analytics](../platform/delete-workspace.md).
+Se o espaço de trabalho Log Analytics foi criado apenas para suportar a monitorização do cluster e já não é necessário, tem de o eliminar manualmente. Se não estiver familiarizado com a forma de eliminar um espaço de trabalho, consulte [Eliminar um espaço de trabalho Azure Log Analytics](../logs/delete-workspace.md).

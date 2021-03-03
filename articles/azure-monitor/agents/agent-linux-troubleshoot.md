@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/21/2019
-ms.openlocfilehash: 7e01d234b5b94997cbfd275c4b4566ec4fa332a0
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 136e063f6d272589c609bad93532df025a15a68d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100613578"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723627"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>How to troubleshoot issues with the Log Analytics agent for Linux (Como resolver problemas com o agente do Log Analytics para Linux) 
 
@@ -92,7 +92,7 @@ Vimos que uma reinstalação limpa do agente resolverá a maioria dos problemas.
 | NOT_DEFINED | Como as dependências necessárias não estão instaladas, o plugin auditado auoms não será instalado | A instalação de auoms falhou, instalou pacote auditado. |
 | 2 | Opção inválida fornecida ao pacote de conchas. Correr `sudo sh ./omsagent-*.universal*.sh --help` para uso |
 | 3 | Nenhuma opção fornecida ao pacote de conchas. Corra `sudo sh ./omsagent-*.universal*.sh --help` para uso. |
-| 4 | Configurações de procuração inválidas do tipo de pacote INVÁLidas ou inválidas; Os pacotes de .sh omsagent-*rpm* só podem ser instalados em sistemas baseados em RPM, e pacotes omsagent-deb .sh pacotes só podem ser instalados em sistemas baseados em Debian. Recomenda-se que utilize o instalador universal a partir da [versão mais recente](../learn/quick-collect-linux-computer.md#install-the-agent-for-linux). Reveja também para verificar as definições de procuração. |
+| 4 | Configurações de procuração inválidas do tipo de pacote INVÁLidas ou inválidas; Os pacotes de .sh omsagent-*rpm* só podem ser instalados em sistemas baseados em RPM, e pacotes omsagent-deb .sh pacotes só podem ser instalados em sistemas baseados em Debian. Recomenda-se que utilize o instalador universal a partir da [versão mais recente](../vm/quick-collect-linux-computer.md#install-the-agent-for-linux). Reveja também para verificar as definições de procuração. |
 | 5 | O feixe de concha deve ser executado como raiz OU houve 403 erros devolvidos durante o embarque. Executar o seu comando utilizando `sudo` . |
 | 6 | Arquitetura de pacote inválida OU houve erro 200 devolvido durante o embarque; Os *pacotes omsagent-x64.sh só podem ser instalados em sistemas de 64 bits, e* os pacotes x86.sh só podem ser instalados em sistemas de 32 bits. Descarregue o pacote correto para a sua arquitetura a partir do [último lançamento.](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/latest) |
 | 17 | A instalação do pacote OMS falhou. Procurem através da saída de comando para a falha da raiz. |
@@ -116,7 +116,7 @@ Vimos que uma reinstalação limpa do agente resolverá a maioria dos problemas.
 | --- | --- |
 | 2 | Opção inválida fornecida ao script omsadmin. Corra `sudo sh /opt/microsoft/omsagent/bin/omsadmin.sh -h` para uso. |
 | 3 | Configuração inválida fornecida ao script omsadmin. Corra `sudo sh /opt/microsoft/omsagent/bin/omsadmin.sh -h` para uso. |
-| 4 | Procuração inválida fornecida ao script omsadmin. Verifique o representante e consulte a nossa [documentação para a utilização de um representante HTTP](../platform/log-analytics-agent.md#firewall-requirements). |
+| 4 | Procuração inválida fornecida ao script omsadmin. Verifique o representante e consulte a nossa [documentação para a utilização de um representante HTTP](./log-analytics-agent.md#firewall-requirements). |
 | 5 | 403 ERRO HTTP recebido do Azure Monitor. Consulte a saída completa do script omsadmin para obter detalhes. |
 | 6 | Erro http não-200 recebido do Azure Monitor. Consulte a saída completa do script omsadmin para obter detalhes. |
 | 7 | Não é possível ligar-se ao Monitor Azure. Consulte a saída completa do script omsadmin para obter detalhes. |
@@ -198,7 +198,7 @@ Abaixo do plugin de saída, descompromesse a seguinte secção removendo a `#` f
 
 2. Reveja as [definições de procuração](agent-manage.md#update-proxy-settings) de atualização da secção para verificar se configura o agente corretamente para comunicar através de um servidor de procuração.    
 
-3. Verifique duas vezes se os pontos finais descritos na lista [de requisitos](../platform/log-analytics-agent.md#firewall-requirements) de firewall da rede Azure Monitor são adicionados corretamente a uma lista de autorizações. Se utilizar a Azure Automation, os passos de configuração de rede necessários também estão ligados acima.
+3. Verifique duas vezes se os pontos finais descritos na lista [de requisitos](./log-analytics-agent.md#firewall-requirements) de firewall da rede Azure Monitor são adicionados corretamente a uma lista de autorizações. Se utilizar a Azure Automation, os passos de configuração de rede necessários também estão ligados acima.
 
 ## <a name="issue-you-receive-a-403-error-when-trying-to-onboard"></a>Problema: Recebe um erro de 403 ao tentar embarcar
 
@@ -447,7 +447,7 @@ Pode continuar a fazer reonboard depois de utilizar a `--purge` opção
 ### <a name="resolution"></a>Resolução 
 Execute os seguintes passos para corrigir o problema.
 1. Remova a extensão do portal Azure.
-2. Instale o agente seguindo as [instruções](../learn/quick-collect-linux-computer.md).
+2. Instale o agente seguindo as [instruções](../vm/quick-collect-linux-computer.md).
 3. Reiniciar o agente executando o seguinte comando: `sudo /opt/microsoft/omsagent/bin/service_control restart` .
 * Aguarde vários minutos e as alterações estatais de provisionamento ao **Provisioning foram bem sucedidas.**
 

@@ -6,17 +6,17 @@ author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 05/13/2019
-ms.openlocfilehash: 1b90ff8969edf3ce2886630dc88c50bc9185b85e
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 02/18/2021
+ms.openlocfilehash: 4a4bc0b55928fcaa40cd1cb03ca0522e611df476
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100370857"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101727724"
 ---
 # <a name="copy-data-from-azure-data-lake-storage-gen1-to-gen2-with-azure-data-factory"></a>Copiar dados do Azure Data Lake Storage Gen1 para a Gen2 com a Azure Data Factory
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Azure Data Lake Storage Gen2 é um conjunto de capacidades dedicadas à análise de big data que é incorporada no [armazenamento Azure Blob](../storage/blobs/storage-blobs-introduction.md). Pode utilizá-lo para interagir com os dados ao utilizar os paradigmas de armazenamento de objetos e do sistema de ficheiros.
 

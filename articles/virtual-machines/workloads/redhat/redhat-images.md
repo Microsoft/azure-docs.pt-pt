@@ -7,13 +7,14 @@ ms.subservice: redhat
 ms.collection: linux
 ms.topic: article
 ms.date: 02/10/2020
-ms.author: alsin
-ms.openlocfilehash: 03c033ac5d0f20bbfd4f5dccfb5c2900596d2a41
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.author: mathapli
+ms.reviewer: cynthn
+ms.openlocfilehash: 42e0788a25efa5124f24a77b48469d6ed8265dfc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101673121"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101694687"
 ---
 # <a name="overview-of-red-hat-enterprise-linux-images"></a>Visão geral das imagens do Red Hat Enterprise Linux
 
@@ -108,6 +109,8 @@ Os detalhes para os tipos de imagem RHEL 8 estão abaixo.
 |----------|-------|------------|---------|--------
 |RedHat | RHEL | 8 | Valores concatenados da versão menor do RHEL e da data publicada (por exemplo, 8.0.20191023) | Estas imagens são imagens partidas pela RHEL 8 LVM ligadas aos repositórios padrão do Chapéu Vermelho.
 |RedHat | RHEL | 8-gen2 | Valores concatenados da versão menor do RHEL e da data publicada (por exemplo, 8.0.20191024) | Estas imagens são imagens de hiper-V geração 2 RHEL 8 LVM-partitioned connected to red hat repositórios padrão. Para obter mais informações sobre os VMs da Geração 2 em Azure, consulte [Suporte para Azure](../../generation-2.md).
+|RedHat | RHEL | RHEL-SAP-APPS | Valores concatenados da versão menor da RHEL e da data publicada (por exemplo, 8.1.202101201) | Estas imagens são RHEL para imagens de Aplicações SAP. Têm direito a aceder a repositórios de aplicações SAP e repositórios RHEL de base.
+|RedHat | RHEL | RHEL-SAP-HA | Valores concatenados da versão menor da RHEL e da data publicada (por exemplo, 8.1.2021010602) | Estas imagens são RHEL para SAP com imagens de Serviços de Alta Disponibilidade e Atualização. Têm direito a aceder aos repositórios de Soluções e Aplicações SAP e aos repositórios de Alta Disponibilidade, bem como aos repositórios RHEL E4S. A faturação inclui o prémio RHEL, o prémio SAP e o prémio de Alta Disponibilidade para além da taxa de cálculo base.
 
 ## <a name="rhel-extended-support-add-ons"></a>Add-ons de suporte estendido RHEL
 

@@ -1,5 +1,5 @@
 ---
-title: Réplica define conceitos para Azure AD Domain Services / Microsoft Docs
+title: Réplica define conceitos para Azure AD Domain Services | Microsoft Docs
 description: Saiba quais os conjuntos de réplicas nos Serviços de Domínio do Diretório Ativo do Azure e como fornecem redundância a aplicações que requerem serviços de identidade.
 services: active-directory-ds
 author: justinha
@@ -8,22 +8,20 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/16/2020
+ms.date: 02/26/2021
 ms.author: justinha
-ms.openlocfilehash: 5359a955ea97b559b7e3d244bfb6c4fb09e8681b
-ms.sourcegitcommit: 8192034867ee1fd3925c4a48d890f140ca3918ce
+ms.openlocfilehash: 8eb1560887c08c3f64fa599c39e5577242d2a1e8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/05/2020
-ms.locfileid: "96620040"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101689067"
 ---
-# <a name="replica-sets-concepts-and-features-for-azure-active-directory-domain-services-preview"></a>Réplica define conceitos e funcionalidades para Azure Ative Directory Domain Services (pré-visualização)
+# <a name="replica-sets-concepts-and-features-for-azure-active-directory-domain-services"></a>Réplica define conceitos e funcionalidades para Azure Ative Directory Domain Services
 
 Quando cria um domínio gerido por Azure Ative Directory Domain Services (Azure AD DS), define um espaço de nome único. Este espaço de nome é o nome de domínio, como *aaddscontoso.com*, e dois controladores de domínio (DCs) são então implantados na região de Azure selecionada. Esta implantação de DCs é conhecida como um conjunto de réplicas.
 
 Você pode expandir um domínio gerido para ter mais de um conjunto de réplicas por inquilino AZure AD. Os conjuntos de réplicas podem ser adicionados a qualquer rede virtual esprevada em qualquer região do Azure que suporte Azure AD DS. Conjuntos de réplicas adicionais em diferentes regiões de Azure proporcionam recuperação geográfica de desastres para aplicações antigas se uma região de Azure ficar offline.
-
-Os conjuntos de réplicas estão atualmente em pré-visualização.
 
 > [!NOTE]
 > Os conjuntos de réplicas não permitem implantar vários domínios geridos únicos num único inquilino Azure. Cada conjunto de réplicas contém os mesmos dados.
@@ -56,23 +54,19 @@ O exemplo a seguir mostra um domínio gerido com três conjuntos de réplicas pa
 
 O SKU padrão para um domínio gerido é o *Enterprise* SKU, que suporta vários conjuntos de réplicas. Para criar conjuntos de réplicas adicionais se tiver mudado para o *SKU Standard,* [atualize o domínio gerido](change-sku.md) para *Enterprise* ou *Premium*.
 
-O número máximo de conjuntos de réplicas suportados durante a pré-visualização é de quatro, incluindo a primeira réplica criada quando criou o domínio gerido.
+O número máximo suportado de conjuntos de réplicas é de quatro, incluindo a primeira réplica criada quando criou o domínio gerido.
 
 A faturação de cada conjunto de réplicas baseia-se na configuração de domínio SKU. Por exemplo, se tiver um domínio gerido que utilize o *SKU da Enterprise* e tiver três conjuntos de réplicas, a sua subscrição é faturada por hora para cada um dos três conjuntos de réplicas.
 
 ## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
-### <a name="can-i-use-my-production-managed-domain-with-this-preview"></a>Posso usar o meu domínio gerido pela produção com esta pré-visualização?
-
-Os conjuntos de réplicas são uma funcionalidade de pré-visualização pública nos Serviços de Domínio Ad Azure. Pode utilizar um domínio gerido pela produção, mas por favor esteja atento às diferenças de suporte que existem para funcionalidades ainda em pré-visualização. Para mais informações sobre pré-visualizações, [Azure Ative Directory Preview SLA](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 ### <a name="can-i-create-a-replica-set-in-subscription-different-from-my-managed-domain"></a>Posso criar uma réplica definida em subscrição diferente do meu domínio gerido?
 
-Não. Os conjuntos de réplicas devem estar na mesma subscrição que o domínio gerido.
+N.º Os conjuntos de réplicas devem estar na mesma subscrição que o domínio gerido.
 
 ### <a name="how-many-replica-sets-can-i-create"></a>Quantos conjuntos de réplicas posso criar?
 
-A pré-visualização está limitada a um máximo de quatro conjuntos de réplicas - o conjunto de réplica inicial para o domínio gerido, mais três conjuntos de réplicas adicionais.
+Pode criar um máximo de quatro conjuntos de réplicas — o conjunto de réplicas iniciais para o domínio gerido, mais três conjuntos de réplicas adicionais.
 
 ### <a name="how-does-user-and-group-information-get-synchronized-to-my-replica-sets"></a>Como é que as informações de utilizador e de grupo são sincronizadas com os meus conjuntos de réplicas?
 

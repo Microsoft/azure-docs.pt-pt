@@ -1,14 +1,14 @@
 ---
 title: Gerir espaços de trabalho do Azure Sentinel em escala
 description: Saiba como gerir eficazmente o Azure Sentinel em recursos de clientes delegados.
-ms.date: 09/30/2020
+ms.date: 03/02/2021
 ms.topic: how-to
-ms.openlocfilehash: 91e2f875aa2fc067420c0c6eda4e7dd56bd2b088
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 009edaefe021dedb5d9a40a8cc3bac2c2974ae10
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424089"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702526"
 ---
 # <a name="manage-azure-sentinel-workspaces-at-scale"></a>Gerir espaços de trabalho do Azure Sentinel em escala
 
@@ -80,9 +80,9 @@ Crie e guarde as consultas de Log Analytics para deteção de ameaças centralme
 
 Você pode usar a automatização para gerir vários espaços de trabalho do Azure Sentinel e configurar [consultas de caça,](../../sentinel/hunting.md)playbooks e livros de trabalho. Para obter mais informações, consulte [a gestão do espaço de trabalho transversal utilizando a automação.](../../sentinel/extend-sentinel-across-workspaces-tenants.md#cross-workspace-management-using-automation)
 
-## <a name="manage-security-of-office-365-environments"></a>Gerir a segurança dos ambientes do Office 365
+## <a name="monitor-security-of-office-365-environments"></a>Monitorizar a segurança dos ambientes do Office 365
 
-Use o Farol Azure em conjunto com a Azure Sentinel para gerir a segurança do Office 365 ambientes entre os inquilinos. Em primeiro lugar, os conectores de dados fora da caixa [Office 365 devem ser ativados no inquilino gerido](../../sentinel/connect-office-365.md) para que as informações sobre as atividades de utilizador e administração em Exchange and SharePoint (incluindo o OneDrive) possam ser ingeridas num espaço de trabalho do Azure Sentinel dentro do inquilino gerido. Isto inclui detalhes sobre ações como transferências de ficheiros, pedidos de acesso enviados, alterações em eventos de grupo e operações de caixa de correio, juntamente com informações sobre os utilizadores que realizaram as ações. [Os alertas DLP do Office 365](https://techcommunity.microsoft.com/t5/azure-sentinel/ingest-office-365-dlp-events-into-azure-sentinel/ba-p/1031820) também são suportados como parte do conector incorporado do Office 365.
+Use o Farol Azure em conjunto com a Azure Sentinel para monitorizar a segurança dos ambientes do Office 365 entre os inquilinos. Em primeiro lugar, os conectores de dados fora da caixa [Office 365 devem ser ativados no inquilino gerido](../../sentinel/connect-office-365.md) para que as informações sobre as atividades de utilizador e administração em Exchange and SharePoint (incluindo o OneDrive) possam ser ingeridas num espaço de trabalho do Azure Sentinel dentro do inquilino gerido. Isto inclui detalhes sobre ações como transferências de ficheiros, pedidos de acesso enviados, alterações em eventos de grupo e operações de caixa de correio, juntamente com informações sobre os utilizadores que realizaram as ações. [Os alertas DLP do Office 365](https://techcommunity.microsoft.com/t5/azure-sentinel/ingest-office-365-dlp-events-into-azure-sentinel/ba-p/1031820) também são suportados como parte do conector incorporado do Office 365.
 
 Pode ativar o [conector Microsoft Cloud App Security (MCAS)](../../sentinel/connect-cloud-app-security.md) para transmitir alertas e registos cloud Discovery no Azure Sentinel. Isto permite-lhe ganhar visibilidade em aplicações em nuvem, obter análises sofisticadas para identificar e combater ciberamésulas e controlar como os dados viajam. Os registos de atividade para MCAS podem ser [consumidos utilizando o Formato Comum de Eventos (CEF)](https://techcommunity.microsoft.com/t5/azure-sentinel/ingest-box-com-activity-events-via-microsoft-cloud-app-security/ba-p/1072849).
 

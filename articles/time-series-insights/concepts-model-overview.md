@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 01/22/2021
 ms.custom: seodec18
-ms.openlocfilehash: 7b37934ff3b867b83c2c958d52bea2dd4db01354
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 37c24f2d785bbdd9847e0dadaa47969f5b090ef2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736806"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101698098"
 ---
 # <a name="time-series-model-in-azure-time-series-insights-gen2"></a>Modelo de série de tempo em Azure Time Series Insights Gen2
 
@@ -75,7 +75,7 @@ Estes componentes são combinados para especificar um modelo de série sonora e 
 
 [![Gráfico de visão geral do modelo de série de tempo](media/v2-update-tsm/time-series-model-overview.png)](media/v2-update-tsm/time-series-model-overview.png#lightbox)
 
-Um modelo de série sonora pode ser criado e gerido através do [Azure Time Series Insights Explorer](https://docs.microsoft.com/azure/time-series-insights/concepts-ux-panels). As definições do modelo série de tempo podem ser geridas através da [API de Definições](/rest/api/time-series-insights/reference-model-apis)de Modelos .
+Um modelo de série sonora pode ser criado e gerido através do [Azure Time Series Insights Explorer](./concepts-ux-panels.md). As definições do modelo série de tempo podem ser geridas através da [API de Definições](/rest/api/time-series-insights/reference-model-apis)de Modelos .
 
 ## <a name="time-series-model-instances"></a>Exemplos de modelos de séries de tempo
 
@@ -286,7 +286,7 @@ Os tipos estão em conformidade com o seguinte exemplo JSON:
 
 Os tipos de modelos de séries de tempo podem ter muitas variáveis que especificam regras de fórmula e computação em eventos. Leia mais sobre [como definir variáveis de modelo de séries de tempo](./concepts-variables.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * Leia a documentação de referência do [Modelo série](/rest/api/time-series-insights/reference-model-apis) de tempo para obter mais informações sobre como editar o modelo através de APIs.
 

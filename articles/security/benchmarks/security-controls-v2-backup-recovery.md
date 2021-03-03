@@ -4,19 +4,21 @@ description: Backup e recuperação V2 de referência de segurança Azure
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 09/20/2020
+ms.date: 02/22/2021
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 089cf521a7c5428833be340001c88b870c568a8f
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: fd9a01868230efd9e9078171359d81302b472cd3
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97368890"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101724426"
 ---
 # <a name="security-control-v2-backup-and-recovery"></a>Controlo de Segurança V2: Backup e Recuperação
 
 A Cópia de Segurança e Recuperação abrange os controlos para garantir que as cópias de segurança de dados e de configuração nos diferentes níveis de serviço sejam executadas, validadas e protegidas.
+
+Para ver a política de Azure incorporada aplicável, consulte [detalhes da iniciativa de conformidade regulamentar de referência de segurança Azure: Backup and Recovery](../../governance/policy/samples/azure-security-benchmark#backup-and-recovery)
 
 ## <a name="br-1-ensure-regular-automated-backups"></a>BR-1: Garantir backups automáticos regulares
 
@@ -26,9 +28,9 @@ A Cópia de Segurança e Recuperação abrange os controlos para garantir que as
 
 Certifique-se de que está a fazer backup de sistemas e dados para manter a continuidade do negócio após um evento inesperado. Isto deve ser definido por quaisquer objetivos para o Objetivo do Ponto de Recuperação (RPO) e para o Objetivo do Tempo de Recuperação (RTO).
 
-Ativar a Azure Backup e configurar a fonte de backup (por exemplo, VMs Azure, SQL Server, bases de dados HANA ou Partilhas de Ficheiros), bem como o período de frequência e retenção pretendido.  
+Ativar o Azure Backup e configurar a fonte de backup (tais como VMs Azure, SQL Server, bases de dados HANA ou Partilhas de Ficheiros), bem como o período de frequência e retenção pretendido.
 
-Para um nível de proteção mais elevado, pode permitir a opção de armazenamento geo-redundante replicar dados de backup para uma região secundária e recuperar usando a restauração da região transversal.
+Para um nível de proteção mais elevado, pode permitir que a opção de armazenamento geo-redundante reproduza dados de backup para uma região secundária e recupere usando a restauração da região transversal.
 
 - [Continuidade de negócio e recuperação após desastre de escala empresarial](/azure/cloud-adoption-framework/ready/enterprise-scale/business-continuity-and-disaster-recovery)
 
@@ -54,15 +56,15 @@ Para um nível de proteção mais elevado, pode permitir a opção de armazename
 |--|--|--|--|
 | BR-2 | 10.2 | CP-9 |
 
-Certifique-se de que os seus backups estão protegidos contra ataques. Isto deve incluir encriptação das cópias de segurança para proteger contra a perda de confidencialidade.   
+Certifique-se de que os seus backups estão protegidos contra ataques. Isto deve incluir encriptação das cópias de segurança para proteger contra a perda de confidencialidade.
 
-Para cópias de segurança no local que utilizem O Backup Azure, a encriptação em repouso é fornecida utilizando a palavra-passe que fornece. Para cópias de segurança regulares do serviço Azure, os dados de backup são automaticamente encriptados utilizando as teclas geridas pela plataforma Azure. Pode optar por encriptar as cópias de segurança utilizando a chave gerida pelo cliente. Neste caso, certifique-se de que esta chave gerida pelo cliente no cofre chave também está no âmbito de backup. 
+Para cópias de segurança no local que utilizem O Backup Azure, a encriptação em repouso é fornecida utilizando a palavra-passe que fornece. Para cópias de segurança regulares do serviço Azure, os dados de backup são automaticamente encriptados utilizando as teclas geridas pela plataforma Azure. Pode optar por encriptar as cópias de segurança utilizando a chave gerida pelo cliente. Neste caso, certifique-se de que esta chave gerida pelo cliente no cofre chave também está no âmbito de backup.
 
 Utilize o controlo de acesso baseado em funções Azure em Azure Backup, Azure Key Vault ou outros recursos para proteger cópias de segurança e chaves geridas pelo cliente. Além disso, pode ativar funcionalidades de segurança avançadas para exigir MFA antes que as cópias de segurança possam ser alteradas ou eliminadas.
 
 - [Visão geral das funcionalidades de segurança no Azure Backup](../../backup/security-overview.md)
 
-- [Encriptação de dados de backup usando chaves geridas pelo cliente](../../backup/encryption-at-rest-with-cmk.md) 
+- [Encriptação de dados de cópias de segurança com chaves geridas pelo cliente](../../backup/encryption-at-rest-with-cmk.md) 
 
 - [Como apoiar chaves do Cofre chave em Azure](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
 
@@ -82,7 +84,7 @@ Utilize o controlo de acesso baseado em funções Azure em Azure Backup, Azure K
 
 | Azure ID | Controlos do CIS v7.1 ID(s) | NIST SP 800-53 r4 ID(s) |
 |--|--|--|--|
-| BR-3 | 10.3 | CP-4, CP-9 |
+| BR-3 | 10,3 | CP-4, CP-9 |
 
 Efetue periodicamente a restauração de dados da sua cópia de segurança. Certifique-se de que pode restaurar as chaves geridas pelo cliente.
 
@@ -104,7 +106,7 @@ Efetue periodicamente a restauração de dados da sua cópia de segurança. Cert
 |--|--|--|--|
 | BR-4 | 10.4 | CP-9 |
 
-Certifique-se de que tem medidas para prevenir e recuperar da perda de chaves. Ative a eliminação recuperável e a proteção contra remoção no Azure Key Vault para proteger as chaves contra a eliminação maliciosa ou acidental.  
+Certifique-se de que dispõe de medidas para prevenir e recuperar da perda de chaves. Ative a eliminação recuperável e a proteção contra remoção no Azure Key Vault para proteger as chaves contra a eliminação maliciosa ou acidental.
 
 - [Como ativar a eliminação recuperável e a proteção contra remoção no Key Vault](../../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 

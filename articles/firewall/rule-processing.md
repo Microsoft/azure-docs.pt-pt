@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 11/18/2020
+ms.date: 03/01/2021
 ms.author: victorh
-ms.openlocfilehash: 01f7aa61d3bfb3c712320bbf138160a7ff8197c7
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: bbf838cfa2a6addc665df4b62e2322d056778b49
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95502198"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101741366"
 ---
 # <a name="configure-azure-firewall-rules"></a>Configurar regras de Firewall Azure
 Pode configurar regras DE NAT, regras de rede e aplicações no Azure Firewall. As recolhas de regras são processadas de acordo com o tipo de regra em ordem prioritária, números mais baixos para números mais altos de 100 a 65.000. Um nome de coleção de regras só pode ter letras, números, sublinhados, períodos ou hífens. Deve começar com uma letra ou número, e terminar com uma letra, número ou sublinhado. O comprimento máximo do nome é de 80 caracteres.
@@ -38,7 +38,7 @@ Antes de 9 de novembro de 2020 **Qualquer um** significava **TCP**, **ou UDP**, 
 
 ### <a name="nat-rules"></a>Regras NAT
 
-A conectividade de entrada na Internet pode ser ativada configurando a tradução de endereços de rede de destino (DNAT) como descrito no [Tutorial: Filtrar o tráfego de entrada com DNAT Azure Firewall utilizando o portal Azure](tutorial-firewall-dnat.md). As regras DA são aplicadas na prioridade antes das regras da rede. Se for encontrada uma correspondência, é adicionada uma regra implícita de rede correspondente para permitir o tráfego traduzido. Pode substituir esse comportamento, ao adicionar explicitamente uma coleção de regras de rede com regras de negar que correspondem ao tráfego traduzido.
+A conectividade de entrada na Internet pode ser ativada configurando a tradução de endereços de rede de destino (DNAT) como descrito no [Tutorial: Filtrar o tráfego de entrada com DNAT Azure Firewall utilizando o portal Azure](tutorial-firewall-dnat.md). As regras DA são aplicadas na prioridade antes das regras da rede. Se for encontrada uma correspondência, é adicionada uma regra implícita de rede correspondente para permitir o tráfego traduzido. Por razões de segurança, a abordagem recomendada é adicionar uma fonte de internet específica para permitir o acesso do DNAT à rede e evitar a utilização de wildcards.
 
 As regras de inscrição não são aplicadas para ligações de entrada. Por isso, se pretender filtrar o tráfego HTTP/S de entrada, deve utilizar a Firewall de Aplicação Web (WAF). Para mais informações, consulte o que é o Firewall de [Aplicação Web Azure?](../web-application-firewall/overview.md)
 

@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 10/22/2020
 ms.author: nitinme
 ms.custom: cog-serv-seo-aug-2020
-ms.openlocfilehash: d134532e7f285f391b6791a9fc73d5e3251ddac8
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 1a7e1cc2303438a904b95a378a14bd02ac88c179
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94369414"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101736642"
 ---
 # <a name="what-are-azure-cognitive-services"></a>O que são os Serviços Cognitivos Azure?
 
@@ -43,14 +43,14 @@ As seguintes secções deste artigo fornecem uma lista de serviços que fazem pa
 |[Serviço de Imagem Personalizada](./custom-vision-service/overview.md "Serviço de Imagem Personalizada")|O Serviço de Visão Personalizada permite-lhe construir classificadores de imagem personalizados.|
 |[Face](./face/index.yml "Rostos")| O serviço Face fornece acesso a algoritmos faciais avançados, permitindo a deteção e reconhecimento de atributos faciais.|
 |[Reconhecedor de Formato](./form-recognizer/index.yml "Reconhecedor de Formato")|O Reconhecimento de Formulários identifica e extrai pares de valores-chave e dados de tabela a partir de documentos de formulário; em seguida, produz dados estruturados, incluindo as relações no ficheiro original.|
-|[Reconhecimento de tinta](./ink-recognizer/index.yml "Reconhecedor de Tinta Digital") (aposentadoria)|O Ink Recogniser permite-lhe reconhecer e analisar dados digitais de traçado de tinta, formas e conteúdo manuscrito, e desempenhá-lo numa estrutura documental com todas as entidades reconhecidas.|
+|[Reconhecimento de tinta](/previous-versions/azure/cognitive-services/Ink-Recognizer/ "Reconhecedor de Tinta Digital") (aposentadoria)|O Ink Recogniser permite-lhe reconhecer e analisar dados digitais de traçado de tinta, formas e conteúdo manuscrito, e desempenhá-lo numa estrutura documental com todas as entidades reconhecidas.|
 |[Video Indexer](../media-services/video-indexer/video-indexer-overview.md "Video Indexer")|O Indexer de Vídeo permite-lhe extrair informações do seu vídeo.|
 
 ## <a name="speech-apis"></a>APIs de fala
 
 |Nome do Serviço|Descrição do Serviço|
 |:-----------|:------------------|
-|[Serviço de voz](./speech-service/index.yml "Serviço de voz")|O serviço de fala adiciona funcionalidades ativadas à fala às aplicações. O serviço de fala inclui várias capacidades como discurso-a-texto, texto-a-discurso, tradução da fala, e muito mais.|
+|[Serviço de fala](./speech-service/index.yml "Serviço de voz")|O serviço de fala adiciona funcionalidades ativadas à fala às aplicações. O serviço de fala inclui várias capacidades como discurso-a-texto, texto-a-discurso, tradução da fala, e muito mais.|
 <!--
 |[Speaker Recognition API](./speech-service/speaker-recognition-overview.md "Speaker Recognition API") (Preview)|The Speaker Recognition API provides algorithms for speaker identification and verification.|
 |[Bing Speech](./speech-service/how-to-migrate-from-bing-speech.md "Bing Speech") (Retiring)|The Bing Speech API provides you with an easy way to create speech-enabled features in your applications.|

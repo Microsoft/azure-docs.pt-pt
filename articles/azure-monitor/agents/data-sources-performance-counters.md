@@ -6,18 +6,18 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/21/2020
-ms.openlocfilehash: f885945dfb6910df919038106487db912d87caee
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: c06123b33c7f467e12742cf6180d821e647b5115
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100616332"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711557"
 ---
 # <a name="collect-windows-and-linux-performance-data-sources-with-log-analytics-agent"></a>Recolher fontes de dados de desempenho do Windows e do Linux com o agente Log Analytics
 Os contadores de desempenho no Windows e linux fornecem informações sobre o desempenho de componentes de hardware, sistemas operativos e aplicações.  O Azure Monitor pode recolher contadores de desempenho de agentes do Log Analytics em intervalos frequentes para análises de Tempo Real Próximo (NRT), além de agregar dados de desempenho para análise e reporte a longo prazo.
 
 > [!IMPORTANT]
-> Este artigo abrange a recolha de dados de desempenho com o [agente Log Analytics,](../platform/log-analytics-agent.md) que é um dos agentes utilizados pelo Azure Monitor. Outros agentes recolhem dados diferentes e são configurados de forma diferente. Consulte [a visão geral dos agentes do Azure Monitor](../agents/agents-overview.md) para obter uma lista dos agentes disponíveis e os dados que podem recolher.
+> Este artigo abrange a recolha de dados de desempenho com o [agente Log Analytics,](./log-analytics-agent.md) que é um dos agentes utilizados pelo Azure Monitor. Outros agentes recolhem dados diferentes e são configurados de forma diferente. Consulte [a visão geral dos agentes do Azure Monitor](../agents/agents-overview.md) para obter uma lista dos agentes disponíveis e os dados que podem recolher.
 
 ![Contadores de desempenho](media/data-sources-performance-counters/overview.png)
 
@@ -28,7 +28,7 @@ Quando configurar pela primeira vez os contadores Windows ou Linux Performance p
 
 Para os contadores de desempenho do Windows, pode escolher uma instância específica para cada contador de desempenho. Para os contadores de desempenho do Linux, a instância de cada contador que escolher aplica-se a todos os contadores de crianças do contador dos pais. A tabela a seguir mostra as instâncias comuns disponíveis tanto para os contadores de desempenho Linux como para o Windows.
 
-| Nome da instância | Description |
+| Nome da instância | Descrição |
 | --- | --- |
 | \_Total |Total de todas as instâncias |
 | \* |Todas as instâncias |
@@ -77,7 +77,7 @@ Cada objeto, ou categoria, das métricas de desempenho a recolher deve ser defin
 
 Os parâmetros deste elemento são descritos na tabela seguinte.
 
-| Parâmetros | Description |
+| Parâmetros | Descrição |
 |:--|:--|
 | \_nome objeto | Nome do objeto para a coleção. |
 | instância \_ regex |  Uma *expressão regular* que define quais as instâncias a recolher. O valor: `.*` especifica todas as instâncias. Para recolher as métricas do processador apenas para a \_ instância Total, pode especificar `_Total` . Para recolher métricas de processo apenas para as instâncias crond ou sshd, pode especificar: `(crond\|sshd)` . |
@@ -205,7 +205,7 @@ Os registos de desempenho têm um tipo de **Perf** e têm as propriedades na tab
 ## <a name="log-queries-with-performance-records"></a>Consultas de registo com registos de desempenho
 A tabela seguinte fornece diferentes exemplos de consultas de registo que recuperam registos de desempenho.
 
-| Consulta | Description |
+| Consulta | Descrição |
 |:--- |:--- |
 | Des |Todos os dados de desempenho |
 | Perf &#124; onde computador == "MyComputer" |Todos os dados de desempenho de um determinado computador |
@@ -224,5 +224,5 @@ A tabela seguinte fornece diferentes exemplos de consultas de registo que recupe
 
 ## <a name="next-steps"></a>Passos seguintes
 * [Recolha contadores de desempenho a partir de aplicações Linux,](data-sources-linux-applications.md) incluindo MySQL e Apache HTTP Server.
-* Saiba mais [sobre consultas de registo](../log-query/log-query-overview.md) para analisar os dados recolhidos a partir de fontes de dados e soluções.  
-* Exportação de dados recolhidos para [Power BI](../platform/powerbi.md) para visualizações e análises adicionais.
+* Saiba mais [sobre consultas de registo](../logs/log-query-overview.md) para analisar os dados recolhidos a partir de fontes de dados e soluções.  
+* Exportação de dados recolhidos para [Power BI](../visualize/powerbi.md) para visualizações e análises adicionais.

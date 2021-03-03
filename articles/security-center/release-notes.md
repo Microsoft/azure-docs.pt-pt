@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/17/2021
+ms.date: 02/18/2021
 ms.author: memildin
-ms.openlocfilehash: 837ba5a0fd5ff94cc4f55cd4b01b8cb8a27425fd
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: e34d5520e13d45d15079a5f11775d2ef930fc62a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100634265"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101727095"
 ---
 # <a name="whats-new-in-azure-security-center"></a>O que há de novo no Centro de Segurança Azure?
 
@@ -37,9 +37,10 @@ As atualizações em fevereiro incluem:
 
 - [Nova página de alertas de segurança no portal Azure lançado para Disponibilidade Geral (GA)](#new-security-alerts-page-in-the-azure-portal-released-for-general-availability-ga)
 - [Recomendações de proteção da carga de trabalho da Kubernetes lançadas para disponibilidade geral (GA)](#kubernetes-workload-protection-recommendations-released-for-general-availability-ga)
+- [O Microsoft Defender para a integração de Endpoint com o Azure Defender suporta agora o Windows Server 2019 e o Windows 10 Virtual Desktop (WVD) (na pré-visualização)](#microsoft-defender-for-endpoint-integration-with-azure-defender-now-supports-windows-server-2019-and-windows-10-virtual-desktop-wvd-in-preview)
 - [Ligação direta à política a partir da página de detalhes da recomendação](#direct-link-to-policy-from-recommendation-details-page)
 - [A recomendação de classificação de dados SQL já não afeta a sua pontuação segura](#sql-data-classification-recommendation-no-longer-affects-your-secure-score)
-- [As automatizações de fluxos de trabalho podem ser desencadeadas por alterações às avaliações de conformidade regulamentar (pré-visualização)](#workflow-automations-can-be-triggered-by-changes-to-regulatory-compliance-assessments-preview)
+- [As automatizações de fluxos de trabalho podem ser desencadeadas por alterações às avaliações de conformidade regulamentar (na pré-visualização)](#workflow-automations-can-be-triggered-by-changes-to-regulatory-compliance-assessments-in-preview)
 - [Melhorias da página de inventário de ativos](#asset-inventory-page-enhancements)
 
 
@@ -75,6 +76,17 @@ Saiba mais sobre [as melhores práticas de proteção da carga de trabalho utili
 > Embora as recomendações estivessem em pré-visualização, não tornaram um recurso de cluster AKS insalubre, e não foram incluídos nos cálculos da sua pontuação segura. com este anúncio de GA estes serão incluídos no cálculo da pontuação. Se ainda não os remedia, isto pode resultar num ligeiro impacto na sua pontuação segura. Remedia-as sempre que possível, conforme descrito nas [recomendações do Remediate no Centro de Segurança Azure](security-center-remediate-recommendations.md).
 
 
+### <a name="microsoft-defender-for-endpoint-integration-with-azure-defender-now-supports-windows-server-2019-and-windows-10-virtual-desktop-wvd-in-preview"></a>O Microsoft Defender para a integração de Endpoint com o Azure Defender suporta agora o Windows Server 2019 e o Windows 10 Virtual Desktop (WVD) (na pré-visualização)
+
+O Microsoft Defender for Endpoint é uma solução holística de segurança de ponto final. Fornece gestão e avaliação de vulnerabilidade baseadas em risco, bem como deteção e resposta de pontos finais (EDR). Para obter uma lista completa dos benefícios da utilização do Defender para Endpoint juntamente com o Azure Security Center, consulte [Protect your endpoints with Security Center's integrated EDR solution: Microsoft Defender for Endpoint](security-center-wdatp.md).
+
+Quando ativa o Azure Defender para servidores num servidor windows, está incluída uma licença para Defender para Endpoint. Se já ativou o Azure Defender para servidores e tem servidores Windows 2019 na sua subscrição, receberá automaticamente o Defender para Endpoint com esta atualização. Não é necessária qualquer ação manual. 
+
+O suporte foi agora expandido para incluir o Windows Server 2019 e [o Windows Virtual Desktop (WVD)](../virtual-desktop/overview.md).
+
+> [!NOTE]
+> Se estiver a ativar o Defender para o Ponto Final numa máquina do Windows Server 2019, certifique-se de que cumpre os requisitos descritos em [Ativar o Microsoft Defender para integração endpoint](security-center-wdatp.md#enabling-the-microsoft-defender-for-endpoint-integration).
+
 ### <a name="direct-link-to-policy-from-recommendation-details-page"></a>Ligação direta à política a partir da página de detalhes da recomendação
 
 Quando se está a rever os detalhes de uma recomendação, muitas vezes é útil ser capaz de ver a política subjacente. Para cada recomendação apoiada por uma política, há um novo link da página de detalhes da recomendação:
@@ -91,9 +103,12 @@ Se estiver a rever a lista de recomendações no nosso guia de referência de re
 ### <a name="sql-data-classification-recommendation-no-longer-affects-your-secure-score"></a>A recomendação de classificação de dados SQL já não afeta a sua pontuação segura
 A recomendação **Os dados sensíveis nas suas bases de dados SQL devem ser classificados** já não afetam a sua pontuação segura. Esta é a única recomendação no controlo de segurança de classificação de **dados da Apply,** de modo que o controlo tem agora um valor de pontuação seguro de 0.
 
+Para obter uma lista completa de todos os controlos de segurança no Centro de Segurança, juntamente com as suas pontuações e uma lista das recomendações em cada um, consulte [os controlos de segurança e as suas recomendações.](secure-score-security-controls.md#security-controls-and-their-recommendations)
 
-### <a name="workflow-automations-can-be-triggered-by-changes-to-regulatory-compliance-assessments-preview"></a>As automatizações de fluxos de trabalho podem ser desencadeadas por alterações às avaliações de conformidade regulamentar (pré-visualização)
+### <a name="workflow-automations-can-be-triggered-by-changes-to-regulatory-compliance-assessments-in-preview"></a>As automatizações de fluxos de trabalho podem ser desencadeadas por alterações às avaliações de conformidade regulamentar (na pré-visualização)
 Adicionámos um terceiro tipo de dados às opções de gatilho para as suas automatizações de fluxo de trabalho: alterações às avaliações de conformidade regulamentar.
+
+Saiba como utilizar as ferramentas de automatização do fluxo de trabalho em [respostas automatizar para acionar o Centro de Segurança](workflow-automation.md).
 
 :::image type="content" source="media/release-notes/regulatory-compliance-triggers-workflow-automation.png" alt-text="Utilização de alterações nas avaliações de conformidade regulamentar para desencadear uma automatização do fluxo de trabalho" lightbox="media/release-notes/regulatory-compliance-triggers-workflow-automation.png":::
 

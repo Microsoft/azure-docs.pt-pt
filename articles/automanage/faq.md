@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: troubleshooting
 ms.date: 02/22/2021
 ms.author: deanwe
-ms.openlocfilehash: 214730733780ef3492048f697b1c5e180434a527
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 0b4e116210cf68dc672122ad4ddc98f85067f3b8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101654022"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101688013"
 ---
 # <a name="frequently-asked-questions-for-azure-automanage-for-vms"></a>Perguntas frequentes para Azure Automanage para VMs
 
@@ -80,7 +80,7 @@ A Azure Automanage está disponível sem custos adicionais na pré-visualizaçã
 
 **Posso aplicar a auto-produção através da política do Azure?**
 
-Sim, temos uma política incorporada que aplicará automaticamente a Automanage a todos os VMs dentro do seu âmbito definido. Também irá especificar o perfil de configuração (DevTest ou Produção) juntamente com a sua conta Automanage. Saiba mais sobre como permitir a auto-produção através da política da Azure [aqui.](virtual-machines-policy-enable.md)
+Sim, temos uma política incorporada que aplicará automaticamente a Automanage a todos os VMs dentro do seu âmbito definido. Também especificará a configuração ambiental (DevTest ou Produção) juntamente com a sua conta Automanage. Saiba mais sobre como permitir a auto-produção através da política da Azure [aqui.](virtual-machines-policy-enable.md)
 
 
 **O que é uma conta de auto-produção?**
@@ -93,9 +93,9 @@ A Conta De Gestão Automática é um MSI (Identidade de Serviço Gerido) que for
 Se o seu VM estiver ligado a um espaço de trabalho log analytics existente, reutilizaremos esse espaço de trabalho para aplicar estas soluções: Change Tracking, Inventory e Update Management. Todos os VMs ligados a esse espaço de trabalho terão essas soluções ativadas.
 
 
-**Posso alterar o perfil de configuração do meu VM?**
+**Posso mudar o ambiente do meu VM?**
 
-Neste momento, terá de desativar a auto-mutilação para esse VM e, em seguida, reativar a Automanagem com o perfil e preferências de configuração pretendidos.
+Neste momento, terá de desativar a auto-produção para esse VM e, em seguida, reativar a auto-produção com o ambiente e preferências pretendidos.
 
 
 **Se o meu VM já estiver configurado para um serviço, como a Update Management, a Automanage irá reconfigurá-lo?**

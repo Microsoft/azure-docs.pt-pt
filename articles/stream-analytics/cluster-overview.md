@@ -1,5 +1,5 @@
 ---
-title: Visão geral dos clusters Azure Stream Analytics (Pré-visualização)
+title: Visão geral dos clusters Azure Stream Analytics
 description: Saiba mais sobre a oferta dedicada do Stream Analytics Cluster.
 author: sidramadoss
 ms.author: sidram
@@ -7,14 +7,14 @@ ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc
 ms.date: 09/22/2020
-ms.openlocfilehash: 75a95fa4ad36b69ca920f527060644dcc5264ce8
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: e5157a02f97370b20db85bf5e3e8aae98a2d8668
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98019538"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101709296"
 ---
-# <a name="overview-of-azure-stream-analytics-cluster-preview"></a>Visão geral do Azure Stream Analytics Cluster (Pré-visualização)
+# <a name="overview-of-azure-stream-analytics-cluster"></a>Visão geral do Azure Stream Analytics Cluster
 
 O Azure Stream Analytics Cluster oferece uma implantação de um único inquilino para cenários de streaming complexos e exigentes. Em plena escala, os clusters Stream Analytics podem processar mais de 200 MB/segundo em tempo real. Os trabalhos do Stream Analytics em clusters dedicados podem aproveitar todas as funcionalidades da oferta Standard e inclui suporte para conectividade de ligação privada às suas entradas e saídas.
 
@@ -38,7 +38,7 @@ Os clusters do Stream Analytics são alimentados pelo mesmo motor que alimenta o
 
 Pode [criar um cluster Stream Analytics](create-cluster.md) através do portal [Azure.](https://aka.ms/asaclustercreateportal) Se tiver alguma dúvida ou precisar de ajuda no embarque, pode contactar a [equipa stream Analytics](mailto:askasa@microsoft.com).
 
-## <a name="frequently-asked-questions"></a>Perguntas frequentes
+## <a name="frequently-asked-questions"></a>Perguntas mais frequentes
 
 ### <a name="how-do-i-choose-between-a-stream-analytics-cluster-and-a-stream-analytics-job"></a>Como escolho entre um cluster Stream Analytics e um trabalho stream Analytics?
 
@@ -70,7 +70,7 @@ Os seus clusters Stream Analytics são carregados com base na capacidade de SU e
 
 Stream Analytics suporta vários tipos de entrada e saída. Pode [criar pontos finais privados](private-endpoints.md) no seu cluster que permitam que os empregos acedam aos recursos de entrada e produção. Atualmente Azure SQL Database, Azure Storage, Azure Data Lake Storage Gen2, Azure Event Hub e Azure Service Bus são serviços apoiados e outros tipos serão adicionados em breve. 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Tem agora uma visão geral do cluster Azure Stream Analytics. Em seguida, pode criar o seu cluster e executar o seu trabalho stream Analytics: 
 

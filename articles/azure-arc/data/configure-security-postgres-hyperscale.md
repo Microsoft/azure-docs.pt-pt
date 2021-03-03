@@ -9,24 +9,25 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 4f89ace7130e95ba109edcf6becca1e15c8d32c1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d6e27fddceb69efbb2c1697c09ee9b61d7f38ee4
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91273205"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101687979"
 ---
 # <a name="configure-security-for-your-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Configurar a segurança para o grupo de servidores do PostgreSQL Hyperscale preparado para o Azure Arc
 
 Este documento descreve vários aspetos relacionados com a segurança do seu grupo de servidores:
-- Encriptação inativa
+- Encriptação de dados inativos
 - Gestão de utilizadores
    - Perspetivas gerais
    - Alterar a palavra-passe do utilizador administrativo _de postgres_
+- Auditoria
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
-## <a name="encryption-at-rest"></a>Encriptação inativa
+## <a name="encryption-at-rest"></a>Encriptação de dados inativos
 Pode implementar a encriptação em repouso, encriptando os discos nos quais armazena as suas bases de dados e/ou utilizando funções de base de dados para encriptar os dados que insere ou atualizar.
 
 ### <a name="hardware-linux-host-volume-encryption"></a>Hardware: Encriptação do volume do anfitrião Linux
@@ -159,13 +160,14 @@ O formato geral do comando para alterar a sua palavra-passe é:
 azdata arc postgres server edit --name <server group name> --admin-password
 ```
 
-Onde -- a palavra-passe de administração é um booleano que se relaciona com a presença de um valor na variável ambiental da **sessão**de AZDATA_PASSWORD.
-Se a variável ambiente da **sessão**de AZDATA_PASSWORD existir e tiver um valor, executar o comando acima definirá a palavra-passe do utilizador de postgres para o valor desta variável ambiente.
+Onde `--admin-password` está um booleano que se relaciona com a presença de um valor na variável ambiente de **sessão** AZDATA_PASSWORD.
+Se a variável ambiente de **sessão** AZDATA_PASSWORD existir e tiver um valor, executar o comando acima definirá a palavra-passe do utilizador de postgres para o valor desta variável ambiente.
 
-Se a variável ambiental da **sessão**de AZDATA_PASSWORD existir mas não tiver valor ou a variável ambiente da **sessão**de AZDATA_PASSWORD não existir, executar o comando acima irá levar o utilizador a introduzir uma palavra-passe interativamente
+Se a variável do ambiente de **sessão** AZDATA_PASSWORD existir mas não tiver valor ou a variável do ambiente de **sessão** AZDATA_PASSWORD não existir, executar o comando acima irá levar o utilizador a introduzir uma palavra-passe interativamente
 
-#### <a name="changing-the-password-of-the-postgres-administrative-user-in-an-interactive-way"></a>Alterar a palavra-passe do utilizador administrativo de postgres de forma interativa:
-1. Eliminar a variável ambiental da **sessão**de AZDATA_PASSWORD ou apagar o seu valor
+#### <a name="change-the-password-of-the-postgres-administrative-user-in-an-interactive-way"></a>Altere a palavra-passe do utilizador administrativo de postgres de forma interativa
+
+1. Eliminar a variável do ambiente de **sessão** AZDATA_PASSWORD ou apagar o seu valor
 2. Execute o comando:
    ```console
    azdata arc postgres server edit --name <server group name> --admin-password
@@ -186,8 +188,8 @@ Se a variável ambiental da **sessão**de AZDATA_PASSWORD existir mas não tiver
    postgres01 is Ready
    ```
    
-#### <a name="changing-the-password-of-the-postgres-administrative-user-using-the-azdata_password-sessions-environment-variable"></a>Alterar a palavra-passe do utilizador administrativo de postgres utilizando a variável ambiente da **sessão**de AZDATA_PASSWORD:
-1. Desaprova o valor da variável ambiental da **sessão**de AZDATA_PASSWORD para o que pretende que seja a palavra-passe.
+#### <a name="change-the-password-of-the-postgres-administrative-user-using-the-azdata_password-session-environment-variable"></a>Altere a palavra-passe do utilizador administrativo de postgres utilizando a variável ambiente de **sessão** de AZDATA_PASSWORD:
+1. Desaprova o valor da variável do ambiente de **sessão** AZDATA_PASSWORD para o que pretende que seja a palavra-passe.
 2. Executar o comando:
    ```console
    azdata arc postgres server edit --name <server group name> --admin-password
@@ -216,9 +218,12 @@ Se a variável ambiental da **sessão**de AZDATA_PASSWORD existir mas não tiver
 > echo $env:AZDATA_PASSWORD
 > ```
 
+## <a name="audit"></a>Auditoria
+
+Para cenários de auditoria, configuure o seu grupo de servidor para utilizar as `pgaudit` extensões de Postgres. Para mais detalhes sobre `pgaudit` o [ `pgAudit` projeto GitHub.](https://github.com/pgaudit/pgaudit/blob/master/README.md) Para ativar a `pgaudit` extensão do seu grupo de servidor, leia [as extensões PostgreSQL](using-extensions-in-postgresql-hyperscale-server-group.md).
 
 
 ## <a name="next-steps"></a>Passos seguintes
-- Leia aqui detalhes sobre a `pgcrypto` extensão. [here](https://www.postgresql.org/docs/current/pgcrypto.html)
-- Leia aqui detalhes sobre como utilizar [here](using-extensions-in-postgresql-hyperscale-server-group.md)extensões postgres.
+- Ver [ `pgcrypto` extensão](https://www.postgresql.org/docs/current/pgcrypto.html)
+- Ver [utilizar extensões PostgreSQL](using-extensions-in-postgresql-hyperscale-server-group.md)
 

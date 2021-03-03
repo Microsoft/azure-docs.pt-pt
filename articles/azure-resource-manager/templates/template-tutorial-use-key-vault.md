@@ -2,16 +2,16 @@
 title: Use a adoçada de chave Azure em modelos
 description: Aprenda a usar o Cofre da Chave Azure para passar valores de parâmetros seguros durante a implementação do modelo do Gestor de Recursos Azure (modelo ARM).
 author: mumian
-ms.date: 04/23/2020
+ms.date: 03/01/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: 44a5131a7ad90feeeeff56e95b64e65f3f18855c
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 388996dc0054192f6d9f3c87e11ca1d15e8a85e1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97674162"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703890"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-your-arm-template-deployment"></a>Tutorial: Integrar o Azure Key Vault na implementação de modelos do Resource Manager
 
@@ -93,7 +93,14 @@ Quando copiar e colar o ID, pode ser dividido em várias linhas. Misture as linh
 Para validar a colocação, executar o seguinte comando PowerShell no mesmo painel de concha para recuperar o segredo em texto claro. O comando funciona apenas na mesma sessão de concha, porque utiliza a variável `$keyVaultName` , que é definida no script anterior do PowerShell.
 
 ```azurepowershell
-(Get-AzKeyVaultSecret -vaultName $keyVaultName  -name "vmAdminPassword").SecretValueText
+$secret = Get-AzKeyVaultSecret -VaultName $keyVaultName -Name "vmAdminPassword"
+$ssPtr = [System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($secret.SecretValue)
+try {
+   $secretValueText = [System.Runtime.InteropServices.Marshal]::PtrToStringBSTR($ssPtr)
+} finally {
+   [System.Runtime.InteropServices.Marshal]::ZeroFreeBSTR($ssPtr)
+}
+Write-Output $secretValueText
 ```
 
 Agora preparaste um cofre e um segredo. As seguintes secções mostram-lhe como personalizar um modelo existente para recuperar o segredo durante a implementação.
@@ -141,7 +148,7 @@ Ao utilizar o método de ID estático, não precisa de fazer alterações no fic
     "adminPassword": {
         "reference": {
             "keyVault": {
-            "id": "/subscriptions/<SubscriptionID>/resourceGroups/mykeyvaultdeploymentrg/providers/Microsoft.KeyVault/vaults/<KeyVaultName>"
+                "id": "/subscriptions/<SubscriptionID>/resourceGroups/mykeyvaultdeploymentrg/providers/Microsoft.KeyVault/vaults/<KeyVaultName>"
             },
             "secretName": "vmAdminPassword"
         }

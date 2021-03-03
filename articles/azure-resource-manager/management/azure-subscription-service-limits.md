@@ -3,12 +3,12 @@ title: Limites e quotas de subscrição do Azure
 description: Fornece uma lista de limites comuns de subscrição e serviço da Azure, quotas e constrangimentos. Este artigo inclui informações sobre como aumentar limites, juntamente com valores máximos.
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 5d003392eeeca56bbfb0033db22e6bde4ae5e136
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: fd9f8c9fff60ea9f7c24eb5d6f35542a197fe366
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100520698"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734089"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Subscrição do Azure e limites, quotas e restrições do serviço
 
@@ -187,6 +187,10 @@ Os valores mais recentes para as quotas de cálculo de aprendizagem automática 
 ## <a name="azure-signalr-service-limits"></a>Limites de serviço Azure SignalR
 
 [!INCLUDE [signalr-service-limits](../../../includes/signalr-service-limits.md)]
+
+## <a name="azure-vmware-solution-limits"></a>Limites de solução Azure VMware
+
+[!INCLUDE [azure-vmware-solutions-limits](../../azure-vmware/includes/azure-vmware-solutions-limits.md)]
 
 ## <a name="backup-limits"></a>Limites de backup
 

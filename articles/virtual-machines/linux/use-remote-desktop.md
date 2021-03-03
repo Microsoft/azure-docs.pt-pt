@@ -1,26 +1,23 @@
 ---
-title: Utilize o Ambiente de Trabalho Remoto para um Linux VM em Azure
+title: Use xrdp com Linux
 description: Aprenda a instalar e configurar o Ambiente de Trabalho Remoto (xrdp) para ligar a um Linux VM em Azure utilizando ferramentas gráficas
 services: virtual-machines-linux
-documentationcenter: ''
 author: cynthn
-manager: gwallace
-editor: ''
-ms.assetid: ''
 ms.service: virtual-machines-linux
+ms.collection: linux
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
 ms.topic: how-to
-ms.date: 09/12/2019
+ms.date: 03/01/2021
 ms.author: cynthn
-ms.openlocfilehash: bea7e38c35ceddafb64937d6e1a6f69d7c727f44
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 448e9f6487b5afc51be9b3dee8e07007c8534a0b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98196389"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101695180"
 ---
-# <a name="install-and-configure-remote-desktop-to-connect-to-a-linux-vm-in-azure"></a>Instale e configura o Ambiente de Trabalho Remoto para ligar a um Linux VM em Azure
+# <a name="install-and-configure-xrdp-to-use-remote-desktop-with-a-linux-vm"></a>Instale e configura xrdp para utilizar o Ambiente de Trabalho Remoto com um VM Linux
+
 As máquinas virtuais Linux (VMs) em Azure são geralmente geridas a partir da linha de comando utilizando uma ligação secure shell (SSH). Quando novo no Linux, ou para cenários rápidos de resolução de problemas, a utilização de ambientes de trabalho remotos pode ser mais fácil. Este artigo detalha como instalar e configurar um ambiente de ambiente de trabalho[(xfce)](https://www.xfce.org)e um ambiente de trabalho remoto[(xrdp)](http://xrdp.org)para o seu Linux VM utilizando o modelo de implementação do Gestor de Recursos.
 
 
@@ -32,6 +29,7 @@ Este artigo requer um Ubuntu 18.04 LTS VM existente em Azure. Se precisar de cri
 
 
 ## <a name="install-a-desktop-environment-on-your-linux-vm"></a>Instale um ambiente de ambiente de trabalho no seu Linux VM
+
 A maioria dos VMs Linux em Azure não têm um ambiente de ambiente de trabalho instalado por padrão. Os VMs Linux são geralmente geridos usando ligações SSH em vez de um ambiente de ambiente de trabalho. Existem vários ambientes de ambiente de trabalho em Linux que pode escolher. Dependendo da sua escolha do ambiente de ambiente de trabalho, pode consumir um a 2 GB de espaço em disco, e demorar 5 a 10 minutos para instalar e configurar todas as embalagens necessárias.
 
 O exemplo a seguir instala o ambiente de trabalho [xfce4](https://www.xfce.org/) leve num Ubuntu 18.04 LTS VM. Os comandos para outras distribuições variam ligeiramente (use `yum` para instalar no Red Hat Enterprise Linux e configurar as `selinux` regras apropriadas, ou usar `zypper` para instalar no SUSE, por exemplo).
@@ -94,9 +92,14 @@ az vm open-port --resource-group myResourceGroup --name myVM --port 3389
 
 
 ## <a name="connect-your-linux-vm-with-a-remote-desktop-client"></a>Ligue o seu Linux VM a um cliente de ambiente de trabalho remoto
-Abra o seu cliente local de desktop remoto e ligue-se ao endereço IP ou ao nome DNS do seu VM Linux. Introduza o nome de utilizador e a palavra-passe para a conta de utilizador no seu VM da seguinte forma:
 
-![Conecte-se ao xrdp utilizando o seu cliente remote desktop](./media/use-remote-desktop/remote-desktop-client.png)
+Abra o seu cliente local de desktop remoto e ligue-se ao endereço IP ou ao nome DNS do seu VM Linux. 
+
+:::image type="content" source="media/use-remote-desktop/remote-desktop.png" alt-text="Screenshot do cliente de ambiente de trabalho remoto.":::
+
+Introduza o nome de utilizador e a palavra-passe para a conta de utilizador no seu VM da seguinte forma:
+
+:::image type="content" source="media/use-remote-desktop/xrdp-login.png" alt-text="Screenshot do registo xrdp no ecrã.":::
 
 Após a autenticação, o ambiente de ambiente de trabalho xfce carregará e parecerá semelhante ao seguinte exemplo:
 

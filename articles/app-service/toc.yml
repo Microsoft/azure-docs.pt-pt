@@ -248,7 +248,7 @@
         - name: Configurar o escalão PremiumV3
           href: app-service-configure-premium-tier.md
         - name: Aumentar horizontalmente para várias instâncias
-          href: ../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json
+          href: ../azure-monitor/autoscale/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json
         - name: Alojamento de alta densidade
           href: manage-scale-per-app.md
     - name: Monitorizar aplicação

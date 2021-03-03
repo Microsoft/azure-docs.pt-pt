@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 99ad0963677b9ef536deacc2122130186afe0726
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: 37e41a00c1489d5b7b4822fec8bb4da35e917826
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98016971"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101686466"
 ---
 # <a name="azure-active-directory-connect-health-operations"></a>Azure Ative Directory Connect Health operações
 Este tópico descreve as várias operações que pode realizar utilizando o Azure Ative Directory (Azure AD) Connect Health.
@@ -46,8 +46,6 @@ Pode configurar o serviço Azure AD Connect Health para enviar notificações po
 > Quando existem problemas de processamento de pedidos de sincronização no nosso serviço de backend, este serviço envia um e-mail de notificação com os detalhes do erro para o endereço de e-mail de contacto administrativo(es) do seu inquilino. Ouvimos feedback dos clientes que em certos casos o volume destas mensagens é proibitivamente grande, pelo que estamos a mudar a forma como enviamos estas mensagens. 
 >
 > Em vez de enviar uma mensagem para cada erro de sincronização sempre que ocorrer, enviaremos uma digestão diária de todos os erros que o serviço de backend devolveu. Isto permite que os clientes processem estes erros de uma forma mais eficiente e reduz o número de mensagens de erro duplicadas.
->
-> Planeamos que esta mudança seja implementada no dia 15 de janeiro de 2020.
 
 ## <a name="delete-a-server-or-service-instance"></a>Excluir um servidor ou instância de serviço
 
@@ -166,7 +164,7 @@ Pode remover um utilizador ou um grupo adicionado à Azure AD Connect Health e a
 
 [//]: # (Fim da secção RBAC)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 * [Azure AD Connect Health](./whatis-azure-ad-connect.md)
 * [Instalação do Agente de Saúde Azure AD Connect](how-to-connect-health-agent-install.md)
 * [Utilizar o Azure AD Connect Health com o AD FS](how-to-connect-health-adfs.md)

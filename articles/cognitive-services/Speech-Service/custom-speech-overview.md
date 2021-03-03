@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: trbye
 ms.custom: contperf-fy21q2; references_regions
-ms.openlocfilehash: f2dca513b4413f1761ea1b21bf71f90bb27d3053
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 39370659e71a7d281914b360eea83eb0b68b25ba
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100388656"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101716572"
 ---
 # <a name="what-is-custom-speech"></a>O que é a Voz Personalizada?
 
@@ -45,7 +45,9 @@ Este diagrama destaca as peças que compõem a [área de Discurso Personalizado 
 Precisa de ter uma subscrição de serviço de conta Azure e Speech antes de poder utilizar o [Estúdio da Fala](https://speech.microsoft.com/customspeech) para criar um modelo personalizado. Se não tiver uma conta e subscrição, [experimente gratuitamente o serviço Desemação](overview.md#try-the-speech-service-for-free).
 
 > [!NOTE]
-> Se planeia formar um modelo personalizado com **dados áudio,** escolha uma das seguintes regiões que tenham hardware dedicado disponível para treino. Isto reduzirá o tempo que leva para treinar um modelo.
+> Por favor, certifique-se de criar uma subscrição padrão (S0). As assinaturas gratuitas (F0) não são suportadas.
+
+Se planeia formar um modelo personalizado com **dados áudio,** escolha uma das seguintes regiões que tenham hardware dedicado disponível para treino. Isto reduzirá o tempo que leva para treinar um modelo e permitir-lhe-á usar mais áudio para treinar. Nestas regiões, o serviço Discurso utilizará até 20 horas de áudio para a formação; noutras regiões só utilizará até 8 horas.
 
 * Leste da Austrália
 * Canadá Central
@@ -61,9 +63,6 @@ Precisa de ter uma subscrição de serviço de conta Azure e Speech antes de pod
 * US Gov - Virginia
 * Europa Ocidental
 * E.U.A. Oeste 2
-
-> [!NOTE]
-> Por favor, certifique-se de criar uma subscrição padrão (S0). As assinaturas gratuitas (F0) não são suportadas.
 
 Depois de criar uma conta Azure e uma subscrição de serviço de discurso, terá de iniciar sessão no Estúdio da [Fala](https://speech.microsoft.com/customspeech) e ligar a sua subscrição.
 

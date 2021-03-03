@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
-ms.date: 02/01/2021
-ms.openlocfilehash: 5db0214e9b985df5c5aedb1dbe9878e484af2a55
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.date: 03/02/2021
+ms.openlocfilehash: 9d8d3cb4bf68f7da2bddabd21272d1011ce92f66
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99430802"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101715212"
 ---
 # <a name="overview-azure-logic-apps-preview"></a>Visão geral: Pré-visualização de apps da Azure Logic Apps
 
@@ -38,7 +38,7 @@ Esta visão geral abrange as seguintes áreas:
 
 * [Limites na pré-visualização de aplicações lógicas Azure](#limits).
 
-Para mais informações, consulte estes outros artigos:
+Para mais informações, reveja estes outros tópicos:
 
 * [Aplicativos Azure Logic Running Anywhere - Runtime Deep Dive](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-runtime-deep-dive/ba-p/1835564)
 
@@ -50,7 +50,7 @@ Para mais informações, consulte estes outros artigos:
 
 O tempo de pré-visualização de apps Azure Logic usa a extensibilidade [das funções Azure](../azure-functions/functions-overview.md) e é hospedado como uma extensão no tempo de funcionamento das Funções Azure. Esta arquitetura significa que você pode executar o novo tipo de aplicativo lógica em qualquer lugar que Azure Functions executa. Pode hospedar o tempo de pré-visualização de aplicações Azure Logic em quase todas as topologias de rede que desejar e escolher qualquer tamanho de computação disponível para lidar com a carga de trabalho necessária de que o seu fluxo de trabalho necessita. Para obter mais informações sobre a extensibilidade das funções Azure, consulte [WebJobs SDK: Criando entradas personalizadas e encadernações de saída](https://github.com/Azure/azure-webjobs-sdk/wiki/Creating-custom-input-and-output-bindings).
 
-Com esta nova abordagem, o tempo de pré-visualização de apps Azure Logic e os seus fluxos de trabalho fazem parte da sua app que pode embalar em conjunto. Esta capacidade permite-lhe implementar e executar os seus fluxos de trabalho simplesmente copiando artefactos para o ambiente de hospedagem e iniciando a sua aplicação. Esta abordagem também proporciona uma experiência mais padronizada para a construção de oleodutos DevOps em torno dos projetos de fluxo de trabalho para executar os testes e validações necessários antes de implementar alterações em ambientes de produção. Para obter mais informações, consulte [Azure Logic Apps Running Anywhere - Runtime Deep Dive](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-runtime-deep-dive/ba-p/1835564).
+Com esta nova abordagem, o tempo de pré-visualização de apps Azure Logic e os seus fluxos de trabalho fazem parte da sua app que pode embalar em conjunto. Esta capacidade permite-lhe implementar e executar os seus fluxos de trabalho simplesmente copiando artefactos para o ambiente de hospedagem e iniciando a sua aplicação. Esta abordagem também proporciona uma experiência mais padronizada para a construção de oleodutos em torno dos projetos de fluxo de trabalho para executar os testes e validações necessários antes de implementar alterações em ambientes de produção. Para obter mais informações, consulte [Azure Logic Apps Running Anywhere - Runtime Deep Dive](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-runtime-deep-dive/ba-p/1835564).
 
 O quadro seguinte resume brevemente as diferenças na forma como os fluxos de trabalho partilham recursos, com base no ambiente onde funcionam. Para obter diferenças de limites, consulte [Limits in Azure Logic Apps Preview](#limits).
 
@@ -139,10 +139,17 @@ A Azure Logic Apps Preview inclui muitas capacidades atuais e adicionais, por ex
 
 * Habilita capacidades de registo e rastreio de diagnósticos para a sua aplicação lógica utilizando [o Application Insights](../azure-monitor/app/app-insights-overview.md) quando suportado pelas definições de subscrição e aplicação lógica do Azure.
 
+* Aceder a capacidades de rede, tais como conectar e integrar-se privadamente com redes virtuais Azure, semelhantes às Funções Azure quando cria e implementa as suas aplicações lógicas utilizando o [plano Azure Functions Premium](../azure-functions/functions-premium-plan.md). Para mais informações, reveja estes tópicos:
+
+  * [Opções de rede das Funções do Azure](../azure-functions/functions-networking-options.md)
+
+  * [Aplicativos Azure Logic Running Anywhere - Possibilidades de networking com pré-visualização de apps Azure Logic](https://techcommunity.microsoft.com/t5/integrations-on-azure/logic-apps-anywhere-networking-possibilities-with-logic-app/ba-p/2105047)
+
 * Regenerar chaves de acesso para ligações geridas utilizadas por fluxos de trabalho individuais num recurso **de Aplicação Lógica (Preview).** Para esta tarefa, [siga os mesmos passos para o recurso **Logic Apps** mas ao nível do fluxo de trabalho individual](logic-apps-securing-a-logic-app.md#regenerate-access-keys), não ao nível de recursos de aplicações lógicas.
 
-> [!NOTE]
-> Para obter informações sobre os problemas atuais conhecidos, reveja a [página de Questões Conhecidas de Pré-Visualização Pública de Aplicações Lógicas no GitHub](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md).
+* Adicione ramos paralelos no novo designer seguindo os mesmos passos que o designer de não-pré-visualização.
+ 
+Para obter mais informações, consulte [capacidades alteradas, limitadas, indisponíveis e não suportadas](#limited-unavailable-unsupported) e a [página de Visualização Pública de Aplicações Lógicas Conhecidas em GitHub](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md).
 
 <a name="pricing-model"></a>
 
@@ -171,7 +178,9 @@ Na pré-visualização de apps Azure Logic, estas capacidades mudaram, ou estão
 
 * **Suporte ao OS**: Atualmente, o designer no Visual Studio Code não funciona no Linux OS, mas ainda pode implementar aplicações lógicas que usam o tempo de pré-visualização de Apps Lógicas para máquinas virtuais baseadas em Linux. Por enquanto, pode construir as suas aplicações lógicas no Código do Estúdio Visual no Windows ou macOS e depois implementar para uma máquina virtual baseada em Linux.
 
-* **Gatilhos e ações**: Alguns gatilhos incorporados não estão disponíveis, tais como janela deslizante e lote. Para iniciar o seu fluxo de trabalho, utilize o [recorrence incorporado, request, HTTP, HTTP Webhook, Event Hubs ou Service Bus trigger](../connectors/apis-list.md). Os gatilhos e ações incorporados são executados de forma nativa no tempo de pré-visualização das aplicações lógicas Azure, enquanto os conectores geridos são implantados em Azure. No designer, os gatilhos e ações incorporados aparecem sob o separador **Incorporado,** enquanto os gatilhos e ações geridos aparecem sob o separador **Azure.**
+* **Triggers e ações**: Os gatilhos e ações incorporados são executados de forma nativa no tempo de pré-visualização das aplicações lógicas Azure, enquanto os conectores geridos são implantados em Azure. Alguns gatilhos incorporados não estão disponíveis, como janela deslizante e lote.
+
+  Para iniciar o seu fluxo de trabalho, utilize o [recorrence incorporado, request, HTTP, HTTP Webhook, Event Hubs ou Service Bus trigger](../connectors/apis-list.md). No designer, os gatilhos e ações incorporados aparecem sob o separador **Incorporado,** enquanto os gatilhos e ações geridos aparecem sob o separador **Azure.**
 
   > [!NOTE]
   > Para executar localmente no Código do Estúdio Visual, os gatilhos e ações baseados em webhook requerem configuração adicional. Para obter mais informações, consulte [Criar fluxos de trabalho apátridas e apátridas no Código do Estúdio Visual.](create-stateful-stateless-workflows-visual-studio-code.md#webhook-setup)
@@ -199,11 +208,11 @@ Na pré-visualização de apps Azure Logic, estas capacidades mudaram, ou estão
 
       * As ações de Operações de Código Inline já não requerem uma conta de integração.
 
-      * Se utilizar o macOS ou o Linux, **as Operações de Código Inline** não estão atualmente disponíveis quando utilizar a extensão Azure Logic Apps (Preview) no Código do Estúdio Visual.
+      * Para o macOS e o Linux, **as Operações de Código Inline** passam a ser suportadas quando utilizar a extensão Azure Logic Apps (Preview) no Código do Estúdio Visual.
 
-      * Se escruisse uma ação inline Code Operations, tem de reiniciar a sua aplicação lógica.
+      * Já não precisa de reiniciar a sua aplicação lógica se fizer alterações numa ação **inline Code Operations.**
 
-      * As ações de Operações de Código Inline [atualizaram os limites](logic-apps-overview-preview.md#inline-code-limits).
+      * As ações **de Operações de Código Inline** [atualizaram os limites](logic-apps-overview-preview.md#inline-code-limits).
 
     * Alguns [gatilhos B2B incorporados e ações para contas de integração não](../connectors/apis-list.md#integration-account-connectors) estão disponíveis, por exemplo, as ações de codificação e descodamento do **Ficheiro Plano.**
 
@@ -211,17 +220,15 @@ Na pré-visualização de apps Azure Logic, estas capacidades mudaram, ou estão
 
 * **Disponibilidade do plano de hospedagem**: Quer crie um novo tipo de recurso **Logic App (Preview)** no portal Azure ou implantado a partir do Código do Estúdio Visual, só pode utilizar o plano de hospedagem Premium ou App Service em Azure. Os planos de hospedagem de consumo não estão disponíveis e não são suportados para a implementação deste tipo de recurso. Pode implantar do Código do Estúdio Visual para um recipiente Docker, mas não para um [ambiente de serviço de integração (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
 
-* **Ramos paralelos**: Atualmente, não é possível adicionar ramos paralelos através da nova experiência de designer. No entanto, ainda pode adicionar estes ramos através da experiência original do designer e fazê-los aparecer no novo designer.
-
-  1. Na parte inferior do designer, desative a nova experiência selecionando o controlo **new canvas.**
-
-  1. Adicione os ramos paralelos ao seu fluxo de trabalho.
-
-  1. Ative a nova experiência selecionando novamente o controlo **de Nova Tela.**
+* **Depuração de breakpoint no Código do Estúdio Visual**: Embora possa adicionar e utilizar pontos de rutura dentro doworkflow.js **no** ficheiro para um fluxo de trabalho, os breakpoints são suportados apenas para ações neste momento, e não para gatilhos. Para obter mais informações, consulte [Criar fluxos de trabalho apátridas e apátridas no Código do Estúdio Visual.](create-stateful-stateless-workflows-visual-studio-code.md#manage-breakpoints)
 
 * **Controlo de** zoom : O controlo de zoom não está disponível atualmente no designer.
 
-* **Depuração de breakpoint no Código do Estúdio Visual**: Embora possa adicionar e utilizar pontos de rutura dentro doworkflow.js **no** ficheiro para um fluxo de trabalho, os breakpoints são suportados apenas para ações neste momento, e não para gatilhos. Para obter mais informações, consulte [Criar fluxos de trabalho apátridas e apátridas no Código do Estúdio Visual.](create-stateful-stateless-workflows-visual-studio-code.md#manage-breakpoints)
+* **Desencadear história e executar a história**: Para o tipo de recurso Logic App **(Preview),** desencadear a história e executar a história no portal Azure aparece ao nível do fluxo de trabalho, e não ao nível da aplicação lógica. Para encontrar estes dados históricos, siga estes passos:
+
+   * Para ver o histórico de execução, abra o fluxo de trabalho na sua aplicação lógica. No menu de fluxo de trabalho, em **Programador,** selecione **Monitor**.
+
+   * Para rever o histórico do gatilho, abra o fluxo de trabalho na sua aplicação lógica. No menu de fluxo de trabalho, em **Programador,** selecione **Trigger Histories**.
 
 <a name="limits"></a>
 

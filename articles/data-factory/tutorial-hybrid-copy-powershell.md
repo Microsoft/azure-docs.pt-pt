@@ -6,17 +6,17 @@ ms.author: abnarain
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019, devx-track-azurepowershell
-ms.date: 01/22/2018
-ms.openlocfilehash: 6901df335dc20a032470a9cd6bda4108fe0cde36
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.date: 02/18/2021
+ms.openlocfilehash: 33c3138013c43062465cce16189e6c19d22ae4d5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101092231"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101724936"
 ---
 # <a name="tutorial-copy-data-from-a-sql-server-database-to-azure-blob-storage"></a>Tutorial: Copiar dados de uma base de dados do SQL Server para o armazenamento do Azure Blob
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Neste tutorial, você usa a Azure PowerShell para criar um pipeline de fábrica de dados que copia dados de uma base de dados do SQL Server para o armazenamento de Azure Blob. Vai criar e utilizar um runtime de integração autoalojado, que move dados entre arquivos de dados no local e na cloud.
 

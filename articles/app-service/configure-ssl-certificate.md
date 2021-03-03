@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 10/25/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 15a77835e3e618c17b9839aa5a010cd4d29cebe1
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: e563981d3a68375105256aa6015aa94ada91326b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97653117"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711710"
 ---
 # <a name="add-a-tlsssl-certificate-in-azure-app-service"></a>Adicionar um certificado TLS/SSL no Serviço de Aplicações do Azure
 
@@ -211,7 +211,7 @@ Utilize a seguinte tabela para ajudá-lo a selecionar o certificado.
 | Definições | Descrição |
 |-|-|
 | Subscrição | A assinatura a que pertence o Cofre-Chave. |
-| Cofre de Chaves | O cofre com o certificado que quer importar. |
+| Key Vault | O cofre com o certificado que quer importar. |
 | Certificado | Selecione a partir da lista de certificados PKCS12 no cofre. Todos os certificados PKCS12 do cofre estão listados com as suas impressões digitais, mas nem todos são suportados no Serviço de Aplicações. |
 
 Quando a operação estiver concluída, consulte o certificado na lista **de Certificados-Chave Privados.** Se a importação falhar com um erro, o certificado não satisfaz os [requisitos do Serviço de Aplicações.](#private-certificate-requirements)
@@ -394,5 +394,5 @@ Agora pode apagar o certificado de Serviço de Aplicações. A partir da navega�
 * [Proteja um nome DNS personalizado com uma ligação TLS/SSL no Azure App Service](configure-ssl-bindings.md)
 * [Impor HTTPS](configure-ssl-bindings.md#enforce-https)
 * [Impor TLS 1.1/1.2](configure-ssl-bindings.md#enforce-tls-versions)
-* [Utilize um certificado TLS/SSL no seu código no Serviço de Aplicações Azure](configure-ssl-certificate-in-code.md)
+* [Utilizar um certificado TLS/SSL no código no Serviço de Aplicações do Azure](configure-ssl-certificate-in-code.md)
 * [FAQ : Certificados de Serviço de Aplicações](./faq-configuration-and-management.md)

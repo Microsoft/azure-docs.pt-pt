@@ -5,12 +5,12 @@ author: IngridAtMicrosoft
 ms.topic: how-to
 ms.author: inhenkel
 ms.date: 12/04/2020
-ms.openlocfilehash: ee5ae7ca8b52d44f21c35df23ef92f61d38fc3c3
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: d766843f58bc2cdd0dcdddfad337b23fefb28768
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99051300"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101698744"
 ---
 # <a name="troubleshoot-live-video-analytics-on-iot-edge"></a>Resolução de problemas Vídeo Analytics em IoT Edge
 
@@ -105,7 +105,7 @@ Também pode encontrar problemas ao executar o **[script de configuração de re
 * **A implementação do modelo falhou devido à violação de políticas.**
     * Para passar este problema, trabalhe com o seu administrador de TI para garantir que a(s) chamada(s) para criar uma máquina virtual para contornar a autenticação de bloqueio ssh. Isto não será necessário, uma vez que estamos a utilizar uma rede de Bastião segura que requer um nome de utilizador e uma palavra-passe para comunicar com os recursos do Azure. Estas credenciais serão armazenadas no ficheiro **~/clouddrive/lva-sample/vm-edge-device-credentials.txt** em Cloud Shell, uma vez que a máquina virtual é criada, implantada e ligada ao Hub IoT com sucesso.
 * O script de configuração não pode criar um principal serviço e/ou recursos Azure.
-    * Para ultrapassar este problema, verifique se a sua subscrição e o inquilino da Azure não atingiram os seus limites máximos de serviço. Saiba mais sobre [os limites e restrições de serviço Azure AD](https://docs.microsoft.com/azure/active-directory/enterprise-users/directory-service-limits-restrictions) e [os limites de subscrição e serviço da Azure, quotas e restrições.](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits)
+    * Para ultrapassar este problema, verifique se a sua subscrição e o inquilino da Azure não atingiram os seus limites máximos de serviço. Saiba mais sobre [os limites e restrições de serviço Azure AD](../../active-directory/enterprise-users/directory-service-limits-restrictions.md) e [os limites de subscrição e serviço da Azure, quotas e restrições.](../../azure-resource-manager/management/azure-subscription-service-limits.md)
 
 > [!TIP]
 > Se houver algum problema adicional com o quais possa precisar de ajuda, por favor **[recolha registos e envie um bilhete de apoio](#collect-logs-for-submitting-a-support-ticket)**. Você também pode nos contactar enviando um e-mail para **[amshelp@microsoft.com](mailto:amshelp@microsoft.com)** .

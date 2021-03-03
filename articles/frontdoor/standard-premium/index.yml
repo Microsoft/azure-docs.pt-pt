@@ -10,12 +10,12 @@ metadata:
   author: duongau
   ms.author: duau
   ms.date: 02/18/2020
-  ms.openlocfilehash: b11cf6b0fe8c0f1cdf711ee3b9ef6c92e5bc71bb
-  ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+  ms.openlocfilehash: 0fe35a2e83bb6737b1ff273390e5fb0c4db7bc6d
+  ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 02/18/2021
-  ms.locfileid: "101100970"
+  ms.lasthandoff: 03/03/2021
+  ms.locfileid: "101740329"
 landingContent:
 - title: Saiba mais sobre o Azure Front Door Standard/Premium (Pré-visualização)
   linkLists:
@@ -77,7 +77,7 @@ landingContent:
   linkLists:
   - linkListType: concept
     links:
-    - text: Private Link
+    - text: Ligação Privada
       url: concept-private-link.md
     - text: WAF em Azure Front Door Standard/Premium
       url: ../../web-application-firewall/afds/afds-overview.md
@@ -86,7 +86,7 @@ landingContent:
   - linkListType: how-to-guide
     links:
     - text: Ativar Ligação Privada
-      url: how-to-enable-private-link.md
+      url: how-to-enable-private-link-web-app.md
     - text: Política de Configure WAF
       url: ../../web-application-firewall/afds/waf-front-door-create-portal.md
 - title: Relatórios, métricas e registos

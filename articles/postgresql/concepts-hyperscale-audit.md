@@ -6,12 +6,12 @@ ms.author: jonels
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/29/2021
-ms.openlocfilehash: d8a21a5583ec4655a2ee8593e50be5c7b5f702b7
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: 8a36062a2d29bcec10279d73211526a0dcba619e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99227609"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702118"
 ---
 # <a name="audit-logging-in-azure-database-for-postgresql---hyperscale-citus"></a>Registo de auditoria na Base de Dados Azure para PostgreSQL - Hiperescala (Citus)
 
@@ -20,7 +20,7 @@ O registo de auditoria das atividades de base de dados na Base de Dados Azure pa
 > [!IMPORTANT]
 > pgAudit está em pré-visualização na Base de Dados Azure para PostgreSQL - Hiperescala (Citus)
 
-Se quiser registos ao nível de recursos do Azure para operações como a escala de cálculo e armazenamento, consulte o Registo de [Atividades Azure](../azure-monitor/platform/platform-logs-overview.md).
+Se quiser registos ao nível de recursos do Azure para operações como a escala de cálculo e armazenamento, consulte o Registo de [Atividades Azure](../azure-monitor/essentials/platform-logs-overview.md).
 
 ## <a name="usage-considerations"></a>Considerações de utilização
 Por predefinição, as instruções de registo pgAudit são emitidas juntamente com as instruções de registo regulares através da função de registo padrão do Postgres. Na Base de Dados Azure para PostgreSQL - Hiperescala (Citus), pode configurar todos os registos a serem enviados para a loja de registos Azure Monitor para análise posterior no Log Analytics. Se ativar a registo de recursos do Azure Monitor, os seus registos serão automaticamente enviados (em formato JSON) para registos de armazenamento de Azure, Centros de Eventos e/ou Monitor Azure, dependendo da sua escolha.
@@ -54,9 +54,9 @@ Cada entrada de auditoria é indicada `AUDIT:` perto do início da linha de regi
 Para começar rapidamente, ajuste `pgaudit.log` para , e abra os `WRITE` registos do seu servidor para rever a saída. 
 
 ## <a name="viewing-audit-logs"></a>Visualização de registos de auditoria
-A forma como acede aos registos depende do ponto final que escolher. Para o Azure Storage, consulte o artigo da [conta de armazenamento de registos.](../azure-monitor/platform/resource-logs.md#send-to-azure-storage) Para Os Centros de Eventos, consulte o [artigo de registos Azure.](../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs)
+A forma como acede aos registos depende do ponto final que escolher. Para o Azure Storage, consulte o artigo da [conta de armazenamento de registos.](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage) Para Os Centros de Eventos, consulte o [artigo de registos Azure.](../azure-monitor/essentials/resource-logs.md#send-to-azure-event-hubs)
 
-Para registos do Monitor Azure, os registos são enviados para o espaço de trabalho selecionado. Os registos Postgres utilizam o modo de recolha **AzureDiagnostics,** para que possam ser consultados a partir da tabela AzureDiagnostics. Os campos na tabela são descritos abaixo. Saiba mais sobre consulta e alerta na visão geral dos Registos do [Monitor Azure.](../azure-monitor/log-query/log-query-overview.md)
+Para registos do Monitor Azure, os registos são enviados para o espaço de trabalho selecionado. Os registos Postgres utilizam o modo de recolha **AzureDiagnostics,** para que possam ser consultados a partir da tabela AzureDiagnostics. Os campos na tabela são descritos abaixo. Saiba mais sobre consulta e alerta na visão geral dos Registos do [Monitor Azure.](../azure-monitor/logs/log-query-overview.md)
 
 Podes usar esta consulta para começar. Pode configurar alertas com base em consultas.
 

@@ -8,12 +8,12 @@ ms.reviewer: jamesbak
 ms.date: 12/06/2018
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 13228ec762db195d0c460e84871b75323f6b98e5
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 54c6245ea5290e2cab0efcd52f2208ba874c0848
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95913713"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101720448"
 ---
 # <a name="the-azure-blob-filesystem-driver-abfs-a-dedicated-azure-storage-driver-for-hadoop"></a>O controlador de files Azure Blob (ABFS): Um controlador dedicado de armazenamento Azure para Hadoop
 
@@ -44,7 +44,7 @@ Internamente, o controlador ABFS traduz os recursos especificados no URI para fi
 
 ### <a name="authentication"></a>Autenticação
 
-O condutor da ABFS suporta duas formas de autenticação para que a aplicação Hadoop possa aceder de forma segura aos recursos contidos numa conta de Data Lake Storage Gen2 capaz. Todos os detalhes dos esquemas de autenticação disponíveis são fornecidos no guia de [segurança do Azure Storage](security-recommendations.md). São:
+O condutor da ABFS suporta duas formas de autenticação para que a aplicação Hadoop possa aceder de forma segura aos recursos contidos numa conta de Data Lake Storage Gen2 capaz. Todos os detalhes dos esquemas de autenticação disponíveis são fornecidos no guia de [segurança do Azure Storage](security-recommendations.md). A saber:
 
 - **Chave partilhada:** Isto permite aos utilizadores aceder a TODOS os recursos na conta. A chave é encriptada e armazenada na configuração de Hadoop.
 
@@ -65,5 +65,5 @@ O motorista da ABFS está totalmente documentado na documentação oficial do [H
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Criar um cluster de databricks Azure](./data-lake-storage-quickstart-create-databricks-account.md)
+- [Criar um cluster de databricks Azure](./data-lake-storage-use-databricks-spark.md)
 - [Utilizar o URI do Azure Data Lake Storage Gen2](./data-lake-storage-introduction-abfs-uri.md)

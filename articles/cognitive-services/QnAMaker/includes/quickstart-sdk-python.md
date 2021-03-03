@@ -3,12 +3,12 @@ title: 'Quickstart: Biblioteca de clientes QnA Maker para Python'
 description: Este quickstart mostra como começar com a biblioteca de clientes QnA Maker para Python.
 ms.topic: include
 ms.date: 06/18/2020
-ms.openlocfilehash: cf3afcb9575f09b8c8d7b0b272dd738936756801
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: c5a0beeed5d508e174b42c1525768e724f91d083
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98948512"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101730985"
 ---
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (lançamento estável)](#tab/version-1)
 
@@ -133,7 +133,7 @@ Crie variáveis para o ponto final e chave Azure do seu recurso.
 
 [O Fabricante QnA](/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker) usa dois modelos de objetos diferentes:
 * **[QnAMakerClient](#qnamakerclient-object-model)** é o objeto para criar, gerir, publicar e descarregar a base de conhecimentos.
-* **[QnAMakerRuntime](#qnamakerruntimeclient-object-model)** é o objeto para consultar a base de conhecimento com a API GenerateAnswer e enviar novas perguntas sugeridas usando a API do comboio (como parte da [aprendizagem ativa).](../concepts/active-learning-suggestions.md)
+* **[QnAMakerRuntime](#qnamakerruntimeclient-object-model)** é o objeto para consultar a base de conhecimento com a API GenerateAnswer e enviar novas perguntas sugeridas usando a API do comboio (como parte da [aprendizagem ativa).](../how-to/use-active-learning.md)
 
 # <a name="qna-maker-managed-preview-release"></a>[QnA Maker gerido (pré-visualização)](#tab/version-2)
 

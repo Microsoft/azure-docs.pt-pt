@@ -5,12 +5,12 @@ ms.author: askaur
 ms.date: 02/17/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 93cbc693e340174cf92aa2515d5e09f1ff3c1b31
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 0c5ff52e5d3769124cd101b2483f18aea6963d25
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101656136"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101750736"
 ---
 ## <a name="joining-the-meeting-chat"></a>Juntando-se ao chat da reunião 
 
@@ -304,6 +304,7 @@ Abra o seu navegador e navegue para http://localhost:8080/ . Deverá ver o segui
 
 :::image type="content" source="../acs-join-teams-meeting-chat-quickstart.png" alt-text="Screenshot da aplicação JavaScript concluída.":::
 
-Insira o link de encontro das equipas e introduza o ID nas caixas de texto. Grupo *de imprensa junte-se* a equipas para se juntar à reunião de equipas e conversar a partir da sua aplicação de Serviços de Comunicação. Navegue até ao fundo da página para começar a conversar.
+Insira o link de encontro das equipas e introduza o ID nas caixas de texto. Press *Join Teams Meeting* para se juntar ao encontro de equipas. Depois de o utilizador ACS ter sido admitido na reunião, pode conversar a partir da sua aplicação de Serviços de Comunicação. Navegue para a caixa na parte inferior da página para começar a conversar.
 
-**Nota** - Atualmente apenas o envio, receção e edição de mensagens é suportado para cenários de interoperabilidade com equipas. Outras funcionalidades, como indicadores de dactilografia e serviços de comunicação que adicionam ou retiram outros utilizadores da reunião das Equipas ainda não são suportadas.  
+> [!NOTE] 
+> Atualmente apenas o envio, receção e edição de mensagens é suportado para cenários de interoperabilidade com equipas. Outras funcionalidades, como indicadores de dactilografia e serviços de comunicação que adicionam ou retiram outros utilizadores da reunião das Equipas ainda não são suportadas.  

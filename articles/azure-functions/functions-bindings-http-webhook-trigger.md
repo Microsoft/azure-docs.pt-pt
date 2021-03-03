@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: e64f8cded851427636a19e16cccd78932dd6baac
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: a9bb87206ccb0dca56c1744d5578eac7a17418c7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99054962"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726398"
 ---
 # <a name="azure-functions-http-trigger"></a>Azure Funções HTTP Trigger
 
@@ -547,7 +547,7 @@ Os atributos não são suportados pela Python.
 
 A tabela seguinte explica as propriedades de configuração de encadernação que definiu no *function.jsno* ficheiro e no `HttpTrigger` atributo.
 
-|function.jsna propriedade | Propriedade de atributo |Description|
+|function.jsna propriedade | Propriedade de atributo |Descrição|
 |---------|---------|----------------------|
 | **tipo** | n/a| Necessário - deve ser definido para `httpTrigger` . |
 | **direção** | n/a| Necessário - deve ser definido para `in` . |
@@ -751,7 +751,7 @@ A seguinte configuração mostra como o `{id}` parâmetro é passado para o da e
 
 Quando utiliza parâmetros de rota, `invoke_URL_template` um é automaticamente criado para a sua função. Os seus clientes podem usar o modelo de URL para entender os parâmetros que precisam de passar no URL ao ligar para a sua função usando o seu URL. Navegue para uma das suas funções desencadeadas por HTTP no [portal Azure](https://portal.azure.com) e selecione **Obter URL de função**.
 
-Pode aceder programáticamente ao `invoke_URL_template` Azure Resource Manager APIs para [funções de lista](https://docs.microsoft.com/rest/api/appservice/webapps/listfunctions) ou [obter função.](https://docs.microsoft.com/rest/api/appservice/webapps/getfunction)
+Pode aceder programáticamente ao `invoke_URL_template` Azure Resource Manager APIs para [funções de lista](/rest/api/appservice/webapps/listfunctions) ou [obter função.](/rest/api/appservice/webapps/getfunction)
 
 ## <a name="working-with-client-identities"></a>Trabalhar com identidades de cliente
 

@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 02/12/2021
+ms.date: 03/02/2021
 ms.author: mimart
 author: msmimart
 manager: CelesteDG
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f37c7e2f21c76fcc902b0922399081b9be949e99
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 7961997c6a6736c154b6217ee3f21682d0c4c3fc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100365536"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101688472"
 ---
 # <a name="email-one-time-passcode-authentication"></a>E-mail autenticação de senha única
 
@@ -26,7 +26,8 @@ Este artigo descreve como ativar a autenticação de código de acesso único po
 ![E-mail código de visão geral de visão única](media/one-time-passcode/email-otp.png)
 
 > [!IMPORTANT]
-> **A partir de outubro de 2021,** a funcionalidade de senha de e-mail one-time será ativada para todos os inquilinos existentes e ativada por padrão para novos inquilinos. Se não quiser permitir que esta funcionalidade se ligue automaticamente, pode desativá-la. Consulte [abaixo a senha de acesso de um email desativada.](#disable-email-one-time-passcode)
+> - **A partir de outubro de 2021,** a funcionalidade de senha de e-mail one-time será ativada para todos os inquilinos existentes e ativada por padrão para novos inquilinos. Se não quiser permitir que esta funcionalidade se ligue automaticamente, pode desativá-la. Consulte [abaixo a senha de acesso de um email desativada.](#disable-email-one-time-passcode)
+> - As definições de código de acesso de e-mail mudaram-se no portal Azure de definições de **colaboração externa** para **todos os fornecedores de identidade**.
 
 > [!NOTE]
 > Os utilizadores de código de acesso único devem inscrever-se através de um link que inclua o contexto do inquilino (por `https://myapps.microsoft.com/?tenantid=<tenant id>` `https://portal.azure.com/<tenant id>` exemplo, ou, no caso de um domínio verificado, `https://myapps.microsoft.com/<verified domain>.onmicrosoft.com` ). As ligações diretas a aplicações e recursos também funcionam desde que incluam o contexto do inquilino. Os utilizadores convidados não conseguem assinar o uso de pontos finais que não têm contexto de inquilino. Por exemplo, a utilização `https://myapps.microsoft.com` de , `https://portal.azure.com` resultará num erro.
@@ -83,27 +84,50 @@ A partir de outubro de 2021, a funcionalidade de senha de e-mail será ativada p
 
 2. No painel de navegação, selecione **Azure Ative Directory**.
 
-3. Selecione **identidades externas**  >  **Definições de colaboração externa .**
+3. Selecione **Identidades Externas**  >  **Todos os fornecedores de identidade**.
 
-4. Sob **o Email, código de acesso único para os hóspedes,** selecione **Desativar a senha de uma vez para os hóspedes**.
+4. Selecione **código de acesso de email uma vez** e, em seguida, selecione **Desativar a senha de uma vez para os hóspedes**.
 
    > [!NOTE]
-   > Se vir o seguinte alternar em vez das opções de código de acesso de e-mail, isto significa que já ativou, desativou ou optou pela pré-visualização da funcionalidade. Selecione **Não** para desativar a função.
+   > As definições de código de acesso de e-mail mudaram-se no portal Azure de definições de **colaboração externa** para **todos os fornecedores de identidade**.
+   > Se vir um toggle em vez das opções de código de acesso de um e-mail, isto significa que já ativou, desativou ou optou pela pré-visualização da funcionalidade. Selecione **Não** para desativar a função.
    >
-   >![Ativar a senha de e-mail uma vez optada em](media/delegate-invitations/enable-email-otp-opted-in.png)
+   >![Código de acesso de uma vez por e-mail desativado](media/one-time-passcode/enable-email-otp-disabled.png)
 
 5. Selecione **Guardar**.
 
 ## <a name="note-for-public-preview-customers"></a>Nota para clientes de pré-visualização pública
 
-Se já optou pela pré-visualização do código de acesso por e-mail, a data de outubro de 2021 para ativação automática de funcionalidades não se aplica a si, pelo que os seus processos comerciais relacionados não serão afetados. Além disso, no portal Azure, sob a senha de email para propriedades **dos hóspedes,** não verá a opção de ativar automaticamente a **senha de e-mail para os hóspedes em outubro de 2021.** Em vez disso, verá o seguinte **sim** ou **não:**
+Se já optou pela pré-visualização do código de acesso por e-mail, a data de outubro de 2021 para ativação automática de funcionalidades não se aplica a si, pelo que os seus processos comerciais relacionados não serão afetados. Além disso, no portal Azure, sob a senha de email para propriedades **dos hóspedes,** não verá a opção de ativar automaticamente a **senha de e-mail para os hóspedes a partir de outubro de 2021**. Em vez disso, verá o seguinte **sim** ou **não:**
 
-![Ativar a senha de e-mail uma vez optada em](media/delegate-invitations/enable-email-otp-opted-in.png)
+![E-mail código de passe único optou em](media/one-time-passcode/enable-email-otp-opted-in.png)
 
 No entanto, se preferir excluir a funcionalidade e permitir que seja ativada automaticamente em outubro de 2021, pode reverter para as definições predefinidas utilizando o tipo de recurso de configuração do método de [autenticação de email](/graph/api/resources/emailauthenticationmethodconfiguration)da Microsoft Graph API . Depois de reverter para as definições predefinidas, as seguintes opções estarão disponíveis no **Email one-time passcode para os hóspedes:**
 
-- **Ativar automaticamente a senha de e-mail para os hóspedes em outubro de 2021**. (Predefinição) Se a funcionalidade de código de acesso de e-mail não estiver já ativada para o seu inquilino, será automaticamente ativada em outubro de 2021. Não é necessária mais nenhuma ação se pretender que a funcionalidade seja ativada nesse momento. Se já tiver ativado ou desativado a funcionalidade, esta opção não estará disponível.
+![Ativar a senha de e-mail uma vez optada em](media/one-time-passcode/email-otp-options.png)
+
+- **Ativar automaticamente a senha de e-mail para os hóspedes a partir de outubro de 2021**. (Predefinição) Se a funcionalidade de código de acesso de e-mail não estiver já ativada para o seu inquilino, será automaticamente ativada a partir de outubro de 2021. Não é necessária mais nenhuma ação se pretender que a funcionalidade seja ativada nesse momento. Se já tiver ativado ou desativado a funcionalidade, esta opção não estará disponível.
 
 - **Ativar a senha de e-mail para os hóspedes com efeito agora**. Liga o recurso de senha de e-mail para o seu inquilino.
 
 - **Desativar a senha de e-mail uma vez para os hóspedes.** Desliga a funcionalidade de código de acesso de uma vez por e-mail para o seu inquilino e impede que a funcionalidade se apia em outubro de 2021.
+
+## <a name="note-for-azure-us-government-customers"></a>Nota para clientes do Governo Azure US
+
+A funcionalidade de código de acesso de e-mail é desativada por padrão na nuvem do Governo dos EUA Azure.  
+
+ ![Código de acesso único desativado](media/one-time-passcode/enable-email-otp-disabled.png)
+
+Para ativar a funcionalidade de código de acesso de e-mail única na nuvem do Governo dos EUA Azure:
+
+1. Inscreva-se no [portal Azure](https://portal.azure.com) como administrador global da Azure AD.
+2. No painel de navegação, selecione **Azure Ative Directory**.
+3. Selecione **configurações de relações**   >  **organizacionais**.
+
+   > [!NOTE]
+   > - Se não vir **relações organizacionais,** procure "Identidades Externas" na barra de pesquisa no topo.
+
+4. Selecione **e-mail código de uma vez** e, em seguida, selecione **Sim**.
+5. Selecione **Guardar**.
+
+Para obter mais informações sobre as limitações atuais, consulte [as nuvens do Governo dos EUA.](current-limitations.md#azure-us-government-clouds)

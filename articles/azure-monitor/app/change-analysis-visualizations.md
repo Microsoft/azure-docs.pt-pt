@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: cawams
 ms.author: cawa
 ms.date: 02/11/2021
-ms.openlocfilehash: 643645eb3b361cd68def1177ba7e8af89f1963bc
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 838a48aa11a1cb36c3a7d822ce88f58936aa976d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100521188"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734626"
 ---
 # <a name="visualizations-for-application-change-analysis-preview"></a>Visualizações para Análise de Alteração de Aplicações (pré-visualização)
 
@@ -80,13 +80,13 @@ Vá para a ferramenta Diagnosticar e Resolver Problemas para uma Máquina Virtua
 
 ## <a name="activity-log-change-history"></a>Histórico de alteração de registo de atividade
 
-A funcionalidade [de histórico de alteração de visualização](../platform/activity-log.md#view-change-history) no Registo de Atividade chama o backend do serviço de análise de alteração de aplicação para obter alterações associadas a uma operação. **Alterar o histórico** usado para chamar [o Azure Resource Graph](../../governance/resource-graph/overview.md) diretamente, mas trocou o backend para ligar para Application Change Analysis para que as alterações devolvidas incluam alterações no nível de recursos a partir do [Azure Resource Graph,](../../governance/resource-graph/overview.md)propriedades de recursos do [Azure Resource Manager](../../azure-resource-manager/management/overview.md), e alterações in-guest dos serviços PaaS, como app Web App Services. Para que o serviço de Análise de Alterações de Aplicação possa pesquisar alterações nas subscrições dos utilizadores, é necessário registar um fornecedor de recursos. A primeira vez que introduzir o separador **Change History,** a ferramenta começará automaticamente a registar o fornecedor de recursos **Microsoft.ChangeAnalysis.** Depois de registadas, as alterações a partir do **Azure Resource Graph** estarão disponíveis imediatamente e cobrirão os últimos 14 dias. As alterações de outras fontes estarão disponíveis após ~4 horas após a subscrição estar a bordo.
+A funcionalidade [de histórico de alteração de visualização](../essentials/activity-log.md#view-change-history) no Registo de Atividade chama o backend do serviço de análise de alteração de aplicação para obter alterações associadas a uma operação. **Alterar o histórico** usado para chamar [o Azure Resource Graph](../../governance/resource-graph/overview.md) diretamente, mas trocou o backend para ligar para Application Change Analysis para que as alterações devolvidas incluam alterações no nível de recursos a partir do [Azure Resource Graph,](../../governance/resource-graph/overview.md)propriedades de recursos do [Azure Resource Manager](../../azure-resource-manager/management/overview.md), e alterações in-guest dos serviços PaaS, como app Web App Services. Para que o serviço de Análise de Alterações de Aplicação possa pesquisar alterações nas subscrições dos utilizadores, é necessário registar um fornecedor de recursos. A primeira vez que introduzir o separador **Change History,** a ferramenta começará automaticamente a registar o fornecedor de recursos **Microsoft.ChangeAnalysis.** Depois de registadas, as alterações a partir do **Azure Resource Graph** estarão disponíveis imediatamente e cobrirão os últimos 14 dias. As alterações de outras fontes estarão disponíveis após ~4 horas após a subscrição estar a bordo.
 
 ![Atividade Log alterar integração de histórico](./media/change-analysis/activity-log-change-history.png)
 
 ## <a name="vm-insights-integration"></a>Integração de VM Insights
 
-Os utilizadores com [O Visor VM](../insights/vminsights-overview.md) habilitado podem ver o que mudou nas suas máquinas virtuais que pode ter causado picos num gráfico de métricas como CPU ou Memória. Os dados de alteração estão integrados na barra de navegação lateral VM Insights. O utilizador pode ver se alguma alteração ocorreu no VM e selecione **Investigar Alterações** para ver detalhes de alteração na UI de alteração de aplicação.
+Os utilizadores com [O Visor VM](../vm/vminsights-overview.md) habilitado podem ver o que mudou nas suas máquinas virtuais que pode ter causado picos num gráfico de métricas como CPU ou Memória. Os dados de alteração estão integrados na barra de navegação lateral VM Insights. O utilizador pode ver se alguma alteração ocorreu no VM e selecione **Investigar Alterações** para ver detalhes de alteração na UI de alteração de aplicação.
 
 [![Integração de insights VM](./media/change-analysis/vm-insights.png)](./media/change-analysis/vm-insights.png#lightbox)
 

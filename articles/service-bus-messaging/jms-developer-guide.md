@@ -3,12 +3,12 @@ title: Guia de desenvolvimento do Azure Service Bus JMS 2.0
 description: Como utilizar o Java Message Service (JMS) 2.0 API para comunicar com o Azure Service Bus
 ms.topic: article
 ms.date: 01/17/2021
-ms.openlocfilehash: 6c535b12906b6d9385029896dc5d0caf85d3399a
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 492da46a5ce4f5955a72972d91a8c56d54c385bb
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100654399"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726959"
 ---
 # <a name="azure-service-bus-jms-20-developer-guide"></a>Guia de desenvolvimento do Azure Service Bus JMS 2.0
 
@@ -33,11 +33,11 @@ O modelo de programação da API do Serviço de Mensagens de Java é o indicado 
 
 # <a name="jms-20-programming-model"></a>[Modelo de programação JMS 2.0](#tab/JMS-20)
 
-:::image type="content" source="./media/jms-developer-guide/java-message-service-20-programming-model.png"alt-text="Diagrama mostrando o modelo de programação JMS 2.0."border="false":::
+:::image type="content" source="./media/jms-developer-guide/java-message-service-20-programming-model.png "alt-text="Diagrama mostrando o modelo de programação JMS 2.0." border="false":::
 
 # <a name="jms-11-programming-model"></a>[Modelo de programação JMS 1.1](#tab/JMS-11)
 
-:::image type="content" source="./media/jms-developer-guide/java-message-service-11-programming-model.png"alt-text="Diagrama mostrando o modelo de programação JMS 1.1."border="false":::
+:::image type="content" source="./media/jms-developer-guide/java-message-service-11-programming-model.png "alt-text="Diagrama mostrando o modelo de programação JMS 1.1." border="false":::
 
 ---
 

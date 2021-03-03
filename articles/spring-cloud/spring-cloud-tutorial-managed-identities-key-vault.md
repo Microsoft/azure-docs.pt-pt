@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/08/2020
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: fc44dd6cf91d687f47afadf1c3378956d838bc9d
-ms.sourcegitcommit: 1d6ec4b6f60b7d9759269ce55b00c5ac5fb57d32
+ms.openlocfilehash: c091241a4928b3f498be7944559aa5b91c6fecf0
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94579509"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101705063"
 ---
 # <a name="tutorial-use-a-managed-identity-to-connect-key-vault-to-an-azure-spring-cloud-app"></a>Tutorial: Use uma identidade gerida para ligar o Key Vault a uma aplicação Azure Spring Cloud
 
@@ -69,7 +69,7 @@ az spring-cloud app create -n "springapp" -s "myspringcloud" -g "myResourceGroup
 export SERVICE_IDENTITY=$(az spring-cloud app show --name "springapp" -s "myspringcloud" -g "myResourceGroup" | jq -r '.identity.principalId')
 ```
 
-Tome nota da `url` devolvi, que estará no formato "https://<o seu nome de aplicação>.azuremicroservices.io". Será usado no passo seguinte.
+Tome nota do `url` devolvido, que estará no formato `https://<your-app-name>.azuremicroservices.io` . Será usado no passo seguinte.
 
 
 ## <a name="grant-your-app-access-to-key-vault"></a>Conceda à sua aplicação acesso ao Key Vault
@@ -195,7 +195,7 @@ A biblioteca de clientes Azure Key Vault Secret permite-lhe armazenar e controla
 
 3. Inclua [ManagedIdentityCredentialBuilder](/java/api/com.azure.identity.managedidentitycredentialbuilder?preserve-view=true&view=azure-java-stable) para obter ficha do Azure Ative Directory e [SecretClientBuilder](/java/api/com.azure.security.keyvault.secrets.secretclientbuilder?preserve-view=true&view=azure-java-stable) para definir ou obter segredos do Key Vault no seu código.
 
-    Obtenha o exemplo do [MainController.java](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/blob/master/managed-identity-keyvault/src/main/java/com/microsoft/azure/MainController.java#L28) do projeto de amostra clonada.
+    Obtenha o exemplo da [MainController.java](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/blob/master/managed-identity-keyvault/src/main/java/com/microsoft/azure/MainController.java#L28) do projeto de amostra clonada.
 
     Inclua `azure-identity` também e como dependência no seu `azure-security-keyvault-secrets` pom.xml. Obtenha o exemplo de [pom.xml](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/blob/master/managed-identity-keyvault/pom.xml#L21) do projeto de amostra clonada. 
 

@@ -2,13 +2,13 @@
 title: Monitor com testes web em várias etapas - Azure Application Insights
 description: Confiúdedo de testes web em várias etapas para monitorizar as suas aplicações web com Azure Application Insights
 ms.topic: conceptual
-ms.date: 05/26/2020
-ms.openlocfilehash: 0031971dc2ccd2a9e681220dd835f46d33e36dbb
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.date: 02/14/2021
+ms.openlocfilehash: 1d3597eaf54c40fb1f986d822af0dd6b8c8a7b2e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98934860"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719853"
 ---
 # <a name="multi-step-web-tests"></a>Testes Web com vários passos
 
@@ -65,7 +65,6 @@ Para obter orientações sobre a criação de testes web do Visual Studio consul
 |Definição| Explicação
 |----|----|----|
 |**Quase em tempo real (Pré-visualização)** | Recomendamos a utilização de alertas de quase-tempo real. Configurar este tipo de alerta é feito após a criação do teste de disponibilidade.  |
-|**Clássico** | Já não recomendamos o uso de alertas clássicos para novos testes de disponibilidade.|
 |**Limiar de localização de alerta**|Recomendamos um mínimo de 3/5 locais. A relação ideal entre o limiar de localização de alerta e o número de locais de teste é o número de **localização** de alerta  =  **dos locais de teste - 2, com um mínimo de cinco locais de ensaio.**|
 
 ## <a name="configuration"></a>Configuração
@@ -143,7 +142,7 @@ Parametrizar os tokens definindo o parâmetro quando o token é devolvido do aut
 
 Artigo dedicado [à resolução de problemas.](troubleshoot-availability.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 * [Alertas de Disponibilidade](availability-alerts.md)
 * [Testes web de url ping](monitor-web-app-availability.md)

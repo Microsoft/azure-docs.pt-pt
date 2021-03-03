@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Ative Directy integração única (SSO) com SAP Fiori Microsoft Docs'
+title: 'Tutorial: Azure Ative Directory integração única de sign-on (SSO) com SAP Fiori | Microsoft Docs'
 description: Saiba como configurar um único sign-on entre o Azure Ative Directory e o SAP Fiori.
 services: active-directory
 author: jeevansd
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/28/2020
 ms.author: jeedes
-ms.openlocfilehash: ab21c6dc95ef39e6273dac405ba58e748890fc1a
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: 547d96a9591b99318a74977106e99511c9c80507
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97968437"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101687112"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sap-fiori"></a>Tutorial: Azure Ative Directory integração única (SSO) com SAP Fiori
 
@@ -146,7 +146,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
     ![escolher arquivo de metadados](common/browse-upload-metadata.png)
 
-    c. Quando o ficheiro de metadados é carregado com sucesso, os valores de URL **de identificação** e **resposta** são automaticamente povoados no painel **de configuração de SAML básico.** Na placa na caixa **URL,** introduza um URL com o seguinte padrão: `https:\//\<your company instance of SAP Fiori\>` .
+    c. Quando o ficheiro de metadados é carregado com sucesso, os valores de URL **de identificação** e **resposta** são automaticamente povoados no painel **de configuração de SAML básico.** Na placa na caixa **URL,** introduza um URL com o seguinte padrão: `https://<your company instance of SAP Fiori>` .
 
     > [!NOTE]
     > Alguns clientes relatam erros relacionados com valores **de URL de resposta** configurados incorretamente. Se vir este erro, pode utilizar o seguinte script PowerShell para definir o URL de resposta correto para o seu exemplo:
@@ -169,7 +169,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
     1. Na lista **do Parâmetro 1,** selecione **user.userprincipalname**.
 
-    1. Selecione **Save** (Guardar).
+    1. Selecione **Guardar**.
 
        ![O painel de reclamações do utilizador Manage](./media/sapfiori-tutorial/nameidattribute.png)
 

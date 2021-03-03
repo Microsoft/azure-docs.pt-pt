@@ -8,16 +8,16 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 9e69b4e9279f9147c2ee13d42a42aec0c5a15d96
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: d9ff86eeb0e64e7edbad0eeca51b04cabbd191e9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98744726"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101722658"
 ---
 # <a name="use-certificates-with-azure-cloud-services-extended-support"></a>Utilize certificados com serviços Azure Cloud (suporte alargado)
 
-O Key Vault é utilizado para armazenar certificados associados aos Serviços Cloud (suporte alargado). As Portarias-chave podem ser criadas através do [portal Azure](https://docs.microsoft.com/azure/key-vault/general/quick-create-portal) e [da PowerShell.](https://docs.microsoft.com/azure/key-vault/general/quick-create-powershell) Adicione os certificados ao Key Vault e, em seguida, faça referência às impressões digitais do certificado no ficheiro de configuração de serviço. Também precisa de ativar o Key Vault para obter permissões apropriadas para que o recurso Cloud Services (suporte alargado) possa obter o certificado armazenado como segredos do Key Vault.  
+O Key Vault é utilizado para armazenar certificados associados aos Serviços Cloud (suporte alargado). As Portarias-chave podem ser criadas através do [portal Azure](../key-vault/general/quick-create-portal.md) e [da PowerShell.](../key-vault/general/quick-create-powershell.md) Adicione os certificados ao Key Vault e, em seguida, faça referência às impressões digitais do certificado no ficheiro de configuração de serviço. Também precisa de ativar o Key Vault para obter permissões apropriadas para que o recurso Cloud Services (suporte alargado) possa obter o certificado armazenado como segredos do Key Vault.  
 
 ## <a name="upload-a-certificate-to-key-vault"></a>Faça o upload de um certificado para o Cofre de Chaves 
 
@@ -51,7 +51,7 @@ O Key Vault é utilizado para armazenar certificados associados aos Serviços Cl
     <Certificate name="<your cert name>" thumbprint="<thumbprint in key vault" thumbprintAlgorithm="sha1" /> 
     ```
 
-## <a name="next-steps"></a>Próximos passos 
+## <a name="next-steps"></a>Passos seguintes 
 - Reveja os [pré-requisitos](deploy-prerequisite.md) de implantação para serviços em nuvem (suporte alargado).
 - Reveja [perguntas frequentes](faq.md) para serviços cloud (suporte alargado).
 - Implementar um Serviço de Cloud (suporte alargado) utilizando o [portal Azure](deploy-portal.md), [PowerShell,](deploy-powershell.md) [Modelo](deploy-template.md) ou [Estúdio Visual](deploy-visual-studio.md).

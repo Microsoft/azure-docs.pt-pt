@@ -6,13 +6,13 @@ author: dcstwh
 ms.author: weetok
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 11/02/2020
-ms.openlocfilehash: 5bf1877edaa6c13cb0c645eb2d1c7ec2dc53ad00
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 02/26/2021
+ms.openlocfilehash: 7691c285bcc1c490878f5055468b0a57b6248679
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100392447"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719414"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Controlo de fontes na Azure Data Factory
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
@@ -55,19 +55,19 @@ Existem quatro maneiras diferentes de ligar um repositório git à sua fábrica 
 
 ### <a name="configuration-method-1-home-page"></a>Método de configuração 1: Página inicial
 
-Na página inicial da Fábrica de Dados Azure, selecione **Configurar o Repositório de Código**.
+Na página inicial da Fábrica de Dados Azure, selecione **Configurar o repositório de códigos**.
 
 ![Configurar um repositório de código a partir da página inicial](media/author-visually/configure-repo.png)
 
 ### <a name="configuration-method-2-authoring-canvas"></a>Método de configuração 2: Tela de autoria
 
-Na tela de autoria Azure Data Factory UX, selecione o menu de entrega da **Data Factory** e, em seguida, selecione **Configurar o Repositório de Código**.
+Na tela de autoria Azure Data Factory UX, selecione o menu de entrega da **Data Factory** e, em seguida, selecione **Configurar o repositório de código**.
 
 ![Configurar as definições de repositório de código da autoria](media/author-visually/configure-repo-2.png)
 
 ### <a name="configuration-method-3-management-hub"></a>Método de configuração 3: Centro de gestão
 
-Vá ao centro de gestão no ADF UX. Selecione **a configuração de Git** na secção de controlo **'Fonte'.** Se não tiver nenhum repositório ligado, clique em **Configurar o repositório de código**.
+Vá ao centro de gestão no ADF UX. Selecione **a configuração de Git** na secção de controlo **'Fonte'.** Se não tiver nenhum repositório ligado, clique em **Configurar**.
 
 ![Configurar as definições de repositório de código do centro de gestão](media/author-visually/configure-repo-3.png)
 

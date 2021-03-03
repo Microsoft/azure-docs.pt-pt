@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 12/02/2020
-ms.openlocfilehash: a693761bcecab87e343014127ad37077c2569e21
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 7466e143f345ea305c7e9ef118d09fb6f685ac16
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96553547"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101694504"
 ---
 # <a name="how-to-create-import-and-export-glossary-terms"></a>Como criar, importar e exportar termos glossários
 
@@ -88,6 +88,10 @@ Você deve ser capaz de exportar termos de glossário desde que os termos seleci
 1. Quando estiver no Glossário, por predefinição o botão **Exportação** é desativado. Uma vez selecionado os termos que pretende exportar, o botão **Exportação** está ativado se os termos selecionados pertencerem ao mesmo modelo.
 
 2. **Selecione Export** para baixar os termos selecionados.
+
+ > [!Important]
+   > Se os termos de uma hierarquia pertencerem a diferentes modelos de termo, então você precisa dividi-los em diferentes . Ficheiros CSV para importação. Além disso, a atualização de um termo não é atualmente apoiada através do processo de importação.
+
 
 ## <a name="next-steps"></a>Passos seguintes
 

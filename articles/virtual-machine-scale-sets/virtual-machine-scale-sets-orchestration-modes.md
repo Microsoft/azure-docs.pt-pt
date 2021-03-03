@@ -9,12 +9,12 @@ ms.subservice: extensions
 ms.date: 02/12/2021
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 356edcefc522296c5a15cbeb76a1b5e8abf851c1
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 1a276915f8132f2941bfb4425011c2d34454093b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101680164"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101693888"
 ---
 # <a name="preview-orchestration-modes-for-virtual-machine-scale-sets-in-azure"></a>Pré-visualização: Modos de orquestração para conjuntos de escala de máquina virtual em Azure 
 
@@ -214,7 +214,7 @@ vmname="myVM"
 rg="my-resource-group"  
 
 az group create -n "$rg" -l $location  
-az vmss create -n "$vmssflexname" -g "$rg" -l $location --orchestration-mode vm --platform-fault-domain-count 3  
+az vmss create -n "$vmssflexname" -g "$rg" -l $location --orchestration-mode flexible --platform-fault-domain-count 3  
 az vm create -n "$vmname" -g "$rg" -l $location --vmss $vmssflexname --image UbuntuLTS 
 ```
 

@@ -8,12 +8,12 @@ ms.date: 01/26/2021
 ms.author: prsandhu
 ms.reviewer: cynthn
 ms.custom: fasttrack-edit, mvc, references_regions
-ms.openlocfilehash: 16bb173bdbe390da46f2dc105baa9bc73d25a3dc
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: fee000009be90a083406725fe7f1e8c4382af3e9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100557022"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101701455"
 ---
 # <a name="azure-services-that-support-availability-zones"></a>Serviços do Azure que suportam as Zonas de Disponibilidade
 
@@ -106,6 +106,8 @@ Para alcançar uma ampla continuidade de negócios em Azure, construa a sua arqu
 |     Máquinas Virtuais: Dv3-Series                              | :large_blue_diamond:  |
 |     Máquinas Virtuais: ESv3-Series                             | :large_blue_diamond:  |
 |     Máquinas Virtuais: Ev3-Series                              | :large_blue_diamond:  |
+|     Máquinas Virtuais: Série F                                | :large_blue_diamond:  |
+|     Máquinas Virtuais: FS-Series                               | :large_blue_diamond:  |
 |     Rede Virtual                                           | :large_blue_diamond:  |
 |     Gateway de VPN                                                 | :large_blue_diamond:  |
 
@@ -129,11 +131,18 @@ Para alcançar uma ampla continuidade de negócios em Azure, construa a sua arqu
 | Azure Private Link                              |      :large_blue_diamond:  |
 | Azure Red Hat OpenShift                         |      :large_blue_diamond:  |
 | Azure Site Recovery                             |      :large_blue_diamond:  |
+| Azure SQL: Máquina Virtual                      |      :large_blue_diamond:  |
+| Azure Search                                    |      :large_blue_diamond:  |
+| Firewall de Aplicações Web do Azure                  |      :large_blue_diamond:  |
+| Serviços Cognitivos: Análise de Texto              |      :large_blue_diamond:  |
 | Container Registry                              |      :large_blue_diamond:  |
 | Event Grid                                      |      :large_blue_diamond:  |
 | Observador de Rede                                 |      :large_blue_diamond:  |
+| Observador de Rede: Análise de Tráfego              |      :large_blue_diamond:  |
 | Power BI Embedded                               |      :large_blue_diamond:  |
 | Armazenamento Premium Blob                            |      :large_blue_diamond:  |
+| Armazenamento: Ficheiros Azure Premium                    |      :large_blue_diamond:  |
+| Máquinas Virtuais: Azure Anfitrião Dedicado          |      :large_blue_diamond:  |
 | Máquinas Virtuais: Ddsv4-Series                  |      :large_blue_diamond:  |
 | Máquinas Virtuais: Ddv4-Series                   |      :large_blue_diamond:  |
 | Máquinas Virtuais: Dsv4-Series                   |      :large_blue_diamond:  |
@@ -145,6 +154,9 @@ Para alcançar uma ampla continuidade de negócios em Azure, construa a sua arqu
 | Máquinas Virtuais: Fsv2-Series                   |      :large_blue_diamond:  |
 | Máquinas Virtuais: Série M                      |      :large_blue_diamond:  |
 | WAN Virtual                                     |      :large_blue_diamond:  |
+| Virtual WAN: ExpressRoute                       |      :large_blue_diamond:  |
+| WAN Virtual: Gateway VPN ponto-a-local          |      :large_blue_diamond:  |
+| VIRTUAL WAN: Portal VPN site-to-site           |      :large_blue_diamond:  |
 
 
 **Não regional**
@@ -153,21 +165,30 @@ Para alcançar uma ampla continuidade de negócios em Azure, construa a sua arqu
 |-----------------------------------------------|:-------------------:|
 |     DNS do Azure                                 |     :globe_with_meridians:             |
 |     Diretório Ativo Azure                  |     :globe_with_meridians:             |
+|     Proteção Avançada Contra Ameaças do Azure          |     :globe_with_meridians:             |
 |     Assistente do Azure                             |     :globe_with_meridians:             |
+|     Azure Blueprints                          |     :globe_with_meridians:             |
 |     Azure Bot Services                        |     :globe_with_meridians:             |
 |     Azure Defender para IoT                  |     :globe_with_meridians:             |
+|     Azure Front Door                           |     :globe_with_meridians:             |
 |     Proteção de Informação Azure            |     :globe_with_meridians:             |
 |     Farol de Azure                        |     :globe_with_meridians:             |
 |     Aplicações geridas azure              |     :globe_with_meridians:             |
 |     Azure Maps                                |     :globe_with_meridians:             |
 |     Azure Policy                              |     :globe_with_meridians:             |
 |     Gráfico de recursos Azure                    |     :globe_with_meridians:             |
+|     Azure Sentinel                            |     :globe_with_meridians:             |
 |     Azure Stack                               |     :globe_with_meridians:             |
 |     Borda da pilha de Azure                        |     :globe_with_meridians:             |
 |     Cloud Shell                               |     :globe_with_meridians:             |
+|     Rede de Entrega de Conteúdos                  |     :globe_with_meridians:             |
+|     Cost Management                           |     :globe_with_meridians:             |
 |     Lockbox do cliente para Microsoft Azure    |     :globe_with_meridians:             |
+|     Intune                                    |     :globe_with_meridians:             |
 |     Microsoft Azure Peering Service         |     :globe_with_meridians:             |
 |     Portal Microsoft Azure                  |     :globe_with_meridians:             |
+|     Microsoft Cloud App Security              |     :globe_with_meridians:             |
+|     Microsoft Graph                           |     :globe_with_meridians:             |
 |     Centro de Segurança                         |     :globe_with_meridians:             |
 |     Gestor de Tráfego                         |     :globe_with_meridians:             |
 

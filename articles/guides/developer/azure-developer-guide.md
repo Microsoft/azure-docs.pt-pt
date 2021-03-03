@@ -6,12 +6,12 @@ ms.service: azure
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: glenga
-ms.openlocfilehash: 1caab392af1dab4f2e706d7372b0a1d9b5e62db6
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 12b90bf709cb20bed844940570663a76052a540d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101091206"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738944"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guia de introdução para programadores do Azure
 
@@ -63,7 +63,7 @@ Pode migrar as suas aplicações existentes para o Serviço de Aplicações util
 
 Como fornecedor de Infraestruturas como Prestador de Serviços (IaaS), o Azure permite-lhe implementar ou migrar a sua aplicação para Windows ou Linux VMs. Juntamente com a Rede Virtual Azure, a Azure Virtual Machines suporta a implementação de Windows ou Linux VMs para Azure. Com os VMs, tem controlo total sobre a configuração da máquina. Ao utilizar VMs, é responsável por todas as instalações, configurações, manutenção e patches do sistema operativo.
 
-Devido ao nível de controlo que tens com os VMs, podes executar uma vasta gama de cargas de trabalho do servidor no Azure que não se encaixam num modelo PaaS. Estas cargas de trabalho incluem servidores de bases de dados, Diretório Ativo do Windows Server e Microsoft SharePoint. Para obter mais informações, consulte a documentação das Máquinas Virtuais para [linux](../../virtual-machines/linux/index.yml) ou [Windows](../../virtual-machines/windows/index.yml).
+Devido ao nível de controlo que tens com os VMs, podes executar uma vasta gama de cargas de trabalho do servidor no Azure que não se encaixam num modelo PaaS. Estas cargas de trabalho incluem servidores de bases de dados, Diretório Ativo do Windows Server e Microsoft SharePoint. Para obter mais informações, consulte a documentação das Máquinas Virtuais para [linux](../../virtual-machines/index.yml) ou [Windows](../../virtual-machines/index.yml).
 
 > **Quando utilizar**: Utilize máquinas virtuais quando pretender o controlo total sobre a sua infraestrutura de aplicação ou migrar cargas de trabalho de aplicação no local para Azure sem ter de fazer alterações.
 >

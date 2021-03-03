@@ -6,12 +6,12 @@ ms.author: bahusse
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 2/11/2021
-ms.openlocfilehash: a83b570637d18fd0e92cd80ed87acbef8c7a9d77
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: b166e2f648446ac1672ead00a774d71d34699380
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100368069"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101724647"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mariadb"></a>Arquitetura de conectividade na Base de Dados Azure para MariaDB
 Este artigo explica a Base de Dados Azure para a arquitetura de conectividade MariaDB, bem como como o tráfego é direcionado para a sua Base de Dados Azure para exemplos MariaDB de clientes dentro e fora de Azure.
@@ -65,7 +65,7 @@ A tabela que se segue lista os endereços IP gateway da Base de Dados Azure para
 | Índia Central | 104.211.96.159     | | |
 | Índia do Sul | 104.211.224.146  | | |
 | Oeste da Índia | 104.211.160.80    | | |
-| Leste do Japão | 40.79.192.23 | 13.78.61.196 | |
+| Leste do Japão | 40.79.192.23, 40.79.184.8 | 13.78.61.196 | |
 | Oeste do Japão | 191.238.68.11, 40.74.96.6, 40.74.96.7     | 104.214.148.156 | |
 | Coreia do Sul Central | 52.231.17.13   | 52.231.32.42 | |
 | Sul da Coreia do Sul | 52.231.145.3     | 52.231.200.86 | |

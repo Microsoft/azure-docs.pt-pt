@@ -4,12 +4,12 @@ description: Fornece um resumo das definições e limitações de suporte ao faz
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.custom: references_regions
-ms.openlocfilehash: ed58bc9e2bf8757cad79c1043459ceb5b845be40
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: 2536ae0d33767de5ad53740407622e67c582cc37
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100633908"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101710673"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matriz de suporte da cópia de segurança de uma VM do Azure
 
@@ -115,6 +115,7 @@ Restaurar ficheiros a partir de contas de armazenamento restritas à rede | Não
 Restaurar ficheiros em VMs usando espaços de armazenamento do Windows | Restaurar não suportado no mesmo VM.<br/><br/> Em vez disso, restaure os ficheiros num VM compatível.
 Restaurar ficheiros em Linux VM usando matrizes LVM/raid | Restaurar não suportado no mesmo VM.<br/><br/> Restaurar num VM compatível.
 Restaurar ficheiros com definições especiais de rede | Restaurar não suportado no mesmo VM. <br/><br/> Restaurar num VM compatível.
+Restaurar ficheiros de disco partilhado, unidade temporária, disco deduplicado, disco ultra e disco com acelerador de escrita ativado | Restaurar não suportado, <br/><br/>ver [suporte de armazenamento Azure VM](#vm-storage-support).
 
 ## <a name="support-for-vm-management"></a>Apoio à gestão de VM
 
@@ -149,7 +150,7 @@ Restauro de VMs fixados em zona | Suportado (para um VM que é apoiado depois de
 GMs gen2 | Suportado <br> A Azure Backup suporta cópia de segurança e restauro de [VMs da Gen2](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/). Quando estes VMs são restaurados do ponto de recuperação, são restaurados como [VMs gen2](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/).
 Backup de VMs Azure com fechaduras | Não suportado para VMs não geridos. <br><br> Suportado para VMs geridos.
 [Spot VMs](../virtual-machines/spot-vms.md) | Sem apoio. A Azure Backup restaura os VMs spot como VMs Azure regulares.
-[Anfitrião Dedicado Azure](https://docs.microsoft.com/azure/virtual-machines/dedicated-hosts) | Suportado
+[Anfitrião Dedicado Azure](../virtual-machines/dedicated-hosts.md) | Suportado
 Configuração de Espaços de Armazenamento do Windows de VMs Azure autónomos | Suportado
 
 ## <a name="vm-storage-support"></a>Suporte de armazenamento VM
@@ -168,7 +169,7 @@ Redimensione o disco em VM protegido | Suportado.
 Armazenamento compartilhado| O backup de VMs utilizando o Cluster Shared Volume (CSV) ou Scale-Out File Server não é suportado. É provável que os escritores do CSV falhem durante o backup. No restauro, os discos que contêm volumes de CSV podem não aparecer.
 [Discos compartilhados](../virtual-machines/disks-shared-enable.md) | Não suportado.
 Discos Ultra SSD | Não suportado. Para mais informações, consulte estas [limitações.](selective-disk-backup-restore.md#limitations)
-[Discos temporários](https://docs.microsoft.com/azure/virtual-machines/managed-disks-overview#temporary-disk) | Os discos temporários não são apoiados pela Azure Backup.
+[Discos temporários](../virtual-machines/managed-disks-overview.md#temporary-disk) | Os discos temporários não são apoiados pela Azure Backup.
 
 ## <a name="vm-network-support"></a>Suporte à rede VM
 
@@ -210,10 +211,10 @@ Segurança de dados:
 
 **Máquina** | **Em trânsito** | **Em repouso**
 --- | --- | ---
-Máquinas Windows no local sem DPM/MABS | ![Yes][green] | ![Yes][green]
-VMs do Azure | ![Yes][green] | ![Yes][green]
-Instalações/VMs Azure com DPM | ![Yes][green] | ![Yes][green]
-Em instalações/VMs Azure com MABS | ![Yes][green] | ![Yes][green]
+Máquinas Windows no local sem DPM/MABS | ![Sim][green] | ![Sim][green]
+VMs do Azure | ![Sim][green] | ![Sim][green]
+Instalações/VMs Azure com DPM | ![Sim][green] | ![Sim][green]
+Em instalações/VMs Azure com MABS | ![Sim][green] | ![Sim][green]
 
 ## <a name="vm-compression-support"></a>Suporte à compressão VM
 
@@ -226,8 +227,8 @@ A cópia de segurança suporta a compressão do tráfego de backup, tal como res
 --- | --- | ---
 Máquinas Windows no local sem DPM/MABS | ND | ![Sim][green]
 VMs do Azure | ND | ND
-Instalações/VMs Azure com DPM | ![Yes][green] | ![Yes][green]
-Em instalações/VMs Azure com MABS | ![Yes][green] | ![Sim][green]
+Instalações/VMs Azure com DPM | ![Sim][green] | ![Sim][green]
+Em instalações/VMs Azure com MABS | ![Sim][green] | ![Sim][green]
 
 ## <a name="next-steps"></a>Próximos passos
 

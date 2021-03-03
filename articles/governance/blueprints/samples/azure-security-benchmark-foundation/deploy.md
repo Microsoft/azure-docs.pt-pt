@@ -1,14 +1,14 @@
 ---
 title: Implementar amostra de projeto da Fundação de Benchmark de Segurança Azure
 description: Implementar etapas para a amostra de projeto da Azure Security Benchmark Foundation, incluindo detalhes do parâmetro do artefacto da planta.
-ms.date: 02/17/2020
+ms.date: 02/18/2020
 ms.topic: sample
-ms.openlocfilehash: aaaabc8767c6d80548a26d64d8557587180fb6f3
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: e48f3da383bdb6d5c9960595f3c0fdcabc27dc75
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101095293"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101740686"
 ---
 # <a name="deploy-the-azure-security-benchmark-foundation-blueprint-sample"></a>Implementar a amostra de projeto da Fundação de Referência de Segurança Azure
 
@@ -136,7 +136,7 @@ A tabela a seguir fornece uma lista dos parâmetros da planta:
 |Modelo de fala de rede virtual Azure|Modelo do Resource Manager|Prefixos de endereço de sub-rede (opcional)|Matriz de prefixos de endereço IP para sub-redes opcionais para a rede virtual falada; por exemplo, "10.0.7.0/24","10.0.8.0/24"|
 |Modelo de fala de rede virtual Azure|Modelo do Resource Manager|Implementar falou|Insira 'verdadeiro' ou 'falso' para especificar se a atribuição implementa os componentes falados da arquitetura|
 |Modelo de observador de rede Azure|Modelo do Resource Manager|Localização do Observador de Rede|Localização para o recurso Network Watcher|
-|Modelo de observador de rede Azure|Modelo do Resource Manager|Localização do grupo de recursos do Observador de Rede|Se o Network Watcher já estiver ativado, este valor de parâmetro **deve** corresponder ao nome do grupo de recursos do Observador de Rede existente.|
+|Modelo de observador de rede Azure|Modelo do Resource Manager|Localização do grupo de recursos do Observador de Rede|Se o Network Watcher já estiver ativado, este valor de parâmetro **deve** corresponder à localização do grupo de recursos do Observador de Rede existente.|
 
 ## <a name="troubleshooting"></a>Resolução de problemas
 

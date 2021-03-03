@@ -2,14 +2,14 @@
 title: Monitorizar a disponibilidade e a capacidade de resposta de qualquer site | Microsoft Docs
 description: Configurar testes Web no Application Insights. Receber alertas se um site ficar indisponível ou responder lentamente.
 ms.topic: conceptual
-ms.date: 09/16/2019
+ms.date: 02/14/2021
 ms.reviewer: sdash
-ms.openlocfilehash: 41338760034918dce30ffb45c738588a2aa29786
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 0ea44aad43a3dd6f11656a45dc7d0e619187fc22
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100585943"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101729033"
 ---
 # <a name="monitor-the-availability-of-any-website"></a>Monitorize a disponibilidade de qualquer website
 
@@ -72,7 +72,6 @@ Para criar o seu primeiro pedido de disponibilidade, abra o painel de disponibil
 |Definição| Explicação
 |----|----|----|
 |**Quase em tempo real (Pré-visualização)** | Recomendamos a utilização de alertas de quase-tempo real. Configurar este tipo de alerta é feito após a criação do teste de disponibilidade.  |
-|**Clássico** | Já não recomendamos o uso de alertas clássicos para novos testes de disponibilidade.|
 |**Limiar de localização de alerta**|Recomendamos um mínimo de 3/5 locais. A relação ideal entre o limiar de localização de alerta e o número de locais de teste é o número de **localização** de alerta  =  **dos locais de teste - 2, com um mínimo de cinco locais de ensaio.**|
 
 ### <a name="location-population-tags"></a>Etiquetas populacionais de localização

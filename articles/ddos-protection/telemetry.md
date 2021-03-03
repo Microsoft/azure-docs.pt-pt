@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/28/2020
 ms.author: yitoh
-ms.openlocfilehash: 0a8c30076231aecb17505dd0d7a2fe4e7be485a3
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 0be184921ff0bd6b98dd2975acb4e0d5c8b26ba0
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100522670"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101716198"
 ---
 # <a name="view-and-configure-ddos-protection-telemetry"></a>Ver e configurar telemetria de proteção contra DDoS
 
-A padrão de proteção DDoS Azure fornece informações detalhadas sobre ataque e visualização com DDoS Attack Analytics. Os clientes que protegem as suas redes virtuais contra ataques de DDoS têm uma visibilidade detalhada no tráfego de ataques e as ações tomadas para mitigar o ataque através de relatórios de mitigação de ataques & registos de fluxo de mitigação. A telemetria rica é exposta através do Azure Monitor, incluindo métricas detalhadas durante a duração de um ataque DDoS. O alerta pode ser configurado para qualquer uma das métricas do Monitor Azure expostas pela Proteção DDoS. O registo pode ser integrado com [Azure Sentinel,](../sentinel/connect-azure-ddos-protection.md)Splunk (Azure Event Hubs), OMS Log Analytics e Azure Storage para análise avançada através da interface Azure Monitor Diagnostics.
+A padrão de proteção DDoS Azure fornece informações detalhadas sobre ataque e visualização com DDoS Attack Analytics. Os clientes que protegem as suas redes virtuais contra ataques de DDoS têm uma visibilidade detalhada no tráfego de ataques e as ações tomadas para mitigar o ataque através de relatórios de mitigação de ataques & registos de fluxo de mitigação. A telemetria rica é exposta através do Azure Monitor, incluindo métricas detalhadas durante a duração de um ataque DDoS. Os alertas podem ser configurados para qualquer uma das métricas do Azure Monitor expostas pelo DDoS Protection. O registo pode ser integrado com [Azure Sentinel,](../sentinel/connect-azure-ddos-protection.md)Splunk (Azure Event Hubs), OMS Log Analytics e Azure Storage para análise avançada através da interface Azure Monitor Diagnostics.
 
 Neste tutorial, irá aprender a:
 
@@ -34,10 +34,10 @@ Neste tutorial, irá aprender a:
 > [!NOTE]
 > Embora sejam apresentadas várias opções de **agregação** no portal Azure, apenas os tipos de agregação listados na tabela abaixo são suportados para cada métrica. Pedimos desculpa por esta confusão e estamos a trabalhar para a resolver.
 
-As [seguintes métricas](../azure-monitor/platform/metrics-supported.md#microsoftnetworkpublicipaddresses) estão disponíveis para a Norma de Proteção DDoS Azure. Estas métricas também são exportáveis através de configurações de diagnóstico (ver [e configurar registo de diagnóstico DDoS).](diagnostic-logging.md)
+As [seguintes métricas](../azure-monitor/essentials/metrics-supported.md#microsoftnetworkpublicipaddresses) estão disponíveis para a Norma de Proteção DDoS Azure. Estas métricas também são exportáveis através de configurações de diagnóstico (ver [e configurar registo de diagnóstico DDoS).](diagnostic-logging.md)
 
 
-| Metric | Nome de exibição métrica | Unidade | Tipo de Agregação | Description |
+| Metric | Nome de exibição métrica | Unidade | Tipo de Agregação | Descrição |
 | --- | --- | --- | --- | --- |
 | BytesDroppedDDoS | Bytes de entrada deixaram cair DDoS | BytesPerSecond | Máximo | Bytes de entrada deixaram cair DDoS| 
 | BytesForwardedDDoS | Bytes de entrada reencaminhado DDoS | BytesPerSecond | Máximo | Bytes de entrada reencaminhado DDoS |
@@ -66,11 +66,11 @@ As [seguintes métricas](../azure-monitor/platform/metrics-supported.md#microsof
 
 - Se não tiver uma subscrição do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 - Antes de poder completar os passos neste tutorial, tem primeiro de criar um [plano de proteção Azure DDoS Standard](manage-ddos-protection.md) e o DDoS Protection Standard deve ser ativado numa rede virtual.
-- O DDoS monitoriza endereços IP públicos atribuídos a recursos dentro de uma rede virtual. Se não tiver recursos com endereços IP públicos na rede virtual, tem primeiro de criar um recurso com um endereço IP público. Pode monitorizar o endereço IP público de todos os recursos implantados através do Gestor de Recursos (não clássico) listados na [rede Virtual para serviços Azure](../virtual-network/virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network) (incluindo Equiliadores de Carga Azure onde as máquinas virtuais de backend estão na rede virtual), exceto para Ambientes de Serviço de Aplicações Azure. Para continuar com este tutorial, pode rapidamente criar uma máquina virtual [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Linux.](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)  
+- O DDoS monitoriza endereços IP públicos atribuídos a recursos dentro de uma rede virtual. Se não tiver recursos com endereços IP públicos na rede virtual, terá primeiro de criar um recurso com um endereço IP público. Pode monitorizar o endereço IP público de todos os recursos implantados através do Gestor de Recursos (não clássico) listados na [rede Virtual para serviços Azure](../virtual-network/virtual-network-for-azure-services.md#services-that-can-be-deployed-into-a-virtual-network) (incluindo Equiliadores de Carga Azure onde as máquinas virtuais de backend estão na rede virtual), exceto para Ambientes de Serviço de Aplicações Azure. Para continuar com este tutorial, pode rapidamente criar uma máquina virtual [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Linux.](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)  
 
 ## <a name="view-ddos-protection-telemetry"></a>Ver telemetria de proteção DDoS
 
-A telemetria para um ataque é fornecida através do Monitor Azure em tempo real. A telemetria só está disponível quando um endereço IP público estiver sob mitigação. 
+A telemetria de um ataque é disponibilizada através do Azure Monitor em tempo real. A telemetria só está disponível quando um endereço IP público estiver sob mitigação. 
 
 1. Inscreva-se no [portal Azure](https://portal.azure.com/) e navegue no seu Plano de Proteção DDoS.
 2. Em **Monitorização**, selecione **Métricas**.

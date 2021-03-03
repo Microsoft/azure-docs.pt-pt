@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
-ms.openlocfilehash: bc80b7dfd433911ef13906db38f59a76827db258
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: e527cf5fa6a7caaeaf56ea19d684dd0830d5ca8a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905286"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708684"
 ---
 # <a name="use-the-azure-maps-indoor-maps-module"></a>Utilize o módulo Azure Maps Indoor Maps
 
@@ -67,7 +67,7 @@ const subscriptionKey = "<Your Azure Maps Primary Subscription Key>";
 
 const map = new atlas.Map("map-id", {
   //use your facility's location
-  center: [-122.13315, 47.63637],
+  center: [-122.13203, 47.63645],
   //or, you can use bounds: [# west, # south, # east, # north] and replace # with your map's bounds
   style: "blank",
   view: 'Auto',
@@ -84,24 +84,24 @@ const map = new atlas.Map("map-id", {
 Para carregar os azulejos interiores e o estilo de mapa dos azulejos, deve instantaneamente o *Gerente Interior*. Instantânear o *Gestor Interior* fornecendo o objeto *mapa* e o correspondente `tilesetId` . Se deseja apoiar o [estilo dinâmico do mapa,](indoor-map-dynamic-styling.md)tem de passar o `statesetId` . O `statesetId` nome variável é sensível a casos. O seu código deve gostar do JavaScript abaixo.
 
 ```javascript
-const tilesetId = "";
-const statesetId = "";
+const tilesetId = "<tilesetId>";
+const statesetId = "<statesetId>";
 
 const indoorManager = new atlas.indoor.IndoorManager(map, {
-    tilesetId: "<tilesetId>",
-    statesetId: "<statesetId>" // Optional
+    tilesetId: tilesetId,
+    statesetId: statesetId // Optional
 });
 ```
 
 Para ativar as sondagens dos dados estatais que fornece, deve fornecer `statesetId` o e ligar `indoorManager.setDynamicStyling(true)` . Os dados do estado das sondagens permitem-lhe atualizar dinamicamente o estado das propriedades dinâmicas ou *estados.* Por exemplo, uma característica como o quarto pode ter uma propriedade dinâmica *(estado)* chamada `occupancy` . A sua aplicação pode querer sondar quaisquer alterações *de estado* para refletir a mudança dentro do mapa visual. O código abaixo mostra-lhe como permitir a votação do estado:
 
 ```javascript
-const tilesetId = "";
-const statesetId = "";
+const tilesetId = "<tilesetId>";
+const statesetId = "<statesetId>";
 
 const indoorManager = new atlas.indoor.IndoorManager(map, {
-    tilesetId: "<tilesetId>",
-    statesetId: "<statesetId>" // Optional
+    tilesetId: tilesetId,
+    statesetId: statesetId // Optional
 });
 
 if (statesetId.length > 0) {
@@ -218,9 +218,9 @@ O seu ficheiro deve agora ser semelhante ao HTML abaixo.
         });
 
         const indoorManager = new atlas.indoor.IndoorManager(map, {
-          levelControl, //level picker
-          tilesetId,
-          statesetId, //optional
+          levelControl: levelControl, //level picker
+          tilesetId: tilesetId,
+          statesetId: statesetId // Optional
         });
 
         if (statesetId.length > 0) {
@@ -244,6 +244,8 @@ O seu ficheiro deve agora ser semelhante ao HTML abaixo.
 Para ver o seu mapa interior, carregue-o num navegador web. Deve parecer a imagem abaixo. Se clicar na função de escada, o *selecionador de nível* aparecerá no canto superior direito.
 
   ![imagem de mapa interior](media/how-to-use-indoor-module/indoor-map-graphic.png)
+
+[Ver demonstração ao vivo](https://azuremapscodesamples.azurewebsites.net/?sample=Creator%20indoor%20maps)
 
 ## <a name="next-steps"></a>Passos seguintes
 

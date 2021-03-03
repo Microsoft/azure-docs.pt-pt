@@ -1,25 +1,25 @@
 ---
-title: Como consultar registos do Azure Monitor para VMs
-description: O Azure Monitor para solução VMs recolhe métricas e dados de registo e este artigo descreve os registos e inclui consultas de amostra.
+title: Como consultar registos a partir de insights VM
+description: A solução de insights VM recolhe métricas e dados de registo para e este artigo descreve os registos e inclui consultas de amostra.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
-ms.openlocfilehash: ae0bc6ea35d5c6e3ebe0cd7f232e5c8b1e637d9d
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: bbecb15173c929aee46e7d1eeb5e83aab86430f5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100619781"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713529"
 ---
-# <a name="how-to-query-logs-from-azure-monitor-for-vms"></a>Como consultar registos do Azure Monitor para VMs
+# <a name="how-to-query-logs-from-vm-insights"></a>Como consultar registos a partir de insights VM
 
-O Azure Monitor para VMs recolhe métricas de desempenho e conexão, dados de inventário de computador e processo, e informações do estado de saúde e reencaminha-os para o espaço de trabalho Log Analytics em Azure Monitor.  Estes dados estão disponíveis para [consulta](../log-query/log-query-overview.md) no Azure Monitor. Pode aplicar estes dados em cenários que incluem planeamento de migração, análise de capacidade, descoberta e resolução de problemas de desempenho a pedido.
+Os conhecimentos de VM recolhem métricas de desempenho e conexão, dados de inventário de computador e processo, e informações do estado de saúde e reencaminha-os para o espaço de trabalho Log Analytics em Azure Monitor.  Estes dados estão disponíveis para [consulta](../logs/log-query-overview.md) no Azure Monitor. Pode aplicar estes dados em cenários que incluem planeamento de migração, análise de capacidade, descoberta e resolução de problemas de desempenho a pedido.
 
 ## <a name="map-records"></a>Mapear registos
 
-Um registo é gerado por hora para cada computador e processo único, além dos registos que são gerados quando um processo ou computador começa ou é embarcado para Azure Monitor para funcionalidade de Mapa de VMs. Estes registos têm as propriedades nas seguintes tabelas. Os campos e valores no mapa de eventos ServiceMapComputer_CL para os campos do recurso Máquina na API do ServiceMap Azure Resource Manager. Os campos e valores no mapa de eventos ServiceMapProcess_CL para os campos do recurso processuais na API do ServiceMap Azure Resource Manager. O campo ResourceName_s corresponde ao campo de nomes no recurso correspondente ao Gestor de Recursos. 
+Um registo é gerado por hora para cada computador e processo único, além dos registos que são gerados quando um processo ou computador começa ou está a bordo para a funcionalidade de visão VM Map. Estes registos têm as propriedades nas seguintes tabelas. Os campos e valores no mapa de eventos ServiceMapComputer_CL para os campos do recurso Máquina na API do ServiceMap Azure Resource Manager. Os campos e valores no mapa de eventos ServiceMapProcess_CL para os campos do recurso processuais na API do ServiceMap Azure Resource Manager. O campo ResourceName_s corresponde ao campo de nomes no recurso correspondente ao Gestor de Recursos. 
 
 Existem propriedades geradas internamente que pode usar para identificar processos e computadores únicos:
 
@@ -112,7 +112,7 @@ Todas as propriedades RemoteIp na tabela *VMConnection* são verificadas contra 
 |:--|:--|
 |MaliciousIp |O endereço RemoteIp |
 |IndicadorThreadType |O indicador de ameaça detetado é um dos seguintes valores, *Botnet*, *C2*, *CryptoMining,* *Darknet*, *DDos,* *MaliciousUrl,* *Malware*, *Phishing,* *Proxy,* *PUA,* *Watchlist*.   |
-|Description |Descrição da ameaça observada. |
+|Descrição |Descrição da ameaça observada. |
 |TLPLevel |O nível do Protocolo de Semáforos (TLP) é um dos valores definidos, *Branco,* *Verde,* *Âmbar,* *Vermelho.* |
 |Confiança |Os valores são *0 a 100.* |
 |Gravidade |Os valores são *0 - 5,* onde *5* é o mais grave e *0* não é nada grave. O valor predefinido é *de 3*.  |
@@ -233,7 +233,7 @@ Os registos com um tipo de *VMProcess* têm dados de inventário para processos 
 |Group | Processar nome de grupo. Os processos no mesmo grupo estão logicamente relacionados, por exemplo, parte do mesmo produto ou componente do sistema. |
 |StartTime | A hora de início da piscina do processo |
 |FirstPid | O primeiro PID na piscina de processos |
-|Description | A descrição do processo |
+|Descrição | A descrição do processo |
 |CompanyName | O nome da empresa |
 |Nome interno | O nome interno |
 |NomeDoProduto | O nome do produto |
@@ -473,6 +473,6 @@ Os contadores de desempenho atualmente recolhidos na tabela *InsightsMetrics* es
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* Se é novo a escrever consultas de registo no Azure Monitor, [reveja como utilizar](../log-query/log-analytics-tutorial.md) o Log Analytics no portal Azure para escrever consultas de registo.
+* Se é novo a escrever consultas de registo no Azure Monitor, [reveja como utilizar](../logs/log-analytics-tutorial.md) o Log Analytics no portal Azure para escrever consultas de registo.
 
-* Saiba mais sobre [escrever consultas de pesquisa.](../log-query/get-started-queries.md)
+* Saiba mais sobre [escrever consultas de pesquisa.](../logs/get-started-queries.md)

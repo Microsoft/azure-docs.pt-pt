@@ -160,8 +160,6 @@
           href: load-balancer-troubleshoot-health-probe-status.md
         - name: Tráfego do conjunto de back-end (VM)
           href: load-balancer-troubleshoot-backend-traffic.md
-        - name: Erros de implementação comuns
-          href: load-balancer-common-deployment-errors.md
         - name: Problemas comuns de ligação de saída
           href: troubleshoot-outbound-connection.md
         - name: Problemas de estado de funcionamento dos recursos e de disponibilidade de entrada
@@ -191,6 +189,8 @@
       displayName: ARM
     - name: Códigos de erro comuns para o Serviço de Metadados de Instância Azure (IMDS)
       href: troubleshoot-load-balancer-imds.md
+    - name: Erros de implementação comuns
+      href: load-balancer-common-deployment-errors.md
 - name: Recursos
   items:
     - name: Desenvolva as suas competências com o Microsoft Learn

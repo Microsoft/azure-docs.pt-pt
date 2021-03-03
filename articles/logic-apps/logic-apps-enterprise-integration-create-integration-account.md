@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 11/04/2020
-ms.openlocfilehash: 191832ab227e854b40938183e335c1b6ea52199c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 51059dd1c4c5c93e155cd7a2d34c3cbaf29db6e2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96000063"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101705590"
 ---
 # <a name="create-and-manage-integration-accounts-for-b2b-enterprise-integrations-in-azure-logic-apps"></a>Criar e gerir contas de integração para integrações empresariais B2B no Azure Logic Apps.
 
@@ -21,21 +21,29 @@ Antes de criar [soluções B2B e de integração empresarial](../logic-apps/logi
 
 Por exemplo, pode criar, armazenar e gerir artefactos B2B, tais como parceiros comerciais, acordos, mapas, esquemas, certificados e configurações de lote. Além disso, antes que a sua aplicação lógica possa trabalhar com estes artefactos e utilizar os conectores Logic Apps B2B, deve ligar a sua conta de [integração](#link-account) à sua aplicação lógica. Tanto a sua conta de integração como a aplicação lógica devem existir no *mesmo* local ou região.
 
-> [!TIP]
-> Para criar uma conta de integração dentro de um ambiente de serviço de [integração,](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)consulte [Criar contas de integração num ISE.](../logic-apps/add-artifacts-integration-service-environment-ise.md#create-integration-account-environment)
+> [!IMPORTANT]
+> Com base no tipo de conta de integração que seleciona, criar uma conta de integração incorre em custos. Para obter mais informações, consulte [os modelos de preços e faturação de Apps lógicas](logic-apps-pricing.md#integration-accounts) e [preços de Aplicações Lógicas.](https://azure.microsoft.com/pricing/details/logic-apps/)
 
 Este tópico mostra-lhe como executar estas tarefas:
 
 * Crie a sua conta de integração.
+
+  > [!TIP]
+  > Para criar uma conta de integração dentro de um ambiente de serviço de [integração,](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)consulte [Criar contas de integração num ISE.](../logic-apps/add-artifacts-integration-service-environment-ise.md#create-integration-account-environment)
+
 * Ligue a sua conta de integração a uma aplicação lógica.
+
 * Altere o nível de preços para a sua conta de integração.
+
 * Desvincula a sua conta de integração de uma aplicação lógica.
+
 * Mude a sua conta de integração para outro grupo de recursos Azure ou subscrição.
+
 * Elimine a sua conta de integração.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma subscrição do Azure. Se não tiver uma subscrição do Azure, [inscreva-se para obter uma conta do Azure gratuita](https://azure.microsoft.com/free/).
+* Uma conta e subscrição do Azure. Se não tiver uma subscrição do Azure, [inscreva-se para obter uma conta do Azure gratuita](https://azure.microsoft.com/free/).
 
 ## <a name="create-integration-account"></a>Criar uma conta de integração
 

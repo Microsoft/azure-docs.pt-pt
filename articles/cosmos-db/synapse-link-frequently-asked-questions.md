@@ -6,12 +6,12 @@ ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/30/2020
-ms.openlocfilehash: 885aab68c769c0705994bad34bee6aaa4fdc3f3d
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 9fb6e94062639d32707f52f66e0b99531884a636
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101658474"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101692271"
 ---
 # <a name="frequently-asked-questions-about-azure-synapse-link-for-azure-cosmos-db"></a>Perguntas mais frequentes sobre o Azure Synapse Link para o Azure Cosmos DB
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -73,6 +73,10 @@ A Azure Cosmos DB garante o isolamento do desempenho entre as cargas de trabalho
 Sim, pode configurar um [ponto final privado gerido](analytical-store-private-endpoints.md) e restringir o acesso à rede analítica à rede virtual gerida pela Azure Synapse. Os pontos finais privados geridos estabelecem uma ligação privada à sua loja analítica. Este ponto final privado também restringirá o acesso de escrita à loja transacional, entre outros serviços de dados Azure.
 
 Pode adicionar tanto a loja transacional como os pontos finais privados da loja analítica à mesma conta DB da Azure Cosmos num espaço de trabalho Azure Synapse Analytics. Se quiser apenas fazer consultas analíticas, só pode querer mapear o ponto final privado analítico.
+
+### <a name="can-i-use-customer-managed-keys-with-the-azure-cosmos-db-analytical-store"></a>Posso usar as chaves geridas pelo cliente com a loja analítica Azure Cosmos DB?
+
+Pode encriptar os dados de forma perfeita através de lojas transacionais e analíticas utilizando as mesmas chaves geridas pelo cliente de forma automática e transparente. A utilização de chaves geridas pelo cliente com a loja analítica Azure Cosmos DB requer atualmente uma configuração adicional na sua conta. Entre em contato com a [equipa DB da Azure Cosmos](mailto:azurecosmosdbcmk@service.microsoft.com)  para obter mais detalhes.
 
 ### <a name="are-delete-and-update-operations-on-the-transactional-store-reflected-in-the-analytical-store"></a>As operações de exclusão e atualização da loja transacional são refletidas na loja analítica?
 

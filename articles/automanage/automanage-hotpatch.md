@@ -8,28 +8,28 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 02/22/2021
 ms.author: jushiman
-ms.openlocfilehash: bdd5a379afb9603c8966320d85c778632948cfd0
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 710e6902be6ebe28caaf40fb446e4ee7cd2bf4dc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101662727"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101687571"
 ---
-# <a name="hotpatch-for-windows-server-azure-edition-preview"></a>Hotpatch para Windows Server Azure Edition (Pré-visualização)
+# <a name="hotpatch-for-new-virtual-machines-preview"></a>Hotpatch para novas máquinas virtuais (Pré-visualização)
 
 Hotpatching é uma nova forma de instalar atualizações em novas máquinas virtuais do Windows Server Azure Edition (VMs) que não requerem um reboot após a instalação. Este artigo cobre informações sobre hotpatch para VMs windows server Azure Edition, que tem os seguintes benefícios:
 * Menor impacto da carga de trabalho com menos reboots
 * Implementação mais rápida de atualizações à medida que os pacotes são menores, instalam-se mais rapidamente e têm uma orquestração de patch mais fácil com o Azure Update Manager
 * Melhor proteção, uma vez que os pacotes de atualização hotpatch são abrangidos por atualizações de segurança do Windows que instalam mais rapidamente sem reiniciar
 
-## <a name="how-hotpatch-works"></a>Como funciona a Hotpatch
+## <a name="how-hotpatch-works"></a>Como funciona a hotpatch
 
 Hotpatch funciona estabelecendo primeiro uma linha de base com uma atualização cumulativa mais recente do Windows Update. Os hotpatches são periodicamente libertados (por exemplo, na segunda terça-feira do mês) que se baseiam nessa linha de base. Os hotpatches conterão atualizações que não requerem um reboot. Periodicamente (a partir de três em três meses), a linha de base é atualizada com uma nova atualização cumulativa mais recente.
 
-    :::image type="content" source="media\automanage-hotpatch\hotpatch-sample-schedule.png" alt-text="Hotpatch Sample Schedule.":::
+:::image type="content" source="media\automanage-hotpatch\hotpatch-sample-schedule.png" alt-text="Horário da amostra do hotpatch.":::
 
 Existem dois tipos de linhas de base: **linhas de base planeadas** e **linhas de base não planeadas.**
-*  **As linhas de base planeadas** são lançadas numa cadência regular, com lançamentos hotpatch no meio.  As linhas de base planeadas incluem todas as atualizações numa _atualização cumulativa_ comparável para esse mês e requerem um reboot.
+*  **As linhas de base planeadas** são lançadas numa cadência regular, com lançamentos de hotpatch no meio.  As linhas de base planeadas incluem todas as atualizações numa _atualização cumulativa_ comparável para esse mês e requerem um reboot.
     * O calendário de amostras acima ilustra quatro lançamentos de base planeados num ano civil (cinco no total no diagrama) e oito lançamentos de hotpatch.
 * **As linhas de base não planeadas** são lançadas quando uma atualização importante (como uma correção de zero dias) é lançada, e essa atualização específica não pode ser lançada como um Hotpatch.  Quando as linhas de base não planeadas forem lançadas, uma versão de hotpatch será substituída por uma linha de base não planeada nesse mês.  As linhas de base não planeadas também incluem todas as atualizações numa _atualização cumulativa_ comparável para esse mês, e também requerem um reboot.
     * O calendário de amostras acima ilustra duas linhas de base não planeadas que substituiriam os lançamentos de hotpatch por esses meses (o número real de linhas de base não planeadas num ano não é conhecido antecipadamente).
@@ -154,7 +154,7 @@ Para ver o estado do patch para o seu VM, navegue na secção de atualizações 
 Neste ecrã, verá o estado do Hotpatch para o seu VM. Também pode rever se há algum patches disponíveis para o seu VM que não tenham sido instalados. Conforme descrito na secção 'Patch installation' acima, todas as atualizações de segurança e críticas serão automaticamente instaladas no seu VM utilizando [patching automático de convidados VM](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching) e não são necessárias ações extra. Patches com outras classificações de atualização não são instalados automaticamente. Em vez disso, são visualizados na lista de patches disponíveis no separador 'Atualização conformidade'. Também pode ver o histórico de implementações de atualização no seu VM através do 'Histórico de actualização'. É apresentado o histórico de atualização dos últimos 30 dias, juntamente com os detalhes da instalação do patch.
 
 
-    :::image type="content" source="media\automanage-hotpatch\hotpatch-management-ui.png" alt-text="Hotpatch Management.":::
+:::image type="content" source="media\automanage-hotpatch\hotpatch-management-ui.png" alt-text="Gestão de Hotpatch.":::
 
 Com o patching automático de hóspedes VM, o seu VM é periodicamente e automaticamente avaliado para atualizações disponíveis. Estas avaliações periódicas garantem a deteção de patches disponíveis. Pode ver os resultados da avaliação no ecrã de Atualizações acima, incluindo a hora da última avaliação. Também pode optar por desencadear uma avaliação de patch a pedido para o seu VM a qualquer momento utilizando a opção "Avaliar agora" e rever os resultados após a conclusão da avaliação.
 
@@ -197,7 +197,7 @@ Existem algumas considerações importantes para executar um VM edição Azure d
 
 ### <a name="are-reboots-still-needed-for-a-vm-enrolled-in-hotpatch"></a>Ainda são necessárias reinicializações para um VM matriculado em Hotpatch?
 
-* Os reboots ainda são necessários para instalar atualizações não incluídas no programa Hotpatch, e são necessárias periodicamente após a instalação de uma linha de base (Atualização Cumulativa mais recente do Windows Update). Este reboot manterá o seu VM sincronizado com todos os patches incluídos na atualização cumulativa. As linhas de base (que requerem um reboot) começarão com uma cadência de três meses e aumentarão ao longo do tempo para mais de 6 meses.
+* Os reboots ainda são necessários para instalar atualizações não incluídas no programa Hotpatch, e são necessárias periodicamente após a instalação de uma linha de base (Atualização Cumulativa mais recente do Windows Update). Este reboot manterá o seu VM sincronizado com todos os patches incluídos na atualização cumulativa. As linhas de base (que requerem um reboot) começarão com uma cadência de três meses e aumentarão ao longo do tempo.
 
 ### <a name="are-my-applications-affected-when-a-hotpatch-update-is-installed"></a>As minhas aplicações são afetadas quando uma atualização do Hotpatch é instalada?
 

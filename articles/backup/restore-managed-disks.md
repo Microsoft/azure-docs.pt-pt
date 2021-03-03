@@ -3,12 +3,12 @@ title: Restaurar Discos Geridos Azure
 description: Saiba como restaurar os Discos Geridos Azure a partir do portal Azure.
 ms.topic: conceptual
 ms.date: 01/07/2021
-ms.openlocfilehash: b9c9a22f25a8003151217bec15b618e3c380e67e
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 995217cd17d1e2a16cd7a5f963ee88aa7116d4a7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737381"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703754"
 ---
 # <a name="restore-azure-managed-disks-in-preview"></a>Restaurar Discos Geridos Azure (na pré-visualização)
 
@@ -66,7 +66,7 @@ São necessários os seguintes pré-requisitos para a realização de uma opera�
     >
     >Durante as cópias de segurança programadas ou uma operação de backup a pedido, o Azure Backup armazena as imagens incrementais do disco no Grupo de Recursos Instantâneos fornecidas durante a configuração da cópia de segurança do disco. A Azure Backup utiliza estas imagens incrementais durante a operação de restauro. Se as imagens forem eliminadas ou retiradas do Grupo de Recursos Instantâneos ou se as atribuições de funções de abóbada de cópias de segurança forem revogadas no Grupo de Recursos Instantâneos, a operação de restauro falhará.
 
-1. Se o disco a ser restaurado for encriptado com [teclas geridas pelo cliente (CMK)](https://docs.microsoft.com/azure/virtual-machines/disks-enable-customer-managed-keys-portal) ou utilizando [uma dupla encriptação utilizando chaves geridas pela plataforma e teclas geridas pelo cliente,](https://docs.microsoft.com/azure/virtual-machines/disks-enable-double-encryption-at-rest-portal)atribua a permissão de função do **Leitor** à identidade gerida do Cofre de Cópia de Segurança no recurso Conjunto de Encriptação do **Disco.**
+1. Se o disco a ser restaurado for encriptado com [teclas geridas pelo cliente (CMK)](../virtual-machines/disks-enable-customer-managed-keys-portal.md) ou utilizando [uma dupla encriptação utilizando chaves geridas pela plataforma e teclas geridas pelo cliente,](../virtual-machines/disks-enable-double-encryption-at-rest-portal.md)atribua a permissão de função do **Leitor** à identidade gerida do Cofre de Cópia de Segurança no recurso Conjunto de Encriptação do **Disco.**
 
 Assim que os pré-requisitos forem cumpridos, siga estes passos para executar a operação de restauro.
 
@@ -131,6 +131,6 @@ Depois de ativar a operação de restauro, o serviço de backup cria um trabalho
 
     ![Lista de empregos](./media/restore-managed-disks/list-of-jobs.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [BACKUP DE DISCO Azure FAQ](disk-backup-faq.md)

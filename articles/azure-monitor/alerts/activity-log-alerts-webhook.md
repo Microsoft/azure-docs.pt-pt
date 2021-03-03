@@ -4,19 +4,19 @@ description: Saiba mais sobre o esquema do JSON que é publicado num URL webhook
 ms.topic: conceptual
 ms.date: 03/31/2017
 ms.subservice: alerts
-ms.openlocfilehash: bdac71655ca0c517624f8aa033ee5bc7fcc9d12a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 9f5fbc6b0c7ae77181c8c5afdbaffb4e62dccd12
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614821"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101701149"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Webhooks para alertas de registo de atividades do Azure
 Como parte da definição de um grupo de ação, você pode configurar pontos finais webhook para receber notificações de alerta de registo de atividade. Com webhooks, pode encaminhar estas notificações para outros sistemas para ações pós-processamento ou personalizadas. Este artigo mostra como é a carga útil do HTTP POST para um webhook.
 
-Para obter mais informações sobre alertas de registo de atividade, consulte como [criar alertas de registo de atividades do Azure](../platform/activity-log-alerts.md).
+Para obter mais informações sobre alertas de registo de atividade, consulte como [criar alertas de registo de atividades do Azure](./activity-log-alerts.md).
 
-Para obter informações sobre grupos de ação, consulte como [criar grupos de ação.](../platform/action-groups.md)
+Para obter informações sobre grupos de ação, consulte como [criar grupos de ação.](./action-groups.md)
 
 > [!NOTE]
 > Também pode utilizar o [esquema de alerta comum,](./alerts-common-schema.md)que proporciona a vantagem de ter uma única carga de alerta extensível e unificada em todos os serviços de alerta em Azure Monitor, para as suas integrações webhook. [Conheça as definições comuns de esquema de alerta.](./alerts-common-schema-definitions.md)
@@ -298,10 +298,10 @@ Para obter detalhes específicos sobre os alertas de registo de atividades de no
 | status |Cadeia. Estado da operação. Os valores comuns incluem Iniciado, Em Progresso, Bem Sucedido, Falhado, Ativo e Resolvido. |
 | subStatus |Geralmente inclui o código de estado HTTP da chamada REST correspondente. Também pode incluir outras cordas que descrevem um substatus. Os valores comuns do substatus incluem OK (HTTP Status Code: 200), Created (HTTP Status Code: 201), Accepted (HTTP Status Code: 202), No Content (HTTP Status Code: 204), Bad Request (CÓDIGO DE Estado HTTP: 4), Não Encontrado (Código de Estado HTTP: 404), Conflito (Código de Estado HTTP: 409), Erro do Servidor Interno (Código de Estado HTTP: 500), Serviço Indisponível (Código de Estado HTTP: 503) e Prazo de Gateway (Código de Estado HTTP : 504). |
 
-Para obter detalhes específicos sobre todos os outros alertas de registo de atividade, consulte [a visão geral do registo de atividades do Azure](../platform/platform-logs-overview.md).
+Para obter detalhes específicos sobre todos os outros alertas de registo de atividade, consulte [a visão geral do registo de atividades do Azure](../essentials/platform-logs-overview.md).
 
 ## <a name="next-steps"></a>Passos seguintes
-* [Saiba mais sobre o registo de atividades.](../platform/platform-logs-overview.md)
+* [Saiba mais sobre o registo de atividades.](../essentials/platform-logs-overview.md)
 * [Execute scripts de automatização Azure (Runbooks) em alertas Azure](https://go.microsoft.com/fwlink/?LinkId=627081).
 * [Utilize uma aplicação lógica para enviar um SMS via Twilio a partir de um alerta Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app). Este exemplo é para alertas métricos, mas pode ser modificado para funcionar com um alerta de registo de atividade.
 * [Utilize uma aplicação lógica para enviar uma mensagem Slack a partir de um alerta Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app). Este exemplo é para alertas métricos, mas pode ser modificado para funcionar com um alerta de registo de atividade.

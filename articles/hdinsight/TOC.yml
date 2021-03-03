@@ -40,8 +40,18 @@
           href: 'https://azure.microsoft.com/resources/samples/?service=hdinsight'
     - name: Conceitos
       items:
-        - name: Componentes do Apache no HDInsight
-          href: ./hdinsight-component-versioning.md
+        - name: Controlo de versões
+          items:
+            - name: Introdução da versão
+              href: ./hdinsight-overview-versioning.md
+            - name: Versões HDInsight
+              href: ./hdinsight-component-versioning.md
+            - name: Versão HDInsight 4.0
+              href: ./hdinsight-40-component-versioning.md
+            - name: HDInsight versão 3.6
+              href: ./hdinsight-36-component-versioning.md
+            - name: Versões HDInsight aposentadas
+              href: ./hdinsight-retired-versions.md
         - name: Pacote de Segurança Enterprise
           href: ./enterprise-security-package.md
         - name: Notas de versão da Hortonworks
@@ -650,7 +660,7 @@
             - name: Utilizar o Apache Kafka com o Hub IoT
               href: ./kafka/apache-kafka-connector-iot-hub.md
             - name: Registo de Esquema Confluente
-              href: ./kafka/schema-registry.md
+              href: ./kafka/apache-kafka-producer-consumer-api.md
             - name: Criar pipelines de transmissão em fluxo
               items:
                 - name: 'Apache Spark, Apache Kafka e Azure Cosmos DB'
@@ -817,6 +827,10 @@
               href: ./interactive-query/apache-hive-query-odbc-driver-powershell.md
         - name: Gerir
           items:
+            - name: Copiar tabelas de Colmeia em todas as contas de armazenamento
+              href: ./interactive-query/hive-migration-across-storage-accounts.md
+            - name: Migrar a metásta de Hive padrão para a metásta externa em Azure HDInsight
+              href: ./interactive-query/hive-default-metastore-export-import.md
             - name: Migrar cargas de trabalho do Hive para o HDInsight 4.0
               href: ./interactive-query/apache-hive-migrate-workloads.md
             - name: Otimizar as consultas do Apache Hive

@@ -8,20 +8,20 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 482c11395ff5dbbf2dd5bb8100451c3442f2f333
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: cfa5be01a0d36764086c6c9adf97e6cb166d2bb6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98744758"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728166"
 ---
 # <a name="configure-scaling-options-with-azure-cloud-services-extended-support"></a>Configure opções de escala com Azure Cloud Services (suporte alargado) 
 
 As condições podem ser configuradas para permitir que as implementações dos Serviços cloud (suporte alargado) sejam dimensionadas para dentro e para fora. Estas condições podem basear-se na utilização do CPU, na carga do disco e na carga de rede. 
 
 Considere as seguintes informações ao configurar o dimensionamento das suas implementações do Cloud Service:
-- A escala tem impacto no uso do núcleo. Casos de papel maior consomem mais núcleos e só pode escalar dentro do limite central da sua subscrição. Para obter mais informações, veja [Subscrição do Azure e limites de serviço, quotas e restrições](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
-- O dimensionamento baseado no limiar de mensagens de fila é suportado. Para mais informações, consulte [Começar com o armazenamento da Fila Azure.](https://docs.microsoft.com/azure/storage/queues/storage-dotnet-how-to-use-queues)
+- A escala tem impacto no uso do núcleo. Casos de papel maior consomem mais núcleos e só pode escalar dentro do limite central da sua subscrição. Para obter mais informações, veja [Subscrição do Azure e limites de serviço, quotas e restrições](../azure-resource-manager/management/azure-subscription-service-limits.md).
+- O dimensionamento baseado no limiar de mensagens de fila é suportado. Para mais informações, consulte [Começar com o armazenamento da Fila Azure.](../storage/queues/storage-dotnet-how-to-use-queues.md)
 - Para garantir uma elevada disponibilidade das suas aplicações cloud Service (suporte alargado), certifique-se de implementar com duas ou mais instâncias de função.
 - A autoescala personalizada só pode ocorrer quando todas as funções estão num estado **De Ready.**
 
@@ -61,7 +61,7 @@ Considere as seguintes informações ao configurar o dimensionamento das suas im
 
     :::image type="content" source="media/enable-scaling-5.png" alt-text="A imagem mostra o ajuste de uma regra de escala existente no portal Azure":::
 
-## <a name="next-steps"></a>Próximos passos 
+## <a name="next-steps"></a>Passos seguintes 
 - Reveja os [pré-requisitos](deploy-prerequisite.md) de implantação para serviços em nuvem (suporte alargado).
 - Reveja [perguntas frequentes](faq.md) para serviços cloud (suporte alargado).
 - Implementar um Serviço de Cloud (suporte alargado) utilizando o [portal Azure](deploy-portal.md), [PowerShell,](deploy-powershell.md) [Modelo](deploy-template.md) ou [Estúdio Visual](deploy-visual-studio.md).

@@ -5,13 +5,13 @@ author: lfittl-msft
 ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/22/2020
-ms.openlocfilehash: a3c8c8b2316a206ba837c0b32fd699dc0ed1eeea
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.date: 02/19/2021
+ms.openlocfilehash: b76b6ff788d3d7f44db33af96944d528282f0ac7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100519393"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101712220"
 ---
 # <a name="compute-and-storage-options-in-azure-database-for-postgresql---flexible-server"></a>Opções de computação e armazenamento em Base de Dados Azure para PostgreSQL - Servidor Flexível
 
@@ -120,6 +120,9 @@ Pode monitorizar o seu consumo de E/S no portal Azure ou utilizando comandos Azu
 
 Quando marcado com um \* , o IOPS é limitado pelo tipo VM selecionado. Caso contrário, o IOPS é limitado pelo tamanho de armazenamento selecionado.
 
+>[!NOTE]
+> Pode ver IOPS mais elevado nas métricas devido à explosão do nível do disco. Consulte a [documentação](https://docs.microsoft.com/azure/virtual-machines/disk-bursting#disk-level-bursting) para mais detalhes. 
+
 ### <a name="maximum-io-bandwidth-mibsec-for-your-configuration"></a>Largura de banda máxima de I/O (MiB/seg) para a sua configuração
 
 |Nome SKU            |Tamanho do armazenamento, GiB                             |32 |64 |128 |256 |512  |1,024|2048|4,096|8,192 |16 384|
@@ -147,7 +150,7 @@ Quando marcado com um \* , o IOPS é limitado pelo tipo VM selecionado. Caso con
 
 Quando marcado com uma \* largura de banda , a largura de banda de I/S é limitada pelo tipo VM selecionado. Caso contrário, a largura de banda de I/S é limitada pelo tamanho de armazenamento selecionado.
 
-### <a name="reaching-the-storage-limit"></a>Atingindo o limite de armazenamento
+### <a name="reaching-the-storage-limit"></a>Atingir o limite de armazenamento
 
 Quando atingir o limite de armazenamento, o servidor começará a retornar erros e evitará quaisquer modificações adicionais. Isto também pode causar problemas com outras atividades operacionais, tais como backups e arquivo WAL.
 

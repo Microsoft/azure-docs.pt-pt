@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/10/2020
 ms.custom: lyrana
-ms.openlocfilehash: 940f7efc7130ef80817be3b42e3c0eff83588a90
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: a46ddeddfcefcd4d6e7f87747fe36cfc6ec82e35
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100587978"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737567"
 ---
 # <a name="monitoring-time-series-insights"></a>Insights das Séries de Tempo de Monitorização
 
@@ -63,7 +63,7 @@ Pode recolher registos das seguintes categorias para Azure Time Series Insights:
 
 ## <a name="analyzing-metrics"></a>Análise de métricas
 
-Pode analisar métricas para Azure Time Series Insights, juntamente com métricas de outros serviços Azure, abrindo métricas a partir do menu Azure Monitor. Consulte [o Azure Metrics Explorer](../azure-monitor/platform/metrics-getting-started.md) para obter detalhes sobre a utilização desta ferramenta.
+Pode analisar métricas para Azure Time Series Insights, juntamente com métricas de outros serviços Azure, abrindo métricas a partir do menu Azure Monitor. Consulte [o Azure Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md) para obter detalhes sobre a utilização desta ferramenta.
 
 Para obter uma lista das métricas da plataforma recolhidas, consulte a referência de dados da [Série de Tempos Azure](how-to-monitor-tsi-reference.md#metrics)
 
@@ -115,7 +115,7 @@ Seguem-se as consultas que pode utilizar para o ajudar a monitorizar o ambiente 
 
 ## <a name="alerts"></a>Alertas
 
-Os alertas do Azure Monitor notificam-no proativamente quando forem encontradas condições importantes nos seus dados de monitorização. Permitem identificar e resolver problemas no seu sistema antes que os seus clientes os percebam. Pode definir alertas em [métricas,](../azure-monitor/platform/alerts-metric-overview.md) [registos](../azure-monitor/platform/alerts-unified-log.md)e no registo de [atividades](../azure-monitor/platform/activity-log-alerts.md). Diferentes tipos de alertas têm benefícios e inconvenientes.
+Os alertas do Azure Monitor notificam-no proativamente quando forem encontradas condições importantes nos seus dados de monitorização. Permitem identificar e resolver problemas no seu sistema antes que os seus clientes os percebam. Pode definir alertas em [métricas,](../azure-monitor/alerts/alerts-metric-overview.md) [registos](../azure-monitor/alerts/alerts-unified-log.md)e no registo de [atividades](../azure-monitor/alerts/activity-log-alerts.md). Diferentes tipos de alertas têm benefícios e inconvenientes.
 
 Ao criar uma regra de alerta baseada em métricas da plataforma, esteja ciente de que para as métricas da plataforma Time Series Insights que são recolhidas em unidades de contagem, algumas agregações podem não estar disponíveis ou utilizáveis.
 

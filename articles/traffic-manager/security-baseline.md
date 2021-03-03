@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: f8f9da1b9c0b2df4e353b90538d52d9cb9b9e241
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 62be64f3134bbbbbe2b18bef384654168f958287
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101093920"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101701608"
 ---
 # <a name="azure-security-baseline-for-azure-traffic-manager"></a>Linha de segurança Azure para Azure Traffic Manager
 
@@ -62,7 +62,7 @@ Ativar as definições de diagnóstico dentro do Azure Monitor para acesso a reg
 
 - [Alterar o período de retenção de dados em Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
-- [Como configurar a política de retenção para os registos de conta de armazenamento Azure](../storage/common/storage-monitor-storage-account.md#configure-logging)
+- [Como configurar a política de retenção para os registos de conta de armazenamento Azure](../storage/common/manage-storage-analytics-logs.md#configure-logging)
 
 **Monitorização do Centro de Segurança do Azure**: Não aplicável
 

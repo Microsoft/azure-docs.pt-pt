@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 02/01/2021
-ms.openlocfilehash: 62bdafd2dba31d875b0befccca0fb4a0e94f4e79
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: e096e21e7d20c992e18634d684f663f149cc3c55
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100582820"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691251"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Encriptação de Dados Transparente do SQL do Azure com chave gerida pelo cliente
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -187,7 +187,7 @@ Consideração adicional para ficheiros de registo: Os ficheiros de registo com 
 
 Mesmo nos casos em que não há geo-redundância configurada para o servidor, é altamente recomendado configurar o servidor para usar dois cofres-chave diferentes em duas regiões diferentes com o mesmo material chave. A chave no cofre de chaves secundárias da outra região não deve ser marcada como protetor tde, e nem sequer é permitida. Se houver uma falha que afete o cofre principal da chave, e só então, o sistema mudará automaticamente para a outra chave ligada com a mesma impressão digital no cofre da chave secundária, se existir. Note que esse interruptor não acontecerá se o protetor TDE estiver inacessível devido a direitos de acesso revogados, ou porque a chave ou o cofre chave são eliminados, pois pode indicar que o cliente intencionalmente queria restringir o servidor de aceder à chave. Fornecer o mesmo material chave para dois cofres chave em diferentes regiões pode ser feito criando a chave fora do cofre chave, e importando-os em ambos os cofres chave. 
 
-Em alternativa, pode ser realizado gerando chave usando o cofre principal co-localizado na mesma região que o servidor e clonando a chave em um cofre chave em uma região de Azure diferente. Utilize o [cmdlet Backup-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/Backup-AzKeyVaultKey) para recuperar a chave em formato encriptado a partir do cofre de tecla primária e, em seguida, use o cmdlet [Restore-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/restore-azkeyvaultkey) e especifique um cofre chave na segunda região para clonar a chave. Em alternativa, utilize o portal Azure para fazer recuar e restaurar a chave. A operação de backup/restauro de chaves só é permitida entre cofres chave dentro da mesma assinatura Azure e [geografia Azure](https://azure.microsoft.com/global-infrastructure/geographies/).  
+Em alternativa, pode ser realizado gerando chave usando o cofre principal co-localizado na mesma região que o servidor e clonando a chave em um cofre chave em uma região de Azure diferente. Utilize o [cmdlet Backup-AzKeyVaultKey](/powershell/module/az.keyvault/Backup-AzKeyVaultKey) para recuperar a chave em formato encriptado a partir do cofre de tecla primária e, em seguida, use o cmdlet [Restore-AzKeyVaultKey](/powershell/module/az.keyvault/restore-azkeyvaultkey) e especifique um cofre chave na segunda região para clonar a chave. Em alternativa, utilize o portal Azure para fazer recuar e restaurar a chave. A operação de backup/restauro de chaves só é permitida entre cofres chave dentro da mesma assinatura Azure e [geografia Azure](https://azure.microsoft.com/global-infrastructure/geographies/).  
 
 ![Single-Server HA](./media/transparent-data-encryption-byok-overview/customer-managed-tde-with-ha.png)
 

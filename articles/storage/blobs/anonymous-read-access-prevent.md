@@ -10,12 +10,12 @@ ms.date: 12/09/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: blobs
-ms.openlocfilehash: b0003384676f420c5ece043b1eb6120ed8ee2435
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 53f29c2b8f7a17ac2a23cc081660e8dcb4b9f387
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100574903"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101701863"
 ---
 # <a name="prevent-anonymous-public-read-access-to-containers-and-blobs"></a>Impedir que o público anónimo leia o acesso a contentores e bolhas
 
@@ -78,7 +78,6 @@ O registo de armazenamento Azure no Azure Monitor suporta a utilização de cons
 
 Para registar os dados de Armazenamento Azure com o Azure Monitor e analisá-los com o Azure Log Analytics, tem primeiro de criar uma definição de diagnóstico que indique quais os tipos de pedidos e quais os serviços de armazenamento que pretende registar dados. Para criar uma definição de diagnóstico no portal Azure, siga estes passos:
 
-1. Inscreva-se no registo de [armazenamento Azure na pré-visualização do Azure Monitor](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUM0E0MFdPRFpOVTRYVklDSE1WUTcyTVAwOC4u).
 1. Crie um novo espaço de trabalho log Analytics na subscrição que contenha a sua conta de Armazenamento Azure. Depois de configurar o registo da sua conta de armazenamento, os registos estarão disponíveis no espaço de trabalho do Log Analytics. Para obter mais informações, consulte [Criar um espaço de trabalho log Analytics no portal Azure](../../azure-monitor/logs/quick-create-workspace.md).
 1. Navegue para a sua conta de armazenamento no portal do Azure.
 1. Na secção de Monitorização, selecione **definições de diagnóstico (pré-visualização)**.

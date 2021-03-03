@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/01/2021
 ms.author: panosper
-ms.openlocfilehash: 21924ad5da8833ca5cf8373270ed1bfd3facfdc9
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 1ebba3231a7b3a86b98bcc14d1257412d1557ff3
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100388622"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738196"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Discurso ao Texto frequentemente feito perguntas
 
@@ -138,7 +138,9 @@ Ver [Quotas e Limites de Serviços de Fala.](speech-services-quotas-and-limits.m
 
 **R**: Treinar um modelo com dados áudio pode ser um processo moroso. Dependendo da quantidade de dados, pode levar vários dias para criar um modelo personalizado. Se não puder ser terminado no prazo de uma semana, o serviço poderá abortar a operação de treino e reportar o modelo como falhado.
 
-Para obter resultados mais rápidos, utilize uma das [regiões](custom-speech-overview.md#set-up-your-azure-account) onde o hardware dedicado está disponível para treino. Em geral, o serviço processa aproximadamente 10 horas de dados áudio por dia em regiões com tal hardware. Só pode processar cerca de 1 hora de dados áudio por dia noutras regiões. Pode copiar o modelo totalmente treinado para outra região utilizando a [API REST](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscription). Treinar com texto justo é muito mais rápido e normalmente termina em minutos.
+Utilize uma das [regiões](custom-speech-overview.md#set-up-your-azure-account) onde o hardware dedicado está disponível para treino. O serviço Discurso utilizará até 20 horas de áudio para formação nestas regiões. Noutras regiões, só utilizará até 8 horas.
+
+Em geral, o serviço processa aproximadamente 10 horas de dados áudio por dia em regiões com hardware dedicado. Só pode processar cerca de 1 hora de dados áudio por dia noutras regiões. Pode copiar o modelo totalmente treinado para outra região utilizando a [API REST](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscription). Treinar com texto justo é muito mais rápido e normalmente termina em minutos.
 
 Alguns modelos base não podem ser personalizados com dados áudio. Para eles o serviço apenas usará o texto da transcrição para treino e ignorará os dados áudio. A formação será então terminada muito mais rapidamente e os resultados serão os mesmos que treinar com texto justo. Consulte [o suporte linguístico](language-support.md#speech-to-text) para uma lista de modelos base que suportam a formação com dados áudio.
 

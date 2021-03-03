@@ -6,18 +6,20 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/08/2021
-ms.openlocfilehash: a81676b9985b134a8214f7f5f97d85d27259b71f
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 4db9503ea84ae13148a89a03048c73399413e5cc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100417564"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101710197"
 ---
 # <a name="parse-transformation-in-mapping-data-flow"></a>Transformação de parse no fluxo de dados de mapeamento
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Utilize a transformação parse para analisar colunas nos seus dados que estão em forma de documento. Os tipos atuais de documentos incorporados que podem ser analisados são JSON e texto delimitado.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWykdO]
 
 ## <a name="configuration"></a>Configuração
 

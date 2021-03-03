@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/31/2020
-ms.openlocfilehash: 678a6f0dc19d966f3d15e713008c19c8fbb96f5e
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 5eaa2d686ecd38c006a720e9ffb97a4604f18ba8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100620812"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708871"
 ---
 # <a name="using-functions-in-azure-monitor-log-queries"></a>Utilização de funções em consultas de registo do Monitor de Azure
 
@@ -35,7 +35,7 @@ Crie uma função com o Log Analytics no portal Azure clicando em **Guardar** e,
 Utilize uma função incluindo o seu pseudónimo noutra consulta. Pode ser usado como qualquer outra mesa.
 
 ## <a name="function-parameters"></a>Parâmetros de função 
-Pode adicionar parâmetros a uma função para que possa fornecer valores para determinadas variáveis ao chamá-la. A única maneira de criar uma função com parâmetros é usar um modelo de Gestor de Recursos. Consulte [as amostras de modelo do Gestor de Recursos para consultas de registo no Azure Monitor,](../samples/resource-manager-log-queries.md#parameterized-function) por exemplo.
+Pode adicionar parâmetros a uma função para que possa fornecer valores para determinadas variáveis ao chamá-la. A única maneira de criar uma função com parâmetros é usar um modelo de Gestor de Recursos. Consulte [as amostras de modelo do Gestor de Recursos para consultas de registo no Azure Monitor,](./resource-manager-log-queries.md#parameterized-function) por exemplo.
 
 ## <a name="example"></a>Exemplo
 A seguinte consulta de amostra devolve todas as atualizações de segurança em falta reportadas no último dia. Guarde esta consulta em função do pseudónimo _security_updates_last_day_. 

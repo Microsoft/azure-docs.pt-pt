@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 02/11/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 19ce054ce29b744f900676ecf4e55af3487d9891
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: c775d81b88c891d6d8ea0a4597b4fa4fee29c86a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100373475"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737550"
 ---
 # <a name="set-up-msix-app-attach-with-the-azure-portal"></a>Configurar a anexação de aplicações MSIX com o portal do Azure
 
@@ -36,6 +36,7 @@ Aqui está o que precisa para configurar o anexo da app MSIX:
 - Uma aplicação embalada pela MSIX expandiu-se para uma imagem MSIX que é enviada para uma partilha de ficheiros.
 - Uma partilha de ficheiros na sua implementação virtual do Windows Desktop onde o pacote MSIX será armazenado.
 - A partilha de ficheiros onde fez o upload da imagem MSIX também deve estar acessível a todas as máquinas virtuais (VMs) na piscina anfitriã. Os utilizadores precisarão de permissões apenas de leitura para aceder à imagem.
+- Se o certificado não for de confiança pública, siga as instruções nos [certificados de instalação](app-attach.md#install-certificates).
 
 ## <a name="turn-off-automatic-updates-for-msix-app-attach-applications"></a>Desativar atualizações automáticas para aplicações de app MSIX anexar
 

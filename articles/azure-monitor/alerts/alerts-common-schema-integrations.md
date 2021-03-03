@@ -4,12 +4,12 @@ description: Saiba como criar uma aplicação lógica que aproveite o esquema de
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 05/27/2019
-ms.openlocfilehash: 4553ecc8d2df20ffdf9b76d381ecf3b88d84ef38
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 4824c5ab1826260ee1eb3639712d7138c7c85bfe
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614782"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738672"
 ---
 # <a name="how-to-integrate-the-common-alert-schema-with-logic-apps"></a>Como integrar o esquema de alerta comum com apps lógicas
 
@@ -23,8 +23,8 @@ O [esquema de alerta comum](./alerts-common-schema.md) fornece um esquema JSON p
 ## <a name="prerequisites"></a>Pré-requisitos 
 
 Este artigo assume que o leitor está familiarizado com 
-* Configuração de regras de alerta[(métrica,](../alerts/alerts-metric.md) [log,](../platform/alerts-log.md) [log, log de atividades)](../platform/alerts-activity-log.md)
-* Criação de [grupos de ação](../platform/action-groups.md)
+* Configuração de regras de alerta[(métrica,](../alerts/alerts-metric.md) [log,](./alerts-log.md) [log, log de atividades)](./alerts-activity-log.md)
+* Criação de [grupos de ação](./action-groups.md)
 * Permitir o [esquema de alerta comum](./alerts-common-schema.md#how-do-i-enable-the-common-alert-schema) dentro de grupos de ação
 
 ## <a name="create-a-logic-app-leveraging-the-common-alert-schema"></a>Crie uma aplicação lógica aproveitando o esquema de alerta comum
@@ -137,5 +137,5 @@ Este artigo assume que o leitor está familiarizado com
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Saiba mais sobre grupos de ação.](../platform/action-groups.md)
+* [Saiba mais sobre grupos de ação.](./action-groups.md)
 * [Saiba mais sobre o esquema de alerta comum.](./alerts-common-schema.md)

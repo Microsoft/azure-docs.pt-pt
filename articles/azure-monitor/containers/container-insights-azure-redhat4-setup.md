@@ -1,30 +1,30 @@
 ---
-title: Configure Azure Red Hat OpenShift v4.x com Monitor Azure para recipientes | Microsoft Docs
+title: Configure Azure Red Hat OpenShift v4.x com insights de recipiente | Microsoft Docs
 description: Este artigo descreve como configurar a monitorização para um cluster Kubernetes com o Azure Monitor que está hospedado na versão 4 ou mais tarde do Azure Red Hat OpenShift.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: e6668ac22c6c0f53c7511cfb76bf50c5474f3a76
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: a9e04818f1a915a853d32b5db408a521cdae9f4c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100620111"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713937"
 ---
-# <a name="configure-azure-red-hat-openshift-v4x-with-azure-monitor-for-containers"></a>Configure Azure Red Hat OpenShift v4.x com Monitor Azure para recipientes
+# <a name="configure-azure-red-hat-openshift-v4x-with-container-insights"></a>Configure Azure Red Hat OpenShift v4.x com insights de contentores
 
-O Azure Monitor para contentores proporciona uma rica experiência de monitorização para os clusters de motores Azure Kubernetes (AKS) e AKS. Este artigo descreve como obter uma experiência de monitorização semelhante, permitindo a monitorização de clusters Kubernetes que são hospedados na versão 4.x [do Azure Red Hat OpenShift.](../../openshift/intro-openshift.md)
+Os insights de contentores proporcionam uma experiência de monitorização rica para clusters de motores Azure Kubernetes (AKS) e AKS. Este artigo descreve como obter uma experiência de monitorização semelhante, permitindo a monitorização de clusters Kubernetes que são hospedados na versão 4.x [do Azure Red Hat OpenShift.](../../openshift/intro-openshift.md)
 
 >[!NOTE]
 >Suporte para Azure Red Hat OpenShift é uma funcionalidade em pré-visualização pública neste momento.
 >
 
-Pode ativar o Azure Monitor para contentores para uma ou mais implementações existentes do Azure Red Hat OpenShift v4.x utilizando os métodos suportados descritos neste artigo.
+Pode ativar informações sobre o Contentor para uma ou mais implementações existentes do Azure Red Hat OpenShift v4.x utilizando os métodos suportados descritos neste artigo.
 
 Para um cluster existente, execute este [script Bash no Azure CLI](/cli/azure/openshift#az-openshift-create&preserve-view=true).
 
 ## <a name="supported-and-unsupported-features"></a>Funcionalidades suportadas e não apoiadas
 
-O Monitor Azure para contentores suporta a monitorização do Azure Red Hat OpenShift v4.x, conforme descrito no [Azure Monitor para a visão geral dos contentores,](container-insights-overview.md)com exceção das seguintes características:
+Os insights do contentor suportam a monitorização do Azure Red Hat OpenShift v4.x, conforme descrito na [visão geral do contentor,](container-insights-overview.md)exceto nas seguintes características:
 
 - Dados ao Vivo (pré-visualização)
 - [Recolher métricas](container-insights-update-metrics.md) de nódoas e cápsulas de cluster e guardá-las na base de dados de métricas do Monitor Azure
@@ -39,13 +39,13 @@ O Monitor Azure para contentores suporta a monitorização do Azure Red Hat Open
 
 - A ferramenta de linha de comando [Kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
 
-- Uma [área de trabalho do Log Analytics](../platform/design-logs-deployment.md).
+- Uma [área de trabalho do Log Analytics](../logs/design-logs-deployment.md).
 
-    O Azure Monitor para contentores suporta um espaço de trabalho Log Analytics nas regiões listadas nos Produtos Azure [por região.](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor) Para criar o seu próprio espaço de trabalho, pode ser criado através do [Azure Resource Manager,](../samples/resource-manager-workspace.md)através do [PowerShell,](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)ou no [portal Azure.](../learn/quick-create-workspace.md)
+    Os insights de contentores suportam um espaço de trabalho Log Analytics nas regiões listadas nos Produtos Azure [por região.](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor) Para criar o seu próprio espaço de trabalho, pode ser criado através do [Azure Resource Manager,](../logs/resource-manager-workspace.md)através do [PowerShell,](../logs/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)ou no [portal Azure.](../logs/quick-create-workspace.md)
 
-- Para ativar e aceder às funcionalidades no Azure Monitor para contentores, é necessário ter, no mínimo, um papel *de Azure Contribute* na subscrição do Azure e uma função [*de Contribuinte Log Analytics*](../platform/manage-access.md#manage-access-using-azure-permissions) no espaço de trabalho Log Analytics, configurado com monitor Azure para contentores.
+- Para ativar e aceder às funcionalidades em insights do Container, é necessário ter, no mínimo, um papel *de Contribuidor* Azure na subscrição do Azure e um papel [*de Contribuinte Log Analytics*](../logs/manage-access.md#manage-access-using-azure-permissions) no espaço de trabalho Log Analytics, configurado com insights de Contentores.
 
-- Para visualizar os dados de monitorização, é necessário ter o papel de [*leitor do Log Analytics*](../platform/manage-access.md#manage-access-using-azure-permissions) no espaço de trabalho Do Log Analytics, configurado com o Azure Monitor para contentores.
+- Para visualizar os dados de monitorização, é necessário ter o papel de [*leitor do Log Analytics*](../logs/manage-access.md#manage-access-using-azure-permissions) no espaço de trabalho Do Log Analytics, configurado com insights do Contentor.
 
 ## <a name="enable-monitoring-for-an-existing-cluster"></a>Permitir a monitorização de um cluster existente
 
@@ -68,7 +68,7 @@ Para permitir a monitorização de um Azure Red Hat OpenShift versão 4 ou poste
     adminPassword=$(az aro list-credentials -g $clusterResourceGroup -n $clusterName --query 'kubeadminPassword' -o tsv)
     apiServer=$(az aro show -g $clusterResourceGroup -n $clusterName --query apiserverProfile.url -o tsv)
     oc login $apiServer -u $adminUserName -p $adminPassword
-    # openshift project name for azure monitor for containers
+    # openshift project name for Container insights
     openshiftProjectName="azure-monitor-for-containers"
     oc new-project $openshiftProjectName
     # get the kube config context
@@ -150,7 +150,7 @@ Depois de ter ativado a monitorização, pode demorar cerca de 15 minutos até p
 
 ### <a name="enable-monitoring-from-the-azure-portal"></a>Permitir a monitorização a partir do portal Azure
 
-A vista multi-cluster no Azure Monitor para contentores destaca os seus clusters Azure Red Hat OpenShift que não têm monitorização ativada no **separador clusters não monitorizados.** A opção **Enable** ao lado do seu cluster não inicia o embarque de monitorização a partir do portal. Você é redirecionado para este artigo para permitir a monitorização manualmente seguindo os passos que foram delineados anteriormente neste artigo.
+A vista multi-cluster em insights de contentores realça os seus clusters Azure Red Hat OpenShift que não têm monitorização ativada sob o **separador clusters não monitorizados.** A opção **Enable** ao lado do seu cluster não inicia o embarque de monitorização a partir do portal. Você é redirecionado para este artigo para permitir a monitorização manualmente seguindo os passos que foram delineados anteriormente neste artigo.
 
 1. Inicie sessão no [portal do Azure](https://portal.azure.com).
 
@@ -166,10 +166,10 @@ A vista multi-cluster no Azure Monitor para contentores destaca os seus clusters
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Agora que permitiu a monitorização para recolher a saúde e a utilização de recursos do seu cluster RedHat OpenShift 4.x e das cargas de trabalho que estão a funcionar sobre eles, aprenda [a usar](container-insights-analyze.md) o Azure Monitor para recipientes.
+- Agora que permitiu a monitorização para recolher a saúde e a utilização de recursos do seu cluster RedHat OpenShift 4.x e das cargas de trabalho que estão a funcionar sobre eles, aprenda [a usar](container-insights-analyze.md) insights de Contentores.
 
 - Por predefinição, o agente contentor recolhe os registos de contentores *de stdout* e *stderr* de todos os recipientes que estão a funcionar em todos os espaços de nome, exceto o sistema kube. Para configurar uma recolha de registos de contentores específica para um determinado espaço de nome ou espaço de nome, reveja a [configuração](container-insights-agent-config.md) do agente Do Contentor Insights para configurar as definições de recolha de dados que deseja para o seu ficheiro de configuração *ConfigMap.*
 
 - Para raspar e analisar as métricas de Prometeu do seu cluster, [reveja as métricas Configure Prometheus raspando](container-insights-prometheus-integration.md).
 
-- Para aprender a parar de monitorizar o seu cluster utilizando o Azure Monitor para recipientes, consulte [Como parar de monitorizar o seu cluster Azure Red Hat OpenShift](./container-insights-optout-openshift-v3.md).
+- Para aprender a parar de monitorizar o seu cluster utilizando insights de recipiente, consulte [Como parar de monitorizar o seu cluster Azure Red Hat OpenShift](./container-insights-optout-openshift-v3.md).

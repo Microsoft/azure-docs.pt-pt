@@ -6,19 +6,19 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.subservice: alerts
-ms.openlocfilehash: cfe6aa489bcc771213ec04ca9cddd1267ccf1338
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: cda3af012a83342d5650c542fafdcd6bc36bd8e3
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100616282"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717983"
 ---
 # <a name="optimizing-log-alert-queries"></a>Otimização de consultas de alerta de registo
-Este artigo descreve como escrever e converter consultas [de Alerta de Log](../platform/alerts-unified-log.md) para obter um desempenho ideal. Consultas otimizadas reduzem a latência e a carga de alertas, que funcionam com frequência.
+Este artigo descreve como escrever e converter consultas [de Alerta de Log](./alerts-unified-log.md) para obter um desempenho ideal. Consultas otimizadas reduzem a latência e a carga de alertas, que funcionam com frequência.
 
 ## <a name="how-to-start-writing-an-alert-log-query"></a>Como começar a escrever uma consulta de registo de alerta
 
-As consultas de alerta começam por [consulta dos dados de registo no Log Analytics](alerts-log.md#create-a-log-alert-rule-with-the-azure-portal) que indicam o problema. Pode usar o [tópico de exemplos de consulta de alerta](../log-query/example-queries.md) para entender o que pode descobrir. Também pode [começar a escrever a sua própria consulta.](../log-query/log-analytics-tutorial.md) 
+As consultas de alerta começam por [consulta dos dados de registo no Log Analytics](alerts-log.md#create-a-log-alert-rule-with-the-azure-portal) que indicam o problema. Pode usar o [tópico de exemplos de consulta de alerta](../logs/example-queries.md) para entender o que pode descobrir. Também pode [começar a escrever a sua própria consulta.](../logs/log-analytics-tutorial.md) 
 
 ### <a name="queries-that-indicate-the-issue-and-not-the-alert"></a>Consultas que indicam o problema e não o alerta
 
@@ -44,7 +44,7 @@ Não há necessidade de adicionar lógica de alerta à consulta e fazer que pode
 O uso `limit` e nas consultas pode aumentar a `take` latência e a carga de alertas, uma vez que os resultados não são consistentes com o tempo. Prefere usá-lo apenas se necessário.
 
 ## <a name="log-query-constraints"></a>Restrições de consulta de registo
-[As consultas de registo no Azure Monitor](../log-query/log-query-overview.md) começam com uma [`search`](/azure/kusto/query/searchoperator) mesa, ou [`union`](/azure/kusto/query/unionoperator) operador.
+[As consultas de registo no Azure Monitor](../logs/log-query-overview.md) começam com uma [`search`](/azure/kusto/query/searchoperator) mesa, ou [`union`](/azure/kusto/query/unionoperator) operador.
 
 As consultas para as regras de alerta de registo devem sempre começar com uma tabela para definir um âmbito claro, o que melhora tanto o desempenho da consulta como a relevância dos resultados. As consultas em regras de alerta são executadas com frequência, pelo que a utilização e a utilização `search` pode resultar em excesso de `union` latência aérea ao alerta, uma vez que requer a digitalização em várias tabelas. Estes operadores também reduzem a capacidade do serviço de alerta para otimizar a consulta.
 
@@ -57,7 +57,7 @@ SecurityEvent
 | where EventID == 4624
 ```
 
-As regras de alerta de registo que utilizam [consultas de recursos cruzados](../log-query/cross-workspace-query.md) não são afetadas por esta alteração, uma vez que as consultas de recursos cruzados utilizam um tipo de , que limita o âmbito de `union` consulta a recursos específicos. O exemplo a seguir seria consulta válida de alerta de registo:
+As regras de alerta de registo que utilizam [consultas de recursos cruzados](../logs/cross-workspace-query.md) não são afetadas por esta alteração, uma vez que as consultas de recursos cruzados utilizam um tipo de , que limita o âmbito de `union` consulta a recursos específicos. O exemplo a seguir seria consulta válida de alerta de registo:
 
 ```Kusto
 union
@@ -67,7 +67,7 @@ workspace('Contoso-workspace1').Perf
 ```
 
 >[!NOTE]
-> [As consultas de recursos cruzados](../log-query/cross-workspace-query.md) são suportadas na nova [API agendada deQueryRules.](/rest/api/monitor/scheduledqueryrules) Se ainda utilizar o [legado Log Analytics Alert API](../platform/api-alerts.md) para criar alertas de registo, pode aprender a mudar [aqui](../alerts/alerts-log-api-switch.md).
+> [As consultas de recursos cruzados](../logs/cross-workspace-query.md) são suportadas na nova [API agendada deQueryRules.](/rest/api/monitor/scheduledqueryrules) Se ainda utilizar o [legado Log Analytics Alert API](./api-alerts.md) para criar alertas de registo, pode aprender a mudar [aqui](../alerts/alerts-log-api-switch.md).
 
 ## <a name="examples"></a>Exemplos
 Os exemplos seguintes incluem consultas de registo que usam `search` e `union` fornecem passos que você pode usar para modificar estas consultas para uso em regras de alerta.
@@ -217,4 +217,4 @@ SecurityEvent
 
 ## <a name="next-steps"></a>Passos seguintes
 - Saiba mais sobre [os alertas de registo](alerts-log.md) no Azure Monitor.
-- Saiba mais [sobre consultas de registo.](../log-query/log-query-overview.md)
+- Saiba mais [sobre consultas de registo.](../logs/log-query-overview.md)

@@ -6,19 +6,19 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/21/2020
-ms.openlocfilehash: 73496e350a5e40a3945343271b76c6d883991b62
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 9ea33c7dca55e22687bd1db873c281caa1a3c4cb
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100616992"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719938"
 ---
 # <a name="collect-custom-logs-with-log-analytics-agent-in-azure-monitor"></a>Recolha de registos personalizados com o agente do Log Analytics no Azure Monitor
 
 A fonte de dados de Registos Personalizados para o agente Log Analytics no Azure Monitor permite-lhe recolher eventos a partir de ficheiros de texto em ambos os computadores Windows e Linux. Muitas aplicações registam informações em ficheiros de texto em vez de serviços de registo padrão, como o registo do Windows Event ou o Syslog. Uma vez recolhidos, pode analisar os dados em campos individuais nas suas consultas ou extrair os dados durante a recolha para campos individuais.
 
 > [!IMPORTANT]
-> Este artigo cobre a recolha de registos personalizados com o [agente Log Analytics,](../platform/log-analytics-agent.md) que é um dos agentes utilizados pelo Azure Monitor. Outros agentes recolhem dados diferentes e são configurados de forma diferente. Consulte [a visão geral dos agentes do Azure Monitor](../agents/agents-overview.md) para obter uma lista dos agentes disponíveis e os dados que podem recolher.
+> Este artigo cobre a recolha de registos personalizados com o [agente Log Analytics,](./log-analytics-agent.md) que é um dos agentes utilizados pelo Azure Monitor. Outros agentes recolhem dados diferentes e são configurados de forma diferente. Consulte [a visão geral dos agentes do Azure Monitor](../agents/agents-overview.md) para obter uma lista dos agentes disponíveis e os dados que podem recolher.
 
 ![Coleção de registos personalizados](media/data-sources-custom-logs/overview.png)
 
@@ -78,7 +78,7 @@ Por exemplo, uma aplicação pode criar um ficheiro de registo todos os dias com
 
 A tabela seguinte fornece exemplos de padrões válidos para especificar diferentes ficheiros de registo.
 
-| Description | Caminho |
+| Descrição | Caminho |
 |:--- |:--- |
 | Todos os ficheiros em *C:\Logs* com extensão .txt no agente windows |C:\Registos \\ \* .txt |
 | Todos os ficheiros em *C:\Logs* com um nome a começar com log e uma extensão de .txt no agente do Windows |C:\Logs\log \* .txt |
@@ -105,7 +105,7 @@ Assim que o Azure Monitor começar a recolher a partir do registo personalizado,
 > Se faltar a propriedade RawData da consulta, poderá ter de fechar e reabrir o seu navegador.
 
 ### <a name="step-6-parse-the-custom-log-entries"></a>Passo 6. Analise as entradas de registo personalizado
-Toda a entrada de registo será armazenada numa única propriedade chamada **RawData**.  Provavelmente irá querer separar as diferentes peças de informação em cada entrada em propriedades individuais para cada registo. Consulte os [dados de texto da Parse no Azure Monitor](../log-query/parse-text.md) para obter opções sobre a análise **do RawData** em várias propriedades.
+Toda a entrada de registo será armazenada numa única propriedade chamada **RawData**.  Provavelmente irá querer separar as diferentes peças de informação em cada entrada em propriedades individuais para cada registo. Consulte os [dados de texto da Parse no Azure Monitor](../logs/parse-text.md) para obter opções sobre a análise **do RawData** em várias propriedades.
 
 ## <a name="removing-a-custom-log"></a>Remoção de um tronco personalizado
 Utilize o seguinte processo no portal Azure para remover um registo personalizado que definiu anteriormente.
@@ -116,7 +116,7 @@ Utilize o seguinte processo no portal Azure para remover um registo personalizad
 ## <a name="data-collection"></a>Recolha de dados
 O Azure Monitor recolherá novas entradas de cada registo personalizado aproximadamente a cada 5 minutos.  O agente gravará o seu lugar em cada ficheiro de registo que recolhe.  Se o agente ficar offline por um período de tempo, então o Azure Monitor recolherá as entradas de onde ficou pela última vez, mesmo que essas entradas tenham sido criadas enquanto o agente estava offline.
 
-Todo o conteúdo da entrada de registo é escrito numa única propriedade chamada **RawData**.  Consulte [os dados de texto parse no Azure Monitor](../log-query/parse-text.md) para obter métodos para analisar cada entrada de registo importado em várias propriedades.
+Todo o conteúdo da entrada de registo é escrito numa única propriedade chamada **RawData**.  Consulte [os dados de texto parse no Azure Monitor](../logs/parse-text.md) para obter métodos para analisar cada entrada de registo importado em várias propriedades.
 
 ## <a name="custom-log-record-properties"></a>Propriedades de registo de registo de registo personalizado
 Os registos de registos personalizados têm um tipo com o nome de registo que fornece e as propriedades na tabela seguinte.
@@ -125,7 +125,7 @@ Os registos de registos personalizados têm um tipo com o nome de registo que fo
 |:--- |:--- |
 | TimeGenerated |Data e hora em que o registo foi recolhido pelo Azure Monitor.  Se o registo utilizar um delimiter baseado no tempo, então este é o tempo recolhido da entrada. |
 | SourceSystem |Tipo de agente de onde o registo foi recolhido. <br> OpsManager - Agente windows, ou conectar diretamente ou Gestor de Operações do Centro de Sistema <br> Linux - Todos os agentes Linux |
-| RawData |Texto completo da entrada recolhida. Provavelmente irá querer [analisar estes dados em propriedades individuais.](../log-query/parse-text.md) |
+| RawData |Texto completo da entrada recolhida. Provavelmente irá querer [analisar estes dados em propriedades individuais.](../logs/parse-text.md) |
 | ManagementGroupName |Nome do grupo de gestão dos agentes de gestão de operações do System Center.  Para outros agentes, este é o AOI...\<workspace ID\> |
 
 
@@ -171,8 +171,8 @@ Embora os registos personalizados sejam úteis se os seus dados se enquadrarem n
 Nos casos em que os seus dados não possam ser recolhidos com registos personalizados, considere as seguintes estratégias alternativas:
 
 - Utilize um script personalizado ou outro método para escrever dados para [Eventos do Windows](data-sources-windows-events.md) ou [Syslog](data-sources-syslog.md) que são recolhidos pelo Azure Monitor. 
-- Envie os dados diretamente para o Azure Monitor utilizando [a API do Colecionador de Dados HTTP](../platform/data-collector-api.md). 
+- Envie os dados diretamente para o Azure Monitor utilizando [a API do Colecionador de Dados HTTP](../logs/data-collector-api.md). 
 
 ## <a name="next-steps"></a>Passos seguintes
-* Consulte [os dados de texto parse no Azure Monitor](../log-query/parse-text.md) para obter métodos para analisar cada entrada de registo importado em várias propriedades.
-* Saiba mais [sobre consultas de registo](../log-query/log-query-overview.md) para analisar os dados recolhidos a partir de fontes de dados e soluções.
+* Consulte [os dados de texto parse no Azure Monitor](../logs/parse-text.md) para obter métodos para analisar cada entrada de registo importado em várias propriedades.
+* Saiba mais [sobre consultas de registo](../logs/log-query-overview.md) para analisar os dados recolhidos a partir de fontes de dados e soluções.

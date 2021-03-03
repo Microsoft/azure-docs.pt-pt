@@ -2,17 +2,17 @@
 title: Tutorial - Configurar a rede para a sua nuvem privada VMware em Azure
 description: Aprenda a criar e configurar a rede necessária para implantar a sua nuvem privada em Azure
 ms.topic: tutorial
-ms.date: 09/21/2020
-ms.openlocfilehash: 6aff39284f3ea786080055552ac001ac5dd7b394
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 02/23/2021
+ms.openlocfilehash: b3afdffa127c23a3be3d247f12acc31604370ef6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91578360"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738451"
 ---
 # <a name="tutorial-configure-networking-for-your-vmware-private-cloud-in-azure"></a>Tutorial: Configurar a rede para a sua nuvem privada VMware em Azure
 
-Uma nuvem privada Azure VMware Solution requer uma Rede Virtual Azure. Como a Azure VMware Solution não suporta o seu vCenter no local, são necessários passos adicionais para a integração com o seu ambiente no local. A criação de um circuito ExpressRoute e de uma porta de entrada de rede virtual também são necessárias.
+Uma nuvem privada Azure VMware Solution requer uma Rede Virtual Azure. Como a Azure VMware Solution não suporta o seu vCenter no local, são necessários passos adicionais para a integração com o seu ambiente no local. É também necessário criar um circuito ExpressRoute e um gateway de rede virtual.
 
 Neste tutorial, ficará a saber como:
 
@@ -37,7 +37,7 @@ Uma rede virtual que criou uma [nuvem privada Azure VMware Solution](tutorial-cr
 
 1. Na página **'Criar Rede Virtual',** insira os detalhes da sua rede virtual.
 
-1. No **separador Básicos, insira** um nome para a rede virtual e selecione a região apropriada e selecione **Seguinte : Endereços IP**.
+1. No **separador Básicos, insira** um nome para a rede virtual, selecione a região apropriada e selecione **Seguinte : Endereços IP**.
 
 1. No separador **endereços IP,** no **espaço de endereço IPv4,** insira o espaço de endereço que criou no tutorial anterior.
 
@@ -76,7 +76,7 @@ Agora que criou uma rede virtual, criará uma porta de entrada de rede virtual.
    | **Intervalo de endereço de sub-rede gateway** | Este valor é preenchido quando seleciona a rede virtual. Não altere o valor predefinido. |
    | **Endereço IP público** | Selecione **Criar novo**. |
 
-   :::image type="content" source="./media/tutorial-configure-networking/create-virtual-network-gateway.png" alt-text="Selecione 'Rever + criar'." border="true":::
+   :::image type="content" source="./media/tutorial-configure-networking/create-virtual-network-gateway.png" alt-text="Forneça valores para os campos e, em seguida, selecione Review + create." border="true":::
 
 1. Verifique se os detalhes estão corretos e selecione **Criar** para iniciar a implementação do seu gateway de rede virtual. 
 1. Assim que a implementação estiver concluída, mova-se para a secção seguinte para ligar a sua ligação ExpressRoute ao gateway de rede virtual contendo a sua nuvem privada Azure VMware Solution.
@@ -94,7 +94,7 @@ Para iniciar sing para o gestor vCenter e NSX, você precisará dos URLs para o 
 
 Navegue para a sua nuvem privada Azure VMware Solution, em **Manage**, select **Identity**, aqui encontrará as informações necessárias.
 
-:::image type="content" source="./media/tutorial-configure-networking/locate-urls.png" alt-text="Selecione 'Rever + criar'." border="true":::
+:::image type="content" source="./media/tutorial-access-private-cloud/ss4-display-identity.png" alt-text="Screenshot das credenciais vCenter e NSX-T e URLs do cliente web." border="true":::
 
 ## <a name="next-steps"></a>Passos seguintes
 

@@ -6,18 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 12/21/2020
+ms.date: 03/01/2021
 ms.author: alkohli
-ms.openlocfilehash: 22d7ee518a458143fe25b677b680a964c538904f
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 2e54b8e58e8139c46639187957906790ffb0fe54
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98791565"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101727690"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-hyper-v"></a>Tutorial: Provision Azure Data Box Gateway em Hiper-V
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 
 Este tutorial descreve como aprovisionar um Data Box Gateway num sistema anfitrião com Hyper-V no Windows Server 2016, no Windows Server 2012 R2, ou no Windows Server 2012.
 
@@ -55,7 +55,7 @@ Antes de implementar um dispositivo, certifique-se de que:
 * O sistema anfitrião tem capacidade para dedicar os seguintes recursos para aprovisionar o seu dispositivo virtual:
 
   * Um mínimo de 4 núcleos.
-  * Pelos menos 8 GB de RAM.
+  * Pelos menos 8 GB de RAM. Recomendamos vivamente pelo menos 16 GB de RAM.
   * Uma interface de rede.
   * Um disco de 250 -GB DE SO.
   * Um disco virtual de 2-TB para dados.
@@ -193,7 +193,7 @@ Se enfrentar qualquer outro erro durante a configuração inicial utilizando a U
 * [Executar testes de diagnóstico para resolver problemas na configuração da UI web](data-box-gateway-troubleshoot.md#run-diagnostics).
 * [Gerei o pacote de registo e visualiza os ficheiros de registo](data-box-gateway-troubleshoot.md#collect-support-package).
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste tutorial, ficou a conhecer tópicos do Data Box Gateway, como:
 

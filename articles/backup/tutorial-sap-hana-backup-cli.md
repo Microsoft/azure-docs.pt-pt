@@ -4,12 +4,12 @@ description: Neste tutorial, aprenda a apoiar as bases de dados SAP HANA que est
 ms.topic: tutorial
 ms.date: 12/4/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: f146bed9ee607fe1b1b6062f9fe372fbb9b9ba6a
-ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
+ms.openlocfilehash: ba06ef876f30dc51e04fe7491d491621f5d8e21b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97746750"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101710605"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>Tutorial: Ressarça as bases de dados SAP HANA num Azure VM utilizando O Azure CLI
 
@@ -176,9 +176,7 @@ e0f15dae-7cac-4475-a833-f52c50e5b6c3  saphanaResourceGroup
 A resposta vai dar-lhe o nome do trabalho. Este nome de trabalho pode ser usado para rastrear o estado do trabalho usando o cmdlet [de trabalho de reserva az.](/cli/azure/backup/job#az-backup-job-show)
 
 >[!NOTE]
->Além de agendar uma cópia de segurança completa ou diferencial, também podem ser ativados manualmente. As cópias de segurança de registo são automaticamente ativadas e geridas pela SAP HANA internamente.
->
-> As cópias de segurança incrementais não são suportadas atualmente pelo Azure Backup.
+>As cópias de segurança de registo são automaticamente ativadas e geridas pela SAP HANA internamente.
 
 ## <a name="next-steps"></a>Passos seguintes
 

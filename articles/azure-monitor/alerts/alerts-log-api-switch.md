@@ -6,12 +6,12 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.subservice: alerts
-ms.openlocfilehash: 55f433786ed9dd40b08bb64395a6bbc50800add4
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: e07abdda805205701a10ca3bf295b7b0d2e71766
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100616291"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718034"
 ---
 # <a name="upgrade-to-the-current-log-alerts-api-from-legacy-log-analytics-alert-api"></a>Upgrade para o atual Log Alertas API do legado Log Analytics Alert API
 
@@ -19,23 +19,23 @@ ms.locfileid: "100616291"
 > Este artigo só é relevante para o público de Azure (**não** para o Governo de Azure ou para a nuvem da China Azure).
 
 > [!NOTE]
-> Uma vez que um utilizador opte por mudar a preferência para a atual [API de Regras Desípoadas de Marcação,](/rest/api/monitor/scheduledqueryrules) não é possível voltar ao [antigo legado Log Analytics Alert API](../platform/api-alerts.md).
+> Uma vez que um utilizador opte por mudar a preferência para a atual [API de Regras Desípoadas de Marcação,](/rest/api/monitor/scheduledqueryrules) não é possível voltar ao [antigo legado Log Analytics Alert API](./api-alerts.md).
 
-No passado, os utilizadores usaram o [legado Log Analytics Alert API](../platform/api-alerts.md) para gerir as regras de alerta de registo. Os espaços de trabalho atuais utilizam [a API de Regras Desírredas Programadas.](/rest/api/monitor/scheduledqueryrules) Este artigo descreve os benefícios e o processo de mudança da API legado para a API atual.
+No passado, os utilizadores usaram o [legado Log Analytics Alert API](./api-alerts.md) para gerir as regras de alerta de registo. Os espaços de trabalho atuais utilizam [a API de Regras Desírredas Programadas.](/rest/api/monitor/scheduledqueryrules) Este artigo descreve os benefícios e o processo de mudança da API legado para a API atual.
 
 ## <a name="benefits"></a>Benefícios
 
 - Modelo único para a criação de regras de alerta (anteriormente necessários três modelos separados).
 - API única para espaços de trabalho log analytics ou recursos de Insights de Aplicação.
-- [Suporte de cmdlets PowerShell](../platform/alerts-log.md#managing-log-alerts-using-powershell).
+- [Suporte de cmdlets PowerShell](./alerts-log.md#managing-log-alerts-using-powershell).
 - Alinhamento de severidades com todos os outros tipos de alerta.
-- Capacidade de criar [alerta de log de espaço de trabalho transversal](../log-query/cross-workspace-query.md) que abrange vários recursos externos, como espaços de trabalho Log Analytics ou recursos de Insights de Aplicação.
+- Capacidade de criar [alerta de log de espaço de trabalho transversal](../logs/cross-workspace-query.md) que abrange vários recursos externos, como espaços de trabalho Log Analytics ou recursos de Insights de Aplicação.
 - Os utilizadores podem especificar dimensões para dividir os alertas utilizando o parâmetro 'Agregar On'.
 - Os alertas de registo têm um período prolongado de até dois dias de dados (previamente limitados a um dia).
 
 ## <a name="impact"></a>Impacto
 
-- Todas as novas regras devem ser criadas/editadas com a API atual. Consulte a [utilização da amostra através do modelo de recursos Azure](alerts-log-create-templates.md) e [a utilização da amostra através do PowerShell](../platform/alerts-log.md#managing-log-alerts-using-powershell).
+- Todas as novas regras devem ser criadas/editadas com a API atual. Consulte a [utilização da amostra através do modelo de recursos Azure](alerts-log-create-templates.md) e [a utilização da amostra através do PowerShell](./alerts-log.md#managing-log-alerts-using-powershell).
 - À medida que as regras se tornam Azure Resource Manager rastreou recursos na atual API e deve ser único, o ID de recursos de regras mudará para esta estrutura: `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>` . Os nomes da regra de alerta permanecerão inalterados.
 
 ## <a name="process"></a>Processo
@@ -104,7 +104,7 @@ Se o espaço de trabalho Log Analytics não foi alterado, a resposta é:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- Saiba mais sobre o [Monitor Azure - Alertas de Registo](../platform/alerts-unified-log.md).
+- Saiba mais sobre o [Monitor Azure - Alertas de Registo](./alerts-unified-log.md).
 - Saiba como [gerir os seus alertas de registo utilizando a API](alerts-log-create-templates.md).
-- Saiba como [gerir os alertas de registo utilizando o PowerShell](../platform/alerts-log.md#managing-log-alerts-using-powershell).
-- Saiba mais sobre a [experiência Azure Alerts.](../platform/alerts-overview.md)
+- Saiba como [gerir os alertas de registo utilizando o PowerShell](./alerts-log.md#managing-log-alerts-using-powershell).
+- Saiba mais sobre a [experiência Azure Alerts.](./alerts-overview.md)

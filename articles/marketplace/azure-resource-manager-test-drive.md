@@ -7,18 +7,18 @@ ms.topic: article
 ms.date: 06/19/2020
 ms.author: trkeya
 author: trkeya
-ms.openlocfilehash: fd3fa04d2d7e868476838788dd9cf0e27c07aeca
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 2addf415c39691b4e662f304522a418aa8a778c2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96461760"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101730376"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Unidade de teste do Gestor de Recursos Azure
 
 Utilize este tipo se tiver uma oferta no Azure Marketplace ou appSource mas quiser construir um test drive apenas com recursos Azure. Um modelo Azure Resource Manager (ARM) é um recipiente codificado de recursos Azure que projeta para melhor representar a sua solução. O test drive pega no modelo ARM fornecido e implementa todos os recursos necessários para um grupo de recursos. Esta é a única opção de test drive para máquina virtual ou aplicação Azure.
 
-Se não está familiarizado com o que é um modelo ARM, leia [O que é Azure Resource Manager?](../azure-resource-manager/management/overview.md) [Understand the structure and syntax of ARM templates](../azure-resource-manager/templates/template-syntax.md)
+Se não está familiarizado com o que é um modelo ARM, leia [O que é Azure Resource Manager?](../azure-resource-manager/management/overview.md) [](../azure-resource-manager/templates/template-syntax.md)
 
 Para obter informações sobre um test drive de aplicações **hospedados** ou **lógicos,** veja [o que é um test drive?](what-is-test-drive.md)
 
@@ -75,7 +75,7 @@ Pode utilizar qualquer nome válido para os seus parâmetros; a unidade de teste
 
 | Tipo de metadados   | Tipo de parâmetro  | Descrição     | Valor da amostra    |
 |---|---|---|---|
-| **baseuri**     | string          | Base URI do seu pacote de implantação| `https:\//\<\..\>.blob.core.windows.net/\<\..\>` |
+| **baseuri**     | string          | Base URI do seu pacote de implantação| `https://<..>.blob.core.windows.net/<..>` |
 | **nome de utilizador**    | string          | Novo nome de utilizador aleatório.| administrador68876      |
 | **palavra-passe**    | cadeia segura    | Nova senha aleatória | Lp!ACS \^ 2kh     |
 | **id sessão**   | string          | ID de sessão de test drive único (GUID)    | b8c8693e-5673-449c-badd-257a405a6dee |
@@ -300,7 +300,7 @@ A secção final a completar é poder implementar automaticamente as unidades de
 
    ![Subscrições do Azure](media/test-drive/azure-subscriptions.png)
 
-2. Obtenha uma identificação do inquilino da **AD Azure.** Se já tem um ID de inquilino disponível, pode encontrá-lo no ID do Diretório De Diretório Ativo **Azure:**  >  **Properties**  >  **Directory ID**
+2. Obtenha uma identificação do inquilino da **AD Azure.** Se já tem um ID de inquilino disponível, pode encontrá-lo no ID do Diretório De Diretório Ativo **Azure:**  >    >  
 
    ![Propriedades do Diretório Ativo Azure](media/test-drive/azure-active-directory-properties.png)
 

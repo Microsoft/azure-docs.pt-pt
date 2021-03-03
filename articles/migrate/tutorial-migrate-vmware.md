@@ -7,12 +7,12 @@ ms.manager: bsiva
 ms.topic: tutorial
 ms.date: 06/09/2020
 ms.custom: mvc
-ms.openlocfilehash: a858bcc0e6f6364a1eb5c37d555f5f1e7064b650
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 17d9d3bf787b67716fb2270cd055e30a4fefbe0f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879465"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702203"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless"></a>Migrar VMware VMs para Azure (sem agente)
 
@@ -57,7 +57,7 @@ Depois de criar o aparelho, verifique se pode ligar-se ao Azure Migrate:Server A
 
 Depois de configurar o aparelho e completar a descoberta, pode começar a replicação de VMware VMs para Azure. 
 
-- Pode executar até 300 replicações simultaneamente.
+- Pode executar até 500 replicações simultaneamente.
 - No portal, pode selecionar até 10 VMs de uma só vez para migração. Para migrar mais máquinas, adicione-as a grupos em lotes de 10.
 
 Ative a replicação da seguinte forma:
@@ -88,9 +88,10 @@ Ative a replicação da seguinte forma:
 9. No **tipo de encriptação do disco,** selecione:
     - Encriptação em repouso com chave gerida pela plataforma
     - Encriptação em repouso com chave gerida pelo cliente
+    - Dupla encriptação com chaves geridas pela plataforma e geridas pelo cliente
 
    > [!NOTE]
-   > Para replicar VMs com CMK, terá de [criar uma encriptação de disco definida](../virtual-machines/disks-enable-customer-managed-keys-portal.md#set-up-your-disk-encryption-set) no Grupo de Recursos alvo. Um conjunto de conjunto de encriptação de disco mapeia Discos Geridos para um Cofre de Chaves que contém o CMK para usar para SSE.
+   > Para replicar VMs com CMK, terá de [criar uma encriptação de disco definida](https://go.microsoft.com/fwlink/?linkid=2151800) no Grupo de Recursos alvo. Um conjunto de conjunto de encriptação de disco mapeia Discos Geridos para um Cofre de Chaves que contém o CMK para usar para SSE.
   
 10. Em **Benefício Híbrido do Azure**:
 
@@ -210,6 +211,6 @@ Depois de verificar que a migração do teste funciona como esperado, pode migra
 -  Considere implementar o [Azure Cost Management](../cost-management-billing/cloudyn/overview.md) para monitorizar a utilização e as despesas do recurso.
 
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Investigue a [jornada de migração](/azure/architecture/cloud-adoption/getting-started/migrate) em nuvem no Quadro de Azure Cloud Adopt.

@@ -1,20 +1,20 @@
 ---
-title: A bordo e gerem sensores no Portal Defender para IoT
+title: A bordo e gerir sensores e subscrições no portal Defender para IoT
 description: Saiba como embarcar, ver e gerir sensores no portal Defender para IoT.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/27/2020
+ms.date: 2/18/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 7cc4fe4e2b675fb1b46bb4404d892c02a1f00553
-ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
+ms.openlocfilehash: 63b3b450e289b40aa9acbfb0d5170e8eb57f9e58
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100526872"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101733266"
 ---
-# <a name="onboard-and-manage-sensors-in-the-defender-for-iot-portal"></a>A bordo e gerem sensores no Portal Defender para IoT
+# <a name="onboard-and-manage-sensors-and-subscriptions-in-the-defender-for-iot-portal"></a>A bordo e gerir sensores e subscrições no portal Defender para IoT
 
 Este artigo descreve como embarcar, visualizar e gerir sensores no [portal Defender para IoT](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started).
 
@@ -64,7 +64,7 @@ No [portal Defender for IoT,](https://portal.azure.com/#blade/Microsoft_Azure_Io
 
 ## <a name="manage-onboarded-sensors"></a>Gerir sensores a bordo
 
-Utiliza o [portal Defender para IoT](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started) para tarefas de gestão relacionadas com sensores.
+Utilize o [portal Defender para IoT](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started) para tarefas de gestão relacionadas com sensores.
 
 Os sensores a bordo podem ser vistos na página **'Sites e Sensores'.** Também pode editar informações de sensores a partir desta página.
 
@@ -78,8 +78,8 @@ Utilize as opções **de edição de Sites e Sensores** para editar o nome e a z
 
 Para editar:
 
-1. Clique com o botão direito na elipse **(...**) para o sensor que pretende editar.
-1. Selecione Editar.
+1. Selecione a **elipse** **(...)** para o sensor que pretende editar.
+1. Selecione **Editar**.
 1. Atualize a zona do sensor ou crie uma nova zona.
 
 ### <a name="delete-a-sensor"></a>Apagar um sensor
@@ -122,6 +122,24 @@ Para reativar um sensor:
 8. Selecione **Upload** e selecione o ficheiro guardado na página do sensor onboard.
 
 9. **Selecione Ativar**.
+
+## <a name="offboard-a-subscription"></a>Offboard uma subscrição
+
+As assinaturas são geridas mensalmente. Quando você não embarcar uma subscrição, você será cobrado para essa subscrição até o final do mês. 
+
+Desinstale todos os sensores associados à subscrição antes de iniciar a subscrição. Para obter mais informações sobre como eliminar um sensor, consulte [Eliminar um sensor](#delete-a-sensor). 
+
+Para offboard uma subscrição:
+
+1. Navegue para a página **de preços.**
+1. Selecione a subscrição e, em seguida, selecione o ícone **de eliminação** :::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/delete-icon.png" border="false"::: .
+1. No popup de confirmação, selecione a caixa de verificação para confirmar que eliminou todos os sensores associados à subscrição.
+
+    :::image type="content" source="media/how-to-manage-sensors-on-the-cloud/offboard-popup.png" alt-text="Selecione a caixa de verificação e selecione offboard para offboard o seu sensor.":::
+
+1. Selecione o **botão Offboard.** 
+
+O ambiente no local não é afetado, mas deve desinstalar o sensor do ambiente no local ou reatribuir o sensor a outra subscrição, de modo a evitar que quaisquer dados relacionados fluam para a consola de gestão no local. 
 
 ## <a name="see-also"></a>Ver também
 

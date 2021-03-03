@@ -6,12 +6,12 @@ ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 02/10/2021
-ms.openlocfilehash: 45cbd0fc2a3a6a059274f33e25b577fde1f4a4ab
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: b21e5ea8e25844e3e025915b0b9f15162c642f25
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100585538"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713444"
 ---
 # <a name="whats-new-in-azure-monitor-documentation"></a>O que há de novo na documentação do Monitor Azure?
 
@@ -22,15 +22,15 @@ Este artigo fornece listas de artigos do Azure Monitor que são novos ou foram s
 ### <a name="general"></a>Geral 
 - [Azure Monitor FAQ](faq.md) - Entrada adicionada nas informações do dispositivo para Insights de Aplicação.
 ### <a name="agents"></a>Agentes  
-- [Recolha de eventos para windows (ETW) Eventos para análise Registos monitores Azure](platform/data-sources-event-tracing-windows.md) Monitor - Novo artigo.
-- [Regras de recolha de dados em Azure Monitor (pré-visualização)](platform/data-collection-rule-overview.md) - Ligações adicionadas às amostras PowerShell e CLI.
+- [Recolha de eventos para windows (ETW) Eventos para análise Registos monitores Azure](./agents/data-sources-event-tracing-windows.md) Monitor - Novo artigo.
+- [Regras de recolha de dados em Azure Monitor (pré-visualização)](./agents/data-collection-rule-overview.md) - Ligações adicionadas às amostras PowerShell e CLI.
 
 ### <a name="alerts"></a>Alertas  
-- [Configure Azure para ligar ferramentas ITSM utilizando a Secure Export](platform/itsm-connector-secure-webhook-connections-azure-configuration.md) - Novo artigo.
-- [Erros de estado do conector no painel ITSMC](platform/itsmc-dashboard-errors.md) - Novo artigo.
-- [Investigar erros utilizando o dashboard ITSMC](platform/itsmc-dashboard.md) - Novo artigo.
-- [Resolução de problemas Alertas métricos Azure](platform/alerts-troubleshoot-metric.md) - Secções adicionadas para limiares dinâmicos.
-- [Problemas de resolução de problemas no Connector de Gestão de Serviços de TI](platform/itsmc-troubleshoot-overview.md) - Novo artigo.
+- [Configure Azure para ligar ferramentas ITSM utilizando a Secure Export](./alerts/itsm-connector-secure-webhook-connections-azure-configuration.md) - Novo artigo.
+- [Erros de estado do conector no painel ITSMC](./alerts/itsmc-dashboard-errors.md) - Novo artigo.
+- [Investigar erros utilizando o dashboard ITSMC](./alerts/itsmc-dashboard.md) - Novo artigo.
+- [Resolução de problemas Alertas métricos Azure](./alerts/alerts-troubleshoot-metric.md) - Secções adicionadas para limiares dinâmicos.
+- [Problemas de resolução de problemas no Connector de Gestão de Serviços de TI](./alerts/itsmc-troubleshoot-overview.md) - Novo artigo.
 
 ### <a name="application-insights"></a>Application Insights
 - [Azure Application Insights correlação de telemetria](app/correlation.md) - Correlação de vestígios adicionado quando um módulo chama outro em OpenCensus Python.
@@ -47,25 +47,25 @@ Este artigo fornece listas de artigos do Azure Monitor que são novos ou foram s
 - [Monitor Azure para Azure Data Explorer (pré-visualização)](insights/data-explorer.md) - Novo artigo.
 
 ### <a name="logs"></a>Registos    
-- [Chave gerida pelo cliente Azure Monitor](platform/customer-managed-keys.md) - Introduza a identidade gerida pelo utilizador.
-- [Azure Monitor Logs Clusters Dedicados](log-query/logs-dedicated-clusters.md) - Código de repouso atualizado.
-- [Consulta de serviço cross - Azure Monitor e Azure Data Explorer (Preview)](platform/azure-monitor-troubleshooting-logs.md) - Novo artigo.
+- [Chave gerida pelo cliente Azure Monitor](./logs/customer-managed-keys.md) - Introduza a identidade gerida pelo utilizador.
+- [Azure Monitor Logs Clusters Dedicados](./logs/logs-dedicated-clusters.md) - Código de repouso atualizado.
+- [Consulta de serviço cross - Azure Monitor e Azure Data Explorer (Preview)](/azure/azure-monitor/platform/azure-data-explorer-monitor-cross-service-query) - Novo artigo.
 
 ### <a name="metrics"></a>Métricas
-- [Azure Monitor Métricas agregação e exibição explicadas](platform/metrics-aggregation-explained.md) - Novo artigo.
+- [Azure Monitor Métricas agregação e exibição explicadas](./essentials/metrics-aggregation-explained.md) - Novo artigo.
 
 ### <a name="platform-logs"></a>Registos de plataformas
-- [Azure Monitor Registos de Recursos suportados serviços e categorias](platform/resource-logs-categories.md) - Novo artigo.
+- [Azure Monitor Registos de Recursos suportados serviços e categorias](./essentials/resource-logs-categories.md) - Novo artigo.
 
 ### <a name="visualizations"></a>Visualizações
-- [Fontes de dados de livros do Azure Monitor](platform/workbooks-data-sources.md) - Adicione a fusão e a alteração da análise.
+- [Fontes de dados de livros do Azure Monitor](./visualize/workbooks-data-sources.md) - Adicione a fusão e a alteração da análise.
 
 
 ## <a name="december-2020"></a>Dezembro de 2020
 
 ### <a name="general"></a>Geral
 - [Chave gerida pelo cliente Azure Monitor](logs/customer-managed-keys.md) - Mensagens de erro adicionadas.
-- [Parceiros que se integram com o Azure Monitor](/partners.md) - Secção adicionada sobre integração do Event Hub.
+- [Parceiros que se integram com o Azure Monitor](partners.md) - Secção adicionada sobre integração do Event Hub.
 
 ### <a name="agents"></a>Agentes
 - [Consulta de recursos cruzados Azure Data Explorer usando Azure Monitor](logs/azure-monitor-data-explorer-proxy.md) - Novo artigo.
@@ -96,7 +96,7 @@ Este artigo fornece listas de artigos do Azure Monitor que são novos ou foram s
 - [Resolução de problemas Azure Monitor Application Insights for Java](app/java-standalone-troubleshoot.md) - Novo artigo.
 
 ### <a name="containers"></a>Contentores
-- [Relatórios no Azure Monitor para contentores](insights/container-insights-reports.md) - Novo artigo.
+- [Relatórios em informações sobre contentores](insights/container-insights-reports.md) - Novo artigo.
 
 ### <a name="logs"></a>Registos
 - [Azure Monitor Logs Clusters Dedicados](logs/logs-dedicated-clusters.md) - Comandos automatizados adicionados, métodos para desvincular e remover, e resolução de problemas.
@@ -168,16 +168,16 @@ Artigos novos e atualizados da reestruturação do conteúdo da consulta de regi
 
 ### <a name="virtual-machines"></a>Máquinas virtuais
 
-- [Ativar o Monitor Azure para visão geral dos VMs](vm/vminsights-enable-overview.md) - Regiões apoiadas adicionadas.
+- [Ativar a visão geral dos conhecimentos de VM](vm/vminsights-enable-overview.md) - Regiões apoiadas adicionadas.
 
-Novos artigos para Azure Monitor para saúde de hóspedes VMs (pré-visualização)
+Novos artigos para saúde dos hóspedes (pré-visualização)
 
-- [Monitor Azure para saúde dos hóspedes VMs (pré-visualização)](vm/vminsights-health-overview.md)
-- [Monitor Azure para alertas de saúde de hóspedes VMs (pré-visualização)](vm/vminsights-health-alerts.md)
-- [Configure monitorização no Azure Monitor para a saúde dos hóspedes VMs (pré-visualização)](vm/vminsights-health-configure.md)
-- [Configure a monitorização no Azure Monitor para a saúde dos hóspedes em VMs utilizando regras de recolha de dados (pré-visualização)](vm/vminsights-health-configure-dcr.md)
-- [Ativar o Azure Monitor para a saúde dos hóspedes VMs (pré-visualização)](vm/vminsights-health-enable.md)
-- [Troubleshoot Azure Monitor para saúde de hóspedes VMs (pré-visualização)](vm/vminsights-health-troubleshoot.md)
+- [VM insights saúde dos hóspedes (pré-visualização)](vm/vminsights-health-overview.md)
+- [VM insights alertas de saúde dos hóspedes (pré-visualização)](vm/vminsights-health-alerts.md)
+- [Configure a monitorização em Saúde dos hóspedes (pré-visualização)](vm/vminsights-health-configure.md)
+- [Configure a monitorização em VM insights saúde dos hóspedes usando regras de recolha de dados (pré-visualização)](vm/vminsights-health-configure-dcr.md)
+- [Ativar a saúde dos hóspedes (pré-visualização)](vm/vminsights-health-enable.md)
+- [Resolução de problemas VM insights saúde dos hóspedes (pré-visualização)](vm/vminsights-health-troubleshoot.md)
 
 
 
@@ -210,9 +210,9 @@ Novos artigos para Azure Monitor para saúde de hóspedes VMs (pré-visualizaç�
 - [Começar com autoescala em Azure](autoscale/autoscale-get-started.md) - Secção adicionada sobre a mudança da Autoscale para diferentes regiões.
 
 ### <a name="containers"></a>Contentores
-- [Configure a monitorização do PV com o Monitor Azure para contentores](containers/container-insights-persistent-volumes.md) - Novo artigo.
-- [Como gerir o Azure Monitor para o agente de contentores](containers/container-insights-manage-agent.md) - Apoio adicional para O Arco Azure permitiu o cluster Kubernetes.
-- [Alertas métricos do Azure Monitor para contentores](containers/container-insights-metric-alerts.md) - Suporte adicionado para Azure Arc permitiu o cluster Kubernetes.
+- [Configure a monitorização do PV com insights do Contentor](containers/container-insights-persistent-volumes.md) - Novo artigo.
+- [Como gerir o agente de insights do contentor](containers/container-insights-manage-agent.md) - Suporte adicionado para Azure Arc ativou o cluster Kubernetes.
+- [Alertas métricos de insights de contentores](containers/container-insights-metric-alerts.md) - Suporte adicionado para Azure Arc permitiu o cluster Kubernetes.
 
 ### <a name="insights-and-solutions"></a>Insights e soluções
 - [Conector de gestão de serviços de TI - Exportação Segura em Monitor Azure](alerts/it-service-management-connector-secure-webhook-connections.md) - Secção adicionada no ServiceNow.
@@ -234,7 +234,7 @@ Novos artigos para Azure Monitor para saúde de hóspedes VMs (pré-visualizaç�
 ### <a name="virtual-machines"></a>Máquinas virtuais
 - [Alterar análise no Monitor Azure para VMs](vm/vminsights-change-analysis.md) - Novo artigo.
 - [Ativar o Monitor Azure para visão geral dos VMs](vm/vminsights-enable-overview.md) - Regiões apoiadas adicionadas.
-- [Como atualizar o Azure Monitor para contentores para métricas](containers/container-insights-update-metrics.md) - Suporte adicionado para Azure Arc permitiu o cluster Kubernetes.
+- [Como atualizar insights de contentores para métricas](containers/container-insights-update-metrics.md) - Suporte adicionado para Azure Arc permitiu o cluster Kubernetes.
 
 
 
@@ -265,8 +265,8 @@ Novos artigos para Azure Monitor para saúde de hóspedes VMs (pré-visualizaç�
 
 
 ### <a name="containers"></a>Contentores
-- [Configure Azure Arc permitiu que kubernetes cluster com Azure Monitor para recipientes](containers/container-insights-enable-arc-enabled-clusters.md) - Orientação adicional para permitir a monitorização usando o principal do serviço.
-- [Implantação & métricas HPA com monitor Azure para contentores](containers/container-insights-deployment-hpa-metrics.md) - Novo artigo.
+- [Configure Azure Arc permitiu o agrupamento kubernetes com insights de contentores](containers/container-insights-enable-arc-enabled-clusters.md) - Orientação adicional para permitir a monitorização usando o principal do serviço.
+- [Implantação & métricas de HPA com insights de contentores](containers/container-insights-deployment-hpa-metrics.md) - Novo artigo.
 
 ### <a name="insights-and-solutions"></a>Insights e soluções
 - [Monitor Azure para Cache Azure para Redis](insights/redis-cache-insights-overview.md) - Designação de pré-visualização removida.
@@ -319,7 +319,7 @@ Novos artigos para Azure Monitor para saúde de hóspedes VMs (pré-visualizaç�
 
 
 #### <a name="new-and-updated-articles-from-restructure-of-agent-content"></a>Artigos novos e atualizados da reestruturação do conteúdo do agente
-- [Ativar o Monitor Azure para visão geral dos VMs](vm/vminsights-enable-overview.md)
+- [Ativar a visão geral dos conhecimentos do VM](vm/vminsights-enable-overview.md)
 - [Instalar o agente do Log Analytics em computadores Linux](agents/agent-linux.md)
 - [Instalar o agente do Log Analytics em computadores Windows](agents/agent-windows.md)
 - [Visão geral do agente do Log Analytics](agents/log-analytics-agent.md)
@@ -344,7 +344,7 @@ Novos artigos para Azure Monitor para saúde de hóspedes VMs (pré-visualizaç�
 
 
 ### <a name="containers"></a>Contentores
-- [Implantação & métricas HPA com monitor Azure para contentores](containers/container-insights-deployment-hpa-metrics.md) - Novo artigo.
+- [Implantação & métricas de HPA com insights de contentores](containers/container-insights-deployment-hpa-metrics.md) - Novo artigo.
 
 ### <a name="insights"></a>Informações
 - [Soluções de monitorização no Azure Monitor](insights/solutions.md) - Atualizado para nova UI.
@@ -372,7 +372,7 @@ Novos artigos para Azure Monitor para saúde de hóspedes VMs (pré-visualizaç�
 ## <a name="july-2020"></a>Julho de 2020
 
 ### <a name="general"></a>Geral
-- [Implementar Monitor Azure](deploy-scale.md) - Reestruturação do Monitor Azure para o conteúdo de bordo de VMs.
+- [Implementar Monitor Azure](deploy-scale.md) - Reestruturação dos insights VM no conteúdo de embarque.
 - [Utilize o Link Privado Azure para ligar de forma segura as redes ao Azure Monitor](logs/private-link-security.md) - Secção adicionada nos limites.
 
 ### <a name="alerts"></a>Alertas
@@ -389,8 +389,8 @@ Novos artigos para Azure Monitor para saúde de hóspedes VMs (pré-visualizaç�
 - [Problemas de resolução de problemas com O Perfil de Insights de Aplicação Azure](app/profiler-troubleshooting.md) - Nota adicional no perfil de execução de bugs para aplicações ASP.NET Core no Azure App Service. 
 
 ### <a name="containers"></a>Contentores
-- [Registar alertas do Azure Monitor para contentores](containers/container-insights-log-alerts.md) - Novo artigo.
-- [Alertas métricos do Monitor Azure para contentores](containers/container-insights-metric-alerts.md) - Novo artigo.
+- [Registar alertas a partir de insights do Contentor](containers/container-insights-log-alerts.md) - Novo artigo.
+- [Alertas métricos dos insights do contentor](containers/container-insights-metric-alerts.md) - Novo artigo.
 
 ### <a name="logs"></a>Registos
 - [Chave gerida pelo cliente Azure Monitor](logs/customer-managed-keys.md) - Mensagem de erro adicionada e configuração cmk da secção para consultas.
@@ -408,18 +408,18 @@ Novos artigos para Azure Monitor para saúde de hóspedes VMs (pré-visualizaç�
 
 ### <a name="virtual-machines"></a>Máquinas virtuais
 
-Artigos novos e atualizados da reestruturação do Azure Monitor para conteúdos de VMs
+Artigos novos e atualizados da reestruturação do conteúdo de insights de VM
 
-- [O que é o Azure Monitor para VMs?](vm/vminsights-overview.md)
-- [Configurar log analytics espaço de trabalho para monitor azure para VMs](vm/vminsights-configure-workspace.md)
+- [O que são os conhecimentos em VM?](vm/vminsights-overview.md)
+- [Configurar log analytics espaço de trabalho para insights VM](vm/vminsights-configure-workspace.md)
 - [Ligue os computadores Linux ao Azure Monitor](agents/agent-linux.md)
 - [Ativar o Azure Monitor para um ambiente híbrido](vm/vminsights-enable-hybrid.md)
 - [Ativar o Azure Monitor para uma única máquina virtual ou escala de máquina virtual definida no portal Azure](vm/vminsights-enable-portal.md)
-- [Ativar o Monitor Azure para VMs utilizando a política do Azure](./vm/vminsights-enable-policy.md)
-- [Ativar o Monitor Azure para visão geral dos VMs](vm/vminsights-enable-overview.md)
-- [Ativar o Monitor Azure para VMs utilizando PowerShell](vm/vminsights-enable-powershell.md)
-- [Ativar o Monitor Azure para VMs utilizando modelos de gestor de recursos](vm/vminsights-enable-resource-manager.md)
-- [Ativar o Monitor Azure para VMs com PowerShell ou modelos](./vm/vminsights-enable-powershell.md)
+- [Ativar os conhecimentos de VM utilizando a Política Azure](./vm/vminsights-enable-policy.md)
+- [Ativar a visão geral dos conhecimentos do VM](vm/vminsights-enable-overview.md)
+- [Ativar insights VM utilizando PowerShell](vm/vminsights-enable-powershell.md)
+- [Ativar insights VM usando modelos de Gestor de Recursos](vm/vminsights-enable-resource-manager.md)
+- [Ativar insights em VM com PowerShell ou modelos](./vm/vminsights-enable-powershell.md)
 
 
 ### <a name="visualizations"></a>Visualizações
@@ -453,9 +453,9 @@ Artigos novos e atualizados da reestruturação do Azure Monitor para conteúdos
 
 ### <a name="containers"></a>Contentores
 - [Como parar de monitorizar o seu cluster híbrido Kubernetes](containers/container-insights-optout-hybrid.md) - Secção adicionada para o Arco ativado kubernetes.
-- [Configure Azure Arc permitiu que kubernetes cluster com Azure Monitor para recipientes](containers/container-insights-enable-arc-enabled-clusters.md) - Novo artigo.
-- [Configure Azure Red Hat OpenShift v4.x com Azure Monitor para recipientes](containers/container-insights-azure-redhat4-setup.md) - Pré-requisitos atualizados.
-- [Configurar o Azure Monitor para contentores Live Data (pré-visualização)](containers/container-insights-livedata-setup.md) - Nota removida sobre a funcionalidade que não está disponível no Governo dos EUA.
+- [Configure Azure Arc permitiu que Kubernetes cluster com insights de contentores](containers/container-insights-enable-arc-enabled-clusters.md) - Novo artigo.
+- [Configure Azure Red Hat OpenShift v4.x com insights do recipiente](containers/container-insights-azure-redhat4-setup.md) - Pré-requisitos atualizados.
+- [Configurar informações de contentores Live Data (pré-visualização)](containers/container-insights-livedata-setup.md) - Nota removida sobre a funcionalidade que não está disponível no Governo dos EUA.
 
 ### <a name="insights"></a>Informações
 - [FAQs - Solução monitor de desempenho de rede em Azure](insights/network-performance-monitor-faq.md) - FAQ adicionado para ExpressRoute Monitor.
@@ -495,9 +495,9 @@ Artigos novos e atualizados da reestruturação e consolidação de conteúdos d
 - [Ver eventos de registo de atividades do Azure no Azure Monitor](./essentials/activity-log.md#view-the-activity-log)
 
 ### <a name="virtual-machines"></a>Máquinas virtuais
-- [Ativar o Monitor Azure para VMs no portal Azure](./vm/vminsights-enable-portal.md) - Atualizado para incluir O Arco de Azure.
-- [Ativar o Azure Monitor para visão geral dos VMs](vm/vminsights-enable-overview.md) - Atualizado para incluir O Arco de Azure.
-- [O que é o Azure Monitor para VMs?](vm/vminsights-overview.md) - Atualizado para incluir Azure Arc.
+- [Ativar informações em VM no portal Azure](./vm/vminsights-enable-portal.md) - Atualizado para incluir O Arco de Azure.
+- [Ativar a visão geral dos insights de VM](vm/vminsights-enable-overview.md) - Atualizado para incluir O Arco de Azure.
+- [O que são os conhecimentos em VM?](vm/vminsights-overview.md) - Atualizado para incluir Azure Arc.
 
 
 ### <a name="visualizations"></a>Visualizações
@@ -523,8 +523,8 @@ Artigos novos e atualizados da reestruturação e consolidação de conteúdos d
 - [Amostras de modelo de gestor de recursos para monitor Azure](/resource-manager-samples.md)
 - [Amostras de modelo de gestor de recursos para grupos de ação](alerts/resource-manager-action-groups.md)
 - [Amostras de modelo de gestor de recursos para agentes](agents/resource-manager-agent.md)
-- [Amostras de modelo do gestor de recursos para monitor Azure para contentores](containers/resource-manager-container-insights.md)
-- [Amostras de modelo de gestor de recursos para monitor Azure para VMs](vm/resource-manager-vminsights.md)
+- [Amostras de modelo de gestor de recursos para insights de contentores](containers/resource-manager-container-insights.md)
+- [Amostras de modelo de gestor de recursos para insights de VM](vm/resource-manager-vminsights.md)
 - [Amostras de modelo do gestor de recursos para definições de diagnóstico](essentials/resource-manager-diagnostic-settings.md)
 - [Amostras de modelo de gestor de recursos para espaços de trabalho do Log Analytics](logs/resource-manager-workspace.md)
 - [Amostras de modelo de gestor de recursos para consultas de registo](logs/resource-manager-log-queries.md)
@@ -559,10 +559,10 @@ Artigos novos e atualizados da reestruturação e consolidação de conteúdos d
 
 
 ### <a name="containers"></a>Contentores
-- [Como ativar o Azure Monitor para contentores](containers/container-insights-onboard.md) - Tabela de configuração de firewall atualizada.
-- [Como atualizar o Azure Monitor para contentores para métricas](containers/container-insights-update-metrics.md) - Atualização para utilizar identidades geridas para recolher métricas.
-- [Custo de monitorização do Monitor Azure para contentores](containers/container-insights-cost.md) - Novo artigo.
-- [Configurar o Azure Monitor para contentores Live Data (pré-visualização)](containers/container-insights-livedata-setup.md) - Suporte para nova ligação de funções de cluster.
+- [Como ativar as introspeções do Contentor](containers/container-insights-onboard.md) - Tabela de configuração de firewall atualizada.
+- [Como atualizar insights do Contentor para métricas](containers/container-insights-update-metrics.md) - Atualização para usar identidades geridas para recolher métricas.
+- [Custo de monitorização para insights de contentores](containers/container-insights-cost.md) - Novo artigo.
+- [Configurar informações de recipientes Live Data (pré-visualização)](containers/container-insights-livedata-setup.md) - Suporte para nova ligação de funções de cluster.
 
 ### <a name="insights"></a>Informações
 - [Monitor Azure para Azure Cache para Redis (pré-visualização)](insights/redis-cache-insights-overview.md) - Novo artigo.
@@ -588,12 +588,12 @@ Artigos novos e atualizados da reestruturação e consolidação de conteúdos d
 
 
 ### <a name="virtual-machines"></a>Máquinas virtuais
-- [Ativar o Azure Monitor para visão geral dos VMs](vm/vminsights-enable-overview.md) - Adicionado às versões suportadas do Ubuntu Server. Regiões apoiadas adicionadas para o espaço de trabalho Log Analytics.
-- [Como traçar o desempenho com o Azure Monitor para VMs](vm/vminsights-performance.md) - Secção de limitações adicionadas para métricas indisponíveis.
+- [Ativar a visão geral dos insights VM](vm/vminsights-enable-overview.md) - Adicionado às versões suportadas do Ubuntu Server. Regiões apoiadas adicionadas para o espaço de trabalho Log Analytics.
+- [Como traçar o desempenho com insights VM](vm/vminsights-performance.md) - Secção de limitações adicionadas para métricas indisponíveis.
 
 ### <a name="visualizations"></a>Visualizações
 - [Azure Monitor Workbooks e Azure Resource Manager Templates](visualize/workbooks-automate.md) - Atualização do Gestor de Recursos Adicionado para implementar um modelo de livro.
-- [Grupos de livros de trabalho do Azure Monitor](platform/workbooks-groups.md) - Novo artigo.
+- [Grupos de livros de trabalho do Azure Monitor](./visualize/workbooks-groups.md) - Novo artigo.
 - [Azure Monitor Workbooks - Transforme os dados da JSON com o JSONPath](visualize/workbooks-jsonpath.md) - Novo artigo.
 
 
@@ -623,7 +623,7 @@ Artigos novos e atualizados da reestruturação e consolidação de conteúdos d
 
 ### <a name="containers"></a>Contentores
 
-- [Configure Azure Red Hat OpenShift v4.x com Monitor Azure para recipientes](containers/container-insights-azure-redhat4-setup.md) - Novo artigo.
+- [Configure Azure Red Hat OpenShift v4.x com insights de recipiente](containers/container-insights-azure-redhat4-setup.md) - Novo artigo.
 - [Como corrigir manualmente problemas de sincronização do ServiceNow](alerts/itsmc-resync-servicenow.md) - Novo artigo.
 - [Como parar de monitorizar o seu cluster V4 Azure e Red Hat OpenShift](containers/container-insights-optout-openshift-v4.md) - Novo artigo.
 - [Como parar de monitorizar o seu cluster Azure Red Hat OpenShift v3](containers/container-insights-optout-openshift-v3.md) - Novo artigo.
@@ -671,8 +671,8 @@ Artigos novos e atualizados da reestruturação e consolidação de conteúdos d
 
 ### <a name="containers"></a>Contentores
 
-- [Azure Monitor FAQ](faq.md) - Atualização para monitor Azure para contentores.
-- [Configure a monitorização da GPU com o Monitor Azure para contentores](containers/container-insights-gpu-monitoring.md) - Novo artigo.
+- [Azure Monitor FAQ](faq.md) - Atualização para informações sobre o contentor.
+- [Configure a monitorização da GPU com insights de contentores](containers/container-insights-gpu-monitoring.md) - Novo artigo.
 
 ### <a name="insights"></a>Informações
 
@@ -696,18 +696,18 @@ Artigos novos e atualizados da reestruturação e consolidação de conteúdos d
 ### <a name="virtual-machines"></a>Máquinas virtuais
 
 - [Monitor Azure máquinas virtuais com Azure Monitor](vm/monitor-vm-azure.md) - Novo artigo.
-- [Quickstart: Monitor Azure virtual machines with Azure Monitor](vm/quick-monitor-azure-vm.md) - Atualizado para adicionar Azure Monitor para VMs.
-- [Alertas do Monitor Azure para VMs](vm/vminsights-alerts.md) - Novo artigo.
-- [Ativar o Azure Monitor para visão geral dos VMs](vm/vminsights-enable-overview.md) - Links de descarregamento de agentes atualizados.
+- [Quickstart: Monitor Azure virtual machines with Azure Monitor](vm/quick-monitor-azure-vm.md) - Atualizado para adicionar insights VM.
+- [Alertas de introspeções VM](vm/vminsights-alerts.md) - Novo artigo.
+- [Ativar a visão geral dos insights de VM](vm/vminsights-enable-overview.md) - Links de descarregamento de agentes atualizados.
 
-Atualizações gerais para a disponibilidade geral do Monitor Azure para VMs
+Atualizações gerais para a disponibilidade geral de insights de VM
 
-- [O que é o Azure Monitor para VMs?](vm/vminsights-overview.md)
-- [Monitor Azure para VMs (GA) frequentemente feito perguntas](vm/vminsights-ga-release-faq.md) 
-- [Ativar o Monitor Azure para VMs utilizando a política do Azure](./vm/vminsights-enable-policy.md) 
-- [Como traçar o desempenho com o Azure Monitor para VMs](vm/vminsights-performance.md)
-- [Como consultar registos do Azure Monitor para VMs](vm/vminsights-log-search.md)
-- [Ver dependências de aplicativos com monitor Azure para VMs](vm/vminsights-maps.md) 
+- [O que são os conhecimentos em VM?](vm/vminsights-overview.md)
+- [Perguntas vM insights (GA) frequentemente feitas](vm/vminsights-ga-release-faq.md) 
+- [Ativar os conhecimentos de VM utilizando a Política Azure](./vm/vminsights-enable-policy.md) 
+- [Como traçar o desempenho com insights VM](vm/vminsights-performance.md)
+- [Como consultar registos a partir de insights VM](vm/vminsights-log-search.md)
+- [Ver dependências de aplicativos com insights VM](vm/vminsights-maps.md) 
 
 ### <a name="visualizations"></a>Visualizações
 
@@ -735,13 +735,13 @@ Múltiplas atualizações como parte da reescrita do conteúdo de extensão de d
 
 ### <a name="insights-and-solutions"></a>Insights e soluções
 
-#### <a name="azure-monitor-for-containers"></a>Azure Monitor para Contentores
+#### <a name="container-insights"></a>Insights de contentores
 
-- [Integre o Azure Ative Directory com o Serviço Azure Kubernetes](../aks/azure-ad-integration-cli.md) - Nota adicionada para criar uma aplicação de cliente para apoiar o cluster ativado por SIDA para apoiar o Azure Monitor para contentores.
+- [Integre o Azure Ative Directory com o Serviço Azure Kubernetes](../aks/azure-ad-integration-cli.md) - Nota adicionada para criar uma aplicação de cliente para apoiar o cluster ativado por Kubernetes PARA suportar insights de contentores.
 
-#### <a name="azure-monitor-for-vms"></a>Azure Monitor para VMs
+#### <a name="vm-insights"></a>Insights VM
 
-- [Azure Monitor for VMs (GA) perguntas frequentes](vm/vminsights-ga-release-faq.md) - Alterar a forma como os dados de desempenho são armazenados.
+- [Perguntas sobre a forma](vm/vminsights-ga-release-faq.md) como os dados de desempenho são armazenados.
 
 #### <a name="office-365"></a>Office 365
 
@@ -796,20 +796,20 @@ Vários novos artigos para visualizar designer para guia de conversão de livros
 
 ### <a name="insights-and-solutions"></a>Insights e soluções
 
-#### <a name="azure-monitor-for-containers"></a>Azure Monitor para Contentores
+#### <a name="container-insights"></a>Insights de contentores
 
-- [Configure Azure Monitor para recolha de dados de agente de contentores](containers/container-insights-agent-config.md) - Adicione detalhes para atualizar o agente no Azure Red Hat OpenShift e adicione informações adicionais para distinguir os métodos de atualização do agente.
-- [Criar alertas de desempenho para o Azure Monitor para contentores](./containers/container-insights-log-alerts.md) - Informações revistas e passos atualizados para criar um alerta sobre os dados de desempenho armazenados no espaço de trabalho utilizando alertas de contexto de espaço de trabalho.
-- [Kubernetes monitorando com o Azure Monitor para contentores](containers/container-insights-analyze.md) - Atualize tanto o artigo de visão geral como o artigo de análise relativo ao suporte de clusters Do Windows Kubernetes.
-- [Configure Azure Red Hat OpenShift clusters com Azure Monitor para contentores](containers/container-insights-azure-redhat-setup.md) - Adicione detalhes para atualizar o agente no Azure Red Hat OpenShift, e adicione informações adicionais para distinguir os métodos de upgrade do agente.
-- [Configure os agrupamentos Hybrid Kubernetes com O Monitor Azure para contentores](containers/container-insights-hybrid-setup.md) - Atualizado para refletir um suporte adicional para porta segura:10250 com o cAdvisor do Kubelet.
-- [Como gerir o Azure Monitor para o agente de contentores](containers/container-insights-manage-agent.md) - Detalhes atualizados relacionados com o comportamento e configuração de raspagem métrica com Azure Red Hat OpenShift em comparação com outros tipos de clusters Kubernetes.
-- [Configure Monitor Azure para recipientes Integração Prometheus](containers/container-insights-prometheus-integration.md) - Detalhes atualizados relacionados com o comportamento e configuração de raspagem métrica com Azure Red Hat OpenShift em comparação com outros tipos de clusters Kubernetes.
-- [Como atualizar o Azure Monitor para contentores para métricas](containers/container-insights-update-metrics.md) - Detalhes atualizados relacionados com o comportamento e configuração de raspagem métrica com Azure Red Hat OpenShift em comparação com outros tipos de clusters Kubernetes.
+- [Configure a recolha de dados do agente de informações do agente](containers/container-insights-agent-config.md) de informação do contentor - Adicione detalhes adicionais para atualizar o agente no Azure Red Hat OpenShift e adicione informações adicionais para distinguir os métodos de atualização do agente.
+- [Criar alertas de desempenho para insights de contentores](./containers/container-insights-log-alerts.md) - Informações revistas e passos atualizados para criar um alerta sobre os dados de desempenho armazenados no espaço de trabalho utilizando alertas de contexto de espaço de trabalho.
+- [Monitorização de Kubernetes com insights de contentores](containers/container-insights-analyze.md) - Atualize tanto o artigo de visão geral como o artigo de análise relativo ao suporte de clusters Do Windows Kubernetes.
+- [Configure Azure Red Hat OpenShift clusters com insights de contentores](containers/container-insights-azure-redhat-setup.md) - Adicione detalhes para atualizar o agente no Azure Red Hat OpenShift, e adicione informações adicionais para distinguir os métodos de upgrade do agente.
+- [Configure os clusters Híbridos Kubernetes com insights de contentores](containers/container-insights-hybrid-setup.md) - Atualizado para refletir um suporte adicional para a porta segura:10250 com o cAdvisor do Kubelet.
+- [Como gerir o agente de insights do contentor](containers/container-insights-manage-agent.md) - Detalhes atualizados relacionados com o comportamento e configuração de raspagem métrica com Azure Red Hat OpenShift em comparação com outros tipos de clusters Kubernetes.
+- [Configure Container insights Prometheus Integration](containers/container-insights-prometheus-integration.md) - Detalhes atualizados relacionados com o comportamento e configuração de raspagem métrica com Azure Red Hat OpenShift em comparação com outros tipos de clusters Kubernetes.
+- [Como atualizar insights de recipientes para métricas](containers/container-insights-update-metrics.md) - Detalhes atualizados relacionados com o comportamento e configuração de raspagem métrica com Azure Red Hat OpenShift em comparação com outros tipos de clusters Kubernetes.
 
-#### <a name="azure-monitor-for-vms"></a>Azure Monitor para VMs
+#### <a name="vm-insights"></a>Insights VM
 
-- [Azure Monitor for VMs (GA) frequentemente fez perguntas](vm/vminsights-ga-release-faq.md) - Acrescentou informações sobre a atualização do espaço de trabalho e agentes para a nova versão.
+- [Os conhecimentos vM (GA) frequentemente perguntei](vm/vminsights-ga-release-faq.md) - Adicionar informações sobre a atualização do espaço de trabalho e agentes para a nova versão.
 
 #### <a name="office-365"></a>Office 365
 
@@ -860,10 +860,10 @@ Vários novos artigos para visualizar designer para guia de conversão de livros
 
 ### <a name="insights-and-solutions"></a>Insights e soluções
 
-- [Monitor Azure para contentores Perguntas Frequentes](./faq.md) - Pergunta adicionada nos campos de imagem e nome.
+- [Insights de contentores Perguntas frequentes](./faq.md) - Pergunta adicionada nos campos de imagem e nome.
 - [Solução Azure SQL Analytics em Azure Monitor](insights/azure-sql.md) - Base de Dados Atualizada aguarda suporte de instância gerida.
-- [Configure Monitor Azure para recolha de dados de agente de contentores](containers/container-insights-agent-config.md) - Regulação adicional para enrich_container_logs.
-- [Configure os agrupamentos Híbridos Kubernetes com monitor Azure para contentores](containers/container-insights-hybrid-setup.md) - Secção de resolução de problemas adicionada.
+- [Configure a recolha de dados do agente de insights do contentor](containers/container-insights-agent-config.md) - Definição adicional para enrich_container_logs.
+- [Configure os agrupamentos Híbridos Kubernetes com insights de contentores](containers/container-insights-hybrid-setup.md) - Secção de resolução de problemas adicionada.
 - [Monitore o estado de replicação do Diretório Ativo com o Azure Monitor](insights/ad-replication-status.md) - .NET Framework pré-requisito atualizado.
 - [Solução monitor de desempenho de rede em Azure](insights/network-performance-monitor.md) - Regiões apoiadas adicionadas.
 - [Otimize o seu ambiente de Diretório Ativo com o Azure Monitor](insights/ad-assessment.md) - .NET Framework pré-requisito atualizado.

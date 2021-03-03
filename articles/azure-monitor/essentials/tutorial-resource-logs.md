@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 12/15/2019
-ms.openlocfilehash: 88138cc1366dcef68aeccf652af05704e72c8e15
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: d3c3eff32120438fd891cb32fe98d73424f82b7f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100628011"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734150"
 ---
 # <a name="tutorial-collect-and-analyze-resource-logs-from-an-azure-resource"></a>Tutorial: Recolher e analisar registos de recursos a partir de um recurso Azure
 
@@ -93,7 +93,7 @@ Os dados são obtidos a partir de um espaço de trabalho log Analytics usando um
 
 
 5. Digite uma consulta e clique em **Executar** para inspecionar os resultados. 
-6. Consulte [Começar com consultas de log no Azure Monitor](../log-query/get-started-queries.md) para um tutorial sobre consultas de registo de escrita.
+6. Consulte [Começar com consultas de log no Azure Monitor](../logs/get-started-queries.md) para um tutorial sobre consultas de registo de escrita.
 
     ![Consulta de registo](media/tutorial-resource-logs/log-query-1.png)
 
@@ -104,4 +104,4 @@ Os dados são obtidos a partir de um espaço de trabalho log Analytics usando um
 Agora que aprendeu a recolher registos de recursos num espaço de trabalho do Log Analytics, preencha um tutorial sobre consultas de registo de escrita para analisar estes dados.
 
 > [!div class="nextstepaction"]
-> [Introdução às consultas de registos no Azure Monitor](../log-query/get-started-queries.md)
+> [Introdução às consultas de registos no Azure Monitor](../logs/get-started-queries.md)

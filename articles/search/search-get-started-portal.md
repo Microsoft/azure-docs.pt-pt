@@ -1,39 +1,37 @@
 ---
 title: Criar um índice de pesquisa no portal Azure
 titleSuffix: Azure Cognitive Search
-description: Neste quickstart do portal Azure, utilize o assistente de Dados de Importação para criar, carregar e consultar o seu primeiro índice de pesquisa em Azure Cognitive Search.
+description: Crie, carregue e questione o seu primeiro índice de pesquisa utilizando o assistente de Dados de Importação no portal Azure. Este quickstart usa um conjunto de dados de hotel fictício para dados de amostragem.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 12/12/2020
-ms.openlocfilehash: 1e9d63c88cf0cd6f65db99b2bc878797770d53cd
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.date: 03/02/2021
+ms.openlocfilehash: 1be165bfe7cca44e8a928933c3c8fe926ad7d4c9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97368635"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101694840"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-the-azure-portal"></a>Quickstart: Criar um índice de Pesquisa Cognitiva Azure no portal Azure
 
-Crie o seu primeiro índice utilizando o assistente **de dados de importação** e uma fonte de dados de amostra incorporada composta por dados fictícios do hotel. O assistente guia-o através da criação de um índice de pesquisa (hotéis-índice de amostra) para que possa escrever consultas interessantes em minutos. 
+Crie o seu primeiro índice de pesquisa utilizando o assistente **de dados de importação** e uma fonte de dados de amostra incorporada composta por dados fictícios do hotel. O assistente guia-o através da criação de um índice de pesquisa (hotéis-índice de amostra) para que possa escrever consultas interessantes em minutos. 
 
 Embora não utilize as opções neste arranque rápido, o assistente inclui uma página para enriquecimento de IA para que possa extrair texto e estrutura a partir de ficheiros de imagem e texto não estruturado. Para uma passagem semelhante que inclua enriquecimento de IA, consulte [Quickstart: Crie uma habilidade cognitiva](cognitive-search-quickstart-blob.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Antes de começar, deve ter o seguinte:
-
 + Uma conta Azure com uma subscrição ativa. [Crie uma conta gratuita.](https://azure.microsoft.com/free/)
 
-+ Um serviço de Pesquisa Cognitiva Azure. [Crie um serviço](search-create-service-portal.md) ou [encontre um serviço existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) sob a sua subscrição atual. Pode utilizar um serviço gratuito para este arranque rápido. 
++ Um serviço de Pesquisa Cognitiva Azure (qualquer nível, qualquer região). [Crie um serviço](search-create-service-portal.md) ou [encontre um serviço existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) sob a sua subscrição atual. Pode utilizar um serviço gratuito para este arranque rápido. 
 
 ### <a name="check-for-space"></a>Verificar o espaço
 
-Muitos clientes começam com o serviço gratuito. Esta versão está limitada a três índices, três origens de dados e três indexadores. Certifique-se de que tem espaço para itens adicionais antes de começar. Este tutorial cria um objeto de cada.
+Muitos clientes começam com o serviço gratuito. O nível livre é limitado a três índices, três fontes de dados e três indexantes. Certifique-se de que tem espaço para itens adicionais antes de começar. Este tutorial cria um objeto de cada.
 
-As secções no painel de serviço mostram quantos índices, indexadores e fontes de dados já tem. 
+Consulte a página geral do serviço para saber quantos índices, indexadores e fontes de dados já tem. 
 
 :::image type="content" source="media/search-get-started-portal/tiles-indexers-datasources.png" alt-text="Listas de índices, indexadores e fontes de dados":::
 
@@ -70,14 +68,18 @@ Vamos saltar este passo por enquanto, e passar diretamente para **o índice de a
 
 ### <a name="step-3---configure-index"></a>Passo 3 - Índice de configuração
 
-Tipicamente, a criação de índices é um exercício baseado em código, concluído antes de carregar dados. No entanto, como este tutorial indica, o assistente pode gerar um índice básico para qualquer fonte de dados que possa rastejar. No mínimo, os índices precisam de um nome e de uma coleção de campos; um dos campos deve ser marcado como a chave do documento para identificar exclusivamente cada documento. Além disso, pode especificar analisadores de idiomas ou sugestores se quiser consultas autocompletas ou sugeridas.
+Para o índice de amostra de hotéis incorporados, é definido um esquema de índice padrão para si. Com exceção de alguns exemplos avançados de filtro, as consultas na documentação e amostras que visam o índice de amostras de hotéis serão executadas nesta definição de índice:
+
+:::image type="content" source="media/search-get-started-portal/hotelsindex.png" alt-text="Índice de hotéis gerados":::
+
+Normalmente, num exercício baseado em código, a criação de índices é concluída antes de carregar dados. O assistente de dados de importação condensa estes passos gerando um índice básico para qualquer fonte de dados que possa rastejar. No mínimo, os índices precisam de um nome e de uma coleção de campos; um dos campos deve ser marcado como a chave do documento para identificar exclusivamente cada documento. Além disso, pode especificar analisadores de idiomas ou sugestores se quiser consultas autocompletas ou sugeridas.
 
 Os campos têm tipos de dados e atributos. As caixas de verificação na parte superior são *atributos de índice* que controlam a forma como o campo é utilizado.
 
-* **Recuperável** significa que aparece na lista de resultados da pesquisa. Pode marcar campos individuais como fora dos limites para os resultados da pesquisa, limpando esta caixa de verificação, por exemplo, para campos utilizados apenas em expressões de filtro.
-* **A chave** é o identificador de documentos único. É sempre uma corda, e é necessário.
-* **Filtragem,** **ordenada** e **faceta determinam** se os campos são utilizados numa estrutura de navegação filtrada, ordenada ou facetada.
-* **Pesquisável** significa que um campo está incluído na pesquisa de texto completo. As cadeias são pesquisáveis. Os campos numéricos e booleanos são frequentemente marcados como não pesquisáveis.
++ **Recuperável** significa que aparece na lista de resultados da pesquisa. Pode marcar campos individuais como fora dos limites para os resultados da pesquisa, limpando esta caixa de verificação, por exemplo, para campos utilizados apenas em expressões de filtro.
++ **A chave** é o identificador de documentos único. É sempre uma corda, e é necessário.
++ **Filtragem,** **ordenada** e **faceta determinam** se os campos são utilizados numa estrutura de navegação filtrada, ordenada ou facetada.
++ **Pesquisável** significa que um campo está incluído na pesquisa de texto completo. As cadeias são pesquisáveis. Os campos numéricos e booleanos são frequentemente marcados como não pesquisáveis.
 
 Os requisitos de armazenamento não variam como resultado da sua seleção. Por exemplo, se definir o atributo **Retrievable** em vários campos, os requisitos de armazenamento não sobem.
 
@@ -87,10 +89,7 @@ Por predefinição, o assistente verifica a origem de dados relativamente a iden
 
    Se refazer o assistente uma segunda vez utilizando uma fonte de dados de hotéis existente, o índice não será configurado com atributos predefinidos. Terá de selecionar manualmente atributos sobre importações futuras. 
 
-   :::image type="content" source="media/search-get-started-portal/hotelsindex.png" alt-text="Índice de hotéis gerados":::
-
-2. Continue para a próxima página.
-
+1. Continue para a próxima página.
 
 ### <a name="step-4---configure-indexer"></a>Passo 4 - Indexador de configuração
 
@@ -104,7 +103,7 @@ Clique **em Submeter** para criar e executar simultaneamente o indexante.
 
 ## <a name="monitor-progress"></a>Monitorizar o progresso
 
-O assistente deve levá-lo à lista de Indexantes onde pode monitorizar o progresso. Para auto-navegação, vá à página 'Vista Geral' e clique em **Indexers**.
+O assistente deve levá-lo à lista de Indexantes onde pode monitorizar o progresso. Para auto-navegação, vá à página 'Vista Geral' e clique no **separador Indexantes.**
 
 Pode levar alguns minutos para o portal atualizar a página, mas você deve ver o indexante recém-criado na lista, com o estado indicando "em progresso" ou sucesso, juntamente com o número de documentos indexados.
 
@@ -112,7 +111,7 @@ Pode levar alguns minutos para o portal atualizar a página, mas você deve ver 
 
 ## <a name="view-the-index"></a>Ver o índice
 
-A página principal de serviço fornece links para os recursos criados no seu serviço de Pesquisa Cognitiva Azure.  Para ver o índice que acabou de criar, clique em **Índices** a partir da lista de links. 
+A página geral do serviço fornece links para os recursos criados no seu serviço de Pesquisa Cognitiva Azure.  Para ver o índice que acabou de criar, clique em **Índices** a partir da lista de links. 
 
 Aguarde que a página do portal se refresque. Após alguns minutos, deverá ver o índice com uma contagem de documentos e tamanho de armazenamento.
 
@@ -120,7 +119,9 @@ Aguarde que a página do portal se refresque. Após alguns minutos, deverá ver 
 
 A partir desta lista, você pode clicar no índice *de amostra de hotéis* que acabou de criar, ver o esquema de índice. e opcionalmente adicionar novos campos. 
 
-O separador **Fields** mostra o esquema de índice. Percorra a parte inferior da lista para entrar num novo campo. Na maioria dos casos, não se pode mudar os campos existentes. Os campos existentes têm uma representação física na Pesquisa Cognitiva Azure e são, portanto, não modificáveis, nem mesmo em código. Para alterar fundamentalmente um campo existente, crie um novo índice, deixando cair o original.
+O separador **Fields** mostra o esquema de índice. Se estiver a escrever consultas e tiver de verificar se um campo é filtrado ou ordenado, este separador mostra-lhe os atributos.
+
+Percorra a parte inferior da lista para entrar num novo campo. Embora possa sempre criar um novo campo, na maioria dos casos, não pode mudar os campos existentes. Os campos existentes têm representação física no seu serviço de pesquisa e, portanto, não são modificáveis, nem mesmo em código. Para alterar fundamentalmente um campo existente, crie um novo índice, deixando cair o original.
 
    :::image type="content" source="media/search-get-started-portal/sample-index-def.png" alt-text="definição de índice de exemplo":::
 
@@ -142,11 +143,11 @@ Mais adiante, já deve ter um índice de pesquisa pronto para consultar com a p�
 
    :::image type="content" source="media/search-get-started-portal/search-explorer-cmd.png" alt-text="Comando do Explorador de pesquisa":::
 
-2. A partir da queda do **Índice,** escolha *hotéis-índice de amostra.* Clique no dropdown da **versão API,** para ver quais AS APIs REST estão disponíveis. Para as consultas abaixo, utilize a versão geralmente disponível (2020-06-30).
+1. A partir da queda do **Índice,** escolha *hotéis-índice de amostra.* Clique no dropdown da **versão API,** para ver quais AS APIs REST estão disponíveis. Para as consultas abaixo, utilize a versão geralmente disponível (2020-06-30).
 
    :::image type="content" source="media/search-get-started-portal/search-explorer-changeindex.png" alt-text="Comandos de índice e de API":::
 
-3. Na barra de pesquisa, cole nas cordas de consulta abaixo e clique em **Procurar**.
+1. Na barra de pesquisa, cole nas cordas de consulta abaixo e clique em **Procurar**.
 
    :::image type="content" source="media/search-get-started-portal/search-explorer-query-string-example.png" alt-text="Botão de pesquisa e corda de consulta":::
 
@@ -158,19 +159,19 @@ Pode introduzir termos e frases, semelhantes ao que pode fazer numa pesquisa de 
 
 #### <a name="example-string-query-searchspa"></a>Exemplo (consulta de cordas): `search=spa`
 
-* O parâmetro **de pesquisa** é utilizado para inserir uma pesquisa de palavras-chave para a pesquisa completa de texto, neste caso, devolvendo dados do hotel para aqueles que contenham *spa* em qualquer campo pesjável no documento.
++ O parâmetro **de pesquisa** é utilizado para inserir uma pesquisa de palavras-chave para a pesquisa completa de texto, neste caso, devolvendo dados do hotel para aqueles que contenham *spa* em qualquer campo pesjável no documento.
 
-* O **Explorador de pesquisa** devolve resultados em JSON, que é verboso e difícil de ler se os documentos tiverem uma estrutura densa. Isto é intencional; a visibilidade em todo o documento é importante para fins de desenvolvimento, especialmente durante os testes. Para uma melhor experiência de utilizador, terá de escrever código que [processa resultados de pesquisa](search-pagination-page-layout.md) para reproduzir elementos importantes.
++ O **Explorador de pesquisa** devolve resultados em JSON, que é verboso e difícil de ler se os documentos tiverem uma estrutura densa. Isto é intencional; a visibilidade em todo o documento é importante para fins de desenvolvimento, especialmente durante os testes. Para uma melhor experiência de utilizador, terá de escrever código que [processa resultados de pesquisa](search-pagination-page-layout.md) para reproduzir elementos importantes.
 
-* Os documentos são compostos por todos os campos marcados como "recuperáveis" no índice. Para ver os atributos do índice no portal, clique em *hotéis-amostra* na lista **de Índices.**
++ Os documentos são compostos por todos os campos marcados como "recuperáveis" no índice. Para ver os atributos do índice no portal, clique em *hotéis-amostra* na lista **de Índices.**
 
 #### <a name="example-parameterized-query-searchspacounttruetop10"></a>Exemplo (consulta parametrizada): `search=spa&$count=true&$top=10`
 
-* O **&** símbolo é utilizado para anexar parâmetros de pesquisa, que podem ser especificados em qualquer ordem.
++ O **&** símbolo é utilizado para anexar parâmetros de pesquisa, que podem ser especificados em qualquer ordem.
 
-* O **parâmetro $count=verdadeiro** devolve a contagem total de todos os documentos devolvidos. Este valor é apresentado junto à parte superior dos resultados da pesquisa. Pode verificar as consultas de filtro através da monitorização das alterações comunicadas por **$count=true**. As contagens mais pequenas indicam que o filtro está a funcionar.
++ O **parâmetro $count=verdadeiro** devolve a contagem total de todos os documentos devolvidos. Este valor é apresentado junto à parte superior dos resultados da pesquisa. Pode verificar as consultas de filtro através da monitorização das alterações comunicadas por **$count=true**. As contagens mais pequenas indicam que o filtro está a funcionar.
 
-* O **$top=10** devolve os 10 documentos mais bem classificados do total. Por padrão, a Azure Cognitive Search devolve os primeiros 50 melhores jogos. Pode aumentar ou diminuir a quantidade através de **$top**.
++ O **$top=10** devolve os 10 documentos mais bem classificados do total. Por padrão, a Azure Cognitive Search devolve os primeiros 50 melhores jogos. Pode aumentar ou diminuir a quantidade através de **$top**.
 
 ### <a name="filter-the-query"></a><a name="filter-query"></a>Filtrar a consulta
 
@@ -178,9 +179,9 @@ Os filtros são incluídos nos pedidos de pesquisa se acrescentar o parâmetro *
 
 #### <a name="example-filtered-searchbeachfilterrating-gt-4"></a>Exemplo (filtrado): `search=beach&$filter=Rating gt 4`
 
-* O parâmetro **$filter** devolve resultados que correspondem aos critérios que indicou. Neste caso, classificações superiores a 4.
++ O parâmetro **$filter** devolve resultados que correspondem aos critérios que indicou. Neste caso, classificações superiores a 4.
 
-* A sintaxe do filtro é uma construção OData. Para obter mais informações, veja [Filter OData syntax (Sintaxe de Filtros OData)](/rest/api/searchservice/odata-expression-syntax-for-azure-search).
++ A sintaxe do filtro é uma construção OData. Para obter mais informações, veja [Filter OData syntax (Sintaxe de Filtros OData)](/rest/api/searchservice/odata-expression-syntax-for-azure-search).
 
 ### <a name="facet-the-query"></a><a name="facet-query"></a> Facetar a consulta
 
@@ -188,19 +189,18 @@ Os filtros de faceta são incluídos nos resultados da pesquisa. Pode utilizar o
 
 #### <a name="example-faceted-with-scope-reduction-searchfacetcategorytop2"></a>Exemplo (por facetas com redução de âmbito): `search=*&facet=Category&$top=2`
 
-* **pesquisa=** _ é uma procura vazia. As pesquisas em branco pesquisam em tudo. Uma das razões para submeter uma consulta em branco é para filtrar ou especificar facetas no conjunto completo de documentos. Por exemplo, você quer uma estrutura de navegação faceting para consistir de todos os hotéis no índice.
-_ **faceta** devolve uma estrutura de navegação que pode passar para um controlo de UI. Devolve categorias e uma contagem. Neste caso, as categorias baseiam-se num campo convenientemente chamado *categoria*. Não há agregação na Pesquisa Cognitiva do Azure, mas pode aproximar a agregação através `facet` de , o que dá uma contagem de documentos em cada categoria.
++ **search=*** é uma consulta vazia. As pesquisas em branco pesquisam em tudo. Uma das razões para submeter uma consulta em branco é para filtrar ou especificar facetas no conjunto completo de documentos. Por exemplo, você quer uma estrutura de navegação faceting para consistir de todos os hotéis no índice.
++ **facet** devolve uma estrutura de navegação que pode ser transmitida a um controlo de IU. Devolve categorias e uma contagem. Neste caso, as categorias baseiam-se num campo convenientemente chamado *categoria*. Não há agregação na Pesquisa Cognitiva do Azure, mas pode aproximar a agregação através `facet` de , o que dá uma contagem de documentos em cada categoria.
 
-* **$top=2** devolve dois documentos, o que exemplifica que pode utilizar `top` para reduzir ou aumentar os resultados.
++ **$top=2** devolve dois documentos, o que exemplifica que pode utilizar `top` para reduzir ou aumentar os resultados.
 
 #### <a name="example-facet-on-numeric-values-searchspafacetrating"></a>Exemplo (faceta em valores numéricos): `search=spa&facet=Rating`
 
-* Esta consulta é faceta para classificação, em uma pesquisa de texto para *spa*. O termo *Classificação* pode ser especificado como uma faceta porque o campo é marcado como recuperável, filtrado e facetable no índice, e os valores que contém (numérico, 1 a 5), são adequados para categorizar listagens em grupos.
++ Esta consulta é faceta para classificação, em uma pesquisa de texto para *spa*. O termo *Classificação* pode ser especificado como uma faceta porque o campo é marcado como recuperável, filtrado e facetable no índice, e os valores que contém (numérico, 1 a 5), são adequados para categorizar listagens em grupos.
 
-* Apenas os campos filtráveis podem ser facetados. Apenas os campos recuperáveis podem ser devolvidos nos resultados.
++ Apenas os campos filtráveis podem ser facetados. Apenas os campos recuperáveis podem ser devolvidos nos resultados.
 
-* O campo *rating* é um ponto flutuante de dupla precisão e o agrupamento será por valor preciso. Para obter mais informações sobre o agrupamento por intervalo (por exemplo, "3 estrelas ratings", "4 estrelas ratings", etc.), consulte [Como implementar a navegação faceta em Azure Cognitive Search](./search-faceted-navigation.md#filter-based-on-a-range).
-
++ O campo *rating* é um ponto flutuante de dupla precisão e o agrupamento será por valor preciso. Para obter mais informações sobre o agrupamento por intervalo (por exemplo, "3 estrelas ratings", "4 estrelas ratings", etc.), consulte [Como implementar a navegação faceta em Azure Cognitive Search](./search-faceted-navigation.md#filter-based-on-a-range).
 
 ### <a name="highlight-search-results"></a><a name="highlight-query"></a> Realçar os resultados de pesquisa
 
@@ -208,13 +208,13 @@ O detetor de ocorrências refere-se à formatação no texto que corresponde à 
 
 #### <a name="example-highlighter-searchbeachhighlightdescription"></a>Exemplo (marcador): `search=beach&highlight=Description`
 
-* Neste exemplo, a *praia* de palavras formatada é mais fácil de detetar no campo de descrição.
++ Neste exemplo, a *praia* de palavras formatada é mais fácil de detetar no campo de descrição.
 
 #### <a name="example-linguistic-analysis-searchbeacheshighlightdescription"></a>Exemplo (análise linguística): `search=beaches&highlight=Description`
 
-* A pesquisa completa de texto reconhece variações básicas nos formulários de texto. Neste caso, os resultados da pesquisa contêm texto sonoro para "praia", para hotéis que tenham essa palavra nos seus campos pes pesjáveis, em resposta a uma pesquisa de palavras-chave em "praias". Podem aparecer nos resultados diferentes formas da mesma palavra, devido à análise linguística. 
++ A pesquisa completa de texto reconhece variações básicas nos formulários de texto. Neste caso, os resultados da pesquisa contêm texto sonoro para "praia", para hotéis que tenham essa palavra nos seus campos pes pesjáveis, em resposta a uma pesquisa de palavras-chave em "praias". Podem aparecer nos resultados diferentes formas da mesma palavra, devido à análise linguística. 
 
-* A Azure Cognitive Search suporta 56 analisadores tanto da Lucene como da Microsoft. O padrão usado pela Azure Cognitive Search é o analisador padrão lucene.
++ A Azure Cognitive Search suporta 56 analisadores tanto da Lucene como da Microsoft. O padrão usado pela Azure Cognitive Search é o analisador padrão lucene.
 
 ### <a name="try-fuzzy-search"></a><a name="fuzzy-search"></a> Experimentar a pesquisa difusa
 

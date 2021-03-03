@@ -6,18 +6,18 @@ ms.topic: article
 ms.date: 7/01/2019
 ms.author: msangapu
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: ab27de9274043439f790a8fecd443223e5f26b08
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: c3e5ca30b7f0f00b6d647f5fdaeb772900996adc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736209"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101720244"
 ---
 # <a name="access-azure-storage-preview-as-a-network-share-from-a-container-in-app-service"></a>Access Azure Storage (pré-visualização) como uma partilha de rede a partir de um contentor no Serviço de Aplicações
 
 ::: zone pivot="container-windows"
 
-Este guia mostra como anexar os Ficheiros de Armazenamento Azure como uma partilha de rede a um contentor de janelas no Serviço de Aplicações. Apenas [a Azure Files Shares](../storage/files/storage-how-to-use-files-cli.md) e Premium Files [Shares](../storage/files/storage-how-to-create-premium-fileshare.md) são suportadas. Os benefícios incluem conteúdo seguro, portabilidade do conteúdo, acesso a várias aplicações e múltiplos métodos de transferência.
+Este guia mostra como anexar os Ficheiros de Armazenamento Azure como uma partilha de rede a um contentor de janelas no Serviço de Aplicações. Apenas [a Azure Files Shares](../storage/files/storage-how-to-use-files-cli.md) e Premium Files [Shares](../storage/files/storage-how-to-create-file-share.md) são suportadas. Os benefícios incluem conteúdo seguro, portabilidade do conteúdo, acesso a várias aplicações e múltiplos métodos de transferência.
 
 > [!NOTE]
 >O Azure Storage in App Service está **em pré-visualização** e **não é suportado** para **cenários de produção**.
@@ -117,7 +117,7 @@ Uma vez que a partilha esteja ligada à aplicação, pode verificar isso executa
 az webapp config storage-account list --resource-group <resource-group> --name <app-name>
 ```
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 ::: zone pivot="container-windows"
 

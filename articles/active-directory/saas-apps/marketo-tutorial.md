@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/13/2021
 ms.author: jeedes
-ms.openlocfilehash: f0bf99748363505e362d3c35e53a51be3a03e938
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 433303bf0d51eff3bd3ab37726c9e98e8a766d25
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98728704"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101686959"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-marketo"></a>Tutorial: Integração do Diretório Ativo Azure com o Marketo
 
@@ -82,7 +82,7 @@ Siga estes passos para ativar o Azure AD SSO no portal Azure.
 
     a. Na caixa de texto **identifier,** digite o URL: `https://saml.marketo.com/sp`
 
-    b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão: `https://login.marketo.com/saml/assertion/\<munchkinid\>`
+    b. Na caixa de texto **URL de resposta,** digite um URL utilizando o seguinte padrão: `https://login.marketo.com/saml/assertion/<munchkinid>`
 
     c. Na caixa de texto **do Estado de retransmissão,** digite um URL utilizando o seguinte padrão: `https://<munchkinid>.marketo.com/`
 
@@ -254,6 +254,6 @@ Nesta secção, testa a configuração de um único sinal de inscrição Azure A
 
 * Pode utilizar as minhas apps do Microsoft. Quando clicar no azulejo do Marketo nas Minhas Apps, deverá ser automaticamente inscrito no Marketo para o qual configura o SSO. Para obter mais informações sobre as Minhas Apps, consulte [Introdução às Minhas Aplicações.](../user-help/my-apps-portal-end-user-access.md)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Uma vez configurado Marketo, pode impor o controlo da sessão, que protege a exfiltração e infiltração dos dados sensíveis da sua organização em tempo real. O controlo da sessão estende-se desde o Acesso Condicional. [Saiba como impor o controlo da sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

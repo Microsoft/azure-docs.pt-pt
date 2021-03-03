@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 01/25/2021
+ms.date: 03/01/2021
 ms.author: alkohli
-ms.openlocfilehash: ebadfc889eb648b734747e5a2a45662e82aab643
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 0b4a31200b99062a72a02ca62ac8f3bf1206f9c9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100546810"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101722097"
 ---
 # <a name="connect-to-azure-resource-manager-on-your-azure-stack-edge-pro-device"></a>Ligue ao Gestor de Recursos Azure no seu dispositivo Azure Stack Edge Pro
 
@@ -130,7 +130,7 @@ O cliente windows onde irá invocar as APIs do Gestor de Recursos Azure precisa 
 
 O seu cliente Windows deve cumprir os seguintes requisitos:
 
-1. Executar PowerShell Versão 5.0. Deve ter a versão 5.0 ou superior do PowerShell. Para verificar a versão do PowerShell no seu sistema, execute o seguinte cmdlet:
+1. Executar PowerShell Versão 5.0. Deve ter a versão 5.0 do PowerShell. O núcleo PowerShell não está suportado. Para verificar a versão do PowerShell no seu sistema, execute o seguinte cmdlet:
 
     ```powershell
     $PSVersionTable.PSVersion

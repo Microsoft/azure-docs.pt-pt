@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2019
-ms.openlocfilehash: 53f189921a44d63d7e344fb733519661f5b17dc6
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: e7ab83b2b16a1340b354b9333d00c8166b5cfdf9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100619581"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101722964"
 ---
 # <a name="optimize-log-queries-in-azure-monitor"></a>Otimizar consultas de log no Azure Monitor
 O Azure Monitor Logs utiliza [o Azure Data Explorer (ADX)](/azure/data-explorer/) para armazenar dados de registo e executar consultas para analisar esses dados. Cria, gere e mantém os clusters ADX para si, e otimiza-os para a sua carga de trabalho de análise de registo. Quando você faz uma consulta, é otimizado, e encaminhado para o cluster ADX apropriado que armazena os dados do espaço de trabalho. Tanto os Registos monitores Azure como o Azure Data Explorer utilizam muitos mecanismos automáticos de otimização de consultas. Embora as otimizações automáticas proporcionem um impulso significativo, existem alguns casos em que pode melhorar drasticamente o seu desempenho de consulta. Este artigo explica as considerações de desempenho e várias técnicas para corrigi-las.
@@ -322,7 +322,7 @@ Todos os registos em Registos monitores Azure são divididos de acordo com a col
 
 Consulta com tempo de mais de 15 dias é considerada uma consulta que consome recursos excessivos. Consulta com tempo de mais de 90 dias é considerada uma consulta abusiva e pode ser estrangulada.
 
-O intervalo de tempo pode ser definido utilizando o seletor de intervalo de tempo no ecrã Log Analytics, conforme descrito no [âmbito de consulta de Log e intervalo de tempo no Azure Monitor Log Analytics](../log-query/scope.md#time-range). Este é o método recomendado, uma vez que o intervalo de tempo selecionado é passado para o backend utilizando os metadados de consulta. 
+O intervalo de tempo pode ser definido utilizando o seletor de intervalo de tempo no ecrã Log Analytics, conforme descrito no [âmbito de consulta de Log e intervalo de tempo no Azure Monitor Log Analytics](./scope.md#time-range). Este é o método recomendado, uma vez que o intervalo de tempo selecionado é passado para o backend utilizando os metadados de consulta. 
 
 Um método alternativo é incluir explicitamente uma condição [em](/azure/kusto/query/whereoperator) que a condição do **TempoGerado** na consulta. Deve utilizar este método pois assegura que o tempo é fixado, mesmo quando a consulta é utilizada a partir de uma interface diferente.
 Deve certificar-se de que todas as partes da consulta possuem filtros **TimeGenerated.** Quando uma consulta tem sub-consultas que recolhem dados de várias tabelas ou da mesma tabela, cada uma tem de incluir a sua própria [condição.](/azure/kusto/query/whereoperator)

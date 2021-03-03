@@ -2,13 +2,13 @@
 title: Configurar registos de diagnóstico - Azure Event Hub | Microsoft Docs
 description: Saiba como configurar registos de atividades e registos de diagnóstico para centros de eventos em Azure.
 ms.topic: article
-ms.date: 10/27/2020
-ms.openlocfilehash: dc5cbea31583a4e8126897b2dcda63b216438e1b
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.date: 02/25/2021
+ms.openlocfilehash: 538ff86f1ef4c06bb5400af3fbd2394134aa17f3
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100573169"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101742539"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Configurar registos de diagnósticos para um hub de eventos do Azure
 
@@ -207,7 +207,7 @@ Evento de ligação de rede virtual (VNet) evento de ligação de rede virtual J
 | `Count` | Número de ocorrências para a ação dada |
 | `ResourceId` | Identificação de recursos do Azure Resource Manager. |
 
-Os registos de rede virtuais só são gerados se o espaço de nome permitir o acesso a partir de **redes selecionadas** ou de **endereços IP específicos (regras** de filtro IP). Se não pretender restringir o acesso ao seu espaço de nome utilizando estas funcionalidades e ainda pretender obter registos de rede virtuais para rastrear endereços IP de clientes que se ligam ao espaço de nomes do Event Hubs, poderá utilizar a seguinte solução alternativa. Ativar a filtragem IP e adicionar a gama total iPv4 endereçada (1.0.0.0/1 - 255.0.0.0/1). O Event Hubs não suporta gamas IPv6. 
+Os registos de rede virtuais só são gerados se o espaço de nome permitir o acesso a partir de **redes selecionadas** ou de **endereços IP específicos (regras** de filtro IP). Se não pretender restringir o acesso ao seu espaço de nome utilizando estas funcionalidades e ainda pretender obter registos de rede virtuais para rastrear endereços IP de clientes que se ligam ao espaço de nomes do Event Hubs, poderá utilizar a seguinte solução alternativa. [Ativar a filtragem IP](event-hubs-ip-filtering.md)e adicionar a gama total iPv4 endereçada (1.0.0.0/1 - 255.0.0.0/1). A filtragem IP do Event Hubs não suporta gamas IPv6. Note que pode ver endereços de ponto final privados no formato IPv6 no registo. 
 
 ### <a name="example"></a>Exemplo
 

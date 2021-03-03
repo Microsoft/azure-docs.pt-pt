@@ -8,20 +8,20 @@ ms.topic: include
 ms.date: 07/22/2019
 ms.author: bwren
 ms.custom: include file
-ms.openlocfilehash: ff5d04a2923f16c763e1529ecb365f60d6275ca2
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 5f2b77c7d8e1a2da9517183043231b717b6cceab
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96028228"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734078"
 ---
 ### <a name="general-query-limits"></a>Limites gerais de consulta
 
 | Limite | Descrição |
 |:---|:---|
 | Linguagem da consulta | O Azure Monitor utiliza a mesma [linguagem de consulta kusto que](/azure/kusto/query/) o Azure Data Explorer. Consulte [as diferenças linguísticas de consulta de registo do Azure Monitor](/azure/data-explorer/kusto/query/) para elementos linguísticos KQL não suportados no Azure Monitor. |
-| Regiões do Azure | As consultas de registo podem experimentar sobrecargas excessivas quando os dados abrangem espaços de trabalho log analytics em várias regiões do Azure. Consulte [os limites de consulta](../articles/azure-monitor/log-query/scope.md#query-scope-limits) para mais detalhes. |
-| Consultas entre recursos | Número máximo de recursos de Insights de Aplicação e espaços de trabalho log analytics numa única consulta limitada a 100.<br>A consulta de recursos cruzados não é suportada no View Designer.<br>A consulta de recursos cruzados nos alertas de registo é suportada na nova API agendada deQueryRules.<br>Consulte [os limites de consulta de recursos cruzados](../articles/azure-monitor/log-query/cross-workspace-query.md#cross-resource-query-limits) para obter mais detalhes. |
+| Regiões do Azure | As consultas de registo podem experimentar sobrecargas excessivas quando os dados abrangem espaços de trabalho log analytics em várias regiões do Azure. Consulte [os limites de consulta](../articles/azure-monitor/logs/scope.md#query-scope-limits) para mais detalhes. |
+| Consultas entre recursos | Número máximo de recursos de Insights de Aplicação e espaços de trabalho log analytics numa única consulta limitada a 100.<br>A consulta de recursos cruzados não é suportada no View Designer.<br>A consulta de recursos cruzados nos alertas de registo é suportada na nova API agendada deQueryRules.<br>Consulte [os limites de consulta de recursos cruzados](../articles/azure-monitor/logs/cross-workspace-query.md#cross-resource-query-limits) para obter mais detalhes. |
 
 ### <a name="user-query-throttling"></a>Estrangulamento da consulta do utilizador
 O Azure Monitor tem vários limites de estrangulamento para proteger contra os utilizadores que enviam um número excessivo de consultas. Tal comportamento pode potencialmente sobrecarregar os recursos de backend do sistema e comprometer a capacidade de resposta do serviço. Os seguintes limites destinam-se a proteger os clientes de interrupções e a garantir um nível de serviço consistente. O estrangulamento do utilizador e os limites são concebidos para impactar apenas cenários de utilização extremas e não devem ser relevantes para o uso típico.
@@ -34,6 +34,6 @@ O Azure Monitor tem vários limites de estrangulamento para proteger contra os u
 | Total de consultas na fila da concurrency | 200 | Uma vez que o número de consultas na fila atinge 200, quaisquer consultas adicionais serão rejeitadas com um código de erro HTTP 429. Este número é além das 5 consultas que podem ser em execução simultaneamente. |
 | Taxa de consultas | 200 consultas por 30 segundos | Esta é a taxa global que as consultas podem ser submetidas por um único utilizador a todos os espaços de trabalho.  Este limite aplica-se a consultas programáticas ou consultas iniciadas por peças de visualização como dashboards Azure e a página de resumo do espaço de trabalho Log Analytics. |
 
-- Otimize as suas consultas como descrito nas [consultas de registo otimizado no Azure Monitor](../articles/azure-monitor/log-query/query-optimization.md).
+- Otimize as suas consultas como descrito nas [consultas de registo otimizado no Azure Monitor](../articles/azure-monitor/logs/query-optimization.md).
 - Os dashboards e os livros de trabalho podem conter múltiplas consultas numa única vista que geram uma explosão de consultas sempre que carregam ou se atualizam. Considere dividi-los em múltiplas visões que carregam a pedido. 
 - No Power BI, considere extrair apenas resultados agregados em vez de troncos crus.

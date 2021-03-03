@@ -9,16 +9,16 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: bc6632b55ba8fd90317a8b5046a3e84d863bf0ef
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 0c182e1093c29206d27a0e55a46dd9a5607fa6ec
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99221719"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101701710"
 ---
 # <a name="enable-and-manage-azure-storage-analytics-logs-classic"></a>Ativar e gerir registos Azure Storage Analytics (clássico)
 
-[A Azure Storage Analytics](storage-analytics.md) fornece registos para bolhas, filas e mesas. Pode utilizar o [portal Azure](https://portal.azure.com) para configurar registos para a sua conta. Este artigo mostra-lhe como ativar e gerir registos. Para aprender a ativar métricas, consulte [Ativar e gerir as métricas Azure Storage Analytics (clássica)](storage-monitor-storage-account.md).  Existem custos associados à análise e armazenamento de dados de monitorização no portal Azure. Para obter mais informações, veja [Análise de Armazenamento](storage-analytics.md).
+[A Azure Storage Analytics](storage-analytics.md) fornece registos para bolhas, filas e mesas. Pode utilizar o [portal Azure](https://portal.azure.com) para configurar registos para a sua conta. Este artigo mostra-lhe como ativar e gerir registos. Para aprender a ativar métricas, consulte [Ativar e gerir as métricas Azure Storage Analytics (clássica)]().  Existem custos associados à análise e armazenamento de dados de monitorização no portal Azure. Para obter mais informações, veja [Análise de Armazenamento](storage-analytics.md).
 
 > [!NOTE]
 > Recomendamos que utilize registos de armazenamento Azure no Monitor Azure em vez de registos de Storage Analytics. Os registos de armazenamento Azure no Azure Monitor estão em pré-visualização pública e estão disponíveis para testes de pré-visualização em todas as regiões de nuvem pública. Esta pré-visualização permite registos para bolhas (que inclui Azure Data Lake Storage Gen2), ficheiros, filas e tabelas. Para saber mais, consulte qualquer um dos seguintes artigos:
@@ -191,7 +191,7 @@ Os dados de registo podem acumular-se na sua conta ao longo do tempo, o que pode
 
    * Substitua o `<storage-account-name>` valor do espaço reservado pelo nome da sua conta de armazenamento. 
 
-6. Utilize o [Get-AzStorageServiceLoggingProperty](https://docs.microsoft.com/powershell/module/az.storage/get-azstorageserviceloggingproperty) para visualizar a política atual de retenção de registos. O exemplo a seguir imprime à consola o período de retenção para serviços de armazenamento de bolhas e filas.
+6. Utilize o [Get-AzStorageServiceLoggingProperty](/powershell/module/az.storage/get-azstorageserviceloggingproperty) para visualizar a política atual de retenção de registos. O exemplo a seguir imprime à consola o período de retenção para serviços de armazenamento de bolhas e filas.
 
    ```powershell
    Get-AzStorageServiceLoggingProperty -ServiceType Blob, Queue -Context $ctx
@@ -202,7 +202,7 @@ Os dados de registo podem acumular-se na sua conta ao longo do tempo, o que pode
    > [!div class="mx-imgBorder"]
    > ![Política de retenção na produção powerShell](./media/manage-storage-analytics-logs/retention-period-powershell.png)
 
-7. Utilize o [Set-AzStorageServiceLoggingProperty](https://docs.microsoft.com/powershell/module/az.storage/set-azstorageserviceloggingproperty) para alterar o período de retenção. O exemplo a seguir altera o período de retenção para 4 dias.  
+7. Utilize o [Set-AzStorageServiceLoggingProperty](/powershell/module/az.storage/set-azstorageserviceloggingproperty) para alterar o período de retenção. O exemplo a seguir altera o período de retenção para 4 dias.  
 
    ```powershell
    Set-AzStorageServiceLoggingProperty -ServiceType Blob, Queue -RetentionDays 4 -Context $ctx
@@ -290,7 +290,6 @@ Quando tiver descarregado os seus dados de registo, pode visualizar as entradas 
 ## <a name="next-steps"></a>Passos seguintes
 
 * Para saber mais sobre Storage Analytics, consulte [Storage Analytics](storage-analytics.md) para Storage Analytics.
-* [Configure métricas de Storage Analytics](storage-monitor-storage-account.md).
 * Para obter mais informações sobre a utilização de um idioma .NET para configurar o registo de armazenamento, consulte [o Índice da Biblioteca do Cliente de Armazenamento.](/previous-versions/azure/dn261237(v=azure.100)) 
 * Para obter informações gerais sobre a configuração do registo de armazenamento utilizando a API REST, consulte [Ativar e Configurar o Analytics de Armazenamento](/rest/api/storageservices/Enabling-and-Configuring-Storage-Analytics).
 * Saiba mais sobre o formato dos registos Storage Analytics. Consulte [o formato de registo de analítica de armazenamento](/rest/api/storageservices/storage-analytics-log-format).

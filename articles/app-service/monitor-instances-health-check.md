@@ -6,18 +6,18 @@ author: msangapu-msft
 ms.topic: article
 ms.date: 12/03/2020
 ms.author: msangapu
-ms.openlocfilehash: 8892723ec1a53c59e3e6183b5d53c2e61db4e5d0
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 7d6f9564328f81b71c62a4243c5f4cc209a29d8f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99575233"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101714481"
 ---
 # <a name="monitor-app-service-instances-using-health-check"></a>Monitorizar instâncias do Serviço de Aplicações usando verificação de saúde
 
 ![Falha no controlo de saúde][2]
 
-Este artigo utiliza o health check no portal Azure para monitorizar as instâncias do Serviço de Aplicações. O exame de saúde aumenta a disponibilidade da sua aplicação removendo casos insalubres. O seu [plano de Serviço de Aplicações](/azure/app-service/overview-hosting-plans) deve ser dimensionado para duas ou mais instâncias para utilizar o Health check. A via de verificação de saúde deve verificar os componentes críticos da sua aplicação. Por exemplo, se a sua aplicação depender de uma base de dados e de um sistema de mensagens, o ponto final do controlo de saúde deve ligar-se a esses componentes. Se a aplicação não conseguir ligar-se a um componente crítico, então o caminho deve devolver um código de resposta de 500 níveis para indicar que a aplicação não é saudável.
+Este artigo utiliza o health check no portal Azure para monitorizar as instâncias do Serviço de Aplicações. O exame de saúde aumenta a disponibilidade da sua aplicação removendo casos insalubres. O seu [plano de Serviço de Aplicações](./overview-hosting-plans.md) deve ser dimensionado para duas ou mais instâncias para utilizar o Health check. A via de verificação de saúde deve verificar os componentes críticos da sua aplicação. Por exemplo, se a sua aplicação depender de uma base de dados e de um sistema de mensagens, o ponto final do controlo de saúde deve ligar-se a esses componentes. Se a aplicação não conseguir ligar-se a um componente crítico, então o caminho deve devolver um código de resposta de 500 níveis para indicar que a aplicação não é saudável.
 
 ## <a name="what-app-service-does-with-health-checks"></a>O que o Serviço de Aplicações faz com verificações de saúde
 
@@ -48,7 +48,7 @@ Este artigo utiliza o health check no portal Azure para monitorizar as instânci
 
 Além de configurar as opções de verificação de Saúde, também pode configurar as [seguintes definições de aplicações:](configure-common.md)
 
-| Nome de definição de aplicativo | Valores permitidos | Description |
+| Nome de definição de aplicativo | Valores permitidos | Descrição |
 |-|-|-|
 |`WEBSITE_HEALTHCHECK_MAXPINGFAILURES` | 2 - 10 | O número máximo de falhas de ping. Por exemplo, quando programados para `2` , as suas instâncias serão removidas após `2` pings falhados. Além disso, quando está a aumentar ou sair, o Serviço de Aplicações procura a via de verificação da Saúde para garantir que novas instâncias estão prontas. |
 |`WEBSITE_HEALTHCHECK_MAXUNHEALTYWORKERPERCENT` | 0 - 100 | Para evitar casos de saúde esmagadora, não mais de metade dos casos serão excluídos. Por exemplo, se um Plano de Serviço de Aplicações for dimensionado para quatro instâncias e três não forem saudáveis, no máximo dois serão excluídos. As outras duas instâncias (uma saudável e outra pouco saudável) continuarão a receber pedidos. No pior dos cenários, em que todos os casos não são saudáveis, nenhum será excluído. Para anular este comportamento, defina a definição da aplicação para um valor entre `0` e `100` . Um valor mais elevado significa que mais casos insalubres serão removidos (o padrão é 50). |

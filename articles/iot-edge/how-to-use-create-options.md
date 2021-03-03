@@ -1,5 +1,5 @@
 ---
-title: Escrever createOptions para módulos - Azure IoT Edge / Microsoft Docs
+title: Escrever criaçõesOpções para módulos - Azure IoT Edge | Microsoft Docs
 description: Como utilizar criaÇões no manifesto de implantação para configurar módulos em tempo de execução
 keywords: ''
 author: kgremban
@@ -9,12 +9,12 @@ ms.date: 04/01/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: c07e161042a497a232cbd5e3f11128893a095381
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 055b89858fde901ab014e409fbe30c3438efce12
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80550347"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101732994"
 ---
 # <a name="how-to-configure-container-create-options-for-iot-edge-modules"></a>Como configurar recipientes criar opções para módulos IoT Edge
 
@@ -60,7 +60,7 @@ Se utilizar as extensões Azure IoT Tools para Visual Studio ou Visual Studio Co
 
 Uma dica para escrever criar opções é usar o `docker inspect` comando. Como parte do seu processo de desenvolvimento, execute o módulo localmente `docker run <container name>` utilizando. Assim que tiver o módulo a funcionar da forma que quiser, `docker inspect <container name>` corra. Este comando produz os detalhes do módulo no formato JSON. Encontre os parâmetros que configuraram e copie o JSON. Por exemplo:
 
-[![Resultados do estivador inspecionar edgeHub ](./media/how-to-use-create-options/docker-inspect-edgehub-inline-and-expanded.png)](./media/how-to-use-create-options/docker-inspect-edgehub-inline-and-expanded.png#lightbox)
+[![Resultados do estivador inspecionar edgeHub](./media/how-to-use-create-options/docker-inspect-edgehub-inline-and-expanded.png)](./media/how-to-use-create-options/docker-inspect-edgehub-inline-and-expanded.png#lightbox)
 
 ## <a name="common-scenarios"></a>Cenários comuns
 
@@ -131,5 +131,5 @@ Uma vez stringificado para o manifesto de implantação final, estes valores ser
 
 Para obter mais exemplos de criar opções em ação, consulte as seguintes amostras IoT Edge:
 
-* [Visão Personalizada e Borda IoT Azure em um Pi 3 de framboesa](https://github.com/Azure-Samples/Custom-vision-service-iot-edge-raspberry-pi)
+* [Visão Personalizada e Borda IoT Azure em um Pi 3 de framboesa](https://github.com/Azure-Samples/custom-vision-service-iot-edge-raspberry-pi)
 * [Amostra de armazenamento de bolhas Azure IoT Edge](https://github.com/Azure-Samples/azure-iotedge-blobstorage-sample)

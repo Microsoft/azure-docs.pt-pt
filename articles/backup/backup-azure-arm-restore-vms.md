@@ -4,12 +4,12 @@ description: Restaurar uma máquina virtual Azure a partir de um ponto de recupe
 ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: 256998f2e687152bb63c9368af1a56f05bba7672
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.openlocfilehash: c15b2dc39202c6f8386031bcf055688aa2d279df
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99820573"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101722692"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Como restaurar os dados do Azure VM no portal Azure
 
@@ -160,7 +160,7 @@ Se o CRR estiver ativado, pode ver os itens de reserva na região secundária.
 
 A região secundária restaurará a experiência do utilizador será semelhante à região primária restaurar a experiência do utilizador. Ao configurar detalhes no painel de configuração restaurar para configurar a sua restauração, será solicitado que forneça apenas parâmetros de região secundária.
 
-Atualmente, a [RPO](azure-backup-glossary.md#rpo-recovery-point-objective) da região secundária está a 12 horas da região primária, embora a replicação [de armazenamento geo-redundante de acesso de leitura (RA-GRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy#redundancy-in-a-secondary-region) seja de 15 minutos.
+Atualmente, a [RPO](azure-backup-glossary.md#rpo-recovery-point-objective) da região secundária está a 12 horas da região primária, embora a replicação [de armazenamento geo-redundante de acesso de leitura (RA-GRS)](../storage/common/storage-redundancy.md#redundancy-in-a-secondary-region) seja de 15 minutos.
 
 ![Escolha VM para restaurar](./media/backup-azure-arm-restore-vms/sec-restore.png)
 
@@ -179,7 +179,7 @@ Atualmente, a [RPO](azure-backup-glossary.md#rpo-recovery-point-objective) da re
 >- A função Cross Region Restore restaura os CMK (chaves geridas pelo cliente) ativados por VMs Azure, que não são apoiados num cofre de Serviços de Recuperação ativado pela CMK, uma vez que os VMs não habilitados pela CMK na região secundária.
 >- Os papéis do Azure necessários para restaurar na região secundária são os mesmos que na região primária.
 
-[VMs fixados zona](https://docs.microsoft.com/azure/virtual-machines/windows/create-portal-availability-zone) azul podem ser restaurados em quaisquer [zonas](https://docs.microsoft.com/azure/availability-zones/az-overview) de disponibilidade da mesma região.
+[VMs fixados zona](../virtual-machines/windows/create-portal-availability-zone.md) azul podem ser restaurados em quaisquer [zonas](../availability-zones/az-overview.md) de disponibilidade da mesma região.
 
 No processo de restauro, você verá a opção **Zona de Disponibilidade.** Verá a sua zona padrão primeiro. Para escolher uma zona diferente, escolha o número da zona à sua escolha. Se a zona fixa não estiver disponível, não poderá restaurar os dados para outra zona porque os dados de back-up não são replicados.
 

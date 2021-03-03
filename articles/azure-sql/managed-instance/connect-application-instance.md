@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, vanto
 ms.date: 11/09/2018
-ms.openlocfilehash: 965e765e22a4da8f2ac3b7151337cf62b65be4fe
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 3106ec1a45b307207624e5cd077a222acccc83d1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98732616"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101692832"
 ---
 # <a name="connect-your-application-to-azure-sql-managed-instance"></a>Ligar a aplicação ao Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -105,7 +105,7 @@ Para resolver problemas de conectividade, reveja o seguinte:
 
    ![números de entradas/saídas](./media/connect-application-instance/ingress-egress-numbers.png)
 
-- Verifique se a máquina do cliente (que está a executar o cliente VPN) tem entradas de rota para todas as redes virtuais a que necessita de aceder. As rotas estão armazenadas em `%AppData%\ Roaming\Microsoft\Network\Connections\Cm\<GUID>\routes.txt` .
+- Verifique se a máquina do cliente (que está a executar o cliente VPN) tem entradas de rota para todas as redes virtuais a que necessita de aceder. As rotas estão armazenadas em `%AppData%\Roaming\Microsoft\Network\Connections\Cm\<GUID>\routes.txt` .
 
    ![route.txt](./media/connect-application-instance/route-txt.png)
 
@@ -154,7 +154,7 @@ Recomenda-se as seguintes versões mínimas das ferramentas e dos condutores se 
 |SSMS| 18.0 ou [superior](/sql/ssms/download-sql-server-management-studio-ssms) |
 |[SMO](/sql/relational-databases/server-management-objects-smo/sql-server-management-objects-smo-programming-guide) | [150](https://www.nuget.org/packages/Microsoft.SqlServer.SqlManagementObjects) ou mais |
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - Para obter informações sobre a SQL Managed Instance, consulte [o que é a Sql Managed Instance?](sql-managed-instance-paas-overview.md)
 - Para um tutorial que lhe mostre como criar um novo exemplo gerido, consulte [Criar um caso gerido](instance-create-quickstart.md).

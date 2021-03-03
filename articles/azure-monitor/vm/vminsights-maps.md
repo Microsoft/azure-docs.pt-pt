@@ -1,22 +1,22 @@
 ---
-title: Ver dependências de aplicativos com monitor Azure para VMs
-description: O mapa é uma característica do Azure Monitor para VMs. Descobre automaticamente componentes de aplicações nos sistemas Windows e Linux e mapeia a comunicação entre serviços. Este artigo fornece detalhes sobre como usar a funcionalidade Mapa em vários cenários.
+title: Ver dependências de aplicativos com insights VM
+description: O mapa é uma característica dos insights de VM. Descobre automaticamente componentes de aplicações nos sistemas Windows e Linux e mapeia a comunicação entre serviços. Este artigo fornece detalhes sobre como usar a funcionalidade Mapa em vários cenários.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/20/2020
-ms.openlocfilehash: ea11a2dbff9c05400f24ecfa86c66395032b8ac9
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 19da3e3e02581ce9fad080bb23bc48dcb9a3ceb3
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100619751"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719649"
 ---
-# <a name="use-the-map-feature-of-azure-monitor-for-vms-to-understand-application-components"></a>Utilize a funcionalidade Mapa do Monitor Azure para VMs para entender os componentes da aplicação
-No Azure Monitor para VMs, pode ver os componentes de aplicações descobertos nas máquinas virtuais Windows e Linux (VMs) que funcionam no Azure ou no seu ambiente. Pode observar os VMs de duas maneiras. Veja um mapa diretamente de um VM ou veja um mapa do Azure Monitor para ver os componentes em grupos de VMs. Este artigo irá ajudá-lo a entender estes dois métodos de visualização e como usar a funcionalidade Mapa. 
+# <a name="use-the-map-feature-of-vm-insights-to-understand-application-components"></a>Utilize a funcionalidade mapa dos insights VM para compreender os componentes da aplicação
+Em insights VM, pode ver os componentes de aplicações descobertos em máquinas virtuais Windows e Linux (VMs) que funcionam em Azure ou no seu ambiente. Pode observar os VMs de duas maneiras. Veja um mapa diretamente de um VM ou veja um mapa do Azure Monitor para ver os componentes em grupos de VMs. Este artigo irá ajudá-lo a entender estes dois métodos de visualização e como usar a funcionalidade Mapa. 
 
-Para obter informações sobre a configuração do Monitor Azure para VMs, consulte [Enable Azure Monitor para VMs](../insights/vminsights-enable-overview.md).
+Para obter informações sobre a configuração dos conhecimentos em VM, consulte [ativar os conhecimentos em VM](./vminsights-enable-overview.md).
 
 ## <a name="sign-in-to-azure"></a>Iniciar sessão no Azure
 Inicie sessão no [portal do Azure](https://portal.azure.com).
@@ -49,7 +49,7 @@ Para tornar a funcionalidade do Mapa apresentar alertas relevantes, crie uma reg
 - Incluir uma cláusula para agrupar alertas por computador (por exemplo, **por intervalo de computador 1 minuto).**
 - Baseie o alerta numa métrica.
 
-Para obter mais informações sobre alertas Azure e criar regras de alerta, consulte [alertas unificados no Azure Monitor](../platform/alerts-overview.md).
+Para obter mais informações sobre alertas Azure e criar regras de alerta, consulte [alertas unificados no Azure Monitor](../alerts/alerts-overview.md).
 
 No canto superior direito, a opção **Legend** descreve os símbolos e papéis no mapa. Para olhar mais de perto o seu mapa e movê-lo ao redor, use os controlos de zoom no canto inferior direito. Pode definir o nível de zoom e encaixar o mapa no tamanho da página.  
 
@@ -85,7 +85,7 @@ Se o grupo incluir servidores monitorizados e não monitorizados, pode seleciona
 
 ## <a name="view-a-map-from-a-vm"></a>Ver um mapa de um VM 
 
-Para aceder ao Azure Monitor para VMs diretamente a partir de um VM:
+Para aceder a informações sobre VM diretamente a partir de um VM:
 
 1. No portal Azure, selecione **Máquinas Virtuais.** 
 2. Da lista, escolha um VM. Na secção **de Monitorização,** escolha **Insights**.  
@@ -99,7 +99,7 @@ Por predefinição, o mapa mostra os últimos 30 minutos. Se quiser ver como as 
 
 ## <a name="view-a-map-from-a-virtual-machine-scale-set"></a>Ver um mapa de um conjunto de escala de máquina virtual
 
-Para aceder ao Azure Monitor para VMs diretamente a partir de um conjunto de escala de máquina virtual:
+Para aceder a insights VM diretamente de um conjunto de escala de máquina virtual:
 
 1. No portal Azure, selecione **conjuntos de escala de máquina virtual**.
 2. Da lista, escolha um VM. Em seguida, na secção **de Monitorização,** escolha **Insights**.  
@@ -128,11 +128,10 @@ No Azure Monitor, a funcionalidade Mapa proporciona uma visão global dos seus V
 
 Escolha um espaço de trabalho utilizando o seletor **workspace** no topo da página. Se tiver mais do que um espaço de trabalho log Analytics, escolha o espaço de trabalho que está habilitado com a solução e que tenha VMs a reportar-lhe. 
 
-O seletor **do Grupo** devolve subscrições, grupos de recursos, [grupos de computadores](../platform/computer-groups.md)e conjuntos de escala de máquinas virtuais de computadores relacionados com o espaço de trabalho selecionado. A sua seleção aplica-se apenas à funcionalidade Mapa e não transporta para Performance ou Saúde.
+O seletor **do Grupo** devolve subscrições, grupos de recursos, [grupos de computadores](../logs/computer-groups.md)e conjuntos de escala de máquinas virtuais de computadores relacionados com o espaço de trabalho selecionado. A sua seleção aplica-se apenas à funcionalidade Mapa e não transporta para Performance ou Saúde.
 
 Por predefinição, o mapa mostra os últimos 30 minutos. Se quiser ver como as dependências pareciam no passado, pode consultar intervalos históricos de tempo de até uma hora. Para executar a consulta, utilize o seletor **TimeRange.** Você pode fazer uma consulta, por exemplo, durante um incidente ou para ver o estado antes de uma mudança.  
 
 ## <a name="next-steps"></a>Passos seguintes
 
-Para identificar estrangulamentos, verifique o desempenho e compreenda a utilização global dos seus VMs, consulte o estado de desempenho do [Azure Monitor para VMs](vminsights-performance.md). 
-
+Para identificar estrangulamentos, verifique o desempenho e compreenda a utilização global dos seus VMs, consulte o estado de [desempenho da Visualização para insights VM](vminsights-performance.md).

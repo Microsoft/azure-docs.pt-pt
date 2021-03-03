@@ -1,18 +1,16 @@
 ---
 title: Use fluxos de trabalho Hadoop Oozie em Azure HDInsight baseado em Linux
 description: Use Hadoop Oozie em HDInsight baseado em Linux. Aprenda a definir um fluxo de trabalho Oozie e submeta um trabalho Oozie.
-author: omidm1
-ms.author: omidm
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/27/2020
-ms.openlocfilehash: 41c42009252169c141bec5d3dc2ea5c6308d6812
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: b72d94c1cba3ea0476c6d44e68583f6668b167e2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98931292"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702781"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Utilizar o Apache Oozie com o Apache Hadoop para definir e executar um fluxo de trabalho no Azure HDInsight baseado em Linux
 
@@ -653,7 +651,7 @@ Pode utilizar o coordenador para especificar um início, um fim e a frequência 
 
     ![Separador de informações de trabalho de consola web OOzie](./media/hdinsight-use-oozie-linux-mac/coordinator-action-job.png)
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 Neste artigo, aprendeu a definir um fluxo de trabalho Oozie e como gerir um trabalho oozie. Para saber mais sobre como trabalhar com a HDInsight, consulte os seguintes artigos:
 

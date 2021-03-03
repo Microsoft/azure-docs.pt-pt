@@ -3,17 +3,16 @@ title: Instalar e configurar a extensão de diagnóstico do Windows Azure (WAD)
 description: Saiba como instalar e configurar a extensão de diagnóstico do Windows. Além disso, saiba como é que os dados são armazenados e a conta de Armazenamento Azure.
 services: azure-monitor
 author: bwren
-ms.subservice: diagnostic-extension
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: bwren
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 865590ce67acee128863a7913aa844b951d07d56
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 174f372f9dbe8dc0449c7f9b9f5b34c6206f92de
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100621052"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708565"
 ---
 # <a name="install-and-configure-windows-azure-diagnostics-extension-wad"></a>Instalar e configurar a extensão de diagnóstico do Windows Azure (WAD)
 [A extensão de diagnóstico Azure](diagnostics-extension-overview.md) é um agente no Azure Monitor que recolhe dados de monitorização do sistema operativo convidado e cargas de trabalho de máquinas virtuais Azure e outros recursos compute. Este artigo fornece detalhes sobre a instalação e configuração da extensão de diagnóstico do Windows e uma descrição de como os dados são armazenados e conta de Armazenamento Azure.
@@ -192,7 +191,7 @@ Consulte também [o PowerShell para ativar o Azure Diagnostics numa máquina vir
 A tabela que se segue lista os diferentes tipos de dados recolhidos a partir da extensão de diagnóstico e se são armazenados como uma mesa ou uma bolha. Os dados armazenados em tabelas também podem ser armazenados em bolhas dependendo da [definição de StorageType](diagnostics-extension-schema-windows.md#publicconfig-element) na sua configuração pública.
 
 
-| Dados | Tipo de armazenamento | Description |
+| Dados | Tipo de armazenamento | Descrição |
 |:---|:---|:---|
 | WADDiagnosticInfrastructureLogsTable | Tabela | Alterações no monitor de diagnóstico e na configuração. |
 | WADDirectoriesTable | Tabela | Diretórios que o monitor de diagnóstico está a monitorizar.  Isto inclui registos IIS, registos de pedidos falhados do IIS e diretórios personalizados.  A localização do ficheiro de registo de bolhas é especificada no campo de Contentores e o nome da bolha está no campo RelativePath.  O campo AbsolutePath indica a localização e o nome do ficheiro tal como existia na máquina virtual Azure. |

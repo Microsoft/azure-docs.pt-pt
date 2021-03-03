@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 08/11/2020
 author: dcstwh
 ms.author: weetok
-ms.openlocfilehash: a52fad39e19bdf2edf110990c8f0e392ec5803ce
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 1cb4fcaa51e1a59ee9d09eb178faf9b250173709
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100377504"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101740035"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Monitorizar um runtime de integração no Azure Data Factory
 
@@ -48,7 +48,7 @@ A tabela a seguir fornece descrições das propriedades devolvidas pelo cmdlet p
 | Localização | Localização do tempo de funcionamento da integração do Azure. Para obter detalhes sobre a localização de um tempo de execução da integração Azure, consulte [Introdução ao tempo de execução da integração.](concepts-integration-runtime.md) |
 | DataFactoryName | Nome da fábrica de dados a que pertence o tempo de integração do Azure. | 
 | ResourceGroupName | Nome do grupo de recursos a que pertence a fábrica de dados.  |
-| Description | Descrição do tempo de execução da integração.  |
+| Descrição | Descrição do tempo de execução da integração.  |
 
 ### <a name="status"></a>Estado
 
@@ -171,7 +171,7 @@ Get-AzDataFactoryV2IntegrationRuntime -DataFactoryName $DataFactoryName -Name $A
 
 O quadro seguinte fornece descrições das propriedades devolvidas pelo cmdlet acima para um Azure-SSIS IR.
 
-| Propriedade/Estado              | Description                  |
+| Propriedade/Estado              | Descrição                  |
 | ---------------------------- | ---------------------------- |
 | Criar Tempo                   | O tempo UTC quando o seu Azure-SSIS IR foi criado. |
 | Nós                        | Os nós atribuídos/disponíveis do seu Azure-SSIS IR com estatutos específicos do nó (início/disponível/reciclagem/indisponível) e erros acccionáveis. |
@@ -193,13 +193,13 @@ O quadro seguinte fornece descrições das propriedades devolvidas pelo cmdlet a
 | ResourceGroupName            | O nome do seu Grupo de Recursos Azure, no qual foram criados os seus ADF e Azure-SSIS IR. |
 | DataFactoryName              | O nome da sua ADF. |
 | Name                         | O nome do seu Azure-SSIS IR. |
-| Description                  | A descrição do seu Azure-SSIS IR. |
+| Descrição                  | A descrição do seu Azure-SSIS IR. |
   
 #### <a name="status-per-azure-ssis-ir-node"></a>Estado (por nó IR Azure-SSIS)
 
 O quadro a seguir fornece os estatutos possíveis de um nó IR Azure-SSIS:
 
-| Estado específico do nó | Description |
+| Estado específico do nó | Descrição |
 | -------------------- | ----------- | 
 | A iniciar             | Este nó está a ser preparado. |
 | Disponível            | Este nó está pronto para implementar/executar pacotes SSIS. |
@@ -210,7 +210,7 @@ O quadro a seguir fornece os estatutos possíveis de um nó IR Azure-SSIS:
 
 O quadro seguinte fornece possíveis estatutos globais de um Azure-SSIS IR. O estatuto geral, por sua vez, depende dos estatutos combinados de todos os nós que pertencem ao Azure-SSIS IR. 
 
-| Estado geral | Description | 
+| Estado geral | Descrição | 
 | -------------- | ----------- | 
 | Initial (Inicial)        | Os nós do seu Azure-SSIS IR não foram atribuídos/preparados. | 
 | A iniciar       | Os nós do seu Azure-SSIS IR estão a ser atribuídos/preparados e a faturação já começou. |
@@ -224,7 +224,17 @@ Para monitorizar o seu Azure-SSIS IR no portal Azure, aceda à página de tempos
 
 ![Monitorizar todos os tempos de integração](media/monitor-integration-runtime/monitor-integration-runtimes.png)
 
-Em seguida, selecione o nome do seu Azure-SSIS IR para abrir a sua página de monitorização, onde pode ver as suas propriedades e status específicos do nó geral/ nó. Nesta página, dependendo da configuração das definições gerais, de implantação e avançadas do seu IR Azure-SSIS, encontrará vários azulejos informativos/funcionais.  Os azulejos informativos **TYPE** e **REGION** mostram o tipo e a região do seu Azure-SSIS IR, respectivamente. O azulejo informativo **NODE SIZE** mostra o SKU (SSIS edition_VM tier_VM série), o número de núcleos de CPU e o tamanho de RAM por nó para o seu Azure-SSIS IR. O azulejo informativo **RUNNING /REQUESTED NODE(S)** compara o número de nós atualmente em execução com o número total de nós previamente solicitados para o seu Azure-SSIS IR. Os azulejos funcionais são descritos em mais detalhes abaixo.
+Em seguida, selecione o nome do seu Azure-SSIS IR para abrir a sua página de monitorização, onde pode ver as suas propriedades e status específicos do nó geral/ nó. Nesta página, dependendo da configuração das definições gerais, de implantação e avançadas do seu IR Azure-SSIS, encontrará vários azulejos informativos/funcionais.
+
+Os azulejos informativos **TYPE** e **REGION** mostram o tipo e a região do seu Azure-SSIS IR, respectivamente.
+
+O azulejo informativo **NODE SIZE** mostra o SKU (SSIS edition_VM tier_VM série), o número de núcleos de CPU e o tamanho de RAM por nó para o seu Azure-SSIS IR. 
+
+O azulejo informativo **RUNNING /REQUESTED NODE(S)** compara o número de nós atualmente em execução com o número total de nós previamente solicitados para o seu Azure-SSIS IR.
+
+O azulejo informativo **DUAL STANDBY PAIR / ROLE** mostra o nome do seu duplo standby Azure-SSIS IR que funciona em sincronização com a Azure SQL Database/Managed Instance failover group for business continuity and disaster recovery (BCDR) e o atual papel primário/secundário do seu Azure-SSIS IR. Quando ocorrer o failover do SSISDB, os seus IRs Azure-SSIS primários e secundários trocarão de funções (ver [Configurar o seu Azure-SSIS IR para BCDR).](./configure-bcdr-azure-ssis-integration-runtime.md)
+
+Os azulejos funcionais são descritos em mais detalhes abaixo.
 
 ![Monitorize o seu Azure-SSIS IR](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime.png)
 
@@ -254,13 +264,13 @@ Se se juntar ao seu Azure-SSIS IR a um VNet, verá o azulejo **VNET / SUBNET val
 
 No azulejo de **CONECTIVIDADE DIAGNOSTICO** da sua página de monitorização Azure-SSIS IR, pode selecionar a **ligação de ligação de Teste** para aparecer uma janela, onde pode verificar as ligações entre o seu Azure-SSIS IR e as lojas de pacote/configuração/dados relevantes, bem como serviços de gestão, através do seu nome de domínio totalmente qualificado (FQDN)/endereço IP e porta designada (ver [ligações de teste a partir do seu Azure-SSIS IR).](./ssis-integration-runtime-diagnose-connectivity-faq.md)
 
-![Screenshot que mostra onde pode testar as ligações entre o seu Azure-SSIS IR e as lojas de pacote/configuração/dados relevantes.](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-diagnose.png)
+![Monitorize o seu Azure-SSIS IR - Diagnosticar azulejos](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-diagnose.png)
 
 #### <a name="static-public-ip-addresses-tile"></a>ENDEREÇOS IP PÚBLICOS ESTÁTICOS
 
 Se trouxer os seus próprios endereços IP públicos estáticos para Azure-SSIS IR, verá o azulejo **ESTÁTICO ENDEREÇOS IP NA** sua página de monitorização do Azure-SSIS IR (ver [Trazer os seus próprios endereços IP públicos estáticos para Azure-SSIS IR).](./join-azure-ssis-integration-runtime-virtual-network.md#publicIP) Neste azulejo, pode selecionar links que designam os seus endereços IP públicos estáticos de primeira/segunda para Azure-SSIS IR para abrir uma janela, onde pode copiar o seu ID de recursos `/subscriptions/YourAzureSubscripton/resourceGroups/YourResourceGroup/providers/Microsoft.Network/publicIPAddresses/YourPublicIPAddress` () a partir de uma caixa de texto. Na janela pop-up, também pode selecionar o link **de configurações de endereço IP público estático de primeira/segunda** para gerir o seu primeiro/segundo endereço IP público estático no portal Azure.
 
-![Screenshot que mostra onde pode designar os seus primeiros/segundos endereços IP públicos estáticos.](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-static.png)
+![Monitorize o seu Azure-SSIS IR - Azulejo estático](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-static.png)
 
 #### <a name="package-stores-tile"></a>Azulejo de lojas de pacotes
 
@@ -272,7 +282,7 @@ Se utilizar o Modelo de Implementação de Pacotes onde as embalagens são armaz
 
 Se houver problemas com o início/paragem/manutenção/upgrade do seu Azure-SSIS IR, verá um azulejo de **ERRO (S)** adicional na sua página de monitorização Azure-SSIS IR. Neste azulejo, pode selecionar um link que designe o número de erros gerados pelo seu Azure-SSIS IR para abrir uma janela, onde pode ver esses erros em mais detalhes e copiá-los para encontrar as soluções recomendadas no nosso guia de resolução de problemas (ver [Resolução de Problemas do seu Azure-SSIS IR).](./ssis-integration-runtime-management-troubleshoot.md)
 
-![Monitorize o seu Azure-SSIS IR - Diagnosticar azulejos](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-error.png)
+![Monitorize o seu Azure-SSIS IR - ERROR tile](media/monitor-integration-runtime/monitor-azure-ssis-integration-runtime-error.png)
 
 ### <a name="monitor-the-azure-ssis-integration-runtime-with-azure-monitor"></a>Monitorize o tempo de integração Azure-SSIS com o Azure Monitor
 

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/14/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: f4f040288574a9ddfc5f7c56878c7f1e795b09a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5ca03336fc60abbb458615e922a2556dd21a79a5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88653856"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101739683"
 ---
 # <a name="prepare-azure-resources-for-hyper-v-disaster-recovery"></a>Prepare recursos do Azure para a recuperação de desastres hiper-V
 
@@ -52,11 +52,11 @@ Para completar estas tarefas, a sua conta deve ser atribuída à função de Con
 
 As imagens das máquinas replicadas são guardadas no armazenamento do Azure. As VMs do Azure são criadas a partir do armazenamento quando fizer a ativação pós-falha do local para o Azure. A conta de armazenamento tem de estar na mesma região que o cofre dos Serviços de Recuperação.
 
-1. No menu do [portal Azure,](https://portal.azure.com) selecione **Criar uma**conta de armazenamento de recursos  >  **Storage**  >  **- blob, ficheiro, tabela, fila**.
+1. No menu do [portal Azure,](https://portal.azure.com) selecione **Criar uma** conta de armazenamento de recursos  >    >  **- blob, ficheiro, tabela, fila**.
 2. Em **Criar conta de armazenamento**, introduza um nome para a conta.  O nome que escolher deve ser único dentro do Azure, ter de 3 a 24 caracteres de comprimento, e usar apenas letras e números minúsculos. Para este tutorial, use **contosovmsacct1910171607**.
 3. Em **Modelo de implementação**, selecione **Resource Manager**.
 4. No **tipo Conta,** selecione **Armazenamento (v1 de uso geral)**. Não selecione o armazenamento de blobs.
-5. Em **Replicação**, selecione o **Armazenamento georredundante com acesso de leitura** predefinido para redundância de armazenamento. Deixe a definição de transferência Secure necessária como Desativada.
+5. Em **Replicação**, selecione o **Armazenamento georredundante com acesso de leitura** predefinido para redundância de armazenamento.
 6. Em **Desempenho**, selecione **Padrão**. Em seguida, no **nível de Acesso**, selecione a opção padrão de **Hot**.
 7. Na **Subscrição,** escolha a subscrição na qual pretende criar a nova conta de armazenamento.
 8. Em **Grupo de recursos**, introduza um novo grupo de recursos. Um grupo de recursos Azure é um recipiente lógico no qual os recursos da Azure são implantados e geridos. Para este tutorial, utilize **o ContosoRG.**
@@ -67,7 +67,7 @@ As imagens das máquinas replicadas são guardadas no armazenamento do Azure. As
 
 ## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos serviços de recuperação
 
-1. No portal Azure, selecione **+Criar um recurso**e, em seguida, pesse no Mercado Azure para serviços de recuperação.
+1. No portal Azure, selecione **+Criar um recurso** e, em seguida, pesse no Mercado Azure para serviços de recuperação.
 2. Selecione **Backup and Site Recovery (OMS)**. Em seguida, na página **de Backup e Recuperação do Site,** selecione **Criar**.
 1. No **cofre dos serviços de recuperação > Name,** insira um nome amigável para identificar o cofre. Neste tutorial, utilize **ContosoVMVault**.
 2. No **grupo De recursos,** selecione um grupo de recursos existente ou crie um novo. Para este tutorial, use **contosoRG**.
@@ -76,7 +76,7 @@ As imagens das máquinas replicadas são guardadas no armazenamento do Azure. As
 
 ![Screenshot da página do cofre do Create Recovery Services.](./media/tutorial-prepare-azure/new-vault-settings.png)
 
-O novo cofre aparece no **Dashboard**  >  **Todos os recursos**e na página principal dos **cofres dos Serviços de Recuperação.**
+O novo cofre aparece no **Dashboard**  >  **Todos os recursos** e na página principal dos **cofres dos Serviços de Recuperação.**
 
 ## <a name="set-up-an-azure-network"></a>Configurar uma rede do Azure
 

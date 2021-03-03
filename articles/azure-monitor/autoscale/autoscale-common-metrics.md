@@ -4,12 +4,12 @@ description: Saiba quais métricas são comumente usadas para automatizar os seu
 ms.topic: conceptual
 ms.date: 12/6/2016
 ms.subservice: autoscale
-ms.openlocfilehash: f358efb8f99066dc1d7a564ad36d6ed1290853e0
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 4b763f39d3b88a7884e89dddbc2c483c1bb84d31
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100617741"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717779"
 ---
 # <a name="azure-monitor-autoscaling-common-metrics"></a>Azure Monitor autoscaling métricas comuns
 
@@ -33,8 +33,8 @@ Se um dos casos anteriores for verdadeiro, em seguida, [reveja Use PowerShell pa
 ### <a name="host-metrics-for-resource-manager-based-windows-and-linux-vms"></a>Métricas de anfitrião para Windows e Linux VMs baseados em recursos
 As seguintes métricas de nível de hospedeiro são emitidas por padrão para Azure VM e VMSS em ambos os casos Windows e Linux. Estas métricas descrevem o seu Azure VM, mas são recolhidas do anfitrião Azure VM em vez de através de um agente instalado no VM convidado. Pode utilizar estas métricas em regras de autoescalagem.
 
-- [Métricas de anfitrião para Windows e Linux VMs baseados em recursos](../platform/metrics-supported.md#microsoftcomputevirtualmachines)
-- [Métricas de anfitrião para conjuntos de escalas de Windows e Linux VM baseados em recursos](../platform/metrics-supported.md#microsoftcomputevirtualmachinescalesets)
+- [Métricas de anfitrião para Windows e Linux VMs baseados em recursos](../essentials/metrics-supported.md#microsoftcomputevirtualmachines)
+- [Métricas de anfitrião para conjuntos de escalas de Windows e Linux VM baseados em recursos](../essentials/metrics-supported.md#microsoftcomputevirtualmachinescalesets)
 
 ### <a name="guest-os-metrics-for-resource-manager-based-windows-vms"></a>Métricas de SO de hóspedes para VMs do Windows baseados em gestores de recursos
 Quando cria um VM em Azure, o diagnóstico é ativado utilizando a extensão de Diagnóstico. A extensão de diagnóstico emite um conjunto de métricas retiradas do interior do VM. Isto significa que pode autoescalificar-se de métricas que não são emitidas por padrão.
@@ -186,4 +186,3 @@ Para conjuntos de escala VM, pode atualizar a definição de Autoescala no model
 > Para o Service Bus, o conceito de grupo de recursos não existe, mas o Azure Resource Manager cria um grupo de recursos predefinido por região. O grupo de recursos encontra-se normalmente no formato 'Default-ServiceBus-[região]. Por exemplo, 'Default-ServiceBus-EastUS', 'Default-ServiceBus-WestUS', 'Default-ServiceBus-AustraliaEast', etc.
 >
 >
-

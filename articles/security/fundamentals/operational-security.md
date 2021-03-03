@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 7380c0d9679fe74bc91eea269f53fea750922b79
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 7d71820db3d58931f2fcd8d18441534ad36183c2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100575010"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711999"
 ---
 # <a name="azure-operational-security"></a>Segurança Operacional Azure
 ## <a name="introduction"></a>Introdução
@@ -244,7 +244,7 @@ O Network Watcher tem atualmente as seguintes capacidades:
 
 Estas informações podem ser utilizadas para monitorizar os pedidos individuais e diagnosticar problemas num serviço de armazenamento. Os pedidos são registados numa base de melhor esforço. As entradas de registo só são criadas se houver pedidos feitos contra o ponto final de serviço. Por exemplo, se uma conta de armazenamento tiver atividade no seu ponto final Blob, mas não nos pontos finais da Tabela ou da Fila, apenas são criados registos relativos ao serviço Blob.
 
-Para utilizar o Storage Analytics, deve ative-lo individualmente para cada serviço que pretende monitorizar. Pode ative-lo no [portal Azure;](https://portal.azure.com/) para mais informações, consulte [uma conta de armazenamento no portal Azure](../../storage/common/storage-monitor-storage-account.md). Também pode ativar o Storage Analytics programáticamente através da API REST ou da biblioteca do cliente. Utilize a operação set Service Properties para ativar o Storage Analytics individualmente para cada serviço.
+Para utilizar o Storage Analytics, deve ative-lo individualmente para cada serviço que pretende monitorizar. Pode ative-lo no [portal Azure;](https://portal.azure.com/) para mais informações, consulte [uma conta de armazenamento no portal Azure](../../storage/common/manage-storage-analytics-logs.md). Também pode ativar o Storage Analytics programáticamente através da API REST ou da biblioteca do cliente. Utilize a operação set Service Properties para ativar o Storage Analytics individualmente para cada serviço.
 
 Os dados agregados são armazenados numa bolha bem conhecida (para registo) e em tabelas bem conhecidas (para métricas), que podem ser acedidas através do serviço Blob e apIs de serviço de tabela.
 

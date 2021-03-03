@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 02/04/2021
 ms.author: ambapat
 ms.openlocfilehash: 1e7ea0dc929fdbb4ca306405e6ed8993ed2e4afe
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/03/2021
 ms.locfileid: "100386106"
 ---
 # <a name="import-hsm-protected-keys-to-key-vault-byok"></a>Chaves protegidas pelo HSM para o Cofre-Chave (BYOK)
@@ -72,7 +72,7 @@ As seguintes listas de tabelas pré-requisitos para a utilização do BYOK no Co
 
 ## <a name="supported-key-types"></a>Supported key types (Tipos de chaves suportados)
 
-|Nome da chave|Tipo de chave|Tamanho/curva da chave|Origem|Description|
+|Nome da chave|Tipo de chave|Tamanho/curva da chave|Origem|Descrição|
 |---|---|---|---|---|
 |Chave de troca (KEK)|RSA| 2.048-bit<br />3,072 bit<br />4.096-bit|Cofre de Chave Azure HSM|Um par de chaves RSA apoiado pelo HSM gerado no Cofre da Chave Azure|
 |Chave-alvo|

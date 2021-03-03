@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: yelevin
-ms.openlocfilehash: 35b3f4fe5703e9ce902553f992dfa44cea7db78f
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 5d847ac7ed805ad88bc24ed63896edc6f7596f9b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100570451"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101729781"
 ---
 # <a name="normalization-in-azure-sentinel"></a>Normalização em Azure Sentinel
 
@@ -130,7 +130,7 @@ Pode clicar em cada analisador individual e ver a função subjacente que utiliz
 > Pode utilizar as suas funções guardadas em vez de tabelas Azure Sentinel em qualquer consulta, incluindo consultas de caça e deteção. Para obter mais informações, consulte:
 >
 > - [Normalização de dados em Azure Sentinel](normalization.md#parsers)
-> - [Texto de parse em registos do Monitor Azure](/azure/azure-monitor/log-query/parse-text)
+> - [Texto de parse em registos do Monitor Azure](../azure-monitor/logs/parse-text.md)
 >
 #### <a name="customizing-parsers"></a>Personalizar parsers
 

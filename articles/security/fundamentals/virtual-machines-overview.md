@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/2/2019
 ms.author: terrylan
-ms.openlocfilehash: ed2cb967b24ce5abdebadfe29847ae1a16b4e745
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 036a1d3f8cad4ba9cda03a9001cfec1bb7de86b0
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96498749"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101715042"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Visão geral de segurança das máquinas virtuais Azure
 Este artigo fornece uma visão geral das principais funcionalidades de segurança do Azure que podem ser usadas com máquinas virtuais.
@@ -51,7 +51,7 @@ Saiba mais sobre [o Microsoft Antimalware para Azure](antimalware.md) e as funci
 Saiba mais sobre software antimalware para ajudar a proteger as suas máquinas virtuais:
 
 * [Implementar Soluções Antimalware em Máquinas Virtuais do Azure](https://azure.microsoft.com/blog/deploying-antimalware-solutions-on-azure-virtual-machines/)
-* [Como instalar e configurar a Trend Micro Deep Security como um serviço num VM do Windows](../../virtual-machines/extensions/trend.md)
+* [Como instalar e configurar a Trend Micro Deep Security como um serviço num VM do Windows](/previous-versions/azure/virtual-machines/extensions/trend)
 * [Como instalar e configurar a proteção de ponto final Symantec num VM do Windows](../../virtual-machines/extensions/symantec.md)
 * [Soluções de segurança no Mercado Azure](https://azure.microsoft.com/marketplace/?term=security)
 
@@ -99,7 +99,7 @@ O Azure Backup é uma solução escalável que ajuda a proteger os dados da sua 
 
 Saiba mais:
 
-* [O que é o Azure Backup?](../../backup/backup-overview.md)
+* [O que é o Backup do Azure?](../../backup/backup-overview.md)
 * [Serviço de backup Azure FAQ](../../backup/backup-azure-backup-faq.md)
 
 ## <a name="azure-site-recovery"></a>Azure Site Recovery

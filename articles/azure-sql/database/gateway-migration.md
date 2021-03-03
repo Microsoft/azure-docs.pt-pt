@@ -10,19 +10,19 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: 8fa61855b5647c1caefd939af17b70c9d08c2f8f
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: eab1ebb3bf66b28bae80fbf16eaf24dbbc63bfb0
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100517829"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690537"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Azure SQL Database migração de tráfego para gateways mais recentes
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 À medida que a infraestrutura Azure melhora, a Microsoft irá atualizar periodicamente hardware para garantir que fornecemos a melhor experiência possível ao cliente. Nos próximos meses, planeamos adicionar gateways construídos sobre as gerações de hardware mais recentes, migrar o tráfego para eles, e eventualmente desativar gateways construídos em hardware mais antigo em algumas regiões.  
 
-Os clientes serão notificados através de notificações de saúde de serviço com muito antecedência de qualquer alteração aos gateways disponíveis em cada região. Os clientes podem [utilizar o portal Azure para configurar alertas de registo de atividades.](https://docs.microsoft.com/azure/service-health/alerts-activity-log-service-notifications-portal)
+Os clientes serão notificados através de notificações de saúde de serviço com muito antecedência de qualquer alteração aos gateways disponíveis em cada região. Os clientes podem [utilizar o portal Azure para configurar alertas de registo de atividades.](../../service-health/alerts-activity-log-service-notifications-portal.md)
 
 As informações mais atualizadas serão mantidas na tabela de [endereços IP do gateway de gateway Azure SQL.](connectivity-architecture.md#gateway-ip-addresses)
 

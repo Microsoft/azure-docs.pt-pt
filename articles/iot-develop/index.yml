@@ -1,27 +1,27 @@
 ### YamlMime:Landing
-title: Documentação de desenvolvimento de dispositivos ioT e aplicação
-summary: Explore a documentação Azure IoT para desenvolver dispositivos incorporados e construir aplicações em nuvem ativadas por dispositivos.
+title: Documentação de desenvolvimento de dispositivos IoT
+summary: Explore a documentação Azure IoT para desenvolver dispositivos incorporados e aplicações de dispositivos ligados à nuvem.
 metadata:
-  title: Desenvolvimento de dispositivos IoT e aplicações
-  description: Aprenda a usar o Azure IoT para fazer o desenvolvimento de dispositivos incorporados e construir aplicações em nuvem ativadas por dispositivos.
+  title: Desenvolvimento de dispositivos IoT
+  description: Saiba como utilizar o Azure IoT para desenvolver dispositivos incorporados ligados à nuvem e aplicações de dispositivos.
   services: iot-develop
   ms.service: iot-develop
   ms.topic: landing-page
   author: timlt
   ms.author: timlt
   ms.date: 01/11/2021
-  ms.openlocfilehash: 98d3a7f3eb51ce9c2fddfe5b3ac6730d8ef3b3eb
-  ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+  ms.openlocfilehash: bb3bd1766e20fd16fa996eb66008140009f6bd5d
+  ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
   ms.translationtype: MT
   ms.contentlocale: pt-PT
-  ms.lasthandoff: 02/18/2021
-  ms.locfileid: "100656245"
+  ms.lasthandoff: 03/03/2021
+  ms.locfileid: "101721451"
 landingContent:
-- title: Sobre o desenvolvimento de dispositivos IoT e aplicações
+- title: Sobre o desenvolvimento de dispositivos IoT
   linkLists:
   - linkListType: overview
     links:
-    - text: O que é o dispositivo Azure IoT e o desenvolvimento de aplicações?
+    - text: O que é o desenvolvimento do dispositivo Azure IoT?
       url: about-iot-develop.md
     - text: Que SDK devo usar?
       url: about-iot-sdks.md

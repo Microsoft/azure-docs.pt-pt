@@ -12,12 +12,12 @@ author: MashaMSFT
 ms.author: ferno
 ms.reviewer: mathoma
 ms.date: 04/28/2020
-ms.openlocfilehash: 67902073b1484835d23566c91cbfae6f1d80d249
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 47ea5ea73c581313f90791ca6d7892ebad3f666b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900467"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690690"
 ---
 # <a name="tutorial-configure-replication-between-two-managed-instances"></a>Tutorial: Configurar a replicação entre dois casos geridos
 
@@ -27,7 +27,7 @@ A replicação transacional permite replicar dados de uma base de dados para out
 
 A replicação transacional está atualmente em pré-visualização pública para SQL Managed Instance. 
 
-Neste tutorial, vai aprender a:
+Neste tutorial, ficará a saber como:
 
 > [!div class="checklist"]
 >
@@ -44,14 +44,14 @@ Este tutorial destina-se a um público experiente e assume que o utilizador est�
 
 
 
-## <a name="requirements"></a>Requirements
+## <a name="requirements"></a>Requisitos
 
 Configurar a SQL Managed Instance para funcionar como editor e/ou distribuidor requer:
 
 - Que a editora geriu o exemplo está na mesma rede virtual que o distribuidor e o assinante, ou [gateways VPN](../../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) foram configurados entre as redes virtuais das três entidades. 
 - A conectividade utiliza a Autenticação SQL entre os participantes da replicação.
 - Uma parte da conta de armazenamento Azure para o diretório de trabalho de replicação.
-- A Porta 445 (saída TCP) está aberta nas regras de segurança da NSG para as instâncias geridas para aceder à partilha de ficheiros Azure.  Se encontrar o `failed to connect to azure storage \<storage account name> with os error 53` erro, terá de adicionar uma regra de saída ao NSG da sub-rede de instância gerida do SQL apropriado.
+- A Porta 445 (saída TCP) está aberta nas regras de segurança da NSG para as instâncias geridas para aceder à partilha de ficheiros Azure.  Se encontrar o `failed to connect to azure storage <storage account name> with os error 53` erro, terá de adicionar uma regra de saída ao NSG da sub-rede de instância gerida do SQL apropriado.
 
 ## <a name="1---create-a-resource-group"></a>1 - Criar um grupo de recursos
 
@@ -324,6 +324,6 @@ GO
 
 Pode limpar os seus recursos Azure [eliminando os recursos da SQL Managed Instance do grupo de recursos](../../azure-resource-manager/management/manage-resources-portal.md#delete-resources) e, em seguida, eliminando o grupo de recursos `SQLMI-Repl` . 
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Passos seguintes
 
 Também pode aprender mais informações sobre [a replicação transacional com a Azure SQL Managed Instance](replication-transactional-overview.md) ou aprender a configurar a replicação entre um [editor/distribuidor sql Managed Instance e um SQL no assinante Azure VM.](replication-two-instances-and-sql-server-configure-tutorial.md)

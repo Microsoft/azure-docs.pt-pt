@@ -4,12 +4,12 @@ description: Compreender quais são as regras de ação no Azure Monitor e como 
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.subservice: alerts
-ms.openlocfilehash: 5fc9b1f75faec7f2be8f9e6126fdacf9697413f6
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 1a837ac9aa94effa021d5395fb4856d1d5df2e90
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100620531"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718153"
 ---
 # <a name="action-rules-preview"></a>Regras de ação (pré-visualização)
 
@@ -105,7 +105,7 @@ Se selecionar o **Grupo de Ação** no toggle, adicione um grupo de ação exist
 Por último, configurar os seguintes detalhes para a regra de ação:
 * Name
 * Grupo de recursos no qual é salvo
-* Description
+* Descrição
 
 ### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
@@ -209,7 +209,7 @@ A Contoso quer suprimir as notificações de todos os alertas de registo gerados
 
 ### <a name="scenario-3-action-group-defined-at-a-resource-group"></a>Cenário 3: Grupo de ação definido num grupo de recursos
 
-Contoso definiu [um alerta métrico a nível de subscrição.](../platform/alerts-metric-overview.md#monitoring-at-scale-using-metric-alerts-in-azure-monitor) Mas quer definir as ações que desencadeiam especificamente para alertas gerados pelo grupo de recursos **ContosoRG.**
+Contoso definiu [um alerta métrico a nível de subscrição.](./alerts-metric-overview.md#monitoring-at-scale-using-metric-alerts-in-azure-monitor) Mas quer definir as ações que desencadeiam especificamente para alertas gerados pelo grupo de recursos **ContosoRG.**
 
 **Solução:** Criar uma regra de ação com:
 * Âmbito = **ContosoRG**
@@ -253,11 +253,11 @@ az monitor action-rule delete --resource-group MyResourceGroupName --name MyActi
 
 ## <a name="best-practices"></a>Melhores práticas
 
-Os alertas de registo que cria com o número de opções [de resultados](../platform/alerts-unified-log.md) geram uma única instância de alerta utilizando todo o resultado da pesquisa (que pode abranger vários computadores). Neste cenário, se uma regra de ação utilizar o filtro **Contexto de Alerta (carga útil),** atua na hora de alerta desde que haja uma correspondência. No Cenário 2, descrito anteriormente, se os resultados de pesquisa do alerta de registo gerado contiverem **tanto o Computador-01** como o **Computador-02,** toda a notificação é suprimida. Não há nenhuma notificação gerada para **o Computador-02.**
+Os alertas de registo que cria com o número de opções [de resultados](./alerts-unified-log.md) geram uma única instância de alerta utilizando todo o resultado da pesquisa (que pode abranger vários computadores). Neste cenário, se uma regra de ação utilizar o filtro **Contexto de Alerta (carga útil),** atua na hora de alerta desde que haja uma correspondência. No Cenário 2, descrito anteriormente, se os resultados de pesquisa do alerta de registo gerado contiverem **tanto o Computador-01** como o **Computador-02,** toda a notificação é suprimida. Não há nenhuma notificação gerada para **o Computador-02.**
 
 ![O diagrama mostra as regras de ação e os alertas de registo com uma única instância de alerta realçada.](media/alerts-action-rules/action-rules-log-alert-number-of-results.png)
 
-Para utilizar melhor os alertas de registo com regras de ação, crie alertas de registo com a opção [de medição métrica.](../platform/alerts-unified-log.md) Casos de alerta separados são gerados por esta opção, com base no seu campo de grupo definido. Em seguida, no cenário 2, são geradas instâncias de alerta separadas para **Computador-01** e **Computador-02**. Devido à regra de ação descrita no cenário, apenas a notificação para **Computador-01** é suprimida. A notificação para **Computador-02** continua a disparar normalmente.
+Para utilizar melhor os alertas de registo com regras de ação, crie alertas de registo com a opção [de medição métrica.](./alerts-unified-log.md) Casos de alerta separados são gerados por esta opção, com base no seu campo de grupo definido. Em seguida, no cenário 2, são geradas instâncias de alerta separadas para **Computador-01** e **Computador-02**. Devido à regra de ação descrita no cenário, apenas a notificação para **Computador-01** é suprimida. A notificação para **Computador-02** continua a disparar normalmente.
 
 ![Regras de ação e alertas de registo (número de resultados)](media/alerts-action-rules/action-rules-log-alert-metric-measurement.png)
 
@@ -287,7 +287,7 @@ Depois de definir o recurso-alvo para a sua regra de alerta, pode ver a lista de
 
 ### <a name="can-i-see-the-alerts-that-have-been-suppressed-by-an-action-rule"></a>Posso ver os alertas que foram suprimidos por uma regra de ação?
 
-Na página da [lista de alertas,](../platform/alerts-managing-alert-instances.md)pode escolher uma coluna adicional chamada **Estado de Supressão**. Se a notificação de um caso de alerta fosse suprimida, mostraria esse estatuto na lista.
+Na página da [lista de alertas,](./alerts-managing-alert-instances.md)pode escolher uma coluna adicional chamada **Estado de Supressão**. Se a notificação de um caso de alerta fosse suprimida, mostraria esse estatuto na lista.
 
 ![Instâncias de alerta suprimidas](media/alerts-action-rules/action-rules-suppressed-alerts.png)
 
@@ -321,4 +321,4 @@ Para cada alerta em VM1, o grupo de ação AG1 seria acionado uma vez. Sempre qu
 
 ## <a name="next-steps"></a>Passos seguintes
 
-- [Saiba mais sobre alertas em Azure](../platform/alerts-overview.md)
+- [Saiba mais sobre alertas em Azure](./alerts-overview.md)

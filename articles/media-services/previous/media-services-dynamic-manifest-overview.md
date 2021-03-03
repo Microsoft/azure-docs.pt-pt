@@ -1,5 +1,5 @@
 ---
-title: Filtros e manifestos dinâmicos Microsoft Docs
+title: Filtros e manifestos dinâmicos | Microsoft Docs
 description: Este tópico descreve como criar filtros para que o seu cliente possa usá-los para transmitir secções específicas de um fluxo. Os Media Services criam manifestos dinâmicos para arquivar este streaming seletivo.
 services: media-services
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 2d83b114487f882b7ee38d3d71c84b6abec04a2b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96f0c4d4ea7c32e2b58807204ef45b75feae7132
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89266923"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101727333"
 ---
 # <a name="filters-and-dynamic-manifests"></a>Filters and dynamic manifests (Filtros e manifestos dinâmicos)
 
@@ -29,11 +29,11 @@ ms.locfileid: "89266923"
 > * [Versão 2](media-services-dynamic-manifest-overview.md)
 > * [Versão 3](../latest/filters-dynamic-manifest-overview.md)
 
-A partir do lançamento 2.17, os Serviços de Media permitem definir filtros para os seus ativos. Estes filtros são regras do lado do servidor que permitirão que os seus clientes optem por fazer coisas como: reproduzir apenas uma secção de um vídeo (em vez de reproduzir todo o vídeo), ou especificar apenas um subconjunto de representações áudio e vídeo que o dispositivo do seu cliente pode manusear (em vez de todas as representações que estão associadas ao ativo). Esta filtragem dos seus ativos é conseguida através do **Dynamic Manifest**s que são criados a pedido do seu cliente para transmitir um vídeo com base em filtros especificados.
+A partir do lançamento 2.17, os Serviços de Media permitem definir filtros para os seus ativos. Estes filtros são regras do lado do servidor que permitirão que os seus clientes optem por fazer coisas como: reproduzir apenas uma secção de um vídeo (em vez de reproduzir todo o vídeo), ou especificar apenas um subconjunto de representações áudio e vídeo que o dispositivo do seu cliente pode manusear (em vez de todas as representações que estão associadas ao ativo). Esta filtragem dos seus ativos é conseguida através do **Dynamic Manifest** s que são criados a pedido do seu cliente para transmitir um vídeo com base em filtros especificados.
 
 Este tópico discute cenários comuns em que a utilização de filtros seria benéfica para os seus clientes e ligações a tópicos que demonstram como criar filtros programáticamente.
 
-## <a name="overview"></a>Descrição geral
+## <a name="overview"></a>Descrição Geral
 Ao entregar o seu conteúdo aos clientes (streaming de eventos ao vivo ou vídeo-on-demand) o seu objetivo é entregar um vídeo de alta qualidade a vários dispositivos em diferentes condições de rede. Para atingir este objetivo, faça o seguinte:
 
 * codificar o seu fluxo para fluxo de vídeo multi-bitrate[(bitrate adaptativo](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)) (isto irá cuidar das condições de qualidade e de rede) e 
@@ -84,15 +84,15 @@ Existem [cenários](media-services-dynamic-manifest-overview.md#scenarios) em qu
 * Corte o início de um vídeo ("aparar um vídeo").
 * Ajuste a Janela de Apresentação (DVR) de modo a proporcionar um comprimento limitado da janela DVR no leitor ("janela de apresentação de ajuste").
 
-Para alcançar esta flexibilidade, a Media Services oferece **Manifestos Dinâmicos baseados** em filtros pré-definidos. [filters](media-services-dynamic-manifest-overview.md#filters)  Assim que definir os filtros, os seus clientes podem usá-los para transmitir uma rendição específica ou sub-clips do seu vídeo. Especificariam filtros no URL de streaming. Os filtros podem ser aplicados a protocolos de streaming de bitrate adaptativos suportados por [Dynamic Packaging](media-services-dynamic-packaging-overview.md): HLS, MPEG-DASH e Smooth Streaming. Por exemplo:
+Para alcançar esta flexibilidade, a Media Services oferece **Manifestos Dinâmicos baseados** em filtros pré-definidos. [](media-services-dynamic-manifest-overview.md#filters)  Assim que definir os filtros, os seus clientes podem usá-los para transmitir uma rendição específica ou sub-clips do seu vídeo. Especificariam filtros no URL de streaming. Os filtros podem ser aplicados a protocolos de streaming de bitrate adaptativos suportados por [Dynamic Packaging](media-services-dynamic-packaging-overview.md): HLS, MPEG-DASH e Smooth Streaming. Por exemplo:
 
 URL MPEG DASH com filtro
 
-`http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf,filter=MyLocalFilter)`
+`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf,filter=MyLocalFilter)`
 
 URL de streaming suave com filtro
 
-`http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(filter=MyLocalFilter)`
+`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(filter=MyLocalFilter)`
 
 
 Para obter mais informações sobre como entregar o seu conteúdo e construir URLs de streaming, consulte [a visão geral do conteúdo](media-services-deliver-content-overview.md).
@@ -111,7 +111,7 @@ Existem dois tipos de filtros de ativos:
 Os tipos de filtros globais e locais têm exatamente as mesmas propriedades. A principal diferença entre os dois é para que cenários que tipo de filete é mais adequado. Os filtros globais são geralmente adequados para perfis de dispositivos (filtragem de rendição) onde filtros locais podem ser usados para cortar um ativo específico.
 
 ## <a name="common-scenarios"></a><a id="scenarios"></a>Cenários comuns
-Como já foi mencionado anteriormente, ao entregar o seu conteúdo aos clientes (streaming de eventos ao vivo ou vídeo-on-demand) o seu objetivo é entregar um vídeo de alta qualidade a vários dispositivos em diferentes condições de rede. Além disso, poderá ter outros requisitos que envolvam a filtragem dos seus ativos e a utilização do **Dynamic Manifest**s. As secções seguintes dão uma visão geral curta de diferentes cenários de filtragem.
+Como já foi mencionado anteriormente, ao entregar o seu conteúdo aos clientes (streaming de eventos ao vivo ou vídeo-on-demand) o seu objetivo é entregar um vídeo de alta qualidade a vários dispositivos em diferentes condições de rede. Além disso, poderá ter outros requisitos que envolvam a filtragem dos seus ativos e a utilização do **Dynamic Manifest** s. As secções seguintes dão uma visão geral curta de diferentes cenários de filtragem.
 
 * Especifique apenas um subconjunto de representações áudio e vídeo que certos dispositivos podem manusear (em vez de todas as representações que estão associadas ao ativo). 
 * Reproduzir apenas uma secção de um vídeo (em vez de reproduzir todo o vídeo).

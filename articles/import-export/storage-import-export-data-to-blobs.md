@@ -5,16 +5,16 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 02/16/2021
+ms.date: 02/24/2021
 ms.author: alkohli
 ms.subservice: common
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: cc9431d08823bd3bfba423fcc5e9dc14d2a37faa
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 2acc3d104786be330e3e799ad7bd96d703587581
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100652960"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738995"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Utilizar o serviço Azure Import/Export para importar dados para a Azure Blob Storage
 
@@ -62,13 +62,13 @@ Execute os seguintes passos para preparar as unidades.
 
         `WAImportExport Unlock /externalKey:<BitLocker key (base 64 string) copied from journal (*.jrn*) file>`
 
-5. Abra uma janela de linha PowerShell ou de linha de comando com privilégios administrativos. Para alterar o diretório para a pasta desapertado, execute o seguinte comando:
+5. Abra uma janela powerShell ou linha de comando com privilégios administrativos. Para alterar o diretório para a pasta desapertado, execute o seguinte comando:
 
     `cd C:\WaImportExportV1`
 6. Para obter a chave BitLocker da unidade, executar o seguinte comando:
 
     `manage-bde -protectors -get <DriveLetter>:`
-7. Para preparar o disco, executar o seguinte comando. **Dependendo do tamanho dos dados, isto pode demorar várias horas a dias.**
+7. Para preparar o disco, executar o seguinte comando. **Dependendo do tamanho dos dados, a preparação do disco pode demorar várias horas a dias.**
 
     ```powershell
     ./WAImportExport.exe PrepImport /j:<journal file name> /id:session<session number> /t:<Drive letter> /bk:<BitLocker key> /srcdir:<Drive letter>:\ /dstdir:<Container name>/ /blobtype:<BlockBlob or PageBlob> /skipwrite
@@ -86,13 +86,14 @@ Execute os seguintes passos para preparar as unidades.
     |/bk:     |A chave BitLocker para a unidade. Sua senha numérica a partir da saída de `manage-bde -protectors -get D:`      |
     |/srcdir:     |A letra de acionamento do disco a ser enviada é seguida de `:\` . Por exemplo, `D:\`.         |
     |/dstdir:     |O nome do contentor de destino no Azure Storage.         |
-    |/blobtype:     |Esta opção especifica o tipo de bolhas para as quais pretende importar os dados. Para bolhas de bloco, isto é `BlockBlob` e para bolhas de página, é `PageBlob` .         |
-    |/skipwrite:     |A opção que especifica que não há novos dados necessários para serem copiados e os dados existentes no disco devem ser preparados.          |
+    |/blobtype:     |Esta opção especifica o tipo de bolhas para as quais pretende importar os dados. Para bolhas de bloco, o tipo de bolha é `BlockBlob` e para as bolhas de página, é `PageBlob` .         |
+    |/skipwrite:     | Especifica que não há novos dados necessários para serem copiados e os dados existentes no disco devem ser preparados.          |
     |/enablecontmd5:     |A opção, quando ativada, garante que o MD5 é calculado e definido como `Content-md5` propriedade em cada bolha. Utilize esta opção apenas se pretender utilizar o `Content-md5` campo depois de os dados serem enviados para a Azure. <br> Esta opção não afeta a verificação de integridade dos dados (que ocorre por padrão). A definição aumenta o tempo necessário para carregar dados para a nuvem.          |
 8. Repita o passo anterior para cada disco que precisa de ser enviado. Um ficheiro de diário com o nome fornecido é criado para cada execução da linha de comando.
 
     > [!IMPORTANT]
     > * Juntamente com o ficheiro do diário, `<Journal file name>_DriveInfo_<Drive serial ID>.xml` um ficheiro também é criado na mesma pasta onde reside a ferramenta. O ficheiro .xml é utilizado no lugar do ficheiro do diário quando se cria um trabalho se o ficheiro do diário for demasiado grande.
+   > * O tamanho máximo do ficheiro do diário que o portal permite é de 2 MB. Se o ficheiro do diário exceder esse limite, é devolvido um erro.
 
 ## <a name="step-2-create-an-import-job"></a>Passo 2: Criar um trabalho de importação
 
@@ -323,7 +324,7 @@ Install-Module -Name Az.ImportExport
 
 ## <a name="step-3-optional-configure-customer-managed-key"></a>Passo 3 (Opcional): Configurar chave gerida pelo cliente
 
-Salte este passo e vá para o próximo passo se quiser utilizar a chave gerida pela Microsoft para proteger as teclas BitLocker para as unidades. Para configurar a sua própria chave para proteger a chave BitLocker, siga as instruções em [chaves geridas pelo cliente com cofre de chave Azure para importação/exportação Azure no portal Azure](storage-import-export-encryption-key-portal.md)
+Salte este passo e vá para o próximo passo se quiser utilizar a chave gerida pela Microsoft para proteger as teclas BitLocker para as unidades. Para configurar a sua própria chave para proteger a chave BitLocker, siga as instruções em [chaves geridas pelo cliente com cofre de chave Azure para importação/exportação Azure no portal Azure](storage-import-export-encryption-key-portal.md).
 
 ## <a name="step-4-ship-the-drives"></a>Passo 4: Envie as unidades
 

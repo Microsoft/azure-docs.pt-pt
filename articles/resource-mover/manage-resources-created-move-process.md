@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: raynew
-ms.openlocfilehash: 7ad0e73a90e733af0dd752100ebc71908f68181a
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: d3c4c4e86e2461ea1d05af284e724a5a2991f040
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100388486"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101727044"
 ---
 # <a name="manage-resources-created-for-the-vm-move"></a>Gerir os recursos criados para o movimento VM
 
@@ -24,7 +24,7 @@ Após a deslocação de VMs através das regiões, há uma série de recursos cr
 
 Elimine manualmente a recolha de movimentos e os recursos de recuperação do local criados para o movimento VM.
 
-1. Reveja os recursos do grupo de ```ResourceMoverRG-<sourceregion>-<target-region>``` recursos.
+1. Reveja os recursos do grupo de ```ResourceMoverRG-<sourceregion>-<target-region>-<metadataRegionShortName>``` recursos.
 2. Verifique se o VM e todos os outros recursos de origem na recolha de movimentos foram movidos/eliminados. Isto garante que não existem recursos pendentes que os utilizem.
 2. Apague estes recursos.
 

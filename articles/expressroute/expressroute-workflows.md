@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/24/2020
 ms.author: duau
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 2742b03bcacd73e7e602666b898417f295905f19
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 24ad325cae2ee71ad49ee8ee055a83ceb8fa7ef2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97034076"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101721740"
 ---
 # <a name="expressroute-workflows-for-circuit-provisioning-and-circuit-states"></a>Fluxos de trabalho do ExpressRoute para o aprovisionamento e estados dos circuitos
 
@@ -77,8 +77,12 @@ Configure os domínios de encaminhamento. Se o seu fornecedor de conectividade g
 
 Permitir que o espreitamento privado se conecte a VMs e serviços de nuvem implantados dentro da rede virtual Azure.
 
-* Sub-rede de espreitar para o caminho 1 (/30)
-* Sub-rede de espreitar para o caminho 2 (/30)
+* Sub-redes IPv4:
+    * Sub-rede de espreitar para o caminho 1 (/30)
+    * Sub-rede de espreitar para o caminho 2 (/30)
+* Sub-redes IPv6 (opcional):
+    * Sub-rede de perspeção para o caminho 1 (/126)
+    * Sub-rede de perspeção para o caminho 2 (/126)
 * VLAN ID para espreitar
 * ASN para espreitar
 * ExpressRoute ASN = 12076
@@ -88,8 +92,12 @@ Permitir que o espreitamento privado se conecte a VMs e serviços de nuvem impla
 
 Ative isto para aceder a serviços online da Microsoft, como o Microsoft 365. Além disso, todos os serviços Azure PaaS estão acessíveis através do persto da Microsoft. Deve certificar-se de que utiliza um proxy/edge separado para ligar à Microsoft do que aquele que utiliza para a Internet. A utilização da mesma borda tanto para o ExpressRoute como para a Internet irá causar o encaminhamento assimétrico e causar interrupções de conectividade para a sua rede.
 
-* Sub-rede de pares para o caminho 1 (/30) - deve ser IP público
-* Sub-rede de pares para o caminho 2 (/30) - deve ser IP público
+* Sub-redes IPv4:
+    * Sub-rede de pares para o caminho 1 (/30) - deve ser IP público
+    * Sub-rede de pares para o caminho 2 (/30) - deve ser IP público
+* Sub-redes IPv6 (opcional):
+    * Sub-rede de pares para o caminho 1 (/126) - deve ser IP público
+    * Sub-rede de pares para o caminho 2 (/126) - deve ser IP público
 * VLAN ID para espreitar
 * ASN para espreitar
 * Prefixos anunciados - devem ser prefixos IP públicos
@@ -160,7 +168,7 @@ Pode optar por voltar a ativar, se necessário, ou executar cmdlets PowerShell p
 
 ## <a name="routing-session-configuration-state"></a>Estado de configuração da sessão de encaminhamento
 
-O estado de provisionamento do BGP informa se a sessão de BGP foi ativada na borda da Microsoft. O estado deve ser habilitado a usar o olhar privado ou microsoft.
+O estado de provisionamento do BGP informa se a sessão de BGP foi ativada no Microsoft Edge. O estado deve ser habilitado a usar o olhar privado ou microsoft.
 
 É importante verificar o estado da sessão de BGP especialmente para o espreitamento da Microsoft. Além do estado de provisionamento do BGP, existe outro estado chamado *estado de prefixos públicos anunciados.* O estado de prefixos públicos anunciados deve estar no estado *configurado,* tanto para a sessão de BGP estar de pé como para o seu encaminhamento para o trabalho de ponta a ponta. 
 

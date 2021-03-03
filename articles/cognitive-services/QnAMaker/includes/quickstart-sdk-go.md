@@ -8,12 +8,12 @@ ms.subservice: qna-maker
 ms.topic: include
 ms.date: 09/04/2020
 ms.author: v-jawe
-ms.openlocfilehash: 1ca800574f4a1c370d953c90ea5abad1a64f47b2
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 39df309a4c4c9c1db181a6081afe00498d449957
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96351044"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731022"
 ---
 Utilize a biblioteca de clientes QnA Maker para ir a:
 
@@ -59,7 +59,7 @@ Crie variáveis para o ponto final e chave Azure do seu recurso.
 
 O Fabricante QnA usa dois modelos de objetos diferentes:
 * **[QnAMakerClient](#qnamakerclient-object-model)** é o objeto para criar, gerir, publicar e descarregar a base de conhecimentos.
-* **[QnAMakerRuntime](#qnamakerruntimeclient-object-model)** é o objeto para consultar a base de conhecimento com a API GenerateAnswer e enviar novas perguntas sugeridas usando a API do comboio (como parte da [aprendizagem ativa).](../concepts/active-learning-suggestions.md)
+* **[QnAMakerRuntime](#qnamakerruntimeclient-object-model)** é o objeto para consultar a base de conhecimento com a API GenerateAnswer e enviar novas perguntas sugeridas usando a API do comboio (como parte da [aprendizagem ativa).](../how-to/use-active-learning.md)
 
 [!INCLUDE [Get KBinformation](./quickstart-sdk-cognitive-model.md)]
 
@@ -93,7 +93,7 @@ A linha final do seguinte código devolve o ID da base de conhecimento.
 Pode atualizar uma base de conhecimento, chamando a [atualização](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v4.0/qnamaker#KnowledgebaseClient.Update) e passando no ID da base de conhecimento e num objeto [UpdateKbOperationDTO.](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v4.0/qnamaker#UpdateKbOperationDTO) O objeto, por sua vez, pode conter:
 - [adicionar](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v4.0/qnamaker#UpdateKbOperationDTOAdd)
 - [atualizar](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v4.0/qnamaker#UpdateKbOperationDTOUpdate)
-- [eliminar](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v4.0/qnamaker#UpdateKbOperationDTODelete)
+- [delete](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v4.0/qnamaker#UpdateKbOperationDTODelete)
 
 Passe a `operationId` propriedade da operação devolvida para o método [getDetails](#get-status-of-an-operation) para sondar o estado.
 

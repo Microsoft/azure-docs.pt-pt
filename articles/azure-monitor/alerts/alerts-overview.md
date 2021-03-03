@@ -1,15 +1,15 @@
 ---
 title: Visão geral do alerta e monitorização da notificação em Azure
-description: Visão geral do alerta em Azure. Alertas, alertas clássicos e a interface de alertas.
+description: Visão geral do alerta no Azure Monitor
 ms.subservice: alerts
 ms.topic: conceptual
-ms.date: 01/28/2018
-ms.openlocfilehash: 96e15c1e07d437855b6553757295800406a4cf4c
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.date: 02/14/2021
+ms.openlocfilehash: e2d447b7407ed874d9c183c5cd2009882f1d6b3b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100614622"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723593"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Descrição geral dos alertas no Microsoft Azure 
 
@@ -94,7 +94,7 @@ Em vez disso, pode [enumerar programáticamente as instâncias de alerta geradas
 > [!NOTE]
    >  Só é possível aceder aos alertas gerados nos últimos 30 dias.
 
-Não mostra nem rastreia alertas clássicos. Pode alterar as subscrições ou filtrar parâmetros para atualizar a página. 
+Pode alterar as subscrições ou filtrar parâmetros para atualizar a página.
 
 ![Screenshot da página alertas](media/alerts-overview/alerts-page.png)
 
@@ -167,7 +167,7 @@ Ao selecionar um alerta, esta página fornece detalhes do alerta e permite-lhe a
 
 A página de detalhes do alerta inclui as seguintes secções:
 
-| Section | Description |
+| Section | Descrição |
 |:---|:---|
 | Resumo | Exibe as propriedades e outras informações significativas sobre o alerta. |
 | Histórico | Enumera cada ação tomada pelo alerta e quaisquer alterações feitas ao alerta. Atualmente limitado a alterações de estado. |

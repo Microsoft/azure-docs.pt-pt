@@ -4,14 +4,14 @@ description: Saiba como resolver problemas de segurança e controlo de acessos n
 author: lrtoyou1223
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 02/04/2021
+ms.date: 02/24/2021
 ms.author: lle
-ms.openlocfilehash: 0dac0dcb272b602be8b921bce0ffc68c05cb9cbd
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: fa410441203c50d96c0de1d9188fb73b6fd4d577
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100375175"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101706194"
 ---
 # <a name="troubleshoot-azure-data-factory-security-and-access-control-issues"></a>Resolução de problemas Azure Data Factory questões de segurança e controlo de acessos
 
@@ -107,7 +107,7 @@ Para resolver a questão, faça o seguinte:
 
 Não é possível registar a chave de autenticação IV no VM auto-hospedado porque o link privado está ativado. Recebe a seguinte mensagem de erro:
 
-"Falhando na obter o token de serviço do serviço ADF com a chave *** e o custo de tempo é: 0.12500079 segundos, o código de erro é: InvalidGatewayKey, activityId é: XXXXXX E a mensagem de erro detalhada é o endereço IP do cliente não é válido por ip fábrica de dados não poderia aceder à rede pública, assim, não conseguir chegar à nuvem para fazer a ligação com sucesso."
+"Falhando na obter o token de serviço do serviço ADF com a chave *** e o custo de tempo é: 0.1250079 segundos, o código de erro é: InvalidGatewayKey, activityId é: XXXXXX E a mensagem de erro detalhada é o endereço IP do cliente não é válido por ip fábrica de dados não poderia aceder à rede pública, assim não conseguir chegar à nuvem para fazer a ligação com sucesso."
 
 #### <a name="cause"></a>Causa
 
@@ -142,7 +142,6 @@ Para resolver a questão, faça o seguinte:
 
 1. Adicione novamente a tecla de autenticação IV no tempo de execução da integração.
 
-
 **Solução 2**
 
 Para resolver o problema, vá ao [Azure Private Link for Azure Data Factory](./data-factory-private-link.md).
@@ -150,6 +149,45 @@ Para resolver o problema, vá ao [Azure Private Link for Azure Data Factory](./d
 Tente permitir o acesso à rede pública na interface do utilizador, como mostra a seguinte imagem:
 
 ![Screenshot do controlo "Ativado" para "Permitir o acesso à rede pública" no painel de networking.](media/self-hosted-integration-runtime-troubleshoot-guide/enable-public-network-access.png)
+
+### <a name="adf-private-dns-zone-overrides-azure-resource-manager-dns-resolution-causing-not-found-error"></a>Zona privada de DNS da ADF substitui resolução de DNS do Gestor de Recursos Azure causando erro "Não encontrado"
+
+#### <a name="cause"></a>Causa
+Tanto o Azure Resource Manager como a ADF estão a usar a mesma zona privada, criando um potencial conflito no DNS privado do cliente, com um cenário em que os registos do Azure Resource Manager não serão encontrados.
+
+#### <a name="solution"></a>Solução
+1. Encontre zonas privadas de DNS **privatelink.azure.com** no portal Azure.
+![Screenshot de encontrar zonas privadas de DNS.](media/security-access-control-troubleshoot-guide/private-dns-zones.png)
+2. Verifique se existe **um adf de** registo A .
+![Screenshot de um disco.](media/security-access-control-troubleshoot-guide/a-record.png)
+3.  Aceda a **links de rede Virtuais,** elimine todos os registos.
+![Screenshot da ligação de rede virtual.](media/security-access-control-troubleshoot-guide/virtual-network-link.png)
+4.  Navegue até à sua fábrica de dados no portal Azure e recrie o ponto final privado para o portal Azure Data Factory.
+![Screenshot de recriar o ponto final privado.](media/security-access-control-troubleshoot-guide/create-private-endpoint.png)
+5.  Volte para as zonas privadas de DNS e verifique se existe uma nova zona privada de DNS **privatelink.adf.azure.com**.
+![Screenshot do novo disco DNS.](media/security-access-control-troubleshoot-guide/check-dns-record.png)
+
+### <a name="connection-error-in-public-endpoint"></a>Erro de ligação no ponto final público
+
+#### <a name="symptoms"></a>Sintomas
+
+Ao copiar dados com o acesso público da conta Azure Blob, o gasoduto falha aleatoriamente com o seguinte erro.
+
+Por exemplo: A pia Azure Blob Storage estava a utilizar o Azure IR (público, não gerido VNet) e a fonte da Base de Dados Azure SQL estava a utilizar o ViaTDD IR. Ou utilização de fonte/pia Managed VNet IR apenas com acesso público de armazenamento.
+
+`
+<LogProperties><Text>Invoke callback url with req:
+"ErrorCode=UserErrorFailedToCreateAzureBlobContainer,'Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,Message=Unable to create Azure Blob container. Endpoint: XXXXXXX/, Container Name: test.,Source=Microsoft.DataTransfer.ClientLibrary,''Type=Microsoft.WindowsAzure.Storage.StorageException,Message=Unable to connect to the remote server,Source=Microsoft.WindowsAzure.Storage,''Type=System.Net.WebException,Message=Unable to connect to the remote server,Source=System,''Type=System.Net.Sockets.SocketException,Message=A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond public ip:443,Source=System,'","Details":null}}</Text></LogProperties>.
+`
+
+#### <a name="cause"></a>Causa
+
+A ADF pode ainda utilizar o Managed VNet IR, mas pode encontrar tal erro porque o ponto final público do Azure Blob Storage em Managed VNet não é fiável com base no resultado dos testes, e o Azure Blob Storage e a Azure Data Lake Gen2 não são suportados para serem conectados através de um ponto final público da ADF Managed Virtual Network de acordo com a [rede virtual gerida & pontos finais privados geridos](https://docs.microsoft.com/azure/data-factory/managed-virtual-network-private-endpoint#outbound-communications-through-public-endpoint-from-adf-managed-virtual-network).
+
+#### <a name="solution"></a>Solução
+
+- Ter o ponto final privado ativado na fonte e também o lado da pia ao utilizar o VNet IR gerido.
+- Se ainda quiser utilizar o ponto final público, só pode mudar para o IR público em vez de utilizar o Ir Gerido VNet para a fonte e o lavatório. Mesmo que volte a ir publicamente, a ADF poderá ainda utilizar o Ir Gerido VNet se o VNet IR gerido ainda estiver lá.
 
 ## <a name="next-steps"></a>Passos seguintes
 

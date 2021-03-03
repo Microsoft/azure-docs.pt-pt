@@ -11,35 +11,39 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 12/16/2020
-ms.openlocfilehash: 983fc2cd7e9863361776d5a9d5bc02359fccd510
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: fad19d360f7c476ba71a9bbe00b58387b92f8ac4
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100580824"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690566"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Gerir a Azure SQL Database retenção de backup a longo prazo
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Na Base de Dados Azure SQL, pode configurar uma base de dados com uma política [de retenção de backup de longo prazo](long-term-retention-overview.md) (LTR) para reter automaticamente as cópias de segurança da base de dados em recipientes de armazenamento separados Azure Blob por um período máximo de 10 anos. Em seguida, pode recuperar uma base de dados utilizando estas cópias de segurança utilizando o portal Azure ou o PowerShell. Pode configurar a retenção a longo prazo para uma [Azure SQL Managed Instance](../managed-instance/long-term-backup-retention-configure.md) também, mas está atualmente em pré-visualização pública limitada.
+Com a Base de Dados Azure SQL, pode definir uma política [de retenção de backup de longo prazo](long-term-retention-overview.md) (LTR) para reter automaticamente cópias de segurança em recipientes de armazenamento separados Azure Blob por um período máximo de 10 anos. Em seguida, pode recuperar uma base de dados utilizando estas cópias de segurança utilizando o portal Azure ou o PowerShell. As políticas de retenção a longo prazo também são apoiadas para [a Azure SQL Managed Instance](../managed-instance/long-term-backup-retention-configure.md).
 
 ## <a name="using-the-azure-portal"></a>Utilizar o portal do Azure
 
-As secções seguintes mostram-lhe como usar o portal Azure para configurar a retenção a longo prazo, ver backups na retenção a longo prazo e restaurar o backup da retenção a longo prazo.
+As secções seguintes mostram-lhe como usar o portal Azure para definir políticas de retenção a longo prazo, gerir backups de retenção disponíveis a longo prazo e restaurar a partir de uma cópia de segurança disponível.
 
 ### <a name="configure-long-term-retention-policies"></a>Configure políticas de retenção a longo prazo
 
 Pode configurar a Base de Dados SQL para [reter cópias de segurança automatizadas](long-term-retention-overview.md) por um período superior ao período de retenção para o seu nível de serviço.
 
-1. No portal Azure, selecione a sua instância SQL Server e, em seguida, clique em **Gerir Backups**. No **separador políticas de configuração,** selecione a caixa de verificação para a base de dados na qual pretende definir ou modificar políticas de retenção de backup a longo prazo. Se a caixa de verificação ao lado da base de dados não for selecionada, as alterações da política não serão aplicadas a essa base de dados.  
+1. No portal Azure, navegue para o seu servidor e, em seguida, selecione **Backups**. Selecione o **separador 'Retenção'** para modificar as definições de retenção de cópias de segurança.
 
-   ![gerir ligação de backups](./media/long-term-backup-retention-configure/ltr-configure-ltr.png)
+   ![experiência de políticas de retenção](./media/long-term-backup-retention-configure/ltr-policies-tab.png)
 
-2. No painel de **políticas de configuração,** selecione se quiser reter backups semanais, mensais ou ano inteiros e especificar o período de retenção para cada um.
+2. No separador Políticas de Retenção, selecione a base de dados(s) na qual pretende definir ou modificar políticas de retenção de backup a longo prazo. As bases de dados não eleitas não serão afetadas.
 
-   ![configurar políticas](./media/long-term-backup-retention-configure/ltr-configure-policies.png)
+   ![selecionar base de dados para configurar políticas de retenção de backup](./media/long-term-backup-retention-configure/ltr-policies-tab-configure.png)
 
-3. Quando estiver concluído, clique **em Aplicar**.
+3. No painel de **políticas de configuração,** especifique o período de retenção pretendido para backups semanais, mensais ou anual. Escolha um período de retenção de '0' para indicar que não deve ser definida qualquer retenção de backup a longo prazo.
+
+   ![configure painel de políticas](./media/long-term-backup-retention-configure/ltr-configure-policies.png)
+
+4. Selecione **Aplicar** para aplicar as definições de retenção escolhidas em todas as bases de dados selecionadas.
 
 > [!IMPORTANT]
 > Quando ativar uma política de retenção de backup a longo prazo, pode levar até 7 dias para que a primeira cópia de segurança fique visível e disponível para restaurar. Para obter detalhes sobre o cadance de backup LTR, consulte [a retenção de backup a longo prazo](long-term-retention-overview.md).
@@ -48,21 +52,23 @@ Pode configurar a Base de Dados SQL para [reter cópias de segurança automatiza
 
 Veja as cópias de segurança que são mantidas para uma base de dados específica com uma política LTR e restaure a partir dessas cópias de segurança.
 
-1. No portal Azure, selecione o seu servidor e, em seguida, clique em **Gerir Backups**. No separador **de backups disponível,** selecione a base de dados para a qual deseja ver cópias de segurança disponíveis.
+1. No portal Azure, navegue para o seu servidor e, em seguida, selecione **Backups**. Para visualizar as cópias de segurança LTR disponíveis para uma base de dados específica, **selecione Gerir** sob a coluna de backups LTR disponível. Aparecerá um painel com uma lista das cópias de segurança LTR disponíveis para a base de dados selecionada.
 
-   ![selecionar base de dados](./media/long-term-backup-retention-configure/ltr-available-backups-select-database.png)
+   ![experiência de backups disponíveis](./media/long-term-backup-retention-configure/ltr-available-backups-tab.png)
 
-1. No painel **de backups disponível,** reveja as cópias de segurança disponíveis.
+1. No painel **de backups LTR disponível** que aparece, reveja as cópias de segurança disponíveis. Pode selecionar uma cópia de segurança para restaurar ou eliminar.
 
-   ![ver backups](./media/long-term-backup-retention-configure/ltr-available-backups.png)
+   ![ver backups LTR disponíveis](./media/long-term-backup-retention-configure/ltr-available-backups-manage.png)
 
-1. Selecione a cópia de segurança a partir da qual pretende restaurar e, em seguida, especifique o nome da nova base de dados.
+1. Para restaurar a partir de uma cópia de segurança LTR disponível, selecione a cópia de segurança a partir da qual pretende restaurar e, em seguida, selecione **Restaurar**.
 
-   ![restore](./media/long-term-backup-retention-configure/ltr-restore.png)
+   ![restaurar a partir de backup LTR disponível](./media/long-term-backup-retention-configure/ltr-available-backups-restore.png)
 
-1. Clique **em OK** para restaurar a sua base de dados a partir da cópia de segurança no armazenamento Azure para a nova base de dados.
+1. Escolha um nome para a sua nova base de dados e, em seguida, selecione **Rever + Criar** para rever os detalhes da sua Restauração. Selecione **Criar** para restaurar a sua base de dados a partir da cópia de segurança escolhida.
 
-1. Na barra de ferramentas, clique no ícone de notificação para ver o estado da tarefa de restauro.
+   ![configurar detalhes de restauro](./media/long-term-backup-retention-configure/restore-ltr.png)
+
+1. Na barra de ferramentas, selecione o ícone de notificação para visualizar o estado da função de restauro.
 
    ![progresso da tarefa de restauro](./media/long-term-backup-retention-configure/restore-job-progress-long-term.png)
 

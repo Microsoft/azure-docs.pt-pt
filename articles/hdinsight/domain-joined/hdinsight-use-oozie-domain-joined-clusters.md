@@ -1,18 +1,16 @@
 ---
 title: Fluxos de trabalho Apache Oozie & Segurança Empresarial - Azure HDInsight
 description: Secure Apache Oozie workflows using the Azure HDInsight Enterprise Security Package. Aprenda a definir um fluxo de trabalho Oozie e submeta um trabalho Oozie.
-author: omidm1
-ms.author: omidm
 ms.service: hdinsight
 ms.topic: conceptual
-ms.custom: hdinsightactive,seodec18,seoapr2020
+ms.custom: seoapr2020
 ms.date: 05/14/2020
-ms.openlocfilehash: 559779e3979ab2ada2191f55cfc06ceb2470bd7d
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: dc20a258028bb76351ae70362234e7c4c8c741a5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98933478"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101699407"
 ---
 # <a name="run-apache-oozie-in-azure-hdinsight-clusters-with-enterprise-security-package"></a>Executar Apache Oozie em clusters Azure HDInsight com pacote de segurança empresarial
 
@@ -344,7 +342,7 @@ A UI web Oozie fornece uma visão web sobre o estado dos empregos de Oozie no cl
 
 2. Siga os passos [de UI web Oozie](../hdinsight-use-oozie-linux-mac.md) para permitir o túnel de SSH até ao nó de borda e aceda à UI web.
 
-## <a name="next-steps"></a>Próximos passos
+## <a name="next-steps"></a>Passos seguintes
 
 - [Use Apache Oozie com Apache Hadoop para definir e executar um fluxo de trabalho no Azure HDInsight baseado em Linux](../hdinsight-use-oozie-linux-mac.md).
 - [Ligue-se ao HDInsight (Apache Hadoop) utilizando SSH](../hdinsight-hadoop-linux-use-ssh-unix.md#authentication-domain-joined-hdinsight).

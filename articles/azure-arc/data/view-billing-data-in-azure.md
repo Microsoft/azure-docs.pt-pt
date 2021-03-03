@@ -7,19 +7,19 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 03/02/2021
 ms.topic: how-to
-ms.openlocfilehash: 9da725c433ad5d6233fd164d256692ca407714fc
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 16546432c8c0a23d5c9dc471fe8c62ced5eca993
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92206457"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101687537"
 ---
 # <a name="upload-billing-data-to-azure-and-view-it-in-the-azure-portal"></a>Faça upload de dados de faturação para a Azure e veja-os no portal Azure
 
 > [!IMPORTANT] 
->  Não há qualquer custo para utilizar os serviços de dados habilitados a Azure Arc durante o período de pré-visualização. Embora o sistema de faturação funcione até ao fim do medidor de faturação está definido para $0.  Se seguir este cenário, verá entradas na sua faturação para um serviço atualmente denominado **serviços de dados híbridos** e para recursos de um tipo chamado **Microsoft. AzureData/ `<resource type>` **. Poderá ver um registo de cada serviço de dados - Azure Arc que criar, mas cada registo será cobrado por $0.
+>  Não há qualquer custo para utilizar os serviços de dados habilitados a Azure Arc durante o período de pré-visualização. Embora o sistema de faturação funcione até ao fim do medidor de faturação está definido para $0.  Se seguir este cenário, verá entradas na sua faturação para um serviço atualmente denominado **serviços de dados híbridos** e para recursos de um tipo chamado **Microsoft. AzureData/ `<resource type>`**. Poderá ver um registo de cada serviço de dados - Azure Arc que criar, mas cada registo será cobrado por $0.
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
@@ -111,8 +111,9 @@ azdata arc dc upload -p usage.json
 
 Siga estes passos para ver os dados de faturação no portal Azure:
 
-1. Abra o portal Azure utilizando o URL especial:  [https://aka.ms/arcdata](https://aka.ms/arcdata) .
+1. Abra o [portal do Azure](https://portal.azure.com).
 1. Na caixa de pesquisa no topo do tipo de ecrã em Gestão de **Custos** e clique no serviço de Gestão de Custos.
+1. No âmbito da Visão Geral da **Gestão de Custos,** clique no separador **Gestão** de Custos.
 1. Clique no separador **de análise de custos** à esquerda.
 1. Clique no botão **Custo por recurso** na parte superior da vista.
 1. Certifique-se de que o seu Âmbito está definido para a subscrição na qual foram criados os seus recursos de serviço de dados.
@@ -155,8 +156,8 @@ Pode validar os ficheiros de dados de faturação no portal Azure.
 4. Clique em Recipientes à esquerda.
 5. Clique no recipiente especificado ao criar o trabalho de exportação de faturação acima.
 6. Clique na pasta especificada ao criar o trabalho de exportação de faturação acima.
-7. Desabraça as pastas e ficheiros gerados e clique num dos ficheiros .csv gerados.
+7. Desaça as pastas e ficheiros gerados e clique num dos ficheiros .csv gerados.
 8. Clique no botão **Descarregar** que irá guardar o ficheiro para a pasta Downloads local.
-9. Abra o ficheiro utilizando um visualizador de ficheiros .csv, como o Excel.
+9. Abra o ficheiro utilizando um .csv visualizador de ficheiros, como o Excel.
 10. Filtrar os resultados para mostrar apenas as linhas com o **Tipo de Recurso**  =  `Microsoft.AzureData/<data service resource type` .
 11. Verá o número de horas em que o caso foi utilizado no atual período de 24 horas na coluna UsageQuantity.

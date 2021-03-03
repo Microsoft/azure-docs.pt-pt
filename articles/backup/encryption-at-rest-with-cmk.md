@@ -3,12 +3,12 @@ title: Encriptação de dados de cópias de segurança com chaves geridas pelo c
 description: Saiba como o Azure Backup permite encriptar os seus dados de backup utilizando teclas geridas pelo cliente (CMK).
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: 230669e0a3543a0709dda3f7fee35a0cae300d5a
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 474f4238276f460abde3d600422e309171875a0c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100369463"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101716742"
 ---
 # <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Encriptação de dados de cópias de segurança com chaves geridas pelo cliente
 
@@ -235,11 +235,11 @@ InfrastructureEncryptionState : Disabled
 >[!NOTE]
 > Este processo permanece o mesmo quando pretende atualizar ou alterar a chave de encriptação. Se desejar atualizar e utilizar uma chave de outro Cofre-Chave (diferente da que está a ser utilizada atualmente), certifique-se de que:
 >
-> - O Cofre-Chave está localizado na mesma região que o cofre dos Serviços de Recuperação
+> - O cofre está localizado na mesma região que o cofre dos Serviços de Recuperação.
 >
-> - O cofre Key tem proteção de eliminação e purga ativada
+> - O cofre-chave tem proteção de eliminação e purga ativada
 >
-> - O cofre dos Serviços de Recuperação tem as permissões necessárias para aceder ao Cofre de Chaves.
+> - O cofre dos Serviços de Recuperação tem as permissões necessárias para aceder ao cofre da chave.
 
 ## <a name="backing-up-to-a-vault-encrypted-with-customer-managed-keys"></a>Backup até um cofre encriptado com chaves geridas pelo cliente
 

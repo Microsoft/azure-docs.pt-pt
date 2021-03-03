@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 02/01/2021
 ms.author: ambapat
 ms.openlocfilehash: 86807899c06cb333238344b7168b5675e8f2e9a3
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/03/2021
 ms.locfileid: "100366590"
 ---
 # <a name="import-hsm-protected-keys-to-key-vault"></a>Importar chaves protegidas por HSM para o Key Vault

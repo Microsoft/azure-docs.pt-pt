@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2021
 ms.author: yelevin
-ms.openlocfilehash: 3094d20a921f9aa13e111e7af60955ce934b91db
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: a37abf369d1f34dc8f4a27802dfad88dab79be44
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99566802"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101698438"
 ---
 # <a name="connect-your-imperva-waf-gateway-appliance-to-azure-sentinel"></a>Ligue o seu aparelho Imperva WAF Gateway ao Azure Sentinel
 
@@ -35,7 +35,7 @@ Este artigo explica como ligar o seu aparelho Imperva WAF Gateway ao Azure Senti
 
 - Deve ter lido e escrito permissões no seu espaço de trabalho Azure Sentinel.
 
-- Deve ter lido permissões para partilhar chaves para o espaço de trabalho. [Saiba mais sobre as teclas do espaço de trabalho.](../azure-monitor/platform/log-analytics-agent.md#workspace-id-and-key)
+- Deve ter lido permissões para partilhar chaves para o espaço de trabalho. [Saiba mais sobre as teclas do espaço de trabalho.](../azure-monitor/agents/log-analytics-agent.md#workspace-id-and-key)
 
 ## <a name="send-imperva-waf-gateway-logs-to-azure-sentinel"></a>Enviar registos do Portal Imperva WAF para Azure Sentinel
 

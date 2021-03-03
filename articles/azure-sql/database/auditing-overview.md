@@ -8,14 +8,14 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 02/03/2021
+ms.date: 02/28/2021
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: 0e85019c8f02b8a4a97426d50a30d047b95378a1
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 8635e3590d4196e407dfc591a55ee240806358ed
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100572289"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691523"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Auditoria para Azure SQL Database e Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -46,7 +46,9 @@ Pode utilizar a auditoria da Base de Dados SQL para:
 
 - **O armazenamento premium** não é suportado **atualmente.**
 - **O espaço hierárquico** para **a conta de armazenamento de Azure Data Lake Gen2** **não** é suportado atualmente.
-- Não é apoiado o financiamento da auditoria a um **Azure Synapse** pausado. Para permitir a auditoria, retomar a Azure Synapse.
+- Não é apoiado o financiamento da auditoria a um **Azure Synapse** pausado. Para ativar a auditoria, retome o Azure Synapse.
+- A auditoria para **piscinas Azure Synapse SQL** suporta apenas grupos de ação de auditoria **predefinidos**.
+
 
 #### <a name="define-server-level-vs-database-level-auditing-policy"></a><a id="server-vs-database-level"></a>Definir a política de auditoria ao nível do servidor vs. nível de base de dados
 
@@ -73,9 +75,9 @@ Uma política de auditoria pode ser definida para uma base de dados específica 
 - Para configurar uma loja de registos imutável para os eventos de auditoria ao nível do servidor ou da base de dados, siga as [instruções fornecidas pelo Azure Storage](../../storage/blobs/storage-blob-immutability-policies-manage.md#enabling-allow-protected-append-blobs-writes). Certifique-se de que selecionou **Deixe os apêndices adicionais** quando configurar o armazenamento de bolhas imutáveis.
 - Pode escrever registos de auditoria numa conta de Armazenamento Azure por trás de um VNet ou firewall. Para obter instruções específicas, [escreva a auditoria para uma conta de armazenamento por trás do VNet e da firewall](audit-write-storage-account-behind-vnet-firewall.md).
 - Para obter mais informações sobre o formato de registo, hierarquia da pasta de armazenamento e convenções de nomeação, consulte a [Referência do Formato do Registo de Auditoria blob](./audit-log-format.md).
-- A auditoria em [Réplicas Só de Leitura](read-scale-out.md) é automaticamente ativada. Para mais detalhes sobre a hierarquia das pastas de armazenamento, convenções de nomeação e formato de registo, consulte o Formato de [Registo de Auditoria de Base de Dados SQL](audit-log-format.md).
+- A auditoria em [Réplicas Só de Leitura](read-scale-out.md) é ativada automaticamente. Para mais detalhes sobre a hierarquia das pastas de armazenamento, convenções de nomeação e formato de registo, consulte o Formato de [Registo de Auditoria de Base de Dados SQL](audit-log-format.md).
 - Ao utilizar a autenticação AD AD Azure, os registos de logins falhados *não* aparecerão no registo de auditoria SQL. Para visualizar registos de auditoria de login falhados, é necessário visitar o [portal Azure Ative Directory](../../active-directory/reports-monitoring/reference-sign-ins-error-codes.md), que regista detalhes destes eventos.
-- Os logins são encaminhados pela porta de entrada para o caso específico onde a base de dados está localizada.  No caso dos logins da AAD, as credenciais são verificadas antes de tentar utilizar esse utilizador para iniciar sessão na base de dados solicitada.  Em caso de avaria, a base de dados solicitada nunca é acedida, pelo que não ocorre qualquer auditoria.  No caso dos logins SQL, as credenciais são verificadas nos dados solicitados, pelo que neste caso podem ser auditadas.  Os logins bem sucedidos, que obviamente chegam à base de dados, são auditados em ambos os casos.
+- Os inícios de sessão são encaminhados pelo gateway para a instância específica onde a base de dados está localizada.  No caso dos inícios de sessão do AAD, as credenciais são verificadas antes da tentativa de utilizar esse utilizador para iniciar sessão na base de dados pedida.  Em caso de falha, a base de dados pedida nunca é acedida, pelo que não ocorre qualquer auditoria.  No caso dos logins SQL, as credenciais são verificadas nos dados solicitados, pelo que neste caso podem ser auditadas.  Os logins realizados com êxito, que, obviamente, alcançam a base de dados, são auditados em ambos os casos.
 - Depois de configurar as definições de auditoria, pode ligar a nova funcionalidade de deteção de ameaças e configurar e-mails para receber alertas de segurança. Quando utiliza a deteção de ameaças, recebe alertas proactivos sobre atividades anómalas de bases de dados que podem indicar potenciais ameaças à segurança. Para obter mais informações, consulte [Começar com a deteção de ameaças.](threat-detection-overview.md)
 
 ## <a name="set-up-auditing-for-your-server"></a><a id="setup-auditing"></a>Configurar a auditoria para o seu servidor
@@ -175,7 +177,7 @@ Se optar por escrever registos de auditoria para os registos do Azure Monitor:
 Se optar por escrever registos de auditoria ao Event Hub:
 
 - Para consumir dados de registos de auditoria do Event Hub, terá de configurar um fluxo para consumir eventos e escrevê-los para um alvo. Para mais informações, consulte [a Documentação dos Hubs de Eventos Azure](../index.yml).
-- Os registos de auditoria no Event Hub são capturados no corpo de eventos [Apache Avro](https://avro.apache.org/) e armazenados usando a formatação JSON com codificação UTF-8. Para ler os registos de auditoria, pode utilizar [Ferramentas Avro](../../event-hubs/event-hubs-capture-overview.md#use-avro-tools) ou ferramentas semelhantes que processam este formato.
+- Os registos de auditoria no Event Hub são capturados no corpo de eventos [Apache Avro](https://avro.apache.org/) e armazenados usando a formatação JSON com codificação UTF-8. Para ler os registos de auditoria, pode utilizar as [Ferramentas Avro](../../event-hubs/event-hubs-capture-overview.md#use-avro-tools) ou ferramentas semelhantes que processem este formato.
 
 Se optar por escrever registos de auditoria numa conta de armazenamento Azure, existem vários métodos que pode utilizar para visualizar os registos:
 

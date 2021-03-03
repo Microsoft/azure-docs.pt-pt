@@ -1,5 +1,5 @@
 ---
-title: Usando Azure CDN com SAS / Microsoft Docs
+title: Utilização de Azure CDN com sas | Microsoft Docs
 description: A Azure CDN apoia a utilização de Assinatura de Acesso Partilhado (SAS) para conceder acesso limitado a contentores de armazenamento privados.
 services: cdn
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 06/21/2018
 ms.author: allensu
-ms.openlocfilehash: ff205069c31d50813a4fad71a3c9e2f8e2462844
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: ccf55e0e3986de8afe23cb646d4df743b576900c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92778130"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101725327"
 ---
 # <a name="using-azure-cdn-with-sas"></a>Utilização de Azure CDN com SAS
 
@@ -77,10 +77,10 @@ Esta opção está disponível apenas para **Azure CDN Premium a partir de** per
 
    ![CDN regras botão do motor](./media/cdn-sas-storage-support/cdn-rules-engine-btn.png)
 
-   A seguinte regra url rewrite amostra utiliza um padrão de expressão regular com um grupo de captura e um ponto final chamado *sasstoragedemo* :
+   A seguinte regra url rewrite amostra utiliza um padrão de expressão regular com um grupo de captura e um ponto final chamado *sasstoragedemo*:
    
    Origem:   
-   `(container1\/.*)`
+   `(container1/.*)`
 
 
    Destino:   
@@ -116,10 +116,10 @@ Para utilizar a autenticação simbólica de segurança Azure CDN, tem de ter um
  
 2. Utilize o [motor de regras](./cdn-verizon-premium-rules-engine.md) para criar uma regra de reescrita de URL para permitir o acesso do símbolo SAS a todas as bolhas no recipiente. As novas regras demoram até 4 horas a propagar-se.
 
-   A seguinte regra url rewrite amostra utiliza um padrão de expressão regular com um grupo de captura e um ponto final chamado *sasstoragedemo* :
+   A seguinte regra url rewrite amostra utiliza um padrão de expressão regular com um grupo de captura e um ponto final chamado *sasstoragedemo*:
    
    Origem:   
-   `(container1\/.*)`
+   `(container1/.*)`
    
    Destino:   
    ```

@@ -1,17 +1,16 @@
 ---
 title: Otimize o seu ambiente de Diretório Ativo com | do Azure Monitor Microsoft Docs
 description: Pode utilizar a solução Ative Directory Health Check para avaliar o risco e a saúde dos seus ambientes num intervalo regular.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/10/2019
-ms.openlocfilehash: 069f70d27bd7e721be2bf82f6ef64ce9c531ab8e
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: bff61ec9dfcb985ea0111ca58bfd58273e1fe432
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100577559"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723253"
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-azure-monitor"></a>Optimize your Active Directory environment with the Active Directory Health Check solution in Azure Monitor (Otimizar o ambiente do Active Directory com a solução Verificação de Estado de Funcionamento do Active Directory no Azure Monitor)
 

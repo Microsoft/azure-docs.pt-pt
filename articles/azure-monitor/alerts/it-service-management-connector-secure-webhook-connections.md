@@ -6,18 +6,18 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 09/08/2020
-ms.openlocfilehash: 6b273b864c8329547ef91eb7063a064e0f5cb77d
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: b1295904f25d38c97578fa6fd6ede4ecd50c0456
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-PT
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100620872"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728982"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-secure-export"></a>Ligue o Azure às ferramentas ITSM utilizando a Secure Export
 
 Este artigo mostra-lhe como configurar a ligação entre o seu produto ou serviço de Gestão de Serviços de TI (ITSM) utilizando a Secure Export.
 
-Secure Export é uma versão atualizada do Connector de Gestão de [Serviços de TI (ITSMC)](../platform/itsmc-overview.md). Ambas as versões permitem criar itens de trabalho numa ferramenta ITSM quando o Azure Monitor envia alertas. A funcionalidade inclui alertas métricos, de log e de registo de atividade.
+Secure Export é uma versão atualizada do Connector de Gestão de [Serviços de TI (ITSMC)](./itsmc-overview.md). Ambas as versões permitem criar itens de trabalho numa ferramenta ITSM quando o Azure Monitor envia alertas. A funcionalidade inclui alertas métricos, de log e de registo de atividade.
 
 O ITSMC utiliza o nome de utilizador e as credenciais de senha. A Secure Export tem uma autenticação mais forte porque utiliza o Azure Ative Directory (Azure AD). O Azure AD é o serviço da Microsoft baseado na cloud para a gestão de identidades e acessos. Ajuda os utilizadores a iniciar seduca e a aceder a recursos internos ou externos. A utilização do Azure AD com o ITSM ajuda a identificar os alertas do Azure (através do ID da aplicação Azure) que foram enviados para o sistema externo.
 
@@ -55,4 +55,4 @@ Os principais benefícios da integração são:
 
 ## <a name="next-steps"></a>Passos seguintes
 
-* [Crie itens de trabalho ITSM a partir de alertas Azure](../platform/itsmc-overview.md)
+* [Crie itens de trabalho ITSM a partir de alertas Azure](./itsmc-overview.md)
